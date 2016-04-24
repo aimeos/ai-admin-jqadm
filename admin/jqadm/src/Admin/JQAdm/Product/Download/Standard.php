@@ -61,7 +61,7 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string admin output to display or null for redirecting to the list
 	 */
 	public function copy()
 	{
@@ -84,7 +84,7 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string admin output to display or null for redirecting to the list
 	 */
 	public function create()
 	{
@@ -148,7 +148,7 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string admin output to display or null for redirecting to the list
 	 */
 	public function get()
 	{
