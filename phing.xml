@@ -15,7 +15,7 @@
 	</target>
 
 	<target name="check" description="Checks for code quality">
-		<phing target="check" haltonfailure="true" dir="admin/jqadm" />
+		<phing target="check" haltonfailure="false" dir="admin/jqadm" />
 	</target>
 
 	<target name="clean" description="Cleans up temporary files">
