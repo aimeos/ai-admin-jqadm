@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Андрей Аксёнов <aksenovaa@bk.ru>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:17+0200\n"
+"POT-Creation-Date: 2016-04-27 11:04+0200\n"
 "PO-Revision-Date: 2016-04-21 21:17+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Actual current price"
@@ -258,16 +258,14 @@ msgstr "Покупатель"
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer address item panel title with customer name ({0}) and site code
-#. ({1)}
+#. : Customer address item panel title with customer name ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer address: {0} ({1})"
 msgstr "Адрес заказчика: {0} ({1})"
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer group item panel title with customer name ({0}) and site code
-#. ({1)}
+#. : Customer group item panel title with customer name ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer group: {0} ({1})"
 msgstr "Группа заказчика: {0} ({1})"
@@ -509,8 +507,7 @@ msgstr "Локаль"
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
-#. : Locale currency item panel title with currency label ({0}) and currency
-#. code ({1)}
+#. : Locale currency item panel title with currency label ({0}) and currency code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
 msgstr "Валюта локали: {0} ({1})"
@@ -522,8 +519,7 @@ msgstr "Сведения по элементу локали ({1})"
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
-#. : Locale language item panel title with language label ({0}) and language
-#. code ({1)}
+#. : Locale language item panel title with language label ({0}) and language code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
 msgstr "Адрес локали: {0} ({1})"
@@ -655,9 +651,7 @@ msgstr "Проверьте данные"
 msgid "Please save the coupon first before you can add codes"
 msgstr "Сохраните купон, прежде чем появиться возможность добавления кодов"
 
-msgid ""
-"Please select an item on the right side and add it via drag and drop to this"
-" list."
+msgid "Please select an item on the right side and add it via drag and drop to this list."
 msgstr "Выберете элемент справа и перетащите его в этот список."
 
 msgid "Plugin"
@@ -743,10 +737,8 @@ msgstr "Цена товара"
 msgid "Product property type"
 msgstr ""
 
-#. : Product property.type item panel title with type label ({0}) and site
-#. code ({1)}
-#. : Product property type item panel title with type label ({0}) and site
-#. code ({1)}
+#. : Product property.type item panel title with type label ({0}) and site code ({1)}
+#. : Product property type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product property type: {0} ({1})"
 msgstr ""
@@ -939,8 +931,7 @@ msgstr "Поставщик"
 
 #. : Supplier address item panel title with supplier name ({0}) and site code
 #. ({1)}
-#. : Supplier address item panel title with supplier name ({0}) and site code
-#. ({1)}
+#. : Supplier address item panel title with supplier name ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Supplier address: {0} ({1})"
 msgstr "Адрес поставщика: {0} ({1})"
@@ -1001,15 +992,10 @@ msgstr "Текст: {0} ({1})"
 msgid "Texts"
 msgstr ""
 
-msgid ""
-"The file with the exported texts will be available within a few minutes. It "
-"can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
+msgid "The file with the exported texts will be available within a few minutes. It can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
 msgstr "Файл с экспортируемым текстом будет доступен в течение нескольких минут. Затем его можно скачать в панели \"Задание\" вкладки \"Обзор\"."
 
-msgid ""
-"The texts of your uploaded file will be imported within a few minutes. You "
-"can check the status of the import in the \"Job\" panel of the \"Overview\" "
-"tab"
+msgid "The texts of your uploaded file will be imported within a few minutes. You can check the status of the import in the \"Job\" panel of the \"Overview\" tab"
 msgstr "Текст из загруженного файла будет импортирован в течение нескольких минут. Проверить статус импорта можно в панели \"Задачи\" вкладки \"Обзор\"."
 
 msgid "This combination already exists"
@@ -1077,8 +1063,7 @@ msgstr "Склад"
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
-#. : Product warehouse item panel title with warehouse label ({0}) and site
-#. code ({1)}
+#. : Product warehouse item panel title with warehouse label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
 msgstr "Склад: {0} ({1})"
@@ -1104,9 +1089,7 @@ msgstr "ГГГГ-ММ-ДД чч:мм:сс (опционально)"
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "Подтверждаете удаление одного или нескольких элементов?"
 
-msgid ""
-"You are going to flush the complete cache for the current site. Would you "
-"like to proceed?"
+msgid "You are going to flush the complete cache for the current site. Would you like to proceed?"
 msgstr "Вы собираетесь полностью очистить для текущего сайта. Подтверждаете?"
 
 msgid "Zip code"
