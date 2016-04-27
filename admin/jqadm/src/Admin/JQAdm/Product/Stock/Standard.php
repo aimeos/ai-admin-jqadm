@@ -274,7 +274,6 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$context = $this->getContext();
 		$whManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/stock/warehouse' );
 
 		$view->stockWarehouses = $whManager->searchItems( $whManager->createSearch() );

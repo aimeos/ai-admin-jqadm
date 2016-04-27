@@ -525,11 +525,9 @@ class Standard
 	 */
 	protected function updateItems( \Aimeos\MW\View\Iface $view )
 	{
-		$attrIds = array();
 		$id = $view->item->getId();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 

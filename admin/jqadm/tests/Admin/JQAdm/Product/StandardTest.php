@@ -107,7 +107,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
-		$result = $this->object->save();
+		$this->object->save();
 
 		$manager->deleteItem( $manager->findItem( 'test' )->getId() );
 	}

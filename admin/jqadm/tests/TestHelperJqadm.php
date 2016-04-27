@@ -14,7 +14,6 @@ class TestHelperJqadm
 	{
 		self::getAimeos();
 		\Aimeos\MShop\Factory::setCache( false );
-		\Aimeos\Controller\Frontend\Factory::setCache( false );
 	}
 
 

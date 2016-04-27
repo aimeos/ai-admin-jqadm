@@ -80,7 +80,6 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 
 	public function testSave()
 	{
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'text/type' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
 		$item = $manager->findItem( 'CNC' );

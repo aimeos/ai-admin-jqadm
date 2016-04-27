@@ -24,7 +24,6 @@ abstract class Base
 	private $context;
 	private $subclients;
 	private $templatePaths;
-	private $types = array();
 
 
 	/**
