@@ -26,7 +26,6 @@ interface Iface
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object
 	 * @param array $templatePaths Associative list of the file system paths to the core or the extensions as key
 	 * 	and a list of relative paths inside the core or the extension as values
-	 * @return void
 	 */
 	public function __construct( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths );
 }

@@ -483,7 +483,7 @@ class Standard
 				$data['time'] = $fs->time( $data['path'] );
 				$data['size'] = $fs->size( $data['path'] );
 			}
-			catch( \Exception $e ) { ; }
+			catch( \Exception $e ) { ; } // Show product even if file isn't available any more
 		}
 
 		$view->downloadData = $data;
