@@ -146,4 +146,45 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals( 'testprod', $variant->getCode() );
 		$this->assertEquals( $attrItem->getId(), reset( $attributes )->getRefId() );
 	}
+
+
+	public function testSaveException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Selection\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'updateItems' ) )
+			->getMock();
+
+		$object->expects( $this->once() )->method( 'updateItems' )
+			->will( $this->throwException( new \Exception() ) );
+
+		$object->setView( \TestHelperJqadm::getView() );
+
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$object->save();
+	}
+
+
+	public function testSaveMShopException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Selection\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'updateItems' ) )
+			->getMock();
+
+		$object->expects( $this->once() )->method( 'updateItems' )
+			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
+
+		$object->setView( \TestHelperJqadm::getView() );
+
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$object->save();
+	}
+
+
+	public function testGetSubClient()
+	{
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->object->getSubClient( 'invalid' );
+	}
 }

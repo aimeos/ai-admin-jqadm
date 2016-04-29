@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015
+ * @copyright Aimeos (aimeos.org), 2015-2016
  * @package Admin
  * @subpackage JQAdm
  */
@@ -51,7 +51,7 @@ abstract class Base
 	 */
 	public function __call( $name, array $param )
 	{
-		if( ( $result = call_user_func_array( array( $this->client, $name ), $param ) ) === false ) {
+		if( ( $result = @call_user_func_array( array( $this->client, $name ), $param ) ) === false ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Unable to call method "%1$s"', $name ) );
 		}
 

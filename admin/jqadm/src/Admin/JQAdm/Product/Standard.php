@@ -232,10 +232,9 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 		$manager->begin();
 
-		$item = $manager->createItem();
-
 		try
 		{
+			$item = $manager->createItem();
 			$item->fromArray( $view->param( 'item', array() ) );
 			$item->setConfig( $this->getItemConfig( $view ) );
 			$manager->saveItem( $item );
