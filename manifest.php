@@ -12,6 +12,9 @@ return array(
 		'admin' => 'admin/i18n',
 	),
 	'custom' => array(
+		'admin/jqadm' => array(
+			'admin/jqadm/manifest.jsb2',
+		),
 		'admin/jqadm/templates' => array(
 			'admin/jqadm/templates',
 		),
