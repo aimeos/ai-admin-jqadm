@@ -292,7 +292,33 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 			->getMock();
 
 		$mock->expects( $this->exactly( 2 ) )->method( 'createItem' )
-			->will( $this->throwException( new \Exception() ) );
+			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
+
+		\Aimeos\MShop\Product\Manager\Factory::injectManager( '\\Aimeos\\MShop\\Product\\Manager\\' . $name, $mock );
+
+		$object->setView( $this->getViewNoRender() );
+
+		$object->save();
+	}
+
+
+	public function testSaveJQAdmException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'getSubClients' ) )
+			->getMock();
+
+		$name = 'AdminJQAdmStandard';
+		$this->context->getConfig()->set( 'mshop/product/manager/name', $name );
+
+		$mock = $this->getMockBuilder( '\Aimeos\MShop\Product\Manager\Standard' )
+			->setConstructorArgs( array( $this->context ) )
+			->setMethods( array( 'createItem' ) )
+			->getMock();
+
+		$mock->expects( $this->exactly( 2 ) )->method( 'createItem' )
+			->will( $this->throwException( new \Aimeos\Admin\JQAdm\Exception() ) );
 
 		\Aimeos\MShop\Product\Manager\Factory::injectManager( '\\Aimeos\\MShop\\Product\\Manager\\' . $name, $mock );
 
@@ -311,14 +337,14 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 				'op' => array( 0 => '==' ),
 				'val' => array( 0 => 'CNE' ),
 			),
-			'sort' => array( '+product.label', '-product.id' ),
+			'sort' => array( 'product.label', '-product.id' ),
 		);
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->search();
 
-		$this->assertContains( 'CNE', $result );
+		$this->assertContains( '>CNE<', $result );
 	}
 
 
