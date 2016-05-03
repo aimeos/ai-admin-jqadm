@@ -203,6 +203,15 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 	}
 
 
+	public function testGetViewException()
+	{
+		$object = new \Aimeos\Admin\JQAdm\Product\Standard( $this->context, array() );
+
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$object->getView();
+	}
+
+
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
@@ -295,7 +304,16 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 
 	public function testSearch()
 	{
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, array( 'site' => 'unittest', 'lang' => 'de' ) );
+		$param = array(
+			'site' => 'unittest', 'lang' => 'de',
+			'filter' => array(
+				'key' => array( 0 => 'product.code' ),
+				'op' => array( 0 => '==' ),
+				'val' => array( 0 => 'CNE' ),
+			),
+			'sort' => array( '+product.label', '-product.id' ),
+		);
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->search();
@@ -338,8 +356,40 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 
 	public function testGetSubClient()
 	{
+		$result = $this->object->getSubClient( 'image' );
+		$this->assertInstanceOf( '\Aimeos\Admin\JQAdm\Iface', $result );
+	}
+
+
+	public function testGetSubClientEmpty()
+	{
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->object->getSubClient( '' );
+	}
+
+
+	public function testGetSubClientInvalid()
+	{
 		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$this->object->getSubClient( 'invalid' );
+	}
+
+
+	public function testGetSubClientDecorators()
+	{
+		$this->context->getConfig()->set( 'admin/jqadm/product/image/decorators/global', array( 'Cache' ) );
+
+		$result = $this->object->getSubClient( 'image' );
+		$this->assertInstanceOf( '\Aimeos\Admin\JQAdm\Iface', $result );
+	}
+
+
+	public function testGetSubClientDecoratorInvalid()
+	{
+		$this->context->getConfig()->set( 'admin/jqadm/product/image/decorators/global', array( 'Invalid' ) );
+
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->object->getSubClient( 'image' );
 	}
 
 
