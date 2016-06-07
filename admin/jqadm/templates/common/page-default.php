@@ -42,11 +42,13 @@ $params['id'] = $this->param( 'id', '' );
 
 		<div class="collapse navbar-toggleable-xs" id="collapse-navbar">
 			<ul class="nav navbar-nav">
+<?php if( $this->access( 'admin' ) ) : ?>
 				<li class="nav-item mode active">
 					<a class="nav-link" href="<?php echo $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, array(), $extConfig ) ); ?>">
 						<?php echo $enc->html( $this->translate( 'admin', 'Expert mode' ) ); ?>
 					</a>
 				</li>
+<?php endif; ?>
 				<li class="nav-item language">
 
 					<div class="btn-group">

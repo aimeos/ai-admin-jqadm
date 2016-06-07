@@ -55,6 +55,10 @@ class TestHelperJqadm
 		$helper = new \Aimeos\MW\View\Helper\Csrf\Standard( $view, '_csrf_token', '_csrf_value' );
 		$view->addHelper( 'csrf', $helper );
 
+		$fcn = function() { return array( 'admin' ); };
+		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, $fcn );
+		$view->addHelper( 'access', $helper );
+
 		return $view;
 	}
 
