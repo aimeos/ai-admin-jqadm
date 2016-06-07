@@ -66,23 +66,23 @@ $params['id'] = $this->param( 'id', '' );
 					</div>
 
 				</li>
+<?php if( $this->access( 'admin' ) ) : ?>
 				<li class="nav-item site">
-
 					<div class="btn-group">
 						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<?php echo $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?>
 						</button>
 						<div class="dropdown-menu">
-<?php foreach( $sites as $code => $label ) : ?>
+<?php	foreach( $sites as $code => $label ) : ?>
 							<a class="dropdown-item"
 								href="<?php echo $enc->attr( $this->url( $target, $cntl, $action, array( 'site' => $code ) + $params, array(), $config ) ); ?>">
 								<?php echo $enc->html( $label ); ?>
 							</a>
-<?php endforeach; ?>
+<?php	endforeach; ?>
 						</div>
 					</div>
-
 				</li>
+<?php endif; ?>
 			</ul>
 		</div>
 
