@@ -27,22 +27,34 @@ class Page extends Base
 	 */
 	public function setView( \Aimeos\MW\View\Iface $view )
 	{
-		$sites = array();
-		$aimeos = new \Aimeos\Bootstrap();
+		$extdir = dirname( dirname( dirname( dirname( dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) ) ) ) );
+		$aimeos = new \Aimeos\Bootstrap( array( $extdir ) );
+
+		$view->pageSites = $this->getSites();
+		$view->pageLanguages = $aimeos->getI18nList( 'admin' );
+
+		$this->getClient()->setView( $view );
+		return $this;
+	}
+
+
+	/**
+	 * Returns the available site code/label pairs
+	 *
+	 * @return array Associative list of site codes as keys and site labels as values
+	 */
+	protected function getSites()
+	{
+		$list = array();
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'locale/site' );
 
 		$search = $manager->createSearch();
 		$search->setSortations( array( $search->sort( '+', 'locale.site.label' ) ) );
 
-		foreach( $manager->searchItems( $search ) as $siteItem ) {
-			$sites[$siteItem->getCode()] = $siteItem->getLabel();
+		foreach( $manager->searchItems( $search ) as $item ) {
+			$list[$item->getCode()] = $item->getLabel();
 		}
 
-
-		$view->pageSites = $sites;
-		$view->pageLanguages = $aimeos->getI18nList( 'admin' );
-
-		$this->getClient()->setView( $view );
-		return $this;
+		return $list;
 	}
 }
