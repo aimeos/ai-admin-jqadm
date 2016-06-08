@@ -22,9 +22,7 @@ $extCntl = $this->config( 'admin/extjs/url/controller', 'Extadm' );
 $extAction = $this->config( 'admin/extjs/url/action', 'index' );
 $extConfig = $this->config( 'admin/extjs/url/config', array() );
 
-$sites = $this->get( 'pageSites', array() );
 $site = $this->param( 'site' );
-
 $extParams = array( 'site' => $site, 'lang' => $this->param( 'lang' ) );
 
 $params = $this->get( 'pageParams', array() );
@@ -56,7 +54,7 @@ $params['id'] = $this->param( 'id', '' );
 							<?php echo $enc->attr( $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ); ?>
 						</button>
 						<div class="dropdown-menu">
-<?php foreach( $this->get( 'pageLanguages', array() ) as $langid ) : ?>
+<?php foreach( $this->get( 'languagesList', array() ) as $langid ) : ?>
 							<a class="dropdown-item"
 								href="<?php echo $enc->attr( $this->url( $target, $cntl, $action, array( 'lang' => $langid ) + $params, array(), $config ) ); ?>">
 								<?php echo $enc->html( $langid ); ?>
@@ -67,6 +65,7 @@ $params['id'] = $this->param( 'id', '' );
 
 				</li>
 <?php if( $this->access( 'admin' ) ) : ?>
+<?php	$sites = $this->get( 'sitesList', array() ); ?>
 				<li class="nav-item site">
 					<div class="btn-group">
 						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

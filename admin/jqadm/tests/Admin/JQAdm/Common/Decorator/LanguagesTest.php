@@ -21,7 +21,7 @@ class PageTest extends \PHPUnit_Framework_TestCase
 		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
 		$client = new \Aimeos\Admin\JQAdm\Product\Standard( $this->context, $templatePaths );
-		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $client, $this->context, $templatePaths );
+		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Languages( $client, $this->context, $templatePaths );
 	}
 
 
@@ -37,7 +37,6 @@ class PageTest extends \PHPUnit_Framework_TestCase
 
 		$this->object->setView( $view );
 
-		$this->assertInternalType( 'array', $view->pageSites );
-		$this->assertInternalType( 'array', $view->pageLanguages );
+		$this->assertInternalType( 'array', $view->languagesList );
 	}
 }

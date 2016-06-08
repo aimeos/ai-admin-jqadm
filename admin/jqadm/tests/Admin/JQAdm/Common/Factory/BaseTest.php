@@ -21,8 +21,8 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 
 		$config = $this->context->getConfig();
 		$config->set( 'admin/jqadm/common/decorators/default', array() );
-		$config->set( 'admin/jqadm/decorators/global', array() );
-		$config->set( 'admin/jqadm/decorators/local', array() );
+		$config->set( 'admin/jqadm/product/decorators/global', array() );
+		$config->set( 'admin/jqadm/product/decorators/local', array() );
 
 	}
 
