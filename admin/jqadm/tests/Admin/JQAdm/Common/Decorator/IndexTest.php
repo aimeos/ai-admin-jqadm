@@ -22,7 +22,7 @@ class IndexTest extends \PHPUnit_Framework_TestCase
 		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
 		$this->mock = $this->getMockBuilder( 'Aimeos\Admin\JQAdm\Product\Standard' )
-			->setMethods( array( 'save' ) )
+			->setMethods( array( 'delete', 'save' ) )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -33,6 +33,21 @@ class IndexTest extends \PHPUnit_Framework_TestCase
 	protected function tearDown()
 	{
 		unset( $this->object, $this->mock, $this->context );
+	}
+
+
+	public function testDelete()
+	{
+		$view = \TestHelperJqadm::getView();
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, array( 'id' => 1 ) );
+		$view->addHelper( 'param', $helper );
+
+		$this->mock->expects( $this->once() )->method( 'delete' )->will( $this->returnValue( 'test' ) );
+		$this->object->setView( $view );
+
+		$result = $this->object->delete();
+
+		$this->assertEquals( 'test', $result );
 	}
 
 

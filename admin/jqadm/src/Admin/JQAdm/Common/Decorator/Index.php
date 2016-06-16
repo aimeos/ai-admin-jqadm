@@ -20,6 +20,22 @@ namespace Aimeos\Admin\JQAdm\Common\Decorator;
 class Index extends Base
 {
 	/**
+	 * Updates the index after deleting the item
+	 *
+	 * @return string|null admin output to display or null for redirecting to the list
+	 */
+	public function delete()
+	{
+		$result = $this->getClient()->delete();
+
+		$ids = (array) $this->getView()->param( 'id' );
+		\Aimeos\MShop\Factory::createManager( $this->getContext(), 'index' )->deleteItems( $ids );
+
+		return $result;
+	}
+
+
+	/**
 	 * Rebuilds the index after saving the item
 	 *
 	 * @return string|null admin output to display or null for redirecting to the list
