@@ -2,8 +2,15 @@
 	"name": "aimeos/ai-admin-jqadm",
 	"description": "Aimeos ai-admin-jqadm extension",
 	"keywords": ["aimeos", "extension", "JQuery admin interface"],
+	"homepage": "https://aimeos.org/",
 	"type": "aimeos-extension",
 	"license": "LGPL-3.0",
+	"support": {
+		"source": "https://github.com/aimeos/ai-admin-jqadm",
+		"issues": "https://github.com/aimeos/ai-admin-jqadm/issues",
+		"forum": "https://aimeos.org/help",
+		"wiki": "https://aimeos.org/docs"
+	},
 	"prefer-stable": true,
 	"minimum-stability": "dev",
 	"require": {
