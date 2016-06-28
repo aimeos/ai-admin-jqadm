@@ -8,6 +8,9 @@
 		"fileIncludes": [{
 			"text": "admin.css",
 			"path": "themes/default/"
+		},{
+			"text": "dashboard.css",
+			"path": "themes/default/"
 		}]
 	}, {
 		"name": "Aimeos Admin Core JS",
@@ -15,6 +18,9 @@
 		"isDebug": true,
 		"fileIncludes": [{
 			"text": "admin.js",
+			"path": "themes/"
+		},{
+			"text": "dashboard.js",
 			"path": "themes/"
 		}]
 	}],

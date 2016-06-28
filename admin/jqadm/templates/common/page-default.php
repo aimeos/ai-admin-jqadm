@@ -22,11 +22,25 @@ $extCntl = $this->config( 'admin/extjs/url/controller', 'Extadm' );
 $extAction = $this->config( 'admin/extjs/url/action', 'index' );
 $extConfig = $this->config( 'admin/extjs/url/config', array() );
 
+/** admin/jqadm/resources
+ * List of available resource clients in the JQAdm interface
+ *
+ * The JQAdm admin interface consists of several clients for different resources.
+ * This configuration setting lists the names of the resources and their order.
+ *
+ * @param array List of resource client names
+ * @since 2016.07
+ * @category Developer
+ */
+$resourceList = $this->config( 'admin/jqadm/resources', array( 'dashboard', 'product' ) );
+
 $site = $this->param( 'site' );
 $extParams = array( 'site' => $site, 'lang' => $this->param( 'lang' ) );
 
 $params = $this->get( 'pageParams', array() );
-$params['id'] = $this->param( 'id', '' );
+if( ( $id = $this->param( 'id' ) ) !== null )  {
+	$params['id'] = $id;
+}
 
 ?>
 <div class="aimeos" data-url="<?php echo $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site, 'resource' => '', 'id' => '' ), array(), $jsonConfig ) ); ?>">
@@ -40,6 +54,7 @@ $params['id'] = $this->param( 'id', '' );
 
 		<div class="collapse navbar-toggleable-xs" id="collapse-navbar">
 			<ul class="nav navbar-nav">
+
 <?php if( $this->access( 'admin' ) ) : ?>
 				<li class="nav-item mode active">
 					<a class="nav-link" href="<?php echo $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, array(), $extConfig ) ); ?>">
@@ -47,8 +62,24 @@ $params['id'] = $this->param( 'id', '' );
 					</a>
 				</li>
 <?php endif; ?>
-				<li class="nav-item language">
 
+				<li class="nav-item resource">
+					<div class="btn-group">
+						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<?php echo $enc->attr( $this->translate( 'admin', $this->param( 'resource' ) ) ); ?>
+						</button>
+						<div class="dropdown-menu">
+<?php foreach( $resourceList as $code ) : ?>
+							<a class="dropdown-item"
+								href="<?php echo $enc->attr( $this->url( $target, $cntl, $action, array( 'resource' => $code ) + $params, array(), $config ) ); ?>">
+								<?php echo $enc->html( $this->translate( 'admin', $code ) ); ?>
+							</a>
+<?php endforeach; ?>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item language">
 					<div class="btn-group">
 						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<?php echo $enc->attr( $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ); ?>
@@ -62,8 +93,8 @@ $params['id'] = $this->param( 'id', '' );
 <?php endforeach; ?>
 						</div>
 					</div>
-
 				</li>
+
 <?php if( $this->access( 'admin' ) ) : ?>
 <?php	$sites = $this->get( 'sitesList', array() ); ?>
 				<li class="nav-item site">
@@ -82,6 +113,7 @@ $params['id'] = $this->param( 'id', '' );
 					</div>
 				</li>
 <?php endif; ?>
+
 			</ul>
 		</div>
 
