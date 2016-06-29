@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="order-paymentstatus card panel panel-small">
+<div class="order-paymentstatus card panel col-lg-6">
 	<div id="order-paymentstatus-head" class="header card-header">
 		<?php echo $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ); ?>
 	</div>

@@ -2,3 +2,27 @@
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos (aimeos.org), 2016
  */
+
+.dashboard .card {
+    margin-left: .9375rem;
+    margin-right: .9375rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.dashboard .content {
+    height: 320px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}

@@ -44,15 +44,6 @@ $statuslist = array(
 	<div id="order-latest-data" class="content card-block">
 		<div class="table-responsive">
 			<table class="list-items table table-hover">
-				<thead class="header">
-					<tr>
-						<th class="order.id"><?php echo $enc->html( $this->translate( 'admin', 'ID' ) ); ?></th>
-						<th class="order.type"><?php echo $enc->html( $this->translate( 'admin', 'Type' ) ); ?></th>
-						<th class="order.datepayment"><?php echo $enc->html( $this->translate( 'admin', 'Payment date' ) ); ?></th>
-						<th class="order.statuspayment"><?php echo $enc->html( $this->translate( 'admin', 'Payment status' ) ); ?></th>
-						<th class="order.base.price"><?php echo $enc->html( $this->translate( 'admin', 'Price' ) ); ?></th>
-					</tr>
-				</thead>
 				<tbody>
 		<?php foreach( $this->get( 'orderlatestItems', array() ) as $id => $item ) : ?>
 					<tr>

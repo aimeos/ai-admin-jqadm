@@ -38,9 +38,9 @@ $site = $this->param( 'site' );
 $extParams = array( 'site' => $site, 'lang' => $this->param( 'lang' ) );
 
 $params = $this->get( 'pageParams', array() );
-if( ( $id = $this->param( 'id' ) ) !== null )  {
-	$params['id'] = $id;
-}
+$params['resource'] = $this->param( 'resource', 'dashboard' );
+$params['site'] = $this->param( 'site', 'default' );
+$params['id'] = $this->param( 'id', '' );
 
 ?>
 <div class="aimeos" data-url="<?php echo $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site, 'resource' => '', 'id' => '' ), array(), $jsonConfig ) ); ?>">
