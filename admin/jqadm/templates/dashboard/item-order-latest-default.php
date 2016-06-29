@@ -37,7 +37,7 @@ $statuslist = array(
 );
 
 ?>
-<div class="order-latest card panel">
+<div class="order-latest card panel col-lg-12">
 	<div id="order-latest-head" class="header card-header">
 		<?php echo $enc->html( $this->translate( 'admin', 'Latest orders' ) ); ?>
 	</div>
@@ -48,10 +48,10 @@ $statuslist = array(
 		<?php foreach( $this->get( 'orderlatestItems', array() ) as $id => $item ) : ?>
 					<tr>
 						<td class="order.id"><?php echo $enc->html( $item->getId() ); ?></td>
-						<td class="order.type"><?php echo $enc->html( $item->getType() ); ?></td>
 						<td class="order.datepayment"><?php echo $enc->html( $item->getDatePayment() ); ?></td>
-						<td class="order.statuspayment"><?php echo $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></td>
 						<td class="order.base.price"><?php echo $enc->html( $price( $orders, $item, $priceFormat ) ); ?></td>
+						<td class="order.statuspayment"><?php echo $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></td>
+						<td class="order.type"><?php echo $enc->html( $item->getType() ); ?></td>
 					</tr>
 		<?php endforeach; ?>
 				</tbody>

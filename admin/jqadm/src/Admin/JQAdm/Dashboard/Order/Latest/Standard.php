@@ -255,6 +255,7 @@ class Standard
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'order.baseid', array_keys( $orders ) ) );
+		$search->setSortations( array( $search->sort( '-', 'order.ctime' ) ) );
 
 		$items = $manager->searchItems( $search );
 

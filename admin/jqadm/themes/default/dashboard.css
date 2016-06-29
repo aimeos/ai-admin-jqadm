@@ -4,24 +4,27 @@
  */
 
 .dashboard .card {
-    margin-left: .9375rem;
-    margin-right: .9375rem;
-    padding-left: 0;
-    padding-right: 0;
+    border: none;
 }
 
 .dashboard .content {
+    border: 1px solid #e5e5e5;
+    overflow: auto;
     height: 320px;
 }
 
-.axis path,
-.axis line {
+.dashboard .order-latest td {
+    border-top: none;
+}
+
+.dashboard .axis path,
+.dashboard .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
 
-.line {
+.dashboard .line {
   fill: none;
   stroke: steelblue;
   stroke-width: 1.5px;
