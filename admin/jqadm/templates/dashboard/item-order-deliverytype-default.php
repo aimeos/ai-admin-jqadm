@@ -11,7 +11,7 @@ $enc = $this->encoder();
 
 <div class="order-deliverytype card panel col-lg-6">
 	<div id="order-deliverytype-head" class="header card-header">
-		<?php echo $enc->html( $this->translate( 'admin', 'Payment types' ) ); ?>
+		<?php echo $enc->html( $this->translate( 'admin', 'Delivery types' ) ); ?>
 	</div>
 	<div id="order-deliverytype-data" class="content card-block">
 	</div>

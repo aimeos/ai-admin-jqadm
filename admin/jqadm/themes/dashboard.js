@@ -40,6 +40,7 @@ Aimeos.Dashboard.Order = {
 
         this.chartPaymentStatus();
         this.chartPaymentType();
+        this.chartDeliveryType();
     },
 
 
@@ -144,11 +145,25 @@ Aimeos.Dashboard.Order = {
     },
 
 
+    chartDeliveryType : function() {
+
+        var criteria = {'==': {'order.base.service.type': 'delivery'}};
+        this.drawDonut("#order-deliverytype-data", 'order', 'order.base.service.code', criteria, '-order.ctime', 1000);
+    },
+
+
     chartPaymentType : function() {
 
+        var criteria = {'==': {'order.base.service.type': 'payment'}};
+        this.drawDonut("#order-paymenttype-data", 'order', 'order.base.service.code', criteria, '-order.ctime', 1000);
+    },
+
+
+    drawDonut : function(panel, resource, key, criteria, sort, limit) {
+
         var lgspace = 190, txheight = 20,
-            width = $("#order-paymentstatus-data").width(),
-            height = $("#order-paymentstatus-data").height() - 10,
+            width = $(panel).width(),
+            height = $(panel).height() - 10,
             radius = (width - lgspace > height ? Math.min(width - lgspace, height) : Math.min(width, height) ) / 2;
 
         var arc = d3.svg.arc()
@@ -159,11 +174,6 @@ Aimeos.Dashboard.Order = {
             .sort(null)
             .value(function(d) { return +d.attributes; });
 
-        var svg = d3.select("#order-paymenttype-data")
-            .append("svg")
-                .attr("width", width)
-                .attr("height", (width - lgspace > height ? height : radius * 2 + data.data.length * txheight + 25 ));
-
 
         Aimeos.Dashboard.getData(function(data) {
 
@@ -173,6 +183,11 @@ Aimeos.Dashboard.Order = {
 
             var color = d3.scale.category20();
             var sum = d3.sum(data.data, function(d) { return d.attributes; });
+
+            var svg = d3.select(panel)
+                .append("svg")
+                    .attr("width", width)
+                    .attr("height", (width - lgspace > height ? height : radius * 2 + data.data.length * txheight + 25 ));
 
             var donut = svg.append("g")
                 .attr("transform", "translate(" + radius + "," + radius + ")")
@@ -223,7 +238,7 @@ Aimeos.Dashboard.Order = {
                     }
                 });
 
-        }, 'order', 'order.base.service.code', {'==': {'order.base.service.type': 'payment'}}, '-order.ctime', 1000);
+        }, resource, key, criteria, sort, limit);
     }
 };
 
