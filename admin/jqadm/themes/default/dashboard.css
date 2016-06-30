@@ -7,18 +7,14 @@
     border: none;
 }
 
+.dashboard .card-block {
+    padding: 0.5em;
+}
+
 .dashboard .content {
     border: 1px solid #e5e5e5;
     overflow: auto;
     height: 320px;
-}
-
-.dashboard .order-latest td {
-    border-top: none;
-}
-
-.dashboard .order-hour .bar {
-  fill: #1f77b4;
 }
 
 .dashboard .axis path,
@@ -28,7 +24,42 @@
   shape-rendering: crispEdges;
 }
 
-.dashboard .line {
-  fill: none;
-  stroke-width: 1.5px;
+.dashboard .order-latest td {
+    border-top: none;
+}
+
+.dashboard .order-hour .bar {
+    fill: #1f77b4;
+}
+
+.dashboard .order-paymentstatus .pay-unfinished {
+    fill: #666666;
+}
+
+.dashboard .order-paymentstatus .pay-deleted {
+    fill: #e7298a;
+}
+
+.dashboard .order-paymentstatus .pay-canceled {
+    fill: #7570b3;
+}
+
+.dashboard .order-paymentstatus .pay-refused {
+    fill: #d95f02;
+}
+
+.dashboard .order-paymentstatus .pay-refund {
+    fill: #a6761d;
+}
+
+.dashboard .order-paymentstatus .pay-pending {
+    fill: #e6ab02;
+}
+
+.dashboard .order-paymentstatus .pay-authorized {
+    fill: #66a61e;
+}
+
+.dashboard .order-paymentstatus .pay-received {
+    fill: #1b9e77;
 }
