@@ -51,7 +51,7 @@ class Standard
 	 * design.
 	 *
 	 * @param array List of sub-client names
-	 * @since 2016.01
+	 * @since 2016.07
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/dashboard/order/standard/subparts';
@@ -162,7 +162,7 @@ class Standard
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2016.01
+		 * @since 2016.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/dashboard/order/decorators/global
@@ -186,7 +186,7 @@ class Standard
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2016.01
+		 * @since 2016.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/dashboard/order/decorators/excludes
@@ -210,7 +210,7 @@ class Standard
 		 * "\Aimeos\Admin\JQAdm\Dashboard\Decorator\Decorator2" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2016.01
+		 * @since 2016.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/dashboard/order/decorators/excludes
