@@ -17,6 +17,10 @@
     border-top: none;
 }
 
+.dashboard .order-hour .bar {
+  fill: #1f77b4;
+}
+
 .dashboard .axis path,
 .dashboard .axis line {
   fill: none;

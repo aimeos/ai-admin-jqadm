@@ -39,6 +39,7 @@ Aimeos.Dashboard.Order = {
     init : function() {
 
         this.chartPaymentStatus();
+        this.chartHour();
         this.chartPaymentType();
         this.chartDeliveryType();
     },
@@ -142,6 +143,58 @@ Aimeos.Dashboard.Order = {
         Aimeos.Dashboard.getData(function(data) {
             addLine(data, '6', '#2ca02c'); // received: green
         }, 'order', 'order.cdate', {'&&': [{'>=': {'order.ctime': start}}, {'==': {'order.statuspayment': 6}}]}, '-order.ctime', 10000);
+    },
+
+
+    chartHour : function() {
+
+        var margin = {top: 20, right: 30, bottom: 20, left: 40},
+            width = $("#order-hour-data").width() - margin.left - margin.right,
+            height = $("#order-hour-data").height() - margin.top - margin.bottom - 10;
+
+        var svg = d3.select("#order-hour-data")
+            .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+        Aimeos.Dashboard.getData(function(data) {
+
+            if( typeof data.data == 'undefined' ) {
+                throw error;
+            }
+
+            var xScale = d3.scale.linear().range([0, width]).domain([0,23]);
+            var yScale = d3.scale.linear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+
+            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks((width > 300 ? 12 : 6));
+            var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));;
+
+            var line = d3.svg.line()
+                .x(function(d) { return xScale(d.id); })
+                .y(function(d) { return yScale(+d.attributes); });
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("class", "y axis")
+                .call(yAxis);
+
+            svg.selectAll(".bar")
+                    .data(data.data)
+                .enter().append("rect")
+                    .attr("class", "bar")
+                    .attr("x", function(d) { return xScale(d.id); })
+                    .attr("width", width / 24 - 2)
+                    .attr("y", function(d) { return yScale(+d.attributes); })
+                    .attr("height", function(d) { return height - yScale(+d.attributes); });
+
+        }, 'order', 'order.chour', {}, '-order.ctime', 1000);
     },
 
 
