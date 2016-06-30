@@ -20,12 +20,11 @@
 .dashboard .axis path,
 .dashboard .axis line {
   fill: none;
-  stroke: #000;
+  stroke: #A0A0A0;
   shape-rendering: crispEdges;
 }
 
 .dashboard .line {
   fill: none;
-  stroke: steelblue;
   stroke-width: 1.5px;
 }

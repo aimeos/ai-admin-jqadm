@@ -45,100 +45,134 @@ Aimeos.Dashboard.Order = {
 
     chartPaymentStatus : function() {
 
-        var start = new Date( new Date().getTime() - 7 * 86400 * 1000 ).toISOString().substr(0, 10) + ' 00:00:00';
-        var criteria = {'&&': [{'>=': {'order.ctime': start}}, {'>=': {'order.statuspayment': 5}}]};
+        var dateParser = d3.time.format("%Y-%m-%d").parse;
+        var i, date, entries = [];
 
-        Aimeos.Dashboard.getData(function(data) {
+        for( i = 0; i <= 7; i++ ) {
+            date = new Date( new Date().getTime() - (7-i) * 86400 * 1000 ).toISOString().substr(0, 10);
+            entries[i] = {'key': date, '-1': 0, '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0};
+        }
+
+
+        var margin = {top: 20, right: 30, bottom: 20, left: 40},
+            width = $("#order-paymentstatus-data").width() - margin.left - margin.right,
+            height = $("#order-paymentstatus-data").height() - margin.top - margin.bottom - 10;
+
+        var xScale = d3.time.scale().range([0, width]).domain(d3.extent(entries, function(d) { return dateParser(d.key); }));
+        var yScale = d3.scale.linear().range([height, 0]).domain([0, 10]);
+
+        var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(3);
+        var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(0);
+
+        var svg = d3.select("#order-paymentstatus-data")
+            .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis);
+
+
+        var addLine = function(data, status, color) {
 
             if( typeof data.data == 'undefined' ) {
                 throw error;
             }
 
-            var i, date, entries = [];
-            var dateParser = d3.time.format("%Y-%m-%d").parse;
-
-            for( i = 0; i <= 7; i++ ) {
-
-                date = new Date( new Date().getTime() - (7-i) * 86400 * 1000 ).toISOString().substr(0, 10);
-                entries[i] = {'id': dateParser(date), 'attributes': 0};
-
-                data.data.forEach(function(entry) {
-                    if(entry.id === date) {
-                        entries[i].attributes = +entry.attributes;
+            data.data.forEach(function(item) {
+                entries.forEach(function(entry, idx) {
+                    if(item.id === entry.key) {
+                        entries[idx][status] = +item.attributes;
                     }
                 });
-            }
-
-
-            var margin = {top: 20, right: 30, bottom: 20, left: 40},
-                width = $("#order-paymentstatus-data").width() - margin.left - margin.right,
-                height = $("#order-paymentstatus-data").height() - margin.top - margin.bottom;
-
-            var xScale = d3.time.scale().range([0, width])
-                .domain(d3.extent(entries, function(d) { return d.id; }));
-            var yScale = d3.scale.linear().range([height, 0])
-                .domain(d3.extent(entries, function(d) { return d.attributes; }));
-
-            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(3);
-            var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));
+            });
 
             var line = d3.svg.line()
-                .x(function(d) { return xScale(d.id); })
-                .y(function(d) { return yScale(d.attributes); });
-
-            var svg = d3.select("#order-paymentstatus-data")
-                .append("svg")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)
-                .append("g")
-                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-            svg.append("g")
-                .attr("class", "x axis")
-                .attr("transform", "translate(0," + height + ")")
-                .call(xAxis);
-
-            svg.append("g")
-                .attr("class", "y axis")
-                .call(yAxis);
+                .x(function(d) { return xScale(dateParser(d.key)); })
+                .y(function(d) { return yScale(d[status]); });
 
             svg.append("path")
                 .datum(entries)
                 .attr("class", "line")
+                .attr("stroke", color)
                 .attr("d", line);
 
-        }, 'order', 'order.cdate', criteria, '-order.ctime', 10000);
+        };
+
+
+        var start = new Date( new Date().getTime() - 7 * 86400 * 1000 ).toISOString().substr(0, 10) + ' 00:00:00';
+
+        Aimeos.Dashboard.getData(function(data) {
+            addLine(data, '-1', '#c7c7c7'); // unfinished: light grey
+        }, 'order', 'order.cdate', {'&&': [{'>=': {'order.ctime': start}}, {'==': {'order.statuspayment': -1}}]}, '-order.ctime', 10000);
+
+        Aimeos.Dashboard.getData(function(data) {
+            addLine(data, '0', '#ff000'); // deleted: red
+        }, 'order', 'order.cdate', {'&&': [{'>=': {'order.ctime': start}}, {'==': {'order.statuspayment': 0}}]}, '-order.ctime', 10000);
+
+        Aimeos.Dashboard.getData(function(data) {
+            addLine(data, '1', '#7f7f7f'); // canceled: dark grey
+        }, 'order', 'order.cdate', {'&&': [{'>=': {'order.ctime': start}}, {'==': {'order.statuspayment': 1}}]}, '-order.ctime', 10000);
+
+        Aimeos.Dashboard.getData(function(data) {
+            addLine(data, '2', '#ff7f0e'); // refused: orange
+        }, 'order', 'order.cdate', {'&&': [{'>=': {'order.ctime': start}}, {'==': {'order.statuspayment': 2}}]}, '-order.ctime', 10000);
+
+        Aimeos.Dashboard.getData(function(data) {
+            addLine(data, '3', '#ffbb78'); // refund: skin
+        }, 'order', 'order.cdate', {'&&': [{'>=': {'order.ctime': start}}, {'==': {'order.statuspayment': 3}}]}, '-order.ctime', 10000);
+
+        Aimeos.Dashboard.getData(function(data) {
+            addLine(data, '4', '#1f77b4'); // pending: blue
+        }, 'order', 'order.cdate', {'&&': [{'>=': {'order.ctime': start}}, {'==': {'order.statuspayment': 4}}]}, '-order.ctime', 10000);
+
+        Aimeos.Dashboard.getData(function(data) {
+            addLine(data, '5', '#bcbd22'); // authorized: olive
+        }, 'order', 'order.cdate', {'&&': [{'>=': {'order.ctime': start}}, {'==': {'order.statuspayment': 5}}]}, '-order.ctime', 10000);
+
+        Aimeos.Dashboard.getData(function(data) {
+            addLine(data, '6', '#2ca02c'); // received: green
+        }, 'order', 'order.cdate', {'&&': [{'>=': {'order.ctime': start}}, {'==': {'order.statuspayment': 6}}]}, '-order.ctime', 10000);
     },
 
 
     chartPaymentType : function() {
 
+        var lgspace = 190, txheight = 20,
+            width = $("#order-paymentstatus-data").width(),
+            height = $("#order-paymentstatus-data").height() - 10,
+            radius = (width - lgspace > height ? Math.min(width - lgspace, height) : Math.min(width, height) ) / 2;
+
+        var arc = d3.svg.arc()
+            .outerRadius(radius)
+            .innerRadius(radius - 50);
+
+        var pie = d3.layout.pie()
+            .sort(null)
+            .value(function(d) { return +d.attributes; });
+
+        var svg = d3.select("#order-paymenttype-data")
+            .append("svg")
+                .attr("width", width)
+                .attr("height", (width - lgspace > height ? height : radius * 2 + data.data.length * txheight + 25 ));
+
+
         Aimeos.Dashboard.getData(function(data) {
 
             if( typeof data.data == 'undefined' ) {
                 throw error;
             }
 
-            var lgspace = 190, txheight = 20,
-                width = $("#order-paymentstatus-data").width(),
-                height = $("#order-paymentstatus-data").height(),
-                radius = (width - lgspace > height ? Math.min(width - lgspace, height) : Math.min(width, height) ) / 2;
-
             var color = d3.scale.category20();
             var sum = d3.sum(data.data, function(d) { return d.attributes; });
-
-            var arc = d3.svg.arc()
-                .outerRadius(radius)
-                .innerRadius(radius - 50);
-
-            var pie = d3.layout.pie()
-                .sort(null)
-                .value(function(d) { return +d.attributes; });
-
-            var svg = d3.select("#order-paymenttype-data")
-                .append("svg")
-                    .attr("width", width)
-                    .attr("height", (width - lgspace > height ? height : radius * 2 + data.data.length * txheight + 25 ));
 
             var donut = svg.append("g")
                 .attr("transform", "translate(" + radius + "," + radius + ")")
