@@ -166,6 +166,8 @@ Aimeos.Dashboard.Order = {
                 throw error;
             }
 
+            var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
+
             var xScale = d3.scale.linear().range([0, width]).domain([0,23]);
             var yScale = d3.scale.linear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
@@ -173,7 +175,7 @@ Aimeos.Dashboard.Order = {
             var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));;
 
             var line = d3.svg.line()
-                .x(function(d) { return xScale(d.id); })
+                .x(function(d) { return xScale((+d.id - tzoffset) % 24); })
                 .y(function(d) { return yScale(+d.attributes); });
 
             svg.append("g")
@@ -189,7 +191,7 @@ Aimeos.Dashboard.Order = {
                     .data(data.data)
                 .enter().append("rect")
                     .attr("class", "bar")
-                    .attr("x", function(d) { return xScale(d.id); })
+                    .attr("x", function(d) { return xScale((+d.id - tzoffset) % 24); })
                     .attr("width", width / 24 - 2)
                     .attr("y", function(d) { return yScale(+d.attributes); })
                     .attr("height", function(d) { return height - yScale(+d.attributes); });
