@@ -32,34 +32,40 @@
     fill: #1f77b4;
 }
 
-.dashboard .order-paymentstatus .pay-unfinished {
-    fill: #666666;
+.dashboard .order-paymentstatus .pay-unfinished { fill: #666666; }
+.dashboard .order-paymentstatus .pay-deleted { fill: #e7298a; }
+.dashboard .order-paymentstatus .pay-canceled { fill: #7570b3; }
+.dashboard .order-paymentstatus .pay-refused { fill: #d95f02; }
+.dashboard .order-paymentstatus .pay-refund { fill: #a6761d; }
+.dashboard .order-paymentstatus .pay-pending { fill: #e6ab02; }
+.dashboard .order-paymentstatus .pay-authorized { fill: #66a61e; }
+.dashboard .order-paymentstatus .pay-received { fill: #1b9e77; }
+
+.dashboard .order-day text {
+    fill: #808080;
 }
 
-.dashboard .order-paymentstatus .pay-deleted {
-    fill: #e7298a;
+.dashboard .order-day .day {
+    fill: #ffffff;
 }
 
-.dashboard .order-paymentstatus .pay-canceled {
-    fill: #7570b3;
+.dashboard .order-day .legend-wday {
+    text-anchor: middle;
 }
 
-.dashboard .order-paymentstatus .pay-refused {
-    fill: #d95f02;
+.dashboard .order-day .path-month {
+    fill: none;
+    stroke: #dddddd;
+    stroke-width: 1px;
 }
 
-.dashboard .order-paymentstatus .pay-refund {
-    fill: #a6761d;
-}
-
-.dashboard .order-paymentstatus .pay-pending {
-    fill: #e6ab02;
-}
-
-.dashboard .order-paymentstatus .pay-authorized {
-    fill: #66a61e;
-}
-
-.dashboard .order-paymentstatus .pay-received {
-    fill: #1b9e77;
-}
+.dashboard .order-day .q0 { fill: #f8f8f8; }
+.dashboard .order-day .q1 { fill: #ffffe5; }
+.dashboard .order-day .q2 { fill: #f7fcb9; }
+.dashboard .order-day .q3 { fill: #d9f0a3; }
+.dashboard .order-day .q4 { fill: #addd8e; }
+.dashboard .order-day .q5 { fill: #78c679; }
+.dashboard .order-day .q6 { fill: #41ab5d; }
+.dashboard .order-day .q7 { fill: #238443; }
+.dashboard .order-day .q8 { fill: #006837; }
+.dashboard .order-day .q9 { fill: #004529; }

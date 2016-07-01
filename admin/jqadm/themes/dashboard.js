@@ -47,6 +47,204 @@ Aimeos.Dashboard.Order = {
         this.chartHour();
         this.chartPaymentType();
         this.chartDeliveryType();
+        this.chartDay();
+    },
+
+
+    chartDay : function() {
+
+        var margin = {top: 20, bottom: 20, left: 15, right: 25},
+            cellSize = 16, cellPad = 2, cellWidth = cellSize + cellPad,
+            width = $("#order-day-data").width() - margin.left - margin.right,
+            height = $("#order-day-data").height() - margin.top - margin.bottom - 10;
+
+        var weeks = Math.ceil((width - cellWidth) / cellWidth),
+            firstdate = new Date(new Date().getTime() - weeks * 7 * 86400 * 1000 + (6 - new Date().getDay()) * 86400 * 1000),
+            dateRange = d3.time.day.utc.range(firstdate, new Date());
+
+        var color = d3.scale.quantize()
+            .range(d3.range(10).map(function(d) { return "q" + d; }))
+            .domain([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+        var svg = d3.select("#order-day-data")
+            .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", "translate(" + margin.left + "," + ((height - cellWidth * 7) / 2 + margin.top) + ")");
+
+        var cell = svg.selectAll(".day")
+            .data(dateRange)
+            .enter().append("rect")
+                .attr("class", "day")
+                .attr("width", cellSize)
+                .attr("height", cellSize)
+                .attr("x", function(d) {
+                    var week = d3.time.weekOfYear(new Date(firstdate.getUTCFullYear(), 11, 31));
+                    var weeks = (week == 1 ? d3.time.weekOfYear(date.setDate(24)) : week);
+                    var result = d3.time.weekOfYear(d) - d3.time.weekOfYear(firstdate) + (weeks * (d.getUTCFullYear() - firstdate.getUTCFullYear()));
+                    return result * cellWidth;
+                })
+                .attr("y", function(d) { return d.getUTCDay() * cellWidth; })
+                .datum(d3.time.format("%Y-%m-%d"));
+
+        // day of week initials left of the heat map
+        ['M','W','F'].forEach(function(day, i) {
+            svg.append('text')
+                .attr('transform', 'translate(7.5,' + ((cellWidth - 1) * (i + 1) * 2) + ')')
+                .attr('class', 'legend-wday')
+                .text(day);
+        });
+
+        // month numbers on top of the heat map
+        var dateNumbers = dateRange.map(Number);
+        svg.selectAll('.legend-month')
+            .data(d3.time.month.utc.range(firstdate, new Date()))
+            .enter().append('text')
+                .text(function (d) { var num = d.getMonth() + 1; return (num < 10 ? '0' + num : num); })
+                .attr('class', 'legend-month')
+                .attr('y', -10)
+                .attr('x', function (d) {
+                    var idx = dateNumbers.indexOf(+d);
+                    if(idx !== -1) { return Math.floor(idx / 7) * cellWidth + 20; }
+                });
+
+        svg.selectAll(".path-month")
+            .data(function() { return d3.time.months(firstdate, new Date()); })
+            .enter().append("path")
+                .attr("class", "path-month")
+                .attr("d", function(t0, i) {
+
+                    if(t0.getFullYear() === new Date().getFullYear() && t0.getMonth() === new Date().getMonth()) {
+                        return;
+                    }
+
+                    var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
+                        week = d3.time.weekOfYear(new Date(firstdate.getUTCFullYear(), 11, 31)),
+                        weeks = (week == 1 ? d3.time.weekOfYear(date.setDate(24)) : week),
+                        d0 = t0.getDay(), d1 = t1.getDay();
+
+                    var w0 = Math.abs(d3.time.weekOfYear(t0) - d3.time.weekOfYear(firstdate) + (weeks * (t0.getUTCFullYear() - firstdate.getUTCFullYear())));
+                        w1 = Math.abs(d3.time.weekOfYear(t1) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear())));
+
+                    result = "M" + (w0 + 1) * cellWidth + "," + d0 * cellWidth
+                        + "H" + w0 * cellWidth + "V" + 7 * cellWidth
+                        + "H" + w1 * cellWidth + "V" + (d1 + 1) * cellWidth
+                        + "H" + (w1 + 1) * cellWidth + "V" + 0
+                        + "H" + (w0 + 1) * cellWidth + "Z";
+
+                    return result;
+                });
+
+
+        var legendWidth = color.range().length * cellWidth;
+        var legend = svg.append('g')
+            .attr('class', 'legend-quantity')
+            .attr("transform", "translate(" + (weeks - color.range().length) * cellWidth + "," + (7 * cellWidth + 10) + ")");
+
+        legend.selectAll('.legend-days')
+            .data(color.range())
+            .enter()
+            .append('rect')
+                .attr('width', cellSize)
+                .attr('height', cellSize)
+                .attr('class', function (d) { return 'legend-day ' + d; })
+                .attr('x', function (d, i) { return i * cellWidth; });
+
+        legend.append('text')
+            .attr('class', 'legend-less')
+            .attr('x', -cellWidth + 4)
+            .attr('y', 13)
+            .text('-');
+
+        legend.append('text')
+            .attr('class', 'legend-more')
+            .attr('x', color.range().length * cellWidth + 4)
+            .attr('y', 13)
+            .text('+');
+
+
+        var criteria = {'>=': {'order.cdate': firstdate.toISOString().substr(0, 10)}};
+
+        Aimeos.Dashboard.getData('order', 'order.cdate', criteria, '-order.cdate', 10000).then(function(data) {
+
+            if( typeof data.data == 'undefined' ) {
+                throw error;
+            }
+
+            var entries = {};
+            data.data.forEach(function(d) { entries[d.id] = d.attributes; });
+
+            cell.attr("class", function(d) { return "day " + color(entries[d] || 0); })
+                .append("title").text(function(d) { return d + ": " + (entries[d] || 0); });
+        });
+    },
+
+
+    chartHour : function() {
+
+        var margin = {top: 20, right: 30, bottom: 30, left: 40},
+            width = $("#order-hour-data").width() - margin.left - margin.right,
+            height = $("#order-hour-data").height() - margin.top - margin.bottom - 10;
+
+        var svg = d3.select("#order-hour-data")
+            .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+        Aimeos.Dashboard.getData('order', 'order.chour', {}, '-order.ctime', 1000).then(function(data) {
+
+            if( typeof data.data == 'undefined' ) {
+                throw error;
+            }
+
+            var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
+
+            var xScale = d3.scale.linear().range([0, width]).domain([0,23]);
+            var yScale = d3.scale.linear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+
+            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks((width > 300 ? 12 : 6));
+            var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));
+
+            var line = d3.svg.line()
+                .x(function(d) { return xScale((+d.id - tzoffset) % 24); })
+                .y(function(d) { return yScale(+d.attributes); });
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("class", "y axis")
+                .call(yAxis);
+
+            svg.selectAll(".bar")
+                    .data(data.data)
+                .enter().append("rect")
+                    .attr("class", "bar")
+                    .attr("x", function(d) { return xScale((+d.id - tzoffset) % 24); })
+                    .attr("width", width / 24 - 2)
+                    .attr("y", function(d) { return yScale(+d.attributes); })
+                    .attr("height", function(d) { return height - yScale(+d.attributes); });
+        });
+    },
+
+
+    chartDeliveryType : function() {
+
+        var criteria = {'==': {'order.base.service.type': 'delivery'}};
+        this.drawDonut("#order-deliverytype-data", 'order', 'order.base.service.code', criteria, '-order.ctime', 1000);
+    },
+
+
+    chartPaymentType : function() {
+
+        var criteria = {'==': {'order.base.service.type': 'payment'}};
+        this.drawDonut("#order-paymenttype-data", 'order', 'order.base.service.code', criteria, '-order.ctime', 1000);
     },
 
 
@@ -139,73 +337,6 @@ Aimeos.Dashboard.Order = {
     },
 
 
-    chartHour : function() {
-
-        var margin = {top: 20, right: 30, bottom: 30, left: 40},
-            width = $("#order-hour-data").width() - margin.left - margin.right,
-            height = $("#order-hour-data").height() - margin.top - margin.bottom - 10;
-
-        var svg = d3.select("#order-hour-data")
-            .append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-        Aimeos.Dashboard.getData('order', 'order.chour', {}, '-order.ctime', 1000).then(function(data) {
-
-            if( typeof data.data == 'undefined' ) {
-                throw error;
-            }
-
-            var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
-
-            var xScale = d3.scale.linear().range([0, width]).domain([0,23]);
-            var yScale = d3.scale.linear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
-
-            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks((width > 300 ? 12 : 6));
-            var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));
-
-            var line = d3.svg.line()
-                .x(function(d) { return xScale((+d.id - tzoffset) % 24); })
-                .y(function(d) { return yScale(+d.attributes); });
-
-            svg.append("g")
-                .attr("class", "x axis")
-                .attr("transform", "translate(0," + height + ")")
-                .call(xAxis);
-
-            svg.append("g")
-                .attr("class", "y axis")
-                .call(yAxis);
-
-            svg.selectAll(".bar")
-                    .data(data.data)
-                .enter().append("rect")
-                    .attr("class", "bar")
-                    .attr("x", function(d) { return xScale((+d.id - tzoffset) % 24); })
-                    .attr("width", width / 24 - 2)
-                    .attr("y", function(d) { return yScale(+d.attributes); })
-                    .attr("height", function(d) { return height - yScale(+d.attributes); });
-        });
-    },
-
-
-    chartDeliveryType : function() {
-
-        var criteria = {'==': {'order.base.service.type': 'delivery'}};
-        this.drawDonut("#order-deliverytype-data", 'order', 'order.base.service.code', criteria, '-order.ctime', 1000);
-    },
-
-
-    chartPaymentType : function() {
-
-        var criteria = {'==': {'order.base.service.type': 'payment'}};
-        this.drawDonut("#order-paymenttype-data", 'order', 'order.base.service.code', criteria, '-order.ctime', 1000);
-    },
-
-
     drawDonut : function(panel, resource, key, criteria, sort, limit) {
 
         var lgspace = 190, txheight = 20,
@@ -294,3 +425,27 @@ $(function() {
 
 	Aimeos.Dashboard.Order.init();
 });
+
+
+if (!Array.prototype.find) {
+  Array.prototype.find = function (predicate) {
+    if (this === null) {
+      throw new TypeError('Array.prototype.find called on null or undefined');
+    }
+    if (typeof predicate !== 'function') {
+      throw new TypeError('predicate must be a function');
+    }
+    var list = Object(this);
+    var length = list.length >>> 0;
+    var thisArg = arguments[1];
+    var value;
+
+    for (var i = 0; i < length; i++) {
+      value = list[i];
+      if (predicate.call(thisArg, value, i, list)) {
+        return value;
+      }
+    }
+    return undefined;
+  };
+}
