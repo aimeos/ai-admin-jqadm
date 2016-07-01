@@ -13,7 +13,7 @@ $enc = $this->encoder();
 	<div id="order-day-head" class="header card-header">
 		<?php echo $enc->html( $this->translate( 'admin', 'Orders by day' ) ); ?>
 	</div>
-	<div id="order-day-data" class="content card-block">
+	<div id="order-day-data" class="content card-block loading">
 	</div>
 </div>
 <?php echo $this->get( 'orderdayBody' ); ?>

@@ -13,7 +13,7 @@ $enc = $this->encoder();
 	<div id="order-deliverytype-head" class="header card-header">
 		<?php echo $enc->html( $this->translate( 'admin', 'Delivery types' ) ); ?>
 	</div>
-	<div id="order-deliverytype-data" class="content card-block">
+	<div id="order-deliverytype-data" class="content card-block loading">
 	</div>
 </div>
 <?php echo $this->get( 'orderdeliverytypeBody' ); ?>

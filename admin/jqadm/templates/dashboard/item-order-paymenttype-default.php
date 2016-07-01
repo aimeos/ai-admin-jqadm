@@ -13,7 +13,7 @@ $enc = $this->encoder();
 	<div id="order-paymenttype-head" class="header card-header">
 		<?php echo $enc->html( $this->translate( 'admin', 'Payment types' ) ); ?>
 	</div>
-	<div id="order-paymenttype-data" class="content card-block">
+	<div id="order-paymenttype-data" class="content card-block loading">
 	</div>
 </div>
 <?php echo $this->get( 'orderpaymenttypeBody' ); ?>

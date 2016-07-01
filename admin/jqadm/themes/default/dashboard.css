@@ -17,6 +17,12 @@
     height: 320px;
 }
 
+.dashboard .loading {
+    background-image: url('https://aimeos.org/aimeos-spinner.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .dashboard .axis path,
 .dashboard .axis line {
   fill: none;

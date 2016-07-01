@@ -13,7 +13,7 @@ $enc = $this->encoder();
 	<div id="order-hour-head" class="header card-header">
 		<?php echo $enc->html( $this->translate( 'admin', 'Orders by hour' ) ); ?>
 	</div>
-	<div id="order-hour-data" class="content card-block">
+	<div id="order-hour-data" class="content card-block loading">
 	</div>
 </div>
 <?php echo $this->get( 'orderhourBody' ); ?>
