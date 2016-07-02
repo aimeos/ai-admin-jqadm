@@ -52,7 +52,7 @@
 }
 
 .dashboard .order-day .day {
-    fill: #ffffff;
+    fill: #f8f8f8;
 }
 
 .dashboard .order-day .legend-wday {
@@ -61,7 +61,7 @@
 
 .dashboard .order-day .path-month {
     fill: none;
-    stroke: #dddddd;
+    stroke: #800000;
     stroke-width: 1px;
 }
 

@@ -88,7 +88,7 @@ Aimeos.Dashboard.Order = {
 
             var color = d3.scale.quantize()
                 .range(d3.range(10).map(function(d) { return "q" + d; }))
-                .domain([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+                .domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
             var svg = d3.select(selector)
                 .append("svg")
@@ -154,8 +154,8 @@ Aimeos.Dashboard.Order = {
                             weeks = (week == 1 ? d3.time.weekOfYear(date.setDate(24)) : week),
                             d0 = t0.getDay(), d1 = t1.getDay();
 
-                        var w0 = Math.abs(d3.time.weekOfYear(t0) - d3.time.weekOfYear(firstdate) + (weeks * (t0.getUTCFullYear() - firstdate.getUTCFullYear())));
-                        var w1 = Math.abs(d3.time.weekOfYear(t1) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear())));
+                        var w0 = d3.time.weekOfYear(t0) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
+                        var w1 = d3.time.weekOfYear(t1) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
 
                         result = "M" + (w0 + 1) * cellWidth + "," + d0 * cellWidth
                             + "H" + w0 * cellWidth + "V" + 7 * cellWidth
