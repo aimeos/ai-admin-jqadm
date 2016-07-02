@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="ai-admin-jqadm - jQuery admin" default="all">
-	
+
 	<target name="test" description="Executes unit tests">
 		<echo msg="Executing unit tests" />
 		<delete file="tests/unittest.log" quiet="true" failonerror="false" />
 		<exec command="${bindir}phpunit -d memory_limit=-1 --include-path ${coredir} --configuration=phpunit.xml ."
 			  dir="tests" checkreturn="true" logoutput="true"/>
 	</target>
-	
+
 	<target name="coverage" description="Generates code coverage report">
 		<echo msg="Generating code coverage report" />
 		<delete file="tests/unittest.log" quiet="true" failonerror="false" />
 		<exec command="${bindir}phpunit -d memory_limit=-1 --include-path ${coredir} --configuration=phpunit-coverage.xml ."
 			  dir="tests" checkreturn="true" logoutput="true"/>
 	</target>
-	
+
 	<target name="check" description="Executes code sniffer">
 		<echo msg="Executing code sniffer" />
 		<exec command="${bindir}phpcs -n --standard=${codestddir}/Metaways src tests/Admin"
 			  checkreturn="true" logoutput="true"/>
 		<echo msg="Executing Javascript Linter" />
-		<jsllint haltonfailure="true" haltonwarning="true" showwarnings="true">
+		<jsllint haltonfailure="true" haltonwarning="false" showwarnings="false">
 			<fileset dir=".">
 				<include name="themes/*.js"/>
 			</fileset>
