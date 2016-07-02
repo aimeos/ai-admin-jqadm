@@ -38,14 +38,14 @@
     fill: #1f77b4;
 }
 
-.dashboard .order-paymentstatus .pay-unfinished { fill: #666666; }
-.dashboard .order-paymentstatus .pay-deleted { fill: #e7298a; }
-.dashboard .order-paymentstatus .pay-canceled { fill: #7570b3; }
-.dashboard .order-paymentstatus .pay-refused { fill: #d95f02; }
-.dashboard .order-paymentstatus .pay-refund { fill: #a6761d; }
-.dashboard .order-paymentstatus .pay-pending { fill: #e6ab02; }
-.dashboard .order-paymentstatus .pay-authorized { fill: #66a61e; }
-.dashboard .order-paymentstatus .pay-received { fill: #1b9e77; }
+.dashboard .order-paymentstatus .pay-unfinished { fill: #c7c7c7; }
+.dashboard .order-paymentstatus .pay-deleted { fill: #d62728; }
+.dashboard .order-paymentstatus .pay-canceled { fill: #ffbb78; }
+.dashboard .order-paymentstatus .pay-refused { fill: #ff7f0e; }
+.dashboard .order-paymentstatus .pay-refund { fill: #9467bd; }
+.dashboard .order-paymentstatus .pay-pending { fill: #1f77b4; }
+.dashboard .order-paymentstatus .pay-authorized { fill: #98df8a; }
+.dashboard .order-paymentstatus .pay-received { fill: #2ca02c; }
 
 .dashboard .order-day text {
     fill: #808080;

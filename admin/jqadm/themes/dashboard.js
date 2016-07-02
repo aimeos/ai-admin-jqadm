@@ -12,8 +12,8 @@ Aimeos.Dashboard = {
      * @param resource Resource name like "product", "order" or "order/base/address"
      * @param key Aggregation key to group results by, e.g. "order.cdate", "order.base.address.countryid"
      * @param criteria Polish notation object with conditions for limiting the results, e.g. {">": {"order.cdate": "2000-01-01"}}
-     * @param sort|null Optional sorting criteria like "order.cdate" (ascending) or "-order.cdate" (descending)
-     * @param limit|null Optional limit for the number of records that are selected before aggretation
+     * @param sort|null Optional sorting criteria like "order.cdate" (ascending) or "-order.cdate" (descending), also more then one separated by comma
+     * @param limit|null Optional limit for the number of records that are selected before aggregation (default: 25)
      * @return jQuery promise object
      */
     getData : function(resource, key, criteria, sort, limit) {
@@ -272,21 +272,23 @@ Aimeos.Dashboard.Order = {
 
     chartPaymentStatus : function() {
 
-        var dates = [], numdays = 7,
+        var dates = [], numdays = 14,
             selector = "#order-paymentstatus-data",
             translation = $(selector).data("translation"),
             margin = {top: 20, right: 30, bottom: 30, left: 40},
             width = $(selector).width() - margin.left - margin.right,
-            height = $(selector).height() - margin.top - margin.bottom - 10;
+            height = $(selector).height() - margin.top - margin.bottom - 10,
+            statusrange = ["pay-unfinished", "pay-deleted", "pay-canceled", "pay-refused", "pay-refund", "pay-pending", "pay-authorized", "pay-received"],
+            statuslist = [-1, 0, 1, 2, 3, 4, 5, 6];
 
-        for( var i = 0; i <= numdays; i++ ) {
-            dates.push(new Date( new Date().getTime() - (numdays - i - 1) * 86400 * 1000 ).toISOString().substr(0, 10));
+        for( var i = 0; i < numdays; i++ ) {
+            dates.push(new Date(new Date().getTime() - (numdays - i - 1) * 86400 * 1000 ).toISOString().substr(0, 10));
         }
 
 
-        var criteria = {"&&": [{">=": {"order.cdate": dates[0]}}, {"<": {"order.cdate": dates[dates.length-1]}}]};
+        var criteria = {"&&": [{">=": {"order.cdate": dates[0]}}, {"<=": {"order.cdate": dates[dates.length-1]}}]};
 
-        Aimeos.Dashboard.getData("order", "order.cdate", criteria).then(function(data) {
+        Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 100000).then(function(data) {
 
             if( typeof data.data == "undefined" ) {
                 throw error;
@@ -294,15 +296,18 @@ Aimeos.Dashboard.Order = {
 
             var dateParser = d3.time.format("%Y-%m-%d").parse;
 
-            var color = d3.scale.ordinal()
-                .domain([-1, 0, 1, 2, 3, 4, 5, 6])
-                .range(["pay-unfinished", "pay-deleted", "pay-canceled", "pay-refused", "pay-refund", "pay-pending", "pay-authorized", "pay-received"]);
-
-            var xScale = d3.time.scale().range([0, width]).domain(d3.extent(dates, function(d) { return dateParser(d); }));
+            var color = d3.scale.ordinal().domain(statuslist).range(statusrange);
+            var xScale = d3.time.scale().range([0, width]).domain([dateParser(dates[0]), dateParser(dates[dates.length-1])]);
             var yScale = d3.scale.linear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
-            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(3);
+            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(7);
             var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));
+
+            var area = d3.svg.area()
+                .interpolate("monotone")
+                .x(function(d) { return xScale(d.key); })
+                .y0(function(d) { return yScale(d.y0); })
+                .y1(function(d) { d.y0 = d.y1; return yScale(d.y1); }); // y0 = y1: set new base line for next layer
 
             var svg = d3.select(selector)
                 .append("svg")
@@ -321,38 +326,45 @@ Aimeos.Dashboard.Order = {
                 .call(yAxis);
 
 
-            dates.slice(0, numdays).reverse().forEach(function(date) {
+            var response = [], entries = {};
 
-                var criteria = {"==": {"order.cdate": new Date(new Date(date).getTime()).toISOString().substr(0, 10)}};
+            dates.forEach(function(date) {
+                entries[date] = {'key': dateParser(date), 'y0': 0, 'y1': 0};
+            });
 
-                Aimeos.Dashboard.getData("order", "order.statuspayment", criteria, null, 10000).then(function(data) {
+            // create a JSON request for every status value (-1 till 6)
+            statuslist.forEach(function(status) {
+                var criteria = {"&&": [
+                    {">=": {"order.cdate": dates[0]}},
+                    {"<=": {"order.cdate": dates[dates.length-1]}},
+                    {"==": {"order.statuspayment": status}}
+                ]};
+
+                response.push({'promise': Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 10000), 'status': status});
+            });
+
+            // draw a new layer for each status value, order is maintained by waiting for the promise of the status value
+            response.forEach(function(entry) {
+                entry.promise.then(function(data) {
 
                     if( typeof data.data == "undefined" ) {
                         throw error;
                     }
 
-                    var start = 0;
-                    var entries = [];
-                    var dateobj = dateParser(date);
-
-                    data.data.sort(function(a, b) { return a.id - b.id; });
-                    data.data.forEach(function(d, idx) {
-                        entries[idx] = {"key": d.id, "value": d.attributes, y0: start, y1: start += +d.attributes};
+                    data.data.forEach(function(d) {
+                        entries[d.id]['y1'] += +d.attributes;
                     });
 
-                    var bar = svg.append("g")
-                        .attr("class", "bar")
-                        .attr("transform", "translate(" + xScale(dateobj) + ",0)");
+                    var list = [];
+                    dates.forEach(function(d) {
+                        list.push(entries[d]);
+                    });
 
-                    bar.selectAll("rect")
-                        .data(entries)
-                        .enter()
-                        .append("rect")
-                            .attr("y", function(d) { return yScale(d.y1); })
-                            .attr("class", function(d) { return color(d.key); })
-                            .attr("height", function(d) { return yScale(d.y0) - yScale(d.y1); })
-                            .attr("width", width / numdays - width / numdays / 100 * 10)
-                            .append("title").text(function(d) { return translation[d.key] + ": " + d.value; });
+                    svg.append("path")
+                        .datum(list)
+                        .attr("class", function(d) { return "layer " + color(entry.status); })
+                        .attr("d", area);
+
                 });
             });
 
