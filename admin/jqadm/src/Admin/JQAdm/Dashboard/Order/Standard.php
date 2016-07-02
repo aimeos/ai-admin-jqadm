@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/dashboard/order/standard/subparts';
-	private $subPartNames = array( 'latest', 'paymentstatus', 'hour', 'paymenttype', 'deliverytype' );
+	private $subPartNames = array( 'latest', 'paymentstatus', 'hour', 'day', 'paymenttype', 'deliverytype' );
 
 
 	/**
