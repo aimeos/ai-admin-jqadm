@@ -21,6 +21,7 @@
     background-image: url('https://aimeos.org/aimeos-spinner.gif');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 128px;
 }
 
 .dashboard .axis path,
@@ -29,23 +30,6 @@
   stroke: #A0A0A0;
   shape-rendering: crispEdges;
 }
-
-.dashboard .order-latest td {
-    border-top: none;
-}
-
-.dashboard .order-hour .bar {
-    fill: #1f77b4;
-}
-
-.dashboard .order-paymentstatus .pay-unfinished { fill: #c7c7c7; }
-.dashboard .order-paymentstatus .pay-deleted { fill: #d62728; }
-.dashboard .order-paymentstatus .pay-canceled { fill: #ffbb78; }
-.dashboard .order-paymentstatus .pay-refused { fill: #ff7f0e; }
-.dashboard .order-paymentstatus .pay-refund { fill: #9467bd; }
-.dashboard .order-paymentstatus .pay-pending { fill: #1f77b4; }
-.dashboard .order-paymentstatus .pay-authorized { fill: #98df8a; }
-.dashboard .order-paymentstatus .pay-received { fill: #2ca02c; }
 
 .dashboard .order-day text {
     fill: #808080;
@@ -75,3 +59,29 @@
 .dashboard .order-day .q7 { fill: #238443; }
 .dashboard .order-day .q8 { fill: #006837; }
 .dashboard .order-day .q9 { fill: #004529; }
+
+.dashboard .order-hour .bar {
+    fill: #1f77b4;
+}
+
+.dashboard .order-latest td {
+    border-top: none;
+}
+
+.dashboard .order-paymentstatus .focus {
+    stroke: #555;
+}
+
+.dashboard .order-paymentstatus .overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.dashboard .order-paymentstatus .pay-unfinished { fill: #f0f0f0; }
+.dashboard .order-paymentstatus .pay-deleted { fill: #d73027; }
+.dashboard .order-paymentstatus .pay-canceled { fill: #fc8d59; }
+.dashboard .order-paymentstatus .pay-refused { fill: #fee08b; }
+.dashboard .order-paymentstatus .pay-refund { fill: #ffffbf; }
+.dashboard .order-paymentstatus .pay-pending { fill: #d9ef8b; }
+.dashboard .order-paymentstatus .pay-authorized { fill: #91cf60; }
+.dashboard .order-paymentstatus .pay-received { fill: #1a9850; }

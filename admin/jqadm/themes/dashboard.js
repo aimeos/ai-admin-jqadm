@@ -157,11 +157,11 @@ Aimeos.Dashboard.Order = {
                         var w0 = d3.time.weekOfYear(t0) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
                         var w1 = d3.time.weekOfYear(t1) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
 
-                        result = "M" + (w0 + 1) * cellWidth + "," + d0 * cellWidth
-                            + "H" + w0 * cellWidth + "V" + 7 * cellWidth
-                            + "H" + w1 * cellWidth + "V" + (d1 + 1) * cellWidth
-                            + "H" + (w1 + 1) * cellWidth + "V" + 0
-                            + "H" + (w0 + 1) * cellWidth + "Z";
+                        result = "M" + ((w0 + 1) * cellWidth - 1) + "," + d0 * cellWidth
+                            + "H" + (w0 * cellWidth - 1) + "V" + (7 * cellWidth - 1)
+                            + "H" + (w1 * cellWidth - 1) + "V" + ((d1 + 1) * cellWidth - 1)
+                            + "H" + ((w1 + 1) * cellWidth - 1) + "V" + 0
+                            + "H" + ((w0 + 1) * cellWidth -1) + "Z";
 
                         return result;
                     });
@@ -272,7 +272,7 @@ Aimeos.Dashboard.Order = {
 
     chartPaymentStatus : function() {
 
-        var dates = [], numdays = 14,
+        var dates = [], numdays = 7,
             selector = "#order-paymentstatus-data",
             translation = $(selector).data("translation"),
             margin = {top: 20, right: 30, bottom: 30, left: 40},
@@ -300,7 +300,7 @@ Aimeos.Dashboard.Order = {
             var xScale = d3.time.scale().range([0, width]).domain([dateParser(dates[0]), dateParser(dates[dates.length-1])]);
             var yScale = d3.scale.linear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
-            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(7);
+            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(Math.round(numdays / 2));
             var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));
 
             var area = d3.svg.area()
@@ -326,7 +326,7 @@ Aimeos.Dashboard.Order = {
                 .call(yAxis);
 
 
-            var response = [], entries = {};
+            var responses = [], entries = {}, lines = {};
 
             dates.forEach(function(date) {
                 entries[date] = {'key': dateParser(date), 'y0': 0, 'y1': 0};
@@ -340,11 +340,11 @@ Aimeos.Dashboard.Order = {
                     {"==": {"order.statuspayment": status}}
                 ]};
 
-                response.push({'promise': Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 10000), 'status': status});
+                responses.push({'promise': Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 10000), 'status': status});
             });
 
             // draw a new layer for each status value, order is maintained by waiting for the promise of the status value
-            response.forEach(function(entry) {
+            responses.forEach(function(entry) {
                 entry.promise.then(function(data) {
 
                     if( typeof data.data == "undefined" ) {
@@ -360,7 +360,7 @@ Aimeos.Dashboard.Order = {
                         list.push(entries[d]);
                     });
 
-                    svg.append("path")
+                    lines[entry.status] = svg.append("path")
                         .datum(list)
                         .attr("class", function(d) { return "layer " + color(entry.status); })
                         .attr("d", area);
@@ -368,8 +368,38 @@ Aimeos.Dashboard.Order = {
                 });
             });
 
-        }).done(function() {
-            $(selector).removeClass("loading");
+
+            // interactive chart details
+            responses[responses.length-1].promise.then(function() {
+
+                var focus = svg.append("g");
+
+                focus.append("line")
+                    .attr("x1", 0).attr("x2", 0)
+                    .attr("y1", 0).attr("y2", height);
+
+                svg.append("rect")
+                    .attr("class", "overlay")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .on("mouseover", function() { focus.classed("focus", true); })
+                    .on("mouseout", function() { focus.classed("focus", false); })
+                    .on("mousemove", function() {
+                        var x0 = xScale.invert(d3.mouse(this)[0]),
+                            i = d3.bisector(function(d) { return dateParser(d); }).left(dates, x0);
+
+                        i = (i === 0 ? 1 : (i === dates.length ? dates.length - 1 : i));
+
+                        var d0 = dateParser(dates[i]),
+                            d1 = dateParser(dates[i-1]),
+                            d = (Math.abs(x0 - d0) > Math.abs(d1 - x0) ? d1 : d0);
+
+                        focus.attr("transform", "translate(" + xScale(d) + ",0)");
+                    });
+
+            }).done(function() {
+                $(selector).removeClass("loading");
+            });
         });
     },
 
