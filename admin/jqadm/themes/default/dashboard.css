@@ -26,9 +26,9 @@
 
 .dashboard .axis path,
 .dashboard .axis line {
-  fill: none;
-  stroke: #A0A0A0;
-  shape-rendering: crispEdges;
+    fill: none;
+    stroke: #A0A0A0;
+    shape-rendering: crispEdges;
 }
 
 .dashboard .order-day text {
@@ -68,6 +68,20 @@
     border-top: none;
 }
 
+.dashboard #order-paymentstatus-data {
+    position: relative;
+}
+
+.dashboard .order-paymentstatus .layer {
+    opacity: 1;
+}
+
+.dashboard .order-paymentstatus .line {
+    fill: none;
+    stroke: #555;
+    stroke-width: 1px;
+}
+
 .dashboard .order-paymentstatus .focus {
     stroke: #555;
 }
@@ -77,11 +91,37 @@
   pointer-events: all;
 }
 
-.dashboard .order-paymentstatus .pay-unfinished { fill: #f0f0f0; }
-.dashboard .order-paymentstatus .pay-deleted { fill: #d73027; }
-.dashboard .order-paymentstatus .pay-canceled { fill: #fc8d59; }
-.dashboard .order-paymentstatus .pay-refused { fill: #fee08b; }
-.dashboard .order-paymentstatus .pay-refund { fill: #ffffbf; }
-.dashboard .order-paymentstatus .pay-pending { fill: #d9ef8b; }
-.dashboard .order-paymentstatus .pay-authorized { fill: #91cf60; }
-.dashboard .order-paymentstatus .pay-received { fill: #1a9850; }
+.dashboard .order-paymentstatus .layer.pay-unfinished { fill: #f0f0f0; }
+.dashboard .order-paymentstatus .layer.pay-deleted { fill: #d73027; }
+.dashboard .order-paymentstatus .layer.pay-canceled { fill: #fc8d59; }
+.dashboard .order-paymentstatus .layer.pay-refused { fill: #fee08b; }
+.dashboard .order-paymentstatus .layer.pay-refund { fill: #ffffbf; }
+.dashboard .order-paymentstatus .layer.pay-pending { fill: #d9ef8b; }
+.dashboard .order-paymentstatus .layer.pay-authorized { fill: #91cf60; }
+.dashboard .order-paymentstatus .layer.pay-received { fill: #1a9850; }
+
+.dashboard .order-paymentstatus .tooltip {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 10px;
+    margin: 0;
+    color: #fff;
+    opacity: 1;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.dashboard .order-paymentstatus .tooltip .head {
+    font-size: 100%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dashboard .order-paymentstatus .tooltip .values th,
+.dashboard .order-paymentstatus .tooltip .values td {
+    text-align: right;
+}

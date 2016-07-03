@@ -309,6 +309,11 @@ Aimeos.Dashboard.Order = {
                 .y0(function(d) { return yScale(d.y0); })
                 .y1(function(d) { d.y0 = d.y1; return yScale(d.y1); }); // y0 = y1: set new base line for next layer
 
+            var line = d3.svg.line()
+                .interpolate("monotone")
+                .x(function(d) { return xScale(d.key); })
+                .y(function(d) { return yScale(d.y1); });
+
             var svg = d3.select(selector)
                 .append("svg")
                     .attr("width", width + margin.left + margin.right)
@@ -326,10 +331,10 @@ Aimeos.Dashboard.Order = {
                 .call(yAxis);
 
 
-            var responses = [], entries = {}, lines = {};
+            var responses = [], entries = {};
 
             dates.forEach(function(date) {
-                entries[date] = {'key': dateParser(date), 'y0': 0, 'y1': 0};
+                entries[date] = {'key': dateParser(date), 'status': {}, 'y0': 0, 'y1': 0};
             });
 
             // create a JSON request for every status value (-1 till 6)
@@ -352,6 +357,7 @@ Aimeos.Dashboard.Order = {
                     }
 
                     data.data.forEach(function(d) {
+                        entries[d.id]['status'][entry.status] = d.attributes;
                         entries[d.id]['y1'] += +d.attributes;
                     });
 
@@ -360,10 +366,15 @@ Aimeos.Dashboard.Order = {
                         list.push(entries[d]);
                     });
 
-                    lines[entry.status] = svg.append("path")
+                    svg.append("path")
                         .datum(list)
                         .attr("class", function(d) { return "layer " + color(entry.status); })
                         .attr("d", area);
+
+                    svg.append("path")
+                        .datum(list)
+                        .attr("class", function(d) { return "line " + color(entry.status); })
+                        .attr("d", line);
 
                 });
             });
@@ -372,29 +383,52 @@ Aimeos.Dashboard.Order = {
             // interactive chart details
             responses[responses.length-1].promise.then(function() {
 
-                var focus = svg.append("g");
+                statuslist.reverse(); // print counts per status in descending order
 
-                focus.append("line")
+                var focus = svg.append("line")
                     .attr("x1", 0).attr("x2", 0)
                     .attr("y1", 0).attr("y2", height);
+
+                var tooltip = $('<div class="tooltip" />').appendTo($(selector));
 
                 svg.append("rect")
                     .attr("class", "overlay")
                     .attr("width", width)
                     .attr("height", height)
-                    .on("mouseover", function() { focus.classed("focus", true); })
-                    .on("mouseout", function() { focus.classed("focus", false); })
+                    .on("mouseover", function() { focus.classed("focus", true); tooltip.css("display", "block"); })
+                    .on("mouseout", function() { focus.classed("focus", false); tooltip.css("display", "none"); })
                     .on("mousemove", function() {
+
+                        // move the focus line to the nearest date in the diagram
                         var x0 = xScale.invert(d3.mouse(this)[0]),
-                            i = d3.bisector(function(d) { return dateParser(d); }).left(dates, x0);
+                            i = d3.bisector(function(d) { return dateParser(d); }).left(dates, x0),
+                            mouseX = xScale(x0);
 
                         i = (i === 0 ? 1 : (i === dates.length ? dates.length - 1 : i));
 
-                        var d0 = dateParser(dates[i]),
-                            d1 = dateParser(dates[i-1]),
-                            d = (Math.abs(x0 - d0) > Math.abs(d1 - x0) ? d1 : d0);
+                        var date,
+                            d0 = dateParser(dates[i]),
+                            d1 = dateParser(dates[i-1]);
 
-                        focus.attr("transform", "translate(" + xScale(d) + ",0)");
+                        if(Math.abs(x0 - d0) > Math.abs(d1 - x0) ) {
+                            xval = xScale(d1); date = dates[i-1];
+                        } else {
+                            xval = xScale(d0); date = dates[i];
+                        }
+
+                        focus.attr("transform", "translate(" + xval + ",0)");
+
+                        var html = '<h1 class="head">' + dates[i] + '</h1><table class="values">';
+                        statuslist.forEach(function(status) {
+                            html += '<tr><th>' + translation[status] + "</th><td>" + (entries[date]['status'][status] || 0) + '</td></tr>';
+                        });
+                        html += '</table>';
+
+                        // avoid pointer being inside the tooltip to prevent flickering
+                        // dispay tooltip right or left of the pointer depending on the position in the diagram
+                        tooltip.html(html)
+                            .css("top", margin.top)
+                            .css("left", (mouseX - width / 2 > 0 ? mouseX - tooltip.outerWidth() : mouseX + 20) + margin.left);
                     });
 
             }).done(function() {
