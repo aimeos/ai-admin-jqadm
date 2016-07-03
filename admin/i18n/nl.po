@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-03 16:55+0200\n"
-"PO-Revision-Date: 2016-07-03 15:10+0000\n"
+"PO-Revision-Date: 2016-07-03 15:28+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -1210,3 +1210,9 @@ msgstr "unknown"
 
 msgid "yy-mm-dd"
 msgstr ""
+
+msgid "dashboard"
+msgstr ""
+
+msgid "product"
+msgstr "Product"
