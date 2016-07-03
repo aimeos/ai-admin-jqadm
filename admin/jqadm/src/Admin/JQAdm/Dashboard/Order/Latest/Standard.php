@@ -242,25 +242,21 @@ class Standard
 	 */
 	protected function addOrders( \Aimeos\MW\View\Iface $view )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
-
-		$search = $manager->createSearch();
-		$search->setSortations( array( $search->sort( '-', 'order.base.ctime' ) ) );
-		$search->setSlice( 0, 10 );
-
-		$orders = $manager->searchItems( $search );
-
-
+		$basketItems = array();
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
+		$baseManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
 
 		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'order.baseid', array_keys( $orders ) ) );
 		$search->setSortations( array( $search->sort( '-', 'order.ctime' ) ) );
+		$search->setSlice( 0, 10 );
 
 		$items = $manager->searchItems( $search );
 
+		foreach( $items as $item ) {
+			$basketItems[$item->getBaseId()] = $baseManager->load( $item->getBaseId() );
+		}
 
-		$view->orderlatestOrders = $orders;
+		$view->orderlatestBaskets = basketItems;
 		$view->orderlatestItems = $items;
 	}
 

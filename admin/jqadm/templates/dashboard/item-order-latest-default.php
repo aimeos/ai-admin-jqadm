@@ -14,6 +14,41 @@ $price = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item, $priceFo
 	}
 };
 
+
+$name = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
+{
+	if( isset( $orders[$item->getBaseId()] ) )
+	{
+		$addresses = $orders[$item->getBaseId()]->getAddresses();
+
+		if( !isset( $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT] ) ) {
+			return;
+		}
+
+		$address = $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT];
+
+		if( $address->getSalutation() !== \Aimeos\MShop\Common\Item\Address\Base::SALUTATION_COMPANY ) {
+			return $address->getFirstName() . ' ' . $address->getLastName();
+		} else {
+			return $address->getCompany();
+		}
+	}
+};
+
+
+$payment = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
+{
+	if( isset( $orders[$item->getBaseId()] ) )
+	{
+		$services = $orders[$item->getBaseId()]->getServices();
+
+		if( isset( $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT] ) ) {
+			return $addresses[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT]->getCode();
+		}
+	}
+};
+
+
 $status = function( $list, $key )
 {
 	return ( isset( $list[$key] ) ? $list[$key] : '' );
@@ -21,7 +56,7 @@ $status = function( $list, $key )
 
 
 $enc = $this->encoder();
-$orders = $this->get( 'orderlatestOrders', array() );
+$baskets = $this->get( 'orderlatestBaskets', array() );
 /// price format with value (%1$s) and currency (%2$s)
 $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
 
@@ -48,9 +83,11 @@ $statuslist = array(
 		<?php foreach( $this->get( 'orderlatestItems', array() ) as $id => $item ) : ?>
 					<tr>
 						<td class="order.id"><?php echo $enc->html( $item->getId() ); ?></td>
+						<td class="order.base.address.name"><?php echo $enc->html( $name( $baskets, $item ) ); ?></td>
+						<td class="order.base.price"><?php echo $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></td>
 						<td class="order.datepayment"><?php echo $enc->html( $item->getDatePayment() ); ?></td>
-						<td class="order.base.price"><?php echo $enc->html( $price( $orders, $item, $priceFormat ) ); ?></td>
 						<td class="order.statuspayment"><?php echo $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></td>
+						<td class="order.base.service.payment"><?php echo $enc->html( $payment( $baskets, $item ) ); ?></td>
 						<td class="order.type"><?php echo $enc->html( $item->getType() ); ?></td>
 					</tr>
 		<?php endforeach; ?>
