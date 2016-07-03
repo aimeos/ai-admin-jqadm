@@ -43,7 +43,7 @@ $payment = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
 		$services = $orders[$item->getBaseId()]->getServices();
 
 		if( isset( $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT] ) ) {
-			return $addresses[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT]->getCode();
+			return $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT]->getCode();
 		}
 	}
 };
