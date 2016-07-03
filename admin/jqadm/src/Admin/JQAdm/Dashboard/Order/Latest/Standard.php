@@ -256,7 +256,7 @@ class Standard
 			$basketItems[$item->getBaseId()] = $baseManager->load( $item->getBaseId() );
 		}
 
-		$view->orderlatestBaskets = basketItems;
+		$view->orderlatestBaskets = $basketItems;
 		$view->orderlatestItems = $items;
 	}
 
