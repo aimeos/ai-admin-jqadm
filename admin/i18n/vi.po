@@ -1,21 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 11:04+0200\n"
-"PO-Revision-Date: 2016-04-21 21:17+0000\n"
+"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"PO-Revision-Date: 2016-07-03 15:10+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/aimeos/aimeos-core/language/vi/)\n"
-"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#. / price format with value (%1$s) and currency (%2$s)
+#, php-format
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
 
 msgid "Actual current price"
 msgstr ""
@@ -27,7 +32,7 @@ msgid "Add filter"
 msgstr ""
 
 msgid "Additional"
-msgstr ""
+msgstr "Bổ sung"
 
 msgid "Additional information, e.g. flat number"
 msgstr ""
@@ -48,7 +53,7 @@ msgid "Address ID"
 msgstr ""
 
 msgid "Addresses"
-msgstr ""
+msgstr "Các địa chỉ"
 
 msgid "All"
 msgstr ""
@@ -130,7 +135,7 @@ msgid "Basic"
 msgstr ""
 
 msgid "Billing address"
-msgstr ""
+msgstr "Địa chỉ hóa đơn"
 
 msgid "Birthday"
 msgstr ""
@@ -162,7 +167,7 @@ msgid "Characteristics"
 msgstr ""
 
 msgid "City"
-msgstr ""
+msgstr "Thành phố"
 
 msgid "City name (required)"
 msgstr ""
@@ -174,7 +179,7 @@ msgid "Click to upload"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "Đóng lại"
 
 msgid "Code"
 msgstr ""
@@ -189,7 +194,7 @@ msgid "Comment"
 msgstr ""
 
 msgid "Company"
-msgstr ""
+msgstr "Công ty"
 
 msgid "Company name"
 msgstr ""
@@ -216,7 +221,7 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr ""
+msgstr "Quốc gia"
 
 msgid "Country code"
 msgstr ""
@@ -257,14 +262,16 @@ msgstr ""
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer address item panel title with customer name ({0}) and site code ({1)}
+#. : Customer address item panel title with customer name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Customer address: {0} ({1})"
 msgstr ""
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer group item panel title with customer name ({0}) and site code ({1)}
+#. : Customer group item panel title with customer name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Customer group: {0} ({1})"
 msgstr ""
@@ -290,12 +297,15 @@ msgid "Delete items?"
 msgstr ""
 
 msgid "Delivery address"
-msgstr ""
+msgstr "Địa chỉ gửi"
 
 msgid "Delivery date"
 msgstr ""
 
 msgid "Delivery status"
+msgstr ""
+
+msgid "Delivery types"
 msgstr ""
 
 msgid "Details"
@@ -314,7 +324,7 @@ msgid "Download"
 msgstr ""
 
 msgid "E-Mail"
-msgstr ""
+msgstr "Email"
 
 msgid "E-Mail, e.g. me@example.com (required)"
 msgstr ""
@@ -365,7 +375,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "Tên"
 
 msgid "Firstname"
 msgstr ""
@@ -442,7 +452,7 @@ msgid "Label"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 msgid "Language (required)"
 msgstr ""
@@ -454,12 +464,15 @@ msgid "Last modified"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "Họ"
 
 msgid "Last name (required)"
 msgstr ""
 
 msgid "Lastname"
+msgstr ""
+
+msgid "Latest orders"
 msgstr ""
 
 msgid "Length"
@@ -506,7 +519,8 @@ msgstr ""
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
-#. : Locale currency item panel title with currency label ({0}) and currency code ({1)}
+#. : Locale currency item panel title with currency label ({0}) and currency
+#. code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
 msgstr ""
@@ -518,7 +532,8 @@ msgstr ""
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
-#. : Locale language item panel title with language label ({0}) and language code ({1)}
+#. : Locale language item panel title with language label ({0}) and language
+#. code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
 msgstr ""
@@ -578,7 +593,7 @@ msgid "Mrs"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Tên"
 
 msgid "Name of the coupon provider class (required)"
 msgstr ""
@@ -590,7 +605,7 @@ msgid "Name of the service provider class (required)"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Tiếp theo"
 
 msgid "No error information available"
 msgstr ""
@@ -616,12 +631,21 @@ msgstr ""
 msgid "Order product ID"
 msgstr ""
 
+msgid "Orders by day"
+msgstr ""
+
+msgid "Orders by hour"
+msgstr ""
+
+msgid "Orders by payment status"
+msgstr ""
+
 msgid "Overview"
 msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Trang %1$d của %2$d"
 
 msgid "Parameter"
 msgstr ""
@@ -639,6 +663,9 @@ msgid "Payment date"
 msgstr ""
 
 msgid "Payment status"
+msgstr "Trạng thái chi trả"
+
+msgid "Payment types"
 msgstr ""
 
 msgid "Physical values"
@@ -650,7 +677,9 @@ msgstr ""
 msgid "Please save the coupon first before you can add codes"
 msgstr ""
 
-msgid "Please select an item on the right side and add it via drag and drop to this list."
+msgid ""
+"Please select an item on the right side and add it via drag and drop to this"
+" list."
 msgstr ""
 
 msgid "Plugin"
@@ -673,7 +702,7 @@ msgid "Position"
 msgstr ""
 
 msgid "Postal code"
-msgstr ""
+msgstr "Mã vùng"
 
 msgid "Preview"
 msgstr ""
@@ -685,7 +714,7 @@ msgid "Previous"
 msgstr ""
 
 msgid "Price"
-msgstr ""
+msgstr "Giá"
 
 msgid "Price type"
 msgstr ""
@@ -736,8 +765,10 @@ msgstr ""
 msgid "Product property type"
 msgstr ""
 
-#. : Product property.type item panel title with type label ({0}) and site code ({1)}
-#. : Product property type item panel title with type label ({0}) and site code ({1)}
+#. : Product property.type item panel title with type label ({0}) and site
+#. code ({1)}
+#. : Product property type item panel title with type label ({0}) and site
+#. code ({1)}
 #, python-brace-format
 msgid "Product property type: {0} ({1})"
 msgstr ""
@@ -803,7 +834,7 @@ msgid "Purchase date"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Số lượng"
 
 msgid "Quantity or empty if unlimited (optional)"
 msgstr ""
@@ -830,7 +861,7 @@ msgid "Result"
 msgstr ""
 
 msgid "Salutation"
-msgstr ""
+msgstr "Lời chào mừng"
 
 msgid "Save"
 msgstr ""
@@ -862,7 +893,7 @@ msgid "Service ID"
 msgstr ""
 
 msgid "Service fees"
-msgstr ""
+msgstr "Phí dịch vụ"
 
 msgid "Service item details"
 msgstr ""
@@ -881,7 +912,7 @@ msgid "Service: {0} ({1})"
 msgstr ""
 
 msgid "Services"
-msgstr ""
+msgstr "Dịch vụ"
 
 msgid "Short description"
 msgstr ""
@@ -905,7 +936,7 @@ msgid "Start date"
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Bang"
 
 msgid "Status"
 msgstr ""
@@ -917,7 +948,7 @@ msgid "Stock level"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Tên đường"
 
 msgid "Street (required)"
 msgstr ""
@@ -930,7 +961,8 @@ msgstr ""
 
 #. : Supplier address item panel title with supplier name ({0}) and site code
 #. ({1)}
-#. : Supplier address item panel title with supplier name ({0}) and site code ({1)}
+#. : Supplier address item panel title with supplier name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Supplier address: {0} ({1})"
 msgstr ""
@@ -967,7 +999,7 @@ msgid "Telefax"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "Số điện thoại"
 
 msgid "Telephone number, e.g. +155512345"
 msgstr ""
@@ -991,10 +1023,15 @@ msgstr ""
 msgid "Texts"
 msgstr ""
 
-msgid "The file with the exported texts will be available within a few minutes. It can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
+msgid ""
+"The file with the exported texts will be available within a few minutes. It "
+"can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
 msgstr ""
 
-msgid "The texts of your uploaded file will be imported within a few minutes. You can check the status of the import in the \"Job\" panel of the \"Overview\" tab"
+msgid ""
+"The texts of your uploaded file will be imported within a few minutes. You "
+"can check the status of the import in the \"Job\" panel of the \"Overview\" "
+"tab"
 msgstr ""
 
 msgid "This combination already exists"
@@ -1004,7 +1041,7 @@ msgid "Title"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Tổng cộng"
 
 msgid "Two letter country code, e.g. \"US\" (required)"
 msgstr ""
@@ -1062,7 +1099,8 @@ msgstr ""
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
-#. : Product warehouse item panel title with warehouse label ({0}) and site code ({1)}
+#. : Product warehouse item panel title with warehouse label ({0}) and site
+#. code ({1)}
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
 msgstr ""
@@ -1088,7 +1126,9 @@ msgstr ""
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr ""
 
-msgid "You are going to flush the complete cache for the current site. Would you like to proceed?"
+msgid ""
+"You are going to flush the complete cache for the current site. Would you "
+"like to proceed?"
 msgstr ""
 
 msgid "Zip code"

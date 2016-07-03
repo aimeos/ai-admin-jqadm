@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 23:17+0200\n"
+"POT-Creation-Date: 2016-07-03 16:55+0200\n"
 "PO-Revision-Date: 2015-09-29 12:26+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
@@ -16,6 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#. / price format with value (%1$s) and currency (%2$s)
+#, php-format
+msgid "%1$s %2$s"
+msgstr ""
 
 msgid "Actual current price"
 msgstr ""
@@ -298,6 +303,9 @@ msgstr ""
 msgid "Delivery status"
 msgstr ""
 
+msgid "Delivery types"
+msgstr ""
+
 msgid "Details"
 msgstr ""
 
@@ -462,6 +470,9 @@ msgstr ""
 msgid "Lastname"
 msgstr ""
 
+msgid "Latest orders"
+msgstr ""
+
 msgid "Length"
 msgstr ""
 
@@ -616,6 +627,15 @@ msgstr ""
 msgid "Order product ID"
 msgstr ""
 
+msgid "Orders by day"
+msgstr ""
+
+msgid "Orders by hour"
+msgstr ""
+
+msgid "Orders by payment status"
+msgstr ""
+
 msgid "Overview"
 msgstr ""
 
@@ -639,6 +659,9 @@ msgid "Payment date"
 msgstr ""
 
 msgid "Payment status"
+msgstr ""
+
+msgid "Payment types"
 msgstr ""
 
 msgid "Physical values"

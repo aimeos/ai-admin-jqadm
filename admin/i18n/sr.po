@@ -1,22 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Mario Domonji <mario.mk.gromovi@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 11:04+0200\n"
-"PO-Revision-Date: 2016-04-21 21:17+0000\n"
+"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"PO-Revision-Date: 2016-07-03 15:10+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/aimeos/aimeos-core/language/sr/)\n"
-"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. / price format with value (%1$s) and currency (%2$s)
+#, php-format
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
 
 msgid "Actual current price"
 msgstr "Trenutna stvarna cena"
@@ -28,7 +33,7 @@ msgid "Add filter"
 msgstr ""
 
 msgid "Additional"
-msgstr ""
+msgstr "Dodatno"
 
 msgid "Additional information, e.g. flat number"
 msgstr ""
@@ -160,7 +165,7 @@ msgid "Categories"
 msgstr ""
 
 msgid "Characteristics"
-msgstr ""
+msgstr "Karakteristike"
 
 msgid "City"
 msgstr "Grad"
@@ -175,7 +180,7 @@ msgid "Click to upload"
 msgstr "Klik za upload"
 
 msgid "Close"
-msgstr ""
+msgstr "Zatvoriti"
 
 msgid "Code"
 msgstr "Kod"
@@ -208,7 +213,7 @@ msgid "Costs"
 msgstr "Troškovi"
 
 msgid "Costs per item"
-msgstr ""
+msgstr "Troškovi po stavci"
 
 msgid "Could not upload file. Please notify your administrator"
 msgstr "Upload neuspešan. Molim Vas obavestite administratora"
@@ -258,14 +263,16 @@ msgstr "Kupac"
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer address item panel title with customer name ({0}) and site code ({1)}
+#. : Customer address item panel title with customer name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Customer address: {0} ({1})"
 msgstr ""
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer group item panel title with customer name ({0}) and site code ({1)}
+#. : Customer group item panel title with customer name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Customer group: {0} ({1})"
 msgstr ""
@@ -298,6 +305,9 @@ msgstr "Datum dostave"
 
 msgid "Delivery status"
 msgstr "Status dostave"
+
+msgid "Delivery types"
+msgstr ""
 
 msgid "Details"
 msgstr "Detalji"
@@ -366,7 +376,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "Ime"
 
 msgid "Firstname"
 msgstr "Ime"
@@ -455,7 +465,7 @@ msgid "Last modified"
 msgstr "Zadnji put promenjeno"
 
 msgid "Last name"
-msgstr ""
+msgstr "Prezime"
 
 msgid "Last name (required)"
 msgstr ""
@@ -463,8 +473,11 @@ msgstr ""
 msgid "Lastname"
 msgstr "Prezime"
 
-msgid "Length"
+msgid "Latest orders"
 msgstr ""
+
+msgid "Length"
+msgstr "Dužina"
 
 msgid "List"
 msgstr "Lista"
@@ -507,7 +520,8 @@ msgstr "Lokalizacija"
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
-#. : Locale currency item panel title with currency label ({0}) and currency code ({1)}
+#. : Locale currency item panel title with currency label ({0}) and currency
+#. code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
 msgstr "Valuta lokalizacije: {0} ({1})"
@@ -519,7 +533,8 @@ msgstr "Detalji stavke lokalizacije ({1})"
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
-#. : Locale language item panel title with language label ({0}) and language code ({1)}
+#. : Locale language item panel title with language label ({0}) and language
+#. code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
 msgstr "Lokalni jezik: {0} ({1})"
@@ -570,13 +585,13 @@ msgid "Minimum quantity"
 msgstr "Minimalna količina"
 
 msgid "Miss"
-msgstr ""
+msgstr "gdica"
 
 msgid "Mr"
-msgstr ""
+msgstr "gosp"
 
 msgid "Mrs"
-msgstr ""
+msgstr "gosp"
 
 msgid "Name"
 msgstr "Ime"
@@ -591,7 +606,7 @@ msgid "Name of the service provider class (required)"
 msgstr "Ime klase provajdera servisa (obavezno)"
 
 msgid "Next"
-msgstr ""
+msgstr "Sledece"
 
 msgid "No error information available"
 msgstr "Infornacija o grešci nedostupna"
@@ -606,7 +621,7 @@ msgid "Notice"
 msgstr "Obaveštenje"
 
 msgid "Option"
-msgstr ""
+msgstr "Opcija"
 
 msgid "Order"
 msgstr "Porudžbina"
@@ -617,12 +632,21 @@ msgstr "Detalji stavke porudžbine"
 msgid "Order product ID"
 msgstr "ID porudžbenice proizvoda"
 
+msgid "Orders by day"
+msgstr ""
+
+msgid "Orders by hour"
+msgstr ""
+
+msgid "Orders by payment status"
+msgstr ""
+
 msgid "Overview"
 msgstr "Pregled"
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Stranica %1$d od %2$d"
 
 msgid "Parameter"
 msgstr "Parametar"
@@ -642,6 +666,9 @@ msgstr "Datum plaćanja"
 msgid "Payment status"
 msgstr "Status plaćanja"
 
+msgid "Payment types"
+msgstr ""
+
 msgid "Physical values"
 msgstr ""
 
@@ -651,7 +678,9 @@ msgstr "Molim Vas proverite ponovo Vaše podatke"
 msgid "Please save the coupon first before you can add codes"
 msgstr "Molim Vas sačuvajte kupon pre nego što dodate kodove"
 
-msgid "Please select an item on the right side and add it via drag and drop to this list."
+msgid ""
+"Please select an item on the right side and add it via drag and drop to this"
+" list."
 msgstr "Molim Vas izaberite stavku na desnoj strani i dodajte provlačenjem u ovu listu"
 
 msgid "Plugin"
@@ -683,7 +712,7 @@ msgid "Preview URL"
 msgstr "URL pregleda"
 
 msgid "Previous"
-msgstr ""
+msgstr "Prijasnje"
 
 msgid "Price"
 msgstr "Cena"
@@ -737,8 +766,10 @@ msgstr "Cena proizvoda"
 msgid "Product property type"
 msgstr ""
 
-#. : Product property.type item panel title with type label ({0}) and site code ({1)}
-#. : Product property type item panel title with type label ({0}) and site code ({1)}
+#. : Product property.type item panel title with type label ({0}) and site
+#. code ({1)}
+#. : Product property type item panel title with type label ({0}) and site
+#. code ({1)}
 #, python-brace-format
 msgid "Product property type: {0} ({1})"
 msgstr ""
@@ -753,12 +784,12 @@ msgid "Product stock"
 msgstr "Stanje proizvoda"
 
 msgid "Product supplier (optional)"
-msgstr ""
+msgstr "Dobavljač proizvoda (opcionalno)"
 
 #. : Product tag item panel title with product label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
-msgstr ""
+msgstr "Tag proizvoda: {0} ({1})"
 
 msgid "Product tax rate"
 msgstr "Iznos poreza proizvoda"
@@ -844,7 +875,7 @@ msgid "Schema {0} is  not registered"
 msgstr "Schema {0} is not registered"
 
 msgid "Search"
-msgstr ""
+msgstr "traži"
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
@@ -863,7 +894,7 @@ msgid "Service ID"
 msgstr "ID servisa"
 
 msgid "Service fees"
-msgstr ""
+msgstr "Naplata usluge"
 
 msgid "Service item details"
 msgstr "Detalji stavke servisa"
@@ -894,7 +925,7 @@ msgid "Site"
 msgstr "Sajt"
 
 msgid "Size"
-msgstr ""
+msgstr "Veličina"
 
 msgid "Sorry, adding orders manually is currently not implemented"
 msgstr "Izvinite, ručno dodavanje narudžbina nije trenutno implementirano"
@@ -918,7 +949,7 @@ msgid "Stock level"
 msgstr "Stanje zaliha"
 
 msgid "Street"
-msgstr ""
+msgstr "Ulica"
 
 msgid "Street (required)"
 msgstr ""
@@ -931,7 +962,8 @@ msgstr "Dobavljač"
 
 #. : Supplier address item panel title with supplier name ({0}) and site code
 #. ({1)}
-#. : Supplier address item panel title with supplier name ({0}) and site code ({1)}
+#. : Supplier address item panel title with supplier name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Supplier address: {0} ({1})"
 msgstr ""
@@ -992,10 +1024,15 @@ msgstr "Tekst: {0} ({1})"
 msgid "Texts"
 msgstr ""
 
-msgid "The file with the exported texts will be available within a few minutes. It can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
+msgid ""
+"The file with the exported texts will be available within a few minutes. It "
+"can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
 msgstr "The file with the exported texts will be available within a few minutes. It can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
 
-msgid "The texts of your uploaded file will be imported within a few minutes. You can check the status of the import in the \"Job\" panel of the \"Overview\" tab"
+msgid ""
+"The texts of your uploaded file will be imported within a few minutes. You "
+"can check the status of the import in the \"Job\" panel of the \"Overview\" "
+"tab"
 msgstr "The texts of your uploaded file will be imported within a few minutes. You can check the status of the import in the \"Job\" panel of the \"Overview\" tab"
 
 msgid "This combination already exists"
@@ -1063,7 +1100,8 @@ msgstr "Magacin"
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
-#. : Product warehouse item panel title with warehouse label ({0}) and site code ({1)}
+#. : Product warehouse item panel title with warehouse label ({0}) and site
+#. code ({1)}
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
 msgstr "Magacin: {0} ({1})"
@@ -1078,7 +1116,7 @@ msgid "Weight"
 msgstr ""
 
 msgid "Width"
-msgstr ""
+msgstr "Širina"
 
 msgid "YYYY-MM-DD (optional)"
 msgstr ""
@@ -1089,7 +1127,9 @@ msgstr "YYYY-MM-DD hh:mm:ss (optional)"
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "Obrisaćete jednu ili više stavki. Dali želite da nastavite?"
 
-msgid "You are going to flush the complete cache for the current site. Would you like to proceed?"
+msgid ""
+"You are going to flush the complete cache for the current site. Would you "
+"like to proceed?"
 msgstr "Upravo ćete obrisati sav keš trenutnog sajta. Dali želite da nastavite?"
 
 msgid "Zip code"

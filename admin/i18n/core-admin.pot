@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 11:04+0200\n"
+"POT-Creation-Date: 2016-07-03 16:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. / price format with value (%1$s) and currency (%2$s)
+#, php-format
+msgid "%1$s %2$s"
+msgstr ""
 
 msgid "Actual current price"
 msgstr "Actual current price"
@@ -298,6 +303,9 @@ msgstr "Delivery date"
 msgid "Delivery status"
 msgstr "Delivery status"
 
+msgid "Delivery types"
+msgstr ""
+
 msgid "Details"
 msgstr "Details"
 
@@ -462,6 +470,9 @@ msgstr "Last name (required)"
 msgid "Lastname"
 msgstr "Lastname"
 
+msgid "Latest orders"
+msgstr ""
+
 msgid "Length"
 msgstr ""
 
@@ -616,6 +627,15 @@ msgstr "Order item details"
 msgid "Order product ID"
 msgstr "Order product ID"
 
+msgid "Orders by day"
+msgstr ""
+
+msgid "Orders by hour"
+msgstr ""
+
+msgid "Orders by payment status"
+msgstr ""
+
 msgid "Overview"
 msgstr "Overview"
 
@@ -640,6 +660,9 @@ msgstr "Payment date"
 
 msgid "Payment status"
 msgstr "Payment status"
+
+msgid "Payment types"
+msgstr ""
 
 msgid "Physical values"
 msgstr ""

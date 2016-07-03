@@ -3,44 +3,44 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Metal <meteoramic@yahoo.com>, 2015
+# Tomas G <tomas.gmitro@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2016-06-07 09:37+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>\n"
-"Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
+"PO-Revision-Date: 2016-06-10 10:47+0000\n"
+"Last-Translator: Tomas G <tomas.gmitro@gmail.com>\n"
+"Language-Team: Slovak (http://www.transifex.com/aimeos/aimeos-core/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "!="
-msgstr "eşit olmayanlar"
+msgstr "nerovná"
 
 msgid "<"
-msgstr "önce"
+msgstr "pred"
 
 msgid "<="
-msgstr "önce (dahil)"
+msgstr "pred (vrátane)"
 
 msgid "=="
-msgstr "eşit olanlar"
+msgstr "rovná"
 
 msgid "=~"
-msgstr "ile başlayan"
+msgstr "začína s"
 
 msgid ">"
-msgstr "sonra"
+msgstr "po"
 
 msgid ">="
-msgstr "sonra (dahil)"
+msgstr "po (vŕatane)"
 
 msgid "Search"
-msgstr "Ara"
+msgstr "Hľadať"
 
 msgid "~="
-msgstr "içeren"
+msgstr "obsahuje"

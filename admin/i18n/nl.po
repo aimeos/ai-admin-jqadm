@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Boyd Lamers <boyd.lamers@webits.nl>, 2015
 # Bram Verhaegh <bram@beech.it>, 2015
@@ -12,15 +12,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-27 11:04+0200\n"
-"PO-Revision-Date: 2016-04-21 21:17+0000\n"
+"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"PO-Revision-Date: 2016-07-03 15:10+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. / price format with value (%1$s) and currency (%2$s)
+#, php-format
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
 
 msgid "Actual current price"
 msgstr "Huidige prijs"
@@ -99,7 +104,7 @@ msgid "Attribute: {0} ({1})"
 msgstr "Eigenschap: {0} ({1})"
 
 msgid "Attributes"
-msgstr ""
+msgstr "Attributen"
 
 msgid "Available attributes"
 msgstr "Beschikbare kenmerken"
@@ -161,10 +166,10 @@ msgid "Catalog: {0} ({1})"
 msgstr "Catalogus: {0} ({1})"
 
 msgid "Categories"
-msgstr ""
+msgstr "Categorieën"
 
 msgid "Characteristics"
-msgstr ""
+msgstr "Karakteristieken"
 
 msgid "City"
 msgstr "Stad"
@@ -179,7 +184,7 @@ msgid "Click to upload"
 msgstr "Klik om te uploaden"
 
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 msgid "Code"
 msgstr "Code"
@@ -212,7 +217,7 @@ msgid "Costs"
 msgstr "Kosten"
 
 msgid "Costs per item"
-msgstr ""
+msgstr "Kosten per item"
 
 msgid "Could not upload file. Please notify your administrator"
 msgstr "Kon het bestand niet uploaden, contacteer de beheerder"
@@ -262,14 +267,16 @@ msgstr "Klant"
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer address item panel title with customer name ({0}) and site code ({1)}
+#. : Customer address item panel title with customer name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Customer address: {0} ({1})"
 msgstr "Klant adres: {0} ({1})"
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer group item panel title with customer name ({0}) and site code ({1)}
+#. : Customer group item panel title with customer name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Customer group: {0} ({1})"
 msgstr "Klant groep: {0} ({1})"
@@ -302,6 +309,9 @@ msgstr "Bezorg datum"
 
 msgid "Delivery status"
 msgstr "Bezorg status"
+
+msgid "Delivery types"
+msgstr ""
 
 msgid "Details"
 msgstr "Details"
@@ -364,7 +374,7 @@ msgid "File URL"
 msgstr "Bestands URL"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 msgid "First"
 msgstr ""
@@ -467,8 +477,11 @@ msgstr "Achternaam (verplicht)"
 msgid "Lastname"
 msgstr "Achternaam"
 
-msgid "Length"
+msgid "Latest orders"
 msgstr ""
+
+msgid "Length"
+msgstr "Lengte"
 
 msgid "List"
 msgstr "Lijst"
@@ -511,7 +524,8 @@ msgstr "Locale"
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
-#. : Locale currency item panel title with currency label ({0}) and currency code ({1)}
+#. : Locale currency item panel title with currency label ({0}) and currency
+#. code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
 msgstr "Lokale valuta: {0} ({1})"
@@ -523,7 +537,8 @@ msgstr "Locale item details ({1})"
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
-#. : Locale language item panel title with language label ({0}) and language code ({1)}
+#. : Locale language item panel title with language label ({0}) and language
+#. code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
 msgstr "Lokale taal: {0} ({1})"
@@ -595,7 +610,7 @@ msgid "Name of the service provider class (required)"
 msgstr "Naam van de service provider class (verplicht)"
 
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 msgid "No error information available"
 msgstr "Geen fout informatie beschikaar"
@@ -610,7 +625,7 @@ msgid "Notice"
 msgstr "Notificatie"
 
 msgid "Option"
-msgstr ""
+msgstr "Optie"
 
 msgid "Order"
 msgstr "Aankoop"
@@ -621,12 +636,21 @@ msgstr "Aankoop item details"
 msgid "Order product ID"
 msgstr "Order product ID"
 
+msgid "Orders by day"
+msgstr ""
+
+msgid "Orders by hour"
+msgstr ""
+
+msgid "Orders by payment status"
+msgstr ""
+
 msgid "Overview"
 msgstr "Overzicht"
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Pagina %1$d van %2$d"
 
 msgid "Parameter"
 msgstr "Parameter"
@@ -646,6 +670,9 @@ msgstr "Betaaldatum"
 msgid "Payment status"
 msgstr "Betaalstatus"
 
+msgid "Payment types"
+msgstr ""
+
 msgid "Physical values"
 msgstr ""
 
@@ -655,7 +682,9 @@ msgstr "Controleer uw data nogmaals"
 msgid "Please save the coupon first before you can add codes"
 msgstr "Sla de coupon eerst op voordat je een code toe kunt voegen"
 
-msgid "Please select an item on the right side and add it via drag and drop to this list."
+msgid ""
+"Please select an item on the right side and add it via drag and drop to this"
+" list."
 msgstr "Selecteer alstublieft een item aan de rechterzijde en voeg het hier toe door het te slepen en los te laten."
 
 msgid "Plugin"
@@ -687,7 +716,7 @@ msgid "Preview URL"
 msgstr "Voorbeeld URL"
 
 msgid "Previous"
-msgstr ""
+msgstr "Vorige"
 
 msgid "Price"
 msgstr "Prijs"
@@ -741,8 +770,10 @@ msgstr "Product prijs"
 msgid "Product property type"
 msgstr ""
 
-#. : Product property.type item panel title with type label ({0}) and site code ({1)}
-#. : Product property type item panel title with type label ({0}) and site code ({1)}
+#. : Product property.type item panel title with type label ({0}) and site
+#. code ({1)}
+#. : Product property type item panel title with type label ({0}) and site
+#. code ({1)}
 #, python-brace-format
 msgid "Product property type: {0} ({1})"
 msgstr ""
@@ -757,12 +788,12 @@ msgid "Product stock"
 msgstr "Product voorraad"
 
 msgid "Product supplier (optional)"
-msgstr ""
+msgstr "Product leverancier (optioneel)"
 
 #. : Product tag item panel title with product label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
-msgstr ""
+msgstr "Product tag: {0} ({1})"
 
 msgid "Product tax rate"
 msgstr "Product BTW"
@@ -848,7 +879,7 @@ msgid "Schema {0} is  not registered"
 msgstr "Schema {0} is niet geregistreerd"
 
 msgid "Search"
-msgstr ""
+msgstr "Zoeken"
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
@@ -867,7 +898,7 @@ msgid "Service ID"
 msgstr "Dienst ID"
 
 msgid "Service fees"
-msgstr ""
+msgstr "Service kosten"
 
 msgid "Service item details"
 msgstr "Service item details"
@@ -898,7 +929,7 @@ msgid "Site"
 msgstr "Site"
 
 msgid "Size"
-msgstr ""
+msgstr "Grootte"
 
 msgid "Sorry, adding orders manually is currently not implemented"
 msgstr "Sorry, handmatig orders toevoegen is momenteel nog niet mogelijk."
@@ -935,7 +966,8 @@ msgstr "Leverancier"
 
 #. : Supplier address item panel title with supplier name ({0}) and site code
 #. ({1)}
-#. : Supplier address item panel title with supplier name ({0}) and site code ({1)}
+#. : Supplier address item panel title with supplier name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Supplier address: {0} ({1})"
 msgstr "Leverancier adres: {0} ({1})"
@@ -996,10 +1028,15 @@ msgstr "Tekst: {0} ({1})"
 msgid "Texts"
 msgstr ""
 
-msgid "The file with the exported texts will be available within a few minutes. It can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
+msgid ""
+"The file with the exported texts will be available within a few minutes. It "
+"can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
 msgstr "Het bestand met de geexporteerde teksten zal binnen enkele minuten beschikbaar zijn. Deze kan dan gedownload worden in het \"Job\" panel in het tab \"Overzicht\"."
 
-msgid "The texts of your uploaded file will be imported within a few minutes. You can check the status of the import in the \"Job\" panel of the \"Overview\" tab"
+msgid ""
+"The texts of your uploaded file will be imported within a few minutes. You "
+"can check the status of the import in the \"Job\" panel of the \"Overview\" "
+"tab"
 msgstr "De teksten uit uw geuploade bestand zullen binnen enkele minuten worden toegevoegd. U kunt de status van de toevoeging vinden in het \"Job\" paneel van de \"Overview\" tab."
 
 msgid "This combination already exists"
@@ -1067,7 +1104,8 @@ msgstr "Magazijn"
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
-#. : Product warehouse item panel title with warehouse label ({0}) and site code ({1)}
+#. : Product warehouse item panel title with warehouse label ({0}) and site
+#. code ({1)}
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
 msgstr "Magazijn: {0} ({1})"
@@ -1082,7 +1120,7 @@ msgid "Weight"
 msgstr ""
 
 msgid "Width"
-msgstr ""
+msgstr "Breedte"
 
 msgid "YYYY-MM-DD (optional)"
 msgstr "DD-MM-YYYY (optioneel)"
@@ -1093,7 +1131,9 @@ msgstr "DD-MM-YYYY hh:mm:ss (optioneel)"
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "Er zullen meerdere items verwijderd worden. Doorgaan?"
 
-msgid "You are going to flush the complete cache for the current site. Would you like to proceed?"
+msgid ""
+"You are going to flush the complete cache for the current site. Would you "
+"like to proceed?"
 msgstr "De gehele cache zal worden geleegd. Doorgaan?"
 
 msgid "Zip code"
