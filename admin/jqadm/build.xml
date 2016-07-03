@@ -21,7 +21,7 @@
 		<exec command="${bindir}phpcs -n --standard=${codestddir}/Metaways src tests/Admin"
 			  checkreturn="true" logoutput="true"/>
 		<echo msg="Executing Javascript Linter" />
-		<jsllint haltonfailure="true" haltonwarning="false" showwarnings="false">
+		<jsllint haltonfailure="true" haltonwarning="false" showwarnings="true">
 			<fileset dir=".">
 				<include name="themes/*.js"/>
 			</fileset>
