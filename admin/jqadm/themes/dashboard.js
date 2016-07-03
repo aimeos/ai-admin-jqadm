@@ -120,7 +120,7 @@ Aimeos.Dashboard.Order = {
             ["M","W","F"].forEach(function(day, i) {
                 svg.append("text")
                     .attr("transform", "translate(7.5," + ((cellWidth - 1) * (i + 1) * 2) + ")")
-                    .attr("class", "legend-wday")
+                    .attr("class", "y axis")
                     .text(day);
             });
 
@@ -130,7 +130,7 @@ Aimeos.Dashboard.Order = {
                 .data(d3.time.month.utc.range(firstdate, new Date()))
                 .enter().append("text")
                     .text(function (d) { var num = d.getMonth() + 1; return (num < 10 ? "0" + num : num); })
-                    .attr("class", "legend-month")
+                    .attr("class", "x axis")
                     .attr("y", -10)
                     .attr("x", function (d) {
                         var idx = dateNumbers.indexOf(+d);

@@ -24,23 +24,26 @@
     background-size: 128px;
 }
 
-.dashboard .axis path,
-.dashboard .axis line {
+
+/* Common SVG diagram styles */
+
+.dashboard .axis {
+    fill: #808080;
+    text-anchor: middle;
+}
+
+.dashboard .axis line,
+.dashboard .axis path {
     fill: none;
     stroke: #A0A0A0;
     shape-rendering: crispEdges;
 }
 
-.dashboard .order-day text {
-    fill: #808080;
-}
+
+/* Order per day diagram styles */
 
 .dashboard .order-day .day {
     fill: #f8f8f8;
-}
-
-.dashboard .order-day .legend-wday {
-    text-anchor: middle;
 }
 
 .dashboard .order-day .path-month {
@@ -60,13 +63,58 @@
 .dashboard .order-day .q8 { fill: #006837; }
 .dashboard .order-day .q9 { fill: #004529; }
 
+
+/* Order per hour diagram styles */
+
 .dashboard .order-hour .bar {
     fill: #1f77b4;
 }
 
+
+/* Latest order list styles */
+
 .dashboard .order-latest td {
     border-top: none;
 }
+
+.dashboard .order-latest .order-id,
+.dashboard .order-latest .order-base-price,
+.dashboard .order-latest .order-statuspayment {
+    text-align: right;
+}
+
+.dashboard .order-latest .order-base-address-name,
+.dashboard .order-latest .order-base-service-payment {
+    text-align: left;
+}
+
+.dashboard .order-latest .order-statuspayment,
+.dashboard .order-latest .order-base-price {
+    font-weight: bold;
+}
+
+.dashboard .order-latest .order-base-service-payment:before {
+    content: "(";
+}
+
+.dashboard .order-latest .order-base-service-payment:after {
+    content: ")";
+}
+
+@media (max-width: 500px) {
+    .dashboard .order-latest .order-base-service-payment {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .dashboard .order-latest .order-base-address-name {
+        display: none;
+    }
+}
+
+
+/* Order per payment status diagram styles */
 
 .dashboard #order-paymentstatus-data {
     position: relative;
