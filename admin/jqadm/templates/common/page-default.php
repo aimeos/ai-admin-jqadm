@@ -8,6 +8,7 @@
 $enc = $this->encoder();
 
 $target = $this->request()->getTarget();
+$searchTarget = $this->config( 'admin/jqadm/url/search/target' );
 $cntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $config = $this->config( 'admin/jqadm/url/search/config', array() );
@@ -71,7 +72,7 @@ $params['id'] = $this->param( 'id', '' );
 						<div class="dropdown-menu">
 <?php foreach( $resourceList as $code ) : ?>
 							<a class="dropdown-item"
-								href="<?php echo $enc->attr( $this->url( $target, $cntl, $action, array( 'resource' => $code ) + $params, array(), $config ) ); ?>">
+								href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, array(), $config ) ); ?>">
 								<?php echo $enc->html( $this->translate( 'admin', $code ) ); ?>
 							</a>
 <?php endforeach; ?>
