@@ -159,7 +159,7 @@ Aimeos.Dashboard.Order = {
 
                         result = "M" + ((w0 + 1) * cellWidth - 1) + "," + d0 * cellWidth
                             + "H" + (w0 * cellWidth - 1) + "V" + (7 * cellWidth - 1)
-                            + "H" + (w1 * cellWidth - 1) + "V" + ((d1 + 1) * cellWidth - 1)
+                            + "H" + (w1 * cellWidth - 1) + "V" + ((d1 + 1) * cellWidth)
                             + "H" + ((w1 + 1) * cellWidth - 1) + "V" + 0
                             + "H" + ((w0 + 1) * cellWidth -1) + "Z";
 
