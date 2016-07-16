@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"POT-Creation-Date: 2016-07-16 23:14+0200\n"
 "PO-Revision-Date: 2015-09-29 12:26+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
@@ -1117,6 +1117,9 @@ msgstr ""
 msgid "Zip code"
 msgstr ""
 
+msgid "dashboard"
+msgstr "Dashboard"
+
 msgid "new"
 msgstr ""
 
@@ -1143,6 +1146,9 @@ msgstr ""
 
 msgid "pay:unfinished"
 msgstr ""
+
+msgid "product"
+msgstr "Product"
 
 msgid "stat:deleted"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"POT-Creation-Date: 2016-07-16 23:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1117,6 +1117,9 @@ msgstr "You are going to flush the complete cache for the current site. Would yo
 msgid "Zip code"
 msgstr "Zip code"
 
+msgid "dashboard"
+msgstr "Dashboard"
+
 msgid "new"
 msgstr "new"
 
@@ -1143,6 +1146,9 @@ msgstr "pay:refused"
 
 msgid "pay:unfinished"
 msgstr "pay:unfinished"
+
+msgid "product"
+msgstr "Product"
 
 msgid "stat:deleted"
 msgstr "stat:deleted"
@@ -1188,9 +1194,3 @@ msgstr "unknown"
 
 msgid "yy-mm-dd"
 msgstr ""
-
-msgid "dashboard"
-msgstr "Dashboard"
-
-msgid "product"
-msgstr "Product"

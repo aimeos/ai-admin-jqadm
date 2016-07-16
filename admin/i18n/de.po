@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"POT-Creation-Date: 2016-07-16 23:14+0200\n"
 "PO-Revision-Date: 2016-07-03 15:30+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
@@ -1137,6 +1137,9 @@ msgstr "Der gesamte Cache für den aktuellen Mandanten wird gelöscht. Möchten 
 msgid "Zip code"
 msgstr "Postleitzahl"
 
+msgid "dashboard"
+msgstr "Übersicht"
+
 msgid "new"
 msgstr "neu"
 
@@ -1163,6 +1166,9 @@ msgstr "Abgelehnt"
 
 msgid "pay:unfinished"
 msgstr "Noch offen"
+
+msgid "product"
+msgstr "Produkt"
 
 msgid "stat:deleted"
 msgstr "Gelöscht"
@@ -1208,9 +1214,3 @@ msgstr "Unbekannt"
 
 msgid "yy-mm-dd"
 msgstr "yy-mm-dd"
-
-msgid "dashboard"
-msgstr "Übersicht"
-
-msgid "product"
-msgstr "Produkt"
