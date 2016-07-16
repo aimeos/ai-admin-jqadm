@@ -53,11 +53,25 @@ Aimeos.Dashboard.Order = {
 
     init : function() {
 
-        this.chartPaymentStatus();
-        this.chartHour();
-        this.chartPaymentType();
-        this.chartDeliveryType();
-        this.chartDay();
+        if( $(".order-paymentstatus").length ) {
+            this.chartPaymentStatus();
+        }
+
+        if( $(".order-hour").length ) {
+            this.chartHour();
+        }
+
+        if( $(".order-day").length ) {
+            this.chartDay();
+        }
+
+        if( $(".order-paymenttype").length ) {
+            this.chartPaymentType();
+        }
+
+        if( $(".order-deliverytype").length ) {
+            this.chartDeliveryType();
+        }
     },
 
 
@@ -159,7 +173,7 @@ Aimeos.Dashboard.Order = {
 
                         result = "M" + ((w0 + 1) * cellWidth - 1) + "," + d0 * cellWidth
                             + "H" + (w0 * cellWidth - 1) + "V" + (7 * cellWidth - 1)
-                            + "H" + (w1 * cellWidth - 1) + "V" + ((d1 + 1) * cellWidth)
+                            + "H" + (w1 * cellWidth - 1) + "V" + ((d1 + 1) * cellWidth - 1)
                             + "H" + ((w1 + 1) * cellWidth - 1) + "V" + 0
                             + "H" + ((w0 + 1) * cellWidth -1) + "Z";
 

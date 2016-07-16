@@ -67,7 +67,7 @@ $params['id'] = $this->param( 'id', '' );
 				<li class="nav-item resource">
 					<div class="btn-group">
 						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?php echo $enc->attr( $this->translate( 'admin', $this->param( 'resource' ) ) ); ?>
+							<?php echo $enc->attr( $this->translate( 'admin', $params['resource'] ) ); ?>
 						</button>
 						<div class="dropdown-menu">
 <?php foreach( $resourceList as $code ) : ?>

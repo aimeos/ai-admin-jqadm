@@ -71,7 +71,7 @@ html {
 }
 
 .aimeos .navbar-brand img {
-	max-height: 30px;
+	height: 30px;
 }
 
 .aimeos .navbar-nav {
