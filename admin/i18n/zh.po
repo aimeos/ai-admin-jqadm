@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"POT-Creation-Date: 2016-07-16 23:14+0200\n"
 "PO-Revision-Date: 2016-07-03 15:28+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -1136,6 +1136,9 @@ msgstr "你將要清除整個當前分站的所有快取, 確定嗎？"
 msgid "Zip code"
 msgstr "Zip code"
 
+msgid "dashboard"
+msgstr ""
+
 msgid "new"
 msgstr "新"
 
@@ -1162,6 +1165,9 @@ msgstr "支付：被拒絕"
 
 msgid "pay:unfinished"
 msgstr "支付：未完成"
+
+msgid "product"
+msgstr "商品"
 
 msgid "stat:deleted"
 msgstr "狀態：被刪除"
@@ -1207,9 +1213,3 @@ msgstr "未知"
 
 msgid "yy-mm-dd"
 msgstr "yy-mm-dd"
-
-msgid "dashboard"
-msgstr ""
-
-msgid "product"
-msgstr "商品"

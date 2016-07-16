@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"POT-Creation-Date: 2016-07-16 23:14+0200\n"
 "PO-Revision-Date: 2016-07-03 15:41+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/aimeos/aimeos-core/language/sk/)\n"
@@ -1137,6 +1137,9 @@ msgstr "Chystáte sa vyčistiť celý cache pre stránku. Chcete pokračovať?"
 msgid "Zip code"
 msgstr "Kód PSČ"
 
+msgid "dashboard"
+msgstr ""
+
 msgid "new"
 msgstr "nové"
 
@@ -1163,6 +1166,9 @@ msgstr "pay:refused"
 
 msgid "pay:unfinished"
 msgstr "pay:unfinished"
+
+msgid "product"
+msgstr "Produkt"
 
 msgid "stat:deleted"
 msgstr "stat:deleted"
@@ -1208,9 +1214,3 @@ msgstr "neznáme"
 
 msgid "yy-mm-dd"
 msgstr "d. m. YYYY"
-
-msgid "dashboard"
-msgstr ""
-
-msgid "product"
-msgstr "Produkt"

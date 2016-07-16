@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"POT-Creation-Date: 2016-07-16 23:14+0200\n"
 "PO-Revision-Date: 2016-07-03 15:28+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
@@ -1136,6 +1136,9 @@ msgstr "Вие сте на път напълно да изчистите кеш�
 msgid "Zip code"
 msgstr "Пощенски код"
 
+msgid "dashboard"
+msgstr ""
+
 msgid "new"
 msgstr "нов"
 
@@ -1162,6 +1165,9 @@ msgstr "плащане:отказано"
 
 msgid "pay:unfinished"
 msgstr "плащане:незавършено"
+
+msgid "product"
+msgstr "Продукт"
 
 msgid "stat:deleted"
 msgstr "стат:изтрит"
@@ -1207,9 +1213,3 @@ msgstr "неизвестен"
 
 msgid "yy-mm-dd"
 msgstr "година-месец-ден"
-
-msgid "dashboard"
-msgstr ""
-
-msgid "product"
-msgstr "Продукт"

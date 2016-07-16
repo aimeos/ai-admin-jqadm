@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-03 16:55+0200\n"
+"POT-Creation-Date: 2016-07-16 23:14+0200\n"
 "PO-Revision-Date: 2016-07-03 15:28+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
@@ -1135,6 +1135,9 @@ msgstr "Mevcut site için komple önbelleği temizleyeceksiniz. Devam etmek isti
 msgid "Zip code"
 msgstr "Posta kodu"
 
+msgid "dashboard"
+msgstr ""
+
 msgid "new"
 msgstr "yeni"
 
@@ -1161,6 +1164,9 @@ msgstr "Reddedildi"
 
 msgid "pay:unfinished"
 msgstr "Tamamlanmadı"
+
+msgid "product"
+msgstr "Ürün"
 
 msgid "stat:deleted"
 msgstr "Silindi"
@@ -1206,9 +1212,3 @@ msgstr "meçhul"
 
 msgid "yy-mm-dd"
 msgstr "yy-aa-gg"
-
-msgid "dashboard"
-msgstr ""
-
-msgid "product"
-msgstr "Ürün"
