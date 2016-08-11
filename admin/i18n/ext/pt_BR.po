@@ -3,44 +3,44 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Metal <meteoramic@yahoo.com>, 2015
+# Tadeu Pagliarini <tadeu_up@hotmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2016-06-07 09:37+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>\n"
-"Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
+"PO-Revision-Date: 2016-08-10 16:31+0000\n"
+"Last-Translator: Bruno Rodrigues <brunojti@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "!="
-msgstr "eşit olmayanlar"
+msgstr "não iguais"
 
 msgid "<"
-msgstr "önce"
+msgstr "antes"
 
 msgid "<="
-msgstr "önce (dahil)"
+msgstr "antes (incl.)"
 
 msgid "=="
-msgstr "eşit olanlar"
+msgstr "igual"
 
 msgid "=~"
-msgstr "ile başlayan"
+msgstr "começa com"
 
 msgid ">"
-msgstr "sonra"
+msgstr "depois"
 
 msgid ">="
-msgstr "sonra (dahil)"
+msgstr "depois (incl.)"
 
 msgid "Search"
-msgstr "Ara"
+msgstr "Pesquisar"
 
 msgid "~="
-msgstr "içeren"
+msgstr "contém"
