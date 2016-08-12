@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-16 23:34+0200\n"
-"PO-Revision-Date: 2016-08-09 18:38+0000\n"
+"PO-Revision-Date: 2016-08-11 19:37+0000\n"
 "Last-Translator: Tadeu Pagliarini <tadeu_up@hotmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/aimeos/aimeos-core/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -24,13 +24,13 @@ msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
 
 msgid "Actual current price"
-msgstr ""
+msgstr "Preço atual"
 
 msgid "Add"
 msgstr "Adicionar"
 
 msgid "Add filter"
-msgstr "Adicional filtro"
+msgstr "Adicionar filtro"
 
 msgid "Additional"
 msgstr "Adicional"
@@ -57,7 +57,7 @@ msgid "Addresses"
 msgstr "Endereços"
 
 msgid "All"
-msgstr ""
+msgstr "Tudo"
 
 msgid "Associated attributes"
 msgstr "Atributos relacionados"
@@ -130,10 +130,10 @@ msgid "Back in stock"
 msgstr "De volta em estoque"
 
 msgid "Base ID"
-msgstr ""
+msgstr "ID da base"
 
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
 msgid "Billing address"
 msgstr "Endereço de cobrança"
@@ -216,10 +216,10 @@ msgid "Costs per item"
 msgstr "Custo por item"
 
 msgid "Could not upload file. Please notify your administrator"
-msgstr "Nã foi possível carregar o arquivo. Por favor notifique o administrador"
+msgstr "Não foi possível carregar o arquivo. Por favor notifique o administrador"
 
 msgid "Count"
-msgstr "Contar"
+msgstr "Contagem"
 
 msgid "Country"
 msgstr "País"
@@ -286,7 +286,7 @@ msgid "Date"
 msgstr "Data"
 
 msgid "Date back"
-msgstr ""
+msgstr "Data de retorno"
 
 msgid "Default"
 msgstr "Padrão"
@@ -349,10 +349,10 @@ msgid "Expert mode"
 msgstr "Modo avançado"
 
 msgid "Expires"
-msgstr ""
+msgstr "Expira"
 
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 msgid "Export successful"
 msgstr "Exportado com sucesso"
@@ -361,7 +361,7 @@ msgid "Facility"
 msgstr "Unidade"
 
 msgid "Facsimile number, e.g. +155512345"
-msgstr ""
+msgstr "Fax, ex. +1555123450"
 
 msgid "File"
 msgstr "Arquivo"
@@ -397,7 +397,7 @@ msgid "Group"
 msgstr "Grupo"
 
 msgid "Group label (required)"
-msgstr ""
+msgstr "Etiqueta do grupo (obrigatório)"
 
 msgid "Height"
 msgstr "Altura"
@@ -435,22 +435,22 @@ msgstr "Data inválida"
 
 #, python-brace-format
 msgid "Invalid value for configuration key \"{0}\""
-msgstr ""
+msgstr "Dados inválidos para chave de configuração \"{0}\""
 
 msgid "Invoice"
 msgstr "Fatura"
 
 msgid "Item position within the same type"
-msgstr ""
+msgstr "Posição do item do mesmo tipo"
 
 msgid "Job item details"
-msgstr ""
+msgstr "Detalhes do item da tarefa"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Tarefas"
 
 msgid "Label"
-msgstr ""
+msgstr "Rótulo"
 
 msgid "Language"
 msgstr "Idioma"
@@ -483,34 +483,34 @@ msgid "List"
 msgstr "Lista"
 
 msgid "List ID"
-msgstr ""
+msgstr "ID da lista"
 
 msgid "List Status"
-msgstr ""
+msgstr "Status da lista"
 
 msgid "List creation time"
-msgstr ""
+msgstr "Data de criação da lista"
 
 msgid "List editor"
-msgstr ""
+msgstr "Editor da lista"
 
 msgid "List end date"
-msgstr ""
+msgstr "Data do fim da lista"
 
 msgid "List item details"
-msgstr ""
+msgstr "Detalhes do item da lista"
 
 msgid "List modification time"
-msgstr ""
+msgstr "Data de modificação da lista"
 
 msgid "List position"
-msgstr ""
+msgstr "Posição da lista"
 
 msgid "List start date"
-msgstr ""
+msgstr "Data de início da lista"
 
 msgid "List type"
-msgstr ""
+msgstr "Tipo da lista"
 
 msgid "Loading"
 msgstr "Carregando"
@@ -524,12 +524,12 @@ msgstr "Locale"
 #. code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
-msgstr ""
+msgstr "Moeda local: {0} ({1})"
 
 #. : Locale item panel title with site code ({1)}
 #, python-brace-format
 msgid "Locale item details ({1})"
-msgstr ""
+msgstr "Detalhes do item da localidade ({1})"
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
@@ -537,12 +537,12 @@ msgstr ""
 #. code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
-msgstr ""
+msgstr "Idioma local: {0} ({1})"
 
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
-msgstr ""
+msgstr "Localização do site: {0} ({1})"
 
 msgid "Logs"
 msgstr "Registros"
@@ -573,13 +573,13 @@ msgid "Meta description"
 msgstr "Meta description"
 
 msgid "Meta keywords"
-msgstr ""
+msgstr "Meta Palavras-chave"
 
 msgid "Method"
 msgstr "Método"
 
 msgid "Mimetype"
-msgstr ""
+msgstr "Mimetype"
 
 msgid "Minimum quantity"
 msgstr "Quantidade mínima"
@@ -597,13 +597,13 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Name of the coupon provider class (required)"
-msgstr ""
+msgstr "Nome da classe provedora do cupom (obrigatório)"
 
 msgid "Name of the plugin provider class (required)"
-msgstr ""
+msgstr "Nome da classe provedora do plugin (obrigatório)"
 
 msgid "Name of the service provider class (required)"
-msgstr ""
+msgstr "Nome da classe provedora de serviço (obrigatório)"
 
 msgid "Next"
 msgstr "Próximo"
@@ -676,12 +676,12 @@ msgid "Please recheck your data"
 msgstr "Por favor, verifique seus dados"
 
 msgid "Please save the coupon first before you can add codes"
-msgstr ""
+msgstr "Por favor salve o cupom antes de adicionar códigos"
 
 msgid ""
 "Please select an item on the right side and add it via drag and drop to this"
 " list."
-msgstr ""
+msgstr "Por favor selecione um item do lado direito e arraste e solte para essa lista."
 
 msgid "Plugin"
 msgstr "Plugin"
@@ -752,7 +752,7 @@ msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr "Altura do produto, ex. 30.0 (em metros, centímetros, etc.)"
 
 msgid "Product item details"
-msgstr ""
+msgstr "Detalhes do produto"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr "Largura do produto, ex. 30.0 (em metros, centímetros, etc.)"
@@ -844,10 +844,10 @@ msgid "Rebate"
 msgstr "Desconto"
 
 msgid "Ref-ID"
-msgstr ""
+msgstr "ID de referência"
 
 msgid "Related order ID"
-msgstr ""
+msgstr "ID do pedido relacionado"
 
 msgid "Remove filter"
 msgstr "Remover filtro"
@@ -872,14 +872,14 @@ msgstr "Salvando"
 
 #, python-brace-format
 msgid "Schema {0} is  not registered"
-msgstr ""
+msgstr "Esquema {0} não está registrado"
 
 msgid "Search"
 msgstr "Pesquisar"
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
-msgstr ""
+msgstr "Esquema de pesquisa {0} não está registrado"
 
 msgid "Select Item"
 msgstr "Item selecionado"
@@ -897,7 +897,7 @@ msgid "Service fees"
 msgstr "Taxa de serviço"
 
 msgid "Service item details"
-msgstr ""
+msgstr "Detalhes do serviço"
 
 msgid "Service type"
 msgstr "Tipo de serviço"
@@ -955,7 +955,7 @@ msgid "Street (required)"
 msgstr "Rua (obrigatório)"
 
 msgid "Substracted rebate amount"
-msgstr ""
+msgstr "Montante de desconto reduzido"
 
 msgid "Supplier"
 msgstr "Fornecedor"
@@ -1027,13 +1027,13 @@ msgstr "Textos"
 msgid ""
 "The file with the exported texts will be available within a few minutes. It "
 "can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
-msgstr ""
+msgstr "O arquivo exportado estará disponível em alguns minutos. Ele pode ser baixado no painel \"Tarefas\" da aba \"Visão geral\"."
 
 msgid ""
 "The texts of your uploaded file will be imported within a few minutes. You "
 "can check the status of the import in the \"Job\" panel of the \"Overview\" "
 "tab"
-msgstr ""
+msgstr "Os textos do arquivo enviado será importado em alguns minutos. Você pode checar o status da importação no painel \"Tarefas\" da aba \"Visão geral\""
 
 msgid "This combination already exists"
 msgstr "Combinação já existente"
@@ -1084,7 +1084,7 @@ msgid "Variant attributes"
 msgstr "Atributos variáveis"
 
 msgid "Variants"
-msgstr ""
+msgstr "Variações"
 
 msgid "Vat ID"
 msgstr "CNPJ / CPF"
@@ -1196,16 +1196,16 @@ msgid "stat:unfinished"
 msgstr "estatística:inacabado"
 
 msgid "status:archive"
-msgstr ""
+msgstr "status:arquivo"
 
 msgid "status:disabled"
-msgstr "status:desativado"
+msgstr "status:desabilitado"
 
 msgid "status:enabled"
 msgstr "status:ativado"
 
 msgid "status:review"
-msgstr ""
+msgstr "status:revisão"
 
 msgid "unknown"
 msgstr "desconhecido"

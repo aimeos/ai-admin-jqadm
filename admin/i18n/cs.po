@@ -1,26 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-16 23:14+0200\n"
-"PO-Revision-Date: 2015-09-29 12:26+0000\n"
+"POT-Creation-Date: 2016-07-16 23:34+0200\n"
+"PO-Revision-Date: 2016-07-16 21:36+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. / price format with value (%1$s) and currency (%2$s)
 #, php-format
 msgid "%1$s %2$s"
-msgstr ""
+msgstr "%1$s %2$s"
 
 msgid "Actual current price"
 msgstr ""
@@ -212,7 +212,7 @@ msgid "Costs"
 msgstr ""
 
 msgid "Costs per item"
-msgstr "Costs per item"
+msgstr ""
 
 msgid "Could not upload file. Please notify your administrator"
 msgstr ""
@@ -262,14 +262,16 @@ msgstr ""
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer address item panel title with customer name ({0}) and site code ({1)}
+#. : Customer address item panel title with customer name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Customer address: {0} ({1})"
 msgstr ""
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer group item panel title with customer name ({0}) and site code ({1)}
+#. : Customer group item panel title with customer name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Customer group: {0} ({1})"
 msgstr ""
@@ -517,7 +519,8 @@ msgstr ""
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
-#. : Locale currency item panel title with currency label ({0}) and currency code ({1)}
+#. : Locale currency item panel title with currency label ({0}) and currency
+#. code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
 msgstr ""
@@ -529,7 +532,8 @@ msgstr ""
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
-#. : Locale language item panel title with language label ({0}) and language code ({1)}
+#. : Locale language item panel title with language label ({0}) and language
+#. code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
 msgstr ""
@@ -673,7 +677,9 @@ msgstr ""
 msgid "Please save the coupon first before you can add codes"
 msgstr ""
 
-msgid "Please select an item on the right side and add it via drag and drop to this list."
+msgid ""
+"Please select an item on the right side and add it via drag and drop to this"
+" list."
 msgstr ""
 
 msgid "Plugin"
@@ -759,11 +765,13 @@ msgstr ""
 msgid "Product property type"
 msgstr ""
 
-#. : Product property.type item panel title with type label ({0}) and site code ({1)}
-#. : Product property type item panel title with type label ({0}) and site code ({1)}
-#, fuzzy, python-brace-format
+#. : Product property.type item panel title with type label ({0}) and site
+#. code ({1)}
+#. : Product property type item panel title with type label ({0}) and site
+#. code ({1)}
+#, python-brace-format
 msgid "Product property type: {0} ({1})"
-msgstr "Product tag: {0} ({1})"
+msgstr ""
 
 msgid "Product quantity"
 msgstr ""
@@ -775,12 +783,12 @@ msgid "Product stock"
 msgstr ""
 
 msgid "Product supplier (optional)"
-msgstr "Product supplier (optional)"
+msgstr ""
 
 #. : Product tag item panel title with product label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
-msgstr "Product tag: {0} ({1})"
+msgstr ""
 
 msgid "Product tax rate"
 msgstr ""
@@ -953,7 +961,8 @@ msgstr ""
 
 #. : Supplier address item panel title with supplier name ({0}) and site code
 #. ({1)}
-#. : Supplier address item panel title with supplier name ({0}) and site code ({1)}
+#. : Supplier address item panel title with supplier name ({0}) and site code
+#. ({1)}
 #, python-brace-format
 msgid "Supplier address: {0} ({1})"
 msgstr ""
@@ -1014,10 +1023,15 @@ msgstr ""
 msgid "Texts"
 msgstr ""
 
-msgid "The file with the exported texts will be available within a few minutes. It can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
+msgid ""
+"The file with the exported texts will be available within a few minutes. It "
+"can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
 msgstr ""
 
-msgid "The texts of your uploaded file will be imported within a few minutes. You can check the status of the import in the \"Job\" panel of the \"Overview\" tab"
+msgid ""
+"The texts of your uploaded file will be imported within a few minutes. You "
+"can check the status of the import in the \"Job\" panel of the \"Overview\" "
+"tab"
 msgstr ""
 
 msgid "This combination already exists"
@@ -1085,7 +1099,8 @@ msgstr ""
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
-#. : Product warehouse item panel title with warehouse label ({0}) and site code ({1)}
+#. : Product warehouse item panel title with warehouse label ({0}) and site
+#. code ({1)}
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
 msgstr ""
@@ -1111,14 +1126,16 @@ msgstr ""
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr ""
 
-msgid "You are going to flush the complete cache for the current site. Would you like to proceed?"
+msgid ""
+"You are going to flush the complete cache for the current site. Would you "
+"like to proceed?"
 msgstr ""
 
 msgid "Zip code"
 msgstr ""
 
 msgid "dashboard"
-msgstr "Dashboard"
+msgstr ""
 
 msgid "new"
 msgstr ""
@@ -1148,7 +1165,7 @@ msgid "pay:unfinished"
 msgstr ""
 
 msgid "product"
-msgstr "Product"
+msgstr ""
 
 msgid "stat:deleted"
 msgstr ""
@@ -1194,7 +1211,3 @@ msgstr ""
 
 msgid "yy-mm-dd"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Product property.type: {0} ({1})"
-#~ msgstr "Product tag: {0} ({1})"
