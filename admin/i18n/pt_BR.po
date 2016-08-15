@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-16 23:34+0200\n"
-"PO-Revision-Date: 2016-08-10 17:23+0000\n"
+"PO-Revision-Date: 2016-08-15 11:17+0000\n"
 "Last-Translator: Bruno Rodrigues <brunojti@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. / price format with value (%1$s) and currency (%2$s)
 #, php-format
 msgid "%1$s %2$s"
-msgstr "%1$s %2$s"
+msgstr "%2$s %1$s"
 
 msgid "Actual current price"
 msgstr "Preço atual"
@@ -355,7 +355,7 @@ msgid "Export"
 msgstr "Exportar"
 
 msgid "Export successful"
-msgstr "Exportado com sucess"
+msgstr "Exportado com sucesso"
 
 msgid "Facility"
 msgstr "Unidade"
@@ -615,7 +615,7 @@ msgid "No items"
 msgstr "Nenhum item"
 
 msgid "Not implemented"
-msgstr "Não implementad"
+msgstr "Não implementado"
 
 msgid "Notice"
 msgstr "Aviso"
@@ -639,7 +639,7 @@ msgid "Orders by hour"
 msgstr "Pedidos por hora"
 
 msgid "Orders by payment status"
-msgstr "Pedidos por status de pagament"
+msgstr "Pedidos por status de pagamento"
 
 msgid "Overview"
 msgstr "Visão geral"
@@ -667,7 +667,7 @@ msgid "Payment status"
 msgstr "Status do pagamento"
 
 msgid "Payment types"
-msgstr "Tipos de pagament"
+msgstr "Tipos de pagamento"
 
 msgid "Physical values"
 msgstr "Valores físicos"
@@ -1142,58 +1142,58 @@ msgid "new"
 msgstr "novo"
 
 msgid "pay:authorized"
-msgstr "pagamento:autorizado"
+msgstr "Pagamento autorizado"
 
 msgid "pay:canceled"
-msgstr "pagamento:cancelado"
+msgstr "Pagamento cancelado"
 
 msgid "pay:deleted"
-msgstr "pagamento:removido"
+msgstr "Pagamento removido"
 
 msgid "pay:pending"
-msgstr "pagamento:pendente"
+msgstr "Pagamento pendente"
 
 msgid "pay:received"
-msgstr "pagamento:recebido"
+msgstr "Pagamento recebido"
 
 msgid "pay:refund"
-msgstr "pagamento:reembolso"
+msgstr "Reembolso"
 
 msgid "pay:refused"
-msgstr "pagamento:recusado"
+msgstr "Pagamento recusado"
 
 msgid "pay:unfinished"
-msgstr "pagamento:não-finalizado"
+msgstr "Pagamento não finalizado"
 
 msgid "product"
 msgstr "Produto"
 
 msgid "stat:deleted"
-msgstr "estatística:removido"
+msgstr "Removido"
 
 msgid "stat:delivered"
-msgstr "estatística:entregue"
+msgstr "Entregue"
 
 msgid "stat:dispatched"
-msgstr "estatística:enviado"
+msgstr "Enviado"
 
 msgid "stat:lost"
-msgstr "estatística:perdido"
+msgstr "Perdido"
 
 msgid "stat:pending"
-msgstr "estatística:pendente"
+msgstr "Pendente"
 
 msgid "stat:progress"
-msgstr "estatística:progresso"
+msgstr "Em progresso"
 
 msgid "stat:refused"
-msgstr "estatística:recusado"
+msgstr "Recusado"
 
 msgid "stat:returned"
-msgstr "estatística:devolvido"
+msgstr "Devolvido"
 
 msgid "stat:unfinished"
-msgstr "estatística:não-finalizado"
+msgstr "Não finalizado"
 
 msgid "status:archive"
 msgstr "status:arquivo"
