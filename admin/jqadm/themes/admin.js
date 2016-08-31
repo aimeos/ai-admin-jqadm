@@ -852,10 +852,14 @@ Aimeos.Product.Item.Price = {
 	copyBlock : function() {
 
 		$(".product-item-price").on("click", ".header .fa-files-o", function(ev) {
+			ev.stopPropagation();
+
 			var number = Math.floor((Math.random() * 1000));
 			var block = $(this).parents(".group-item");
 			var clone = block.clone();
 
+			$(".card-block", clone).addClass("in");
+			$(".card-block", clone).attr("style", "");
 			$(".card-block", clone).attr("id", "product-item-price-group-data-" + number);
 			$(".card-header", clone).attr("id", "product-item-price-group-item-" + number);
 			$(".card-header", clone).attr("data-target", "product-item-price-group-data-" + number);
@@ -936,13 +940,18 @@ Aimeos.Product.Item.Selection = {
 	copyBlock : function() {
 
 		$(".product-item-selection").on("click", ".header .fa-files-o", function(ev) {
+			ev.stopPropagation();
+
 			var number = Math.floor((Math.random() * 1000));
 			var block = $(this).parents(".group-item");
 			var clone = block.clone();
 
+			$(".card-block", clone).addClass("in");
+			$(".card-block", clone).attr("style", "");
 			$(".card-block", clone).attr("id", "product-item-selection-group-data-" + number);
 			$(".card-header", clone).attr("id", "product-item-selection-group-item-" + number);
 			$(".card-header", clone).attr("data-target", "product-item-selection-group-data-" + number);
+			$(".card-header", clone).attr("aria-controls", "product-item-selection-group-data-" + number);
 
 			clone.insertAfter(block);
 			$(".ai-combobox", clone).remove();
@@ -1074,9 +1083,13 @@ Aimeos.Product.Item.Text = {
 	addBlock : function() {
 
 		$(".product-item-text").on("click", ".header .fa-plus", function(ev) {
+			ev.stopPropagation();
+
 			var number = Math.floor((Math.random() * 1000));
 			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
 
+			$(".card-block", clone).addClass("in");
+			$(".card-block", clone).attr("style", "");
 			$(".card-block", clone).attr("id", "product-item-text-group-data-" + number);
 			$(".card-header", clone).attr("id", "product-item-text-group-item-" + number);
 			$(".card-header", clone).attr("data-target", "#product-item-text-group-data-" + number);
