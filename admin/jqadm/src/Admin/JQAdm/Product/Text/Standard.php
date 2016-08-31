@@ -427,7 +427,7 @@ class Standard
 
 		foreach( $listItems as $id => $listItem )
 		{
-			if( in_array( $listItem->getType(), $this->typelist ) ) {
+			if( in_array( $listItem->getRefItem()->getType(), $this->typelist ) ) {
 				$allListIds[] = $id;
 			}
 		}

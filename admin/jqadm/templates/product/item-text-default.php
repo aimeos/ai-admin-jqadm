@@ -110,25 +110,25 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-lg-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Product name' ) ); ?></label>
 							<div class="col-lg-9">
-								<input class="item-name-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'name', 'listid', '' ) ) ); ?>" value="" />
+								<input class="item-name-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'name', 'listid', '' ) ) ); ?>" value="" disabled="disabled" />
 								<input class="form-control item-name-content" type="text" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'name', 'content', '' ) ) ); ?>"
-									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Product name' ) ); ?>" value="" />
+									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Product name' ) ); ?>" value="" disabled="disabled" />
 							</div>
 						</div>
 						<div class="form-group row optional">
 							<label class="col-lg-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Short description' ) ); ?></label>
 							<div class="col-lg-9">
-								<input class="item-short-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'short', 'listid', '' ) ) ); ?>" value="" />
+								<input class="item-short-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'short', 'listid', '' ) ) ); ?>" value="" disabled="disabled" />
 								<textarea class="form-control item-short-content" rows="2" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'short', 'content', '' ) ) ); ?>"
-									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Short description' ) ); ?>" ></textarea>
+									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Short description' ) ); ?>" disabled="disabled" ></textarea>
 							</div>
 						</div>
 						<div class="form-group row optional">
 							<label class="col-lg-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Long description' ) ); ?></label>
 							<div class="col-lg-9">
-								<input class="item-long-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'long', 'listid', '' ) ) ); ?>" value="" />
+								<input class="item-long-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'long', 'listid', '' ) ) ); ?>" value="" disabled="disabled" />
 								<textarea class="form-control htmleditor-prototype item-long-content" rows="6" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'long', 'content', '' ) ) ); ?>"
-									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Long description' ) ); ?>" ></textarea>
+									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Long description' ) ); ?>" disabled="disabled" ></textarea>
 							</div>
 						</div>
 					</div>
@@ -136,25 +136,25 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-lg-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'URL segment' ) ); ?></label>
 							<div class="col-lg-9">
-								<input class="item-url-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'url', 'listid', '' ) ) ); ?>" value="" />
+								<input class="item-url-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'url', 'listid', '' ) ) ); ?>" value="" disabled="disabled" />
 								<input class="form-control item-url-content" type="text" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'url', 'content', '' ) ) ); ?>"
-									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'URL segment' ) ); ?>" value="" />
+									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'URL segment' ) ); ?>" value="" disabled="disabled" />
 							</div>
 						</div>
 						<div class="form-group row optional">
 							<label class="col-lg-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Meta keywords' ) ); ?></label>
 							<div class="col-lg-9">
-								<input class="item-meta-keyword-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'meta-keyword', 'listid', '' ) ) ); ?>" value="" />
+								<input class="item-meta-keyword-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'meta-keyword', 'listid', '' ) ) ); ?>" value="" disabled="disabled" />
 								<textarea class="form-control item-meta-keyword-content" rows="2" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'meta-keyword', 'content', '' ) ) ); ?>"
-									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Meta keywords' ) ); ?>" ></textarea>
+									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Meta keywords' ) ); ?>" disabled="disabled" ></textarea>
 							</div>
 						</div>
 						<div class="form-group row optional">
 							<label class="col-lg-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Meta description' ) ); ?></label>
 							<div class="col-lg-9">
-								<input class="item-meta-description-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'meta-description', 'listid', '' ) ) ); ?>" value="" />
+								<input class="item-meta-description-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'meta-description', 'listid', '' ) ) ); ?>" value="" disabled="disabled" />
 								<textarea class="form-control item-meta-description-content" rows="6" name="<?php echo $enc->attr( $this->formparam( array( 'text', 'meta-description', 'content', '' ) ) ); ?>"
-									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Meta description' ) ); ?>"></textarea>
+									placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'Meta description' ) ); ?>" disabled="disabled" ></textarea>
 							</div>
 						</div>
 					</div>
