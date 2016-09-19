@@ -15,6 +15,10 @@
 	clear: both;
 }
 
+.card-block {
+	box-sizing: content-box;
+}
+
 
 
 /**
