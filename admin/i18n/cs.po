@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Martin Vyšohlíd <vysohlidm@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-16 23:34+0200\n"
-"PO-Revision-Date: 2016-07-16 21:36+0000\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"PO-Revision-Date: 2016-09-26 21:57+0000\n"
+"Last-Translator: Martin Vyšohlíd <vysohlidm@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,19 +24,19 @@ msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
 
 msgid "Actual current price"
-msgstr ""
+msgstr "Současná cena"
 
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Přidat filtr"
 
 msgid "Additional"
-msgstr ""
+msgstr "Další"
 
 msgid "Additional information, e.g. flat number"
-msgstr ""
+msgstr "Další informace, např. číslo bytu"
 
 msgid "Address"
 msgstr ""
@@ -194,7 +195,7 @@ msgid "Comment"
 msgstr ""
 
 msgid "Company"
-msgstr ""
+msgstr "Společnost"
 
 msgid "Company name"
 msgstr ""
@@ -476,7 +477,7 @@ msgid "Latest orders"
 msgstr ""
 
 msgid "Length"
-msgstr ""
+msgstr "Délka"
 
 msgid "List"
 msgstr ""
@@ -584,13 +585,13 @@ msgid "Minimum quantity"
 msgstr ""
 
 msgid "Miss"
-msgstr ""
+msgstr "Slečna"
 
 msgid "Mr"
-msgstr ""
+msgstr "Pan"
 
 msgid "Mrs"
-msgstr ""
+msgstr "Paní"
 
 msgid "Name"
 msgstr ""
@@ -924,7 +925,7 @@ msgid "Site"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Velikost"
 
 msgid "Sorry, adding orders manually is currently not implemented"
 msgstr ""

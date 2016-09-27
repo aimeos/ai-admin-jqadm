@@ -3,265 +3,264 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aldemar Hernández <napalm-beach@lycos.com>, 2016
-# Daniel Vega <danielvega131990@gmail.com>, 2015
-# nsendetzky, 2014
+# Nóra Antal <nora1984antal@gmail.com>, 2016
+# Péter Kozma <kopegrafika@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-16 23:34+0200\n"
-"PO-Revision-Date: 2016-09-02 16:57+0000\n"
-"Last-Translator: Aldemar Hernández <napalm-beach@lycos.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
+"PO-Revision-Date: 2016-09-21 12:35+0000\n"
+"Last-Translator: Nóra Antal <nora1984antal@gmail.com>\n"
+"Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. / price format with value (%1$s) and currency (%2$s)
 #, php-format
 msgid "%1$s %2$s"
-msgstr "%1$s %2$s"
+msgstr "%1$s 00.00 %2$s Ft"
 
 msgid "Actual current price"
-msgstr "Precio actual real"
+msgstr "Jelenlegi ár"
 
 msgid "Add"
-msgstr "Añadir"
+msgstr "Hozzáadás"
 
 msgid "Add filter"
-msgstr "Agregar Filtro"
+msgstr "Szűrő hozzáadása"
 
 msgid "Additional"
-msgstr "Adicional"
+msgstr "Kiegészítő"
 
 msgid "Additional information, e.g. flat number"
-msgstr "Información adicional, ej. numero plano "
+msgstr "További információk, mint például házszám"
 
 msgid "Address"
-msgstr "Dirección"
+msgstr "Cím"
 
 msgid "Address 1"
-msgstr "Dirección 1"
+msgstr "Cím 1"
 
 msgid "Address 2"
-msgstr "Dirección 2"
+msgstr "Cím 2"
 
 msgid "Address 3"
-msgstr "Dirección 3"
+msgstr "Cím 3"
 
 msgid "Address ID"
-msgstr "ID de dirección"
+msgstr "Cím azonosító"
 
 msgid "Addresses"
-msgstr "Direcciones"
+msgstr "Címek"
 
 msgid "All"
-msgstr "Todo"
+msgstr "Mind"
 
 msgid "Associated attributes"
-msgstr "Atributos asociados"
+msgstr "Kapcsolódó tulajdonságok"
 
 msgid "Associated customer groups"
-msgstr "Grupos de clientes asociados"
+msgstr "Kapcsolódó fogyasztói csoportok"
 
 msgid "Associated customers"
-msgstr "Clientes asociados"
+msgstr "Kapcsolódó ügyfelek"
 
 msgid "Associated media"
-msgstr "Medios asociados"
+msgstr "Kapcsolódó média"
 
 msgid "Associated prices"
-msgstr "Precios asociados"
+msgstr "Kapcsolódó árak"
 
 msgid "Associated products"
-msgstr "Productos asociados"
+msgstr "Kapcsolódó termékek"
 
 msgid "Associated tags"
-msgstr "Etiquetas asociadas"
+msgstr "Kapcsolódó címkék"
 
 msgid "Associated texts"
-msgstr "Textos asociados"
+msgstr "Kapcsolódó szövegek"
 
 msgid "Attribute"
-msgstr "Atributo"
+msgstr "Tulajdonság"
 
 msgid "Attribute type"
-msgstr "Tipo de atributo"
+msgstr "Tulajdonság típus"
 
 #. : Attribute type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Attribute type: {0} ({1})"
-msgstr "Tipo de atributo: {0} ({1})"
+msgstr "Tulajdonság típus: {0} ({1})"
 
 #. : Attribute item panel title with attribute label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Attribute: {0} ({1})"
-msgstr "Atributo: {0} ({1})"
+msgstr "Tulajdonság: {0} ({1})"
 
 msgid "Attributes"
-msgstr "Atributos"
+msgstr "Attribútumok"
 
 msgid "Available attributes"
-msgstr "Atributos disponibles"
+msgstr "Elérhető attribútumok"
 
 msgid "Available customer groups"
-msgstr "Grupos de clientes disponibles"
+msgstr "Elérhető fogyasztói csoportok"
 
 msgid "Available customers"
-msgstr "Clientes disponibles"
+msgstr "Elérhető fogyasztók"
 
 msgid "Available media"
-msgstr "Medios disponibles"
+msgstr "Elérhető média"
 
 msgid "Available prices"
-msgstr "Precios disponibles"
+msgstr "Elérhető árak"
 
 msgid "Available products"
-msgstr "Productos disponibles"
+msgstr "Elérhető termékek"
 
 msgid "Available tags"
-msgstr "Etiquetas disponibles"
+msgstr "Elérhető címkék"
 
 msgid "Available texts"
-msgstr "Textos disponibles"
+msgstr "Elérhető szövegek"
 
 msgid "Back in stock"
-msgstr "Nuevas existencias"
+msgstr "Újra lesz készleten"
 
 msgid "Base ID"
-msgstr "ID de base"
+msgstr "Alap azonosító"
 
 msgid "Basic"
-msgstr "Básico"
+msgstr "Alapvető"
 
 msgid "Billing address"
-msgstr "Dirección de cobro"
+msgstr "Számlázási cím"
 
 msgid "Birthday"
-msgstr "Cumpleaños"
+msgstr "Születésnap"
 
 msgid "Bundles"
-msgstr "Paquetes"
+msgstr "Csomagok"
 
 msgid "Cache"
-msgstr "Caché"
+msgstr "Gyorsítótár"
 
 msgid "Cache item details"
-msgstr "Detalles de elemento de caché"
+msgstr "Gyorsítótár tétel részletek"
 
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Mégse"
 
 msgid "Catalog"
-msgstr "Catálogo"
+msgstr "Katalógus"
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Catalog: {0} ({1})"
-msgstr "Catálogo: {0} ({1})"
+msgstr "Katalógus: {0} ({1})"
 
 msgid "Categories"
-msgstr "Categorías"
+msgstr "Kategóriák"
 
 msgid "Characteristics"
-msgstr "Características"
+msgstr "Jellemzők"
 
 msgid "City"
-msgstr "Ciudad"
+msgstr "Város"
 
 msgid "City name (required)"
-msgstr "Nombre ciudad (obligatorio)"
+msgstr "Város név (kötelező)"
 
 msgid "Clear"
-msgstr "Limpiar"
+msgstr "Tisztás"
 
 msgid "Click to upload"
-msgstr "Haga clic para subir"
+msgstr "Feltöltés"
 
 msgid "Close"
-msgstr "Cerrar"
+msgstr "Bezár"
 
 msgid "Code"
-msgstr "Código"
+msgstr "Kód"
 
 msgid "Codes"
-msgstr "Códigos"
+msgstr "Kódok"
 
 msgid "Columns"
-msgstr "Columnas"
+msgstr "Oszlopok"
 
 msgid "Comment"
-msgstr "Comentarios"
+msgstr "Megjegyzés"
 
 msgid "Company"
-msgstr "Compañía"
+msgstr "Cég"
 
 msgid "Company name"
-msgstr "Nombre compañía"
+msgstr "Cég név"
 
 msgid "Configuration"
-msgstr "Configuración"
+msgstr "Beállítások"
 
 msgid "Content"
-msgstr "Contenido"
+msgstr "Tartalom"
 
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Másolás"
 
 msgid "Costs"
-msgstr "Costos"
+msgstr "Kiadások"
 
 msgid "Costs per item"
-msgstr "Costos por elemento"
+msgstr "Kiadások / Tétel"
 
 msgid "Could not upload file. Please notify your administrator"
-msgstr "No se pudo subir el archivo. Notifíqueselo al administrador"
+msgstr "Nem sikerült feltölteni a fájlt. Kérjük, értesítse a rendszergazdát."
 
 msgid "Count"
-msgstr "Contar"
+msgstr "Számítás"
 
 msgid "Country"
-msgstr "País"
+msgstr "Ország"
 
 msgid "Country code"
-msgstr "Código de país"
+msgstr "Ország kód"
 
 msgid "Country state, e.g. \"NY\""
-msgstr "Estado del país, ej. \"NY\""
+msgstr "Megye, például \"Pest\""
 
 msgid "Coupon"
-msgstr "Cupón"
+msgstr "Kupon"
 
 msgid "Coupon code"
-msgstr "Código de cupón"
+msgstr "Kupon kód"
 
 #. : Coupon code item panel title with coupon code ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Coupon code: {0} ({1})"
-msgstr "Código de cupón: {0} ({1})"
+msgstr "Kupon kód: {0} ({1})"
 
 #. : Coupon item panel title with coupon label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Coupon: {0} ({1})"
-msgstr "Cupón: {0} ({1})"
+msgstr "Kupon: {0} ({1})"
 
 msgid "Coupons"
-msgstr "Cupones"
+msgstr "Kuponok"
 
 msgid "Created"
-msgstr "Creado"
+msgstr "Létrehozva"
 
 msgid "Currency"
-msgstr "Divisa"
+msgstr "Pénznem"
 
 msgid "Currency (required)"
-msgstr "Divisa (obligatorio)"
+msgstr "Pénznem (kötelező)"
 
 msgid "Customer"
-msgstr "Cliente"
+msgstr "Vevő"
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -269,7 +268,7 @@ msgstr "Cliente"
 #. ({1)}
 #, python-brace-format
 msgid "Customer address: {0} ({1})"
-msgstr "Dirección del cliente: {0} ({1})"
+msgstr "Vevő címe: {0} ({1})"
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -277,248 +276,248 @@ msgstr "Dirección del cliente: {0} ({1})"
 #. ({1)}
 #, python-brace-format
 msgid "Customer group: {0} ({1})"
-msgstr "Grupo de clientes: {0} ({1})"
+msgstr "Vevő csoport:: {0} ({1})"
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer: {0} ({1})"
-msgstr "Cliente: {0} ({1})"
+msgstr "Vevő: {0} ({1})"
 
 msgid "Date"
-msgstr "Fecha"
+msgstr "Dátum"
 
 msgid "Date back"
-msgstr "Fecha de regreso"
+msgstr "Származik"
 
 msgid "Default"
-msgstr "Por Defecto"
+msgstr "Alapértelmezett"
 
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "Törlés"
 
 msgid "Delete items?"
-msgstr "¿Eliminar elementos?"
+msgstr "Törli az elemeket?"
 
 msgid "Delivery address"
-msgstr "Dirección de entrega"
+msgstr "Szállítási cím"
 
 msgid "Delivery date"
-msgstr "Fecha de entrega"
+msgstr "Szállítási dátum"
 
 msgid "Delivery status"
-msgstr "Estado de entrega"
+msgstr "Szállítási státusz"
 
 msgid "Delivery types"
-msgstr "Tipos de envío"
+msgstr "Szállítási típusok"
 
 msgid "Details"
-msgstr "Detalles"
+msgstr "Részletek"
 
 msgid "Display field is empty"
-msgstr "El campo de visualización está vacío"
+msgstr "A kijelző mező üres"
 
 msgid "Domain"
-msgstr "Dominio"
+msgstr "Domain"
 
 msgid "Domain (required)"
-msgstr "Dominio (obligatorio)"
+msgstr "Domain (kötelező)"
 
 msgid "Download"
-msgstr "Descargar"
+msgstr "Letöltés"
 
 msgid "E-Mail"
-msgstr "Correo electrónico"
+msgstr "E-mail"
 
 msgid "E-Mail, e.g. me@example.com (required)"
-msgstr "Correo electrónico, ej. yo@ejemplo.com (obligatorio)"
+msgstr "E-mail, például me@example.com (kötelező)"
 
 msgid "EAN, SKU or article number (required)"
-msgstr "EAN, SKU o número de artículo (obligatorio)"
+msgstr "EAN, SKU vagy cikkszám (kötelező)"
 
 msgid "Edit"
-msgstr "Editar"
+msgstr "Szerkesztés"
 
 msgid "Editor"
-msgstr "Editor"
+msgstr "Szerkesztő"
 
 msgid "End date"
-msgstr "Fecha final"
+msgstr "Befejezés dátuma"
 
 msgid "Error"
-msgstr "Error"
+msgstr "Hiba"
 
 msgid "Expert mode"
-msgstr "Modo Experto"
+msgstr "Szakértő mód"
 
 msgid "Expires"
-msgstr "Vence"
+msgstr "Lejár"
 
 msgid "Export"
-msgstr "Exportar"
+msgstr "Export"
 
 msgid "Export successful"
-msgstr "Exportación correcta"
+msgstr "Sikeres exportálás"
 
 msgid "Facility"
-msgstr "Servicio"
+msgstr "Létesítmény"
 
 msgid "Facsimile number, e.g. +155512345"
-msgstr "Número facsímil, ej. +155512345"
+msgstr "Faxszám: például +3615551234"
 
 msgid "File"
-msgstr "Archivo"
+msgstr "Fájl"
 
 msgid "File URL"
-msgstr "Dirección del archivo"
+msgstr "Fájl URL"
 
 msgid "Filter"
-msgstr "Filtro"
+msgstr "Szűrő"
 
 msgid "First"
-msgstr "Primero"
+msgstr "Első"
 
 msgid "First name"
-msgstr "Nombre"
+msgstr "Keresztnév"
 
 msgid "Firstname"
-msgstr "Nombre"
+msgstr "Keresztnév"
 
 msgid "Flush"
-msgstr "Limpiar"
+msgstr "Kiürít"
 
 msgid "Flush cache?"
-msgstr "¿Limpiar caché?"
+msgstr "Gyorsítótár ürítése?"
 
 msgid "Full name"
-msgstr "Nombre completo"
+msgstr "Teljes név"
 
 msgid "Full name (required)"
-msgstr "Nombre completo (obligatorio)"
+msgstr "Teljes név (kötelező)"
 
 msgid "Group"
-msgstr "Grupo"
+msgstr "Csoport"
 
 msgid "Group label (required)"
-msgstr "Etiqueta de grupo (obligatorio)"
+msgstr "Csoport címke (kötelező)"
 
 msgid "Height"
-msgstr "Altura"
+msgstr "Magasság"
 
 msgid "Honorary title"
-msgstr "Título honorífico"
+msgstr "Tiszteletbeli cím"
 
 msgid "House no"
-msgstr "Nro. casa"
+msgstr "Házszám"
 
 msgid "House number"
-msgstr "Número de casa"
+msgstr "Házszám"
 
 msgid "ID"
-msgstr "ID"
+msgstr "Azonosító"
 
 msgid "Images"
-msgstr "Imágenes"
+msgstr "Képek"
 
 msgid "Import"
-msgstr "Importar"
+msgstr "Import"
 
 msgid "Internal name"
-msgstr "Nombre interno"
+msgstr "Belső név"
 
 msgid "Internal name (required)"
-msgstr "Nombre interno (obligatorio)"
+msgstr "Belső név (kötelező)"
 
 #, python-brace-format
 msgid "Invalid action \"{0}\""
-msgstr "Acción no válida \"{0}\""
+msgstr "Érvénytelen művelet \"{0}\""
 
 msgid "Invalid data"
-msgstr "Datos no válidos"
+msgstr "Érvénytelen adat"
 
 #, python-brace-format
 msgid "Invalid value for configuration key \"{0}\""
-msgstr "Valor no válido para la clave de configuración \"{0}\""
+msgstr "Érvénytelen érték a konfigurációs kulcson \"{0}\""
 
 msgid "Invoice"
-msgstr "Factura"
+msgstr "Számla"
 
 msgid "Item position within the same type"
-msgstr "Posición del elemento dentro del mismo tipo"
+msgstr "Elem pozícióján belül azonos típussal"
 
 msgid "Job item details"
-msgstr "Detalles de la tarea"
+msgstr "Feladat részletei"
 
 msgid "Jobs"
-msgstr "Tareas"
+msgstr "Feladatok"
 
 msgid "Label"
-msgstr "Etiqueta"
+msgstr "Címke"
 
 msgid "Language"
-msgstr "Idioma"
+msgstr "Nyelv"
 
 msgid "Language (required)"
-msgstr "Idioma (obligatorio)"
+msgstr "Nyelv (kötelező)"
 
 msgid "Last"
-msgstr "Último"
+msgstr "Utolsó"
 
 msgid "Last modified"
-msgstr "Modificado por última vez"
+msgstr "Utoljára módosítva"
 
 msgid "Last name"
-msgstr "Apellido"
+msgstr "Vezetéknév"
 
 msgid "Last name (required)"
-msgstr "Apellido (obligatorio)"
+msgstr "Vezetéknév (kötelező)"
 
 msgid "Lastname"
-msgstr "Apellido"
+msgstr "Keresztnév"
 
 msgid "Latest orders"
-msgstr "Pedidos más recientes"
+msgstr "Legújabb megrendelések"
 
 msgid "Length"
-msgstr "Longitud"
+msgstr "Hossz"
 
 msgid "List"
 msgstr "Lista"
 
 msgid "List ID"
-msgstr "ID de lista"
+msgstr "Lista azonosító"
 
 msgid "List Status"
-msgstr "Estado de lista"
+msgstr "Lista státusz"
 
 msgid "List creation time"
-msgstr "Hora de creación de la lista"
+msgstr "Lista létrehozás ideje"
 
 msgid "List editor"
-msgstr "Editor de listas"
+msgstr "Lista szerkesztő"
 
 msgid "List end date"
-msgstr "Fecha final de la lista"
+msgstr "Lista befejezés dátuma"
 
 msgid "List item details"
-msgstr "Enumerar detalles del elemento"
+msgstr "Listaelemek részletek"
 
 msgid "List modification time"
-msgstr "Hora de modificación de la lista"
+msgstr "Lista módosítás ideje"
 
 msgid "List position"
-msgstr "Posición de lista"
+msgstr "Lista pozíció"
 
 msgid "List start date"
-msgstr "Fecha de inicio de la lista"
+msgstr "Lista kezdési időpontja"
 
 msgid "List type"
-msgstr "Tipo de lista"
+msgstr "Lista típusa"
 
 msgid "Loading"
-msgstr "Cargando"
+msgstr "Betöltés"
 
 msgid "Locale"
-msgstr "Configuración regional"
+msgstr ""
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
@@ -526,12 +525,12 @@ msgstr "Configuración regional"
 #. code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
-msgstr "Divisa regional: {0} ({1})"
+msgstr ""
 
 #. : Locale item panel title with site code ({1)}
 #, python-brace-format
 msgid "Locale item details ({1})"
-msgstr "Detalles del elemento regional ({1})"
+msgstr ""
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
@@ -539,162 +538,162 @@ msgstr "Detalles del elemento regional ({1})"
 #. code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
-msgstr "Idioma regional: {0} ({1})"
+msgstr ""
 
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
-msgstr "Sitio regional: {0} ({1})"
+msgstr ""
 
 msgid "Logs"
-msgstr "Registros"
+msgstr "Naplók"
 
 msgid "Long description"
-msgstr "Descripción Larga"
+msgstr "Hosszú leírás"
 
 msgid "Media"
-msgstr "Medios"
+msgstr "Média"
 
 msgid "Media type"
-msgstr "Tipo de medio"
+msgstr "Média típus"
 
 #. : Media type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Media type: {0} ({1})"
-msgstr "Tipo de medio: {0} ({1})"
+msgstr "Média típus: {0} ({1})"
 
 #. : Media item panel title with media label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Media: {0} ({1})"
-msgstr "Medios: {0} ({1})"
+msgstr "Média: {0} ({1})"
 
 msgid "Message"
-msgstr "Mensaje"
+msgstr "Üzenet"
 
 msgid "Meta description"
-msgstr "Descripción Meta"
+msgstr "Meta leírás"
 
 msgid "Meta keywords"
-msgstr "Meta Palabras Clave"
+msgstr "Meta kulcsszavak"
 
 msgid "Method"
-msgstr "Método"
+msgstr "Módszer"
 
 msgid "Mimetype"
 msgstr "Mimetype"
 
 msgid "Minimum quantity"
-msgstr "Cantidad mínima"
+msgstr "Minimális mennyiség"
 
 msgid "Miss"
-msgstr "Srta"
+msgstr "Kisasszony"
 
 msgid "Mr"
-msgstr "Sr"
+msgstr "Úr"
 
 msgid "Mrs"
-msgstr "Sra"
+msgstr "Asszony"
 
 msgid "Name"
-msgstr "Nombre"
+msgstr "Név"
 
 msgid "Name of the coupon provider class (required)"
-msgstr "Nombre de la clase del proveedor de cupón (obligatorio)"
+msgstr "Kupon ellátó osztály neve (kötelező)"
 
 msgid "Name of the plugin provider class (required)"
-msgstr "Nombre de la clase del proveedor de plugin (obligatorio)"
+msgstr "Plugin ellátó osztály neve (kötelező)"
 
 msgid "Name of the service provider class (required)"
-msgstr "Nombre de la clase del proveedor de servicios (obligatorio)"
+msgstr "Szolgáltató osztály neve (kötelező)"
 
 msgid "Next"
-msgstr "Siguiente"
+msgstr "Következő"
 
 msgid "No error information available"
-msgstr "No hay información del error disponible"
+msgstr "Nincs hiba információ"
 
 msgid "No items"
-msgstr "No hay elementos"
+msgstr "Nincsenek elemek"
 
 msgid "Not implemented"
-msgstr "No implementado"
+msgstr "Nincs implementálva"
 
 msgid "Notice"
-msgstr "Aviso"
+msgstr "Értesítés"
 
 msgid "Option"
-msgstr "Opción"
+msgstr "Választási lehetőség"
 
 msgid "Order"
-msgstr "Pedido"
+msgstr "Sorrend"
 
 msgid "Order item details"
-msgstr "Detalles del pedido"
+msgstr "Rendelési tétel részletek"
 
 msgid "Order product ID"
-msgstr "ID del pedido"
+msgstr "Rendelt termék azonosítója"
 
 msgid "Orders by day"
-msgstr "Pedidos por día"
+msgstr "Rendelések nap szerint"
 
 msgid "Orders by hour"
-msgstr "Pedidos por hora"
+msgstr "Rendelések óra szerint"
 
 msgid "Orders by payment status"
-msgstr "Pedidos por Estado de pago"
+msgstr "Rendelések fizetési státusz szerint"
 
 msgid "Overview"
-msgstr "General"
+msgstr "Áttekintés"
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr "Página %1$d de %2$d"
+msgstr "Oldal %1$d / %2$d"
 
 msgid "Parameter"
-msgstr "Parámetro"
+msgstr "Paraméter"
 
 msgid "Password"
-msgstr "Contraseña"
+msgstr "Jelszó"
 
 msgid "Password (required)"
-msgstr "Contraseña (obligatorio)"
+msgstr "Jelszó (kötelező)"
 
 msgid "Path"
-msgstr "Ruta"
+msgstr "Útvonal"
 
 msgid "Payment date"
-msgstr "Fecha del pago"
+msgstr "Fizetési nap"
 
 msgid "Payment status"
-msgstr "Estado del pago"
+msgstr "Fizetési státusz"
 
 msgid "Payment types"
-msgstr "Tipos de Pago"
+msgstr "Fizetési típusok"
 
 msgid "Physical values"
-msgstr "Valores Físicos"
+msgstr "Fizikai értékek"
 
 msgid "Please recheck your data"
-msgstr "Por favor vuelva a comprobar sus datos"
+msgstr "Kérjük, ellenőrizze az adatait"
 
 msgid "Please save the coupon first before you can add codes"
-msgstr "Por favor guarde el cupón primero para poder añadir códigos"
+msgstr "Kérjük, mentse el a kupont mielőtt kódokat adna hozzá."
 
 msgid ""
 "Please select an item on the right side and add it via drag and drop to this"
 " list."
-msgstr "Seleccione un elemento de la parte derecha y añádalo a la lista arrastrándolo y soltándolo."
+msgstr "Kérjük, válasszon egy elemet a jobb oldalról és húzza át az elemet ehhez a listához."
 
 msgid "Plugin"
 msgstr "Plugin"
 
 msgid "Plugin type"
-msgstr "Tipo de plugin"
+msgstr "Plugin típus"
 
 #. : Plugin type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Plugin type: {0} ({1})"
-msgstr "Tipo de plugin: {0} ({1})"
+msgstr "Plugin típus: {0} ({1})"
 
 #. : Plugin item panel title with attribute label ({0}) and site code ({1)}
 #, python-brace-format
@@ -702,71 +701,71 @@ msgid "Plugin: {0} ({1})"
 msgstr "Plugin: {0} ({1})"
 
 msgid "Position"
-msgstr "Posición"
+msgstr "Pozíció"
 
 msgid "Postal code"
-msgstr "Código postal"
+msgstr "Irányítószám"
 
 msgid "Preview"
-msgstr "Previsualizar"
+msgstr "Előnézet"
 
 msgid "Preview URL"
-msgstr "Dirección de previsualización"
+msgstr "URL előnézet"
 
 msgid "Previous"
-msgstr "Anterior"
+msgstr "Előző"
 
 msgid "Price"
-msgstr "Precio"
+msgstr "Ár"
 
 msgid "Price type"
-msgstr "Tipo de precio"
+msgstr "Ár típus"
 
 #. : Price type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Price type: {0} ({1})"
-msgstr "Tipo de precio: {0} ({1})"
+msgstr "Ár típus: {0} ({1})"
 
 #. : Price item panel title with price label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Price: {0} ({1})"
-msgstr "Precio: {0} ({1})"
+msgstr "Ár: {0} ({1})"
 
 msgid "Prices"
-msgstr "Precios"
+msgstr "Árak"
 
 msgid "Priority"
-msgstr "Prioridad"
+msgstr "Prioritás"
 
 msgid "Product"
-msgstr "Producto"
+msgstr "Termék"
 
 msgid "Product ID"
-msgstr "ID del producto"
+msgstr "Termék azonosító"
 
 msgid "Product code"
-msgstr "Código del producto"
+msgstr "Termék kód"
 
 msgid "Product costs"
-msgstr "Costos del producto"
+msgstr "Termék árak"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr "Altura del Producto, Ejemplo 20.0 (en yardas, pulgadas, etc)"
+msgstr "Termék magasság, például 20.0 (cm, inch stb.)"
 
 msgid "Product item details"
-msgstr "Detalles del producto"
+msgstr "Termék részletei"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr "Longitud del Producto, Ejemplo 30.0 (en yardas, pulgadas, etc)"
+msgstr "Termék hossz, például 30.0 (cm, inch stb.)"
 
 msgid "Product name"
-msgstr "Nombre del producto"
+msgstr "Termék név"
 
 msgid "Product price"
-msgstr "Precio del producto"
+msgstr "Termék ár"
 
 msgid "Product property type"
-msgstr "Tipo de propiedad del producto"
+msgstr "Termék tulajdonság tÍpus"
 
 #. : Product property.type item panel title with type label ({0}) and site
 #. code ({1)}
@@ -774,193 +773,193 @@ msgstr "Tipo de propiedad del producto"
 #. code ({1)}
 #, python-brace-format
 msgid "Product property type: {0} ({1})"
-msgstr "Tipo de propiedad del producto: {0} ({1})"
+msgstr "Termék tulajdonság tÍpus: {0} ({1})"
 
 msgid "Product quantity"
-msgstr "Cantidad del producto"
+msgstr "Mennyiség"
 
 msgid "Product rebate"
-msgstr "Devolución del producto"
+msgstr "Engedmény"
 
 msgid "Product stock"
-msgstr "Existencias del producto"
+msgstr "Készlet"
 
 msgid "Product supplier (optional)"
-msgstr "Proveedor del producto (opcional)"
+msgstr "Termék szállító (választható)"
 
 #. : Product tag item panel title with product label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
-msgstr "Etiqueta del producto: {0} ({1})"
+msgstr "Termék címke: {0} ({1})"
 
 msgid "Product tax rate"
-msgstr "Tasa impositiva del producto"
+msgstr "Termék adókulcs"
 
 msgid "Product type"
-msgstr "Tipo de producto"
+msgstr "Termék típus"
 
 #. : Product type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product type: {0} ({1})"
-msgstr "Tipo de producto: {0} ({1})"
+msgstr "Termék típus: {0} ({1})"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr "Peso del producto, Ejemplo 1.25 (En libras, onzas, etc)"
+msgstr "Termék súly, például 1,25 (kg, dkg stb.)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr "Ancho del Producto, Ejemplo 17.5 (en yardas, pulgadas etc.)"
+msgstr "Termék szélessége, például 17.5 (cm, inch stb.)"
 
 #. : Product item panel title with product label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product: {0} ({1})"
-msgstr "Producto: {0} ({1})"
+msgstr "Termék: {0} ({1})"
 
 msgid "Products"
-msgstr "Productos"
+msgstr "Termékek"
 
 msgid "Promotion"
-msgstr "Promoción"
+msgstr "Promóció"
 
 msgid "Properties"
-msgstr "Propiedades"
+msgstr "Tulajdonságok"
 
 msgid "Property"
-msgstr "Propiedad"
+msgstr "Tulajdonság"
 
 msgid "Property value (required)"
-msgstr "Valor de la propiedad (obligatorio)"
+msgstr "Tulajdonság érték (kötelező)"
 
 msgid "Provider"
-msgstr "Proveedor"
+msgstr "Ellátó"
 
 msgid "Purchase date"
-msgstr "Fecha de compra"
+msgstr "Vásárlás időpontja"
 
 msgid "Quantity"
-msgstr "Cantidad"
+msgstr "Mennyiség"
 
 msgid "Quantity or empty if unlimited (optional)"
-msgstr "Cantidad o vacío si es ilimitado (opcional)"
+msgstr "Ha nincs korlátozva, mennyiség vagy üres,  (választható)"
 
 msgid "Rebate"
-msgstr "Devolver"
+msgstr "Engedmény"
 
 msgid "Ref-ID"
-msgstr "Ref-ID"
+msgstr "Ref-azonosító"
 
 msgid "Related order ID"
-msgstr "ID del pedido"
+msgstr "Kapcsolódó rendelés azonosító"
 
 msgid "Remove filter"
-msgstr "Remover filtro"
+msgstr "Szűrő eltávolítása"
 
 msgid "Replace file"
-msgstr "Reemplazar archivo"
+msgstr "Fájl csere"
 
 msgid "Request"
-msgstr "Solicitud"
+msgstr "Kérés"
 
 msgid "Result"
-msgstr "Resultado"
+msgstr "Eredmény"
 
 msgid "Salutation"
-msgstr "Encabezamiento"
+msgstr "Üdvözlés"
 
 msgid "Save"
-msgstr "Guardar"
+msgstr "Mentés"
 
 msgid "Saving"
-msgstr "Guardando"
+msgstr "Megtakarítás"
 
 #, python-brace-format
 msgid "Schema {0} is  not registered"
-msgstr "El esquema {0} no está registrado"
+msgstr "Nem regisztrált séma: {0}"
 
 msgid "Search"
-msgstr "Buscar"
+msgstr "Keresés"
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
-msgstr "El esquema de búsqueda {0} no está registrado"
+msgstr "A keresett séma nem regisztrált: {0}"
 
 msgid "Select Item"
-msgstr "Seleccionar elemento"
+msgstr "Elem kiválasztása"
 
 msgid "Select languages to export"
-msgstr "Seleccionar los idiomas para exportar"
+msgstr "Válasszon nyelvet az exportáláshoz"
 
 msgid "Service"
-msgstr "Servicio"
+msgstr "Szolgáltatás"
 
 msgid "Service ID"
-msgstr "ID de servicio"
+msgstr "Szolgáltatás azonosító"
 
 msgid "Service fees"
-msgstr "Tarifas de servicio"
+msgstr "Szolgáltatás díjai"
 
 msgid "Service item details"
-msgstr "Detalles del servicio"
+msgstr "Szolgáltatás részletei"
 
 msgid "Service type"
-msgstr "Tipo de servicio"
+msgstr "Szolgáltatás típus"
 
 #. : Service type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Service type: {0} ({1})"
-msgstr "Tipo de servicio: {0} ({1})"
+msgstr "Szolgáltatás típus: {0} ({1})"
 
 #. : Service item panel title with service label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Service: {0} ({1})"
-msgstr "Servicio: {0} ({1})"
+msgstr "Szolgáltatás: {0} ({1})"
 
 msgid "Services"
-msgstr "Servicios"
+msgstr "Szolgáltatlások"
 
 msgid "Short description"
-msgstr "Descripción corta"
+msgstr "Rövid leírás"
 
 msgid "Simple mode"
-msgstr "Modo simple"
+msgstr "Egyszerű mód"
 
 msgid "Site"
-msgstr "Sitio"
+msgstr "Webhely"
 
 msgid "Size"
-msgstr "Talla"
+msgstr "Méret"
 
 msgid "Sorry, adding orders manually is currently not implemented"
-msgstr "Lo sentimos, aún no se ha implementado la adición manual de pedidos"
+msgstr "Sajnálom, a kézi rendelés hozzáadás jelenleg nem megvalósított"
 
 msgid "Source"
-msgstr "Origen"
+msgstr "Forrás"
 
 msgid "Start date"
-msgstr "Fecha de inicio"
+msgstr "Kezdő dátum"
 
 msgid "State"
-msgstr "Estado"
+msgstr "Állam"
 
 msgid "Status"
-msgstr "Estado"
+msgstr "Státusz"
 
 msgid "Stock"
-msgstr "Existencias"
+msgstr "Készlet"
 
 msgid "Stock level"
-msgstr "Nivel de existencias"
+msgstr "Készlet szint"
 
 msgid "Street"
-msgstr "Calle"
+msgstr "Utca"
 
 msgid "Street (required)"
-msgstr "Calle (obligatorio)"
+msgstr "Utca (kötelező)"
 
 msgid "Substracted rebate amount"
-msgstr "Cantidad de devolución sustraída"
+msgstr "Levonjuk az engedmény összegét"
 
 msgid "Supplier"
-msgstr "Proveedor"
+msgstr "Támogató"
 
 #. : Supplier address item panel title with supplier name ({0}) and site code
 #. ({1)}
@@ -968,137 +967,137 @@ msgstr "Proveedor"
 #. ({1)}
 #, python-brace-format
 msgid "Supplier address: {0} ({1})"
-msgstr "Dirección del proveedor: {0} ({1})"
+msgstr "Támogató címe: {0} ({1})"
 
 #. : Supplier item panel title with supplier label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Supplier: {0} ({1})"
-msgstr "Proveedor: {0} ({1})"
+msgstr "Támogató: {0} ({1})"
 
 msgid "Switching language ..."
-msgstr "Cambiando idioma ..."
+msgstr "Nyelvválasztás..."
 
 msgid "Switching site ..."
-msgstr "Cambiando de sitio ..."
+msgstr "Webhely váltás..."
 
 msgid "Tag value (required)"
-msgstr "Valor de etiqueta (obligatorio)"
+msgstr "Címkeérték (kötelező)"
 
 #. : Tag item panel title with tag label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Tag: {0} ({1})"
-msgstr "Etiqueta: {0} ({1})"
+msgstr "Címke: {0} ({1})"
 
 msgid "Tags"
-msgstr "Etiquetas"
+msgstr "Címkék"
 
 msgid "Tax rate"
-msgstr "Tasa impositiva"
+msgstr "Adókulcs"
 
 msgid "Tax rate in %"
-msgstr "Tasa impositiva en %"
+msgstr "Adókulcs %-ban"
 
 msgid "Telefax"
-msgstr "Telefax"
+msgstr "Fax"
 
 msgid "Telephone"
-msgstr "Teléfono"
+msgstr "Telefon"
 
 msgid "Telephone number, e.g. +155512345"
-msgstr "Número de teléfono, ej. +155512345"
+msgstr "Telefonszám, pl.: +155512345"
 
 msgid "Text"
-msgstr "Texto"
+msgstr "Szöveg"
 
 msgid "Text type"
-msgstr "Tipo de texto"
+msgstr "Szöveg típus"
 
 #. : Text type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Text type: {0} ({1})"
-msgstr "Tipo de texto: {0} ({1})"
+msgstr "Szöveg típus: {0} ({1})"
 
 #. : Text item panel title with text label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Text: {0} ({1})"
-msgstr "Texto: {0} ({1})"
+msgstr "Szöveg típus: {0} ({1})"
 
 msgid "Texts"
-msgstr "Textos"
+msgstr "Szövegek"
 
 msgid ""
 "The file with the exported texts will be available within a few minutes. It "
 "can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
-msgstr "El archivo con los textos exportados estará disponible en pocos minutos. Entonces, podrá descargarlo en el panel \"Trabajo\" de la pestaña \"General\"."
+msgstr "Az exportált szövegeket tartalmazó fájl pár percen belül elérhető lesz. Letölthető az \"Áttekintés\" fül \"Munka\" paneljéről."
 
 msgid ""
 "The texts of your uploaded file will be imported within a few minutes. You "
 "can check the status of the import in the \"Job\" panel of the \"Overview\" "
 "tab"
-msgstr "Los textos del archivo que ha subido se importarán en pocos minutos. Puede comprobar el estado de la importación en el panel \"Trabajo\" de la pestaña \"General\""
+msgstr "A feltöltött fájl szövege egy  pár perce belül importálásra kerül. Az importálás állapotát az \"Áttekintés\" fül \"Munka\" paneljén ellenőrizheti."
 
 msgid "This combination already exists"
-msgstr "Esta combinación ya existe"
+msgstr "Ez a kombináció már létezik"
 
 msgid "Title"
-msgstr "Título"
+msgstr "Cím"
 
 msgid "Total"
-msgstr "Total"
+msgstr "Végösszeg"
 
 msgid "Two letter country code, e.g. \"US\" (required)"
-msgstr "Código del país de dos letras, ej. \"ES\" (obligatorio)"
+msgstr "Kétbetűs országkód, például \"US\" (kötelező)"
 
 msgid "Type"
-msgstr "Tipo"
+msgstr "Típus"
 
 msgid "Types"
-msgstr "Tipos"
+msgstr "Típusok"
 
 msgid "URL segment"
-msgstr "Segmento de URL"
+msgstr "URL szegmens"
 
 msgid "Unique code (required)"
-msgstr "Código único (obligatorio)"
+msgstr "Egyedi kód (kötelező)"
 
 msgid "Upload failed"
-msgstr "Carga fallida"
+msgstr "Sikertelen feltöltés"
 
 msgid "Upload successful"
-msgstr "Carga correcta"
+msgstr "Sikeres feltöltés"
 
 msgid "Uploaded"
-msgstr "Cargado"
+msgstr "Feltöltött"
 
 msgid "Used by"
-msgstr "Usado por"
+msgstr "Használva"
 
 msgid "User name"
-msgstr "Nombre de usuario"
+msgstr "Felhasználó név"
 
 msgid "User name, e.g. e-mail address (required)"
-msgstr "Nombre de usuario, ej. dirección de correo electrónico (obligatorio)"
+msgstr "Felhasználó név, pl.: e-mail cím (kötelező)"
 
 msgid "Value"
-msgstr "Valor"
+msgstr "Érték"
 
 msgid "Variant attributes"
-msgstr "Variantes de atributo"
+msgstr "Változat tulajdonságok"
 
 msgid "Variants"
-msgstr "Variantes"
+msgstr "Változatok"
 
 msgid "Vat ID"
-msgstr "ID de IVA"
+msgstr "Adószám"
 
 msgid "Vat ID, e.g. \"GB999999999\""
-msgstr "ID de IVA, ej. \"GB999999999\""
+msgstr "Adószám, pl.: \"GB999999999\""
 
 msgid "Verification date"
-msgstr "Fecha de verificación"
+msgstr "Ellenőrzés időpontja"
 
 msgid "Warehouse"
-msgstr "Almacén"
+msgstr "Raktár"
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
@@ -1106,111 +1105,111 @@ msgstr "Almacén"
 #. code ({1)}
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
-msgstr "Almacén: {0} ({1})"
+msgstr "Raktár: {0} ({1})"
 
 msgid "Web site, e.g. www.example.com"
-msgstr "Sitio web, ej. www.ejemplo.com"
+msgstr "Webhely, pl.: www.pelda.hu"
 
 msgid "Website"
-msgstr "Sitio web"
+msgstr "Webhely"
 
 msgid "Weight"
-msgstr "Peso"
+msgstr "Súly"
 
 msgid "Width"
-msgstr "Ancho"
+msgstr "Szélesség"
 
 msgid "YYYY-MM-DD (optional)"
-msgstr "AAAA-MM-DD (opcional)"
+msgstr "ÉÉÉÉ-HH-NN (választható)"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr "AAAA-MM-DD hh:mm:ss (opcional)"
+msgstr "ÉÉÉÉ-HH-NN hh:mm:ss (választható)"
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Va a eliminar uno o más elementos. ¿Está seguro que desea continuar?"
+msgstr "Egy vagy több elemet akar törölni. Szeretné folytatni?"
 
 msgid ""
 "You are going to flush the complete cache for the current site. Would you "
 "like to proceed?"
-msgstr "Va a eliminar por completo la caché para el sitio actual. ¿Está seguro que desea continuar?"
+msgstr "Ön a jelenlegi oldal gyorsítótárának teljes kiürítésére készül. Valóban folytatni szeretné?"
 
 msgid "Zip code"
-msgstr "Código zip"
+msgstr "Irányítószám"
 
 msgid "dashboard"
-msgstr "Panel de Instrumentos"
+msgstr "Vezérlőpult"
 
 msgid "new"
-msgstr "nuevo"
+msgstr "Új"
 
 msgid "pay:authorized"
-msgstr "autorizado"
+msgstr "fizetés:hitelesítve"
 
 msgid "pay:canceled"
-msgstr "cancelado"
+msgstr "fizetés:visszavonva"
 
 msgid "pay:deleted"
-msgstr "eliminado"
+msgstr "fizetés:törölve"
 
 msgid "pay:pending"
-msgstr "pendiente"
+msgstr "fizetés:függőben"
 
 msgid "pay:received"
-msgstr "recibido"
+msgstr "fizetés:elfogadva"
 
 msgid "pay:refund"
-msgstr "reembolsado"
+msgstr "fizetés:visszatérítés"
 
 msgid "pay:refused"
-msgstr "rechazado"
+msgstr "fizetés:elutasítva"
 
 msgid "pay:unfinished"
-msgstr "inacabado"
+msgstr "fizetés:befejezetlen"
 
 msgid "product"
-msgstr "Producto"
+msgstr "Termék"
 
 msgid "stat:deleted"
-msgstr "eliminado"
+msgstr "állapot:törölve"
 
 msgid "stat:delivered"
-msgstr "entregado"
+msgstr "állapot:kiszállítva"
 
 msgid "stat:dispatched"
-msgstr "enviado"
+msgstr "állapot:kézbesítés alatt"
 
 msgid "stat:lost"
-msgstr "perdido"
+msgstr "állapot:elveszett"
 
 msgid "stat:pending"
-msgstr "pendiente"
+msgstr "állapot:függőben"
 
 msgid "stat:progress"
-msgstr "progreso"
+msgstr "állapot:folyamatban"
 
 msgid "stat:refused"
-msgstr "rechazado"
+msgstr "állapot:elutasítva"
 
 msgid "stat:returned"
-msgstr "devuelto"
+msgstr "állapot:visszaküldve"
 
 msgid "stat:unfinished"
-msgstr "inacabado"
+msgstr "állapot:befejezetlen"
 
 msgid "status:archive"
-msgstr "archivar"
+msgstr "állapot:archív"
 
 msgid "status:disabled"
-msgstr "deshabilitado"
+msgstr "állapot:letiltva"
 
 msgid "status:enabled"
-msgstr "habilitado"
+msgstr "állapot:engedélyezett"
 
 msgid "status:review"
-msgstr "revisar"
+msgstr "állapot:felülvizsgálat alatt"
 
 msgid "unknown"
-msgstr "desconocido"
+msgstr "Ismeretlen"
 
 msgid "yy-mm-dd"
-msgstr "aa-mm-dd"
+msgstr "éé-hh-nn"
