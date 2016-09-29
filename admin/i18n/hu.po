@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-16 23:34+0200\n"
-"PO-Revision-Date: 2016-09-21 12:35+0000\n"
+"PO-Revision-Date: 2016-09-28 12:30+0000\n"
 "Last-Translator: Nóra Antal <nora1984antal@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 #. / price format with value (%1$s) and currency (%2$s)
 #, php-format
 msgid "%1$s %2$s"
-msgstr "%1$s 00.00 %2$s Ft"
+msgstr "%1$s %2$s"
 
 msgid "Actual current price"
 msgstr "Jelenlegi ár"
@@ -134,7 +134,7 @@ msgid "Base ID"
 msgstr "Alap azonosító"
 
 msgid "Basic"
-msgstr "Alapvető"
+msgstr "Alapvető adatok"
 
 msgid "Billing address"
 msgstr "Számlázási cím"
@@ -175,7 +175,7 @@ msgid "City name (required)"
 msgstr "Város név (kötelező)"
 
 msgid "Clear"
-msgstr "Tisztás"
+msgstr "Szűrő törlése"
 
 msgid "Click to upload"
 msgstr "Feltöltés"
