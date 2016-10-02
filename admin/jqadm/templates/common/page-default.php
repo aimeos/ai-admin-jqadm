@@ -41,6 +41,7 @@ $extParams = array( 'site' => $site, 'lang' => $this->param( 'lang' ) );
 $params = $this->get( 'pageParams', array() );
 $params['resource'] = $this->param( 'resource', 'dashboard' );
 $params['site'] = $this->param( 'site', 'default' );
+$params['lang'] = $this->param( 'lang', 'en' );
 $params['id'] = $this->param( 'id', '' );
 
 ?>
@@ -88,7 +89,7 @@ $params['id'] = $this->param( 'id', '' );
 						<div class="dropdown-menu">
 <?php foreach( $this->get( 'languagesList', array() ) as $langid ) : ?>
 							<a class="dropdown-item"
-								href="<?php echo $enc->attr( $this->url( $target, $cntl, $action, array( 'lang' => $langid ) + $params, array(), $config ) ); ?>">
+								href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, array(), $config ) ); ?>">
 								<?php echo $enc->html( $langid ); ?>
 							</a>
 <?php endforeach; ?>
@@ -106,7 +107,7 @@ $params['id'] = $this->param( 'id', '' );
 						<div class="dropdown-menu">
 <?php	foreach( $sites as $code => $label ) : ?>
 							<a class="dropdown-item"
-								href="<?php echo $enc->attr( $this->url( $target, $cntl, $action, array( 'site' => $code ) + $params, array(), $config ) ); ?>">
+								href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, array(), $config ) ); ?>">
 								<?php echo $enc->html( $label ); ?>
 							</a>
 <?php	endforeach; ?>
