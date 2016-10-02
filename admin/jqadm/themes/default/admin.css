@@ -167,7 +167,7 @@ html {
 
 .aimeos input[type="checkbox"],
 .aimeos input[type="radio"] {
-	height: 2.25rem;
+	height: 1rem;
 	width: auto;
 }
 
