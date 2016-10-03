@@ -188,6 +188,6 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 	public function testGetSubClient()
 	{
 		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
-		$this->object->getSubClient( 'invalid' );
+		$this->object->getSubClient( 'unknown' );
 	}
 }

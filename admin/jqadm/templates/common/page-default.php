@@ -13,15 +13,148 @@ $cntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $config = $this->config( 'admin/jqadm/url/search/config', array() );
 
+
+/** admin/jsonadm/url/options/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jsonadm/url/options/controller
+ * @see admin/jsonadm/url/options/action
+ * @see admin/jsonadm/url/options/config
+ */
 $jsonTarget = $this->config( 'admin/jsonadm/url/options/target' );
+
+/** admin/jsonadm/url/options/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jsonadm/url/options/target
+ * @see admin/jsonadm/url/options/action
+ * @see admin/jsonadm/url/options/config
+ */
 $jsonCntl = $this->config( 'admin/jsonadm/url/options/controller', 'Jsonadm' );
+
+/** admin/jsonadm/url/options/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jsonadm/url/options/target
+ * @see admin/jsonadm/url/options/controller
+ * @see admin/jsonadm/url/options/config
+ */
 $jsonAction = $this->config( 'admin/jsonadm/url/options/action', 'options' );
+
+/** admin/jsonadm/url/options/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/jsonadm/url/options/config = array( 'absoluteUri' => true )
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jsonadm/url/options/target
+ * @see admin/jsonadm/url/options/controller
+ * @see admin/jsonadm/url/options/action
+ */
 $jsonConfig = $this->config( 'admin/jsonadm/url/options/config', array() );
 
+
+/** admin/extjs/url/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2016.04
+ * @category Developer
+ * @see admin/extjs/url/controller
+ * @see admin/extjs/url/action
+ * @see admin/extjs/url/config
+ */
 $extTarget = $this->config( 'admin/extjs/url/target' );
+
+/** admin/extjs/url/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2016.04
+ * @category Developer
+ * @see admin/extjs/url/target
+ * @see admin/extjs/url/action
+ * @see admin/extjs/url/config
+ */
 $extCntl = $this->config( 'admin/extjs/url/controller', 'Extadm' );
+
+/** admin/extjs/url/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2016.04
+ * @category Developer
+ * @see admin/extjs/url/target
+ * @see admin/extjs/url/controller
+ * @see admin/extjs/url/config
+ */
 $extAction = $this->config( 'admin/extjs/url/action', 'index' );
+
+/** admin/extjs/url/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/extjs/url/config = array( 'absoluteUri' => true )
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2016.04
+ * @category Developer
+ * @see admin/extjs/url/target
+ * @see admin/extjs/url/controller
+ * @see admin/extjs/url/action
+ */
 $extConfig = $this->config( 'admin/extjs/url/config', array() );
+
 
 /** admin/jqadm/resources
  * List of available resource clients in the JQAdm interface
@@ -43,6 +176,53 @@ $params['resource'] = $this->param( 'resource', 'dashboard' );
 $params['site'] = $this->param( 'site', 'default' );
 $params['lang'] = $this->param( 'lang', 'en' );
 $params['id'] = $this->param( 'id', '' );
+
+
+/** admin/jqadm/partial/error
+ * Relative path to the partial template for displaying errors
+ *
+ * The template file contains the HTML code and processing instructions
+ * to generate the result shown in the administration interface. The
+ * configuration string is the path to the template file relative
+ * to the templates directory (usually in admin/jqadm/templates).
+ *
+ * You can overwrite the template file configuration in extensions and
+ * provide alternative templates. These alternative templates should be
+ * named like the default one but with the string "default" replaced by
+ * an unique name. You may use the name of your project for this. If
+ * you've implemented an alternative client class as well, "default"
+ * should be replaced by the name of the new class.
+ *
+ * @param string Relative path to the partial creating the HTML code
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/partial/confirm
+ * @see admin/jqadm/partial/filter
+ * @see admin/jqadm/partial/pagination
+ */
+
+/** admin/jqadm/partial/confirm
+ * Relative path to the partial template for displaying the confirmation dialog
+ *
+ * The template file contains the HTML code and processing instructions
+ * to generate the result shown in the administration interface. The
+ * configuration string is the path to the template file relative
+ * to the templates directory (usually in admin/jqadm/templates).
+ *
+ * You can overwrite the template file configuration in extensions and
+ * provide alternative templates. These alternative templates should be
+ * named like the default one but with the string "default" replaced by
+ * an unique name. You may use the name of your project for this. If
+ * you've implemented an alternative client class as well, "default"
+ * should be replaced by the name of the new class.
+ *
+ * @param string Relative path to the partial creating the HTML code
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/partial/error
+ * @see admin/jqadm/partial/filter
+ * @see admin/jqadm/partial/pagination
+ */
 
 ?>
 <div class="aimeos" data-url="<?php echo $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site, 'resource' => '', 'id' => '' ), array(), $jsonConfig ) ); ?>">

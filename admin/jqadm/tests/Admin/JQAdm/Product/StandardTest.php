@@ -387,17 +387,17 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 	}
 
 
-	public function testGetSubClientEmpty()
-	{
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
-		$this->object->getSubClient( '' );
-	}
-
-
 	public function testGetSubClientInvalid()
 	{
 		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
-		$this->object->getSubClient( 'invalid' );
+		$this->object->getSubClient( '$unknown$' );
+	}
+
+
+	public function testGetSubClientUnknown()
+	{
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->object->getSubClient( 'unknown' );
 	}
 
 

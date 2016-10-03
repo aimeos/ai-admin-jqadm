@@ -15,30 +15,360 @@ $sort = function( $sortcode, $code ) {
 
 $enc = $this->encoder();
 
+/** admin/jqadm/url/search/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/search/controller
+ * @see admin/jqadm/url/search/action
+ * @see admin/jqadm/url/search/config
+ */
 $target = $this->config( 'admin/jqadm/url/search/target' );
+
+/** admin/jqadm/url/search/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/search/target
+ * @see admin/jqadm/url/search/action
+ * @see admin/jqadm/url/search/config
+ */
 $controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
+
+/** admin/jqadm/url/search/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/search/target
+ * @see admin/jqadm/url/search/controller
+ * @see admin/jqadm/url/search/config
+ */
 $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
+
+/** admin/jqadm/url/search/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/jqadm/url/search/config = array( 'absoluteUri' => true )
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/search/target
+ * @see admin/jqadm/url/search/controller
+ * @see admin/jqadm/url/search/action
+ */
 $config = $this->config( 'admin/jqadm/url/search/config', array() );
 
+
+/** admin/jqadm/url/create/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/create/controller
+ * @see admin/jqadm/url/create/action
+ * @see admin/jqadm/url/create/config
+ */
 $newTarget = $this->config( 'admin/jqadm/url/create/target' );
+
+/** admin/jqadm/url/create/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/create/target
+ * @see admin/jqadm/url/create/action
+ * @see admin/jqadm/url/create/config
+ */
 $newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
+
+/** admin/jqadm/url/create/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/create/target
+ * @see admin/jqadm/url/create/controller
+ * @see admin/jqadm/url/create/config
+ */
 $newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
+
+/** admin/jqadm/url/create/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/jqadm/url/create/config = array( 'absoluteUri' => true )
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/create/target
+ * @see admin/jqadm/url/create/controller
+ * @see admin/jqadm/url/create/action
+ */
 $newConfig = $this->config( 'admin/jqadm/url/create/config', array() );
 
+
+/** admin/jqadm/url/get/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/get/controller
+ * @see admin/jqadm/url/get/action
+ * @see admin/jqadm/url/get/config
+ */
 $getTarget = $this->config( 'admin/jqadm/url/get/target' );
+
+/** admin/jqadm/url/get/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/get/target
+ * @see admin/jqadm/url/get/action
+ * @see admin/jqadm/url/get/config
+ */
 $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
+
+/** admin/jqadm/url/get/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/get/target
+ * @see admin/jqadm/url/get/controller
+ * @see admin/jqadm/url/get/config
+ */
 $getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
+
+/** admin/jqadm/url/get/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/jqadm/url/get/config = array( 'absoluteUri' => true )
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/get/target
+ * @see admin/jqadm/url/get/controller
+ * @see admin/jqadm/url/get/action
+ */
 $getConfig = $this->config( 'admin/jqadm/url/get/config', array() );
 
+
+/** admin/jqadm/url/copy/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/copy/controller
+ * @see admin/jqadm/url/copy/action
+ * @see admin/jqadm/url/copy/config
+ */
 $copyTarget = $this->config( 'admin/jqadm/url/copy/target' );
+
+/** admin/jqadm/url/copy/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/copy/target
+ * @see admin/jqadm/url/copy/action
+ * @see admin/jqadm/url/copy/config
+ */
 $copyCntl = $this->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
+
+/** admin/jqadm/url/copy/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/copy/target
+ * @see admin/jqadm/url/copy/controller
+ * @see admin/jqadm/url/copy/config
+ */
 $copyAction = $this->config( 'admin/jqadm/url/copy/action', 'copy' );
+
+/** admin/jqadm/url/copy/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/jqadm/url/copy/config = array( 'absoluteUri' => true )
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/copy/target
+ * @see admin/jqadm/url/copy/controller
+ * @see admin/jqadm/url/copy/action
+ */
 $copyConfig = $this->config( 'admin/jqadm/url/copy/config', array() );
 
+
+/** admin/jqadm/url/delete/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/delete/controller
+ * @see admin/jqadm/url/delete/action
+ * @see admin/jqadm/url/delete/config
+ */
 $delTarget = $this->config( 'admin/jqadm/url/delete/target' );
+
+/** admin/jqadm/url/delete/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/delete/target
+ * @see admin/jqadm/url/delete/action
+ * @see admin/jqadm/url/delete/config
+ */
 $delCntl = $this->config( 'admin/jqadm/url/delete/controller', 'Jqadm' );
+
+/** admin/jqadm/url/delete/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/delete/target
+ * @see admin/jqadm/url/delete/controller
+ * @see admin/jqadm/url/delete/config
+ */
 $delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
+
+/** admin/jqadm/url/delete/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/jqadm/url/delete/config = array( 'absoluteUri' => true )
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/delete/target
+ * @see admin/jqadm/url/delete/controller
+ * @see admin/jqadm/url/delete/action
+ */
 $delConfig = $this->config( 'admin/jqadm/url/delete/config', array() );
+
 
 $formparams = $params = $this->get( 'pageParams', array() );
 unset( $formparams['fields'], $formparams['filter'], $formparams['page'] );
@@ -48,11 +378,92 @@ $filterParams = array(
 	'default' => 'product.label',
 );
 
+
+/** admin/jqadm/product/fields
+ * List of product columns that should be displayed in the list view
+ *
+ * Changes the list of product columns shown by default in the product list view.
+ * The columns can be changed by the editor as required within the administraiton
+ * interface.
+ *
+ * The names of the colums are in fact the search keys defined by the managers,
+ * e.g. "product.id" for the product ID.
+ *
+ * @param array List of field names, i.e. search keys
+ * @since 2016.04
+ * @category Developer
+ */
 $default = $this->config( 'admin/jqadm/product/fields', array( 'product.id', 'product.status', 'product.typeid', 'product.code', 'product.label' ) );
 $fields = $this->param( 'fields', $default );
 
 $pageParams = array( 'total' => $this->get( 'total', 0 ), 'pageParams' => $params );
 $sortcode = $this->param( 'sort' );
+
+
+/** admin/jqadm/partial/filter
+ * Relative path to the partial template for displaying the product filter
+ *
+ * The template file contains the HTML code and processing instructions
+ * to generate the result shown in the administration interface. The
+ * configuration string is the path to the template file relative
+ * to the templates directory (usually in admin/jqadm/templates).
+ *
+ * You can overwrite the template file configuration in extensions and
+ * provide alternative templates. These alternative templates should be
+ * named like the default one but with the string "default" replaced by
+ * an unique name. You may use the name of your project for this. If
+ * you've implemented an alternative client class as well, "default"
+ * should be replaced by the name of the new class.
+ *
+ * @param string Relative path to the partial creating the HTML code
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/partial/confirm
+ * @see admin/jqadm/partial/error
+ */
+
+/** admin/jqadm/partial/pagination
+ * Relative path to the partial template for displaying the pagination
+ *
+ * The template file contains the HTML code and processing instructions
+ * to generate the result shown in the administration interface. The
+ * configuration string is the path to the template file relative
+ * to the templates directory (usually in admin/jqadm/templates).
+ *
+ * You can overwrite the template file configuration in extensions and
+ * provide alternative templates. These alternative templates should be
+ * named like the default one but with the string "default" replaced by
+ * an unique name. You may use the name of your project for this. If
+ * you've implemented an alternative client class as well, "default"
+ * should be replaced by the name of the new class.
+ *
+ * @param string Relative path to the partial creating the HTML code
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/partial/filter
+ * @see admin/jqadm/partial/confirm
+ * @see admin/jqadm/partial/error
+ */
+
+/** admin/jqadm/template/page
+ * Relative path to the template for the base page template
+ *
+ * The template file contains the HTML code and processing instructions
+ * to generate the result shown in the administration interface. The
+ * configuration string is the path to the template file relative
+ * to the templates directory (usually in admin/jqadm/templates).
+ *
+ * You can overwrite the template file configuration in extensions and
+ * provide alternative templates. These alternative templates should be
+ * named like the default one but with the string "default" replaced by
+ * an unique name. You may use the name of your project for this. If
+ * you've implemented an alternative client class as well, "default"
+ * should be replaced by the name of the new class.
+ *
+ * @param string Relative path to the partial creating the HTML code
+ * @since 2016.04
+ * @category Developer
+ */
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>

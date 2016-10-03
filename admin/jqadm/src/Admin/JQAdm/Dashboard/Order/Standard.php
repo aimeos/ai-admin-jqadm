@@ -55,6 +55,72 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/dashboard/order/standard/subparts';
+
+	/** admin/jqadm/dashboard/order/latest/name
+	 * Name of the order latest subpart used by the JQAdm dashboard implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Order\Latest\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.07
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/dashboard/order/paymentstatus/name
+	 * Name of the order paymentstatus subpart used by the JQAdm dashboard implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Order\Paymentstatus\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.07
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/dashboard/order/hour/name
+	 * Name of the order hour subpart used by the JQAdm dashboard implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Order\Hour\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.07
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/dashboard/order/day/name
+	 * Name of the order day subpart used by the JQAdm dashboard implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Order\Day\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.07
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/dashboard/order/paymenttype/name
+	 * Name of the order paymenttype subpart used by the JQAdm dashboard implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Order\Paymenttype\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.07
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/dashboard/order/deliverytype/name
+	 * Name of the order deliverytype subpart used by the JQAdm dashboard implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Order\Deliverytype\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.07
+	 * @category Developer
+	 */
 	private $subPartNames = array( 'latest', 'paymentstatus', 'hour', 'day', 'paymenttype', 'deliverytype' );
 
 
@@ -127,6 +193,25 @@ class Standard
 			$view->orderBody .= $client->search();
 		}
 
+		/** admin/jqadm/dashboard/order/template-list
+		 * Relative path to the HTML body template of the order subpart for the dashboard.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
 		$tplconf = 'admin/jqadm/dashboard/order/template-list';
 		$default = 'dashboard/list-order-default.php';
 

@@ -55,6 +55,116 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/standard/subparts';
+
+	/** admin/jqadm/product/selection/name
+	 * Name of the selection subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Selection\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/product/bundle/name
+	 * Name of the bundle subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Bundle\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/product/image/name
+	 * Name of the image subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Image\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/product/text/name
+	 * Name of the text subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Text\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/product/price/name
+	 * Name of the price subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Price\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/product/stock/name
+	 * Name of the stock subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Stock\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/product/category/name
+	 * Name of the category subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Category\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/product/characteristic/name
+	 * Name of the characteristic subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Characteristic\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/product/physical/name
+	 * Name of the physical subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Physical\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/product/download/name
+	 * Name of the download subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Download\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2016.04
+	 * @category Developer
+	 */
 	private $subPartNames = array( 'selection', 'bundle', 'image', 'text', 'price', 'stock', 'category', 'characteristic', 'physical', 'download' );
 
 
@@ -99,6 +209,25 @@ class Standard
 			$view->errors = $view->get( 'errors', array() ) + $error;
 		}
 
+		/** admin/jqadm/product/template-item
+		 * Relative path to the HTML body template for the product item.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
 		$tplconf = 'admin/jqadm/product/template-item';
 		$default = 'product/item-default.php';
 
@@ -307,6 +436,25 @@ class Standard
 			$view->errors = $view->get( 'errors', array() ) + $error;
 		}
 
+		/** admin/jqadm/product/template-list
+		 * Relative path to the HTML body template for the product list.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
 		$tplconf = 'admin/jqadm/product/template-list';
 		$default = 'product/list-default.php';
 

@@ -94,6 +94,6 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->mock->expects( $this->once() )->method( 'getSubClient' )->will( $this->returnValue( 'test' ) );
 
-		$this->assertEquals( 'test', $this->object->getSubClient( 'invalid' ) );
+		$this->assertEquals( 'test', $this->object->getSubClient( 'unknown' ) );
 	}
 }
