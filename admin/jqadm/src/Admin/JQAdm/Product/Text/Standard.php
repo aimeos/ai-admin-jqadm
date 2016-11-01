@@ -327,6 +327,17 @@ class Standard
 
 
 	/**
+	 * Returns the text types that are managed by this subpart
+	 *
+	 * @return array List of text type codes
+	 */
+	protected function getTypes()
+	{
+		return $this->typelist;
+	}
+
+
+	/**
 	 * Returns the mapped input parameter or the existing items as expected by the template
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
@@ -353,7 +364,7 @@ class Standard
 				$type = $refItem->getType();
 				$langid = $refItem->getLanguageId();
 
-				if( in_array( $type, $this->typelist ) )
+				if( in_array( $type, $this->getTypes() ) )
 				{
 					$data['langid'][$langid] = $langid;
 					$data[$type]['listid'][$langid] = $listItem->getId();
@@ -404,7 +415,7 @@ class Standard
 
 		foreach( $langIds as $idx => $langid )
 		{
-			foreach( $this->typelist as $type )
+			foreach( $this->getTypes() as $type )
 			{
 				if( ( $content = trim( $view->param( 'text/' . $type . '/content/' . $idx ) ) ) === '' ) {
 					continue;
@@ -446,7 +457,7 @@ class Standard
 
 		foreach( $listItems as $id => $listItem )
 		{
-			if( in_array( $listItem->getRefItem()->getType(), $this->typelist ) ) {
+			if( in_array( $listItem->getRefItem()->getType(), $this->getTypes() ) ) {
 				$allListIds[] = $id;
 			}
 		}
