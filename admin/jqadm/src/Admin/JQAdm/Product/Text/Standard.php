@@ -333,7 +333,22 @@ class Standard
 	 */
 	protected function getTypes()
 	{
-		return $this->typelist;
+		/** admin/jqadm/product/text/standard/types
+		 * List of text types that are managed by the product text subpart
+		 *
+		 * To extend or reduce the text types that can be managed by the product
+		 * text subpart, you can modify this configuration setting and add more
+		 * text types or remove existing ones.
+		 *
+		 * '''Note:''' You have to overwrite the corresponding template as well
+		 * to add or remove the corresponding input fields for the new text type
+		 * list.
+		 *
+		 * @param array List of text type codes
+		 * @since 2016.11
+		 * @category Developer
+		 */
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/text/standard/types', $this->typelist );
 	}
 
 
