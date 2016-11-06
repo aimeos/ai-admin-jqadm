@@ -130,7 +130,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 		$variants = $item->getListItems( 'product', 'default' );
 
 		if( empty( $variants ) ) {
-			throw new \Exception( 'No variant products available' );
+			throw new \RuntimeException( 'No variant products available' );
 		}
 
 		$variant = $manager->getItem( reset( $variants )->getRefId(), array( 'attribute' ) );
@@ -156,7 +156,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'updateItems' )
-			->will( $this->throwException( new \Exception() ) );
+			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( \TestHelperJqadm::getView() );
 
