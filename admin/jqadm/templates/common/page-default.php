@@ -174,7 +174,7 @@ $extParams = array( 'site' => $site, 'lang' => $this->param( 'lang' ) );
 $params = $this->get( 'pageParams', array() );
 $params['resource'] = $this->param( 'resource', 'dashboard' );
 $params['site'] = $this->param( 'site', 'default' );
-$params['lang'] = $this->param( 'lang', 'en' );
+$params['lang'] = $this->param( 'lang', null );
 $params['id'] = $this->param( 'id', '' );
 
 
