@@ -18,7 +18,7 @@ $enc = $this->encoder();
 		<table class="stock-list table table-default">
 			<thead>
 				<tr>
-			  		<th class="stock-warehouse"><?php echo $enc->html( $this->translate( 'admin', 'Warehouse' ) ); ?></th>
+			  		<th class="stock-type"><?php echo $enc->html( $this->translate( 'admin', 'Type' ) ); ?></th>
 			  		<th class="stock-stocklevel"><?php echo $enc->html( $this->translate( 'admin', 'Stock level' ) ); ?></th>
 			  		<th class="stock-databack"><?php echo $enc->html( $this->translate( 'admin', 'Back in stock' ) ); ?></th>
 					<th class="actions"><div class="btn btn-primary fa fa-plus"></div></th>
@@ -27,14 +27,14 @@ $enc = $this->encoder();
 			<tbody>
 <?php foreach( $this->get( 'stockData/product.stock.id', array() ) as $idx => $id ) : ?>
 				<tr>
-			  		<td class="stock-warehouse">
+			  		<td class="stock-type">
 						<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'product.stock.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
-						<select class="form-control c-select item-warehouseid" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'product.stock.warehouseid', '' ) ) ); ?>">
-<?php	foreach( $this->get( 'stockWarehouses', array() ) as $whid => $warehouse ) : ?>
-<?php		if( $whid == $this->get( 'stockData/product.stock.warehouseid/' . $idx ) ) : ?>
-							<option value="<?php echo $enc->attr( $whid ); ?>" selected="selected"><?php echo $enc->html( $warehouse->getLabel() ) ?></option>
+						<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'product.stock.typeid', '' ) ) ); ?>">
+<?php	foreach( $this->get( 'stockTypes', array() ) as $typeId => $typeItem ) : ?>
+<?php		if( $typeId == $this->get( 'stockData/product.stock.typeid/' . $idx ) ) : ?>
+							<option value="<?php echo $enc->attr( $typeId ); ?>" selected="selected"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
 <?php		else : ?>
-							<option value="<?php echo $enc->attr( $whid ); ?>"><?php echo $enc->html( $warehouse->getLabel() ) ?></option>
+							<option value="<?php echo $enc->attr( $typeId ); ?>"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
 <?php		endif; ?>
 <?php	endforeach; ?>
 						</select>
@@ -53,11 +53,11 @@ $enc = $this->encoder();
 				</tr>
 <?php endforeach; ?>
 				<tr class="prototype">
-			  		<td class="stock-warehouse">
+			  		<td class="stock-type">
 						<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'product.stock.id', '' ) ) ); ?>" value="" disabled="disabled" />
-						<select class="form-control c-select item-warehouseid" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'product.stock.warehouseid', '' ) ) ); ?>" disabled="disabled">
-<?php foreach( $this->get( 'stockWarehouses', array() ) as $whid => $warehouse ) : ?>
-							<option value="<?php echo $enc->attr( $whid ); ?>"><?php echo $enc->html( $warehouse->getLabel() ) ?></option>
+						<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'product.stock.typeid', '' ) ) ); ?>" disabled="disabled">
+<?php foreach( $this->get( 'stockTypes', array() ) as $typeId => $typeItem ) : ?>
+							<option value="<?php echo $enc->attr( $typeId ); ?>"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
 <?php endforeach; ?>
 						</select>
 					</td>

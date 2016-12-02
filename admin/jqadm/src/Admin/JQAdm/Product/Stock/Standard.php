@@ -293,9 +293,9 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$whManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/stock/warehouse' );
+		$whManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/stock/type' );
 
-		$view->stockWarehouses = $whManager->searchItems( $whManager->createSearch() );
+		$view->stockTypes = $whManager->searchItems( $whManager->createSearch() );
 		$view->stockData = (array) $view->param( 'stock', array() );
 
 		if( !empty( $view->stockData ) || ( $id = $view->item->getId() ) === null ) {
@@ -307,7 +307,7 @@ class Standard
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'product.stock.parentid', $id ) );
-		$search->setSortations( array( $search->sort( '+', 'product.stock.warehouse.code' ) ) );
+		$search->setSortations( array( $search->sort( '+', 'product.stock.type.code' ) ) );
 
 		foreach( $manager->searchItems( $search ) as $item )
 		{
@@ -344,7 +344,7 @@ class Standard
 			}
 
 			$item->setParentId( $view->item->getId() );
-			$item->setWarehouseId( $view->param( 'stock/product.stock.warehouseid/' . $idx ) );
+			$item->setTypeId( $view->param( 'stock/product.stock.typeid/' . $idx ) );
 			$item->setStocklevel( $view->param( 'stock/product.stock.stocklevel/' . $idx ) );
 			$item->setDateBack( $view->param( 'stock/product.stock.dateback/' . $idx ) );
 

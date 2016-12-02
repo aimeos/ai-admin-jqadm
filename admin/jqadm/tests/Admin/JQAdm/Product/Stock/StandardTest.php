@@ -72,7 +72,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-		$whManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/stock/warehouse' );
+		$whManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/stock/type' );
 
 		$item = $manager->findItem( 'CNC' );
 		$item->setCode( 'jqadm-test-stock' );
@@ -84,7 +84,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 		$param = array(
 			'stock' => array(
 				'product.stock.id' => array( '' ),
-				'product.stock.warehouseid' => array( $whManager->findItem( 'default' )->getId() ),
+				'product.stock.typeid' => array( $whManager->findItem( 'default' )->getId() ),
 				'product.stock.dateback' => array( '2000-01-01 00:00:00' ),
 				'product.stock.stocklevel' => array( '-1' ),
 			),
