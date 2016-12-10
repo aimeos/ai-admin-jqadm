@@ -156,7 +156,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/stock' );
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'stock' );
 		$manager->begin();
 
 		try
@@ -293,21 +293,21 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$whManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/stock/type' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock/type' );
 
-		$view->stockTypes = $whManager->searchItems( $whManager->createSearch() );
+		$view->stockTypes = $typeManager->searchItems( $typeManager->createSearch() );
 		$view->stockData = (array) $view->param( 'stock', array() );
 
-		if( !empty( $view->stockData ) || ( $id = $view->item->getId() ) === null ) {
+		if( !empty( $view->stockData ) || ( $code = $view->item->getCode() ) == '' ) {
 			return;
 		}
 
 		$data = array();
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/stock' );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock' );
 
 		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'product.stock.parentid', $id ) );
-		$search->setSortations( array( $search->sort( '+', 'product.stock.type.code' ) ) );
+		$search->setConditions( $search->compare( '==', 'stock.productcode', $code ) );
+		$search->setSortations( array( $search->sort( '+', 'stock.type.code' ) ) );
 
 		foreach( $manager->searchItems( $search ) as $item )
 		{
@@ -321,19 +321,19 @@ class Standard
 
 
 	/**
-	 * Updates existing product stock items or creates new ones
+	 * Updates existing stock items or creates new ones
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
 	 */
 	protected function updateItems( \Aimeos\MW\View\Iface $view )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/stock' );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock' );
 
 		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'product.stock.parentid', $view->item->getId() ) );
+		$search->setConditions( $search->compare( '==', 'stock.productcode', $view->item->getCode() ) );
 		$items = $manager->searchitems( $search );
 
-		$list = (array) $view->param( 'stock/product.stock.id', array() );
+		$list = (array) $view->param( 'stock/stock.id', array() );
 
 		foreach( $list as $idx => $id )
 		{
@@ -343,10 +343,10 @@ class Standard
 				$item = $items[$id];
 			}
 
-			$item->setParentId( $view->item->getId() );
-			$item->setTypeId( $view->param( 'stock/product.stock.typeid/' . $idx ) );
-			$item->setStocklevel( $view->param( 'stock/product.stock.stocklevel/' . $idx ) );
-			$item->setDateBack( $view->param( 'stock/product.stock.dateback/' . $idx ) );
+			$item->setProductCode( $view->item->getCode() );
+			$item->setTypeId( $view->param( 'stock/stock.typeid/' . $idx ) );
+			$item->setStocklevel( $view->param( 'stock/stock.stocklevel/' . $idx ) );
+			$item->setDateBack( $view->param( 'stock/stock.dateback/' . $idx ) );
 
 			$manager->saveItem( $item, false );
 		}
