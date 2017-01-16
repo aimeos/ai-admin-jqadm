@@ -124,6 +124,42 @@ class Standard
 
 
 	/**
+	 * Deletes a resource
+	 *
+	 * @return string|null admin output to display or null for redirecting to the list
+	 */
+	public function delete()
+	{
+		$view = $this->getView();
+		$context = $this->getContext();
+
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog/lists' );
+
+		$search = $manager->createSearch();
+		$expr = array(
+			$search->compare( '==', 'catalog.lists.refid', $view->param( 'id' ) ),
+			$search->compare( '==', 'catalog.lists.domain', 'product' )
+		);
+		$search->setConditions( $search->combine( '&&', $expr ) );
+		$search->setSortations( array( $search->sort( '+', 'catalog.lists.id' ) ) );
+
+		$start = 0;
+
+		do
+		{
+			$search->setSlice( $start );
+
+			$result = $manager->searchItems( $search );
+			$manager->deleteItems( array_keys( $result ) );
+
+			$count = count( $result );
+			$start += $count;
+		}
+		while( $count >= $search->getSliceSize() );
+	}
+
+
+	/**
 	 * Returns a single resource
 	 *
 	 * @return string admin output to display or null for redirecting to the list
