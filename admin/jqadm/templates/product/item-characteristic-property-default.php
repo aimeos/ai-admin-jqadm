@@ -26,7 +26,7 @@ $enc = $this->encoder();
 			<tr>
 				<td class="property-type">
 					<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
-					<select class="c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>">
+					<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>">
 <?php foreach( $this->get( 'propertyTypes', array() ) as $typeid => $item ) : ?>
 						<option value="<?php echo $enc->attr( $typeid ); ?>" <?php echo $selected( $this->get( 'propertyData/product.property.typeid/' . $idx ), $typeid ); ?> ><?php echo $enc->html( $item->getLabel() ); ?></option>
 <?php endforeach; ?>
@@ -48,7 +48,7 @@ $enc = $this->encoder();
 			<tr class="prototype">
 				<td class="property-type">
 					<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.id', '' ) ) ); ?>" value="" disabled="disabled" />
-					<select class="c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>" disabled="disabled">
+					<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>" disabled="disabled">
 <?php foreach( $this->get( 'propertyTypes', array() ) as $typeid => $item ) : ?>
 						<option value="<?php echo $enc->attr( $typeid ); ?>" ><?php echo $enc->html( $item->getLabel() ); ?></option>
 <?php endforeach; ?>
