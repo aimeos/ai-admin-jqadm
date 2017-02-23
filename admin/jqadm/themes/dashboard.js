@@ -118,8 +118,12 @@ Aimeos.Dashboard.Order = {
                     .attr("width", cellSize)
                     .attr("height", cellSize)
                     .attr("x", function(d) {
-                        var week = d3.time.weekOfYear(new Date(firstdate.getUTCFullYear(), 11, 31));
-                        var weeks = (week == 1 ? d3.time.weekOfYear(date.setDate(24)) : week);
+                        var first = d3.time.weekOfYear(new Date(d.getUTCFullYear(), 0, 1));
+                        var weeks = d3.time.weekOfYear(new Date(firstdate.getUTCFullYear(), 11, 31));
+
+                        if(weeks == 1) { weeks = d3.time.weekOfYear(new Date(d.getUTCFullYear(), 11, 24)); }
+                        if(first == 0) { weeks += 1; }
+
                         var result = d3.time.weekOfYear(d) - d3.time.weekOfYear(firstdate) + (weeks * (d.getUTCFullYear() - firstdate.getUTCFullYear()));
                         return result * cellWidth;
                     })
@@ -164,9 +168,12 @@ Aimeos.Dashboard.Order = {
                         }
 
                         var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
-                            week = d3.time.weekOfYear(new Date(firstdate.getUTCFullYear(), 11, 31)),
-                            weeks = (week == 1 ? d3.time.weekOfYear(date.setDate(24)) : week),
+                            first = d3.time.weekOfYear(new Date(t0.getUTCFullYear(), 0, 1)),
+                            weeks = d3.time.weekOfYear(new Date(firstdate.getUTCFullYear(), 11, 31)),
                             d0 = t0.getDay(), d1 = t1.getDay();
+
+                        if(weeks == 1) { weeks = d3.time.weekOfYear(new Date(t0.getUTCFullYear(), 11, 24)); }
+                        if(first == 0) { weeks += 1; }
 
                         var w0 = d3.time.weekOfYear(t0) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
                         var w1 = d3.time.weekOfYear(t1) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
