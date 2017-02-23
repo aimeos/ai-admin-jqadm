@@ -41,19 +41,6 @@ abstract class Base
 
 
 	/**
-	 * Catches unknown methods
-	 *
-	 * @param string $name Name of the method
-	 * @param array $param List of method parameter
-	 * @return boolean False for every call
-	 */
-	public function __call( $name, array $param )
-	{
-		return false;
-	}
-
-
-	/**
 	 * Returns the view object that will generate the admin output.
 	 *
 	 * @return \Aimeos\MW\View\Iface $view The view object which generates the admin output

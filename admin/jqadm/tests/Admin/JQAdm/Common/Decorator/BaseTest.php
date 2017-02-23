@@ -35,13 +35,6 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 	}
 
 
-	public function testCallInvalid()
-	{
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
-		$this->object->invalidMethod();
-	}
-
-
 	public function testCopy()
 	{
 		$this->mock->expects( $this->once() )->method( 'copy' )->will( $this->returnValue( 'test' ) );
