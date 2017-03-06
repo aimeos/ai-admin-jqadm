@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-16 23:34+0200\n"
-"PO-Revision-Date: 2016-09-02 16:57+0000\n"
-"Last-Translator: Aldemar Hernández <napalm-beach@lycos.com>\n"
+"POT-Creation-Date: 2017-01-03 12:08+0100\n"
+"PO-Revision-Date: 2017-01-03 11:21+0000\n"
+"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,6 +190,65 @@ msgstr "Código"
 msgid "Codes"
 msgstr "Códigos"
 
+#. /jqadm/partial/filter
+#. * Relative path to the partial template for displaying the product filter
+#. *
+#. * The template file contains the HTML code and processing instructions
+#. * to generate the result shown in the administration interface. The
+#. * configuration string is the path to the template file relative
+#. * to the templates directory (usually in admin/jqadm/templates).
+#. *
+#. * You can overwrite the template file configuration in extensions and
+#. * provide alternative templates. These alternative templates should be
+#. * named like the default one but with the string "default" replaced by
+#. * an unique name. You may use the name of your project for this. If
+#. * you've implemented an alternative client class as well, "default"
+#. * should be replaced by the name of the new class.
+#. *
+#. * @param string Relative path to the partial creating the HTML code
+#. * @since 2016.04
+#. * @category Developer
+#. * @see admin/jqadm/partial/confirm
+#. * @see admin/jqadm/partial/error
+#. /jqadm/partial/pagination
+#. * Relative path to the partial template for displaying the pagination
+#. *
+#. * The template file contains the HTML code and processing instructions
+#. * to generate the result shown in the administration interface. The
+#. * configuration string is the path to the template file relative
+#. * to the templates directory (usually in admin/jqadm/templates).
+#. *
+#. * You can overwrite the template file configuration in extensions and
+#. * provide alternative templates. These alternative templates should be
+#. * named like the default one but with the string "default" replaced by
+#. * an unique name. You may use the name of your project for this. If
+#. * you've implemented an alternative client class as well, "default"
+#. * should be replaced by the name of the new class.
+#. *
+#. * @param string Relative path to the partial creating the HTML code
+#. * @since 2016.04
+#. * @category Developer
+#. * @see admin/jqadm/partial/filter
+#. * @see admin/jqadm/partial/confirm
+#. * @see admin/jqadm/partial/error
+#. /jqadm/template/page
+#. * Relative path to the template for the base page template
+#. *
+#. * The template file contains the HTML code and processing instructions
+#. * to generate the result shown in the administration interface. The
+#. * configuration string is the path to the template file relative
+#. * to the templates directory (usually in admin/jqadm/templates).
+#. *
+#. * You can overwrite the template file configuration in extensions and
+#. * provide alternative templates. These alternative templates should be
+#. * named like the default one but with the string "default" replaced by
+#. * an unique name. You may use the name of your project for this. If
+#. * you've implemented an alternative client class as well, "default"
+#. * should be replaced by the name of the new class.
+#. *
+#. * @param string Relative path to the partial creating the HTML code
+#. * @since 2016.04
+#. * @category Developer
 msgid "Columns"
 msgstr "Columnas"
 
@@ -347,6 +406,49 @@ msgstr "Fecha final"
 msgid "Error"
 msgstr "Error"
 
+#. /jqadm/partial/error
+#. * Relative path to the partial template for displaying errors
+#. *
+#. * The template file contains the HTML code and processing instructions
+#. * to generate the result shown in the administration interface. The
+#. * configuration string is the path to the template file relative
+#. * to the templates directory (usually in admin/jqadm/templates).
+#. *
+#. * You can overwrite the template file configuration in extensions and
+#. * provide alternative templates. These alternative templates should be
+#. * named like the default one but with the string "default" replaced by
+#. * an unique name. You may use the name of your project for this. If
+#. * you've implemented an alternative client class as well, "default"
+#. * should be replaced by the name of the new class.
+#. *
+#. * @param string Relative path to the partial creating the HTML code
+#. * @since 2016.04
+#. * @category Developer
+#. * @see admin/jqadm/partial/confirm
+#. * @see admin/jqadm/partial/filter
+#. * @see admin/jqadm/partial/pagination
+#. /jqadm/partial/confirm
+#. * Relative path to the partial template for displaying the confirmation
+#. dialog
+#. *
+#. * The template file contains the HTML code and processing instructions
+#. * to generate the result shown in the administration interface. The
+#. * configuration string is the path to the template file relative
+#. * to the templates directory (usually in admin/jqadm/templates).
+#. *
+#. * You can overwrite the template file configuration in extensions and
+#. * provide alternative templates. These alternative templates should be
+#. * named like the default one but with the string "default" replaced by
+#. * an unique name. You may use the name of your project for this. If
+#. * you've implemented an alternative client class as well, "default"
+#. * should be replaced by the name of the new class.
+#. *
+#. * @param string Relative path to the partial creating the HTML code
+#. * @since 2016.04
+#. * @category Developer
+#. * @see admin/jqadm/partial/error
+#. * @see admin/jqadm/partial/filter
+#. * @see admin/jqadm/partial/pagination
 msgid "Expert mode"
 msgstr "Modo Experto"
 
