@@ -39,7 +39,7 @@ class IndexTest extends \PHPUnit_Framework_TestCase
 	public function testDelete()
 	{
 		$view = \TestHelperJqadm::getView();
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, array( 'id' => 1 ) );
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, array( 'id' => -1 ) );
 		$view->addHelper( 'param', $helper );
 
 		$this->mock->expects( $this->once() )->method( 'delete' )->will( $this->returnValue( 'test' ) );
