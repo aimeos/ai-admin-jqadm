@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/dashboard/order/latest/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -134,12 +134,12 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'order-latest' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'order-latest' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
 		/** admin/jqadm/dashboard/order/latest/template-item
@@ -261,7 +261,7 @@ class Standard
 	 */
 	protected function addOrders( \Aimeos\MW\View\Iface $view )
 	{
-		$basketItems = array();
+		$basketItems = [];
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
 		$baseManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
 

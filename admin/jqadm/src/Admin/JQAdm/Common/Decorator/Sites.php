@@ -27,7 +27,7 @@ class Sites extends Base
 	 */
 	public function setView( \Aimeos\MW\View\Iface $view )
 	{
-		$list = array();
+		$list = [];
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'locale/site' );
 
 		$search = $manager->createSearch();

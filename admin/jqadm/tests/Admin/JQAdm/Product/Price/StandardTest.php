@@ -93,7 +93,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 		$param = array(
 			'price' => array(
 				'product.lists.id' => array( '' ),
-				'price.typeid' => array( $typeManager->findItem( 'default', array(), 'product' )->getId() ),
+				'price.typeid' => array( $typeManager->findItem( 'default', [], 'product' )->getId() ),
 				'price.currencyid' => array( 'EUR' ),
 				'price.label' => array( 'test' ),
 				'price.quantity' => array( '2' ),

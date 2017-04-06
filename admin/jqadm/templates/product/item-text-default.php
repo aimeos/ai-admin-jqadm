@@ -17,7 +17,7 @@ $enc = $this->encoder();
 	<div id="product-item-text-data" class="item-text card-block panel-collapse collapse" role="tabpanel" aria-labelledby="product-item-text">
 		<div id="product-item-text-group" role="tablist" aria-multiselectable="true">
 
-<?php foreach( (array) $this->get( 'textData/langid', array() ) as $idx => $langid ) : ?>
+<?php foreach( (array) $this->get( 'textData/langid', [] ) as $idx => $langid ) : ?>
 
 			<div class="group-item card panel">
 				<div id="product-item-text-group-item-<?php echo $enc->attr( $idx ); ?>" class="card-header header collapsed" role="tab"

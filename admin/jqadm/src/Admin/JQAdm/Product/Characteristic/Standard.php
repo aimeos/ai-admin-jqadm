@@ -195,14 +195,14 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-characteristic' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-characteristic' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 
@@ -314,6 +314,6 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$view->characteristicData = (array) $view->param( 'characteristic', array() );;
+		$view->characteristicData = (array) $view->param( 'characteristic', [] );;
 	}
 }

@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/text/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 	private $types;
 	private $typelist = array( 'name', 'short', 'long', 'url', 'meta-keyword', 'meta-description' );
 
@@ -180,7 +180,7 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-text' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 
 			$textManager->rollback();
 			$manager->rollback();
@@ -189,7 +189,7 @@ class Standard
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-text' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 
 			$textManager->rollback();
 			$manager->rollback();
@@ -307,7 +307,7 @@ class Standard
 	{
 		if( $this->types === null )
 		{
-			$this->types = array();
+			$this->types = [];
 			$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'text/type' );
 
 			$search = $manager->createSearch();
@@ -362,12 +362,12 @@ class Standard
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
 
-		$data = (array) $view->param( 'text', array() );
+		$data = (array) $view->param( 'text', [] );
 
 		if( empty( $data ) && ( $id = $view->item->getId() ) !== null )
 		{
 			if( !isset( $data['langid'] ) ) {
-				$data['langid'] = array();
+				$data['langid'] = [];
 			}
 
 			foreach( $view->item->getListItems( 'text', 'default' ) as $listItem )
@@ -412,13 +412,13 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
-		$listIds = array();
-		$langIds = (array) $view->param( 'text/langid', array() );
+		$listIds = [];
+		$langIds = (array) $view->param( 'text/langid', [] );
 		$listItems = $manager->getItem( $id, array( 'text' ) )->getListItems( 'text', 'default' );
 
 
 		$listItem = $listManager->createItem();
-		$listItem->setTypeId( $listTypeManager->findItem( 'default', array(), 'text' )->getId() );
+		$listItem->setTypeId( $listTypeManager->findItem( 'default', [], 'text' )->getId() );
 		$listItem->setDomain( 'text' );
 		$listItem->setParentId( $id );
 		$listItem->setStatus( 1 );
@@ -468,7 +468,7 @@ class Standard
 		}
 
 
-		$rmIds = $allListIds = array();
+		$rmIds = $allListIds = [];
 
 		foreach( $listItems as $id => $listItem )
 		{

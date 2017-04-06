@@ -20,19 +20,19 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 		$this->context->setView( \TestHelperJqadm::getView() );
 
 		$config = $this->context->getConfig();
-		$config->set( 'admin/jqadm/common/decorators/default', array() );
-		$config->set( 'admin/jqadm/product/decorators/global', array() );
-		$config->set( 'admin/jqadm/product/decorators/local', array() );
+		$config->set( 'admin/jqadm/common/decorators/default', [] );
+		$config->set( 'admin/jqadm/product/decorators/global', [] );
+		$config->set( 'admin/jqadm/product/decorators/local', [] );
 
 	}
 
 
 	public function testInjectClient()
 	{
-		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 		\Aimeos\Admin\JQAdm\Product\Factory::injectClient( '\\Aimeos\\Admin\\JQAdm\\Product\\Standard', $client );
 
-		$iClient = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		$iClient = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
 		$this->assertSame( $client, $iClient );
 	}
@@ -40,11 +40,11 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 
 	public function testInjectClientReset()
 	{
-		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 		\Aimeos\Admin\JQAdm\Product\Factory::injectClient( '\\Aimeos\\Admin\\JQAdm\\Product\\Standard', $client );
 		\Aimeos\Admin\JQAdm\Product\Factory::injectClient( '\\Aimeos\\Admin\\JQAdm\\Product\\Standard', null );
 
-		$new = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		$new = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
 		$this->assertNotSame( $client, $new );
 	}
@@ -52,10 +52,10 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 
 	public function testAddDecorators()
 	{
-		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
 		$result = \Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client,
-			array(), array( 'Cache' ), '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\' );
+			[], array( 'Cache' ), '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\' );
 
 		$this->assertInstanceOf( '\Aimeos\Admin\JQAdm\Iface', $result );
 	}
@@ -63,30 +63,30 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 
 	public function testAddDecoratorsInvalidName()
 	{
-		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client, array(),
+		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client, [],
 			array( '$' ), 'Test' );
 	}
 
 
 	public function testAddDecoratorsInvalidClass()
 	{
-		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client, array(),
+		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client, [],
 			array( 'Test' ), 'TestDecorator' );
 	}
 
 
 	public function testAddDecoratorsInvalidInterface()
 	{
-		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client, array(),
+		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client, [],
 			array( 'Test' ), '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\' );
 	}
 
@@ -97,23 +97,23 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 		$this->context->getConfig()->set( 'admin/jqadm/common/decorators/default', array( 'TestDecorator' ) );
 
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		\Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 	}
 
 
 	public function testAddClientDecoratorsEmptyPath()
 	{
-		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, array(), 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addClientDecoratorsPublic( $this->context, $client, array(), '' );
+		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addClientDecoratorsPublic( $this->context, $client, [], '' );
 	}
 
 
 	public function testCreateClientBase()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::createClientBasePublic( $this->context, 'Test', 'Test', array() );
+		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::createClientBasePublic( $this->context, 'Test', 'Test', [] );
 	}
 }
 

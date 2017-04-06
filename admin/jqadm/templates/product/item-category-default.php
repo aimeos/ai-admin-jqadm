@@ -23,7 +23,7 @@ $enc = $this->encoder();
 				</thead>
 				<tbody>
 <?php $listTypeId = $this->get( 'categoryListTypes/default' ); ?>
-<?php foreach( $this->get( 'categoryData/catalog.lists.id', array() ) as $idx => $id ) : ?>
+<?php foreach( $this->get( 'categoryData/catalog.lists.id', [] ) as $idx => $id ) : ?>
 <?php 	if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
 					<tr>
 						<td>
@@ -64,7 +64,7 @@ $enc = $this->encoder();
 				</thead>
 				<tbody>
 <?php $listTypeId = $this->get( 'categoryListTypes/promotion' ); ?>
-<?php foreach( $this->get( 'categoryData/catalog.lists.id', array() ) as $idx => $id ) : ?>
+<?php foreach( $this->get( 'categoryData/catalog.lists.id', [] ) as $idx => $id ) : ?>
 <?php 	if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
 					<tr>
 						<td>

@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/category/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -210,14 +210,14 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-category' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-category' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 
@@ -330,7 +330,7 @@ class Standard
 	 */
 	protected function getCatalogItems( array $listItems )
 	{
-		$ids = array();
+		$ids = [];
 
 		foreach( $listItems as $listItem ) {
 			$ids[] = $listItem->getParentId();
@@ -374,7 +374,7 @@ class Standard
 	 */
 	protected function getListTypes()
 	{
-		$list = array();
+		$list = [];
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists/type' );
 
 		$search = $manager->createSearch();
@@ -396,7 +396,7 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$view->categoryData = (array) $view->param( 'category', array() );
+		$view->categoryData = (array) $view->param( 'category', [] );
 
 		if( !empty( $view->categoryData ) ) {
 			return;
@@ -404,7 +404,7 @@ class Standard
 
 		$listItems = $this->getListItems( $view->item->getId() );
 		$catItems = $this->getCatalogItems( $listItems );
-		$data = array();
+		$data = [];
 
 		foreach( $listItems as $listItem )
 		{
@@ -437,7 +437,7 @@ class Standard
 
 		$id = $view->item->getId();
 		$map = $this->getListItems( $id );
-		$listIds = (array) $view->param( 'category/catalog.lists.id', array() );
+		$listIds = (array) $view->param( 'category/catalog.lists.id', [] );
 
 
 		foreach( $listIds as $pos => $listid )

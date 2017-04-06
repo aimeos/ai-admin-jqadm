@@ -17,7 +17,7 @@ $enc = $this->encoder();
 	<div id="product-item-price-data" class="item-price card-block panel-collapse collapse" role="tabpanel" aria-labelledby="product-item-price">
 		<div id="product-item-price-group" role="tablist" aria-multiselectable="true">
 
-<?php foreach( (array) $this->get( 'priceData/price.currencyid', array() ) as $idx => $currencyid ) : ?>
+<?php foreach( (array) $this->get( 'priceData/price.currencyid', [] ) as $idx => $currencyid ) : ?>
 
 			<div class="group-item card panel">
 				<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'price', 'product.lists.id', '' ) ) ); ?>"
@@ -39,7 +39,7 @@ $enc = $this->encoder();
 							<label class="col-lg-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-lg-9">
 								<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>">
-<?php	foreach( (array) $this->get( 'priceTypes', array() ) as $typeId => $typeItem ) : ?>
+<?php	foreach( (array) $this->get( 'priceTypes', [] ) as $typeId => $typeItem ) : ?>
 <?php		if( $typeId == $this->get( 'priceData/price.typeid/' . $idx ) ) : ?>
 									<option value="<?php echo $enc->attr( $typeId ); ?>" selected="selected"><?php echo $enc->html( $typeItem->getLabel() ); ?></option>
 <?php		else : ?>

@@ -18,7 +18,7 @@ $enc = $this->encoder();
 		role="tabpanel" aria-labelledby="product-item-selection-head">
 		<div id="product-item-selection-group" role="tablist" aria-multiselectable="true">
 
-<?php foreach( (array) $this->get( 'selectionData', array() ) as $code => $map ) : ?>
+<?php foreach( (array) $this->get( 'selectionData', [] ) as $code => $map ) : ?>
 
 			<div class="group-item card">
 				<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'selection', 'product.lists.id', '' ) ) ); ?>"
@@ -66,7 +66,7 @@ $enc = $this->encoder();
 								</tr>
 							</thead>
 							<tbody>
-<?php foreach( (array) $this->value( $map, 'attr', array() ) as $attrid => $list ) : ?>
+<?php foreach( (array) $this->value( $map, 'attr', [] ) as $attrid => $list ) : ?>
 								<tr>
 									<td>
 										<input class="item-attr-ref" type="hidden" value="<?php echo $enc->attr( $code ); ?>"

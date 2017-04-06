@@ -19,7 +19,7 @@ namespace Aimeos\Admin\JQAdm\Common\Factory;
  */
 class Base
 {
-	private static $objects = array();
+	private static $objects = [];
 
 
 	/**
@@ -117,8 +117,8 @@ class Base
 		 * @since 2014.03
 		 * @category Developer
 		 */
-		$decorators = $config->get( 'admin/jqadm/common/decorators/default', array() );
-		$excludes = $config->get( 'admin/jqadm/' . $path . '/decorators/excludes', array() );
+		$decorators = $config->get( 'admin/jqadm/common/decorators/default', [] );
+		$excludes = $config->get( 'admin/jqadm/' . $path . '/decorators/excludes', [] );
 
 		foreach( $decorators as $key => $name )
 		{
@@ -131,11 +131,11 @@ class Base
 		$client = self::addDecorators( $context, $client, $templatePaths, $decorators, $classprefix );
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\';
-		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/global', array() );
+		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/global', [] );
 		$client = self::addDecorators( $context, $client, $templatePaths, $decorators, $classprefix );
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\' . $localClass . '\\Decorator\\';
-		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/local', array() );
+		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/local', [] );
 		$client = self::addDecorators( $context, $client, $templatePaths, $decorators, $classprefix );
 
 		return $client;

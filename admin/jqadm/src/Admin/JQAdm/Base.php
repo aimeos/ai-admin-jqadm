@@ -157,8 +157,8 @@ abstract class Base
 		$localClass = str_replace( ' ', '\\', ucwords( str_replace( '/', ' ', $path ) ) );
 		$config = $this->context->getConfig();
 
-		$decorators = $config->get( 'admin/jqadm/common/decorators/default', array() );
-		$excludes = $config->get( 'admin/jqadm/' . $path . '/decorators/excludes', array() );
+		$decorators = $config->get( 'admin/jqadm/common/decorators/default', [] );
+		$excludes = $config->get( 'admin/jqadm/' . $path . '/decorators/excludes', [] );
 
 		foreach( $decorators as $key => $name )
 		{
@@ -171,11 +171,11 @@ abstract class Base
 		$client = $this->addDecorators( $client, $templatePaths, $decorators, $classprefix );
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\';
-		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/global', array() );
+		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/global', [] );
 		$client = $this->addDecorators( $client, $templatePaths, $decorators, $classprefix );
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\' . $localClass . '\\Decorator\\';
-		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/local', array() );
+		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/local', [] );
 		$client = $this->addDecorators( $client, $templatePaths, $decorators, $classprefix );
 
 		return $client;
@@ -231,7 +231,7 @@ abstract class Base
 	 */
 	protected function getClientParams( $names = array( 'resource', 'site', 'lang', 'fields', 'filter', 'page', 'sort' ) )
 	{
-		$list = array();
+		$list = [];
 
 		foreach( $names as $name )
 		{
@@ -272,7 +272,7 @@ abstract class Base
 	{
 		if( !isset( $this->subclients ) )
 		{
-			$this->subclients = array();
+			$this->subclients = [];
 
 			foreach( $this->getSubClientNames() as $name ) {
 				$this->subclients[] = $this->getSubClient( $name );
@@ -321,7 +321,7 @@ abstract class Base
 	{
 		if( isset( $params['filter'] ) && isset( $params['filter']['key'] ) )
 		{
-			$expr = array();
+			$expr = [];
 			$existing = $criteria->getConditions();
 
 			foreach( (array) $params['filter']['key'] as $idx => $key )
@@ -366,7 +366,7 @@ abstract class Base
 			return;
 		}
 
-		$sortation = array();
+		$sortation = [];
 
 		foreach( (array) $params['sort'] as $sort )
 		{

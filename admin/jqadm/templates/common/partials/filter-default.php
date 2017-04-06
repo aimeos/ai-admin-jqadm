@@ -7,8 +7,8 @@
 
 $enc = $this->encoder();
 
-$operators = $this->get( 'operators', array() );
-$operators = ( isset( $operators['compare'] ) ? $operators['compare'] : array() );
+$operators = $this->get( 'operators', [] );
+$operators = ( isset( $operators['compare'] ) ? $operators['compare'] : [] );
 
 $operatorMap = array(
 	'=~' => array( 'string' ),

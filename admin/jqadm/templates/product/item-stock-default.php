@@ -25,12 +25,12 @@ $enc = $this->encoder();
 				</tr>
 			</thead>
 			<tbody>
-<?php foreach( $this->get( 'stockData/stock.id', array() ) as $idx => $id ) : ?>
+<?php foreach( $this->get( 'stockData/stock.id', [] ) as $idx => $id ) : ?>
 				<tr>
 			  		<td class="stock-type">
 						<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
 						<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>">
-<?php	foreach( $this->get( 'stockTypes', array() ) as $typeId => $typeItem ) : ?>
+<?php	foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
 <?php		if( $typeId == $this->get( 'stockData/stock.typeid/' . $idx ) ) : ?>
 							<option value="<?php echo $enc->attr( $typeId ); ?>" selected="selected"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
 <?php		else : ?>
@@ -56,7 +56,7 @@ $enc = $this->encoder();
 			  		<td class="stock-type">
 						<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="" disabled="disabled" />
 						<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>" disabled="disabled">
-<?php foreach( $this->get( 'stockTypes', array() ) as $typeId => $typeItem ) : ?>
+<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
 							<option value="<?php echo $enc->attr( $typeId ); ?>"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
 <?php endforeach; ?>
 						</select>

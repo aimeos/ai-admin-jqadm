@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/price/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -178,7 +178,7 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-price' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 
 			$textManager->rollback();
 			$manager->rollback();
@@ -187,7 +187,7 @@ class Standard
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-price' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 
 			$textManager->rollback();
 			$manager->rollback();
@@ -318,7 +318,7 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$data = (array) $view->param( 'price', array() );
+		$data = (array) $view->param( 'price', [] );
 
 		if( empty( $view->priceData ) && ( $id = $view->item->getId() ) !== null )
 		{
@@ -360,12 +360,12 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
-		$listIds = (array) $view->param( 'price/product.lists.id', array() );
+		$listIds = (array) $view->param( 'price/product.lists.id', [] );
 		$listItems = $manager->getItem( $id, array( 'price' ) )->getListItems( 'price' );
 
 
 		$listItem = $listManager->createItem();
-		$listItem->setTypeId( $listTypeManager->findItem( 'default', array(), 'price' )->getId() );
+		$listItem->setTypeId( $listTypeManager->findItem( 'default', [], 'price' )->getId() );
 		$listItem->setDomain( 'price' );
 		$listItem->setParentId( $id );
 		$listItem->setStatus( 1 );
@@ -409,7 +409,7 @@ class Standard
 		}
 
 
-		$rmIds = array();
+		$rmIds = [];
 		$rmListIds = array_diff( array_keys( $listItems ), $listIds );
 
 		foreach( $rmListIds as $id ) {

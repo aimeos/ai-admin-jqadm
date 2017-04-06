@@ -56,7 +56,7 @@ $status = function( $list, $key )
 
 
 $enc = $this->encoder();
-$baskets = $this->get( 'orderlatestBaskets', array() );
+$baskets = $this->get( 'orderlatestBaskets', [] );
 /// price format with value (%1$s) and currency (%2$s)
 $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
 
@@ -80,7 +80,7 @@ $statuslist = array(
 		<div class="table-responsive">
 			<table class="list-items table table-hover">
 				<tbody>
-		<?php foreach( $this->get( 'orderlatestItems', array() ) as $id => $item ) : ?>
+		<?php foreach( $this->get( 'orderlatestItems', [] ) as $id => $item ) : ?>
 					<tr>
 						<td class="order-id"><?php echo $enc->html( $item->getId() ); ?></td>
 						<td class="order-base-address-name"><?php echo $enc->html( $name( $baskets, $item ) ); ?></td>

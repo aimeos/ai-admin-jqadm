@@ -212,12 +212,12 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'product-item' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
 		/** admin/jqadm/product/template-item
@@ -268,12 +268,12 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'product-item' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
 		$tplconf = 'admin/jqadm/product/template-item';
@@ -310,13 +310,13 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'product-item' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 	}
@@ -344,12 +344,12 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'product-item' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
 		$tplconf = 'admin/jqadm/product/template-item';
@@ -375,7 +375,7 @@ class Standard
 		try
 		{
 			$item = $manager->createItem();
-			$item->fromArray( $view->param( 'item', array() ) );
+			$item->fromArray( $view->param( 'item', [] ) );
 			$item->setConfig( $this->getItemConfig( $view ) );
 			$manager->saveItem( $item );
 
@@ -396,13 +396,13 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'product-item' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 
@@ -427,7 +427,7 @@ class Standard
 			$search = $this->initCriteria( $manager->createSearch(), $view->param() );
 
 			$view->pageParams = $this->getClientParams();
-			$view->items = $manager->searchItems( $search, array(), $total );
+			$view->items = $manager->searchItems( $search, [], $total );
 			$view->filterOperators = $search->getOperators();
 			$view->total = $total;
 			$view->itemBody = '';
@@ -439,12 +439,12 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'product-item' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
 		/** admin/jqadm/product/template-list
@@ -571,7 +571,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 
 		$view->pageParams = $this->getClientParams();
-		$view->itemData = (array) $view->param( 'item', array() );
+		$view->itemData = (array) $view->param( 'item', [] );
 		$view->itemTypes = $this->getTypeItems();
 		$view->item = $manager->createItem();
 
@@ -595,7 +595,7 @@ class Standard
 		$item = $manager->getItem( $id, $domains );
 
 		$data = $item->toArray();
-		$data['config'] = array( 'key' => array(), 'val' => array() );
+		$data['config'] = array( 'key' => [], 'val' => [] );
 
 		foreach( $item->getConfig() as $key => $value )
 		{
@@ -616,7 +616,7 @@ class Standard
 	 */
 	protected function getItemConfig( \Aimeos\MW\View\Iface $view )
 	{
-		$config = array();
+		$config = [];
 
 		foreach( (array) $view->param( 'item/config/key' ) as $idx => $key )
 		{

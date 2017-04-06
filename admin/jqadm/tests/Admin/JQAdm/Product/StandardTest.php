@@ -205,7 +205,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 
 	public function testGetViewException()
 	{
-		$object = new \Aimeos\Admin\JQAdm\Product\Standard( $this->context, array() );
+		$object = new \Aimeos\Admin\JQAdm\Product\Standard( $this->context, [] );
 
 		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$object->getView();
@@ -422,7 +422,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 	protected function getViewNoRender()
 	{
 		return $this->getMockBuilder( '\Aimeos\MW\View\Standard' )
-			->setConstructorArgs( array( array() ) )
+			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();
 	}

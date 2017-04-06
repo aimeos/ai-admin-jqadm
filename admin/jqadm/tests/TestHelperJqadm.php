@@ -7,7 +7,7 @@
 class TestHelperJqadm
 {
 	private static $aimeos;
-	private static $context = array();
+	private static $context = [];
 
 
 	public static function bootstrap()

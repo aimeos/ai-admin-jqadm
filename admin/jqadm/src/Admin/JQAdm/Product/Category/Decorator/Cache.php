@@ -29,7 +29,7 @@ class Cache extends \Aimeos\Admin\JQAdm\Common\Decorator\Base
 		$result = $this->getClient()->save();
 		$ids = array( 'catalog' );
 
-		foreach( $this->getView()->param( 'category/catalog.id', array() ) as $id ) {
+		foreach( $this->getView()->param( 'category/catalog.id', [] ) as $id ) {
 			$ids[] = 'catalog-' . $id;
 		}
 

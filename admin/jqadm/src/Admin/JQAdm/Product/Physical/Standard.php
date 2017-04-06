@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/physical/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -175,14 +175,14 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-physical' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-physical' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 
@@ -295,7 +295,7 @@ class Standard
 	 */
 	protected function getItems( $prodid )
 	{
-		$list = array();
+		$list = [];
 		$types = array( 'package-length', 'package-width', 'package-height', 'package-weight' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property' );
 
@@ -325,10 +325,10 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/property' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/property/type' );
 
-		$ids = array();
+		$ids = [];
 		$items = $this->getItems( $view->item->getId() );
 
-		foreach( (array) $view->param( 'physical', array() ) as $type => $value )
+		foreach( (array) $view->param( 'physical', [] ) as $type => $value )
 		{
 			$value = trim( $value );
 
@@ -344,7 +344,7 @@ class Standard
 			{
 				$items[$type] = $manager->createItem();
 				$items[$type]->setParentId( $view->item->getId() );
-				$items[$type]->setTypeId( $typeManager->findItem( $type, array(), 'product' )->getId() );
+				$items[$type]->setTypeId( $typeManager->findItem( $type, [], 'product' )->getId() );
 			}
 
 			$items[$type]->setValue( $value );

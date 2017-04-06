@@ -6,7 +6,7 @@
  */
 
 $enc = $this->encoder();
-$errors = $this->get( 'errors', array() );
+$errors = $this->get( 'errors', [] );
 
 ?>
 <?php if( !empty( $errors ) ) : ?>

@@ -5,7 +5,7 @@
  * @copyright Aimeos (aimeos.org), 2015-2016
  */
 
-$items = $this->get( 'physicalItems', array() );
+$items = $this->get( 'physicalItems', [] );
 
 $value = function( $type ) use ( $items ) {
 	return ( isset( $items[$type] ) ? $items[$type]->getValue() : '' );

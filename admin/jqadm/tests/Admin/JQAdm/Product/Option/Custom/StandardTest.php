@@ -94,7 +94,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 			'option' => array(
 				'custom' => array(
 					'product.lists.id' => array( '' ),
-					'product.lists.refid' => array( $attrManager->findItem( 'custom', array(), 'product', 'date' )->getId() ),
+					'product.lists.refid' => array( $attrManager->findItem( 'custom', [], 'product', 'date' )->getId() ),
 				),
 			),
 		);

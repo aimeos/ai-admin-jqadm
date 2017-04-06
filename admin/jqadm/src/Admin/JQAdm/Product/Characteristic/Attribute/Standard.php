@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/characteristic/attribute/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -174,14 +174,14 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-characteristic-attribute' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-characteristic-attribute' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 
@@ -316,7 +316,7 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$data = (array) $view->param( 'characteristic/attribute', array() );
+		$data = (array) $view->param( 'characteristic/attribute', [] );
 
 		if( empty( $data ) )
 		{
@@ -348,7 +348,7 @@ class Standard
 
 		$id = $view->item->getId();
 		$map = $this->getListItems( $id );
-		$listIds = (array) $view->param( 'characteristic/attribute/product.lists.id', array() );
+		$listIds = (array) $view->param( 'characteristic/attribute/product.lists.id', [] );
 
 
 		foreach( $listIds as $pos => $listid )
@@ -362,7 +362,7 @@ class Standard
 
 
 		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'default', array(), 'attribute' )->getId() );
+		$item->setTypeId( $typeManager->findItem( 'default', [], 'attribute' )->getId() );
 		$item->setDomain( 'attribute' );
 		$item->setParentId( $id );
 

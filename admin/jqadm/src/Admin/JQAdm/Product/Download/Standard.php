@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/download/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -159,7 +159,7 @@ class Standard
 				}
 			}
 
-			$this->cleanupItems( $listItems, array() );
+			$this->cleanupItems( $listItems, [] );
 		}
 	}
 
@@ -219,7 +219,7 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-download' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 
 			$attrManager->rollback();
 			$manager->rollback();
@@ -228,7 +228,7 @@ class Standard
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-download' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 
 			$attrManager->rollback();
 			$manager->rollback();
@@ -337,7 +337,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
-		$rmItems = array();
+		$rmItems = [];
 		$rmListIds = array_diff( array_keys( $listItems ), $listIds );
 
 		foreach( $rmListIds as $rmListId )
@@ -368,7 +368,7 @@ class Standard
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/type' );
 
 		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'download', array(), 'product' )->getId() );
+		$item->setTypeId( $typeManager->findItem( 'download', [], 'product' )->getId() );
 		$item->setDomain( 'product' );
 		$item->setStatus( 1 );
 
@@ -389,7 +389,7 @@ class Standard
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'hidden', array(), 'attribute' )->getId() );
+		$item->setTypeId( $typeManager->findItem( 'hidden', [], 'attribute' )->getId() );
 		$item->setDomain( 'attribute' );
 		$item->setParentId( $id );
 		$item->setStatus( 1 );
@@ -406,7 +406,7 @@ class Standard
 	 */
 	protected function getAttributeItems( array $listItems )
 	{
-		$refIds = array();
+		$refIds = [];
 
 		foreach( $listItems as $item ) {
 			$refIds[] = $item->getRefId();
@@ -469,13 +469,13 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$view->downloadData = (array) $view->param( 'download', array() );
+		$view->downloadData = (array) $view->param( 'download', [] );
 
 		if( !empty( $view->downloadData ) ) {
 			return;
 		}
 
-		$data = array();
+		$data = [];
 		$listItems = $this->getListItems( $view->item->getId() );
 		$attrItems = $this->getAttributeItems( $listItems );
 

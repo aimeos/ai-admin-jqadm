@@ -103,7 +103,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 		$manager->saveItem( $item );
 
 		$attrManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
-		$attrItem = $attrManager->findItem( 'xs', array(), 'product', 'size' );
+		$attrItem = $attrManager->findItem( 'xs', [], 'product', 'size' );
 
 
 		$param = array(

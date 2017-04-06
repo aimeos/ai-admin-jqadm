@@ -23,7 +23,7 @@ $enc = $this->encoder();
 				</tr>
 			</thead>
 			<tbody>
-<?php foreach( $this->get( 'imageData/product.lists.id', array() ) as $idx => $id ) : ?>
+<?php foreach( $this->get( 'imageData/product.lists.id', [] ) as $idx => $id ) : ?>
 				<tr>
 					<td class="image-preview">
 						<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'product.lists.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />

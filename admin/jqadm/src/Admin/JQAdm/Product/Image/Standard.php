@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/image/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -178,7 +178,7 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-image' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 
 			$mediaManager->rollback();
 			$manager->rollback();
@@ -187,7 +187,7 @@ class Standard
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-image' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 
 			$mediaManager->rollback();
 			$manager->rollback();
@@ -296,7 +296,7 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
-		$rmItems = array();
+		$rmItems = [];
 		$rmListIds = array_diff( array_keys( $listItems ), $listIds );
 
 		foreach( $rmListIds as $rmListId )
@@ -342,7 +342,7 @@ class Standard
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'media/type' );
 
 		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'default', array(), 'product' )->getId() );
+		$item->setTypeId( $typeManager->findItem( 'default', [], 'product' )->getId() );
 		$item->setDomain( 'product' );
 		$item->setStatus( 1 );
 
@@ -363,7 +363,7 @@ class Standard
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'default', array(), 'media' )->getId() );
+		$item->setTypeId( $typeManager->findItem( 'default', [], 'media' )->getId() );
 		$item->setDomain( 'media' );
 		$item->setParentId( $id );
 		$item->setStatus( 1 );
@@ -408,13 +408,13 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$view->imageData = (array) $view->param( 'image', array() );
+		$view->imageData = (array) $view->param( 'image', [] );
 
 		if( !empty( $view->imageData ) ) {
 			return;
 		}
 
-		$data = array();
+		$data = [];
 
 		foreach( $view->item->getListItems( 'media', 'default' ) as $id => $listItem )
 		{
@@ -448,14 +448,14 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
-		$listIds = (array) $view->param( 'image/product.lists.id', array() );
+		$listIds = (array) $view->param( 'image/product.lists.id', [] );
 		$listItems = $manager->getItem( $id, array( 'media' ) )->getListItems( 'media', 'default' );
-		$mediaItems = $this->getMediaItems( $view->param( 'image/media.id', array() ) );
+		$mediaItems = $this->getMediaItems( $view->param( 'image/media.id', [] ) );
 
 		$mediaItem = $this->createItem();
 		$listItem = $this->createListItem( $id );
 
-		$files = $view->value( (array) $view->request()->getUploadedFiles(), 'image/files', array() );
+		$files = $view->value( (array) $view->request()->getUploadedFiles(), 'image/files', [] );
 		$num = 0;
 
 		foreach( $listIds as $idx => $listid )

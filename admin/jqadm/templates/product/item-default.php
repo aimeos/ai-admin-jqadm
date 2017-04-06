@@ -80,20 +80,20 @@ $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
  * @see admin/jqadm/url/save/controller
  * @see admin/jqadm/url/save/action
  */
-$config = $this->config( 'admin/jqadm/url/save/config', array() );
+$config = $this->config( 'admin/jqadm/url/save/config', [] );
 
 $listTarget = $this->config( 'admin/jqadm/url/search/target' );
 $listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$listConfig = $this->config( 'admin/jqadm/url/search/config', array() );
+$listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
-$params = $this->get( 'pageParams', array() );
+$params = $this->get( 'pageParams', [] );
 $params['id'] = $this->param( 'id', '' );
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
-<form class="item item-product form-horizontal" method="POST" enctype="multipart/form-data" action="<?php echo $enc->attr( $this->url( $target, $cntl, $action, $params, array(), $config ) ); ?>">
+<form class="item item-product form-horizontal" method="POST" enctype="multipart/form-data" action="<?php echo $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
 <?php echo $this->csrf()->formfield(); ?>
 
 	<div id="accordion" role="tablist" aria-multiselectable="true">
@@ -126,7 +126,7 @@ $params['id'] = $this->param( 'id', '' );
 						<label class="col-sm-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 						<div class="col-sm-9">
 							<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>">
-<?php foreach( $this->get( 'itemTypes', array() ) as $id => $typeItem ) : ?>
+<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
 								<option value="<?php echo $enc->attr( $id ); ?>" data-code="<?php echo $enc->attr( $typeItem->getCode() ); ?>" <?php echo $selected( $this->get( 'itemData/product.typeid' ), $id ); ?>><?php echo $enc->html( $typeItem->getLabel() ); ?></option>
 <?php endforeach; ?>
 							</select>
@@ -177,7 +177,7 @@ $params['id'] = $this->param( 'id', '' );
 							</tr>
 						</thead>
 						<tbody>
-<?php	foreach( (array) $this->get( 'itemData/config/key', array() ) as $idx => $key ) : ?>
+<?php	foreach( (array) $this->get( 'itemData/config/key', [] ) as $idx => $key ) : ?>
 							<tr class="config-item">
 								<td><input type="text" class="config-key form-control" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>" /></td>
 								<td><input type="text" class="config-value form-control" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'itemData/config/val/' . $idx ) ); ?>" /></td>
@@ -203,7 +203,7 @@ $params['id'] = $this->param( 'id', '' );
 		<button class="btn btn-primary">
 			<?php echo $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 		</button>
-		<a class="btn btn-warning" href="<?php echo $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $params, array(), $listConfig ) ); ?>">
+		<a class="btn btn-warning" href="<?php echo $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $params, [], $listConfig ) ); ?>">
 			<?php echo $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
 		</a>
 	</div>

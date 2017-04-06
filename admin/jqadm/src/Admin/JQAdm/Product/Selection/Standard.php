@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/selection/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -174,14 +174,14 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-selection' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-selection' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 
@@ -287,7 +287,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
-		$rmIds = array();
+		$rmIds = [];
 		$rmListIds = array_diff( array_keys( $listItems ), $listIds );
 
 		foreach( $rmListIds as $rmListId ) {
@@ -328,7 +328,7 @@ class Standard
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/type' );
 
 		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'default', array(), 'product' )->getId() );
+		$item->setTypeId( $typeManager->findItem( 'default', [], 'product' )->getId() );
 		$item->setStatus( 1 );
 
 		return $item;
@@ -348,7 +348,7 @@ class Standard
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'default', array(), 'product' )->getId() );
+		$item->setTypeId( $typeManager->findItem( 'default', [], 'product' )->getId() );
 		$item->setDomain( 'product' );
 		$item->setParentId( $id );
 		$item->setStatus( 1 );
@@ -389,7 +389,7 @@ class Standard
 	 */
 	protected function getDataExisting( \Aimeos\MW\View\Iface $view, $copy = false )
 	{
-		$data = array();
+		$data = [];
 		$variants = $view->item->getRefItems( 'product', null, 'default' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
 
@@ -444,9 +444,9 @@ class Standard
 	 */
 	protected function getDataParams( \Aimeos\MW\View\Iface $view )
 	{
-		$data = array();
+		$data = [];
 
-		foreach( (array) $view->param( 'selection/product.code', array() ) as $pos => $code )
+		foreach( (array) $view->param( 'selection/product.code', [] ) as $pos => $code )
 		{
 			if( !empty( $code ) )
 			{
@@ -456,7 +456,7 @@ class Standard
 			}
 		}
 
-		foreach( (array) $view->param( 'selection/attr/ref', array() ) as $pos => $code )
+		foreach( (array) $view->param( 'selection/attr/ref', [] ) as $pos => $code )
 		{
 			if( !empty( $code ) )
 			{
@@ -527,7 +527,7 @@ class Standard
 		$refItems = $product->getRefItems( 'product', null, 'default' );
 
 		$products = $this->getProductItems( array_keys( $data ), array_keys( $refItems ) );
-		$listIds = (array) $view->param( 'selection/product.lists.id', array() );
+		$listIds = (array) $view->param( 'selection/product.lists.id', [] );
 
 		$listItem = $this->createListItem( $id );
 		$prodItem = $this->createItem();
@@ -564,7 +564,7 @@ class Standard
 			$listManager->saveItem( $litem, false );
 
 			$variant = ( isset( $products[$item->getId()] ) ? $products[$item->getId()] : $item );
-			$attr = ( isset( $data[$code]['attr'] ) ? (array) $data[$code]['attr'] : array() );
+			$attr = ( isset( $data[$code]['attr'] ) ? (array) $data[$code]['attr'] : [] );
 
 			$manager->updateListItems( $variant, $attr, 'attribute', 'variant' );
 		}

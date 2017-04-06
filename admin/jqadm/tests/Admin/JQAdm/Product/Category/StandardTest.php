@@ -95,7 +95,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 		$manager->insertItem( $item );
 
 
-		$typeid = $typeManager->findItem( 'default', array(), 'product' )->getId();
+		$typeid = $typeManager->findItem( 'default', [], 'product' )->getId();
 
 		$param = array(
 			'category' => array(
@@ -133,7 +133,7 @@ class StandardTest extends \PHPUnit_Framework_TestCase
 		$manager->insertItem( $item );
 
 
-		$typeid = $typeManager->findItem( 'promotion', array(), 'product' )->getId();
+		$typeid = $typeManager->findItem( 'promotion', [], 'product' )->getId();
 
 		$param = array(
 			'category' => array(

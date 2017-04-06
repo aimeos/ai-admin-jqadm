@@ -17,7 +17,7 @@ $enc = $this->encoder();
 			</tr>
 		</thead>
 		<tbody>
-<?php foreach( $this->get( 'customData/product.lists.id', array() ) as $idx => $id ) : ?>
+<?php foreach( $this->get( 'customData/product.lists.id', [] ) as $idx => $id ) : ?>
 			<tr>
 				<td>
 					<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'option', 'custom', 'product.lists.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />

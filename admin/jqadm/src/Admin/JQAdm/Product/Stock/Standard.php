@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/stock/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -174,14 +174,14 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-stock' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-stock' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 
@@ -296,13 +296,13 @@ class Standard
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock/type' );
 
 		$view->stockTypes = $typeManager->searchItems( $typeManager->createSearch() );
-		$view->stockData = (array) $view->param( 'stock', array() );
+		$view->stockData = (array) $view->param( 'stock', [] );
 
 		if( !empty( $view->stockData ) || ( $code = $view->item->getCode() ) == '' ) {
 			return;
 		}
 
-		$data = array();
+		$data = [];
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock' );
 
 		$search = $manager->createSearch();
@@ -333,7 +333,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $view->item->getCode() ) );
 		$items = $manager->searchitems( $search );
 
-		$list = (array) $view->param( 'stock/stock.id', array() );
+		$list = (array) $view->param( 'stock/stock.id', [] );
 
 		foreach( $list as $idx => $id )
 		{

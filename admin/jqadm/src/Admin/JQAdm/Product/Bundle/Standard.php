@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/bundle/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -174,14 +174,14 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-bundle' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-bundle' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 
@@ -316,7 +316,7 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$data = (array) $view->param( 'bundle', array() );
+		$data = (array) $view->param( 'bundle', [] );
 
 		if( empty( $data ) )
 		{
@@ -352,7 +352,7 @@ class Standard
 
 		$id = $view->item->getId();
 		$map = $this->getListItems( $id );
-		$listIds = (array) $view->param( 'bundle/product.lists.id', array() );
+		$listIds = (array) $view->param( 'bundle/product.lists.id', [] );
 
 
 		foreach( $listIds as $pos => $listid )
@@ -366,7 +366,7 @@ class Standard
 
 
 		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'default', array(), 'product' )->getId() );
+		$item->setTypeId( $typeManager->findItem( 'default', [], 'product' )->getId() );
 		$item->setDomain( 'product' );
 		$item->setParentId( $id );
 

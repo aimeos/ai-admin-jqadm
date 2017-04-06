@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/characteristic/property/standard/subparts';
-	private $subPartNames = array();
+	private $subPartNames = [];
 
 
 	/**
@@ -174,14 +174,14 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'product-item-characteristic-property' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
 			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
 			$error = array( 'product-item-characteristic-property' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', array() ) + $error;
+			$view->errors = $view->get( 'errors', [] ) + $error;
 			$manager->rollback();
 		}
 
@@ -334,7 +334,7 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
-		$data = (array) $view->param( 'characteristic/property', array() );
+		$data = (array) $view->param( 'characteristic/property', [] );
 
 		if( empty( $data ) )
 		{
@@ -362,7 +362,7 @@ class Standard
 
 		$id = $view->item->getId();
 		$map = $this->getProperties( $id );
-		$ids = (array) $view->param( 'characteristic/property/product.property.id', array() );
+		$ids = (array) $view->param( 'characteristic/property/product.property.id', [] );
 
 		$item = $manager->createItem();
 

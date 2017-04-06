@@ -176,6 +176,6 @@ abstract class Base
 	 */
 	protected function getSubClientNames()
 	{
-		return array();
+		return [];
 	}
 }
