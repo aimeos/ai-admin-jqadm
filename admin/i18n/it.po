@@ -4,13 +4,14 @@
 # 
 # Translators:
 # alessandro massarelli <alessandro@openmantra.net>, 2015
+# Matteo Schiona <ms@kiboko.it>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-03 12:08+0100\n"
-"PO-Revision-Date: 2017-01-03 11:21+0000\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"PO-Revision-Date: 2017-04-04 10:21+0000\n"
+"Last-Translator: Matteo Schiona <ms@kiboko.it>\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,22 +25,22 @@ msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
 
 msgid "Actual current price"
-msgstr "Indirizzo 1"
+msgstr "Prezzo corrente"
 
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Aggiungi filtro"
 
 msgid "Additional"
-msgstr ""
+msgstr "Aggiuntivo"
 
 msgid "Additional information, e.g. flat number"
-msgstr ""
+msgstr "Informazioni aggiuntive, e.s. piano"
 
 msgid "Address"
-msgstr ""
+msgstr "Indirizzo"
 
 msgid "Address 1"
 msgstr "Indirizzo 1"
@@ -63,10 +64,10 @@ msgid "Associated attributes"
 msgstr "Attributi Associati"
 
 msgid "Associated customer groups"
-msgstr ""
+msgstr "Gruppo clienti associati"
 
 msgid "Associated customers"
-msgstr ""
+msgstr "Clienti associati"
 
 msgid "Associated media"
 msgstr "Media Associati"
@@ -97,49 +98,49 @@ msgstr "Tipo di attributo: {0} ({1})"
 #. : Attribute item panel title with attribute label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Attribute: {0} ({1})"
-msgstr ""
+msgstr "Attributo: {0} ({1})"
 
 msgid "Attributes"
-msgstr ""
+msgstr "Attributi"
 
 msgid "Available attributes"
-msgstr ""
+msgstr "Attributi disponibili"
 
 msgid "Available customer groups"
-msgstr ""
+msgstr "Gruppi clienti disponibili"
 
 msgid "Available customers"
-msgstr ""
+msgstr "Clienti disponibili"
 
 msgid "Available media"
-msgstr ""
+msgstr "Media disponibili"
 
 msgid "Available prices"
-msgstr ""
+msgstr "Prezzi disponibili"
 
 msgid "Available products"
-msgstr ""
+msgstr "Prodotti disponibili"
 
 msgid "Available tags"
-msgstr ""
+msgstr "Tag disponibili"
 
 msgid "Available texts"
-msgstr ""
+msgstr "Testi disponibili"
 
 msgid "Back in stock"
 msgstr ""
 
 msgid "Base ID"
-msgstr ""
+msgstr "ID base"
 
 msgid "Basic"
-msgstr ""
+msgstr "Base"
 
 msgid "Billing address"
-msgstr ""
+msgstr "Indirizzo di fatturazione"
 
 msgid "Birthday"
-msgstr ""
+msgstr "Data di nascita"
 
 msgid "Bundles"
 msgstr ""
@@ -151,42 +152,42 @@ msgid "Cache item details"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancella"
 
 msgid "Catalog"
-msgstr ""
+msgstr "Catalogo"
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Catalog: {0} ({1})"
-msgstr ""
+msgstr "Catalogo: {0} ({1})"
 
 msgid "Categories"
-msgstr ""
+msgstr "Categorie"
 
 msgid "Characteristics"
-msgstr ""
+msgstr "Caratteristiche"
 
 msgid "City"
-msgstr ""
+msgstr "Città"
 
 msgid "City name (required)"
-msgstr ""
+msgstr "Città (required)"
 
 msgid "Clear"
-msgstr ""
+msgstr "Pulisci"
 
 msgid "Click to upload"
-msgstr ""
+msgstr "Clicca per caricare"
 
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 msgid "Codes"
-msgstr ""
+msgstr "Codici"
 
 #. /jqadm/partial/filter
 #. * Relative path to the partial template for displaying the product filter
@@ -248,77 +249,77 @@ msgstr ""
 #. * @since 2016.04
 #. * @category Developer
 msgid "Columns"
-msgstr ""
+msgstr "Colonne"
 
 msgid "Comment"
-msgstr ""
+msgstr "Commento"
 
 msgid "Company"
-msgstr ""
+msgstr "Società"
 
 msgid "Company name"
-msgstr ""
+msgstr "Ragione sociale"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Configurazione"
 
 msgid "Content"
-msgstr ""
+msgstr "Contenuto"
 
 msgid "Copy"
-msgstr ""
+msgstr "Copia"
 
 msgid "Costs"
-msgstr ""
+msgstr "Costi"
 
 msgid "Costs per item"
-msgstr ""
+msgstr "Costi per oggetto"
 
 msgid "Could not upload file. Please notify your administrator"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "Conteggio"
 
 msgid "Country"
-msgstr ""
+msgstr "Nazione"
 
 msgid "Country code"
-msgstr ""
+msgstr "Codice nazione"
 
 msgid "Country state, e.g. \"NY\""
 msgstr ""
 
 msgid "Coupon"
-msgstr ""
+msgstr "Buono sconto"
 
 msgid "Coupon code"
-msgstr ""
+msgstr "Codice buono sconto"
 
 #. : Coupon code item panel title with coupon code ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Coupon code: {0} ({1})"
-msgstr ""
+msgstr "Codice buono sconto: {0} ({1})"
 
 #. : Coupon item panel title with coupon label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Coupon: {0} ({1})"
-msgstr ""
+msgstr "Buono sconto: {0} ({1})"
 
 msgid "Coupons"
-msgstr ""
+msgstr "Buoni sconto"
 
 msgid "Created"
-msgstr ""
+msgstr "Creato"
 
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 msgid "Currency (required)"
-msgstr ""
+msgstr "Valuta (richiesta)"
 
 msgid "Customer"
-msgstr ""
+msgstr "Cliente"
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -326,7 +327,7 @@ msgstr ""
 #. ({1)}
 #, python-brace-format
 msgid "Customer address: {0} ({1})"
-msgstr ""
+msgstr "Indirizzo cliente: {0} ({1})"
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -334,57 +335,57 @@ msgstr ""
 #. ({1)}
 #, python-brace-format
 msgid "Customer group: {0} ({1})"
-msgstr ""
+msgstr "Gruppo cliente: {0} ({1})"
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer: {0} ({1})"
-msgstr ""
+msgstr "Cliente: {0} ({1})"
 
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 msgid "Date back"
 msgstr ""
 
 msgid "Default"
-msgstr ""
+msgstr "Predefinito"
 
 msgid "Delete"
-msgstr ""
+msgstr "Cancella"
 
 msgid "Delete items?"
-msgstr ""
+msgstr "Cancella articoli?"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "Indirizzo di spedizione"
 
 msgid "Delivery date"
-msgstr ""
+msgstr "Data di spedizione"
 
 msgid "Delivery status"
-msgstr ""
+msgstr "Stato spedizione"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "Tipo spedizion"
 
 msgid "Details"
-msgstr ""
+msgstr "Dettagli"
 
 msgid "Display field is empty"
 msgstr ""
 
 msgid "Domain"
-msgstr ""
+msgstr "Dominio"
 
 msgid "Domain (required)"
-msgstr ""
+msgstr "Dominio (richiesto)"
 
 msgid "Download"
-msgstr ""
+msgstr "Download"
 
 msgid "E-Mail"
-msgstr ""
+msgstr "E-Mail"
 
 msgid "E-Mail, e.g. me@example.com (required)"
 msgstr ""
@@ -393,16 +394,16 @@ msgid "EAN, SKU or article number (required)"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 msgid "Editor"
-msgstr ""
+msgstr "Autore"
 
 msgid "End date"
-msgstr ""
+msgstr "Scadenza"
 
 msgid "Error"
-msgstr ""
+msgstr "Errore"
 
 #. /jqadm/partial/error
 #. * Relative path to the partial template for displaying errors
@@ -448,16 +449,16 @@ msgstr ""
 #. * @see admin/jqadm/partial/filter
 #. * @see admin/jqadm/partial/pagination
 msgid "Expert mode"
-msgstr ""
+msgstr "Modalità avanzata"
 
 msgid "Expires"
-msgstr ""
+msgstr "Scadenze"
 
 msgid "Export"
-msgstr ""
+msgstr "Esporta"
 
 msgid "Export successful"
-msgstr ""
+msgstr "Esportato con successo"
 
 msgid "Facility"
 msgstr ""
@@ -466,22 +467,22 @@ msgid "Facsimile number, e.g. +155512345"
 msgstr ""
 
 msgid "File"
-msgstr ""
+msgstr "File"
 
 msgid "File URL"
 msgstr ""
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtr"
 
 msgid "First"
-msgstr ""
+msgstr "Primo"
 
 msgid "First name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Firstname"
-msgstr ""
+msgstr "Nome"
 
 msgid "Flush"
 msgstr ""
@@ -490,19 +491,19 @@ msgid "Flush cache?"
 msgstr ""
 
 msgid "Full name"
-msgstr ""
+msgstr "Nome completo"
 
 msgid "Full name (required)"
-msgstr ""
+msgstr "Nome completo (richiesto)"
 
 msgid "Group"
-msgstr ""
+msgstr "Gruppo"
 
 msgid "Group label (required)"
 msgstr ""
 
 msgid "Height"
-msgstr ""
+msgstr "Altezza"
 
 msgid "Honorary title"
 msgstr ""
@@ -514,33 +515,33 @@ msgid "House number"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Images"
-msgstr ""
+msgstr "Immagini"
 
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 msgid "Internal name"
-msgstr ""
+msgstr "Nome interno"
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "Nome interno (richiesto)"
 
 #, python-brace-format
 msgid "Invalid action \"{0}\""
 msgstr ""
 
 msgid "Invalid data"
-msgstr ""
+msgstr "Data invalida"
 
 #, python-brace-format
 msgid "Invalid value for configuration key \"{0}\""
 msgstr ""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Fattura"
 
 msgid "Item position within the same type"
 msgstr ""
@@ -555,40 +556,40 @@ msgid "Label"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Lingua"
 
 msgid "Language (required)"
-msgstr ""
+msgstr "Lingua (richiesta)"
 
 msgid "Last"
 msgstr ""
 
 msgid "Last modified"
-msgstr ""
+msgstr "Ultima modifica"
 
 msgid "Last name"
-msgstr ""
+msgstr "Cognome"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "Cognome (richiesto)"
 
 msgid "Lastname"
-msgstr ""
+msgstr "Cognom"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Ultimo ordine"
 
 msgid "Length"
-msgstr ""
+msgstr "Lunghezza"
 
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 msgid "List ID"
-msgstr ""
+msgstr "Lista ID"
 
 msgid "List Status"
-msgstr ""
+msgstr "Stato lista"
 
 msgid "List creation time"
 msgstr ""
