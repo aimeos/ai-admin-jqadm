@@ -23,25 +23,27 @@ $enc = $this->encoder();
 				</tr>
 			</thead>
 			<tbody>
-<?php foreach( $this->get( 'imageData/product.lists.id', [] ) as $idx => $id ) : ?>
-				<tr>
-					<td class="image-preview">
-						<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'product.lists.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
-						<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'media.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'imageData/media.id/' . $idx ) ); ?>" />
-						<input class="item-preview" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'media.preview', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'imageData/media.preview/' . $idx ) ); ?>" />
-						<img class="item-preview" src="<?php echo $this->content( $this->get( 'imageData/media.preview/' . $idx ) ); ?>" alt="<?php echo $enc->html( $this->translate( 'admin', 'Preview' ) ); ?>" />
-					</td>
-					<td class="image-language">
-						<select class="combobox item-languageid" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>">
-							<option value="<?php echo $enc->attr( $this->get( 'imageData/media.languageid/' . $idx ) ); ?>" selected="selected"><?php echo $enc->html( $this->get( 'imageData/media.languageid/' . $idx, $this->translate( 'admin', 'All' ) ) ) ?></option>
-						</select>
-					</td>
-					<td class="image-label">
-						<input class="form-control item-label" type="text" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'media.label', '' ) ) ); ?>" required="required" value="<?php echo $enc->attr( $this->get( 'imageData/media.label/' . $idx ) ); ?>" />
-					</td>
-					<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
-				</tr>
-<?php endforeach; ?>
+
+				<?php foreach( $this->get( 'imageData/product.lists.id', [] ) as $idx => $id ) : ?>
+					<tr>
+						<td class="image-preview">
+							<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'product.lists.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
+							<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'media.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'imageData/media.id/' . $idx ) ); ?>" />
+							<input class="item-preview" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'media.preview', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'imageData/media.preview/' . $idx ) ); ?>" />
+							<img class="item-preview" src="<?php echo $this->content( $this->get( 'imageData/media.preview/' . $idx ) ); ?>" alt="<?php echo $enc->html( $this->translate( 'admin', 'Preview' ) ); ?>" />
+						</td>
+						<td class="image-language">
+							<select class="combobox item-languageid" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>">
+								<option value="<?php echo $enc->attr( $this->get( 'imageData/media.languageid/' . $idx ) ); ?>" selected="selected"><?php echo $enc->html( $this->get( 'imageData/media.languageid/' . $idx, $this->translate( 'admin', 'All' ) ) ) ?></option>
+							</select>
+						</td>
+						<td class="image-label">
+							<input class="form-control item-label" type="text" name="<?php echo $enc->attr( $this->formparam( array( 'image', 'media.label', '' ) ) ); ?>" required="required" value="<?php echo $enc->attr( $this->get( 'imageData/media.label/' . $idx ) ); ?>" />
+						</td>
+						<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
+					</tr>
+				<?php endforeach; ?>
+
 				<tr class="prototype">
 			  		<td class="image-preview"></td>
 			  		<td class="image-language">
@@ -55,6 +57,7 @@ $enc = $this->encoder();
 				</tr>
 			</tbody>
 		</table>
-<?php echo $this->get( 'imageBody' ); ?>
+
+		<?php echo $this->get( 'imageBody' ); ?>
 	</div>
 </div>

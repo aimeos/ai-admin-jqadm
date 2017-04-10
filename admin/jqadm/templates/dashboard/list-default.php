@@ -8,7 +8,7 @@
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 <div class="dashboard">
-<?php echo $this->get( 'listBody' ); ?>
+	<?php echo $this->get( 'listBody' ); ?>
 </div>
 <?php $this->block()->stop(); ?>
 

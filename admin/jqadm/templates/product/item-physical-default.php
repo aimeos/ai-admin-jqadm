@@ -5,13 +5,13 @@
  * @copyright Aimeos (aimeos.org), 2015-2016
  */
 
+$enc = $this->encoder();
 $items = $this->get( 'physicalItems', [] );
 
 $value = function( $type ) use ( $items ) {
 	return ( isset( $items[$type] ) ? $items[$type]->getValue() : '' );
 };
 
-$enc = $this->encoder();
 
 ?>
 <div class="product-item-physical card panel">
@@ -55,6 +55,7 @@ $enc = $this->encoder();
 				</div>
 			</div>
 		</div>
-<?php echo $this->get( 'physicalBody' ); ?>
+
+		<?php echo $this->get( 'physicalBody' ); ?>
 	</div>
 </div>

@@ -17,18 +17,20 @@ $enc = $this->encoder();
 			</tr>
 		</thead>
 		<tbody>
-<?php foreach( $this->get( 'configData/product.lists.id', [] ) as $idx => $id ) : ?>
-			<tr>
-				<td>
-					<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'option', 'config', 'product.lists.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
-					<input class="item-label" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'option', 'config', 'attribute.label', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'configData/attribute.label/' . $idx ) ); ?>" />
-					<select class="combobox item-refid" name="<?php echo $enc->attr( $this->formparam( array( 'option', 'config', 'product.lists.refid', '' ) ) ); ?>">
-						<option value="<?php echo $enc->attr( $this->get( 'configData/product.lists.refid/' . $idx ) ); ?>" ><?php echo $enc->html( $this->get( 'configData/attribute.label/' . $idx ) ); ?></option>
-					</select>
-				</td>
-				<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
-			</tr>
-<?php endforeach; ?>
+
+			<?php foreach( $this->get( 'configData/product.lists.id', [] ) as $idx => $id ) : ?>
+				<tr>
+					<td>
+						<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'option', 'config', 'product.lists.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
+						<input class="item-label" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'option', 'config', 'attribute.label', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'configData/attribute.label/' . $idx ) ); ?>" />
+						<select class="combobox item-refid" name="<?php echo $enc->attr( $this->formparam( array( 'option', 'config', 'product.lists.refid', '' ) ) ); ?>">
+							<option value="<?php echo $enc->attr( $this->get( 'configData/product.lists.refid/' . $idx ) ); ?>" ><?php echo $enc->html( $this->get( 'configData/attribute.label/' . $idx ) ); ?></option>
+						</select>
+					</td>
+					<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
+				</tr>
+			<?php endforeach; ?>
+
 			<tr class="prototype">
 				<td>
 					<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'option', 'config', 'product.lists.id', '' ) ) ); ?>" value="" disabled="disabled" />

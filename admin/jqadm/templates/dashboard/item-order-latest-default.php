@@ -80,16 +80,16 @@ $statuslist = array(
 		<div class="table-responsive">
 			<table class="list-items table table-hover">
 				<tbody>
-		<?php foreach( $this->get( 'orderlatestItems', [] ) as $id => $item ) : ?>
-					<tr>
-						<td class="order-id"><?php echo $enc->html( $item->getId() ); ?></td>
-						<td class="order-base-address-name"><?php echo $enc->html( $name( $baskets, $item ) ); ?></td>
-						<td class="order-base-price"><?php echo $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></td>
-						<td class="order-datepayment"><?php echo $enc->html( $item->getDatePayment() ); ?></td>
-						<td class="order-statuspayment"><?php echo $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></td>
-						<td class="order-base-service-payment"><?php echo $enc->html( $payment( $baskets, $item ) ); ?></td>
-					</tr>
-		<?php endforeach; ?>
+					<?php foreach( $this->get( 'orderlatestItems', [] ) as $id => $item ) : ?>
+						<tr>
+							<td class="order-id"><?php echo $enc->html( $item->getId() ); ?></td>
+							<td class="order-base-address-name"><?php echo $enc->html( $name( $baskets, $item ) ); ?></td>
+							<td class="order-base-price"><?php echo $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></td>
+							<td class="order-datepayment"><?php echo $enc->html( $item->getDatePayment() ); ?></td>
+							<td class="order-statuspayment"><?php echo $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></td>
+							<td class="order-base-service-payment"><?php echo $enc->html( $payment( $baskets, $item ) ); ?></td>
+						</tr>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>

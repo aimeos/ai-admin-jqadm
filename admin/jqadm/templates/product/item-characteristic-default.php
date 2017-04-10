@@ -13,6 +13,6 @@ $enc = $this->encoder();
 		<?php echo $enc->html( $this->translate( 'admin', 'Characteristics' ) ); ?>
 	</div>
 	<div id="product-item-characteristic-data" class="item-characteristic card-block panel-collapse collapse" role="tabpanel" aria-labelledby="product-item-characteristic">
-<?php echo $this->get( 'characteristicBody' ); ?>
+		<?php echo $this->get( 'characteristicBody' ); ?>
 	</div>
 </div>

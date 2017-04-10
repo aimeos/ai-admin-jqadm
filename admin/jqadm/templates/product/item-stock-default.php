@@ -25,40 +25,44 @@ $enc = $this->encoder();
 				</tr>
 			</thead>
 			<tbody>
-<?php foreach( $this->get( 'stockData/stock.id', [] ) as $idx => $id ) : ?>
-				<tr>
-			  		<td class="stock-type">
-						<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
-						<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>">
-<?php	foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
-<?php		if( $typeId == $this->get( 'stockData/stock.typeid/' . $idx ) ) : ?>
-							<option value="<?php echo $enc->attr( $typeId ); ?>" selected="selected"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
-<?php		else : ?>
-							<option value="<?php echo $enc->attr( $typeId ); ?>"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
-<?php		endif; ?>
-<?php	endforeach; ?>
-						</select>
-					</td>
-					<td class="stock-stocklevel">
-						<input class="form-control item-stocklevel" type="text" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.stocklevel', '' ) ) ); ?>"
-							value="<?php echo $enc->attr( $this->get( 'stockData/stock.stocklevel/' . $idx ) ); ?>" />
-					</td>
-					<td class="stock-databack">
-						<input class="form-control item-dateback date" type="text" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.dateback', '' ) ) ); ?>"
-							value="<?php echo $enc->attr( $this->get( 'stockData/stock.dateback/' . $idx ) ); ?>"
-							placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-							data-format="<?php echo $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
-					</td>
-					<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
-				</tr>
-<?php endforeach; ?>
+
+				<?php foreach( $this->get( 'stockData/stock.id', [] ) as $idx => $id ) : ?>
+					<tr>
+				  		<td class="stock-type">
+							<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
+							<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>">
+
+								<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
+									<?php if( $typeId == $this->get( 'stockData/stock.typeid/' . $idx ) ) : ?>
+										<option value="<?php echo $enc->attr( $typeId ); ?>" selected="selected"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
+									<?php else : ?>
+										<option value="<?php echo $enc->attr( $typeId ); ?>"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
+									<?php endif; ?>
+								<?php endforeach; ?>
+
+							</select>
+						</td>
+						<td class="stock-stocklevel">
+							<input class="form-control item-stocklevel" type="text" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.stocklevel', '' ) ) ); ?>"
+								value="<?php echo $enc->attr( $this->get( 'stockData/stock.stocklevel/' . $idx ) ); ?>" />
+						</td>
+						<td class="stock-databack">
+							<input class="form-control item-dateback date" type="text" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.dateback', '' ) ) ); ?>"
+								value="<?php echo $enc->attr( $this->get( 'stockData/stock.dateback/' . $idx ) ); ?>"
+								placeholder="<?php echo $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
+								data-format="<?php echo $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
+						</td>
+						<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
+					</tr>
+				<?php endforeach; ?>
+
 				<tr class="prototype">
 			  		<td class="stock-type">
 						<input class="item-id" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="" disabled="disabled" />
 						<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>" disabled="disabled">
-<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
-							<option value="<?php echo $enc->attr( $typeId ); ?>"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
-<?php endforeach; ?>
+							<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
+								<option value="<?php echo $enc->attr( $typeId ); ?>"><?php echo $enc->html( $typeItem->getLabel() ) ?></option>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td class="stock-stocklevel">
@@ -73,6 +77,7 @@ $enc = $this->encoder();
 				</tr>
 			</tbody>
 		</table>
-<?php echo $this->get( 'stockBody' ); ?>
+
+		<?php echo $this->get( 'stockBody' ); ?>
 	</div>
 </div>

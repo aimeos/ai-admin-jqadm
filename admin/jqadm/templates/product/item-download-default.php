@@ -57,27 +57,28 @@ $enc = $this->encoder();
 			</div>
 		</div>
 		<div class="col-lg-6">
-<?php if( $this->get( 'downloadData/path' ) != '' ) : ?>
-			<div class="form-group row">
-				<label class="col-sm-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Path' ) ); ?></label>
-				<div class="col-sm-9">
-					<p class="form-control-static item-file"><?php echo $enc->html( $this->get( 'downloadData/path' ) ); ?></p>
+			<?php if( $this->get( 'downloadData/path' ) != '' ) : ?>
+				<div class="form-group row">
+					<label class="col-sm-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Path' ) ); ?></label>
+					<div class="col-sm-9">
+						<p class="form-control-static item-file"><?php echo $enc->html( $this->get( 'downloadData/path' ) ); ?></p>
+					</div>
 				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Size' ) ); ?></label>
-				<div class="col-sm-9">
-					<p class="form-control-static item-file"><?php echo $enc->html( number_format( $this->get( 'downloadData/size' ) / 1024, 0, '.', ' ' ) ); ?> KB</p>
+				<div class="form-group row">
+					<label class="col-sm-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Size' ) ); ?></label>
+					<div class="col-sm-9">
+						<p class="form-control-static item-file"><?php echo $enc->html( number_format( $this->get( 'downloadData/size' ) / 1024, 0, '.', ' ' ) ); ?> KB</p>
+					</div>
 				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Uploaded' ) ); ?></label>
-				<div class="col-sm-9">
-					<p class="form-control-static item-file"><?php echo $enc->html( date( 'Y-m-d H:i:s', $this->get( 'downloadData/time' ) ) ); ?></p>
+				<div class="form-group row">
+					<label class="col-sm-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Uploaded' ) ); ?></label>
+					<div class="col-sm-9">
+						<p class="form-control-static item-file"><?php echo $enc->html( date( 'Y-m-d H:i:s', $this->get( 'downloadData/time' ) ) ); ?></p>
+					</div>
 				</div>
-			</div>
-<?php endif; ?>
+			<?php endif; ?>
 		</div>
-<?php echo $this->get( 'downloadBody' ); ?>
+
+		<?php echo $this->get( 'downloadBody' ); ?>
 	</div>
 </div>

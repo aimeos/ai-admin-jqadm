@@ -13,6 +13,6 @@ $enc = $this->encoder();
 		<?php echo $enc->html( $this->translate( 'admin', 'Options' ) ); ?>
 	</div>
 	<div id="product-item-option-data" class="item-option card-block panel-collapse collapse" role="tabpanel" aria-labelledby="product-item-option">
-<?php echo $this->get( 'optionBody' ); ?>
+		<?php echo $this->get( 'optionBody' ); ?>
 	</div>
 </div>

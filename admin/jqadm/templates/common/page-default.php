@@ -174,8 +174,7 @@ $extParams = array( 'site' => $site, 'lang' => $this->param( 'lang' ) );
 $params = $this->get( 'pageParams', [] );
 $params['resource'] = $this->param( 'resource', 'dashboard' );
 $params['site'] = $this->param( 'site', 'default' );
-$params['lang'] = $this->param( 'lang', null );
-$params['id'] = $this->param( 'id', '' );
+$params['lang'] = $this->param( 'lang', 'en' );
 
 
 /** admin/jqadm/partial/error
@@ -237,13 +236,13 @@ $params['id'] = $this->param( 'id', '' );
 		<div class="collapse navbar-toggleable-xs" id="collapse-navbar">
 			<ul class="nav navbar-nav">
 
-<?php if( $this->access( 'admin' ) ) : ?>
-				<li class="nav-item mode active">
-					<a class="nav-link" href="<?php echo $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>">
-						<?php echo $enc->html( $this->translate( 'admin', 'Expert mode' ) ); ?>
-					</a>
-				</li>
-<?php endif; ?>
+				<?php if( $this->access( 'admin' ) ) : ?>
+					<li class="nav-item mode active">
+						<a class="nav-link" href="<?php echo $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>">
+							<?php echo $enc->html( $this->translate( 'admin', 'Expert mode' ) ); ?>
+						</a>
+					</li>
+				<?php endif; ?>
 
 				<li class="nav-item resource">
 					<div class="btn-group">
@@ -251,12 +250,12 @@ $params['id'] = $this->param( 'id', '' );
 							<?php echo $enc->attr( $this->translate( 'admin', $params['resource'] ) ); ?>
 						</button>
 						<div class="dropdown-menu">
-<?php foreach( $resourceList as $code ) : ?>
-							<a class="dropdown-item"
-								href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
-								<?php echo $enc->html( $this->translate( 'admin', $code ) ); ?>
-							</a>
-<?php endforeach; ?>
+							<?php foreach( $resourceList as $code ) : ?>
+								<a class="dropdown-item"
+									href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
+									<?php echo $enc->html( $this->translate( 'admin', $code ) ); ?>
+								</a>
+								<?php endforeach; ?>
 						</div>
 					</div>
 				</li>
@@ -267,34 +266,36 @@ $params['id'] = $this->param( 'id', '' );
 							<?php echo $enc->attr( $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ); ?>
 						</button>
 						<div class="dropdown-menu">
-<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
-							<a class="dropdown-item"
-								href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
-								<?php echo $enc->html( $langid ); ?>
-							</a>
-<?php endforeach; ?>
+							<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
+								<a class="dropdown-item"
+									href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
+									<?php echo $enc->html( $langid ); ?>
+								</a>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</li>
 
-<?php if( $this->access( 'admin' ) ) : ?>
-<?php	$sites = $this->get( 'sitesList', [] ); ?>
-				<li class="nav-item site">
-					<div class="btn-group">
-						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?php echo $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?>
-						</button>
-						<div class="dropdown-menu">
-<?php	foreach( $sites as $code => $label ) : ?>
-							<a class="dropdown-item"
-								href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
-								<?php echo $enc->html( $label ); ?>
-							</a>
-<?php	endforeach; ?>
+				<?php if( $this->access( 'admin' ) ) : ?>
+					<?php	$sites = $this->get( 'sitesList', [] ); ?>
+
+					<li class="nav-item site">
+						<div class="btn-group">
+							<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<?php echo $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?>
+							</button>
+							<div class="dropdown-menu">
+								<?php	foreach( $sites as $code => $label ) : ?>
+									<a class="dropdown-item"
+										href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
+										<?php echo $enc->html( $label ); ?>
+									</a>
+								<?php	endforeach; ?>
+							</div>
 						</div>
-					</div>
-				</li>
-<?php endif; ?>
+					</li>
+
+				<?php endif; ?>
 
 			</ul>
 		</div>

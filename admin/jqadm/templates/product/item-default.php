@@ -88,7 +88,7 @@ $listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
 $params = $this->get( 'pageParams', [] );
-$params['id'] = $this->param( 'id', '' );
+
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
@@ -126,9 +126,9 @@ $params['id'] = $this->param( 'id', '' );
 						<label class="col-sm-3 form-control-label"><?php echo $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 						<div class="col-sm-9">
 							<select class="form-control c-select item-typeid" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>">
-<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
-								<option value="<?php echo $enc->attr( $id ); ?>" data-code="<?php echo $enc->attr( $typeItem->getCode() ); ?>" <?php echo $selected( $this->get( 'itemData/product.typeid' ), $id ); ?>><?php echo $enc->html( $typeItem->getLabel() ); ?></option>
-<?php endforeach; ?>
+								<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
+									<option value="<?php echo $enc->attr( $id ); ?>" data-code="<?php echo $enc->attr( $typeItem->getCode() ); ?>" <?php echo $selected( $this->get( 'itemData/product.typeid' ), $id ); ?>><?php echo $enc->html( $typeItem->getLabel() ); ?></option>
+							<?php endforeach; ?>
 							</select>
 						</div>
 					</div>
@@ -177,13 +177,15 @@ $params['id'] = $this->param( 'id', '' );
 							</tr>
 						</thead>
 						<tbody>
-<?php	foreach( (array) $this->get( 'itemData/config/key', [] ) as $idx => $key ) : ?>
-							<tr class="config-item">
-								<td><input type="text" class="config-key form-control" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>" /></td>
-								<td><input type="text" class="config-value form-control" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'itemData/config/val/' . $idx ) ); ?>" /></td>
-								<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
-							</tr>
-<?php	endforeach; ?>
+
+							<?php	foreach( (array) $this->get( 'itemData/config/key', [] ) as $idx => $key ) : ?>
+								<tr class="config-item">
+									<td><input type="text" class="config-key form-control" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>" /></td>
+									<td><input type="text" class="config-value form-control" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'itemData/config/val/' . $idx ) ); ?>" /></td>
+									<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
+								</tr>
+							<?php	endforeach; ?>
+
 							<tr class="prototype">
 								<td><input type="text" class="config-key form-control" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" value="" disabled="disabled" /></td>
 								<td><input type="text" class="config-value form-control" name="<?php echo $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" value="" disabled="disabled" /></td>
@@ -195,7 +197,7 @@ $params['id'] = $this->param( 'id', '' );
 			</div>
 		</div>
 
-<?php echo $this->get( 'itemBody' ); ?>
+		<?php echo $this->get( 'itemBody' ); ?>
 
 	</div>
 
