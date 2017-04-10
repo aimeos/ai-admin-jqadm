@@ -416,7 +416,7 @@ class Standard
 				$data['catalog.label'][] = $catItems[$catId]->getLabel();
 			}
 
-			foreach( $listItem->toArray() as $key => $value ) {
+			foreach( $listItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
 		}

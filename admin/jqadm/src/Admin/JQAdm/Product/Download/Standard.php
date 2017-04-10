@@ -485,11 +485,11 @@ class Standard
 				continue;
 			}
 
-			foreach( $listItem->toArray() as $key => $value ) {
+			foreach( $listItem->toArray( true ) as $key => $value ) {
 				$data[$key] = $value;
 			}
 
-			foreach( $attrItems[$listItem->getRefId()]->toArray() as $key => $value ) {
+			foreach( $attrItems[$listItem->getRefId()]->toArray( true ) as $key => $value ) {
 				$data[$key] = $value;
 			}
 

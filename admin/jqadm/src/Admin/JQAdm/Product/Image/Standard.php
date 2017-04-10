@@ -424,7 +424,7 @@ class Standard
 
 			$data['product.lists.id'][] = $id;
 
-			foreach( $refItem->toArray() as $key => $value ) {
+			foreach( $refItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
 		}

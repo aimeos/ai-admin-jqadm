@@ -325,7 +325,7 @@ class Standard
 				$refItem = $listItem->getRefItem();
 				$data['product.label'][] = ( $refItem ? $refItem->getLabel() : '' );
 
-				foreach( $listItem->toArray() as $key => $value ) {
+				foreach( $listItem->toArray( true ) as $key => $value ) {
 					$data[$key][] = $value;
 				}
 			}
