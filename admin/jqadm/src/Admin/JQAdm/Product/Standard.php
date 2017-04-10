@@ -594,7 +594,7 @@ class Standard
 		$domains = $context->getConfig()->get( 'admin/jqadm/product/domains', $domains );
 		$item = $manager->getItem( $id, $domains );
 
-		$data = $item->toArray();
+		$data = $item->toArray( true );
 		$data['config'] = array( 'key' => [], 'val' => [] );
 
 		foreach( $item->getConfig() as $key => $value )

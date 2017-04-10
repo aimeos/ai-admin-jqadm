@@ -311,7 +311,7 @@ class Standard
 
 		foreach( $manager->searchItems( $search ) as $item )
 		{
-			foreach( $item->toArray() as $key => $value ) {
+			foreach( $item->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
 		}
