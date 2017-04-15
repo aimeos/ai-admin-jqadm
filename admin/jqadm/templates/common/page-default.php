@@ -168,13 +168,16 @@ $extConfig = $this->config( 'admin/extjs/url/config', [] );
  */
 $resourceList = $this->config( 'admin/jqadm/resources', array( 'dashboard', 'product' ) );
 
-$site = $this->param( 'site' );
-$extParams = array( 'site' => $site, 'lang' => $this->param( 'lang' ) );
+$resource = $this->param( 'resource', 'dashboard' );
+$site = $this->param( 'site', 'dashboard' );
+$lang = $this->param( 'lang' );
 
-$params = $this->get( 'pageParams', [] );
-$params['resource'] = $this->param( 'resource', 'dashboard' );
-$params['site'] = $this->param( 'site', 'default' );
-$params['lang'] = $this->param( 'lang', 'en' );
+$params = ['resource' => $resource, 'site' => $site];
+$extParams = ['site' => $site];
+
+if( $lang ) {
+	$params['lang'] = $extParams['lang'] = $lang;
+}
 
 
 /** admin/jqadm/partial/error
@@ -224,10 +227,10 @@ $params['lang'] = $this->param( 'lang', 'en' );
  */
 
 ?>
-<div class="aimeos" data-url="<?php echo $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site, 'resource' => '', 'id' => '' ), [], $jsonConfig ) ); ?>">
+<div class="aimeos" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
 
 	<nav class="navbar navbar-full">
-		<a class="navbar-brand" href="https://aimeos.org/update/?type={type}&version={version}&extensions={extensions}">
+		<a class="navbar-brand" href="https://aimeos.org/update/?type={type}&version={version}">
 			<img src="https://aimeos.org/check/?type={type}&version={version}&extensions={extensions}" alt="Aimeos update" title="Aimeos update" />
 		</a>
 
@@ -247,7 +250,7 @@ $params['lang'] = $this->param( 'lang', 'en' );
 				<li class="nav-item resource">
 					<div class="btn-group">
 						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?php echo $enc->attr( $this->translate( 'admin', $params['resource'] ) ); ?>
+							<?= $enc->attr( $this->translate( 'admin', $this->param( 'resource', 'dashboard' ) ) ); ?>
 						</button>
 						<div class="dropdown-menu">
 							<?php foreach( $resourceList as $code ) : ?>
