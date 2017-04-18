@@ -10,14 +10,14 @@ $enc = $this->encoder();
 ?>
 <div class="product-item-bundle card panel">
 	<div id="product-item-bundle" class="header card-header collapsed" role="tab" data-toggle="collapse" data-parent="#accordion" data-target="#product-item-bundle-data" aria-expanded="false" aria-controls="product-item-bundle-data">
-		<?php echo $enc->html( $this->translate( 'admin', 'Bundles' ) ); ?>
+		<?= $enc->html( $this->translate( 'admin', 'Bundles' ) ); ?>
 	</div>
 	<div id="product-item-bundle-data" class="item-bundle card-block panel-collapse collapse" role="tabpanel" aria-labelledby="product-item-bundle">
 		<div class="col-lg-6">
 			<table class="bundle-list table table-default">
 				<thead>
 					<tr>
-						<th><?php echo $enc->html( $this->translate( 'admin', 'Products' ) ); ?></th>
+						<th><?= $enc->html( $this->translate( 'admin', 'Products' ) ); ?></th>
 						<th class="actions"><div class="btn btn-primary fa fa-plus"></div></th>
 					</tr>
 				</thead>
@@ -26,10 +26,10 @@ $enc = $this->encoder();
 					<?php foreach( $this->get( 'bundleData/product.lists.id', [] ) as $idx => $id ) : ?>
 						<tr>
 							<td>
-								<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'bundle', 'product.lists.id', '' ) ) ); ?>" value="<?php echo $enc->attr( $id ); ?>" />
-								<input class="item-label" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'bundle', 'product.label', '' ) ) ); ?>" value="<?php echo $enc->attr( $this->get( 'bundleData/product.label/' . $idx ) ); ?>" />
-								<select class="combobox item-refid" name="<?php echo $enc->attr( $this->formparam( array( 'bundle', 'product.lists.refid', '' ) ) ); ?>">
-									<option value="<?php echo $enc->attr( $this->get( 'bundleData/product.lists.refid/' . $idx ) ); ?>" ><?php echo $enc->html( $this->get( 'bundleData/product.label/' . $idx ) ); ?></option>
+								<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.lists.id', '' ) ) ); ?>" value="<?= $enc->attr( $id ); ?>" />
+								<input class="item-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.label', '' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'bundleData/product.label/' . $idx ) ); ?>" />
+								<select class="combobox item-refid" name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.lists.refid', '' ) ) ); ?>">
+									<option value="<?= $enc->attr( $this->get( 'bundleData/product.lists.refid/' . $idx ) ); ?>" ><?= $enc->html( $this->get( 'bundleData/product.label/' . $idx ) ); ?></option>
 								</select>
 							</td>
 							<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
@@ -38,9 +38,9 @@ $enc = $this->encoder();
 
 					<tr class="prototype">
 						<td>
-							<input class="item-listid" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'bundle', 'product.lists.id', '' ) ) ); ?>" value="" disabled="disabled" />
-							<input class="item-label" type="hidden" name="<?php echo $enc->attr( $this->formparam( array( 'bundle', 'product.label', '' ) ) ); ?>" value="" disabled="disabled" />
-							<select class="combobox-prototype item-refid" name="<?php echo $enc->attr( $this->formparam( array( 'bundle', 'product.lists.refid', '' ) ) ); ?>" disabled="disabled">
+							<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.lists.id', '' ) ) ); ?>" value="" disabled="disabled" />
+							<input class="item-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.label', '' ) ) ); ?>" value="" disabled="disabled" />
+							<select class="combobox-prototype item-refid" name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.lists.refid', '' ) ) ); ?>" disabled="disabled">
 							</select>
 						</td>
 						<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
@@ -48,6 +48,6 @@ $enc = $this->encoder();
 				</tbody>
 			</table>
 		</div>
-		<?php echo $this->get( 'bundleBody' ); ?>
+		<?= $this->get( 'bundleBody' ); ?>
 	</div>
 </div>

@@ -241,8 +241,8 @@ if( $lang ) {
 
 				<?php if( $this->access( 'admin' ) ) : ?>
 					<li class="nav-item mode active">
-						<a class="nav-link" href="<?php echo $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>">
-							<?php echo $enc->html( $this->translate( 'admin', 'Expert mode' ) ); ?>
+						<a class="nav-link" href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>">
+							<?= $enc->html( $this->translate( 'admin', 'Expert mode' ) ); ?>
 						</a>
 					</li>
 				<?php endif; ?>
@@ -255,8 +255,8 @@ if( $lang ) {
 						<div class="dropdown-menu">
 							<?php foreach( $resourceList as $code ) : ?>
 								<a class="dropdown-item"
-									href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
-									<?php echo $enc->html( $this->translate( 'admin', $code ) ); ?>
+									href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
+									<?= $enc->html( $this->translate( 'admin', $code ) ); ?>
 								</a>
 								<?php endforeach; ?>
 						</div>
@@ -266,13 +266,13 @@ if( $lang ) {
 				<li class="nav-item language">
 					<div class="btn-group">
 						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?php echo $enc->attr( $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ); ?>
+							<?= $enc->attr( $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ); ?>
 						</button>
 						<div class="dropdown-menu">
 							<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
 								<a class="dropdown-item"
-									href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
-									<?php echo $enc->html( $langid ); ?>
+									href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
+									<?= $enc->html( $langid ); ?>
 								</a>
 							<?php endforeach; ?>
 						</div>
@@ -285,13 +285,13 @@ if( $lang ) {
 					<li class="nav-item site">
 						<div class="btn-group">
 							<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<?php echo $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?>
+								<?= $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?>
 							</button>
 							<div class="dropdown-menu">
 								<?php	foreach( $sites as $code => $label ) : ?>
 									<a class="dropdown-item"
-										href="<?php echo $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
-										<?php echo $enc->html( $label ); ?>
+										href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
+										<?= $enc->html( $label ); ?>
 									</a>
 								<?php	endforeach; ?>
 							</div>
@@ -307,12 +307,12 @@ if( $lang ) {
 
 	<div class="container">
 
-<?php echo $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
 
-<?php echo $this->block()->get( 'jqadm_content' ); ?>
+		<?= $this->block()->get( 'jqadm_content' ); ?>
 
 	</div>
 
-<?php echo $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-default.php' ) ); ?>
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-default.php' ) ); ?>
 
 </div>

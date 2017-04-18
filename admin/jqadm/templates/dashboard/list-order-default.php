@@ -9,5 +9,5 @@ $enc = $this->encoder();
 
 ?>
 <div class="dashboard-order">
-	<?php echo $this->get( 'orderBody' ); ?>
+	<?= $this->get( 'orderBody' ); ?>
 </div>

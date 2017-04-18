@@ -74,7 +74,7 @@ $statuslist = array(
 ?>
 <div class="order-latest card panel col-lg-12">
 	<div id="order-latest-head" class="header card-header">
-		<?php echo $enc->html( $this->translate( 'admin', 'Latest orders' ) ); ?>
+		<?= $enc->html( $this->translate( 'admin', 'Latest orders' ) ); ?>
 	</div>
 	<div id="order-latest-data" class="content card-block">
 		<div class="table-responsive">
@@ -82,12 +82,12 @@ $statuslist = array(
 				<tbody>
 					<?php foreach( $this->get( 'orderlatestItems', [] ) as $id => $item ) : ?>
 						<tr>
-							<td class="order-id"><?php echo $enc->html( $item->getId() ); ?></td>
-							<td class="order-base-address-name"><?php echo $enc->html( $name( $baskets, $item ) ); ?></td>
-							<td class="order-base-price"><?php echo $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></td>
-							<td class="order-datepayment"><?php echo $enc->html( $item->getDatePayment() ); ?></td>
-							<td class="order-statuspayment"><?php echo $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></td>
-							<td class="order-base-service-payment"><?php echo $enc->html( $payment( $baskets, $item ) ); ?></td>
+							<td class="order-id"><?= $enc->html( $item->getId() ); ?></td>
+							<td class="order-base-address-name"><?= $enc->html( $name( $baskets, $item ) ); ?></td>
+							<td class="order-base-price"><?= $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></td>
+							<td class="order-datepayment"><?= $enc->html( $item->getDatePayment() ); ?></td>
+							<td class="order-statuspayment"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></td>
+							<td class="order-base-service-payment"><?= $enc->html( $payment( $baskets, $item ) ); ?></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -95,4 +95,4 @@ $statuslist = array(
 		</div>
 	</div>
 </div>
-<?php echo $this->get( 'orderlatestBody' ); ?>
+<?= $this->get( 'orderlatestBody' ); ?>

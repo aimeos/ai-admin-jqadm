@@ -20,9 +20,9 @@ $trans = array(
 ?>
 <div class="order-paymentstatus card panel col-lg-6">
 	<div id="order-paymentstatus-head" class="header card-header">
-		<?php echo $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ); ?>
+		<?= $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ); ?>
 	</div>
-	<div id="order-paymentstatus-data" class="content card-block loading" data-translation="<?php echo $enc->attr( json_encode( $trans ) ); ?>">
+	<div id="order-paymentstatus-data" class="content card-block loading" data-translation="<?= $enc->attr( json_encode( $trans ) ); ?>">
 	</div>
 </div>
-<?php echo $this->get( 'orderpaymentstatusBody' ); ?>
+<?= $this->get( 'orderpaymentstatusBody' ); ?>

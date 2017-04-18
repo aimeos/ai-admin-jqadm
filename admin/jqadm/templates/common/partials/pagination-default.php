@@ -30,30 +30,30 @@ $pageTotal = ( $total != 0 ? ceil( $total / $limit ) : 1 );
 <nav class="list-page">
 	<ul class="page-offset pagination">
 		<li class="page-item">
-			<a class="page-link" href="<?php $params['page']['offset'] = $first; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" aria-label="<?php echo $enc->attr( $this->translate( 'admin', 'First' ) ); ?>">
+			<a class="page-link" href="<?php $params['page']['offset'] = $first; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" aria-label="<?= $enc->attr( $this->translate( 'admin', 'First' ) ); ?>">
 				<span class="fa fa-fast-backward" aria-hidden="true"></span>
 			</a>
 		</li><!--
 		--><li class="page-item">
-			<a class="page-link" href="<?php $params['page']['offset'] = $prev; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" aria-label="<?php echo $enc->attr( $this->translate( 'admin', 'Previous' ) ); ?>">
+			<a class="page-link" href="<?php $params['page']['offset'] = $prev; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" aria-label="<?= $enc->attr( $this->translate( 'admin', 'Previous' ) ); ?>">
 				<span class="fa fa-step-backward" aria-hidden="true"></span>
 			</a>
 		</li><!--
-		--><li class="page-item disabled"><a class="page-link" href="#"><?php echo $enc->html( sprintf( $this->translate( 'admin', 'Page %1$d of %2$d' ), $pageCurrent, $pageTotal ) ); ?></a></li><!--
+		--><li class="page-item disabled"><a class="page-link" href="#"><?= $enc->html( sprintf( $this->translate( 'admin', 'Page %1$d of %2$d' ), $pageCurrent, $pageTotal ) ); ?></a></li><!--
 		--><li class="page-item">
-			<a class="page-link" href="<?php $params['page']['offset'] = $next; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" aria-label="<?php echo $enc->attr( $this->translate( 'admin', 'Next' ) ); ?>">
+			<a class="page-link" href="<?php $params['page']['offset'] = $next; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" aria-label="<?= $enc->attr( $this->translate( 'admin', 'Next' ) ); ?>">
 				<span class="fa fa-step-forward" aria-hidden="true"></span>
 			</a>
 		</li><!--
 		--><li class="page-item">
-			<a class="page-link" href="<?php $params['page']['offset'] = $last; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" aria-label="<?php echo $enc->attr( $this->translate( 'admin', 'Last' ) ); ?>">
+			<a class="page-link" href="<?php $params['page']['offset'] = $last; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" aria-label="<?= $enc->attr( $this->translate( 'admin', 'Last' ) ); ?>">
 				<span class="fa fa-fast-forward" aria-hidden="true"></span>
 			</a>
 		</li>
 	</ul>
-	<div class="page-limit btn-group <?php echo ( $this->get( 'pos', 'top' ) === 'bottom' ? 'dropup' : '' ); ?>" role="group">
+	<div class="page-limit btn-group <?= ( $this->get( 'pos', 'top' ) === 'bottom' ? 'dropup' : '' ); ?>" role="group">
 		<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<?php echo $limit; ?> <span class="caret"></span>
+			<?= $limit; ?> <span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
 			<li class="dropdown-item"><a href="<?php $params['page']['limit'] = 25; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">25</a></li>
