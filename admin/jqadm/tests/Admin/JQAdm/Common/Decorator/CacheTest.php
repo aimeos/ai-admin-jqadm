@@ -9,7 +9,7 @@
 namespace Aimeos\Admin\JQAdm\Common\Decorator;
 
 
-class CacheTest extends \PHPUnit_Framework_TestCase
+class CacheTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
 	private $object;

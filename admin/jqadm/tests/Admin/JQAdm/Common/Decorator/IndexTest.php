@@ -9,7 +9,7 @@
 namespace Aimeos\Admin\JQAdm\Common\Decorator;
 
 
-class IndexTest extends \PHPUnit_Framework_TestCase
+class IndexTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
 	private $object;
