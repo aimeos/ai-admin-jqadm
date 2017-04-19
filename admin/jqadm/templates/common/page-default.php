@@ -169,7 +169,7 @@ $extConfig = $this->config( 'admin/extjs/url/config', [] );
 $resourceList = $this->config( 'admin/jqadm/resources', array( 'dashboard', 'product' ) );
 
 $resource = $this->param( 'resource', 'dashboard' );
-$site = $this->param( 'site', 'dashboard' );
+$site = $this->param( 'site', 'default' );
 $lang = $this->param( 'lang' );
 
 $params = ['resource' => $resource, 'site' => $site];
