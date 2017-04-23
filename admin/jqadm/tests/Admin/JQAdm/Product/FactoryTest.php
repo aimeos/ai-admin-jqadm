@@ -37,21 +37,21 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClientNameEmpty()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, $this->templatePaths, '' );
 	}
 
 
 	public function testCreateClientNameInvalid()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, $this->templatePaths, '%product' );
 	}
 
 
 	public function testCreateClientNameNotFound()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, $this->templatePaths, 'test' );
 	}
 

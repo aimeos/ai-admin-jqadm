@@ -65,7 +65,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 	{
 		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client, [],
 			array( '$' ), 'Test' );
 	}
@@ -75,7 +75,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 	{
 		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client, [],
 			array( 'Test' ), 'TestDecorator' );
 	}
@@ -85,7 +85,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 	{
 		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client, [],
 			array( 'Test' ), '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\' );
 	}
@@ -96,7 +96,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 		$this->context->getConfig()->set( 'admin/jqadm/decorators/excludes', array( 'TestDecorator' ) );
 		$this->context->getConfig()->set( 'admin/jqadm/common/decorators/default', array( 'TestDecorator' ) );
 
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 	}
 
@@ -105,14 +105,14 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 	{
 		$client = \Aimeos\Admin\JQAdm\Product\Factory::createClient( $this->context, [], 'Standard' );
 
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addClientDecoratorsPublic( $this->context, $client, [], '' );
 	}
 
 
 	public function testCreateClientBase()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::createClientBasePublic( $this->context, 'Test', 'Test', [] );
 	}
 }
