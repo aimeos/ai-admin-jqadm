@@ -39,35 +39,35 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$this->expectException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$this->object->create();
 	}
 
 
 	public function testCopy()
 	{
-		$this->expectException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$this->object->copy();
 	}
 
 
 	public function testDelete()
 	{
-		$this->expectException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$this->object->delete();
 	}
 
 
 	public function testGet()
 	{
-		$this->expectException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$this->object->get();
 	}
 
 
 	public function testSave()
 	{
-		$this->expectException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$this->object->save();
 	}
 

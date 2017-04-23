@@ -207,7 +207,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = new \Aimeos\Admin\JQAdm\Product\Standard( $this->context, [] );
 
-		$this->expectException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$object->getView();
 	}
 
@@ -389,14 +389,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientInvalid()
 	{
-		$this->expectException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$this->object->getSubClient( '$unknown$' );
 	}
 
 
 	public function testGetSubClientUnknown()
 	{
-		$this->expectException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$this->object->getSubClient( 'unknown' );
 	}
 
@@ -414,7 +414,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->context->getConfig()->set( 'admin/jqadm/product/image/decorators/global', array( 'Invalid' ) );
 
-		$this->expectException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$this->object->getSubClient( 'image' );
 	}
 
