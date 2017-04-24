@@ -56,10 +56,10 @@ class Standard
 	 */
 	private $subPartPath = 'admin/jqadm/product/option/standard/subparts';
 
-	/** admin/jqadm/product/option/attribute/name
-	 * Name of the option/attribute subpart used by the JQAdm product implementation
+	/** admin/jqadm/product/option/config/name
+	 * Name of the option/config subpart used by the JQAdm product implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Option\Configurable\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Option\Config\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
@@ -67,10 +67,10 @@ class Standard
 	 * @category Developer
 	 */
 
-	/** admin/jqadm/product/option/property/name
-	 * Name of the option/property subpart used by the JQAdm product implementation
+	/** admin/jqadm/product/option/custom/name
+	 * Name of the option/custom subpart used by the JQAdm product implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Option\Property\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Option\Custom\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
