@@ -432,7 +432,7 @@ class Standard
 		{
 			foreach( $this->getTypes() as $type )
 			{
-				if( ( $content = trim( $view->param( 'text/' . $type . '/content/' . $idx ) ) ) === '' ) {
+				if( ( $content = trim( $view->param( 'text/' . $type . '/content/' . $idx, '', false ) ) ) === '' ) {
 					continue;
 				}
 
