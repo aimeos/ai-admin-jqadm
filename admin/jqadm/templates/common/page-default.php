@@ -257,7 +257,7 @@ if( $lang ) {
 						<i class="icon site"></i>
 						<span class="name"><?= $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?></span>
 					</a>
-					<ul class="treeview-menu">
+					<ul class="tree-menu">
 						<?php foreach( $sites as $code => $label ) : ?>
 							<li>
 								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
@@ -297,13 +297,13 @@ if( $lang ) {
 			<li class="treeview">
 				<a href="#">
 					<i class="icon config"></i>
-					<span class="name"><?= $enc->attr( $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ); ?></span>
+					<span class="name"><?= $enc->attr( $this->translate( 'client/language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
 				</a>
-				<ul class="treeview-menu">
+				<ul class="tree-menu">
 					<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
 						<li>
 							<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
-								<?= $enc->html( $langid ); ?>
+								<span class="name"><?= $enc->html( $this->translate( 'client/language', $langid ) ); ?> (<?= $langid ?>)</span>
 							</a>
 						</li>
 					<?php endforeach; ?>

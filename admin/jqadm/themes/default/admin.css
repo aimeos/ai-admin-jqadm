@@ -92,7 +92,6 @@ html {
 }
 
 .aimeos .main-sidebar  {
-	background: #203030;
 	position: absolute;
 	display: block;
 	height:100%;
@@ -100,117 +99,15 @@ html {
 	top: 0;
 	width: 5rem;
 	z-index: 810;
+	color: #B8C8D0;
+	background: #202830;
 	-webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
 	-moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
 	-o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
 	transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 
-.aimeos .main-sidebar .separator {
-	background: #202830;
-	color: #C0D0E0;
-}
-
-.aimeos .main-sidebar .separator:hover {
-	text-decoration: none;
-	color: #4090C0;
-}
-
 .aimeos .sidebar-menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.aimeos .sidebar-menu a {
-	color: #C0D0E0;
-}
-
-.aimeos .sidebar-menu a:hover {
-	text-decoration: none;
-}
-
-.aimeos .sidebar-menu > li:hover,
-.aimeos .sidebar-menu > li.active {
-	border-left-color: #4090C0;
-	background: #202830;
-	color: #ffffff;
-}
-
-.aimeos .treeview-menu > li > a {
-	color: #C0D0E0;
-}
-
-.aimeos .treeview-menu > li.active > a,
-.aimeos .treeview-menu > li > a:hover {
-	color: #ffffff;
-}
-
-.aimeos .sidebar-menu > li > .treeview-menu {
-	background: #304048;
-}
-
-.aimeos .sidebar-menu .treeview-menu {
-	list-style: none;
-	display: none;
-	padding: 0;
-	margin: 0;
-}
-
-.aimeos .sidebar-menu .treeview-menu > li {
-	margin: 0;
-}
-
-.aimeos .sidebar-menu .treeview-menu > li > a {
-	display: block;
-	padding: 0.5rem;
-	padding-left: 1rem;
-}
-
-.aimeos .main-sidebar .separator,
-.aimeos .sidebar-menu > li {
-	border-left: 0.3rem solid transparent;
-	border-right: 0.3rem solid transparent;
-	text-align: center;
-	position: relative;
-	padding: 0;
-	margin: 0;
-}
-
-.aimeos .sidebar-menu > li > .treeview-menu {
-	-webkit-transform: translateZ(0);
-	display: none !important;
-}
-
-.aimeos .sidebar-menu li.active > .treeview-menu {
-	display: block;
-}
-
-.aimeos .sidebar-menu > li:hover > .treeview-menu {
-	display: block !important;
-	position: absolute;
-	width: 20rem;
-	left: 4.7rem;
-	top: 0;
-}
-
-.aimeos .sidebar-menu > li > .treeview-menu {
-	padding: 0.5rem 0;
-}
-
-.aimeos .sidebar-menu > li li {
-	text-align: left;
-}
-
-.aimeos .main-sidebar .separator .icon,
-.aimeos .sidebar-menu > li > a {
-	padding: 1rem 0.25rem;
-	display: block;
-}
-
-.aimeos .sidebar-menu,
-.aimeos .sidebar-menu > li.header {
-  white-space: nowrap;
   overflow: hidden;
 }
 
@@ -222,18 +119,102 @@ html {
 	display: none;
 }
 
-.aimeos .sidebar-menu li > a {
-  position: relative;
+.aimeos .main-sidebar .separator:hover,
+.aimeos .sidebar-menu a:hover {
+	text-decoration: none;
+}
+
+.aimeos .sidebar-menu a {
+	border-left: 0.3rem solid transparent;
+	border-right: 0.3rem solid transparent;
+}
+
+.aimeos .main-sidebar .separator,
+.aimeos .sidebar-menu > li {
+	text-align: center;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+.aimeos .main-sidebar .separator .icon,
+.aimeos .sidebar-menu a {
+	padding: 1rem 0.25rem;
+	display: block;
+}
+
+.aimeos .sidebar-menu,
+.aimeos .sidebar-menu .tree-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.aimeos .sidebar-menu a {
+	color: #B8C8D0;
+}
+
+.aimeos .sidebar-menu li:hover a,
+.aimeos .sidebar-menu li.active a,
+.aimeos .sidebar-menu li .tree-menu li:hover a,
+.aimeos .sidebar-menu li .tree-menu li.active a {
+	border-left-color: #4090C0;
+	background: #182028;
+	color: #ffffff;
+}
+
+.aimeos .main-sidebar .separator,
+.aimeos .sidebar-menu li .tree-menu a {
+	border-left-color: transparent;
+	background: #203038;
+	color: #B8C8D0;
+}
+
+.aimeos .main-sidebar .separator {
+	background: #202830;
+}
+
+.aimeos .tree-menu {
+	padding: 0.5rem 0;
+	display: none;
+}
+
+.aimeos .tree-menu a {
+	color: #90A0B0;
+	display: block;
+	padding: 1rem 2rem;
+}
+
+.aimeos .sidebar-menu li .tree-menu {
+	-webkit-transform: translateZ(0);
+	display: none;
+}
+
+.aimeos .sidebar-menu li.active .tree-menu,
+.aimeos .sidebar-menu li:hover .tree-menu {
+	position: absolute;
+	display: block;
+	width: 20rem;
+	left: 5rem;
+	top: 0;
+}
+
+.aimeos .sidebar-menu .tree-menu {
+	text-align: left;
+}
+
+.aimeos .sidebar-menu .name {
+	display: none;
+}
+
+.aimeos .sidebar-menu li .tree-menu .name {
+	display: block;
 }
 
 .aimeos .main-sidebar .icon {
 	font: normal normal normal 14px/1 FontAwesome;
-	font-size: 125%;
+	font-size: 150%;
 	display: block;
-}
-
-.aimeos .main-sidebar .name {
-	display: none;
 }
 
 .aimeos .main-sidebar .site:before { content: "\f233" }
@@ -270,9 +251,11 @@ html {
 	}
 	.aimeos .main-sidebar .name {
 		display: block;
+		font-size: 90%;
+		padding: 0.25rem 0;
 	}
-	.aimeos .sidebar-menu > li:hover > .treeview-menu {
-		left: 9.7rem;
+	.aimeos .sidebar-menu > li:hover > .tree-menu {
+		left: 10rem;
 	}
 	.aimeos .main-content {
 		margin-left: 10rem;
