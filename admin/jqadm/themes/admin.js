@@ -151,6 +151,7 @@ Aimeos = {
 		this.checkSubmit();
 		this.createDatePicker();
 		this.showErrors();
+		this.toggleMenu();
 	},
 
 
@@ -342,6 +343,22 @@ Aimeos = {
 
 		$(".aimeos .error-list .error-item").each(function() {
 			$(".aimeos ." + $(this).data("key") + " .header").addClass("has-danger");
+		});
+	},
+
+
+	toggleMenu : function() {
+
+		$(".aimeos .main-sidebar").on("click", ".separator .more", function(ev) {
+			$(".advanced", ev.delegateTarget).slideDown(400, function() {
+				$(ev.currentTarget).removeClass("more").addClass("less");
+			});
+		});
+
+		$(".aimeos .main-sidebar").on("click", ".separator .less", function(ev) {
+			$(".advanced", ev.delegateTarget).slideUp(400, function() {
+				$(ev.currentTarget).removeClass("less").addClass("more");
+			});
 		});
 	}
 };

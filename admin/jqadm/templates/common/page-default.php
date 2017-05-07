@@ -160,13 +160,26 @@ $extConfig = $this->config( 'admin/extjs/url/config', [] );
  * List of available resource clients in the JQAdm interface
  *
  * The JQAdm admin interface consists of several clients for different resources.
- * This configuration setting lists the names of the resources and their order.
+ * This configuration setting lists the names of the basic resources and their order.
  *
  * @param array List of resource client names
  * @since 2016.07
  * @category Developer
  */
-$resourceList = $this->config( 'admin/jqadm/resources', array( 'dashboard', 'product' ) );
+$resourceList = $this->config( 'admin/jqadm/resources', ['dashboard', /*'order', 'customer',*/ 'product', /*'catalog', 'coupon'*/] );
+
+/** admin/jqadm/resources-more
+ * List of available resource clients in the JQAdm interface
+ *
+ * The JQAdm admin interface consists of several clients for different resources.
+ * This configuration setting lists the names of the advanced resources and their order.
+ *
+ * @param array List of resource client names
+ * @since 2017.06
+ * @category Developer
+ */
+$advancedList = $this->config( 'admin/jqadm/resources-more', [/*'supplier', 'service', 'plugin', 'locale', 'type'*/] );
+
 
 $resource = $this->param( 'resource', 'dashboard' );
 $site = $this->param( 'site', 'default' );
@@ -229,83 +242,87 @@ if( $lang ) {
 ?>
 <div class="aimeos" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
 
-	<nav class="navbar navbar-full">
-		<a class="navbar-brand" href="https://aimeos.org/update/?type={type}&version={version}">
-			<img src="https://aimeos.org/check/?type={type}&version={version}&extensions={extensions}" alt="Aimeos update" title="Aimeos update" />
+	<nav class="main-sidebar">
+
+		<a class="logo" href="https://aimeos.org/update/?type={type}&version={version}">
+			<img src="https://aimeos.org/check/?type={type}&version={version}&extensions={extensions}" alt="Aimeos update" title="Aimeos update">
 		</a>
 
-		<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapse-navbar">&#9776;</button>
+		<ul class="sidebar-menu basic">
 
-		<div class="collapse navbar-toggleable-xs" id="collapse-navbar">
-			<ul class="nav navbar-nav">
-
-				<?php if( $this->access( 'admin' ) ) : ?>
-					<li class="nav-item mode active">
-						<a class="nav-link" href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>">
-							<?= $enc->html( $this->translate( 'admin', 'Expert mode' ) ); ?>
-						</a>
-					</li>
-				<?php endif; ?>
-
-				<li class="nav-item resource">
-					<div class="btn-group">
-						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?= $enc->attr( $this->translate( 'admin', $this->param( 'resource', 'dashboard' ) ) ); ?>
-						</button>
-						<div class="dropdown-menu">
-							<?php foreach( $resourceList as $code ) : ?>
-								<a class="dropdown-item"
-									href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
-									<?= $enc->html( $this->translate( 'admin', $code ) ); ?>
+			<?php $sites = $this->get( 'sitesList', [] ); ?>
+			<?php if( $this->access( 'admin' ) && count( $sites ) > 1 ) : ?>
+				<li class="treeview">
+					<a href="#">
+						<i class="icon site"></i>
+						<span class="name"><?= $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?></span>
+					</a>
+					<ul class="treeview-menu">
+						<?php foreach( $sites as $code => $label ) : ?>
+							<li>
+								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
+									<?= $enc->html( $label ); ?>
 								</a>
-								<?php endforeach; ?>
-						</div>
-					</div>
+							</li>
+						<?php endforeach; ?>
+					</ul>
 				</li>
+			<?php endif; ?>
 
-				<li class="nav-item language">
-					<div class="btn-group">
-						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?= $enc->attr( $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ); ?>
-						</button>
-						<div class="dropdown-menu">
-							<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
-								<a class="dropdown-item"
-									href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
-									<?= $enc->html( $langid ); ?>
-								</a>
-							<?php endforeach; ?>
-						</div>
-					</div>
+
+			<?php foreach( $resourceList as $code ) : ?>
+				<?php $active = ( $this->param( 'resource', 'dashboard' ) === $code ? 'active' : '' ); ?>
+				<li class="<?= $active ?>">
+					<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
+						<i class="icon <?= $enc->attr( $code ); ?>"></i>
+						<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
+					</a>
 				</li>
+			<?php endforeach; ?>
+		</ul>
 
-				<?php if( $this->access( 'admin' ) ) : ?>
-					<?php	$sites = $this->get( 'sitesList', [] ); ?>
+		<div class="separator"><i class="icon more"></i></div>
 
-					<li class="nav-item site">
-						<div class="btn-group">
-							<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<?= $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?>
-							</button>
-							<div class="dropdown-menu">
-								<?php	foreach( $sites as $code => $label ) : ?>
-									<a class="dropdown-item"
-										href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
-										<?= $enc->html( $label ); ?>
-									</a>
-								<?php	endforeach; ?>
-							</div>
-						</div>
-					</li>
+		<ul class="sidebar-menu advanced">
+			<?php foreach( $advancedList as $code ) : ?>
+				<?php $active = ( $this->param( 'resource' ) === $code ? 'active' : '' ); ?>
+				<li class="<?= $active ?>">
+					<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
+						<i class="icon <?= $enc->attr( $code ); ?>"></i>
+						<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
+					</a>
+				</li>
+			<?php endforeach; ?>
 
-				<?php endif; ?>
+			<li class="treeview">
+				<a href="#">
+					<i class="icon config"></i>
+					<span class="name"><?= $enc->attr( $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ); ?></span>
+				</a>
+				<ul class="treeview-menu">
+					<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
+						<li>
+							<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
+								<?= $enc->html( $langid ); ?>
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</li>
 
-			</ul>
-		</div>
+			<?php if( $this->access( 'admin' ) ) : ?>
+				<li>
+					<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>">
+						<i class="icon expert"></i>
+						<span class="name"><?= $enc->html( $this->translate( 'admin', 'Expert' ) ); ?></span>
+					</a>
+				</li>
+			<?php endif; ?>
+		</ul>
 
 	</nav>
 
-	<div class="container">
+	<div class="main-content">
 
 		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
 

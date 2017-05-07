@@ -57,43 +57,229 @@
 
 html {
 	overflow-y: scroll;
+	position: relative;
+	min-height: 100%;
 }
 
 
 
-/* Navbar */
+/* Sidebar */
 
-.aimeos .navbar {
-	color: #EEE;
-	background-color: #333;
-	margin-bottom: 2rem;
-	text-align: right;
+.aimeos .logo {
+	display: block;
+	overflow: hidden;
+	margin: 1rem auto;
+	height: 4rem;
+	width: 4rem;
 }
 
-.aimeos .navbar-brand img {
-	height: 30px;
+.aimeos .logo img {
+	display: block;
+	position: relative;
+	transform: perspective(1px) translateY(-50%);
+	height: 4rem;
+	top: 50%;
 }
 
-.aimeos .navbar-nav {
-	text-align: right;
+@media (min-width: 992px) {
+	.aimeos .logo {
+		width: 9rem;
+	}
+	.aimeos .logo img {
+		width: 100%;
+		height: auto;
+	}
 }
 
-.aimeos .navbar-nav .nav-item {
-	display: inline-block;
-	float: none;
+.aimeos .main-sidebar  {
+	background: #203030;
+	position: absolute;
+	display: block;
+	height:100%;
+	left: 0;
+	top: 0;
+	width: 5rem;
+	z-index: 810;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+	-moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+	-o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 
-.aimeos .navbar-nav .nav-item + .nav-item {
+.aimeos .main-sidebar .separator {
+	background: #202830;
+	color: #C0D0E0;
+}
+
+.aimeos .main-sidebar .separator:hover {
+	text-decoration: none;
+	color: #4090C0;
+}
+
+.aimeos .sidebar-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.aimeos .sidebar-menu a {
+	color: #C0D0E0;
+}
+
+.aimeos .sidebar-menu a:hover {
+	text-decoration: none;
+}
+
+.aimeos .sidebar-menu > li:hover,
+.aimeos .sidebar-menu > li.active {
+	border-left-color: #4090C0;
+	background: #202830;
+	color: #ffffff;
+}
+
+.aimeos .treeview-menu > li > a {
+	color: #C0D0E0;
+}
+
+.aimeos .treeview-menu > li.active > a,
+.aimeos .treeview-menu > li > a:hover {
+	color: #ffffff;
+}
+
+.aimeos .sidebar-menu > li > .treeview-menu {
+	background: #304048;
+}
+
+.aimeos .sidebar-menu .treeview-menu {
+	list-style: none;
+	display: none;
+	padding: 0;
 	margin: 0;
 }
 
-.aimeos .navbar-nav .nav-item {
-	padding: 0.05rem 0.25rem;
+.aimeos .sidebar-menu .treeview-menu > li {
+	margin: 0;
 }
 
-.aimeos .navbar-nav .nav-link {
-	color: #EEE;
+.aimeos .sidebar-menu .treeview-menu > li > a {
+	display: block;
+	padding: 0.5rem;
+	padding-left: 1rem;
 }
+
+.aimeos .main-sidebar .separator,
+.aimeos .sidebar-menu > li {
+	border-left: 0.3rem solid transparent;
+	border-right: 0.3rem solid transparent;
+	text-align: center;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+.aimeos .sidebar-menu > li > .treeview-menu {
+	-webkit-transform: translateZ(0);
+	display: none !important;
+}
+
+.aimeos .sidebar-menu li.active > .treeview-menu {
+	display: block;
+}
+
+.aimeos .sidebar-menu > li:hover > .treeview-menu {
+	display: block !important;
+	position: absolute;
+	width: 20rem;
+	left: 4.7rem;
+	top: 0;
+}
+
+.aimeos .sidebar-menu > li > .treeview-menu {
+	padding: 0.5rem 0;
+}
+
+.aimeos .sidebar-menu > li li {
+	text-align: left;
+}
+
+.aimeos .main-sidebar .separator .icon,
+.aimeos .sidebar-menu > li > a {
+	padding: 1rem 0.25rem;
+	display: block;
+}
+
+.aimeos .sidebar-menu,
+.aimeos .sidebar-menu > li.header {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.aimeos .sidebar-menu:hover {
+  overflow: visible;
+}
+
+.aimeos .sidebar-menu.advanced {
+	display: none;
+}
+
+.aimeos .sidebar-menu li > a {
+  position: relative;
+}
+
+.aimeos .main-sidebar .icon {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 125%;
+	display: block;
+}
+
+.aimeos .main-sidebar .name {
+	display: none;
+}
+
+.aimeos .main-sidebar .site:before { content: "\f233" }
+.aimeos .main-sidebar .expert:before { content: "\f19d" }
+.aimeos .main-sidebar .dashboard:before { content: "\f0e4" }
+.aimeos .main-sidebar .order:before { content: "\f07a" }
+.aimeos .main-sidebar .customer:before { content: "\f0c0" }
+.aimeos .main-sidebar .product:before { content: "\f1b2" }
+.aimeos .main-sidebar .catalog:before { content: "\f0e8" }
+.aimeos .main-sidebar .coupon:before { content: "\f295" }
+.aimeos .main-sidebar .separator .more:before { content: "\f0d7" }
+.aimeos .main-sidebar .separator .less:before { content: "\f0d8" }
+.aimeos .main-sidebar .supplier:before { content: "\f275" }
+.aimeos .main-sidebar .service:before { content: "\f09d" }
+.aimeos .main-sidebar .service:after { content: "\f0d1" }
+.aimeos .main-sidebar .plugin:before { content: "\f12e" }
+.aimeos .main-sidebar .locale:before { content: "\f0ac" }
+.aimeos .main-sidebar .type:before { content: "\f02c" }
+.aimeos .main-sidebar .config:before { content: "\f1ab" }
+
+
+.aimeos .main-content {
+	margin-left: 5rem;
+	padding: 0 2.5%;
+}
+
+
+@media (min-width: 992px) {
+	.aimeos .main-sidebar {
+		width: 10rem;
+	}
+	.aimeos .main-sidebar .icon {
+		font-size: 200%;
+	}
+	.aimeos .main-sidebar .name {
+		display: block;
+	}
+	.aimeos .sidebar-menu > li:hover > .treeview-menu {
+		left: 9.7rem;
+	}
+	.aimeos .main-content {
+		margin-left: 10rem;
+	}
+}
+
+
 
 
 /* Common styles */
