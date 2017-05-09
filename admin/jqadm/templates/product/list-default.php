@@ -501,7 +501,7 @@ $sortcode = $this->param( 'sort' );
 		</div>
 
 		<div class="input-group">
-			<select class="custom-select filter-key" name="<?= $this->formparam( array( 'filter', 'key' ) ); ?>">
+			<select class="custom-select filter-key" name="<?= $this->formparam( array( 'filter', 'key', '' ) ); ?>">
 				<?php foreach( $this->get( 'filterAttributes', [] ) as $code => $attrItem ) : ?>
 					<?php if( $attrItem->isPublic() ) : ?>
 						<option value="<?= $enc->attr( $code ); ?>" data-type="<?= $enc->attr( $attrItem->getType() ); ?>" <?= ( isset( $filter['key'] ) && $filter['key'] === $code ? 'selected' : '' ); ?> >
@@ -510,14 +510,14 @@ $sortcode = $this->param( 'sort' );
 					<?php endif; ?>
 				<?php endforeach; ?>
 			</select>
-			<select class="custom-select filter-operator" name="<?= $this->formparam( array( 'filter', 'op' ) ); ?>">
+			<select class="custom-select filter-operator" name="<?= $this->formparam( array( 'filter', 'op', '' ) ); ?>">
 				<?php foreach( $this->get( 'filterOperators/compare', [] ) as $code ) : ?>
 					<option value="<?= $enc->attr( $code ); ?>" <?= ( isset( $filter['op'] ) && $filter['op'] === $code ? 'selected' : '' ); ?> >
 						<?= $enc->html( $code ) . ( strlen( $code ) === 1 ? '&nbsp;' : '' ); ?>&nbsp;&nbsp;<?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?>
 					</option>
 				<?php endforeach; ?>
 			</select>
-			<input type="text" class="form-control filter-value" name="<?= $this->formparam( array( 'filter', 'val' ) ); ?>"
+			<input type="text" class="form-control filter-value" name="<?= $this->formparam( array( 'filter', 'val', '' ) ); ?>"
 				 value="<?= $enc->attr( ( isset( $filter['val'] ) ? $filter['val'] : '' ) ); ?>" >
 			<button class="input-group-addon btn btn-primary fa fa-search"></button>
 		</div>

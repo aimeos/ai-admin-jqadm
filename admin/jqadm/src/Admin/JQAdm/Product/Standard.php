@@ -423,11 +423,13 @@ class Standard
 		try
 		{
 			$total = 0;
+			$view->pageParams = $this->getClientParams();
+
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 			$search = $this->initCriteria( $manager->createSearch(), $view->param() );
 
-			$view->pageParams = $this->getClientParams();
 			$view->items = $manager->searchItems( $search, [], $total );
+			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->total = $total;
 			$view->itemBody = '';
