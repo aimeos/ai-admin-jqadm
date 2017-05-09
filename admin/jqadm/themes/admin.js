@@ -350,13 +350,13 @@ Aimeos = {
 	toggleMenu : function() {
 
 		$(".aimeos .main-sidebar").on("click", ".separator .more", function(ev) {
-			$(".advanced", ev.delegateTarget).slideDown(400, function() {
+			$(".advanced", ev.delegateTarget).slideDown(300, function() {
 				$(ev.currentTarget).removeClass("more").addClass("less");
 			});
 		});
 
 		$(".aimeos .main-sidebar").on("click", ".separator .less", function(ev) {
-			$(".advanced", ev.delegateTarget).slideUp(400, function() {
+			$(".advanced", ev.delegateTarget).slideUp(300, function() {
 				$(ev.currentTarget).removeClass("less").addClass("more");
 			});
 		});
@@ -379,129 +379,91 @@ Aimeos.Product = {
 
 Aimeos.Product.Filter = {
 
-	filterattr : null,
-
-
 	init : function() {
 
-		this.addFilterKeys();
-		this.addFilterItem();
-		this.removeFilterItem();
-		this.toggleSearchItems();
+		this.selectDDInput();
+		this.setupFilterOperators();
+		this.toggleSearch();
 	},
 
 
-	addKeys : function(e) {
+	selectDDInput : function() {
 
-		var self = $(this);
-		var opitem = self.parents(".filter-item").find(".filter-operator");
+		$(".aimeos .main-navbar .dropdown-menu label").on("click", function(ev) {
 
-		if( $("option", self).length !== 0 ) {
-			return;
+			var input = $("input", this);
+
+			if(input.prop("checked")) {
+				input.prop("checked", false);
+			} else {
+				input.prop("checked", true);
+			}
+			return false;
+		});
+	},
+
+
+	selectFilterOperator : function(select, type) {
+
+		var operators = {
+			'string': ['=~', '~=', '==', '!='],
+			'integer': ['==', '!=', '>', '<', '>=', '<='],
+			'datetime': ['>', '<', '>=', '<=', '==', '!='],
+			'date': ['>', '<', '>=', '<=', '==', '!='],
+			'float': ['>', '<', '>=', '<=', '==', '!='],
+			'boolean': ['==', '!='],
+		};
+		var ops = operators[type];
+		var list = [];
+
+		$("option", select).each(function(idx, el) {
+			var elem = $(el).removeProp("selected").hide();
+			list[elem.val()] = elem;
+		});
+
+		if(ops) {
+			for(op in ops.reverse()) {
+				if(list[ops[op]]) {
+					list[ops[op]].remove().show();
+					select.prepend(list[ops[op]]);
+				}
+			};
 		}
 
-		Aimeos.Product.Filter.filterattr.done(function(data) {
+		$("option", select).first().prop("selected", "selected");
+	},
 
-			var code = self.data("selected");
-			var keys = data.meta && data.meta.attributes || {};
 
-			$.each(keys, function(key, attr) {
-				if( attr['public'] && attr['code'] === code ) {
-					self.append('<option value=' + attr['code'] + ' selected="selected">' + attr['label'] + '</option>');
-				} else if( attr['public'] ) {
-					self.append('<option value=' + attr['code'] + '>' + attr['label'] + '</option>');
-				}
-			});
+	setupFilterOperators : function() {
 
-			if( code && data.meta && data.meta.attributes && data.meta.attributes[code] ) {
-				$("option." + data.meta.attributes[code].type, opitem).show();
-			}
+		var select = $(".aimeos .main-navbar form .filter-operator");
+		var type = $(".aimeos .main-navbar form .filter-key option").first().data("type");
 
-			self.selectmenu("refresh");
+		Aimeos.Product.Filter.selectFilterOperator(select, type);
+
+
+		$(".aimeos .main-navbar form").on("change", ".filter-key", function(ev) {
+
+			var select = $(".filter-operator", ev.delegateTarget);
+			var type = $(":selected", this).data("type");
+
+			Aimeos.Product.Filter.selectFilterOperator(select, type);
 		});
 	},
 
 
-	selectKeys : function(e, ui) {
+	toggleSearch : function() {
 
-		var opitem = $(this).parents(".filter-item").find(".filter-operator");
-		$("option", opitem).hide().removeProp("selected");
-
-		Aimeos.Product.Filter.filterattr.done(function(data) {
-
-			if( data.meta && data.meta.attributes && data.meta.attributes[ui.item.value] && data.meta.attributes[ui.item.value].type ) {
-				var options = $("option." + data.meta.attributes[ui.item.value].type, opitem);
-				options.first().prop("selected", "selected");
-				options.show();
-			}
-		});
-	},
-
-
-	addFilterKeys : function() {
-
-		var self = this;
-
-		Aimeos.options.done(function(data) {
-
-			var url = data.meta && data.meta.resources && data.meta.resources['product'] || null;
-
-			self.filterattr = $.ajax(url, {
-				"method": "OPTIONS",
-				"dataType": "json"
-			});
-
-			$( ".aimeos .filter-item .filter-key" ).selectmenu({
-				select: self.selectKeys,
-				create: self.addKeys
+		$(".aimeos .main-navbar form").on("click", ".more", function(ev) {
+			$(".filter-columns,.filter-key,.filter-operator", ev.delegateTarget).toggle(300, function() {
+				$(ev.currentTarget).removeClass("more").addClass("less");
 			});
 		});
-	},
 
-
-	addFilterItem : function() {
-
-		var self = this;
-
-		$(".aimeos .filter-items").on("click", ".fa-plus", function(e) {
-			var proto = $(".prototype", e.delegateTarget);
-			var clone = proto.clone().insertBefore(proto);
-
-			$("input,select", clone).prop("disabled", false);
-			clone.removeClass("prototype").addClass("filter-item");
-			$(this).removeClass("fa-plus").addClass("fa-minus");
-
-			$(".filter-key", clone).selectmenu({
-				select: self.selectKeys,
-				create: self.addKeys
+		$(".aimeos .main-navbar form").on("click", ".less", function(ev) {
+			$(".filter-columns,.filter-key,.filter-operator", ev.delegateTarget).toggle(300, function() {
+				$(ev.currentTarget).removeClass("less").addClass("more");
 			});
-		});
-	},
-
-
-	removeFilterItem : function() {
-
-		$(".aimeos .list-filter .filter-items").on("click", ".fa-minus", function(e) {
-			var item = $(this).parents(".filter-item");
-
-			item.find(".filter-key").selectmenu("destroy");
-			item.remove();
-		});
-	},
-
-
-	toggleSearchItems : function() {
-
-		$(".aimeos .list-filter, .aimeos .list-fields").on("click", ".action", function(e) {
-
-			$(".filter-items, .fields-items", e.delegateTarget).toggle();
-			$(this).toggleClass("action-close");
-
-			if( $(".aimeos .list-search .search-item:visible").length > 0 ) {
-				$(".aimeos .list-search .actions-group").show();
-			} else {
-				$(".aimeos .list-search .actions-group").hide();
-			}
 		});
 	}
 };
