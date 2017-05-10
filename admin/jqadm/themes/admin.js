@@ -233,13 +233,16 @@ Aimeos = {
 
 			$.each(nodes, function(idx, node) {
 				var card = $(node).closest(".card");
-				card.find(".card-header").addClass("has-danger");
-				card.parents(".card").find(" > .card-header").addClass("has-danger");
+				var id = card.parents(".tab-pane").first().attr("id");
+
+				$(".card-header", card).addClass("has-danger");
+				$(".item-navbar .nav-link").removeClass("has-danger");
+				$(".item-navbar .nav-item." + id + " .nav-link").addClass("has-danger");
 			});
 
 			if( nodes.length !== 0 ) {
 				$('html, body').animate({
-					scrollTop: $(nodes).first().offset().top + 'px'
+					scrollTop: '0px'
 				});
 			}
 
@@ -485,7 +488,7 @@ Aimeos.Product.List = {
 	askDelete : function() {
 		var self = this;
 
-		$(".list-items").on("click", ".fa-trash", function(e) {
+		$(".list-items").on("click", ".act-delete", function(e) {
 			$("#confirm-delete").modal("show", $(this));
 			self.element = $(this).parents("form.delete");
 			return false;
@@ -527,7 +530,7 @@ Aimeos.Product.Item = {
 
 	addConfigLine : function() {
 
-		$(".aimeos .item-config").on("click", ".fa-plus", function(ev) {
+		$(".aimeos .item-config").on("click", ".act-add", function(ev) {
 
 			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget));
 
@@ -542,11 +545,11 @@ Aimeos.Product.Item = {
 
 	deleteConfigLine : function() {
 
-		$(".aimeos .item-config .fa-trash").on("click", function(ev) {
+		$(".aimeos .item-config .act-delete").on("click", function(ev) {
 			$(this).parents("tr").remove();
 		});
 
-		$(".aimeos .item-config").on("click", ".fa-trash", function(ev) {
+		$(".aimeos .item-config").on("click", ".act-delete", function(ev) {
 			$(this).parents("tr").remove();
 		});
 	},
@@ -590,7 +593,7 @@ Aimeos.Product.Item.Characteristic.Attribute = {
 
 	addLine : function() {
 
-		$(".product-item-characteristic-attribute").on("click", ".fa-plus", function(ev) {
+		$(".product-item-characteristic-attribute").on("click", ".act-add", function(ev) {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsAttributes,
@@ -601,7 +604,7 @@ Aimeos.Product.Item.Characteristic.Attribute = {
 
 	removeLine : function() {
 
-		$(".product-item-characteristic-attribute").on("click", ".fa-trash", function() {
+		$(".product-item-characteristic-attribute").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
 	},
@@ -636,7 +639,7 @@ Aimeos.Product.Item.Characteristic.Property = {
 
 	addLine : function() {
 
-		$(".product-item-characteristic-property").on("click", ".fa-plus", function(ev) {
+		$(".product-item-characteristic-property").on("click", ".act-add", function(ev) {
 			Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
 		});
 	},
@@ -644,7 +647,7 @@ Aimeos.Product.Item.Characteristic.Property = {
 
 	removeLine : function() {
 
-		$(".product-item-characteristic-property").on("click", ".fa-trash", function() {
+		$(".product-item-characteristic-property").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
 	},
@@ -670,7 +673,7 @@ Aimeos.Product.Item.Bundle = {
 
 	addLine : function() {
 
-		$(".product-item-bundle").on("click", ".fa-plus", function(ev) {
+		$(".item-product .item-bundle").on("click", ".act-add", function(ev) {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsProducts,
@@ -681,7 +684,7 @@ Aimeos.Product.Item.Bundle = {
 
 	removeLine : function() {
 
-		$(".product-item-bundle").on("click", ".fa-trash", function() {
+		$(".item-product .item-bundle").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
 	},
@@ -696,7 +699,7 @@ Aimeos.Product.Item.Bundle = {
 
 	setupComponents : function() {
 
-		$(".product-item-bundle .combobox").combobox({
+		$(".item-product .item-bundle .combobox").combobox({
 			getfcn: Aimeos.getOptionsProducts,
 			select: Aimeos.Product.Item.Bundle.select
 		});
@@ -705,11 +708,11 @@ Aimeos.Product.Item.Bundle = {
 
 	showBundles : function() {
 
-		var panel = $(".product-item-bundle");
-		$(".product-item .item-typeid option[selected]").data("code") === 'bundle' ? panel.show() : panel.hide();
+		var tab = $(".item-navbar .bundle");
+		$(".item-basic .item-typeid option[selected]").data("code") === 'bundle' ? tab.show() : tab.hide();
 
-		$(".product-item .item-typeid").on("change", function() {
-			$("option:selected", this).data("code") === 'bundle' ? panel.show() : panel.hide();
+		$(".item-basic .item-typeid").on("change", function() {
+			$("option:selected", this).data("code") === 'bundle' ? tab.show() : tab.hide();
 		});
 	}
 };
@@ -728,7 +731,7 @@ Aimeos.Product.Item.Category = {
 
 	addLine : function() {
 
-		$(".product-item-category .category-list").on("click", ".fa-plus", function(ev) {
+		$(".item-category .category-list").on("click", ".act-add", function(ev) {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsCategories,
@@ -739,7 +742,7 @@ Aimeos.Product.Item.Category = {
 
 	removeLine : function() {
 
-		$(".product-item-category .category-list").on("click", ".fa-trash", function() {
+		$(".item-category .category-list").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
 	},
@@ -754,7 +757,7 @@ Aimeos.Product.Item.Category = {
 
 	setupComponents : function() {
 
-		$(".product-item-category .combobox").combobox({
+		$(".item-category .combobox").combobox({
 			getfcn: Aimeos.getOptionsCategories,
 			select: Aimeos.Product.Item.Category.select
 		});
@@ -769,13 +772,12 @@ Aimeos.Product.Item.Image = {
 
 		this.addLines();
 		this.removeLine();
-		this.setupComponents();
 	},
 
 
 	addLines : function() {
 
-		$(".product-item-image").on("change", ".fileupload", function(ev) {
+		$(".item-image").on("change", ".fileupload", function(ev) {
 
 			$(this).each( function(idx, el) {
 				$(".upload", ev.delegateTarget).remove();
@@ -804,15 +806,9 @@ Aimeos.Product.Item.Image = {
 
 	removeLine : function() {
 
-		$(".product-item-image").on("click", ".fa-trash", function() {
+		$(".item-image").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
-	},
-
-
-	setupComponents : function() {
-
-		$(".product-item-image .image-language .combobox").combobox({getfcn: Aimeos.getOptionsLanguages});
 	}
 };
 
@@ -822,33 +818,29 @@ Aimeos.Product.Item.Price = {
 
 	init : function() {
 
-		this.copyBlock();
+		this.addBlock();
 		this.removeBlock();
-		this.setupComponents();
 		this.updateHeader();
 	},
 
 
-	copyBlock : function() {
+	addBlock : function() {
 
-		$(".product-item-price").on("click", ".header .fa-files-o", function(ev) {
+		$(".item-price").on("click", ".header .act-add", function(ev) {
 			ev.stopPropagation();
 
 			var number = Math.floor((Math.random() * 1000));
 			var block = $(this).parents(".group-item");
 			var clone = block.clone();
 
-			$(".card-block", clone).addClass("in");
 			$(".card-block", clone).attr("style", "");
-			$(".card-block", clone).attr("id", "product-item-price-group-data-" + number);
-			$(".card-header", clone).attr("id", "product-item-price-group-item-" + number);
-			$(".card-header", clone).attr("data-target", "product-item-price-group-data-" + number);
+			$(".card-block", clone).attr("id", "item-price-group-data-" + number);
+			$(".card-header", clone).attr("id", "item-price-group-item-" + number);
+			$(".card-header", clone).attr("data-target", "item-price-group-data-" + number);
 
 			clone.insertAfter(block);
-			$(".ai-combobox", clone).remove();
-			$(".combobox", clone).combobox({getfcn: Aimeos.getOptionsCurrencies});
 			$("input.item-listid", clone).val('');
-			$(".card-block", clone).show();
+			$(".card-block", clone).addClass('show');
 
 			return false;
 		});
@@ -857,21 +849,15 @@ Aimeos.Product.Item.Price = {
 
 	removeBlock : function() {
 
-		$(".product-item-price").on("click", ".header .fa-trash", function() {
+		$(".item-price").on("click", ".header .act-delete", function() {
 			$(this).parents(".group-item").remove();
 		});
 	},
 
 
-	setupComponents : function() {
-
-		$(".product-item-price .combobox").combobox({getfcn: Aimeos.getOptionsCurrencies});
-	},
-
-
 	updateHeader : function() {
 
-		$(".product-item-price").on("blur", "input.item-label", function() {
+		$(".item-price").on("blur", "input.item-label", function() {
 			var item = $(this).parents(".group-item");
 			var value = $(this).val();
 
@@ -904,7 +890,7 @@ Aimeos.Product.Item.Option.Config = {
 
 	addLine : function() {
 
-		$(".product-item-option-config").on("click", ".fa-plus", function(ev) {
+		$(".item-option-config").on("click", ".act-add", function(ev) {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsAttributes,
@@ -915,7 +901,7 @@ Aimeos.Product.Item.Option.Config = {
 
 	removeLine : function() {
 
-		$(".product-item-option-config").on("click", ".fa-trash", function() {
+		$(".item-option-config").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
 	},
@@ -930,7 +916,7 @@ Aimeos.Product.Item.Option.Config = {
 
 	setupComponents : function() {
 
-		$(".product-item-option-config .combobox").combobox({
+		$(".item-option-config .combobox").combobox({
 			getfcn: Aimeos.getOptionsAttributes,
 			select: Aimeos.Product.Item.Option.Config.select
 		});
@@ -950,7 +936,7 @@ Aimeos.Product.Item.Option.Custom = {
 
 	addLine : function() {
 
-		$(".product-item-option-custom").on("click", ".fa-plus", function(ev) {
+		$(".item-option-custom").on("click", ".act-add", function(ev) {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsAttributes,
@@ -961,7 +947,7 @@ Aimeos.Product.Item.Option.Custom = {
 
 	removeLine : function() {
 
-		$(".product-item-option-custom").on("click", ".fa-trash", function() {
+		$(".item-option-custom").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
 	},
@@ -976,7 +962,7 @@ Aimeos.Product.Item.Option.Custom = {
 
 	setupComponents : function() {
 
-		$(".product-item-option-custom .combobox").combobox({
+		$(".item-option-custom .combobox").combobox({
 			getfcn: Aimeos.getOptionsAttributes,
 			select: Aimeos.Product.Item.Option.Custom.select
 		});
@@ -989,6 +975,7 @@ Aimeos.Product.Item.Selection = {
 
 	init : function() {
 
+		this.addBlock();
 		this.copyBlock();
 		this.removeBlock();
 		this.addAttribute();
@@ -1001,7 +988,7 @@ Aimeos.Product.Item.Selection = {
 
 	addAttribute : function() {
 
-		$(".product-item-selection").on("click", ".selection-item-attributes .fa-plus", function(ev) {
+		$(".item-selection").on("click", ".selection-item-attributes .act-add", function(ev) {
 
 			var code = $(this).parents(".group-item").find("input.item-code").val();
 			var line = $(this).parents(".selection-item-attributes").find(".prototype");
@@ -1014,27 +1001,45 @@ Aimeos.Product.Item.Selection = {
 
 	removeAttribute : function() {
 
-		$(".product-item-selection").on("click", ".selection-item-attributes .fa-trash", function() {
+		$(".item-selection").on("click", ".selection-item-attributes .act-delete", function() {
 			$(this).parents("tr").remove();
+		});
+	},
+
+
+	addBlock : function() {
+
+		$(".item-selection").on("click", ".card-tools-more .act-add", function(ev) {
+			ev.stopPropagation();
+
+			var number = Math.floor((Math.random() * 1000));
+			var node = $(".group-item.prototype", ev.delegateTarget);
+			var clone = node.clone().removeClass("prototype");
+
+			$(".card-block", clone).attr("id", "item-selection-group-data-" + number);
+			$(".card-header", clone).attr("id", "item-selection-group-item-" + number);
+			$(".card-header", clone).attr("data-target", "#item-selection-group-data-" + number);
+			$(".card-header", clone).attr("aria-controls", "item-selection-group-data-" + number);
+
+			$("[disabled='disabled']", clone).prop("disabled", false);
+			clone.insertBefore(node);
 		});
 	},
 
 
 	copyBlock : function() {
 
-		$(".product-item-selection").on("click", ".header .fa-files-o", function(ev) {
+		$(".item-selection").on("click", ".header .act-copy", function(ev) {
 			ev.stopPropagation();
 
 			var number = Math.floor((Math.random() * 1000));
 			var block = $(this).parents(".group-item");
 			var clone = block.clone();
 
-			$(".card-block", clone).addClass("in");
-			$(".card-block", clone).attr("style", "");
-			$(".card-block", clone).attr("id", "product-item-selection-group-data-" + number);
-			$(".card-header", clone).attr("id", "product-item-selection-group-item-" + number);
-			$(".card-header", clone).attr("data-target", "product-item-selection-group-data-" + number);
-			$(".card-header", clone).attr("aria-controls", "product-item-selection-group-data-" + number);
+			$(".card-block", clone).attr("id", "item-selection-group-data-" + number);
+			$(".card-header", clone).attr("id", "item-selection-group-item-" + number);
+			$(".card-header", clone).attr("data-target", "#item-selection-group-data-" + number);
+			$(".card-header", clone).attr("aria-controls", "item-selection-group-data-" + number);
 
 			clone.insertAfter(block);
 			$(".ai-combobox", clone).remove();
@@ -1049,14 +1054,14 @@ Aimeos.Product.Item.Selection = {
 
 			$("input.item-listid", clone).val('');
 			$("input.item-id", clone).val('');
-			$("p.item-id", clone).empty();
+			$(".card-header .header-label", clone).empty();
 		});
 	},
 
 
 	removeBlock : function() {
 
-		$(".product-item-selection").on("click", ".header .fa-trash", function() {
+		$(".item-selection").on("click", ".header .act-delete", function() {
 			$(this).parents(".group-item").remove();
 		});
 	},
@@ -1071,7 +1076,7 @@ Aimeos.Product.Item.Selection = {
 
 	setupComponents : function() {
 
-		$(".product-item-selection .combobox").combobox({
+		$(".item-selection .combobox").combobox({
 			getfcn: Aimeos.getOptionsAttributes,
 			select: Aimeos.Product.Item.Selection.select
 		});
@@ -1080,18 +1085,18 @@ Aimeos.Product.Item.Selection = {
 
 	showSelection : function() {
 
-		var panel = $(".product-item-selection");
-		$(".product-item .item-typeid option[selected]").data("code") === 'select' ? panel.show() : panel.hide();
+		var tab = $(".item-navbar .selection");
+		$(".item-basic .item-typeid option[selected]").data("code") === 'select' ? tab.show() : tab.hide();
 
-		$(".product-item .item-typeid").on("change", function() {
-			$("option:selected", this).data("code") === 'select' ? panel.show() : panel.hide();
+		$(".item-basic .item-typeid").on("change", function() {
+			$("option:selected", this).data("code") === 'select' ? tab.show() : tab.hide();
 		});
 	},
 
 
 	updateCode : function() {
 
-		$(".product-item-selection").on("blur", "input.item-code", function() {
+		$(".item-selection").on("blur", "input.item-code", function() {
 			var item = $(this).parents(".group-item");
 			var value = $(this).val();
 
@@ -1114,7 +1119,7 @@ Aimeos.Product.Item.Stock = {
 
 	addLine : function() {
 
-		$(".product-item-stock").on("click", ".fa-plus", function(ev) {
+		$(".item-stock").on("click", ".act-add", function(ev) {
 
 			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget));
 
@@ -1131,7 +1136,7 @@ Aimeos.Product.Item.Stock = {
 
 	removeLine : function() {
 
-		$(".product-item-stock").on("click", ".fa-trash", function() {
+		$(".item-stock").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
 	}
@@ -1165,18 +1170,16 @@ Aimeos.Product.Item.Text = {
 
 	addBlock : function() {
 
-		$(".product-item-text").on("click", ".header .fa-plus", function(ev) {
+		$(".item-text").on("click", ".card-tools-more .act-add", function(ev) {
 			ev.stopPropagation();
 
 			var number = Math.floor((Math.random() * 1000));
 			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
 
-			$(".card-block", clone).addClass("in");
-			$(".card-block", clone).attr("style", "");
-			$(".card-block", clone).attr("id", "product-item-text-group-data-" + number);
-			$(".card-header", clone).attr("id", "product-item-text-group-item-" + number);
-			$(".card-header", clone).attr("data-target", "#product-item-text-group-data-" + number);
-			$(".card-header", clone).attr("aria-controls", "#product-item-text-group-data-" + number);
+			$(".card-block", clone).attr("id", "item-text-group-data-" + number);
+			$(".card-header", clone).attr("id", "item-text-group-item-" + number);
+			$(".card-header", clone).attr("data-target", "#item-text-group-data-" + number);
+			$(".card-header", clone).attr("aria-controls", "#item-text-group-data-" + number);
 
 			$(".htmleditor-prototype", clone).ckeditor({toolbar: Aimeos.Product.Item.Text.editorcfg});
 
@@ -1187,7 +1190,7 @@ Aimeos.Product.Item.Text = {
 
 	removeBlock : function() {
 
-		$(".product-item-text").on("click", ".header .fa-trash", function() {
+		$(".item-text").on("click", ".header .act-delete", function() {
 			$(this).parents(".group-item").remove();
 		});
 	},
@@ -1195,14 +1198,14 @@ Aimeos.Product.Item.Text = {
 
 	setupComponents : function() {
 
-		$(".product-item-text .combobox").combobox({getfcn: Aimeos.getOptionsLanguages});
-		$(".product-item-text .htmleditor").ckeditor({toolbar: Aimeos.Product.Item.Text.editorcfg});
+		$(".item-text .combobox").combobox({getfcn: Aimeos.getOptionsLanguages});
+		$(".item-text .htmleditor").ckeditor({toolbar: Aimeos.Product.Item.Text.editorcfg});
 	},
 
 
 	updateHeader : function() {
 
-		$(".product-item-text").on("blur", "input.item-name-content", function() {
+		$(".item-text").on("blur", "input.item-name-content", function() {
 			var item = $(this).parents(".group-item");
 			var value = $(this).val();
 
@@ -1223,7 +1226,7 @@ Aimeos.Product.Item.Download = {
 
 	updateName : function() {
 
-		$(".product-item-download").on("change", ".fileupload", function(ev) {
+		$(".item-download").on("change", ".fileupload", function(ev) {
 			$(this.files).each( function(idx, file) {
 				$("input.item-label", ev.delegateTarget).val(file.name);
 			});

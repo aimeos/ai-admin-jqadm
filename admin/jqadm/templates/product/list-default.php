@@ -475,7 +475,10 @@ $sortcode = $this->param( 'sort' );
 
 <nav class="main-navbar">
 
-	<span class="navbar-brand">Product <span class="navbar-secondary">(Default)</span></span>
+	<span class="navbar-brand">
+		<?= $enc->html( $this->translate( 'admin', 'Product' ) ); ?>
+		<span class="navbar-secondary">(<?= $enc->html( $this->get( 'pageSite' ) ); ?>)</span>
+	</span>
 
 	<form class="form-inline" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $formparams, [], $config ) ); ?>">
 		<?= $this->csrf()->formfield(); ?>
@@ -604,7 +607,7 @@ $sortcode = $this->param( 'sort' );
 					</th>
 				<?php endif; ?>
 				<th class="actions">
-					<a class="btn btn-primary fa fa-plus"
+					<a class="btn fa act-add"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
@@ -647,20 +650,23 @@ $sortcode = $this->param( 'sort' );
 					<?php endif; ?>
 
 					<td class="actions"><!--
-						--><a class="btn btn-secondary fa fa-files-o"
+						--><a class="btn act-copy fa"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, array( 'id' => $id ) + $params, [], $copyConfig ) ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a><!--
 						--><form class="delete" action="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, array( 'id' => $id ) + $params, [], $delConfig ) ); ?>" method="POST"><!--
 							--><?= $this->csrf()->formfield(); ?><!--
 							--><input type="hidden" name="<?= $enc->attr( $this->formparam( array( 'resource' ) ) ); ?>" value="product" /><!--
 							--><input type="hidden" name="<?= $enc->attr( $this->formparam( array( 'id' ) ) ); ?>" value="<?= $enc->attr( $id ); ?>" /><!--
-							--><button class="btn btn-danger fa fa-trash" aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></button><!--
+							--><button class="btn act-delete fa" aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></button><!--
 						--></form><!--
 					--></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+	<?php if( $this->get( 'items', [] ) === [] ) : ?>
+		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found for "%1$s %2$s %3$s"' ), $this->param( 'filter/key/0' ), $this->param( 'filter/op/0' ), $this->param( 'filter/val/0' ) ) ); ?>
+	<?php endif; ?>
 </div>
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + array( 'pos' => 'bottom' ) ); ?>

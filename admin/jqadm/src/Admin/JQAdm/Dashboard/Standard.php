@@ -137,6 +137,7 @@ class Standard
 		try
 		{
 			$view->listBody = '';
+			$view->pageSite = $context->getLocale()->getSite()->getLabel();
 
 			foreach( $this->getSubClients() as $client ) {
 				$view->listBody .= $client->search();

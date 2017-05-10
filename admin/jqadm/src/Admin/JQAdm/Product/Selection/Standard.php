@@ -496,10 +496,6 @@ class Standard
 			$data = $this->getDataExisting( $view, $copy );
 		}
 
-		if( empty( $data ) ) { // show at least one block
-			$data['']['product.lists.id'] = '';
-		}
-
 		$view->selectionData = $data;
 	}
 

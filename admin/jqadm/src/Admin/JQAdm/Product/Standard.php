@@ -424,6 +424,7 @@ class Standard
 		{
 			$total = 0;
 			$view->pageParams = $this->getClientParams();
+			$view->pageSite = $context->getLocale()->getSite()->getLabel();
 
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 			$search = $this->initCriteria( $manager->createSearch(), $view->param() );
@@ -569,11 +570,16 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
+		// first to avoid missing route parameters
+		$view->pageParams = $this->getClientParams();
+
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
+		$langManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/language' );
 
-		$view->pageParams = $this->getClientParams();
+		$view->pageSite = $context->getLocale()->getSite()->getLabel();
 		$view->itemData = (array) $view->param( 'item', [] );
+		$view->itemSubparts = $this->getSubClientNames();
 		$view->itemTypes = $this->getTypeItems();
 		$view->item = $manager->createItem();
 
@@ -605,6 +611,7 @@ class Standard
 			$data['config']['val'][] = $value;
 		}
 
+		$view->itemLanguages = $langManager->searchItems( $langManager->createSearch( true ) );
 		$view->itemData = $data;
 		$view->item = $item;
 	}
@@ -638,8 +645,7 @@ class Standard
 	 */
 	protected function getSubClientNames()
 	{
-		$result = $this->getContext()->getConfig()->get( $this->subPartPath, $this->subPartNames );
-		return $result;
+		return $this->getContext()->getConfig()->get( $this->subPartPath, $this->subPartNames );
 	}
 
 

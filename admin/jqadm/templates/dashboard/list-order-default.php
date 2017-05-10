@@ -8,6 +8,6 @@
 $enc = $this->encoder();
 
 ?>
-<div class="dashboard-order">
+<div class="dashboard-order row">
 	<?= $this->get( 'orderBody' ); ?>
 </div>

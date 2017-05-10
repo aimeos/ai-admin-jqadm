@@ -12,12 +12,12 @@ $selected = function( $key, $code ) {
 $enc = $this->encoder();
 
 ?>
-<div class="col-lg-6 product-item-characteristic-property">
+<div class="col-xl-6 product-item-characteristic-property">
 	<table class="property-list table table-default">
 		<thead>
 			<tr>
 				<th colspan="3"><?= $enc->html( $this->translate( 'admin', 'Properties' ) ); ?></th>
-				<th class="actions"><div class="btn btn-primary fa fa-plus"></div></th>
+				<th class="actions"><div class="btn act-add fa"></div></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,8 +33,18 @@ $enc = $this->encoder();
 						</select>
 					</td>
 					<td class="property-language">
-						<select class="combobox item-languageid" name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.languageid', '' ) ) ); ?>">
-							<option value="<?= $enc->attr( $this->get( 'propertyData/product.property.languageid/' . $idx ) ); ?>" selected="selected"><?= $enc->html( $this->get( 'propertyData/product.property.languageid/' . $idx ) ) ?></option>
+						<select class="custom-select item-languageid" name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.languageid', '' ) ) ); ?>">
+							<?php $lang = $this->get( 'propertyData/product.property.languageid/' . $idx ); ?>
+
+							<option value="" <?= ( $lang == '' ? 'selected="selected"' : '' ) ?> >
+								<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
+							</option>
+
+							<?php foreach( $this->get( 'itemLanguages', [] ) as $langId => $langItem ) : ?>
+								<option value="<?= $enc->attr( $langId ); ?>" <?= ( $lang == $langId ? 'selected="selected"' : '' ) ?> >
+									<?= $enc->html( $langId ); ?>
+								</option>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td class="property-value">
@@ -42,7 +52,7 @@ $enc = $this->encoder();
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
 							value="<?= $enc->attr( $this->get( 'propertyData/product.property.value/' . $idx ) ); ?>" />
 					</td>
-					<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
+					<td class="actions"><div class="btn act-delete fa"></div></td>
 				</tr>
 			<?php endforeach; ?>
 
@@ -56,14 +66,23 @@ $enc = $this->encoder();
 					</select>
 				</td>
 				<td class="property-language">
-					<select class="combobox-prototype item-languageid" name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.languageid', '' ) ) ); ?>" disabled="disabled">
+					<select class="custom-select item-languageid" name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.languageid', '' ) ) ); ?>" disabled="disabled">
+						<option value="" selected="selected">
+							<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
+						</option>
+
+						<?php foreach( $this->get( 'itemLanguages', [] ) as $langId => $langItem ) : ?>
+							<option value="<?= $enc->attr( $langId ); ?>">
+								<?= $enc->html( $langId ); ?>
+							</option>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td class="property-value">
 					<input class="form-control item-value" type="text" name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.value', '' ) ) ); ?>"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>" value="" disabled="disabled" />
 				</td>
-				<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
+				<td class="actions"><div class="btn act-delete fa"></div></td>
 			</tr>
 		</tbody>
 	</table>

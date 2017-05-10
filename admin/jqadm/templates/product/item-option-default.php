@@ -8,11 +8,6 @@
 $enc = $this->encoder();
 
 ?>
-<div class="product-item-option card panel">
-	<div id="product-item-option" class="header card-header collapsed" role="tab" data-toggle="collapse" data-parent="#accordion" data-target="#product-item-option-data" aria-expanded="false" aria-controls="product-item-option-data">
-		<?= $enc->html( $this->translate( 'admin', 'Options' ) ); ?>
-	</div>
-	<div id="product-item-option-data" class="item-option card-block panel-collapse collapse" role="tabpanel" aria-labelledby="product-item-option">
-		<?= $this->get( 'optionBody' ); ?>
-	</div>
+<div id="option" class="row item-option tab-pane fade" role="tabpanel" aria-labelledby="option">
+	<?= $this->get( 'optionBody' ); ?>
 </div>

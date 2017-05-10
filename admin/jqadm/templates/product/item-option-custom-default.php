@@ -8,12 +8,12 @@
 $enc = $this->encoder();
 
 ?>
-<div class="col-lg-6 product-item-option-custom">
+<div class="col-xl-6 item-option-custom">
 	<table class="attribute-list table table-default">
 		<thead>
 			<tr>
 				<th><?= $enc->html( $this->translate( 'admin', 'Custom' ) ); ?></th>
-				<th class="actions"><div class="btn btn-primary fa fa-plus"></div></th>
+				<th class="actions"><div class="btn act-add fa"></div></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,7 +27,7 @@ $enc = $this->encoder();
 							<option value="<?= $enc->attr( $this->get( 'customData/product.lists.refid/' . $idx ) ); ?>" ><?= $enc->html( $this->get( 'customData/attribute.label/' . $idx ) ); ?></option>
 						</select>
 					</td>
-					<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
+					<td class="actions"><div class="btn act-delete fa"></div></td>
 				</tr>
 			<?php endforeach; ?>
 
@@ -38,7 +38,7 @@ $enc = $this->encoder();
 					<select class="combobox-prototype item-refid" name="<?= $enc->attr( $this->formparam( array( 'option', 'custom', 'product.lists.refid', '' ) ) ); ?>" disabled="disabled">
 					</select>
 				</td>
-				<td class="actions"><div class="btn btn-danger fa fa-trash"></div></td>
+				<td class="actions"><div class="btn act-delete fa"></div></td>
 			</tr>
 		</tbody>
 	</table>

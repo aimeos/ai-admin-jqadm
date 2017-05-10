@@ -72,11 +72,18 @@ $statuslist = array(
 );
 
 ?>
-<div class="order-latest card panel col-lg-12">
-	<div id="order-latest-head" class="header card-header">
-		<?= $enc->html( $this->translate( 'admin', 'Latest orders' ) ); ?>
+<div class="order-latest card col-lg-12">
+	<div id="order-latest-head" class="card-header header" role="tab"
+		data-toggle="collapse" data-target="#order-latest-data"
+		aria-expanded="true" aria-controls="order-latest-data">
+		<div class="card-tools-left">
+			<div class="btn btn-card-header act-show fa"></div>
+		</div>
+		<span class="item-label header-label">
+			<?= $enc->html( $this->translate( 'admin', 'Latest orders' ) ); ?>
+		</span>
 	</div>
-	<div id="order-latest-data" class="content card-block">
+	<div id="order-latest-data" class="card-block content collapse show" role="tabpanel" aria-labelledby="order-latest-head">
 		<div class="table-responsive">
 			<table class="list-items table table-hover">
 				<tbody>

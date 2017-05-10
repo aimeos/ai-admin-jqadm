@@ -7,12 +7,18 @@
     border: none;
 }
 
+.dashboard .card-header {
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+}
+
 .dashboard .card-block {
     padding: 0.5em;
 }
 
 .dashboard .content {
     border: 1px solid #e5e5e5;
+    border-top: none;
     overflow: auto;
     height: 320px;
 }
@@ -121,13 +127,11 @@
 }
 
 .dashboard .order-paymentstatus .layer {
-    opacity: 1;
+    opacity: 0.9;
 }
 
 .dashboard .order-paymentstatus .line {
     fill: none;
-    stroke: #555;
-    stroke-width: 1px;
 }
 
 .dashboard .order-paymentstatus .focus {
@@ -139,14 +143,14 @@
   pointer-events: all;
 }
 
-.dashboard .order-paymentstatus .layer.pay-unfinished { fill: #f0f0f0; }
-.dashboard .order-paymentstatus .layer.pay-deleted { fill: #d73027; }
-.dashboard .order-paymentstatus .layer.pay-canceled { fill: #fc8d59; }
-.dashboard .order-paymentstatus .layer.pay-refused { fill: #fee08b; }
-.dashboard .order-paymentstatus .layer.pay-refund { fill: #ffffbf; }
-.dashboard .order-paymentstatus .layer.pay-pending { fill: #d9ef8b; }
-.dashboard .order-paymentstatus .layer.pay-authorized { fill: #91cf60; }
-.dashboard .order-paymentstatus .layer.pay-received { fill: #1a9850; }
+.dashboard .order-paymentstatus .layer.pay-unfinished { fill: #B0BBC8; }
+.dashboard .order-paymentstatus .layer.pay-deleted { fill: #D03820; }
+.dashboard .order-paymentstatus .layer.pay-canceled { fill: #FF7700; }
+.dashboard .order-paymentstatus .layer.pay-refused { fill: #E09010; }
+.dashboard .order-paymentstatus .layer.pay-refund { fill: #555590; }
+.dashboard .order-paymentstatus .layer.pay-pending { fill: #00A8D0; }
+.dashboard .order-paymentstatus .layer.pay-authorized { fill: #3080A0; }
+.dashboard .order-paymentstatus .layer.pay-received { fill: #009050; }
 
 .dashboard .order-paymentstatus .tooltip {
     background: rgba(0, 0, 0, 0.6);

@@ -37,13 +37,18 @@ html {
 }
 
 .ai-combobox .ui-button-icons-only {
-    width: 2rem;
+	width: 2rem;
 }
 
 .ui-autocomplete.ui-menu {
 	max-height: 20rem;
 	overflow-y: scroll;
 	overflow-x: hidden;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background: none;
+	color: #464a4c;
 }
 
 
@@ -57,15 +62,38 @@ html {
 	clear: both;
 }
 
+.card-block.collapse.show,
+.tab-content > .row.active {
+	display: flex;
+}
+
+.form-group.row label {
+	padding: 0.5rem 15px;
+	margin-bottom: 0;
+}
+
 
 
 /* Aimeos Bootstrap theme */
+
+.btn {
+	box-shadow: none;
+	border: 1px solid transparent;
+	background: transparent;
+	color: #98A0B0;
+}
 
 .btn-primary {
 	border: 1px solid #4090C0;
 	background-color: #4090C0;
 	border-color: #4090C0;
 	color: #FFFFFF !important;
+}
+
+.btn-secondary {
+	color: #292b2c;
+	background-color: #fff;
+	border-color: #ccc;
 }
 
 .btn-danger {
@@ -81,24 +109,54 @@ html {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #FCFCFC;
+	background-color: #FCFCFC;
 }
 
 .table-striped tbody tr:hover {
-    background-color: #F2F2F2;
+	background-color: #F2F2F2;
+}
+
+.nav-tabs {
+	border: none;
+	background-color: #F8F8F8;
+	border-bottom: 1px solid #E0E0E0;
+	margin-bottom: 1rem;
+}
+
+.nav-tabs .nav-item {
+	min-width: 15%;
 }
 
 .nav-tabs .nav-link {
-	border-top: 0.2rem solid transparent;
 	color: #333;
+	border: none;
+	border-left: 0.2rem solid transparent;
 }
 
-.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link:hover {
+	background-color: #E0E0E0;
+	border-left: 0.2rem solid #4090C0;
+}
+
 .nav-tabs .nav-link.active {
-	border-color: #4090C0 #ddd #fff;
-	border-top: 0.2rem solid #4090C0;
+	border-left: 0.2rem solid #4090C0;
 	border-top-right-radius: 0;
-    border-top-left-radius: 0;
+	border-top-left-radius: 0;
+	background-color: #E0E0E0;
+}
+
+.nav-tabs .nav-link.has-danger {
+	border-left: 0.2rem solid #E05040;
+}
+
+.card-header {
+	background: #FFF;
+	border-top: 3px solid #4090C0;
+	border-bottom: none;
+}
+
+.card-header.collapsed {
+	border-top: 3px solid rgba(0, 0, 0, 0.125);
 }
 
 
@@ -108,37 +166,37 @@ html {
 .aimeos .logo {
 	display: block;
 	overflow: hidden;
-	margin: 0.75rem auto;
-	height: 2.5rem;
-	width: 2.5rem;
+	height: 4.25rem;
+	padding-bottom: 1rem;
+	background: #202830;
 }
 
 .aimeos .logo img {
 	display: block;
+	height: 2.75rem;
 	position: relative;
 	transform: perspective(1px) translateY(-50%);
-	height: 2.5rem;
 	top: 50%;
 }
 
 @media (min-width: 992px) {
 	.aimeos .logo {
-		width: 5rem;
 	}
 	.aimeos .logo img {
-		width: 100%;
 		height: auto;
+		padding: 0 0.5em;
+		width: 100%;
 	}
 }
 
-.aimeos .main-sidebar  {
+.aimeos .main-sidebar {
 	min-height: 100%;
 	position: absolute;
 	display: block;
 	left: 0;
 	top: 0;
 	width: 3rem;
-	z-index: 1210;
+	z-index: 1200;
 	color: #B8C8D0;
 	background: #202830;
 	-webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
@@ -148,11 +206,12 @@ html {
 }
 
 .aimeos .sidebar-menu {
-  overflow: hidden;
+	background: #202830;
+	overflow: hidden;
 }
 
 .aimeos .sidebar-menu:hover {
-  overflow: visible;
+	overflow: visible;
 }
 
 .aimeos .sidebar-menu.advanced {
@@ -178,6 +237,7 @@ html {
 }
 
 .aimeos .main-sidebar .separator .icon,
+.aimeos .sidebar-menu span,
 .aimeos .sidebar-menu a {
 	padding: 0.75rem 0.2rem;
 	display: block;
@@ -229,25 +289,25 @@ html {
 	-webkit-transform: translateZ(0);
 	position: fixed;
 	display: block;
-    top: 0;
-    bottom: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
 	width: 15rem;
-	z-index: 1200;
-    min-height: 100%;
-    overflow-y: auto;
-    visibility: hidden;
-    box-shadow: 0 0 3px #000;
-    transform: translateX(-100%);
-    transition-property: transform;
-    transition-timing-function: ease-in-out;
-    transition-duration: .3s;
+	min-height: 100%;
+	overflow-y: auto;
+	visibility: hidden;
+	box-shadow: 0 0 3px #000;
+	transform: translateX(-100%);
+	transition-property: transform;
+	transition-timing-function: ease-in-out;
+	transition-duration: .3s;
 }
 
 .aimeos .sidebar-menu li.active .tree-menu,
 .aimeos .sidebar-menu li:hover .tree-menu {
-    transform: translateX(0);
-    visibility: visible;
-    left: 3rem;
+	transform: translateX(0);
+	visibility: visible;
+	left: 3rem;
 }
 
 .aimeos .sidebar-menu .tree-menu {
@@ -255,6 +315,7 @@ html {
 }
 
 .aimeos .sidebar-menu .name {
+	padding: 0.25rem 0;
 	display: none;
 }
 
@@ -302,7 +363,6 @@ html {
 	.aimeos .main-sidebar .name {
 		display: block;
 		font-size: 90%;
-		padding: 0.25rem 0;
 	}
 	.aimeos .sidebar-menu > li:hover > .tree-menu {
 		left: 6rem;
@@ -327,8 +387,23 @@ html {
 	padding: 0.5rem;
 }
 
+
+@media (min-width: 768px) {
+	.aimeos .main-navbar {
+		position: -webkit-sticky;
+		position: sticky;
+		z-index: 1030;
+		top: 0;
+	}
+}
+
 .aimeos .main-navbar .navbar-brand {
 	float: left;
+}
+
+.aimeos .main-navbar .navbar-secondary {
+	font-size: 80%;
+	color: #808080;
 }
 
 .aimeos .main-navbar .input-group {
@@ -350,7 +425,7 @@ html {
 }
 
 .aimeos .main-navbar .dropdown-item input {
-    margin-right: 0.75rem;
+	margin-right: 0.75rem;
 }
 
 .aimeos .main-navbar form .more,
@@ -372,7 +447,7 @@ html {
 }
 
 .aimeos .main-navbar form > * {
-    margin-left: 0.25rem;
+	margin-left: 0.25rem;
 }
 
 .aimeos .main-navbar .filter-columns,
@@ -395,6 +470,32 @@ html {
 	display: inline-flex;
 }
 
+.aimeos .main-content .item-actions {
+	white-space: nowrap;
+	text-align: right;
+	padding: 0 0.5rem;
+}
+
+.aimeos .main-navbar .item-actions {
+	display: inline-block;
+	padding: 0;
+}
+
+.aimeos .main-content .item-actions .btn {
+	min-width: 8rem;
+	margin: 0.5rem 0;
+}
+
+.aimeos .main-navbar .item-actions .btn {
+	margin: 0;
+}
+
+@media (max-width: 992px) {
+	.aimeos .main-content .item-actions .btn {
+		min-width: 6rem;
+	}
+}
+
 
 
 /* Common styles */
@@ -407,40 +508,64 @@ html {
 	content: ":";
 }
 
-.aimeos .header {
-	background-color: #333333;
-	font-weight: bold;
-	color: #FFF;
+.aimeos .card {
+	margin-bottom: 0.5rem;
 }
 
-.aimeos .header .header-label {
-	display: inline-block;
-	margin: 0.45rem;
-}
-
-.aimeos .header .ai-combobox {
-	float: left;
-}
-
-.aimeos .header .btn {
-	margin: 0 0.25rem;
-	float: right;
+.aimeos .card-header {
+	padding: 0.25rem;
 }
 
 .aimeos .header.has-danger {
-	border: solid 1px #E05040;
-	background-color: #E05040;
+	border-top: solid 3px #E05040;
 }
 
-.aimeos .card-block .card-header {
-	padding: 0.33em 0.75em;
+.aimeos .card-header .header-label {
+	vertical-align: middle;
+}
+
+.aimeos .main-navbar .btn.act-show.fa:before,
+.aimeos .card-header.collapsed .btn.act-show.fa:before {
+	content: "\f078";
+}
+
+.aimeos .card-header .btn.act-show.fa:before {
+	content: "\f077";
+}
+
+.aimeos .btn.act-add.fa:before {
+	content: "\f067";
+}
+
+.aimeos .btn.act-copy.fa:before {
+	content: "\f0c5";
+}
+
+.aimeos .btn.act-delete.fa:before {
+	content: "\f00d";
+}
+
+.aimeos .card-tools-left {
+	display: inline-block;
+}
+
+.aimeos .card-tools-right {
+	position: absolute;
+	right: 0.5rem;
+	top: 0.45rem;
+}
+
+.aimeos .card-tools-more {
+	padding: 0 0.5rem;
+	text-align: right;
 }
 
 .aimeos table th,
 .aimeos table td {
-	vertical-align: middle;
 	text-align: center;
-	padding: 0.33rem;
+	font-weight: normal;
+	vertical-align: middle;
+	padding: 0.25rem 0.5rem;
 }
 
 .aimeos table .actions {
@@ -463,9 +588,9 @@ html {
 	margin: 0.5rem;
 }
 
-.aimeos input[type="checkbox"],
-.aimeos input[type="radio"] {
-	height: 1rem;
+.aimeos .form-group input[type="checkbox"],
+.aimeos .form-group input[type="radio"] {
+	margin: 0.75rem 0;
 	width: auto;
 }
 
@@ -504,10 +629,6 @@ html {
 
 /* Item listing */
 
-.aimeos .table {
-	margin: 1rem 0;
-}
-
 .aimeos .list-items {
 	text-align: center;
 }
@@ -534,7 +655,6 @@ html {
 	color: #FFF;
 	white-space: nowrap;
 	font-weight: normal;
-	display: block;
 	margin: auto;
 }
 
@@ -575,6 +695,7 @@ html {
 /* Detail view */
 
 .aimeos .item .form-group.mandatory label:after {
+	white-space: nowrap;
 	content: " *";
 }
 
@@ -603,32 +724,32 @@ html {
 
 /* Images */
 
-.aimeos .product-item-image .actions .btn-primary {
+.aimeos .item-image .actions .btn-primary {
 	position: relative;
 	overflow: hidden;
 }
 
-.aimeos .product-item-image .fileupload {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	margin: 0px;
-	opacity: 0;
-	font-size: 200px;
-	direction: ltr;
+.aimeos .item-image .fileupload {
 	cursor: pointer;
+	overflow: hidden;
+	position: absolute;
+	top: 0.25rem;
+	right: 1.5rem;
+	height: 2.5rem;
+	width: 3rem;
+	opacity: 0;
 }
 
-.aimeos .product-item-image .image-preview img {
+.aimeos .item-image .image-preview img {
 	max-width: 100px;
 	max-height: 100px;
 }
 
-.aimeos .product-item-image .ai-combobox {
+.aimeos .item-image .ai-combobox {
 	width: 3rem;
 }
 
-.aimeos .product-item-image .image-label {
+.aimeos .item-image .image-label {
 	min-width: 7.5em;
 }
 

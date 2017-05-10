@@ -318,6 +318,9 @@ class Standard
 	 */
 	protected function setData( \Aimeos\MW\View\Iface $view )
 	{
+		$context = $this->getContext();
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
+
 		$data = (array) $view->param( 'price', [] );
 
 		if( empty( $view->priceData ) && ( $id = $view->item->getId() ) !== null )
@@ -340,6 +343,8 @@ class Standard
 			$data['price.currencyid'][] = $this->getContext()->getLocale()->getCurrencyId();
 		}
 
+		$view->priceCurrencies = $manager->searchItems( $manager->createSearch( true ) );
+		$view->priceCurrencyDefault = $this->getContext()->getLocale()->getCurrencyId();
 		$view->priceTypes = $this->getPriceTypes();
 		$view->priceData = $data;
 	}
@@ -391,7 +396,6 @@ class Standard
 				$item = $litem->getRefItem();
 			}
 
-			$item->setLabel( $view->param( 'price/price.label/' . $idx ) );
 			$item->setTypeId( $view->param( 'price/price.typeid/' . $idx ) );
 			$item->setCurrencyId( $view->param( 'price/price.currencyid/' . $idx ) );
 			$item->setQuantity( $view->param( 'price/price.quantity/' . $idx ) );
@@ -399,6 +403,9 @@ class Standard
 			$item->setCosts( $view->param( 'price/price.costs/' . $idx ) );
 			$item->setRebate( $view->param( 'price/price.rebate/' . $idx ) );
 			$item->setTaxRate( $view->param( 'price/price.taxrate/' . $idx ) );
+
+			$label = $item->getQuantity() . ' ~ ' . $item->getValue() . ' ' . $item->getCurrencyId();
+			$item->setLabel( $view->item->getLabel() . ' :: ' . $label );
 
 			$priceManager->saveItem( $item );
 

@@ -240,7 +240,7 @@ if( $lang ) {
  */
 
 ?>
-<div class="aimeos" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
+<div class="aimeos" lang="<?= $this->param( 'lang' ); ?>" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
 
 	<nav class="main-sidebar">
 
@@ -295,10 +295,10 @@ if( $lang ) {
 			<?php endforeach; ?>
 
 			<li class="treeview">
-				<a href="#">
+				<span>
 					<i class="icon config"></i>
 					<span class="name"><?= $enc->attr( $this->translate( 'client/language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
-				</a>
+				</span>
 				<ul class="tree-menu">
 					<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
 						<li>
