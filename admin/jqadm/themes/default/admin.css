@@ -159,6 +159,25 @@ html {
 	border-top: 3px solid rgba(0, 0, 0, 0.125);
 }
 
+@media (max-width: 768px) {
+	.aimeos {
+		font-size: 75%;
+	}
+	.btn, .form-control {
+		font-size: 100%;
+	}
+	.navbar-brand {
+		font-size: 1rem;
+	}
+	.custom-select,
+	.aimeos .main-navbar .dropdown-toggle {
+		height: 33px;
+	}
+	select.form-control:not([size]):not([multiple]) {
+		height: auto;
+	}
+}
+
 
 
 /* Sidebar */
@@ -387,6 +406,9 @@ html {
 	padding: 0.5rem;
 }
 
+.aimeos .main-content form > .item-actions {
+	display: none;
+}
 
 @media (min-width: 768px) {
 	.aimeos .main-navbar {
@@ -394,6 +416,9 @@ html {
 		position: sticky;
 		z-index: 1030;
 		top: 0;
+	}
+	.aimeos .main-content form > .item-actions {
+		display: block;
 	}
 }
 
@@ -561,8 +586,8 @@ html {
 }
 
 .aimeos .content-block {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .aimeos table th,

@@ -4,58 +4,58 @@
  */
 
 .dashboard .card {
-    border: none;
+	border: none;
 }
 
 .dashboard .card-header {
-    border-left: 1px solid #e5e5e5;
-    border-right: 1px solid #e5e5e5;
+	border-left: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
 }
 
 .dashboard .card-block {
-    padding: 0.5em;
+	padding: 0.5em;
 }
 
 .dashboard .content {
-    border: 1px solid #e5e5e5;
-    border-top: none;
-    overflow: auto;
-    height: 280px;
+	border: 1px solid #e5e5e5;
+	border-top: none;
+	overflow: auto;
+	height: 280px;
 }
 
 .dashboard .loading {
-    background-image: url('https://aimeos.org/aimeos-spinner.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 128px;
+	background-image: url('https://aimeos.org/aimeos-spinner.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 128px;
 }
 
 
 /* Common SVG diagram styles */
 
 .dashboard .axis {
-    fill: #808080;
-    text-anchor: middle;
+	fill: #808080;
+	text-anchor: middle;
 }
 
 .dashboard .axis line,
 .dashboard .axis path {
-    fill: none;
-    stroke: #A0A0A0;
-    shape-rendering: crispEdges;
+	fill: none;
+	stroke: #A0A0A0;
+	shape-rendering: crispEdges;
 }
 
 
 /* Order per day diagram styles */
 
 .dashboard .order-day .day {
-    fill: #f8f8f8;
+	fill: #f8f8f8;
 }
 
 .dashboard .order-day .path-month {
-    fill: none;
-    stroke: #800000;
-    stroke-width: 1px;
+	fill: none;
+	stroke: #800000;
+	stroke-width: 1px;
 }
 
 .dashboard .order-day .q0 { fill: #f8f8f8; }
@@ -73,77 +73,81 @@
 /* Order per hour diagram styles */
 
 .dashboard .order-hour .bar {
-    fill: #1f77b4;
+	fill: #1f77b4;
 }
 
 
 /* Latest order list styles */
 
 .dashboard .order-latest .content {
-    height: 340px;
+	height: 340px;
 }
 
 .dashboard .order-latest table {
-    margin: 0;
+	margin: 0;
 }
 
 .dashboard .order-latest td {
-    border-top: none;
+	border-top: none;
 }
 
 .dashboard .order-latest .order-id,
 .dashboard .order-latest .order-base-price,
 .dashboard .order-latest .order-statuspayment {
-    text-align: right;
+	text-align: right;
 }
 
 .dashboard .order-latest .order-base-address-name,
 .dashboard .order-latest .order-base-service-payment {
-    text-align: left;
+	text-align: left;
 }
 
 .dashboard .order-latest .order-statuspayment,
 .dashboard .order-latest .order-base-price {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .dashboard .order-latest .order-base-service-payment:before {
-    content: "(";
+	content: "(";
 }
 
 .dashboard .order-latest .order-base-service-payment:after {
-    content: ")";
+	content: ")";
 }
 
-@media (max-width: 500px) {
-    .dashboard .order-latest .order-base-service-payment {
-        display: none;
-    }
+@media (max-width: 768px) {
+	.dashboard .order-latest .content {
+		height: 280px;
+	}
+	.dashboard .order-latest .order-base-service-payment {
+		display: none;
+	}
 }
 
-@media (max-width: 400px) {
-    .dashboard .order-latest .order-base-address-name {
-        display: none;
-    }
+@media (max-width: 640px) {
+	.dashboard .order-latest .order-base-address-name {
+		display: none;
+	}
 }
+
 
 
 /* Order per payment status diagram styles */
 
 .dashboard #order-paymentstatus-data {
-    position: relative;
+	position: relative;
 }
 
 .dashboard .order-paymentstatus .layer {
-    opacity: 0.9;
+	opacity: 0.9;
 }
 
 .dashboard .order-paymentstatus .line {
-    fill: none;
+	fill: none;
 }
 
 .dashboard .order-paymentstatus .focus {
-    stroke: #555;
+	stroke: #555;
 }
 
 .dashboard .order-paymentstatus .overlay {
@@ -161,27 +165,27 @@
 .dashboard .order-paymentstatus .layer.pay-received { fill: #009050; }
 
 .dashboard .order-paymentstatus .tooltip {
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 2px;
-    font-weight: bold;
-    line-height: 1;
-    padding: 10px;
-    margin: 0;
-    color: #fff;
-    opacity: 1;
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
+	background: rgba(0, 0, 0, 0.6);
+	border-radius: 2px;
+	font-weight: bold;
+	line-height: 1;
+	padding: 10px;
+	margin: 0;
+	color: #fff;
+	opacity: 1;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
 .dashboard .order-paymentstatus .tooltip .head {
-    font-size: 100%;
-    font-weight: bold;
-    text-align: center;
+	font-size: 100%;
+	font-weight: bold;
+	text-align: center;
 }
 
 .dashboard .order-paymentstatus .tooltip .values th,
 .dashboard .order-paymentstatus .tooltip .values td {
-    text-align: right;
+	text-align: right;
 }
