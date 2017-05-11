@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 <div id="image" class="item-image tab-pane fade" role="tabpanel" aria-labelledby="image">
-	<table class="image-list table table-default">
+	<table class="image-list table table-default content-block">
 		<thead>
 			<tr>
 				<th class="image-preview"><?= $enc->html( $this->translate( 'admin', 'Preview' ) ); ?></th>

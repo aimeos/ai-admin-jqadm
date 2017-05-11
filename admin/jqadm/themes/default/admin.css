@@ -560,6 +560,11 @@ html {
 	text-align: right;
 }
 
+.aimeos .content-block {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .aimeos table th,
 .aimeos table td {
 	text-align: center;

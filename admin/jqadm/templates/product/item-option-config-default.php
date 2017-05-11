@@ -8,7 +8,7 @@
 $enc = $this->encoder();
 
 ?>
-<div class="col-xl-6 item-option-config">
+<div class="col-xl-6 content-block item-option-config">
 	<table class="attribute-list table table-default">
 		<thead>
 			<tr>

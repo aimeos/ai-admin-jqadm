@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div id="price" class="item-price tab-pane fade" role="tabpanel" aria-labelledby="price">
+<div id="price" class="item-price content-block tab-pane fade" role="tabpanel" aria-labelledby="price">
 	<div id="item-price-group" role="tablist" aria-multiselectable="true">
 
 		<?php foreach( (array) $this->get( 'priceData/price.currencyid', [] ) as $idx => $currencyid ) : ?>

@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 <div id="category" class="row item-category tab-pane fade" role="tabpanel" aria-labelledby="category">
-	<div class="col-xl-6">
+	<div class="col-xl-6 content-block">
 		<table class="category-list table table-default">
 			<thead>
 				<tr>
@@ -52,7 +52,7 @@ $enc = $this->encoder();
 			</tbody>
 		</table>
 	</div>
-	<div class="col-xl-6">
+	<div class="col-xl-6 content-block">
 		<table class="category-list table table-default">
 			<thead>
 				<tr>

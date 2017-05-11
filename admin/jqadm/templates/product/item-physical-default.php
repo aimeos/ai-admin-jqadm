@@ -15,7 +15,7 @@ $value = function( $type ) use ( $items ) {
 
 ?>
 <div id="physical" class="row item-physical tab-pane fade" role="tabpanel" aria-labelledby="physical">
-	<div class="col-xl-6">
+	<div class="col-xl-6 content-block">
 		<div class="form-group row optional">
 			<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Length' ) ); ?></label>
 			<div class="col-lg-8">

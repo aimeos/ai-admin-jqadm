@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div id="selection" class="item-selection tab-pane fade" role="tabpanel" aria-labelledby="selection">
+<div id="selection" class="item-selection content-block tab-pane fade" role="tabpanel" aria-labelledby="selection">
 
 	<?php foreach( (array) $this->get( 'selectionData', [] ) as $code => $map ) : ?>
 

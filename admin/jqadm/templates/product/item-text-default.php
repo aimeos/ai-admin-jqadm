@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div id="text" class="item-text tab-pane fade" role="tabpanel" aria-labelledby="text">
+<div id="text" class="item-text content-block tab-pane fade" role="tabpanel" aria-labelledby="text">
 
 	<?php foreach( (array) $this->get( 'textData/langid', [] ) as $idx => $langid ) : ?>
 

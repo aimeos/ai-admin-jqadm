@@ -140,7 +140,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6">
+				<div class="col-xl-6 content-block">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
@@ -208,7 +208,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6">
+				--><div class="col-xl-6 content-block">
 					<table class="item-config table table-striped">
 						<thead>
 							<tr>

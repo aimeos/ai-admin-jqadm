@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 <div id="bundle" class="row item-bundle tab-pane fade" role="tabpanel" aria-labelledby="bundle">
-	<div class="col-xl-6">
+	<div class="col-xl-6 content-block">
 		<table class="bundle-list table table-default">
 			<thead>
 				<tr>
