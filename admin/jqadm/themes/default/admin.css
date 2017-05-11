@@ -406,22 +406,6 @@ html {
 	padding: 0.5rem;
 }
 
-.aimeos .main-content form > .item-actions {
-	display: none;
-}
-
-@media (min-width: 768px) {
-	.aimeos .main-navbar {
-		position: -webkit-sticky;
-		position: sticky;
-		z-index: 1030;
-		top: 0;
-	}
-	.aimeos .main-content form > .item-actions {
-		display: block;
-	}
-}
-
 .aimeos .main-navbar .navbar-brand {
 	float: left;
 }
@@ -513,6 +497,18 @@ html {
 
 .aimeos .main-navbar .item-actions .btn {
 	margin: 0;
+}
+
+@media (min-width: 768px) {
+	.aimeos .main-navbar {
+		position: -webkit-sticky;
+		position: sticky;
+		z-index: 1030;
+		top: 0;
+	}
+	.aimeos .main-content form > .item-actions {
+		display: none;
+	}
 }
 
 @media (max-width: 992px) {
@@ -673,14 +669,6 @@ html {
 	color: #FFF;
 }
 
-.aimeos .list-items th:first-child {
-	border-top-left-radius: 0.25rem;
-}
-
-.aimeos .list-items th:last-child {
-	border-top-right-radius: 0.25rem;
-}
-
 .aimeos .list-items th a {
 	color: #FFF;
 	white-space: nowrap;
@@ -729,10 +717,6 @@ html {
 	content: " *";
 }
 
-.aimeos .product-item-selection-groupitem:first-child .header .fa-trash {
-	display: none;
-}
-
 .aimeos .ai-combobox {
 	width: 100%;
 }
@@ -748,15 +732,8 @@ html {
 
 /* Bundles */
 
-.aimeos .product-item-bundle {
+.aimeos .item-navbar .nav-item.bundle {
 	display: none;
-}
-
-
-/* Characteristics */
-
-.aimeos .product-item-characteristic-property .ai-combobox {
-	width: 3rem;
 }
 
 
@@ -792,24 +769,10 @@ html {
 }
 
 
-/** Prices */
-
-.aimeos .product-item-price .header .ai-combobox {
-	width: 4.5rem;
-}
-
-
 /** Selection */
 
-.aimeos .product-item-selection {
+.aimeos .item-navbar .nav-item.selection {
 	display: none;
-}
-
-
-/** Texts */
-
-.aimeos .product-item-text .header .ai-combobox {
-	width: 3rem;
 }
 
 
