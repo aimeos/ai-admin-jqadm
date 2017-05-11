@@ -41,7 +41,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertStringStartsWith( '<div class="product-item-stock', $result );
+		$this->assertContains( 'item-stock', $result );
 	}
 
 

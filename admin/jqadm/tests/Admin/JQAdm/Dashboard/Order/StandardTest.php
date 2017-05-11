@@ -72,7 +72,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->search();
 
-		$this->assertContains( '<div class="dashboard-order">', $result );
+		$this->assertContains( 'dashboard-order', $result );
 	}
 
 

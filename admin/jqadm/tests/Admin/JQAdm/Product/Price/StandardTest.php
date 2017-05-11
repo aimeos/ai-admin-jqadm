@@ -40,7 +40,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
 
-		$this->assertContains( 'Prices', $result );
+		$this->assertContains( 'item-price', $result );
 		$this->assertNull( $this->view->get( 'errors' ) );
 	}
 
@@ -53,7 +53,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="for 1 product"', $result );
+		$this->assertContains( 'value="19.00"', $result );
+		$this->assertContains( 'value="600.00"', $result );
+		$this->assertContains( 'value="0.00"', $result );
+		$this->assertContains( 'value="30.00"', $result );
+		$this->assertContains( 'value="EUR" selected="selected"', $result );
+		$this->assertContains( 'value="1"', $result );
 	}
 
 
@@ -74,7 +79,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="for 1 product"', $result );
+		$this->assertContains( 'value="19.00"', $result );
+		$this->assertContains( 'value="600.00"', $result );
+		$this->assertContains( 'value="0.00"', $result );
+		$this->assertContains( 'value="30.00"', $result );
+		$this->assertContains( 'value="EUR" selected="selected"', $result );
+		$this->assertContains( 'value="1"', $result );
 	}
 
 
@@ -95,7 +105,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'product.lists.id' => array( '' ),
 				'price.typeid' => array( $typeManager->findItem( 'default', [], 'product' )->getId() ),
 				'price.currencyid' => array( 'EUR' ),
-				'price.label' => array( 'test' ),
 				'price.quantity' => array( '2' ),
 				'price.value' => array( '10.00' ),
 				'price.costs' => array( '1.00' ),
@@ -125,12 +134,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			$refItem = $listItem->getRefItem();
 			$this->assertEquals( 'default', $refItem->getType() );
 			$this->assertEquals( 'EUR', $refItem->getCurrencyId() );
-			$this->assertEquals( 'test', $refItem->getLabel() );
 			$this->assertEquals( '2', $refItem->getQuantity() );
 			$this->assertEquals( '10.00', $refItem->getValue() );
 			$this->assertEquals( '1.00', $refItem->getCosts() );
 			$this->assertEquals( '5.00', $refItem->getRebate() );
 			$this->assertEquals( '20.00', $refItem->getTaxRate() );
+			$this->assertNotEmpty( $refItem->getLabel() );
 		}
 	}
 

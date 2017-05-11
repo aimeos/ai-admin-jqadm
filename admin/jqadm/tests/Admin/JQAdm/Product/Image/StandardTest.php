@@ -40,7 +40,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
 
-		$this->assertContains( 'Images', $result );
+		$this->assertContains( 'item-image', $result );
 		$this->assertNull( $this->view->get( 'errors' ) );
 	}
 

@@ -47,7 +47,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
 
-		$this->assertContains( 'Download', $result );
+		$this->assertContains( 'item-download', $result );
 		$this->assertNull( $this->view->get( 'errors' ) );
 	}
 
