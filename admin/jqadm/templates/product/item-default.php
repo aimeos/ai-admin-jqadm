@@ -97,6 +97,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
 <form class="item item-product form-horizontal" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
+	<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.id' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/product.id' ) ); ?>" />
 	<?= $this->csrf()->formfield(); ?>
 
 	<nav class="main-navbar">
