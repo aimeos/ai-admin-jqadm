@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-03 12:08+0100\n"
-"PO-Revision-Date: 2017-01-03 11:21+0000\n"
+"POT-Creation-Date: 2017-05-11 17:34+0200\n"
+"PO-Revision-Date: 2017-05-11 15:41+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: French (http://www.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,10 @@ msgstr ""
 #, php-format
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
+
+#, php-format
+msgid "%s/%s/%s.%s"
+msgstr ""
 
 msgid "Actual current price"
 msgstr "Prix réel actuel"
@@ -55,6 +59,10 @@ msgstr "Identifiant d'adresse"
 
 msgid "Addresses"
 msgstr "Adresses"
+
+#, php-format
+msgid "Admin JQAdm type is empty"
+msgstr ""
 
 msgid "All"
 msgstr "Tout"
@@ -173,6 +181,22 @@ msgstr "Ville"
 msgid "City name (required)"
 msgstr ""
 
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "La classe \"%1$s\" n'implémente pas l'interface \"%2$s\""
+
+#, php-format
+msgid "Class \"%1$s\" does not implement interface \"%2$s\""
+msgstr "La classe \"%1$s\" n'implémente pas l'interface \"%2$s\""
+
+#, php-format
+msgid "Class \"%1$s\" not available"
+msgstr "Classe \"%1$s\" indisponible"
+
+#, php-format
+msgid "Class \"%1$s\" not found"
+msgstr "Classe \"%1$s\" non trouvée"
+
 msgid "Clear"
 msgstr ""
 
@@ -188,65 +212,6 @@ msgstr "Code"
 msgid "Codes"
 msgstr ""
 
-#. /jqadm/partial/filter
-#. * Relative path to the partial template for displaying the product filter
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/confirm
-#. * @see admin/jqadm/partial/error
-#. /jqadm/partial/pagination
-#. * Relative path to the partial template for displaying the pagination
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/filter
-#. * @see admin/jqadm/partial/confirm
-#. * @see admin/jqadm/partial/error
-#. /jqadm/template/page
-#. * Relative path to the template for the base page template
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
 msgid "Columns"
 msgstr ""
 
@@ -257,6 +222,9 @@ msgid "Company"
 msgstr "Entreprise"
 
 msgid "Company name"
+msgstr ""
+
+msgid "Configurable"
 msgstr ""
 
 msgid "Configuration"
@@ -317,6 +285,9 @@ msgstr "Devise"
 msgid "Currency (required)"
 msgstr "Devise (obligatoire)"
 
+msgid "Custom"
+msgstr ""
+
 msgid "Customer"
 msgstr "Client"
 
@@ -339,6 +310,9 @@ msgstr ""
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer: {0} ({1})"
+msgstr ""
+
+msgid "Dashboard"
 msgstr ""
 
 msgid "Date"
@@ -404,49 +378,9 @@ msgstr "Date de fin"
 msgid "Error"
 msgstr "Erreur"
 
-#. /jqadm/partial/error
-#. * Relative path to the partial template for displaying errors
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/confirm
-#. * @see admin/jqadm/partial/filter
-#. * @see admin/jqadm/partial/pagination
-#. /jqadm/partial/confirm
-#. * Relative path to the partial template for displaying the confirmation
-#. dialog
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/error
-#. * @see admin/jqadm/partial/filter
-#. * @see admin/jqadm/partial/pagination
+msgid "Expert"
+msgstr ""
+
 msgid "Expert mode"
 msgstr ""
 
@@ -532,8 +466,28 @@ msgstr "Nom interne (obligatoire)"
 msgid "Invalid action \"{0}\""
 msgstr "Action invalide \"{0}\""
 
+#, php-format
+msgid "Invalid characters in class name \"%1$s\""
+msgstr "Caractères non valides dans le nom de la classe \"%1$s\""
+
+#, php-format
+msgid "Invalid characters in client name \"%1$s\""
+msgstr "Caractères invalides dans le nom du client \"%1$s\""
+
+#, php-format
+msgid "Invalid class name \"%1$s\""
+msgstr "Nom de classe \"%1$s\" non valide"
+
 msgid "Invalid data"
 msgstr "Données invalides"
+
+#, php-format
+msgid "Invalid domain \"%1$s\""
+msgstr "Domaine non valide \"%1$s\""
+
+#, php-format
+msgid "Invalid factory \"%1$s\""
+msgstr "Usine invalide \"%1$s\""
 
 #, python-brace-format
 msgid "Invalid value for configuration key \"{0}\""
@@ -707,14 +661,29 @@ msgstr "Nom de la classe du fournisseur de module additionnel (obligatoire)"
 msgid "Name of the service provider class (required)"
 msgstr "Nom de la classe du fournisseur de service (obligatoire)"
 
+msgid "New"
+msgstr ""
+
 msgid "Next"
 msgstr "Suivant"
 
 msgid "No error information available"
 msgstr "Aucune information disponible sur l'erreur"
 
+#, php-format
+msgid "No file uploaded for %1$d. new image"
+msgstr ""
+
 msgid "No items"
 msgstr "Pas d'entrées"
+
+#, php-format
+msgid "No items found for \"%1$s %2$s %3$s\""
+msgstr ""
+
+#, php-format
+msgid "No view available"
+msgstr "Pas de visuel disponible"
 
 msgid "Not implemented"
 msgstr "Indisponible"
@@ -963,6 +932,9 @@ msgstr "Demande"
 msgid "Result"
 msgstr "Résultat"
 
+msgid "SKU"
+msgstr ""
+
 msgid "Salutation"
 msgstr "Civilité"
 
@@ -1016,6 +988,9 @@ msgstr "Service : {0} ({1})"
 
 msgid "Services"
 msgstr "Services"
+
+msgid "Shipping costs per item"
+msgstr ""
 
 msgid "Short description"
 msgstr ""
@@ -1158,8 +1133,16 @@ msgstr "Types"
 msgid "URL segment"
 msgstr ""
 
+#, php-format
+msgid "Unable to call method \"%1$s\""
+msgstr "Impossible d'appeler la méthode \"%1$s\""
+
 msgid "Unique code (required)"
 msgstr "Code unique (obligatoire)"
+
+#, php-format
+msgid "Unknown type \"%1$s\""
+msgstr ""
 
 msgid "Upload failed"
 msgstr "Échec de l'envoi"
@@ -1237,77 +1220,121 @@ msgstr ""
 msgid "Zip code"
 msgstr ""
 
+#, php-format
+msgid "bundle"
+msgstr ""
+
+#, php-format
+msgid "category"
+msgstr ""
+
+#, php-format
+msgid "characteristic"
+msgstr "Caractéristiques"
+
 msgid "dashboard"
+msgstr ""
+
+#, php-format
+msgid "download"
+msgstr "Téléchargements"
+
+#, php-format
+msgid "image"
 msgstr ""
 
 msgid "new"
 msgstr "nouveau"
 
+#, php-format
+msgid "option"
+msgstr "Options"
+
 msgid "pay:authorized"
-msgstr "autorisé"
+msgstr ""
 
 msgid "pay:canceled"
-msgstr "annulé"
+msgstr ""
 
 msgid "pay:deleted"
-msgstr "supprimé"
+msgstr ""
 
 msgid "pay:pending"
-msgstr "en instance"
+msgstr ""
 
 msgid "pay:received"
-msgstr "reçu"
+msgstr ""
 
 msgid "pay:refund"
-msgstr "remboursé"
+msgstr ""
 
 msgid "pay:refused"
-msgstr "refusé"
+msgstr ""
 
 msgid "pay:unfinished"
-msgstr "inachevé"
+msgstr ""
+
+#, php-format
+msgid "physical"
+msgstr ""
+
+#, php-format
+msgid "price"
+msgstr ""
 
 msgid "product"
 msgstr "Produit"
 
+#, php-format
+msgid "selection"
+msgstr ""
+
 msgid "stat:deleted"
-msgstr "supprimé"
+msgstr ""
 
 msgid "stat:delivered"
-msgstr "livré"
+msgstr ""
 
 msgid "stat:dispatched"
-msgstr "expédié"
+msgstr ""
 
 msgid "stat:lost"
-msgstr "perdu"
+msgstr ""
 
 msgid "stat:pending"
-msgstr "en instance"
+msgstr ""
 
 msgid "stat:progress"
-msgstr "en cours"
+msgstr ""
 
 msgid "stat:refused"
-msgstr "refusé"
+msgstr ""
 
 msgid "stat:returned"
-msgstr "retourné"
+msgstr ""
 
 msgid "stat:unfinished"
-msgstr "inachevé"
+msgstr ""
 
 msgid "status:archive"
-msgstr "archivé"
+msgstr ""
 
 msgid "status:disabled"
-msgstr "désactivé"
+msgstr ""
 
 msgid "status:enabled"
-msgstr "activé"
+msgstr ""
 
 msgid "status:review"
-msgstr "à l'étude"
+msgstr ""
+
+#, php-format
+msgid "stock"
+msgstr ""
+
+#, php-format
+msgid "text"
+msgstr ""
 
 msgid "unknown"
 msgstr ""

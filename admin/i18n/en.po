@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-02 10:44+0100\n"
+"POT-Creation-Date: 2017-05-11 17:34+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -19,6 +19,10 @@ msgstr ""
 #. / price format with value (%1$s) and currency (%2$s)
 #, php-format
 msgid "%1$s %2$s"
+msgstr ""
+
+#, php-format
+msgid "%s/%s/%s.%s"
 msgstr ""
 
 msgid "Actual current price"
@@ -52,6 +56,10 @@ msgid "Address ID"
 msgstr ""
 
 msgid "Addresses"
+msgstr ""
+
+#, php-format
+msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "All"
@@ -171,6 +179,22 @@ msgstr ""
 msgid "City name (required)"
 msgstr ""
 
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr ""
+
+#, php-format
+msgid "Class \"%1$s\" does not implement interface \"%2$s\""
+msgstr ""
+
+#, php-format
+msgid "Class \"%1$s\" not available"
+msgstr ""
+
+#, php-format
+msgid "Class \"%1$s\" not found"
+msgstr ""
+
 msgid "Clear"
 msgstr ""
 
@@ -260,6 +284,9 @@ msgstr ""
 msgid "Company name"
 msgstr ""
 
+msgid "Configurable"
+msgstr ""
+
 msgid "Configuration"
 msgstr ""
 
@@ -318,6 +345,9 @@ msgstr ""
 msgid "Currency (required)"
 msgstr ""
 
+msgid "Custom"
+msgstr ""
+
 msgid "Customer"
 msgstr ""
 
@@ -339,6 +369,10 @@ msgstr ""
 #, python-brace-format
 msgid "Customer: {0} ({1})"
 msgstr ""
+
+#, fuzzy
+msgid "Dashboard"
+msgstr "Dashboard"
 
 msgid "Date"
 msgstr ""
@@ -401,6 +435,9 @@ msgid "End date"
 msgstr ""
 
 msgid "Error"
+msgstr ""
+
+msgid "Expert"
 msgstr ""
 
 #. /jqadm/partial/error
@@ -532,7 +569,27 @@ msgstr ""
 msgid "Invalid action \"{0}\""
 msgstr ""
 
+#, php-format
+msgid "Invalid characters in class name \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Invalid characters in client name \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Invalid class name \"%1$s\""
+msgstr ""
+
 msgid "Invalid data"
+msgstr ""
+
+#, php-format
+msgid "Invalid domain \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Invalid factory \"%1$s\""
 msgstr ""
 
 #, python-brace-format
@@ -705,13 +762,28 @@ msgstr ""
 msgid "Name of the service provider class (required)"
 msgstr ""
 
+msgid "New"
+msgstr ""
+
 msgid "Next"
 msgstr ""
 
 msgid "No error information available"
 msgstr ""
 
+#, php-format
+msgid "No file uploaded for %1$d. new image"
+msgstr ""
+
 msgid "No items"
+msgstr ""
+
+#, php-format
+msgid "No items found for \"%1$s %2$s %3$s\""
+msgstr ""
+
+#, php-format
+msgid "No view available"
 msgstr ""
 
 msgid "Not implemented"
@@ -957,6 +1029,9 @@ msgstr ""
 msgid "Result"
 msgstr ""
 
+msgid "SKU"
+msgstr ""
+
 msgid "Salutation"
 msgstr ""
 
@@ -1010,6 +1085,10 @@ msgstr ""
 
 msgid "Services"
 msgstr ""
+
+#, fuzzy
+msgid "Shipping costs per item"
+msgstr "Costs per item"
 
 msgid "Short description"
 msgstr ""
@@ -1146,7 +1225,15 @@ msgstr ""
 msgid "URL segment"
 msgstr ""
 
+#, php-format
+msgid "Unable to call method \"%1$s\""
+msgstr ""
+
 msgid "Unique code (required)"
+msgstr ""
+
+#, php-format
+msgid "Unknown type \"%1$s\""
 msgstr ""
 
 msgid "Upload failed"
@@ -1222,10 +1309,34 @@ msgstr ""
 msgid "Zip code"
 msgstr ""
 
+#, php-format
+msgid "bundle"
+msgstr ""
+
+#, php-format
+msgid "category"
+msgstr ""
+
+#, php-format
+msgid "characteristic"
+msgstr ""
+
 msgid "dashboard"
 msgstr "Dashboard"
 
+#, php-format
+msgid "download"
+msgstr ""
+
+#, php-format
+msgid "image"
+msgstr ""
+
 msgid "new"
+msgstr ""
+
+#, php-format
+msgid "option"
 msgstr ""
 
 msgid "pay:authorized"
@@ -1252,8 +1363,20 @@ msgstr "refused"
 msgid "pay:unfinished"
 msgstr "unfinished"
 
+#, php-format
+msgid "physical"
+msgstr ""
+
+#, php-format
+msgid "price"
+msgstr ""
+
 msgid "product"
 msgstr "Product"
+
+#, php-format
+msgid "selection"
+msgstr ""
 
 msgid "stat:deleted"
 msgstr "deleted"
@@ -1293,6 +1416,14 @@ msgstr "enabled"
 
 msgid "status:review"
 msgstr "review"
+
+#, php-format
+msgid "stock"
+msgstr ""
+
+#, php-format
+msgid "text"
+msgstr ""
 
 msgid "unknown"
 msgstr ""

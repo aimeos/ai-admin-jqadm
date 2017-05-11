@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-03 12:08+0100\n"
-"PO-Revision-Date: 2017-01-03 11:21+0000\n"
+"POT-Creation-Date: 2017-05-11 17:34+0200\n"
+"PO-Revision-Date: 2017-05-11 15:41+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,10 @@ msgstr ""
 #, php-format
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
+
+#, php-format
+msgid "%s/%s/%s.%s"
+msgstr ""
 
 msgid "Actual current price"
 msgstr "Jelenlegi ár"
@@ -56,6 +60,10 @@ msgstr "Cím azonosító"
 
 msgid "Addresses"
 msgstr "Címek"
+
+#, php-format
+msgid "Admin JQAdm type is empty"
+msgstr ""
 
 msgid "All"
 msgstr "Mind"
@@ -174,6 +182,22 @@ msgstr "Város"
 msgid "City name (required)"
 msgstr "Város név (kötelező)"
 
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "\"%1$s\" class nem hajtja végre a \"%2$s\"-t"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement interface \"%2$s\""
+msgstr ""
+
+#, php-format
+msgid "Class \"%1$s\" not available"
+msgstr "A következő osztály nem elérhető: \"%1$s\""
+
+#, php-format
+msgid "Class \"%1$s\" not found"
+msgstr "A következő osztály nem található: \"%1$s\""
+
 msgid "Clear"
 msgstr "Szűrő törlése"
 
@@ -189,65 +213,6 @@ msgstr "Kód"
 msgid "Codes"
 msgstr "Kódok"
 
-#. /jqadm/partial/filter
-#. * Relative path to the partial template for displaying the product filter
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/confirm
-#. * @see admin/jqadm/partial/error
-#. /jqadm/partial/pagination
-#. * Relative path to the partial template for displaying the pagination
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/filter
-#. * @see admin/jqadm/partial/confirm
-#. * @see admin/jqadm/partial/error
-#. /jqadm/template/page
-#. * Relative path to the template for the base page template
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
 msgid "Columns"
 msgstr "Oszlopok"
 
@@ -259,6 +224,9 @@ msgstr "Cég"
 
 msgid "Company name"
 msgstr "Cég név"
+
+msgid "Configurable"
+msgstr ""
 
 msgid "Configuration"
 msgstr "Beállítások"
@@ -318,6 +286,9 @@ msgstr "Pénznem"
 msgid "Currency (required)"
 msgstr "Pénznem (kötelező)"
 
+msgid "Custom"
+msgstr ""
+
 msgid "Customer"
 msgstr "Vevő"
 
@@ -341,6 +312,9 @@ msgstr "Vevő csoport:: {0} ({1})"
 #, python-brace-format
 msgid "Customer: {0} ({1})"
 msgstr "Vevő: {0} ({1})"
+
+msgid "Dashboard"
+msgstr "Vezérlőpult"
 
 msgid "Date"
 msgstr "Dátum"
@@ -405,49 +379,9 @@ msgstr "Befejezés dátuma"
 msgid "Error"
 msgstr "Hiba"
 
-#. /jqadm/partial/error
-#. * Relative path to the partial template for displaying errors
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/confirm
-#. * @see admin/jqadm/partial/filter
-#. * @see admin/jqadm/partial/pagination
-#. /jqadm/partial/confirm
-#. * Relative path to the partial template for displaying the confirmation
-#. dialog
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/error
-#. * @see admin/jqadm/partial/filter
-#. * @see admin/jqadm/partial/pagination
+msgid "Expert"
+msgstr ""
+
 msgid "Expert mode"
 msgstr "Szakértő mód"
 
@@ -533,8 +467,28 @@ msgstr "Belső név (kötelező)"
 msgid "Invalid action \"{0}\""
 msgstr "Érvénytelen művelet \"{0}\""
 
+#, php-format
+msgid "Invalid characters in class name \"%1$s\""
+msgstr "Érvénytelen karakter a következő osztály nevében: \"%1$s\""
+
+#, php-format
+msgid "Invalid characters in client name \"%1$s\""
+msgstr "Érvénytelen karakter az ügyfél nevében: \"%1$s\""
+
+#, php-format
+msgid "Invalid class name \"%1$s\""
+msgstr "Érvénytelen osztálynév: \"%1$s\""
+
 msgid "Invalid data"
 msgstr "Érvénytelen adat"
+
+#, php-format
+msgid "Invalid domain \"%1$s\""
+msgstr "Érvénytelen domain: \"%1$s\""
+
+#, php-format
+msgid "Invalid factory \"%1$s\""
+msgstr "Érvénytelen gyártó: \"%1$s\""
 
 #, python-brace-format
 msgid "Invalid value for configuration key \"{0}\""
@@ -708,14 +662,29 @@ msgstr "Plugin ellátó osztály neve (kötelező)"
 msgid "Name of the service provider class (required)"
 msgstr "Szolgáltató osztály neve (kötelező)"
 
+msgid "New"
+msgstr ""
+
 msgid "Next"
 msgstr "Következő"
 
 msgid "No error information available"
 msgstr "Nincs hiba információ"
 
+#, php-format
+msgid "No file uploaded for %1$d. new image"
+msgstr ""
+
 msgid "No items"
 msgstr "Nincsenek elemek"
+
+#, php-format
+msgid "No items found for \"%1$s %2$s %3$s\""
+msgstr ""
+
+#, php-format
+msgid "No view available"
+msgstr ""
 
 msgid "Not implemented"
 msgstr "Nincs implementálva"
@@ -964,6 +933,9 @@ msgstr "Kérés"
 msgid "Result"
 msgstr "Eredmény"
 
+msgid "SKU"
+msgstr ""
+
 msgid "Salutation"
 msgstr "Üdvözlés"
 
@@ -1017,6 +989,9 @@ msgstr "Szolgáltatás: {0} ({1})"
 
 msgid "Services"
 msgstr "Szolgáltatlások"
+
+msgid "Shipping costs per item"
+msgstr ""
 
 msgid "Short description"
 msgstr "Rövid leírás"
@@ -1159,8 +1134,16 @@ msgstr "Típusok"
 msgid "URL segment"
 msgstr "URL szegmens"
 
+#, php-format
+msgid "Unable to call method \"%1$s\""
+msgstr "Nem lehet, meghívni a \"%1$s\" eljárást"
+
 msgid "Unique code (required)"
 msgstr "Egyedi kód (kötelező)"
+
+#, php-format
+msgid "Unknown type \"%1$s\""
+msgstr ""
 
 msgid "Upload failed"
 msgstr "Sikertelen feltöltés"
@@ -1238,77 +1221,121 @@ msgstr "Ön a jelenlegi oldal gyorsítótárának teljes kiürítésére készü
 msgid "Zip code"
 msgstr "Irányítószám"
 
+#, php-format
+msgid "bundle"
+msgstr "Csomagok"
+
+#, php-format
+msgid "category"
+msgstr "Kategóriák"
+
+#, php-format
+msgid "characteristic"
+msgstr "Jellemzők"
+
 msgid "dashboard"
 msgstr "Vezérlőpult"
+
+#, php-format
+msgid "download"
+msgstr "Letöltések"
+
+#, php-format
+msgid "image"
+msgstr "Képek"
 
 msgid "new"
 msgstr "Új"
 
+#, php-format
+msgid "option"
+msgstr "Opciók"
+
 msgid "pay:authorized"
-msgstr "fizetés:hitelesítve"
+msgstr ""
 
 msgid "pay:canceled"
-msgstr "fizetés:visszavonva"
+msgstr ""
 
 msgid "pay:deleted"
-msgstr "fizetés:törölve"
+msgstr ""
 
 msgid "pay:pending"
-msgstr "fizetés:függőben"
+msgstr ""
 
 msgid "pay:received"
-msgstr "fizetés:elfogadva"
+msgstr ""
 
 msgid "pay:refund"
-msgstr "fizetés:visszatérítés"
+msgstr ""
 
 msgid "pay:refused"
-msgstr "fizetés:elutasítva"
+msgstr ""
 
 msgid "pay:unfinished"
-msgstr "fizetés:befejezetlen"
+msgstr ""
+
+#, php-format
+msgid "physical"
+msgstr ""
+
+#, php-format
+msgid "price"
+msgstr "Árak"
 
 msgid "product"
 msgstr "Termék"
 
+#, php-format
+msgid "selection"
+msgstr "Változatok"
+
 msgid "stat:deleted"
-msgstr "állapot:törölve"
+msgstr ""
 
 msgid "stat:delivered"
-msgstr "állapot:kiszállítva"
+msgstr ""
 
 msgid "stat:dispatched"
-msgstr "állapot:kézbesítés alatt"
+msgstr ""
 
 msgid "stat:lost"
-msgstr "állapot:elveszett"
+msgstr ""
 
 msgid "stat:pending"
-msgstr "állapot:függőben"
+msgstr ""
 
 msgid "stat:progress"
-msgstr "állapot:folyamatban"
+msgstr ""
 
 msgid "stat:refused"
-msgstr "állapot:elutasítva"
+msgstr ""
 
 msgid "stat:returned"
-msgstr "állapot:visszaküldve"
+msgstr ""
 
 msgid "stat:unfinished"
-msgstr "állapot:befejezetlen"
+msgstr ""
 
 msgid "status:archive"
-msgstr "állapot:archív"
+msgstr ""
 
 msgid "status:disabled"
-msgstr "állapot:letiltva"
+msgstr ""
 
 msgid "status:enabled"
-msgstr "állapot:engedélyezett"
+msgstr ""
 
 msgid "status:review"
-msgstr "állapot:felülvizsgálat alatt"
+msgstr ""
+
+#, php-format
+msgid "stock"
+msgstr ""
+
+#, php-format
+msgid "text"
+msgstr "Szövegek"
 
 msgid "unknown"
 msgstr "Ismeretlen"

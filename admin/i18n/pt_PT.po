@@ -1,25 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-03 12:08+0100\n"
+"POT-Creation-Date: 2017-05-11 17:34+0200\n"
 "PO-Revision-Date: 2017-01-03 11:21+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/aimeos/aimeos-core/language/pt_PT/)\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. / price format with value (%1$s) and currency (%2$s)
 #, php-format
 msgid "%1$s %2$s"
+msgstr ""
+
+#, php-format
+msgid "%s/%s/%s.%s"
 msgstr ""
 
 msgid "Actual current price"
@@ -53,6 +57,10 @@ msgid "Address ID"
 msgstr ""
 
 msgid "Addresses"
+msgstr ""
+
+#, php-format
+msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "All"
@@ -172,6 +180,22 @@ msgstr ""
 msgid "City name (required)"
 msgstr ""
 
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr ""
+
+#, php-format
+msgid "Class \"%1$s\" does not implement interface \"%2$s\""
+msgstr ""
+
+#, php-format
+msgid "Class \"%1$s\" not available"
+msgstr ""
+
+#, php-format
+msgid "Class \"%1$s\" not found"
+msgstr ""
+
 msgid "Clear"
 msgstr ""
 
@@ -207,6 +231,7 @@ msgstr ""
 #. * @category Developer
 #. * @see admin/jqadm/partial/confirm
 #. * @see admin/jqadm/partial/error
+#.
 #. /jqadm/partial/pagination
 #. * Relative path to the partial template for displaying the pagination
 #. *
@@ -228,6 +253,7 @@ msgstr ""
 #. * @see admin/jqadm/partial/filter
 #. * @see admin/jqadm/partial/confirm
 #. * @see admin/jqadm/partial/error
+#.
 #. /jqadm/template/page
 #. * Relative path to the template for the base page template
 #. *
@@ -246,6 +272,7 @@ msgstr ""
 #. * @param string Relative path to the partial creating the HTML code
 #. * @since 2016.04
 #. * @category Developer
+#.
 msgid "Columns"
 msgstr ""
 
@@ -256,6 +283,9 @@ msgid "Company"
 msgstr ""
 
 msgid "Company name"
+msgstr ""
+
+msgid "Configurable"
 msgstr ""
 
 msgid "Configuration"
@@ -316,21 +346,22 @@ msgstr ""
 msgid "Currency (required)"
 msgstr ""
 
+msgid "Custom"
+msgstr ""
+
 msgid "Customer"
 msgstr ""
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer address item panel title with customer name ({0}) and site code
-#. ({1)}
+#. : Customer address item panel title with customer name ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer address: {0} ({1})"
 msgstr ""
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
-#. : Customer group item panel title with customer name ({0}) and site code
-#. ({1)}
+#. : Customer group item panel title with customer name ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer group: {0} ({1})"
 msgstr ""
@@ -338,6 +369,9 @@ msgstr ""
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer: {0} ({1})"
+msgstr ""
+
+msgid "Dashboard"
 msgstr ""
 
 msgid "Date"
@@ -403,6 +437,9 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
+msgid "Expert"
+msgstr ""
+
 #. /jqadm/partial/error
 #. * Relative path to the partial template for displaying errors
 #. *
@@ -424,9 +461,9 @@ msgstr ""
 #. * @see admin/jqadm/partial/confirm
 #. * @see admin/jqadm/partial/filter
 #. * @see admin/jqadm/partial/pagination
+#.
 #. /jqadm/partial/confirm
-#. * Relative path to the partial template for displaying the confirmation
-#. dialog
+#. * Relative path to the partial template for displaying the confirmation dialog
 #. *
 #. * The template file contains the HTML code and processing instructions
 #. * to generate the result shown in the administration interface. The
@@ -446,6 +483,7 @@ msgstr ""
 #. * @see admin/jqadm/partial/error
 #. * @see admin/jqadm/partial/filter
 #. * @see admin/jqadm/partial/pagination
+#.
 msgid "Expert mode"
 msgstr ""
 
@@ -531,7 +569,27 @@ msgstr ""
 msgid "Invalid action \"{0}\""
 msgstr ""
 
+#, php-format
+msgid "Invalid characters in class name \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Invalid characters in client name \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Invalid class name \"%1$s\""
+msgstr ""
+
 msgid "Invalid data"
+msgstr ""
+
+#, php-format
+msgid "Invalid domain \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Invalid factory \"%1$s\""
 msgstr ""
 
 #, python-brace-format
@@ -621,8 +679,7 @@ msgstr ""
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
-#. : Locale currency item panel title with currency label ({0}) and currency
-#. code ({1)}
+#. : Locale currency item panel title with currency label ({0}) and currency code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
 msgstr ""
@@ -634,8 +691,7 @@ msgstr ""
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
-#. : Locale language item panel title with language label ({0}) and language
-#. code ({1)}
+#. : Locale language item panel title with language label ({0}) and language code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
 msgstr ""
@@ -706,13 +762,28 @@ msgstr ""
 msgid "Name of the service provider class (required)"
 msgstr ""
 
+msgid "New"
+msgstr ""
+
 msgid "Next"
 msgstr ""
 
 msgid "No error information available"
 msgstr ""
 
+#, php-format
+msgid "No file uploaded for %1$d. new image"
+msgstr ""
+
 msgid "No items"
+msgstr ""
+
+#, php-format
+msgid "No items found for \"%1$s %2$s %3$s\""
+msgstr ""
+
+#, php-format
+msgid "No view available"
 msgstr ""
 
 msgid "Not implemented"
@@ -779,9 +850,7 @@ msgstr ""
 msgid "Please save the coupon first before you can add codes"
 msgstr ""
 
-msgid ""
-"Please select an item on the right side and add it via drag and drop to this"
-" list."
+msgid "Please select an item on the right side and add it via drag and drop to this list."
 msgstr ""
 
 msgid "Plugin"
@@ -867,10 +936,8 @@ msgstr ""
 msgid "Product property type"
 msgstr ""
 
-#. : Product property.type item panel title with type label ({0}) and site
-#. code ({1)}
-#. : Product property type item panel title with type label ({0}) and site
-#. code ({1)}
+#. : Product property.type item panel title with type label ({0}) and site code ({1)}
+#. : Product property type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product property type: {0} ({1})"
 msgstr ""
@@ -962,6 +1029,9 @@ msgstr ""
 msgid "Result"
 msgstr ""
 
+msgid "SKU"
+msgstr ""
+
 msgid "Salutation"
 msgstr ""
 
@@ -1016,6 +1086,9 @@ msgstr ""
 msgid "Services"
 msgstr ""
 
+msgid "Shipping costs per item"
+msgstr ""
+
 msgid "Short description"
 msgstr ""
 
@@ -1063,8 +1136,7 @@ msgstr ""
 
 #. : Supplier address item panel title with supplier name ({0}) and site code
 #. ({1)}
-#. : Supplier address item panel title with supplier name ({0}) and site code
-#. ({1)}
+#. : Supplier address item panel title with supplier name ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Supplier address: {0} ({1})"
 msgstr ""
@@ -1125,15 +1197,10 @@ msgstr ""
 msgid "Texts"
 msgstr ""
 
-msgid ""
-"The file with the exported texts will be available within a few minutes. It "
-"can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
+msgid "The file with the exported texts will be available within a few minutes. It can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
 msgstr ""
 
-msgid ""
-"The texts of your uploaded file will be imported within a few minutes. You "
-"can check the status of the import in the \"Job\" panel of the \"Overview\" "
-"tab"
+msgid "The texts of your uploaded file will be imported within a few minutes. You can check the status of the import in the \"Job\" panel of the \"Overview\" tab"
 msgstr ""
 
 msgid "This combination already exists"
@@ -1157,7 +1224,15 @@ msgstr ""
 msgid "URL segment"
 msgstr ""
 
+#, php-format
+msgid "Unable to call method \"%1$s\""
+msgstr ""
+
 msgid "Unique code (required)"
+msgstr ""
+
+#, php-format
+msgid "Unknown type \"%1$s\""
 msgstr ""
 
 msgid "Upload failed"
@@ -1201,8 +1276,7 @@ msgstr ""
 
 #. : Product warehouse item panel title with warehouse label ({0}) and site
 #. code ({1)}
-#. : Product warehouse item panel title with warehouse label ({0}) and site
-#. code ({1)}
+#. : Product warehouse item panel title with warehouse label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
 msgstr ""
@@ -1228,18 +1302,40 @@ msgstr ""
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr ""
 
-msgid ""
-"You are going to flush the complete cache for the current site. Would you "
-"like to proceed?"
+msgid "You are going to flush the complete cache for the current site. Would you like to proceed?"
 msgstr ""
 
 msgid "Zip code"
 msgstr ""
 
+#, php-format
+msgid "bundle"
+msgstr ""
+
+#, php-format
+msgid "category"
+msgstr ""
+
+#, php-format
+msgid "characteristic"
+msgstr ""
+
 msgid "dashboard"
 msgstr ""
 
+#, php-format
+msgid "download"
+msgstr ""
+
+#, php-format
+msgid "image"
+msgstr ""
+
 msgid "new"
+msgstr ""
+
+#, php-format
+msgid "option"
 msgstr ""
 
 msgid "pay:authorized"
@@ -1266,7 +1362,19 @@ msgstr ""
 msgid "pay:unfinished"
 msgstr ""
 
+#, php-format
+msgid "physical"
+msgstr ""
+
+#, php-format
+msgid "price"
+msgstr ""
+
 msgid "product"
+msgstr ""
+
+#, php-format
+msgid "selection"
 msgstr ""
 
 msgid "stat:deleted"
@@ -1306,6 +1414,14 @@ msgid "status:enabled"
 msgstr ""
 
 msgid "status:review"
+msgstr ""
+
+#, php-format
+msgid "stock"
+msgstr ""
+
+#, php-format
+msgid "text"
 msgstr ""
 
 msgid "unknown"
