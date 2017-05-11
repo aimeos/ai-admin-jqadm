@@ -652,7 +652,7 @@ Aimeos.Product.Item.Characteristic.Attribute = {
 
 	addLine : function() {
 
-		$(".product-item-characteristic-attribute").on("click", ".act-add", function(ev) {
+		$(".item-characteristic-attribute").on("click", ".act-add", function(ev) {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsAttributes,
@@ -663,7 +663,7 @@ Aimeos.Product.Item.Characteristic.Attribute = {
 
 	removeLine : function() {
 
-		$(".product-item-characteristic-attribute").on("click", ".act-delete", function() {
+		$(".item-characteristic-attribute").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
 	},
@@ -678,7 +678,7 @@ Aimeos.Product.Item.Characteristic.Attribute = {
 
 	setupComponents : function() {
 
-		$(".product-item-characteristic-attribute .combobox").combobox({
+		$(".item-characteristic-attribute .combobox").combobox({
 			getfcn: Aimeos.getOptionsAttributes,
 			select: Aimeos.Product.Item.Characteristic.Attribute.select
 		});
@@ -698,7 +698,7 @@ Aimeos.Product.Item.Characteristic.Property = {
 
 	addLine : function() {
 
-		$(".product-item-characteristic-property").on("click", ".act-add", function(ev) {
+		$(".item-characteristic-property").on("click", ".act-add", function(ev) {
 			Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
 		});
 	},
@@ -706,14 +706,14 @@ Aimeos.Product.Item.Characteristic.Property = {
 
 	removeLine : function() {
 
-		$(".product-item-characteristic-property").on("click", ".act-delete", function() {
+		$(".item-characteristic-property").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
 		});
 	},
 
 
 	setupComponents : function() {
-		$(".product-item-characteristic-property .combobox").combobox({getfcn: Aimeos.getOptionsLanguages});
+		$(".item-characteristic-property .combobox").combobox({getfcn: Aimeos.getOptionsLanguages});
 	}
 };
 
