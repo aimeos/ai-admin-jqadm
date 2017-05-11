@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-11 17:34+0200\n"
-"PO-Revision-Date: 2017-05-11 16:53+0000\n"
+"PO-Revision-Date: 2017-05-11 17:09+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1232,7 +1232,7 @@ msgstr "Kategorien"
 
 #, php-format
 msgid "characteristic"
-msgstr "Charakteristische Merkmale"
+msgstr "Merkmale"
 
 msgid "dashboard"
 msgstr "Übersicht"
