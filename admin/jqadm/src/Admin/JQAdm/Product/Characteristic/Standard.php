@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Characteristic;
 
+sprintf( 'characteristic' ); // for translation
+
 
 /**
  * Default implementation of product qualities JQAdm client.

@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Download;
 
+sprintf( 'download' ); // for translation
+
 
 /**
  * Default implementation of product download JQAdm client.

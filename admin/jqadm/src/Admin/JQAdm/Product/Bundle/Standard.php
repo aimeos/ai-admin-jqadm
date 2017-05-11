@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Bundle;
 
+sprintf( 'bundle' ); // for translation
+
 
 /**
  * Default implementation of product bundle JQAdm client.

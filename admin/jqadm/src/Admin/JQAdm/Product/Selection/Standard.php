@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Selection;
 
+sprintf( 'selection' ); // for translation
+
 
 /**
  * Default implementation of product selection JQAdm client.

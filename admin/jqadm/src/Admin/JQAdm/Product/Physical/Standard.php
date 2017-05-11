@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Physical;
 
+sprintf( 'physical' ); // for translation
+
 
 /**
  * Default implementation of product physical JQAdm client.

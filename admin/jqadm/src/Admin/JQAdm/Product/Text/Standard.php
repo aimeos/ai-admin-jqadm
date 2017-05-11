@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Text;
 
+sprintf( 'text' ); // for translation
+
 
 /**
  * Default implementation of product text JQAdm client.

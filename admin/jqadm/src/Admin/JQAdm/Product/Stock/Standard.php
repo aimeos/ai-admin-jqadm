@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Stock;
 
+sprintf( 'stock' ); // for translation
+
 
 /**
  * Default implementation of product stock JQAdm client.

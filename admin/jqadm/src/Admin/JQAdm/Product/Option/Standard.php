@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Option;
 
+sprintf( 'option' ); // for translation
+
 
 /**
  * Default implementation of product option JQAdm client.

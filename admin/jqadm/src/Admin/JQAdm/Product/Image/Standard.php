@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Image;
 
+sprintf( 'image' ); // for translation
+
 
 /**
  * Default implementation of product image JQAdm client.

@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Price;
 
+sprintf( 'price' ); // for translation
+
 
 /**
  * Default implementation of product price JQAdm client.

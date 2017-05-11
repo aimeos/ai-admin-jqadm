@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Product\Category;
 
+sprintf( 'category' ); // for translation
+
 
 /**
  * Default implementation of product category JQAdm client.
