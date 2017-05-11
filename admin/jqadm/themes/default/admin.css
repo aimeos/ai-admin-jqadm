@@ -569,9 +569,9 @@ html {
 }
 
 .aimeos table .actions {
+	white-space: nowrap;
 	text-align: right;
-	min-width: 20%;
-	max-width: 9rem;
+	width: 2%;
 }
 
 .aimeos table .actions form.delete {
@@ -705,6 +705,14 @@ html {
 
 .aimeos .ai-combobox {
 	width: 100%;
+}
+
+
+/* Basic */
+
+.aimeos .item-config th,
+.aimeos .item-config td {
+	width: 49%;
 }
 
 

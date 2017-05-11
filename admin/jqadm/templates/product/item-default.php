@@ -198,7 +198,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 						</div>
 					</div>
 					<div class="form-group row optional">
-						<label class="col-sm-4 control-label"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-dateend date" type="text" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"

@@ -173,24 +173,24 @@ Aimeos = {
 
 	checkFields : function() {
 
-		$(".aimeos .item .mandatory").on("blur", "input,select", function(ev) {
+		$(".aimeos .item-content").on("blur", ".mandatory input,select", function(ev) {
 
 			if($(this).val() !== '') {
-				$(ev.delegateTarget).removeClass("has-danger").addClass("has-success");
+				$(this).parents(".mandatory").removeClass("has-danger").addClass("has-success");
 			} else {
-				$(ev.delegateTarget).removeClass("has-success").addClass("has-danger");
+				$(this).parents(".mandatory").removeClass("has-success").addClass("has-danger");
 			}
 		});
 
 
-		$(".aimeos .item .form-group").on("blur", "input[data-pattern]", function(ev) {
+		$(".aimeos .item-content").on("blur", ".form-group input[data-pattern]", function(ev) {
 
 			var elem = $(this);
 
 			if(elem.val().match(elem.data("pattern"))) {
-				$(ev.delegateTarget).removeClass("has-danger").addClass("has-success");
+				$(this).parents(".form-group").removeClass("has-danger").addClass("has-success");
 			} else {
-				$(ev.delegateTarget).removeClass("has-success").addClass("has-danger");
+				$(this).parents(".form-group").removeClass("has-success").addClass("has-danger");
 			}
 		});
 	},
@@ -203,41 +203,41 @@ Aimeos = {
 			var nodes = [];
 
 			$(".card-header", this).removeClass("has-danger");
+			$(".item-navbar .nav-link", this).removeClass("has-danger");
 
-			$(".card:visible .mandatory", this).each(function(idx, element) {
+			$(".item-content .mandatory", this).each(function(idx, element) {
 				var elem = $(element);
 				var value = elem.find("input,select").val();
 
-				if(value === null || value.trim() === "") {
-					elem.parents(".form-group").addClass("has-danger");
+				if(elem.parents(".prototype").length === 0 && (value === null || value.trim() === "")) {
+					elem.closest(".form-group").addClass("has-danger");
 					nodes.push(element);
 					retval = false;
 				} else {
-					elem.parents(".form-group").removeClass("has-danger");
+					elem.closest(".form-group").removeClass("has-danger");
 				}
 			});
 
-			$(".card:visible input[data-pattern]", this).each(function(idx, element) {
+			$(".item-content input[data-pattern]", this).each(function(idx, element) {
 				var elem = $(element);
 				var value = elem.val();
 				var regex = new RegExp(elem.data('pattern'));
 
-				if(value !== null && value.match(regex) === null) {
-					elem.parents(".form-group").addClass("has-danger");
+				if(elem.parents(".prototype").length === 0 && (value !== null && value.match(regex) === null)) {
+					elem.closest(".form-group").addClass("has-danger");
 					nodes.push(element);
 					retval = false;
 				} else {
-					elem.parents(".form-group").removeClass("has-danger");
+					elem.closest(".form-group").removeClass("has-danger");
 				}
 			});
 
 			$.each(nodes, function(idx, node) {
-				var card = $(node).closest(".card");
-				var id = card.parents(".tab-pane").first().attr("id");
+				$(".card-header", $(node).closest(".card")).addClass("has-danger");
 
-				$(".card-header", card).addClass("has-danger");
-				$(".item-navbar .nav-link").removeClass("has-danger");
-				$(".item-navbar .nav-item." + id + " .nav-link").addClass("has-danger");
+				$(node).parents(".tab-pane").each(function() {
+					$(".item-navbar .nav-item." + $(this).attr("id") + " .nav-link").addClass("has-danger");
+				});
 			});
 
 			if( nodes.length !== 0 ) {
@@ -571,6 +571,65 @@ Aimeos.Product.Item = {
 
 
 
+Aimeos.Product.Item.Bundle = {
+
+	init : function() {
+
+		this.addLine();
+		this.removeLine();
+		this.setupComponents();
+		this.showBundles();
+	},
+
+
+	addLine : function() {
+
+		$(".item-product .item-bundle").on("click", ".act-add", function(ev) {
+			Aimeos.addClone(
+				$(".prototype", ev.delegateTarget),
+				Aimeos.getOptionsProducts,
+				Aimeos.Product.Item.Bundle.select);
+		});
+	},
+
+
+	removeLine : function() {
+
+		$(".item-product .item-bundle").on("click", ".act-delete", function() {
+			$(this).parents("tr").remove();
+		});
+	},
+
+
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget);
+		node.parents("tr").find("input.item-label").val(node.val());
+	},
+
+
+	setupComponents : function() {
+
+		$(".item-product .item-bundle .combobox").combobox({
+			getfcn: Aimeos.getOptionsProducts,
+			select: Aimeos.Product.Item.Bundle.select
+		});
+	},
+
+
+	showBundles : function() {
+
+		var tab = $(".item-navbar .bundle");
+		$(".item-basic .item-typeid option[selected]").data("code") === 'bundle' ? tab.show() : tab.hide();
+
+		$(".item-basic .item-typeid").on("change", function() {
+			$("option:selected", this).data("code") === 'bundle' ? tab.show() : tab.hide();
+		});
+	}
+};
+
+
+
 Aimeos.Product.Item.Characteristic = {
 
 	init : function() {
@@ -660,65 +719,6 @@ Aimeos.Product.Item.Characteristic.Property = {
 
 
 
-Aimeos.Product.Item.Bundle = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
-		this.showBundles();
-	},
-
-
-	addLine : function() {
-
-		$(".item-product .item-bundle").on("click", ".act-add", function(ev) {
-			Aimeos.addClone(
-				$(".prototype", ev.delegateTarget),
-				Aimeos.getOptionsProducts,
-				Aimeos.Product.Item.Bundle.select);
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-product .item-bundle").on("click", ".act-delete", function() {
-			$(this).parents("tr").remove();
-		});
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.parents("tr").find("input.item-label").val(node.val());
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-product .item-bundle .combobox").combobox({
-			getfcn: Aimeos.getOptionsProducts,
-			select: Aimeos.Product.Item.Bundle.select
-		});
-	},
-
-
-	showBundles : function() {
-
-		var tab = $(".item-navbar .bundle");
-		$(".item-basic .item-typeid option[selected]").data("code") === 'bundle' ? tab.show() : tab.hide();
-
-		$(".item-basic .item-typeid").on("change", function() {
-			$("option:selected", this).data("code") === 'bundle' ? tab.show() : tab.hide();
-		});
-	}
-};
-
-
-
 Aimeos.Product.Item.Category = {
 
 	init : function() {
@@ -760,6 +760,26 @@ Aimeos.Product.Item.Category = {
 		$(".item-category .combobox").combobox({
 			getfcn: Aimeos.getOptionsCategories,
 			select: Aimeos.Product.Item.Category.select
+		});
+	}
+};
+
+
+
+Aimeos.Product.Item.Download = {
+
+	init : function() {
+
+		this.updateName();
+	},
+
+
+	updateName : function() {
+
+		$(".item-download").on("change", ".fileupload", function(ev) {
+			$(this.files).each( function(idx, file) {
+				$("input.item-label", ev.delegateTarget).val(file.name);
+			});
 		});
 	}
 };
@@ -808,60 +828,6 @@ Aimeos.Product.Item.Image = {
 
 		$(".item-image").on("click", ".act-delete", function() {
 			$(this).parents("tr").remove();
-		});
-	}
-};
-
-
-
-Aimeos.Product.Item.Price = {
-
-	init : function() {
-
-		this.addBlock();
-		this.removeBlock();
-		this.updateHeader();
-	},
-
-
-	addBlock : function() {
-
-		$(".item-price").on("click", ".header .act-add", function(ev) {
-			ev.stopPropagation();
-
-			var number = Math.floor((Math.random() * 1000));
-			var block = $(this).parents(".group-item");
-			var clone = block.clone();
-
-			$(".card-block", clone).attr("style", "");
-			$(".card-block", clone).attr("id", "item-price-group-data-" + number);
-			$(".card-header", clone).attr("id", "item-price-group-item-" + number);
-			$(".card-header", clone).attr("data-target", "item-price-group-data-" + number);
-
-			clone.insertAfter(block);
-			$("input.item-listid", clone).val('');
-			$(".card-block", clone).addClass('show');
-
-			return false;
-		});
-	},
-
-
-	removeBlock : function() {
-
-		$(".item-price").on("click", ".header .act-delete", function() {
-			$(this).parents(".group-item").remove();
-		});
-	},
-
-
-	updateHeader : function() {
-
-		$(".item-price").on("blur", "input.item-label", function() {
-			var item = $(this).parents(".group-item");
-			var value = $(this).val();
-
-			$(".header .item-label", item).html(value);
 		});
 	}
 };
@@ -965,6 +931,55 @@ Aimeos.Product.Item.Option.Custom = {
 		$(".item-option-custom .combobox").combobox({
 			getfcn: Aimeos.getOptionsAttributes,
 			select: Aimeos.Product.Item.Option.Custom.select
+		});
+	}
+};
+
+
+
+Aimeos.Product.Item.Price = {
+
+	init : function() {
+
+		this.addBlock();
+		this.removeBlock();
+		this.updateHeader();
+	},
+
+
+	addBlock : function() {
+
+		$(".item-price").on("click", ".card-tools-more .act-add", function(ev) {
+			ev.stopPropagation();
+
+			var number = Math.floor((Math.random() * 1000));
+			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
+
+			$(".card-block", clone).attr("id", "item-price-group-data-" + number);
+			$(".card-header", clone).attr("id", "item-price-group-item-" + number);
+			$(".card-header", clone).attr("data-target", "#item-price-group-data-" + number);
+			$(".card-header", clone).attr("aria-controls", "item-price-group-data-" + number);
+
+			return false;
+		});
+	},
+
+
+	removeBlock : function() {
+
+		$(".item-price").on("click", ".header .act-delete", function() {
+			$(this).parents(".group-item").remove();
+		});
+	},
+
+
+	updateHeader : function() {
+
+		$(".item-price").on("blur", "input.item-label", function() {
+			var item = $(this).parents(".group-item");
+			var value = $(this).val();
+
+			$(".header .item-label", item).html(value);
 		});
 	}
 };
@@ -1210,26 +1225,6 @@ Aimeos.Product.Item.Text = {
 			var value = $(this).val();
 
 			$(".header .item-name-content", item).html(value);
-		});
-	}
-};
-
-
-
-Aimeos.Product.Item.Download = {
-
-	init : function() {
-
-		this.updateName();
-	},
-
-
-	updateName : function() {
-
-		$(".item-download").on("change", ".fileupload", function(ev) {
-			$(this.files).each( function(idx, file) {
-				$("input.item-label", ev.delegateTarget).val(file.name);
-			});
 		});
 	}
 };

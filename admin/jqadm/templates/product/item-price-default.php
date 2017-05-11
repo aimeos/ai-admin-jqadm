@@ -10,7 +10,7 @@ $enc = $this->encoder();
 
 ?>
 <div id="price" class="item-price tab-pane fade" role="tabpanel" aria-labelledby="price">
-	<div id="product-item-price-group" role="tablist" aria-multiselectable="true">
+	<div id="item-price-group" role="tablist" aria-multiselectable="true">
 
 		<?php foreach( (array) $this->get( 'priceData/price.currencyid', [] ) as $idx => $currencyid ) : ?>
 
@@ -18,9 +18,9 @@ $enc = $this->encoder();
 				<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'price', 'product.lists.id', '' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'priceData/product.lists.id/' . $idx ) ); ?>" />
 
-				<div id="product-item-price-group-item-<?= $enc->attr( $idx ); ?>" class="card-header header collapsed" role="tab"
-					data-toggle="collapse" data-target="#product-item-price-group-data-<?= $enc->attr( $idx ); ?>"
-					aria-expanded="false" aria-controls="product-item-price-group-data-<?= $enc->attr( $idx ); ?>">
+				<div id="item-price-group-item-<?= $enc->attr( $idx ); ?>" class="card-header header collapsed" role="tab"
+					data-toggle="collapse" data-target="#item-price-group-data-<?= $enc->attr( $idx ); ?>"
+					aria-expanded="false" aria-controls="item-price-group-data-<?= $enc->attr( $idx ); ?>">
 					<div class="card-tools-left">
 						<div class="btn btn-card-header act-show fa"></div>
 					</div>
@@ -31,8 +31,8 @@ $enc = $this->encoder();
 					</div>
 				</div>
 
-				<div id="product-item-price-group-data-<?= $enc->attr( $idx ); ?>" class="card-block collapse row"
-					role="tabpanel" aria-labelledby="product-item-price-group-item-<?= $enc->attr( $idx ); ?>">
+				<div id="item-price-group-data-<?= $enc->attr( $idx ); ?>" class="card-block collapse row"
+					role="tabpanel" aria-labelledby="item-price-group-item-<?= $enc->attr( $idx ); ?>">
 
 					<div class="col-xl-6">
 						<div class="form-group row mandatory">
@@ -132,7 +132,7 @@ $enc = $this->encoder();
 		<div class="group-item card prototype">
 			<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'price', 'product.lists.id', '' ) ) ); ?>" disabled="disabled" />
 
-			<div id="item-price-group-item-" class="card-header header collapsed" role="tab"
+			<div id="item-price-group-item-" class="card-header header" role="tab"
 				data-toggle="collapse" data-target="#item-price-group-data-">
 				<div class="card-tools-left">
 					<div class="btn btn-card-header act-show fa"></div>
@@ -144,7 +144,7 @@ $enc = $this->encoder();
 				</div>
 			</div>
 
-			<div id="item-price-group-data-" class="card-block collapse row" role="tabpanel">
+			<div id="item-price-group-data-" class="card-block collapse show row" role="tabpanel">
 
 				<div class="col-xl-6">
 					<div class="form-group row mandatory">
@@ -188,11 +188,14 @@ $enc = $this->encoder();
 							<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 							<div class="col-xl-8">
 								<select class="form-control custom-select item-currencyid" name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>" disabled="disabled">
+
+									<option value="" selected="selected"></option>
 									<?php foreach( $this->get( 'priceCurrencies', [] ) as $currencyItem ) : ?>
 										<option value="<?= $enc->attr( $currencyItem->getCode() ); ?>" >
 											<?= $enc->html( $currencyItem->getCode() ); ?>
 										</option>
 									<?php endforeach; ?>
+
 								</select>
 							</div>
 						</div>
@@ -208,6 +211,7 @@ $enc = $this->encoder();
 							<div class="col-lg-8">
 								<select class="form-control c-select item-typeid" name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>" disabled="disabled">
 
+									<option value="" selected="selected"></option>
 									<?php foreach( (array) $this->get( 'priceTypes', [] ) as $typeId => $typeItem ) : ?>
 										<option value="<?= $enc->attr( $typeId ); ?>" <?= ( $typeId == $this->get( 'priceData/price.typeid/' . $idx ) ? 'selected="selected"' : '' ) ?> >
 											<?= $enc->html( $typeItem->getLabel() ); ?>

@@ -121,7 +121,7 @@ $enc = $this->encoder();
 
 	<div class="group-item card prototype">
 
-		<div id="item-text-group-item-" class="card-header header collapsed" role="tab"
+		<div id="item-text-group-item-" class="card-header header" role="tab"
 			data-toggle="collapse" data-target="#item-text-group-data-"
 			aria-expanded="true" aria-controls="item-text-group-data-">
 			<div class="card-tools-left">

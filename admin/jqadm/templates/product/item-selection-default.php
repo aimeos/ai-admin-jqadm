@@ -113,7 +113,7 @@ $enc = $this->encoder();
 		<div id="item-selection-group-data-" class="card-block collapse show row">
 			<div class="col-lg-6">
 				<div class="form-group row mandatory">
-					<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
+					<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 					<div class="col-lg-8">
 						<input class="form-control item-code" type="text" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"

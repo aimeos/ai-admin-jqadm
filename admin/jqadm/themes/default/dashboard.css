@@ -20,7 +20,7 @@
     border: 1px solid #e5e5e5;
     border-top: none;
     overflow: auto;
-    height: 320px;
+    height: 280px;
 }
 
 .dashboard .loading {
@@ -78,6 +78,14 @@
 
 
 /* Latest order list styles */
+
+.dashboard .order-latest .content {
+    height: 340px;
+}
+
+.dashboard .order-latest table {
+    margin: 0;
+}
 
 .dashboard .order-latest td {
     border-top: none;
