@@ -210,68 +210,6 @@ msgstr ""
 msgid "Codes"
 msgstr ""
 
-#. /jqadm/partial/filter
-#. * Relative path to the partial template for displaying the product filter
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/confirm
-#. * @see admin/jqadm/partial/error
-#.
-#. /jqadm/partial/pagination
-#. * Relative path to the partial template for displaying the pagination
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/filter
-#. * @see admin/jqadm/partial/confirm
-#. * @see admin/jqadm/partial/error
-#.
-#. /jqadm/template/page
-#. * Relative path to the template for the base page template
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#.
 msgid "Columns"
 msgstr ""
 
@@ -300,7 +238,7 @@ msgid "Costs"
 msgstr ""
 
 msgid "Costs per item"
-msgstr "Costs per item"
+msgstr ""
 
 msgid "Could not upload file. Please notify your administrator"
 msgstr ""
@@ -440,50 +378,6 @@ msgstr ""
 msgid "Expert"
 msgstr ""
 
-#. /jqadm/partial/error
-#. * Relative path to the partial template for displaying errors
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/confirm
-#. * @see admin/jqadm/partial/filter
-#. * @see admin/jqadm/partial/pagination
-#.
-#. /jqadm/partial/confirm
-#. * Relative path to the partial template for displaying the confirmation dialog
-#. *
-#. * The template file contains the HTML code and processing instructions
-#. * to generate the result shown in the administration interface. The
-#. * configuration string is the path to the template file relative
-#. * to the templates directory (usually in admin/jqadm/templates).
-#. *
-#. * You can overwrite the template file configuration in extensions and
-#. * provide alternative templates. These alternative templates should be
-#. * named like the default one but with the string "default" replaced by
-#. * an unique name. You may use the name of your project for this. If
-#. * you've implemented an alternative client class as well, "default"
-#. * should be replaced by the name of the new class.
-#. *
-#. * @param string Relative path to the partial creating the HTML code
-#. * @since 2016.04
-#. * @category Developer
-#. * @see admin/jqadm/partial/error
-#. * @see admin/jqadm/partial/filter
-#. * @see admin/jqadm/partial/pagination
-#.
 msgid "Expert mode"
 msgstr ""
 
@@ -937,10 +831,8 @@ msgid "Product property type"
 msgstr ""
 
 #. : Product property.type item panel title with type label ({0}) and site code ({1)}
-#. : Product property type item panel title with type label ({0}) and site code ({1)}
-#, fuzzy, python-brace-format
 msgid "Product property type: {0} ({1})"
-msgstr "Product tag: {0} ({1})"
+msgstr ""
 
 msgid "Product quantity"
 msgstr ""
@@ -952,12 +844,12 @@ msgid "Product stock"
 msgstr ""
 
 msgid "Product supplier (optional)"
-msgstr "Product supplier (optional)"
+msgstr ""
 
 #. : Product tag item panel title with product label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
-msgstr "Product tag: {0} ({1})"
+msgstr ""
 
 msgid "Product tax rate"
 msgstr ""
@@ -1088,7 +980,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Shipping costs per item"
-msgstr "Costs per item"
+msgstr ""
 
 msgid "Short description"
 msgstr ""
@@ -1135,8 +1027,6 @@ msgstr ""
 msgid "Supplier"
 msgstr ""
 
-#. : Supplier address item panel title with supplier name ({0}) and site code
-#. ({1)}
 #. : Supplier address item panel title with supplier name ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Supplier address: {0} ({1})"
@@ -1311,33 +1201,33 @@ msgstr ""
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "Bundles"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "Categories"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "Characteristics"
 
 msgid "dashboard"
 msgstr "Dashboard"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "Downloads"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "Images"
 
 msgid "new"
 msgstr ""
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "Options"
 
 msgid "pay:authorized"
 msgstr "authorized"
@@ -1365,18 +1255,18 @@ msgstr "unfinished"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "Physical"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "Prices"
 
 msgid "product"
 msgstr "Product"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "Variants"
 
 msgid "stat:deleted"
 msgstr "deleted"
@@ -1419,11 +1309,11 @@ msgstr "review"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "Stocks"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "Texts"
 
 msgid "unknown"
 msgstr ""

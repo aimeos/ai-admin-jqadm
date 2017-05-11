@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-11 17:34+0200\n"
-"PO-Revision-Date: 2017-05-11 15:53+0000\n"
+"PO-Revision-Date: 2017-05-11 16:53+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgid "Categories"
 msgstr "Kategorien"
 
 msgid "Characteristics"
-msgstr "Charakteristische Merkmale"
+msgstr "Merkmale"
 
 msgid "City"
 msgstr "Stadt"
@@ -743,7 +743,7 @@ msgid "Payment types"
 msgstr "Zahlungsarten"
 
 msgid "Physical values"
-msgstr "Physikalische Grössen"
+msgstr "Größen"
 
 msgid "Please recheck your data"
 msgstr "Bitte überprüfen Sie die Daten"
@@ -1278,7 +1278,7 @@ msgstr "Offen"
 
 #, php-format
 msgid "physical"
-msgstr "Physikalische Grössen"
+msgstr "Größen"
 
 #, php-format
 msgid "price"
