@@ -225,8 +225,11 @@ html {
 }
 
 .aimeos .sidebar-menu {
-	background: #202830;
 	overflow: hidden;
+	background: #202830;
+	position: absolute;
+	bottom: 0;
+	top: 0;
 }
 
 .aimeos .sidebar-menu:hover {
@@ -661,7 +664,7 @@ html {
 
 .aimeos .list-items .btn.fa {
 	margin: 0 0.25rem;
-	width: 3rem;
+	padding: 0.5rem;
 }
 
 .aimeos .list-items th {

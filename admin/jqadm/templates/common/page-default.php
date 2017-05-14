@@ -243,83 +243,85 @@ if( $lang ) {
 <div class="aimeos" lang="<?= $this->param( 'lang' ); ?>" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
 
 	<nav class="main-sidebar">
+		<div class="sidebar-wrapper">
 
-		<a class="logo" href="https://aimeos.org/update/?type={type}&version={version}">
-			<img src="https://aimeos.org/check/?type={type}&version={version}&extensions={extensions}" alt="Aimeos update" title="Aimeos update">
-		</a>
+			<a class="logo" href="https://aimeos.org/update/?type={type}&version={version}">
+				<img src="https://aimeos.org/check/?type={type}&version={version}&extensions={extensions}" alt="Aimeos update" title="Aimeos update">
+			</a>
 
-		<ul class="sidebar-menu basic">
+			<ul class="sidebar-menu basic">
 
-			<?php $sites = $this->get( 'sitesList', [] ); ?>
-			<?php if( $this->access( 'admin' ) && count( $sites ) > 1 ) : ?>
+				<?php $sites = $this->get( 'sitesList', [] ); ?>
+				<?php if( $this->access( 'admin' ) && count( $sites ) > 1 ) : ?>
+					<li class="treeview">
+						<a href="#">
+							<i class="icon site"></i>
+							<span class="name"><?= $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?></span>
+						</a>
+						<ul class="tree-menu">
+							<?php foreach( $sites as $code => $label ) : ?>
+								<li>
+									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
+										<?= $enc->html( $label ); ?>
+									</a>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</li>
+				<?php endif; ?>
+
+
+				<?php foreach( $resourceList as $code ) : ?>
+					<?php $active = ( $this->param( 'resource', 'dashboard' ) === $code ? 'active' : '' ); ?>
+					<li class="<?= $active ?>">
+						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
+							<i class="icon <?= $enc->attr( $code ); ?>"></i>
+							<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+
+			<div class="separator"><i class="icon more"></i></div>
+
+			<ul class="sidebar-menu advanced">
+				<?php foreach( $advancedList as $code ) : ?>
+					<?php $active = ( $this->param( 'resource' ) === $code ? 'active' : '' ); ?>
+					<li class="<?= $active ?>">
+						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
+							<i class="icon <?= $enc->attr( $code ); ?>"></i>
+							<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
+						</a>
+					</li>
+				<?php endforeach; ?>
+
 				<li class="treeview">
-					<a href="#">
-						<i class="icon site"></i>
-						<span class="name"><?= $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?></span>
-					</a>
+					<span>
+						<i class="icon config"></i>
+						<span class="name"><?= $enc->attr( $this->translate( 'client/language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
+					</span>
 					<ul class="tree-menu">
-						<?php foreach( $sites as $code => $label ) : ?>
+						<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
 							<li>
-								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
-									<?= $enc->html( $label ); ?>
+								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
+									<span class="name"><?= $enc->html( $this->translate( 'client/language', $langid ) ); ?> (<?= $langid ?>)</span>
 								</a>
 							</li>
 						<?php endforeach; ?>
 					</ul>
 				</li>
-			<?php endif; ?>
 
+				<?php if( $this->access( 'admin' ) ) : ?>
+					<li>
+						<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>">
+							<i class="icon expert"></i>
+							<span class="name"><?= $enc->html( $this->translate( 'admin', 'Expert' ) ); ?></span>
+						</a>
+					</li>
+				<?php endif; ?>
+			</ul>
 
-			<?php foreach( $resourceList as $code ) : ?>
-				<?php $active = ( $this->param( 'resource', 'dashboard' ) === $code ? 'active' : '' ); ?>
-				<li class="<?= $active ?>">
-					<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
-						<i class="icon <?= $enc->attr( $code ); ?>"></i>
-						<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
-					</a>
-				</li>
-			<?php endforeach; ?>
-		</ul>
-
-		<div class="separator"><i class="icon more"></i></div>
-
-		<ul class="sidebar-menu advanced">
-			<?php foreach( $advancedList as $code ) : ?>
-				<?php $active = ( $this->param( 'resource' ) === $code ? 'active' : '' ); ?>
-				<li class="<?= $active ?>">
-					<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>">
-						<i class="icon <?= $enc->attr( $code ); ?>"></i>
-						<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
-					</a>
-				</li>
-			<?php endforeach; ?>
-
-			<li class="treeview">
-				<span>
-					<i class="icon config"></i>
-					<span class="name"><?= $enc->attr( $this->translate( 'client/language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
-				</span>
-				<ul class="tree-menu">
-					<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
-						<li>
-							<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
-								<span class="name"><?= $enc->html( $this->translate( 'client/language', $langid ) ); ?> (<?= $langid ?>)</span>
-							</a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			</li>
-
-			<?php if( $this->access( 'admin' ) ) : ?>
-				<li>
-					<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>">
-						<i class="icon expert"></i>
-						<span class="name"><?= $enc->html( $this->translate( 'admin', 'Expert' ) ); ?></span>
-					</a>
-				</li>
-			<?php endif; ?>
-		</ul>
-
+		</div>
 	</nav>
 
 	<div class="main-content">
