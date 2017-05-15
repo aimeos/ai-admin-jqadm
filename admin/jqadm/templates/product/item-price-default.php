@@ -18,27 +18,31 @@ $enc = $this->encoder();
 				<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'price', 'product.lists.id', '' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'priceData/product.lists.id/' . $idx ) ); ?>" />
 
-				<div id="item-price-group-item-<?= $enc->attr( $idx ); ?>" class="card-header header collapsed" role="tab"
+				<div id="item-price-group-item-<?= $enc->attr( $idx ); ?>" class="card-header header  <?= ( $idx !== 0 ? 'collapsed' : '' ); ?>" role="tab"
 					data-toggle="collapse" data-target="#item-price-group-data-<?= $enc->attr( $idx ); ?>"
 					aria-expanded="false" aria-controls="item-price-group-data-<?= $enc->attr( $idx ); ?>">
 					<div class="card-tools-left">
-						<div class="btn btn-card-header act-show fa"></div>
+						<div class="btn btn-card-header act-show fa"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
+						</div>
 					</div>
 					<span class="item-label header-label"><?= $enc->html( $this->get( 'priceData/price.label/' . $idx ) ); ?></span>
 					&nbsp;
 					<div class="card-tools-right">
-						<div class="btn btn-card-header act-delete fa"></div>
+						<div class="btn btn-card-header act-delete fa"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+						</div>
 					</div>
 				</div>
 
-				<div id="item-price-group-data-<?= $enc->attr( $idx ); ?>" class="card-block collapse row"
+				<div id="item-price-group-data-<?= $enc->attr( $idx ); ?>" class="card-block collapse row <?= ( $idx === 0 ? 'show' : '' ); ?>"
 					role="tabpanel" aria-labelledby="item-price-group-item-<?= $enc->attr( $idx ); ?>">
 
 					<div class="col-xl-6">
 						<div class="form-group row mandatory">
 							<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ); ?></label>
 							<div class="col-lg-8">
-								<input class="form-control item-taxrate" type="text" data-pattern="^[0-9]+(\.[0-9]+)?$"
+								<input class="form-control item-taxrate" type="number" step="0.01" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" tabindex="<?= $this->get( "tabindex" ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrate', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.taxrate/' . $idx, 0 ) ); ?>" />
@@ -47,7 +51,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Actual current price' ) ); ?></label>
 							<div class="col-lg-8">
-								<input class="form-control item-value" type="text" data-pattern="^[0-9]+(\.[0-9]+)?$"
+								<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.value', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual current price' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.value/' . $idx, '0.00' ) ); ?>" />
@@ -56,8 +60,8 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?></label>
 							<div class="col-lg-8">
-								<input class="form-control item-rebate" type="text" data-pattern="^([0-9]+(\.[0-9]+)?)?$"
-									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.rebate', '' ) ) ); ?>"
+								<input class="form-control item-rebate" type="number" step="0.01"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.rebate', '' ) ) ); ?>" tabindex="<?= $this->get( "tabindex" ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.rebate/' . $idx, '0.00' ) ); ?>" />
 							</div>
@@ -65,8 +69,8 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Shipping costs per item' ) ); ?></label>
 							<div class="col-lg-8">
-								<input class="form-control item-costs" type="text" data-pattern="^([0-9]+(\.[0-9]+)?)?$"
-									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.costs', '' ) ) ); ?>"
+								<input class="form-control item-costs" type="number" step="0.01"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.costs', '' ) ) ); ?>" tabindex="<?= $this->get( "tabindex" ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping costs per item' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.costs/' . $idx, '0.00' ) ); ?>" />
 							</div>
@@ -79,12 +83,15 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 								<div class="col-xl-8">
-									<select class="form-control custom-select item-currencyid" name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>">
+									<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>">
+
 										<?php foreach( $this->get( 'priceCurrencies', [] ) as $currencyItem ) : ?>
 											<option value="<?= $enc->attr( $currencyItem->getCode() ); ?>" <?= ( $currencyid == $currencyItem->getCode() ? 'selected="selected"' : '' ) ?> >
 												<?= $enc->html( $currencyItem->getCode() ); ?>
 											</option>
 										<?php endforeach; ?>
+
 									</select>
 								</div>
 							</div>
@@ -96,7 +103,8 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 								<div class="col-lg-8">
-									<select class="form-control c-select item-typeid" name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>">
+									<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>">
 
 										<?php foreach( (array) $this->get( 'priceTypes', [] ) as $typeId => $typeItem ) : ?>
 											<option value="<?= $enc->attr( $typeId ); ?>" <?= ( $typeId == $this->get( 'priceData/price.typeid/' . $idx ) ? 'selected="selected"' : '' ) ?> >
@@ -115,7 +123,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Minimum quantity' ) ); ?></label>
 							<div class="col-lg-8">
-								<input class="form-control item-quantity" type="number" step="1" min="1" max="2147483647"
+								<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.quantity', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Minimum quantity' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.quantity/' . $idx, 1 ) ); ?>" />
@@ -135,12 +143,16 @@ $enc = $this->encoder();
 			<div id="item-price-group-item-" class="card-header header" role="tab"
 				data-toggle="collapse" data-target="#item-price-group-data-">
 				<div class="card-tools-left">
-					<div class="btn btn-card-header act-show fa"></div>
+					<div class="btn btn-card-header act-show fa"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
+					</div>
 				</div>
 				<span class="item-label header-label"></span>
 				&nbsp;
 				<div class="card-tools-right">
-					<div class="btn btn-card-header act-delete fa"></div>
+					<div class="btn btn-card-header act-delete fa"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+					</div>
 				</div>
 			</div>
 
@@ -150,7 +162,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-taxrate" type="text" data-pattern="^[0-9]+(\.[0-9]+)?$" disabled="disabled"
+							<input class="form-control item-taxrate" type="number" step="0.01" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrate', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>" />
 						</div>
@@ -158,7 +170,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Actual current price' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-value" type="text" data-pattern="^[0-9]+(\.[0-9]+)?$" disabled="disabled"
+							<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.value', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual current price' ) ); ?>" />
 						</div>
@@ -166,7 +178,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-rebate" type="text" data-pattern="^([0-9]+(\.[0-9]+)?)?$" disabled="disabled"
+							<input class="form-control item-rebate" type="number" step="0.01" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.rebate', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?>" />
 						</div>
@@ -174,7 +186,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Shipping costs per item' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-costs" type="text" data-pattern="^([0-9]+(\.[0-9]+)?)?$" disabled="disabled"
+							<input class="form-control item-costs" type="number" step="0.01" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.costs', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping costs per item' ) ); ?>" />
 						</div>
@@ -184,10 +196,11 @@ $enc = $this->encoder();
 				<div class="col-xl-6">
 
 					<?php if( count( $this->get( 'priceCurrencies', [] ) ) > 1 ) : ?>
-						<div class="form-group row mandatory">
+						<div class="form-group row">
 							<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 							<div class="col-xl-8">
-								<select class="form-control custom-select item-currencyid" name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>" disabled="disabled">
+								<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>">
 
 									<option value="" selected="selected"></option>
 									<?php foreach( $this->get( 'priceCurrencies', [] ) as $currencyItem ) : ?>
@@ -206,10 +219,11 @@ $enc = $this->encoder();
 					<?php endif; ?>
 
 					<?php if( count( $this->get( 'priceTypes', [] ) ) > 1 ) : ?>
-						<div class="form-group row mandatory">
+						<div class="form-group row">
 							<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-lg-8">
-								<select class="form-control c-select item-typeid" name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>" disabled="disabled">
+								<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>">
 
 									<option value="" selected="selected"></option>
 									<?php foreach( (array) $this->get( 'priceTypes', [] ) as $typeId => $typeItem ) : ?>
@@ -228,10 +242,10 @@ $enc = $this->encoder();
 							value="<?= $enc->attr( $priceType ); ?>" />
 					<?php endif; ?>
 
-					<div class="form-group row mandatory">
+					<div class="form-group row">
 						<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Minimum quantity' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-quantity" type="number" step="1" min="1" max="2147483647" disabled="disabled"
+							<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.quantity', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Minimum quantity' ) ); ?>"
 								value="1" />
@@ -244,7 +258,9 @@ $enc = $this->encoder();
 		</div>
 
 		<div class="card-tools-more">
-			<div class="btn btn-card-more act-add fa"></i></div>
+			<div class="btn btn-card-more act-add fa"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+			</div>
 		</div>
 
 	</div>

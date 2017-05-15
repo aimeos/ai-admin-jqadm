@@ -21,13 +21,14 @@ $enc = $this->encoder();
 					value="<?= $enc->attr( $this->get( 'downloadData/product.lists.id' ) ); ?>" />
 				<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.id' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/attribute.id' ) ); ?>" />
-				<input class="fileupload" type="file" name="download[file]" />
+				<input class="fileupload" type="file" name="download[file]" tabindex="<?= $this->get( "tabindex" ); ?>" />
 			</div>
 		</div>
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 			<div class="col-sm-8">
-				<select class="form-control c-select item-status" name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.status' ) ) ); ?>">
+				<select class="form-control c-select item-status" tabindex="<?= $this->get( "tabindex" ); ?>"
+					name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.status' ) ) ); ?>">
 					<option value="1" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), 1 ); ?>><?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?></option>
 					<option value="0" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), 0 ); ?>><?= $enc->html( $this->translate( 'admin', 'status:disabled' ) ); ?></option>
 					<option value="-1" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), -1 ); ?>><?= $enc->html( $this->translate( 'admin', 'status:review' ) ); ?></option>
@@ -38,7 +39,7 @@ $enc = $this->encoder();
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></label>
 			<div class="col-sm-8">
-				<input class="form-control item-label" type="text"
+				<input class="form-control item-label" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.label' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/attribute.label' ) ); ?>" />
 			</div>
@@ -46,7 +47,7 @@ $enc = $this->encoder();
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Replace file' ) ); ?></label>
 			<div class="col-sm-8">
-				<input class="form-control item-overwrite" type="checkbox"
+				<input class="form-control item-overwrite" type="checkbox" tabindex="<?= $this->get( "tabindex" ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'overwrite' ) ) ); ?>" value="1"
 					<?= $selected( $this->get( 'downloadData/overwrite' ), 1 ); ?> />
 			</div>

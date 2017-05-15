@@ -609,6 +609,7 @@ $sortcode = $this->param( 'sort' );
 				<th class="actions">
 					<a class="btn fa act-add"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+a)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
 				</th>
@@ -652,12 +653,15 @@ $sortcode = $this->param( 'sort' );
 					<td class="actions"><!--
 						--><a class="btn act-copy fa"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, array( 'id' => $id ) + $params, [], $copyConfig ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a><!--
 						--><form class="delete" action="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, array( 'id' => $id ) + $params, [], $delConfig ) ); ?>" method="POST"><!--
 							--><?= $this->csrf()->formfield(); ?><!--
 							--><input type="hidden" name="<?= $enc->attr( $this->formparam( array( 'resource' ) ) ); ?>" value="product" /><!--
 							--><input type="hidden" name="<?= $enc->attr( $this->formparam( array( 'id' ) ) ); ?>" value="<?= $enc->attr( $id ); ?>" /><!--
-							--><button class="btn act-delete fa" aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></button><!--
+							--><button class="btn act-delete fa"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></button><!--
 						--></form><!--
 					--></td>
 				</tr>

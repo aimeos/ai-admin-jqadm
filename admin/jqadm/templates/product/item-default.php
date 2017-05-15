@@ -102,16 +102,16 @@ $subparts = $this->get( 'itemSubparts', [] );
 
 	<nav class="main-navbar">
 		<span class="navbar-brand">
-			<?= $enc->attr( $this->get( 'itemData/product.id' ) ); ?>
-			-
+			<?= $enc->html( $this->translate( 'admin', 'Product' ) ); ?>:
+			<?= $enc->html( $this->get( 'itemData/product.id' ) ); ?> -
 			<?= $enc->html( $this->get( 'itemData/product.label', $this->translate( 'admin', 'New' ) ) ); ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->get( 'pageSite' ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
-			<a class="btn btn-secondary" href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
+			<a class="btn btn-secondary act-cancel" href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
 				<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
 			</a>
-			<button class="btn btn-primary"><?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?></button>
+			<button class="btn btn-primary act-save"><?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?></button>
 		</div>
 	</nav>
 
@@ -126,9 +126,9 @@ $subparts = $this->get( 'itemSubparts', [] );
 					</a>
 				</li>
 
-				<?php foreach( $subparts as $subpart ) : ?>
+				<?php foreach( $subparts as $idx => $subpart ) : ?>
 					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab">
+						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx+1; ?>">
 							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 						</a>
 					</li>
@@ -145,7 +145,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control c-select item-status" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.status' ) ) ); ?>">
+							<select class="form-control c-select item-status" required="required" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.status' ) ) ); ?>">
 								<option value="1" <?= $selected( $this->get( 'itemData/product.status', 1 ), 1 ); ?> >
 									<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
 								</option>
@@ -164,7 +165,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control c-select item-typeid" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>">
+							<select class="form-control c-select item-typeid" required="required" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>">
 								<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
 									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>" <?= $selected( $this->get( 'itemData/product.typeid' ), $id ); ?> >
 										<?= $enc->html( $typeItem->getLabel() ); ?>
@@ -176,7 +178,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-code" type="text" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.code' ) ) ); ?>"
+							<input class="form-control item-code" type="text" required="required" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.code' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.code' ) ); ?>" />
 						</div>
@@ -184,7 +187,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-label" type="text" name="<?= $this->formparam( array( 'item', 'product.label' ) ); ?>"
+							<input class="form-control item-label" type="text" required="required" tabindex="1"
+								name="<?= $this->formparam( array( 'item', 'product.label' ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.label' ) ); ?>" />
 						</div>
@@ -192,7 +196,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-datestart date" type="text" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ); ?>"
+							<input class="form-control item-datestart date" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.datestart' ) ); ?>"
 								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
@@ -201,7 +206,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-dateend date" type="text" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
+							<input class="form-control item-dateend date" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.dateend' ) ); ?>"
 								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
@@ -215,7 +221,11 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<tr>
 								<th><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></th>
 								<th><?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?></th>
-								<th class="actions"><div class="btn act-add fa"></div></th>
+								<th class="actions">
+									<div class="btn act-add fa" tabindex="1"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+									</div>
+								</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -223,34 +233,38 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<?php	foreach( (array) $this->get( 'itemData/config/key', [] ) as $idx => $key ) : ?>
 								<tr class="config-item">
 									<td>
-										<input type="text" class="config-key form-control"
+										<input type="text" class="config-key form-control" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>" />
 									</td>
 									<td>
-										<input type="text" class="config-value form-control"
+										<input type="text" class="config-value form-control" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/config/val/' . $idx ) ); ?>" />
 									</td>
 									<td class="actions">
-										<div class="btn act-delete fa"></div>
+										<div class="btn act-delete fa" tabindex="1"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+										</div>
 									</td>
 								</tr>
 							<?php	endforeach; ?>
 
 							<tr class="prototype">
 								<td>
-									<input type="text" class="config-key form-control"
+									<input type="text" class="config-key form-control" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>"
 										value="" disabled="disabled" />
 								</td>
 								<td>
-									<input type="text" class="config-value form-control"
+									<input type="text" class="config-value form-control" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>"
 										value="" disabled="disabled" />
 								</td>
 								<td class="actions">
-									<div class="btn act-delete fa"></div>
+									<div class="btn act-delete fa" tabindex="1"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+									</div>
 								</td>
 							</tr>
 						</tbody>
@@ -265,10 +279,10 @@ $subparts = $this->get( 'itemSubparts', [] );
 	</div>
 
 	<div class="item-actions">
-		<a class="btn btn-secondary" href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
+		<a class="btn btn-secondary act-cancel" href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
 			<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
 		</a>
-		<button class="btn btn-primary">
+		<button class="btn btn-primary act-save">
 			<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 		</button>
 	</div>

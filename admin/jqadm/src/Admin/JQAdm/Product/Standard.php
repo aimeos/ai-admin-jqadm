@@ -205,7 +205,9 @@ class Standard
 
 			$view->itemBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
+			foreach( $this->getSubClients() as $idx => $client )
+			{
+				$view->tabindex = ++$idx + 1;
 				$view->itemBody .= $client->copy();
 			}
 		}
@@ -261,7 +263,9 @@ class Standard
 			$this->setData( $view );
 			$view->itemBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
+			foreach( $this->getSubClients() as $idx => $client )
+			{
+				$view->tabindex = ++$idx + 1;
 				$view->itemBody .= $client->create();
 			}
 		}
@@ -337,7 +341,9 @@ class Standard
 			$this->setData( $view );
 			$view->itemBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
+			foreach( $this->getSubClients() as $idx => $client )
+			{
+				$view->tabindex = ++$idx + 1;
 				$view->itemBody .= $client->get();
 			}
 		}
@@ -577,6 +583,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 		$langManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/language' );
 
+		$view->itemLanguages = $langManager->searchItems( $langManager->createSearch( true ) );
 		$view->pageSite = $context->getLocale()->getSite()->getLabel();
 		$view->itemData = (array) $view->param( 'item', [] );
 		$view->itemSubparts = $this->getSubClientNames();
@@ -611,7 +618,6 @@ class Standard
 			$data['config']['val'][] = $value;
 		}
 
-		$view->itemLanguages = $langManager->searchItems( $langManager->createSearch( true ) );
 		$view->itemData = $data;
 		$view->item = $item;
 	}

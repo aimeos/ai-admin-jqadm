@@ -14,7 +14,11 @@ $enc = $this->encoder();
 			<thead>
 				<tr>
 					<th><?= $enc->html( $this->translate( 'admin', 'Default' ) ); ?></th>
-					<th class="actions"><div class="btn act-add fa"></div></th>
+					<th class="actions">
+						<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+						</div>
+					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -24,30 +28,49 @@ $enc = $this->encoder();
 					<?php if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
 						<tr>
 							<td>
-								<input class="item-listtypeid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
+								<input class="item-listtypeid" type="hidden"
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
 									value="<?= $enc->attr( $listTypeId ); ?>" />
-								<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>"
+								<input class="item-listid" type="hidden"
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>"
 									value="<?= $enc->attr( $id ); ?>" />
-								<input class="item-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
+								<input class="item-label" type="hidden"
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
-								<select class="combobox item-id" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
-									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>" ><?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?></option>
+								<select class="combobox item-id" tabindex="<?= $this->get( "tabindex" ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
+									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>" >
+										<?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>
+									</option>
 								</select>
 							</td>
-							<td class="actions"><div class="btn act-delete fa"></div></td>
+							<td class="actions">
+								<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+								</div>
+							</td>
 						</tr>
 					<?php endif; ?>
 				<?php endforeach; ?>
 
 				<tr class="prototype">
 					<td>
-						<input class="item-listtypeid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>" value="<?= $enc->attr( $listTypeId ); ?>" disabled="disabled" />
-						<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" value="" disabled="disabled" />
-						<input class="item-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" value="" disabled="disabled" />
-						<select class="combobox-prototype item-id" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>" disabled="disabled">
+						<input class="item-listtypeid" type="hidden" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
+							value="<?= $enc->attr( $listTypeId ); ?>" />
+						<input class="item-listid" type="hidden" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
+						<input class="item-label" type="hidden" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" />
+						<select class="combobox-prototype item-id" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
 						</select>
 					</td>
-					<td class="actions"><div class="btn act-delete fa"></div></td>
+					<td class="actions">
+						<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+						</div>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -57,7 +80,11 @@ $enc = $this->encoder();
 			<thead>
 				<tr>
 					<th><?= $enc->html( $this->translate( 'admin', 'Promotion' ) ); ?></th>
-					<th class="actions"><div class="btn act-add fa"></div></th>
+					<th class="actions">
+						<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+						</div>
+					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -67,30 +94,49 @@ $enc = $this->encoder();
 					<?php if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
 						<tr>
 							<td>
-								<input class="item-listtypeid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
+								<input class="item-listtypeid" type="hidden"
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
 									value="<?= $enc->attr( $listTypeId ); ?>" />
-								<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>"
+								<input class="item-listid" type="hidden"
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>"
 									value="<?= $enc->attr( $id ); ?>" />
-								<input class="item-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
+								<input class="item-label" type="hidden"
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
-								<select class="combobox item-id" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
-									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>" ><?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?></option>
+								<select class="combobox item-id" tabindex="<?= $this->get( "tabindex" ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
+									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>" >
+										<?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>
+									</option>
 								</select>
 							</td>
-							<td class="actions"><div class="btn act-delete fa"></div></td>
+							<td class="actions">
+								<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+								</div>
+							</td>
 						</tr>
 					<?php	endif; ?>
 				<?php endforeach; ?>
 
 				<tr class="prototype">
 					<td>
-						<input class="item-listtypeid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>" value="<?= $enc->attr( $listTypeId ); ?>" disabled="disabled" />
-						<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" value="" disabled="disabled" />
-						<input class="item-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" value="" disabled="disabled" />
-						<select class="combobox-prototype item-id" name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>" disabled="disabled">
+						<input class="item-listtypeid" type="hidden" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
+							value="<?= $enc->attr( $listTypeId ); ?>" />
+						<input class="item-listid" type="hidden" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
+						<input class="item-label" type="hidden" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" />
+						<select class="combobox-prototype item-id" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
 						</select>
 					</td>
-					<td class="actions"><div class="btn act-delete fa"></div></td>
+					<td class="actions">
+						<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+						</div>
+					</td>
 				</tr>
 			</tbody>
 		</table>

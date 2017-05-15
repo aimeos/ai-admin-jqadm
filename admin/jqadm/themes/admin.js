@@ -12,13 +12,12 @@
 
 			this.wrapper = $( "<span>" ).addClass( "ai-combobox" ).insertAfter( this.element );
 
-			this.element.hide();
-			this._createAutocomplete();
+			this._createAutocomplete(this.element.hide());
 			this._createShowAll();
 		},
 
 
-		_createAutocomplete: function() {
+		_createAutocomplete: function(select) {
 
 			var selected = this.element.children( ":selected" );
 			var value = selected.val() ? selected.text() : "";
@@ -28,6 +27,7 @@
 			this.input.appendTo( this.wrapper );
 			this.input.val( value );
 			this.input.attr( "title", "" );
+			this.input.attr( "tabindex", select.attr( "tabindex" ) );
 			this.input.addClass( "ai-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" );
 
 			this.input.autocomplete({
@@ -68,7 +68,7 @@
 
 			var btn = $( '<button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icons-only"><span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span></button>' );
 
-			btn.attr( "tabIndex", -1 );
+			btn.attr( "tabindex", -1 );
 			btn.appendTo( this.wrapper );
 			btn.button();
 			btn.removeClass( "ui-corner-all" );
@@ -147,6 +147,7 @@ Aimeos = {
 
 	init : function() {
 
+		this.addShortcuts();
 		this.checkFields();
 		this.checkSubmit();
 		this.createDatePicker();
@@ -171,26 +172,59 @@ Aimeos = {
 	},
 
 
-	checkFields : function() {
+	addShortcuts : function() {
 
-		$(".aimeos .item-content").on("blur", ".mandatory input,select", function(ev) {
+		$(window).bind('keydown', function(ev) {
+			if(ev.ctrlKey || ev.metaKey) {
+				if(ev.altKey) {
+					var key = String.fromCharCode(ev.which).toLowerCase();
+					if(key.match(/[a-z]/)) {
+						window.location = $(".aimeos .sidebar-menu a[data-ctrlkey=" + key + "]").first().attr("href");
+						return false;
+					}
+				}
+				switch(String.fromCharCode(ev.which).toLowerCase()) {
+					case 'a':
+						var node = $(".aimeos :focus").closest(".card,.content-block").find(".act-add:visible").first();
+						if(node.length > 0) {
+							node.trigger("click");
+							return false;
+						}
 
-			if($(this).val() !== '') {
-				$(this).parents(".mandatory").removeClass("has-danger").addClass("has-success");
-			} else {
-				$(this).parents(".mandatory").removeClass("has-success").addClass("has-danger");
+						node = $(".aimeos .act-add:visible").first();
+						if(node.attr("href")) {
+							window.location = node.attr('href');
+						} else {
+							node.trigger("click");
+						}
+						return false;
+					case 'd':
+						var node = $(".aimeos .act-copy:visible").first();
+						if(node.attr("href")) {
+							window.location = node.attr('href');
+						} else {
+							node.trigger("click");
+						}
+						return false;
+					case 's':
+						$(".aimeos form.item").first().submit();
+						return false;
+				}
+			} else if(ev.which === 13) {
+				$(".btn:focus").trigger("click");
 			}
 		});
+	},
 
 
-		$(".aimeos .item-content").on("blur", ".form-group input[data-pattern]", function(ev) {
+	checkFields : function() {
 
-			var elem = $(this);
+		$(".aimeos .item-content").on("blur", "input,select", function(ev) {
 
-			if(elem.val().match(elem.data("pattern"))) {
-				$(this).parents(".form-group").removeClass("has-danger").addClass("has-success");
+			if($(this).is(":invalid") === true) {
+				$(this).parent().removeClass("has-success").addClass("has-danger");
 			} else {
-				$(this).parents(".form-group").removeClass("has-success").addClass("has-danger");
+				$(this).parent().removeClass("has-danger").addClass("has-success");
 			}
 		});
 	},
@@ -198,55 +232,42 @@ Aimeos = {
 
 	checkSubmit : function() {
 
+		$(".aimeos form").each(function() {
+			this.noValidate = true;
+		});
+
 		$(".aimeos form").on("submit", function(ev) {
-			var retval = true;
 			var nodes = [];
 
 			$(".card-header", this).removeClass("has-danger");
 			$(".item-navbar .nav-link", this).removeClass("has-danger");
 
-			$(".item-content .mandatory", this).each(function(idx, element) {
+			$(".item-content input,select", this).each(function(idx, element) {
 				var elem = $(element);
-				var value = elem.find("input,select").val();
 
-				if(elem.parents(".prototype").length === 0 && (value === null || value.trim() === "")) {
-					elem.closest(".form-group").addClass("has-danger");
+				if(elem.parents(".prototype").length === 0 && elem.is(":invalid") === true) {
+					elem.parent().addClass("has-danger");
 					nodes.push(element);
-					retval = false;
 				} else {
-					elem.closest(".form-group").removeClass("has-danger");
+					elem.parent().removeClass("has-danger");
 				}
 			});
 
-			$(".item-content input[data-pattern]", this).each(function(idx, element) {
-				var elem = $(element);
-				var value = elem.val();
-				var regex = new RegExp(elem.data('pattern'));
+			$.each(nodes, function() {
+				$(".card-header", $(this).closest(".card")).addClass("has-danger");
 
-				if(elem.parents(".prototype").length === 0 && (value !== null && value.match(regex) === null)) {
-					elem.closest(".form-group").addClass("has-danger");
-					nodes.push(element);
-					retval = false;
-				} else {
-					elem.closest(".form-group").removeClass("has-danger");
-				}
-			});
-
-			$.each(nodes, function(idx, node) {
-				$(".card-header", $(node).closest(".card")).addClass("has-danger");
-
-				$(node).parents(".tab-pane").each(function() {
+				$(this).parents(".tab-pane").each(function() {
 					$(".item-navbar .nav-item." + $(this).attr("id") + " .nav-link").addClass("has-danger");
 				});
 			});
 
-			if( nodes.length !== 0 ) {
+			if( nodes.length > 0 ) {
 				$('html, body').animate({
 					scrollTop: '0px'
 				});
-			}
 
-			return retval;
+				return false;
+			}
 		});
 	},
 
@@ -260,6 +281,20 @@ Aimeos = {
 				constrainInput: false
 			});
 		});
+	},
+
+
+	focusBefore : function(node) {
+
+		var elem = $(":focus", node);
+		var elements = $(".aimeos [tabindex=" + elem.attr("tabindex") + "]:visible");
+		var idx = elements.index(elem) - $("[tabindex=" + elem.attr("tabindex") + "]:visible", node).length;
+
+		if(idx > -1) {
+			elements[idx].focus();
+		}
+
+		return node;
 	},
 
 
@@ -545,12 +580,8 @@ Aimeos.Product.Item = {
 
 	deleteConfigLine : function() {
 
-		$(".aimeos .item-config .act-delete").on("click", function(ev) {
-			$(this).parents("tr").remove();
-		});
-
 		$(".aimeos .item-config").on("click", ".act-delete", function(ev) {
-			$(this).parents("tr").remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -596,7 +627,7 @@ Aimeos.Product.Item.Bundle = {
 	removeLine : function() {
 
 		$(".item-product .item-bundle").on("click", ".act-delete", function() {
-			$(this).parents("tr").remove();
+			Aimeos.focusBefore($(this).parents("tr")).remove();
 		});
 	},
 
@@ -664,7 +695,7 @@ Aimeos.Product.Item.Characteristic.Attribute = {
 	removeLine : function() {
 
 		$(".item-characteristic-attribute").on("click", ".act-delete", function() {
-			$(this).parents("tr").remove();
+			Aimeos.focusBefore($(this).parents("tr")).remove();
 		});
 	},
 
@@ -707,7 +738,7 @@ Aimeos.Product.Item.Characteristic.Property = {
 	removeLine : function() {
 
 		$(".item-characteristic-property").on("click", ".act-delete", function() {
-			$(this).parents("tr").remove();
+			Aimeos.focusBefore($(this).parents("tr")).remove();
 		});
 	},
 
@@ -743,7 +774,7 @@ Aimeos.Product.Item.Category = {
 	removeLine : function() {
 
 		$(".item-category .category-list").on("click", ".act-delete", function() {
-			$(this).parents("tr").remove();
+			Aimeos.focusBefore($(this).parents("tr")).remove();
 		});
 	},
 
@@ -790,8 +821,21 @@ Aimeos.Product.Item.Image = {
 
 	init : function() {
 
+		this.addFocus();
 		this.addLines();
 		this.removeLine();
+	},
+
+
+	addFocus : function() {
+
+		$(".item-image .btn").on("focus", ".fileupload", function(ev) {
+			$(ev.delegateTarget).addClass("focus");
+		});
+
+		$(".item-image .btn").on("blur", ".fileupload", function(ev) {
+			$(ev.delegateTarget).removeClass("focus");
+		});
 	},
 
 
@@ -800,7 +844,6 @@ Aimeos.Product.Item.Image = {
 		$(".item-image").on("change", ".fileupload", function(ev) {
 
 			$(this).each( function(idx, el) {
-				$(".upload", ev.delegateTarget).remove();
 				var line = $(".prototype", ev.delegateTarget);
 
 				for(i=0; i<el.files.length; i++) {
@@ -826,8 +869,8 @@ Aimeos.Product.Item.Image = {
 
 	removeLine : function() {
 
-		$(".item-image").on("click", ".act-delete", function() {
-			$(this).parents("tr").remove();
+		$(".item-image").on("click", ".act-delete", function(ev) {
+			Aimeos.focusBefore($(this).parents("tr")).remove();
 		});
 	}
 };
@@ -868,7 +911,7 @@ Aimeos.Product.Item.Option.Config = {
 	removeLine : function() {
 
 		$(".item-option-config").on("click", ".act-delete", function() {
-			$(this).parents("tr").remove();
+			Aimeos.focusBefore($(this).parents("tr")).remove();
 		});
 	},
 
@@ -914,7 +957,7 @@ Aimeos.Product.Item.Option.Custom = {
 	removeLine : function() {
 
 		$(".item-option-custom").on("click", ".act-delete", function() {
-			$(this).parents("tr").remove();
+			Aimeos.focusBefore($(this).parents("tr")).remove();
 		});
 	},
 
@@ -1017,7 +1060,7 @@ Aimeos.Product.Item.Selection = {
 	removeAttribute : function() {
 
 		$(".item-selection").on("click", ".selection-item-attributes .act-delete", function() {
-			$(this).parents("tr").remove();
+			Aimeos.focusBefore($(this).parents("tr")).remove();
 		});
 	},
 
@@ -1077,7 +1120,7 @@ Aimeos.Product.Item.Selection = {
 	removeBlock : function() {
 
 		$(".item-selection").on("click", ".header .act-delete", function() {
-			$(this).parents(".group-item").remove();
+			Aimeos.focusBefore($(this).parents(".group-item")).remove();
 		});
 	},
 
@@ -1152,7 +1195,7 @@ Aimeos.Product.Item.Stock = {
 	removeLine : function() {
 
 		$(".item-stock").on("click", ".act-delete", function() {
-			$(this).parents("tr").remove();
+			Aimeos.focusBefore($(this).parents("tr")).remove();
 		});
 	}
 };

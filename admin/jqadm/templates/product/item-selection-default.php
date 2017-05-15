@@ -21,15 +21,19 @@ $enc = $this->encoder();
 				data-toggle="collapse" data-target="#product-item-selection-group-data-<?= $enc->attr( $code ); ?>"
 				aria-expanded="true" aria-controls="product-item-selection-group-data-<?= $enc->attr( $code ); ?>">
 				<div class="card-tools-left">
-					<div class="btn btn-card-header act-show fa fa-chevron-down"></div>
+					<div class="btn btn-card-header act-show fa"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
+					</div>
 				</div>
 				<span class="item-code header-label">
 					<?= $enc->html( $this->value( $map, 'product.id' ) ); ?> - <?= $enc->attr( $this->value( $map, 'product.label' ) ); ?>
 				</span>
 				&nbsp;
 				<div class="card-tools-right">
-					<div class="btn btn-card-header act-copy fa"></div>
-					<div class="btn btn-card-header act-delete fa"></i></div>
+					<div class="btn btn-card-header act-copy fa"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>"></div>
+					<div class="btn btn-card-header act-delete fa"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
 				</div>
 			</div>
 
@@ -40,7 +44,8 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-code" type="text" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
+							<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
 								value="<?= $enc->attr( $code ); ?>">
 						</div>
@@ -48,7 +53,8 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-label" type="text" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
+							<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->value( $map, 'product.label' ) ); ?>">
 						</div>
@@ -59,7 +65,9 @@ $enc = $this->encoder();
 						<thead>
 							<tr>
 								<th><?= $enc->html( $this->translate( 'admin', 'Variant attributes' ) ); ?></th>
-								<th class="actions"><div class="btn act-add fa"></div></th>
+								<th class="actions">
+									<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"></div>
+								</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -71,21 +79,34 @@ $enc = $this->encoder();
 											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" />
 										<input class="item-attr-label" type="hidden" value="<?= $enc->attr( $this->value( $list, 'label' ) ); ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" />
-										<select class="combobox item-attr-id" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">
+										<select class="combobox item-attr-id" tabindex="<?= $this->get( "tabindex" ); ?>"
+											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">
 											<option value="<?= $enc->attr( $attrid ); ?>" ><?= $enc->html( $this->value( $list, 'label' ) ); ?></option>
 										</select>
 									</td>
-									<td class="actions"><div class="btn act-delete fa"></div></td>
+									<td class="actions">
+										<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+										</div>
+									</td>
 								</tr>
 							<?php endforeach; ?>
 
 							<tr class="prototype">
 								<td>
-									<input class="item-attr-ref" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" value="" disabled="disabled" />
-									<input class="item-attr-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" value="" disabled="disabled" />
-									<select class="combobox-prototype item-attr-id" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>" disabled="disabled"></select>
+									<input class="item-attr-ref" type="hidden" value="" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" />
+									<input class="item-attr-label" type="hidden" value="" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" />
+									<select class="combobox-prototype item-attr-id" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">
+									</select>
 								</td>
-								<td class="actions"><div class="btn act-delete fa"></div></td>
+								<td class="actions">
+									<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+									</div>
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -100,13 +121,17 @@ $enc = $this->encoder();
 		<div id="item-selection-group-item-" class="header card-header" role="tab"
 			data-toggle="collapse" data-target="#item-selection-group-data-">
 			<div class="card-tools-left">
-				<div class="btn btn-card-header act-show fa"></div>
+				<div class="btn btn-card-header act-show fa"
+					title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
+				</div>
 			</div>
 			<span class="item-code header-label"></span>
 			&nbsp;
 			<div class="card-tools-right">
-				<div class="btn btn-card-header act-copy fa"></div>
-				<div class="btn btn-card-header act-delete fa"></div>
+				<div class="btn btn-card-header act-copy fa"
+					title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>"></div>
+				<div class="btn btn-card-header act-delete fa"
+					title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
 			</div>
 		</div>
 
@@ -115,7 +140,7 @@ $enc = $this->encoder();
 				<div class="form-group row mandatory">
 					<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 					<div class="col-lg-8">
-						<input class="form-control item-code" type="text" disabled="disabled"
+						<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>">
 					</div>
@@ -123,7 +148,7 @@ $enc = $this->encoder();
 				<div class="form-group row mandatory">
 					<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 					<div class="col-lg-8">
-						<input class="form-control item-label" type="text" disabled="disabled"
+						<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>">
 					</div>
@@ -134,7 +159,11 @@ $enc = $this->encoder();
 					<thead>
 						<tr>
 							<th><?= $enc->html( $this->translate( 'admin', 'Variant attributes' ) ); ?></th>
-							<th class="actions"><div class="btn act-add fa"></div></th>
+							<th class="actions">
+								<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+								</div>
+							</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -142,9 +171,15 @@ $enc = $this->encoder();
 							<td>
 								<input class="item-attr-ref" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" value="" disabled="disabled" />
 								<input class="item-attr-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" value="" disabled="disabled" />
-								<select class="combobox-prototype item-attr-id" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>" disabled="disabled"></select>
+								<select class="combobox-prototype item-attr-id" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+									name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">
+								</select>
 							</td>
-							<td class="actions"><div class="btn act-delete fa"></div></td>
+							<td class="actions">
+								<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+								</div>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -153,7 +188,9 @@ $enc = $this->encoder();
 	</div>
 
 	<div class="card-tools-more">
-		<div class="btn btn-card-more act-add fa"></div>
+		<div class="btn btn-card-more act-add fa"
+			title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+		</div>
 	</div>
 
 	<?= $this->get( 'selectionBody' ); ?>
