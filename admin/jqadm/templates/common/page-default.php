@@ -275,7 +275,7 @@ if( $lang ) {
 					<?php $active = ( $this->param( 'resource', 'dashboard' ) === $code ? 'active' : '' ); ?>
 					<li class="<?= $enc->attr( $code ) . ' ' . $active ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>"
-							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Shift+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
+							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
 							data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
 							<i class="icon"></i>
 							<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
@@ -291,7 +291,7 @@ if( $lang ) {
 					<?php $active = ( $this->param( 'resource' ) === $code ? 'active' : '' ); ?>
 					<li class="<?= $enc->attr( $code ) . ' ' . $active ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>"
-							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Shift+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
+							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
 							data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
 							<i class="icon"></i>
 							<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
@@ -307,7 +307,7 @@ if( $lang ) {
 					<ul class="tree-menu">
 						<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
 							<li class="lang-<?= $enc->attr( $langid ) ?>">
-								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>"data-ctrlkey="e">
+								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>"
 									<span class="name"><?= $enc->html( $this->translate( 'client/language', $langid ) ); ?> (<?= $langid ?>)</span>
 								</a>
 							</li>
@@ -317,7 +317,9 @@ if( $lang ) {
 
 				<?php if( $this->access( 'admin' ) ) : ?>
 					<li class="expert">
-						<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>" data-ctrlkey="e">
+						<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>"
+							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), 'Expert', 'E' ) ); ?>"
+							data-ctrlkey="e">
 							<i class="icon"></i>
 							<span class="name"><?= $enc->html( $this->translate( 'admin', 'Expert' ) ); ?></span>
 						</a>

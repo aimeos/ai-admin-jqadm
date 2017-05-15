@@ -108,10 +108,15 @@ $subparts = $this->get( 'itemSubparts', [] );
 			<span class="navbar-secondary">(<?= $enc->html( $this->get( 'pageSite' ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
-			<a class="btn btn-secondary act-cancel" href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
+			<a class="btn btn-secondary act-cancel"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
+				href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
 				<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
 			</a>
-			<button class="btn btn-primary act-save"><?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?></button>
+			<button class="btn btn-primary act-save"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Save and return to list (Ctrl+S)') ); ?>">
+				<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
+			</button>
 		</div>
 	</nav>
 
@@ -279,10 +284,13 @@ $subparts = $this->get( 'itemSubparts', [] );
 	</div>
 
 	<div class="item-actions">
-		<a class="btn btn-secondary act-cancel" href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
+		<a class="btn btn-secondary act-cancel"
+			title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
+			href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
 			<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
 		</a>
-		<button class="btn btn-primary act-save">
+		<button class="btn btn-primary act-save"
+			title="<?= $enc->attr( $this->translate( 'admin', 'Save and return to list (Ctrl+S)') ); ?>">
 			<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 		</button>
 	</div>
