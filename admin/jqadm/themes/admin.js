@@ -179,12 +179,14 @@ Aimeos = {
 				if(ev.altKey) {
 					var key = String.fromCharCode(ev.which).toLowerCase();
 					if(key.match(/[a-z]/)) {
+						ev.preventDefault();
 						window.location = $(".aimeos .sidebar-menu a[data-ctrlkey=" + key + "]").first().attr("href");
 						return false;
 					}
 				}
 				switch(String.fromCharCode(ev.which).toLowerCase()) {
 					case 'a':
+						ev.preventDefault();
 						var node = $(".aimeos :focus").closest(".card,.content-block").find(".act-add:visible").first();
 						if(node.length > 0) {
 							node.trigger("click");
@@ -199,6 +201,7 @@ Aimeos = {
 						}
 						return false;
 					case 'd':
+						ev.preventDefault();
 						var node = $(".aimeos .act-copy:visible").first();
 						if(node.attr("href")) {
 							window.location = node.attr('href');
@@ -207,6 +210,7 @@ Aimeos = {
 						}
 						return false;
 					case 's':
+						ev.preventDefault();
 						$(".aimeos form.item").first().submit();
 						return false;
 				}

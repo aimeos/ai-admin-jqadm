@@ -201,7 +201,8 @@ html {
 .aimeos .sidebar-wrapper {
 	background: #202830;
 	position: absolute;
-	min-height: 100%;
+	bottom: 0;
+	top: 0;
 }
 
 .aimeos .logo {
@@ -220,11 +221,8 @@ html {
 }
 
 .aimeos .sidebar-menu {
-	overflow: hidden;
 	background: #202830;
-	position: absolute;
-	bottom: 0;
-	top: 0;
+	overflow: hidden;
 }
 
 .aimeos .sidebar-menu:hover {

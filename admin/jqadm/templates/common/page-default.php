@@ -306,7 +306,7 @@ if( $lang ) {
 					</span>
 					<ul class="tree-menu">
 						<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
-							<li class="<?= $enc->attr( $langid ) ?>">
+							<li class="lang-<?= $enc->attr( $langid ) ?>">
 								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>"data-ctrlkey="e">
 									<span class="name"><?= $enc->html( $this->translate( 'client/language', $langid ) ); ?> (<?= $langid ?>)</span>
 								</a>
