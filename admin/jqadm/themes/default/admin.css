@@ -201,6 +201,7 @@ html {
 }
 
 .aimeos .sidebar-wrapper {
+	width: 3rem;
 	background: #202830;
 	position: absolute;
 	bottom: 0;
@@ -330,13 +331,14 @@ html {
 	text-align: left;
 }
 
-.aimeos .sidebar-menu .name {
+.aimeos .sidebar-menu .title {
 	padding: 0.25rem 0;
 	display: none;
 }
 
 .aimeos .sidebar-menu li .tree-menu .name {
 	display: block;
+	font-size: 90%;
 }
 
 .aimeos .main-sidebar .icon {
@@ -373,6 +375,9 @@ html {
 	.aimeos .main-sidebar {
 		width: 6rem;
 	}
+	.aimeos .sidebar-wrapper {
+		width: 6rem;
+	}
 	.aimeos .logo img {
 		height: auto;
 		padding: 0 0.5em;
@@ -381,7 +386,7 @@ html {
 	.aimeos .main-sidebar .icon {
 		font-size: 200%;
 	}
-	.aimeos .main-sidebar .name {
+	.aimeos .main-sidebar .title {
 		display: block;
 		font-size: 90%;
 	}

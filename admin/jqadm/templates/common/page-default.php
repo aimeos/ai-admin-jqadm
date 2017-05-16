@@ -256,13 +256,13 @@ if( $lang ) {
 					<li class="site treeview">
 						<a href="#">
 							<i class="icon"></i>
-							<span class="name"><?= $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?></span>
+							<span class="title"><?= $enc->attr( $this->value( $sites, $site, $this->translate( 'admin', 'Site' ) ) ); ?></span>
 						</a>
 						<ul class="tree-menu">
 							<?php foreach( $sites as $code => $label ) : ?>
 								<li class="<?= $enc->attr( $code ) ?>">
 									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
-										<?= $enc->html( $label ); ?>
+										<span class="name"><?= $enc->html( $label ); ?></span>
 									</a>
 								</li>
 							<?php endforeach; ?>
@@ -278,7 +278,7 @@ if( $lang ) {
 							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
 							data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
 							<i class="icon"></i>
-							<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
+							<span class="title"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
 						</a>
 					</li>
 				<?php endforeach; ?>
@@ -294,7 +294,7 @@ if( $lang ) {
 							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
 							data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
 							<i class="icon"></i>
-							<span class="name"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
+							<span class="title"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
 						</a>
 					</li>
 				<?php endforeach; ?>
@@ -302,7 +302,7 @@ if( $lang ) {
 				<li class="config treeview">
 					<span>
 						<i class="icon"></i>
-						<span class="name"><?= $enc->attr( $this->translate( 'client/language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
+						<span class="title"><?= $enc->attr( $this->translate( 'client/language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
 					</span>
 					<ul class="tree-menu">
 						<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
@@ -321,7 +321,7 @@ if( $lang ) {
 							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), 'Expert', 'E' ) ); ?>"
 							data-ctrlkey="e">
 							<i class="icon"></i>
-							<span class="name"><?= $enc->html( $this->translate( 'admin', 'Expert' ) ); ?></span>
+							<span class="title"><?= $enc->html( $this->translate( 'admin', 'Expert' ) ); ?></span>
 						</a>
 					</li>
 				<?php endif; ?>
