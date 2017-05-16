@@ -42,21 +42,27 @@ $enc = $this->encoder();
 					<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.id', '' ) ) ); ?>"
 						value="<?= $enc->attr( $this->value( $map, 'product.id' ) ); ?>" />
 					<div class="form-group row mandatory">
-						<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
+						<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 						<div class="col-lg-8">
 							<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
 								value="<?= $enc->attr( $code ); ?>">
 						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
+						</div>
 					</div>
 					<div class="form-group row mandatory">
-						<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
+						<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 						<div class="col-lg-8">
 							<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->value( $map, 'product.label' ) ); ?>">
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
 						</div>
 					</div>
 				</div>
@@ -64,7 +70,12 @@ $enc = $this->encoder();
 					<table class="selection-item-attributes table table-default">
 						<thead>
 							<tr>
-								<th><?= $enc->html( $this->translate( 'admin', 'Variant attributes' ) ); ?></th>
+								<th>
+									<span class="help"><?= $enc->html( $this->translate( 'admin', 'Variant attributes' ) ); ?></span>
+									<div class="form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'All attributes that uniquely define an article, e.g. width, length and color for jeans' ) ); ?>
+									</div>
+								</th>
 								<th class="actions">
 									<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"></div>
 								</th>
@@ -138,19 +149,25 @@ $enc = $this->encoder();
 		<div id="item-selection-group-data-" class="card-block collapse show row">
 			<div class="col-lg-6">
 				<div class="form-group row mandatory">
-					<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
+					<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 					<div class="col-lg-8">
 						<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>">
 					</div>
+					<div class="col-sm-12 form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
+					</div>
 				</div>
 				<div class="form-group row mandatory">
-					<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
+					<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 					<div class="col-lg-8">
 						<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>">
+					</div>
+					<div class="col-sm-12 form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
 					</div>
 				</div>
 			</div>
@@ -158,7 +175,12 @@ $enc = $this->encoder();
 				<table class="selection-item-attributes table table-default">
 					<thead>
 						<tr>
-							<th><?= $enc->html( $this->translate( 'admin', 'Variant attributes' ) ); ?></th>
+							<th>
+								<span class="help"><?= $enc->html( $this->translate( 'admin', 'Variant attributes' ) ); ?></span>
+								<div class="form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'All attributes that uniquely define an article, e.g. width, length and color for jeans' ) ); ?>
+								</div>
+							</th>
 							<th class="actions">
 								<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">

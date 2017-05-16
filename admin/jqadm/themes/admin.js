@@ -152,6 +152,7 @@ Aimeos = {
 		this.checkSubmit();
 		this.createDatePicker();
 		this.showErrors();
+		this.toggleHelp();
 		this.toggleMenu();
 	},
 
@@ -385,6 +386,14 @@ Aimeos = {
 
 		$(".aimeos .error-list .error-item").each(function() {
 			$(".aimeos ." + $(this).data("key") + " .header").addClass("has-danger");
+		});
+	},
+
+
+	toggleHelp : function() {
+
+		$(".aimeos").on("click", ".help", function(ev) {
+			$("~ .help-text", this).slideToggle(300);
 		});
 	},
 

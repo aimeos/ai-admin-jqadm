@@ -13,7 +13,12 @@ $enc = $this->encoder();
 		<table class="category-list table table-default">
 			<thead>
 				<tr>
-					<th><?= $enc->html( $this->translate( 'admin', 'Default' ) ); ?></th>
+					<th>
+						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Default' ) ); ?></span>
+						<div class="form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Categories the product can be found in by the user on the web site' ) ); ?>
+						</div>
+					</th>
 					<th class="actions">
 						<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
@@ -79,7 +84,12 @@ $enc = $this->encoder();
 		<table class="category-list table table-default">
 			<thead>
 				<tr>
-					<th><?= $enc->html( $this->translate( 'admin', 'Promotion' ) ); ?></th>
+					<th>
+						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Promotion' ) ); ?></span>
+						<div class="form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Categories the product will be shown for in the promotional section' ) ); ?>
+						</div>
+					</th>
 					<th class="actions">
 						<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">

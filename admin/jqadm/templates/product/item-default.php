@@ -172,34 +172,42 @@ $subparts = $this->get( 'itemSubparts', [] );
 						<div class="col-sm-8">
 							<select class="form-control c-select item-typeid" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>">
+
 								<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
 									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>" <?= $selected( $this->get( 'itemData/product.typeid' ), $id ); ?> >
 										<?= $enc->html( $typeItem->getLabel() ); ?>
 									</option>
-							<?php endforeach; ?>
+								<?php endforeach; ?>
+
 							</select>
 						</div>
 					</div>
 					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-code" type="text" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.code' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.code' ) ); ?>" />
 						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
+						</div>
 					</div>
 					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-label" type="text" required="required" tabindex="1"
 								name="<?= $this->formparam( array( 'item', 'product.label' ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.label' ) ); ?>" />
 						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
+						</div>
 					</div>
 					<div class="form-group row optional">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-datestart date" type="text" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ); ?>"
@@ -207,15 +215,21 @@ $subparts = $this->get( 'itemSubparts', [] );
 								value="<?= $enc->attr( $this->get( 'itemData/product.datestart' ) ); ?>"
 								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
 						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site after that date and time, useful or seasonal articles' ) ); ?>
+						</div>
 					</div>
 					<div class="form-group row optional">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-dateend date" type="text" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.dateend' ) ); ?>"
 								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ); ?>
 						</div>
 					</div>
 				</div><!--
@@ -224,8 +238,15 @@ $subparts = $this->get( 'itemSubparts', [] );
 					<table class="item-config table table-striped">
 						<thead>
 							<tr>
-								<th><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></th>
-								<th><?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?></th>
+								<th>
+									<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
+									<div class="form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Article specific configuration options, will be available as key/value pairs in the templates' ) ); ?>
+									</div>
+								</th>
+								<th>
+									<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
+								</th>
 								<th class="actions">
 									<div class="btn act-add fa" tabindex="1"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
@@ -235,7 +256,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 						</thead>
 						<tbody>
 
-							<?php	foreach( (array) $this->get( 'itemData/config/key', [] ) as $idx => $key ) : ?>
+							<?php foreach( (array) $this->get( 'itemData/config/key', [] ) as $idx => $key ) : ?>
 								<tr class="config-item">
 									<td>
 										<input type="text" class="config-key form-control" tabindex="1"
@@ -253,7 +274,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 										</div>
 									</td>
 								</tr>
-							<?php	endforeach; ?>
+							<?php endforeach; ?>
 
 							<tr class="prototype">
 								<td>

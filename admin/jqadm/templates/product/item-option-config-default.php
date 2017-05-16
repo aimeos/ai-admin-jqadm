@@ -12,7 +12,12 @@ $enc = $this->encoder();
 	<table class="attribute-list table table-default">
 		<thead>
 			<tr>
-				<th><?= $enc->html( $this->translate( 'admin', 'Configurable' ) ); ?></th>
+				<th>
+					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Configurable' ) ); ?></span>
+					<div class="form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Optional product components that can be chosen by the customer together with the product' ) ); ?>
+					</div>
+				</th>
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">

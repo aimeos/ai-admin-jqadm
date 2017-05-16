@@ -131,6 +131,8 @@ html {
 	color: #333;
 	border: none;
 	border-left: 0.2rem solid transparent;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
 }
 
 .nav-tabs .nav-link:hover {
@@ -719,6 +721,16 @@ html {
 
 .aimeos .ai-combobox {
 	width: 100%;
+}
+
+.aimeos .help {
+	text-decoration: underline dotted;
+	cursor: help;
+}
+
+.aimeos .help-text {
+	font-size: 80%;
+	display: none;
 }
 
 

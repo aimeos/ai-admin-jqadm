@@ -12,9 +12,21 @@ $enc = $this->encoder();
 	<table class="image-list table table-default content-block">
 		<thead>
 			<tr>
-				<th class="image-preview"><?= $enc->html( $this->translate( 'admin', 'Preview' ) ); ?></th>
-				<th class="image-language"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></th>
-				<th class="image-label"><?= $enc->html( $this->translate( 'admin', 'Title' ) ); ?></th>
+				<th class="image-preview">
+					<?= $enc->html( $this->translate( 'admin', 'Preview' ) ); ?>
+				</th>
+				<th class="image-language">
+					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></span>
+					<div class="form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the image contains text or is language sepecific' ) ); ?>
+					</div>
+				</th>
+				<th class="image-label">
+					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ); ?></span>
+					<div class="form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'The image title is used for the title tag of the image on the web site' ) ); ?>
+					</div>
+				</th>
 				<th class="actions">
 					<div class="btn fa fa-plus"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new images (Ctrl+A)') ); ?>">

@@ -12,9 +12,24 @@ $enc = $this->encoder();
 	<table class="stock-list table table-default">
 		<thead>
 			<tr>
-				<th class="stock-type"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></th>
-				<th class="stock-stocklevel"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ); ?></th>
-				<th class="stock-databack"><?= $enc->html( $this->translate( 'admin', 'Back in stock' ) ); ?></th>
+				<th class="stock-type">
+					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></span>
+					<div class="form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Warehouse or local store if your articles are available at several locations' ) ); ?>
+					</div>
+				</th>
+				<th class="stock-stocklevel">
+					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ); ?></span>
+					<div class="form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Number of articles currently in stock, leave empty for an unlimited quantity' ) ); ?>
+					</div>
+				</th>
+				<th class="stock-databack">
+					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Back in stock' ) ); ?></span>
+					<div class="form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Shown if the article reached a stock level of zero' ) ); ?>
+					</div>
+				</th>
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">

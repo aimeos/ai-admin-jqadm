@@ -13,7 +13,12 @@ $enc = $this->encoder();
 		<table class="bundle-list table table-default">
 			<thead>
 				<tr>
-					<th><?= $enc->html( $this->translate( 'admin', 'Products' ) ); ?></th>
+					<th>
+						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Products' ) ); ?></span>
+						<div class="form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'List of articles that should be sold as one product, often at a reduced price' ) ); ?>
+						</div>
+					</th>
 					<th class="actions">
 						<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">

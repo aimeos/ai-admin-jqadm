@@ -12,7 +12,12 @@ $enc = $this->encoder();
 	<table class="attribute-list table table-default">
 		<thead>
 			<tr>
-				<th><?= $enc->html( $this->translate( 'admin', 'Custom' ) ); ?></th>
+				<th>
+					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Custom' ) ); ?></span>
+					<div class="form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Product attributes stored in the basket where customers can enter their own texts or values' ) ); ?>
+					</div>
+				</th>
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">

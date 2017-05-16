@@ -37,19 +37,25 @@ $enc = $this->encoder();
 			</div>
 		</div>
 		<div class="form-group row optional">
-			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></label>
+			<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></label>
 			<div class="col-sm-8">
 				<input class="form-control item-label" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.label' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/attribute.label' ) ); ?>" />
 			</div>
+			<div class="col-sm-12 form-text text-muted help-text">
+				<?= $enc->html( $this->translate( 'admin', 'Name of the downloaded file when customers saves the file on their computers' ) ); ?>
+			</div>
 		</div>
 		<div class="form-group row optional">
-			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Replace file' ) ); ?></label>
+			<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Replace file' ) ); ?></label>
 			<div class="col-sm-8">
 				<input class="form-control item-overwrite" type="checkbox" tabindex="<?= $this->get( "tabindex" ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'overwrite' ) ) ); ?>" value="1"
 					<?= $selected( $this->get( 'downloadData/overwrite' ), 1 ); ?> />
+			</div>
+			<div class="col-sm-12 form-text text-muted help-text">
+				<?= $enc->html( $this->translate( 'admin', 'Overwrite the existing file and customers bought it in the past can then download the new content too' ) ); ?>
 			</div>
 		</div>
 	</div>

@@ -16,7 +16,12 @@ $enc = $this->encoder();
 	<table class="property-list table table-default">
 		<thead>
 			<tr>
-				<th colspan="3"><?= $enc->html( $this->translate( 'admin', 'Properties' ) ); ?></th>
+				<th colspan="3">
+					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Properties' ) ); ?></span>
+					<div class="form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Product characteristics that are not shared with other products' ) ); ?>
+					</div>
+				</th>
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
