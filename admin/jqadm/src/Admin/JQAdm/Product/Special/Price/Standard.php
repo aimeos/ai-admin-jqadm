@@ -57,18 +57,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/special/price/standard/subparts';
-
-	/** admin/jqadm/product/special/price/name
-	 * Name of the special price subpart used by the JQAdm product implementation
-	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Special\Price\Myname".
-	 * The name is case-sensitive and you should avoid camel case names like "MyName".
-	 *
-	 * @param string Last part of the JQAdm class name
-	 * @since 2017.06
-	 * @category Developer
-	 */
-	private $subPartNames = ['price'];
+	private $subPartNames = [];
 
 
 	/**
