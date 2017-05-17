@@ -140,6 +140,21 @@ $subparts = $this->get( 'itemSubparts', [] );
 				<?php endforeach; ?>
 
 			</ul>
+
+			<div class="item-meta text-muted">
+				<small>
+					<?= $enc->html( $this->translate( 'admin', 'Modified' ) ); ?>:
+					<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.mtime' ) ); ?></span>
+				</small>
+				<small>
+					<?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?>:
+					<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.ctime' ) ); ?></span>
+				</small>
+				<small>
+					<?= $enc->html( $this->translate( 'admin', 'Editor' ) ); ?>:
+					<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.editor' ) ); ?></span>
+				</small>
+			</div>
 		</div>
 
 		<div class="col-md-9 item-content tab-content">

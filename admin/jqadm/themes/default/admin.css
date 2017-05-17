@@ -161,7 +161,7 @@ html {
 	border-top: 3px solid rgba(0, 0, 0, 0.125);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.aimeos {
 		font-size: 75%;
 	}
@@ -718,6 +718,28 @@ html {
 
 
 /* Detail view */
+
+.aimeos .item-meta {
+	margin: 0.5rem 1rem;
+}
+
+.aimeos .item-meta small {
+	white-space: nowrap;
+	margin: 0.5rem 1rem;
+	font-size: 80%;
+}
+
+.aimeos .item-meta .meta-value {
+	white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+	.aimeos .item-meta small {
+		white-space: normal;
+		margin: 0.5rem 0;
+		display: block;
+	}
+}
 
 .aimeos .item .form-group.mandatory label:after {
 	white-space: nowrap;
