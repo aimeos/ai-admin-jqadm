@@ -176,7 +176,21 @@ class Standard
 	 * @since 2016.04
 	 * @category Developer
 	 */
-	private $subPartNames = array( 'selection', 'bundle', 'image', 'text', 'price', 'stock', 'category', 'characteristic', 'option', 'physical', 'download' );
+
+	/** admin/jqadm/product/special/name
+	 * Name of the special subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Special\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2017.06
+	 * @category Developer
+	 */
+	private $subPartNames = [
+		'selection', 'bundle', 'image', 'text', 'price', 'stock', 'category',
+		'characteristic', 'option', 'physical', 'download', 'special'
+	];
 
 
 	/**

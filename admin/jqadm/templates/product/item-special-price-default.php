@@ -14,9 +14,10 @@ $enc = $this->encoder();
 	<div class="form-group row optional bg-warning">
 		<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Allow custom price' ) ); ?></label>
 		<div class="col-sm-8">
-			<input class="form-control item-special-price-custom" type="checkbox" tabindex="1"
+			<input class="form-control item-special-price-custom" type="checkbox" value="1" tabindex="<?= $this->get( "tabindex" ); ?>"
 				name="<?= $enc->attr( $this->formparam( array( 'specialprice', 'custom' ) ) ); ?>"
-				value="<?= $enc->attr( $this->get( 'specialpriceData/custom', 0 ) ); ?>" />
+				<?= $this->get( 'specialpriceData/custom', 0 ) ? 'checked="checked"' : ''; ?>
+			/>
 		</div>
 		<div class="col-sm-12 form-text text-muted help-text">
 			<?= $enc->html( $this->translate( 'admin', 'Allow customers to choose themselves how much they want to pay' ) ); ?>

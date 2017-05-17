@@ -57,7 +57,18 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/product/special/price/standard/subparts';
-	private $subPartNames = [];
+
+	/** admin/jqadm/product/special/price/name
+	 * Name of the special price subpart used by the JQAdm product implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Special\Price\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2017.06
+	 * @category Developer
+	 */
+	private $subPartNames = ['price'];
 
 
 	/**
@@ -359,7 +370,7 @@ class Standard
 		{
 			foreach( $listItems as $listItem )
 			{
-				if( $listItem->getDomain() === 'product'
+				if( $listItem->getDomain() === 'attribute'
 					&& $listItem->getType() === 'custom'
 					&& $listItem->getRefId() == $attrId
 				) {
@@ -383,7 +394,7 @@ class Standard
 		{
 			foreach( $listItems as $listId => $listItem )
 			{
-				if( $listItem->getDomain() === 'product'
+				if( $listItem->getDomain() === 'attribute'
 					&& $listItem->getType() === 'custom'
 					&& $listItem->getRefId() == $attrId
 				) {
