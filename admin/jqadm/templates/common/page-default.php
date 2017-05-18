@@ -260,7 +260,7 @@ if( $lang ) {
 						</a>
 						<ul class="tree-menu">
 							<?php foreach( $sites as $code => $label ) : ?>
-								<li class="<?= $enc->attr( $code ) ?>">
+								<li class="site-<?= $enc->attr( $code ) ?>">
 									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $code ) + $params, [], $config ) ); ?>">
 										<span class="name"><?= $enc->html( $label ); ?></span>
 									</a>

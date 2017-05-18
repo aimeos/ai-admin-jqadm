@@ -25,7 +25,7 @@
 
 			this.input = $( "<input>" );
 			this.input.appendTo( this.wrapper );
-			this.input.val( value );
+			this.input.val( String(value).trim() );
 			this.input.attr( "title", "" );
 			this.input.attr( "tabindex", select.attr( "tabindex" ) );
 			this.input.addClass( "ai-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" );
