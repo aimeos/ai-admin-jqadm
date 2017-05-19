@@ -286,9 +286,9 @@ html {
 	color: #ffffff;
 }
 
-	border-left-color: #4090C0;
+.aimeos .sidebar-menu li .tree-menu li:hover,
+.aimeos .sidebar-menu li .tree-menu li.active {
 	background: #202830;
-	color: #ffffff;
 }
 
 .aimeos .main-sidebar .separator,
