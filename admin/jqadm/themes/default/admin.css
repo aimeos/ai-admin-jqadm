@@ -19,7 +19,7 @@ html {
 .ai-combobox {
 	position: relative;
 	display: inline-block;
-	margin-right: 2rem;
+	text-align: left;
 }
 
 .ai-combobox-toggle {
@@ -33,7 +33,7 @@ html {
 .ai-combobox-input {
 	margin: 0;
 	padding: 5px 10px;
-	width: 90%;
+	width: calc(100% - 2rem);
 }
 
 .ai-combobox .ui-button-icons-only {
@@ -237,7 +237,9 @@ html {
 }
 
 .aimeos .main-sidebar .separator:hover,
-.aimeos .sidebar-menu a:hover {
+.aimeos .main-sidebar .separator:focus,
+.aimeos .sidebar-menu a:hover,
+.aimeos .sidebar-menu a:focus {
 	text-decoration: none;
 }
 
@@ -323,6 +325,7 @@ html {
 	min-height: 100%;
 	overflow-y: auto;
 	visibility: hidden;
+	background: #283038;
 	box-shadow: 0 0 3px #000;
 	transform: translateX(-100%);
 	transition-property: transform;
@@ -347,9 +350,25 @@ html {
 	display: none;
 }
 
+.aimeos .sidebar-menu .tree-menu .menu-header {
+	background: #202830;
+	text-align: center;
+	padding: 0.75rem;
+}
+
+.aimeos .sidebar-menu .tree-menu .menu-header:hover {
+	border-left-color: transparent;
+	background: #202830;
+}
+
 .aimeos .sidebar-menu li .tree-menu .name {
 	display: block;
 	font-size: 90%;
+}
+
+.aimeos .sidebar-menu .tree-menu .menu-sub {
+	list-style: none;
+	padding: 0 1rem;
 }
 
 .aimeos .main-sidebar .icon {
@@ -539,6 +558,10 @@ html {
 
 /* Common styles */
 
+.aimeos .readonly {
+	background: #E8F0F8 !important;
+}
+
 .aimeos .error-list {
 	list-style: none;
 }
@@ -584,6 +607,10 @@ html {
 	content: "\f00d";
 }
 
+.aimeos .btn.act-view.fa:before {
+	content: "\f06e";
+}
+
 .aimeos .card-tools-left {
 	display: inline-block;
 }
@@ -602,6 +629,10 @@ html {
 .aimeos .content-block {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+}
+
+.aimeos .table {
+	margin: 0;
 }
 
 .aimeos table th,

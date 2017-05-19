@@ -27,17 +27,10 @@ class Sites extends Base
 	 */
 	public function setView( \Aimeos\MW\View\Iface $view )
 	{
-		$list = [];
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'locale/site' );
+		$item = $manager->findItem( $view->param( 'site', 'default' ) );
 
-		$search = $manager->createSearch();
-		$search->setSortations( array( $search->sort( '+', 'locale.site.label' ) ) );
-
-		foreach( $manager->searchItems( $search ) as $item ) {
-			$list[$item->getCode()] = $item->getLabel();
-		}
-
-		$view->sitesList = $list;
+		$view->sitesTree = $manager->getTree( $item->getId(), [], \Aimeos\MW\Tree\Manager\Base::LEVEL_TREE );
 
 		$this->getClient()->setView( $view );
 		return $this;
