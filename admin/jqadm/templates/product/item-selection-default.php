@@ -7,6 +7,11 @@
 
 $enc = $this->encoder();
 
+$target = $this->config( 'admin/jqadm/url/get/target' );
+$cntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
+$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
+$config = $this->config( 'admin/jqadm/url/get/config', [] );
+
 
 ?>
 <div id="selection" class="item-selection content-block tab-pane fade" role="tabpanel" aria-labelledby="selection">
@@ -30,6 +35,9 @@ $enc = $this->encoder();
 				</span>
 				&nbsp;
 				<div class="card-tools-right">
+					<a class="btn btn-card-header act-view fa" target="_blank"
+						href="<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => $this->value( $map, 'product.id' )] + $this->get( 'pageParams', [] ), [], $config ) ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
 					<div class="btn btn-card-header act-copy fa"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>"></div>
 					<div class="btn btn-card-header act-delete fa"

@@ -1053,6 +1053,7 @@ Aimeos.Product.Item.Selection = {
 		this.removeAttribute();
 		this.setupComponents();
 		this.showSelection();
+		this.showVariant();
 		this.updateCode();
 	},
 
@@ -1161,6 +1162,15 @@ Aimeos.Product.Item.Selection = {
 
 		$(".item-basic .item-typeid").on("change", function() {
 			$("option:selected", this).data("code") === 'select' ? tab.show() : tab.hide();
+		});
+	},
+
+
+	showVariant : function() {
+
+		$(".item-selection").on("click", ".act-view", function(ev) {
+			ev.stopPropagation();
+			return true;
 		});
 	},
 
