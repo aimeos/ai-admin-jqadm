@@ -251,7 +251,7 @@ if( $lang ) {
 
 			<ul class="sidebar-menu basic">
 
-				<?php if( !empty( $this->pageSite->getChildren() ) && $this->access( 'admin' ) ) : ?>
+				<?php if( $this->pageSite->getChildren() !== [] && $this->access( 'admin' ) ) : ?>
 					<li class="site treeview">
 						<a href="#">
 							<i class="icon"></i>
@@ -267,7 +267,7 @@ if( $lang ) {
 										<span class="name"><?= $enc->html( $site->getLabel() ); ?></span>
 									</a>
 
-									<?php if( !empty( $site->getChildren() ) ) : ?>
+									<?php if( $site->getChildren() !== [] ) : ?>
 										<ul class="menu-sub">
 											<?php foreach( $site->getChildren() as $site ) { $siteFcn( $site ); } ?>
 										</ul>
