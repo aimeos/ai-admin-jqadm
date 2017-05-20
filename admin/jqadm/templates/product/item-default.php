@@ -105,7 +105,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 			<?= $enc->html( $this->translate( 'admin', 'Product' ) ); ?>:
 			<?= $enc->html( $this->get( 'itemData/product.id' ) ); ?> -
 			<?= $enc->html( $this->get( 'itemData/product.label', $this->translate( 'admin', 'New' ) ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->pageSite->getLabel() ); ?>)</span>
+			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/product.siteid' ) ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
 			<a class="btn btn-secondary act-cancel"

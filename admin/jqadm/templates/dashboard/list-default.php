@@ -13,7 +13,7 @@ $enc = $this->encoder();
 <nav class="main-navbar">
 	<span class="navbar-brand">
 		<?= $enc->html( $this->translate( 'admin', 'Dashboard' ) ); ?>
-		<span class="navbar-secondary">(<?= $enc->html( $this->pageSite->getLabel() ); ?>)</span>
+		<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
 	</span>
 	<div class="btn act-show fa" style="visibility: hidden"></div>
 </nav>
