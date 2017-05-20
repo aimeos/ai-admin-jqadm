@@ -43,16 +43,19 @@ $enc = $this->encoder();
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
 								<select class="combobox item-id" tabindex="<?= $this->get( "tabindex" ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ); ?> >
 									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>" >
 										<?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>
 									</option>
 								</select>
 							</td>
 							<td class="actions">
-								<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-								</div>
+								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ) ) : ?>
+									<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+									</div>
+								<?php endif; ?>
 							</td>
 						</tr>
 					<?php endif; ?>
@@ -114,19 +117,22 @@ $enc = $this->encoder();
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
 								<select class="combobox item-id" tabindex="<?= $this->get( "tabindex" ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
-									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>" >
+									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ); ?> >
+									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>">
 										<?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>
 									</option>
 								</select>
 							</td>
 							<td class="actions">
-								<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-								</div>
+								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ) ) : ?>
+									<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+									</div>
+								<?php endif; ?>
 							</td>
 						</tr>
-					<?php	endif; ?>
+					<?php endif; ?>
 				<?php endforeach; ?>
 
 				<tr class="prototype">

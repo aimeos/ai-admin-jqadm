@@ -35,16 +35,19 @@ $enc = $this->encoder();
 						<input class="item-label" type="hidden" value="<?= $enc->attr( $this->get( 'attributeData/attribute.label/' . $idx ) ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'attribute.label', '' ) ) ); ?>" />
 						<select class="combobox item-refid" tabindex="<?= $this->get( "tabindex" ); ?>"
-							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'product.lists.refid', '' ) ) ); ?>">
+							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'product.lists.refid', '' ) ) ); ?>"
+							<?= $this->site()->readonly( $this->get( 'attributeData/product.lists.siteid/' . $idx ) ); ?> >
 							<option value="<?= $enc->attr( $this->get( 'attributeData/product.lists.refid/' . $idx ) ); ?>" >
 								<?= $enc->html( $this->get( 'attributeData/attribute.label/' . $idx ) ); ?>
 							</option>
 						</select>
 					</td>
 					<td class="actions">
-						<div class="btn act-delete fa"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-						</div>
+						<?php if( !$this->site()->readonly( $this->get( 'attributeData/product.lists.siteid/' . $idx ) ) ) : ?>
+							<div class="btn act-delete fa"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+							</div>
+						<?php endif; ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

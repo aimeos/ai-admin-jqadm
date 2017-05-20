@@ -31,27 +31,27 @@ class Page extends Base
 
 		// set first to be able to show errors occuring afterwards
 		$view->pageParams = $this->getClientParams();
-		$context = $this->getContext();
 
 		$ext = dirname( dirname( dirname( dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) ) ) );
 		$aimeos = new \Aimeos\Bootstrap( array( $ext ) );
-		$customerManager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+		$context = $this->getContext();
+
 		$siteManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
+		$langManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/language' );
+		$customerManager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
 
-		$view->pageLangList = $aimeos->getI18nList( 'admin' );
+		$siteItem = $siteManager->findItem( $view->param( 'site', 'default' ) );
 
-		try
-		{
-			$view->pageUser = $customerManager->getItem( $context->getUserId() );
-			$siteid = $view->pageUser->getSiteId();
-		}
-		catch( \Exception $e )
-		{
-			$siteid = $siteManager->findItem( $view->param( 'site', 'default' ) )->getId();
+		try {
+			$siteid = $customerManager->getItem( $context->getUserId() )->getSiteId();
+		} catch( \Exception $e ) {
+			$siteid = $siteItem->getSiteId();
 		}
 
+		$view->pageLanguages = $langManager->searchItems( $langManager->createSearch( true ) );
 		$view->pageSite = $siteManager->getTree( $siteid, [], \Aimeos\MW\Tree\Manager\Base::LEVEL_TREE );
-		$view->pageSitePath = $siteManager->getPath( $siteid );
+		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
+		$view->pageLangList = $aimeos->getI18nList( 'admin' );
 
 		$this->getClient()->setView( $view );
 		return $this;

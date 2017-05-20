@@ -18,7 +18,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 
 	<?php foreach( (array) $this->get( 'selectionData', [] ) as $code => $map ) : ?>
 
-		<div class="group-item card">
+		<div class="group-item card <?= $this->site()->readonly( $this->value( $map, 'product.siteid' ) ); ?>">
 			<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.lists.id', '' ) ) ); ?>"
 				value="<?= $enc->attr( $this->value( $map, 'product.lists.id' ) ); ?>" />
 
@@ -41,9 +41,13 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 							title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
 					<?php endif; ?>
 					<div class="btn btn-card-header act-copy fa"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>"></div>
-					<div class="btn btn-card-header act-delete fa"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
+						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>">
+					</div>
+					<?php if( !$this->site()->readonly( $this->value( $map, 'product.siteid' ) ) ) : ?>
+						<div class="btn btn-card-header act-delete fa"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+						</div>
+					<?php endif; ?>
 				</div>
 			</div>
 
@@ -57,7 +61,8 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 							<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
-								value="<?= $enc->attr( $code ); ?>">
+								value="<?= $enc->attr( $code ); ?>"
+								<?= $this->site()->readonly( $this->value( $map, 'product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
@@ -69,7 +74,8 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 							<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->value( $map, 'product.label' ) ); ?>">
+								value="<?= $enc->attr( $this->value( $map, 'product.label' ) ); ?>"
+								<?= $this->site()->readonly( $this->value( $map, 'product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
@@ -101,23 +107,26 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 										<input class="item-attr-label" type="hidden" value="<?= $enc->attr( $this->value( $list, 'label' ) ); ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" />
 										<select class="combobox item-attr-id" tabindex="<?= $this->get( "tabindex" ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">
+											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>"
+											<?= $this->site()->readonly( $this->value( $list, 'siteid' ) ); ?> >
 											<option value="<?= $enc->attr( $attrid ); ?>" ><?= $enc->html( $this->value( $list, 'label' ) ); ?></option>
 										</select>
 									</td>
 									<td class="actions">
-										<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-										</div>
+										<?php if( !$this->site()->readonly( $this->value( $list, 'siteid' ) ) ) : ?>
+											<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+											</div>
+										<?php endif; ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>
 
 							<tr class="prototype">
 								<td>
-									<input class="item-attr-ref" type="hidden" value="" disabled="disabled"
+									<input class="item-attr-ref" type="hidden" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" />
-									<input class="item-attr-label" type="hidden" value="" disabled="disabled"
+									<input class="item-attr-label" type="hidden" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" />
 									<select class="combobox-prototype item-attr-id" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">

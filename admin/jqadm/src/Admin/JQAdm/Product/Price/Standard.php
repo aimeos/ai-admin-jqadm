@@ -333,7 +333,9 @@ class Standard
 					continue;
 				}
 
-				$data['product.lists.id'][] = $id;
+				foreach( $listItem->toArray( true ) as $key => $value ) {
+					$data[$key][] = $value;
+				}
 
 				foreach( $refItem->toArray( true ) as $key => $value ) {
 					$data[$key][] = $value;
@@ -341,8 +343,10 @@ class Standard
 			}
 		}
 
-		if( !isset( $data['price.currencyid'] ) ) { // show at least one block
+		if( !isset( $data['price.currencyid'] ) ) // show at least one block
+		{
 			$data['price.currencyid'][] = $this->getContext()->getLocale()->getCurrencyId();
+			$data['price.siteid'][] = $this->getContext()->getLocale()->getSiteId();
 		}
 
 		$view->priceCurrencies = $manager->searchItems( $manager->createSearch( true ) );

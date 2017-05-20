@@ -42,10 +42,10 @@ interface Iface extends \Aimeos\MW\View\Helper\Iface
 	public function match( $siteid );
 
 	/**
-	 * Returns "inherited" if the item is inherited from another site
+	 * Returns "readonly" if the item is inherited from another site
 	 *
 	 * @param string $siteid ID of a site item
-	 * @return string|null "inherited" if item is from a parent site, null if not
+	 * @return string|null "readonly" if item is from a parent site, null if not
 	 */
-	public function inherited( $siteid );
+	public function readonly( $siteid );
 }

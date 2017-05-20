@@ -698,8 +698,8 @@ $sortcode = $this->param( 'sort' );
 		</thead>
 		<tbody>
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-				<?php	$url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
-				<tr>
+				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
+				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
 					<?php if( in_array( 'product.id', $fields ) ) : ?>
 						<td class="product.id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
@@ -732,18 +732,20 @@ $sortcode = $this->param( 'sort' );
 					<?php endif; ?>
 
 					<td class="actions"><!--
+						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
+							--><form class="delete" action="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ); ?>" method="POST"><!--
+								--><?= $this->csrf()->formfield(); ?><!--
+								--><input type="hidden" name="<?= $enc->attr( $this->formparam( ['resource'] ) ); ?>" value="product" /><!--
+								--><input type="hidden" name="<?= $enc->attr( $this->formparam( ['id'] ) ); ?>" value="<?= $enc->attr( $id ); ?>" /><!--
+								--><button class="btn act-delete fa"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></button><!--
+							--></form><!--
+						<?php endif; ?>
 						--><a class="btn act-copy fa"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a><!--
-						--><form class="delete" action="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ); ?>" method="POST"><!--
-							--><?= $this->csrf()->formfield(); ?><!--
-							--><input type="hidden" name="<?= $enc->attr( $this->formparam( ['resource'] ) ); ?>" value="product" /><!--
-							--><input type="hidden" name="<?= $enc->attr( $this->formparam( ['id'] ) ); ?>" value="<?= $enc->attr( $id ); ?>" /><!--
-							--><button class="btn act-delete fa"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></button><!--
-						--></form><!--
 					--></td>
 				</tr>
 			<?php endforeach; ?>

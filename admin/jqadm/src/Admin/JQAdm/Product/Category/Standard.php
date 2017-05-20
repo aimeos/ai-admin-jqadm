@@ -415,6 +415,7 @@ class Standard
 			if( isset( $catItems[$catId] ) )
 			{
 				$data['catalog.id'][] = $catId;
+				$data['catalog.siteid'][] = $listItem->getSiteId();
 				$data['catalog.label'][] = $catItems[$catId]->getLabel();
 			}
 

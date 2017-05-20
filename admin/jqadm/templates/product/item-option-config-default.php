@@ -37,16 +37,19 @@ $enc = $this->encoder();
 							name="<?= $enc->attr( $this->formparam( array( 'option', 'config', 'attribute.label', '' ) ) ); ?>"
 							value="<?= $enc->attr( $this->get( 'configData/attribute.label/' . $idx ) ); ?>" />
 						<select class="combobox item-refid" tabindex="<?= $this->get( "tabindex" ); ?>"
-							name="<?= $enc->attr( $this->formparam( array( 'option', 'config', 'product.lists.refid', '' ) ) ); ?>">
+							name="<?= $enc->attr( $this->formparam( array( 'option', 'config', 'product.lists.refid', '' ) ) ); ?>"
+							<?= $this->site()->readonly( $this->get( 'configData/product.lists.siteid/' . $idx ) ) ?> >
 							<option value="<?= $enc->attr( $this->get( 'configData/product.lists.refid/' . $idx ) ); ?>" >
 								<?= $enc->html( $this->get( 'configData/attribute.label/' . $idx ) ); ?>
 							</option>
 						</select>
 					</td>
 					<td class="actions">
-						<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-						</div>
+						<?php if( !$this->site()->readonly( $this->get( 'configData/product.lists.siteid/' . $idx ) ) ) : ?>
+							<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+							</div>
+						<?php endif; ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

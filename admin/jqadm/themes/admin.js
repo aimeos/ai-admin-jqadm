@@ -19,16 +19,17 @@
 
 		_createAutocomplete: function(select) {
 
-			var selected = this.element.children( ":selected" );
+			var selected = this.element.children(":selected");
 			var value = selected.val() ? selected.text() : "";
 			var self = this;
 
-			this.input = $( "<input>" );
-			this.input.appendTo( this.wrapper );
-			this.input.val( String(value).trim() );
-			this.input.attr( "title", "" );
-			this.input.attr( "tabindex", select.attr( "tabindex" ) );
-			this.input.addClass( "ai-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" );
+			this.input = $("<input>");
+			this.input.appendTo(this.wrapper);
+			this.input.val(String(value).trim());
+			this.input.attr("title", "");
+			this.input.attr("tabindex", select.attr("tabindex" ));
+			this.input.prop("readonly", this.element.is("[readonly]"));
+			this.input.addClass("ai-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left");
 
 			this.input.autocomplete({
 				delay: 0,
@@ -68,11 +69,12 @@
 
 			var btn = $( '<button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icons-only"><span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span></button>' );
 
-			btn.attr( "tabindex", -1 );
-			btn.appendTo( this.wrapper );
+			btn.attr("tabindex", -1);
+			btn.appendTo(this.wrapper);
 			btn.button();
-			btn.removeClass( "ui-corner-all" );
-			btn.addClass( "ai-combobox-toggle ui-corner-right" );
+			btn.removeClass("ui-corner-all");
+			btn.prop("disabled", this.element.is("[readonly]"));
+			btn.addClass("ai-combobox-toggle ui-corner-right");
 
 			btn.mousedown(function() {
 				wasOpen = input.autocomplete( "widget" ).is( ":visible" );
@@ -224,7 +226,16 @@ Aimeos = {
 
 	checkFields : function() {
 
+		$(".aimeos .item-content .readonly").on("change", "input,select", function(ev) {
+			$(this).parent().addClass("has-danger");
+		});
+
+
 		$(".aimeos .item-content").on("blur", "input,select", function(ev) {
+
+			if($(this).closest(".readonly").length > 0) {
+				return;
+			}
 
 			if($(this).is(":invalid") === true) {
 				$(this).parent().removeClass("has-success").addClass("has-danger");

@@ -161,12 +161,13 @@ $subparts = $this->get( 'itemSubparts', [] );
 
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 content-block">
+				<div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
 							<select class="form-control c-select item-status" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.status' ) ) ); ?>">
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.status' ) ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
 								<option value="1" <?= $selected( $this->get( 'itemData/product.status', 1 ), 1 ); ?> >
 									<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
 								</option>
@@ -186,7 +187,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 						<div class="col-sm-8">
 							<select class="form-control c-select item-typeid" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>">
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
 
 								<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
 									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>" <?= $selected( $this->get( 'itemData/product.typeid' ), $id ); ?> >
@@ -203,7 +205,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<input class="form-control item-code" type="text" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.code' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/product.code' ) ); ?>" />
+								value="<?= $enc->attr( $this->get( 'itemData/product.code' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
@@ -215,7 +218,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<input class="form-control item-label" type="text" required="required" tabindex="1"
 								name="<?= $this->formparam( array( 'item', 'product.label' ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/product.label' ) ); ?>" />
+								value="<?= $enc->attr( $this->get( 'itemData/product.label' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
@@ -228,7 +232,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.datestart' ) ); ?>"
-								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
+								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site after that date and time, useful or seasonal articles' ) ); ?>
@@ -241,7 +246,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.dateend' ) ); ?>"
-								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
+								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ); ?>
@@ -249,7 +255,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block">
+				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>">
 					<table class="item-config table table-striped">
 						<thead>
 							<tr>
@@ -263,9 +269,11 @@ $subparts = $this->get( 'itemSubparts', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
 								</th>
 								<th class="actions">
-									<div class="btn act-add fa" tabindex="1"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
-									</div>
+									<?php if( !$this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) : ?>
+										<div class="btn act-add fa" tabindex="1"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+										</div>
+									<?php endif; ?>
 								</th>
 							</tr>
 						</thead>
@@ -276,36 +284,40 @@ $subparts = $this->get( 'itemSubparts', [] );
 									<td>
 										<input type="text" class="config-key form-control" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>" />
+											value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>"
+											<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 									</td>
 									<td>
 										<input type="text" class="config-value form-control" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/config/val/' . $idx ) ); ?>" />
+											value="<?= $enc->attr( $this->get( 'itemData/config/val/' . $idx ) ); ?>"
+											<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 									</td>
 									<td class="actions">
-										<div class="btn act-delete fa" tabindex="1"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-										</div>
+										<?php if( !$this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) : ?>
+											<div class="btn act-delete fa" tabindex="1"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+											</div>
+										<?php endif; ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>
 
 							<tr class="prototype">
 								<td>
-									<input type="text" class="config-key form-control" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>"
-										value="" disabled="disabled" />
+									<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" />
 								</td>
 								<td>
-									<input type="text" class="config-value form-control" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>"
-										value="" disabled="disabled" />
+									<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
 								</td>
 								<td class="actions">
-									<div class="btn act-delete fa" tabindex="1"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-									</div>
+									<?php if( !$this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) : ?>
+										<div class="btn act-delete fa" tabindex="1"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+										</div>
+									<?php endif; ?>
 								</td>
 							</tr>
 						</tbody>

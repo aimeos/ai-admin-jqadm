@@ -51,6 +51,14 @@ html {
 	color: #464a4c;
 }
 
+.ui-state-default[readonly], .ui-widget-content .ui-state-default[readonly], .ui-widget-header .ui-state-default[readonly] {
+	background: #eceeef;
+}
+
+.ui-button[disabled] {
+	background: #ededed;
+}
+
 
 
 /* Bootstrap bugfixes */
@@ -559,7 +567,12 @@ html {
 /* Common styles */
 
 .aimeos .readonly {
-	background: #E8F0F8 !important;
+	border-left: 0.25rem solid #FFB070;
+	opacity: 0.66 !important;
+}
+
+.aimeos .readonly select:focus {
+	border-color: #D9534F !important;
 }
 
 .aimeos .error-list {

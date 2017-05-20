@@ -392,8 +392,10 @@ class Standard
 	protected function getDataExisting( \Aimeos\MW\View\Iface $view, $copy = false )
 	{
 		$data = [];
+		$context = $this->getContext();
+		$siteid = $context->getLocale()->getSiteId();
 		$variants = $view->item->getRefItems( 'product', null, 'default' );
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'product.id', array_keys( $variants ) ) );
@@ -401,7 +403,7 @@ class Standard
 
 		$products = $manager->searchItems( $search, array( 'attribute' ) );
 
-		foreach( $view->item->getListItems( 'product', 'default' ) as $listid => $listItem )
+		foreach( $view->item->getListItems( 'product', 'default' ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
@@ -410,12 +412,14 @@ class Standard
 			if( $copy === false )
 			{
 				$code = $refItem->getCode();
-				$data[$code]['product.lists.id'] = $listid;
+				$data[$code]['product.siteid'] = $refItem->getSiteId();
+				$data[$code]['product.lists.id'] = $listItem->getId();
 				$data[$code]['product.id'] = $listItem->getRefId();
 			}
 			else
 			{
 				$code = $refItem->getCode() . '_copy';
+				$data[$code]['product.siteid'] = $siteid;
 				$data[$code]['product.lists.id'] = '';
 				$data[$code]['product.id'] = '';
 			}
@@ -430,6 +434,7 @@ class Standard
 				{
 					$data[$code]['attr'][$attrid]['ref'] = $code;
 					$data[$code]['attr'][$attrid]['label'] = $attrItem->getLabel();
+					$data[$code]['attr'][$attrid]['siteid'] = $listItem->getSiteId();
 				}
 			}
 		}
@@ -447,14 +452,16 @@ class Standard
 	protected function getDataParams( \Aimeos\MW\View\Iface $view )
 	{
 		$data = [];
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
 		foreach( (array) $view->param( 'selection/product.code', [] ) as $pos => $code )
 		{
 			if( !empty( $code ) )
 			{
 				$data[$code]['product.lists.id'] = $view->param( 'selection/product.lists.id/' . $pos );
-				$data[$code]['product.id'] = $view->param( 'selection/product.id/' . $pos );
 				$data[$code]['product.label'] = $view->param( 'selection/product.label/' . $pos );
+				$data[$code]['product.id'] = $view->param( 'selection/product.id/' . $pos );
+				$data[$code]['product.siteid'] = $siteid;
 			}
 		}
 
@@ -465,6 +472,7 @@ class Standard
 				$id = $view->param( 'selection/attr/id/' . $pos );
 
 				$data[$code]['attr'][$id]['ref'] = $code;
+				$data[$code]['attr'][$id]['siteid'] = $siteid;
 				$data[$code]['attr'][$id]['label'] = $view->param( 'selection/attr/label/' . $pos );
 			}
 		}

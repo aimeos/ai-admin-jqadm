@@ -38,7 +38,7 @@ $enc = $this->encoder();
 		<tbody>
 
 			<?php foreach( $this->get( 'imageData/product.lists.id', [] ) as $idx => $id ) : ?>
-				<tr>
+				<tr class="<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?>">
 					<td class="image-preview">
 						<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.id', '' ) ) ); ?>" value="<?= $enc->attr( $id ); ?>" />
 						<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'image', 'media.id', '' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'imageData/media.id/' . $idx ) ); ?>" />
@@ -48,14 +48,15 @@ $enc = $this->encoder();
 					<td class="image-language optional">
 
 						<select class="custom-select item-languageid" tabindex="<?= $this->get( "tabindex" ); ?>"
-							name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>">
+							name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>"
+							<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?> >
 							<?php $lang = $this->get( 'imageData/media.languageid/' . $idx ); ?>
 
 							<option value="" <?= ( $lang == '' ? 'selected="selected"' : '' ) ?> >
 								<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
 							</option>
 
-							<?php foreach( $this->get( 'itemLanguages', [] ) as $langId => $langItem ) : ?>
+							<?php foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) : ?>
 								<option value="<?= $enc->attr( $langId ); ?>" <?= ( $lang == $langId ? 'selected="selected"' : '' ) ?> >
 									<?= $enc->html( $langId ); ?>
 								</option>
@@ -66,12 +67,15 @@ $enc = $this->encoder();
 					<td class="image-label mandatory">
 						<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'image', 'media.label', '' ) ) ); ?>"
-							value="<?= $enc->attr( $this->get( 'imageData/media.label/' . $idx ) ); ?>" />
+							value="<?= $enc->attr( $this->get( 'imageData/media.label/' . $idx ) ); ?>"
+							<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?> />
 					</td>
 					<td class="actions">
-						<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-						</div>
+						<?php if( !$this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ) ) : ?>
+							<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+							</div>
+						<?php endif; ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
@@ -84,7 +88,7 @@ $enc = $this->encoder();
 						name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>">
 						<option value="" selected="selected"><?= $enc->html( $this->translate( 'admin', 'All' ) ); ?></option>
 
-						<?php foreach( $this->get( 'itemLanguages', [] ) as $langId => $langItem ) : ?>
+						<?php foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) : ?>
 							<option value="<?= $enc->attr( $langId ); ?>"><?= $enc->html( $langId ); ?></option>
 						<?php endforeach; ?>
 

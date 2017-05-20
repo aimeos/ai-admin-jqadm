@@ -365,6 +365,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
 
 		$data = (array) $view->param( 'text', [] );
+		$siteid = $view->item->getSiteId();
 
 		if( empty( $data ) && ( $id = $view->item->getId() ) !== null )
 		{
@@ -380,18 +381,21 @@ class Standard
 
 				$type = $refItem->getType();
 				$langid = $refItem->getLanguageId();
+				$data['langid'][$langid] = $langid;
+				$data['siteid'][$langid] = $siteid;
 
 				if( in_array( $type, $this->getTypes() ) )
 				{
-					$data['langid'][$langid] = $langid;
 					$data[$type]['listid'][$langid] = $listItem->getId();
 					$data[$type]['content'][$langid] = $refItem->getContent();
 				}
 			}
 		}
 
-		if( !isset( $data['langid'] ) || empty( $data['langid'] ) ) { // show at least one block
+		if( !isset( $data['langid'] ) || empty( $data['langid'] ) ) // show at least one block
+		{
 			$data['langid'][] = $context->getLocale()->getLanguageId();
+			$data['siteid'][] = $context->getLocale()->getSiteId();
 		}
 
 		$view->textTypes = $manager->searchItems( $manager->createSearch() );

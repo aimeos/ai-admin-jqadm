@@ -29,7 +29,7 @@ $enc = $this->encoder();
 			<tbody>
 
 				<?php foreach( $this->get( 'bundleData/product.lists.id', [] ) as $idx => $id ) : ?>
-					<tr>
+					<tr class="<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>">
 						<td>
 							<input class="item-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.lists.id', '' ) ) ); ?>"
@@ -38,16 +38,19 @@ $enc = $this->encoder();
 								name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.label', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'bundleData/product.label/' . $idx ) ); ?>" />
 							<select class="combobox item-refid" tabindex="<?= $this->get( "tabindex" ); ?>"
-								name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.lists.refid', '' ) ) ); ?>">
+								name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.lists.refid', '' ) ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.lists.siteid' ) ); ?> >
 								<option value="<?= $enc->attr( $this->get( 'bundleData/product.lists.refid/' . $idx ) ); ?>" >
 									<?= $enc->html( $this->get( 'bundleData/product.label/' . $idx ) ); ?>
 								</option>
 							</select>
 						</td>
 						<td class="actions">
-							<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-							</div>
+							<?php if( !$this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) : ?>
+								<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+								</div>
+							<?php endif; ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

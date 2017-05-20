@@ -40,11 +40,12 @@ $enc = $this->encoder();
 		<tbody>
 
 			<?php foreach( $this->get( 'stockData/stock.id', [] ) as $idx => $id ) : ?>
-				<tr>
+				<tr class="<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?>">
 					<td class="stock-type mandatory">
 						<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="<?= $enc->attr( $id ); ?>" />
 						<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
-							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>">
+							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>"
+							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> >
 
 							<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
 								<?php if( $typeId == $this->get( 'stockData/stock.typeid/' . $idx ) ) : ?>
@@ -59,19 +60,23 @@ $enc = $this->encoder();
 					<td class="stock-stocklevel optional">
 						<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( "tabindex" ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.stocklevel', '' ) ) ); ?>"
-							value="<?= $enc->attr( $this->get( 'stockData/stock.stocklevel/' . $idx ) ); ?>" />
+							value="<?= $enc->attr( $this->get( 'stockData/stock.stocklevel/' . $idx ) ); ?>"
+							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> />
 					</td>
 					<td class="stock-databack optional">
 						<input class="form-control item-dateback date" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.dateback', '' ) ) ); ?>"
 							value="<?= $enc->attr( $this->get( 'stockData/stock.dateback/' . $idx ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-							data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
+							data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>"
+							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> />
 					</td>
 					<td class="actions">
-						<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-						</div>
+						<?php if( !$this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ) ) : ?>
+							<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+							</div>
+						<?php endif; ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

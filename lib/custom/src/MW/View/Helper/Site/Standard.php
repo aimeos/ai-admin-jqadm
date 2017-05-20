@@ -73,15 +73,15 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 
 
 	/**
-	 * Returns "inherited" if the item is inherited from another site
+	 * Returns "readonly" if the item is inherited from another site
 	 *
 	 * @param string $siteid ID of a site item
-	 * @return string|null "inherited" if item is from a parent site, null if not
+	 * @return string|null "readonly" if item is from a parent site, null if not
 	 */
-	public function inherited( $siteid )
+	public function readonly( $siteid )
 	{
 		if( ( $item = end( $this->sitepath ) ) !== false && $siteid != $item->getId() ) {
-			return 'inherited';
+			return 'readonly';
 		}
 	}
 }

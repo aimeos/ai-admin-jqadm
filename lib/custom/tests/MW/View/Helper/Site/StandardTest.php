@@ -50,9 +50,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testInherit()
+	public function testReadonly()
 	{
-		$this->assertEquals( 'inherited', $this->object->transform()->inherited( 1 ) );
+		$this->assertEquals( 'readonly', $this->object->transform()->readonly( 1 ) );
 	}
 }
 

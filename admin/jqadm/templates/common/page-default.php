@@ -255,7 +255,7 @@ if( $lang ) {
 					<li class="site treeview">
 						<a href="#">
 							<i class="icon"></i>
-							<span class="title"><?= $enc->html( $this->pageSite->getLabel() ); ?></span>
+							<span class="title"><?= $enc->html( $this->site()->label() ); ?></span>
 						</a>
 						<ul class="tree-menu">
 							<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></li>
