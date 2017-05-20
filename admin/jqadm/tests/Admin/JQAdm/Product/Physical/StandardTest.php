@@ -87,6 +87,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$param = array(
+			'site' => 'unittest',
 			'physical' => array(
 				'package-length' => '10.00',
 				'package-weight' => '5.25',

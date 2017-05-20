@@ -98,6 +98,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$typeid = $typeManager->findItem( 'default', [], 'product' )->getId();
 
 		$param = array(
+			'site' => 'unittest',
 			'category' => array(
 				'catalog.lists.id' => array( '' ),
 				'catalog.lists.typeid' => array( $typeid ),

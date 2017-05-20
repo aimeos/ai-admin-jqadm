@@ -90,6 +90,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$param = array(
+			'site' => 'unittest',
 			'text' => array(
 				'langid' => array( 'de' ),
 				'name' => array( 'listid' => '', 'content' => 'test name' ),

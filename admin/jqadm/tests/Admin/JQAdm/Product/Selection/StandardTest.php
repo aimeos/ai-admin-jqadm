@@ -66,6 +66,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testGet()
 	{
 		$param = array(
+			'site' => 'unittest',
 			'selection' => array(
 				'product.id' => array( 0 => '' ),
 				'product.code' => array( 0 => 'testprod' ),
@@ -107,6 +108,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$param = array(
+			'site' => 'unittest',
 			'selection' => array(
 				'product.lists.id' => array( 0 => '' ),
 				'product.id' => array( 0 => $item->getId() ),

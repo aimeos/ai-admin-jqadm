@@ -589,7 +589,6 @@ class Standard
 	{
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
-		$langManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/language' );
 
 		$view->itemData = (array) $view->param( 'item', [] );
 		$view->itemSubparts = $this->getSubClientNames();

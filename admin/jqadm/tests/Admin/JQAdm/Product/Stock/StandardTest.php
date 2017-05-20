@@ -82,6 +82,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$param = array(
+			'site' => 'unittest',
 			'stock' => array(
 				'stock.id' => array( '' ),
 				'stock.typeid' => array( $typeManager->findItem( 'default' )->getId() ),

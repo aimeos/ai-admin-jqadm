@@ -88,7 +88,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager->saveItem( $item );
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['specialprice' => ['custom' => '1']] );
+		$params = ['site' => 'unittest', 'specialprice' => ['custom' => '1']];
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $params );
 		$this->view->addHelper( 'param', $helper );
 
 		$this->view->item = $item;

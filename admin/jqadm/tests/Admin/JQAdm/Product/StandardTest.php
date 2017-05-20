@@ -77,7 +77,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
-		$param = array( 'id' => $manager->findItem( 'CNC' )->getId() );
+		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'CNC' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -161,7 +161,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
-		$param = array( 'id' => $manager->findItem( 'CNC' )->getId() );
+		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'CNC' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -227,6 +227,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$param = array(
+			'site' => 'unittest',
 			'item' => array(
 				'product.id' => '',
 				'product.typeid' => $typeItem->getId(),

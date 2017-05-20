@@ -97,6 +97,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$param = array(
+			'site' => 'unittest',
 			'download' => array(
 				'product.lists.id' => '',
 				'product.lists.status' => '1',

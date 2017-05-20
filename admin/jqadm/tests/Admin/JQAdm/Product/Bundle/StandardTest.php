@@ -92,6 +92,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$param = array(
+			'site' => 'unittest',
 			'bundle' => array(
 				'product.lists.id' => array( '' ),
 				'product.lists.refid' => array( $manager->findItem( 'CNE' )->getId() ),
