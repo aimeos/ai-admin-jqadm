@@ -166,19 +166,22 @@ $extConfig = $this->config( 'admin/extjs/url/config', [] );
  * @since 2016.07
  * @category Developer
  */
-$resourceList = $this->config( 'admin/jqadm/resources', ['d' => 'dashboard', /*'o' => 'order', 'u' => 'customer',*/ 'p' => 'product', /*'c' => 'catalog', 'v' => 'voucher'*/] );
+$resourceList = $this->config( 'admin/jqadm/resources', [
+	'd' => 'dashboard', /*'o' => 'order', 'u' => 'customer',*/ 'p' => 'product', /*'c' => 'catalog', 'v' => 'voucher'*/
+	/*'r' => 'supplier', 's' => 'service', 'g' => 'plugin', 'l' => 'locale', 't' => 'type'*/
+] );
 
-/** admin/jqadm/resources-more
- * List of available resource clients in the JQAdm interface
+/** admin/jqadm/advanced
+ * List of advanced resource clients in the JQAdm interface
  *
  * The JQAdm admin interface consists of several clients for different resources.
- * This configuration setting lists the names of the advanced resources and their order.
+ * This configuration setting lists the names of the advanced resources.
  *
  * @param array List of resource client names
  * @since 2017.06
  * @category Developer
  */
-$advancedList = $this->config( 'admin/jqadm/resources-more', [/*'r' => 'supplier', 's' => 'service', 'g' => 'plugin', 'l' => 'locale', 't' => 'type'*/] );
+$advancedList = $this->config( 'admin/jqadm/advanced', ['supplier', 'service', 'plugin', 'locale', 'type'] );
 
 
 $resource = $this->param( 'resource', 'dashboard' );
@@ -286,31 +289,35 @@ if( $lang ) {
 
 
 				<?php foreach( $resourceList as $ctrlkey => $code ) : ?>
-					<?php $active = ( $this->param( 'resource', 'dashboard' ) === $code ? 'active' : '' ); ?>
-					<li class="<?= $enc->attr( $code ) . ' ' . $active ?>">
-						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>"
-							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
-							data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
-							<i class="icon"></i>
-							<span class="title"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
-						</a>
-					</li>
+					<?php if( !in_array( $code, $advancedList ) ) : ?>
+						<?php $active = ( $this->param( 'resource', 'dashboard' ) === $code ? 'active' : '' ); ?>
+						<li class="<?= $enc->attr( $code ) . ' ' . $active ?>">
+							<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>"
+								title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
+								data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
+								<i class="icon"></i>
+								<span class="title"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
+							</a>
+						</li>
+					<?php endif; ?>
 				<?php endforeach; ?>
 			</ul>
 
 			<div class="separator"><i class="icon more"></i></div>
 
 			<ul class="sidebar-menu advanced">
-				<?php foreach( $advancedList as $ctrlkey => $code ) : ?>
-					<?php $active = ( $this->param( 'resource' ) === $code ? 'active' : '' ); ?>
-					<li class="<?= $enc->attr( $code ) . ' ' . $active ?>">
-						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>"
-							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
-							data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
-							<i class="icon"></i>
-							<span class="title"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
-						</a>
-					</li>
+				<?php foreach( $resourceList as $ctrlkey => $code ) : ?>
+					<?php if( in_array( $code, $advancedList ) ) : ?>
+						<?php $active = ( $this->param( 'resource' ) === $code ? 'active' : '' ); ?>
+						<li class="<?= $enc->attr( $code ) . ' ' . $active ?>">
+							<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>"
+								title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
+								data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
+								<i class="icon"></i>
+								<span class="title"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
+							</a>
+						</li>
+					<?php endif; ?>
 				<?php endforeach; ?>
 
 				<li class="config treeview">
