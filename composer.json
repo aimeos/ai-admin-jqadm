@@ -20,7 +20,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Aimeos\\Admin\\JQAdm\\": "admin/jqadm/src/Admin/JQAdm/"
+			"Aimeos\\Admin\\JQAdm\\": "admin/jqadm/src/Admin/JQAdm/",
 			"Aimeos\\MW\\": "lib/custom/src/MW"
 		},
 		"classmap": [
