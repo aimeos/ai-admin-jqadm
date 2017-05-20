@@ -31,9 +31,10 @@ class Page extends Base
 
 		// set first to be able to show errors occuring afterwards
 		$view->pageParams = $this->getClientParams();
-
 		$context = $this->getContext();
-		$aimeos = new \Aimeos\Bootstrap( array( dirname( __DIR__, 7 ) ) );
+
+		$ext = dirname( dirname( dirname( dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) ) ) );
+		$aimeos = new \Aimeos\Bootstrap( array( $ext ) );
 		$customerManager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
 		$siteManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
 
