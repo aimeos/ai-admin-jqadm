@@ -251,35 +251,31 @@ if( $lang ) {
 
 			<ul class="sidebar-menu basic">
 
-				<?php $siteTree = $this->get( 'sitesTree' ); ?>
-				<?php if( $siteTree && !empty( $siteTree->getChildren() ) && $this->access( 'admin' ) ) : ?>
+				<?php if( !empty( $this->pageSite->getChildren() ) && $this->access( 'admin' ) ) : ?>
 					<li class="site treeview">
 						<a href="#">
 							<i class="icon"></i>
-							<span class="title"><?= $enc->html( $siteTree->getLabel() ); ?></span>
+							<span class="title"><?= $enc->html( $this->pageSite->getLabel() ); ?></span>
 						</a>
 						<ul class="tree-menu">
 							<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></li>
-							<li class="site-<?= $enc->attr( $siteTree->getCode() ) ?>">
-								<?php foreach( $siteTree->getChildren() as $site ) : ?>
-									<li class="site-<?= $enc->attr( $site->getCode() ) ?>">
-										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $site->getCode() ) + $params, [], $config ) ); ?>">
-											<span class="name"><?= $enc->html( $site->getLabel() ); ?></span>
-										</a>
-										<?php if( !empty( $site->getChildren() ) ) : ?>
-											<ul class="menu-sub">
-												<?php foreach( $site->getChildren() as $site ) : ?>
-													<li class="site-<?= $enc->attr( $site->getCode() ) ?>">
-														<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $site->getCode() ) + $params, [], $config ) ); ?>">
-															<span class="name"><?= $enc->html( $site->getLabel() ); ?></span>
-														</a>
-													</li>
-												<?php endforeach; ?>
-											</ul>
-										<?php endif; ?>
-									</li>
-								<?php endforeach; ?>
-							</li>
+
+							<?php $siteFcn = function( \Aimeos\MShop\Locale\Item\Site\Iface $site ) use ( &$siteFcn, $enc, $searchTarget, $cntl, $action, $params, $config ) { ?>
+
+								<li class="site-<?= $enc->attr( $site->getCode() ) ?>">
+									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $site->getCode() ) + $params, [], $config ) ); ?>">
+										<span class="name"><?= $enc->html( $site->getLabel() ); ?></span>
+									</a>
+
+									<?php if( !empty( $site->getChildren() ) ) : ?>
+										<ul class="menu-sub">
+											<?php foreach( $site->getChildren() as $site ) { $siteFcn( $site ); } ?>
+										</ul>
+									<?php endif; ?>
+								</li>
+
+							<?php }; $siteFcn( $this->pageSite ); ?>
+
 						</ul>
 					</li>
 				<?php endif; ?>
@@ -324,7 +320,7 @@ if( $lang ) {
 					</span>
 					<ul class="tree-menu">
 						<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></strong></li>
-						<?php foreach( $this->get( 'languagesList', [] ) as $langid ) : ?>
+						<?php foreach( $this->get( 'pageLangList', [] ) as $langid ) : ?>
 							<li class="lang-<?= $enc->attr( $langid ) ?>">
 								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>"
 									<span class="name"><?= $enc->html( $this->translate( 'client/language', $langid ) ); ?> (<?= $langid ?>)</span>
