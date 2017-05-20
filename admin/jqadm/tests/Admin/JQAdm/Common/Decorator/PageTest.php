@@ -9,7 +9,7 @@
 namespace Aimeos\Admin\JQAdm\Common\Decorator;
 
 
-class SitesTest extends \PHPUnit\Framework\TestCase
+class PageTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
 	private $object;
@@ -21,7 +21,7 @@ class SitesTest extends \PHPUnit\Framework\TestCase
 		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
 		$client = new \Aimeos\Admin\JQAdm\Product\Standard( $this->context, $templatePaths );
-		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Sites( $client, $this->context, $templatePaths );
+		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $client, $this->context, $templatePaths );
 	}
 
 
@@ -37,6 +37,9 @@ class SitesTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->setView( $view );
 
-		$this->assertInternalType( 'array', $view->sitesList );
+		$this->assertNull( $view->get( 'pageUser' ) );
+		$this->assertInternalType( 'array', $view->pageParams );
+		$this->assertInternalType( 'array', $view->pageLangList );
+		$this->assertInstanceOf( '\Aimeos\MShop\Locale\Item\Site\Iface', $view->pageSite );
 	}
 }

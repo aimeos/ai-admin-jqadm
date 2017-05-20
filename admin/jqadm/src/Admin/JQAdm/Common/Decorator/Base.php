@@ -153,7 +153,9 @@ abstract class Base
 	 */
 	public function setView( \Aimeos\MW\View\Iface $view )
 	{
+		parent::setView( $view );
 		$this->client->setView( $view );
+
 		return $this;
 	}
 

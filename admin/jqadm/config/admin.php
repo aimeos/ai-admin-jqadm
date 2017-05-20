@@ -4,7 +4,7 @@ return array(
 	'jqadm' => array(
 		'common' => array(
 			'decorators' => array(
-				'default' => array( 'Languages', 'Sites' ),
+				'default' => array( 'Page' ),
 			),
 		),
 		'product' => array(

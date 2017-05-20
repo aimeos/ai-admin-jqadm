@@ -477,7 +477,7 @@ $sortcode = $this->param( 'sort' );
 
 	<span class="navbar-brand">
 		<?= $enc->html( $this->translate( 'admin', 'Product' ) ); ?>
-		<span class="navbar-secondary">(<?= $enc->html( $this->get( 'pageSite' ) ); ?>)</span>
+		<span class="navbar-secondary">(<?= $enc->html( $this->pageSite->getLabel() ); ?>)</span>
 	</span>
 
 	<form class="form-inline" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $formparams, [], $config ) ); ?>">
