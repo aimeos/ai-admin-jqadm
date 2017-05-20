@@ -35,9 +35,11 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 				</span>
 				&nbsp;
 				<div class="card-tools-right">
-					<a class="btn btn-card-header act-view fa" target="_blank"
-						href="<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => $this->value( $map, 'product.id' )] + $this->get( 'pageParams', [] ), [], $config ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
+					<?php if( $this->value( $map, 'product.id' ) ) : ?>
+						<a class="btn btn-card-header act-view fa" target="_blank"
+							href="<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => $this->value( $map, 'product.id' )] + $this->get( 'pageParams', [] ), [], $config ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
+					<?php endif; ?>
 					<div class="btn btn-card-header act-copy fa"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>"></div>
 					<div class="btn btn-card-header act-delete fa"
