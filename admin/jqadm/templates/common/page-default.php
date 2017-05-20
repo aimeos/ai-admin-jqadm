@@ -166,10 +166,7 @@ $extConfig = $this->config( 'admin/extjs/url/config', [] );
  * @since 2016.07
  * @category Developer
  */
-$resourceList = $this->config( 'admin/jqadm/resources', [
-	'd' => 'dashboard', /*'o' => 'order', 'u' => 'customer',*/ 'p' => 'product', /*'c' => 'catalog', 'v' => 'voucher'*/
-	/*'r' => 'supplier', 's' => 'service', 'g' => 'plugin', 'l' => 'locale', 't' => 'type'*/
-] );
+$resourceList = $this->config( 'admin/jqadm/resources', [] );
 
 /** admin/jqadm/advanced
  * List of advanced resource clients in the JQAdm interface
@@ -181,7 +178,7 @@ $resourceList = $this->config( 'admin/jqadm/resources', [
  * @since 2017.06
  * @category Developer
  */
-$advancedList = $this->config( 'admin/jqadm/advanced', ['supplier', 'service', 'plugin', 'locale', 'type'] );
+$advancedList = $this->config( 'admin/jqadm/advanced', [] );
 
 
 $resource = $this->param( 'resource', 'dashboard' );

@@ -1,21 +1,26 @@
 <?php
 
-return array(
-	'jqadm' => array(
-		'common' => array(
-			'decorators' => array(
-				'default' => array( 'Page' ),
-			),
-		),
-		'product' => array(
-			'decorators' => array(
-				'global' => array( 'Index', 'Cache' ),
-			),
-		),
-		'product/category' => array(
-			'decorators' => array(
-				'local' => array( 'Cache' ),
-			),
-		),
-	),
-);
+return [
+	'jqadm' => [
+		'common' => [
+			'decorators' => [
+				'default' => ['Page'],
+			],
+		],
+		'product' => [
+			'decorators' => [
+				'global' => ['Index', 'Cache'],
+			],
+		],
+		'product/category' => [
+			'decorators' => [
+				'local' => ['Cache'],
+			],
+		],
+		'resources' => [
+			'd' => 'dashboard', /*'o' => 'order', 'u' => 'customer',*/ 'p' => 'product', /*'c' => 'catalog', 'v' => 'voucher'*/
+			/*'r' => 'supplier', 's' => 'service', 'g' => 'plugin', 'l' => 'locale', 't' => 'type'*/
+		],
+		'advanced' => ['supplier', 'service', 'plugin', 'locale', 'type'],
+	],
+];
