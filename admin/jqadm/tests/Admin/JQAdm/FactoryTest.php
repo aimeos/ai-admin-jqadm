@@ -23,6 +23,7 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClient()
 	{
+		$this->context->getConfig()->set( 'admin/jqadm/resources', ['product'] );
 		$client = \Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->templatePaths, 'product' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
@@ -30,6 +31,7 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClientName()
 	{
+		$this->context->getConfig()->set( 'admin/jqadm/resources', ['product'] );
 		$client = \Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->templatePaths, 'product', 'Standard' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}

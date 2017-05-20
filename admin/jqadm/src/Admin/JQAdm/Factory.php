@@ -39,6 +39,10 @@ class Factory
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid characters in client name "%1$s"', $type ) );
 		}
 
+		if( !in_array( $type, $context->getConfig()->get( 'admin/jqadm/resources', [] ) ) ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
+		}
+
 		$factory = '\\Aimeos\\Admin\\JQAdm\\' . ucwords( $type ) . '\\Factory';
 
 		if( class_exists( $factory ) === false ) {
