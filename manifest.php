@@ -10,6 +10,7 @@ return array(
 	),
 	'include' => array(
 		'admin/jqadm/src',
+		'lib/custom/src',
 	),
 	'i18n' => array(
 		'admin' => 'admin/i18n',

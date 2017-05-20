@@ -51,6 +51,7 @@ class Page extends Base
 		}
 
 		$view->pageSite = $siteManager->getTree( $siteid, [], \Aimeos\MW\Tree\Manager\Base::LEVEL_TREE );
+		$view->pageSitePath = $siteManager->getPath( $siteid );
 
 		$this->getClient()->setView( $view );
 		return $this;

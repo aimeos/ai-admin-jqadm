@@ -4,7 +4,7 @@
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos (aimeos.org), 2015-2016
  */
-class TestHelperJqadm
+class TestHelperCustom
 {
 	private static $aimeos;
 	private static $context = [];
@@ -97,7 +97,7 @@ class TestHelperJqadm
 		$aimeos = self::getAimeos();
 
 
-		$paths = $aimeos->getConfigPaths( 'mysql' );
+		$paths = $aimeos->getConfigPaths();
 		$paths[] = __DIR__ . DIRECTORY_SEPARATOR . 'config';
 		$file = __DIR__ . DIRECTORY_SEPARATOR . 'confdoc.ser';
 		$local = array( 'resource' => array( 'fs' => array( 'adapter' => 'Standard', 'basedir' => __DIR__ . '/tmp' ) ) );
@@ -137,7 +137,7 @@ class TestHelperJqadm
 		$ctx->setLocale( $locale );
 
 
-		$ctx->setEditor( 'ai-admin-jqadm:admin/jqadm' );
+		$ctx->setEditor( 'ai-admin-jqadm:lib/custom' );
 
 		return $ctx;
 	}

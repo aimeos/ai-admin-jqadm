@@ -3,6 +3,7 @@
 <project name="ai-admin-jqadm extension" default="test">
 
 	<target name="test" description="Executes all tests">
+		<phing target="test" haltonfailure="true" dir="lib/custom" />
 		<phing target="test" haltonfailure="true" dir="admin/jqadm" />
 	</target>
 
@@ -11,14 +12,17 @@
 	</target>
 
 	<target name="coverage" description="Generates the code coverage report">
+		<phing target="coverage" haltonfailure="true" dir="lib/custom" />
 		<phing target="coverage" haltonfailure="true" dir="admin/jqadm" />
 	</target>
 
 	<target name="check" description="Checks for code quality">
-		<phing target="check" haltonfailure="false" dir="admin/jqadm" />
+		<phing target="check" haltonfailure="false" dir="lib/custom" />
+		<phing target="check" haltonfailure="true" dir="admin/jqadm" />
 	</target>
 
 	<target name="clean" description="Cleans up temporary files">
+		<phing target="clean" haltonfailure="true" dir="lib/custom" />
 		<phing target="clean" haltonfailure="true" dir="admin/jqadm" />
 	</target>
 
