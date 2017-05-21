@@ -63,6 +63,8 @@ class TestHelperJqadm
 		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, $fcn );
 		$view->addHelper( 'access', $helper );
 
+		$view->pageSitePath = [];
+
 		return $view;
 	}
 
