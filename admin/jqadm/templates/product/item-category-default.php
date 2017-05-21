@@ -31,7 +31,7 @@ $enc = $this->encoder();
 				<?php $listTypeId = $this->get( 'categoryListTypes/default' ); ?>
 				<?php foreach( $this->get( 'categoryData/catalog.lists.id', [] ) as $idx => $id ) : ?>
 					<?php if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
-						<tr>
+						<tr class="<?= $this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ); ?>">
 							<td>
 								<input class="item-listtypeid" type="hidden"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
@@ -105,7 +105,7 @@ $enc = $this->encoder();
 				<?php $listTypeId = $this->get( 'categoryListTypes/promotion' ); ?>
 				<?php foreach( $this->get( 'categoryData/catalog.lists.id', [] ) as $idx => $id ) : ?>
 					<?php if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
-						<tr>
+						<tr class="<?= $this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ); ?>">
 							<td>
 								<input class="item-listtypeid" type="hidden"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"

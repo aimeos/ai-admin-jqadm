@@ -7,6 +7,7 @@
 
 $enc = $this->encoder();
 
+
 ?>
 <div id="bundle" class="row item-bundle tab-pane fade" role="tabpanel" aria-labelledby="bundle">
 	<div class="col-xl-6 content-block">
@@ -29,7 +30,7 @@ $enc = $this->encoder();
 			<tbody>
 
 				<?php foreach( $this->get( 'bundleData/product.lists.id', [] ) as $idx => $id ) : ?>
-					<tr class="<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>">
+					<tr class="<?= $this->site()->readonly( $this->get( 'bundleData/product.lists.siteid/' . $idx ) ); ?>">
 						<td>
 							<input class="item-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.lists.id', '' ) ) ); ?>"
@@ -39,14 +40,14 @@ $enc = $this->encoder();
 								value="<?= $enc->attr( $this->get( 'bundleData/product.label/' . $idx ) ); ?>" />
 							<select class="combobox item-refid" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'bundle', 'product.lists.refid', '' ) ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/product.lists.siteid' ) ); ?> >
+								<?= $this->site()->readonly( $this->get( 'bundleData/product.lists.siteid/' . $idx ) ); ?> >
 								<option value="<?= $enc->attr( $this->get( 'bundleData/product.lists.refid/' . $idx ) ); ?>" >
 									<?= $enc->html( $this->get( 'bundleData/product.label/' . $idx ) ); ?>
 								</option>
 							</select>
 						</td>
 						<td class="actions">
-							<?php if( !$this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) : ?>
+							<?php if( !$this->site()->readonly( $this->get( 'bundleData/product.lists.siteid/' . $idx ) ) ) : ?>
 								<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 								</div>

@@ -28,7 +28,7 @@ $enc = $this->encoder();
 		<tbody>
 
 			<?php foreach( $this->get( 'attributeData/product.lists.id', [] ) as $idx => $id ) : ?>
-				<tr>
+				<tr class="<?= $this->site()->readonly( $this->get( 'attributeData/product.lists.siteid/' . $idx ) ); ?>">
 					<td>
 						<input class="item-listid" type="hidden" value="<?= $enc->attr( $id ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'product.lists.id', '' ) ) ); ?>" />

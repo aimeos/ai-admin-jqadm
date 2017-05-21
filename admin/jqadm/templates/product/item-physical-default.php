@@ -19,8 +19,8 @@ $value = function( $type ) use ( $items ) {
 
 ?>
 <div id="physical" class="row item-physical tab-pane fade" role="tabpanel" aria-labelledby="physical">
-	<div class="col-xl-6 content-block">
-		<div class="form-group row optional <?= $this->site()->readonly( $siteid( 'package-length' ) ) ?>">
+	<div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>">
+		<div class="form-group row optional">
 			<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Length' ) ); ?></label>
 			<div class="col-lg-8">
 				<input class="form-control item-package-length" type="number" tabindex="<?= $this->get( "tabindex" ); ?>"
@@ -30,7 +30,7 @@ $value = function( $type ) use ( $items ) {
 					<?= $this->site()->readonly( $siteid( 'package-length' ) ) ?> >
 			</div>
 		</div>
-		<div class="form-group row optional <?= $this->site()->readonly( $siteid( 'package-width' ) ) ?>">
+		<div class="form-group row optional">
 			<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Width' ) ); ?></label>
 			<div class="col-lg-8">
 				<input class="form-control item-package-width" type="number" tabindex="<?= $this->get( "tabindex" ); ?>"
@@ -40,7 +40,7 @@ $value = function( $type ) use ( $items ) {
 					<?= $this->site()->readonly( $siteid( 'package-width' ) ) ?> >
 			</div>
 		</div>
-		<div class="form-group row optional <?= $this->site()->readonly( $siteid( 'package-height' ) ) ?>">
+		<div class="form-group row optional">
 			<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Height' ) ); ?></label>
 			<div class="col-lg-8">
 				<input class="form-control item-package-height" type="number" tabindex="<?= $this->get( "tabindex" ); ?>"
@@ -50,7 +50,7 @@ $value = function( $type ) use ( $items ) {
 					<?= $this->site()->readonly( $siteid( 'package-height' ) ) ?> >
 			</div>
 		</div>
-		<div class="form-group row optional <?= $this->site()->readonly( $siteid( 'package-weight' ) ) ?>">
+		<div class="form-group row optional">
 			<label class="col-lg-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Weight' ) ); ?></label>
 			<div class="col-lg-8">
 				<input class="form-control item-package-weight" type="number" tabindex="<?= $this->get( "tabindex" ); ?>"

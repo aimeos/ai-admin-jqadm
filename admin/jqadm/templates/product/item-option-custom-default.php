@@ -28,7 +28,7 @@ $enc = $this->encoder();
 		<tbody>
 
 			<?php foreach( $this->get( 'customData/product.lists.id', [] ) as $idx => $id ) : ?>
-				<tr>
+				<tr class="<?= $this->site()->readonly( $this->get( 'customData/product.lists.siteid/' . $idx ) ) ?>">
 					<td>
 						<input class="item-listid" type="hidden"
 							name="<?= $enc->attr( $this->formparam( array( 'option', 'custom', 'product.lists.id', '' ) ) ); ?>"

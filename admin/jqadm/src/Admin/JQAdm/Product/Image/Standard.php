@@ -418,13 +418,15 @@ class Standard
 
 		$data = [];
 
-		foreach( $view->item->getListItems( 'media', 'default' ) as $id => $listItem )
+		foreach( $view->item->getListItems( 'media', 'default' ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
-			$data['product.lists.id'][] = $id;
+			foreach( $listItem->toArray( true ) as $key => $value ) {
+				$data[$key][] = $value;
+			}
 
 			foreach( $refItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;

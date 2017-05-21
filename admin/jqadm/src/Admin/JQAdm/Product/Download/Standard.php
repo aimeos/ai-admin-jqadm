@@ -477,7 +477,7 @@ class Standard
 			return;
 		}
 
-		$data = [];
+		$data = ['product.lists.siteid' => $this->getContext()->getLocale()->getSiteId()];
 		$listItems = $this->getListItems( $view->item->getId() );
 		$attrItems = $this->getAttributeItems( $listItems );
 
