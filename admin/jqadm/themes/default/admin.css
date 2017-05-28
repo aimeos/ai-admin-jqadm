@@ -538,18 +538,23 @@ html {
 }
 
 .aimeos .main-content .item-actions {
+	padding: 0 calc(0.5rem + 15px);
 	white-space: nowrap;
 	text-align: right;
-	padding: 0 0.5rem;
+	width: 100%;
 }
 
 .aimeos .main-navbar .item-actions {
 	display: inline-block;
+	width: inherit;
 	padding: 0;
 }
 
-.aimeos .main-content .item-actions .btn {
+.aimeos .main-content .item-actions .btn:not(.dropdown-toggle) {
 	min-width: 8rem;
+}
+
+.aimeos .main-content .item-actions .btn {
 	margin: 0.5rem 0;
 }
 
@@ -564,13 +569,13 @@ html {
 		z-index: 1030;
 		top: 0;
 	}
-	.aimeos .main-content .item-actions {
+	.aimeos .item-container .item-actions {
 		display: none;
 	}
 }
 
 @media (max-width: 992px) {
-	.aimeos .main-content .item-actions .btn {
+	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle) {
 		min-width: 6rem;
 	}
 }
@@ -610,6 +615,14 @@ html {
 
 .aimeos .card-header .header-label {
 	vertical-align: middle;
+}
+
+.aimeos .btn.act-reset.fa:before {
+	content: "\f00d";
+}
+
+.aimeos .btn.act-search.fa:before {
+	content: "\f002";
 }
 
 .aimeos .main-navbar .btn.act-show.fa:before,
@@ -667,6 +680,11 @@ html {
 	font-weight: normal;
 	vertical-align: middle;
 	padding: 0.25rem 0.5rem;
+}
+
+.aimeos table th.product-id,
+.aimeos table td.product-id {
+	max-width: 5rem;
 }
 
 .aimeos table .actions {

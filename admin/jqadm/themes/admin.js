@@ -463,15 +463,8 @@ Aimeos.Product.Filter = {
 	selectDDInput : function() {
 
 		$(".aimeos .main-navbar .dropdown-menu label").on("click", function(ev) {
-
-			var input = $("input", this);
-
-			if(input.prop("checked")) {
-				input.prop("checked", false);
-			} else {
-				input.prop("checked", true);
-			}
-			return false;
+			ev.stopPropagation();
+			return true;
 		});
 	},
 

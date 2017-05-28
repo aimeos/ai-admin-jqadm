@@ -139,7 +139,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 		</div>
 	</nav>
 
-	<div class="main-content row item-container">
+	<div class="row item-container">
 
 		<div class="col-md-3 item-navbar">
 			<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">

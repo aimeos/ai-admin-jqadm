@@ -447,6 +447,7 @@ class Standard
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
+			$view->itemTypes = $this->getTypeItems();
 			$view->total = $total;
 			$view->itemBody = '';
 
