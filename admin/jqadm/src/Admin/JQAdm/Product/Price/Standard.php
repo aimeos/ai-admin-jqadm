@@ -375,6 +375,7 @@ class Standard
 	{
 		$locale = $this->getContext()->getLocale();
 		$siteId = $locale->getSiteId();
+		$data = [];
 
 		foreach( $item->getListItems( 'price' ) as $id => $listItem )
 		{

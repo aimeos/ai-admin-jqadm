@@ -463,7 +463,7 @@ class Standard
 		if( !isset( $data['langid'] ) || empty( $data['langid'] ) ) // show at least one block
 		{
 			$data['langid'][] = $context->getLocale()->getLanguageId();
-			$data['siteid'][] = $context->getLocale()->getSiteId();
+			$data['siteid'][] = $siteId;
 		}
 
 		return $data;

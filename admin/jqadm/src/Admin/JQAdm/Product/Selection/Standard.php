@@ -69,10 +69,7 @@ class Standard
 	{
 		$view = $this->getView();
 
-		$data = $this->toArray( $view->item, true );
-		$siteId = $this->getContext()->getLocale()->getSiteId();
-
-		$view->selectionData = $data;
+		$view->selectionData = $this->toArray( $view->item, true );
 		$view->selectionBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -80,7 +77,6 @@ class Standard
 		}
 
 		return $this->render( $view );
-
 	}
 
 
@@ -408,7 +404,7 @@ class Standard
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
-	 * @param string[] $data Data array
+	 * @param array $data Data array
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
@@ -433,7 +429,7 @@ class Standard
 
 		foreach( $data as $code => $list )
 		{
-			if( $code === '' ) { continue; }
+			if( $code == '' ) { continue; }
 
 			$listid = $this->getValue( $list, 'product.lists.id' );
 

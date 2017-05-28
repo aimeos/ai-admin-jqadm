@@ -117,8 +117,6 @@ class Standard
 		}
 
 		return $this->render( $view );
-
-		$view = $this->getView();
 	}
 
 
