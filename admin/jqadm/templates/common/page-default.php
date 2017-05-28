@@ -168,17 +168,18 @@ $extConfig = $this->config( 'admin/extjs/url/config', [] );
  */
 $resourceList = $this->config( 'admin/jqadm/resources', [] );
 
-/** admin/jqadm/advanced
- * List of advanced resource clients in the JQAdm interface
+/** admin/jqadm/resources-admin
+ * List of resource clients in the JQAdm interface only for admins
  *
  * The JQAdm admin interface consists of several clients for different resources.
- * This configuration setting lists the names of the advanced resources.
+ * This configuration setting lists the names of the resources that are only
+ * available for admins.
  *
  * @param array List of resource client names
  * @since 2017.06
  * @category Developer
  */
-$advancedList = $this->config( 'admin/jqadm/advanced', [] );
+$adminList = $this->config( 'admin/jqadm/resources-admin', [] );
 
 
 $resource = $this->param( 'resource', 'dashboard' );
@@ -282,7 +283,7 @@ if( $lang ) {
 
 
 				<?php foreach( $resourceList as $ctrlkey => $code ) : ?>
-					<?php if( !in_array( $code, $advancedList ) ) : ?>
+					<?php if( !in_array( $code, $adminList ) ) : ?>
 						<?php $active = ( $this->param( 'resource', 'dashboard' ) === $code ? 'active' : '' ); ?>
 						<li class="<?= $enc->attr( $code ) . ' ' . $active ?>">
 							<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>"
@@ -299,19 +300,34 @@ if( $lang ) {
 			<div class="separator"><i class="icon more"></i></div>
 
 			<ul class="sidebar-menu advanced">
-				<?php foreach( $resourceList as $ctrlkey => $code ) : ?>
-					<?php if( in_array( $code, $advancedList ) ) : ?>
-						<?php $active = ( $this->param( 'resource' ) === $code ? 'active' : '' ); ?>
-						<li class="<?= $enc->attr( $code ) . ' ' . $active ?>">
-							<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>"
-								title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
-								data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
-								<i class="icon"></i>
-								<span class="title"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
-							</a>
-						</li>
-					<?php endif; ?>
-				<?php endforeach; ?>
+				<?php if( $this->access( 'admin' ) ) : ?>
+
+					<?php foreach( $resourceList as $ctrlkey => $code ) : ?>
+						<?php if( in_array( $code, $adminList ) ) : ?>
+							<?php $active = ( $this->param( 'resource' ) === $code ? 'active' : '' ); ?>
+
+							<li class="<?= $enc->attr( $code ) . ' ' . $active ?>">
+								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $code ) + $params, [], $config ) ); ?>"
+									title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $code ), strtoupper( $ctrlkey ) ) ); ?>"
+									data-ctrlkey="<?= $enc->attr( $ctrlkey ); ?>">
+									<i class="icon"></i>
+									<span class="title"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></span>
+								</a>
+							</li>
+
+						<?php endif; ?>
+					<?php endforeach; ?>
+
+					<li class="expert">
+						<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>"
+							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), 'Expert', 'E' ) ); ?>"
+							data-ctrlkey="e">
+							<i class="icon"></i>
+							<span class="title"><?= $enc->html( $this->translate( 'admin', 'Expert' ) ); ?></span>
+						</a>
+					</li>
+
+				<?php endif; ?>
 
 				<li class="config treeview">
 					<span>
@@ -329,29 +345,14 @@ if( $lang ) {
 						<?php endforeach; ?>
 					</ul>
 				</li>
-
-				<?php if( $this->access( 'admin' ) ) : ?>
-					<li class="expert">
-						<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>"
-							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), 'Expert', 'E' ) ); ?>"
-							data-ctrlkey="e">
-							<i class="icon"></i>
-							<span class="title"><?= $enc->html( $this->translate( 'admin', 'Expert' ) ); ?></span>
-						</a>
-					</li>
-				<?php endif; ?>
 			</ul>
 
 		</div>
 	</nav>
 
-	<div class="main-content">
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
 
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
-
-		<?= $this->block()->get( 'jqadm_content' ); ?>
-
-	</div>
+	<?= $this->block()->get( 'jqadm_content' ); ?>
 
 	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-default.php' ) ); ?>
 

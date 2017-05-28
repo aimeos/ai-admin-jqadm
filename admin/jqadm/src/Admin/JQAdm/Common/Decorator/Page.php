@@ -48,9 +48,15 @@ class Page extends Base
 			$siteid = $siteItem->getSiteId();
 		}
 
+		if( $view->access( 'admin' ) ) {
+			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_TREE;
+		} else {
+			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE;
+		}
+
 		$view->pageLanguages = $langManager->searchItems( $langManager->createSearch( true ) );
-		$view->pageSite = $siteManager->getTree( $siteid, [], \Aimeos\MW\Tree\Manager\Base::LEVEL_TREE );
 		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
+		$view->pageSite = $siteManager->getTree( $siteid, [], $level );
 		$view->pageLangList = $aimeos->getI18nList( 'admin' );
 
 		$this->getClient()->setView( $view );
