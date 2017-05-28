@@ -63,72 +63,49 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->categoryData = $this->toArray( $view->item, true );
+		$view->categoryListTypes = $this->getListTypes();
 		$view->categoryBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->categoryBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/category/template-item
-		 * Relative path to the HTML body template of the category subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/category/template-item';
-		$default = 'product/item-category-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->categoryData = $view->param( 'category', [] );
+		$view->categoryListTypes = $this->getListTypes();
 		$view->categoryBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->categoryBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/category/template-item';
-		$default = 'product/item-category-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Deletes a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function delete()
 	{
@@ -164,30 +141,26 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->categoryData = $this->toArray( $view->item );
+		$view->categoryListTypes = $this->getListTypes();
 		$view->categoryBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->categoryBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/category/template-item';
-		$default = 'product/item-category-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
@@ -199,7 +172,7 @@ class Standard
 
 		try
 		{
-			$this->updateItems( $view );
+			$this->fromArray( $view->item, $view->param( 'category', [] ) );
 			$view->categoryBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -213,15 +186,14 @@ class Standard
 		{
 			$error = array( 'product-item-category' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-category' => $e->getMessage() );
+			$error = array( 'product-item-category' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
+
+		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -392,19 +364,54 @@ class Standard
 
 
 	/**
-	 * Returns the mapped input parameter or the existing items as expected by the template
+	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param string[] $data Data array
 	 */
-	protected function setData( \Aimeos\MW\View\Iface $view )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$view->categoryData = (array) $view->param( 'category', [] );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists' );
+		$listIds = (array) $this->getValue( $data, 'catalog.lists.id', [] );
+		$map = $this->getListItems( $item->getId() );
 
-		if( !empty( $view->categoryData ) ) {
-			return;
+
+		foreach( $listIds as $idx => $listid )
+		{
+			if( isset( $map[$listid] ) ) {
+				unset( $map[$listid], $listIds[$idx] );
+			}
 		}
 
-		$listItems = $this->getListItems( $view->item->getId() );
+		$manager->deleteItems( array_keys( $map ) );
+
+
+		$litem = $manager->createItem();
+		$litem->setRefId( $item->getId() );
+		$litem->setDomain( 'product' );
+
+		foreach( $listIds as $idx => $listid )
+		{
+			$litem->setId( null );
+			$litem->setParentId( $this->getValue( $data, 'catalog.id/' . $idx ) );
+			$litem->setTypeId( $this->getValue( $data, 'catalog.lists.typeid/' . $idx ) );
+
+			$manager->saveItem( $litem, false );
+		}
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param boolean $copy True if items should be copied, false if not
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	{
+		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$listItems = $this->getListItems( $item->getId() );
 		$catItems = $this->getCatalogItems( $listItems );
 		$data = [];
 
@@ -415,55 +422,55 @@ class Standard
 			if( isset( $catItems[$catId] ) )
 			{
 				$data['catalog.id'][] = $catId;
-				$data['catalog.siteid'][] = $listItem->getSiteId();
 				$data['catalog.label'][] = $catItems[$catId]->getLabel();
 			}
 
-			foreach( $listItem->toArray( true ) as $key => $value ) {
+			$list = $listItem->toArray( true );
+
+			if( $copy === true )
+			{
+				$list['catalog.lists.siteid'] = $siteId;
+				$list['catalog.lists.id'] = '';
+			}
+
+			foreach( $list as $key => $value ) {
 				$data[$key][] = $value;
 			}
 		}
 
-		$view->categoryData = $data;
-		$view->categoryListTypes = $this->getListTypes();
+		return $data;
 	}
 
 
 	/**
-	 * Updates existing product category references or creates new ones
+	 * Returns the rendered template including the view data
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
+	 * @return string HTML output
 	 */
-	protected function updateItems( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists' );
+		/** admin/jqadm/product/category/template-item
+		 * Relative path to the HTML body template of the category subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/category/template-item';
+		$default = 'product/item-category-default.php';
 
-		$id = $view->item->getId();
-		$map = $this->getListItems( $id );
-		$listIds = (array) $view->param( 'category/catalog.lists.id', [] );
-
-
-		foreach( $listIds as $pos => $listid )
-		{
-			if( isset( $map[$listid] ) ) {
-				unset( $map[$listid], $listIds[$pos] );
-			}
-		}
-
-		$manager->deleteItems( array_keys( $map ) );
-
-
-		$item = $manager->createItem();
-		$item->setDomain( 'product' );
-		$item->setRefId( $id );
-
-		foreach( $listIds as $pos => $listid )
-		{
-			$item->setId( null );
-			$item->setParentId( $view->param( 'category/catalog.id/' . $pos ) );
-			$item->setTypeId( $view->param( 'category/catalog.lists.typeid/' . $pos ) );
-
-			$manager->saveItem( $item, false );
-		}
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

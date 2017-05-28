@@ -18,7 +18,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 
 	<?php foreach( (array) $this->get( 'selectionData', [] ) as $code => $map ) : ?>
 
-		<div class="group-item card <?= $this->site()->readonly( $this->value( $map, 'product.siteid' ) ); ?>">
+		<div class="group-item card <?= $this->site()->readonly( $this->value( $map, 'product.lists.siteid' ) ); ?>">
 			<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.lists.id', '' ) ) ); ?>"
 				value="<?= $enc->attr( $this->value( $map, 'product.lists.id' ) ); ?>" />
 
@@ -43,7 +43,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 					<div class="btn btn-card-header act-copy fa"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>">
 					</div>
-					<?php if( !$this->site()->readonly( $this->value( $map, 'product.siteid' ) ) ) : ?>
+					<?php if( !$this->site()->readonly( $this->value( $map, 'product.lists.siteid' ) ) ) : ?>
 						<div class="btn btn-card-header act-delete fa"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 						</div>
@@ -62,7 +62,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
 								value="<?= $enc->attr( $code ); ?>"
-								<?= $this->site()->readonly( $this->value( $map, 'product.siteid' ) ); ?> />
+								<?= $this->site()->readonly( $this->value( $map, 'product.lists.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
@@ -75,7 +75,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->value( $map, 'product.label' ) ); ?>"
-								<?= $this->site()->readonly( $this->value( $map, 'product.siteid' ) ); ?> />
+								<?= $this->site()->readonly( $this->value( $map, 'product.lists.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>

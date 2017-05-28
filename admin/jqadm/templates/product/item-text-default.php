@@ -59,7 +59,9 @@ $enc = $this->encoder();
 					<div class="col-xl-6">
 					</div>
 				<?php else : ?>
-					<input class="item-name-langid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>" value="<?= $enc->attr( $langid ); ?>" />
+					<input class="item-name-langid" type="hidden"
+						name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>"
+						value="<?= $enc->attr( $langid ); ?>" />
 				<?php endif; ?>
 
 				<div class="col-xl-6">
@@ -181,7 +183,8 @@ $enc = $this->encoder();
 
 		<div class="card-block collapse show row" role="tabpanel">
 
-			<?php if( count( $this->get( 'pageLanguages', [] ) ) > 1 ) : ?>
+			<?php $languages = $this->get( 'pageLanguages', [] ); ?>
+			<?php if( count( $languages ) > 1 ) : ?>
 				<div class="col-xl-6">
 					<div class="form-group row mandatory">
 						<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
@@ -190,7 +193,7 @@ $enc = $this->encoder();
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>" disabled="disabled">
 
 								<?php foreach( $this->get( 'pageLanguages', [] ) as $langItem ) : ?>
-									<option value="<?= $enc->attr( $langItem->getCode() ); ?>" <?= ( $langid == $langItem->getCode() ? 'selected="selected"' : '' ) ?> >
+									<option value="<?= $enc->attr( $langItem->getCode() ); ?>">
 										<?= $enc->html( $this->translate( 'client/language', $langItem->getCode() ) ); ?>
 									</option>
 								<?php endforeach; ?>
@@ -204,7 +207,7 @@ $enc = $this->encoder();
 			<?php else : ?>
 				<input class="item-name-langid" type="hidden" disabled="disabled"
 					name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>"
-					value="<?= $enc->attr( $langid ); ?>" />
+					value="<?= $enc->attr( reset( $languages ) ?: '' ); ?>" />
 			<?php endif; ?>
 
 			<div class="col-xl-6">

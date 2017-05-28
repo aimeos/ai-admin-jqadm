@@ -85,130 +85,72 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
 		$view->characteristicBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->characteristicBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/characteristic/template-item
-		 * Relative path to the HTML body template of the characteristic subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/characteristic/template-item';
-		$default = 'product/item-characteristic-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
 		$view->characteristicBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->characteristicBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/characteristic/template-item';
-		$default = 'product/item-characteristic-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
 		$view->characteristicBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->characteristicBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/characteristic/template-item';
-		$default = 'product/item-characteristic-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$manager->begin();
+		$view->characteristicBody = '';
 
-		try
-		{
-			$view->characteristicBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->characteristicBody .= $client->save();
-			}
-
-			$manager->commit();
-			return;
+		foreach( $this->getSubClients() as $client ) {
+			$view->characteristicBody .= $client->save();
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'product-item-characteristic' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
-		}
-		catch( \Exception $e )
-		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-characteristic' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
-		}
-
-		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
 
 
@@ -310,12 +252,34 @@ class Standard
 
 
 	/**
-	 * Returns the mapped input parameter or the existing items as expected by the template
+	 * Returns the rendered template including the view data
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
+	 * @return string HTML output
 	 */
-	protected function setData( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view )
 	{
-		$view->characteristicData = (array) $view->param( 'characteristic', [] );;
+		/** admin/jqadm/product/characteristic/template-item
+		 * Relative path to the HTML body template of the characteristic subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/characteristic/template-item';
+		$default = 'product/item-characteristic-default.php';
+
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

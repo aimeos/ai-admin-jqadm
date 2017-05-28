@@ -153,6 +153,7 @@ Aimeos = {
 		this.checkFields();
 		this.checkSubmit();
 		this.createDatePicker();
+		this.setupNext();
 		this.showErrors();
 		this.toggleHelp();
 		this.toggleMenu();
@@ -390,6 +391,16 @@ Aimeos = {
 
 	getOptionsProducts : function(request, response, element, criteria) {
 		Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', criteria);
+	},
+
+
+	setupNext : function() {
+
+		$(".aimeos .item").on("click", ".next-action", function(ev) {
+			$("#item-next", ev.delegateTarget).val($(this).data('next'));
+			$(ev.delegateTarget).submit();
+			return false;
+		});
 	},
 
 

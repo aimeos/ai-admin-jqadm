@@ -97,7 +97,8 @@ $subparts = $this->get( 'itemSubparts', [] );
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
 <form class="item item-product form-horizontal" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
-	<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.id' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/product.id' ) ); ?>" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.id' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/product.id' ) ); ?>" />
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ); ?>" value="get" />
 	<?= $this->csrf()->formfield(); ?>
 
 	<nav class="main-navbar">
@@ -111,16 +112,34 @@ $subparts = $this->get( 'itemSubparts', [] );
 			<a class="btn btn-secondary act-cancel"
 				title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
 				href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
-				<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
+				<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
+					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
+				<?php else : ?>
+					<?= $enc->html( $this->translate( 'admin', 'Back' ) ); ?>
+				<?php endif; ?>
 			</a>
-			<button class="btn btn-primary act-save"
-				title="<?= $enc->attr( $this->translate( 'admin', 'Save and return to list (Ctrl+S)') ); ?>">
-				<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
-			</button>
+
+			<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
+				<div class="btn-group">
+					<button type="submit" class="btn btn-primary act-save"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Save item (Ctrl+S)') ); ?>">
+						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
+					</button>
+						<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+							<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle Dropdown' ) ); ?></span>
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a>
+							<a class="dropdown-item next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a>
+							<a class="dropdown-item next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ); ?></a>
+						</div>
+				</div>
+			<?php endif; ?>
 		</div>
 	</nav>
 
-	<div class="row item-container">
+	<div class="main-content row item-container">
 
 		<div class="col-md-3 item-navbar">
 			<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
@@ -329,18 +348,36 @@ $subparts = $this->get( 'itemSubparts', [] );
 			<?= $this->get( 'itemBody' ); ?>
 
 		</div>
-	</div>
 
-	<div class="item-actions">
-		<a class="btn btn-secondary act-cancel"
-			title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
-			href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
-			<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
-		</a>
-		<button class="btn btn-primary act-save"
-			title="<?= $enc->attr( $this->translate( 'admin', 'Save and return to list (Ctrl+S)') ); ?>">
-			<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
-		</button>
+		<div class="item-actions">
+			<a class="btn btn-secondary act-cancel"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
+				href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
+				<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
+					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
+				<?php else : ?>
+					<?= $enc->html( $this->translate( 'admin', 'Back' ) ); ?>
+				<?php endif; ?>
+			</a>
+
+			<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
+				<div class="btn-group">
+					<button type="submit" class="btn btn-primary act-save"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Save item (Ctrl+S)') ); ?>">
+						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
+					</button>
+						<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+							<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle Dropdown' ) ); ?></span>
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a>
+							<a class="dropdown-item next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a>
+							<a class="dropdown-item next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ); ?></a>
+						</div>
+				</div>
+			<?php endif; ?>
+		</div>
 	</div>
 </form>
 

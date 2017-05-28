@@ -61,95 +61,68 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->propertyData = $this->toArray( $view->item, true );
+		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->propertyBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/characteristic/property/template-item
-		 * Relative path to the HTML body template of the property characteristic subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/characteristic/property/template-item';
-		$default = 'product/item-characteristic-property-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->propertyData = $view->param( 'characteristic/property', [] );
+		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->propertyBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/characteristic/property/template-item';
-		$default = 'product/item-characteristic-property-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->propertyData = $this->toArray( $view->item );
+		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->propertyBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/characteristic/property/template-item';
-		$default = 'product/item-characteristic-property-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
@@ -161,7 +134,7 @@ class Standard
 
 		try
 		{
-			$this->updateItems( $view );
+			$this->fromArray( $view->item, $view->param( 'characteristic/property', [] ) );
 			$view->propertyBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -175,15 +148,14 @@ class Standard
 		{
 			$error = array( 'product-item-characteristic-property' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-characteristic-property' => $e->getMessage() );
+			$error = array( 'product-item-characteristic-property' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
+
+		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -328,66 +300,106 @@ class Standard
 
 
 	/**
-	 * Returns the mapped input parameter or the existing items as expected by the template
+	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param string[] $data Data array
 	 */
-	protected function setData( \Aimeos\MW\View\Iface $view )
-	{
-		$data = (array) $view->param( 'characteristic/property', [] );
-
-		if( empty( $data ) )
-		{
-			foreach( $this->getProperties( $view->item->getId() ) as $item )
-			{
-				foreach( $item->toArray( true ) as $key => $value ) {
-					$data[$key][] = $value;
-				}
-			}
-		}
-
-		$view->propertyTypes = $this->getPropertyTypes();
-		$view->propertyData = $data;
-	}
-
-
-	/**
-	 * Updates existing product properties or creates new ones
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
-	 */
-	protected function updateItems( \Aimeos\MW\View\Iface $view )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property' );
 
-		$id = $view->item->getId();
-		$map = $this->getProperties( $id );
-		$ids = (array) $view->param( 'characteristic/property/product.property.id', [] );
+		$map = $this->getProperties( $item->getId() );
+		$ids = (array) $this->getValue( $data, 'product.property.id', [] );
 
-		$item = $manager->createItem();
+		$propItem = $manager->createItem();
 
-		foreach( $ids as $pos => $propertyId )
+		foreach( $ids as $idx => $propertyId )
 		{
 			if( isset( $map[$propertyId] ) )
 			{
-				$item = $map[$propertyId];
+				$propItem = $map[$propertyId];
 				unset( $map[$propertyId] );
 			}
 			else
 			{
-				$item->setId( null );
-				$item->setParentId( $id );
+				$propItem->setId( null );
+				$propItem->setParentId( $item->getId() );
 			}
 
-			$lang = $view->param( 'characteristic/property/product.property.languageid/' . $pos, null );
+			$lang = $this->getValue( $data, 'product.property.languageid/' . $idx, null );
 
-			$item->setLanguageId( ( $lang ? $lang : null ) );
-			$item->setTypeId( $view->param( 'characteristic/property/product.property.typeid/' . $pos, null ) );
-			$item->setValue( $view->param( 'characteristic/property/product.property.value/' . $pos, '' ) );
+			$propItem->setLanguageId( ( $lang ? $lang : null ) );
+			$propItem->setTypeId( $this->getValue( $data, 'product.property.typeid/' . $idx, null ) );
+			$propItem->setValue( $this->getValue( $data, 'product.property.value/' . $idx, '' ) );
 
-			$manager->saveItem( $item, false );
+			$manager->saveItem( $propItem, false );
 		}
 
 		$manager->deleteItems( array_keys( $map ) );
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param boolean $copy True if items should be copied, false if not
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	{
+		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$data = [];
+
+		foreach( $this->getProperties( $item->getId() ) as $item )
+		{
+			$list = $item->toArray( true );
+
+			if( $copy === true )
+			{
+				$list['product.property.siteid'] = $siteId;
+				$list['product.property.id'] = '';
+			}
+
+			foreach( $list as $key => $value ) {
+				$data[$key][] = $value;
+			}
+		}
+
+		return $data;
+	}
+
+
+	/**
+	 * Returns the rendered template including the view data
+	 *
+	 * @return string HTML output
+	 */
+	protected function render( \Aimeos\MW\View\Iface $view )
+	{
+		/** admin/jqadm/product/characteristic/property/template-item
+		 * Relative path to the HTML body template of the property characteristic subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/characteristic/property/template-item';
+		$default = 'product/item-characteristic-property-default.php';
+
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

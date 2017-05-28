@@ -61,95 +61,65 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->customData = $this->toArray( $view->item, true );
 		$view->customBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->customBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/option/custom/template-item
-		 * Relative path to the HTML body template of the custom option subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2017.03
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/option/custom/template-item';
-		$default = 'product/item-option-custom-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->customData = $view->param( 'option/custom', [] );
 		$view->customBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->customBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/option/custom/template-item';
-		$default = 'product/item-option-custom-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->customData = $this->toArray( $view->item );
 		$view->customBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->customBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/option/custom/template-item';
-		$default = 'product/item-option-custom-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
@@ -161,7 +131,7 @@ class Standard
 
 		try
 		{
-			$this->updateItems( $view );
+			$this->fromArray( $view->item, $view->param( 'option/custom', [] ) );
 			$view->customBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -175,15 +145,14 @@ class Standard
 		{
 			$error = array( 'product-item-option-custom' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-option-custom' => $e->getMessage() );
+			$error = array( 'product-item-option-custom' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
+
+		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -310,45 +279,19 @@ class Standard
 
 
 	/**
-	 * Returns the mapped input parameter or the existing items as expected by the template
+	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param string[] $data Data array
 	 */
-	protected function setData( \Aimeos\MW\View\Iface $view )
-	{
-		$data = (array) $view->param( 'option/custom', [] );
-
-		if( empty( $data ) )
-		{
-			foreach( $view->item->getListItems( 'attribute', 'custom' ) as $listItem )
-			{
-				$refItem = $listItem->getRefItem();
-				$data['attribute.label'][] = ( $refItem ? $refItem->getLabel() : '' );
-
-				foreach( $listItem->toArray( true ) as $key => $value ) {
-					$data[$key][] = $value;
-				}
-			}
-		}
-
-		$view->customData = $data;
-	}
-
-
-	/**
-	 * Updates existing product custom references or creates new ones
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
-	 */
-	protected function updateItems( \Aimeos\MW\View\Iface $view )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
-		$id = $view->item->getId();
-		$map = $this->getListItems( $id );
-		$listIds = (array) $view->param( 'option/custom/product.lists.id', [] );
+		$map = $this->getListItems( $item->getId() );
+		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
 
 
 		foreach( $listIds as $pos => $listid )
@@ -361,18 +304,85 @@ class Standard
 		$manager->deleteItems( array_keys( $map ) );
 
 
-		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'custom', [], 'attribute' )->getId() );
-		$item->setDomain( 'attribute' );
-		$item->setParentId( $id );
+		$litem = $manager->createItem();
+		$litem->setDomain( 'attribute' );
+		$litem->setParentId( $item->getId() );
+		$litem->setTypeId( $typeManager->findItem( 'custom', [], 'attribute' )->getId() );
 
 		foreach( $listIds as $pos => $listid )
 		{
-			$item->setId( null );
-			$item->setRefId( $view->param( 'option/custom/product.lists.refid/' . $pos ) );
-			$item->setPosition( $pos );
+			$litem->setId( null );
+			$litem->setPosition( $pos );
+			$litem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $pos ) );
 
-			$manager->saveItem( $item, false );
+			$manager->saveItem( $litem, false );
 		}
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param boolean $copy True if items should be copied, false if not
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	{
+		$data = [];
+		$siteId = $this->getContext()->getLocale()->getSiteId();
+
+		foreach( $item->getListItems( 'attribute', 'custom' ) as $listItem )
+		{
+			$refItem = $listItem->getRefItem();
+			$data['attribute.label'][] = ( $refItem ? $refItem->getLabel() : '' );
+
+			$list = $listItem->toArray( true );
+
+			if( $copy === true )
+			{
+				$list['product.lists.siteid'] = $siteId;
+				$list['product.lists.id'] = '';
+			}
+
+			foreach( $list as $key => $value ) {
+				$data[$key][] = $value;
+			}
+		}
+
+		return $data;
+	}
+
+
+	/**
+	 * Returns the rendered template including the view data
+	 *
+	 * @return string HTML output
+	 */
+	protected function render( \Aimeos\MW\View\Iface $view )
+	{
+		/** admin/jqadm/product/option/custom/template-item
+		 * Relative path to the HTML body template of the custom option subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2017.03
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/option/custom/template-item';
+		$default = 'product/item-option-custom-default.php';
+
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

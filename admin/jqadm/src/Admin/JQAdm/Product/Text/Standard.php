@@ -65,95 +65,65 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
-		$this->setData( $view );
+		$view->textData = $this->toArray( $view->item, true );
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->textBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/text/template-item
-		 * Relative path to the HTML body template of the text subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/text/template-item';
-		$default = 'product/item-text-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
-		$this->setData( $view );
+		$view->textData = $view->param( 'text', [] );
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->textBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/text/template-item';
-		$default = 'product/item-text-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
-		$this->setData( $view );
+		$view->textData = $this->toArray( $view->item );
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->textBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/text/template-item';
-		$default = 'product/item-text-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
@@ -168,7 +138,7 @@ class Standard
 
 		try
 		{
-			$this->updateItems( $view );
+			$this->fromArray( $view->item, $view->param( 'text', [] ) );
 			$view->textBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -183,19 +153,15 @@ class Standard
 		{
 			$error = array( 'product-item-text' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-
-			$textManager->rollback();
-			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-text' => $e->getMessage() );
+			$error = array( 'product-item-text' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-
-			$textManager->rollback();
-			$manager->rollback();
 		}
+
+		$textManager->rollback();
+		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -288,6 +254,23 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the stock template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	protected function addViewData( \Aimeos\MW\View\Iface $view )
+	{
+		$context = $this->getContext();
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
+
+		$view->textTypes = $manager->searchItems( $manager->createSearch() );
+
+		return $view;
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -355,62 +338,15 @@ class Standard
 
 
 	/**
-	 * Returns the mapped input parameter or the existing items as expected by the template
+	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param string[] $data Data array
 	 */
-	protected function setData( \Aimeos\MW\View\Iface $view )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
-
-		$data = (array) $view->param( 'text', [] );
-		$siteid = $view->item->getSiteId();
-
-		if( empty( $data ) && ( $id = $view->item->getId() ) !== null )
-		{
-			if( !isset( $data['langid'] ) ) {
-				$data['langid'] = [];
-			}
-
-			foreach( $view->item->getListItems( 'text', 'default' ) as $listItem )
-			{
-				if( ( $refItem = $listItem->getRefItem() ) === null ) {
-					continue;
-				}
-
-				$type = $refItem->getType();
-				$langid = $refItem->getLanguageId();
-				$data['langid'][$langid] = $langid;
-				$data['siteid'][$langid] = $siteid;
-
-				if( in_array( $type, $this->getTypes() ) )
-				{
-					$data[$type]['listid'][$langid] = $listItem->getId();
-					$data[$type]['content'][$langid] = $refItem->getContent();
-				}
-			}
-		}
-
-		if( !isset( $data['langid'] ) || empty( $data['langid'] ) ) // show at least one block
-		{
-			$data['langid'][] = $context->getLocale()->getLanguageId();
-			$data['siteid'][] = $context->getLocale()->getSiteId();
-		}
-
-		$view->textTypes = $manager->searchItems( $manager->createSearch() );
-		$view->textData = $data;
-	}
-
-
-	/**
-	 * Updates existing product text items or creates new ones
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
-	 */
-	protected function updateItems( \Aimeos\MW\View\Iface $view )
-	{
-		$id = $view->item->getId();
+		$listIds = [];
+		$id = $item->getId();
 		$context = $this->getContext();
 
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
@@ -418,9 +354,8 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
-		$listIds = [];
-		$langIds = (array) $view->param( 'text/langid', [] );
 		$listItems = $manager->getItem( $id, array( 'text' ) )->getListItems( 'text', 'default' );
+		$langIds = (array) $this->getValue( $data, 'langid', [] );
 
 
 		$listItem = $listManager->createItem();
@@ -438,11 +373,11 @@ class Standard
 		{
 			foreach( $this->getTypes() as $type )
 			{
-				if( ( $content = trim( $view->param( 'text/' . $type . '/content/' . $idx, '', false ) ) ) === '' ) {
+				if( ( $content = trim( $this->getValue( $data, $type . '/content/' . $idx, '' ) ) ) === '' ) {
 					continue;
 				}
 
-				$listid = $view->param( 'text/' . $type . '/listid/' . $idx );
+				$listid = $this->getValue( $data, $type . '/listid/' . $idx );
 				$listIds[] = $listid;
 
 				if( !isset( $listItems[$listid] ) )
@@ -491,5 +426,79 @@ class Standard
 
 		$listManager->deleteItems( $rmListIds  );
 		$textManager->deleteItems( $rmIds  );
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param boolean $copy True if items should be copied, false if not
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	{
+		$data = [];
+		$context = $this->getContext();
+		$siteId = $context->getLocale()->getSiteId();
+
+		foreach( $item->getListItems( 'text', 'default' ) as $listItem )
+		{
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				continue;
+			}
+
+			$type = $refItem->getType();
+			$langid = $refItem->getLanguageId();
+			$data['langid'][$langid] = $langid;
+			$data['siteid'][$langid] = $item->getSiteId();
+
+			if( in_array( $type, $this->getTypes() ) )
+			{
+				$data[$type]['listid'][$langid] = $listItem->getId();
+				$data[$type]['content'][$langid] = $refItem->getContent();
+			}
+		}
+
+		if( !isset( $data['langid'] ) || empty( $data['langid'] ) ) // show at least one block
+		{
+			$data['langid'][] = $context->getLocale()->getLanguageId();
+			$data['siteid'][] = $context->getLocale()->getSiteId();
+		}
+
+		return $data;
+	}
+
+
+	/**
+	 * Returns the rendered template including the view data
+	 *
+	 * @return string HTML output
+	 */
+	protected function render( \Aimeos\MW\View\Iface $view )
+	{
+		/** admin/jqadm/product/text/template-item
+		 * Relative path to the HTML body template of the text subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/text/template-item';
+		$default = 'product/item-text-default.php';
+
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

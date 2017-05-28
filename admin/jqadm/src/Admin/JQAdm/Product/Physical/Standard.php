@@ -63,95 +63,65 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
 		$view = $this->getView();
 
-		$view->physicalItems = $this->getItems( $view->item->getId() );
+		$view->physicalData = $this->toArray( $view->item, true );
 		$view->physicalBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->physicalBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/physical/template-item
-		 * Relative path to the HTML body template of the physical subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/physical/template-item';
-		$default = 'product/item-physical-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
 		$view = $this->getView();
 
-		$view->physicalItems = $this->getItems( $view->item->getId() );
+		$view->physicalData = $view->param( 'physical', [] );
 		$view->physicalBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->physicalBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/physical/template-item';
-		$default = 'product/item-physical-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
 		$view = $this->getView();
 
-		$view->physicalItems = $this->getItems( $view->item->getId() );
+		$view->physicalData = $this->toArray( $view->item );
 		$view->physicalBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->physicalBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/physical/template-item';
-		$default = 'product/item-physical-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
@@ -163,8 +133,7 @@ class Standard
 
 		try
 		{
-			$this->updateItems( $view );
-
+			$this->fromArray( $view->item, $view->param( 'physical', [] ) );
 			$view->physicalBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -178,15 +147,14 @@ class Standard
 		{
 			$error = array( 'product-item-physical' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-physical' => $e->getMessage() );
+			$error = array( 'product-item-physical' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
+
+		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -317,20 +285,21 @@ class Standard
 
 
 	/**
-	 * Updates existing property items or creates new ones
+	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param string[] $data Data array
 	 */
-	protected function updateItems( \Aimeos\MW\View\Iface $view )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/property' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/property/type' );
 
 		$ids = [];
-		$items = $this->getItems( $view->item->getId() );
+		$items = $this->getItems( $item->getId() );
 
-		foreach( (array) $view->param( 'physical', [] ) as $type => $value )
+		foreach( $data as $type => $value )
 		{
 			$value = trim( $value );
 
@@ -345,14 +314,66 @@ class Standard
 			if( !isset( $items[$type] ) )
 			{
 				$items[$type] = $manager->createItem();
-				$items[$type]->setParentId( $view->item->getId() );
+				$items[$type]->setParentId( $item->getId() );
 				$items[$type]->setTypeId( $typeManager->findItem( $type, [], 'product' )->getId() );
 			}
 
 			$items[$type]->setValue( $value );
-			$manager->saveItem( $items[$type] );
+			$manager->saveItem( $items[$type], false );
 		}
 
 		$manager->deleteItems( $ids );
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param boolean $copy True if items should be copied, false if not
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	{
+		$data = [];
+
+		foreach( $this->getItems( $item->getId() ) as $propItem ) {
+			$data[$propItem->getType()] = $propItem->getValue();
+		}
+
+		return $data;
+	}
+
+
+	/**
+	 * Returns the rendered template including the view data
+	 *
+	 * @return string HTML output
+	 */
+	protected function render( \Aimeos\MW\View\Iface $view )
+	{
+		/** admin/jqadm/product/physical/template-item
+		 * Relative path to the HTML body template of the physical subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/physical/template-item';
+		$default = 'product/item-physical-default.php';
+
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

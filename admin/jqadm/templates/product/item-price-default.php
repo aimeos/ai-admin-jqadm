@@ -254,7 +254,7 @@ $enc = $this->encoder();
 
 									<option value="" selected="selected"></option>
 									<?php foreach( (array) $this->get( 'priceTypes', [] ) as $typeId => $typeItem ) : ?>
-										<option value="<?= $enc->attr( $typeId ); ?>" <?= ( $typeId == $this->get( 'priceData/price.typeid/' . $idx ) ? 'selected="selected"' : '' ) ?> >
+										<option value="<?= $enc->attr( $typeId ); ?>" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>

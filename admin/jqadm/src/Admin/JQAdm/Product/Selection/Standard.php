@@ -63,95 +63,69 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view, true );
+		$data = $this->toArray( $view->item, true );
+		$siteId = $this->getContext()->getLocale()->getSiteId();
+
+		$view->selectionData = $data;
 		$view->selectionBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->selectionBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/selection/template-item
-		 * Relative path to the HTML body template of the selection subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/selection/template-item';
-		$default = 'product/item-selection-default.php';
+		return $this->render( $view );
 
-		return $view->render( $view->config( $tplconf, $default ) );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->selectionData = $this->getDataParams( $view );
 		$view->selectionBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->selectionBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/selection/template-item';
-		$default = 'product/item-selection-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->selectionData = $this->toArray( $view->item );
 		$view->selectionBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->selectionBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/selection/template-item';
-		$default = 'product/item-selection-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
@@ -163,7 +137,7 @@ class Standard
 
 		try
 		{
-			$this->updateItems( $view );
+			$this->fromArray( $view->item, $this->getDataParams( $view ) );
 			$view->selectionBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -177,15 +151,14 @@ class Standard
 		{
 			$error = array( 'product-item-selection' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-selection' => $e->getMessage() );
+			$error = array( 'product-item-selection' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-			$manager->rollback();
 		}
+
+		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -383,67 +356,6 @@ class Standard
 
 
 	/**
-	 * Maps the existing product variants to an associative array as expected by the template
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
-	 * @param boolean $copy True if items should be copied
-	 * @return array Multi-dimensional associative array
-	 */
-	protected function getDataExisting( \Aimeos\MW\View\Iface $view, $copy = false )
-	{
-		$data = [];
-		$context = $this->getContext();
-		$siteid = $context->getLocale()->getSiteId();
-		$variants = $view->item->getRefItems( 'product', null, 'default' );
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
-
-		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'product.id', array_keys( $variants ) ) );
-		$search->setSlice( 0, 0x7fffffff );
-
-		$products = $manager->searchItems( $search, array( 'attribute' ) );
-
-		foreach( $view->item->getListItems( 'product', 'default' ) as $listItem )
-		{
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				continue;
-			}
-
-			if( $copy === false )
-			{
-				$code = $refItem->getCode();
-				$data[$code]['product.siteid'] = $refItem->getSiteId();
-				$data[$code]['product.lists.id'] = $listItem->getId();
-				$data[$code]['product.id'] = $listItem->getRefId();
-			}
-			else
-			{
-				$code = $refItem->getCode() . '_copy';
-				$data[$code]['product.siteid'] = $siteid;
-				$data[$code]['product.lists.id'] = '';
-				$data[$code]['product.id'] = '';
-			}
-
-			$data[$code]['product.label'] = $refItem->getLabel();
-
-			if( isset( $products[$refItem->getId()] ) )
-			{
-				$attributes = $products[$refItem->getId()]->getRefItems( 'attribute', null, 'variant' );
-
-				foreach( $attributes as $attrid => $attrItem )
-				{
-					$data[$code]['attr'][$attrid]['ref'] = $code;
-					$data[$code]['attr'][$attrid]['label'] = $attrItem->getLabel();
-					$data[$code]['attr'][$attrid]['siteid'] = $listItem->getSiteId();
-				}
-			}
-		}
-
-		return $data;
-	}
-
-
-	/**
 	 * Maps the input parameter to an associative array as expected by the template
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
@@ -458,10 +370,10 @@ class Standard
 		{
 			if( !empty( $code ) )
 			{
+				$data[$code]['product.lists.siteid'] = $siteid;
 				$data[$code]['product.lists.id'] = $view->param( 'selection/product.lists.id/' . $pos );
 				$data[$code]['product.label'] = $view->param( 'selection/product.label/' . $pos );
 				$data[$code]['product.id'] = $view->param( 'selection/product.id/' . $pos );
-				$data[$code]['product.siteid'] = $siteid;
 			}
 		}
 
@@ -493,54 +405,38 @@ class Standard
 
 
 	/**
-	 * Returns the mapped input parameter or the existing items as expected by the template
+	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
-	 * @param boolean $copy True if items should be copied
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param string[] $data Data array
 	 */
-	protected function setData( \Aimeos\MW\View\Iface $view, $copy = false )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$data = $this->getDataParams( $view );
-
-		if( empty( $data ) ) {
-			$data = $this->getDataExisting( $view, $copy );
-		}
-
-		$view->selectionData = $data;
-	}
-
-
-	/**
-	 * Updates the product variants
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
-	 */
-	protected function updateItems( \Aimeos\MW\View\Iface $view )
-	{
-		if( $view->item->getType() !== 'select' ) {
+		if( $item->getType() !== 'select' ) {
 			return;
 		}
 
-		$id = $view->item->getId();
 		$context = $this->getContext();
-		$data = $this->getDataParams( $view );
-
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
-		$product = $manager->getItem( $id, array( 'product' ) );
-		$listItems = $product->getListItems( 'product', 'default' );
+		$product = $manager->getItem( $item->getId(), array( 'product' ) );
 		$refItems = $product->getRefItems( 'product', null, 'default' );
+		$listItems = $product->getListItems( 'product', 'default' );
 
 		$products = $this->getProductItems( array_keys( $data ), array_keys( $refItems ) );
-		$listIds = (array) $view->param( 'selection/product.lists.id', [] );
-
-		$listItem = $this->createListItem( $id );
+		$listItem = $this->createListItem( $item->getId() );
 		$prodItem = $this->createItem();
+		$listIds = [];
+		$pos = 0;
 
 
-		foreach( $listIds as $idx => $listid )
+		foreach( $data as $code => $list )
 		{
+			if( $code === '' ) { continue; }
+
+			$listid = $this->getValue( $list, 'product.lists.id' );
+
 			if( !isset( $listItems[$listid] ) )
 			{
 				$litem = $listItem;
@@ -555,26 +451,111 @@ class Standard
 				$item = $litem->getRefItem();
 			}
 
-			if( ( $code = $view->param( 'selection/product.code/' . $idx ) ) === '' ) {
-				continue;
-			}
-
 			$item->setCode( $code );
-			$item->setLabel( $view->param( 'selection/product.label/' . $idx ) );
+			$item->setLabel( $this->getValue( $list, 'product.label', '' ) );
 
 			$manager->saveItem( $item );
 
-			$litem->setPosition( $idx );
+			$litem->setPosition( $pos++ );
 			$litem->setRefId( $item->getId() );
 
 			$listManager->saveItem( $litem, false );
 
 			$variant = ( isset( $products[$item->getId()] ) ? $products[$item->getId()] : $item );
-			$attr = ( isset( $data[$code]['attr'] ) ? (array) $data[$code]['attr'] : [] );
+			$attr = ( isset( $list['attr'] ) ? (array) $list['attr'] : [] );
 
 			$manager->updateListItems( $variant, $attr, 'attribute', 'variant' );
+
+			$listIds[] = $listid;
 		}
 
 		$this->cleanupItems( $listItems, $listIds );
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param boolean $copy True if items should be copied
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	{
+		$data = [];
+		$context = $this->getContext();
+		$variants = $item->getRefItems( 'product', null, 'default' );
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'product.id', array_keys( $variants ) ) );
+		$search->setSlice( 0, 0x7fffffff );
+
+		$products = $manager->searchItems( $search, array( 'attribute' ) );
+
+		foreach( $item->getListItems( 'product', 'default' ) as $listItem )
+		{
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				continue;
+			}
+
+			$code = $refItem->getCode();
+			$data[$code]['product.id'] = $listItem->getRefId();
+			$data[$code]['product.label'] = $refItem->getLabel();
+			$data[$code]['product.lists.siteid'] = $refItem->getSiteId();
+
+			if( $copy === false ) {
+				$data[$code]['product.lists.id'] = $listItem->getId();
+			} else {
+				$data[$code]['product.lists.id'] = '';
+			}
+
+			if( isset( $products[$refItem->getId()] ) )
+			{
+				$attributes = $products[$refItem->getId()]->getRefItems( 'attribute', null, 'variant' );
+
+				foreach( $attributes as $attrid => $attrItem )
+				{
+					$data[$code]['attr'][$attrid]['ref'] = $code;
+					$data[$code]['attr'][$attrid]['label'] = $attrItem->getLabel();
+					$data[$code]['attr'][$attrid]['siteid'] = $listItem->getSiteId();
+				}
+			}
+		}
+
+		return $data;
+	}
+
+
+	/**
+	 * Returns the rendered template including the view data
+	 *
+	 * @return string HTML output
+	 */
+	protected function render( \Aimeos\MW\View\Iface $view )
+	{
+		/** admin/jqadm/product/selection/template-item
+		 * Relative path to the HTML body template of the selection subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/selection/template-item';
+		$default = 'product/item-selection-default.php';
+
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

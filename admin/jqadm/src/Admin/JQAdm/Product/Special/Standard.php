@@ -74,7 +74,7 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
@@ -86,36 +86,14 @@ class Standard
 			$view->specialBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/special/template-item
-		 * Relative path to the HTML body template of the special subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/special/template-item';
-		$default = 'product/item-special-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
@@ -127,17 +105,14 @@ class Standard
 			$view->specialBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/special/template-item';
-		$default = 'product/item-special-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
@@ -149,46 +124,22 @@ class Standard
 			$view->specialBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/special/template-item';
-		$default = 'product/item-special-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		try
-		{
-			$view->specialBody = '';
+		$view->specialBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->specialBody .= $client->save();
-			}
-
-			return;
+		foreach( $this->getSubClients() as $client ) {
+			$view->specialBody .= $client->save();
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'product-item-special' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-		}
-		catch( \Exception $e )
-		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-special' => $e->getMessage() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-		}
-
-		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
 
 
@@ -286,5 +237,38 @@ class Standard
 	protected function getSubClientNames()
 	{
 		return $this->getContext()->getConfig()->get( $this->subPartPath, $this->subPartNames );
+	}
+
+
+	/**
+	 * Returns the rendered template including the view data
+	 *
+	 * @return string HTML output
+	 */
+	protected function render( \Aimeos\MW\View\Iface $view )
+	{
+		/** admin/jqadm/product/special/template-item
+		 * Relative path to the HTML body template of the special subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/special/template-item';
+		$default = 'product/item-special-default.php';
+
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

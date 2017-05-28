@@ -63,95 +63,65 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
-		$this->setData( $view );
+		$view->priceData = $this->toArray( $view->item, true );
 		$view->priceBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->priceBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/price/template-item
-		 * Relative path to the HTML body template of the price subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/price/template-item';
-		$default = 'product/item-price-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
-		$this->setData( $view );
+		$view->priceData = $view->param( 'price', [] );
 		$view->priceBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->priceBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/price/template-item';
-		$default = 'product/item-price-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
-		$this->setData( $view );
+		$view->priceData = $this->toArray( $view->item );
 		$view->priceBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->priceBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/price/template-item';
-		$default = 'product/item-price-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
@@ -166,7 +136,7 @@ class Standard
 
 		try
 		{
-			$this->updateItems( $view );
+			$this->fromArray( $view->item, $view->param( 'price', [] ) );
 			$view->priceBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -181,19 +151,15 @@ class Standard
 		{
 			$error = array( 'product-item-price' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-
-			$textManager->rollback();
-			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-price' => $e->getMessage() );
+			$error = array( 'product-item-price' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-
-			$textManager->rollback();
-			$manager->rollback();
 		}
+
+		$textManager->rollback();
+		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -297,73 +263,37 @@ class Standard
 
 
 	/**
-	 * Returns the price types the product domain
+	 * Adds the required data used in the price template
 	 *
-	 * @return array List of price type items implementing \Aimeos\MShop\Common\Item\Type\Iface
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
-	protected function getPriceTypes()
+	protected function addViewData( \Aimeos\MW\View\Iface $view )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'price/type' );
+		$context = $this->getContext();
+		$priceManager = \Aimeos\MShop\Factory::createManager( $context, 'price/type' );
+		$currencyManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
 
-		$search = $manager->createSearch();
+		$search = $priceManager->createSearch();
 		$search->setConditions( $search->compare( '==', 'price.type.domain', 'product' ) );
 		$search->setSortations( array( $search->sort( '+', 'price.type.label' ) ) );
 
-		return $manager->searchItems( $search );
+		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true ) );
+		$view->priceCurrencyDefault = $context->getLocale()->getCurrencyId();
+		$view->priceTypes = $priceManager->searchItems( $search );
+
+		return $view;
 	}
 
 
 	/**
-	 * Returns the mapped input parameter or the existing items as expected by the template
+	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param string[] $data Data array
 	 */
-	protected function setData( \Aimeos\MW\View\Iface $view )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
-
-		$data = (array) $view->param( 'price', [] );
-
-		if( empty( $view->priceData ) && ( $id = $view->item->getId() ) !== null )
-		{
-			foreach( $view->item->getListItems( 'price' ) as $id => $listItem )
-			{
-				if( ( $refItem = $listItem->getRefItem() ) === null ) {
-					continue;
-				}
-
-				foreach( $listItem->toArray( true ) as $key => $value ) {
-					$data[$key][] = $value;
-				}
-
-				foreach( $refItem->toArray( true ) as $key => $value ) {
-					$data[$key][] = $value;
-				}
-			}
-		}
-
-		if( !isset( $data['price.currencyid'] ) ) // show at least one block
-		{
-			$data['price.currencyid'][] = $this->getContext()->getLocale()->getCurrencyId();
-			$data['price.siteid'][] = $this->getContext()->getLocale()->getSiteId();
-		}
-
-		$view->priceCurrencies = $manager->searchItems( $manager->createSearch( true ) );
-		$view->priceCurrencyDefault = $this->getContext()->getLocale()->getCurrencyId();
-		$view->priceTypes = $this->getPriceTypes();
-		$view->priceData = $data;
-	}
-
-
-	/**
-	 * Updates existing product price references or creates new ones
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
-	 */
-	protected function updateItems( \Aimeos\MW\View\Iface $view )
-	{
-		$id = $view->item->getId();
 		$context = $this->getContext();
 
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
@@ -371,19 +301,19 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
-		$listIds = (array) $view->param( 'price/product.lists.id', [] );
-		$listItems = $manager->getItem( $id, array( 'price' ) )->getListItems( 'price' );
+		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
+		$listItems = $manager->getItem( $item->getId(), array( 'price' ) )->getListItems( 'price' );
 
 
 		$listItem = $listManager->createItem();
+		$listItem->setParentId( $item->getId() );
 		$listItem->setTypeId( $listTypeManager->findItem( 'default', [], 'price' )->getId() );
 		$listItem->setDomain( 'price' );
-		$listItem->setParentId( $id );
 		$listItem->setStatus( 1 );
 
-		$priceItem = $priceManager->createItem();
-		$priceItem->setDomain( 'product' );
-		$priceItem->setStatus( 1 );
+		$newItem = $priceManager->createItem();
+		$newItem->setDomain( 'product' );
+		$newItem->setStatus( 1 );
 
 
 		foreach( $listIds as $idx => $listid )
@@ -393,30 +323,30 @@ class Standard
 				$litem = $listItem;
 				$litem->setId( null );
 
-				$item = $priceItem;
-				$item->setId( null );
+				$priceItem = $newItem;
+				$priceItem->setId( null );
 			}
 			else
 			{
 				$litem = $listItems[$listid];
-				$item = $litem->getRefItem();
+				$priceItem = $litem->getRefItem();
 			}
 
-			$item->setTypeId( $view->param( 'price/price.typeid/' . $idx ) );
-			$item->setCurrencyId( $view->param( 'price/price.currencyid/' . $idx ) );
-			$item->setQuantity( $view->param( 'price/price.quantity/' . $idx ) );
-			$item->setValue( $view->param( 'price/price.value/' . $idx ) );
-			$item->setCosts( $view->param( 'price/price.costs/' . $idx ) );
-			$item->setRebate( $view->param( 'price/price.rebate/' . $idx ) );
-			$item->setTaxRate( $view->param( 'price/price.taxrate/' . $idx ) );
+			$priceItem->setTypeId( $this->getValue( $data, 'price.typeid/' . $idx ) );
+			$priceItem->setCurrencyId( $this->getValue( $data, 'price.currencyid/' . $idx ) );
+			$priceItem->setQuantity( $this->getValue( $data, 'price.quantity/' . $idx ) );
+			$priceItem->setValue( $this->getValue( $data, 'price.value/' . $idx ) );
+			$priceItem->setCosts( $this->getValue( $data, 'price.costs/' . $idx ) );
+			$priceItem->setRebate( $this->getValue( $data, 'price.rebate/' . $idx ) );
+			$priceItem->setTaxRate( $this->getValue( $data, 'price.taxrate/' . $idx ) );
 
-			$label = $item->getQuantity() . ' ~ ' . $item->getValue() . ' ' . $item->getCurrencyId();
-			$item->setLabel( $view->item->getLabel() . ' :: ' . $label );
+			$label = $priceItem->getQuantity() . ' ~ ' . $priceItem->getValue() . ' ' . $priceItem->getCurrencyId();
+			$priceItem->setLabel( $item->getLabel() . ' :: ' . $label );
 
-			$priceManager->saveItem( $item );
+			$priceManager->saveItem( $priceItem );
 
 			$litem->setPosition( $idx );
-			$litem->setRefId( $item->getId() );
+			$litem->setRefId( $priceItem->getId() );
 
 			$listManager->saveItem( $litem, false );
 		}
@@ -431,5 +361,83 @@ class Standard
 
 		$listManager->deleteItems( $rmListIds  );
 		$priceManager->deleteItems( $rmIds  );
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param boolean $copy True if items should be copied, false if not
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	{
+		$locale = $this->getContext()->getLocale();
+		$siteId = $locale->getSiteId();
+
+		foreach( $item->getListItems( 'price' ) as $id => $listItem )
+		{
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				continue;
+			}
+
+			$list = $listItem->toArray( true );
+
+			if( $copy === true )
+			{
+				$list['product.lists.siteid'] = $siteId;
+				$list['product.lists.id'] = '';
+			}
+
+			foreach( $list as $key => $value ) {
+				$data[$key][] = $value;
+			}
+
+			foreach( $refItem->toArray( true ) as $key => $value ) {
+				$data[$key][] = $value;
+			}
+		}
+
+		if( !isset( $data['price.currencyid'] ) ) // show at least one block
+		{
+			$data['price.currencyid'][] = $locale->getCurrencyId();
+			$data['product.lists.siteid'][] = $siteId;
+		}
+
+		return $data;
+	}
+
+
+	/**
+	 * Returns the rendered template including the view data
+	 *
+	 * @return string HTML output
+	 */
+	protected function render( \Aimeos\MW\View\Iface $view )
+	{
+		/** admin/jqadm/product/price/template-item
+		 * Relative path to the HTML body template of the price subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/price/template-item';
+		$default = 'product/item-price-default.php';
+
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

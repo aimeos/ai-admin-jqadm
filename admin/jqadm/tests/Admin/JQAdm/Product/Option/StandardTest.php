@@ -112,40 +112,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testSaveException()
-	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Option\Standard' )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( \TestHelperJqadm::getView() );
-
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
-		$object->save();
-	}
-
-
-	public function testSaveMShopException()
-	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Option\Standard' )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( \TestHelperJqadm::getView() );
-
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
-		$object->save();
-	}
-
-
 	public function testSearch()
 	{
 		$this->assertNull( $this->object->search() );

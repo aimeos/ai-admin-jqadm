@@ -224,6 +224,29 @@ abstract class Base
 
 
 	/**
+	 * Returns the value for the given key in the array
+	 *
+	 * @param array $values Multi-dimensional associative list of key/value pairs
+	 * @param string $key Parameter key like "name" or "list/test" for associative arrays
+	 * @param mixed $default Returned value if no one for key is available
+	 * @return mixed Value from the array or default value if not present in array
+	 */
+	protected function getValue( array $values, $key, $default = null )
+	{
+		foreach( explode( '/', trim( $key, '/' ) ) as $part )
+		{
+			if( isset( $values[$part] ) ) {
+				$values = $values[$part];
+			} else {
+				return $default;
+			}
+		}
+
+		return $values;
+	}
+
+
+	/**
 	 * Returns the known client parameters and their values
 	 *
 	 * @param array $names List of parameter names
@@ -308,6 +331,58 @@ abstract class Base
 		$this->initCriteriaSlice( $criteria, $params );
 
 		return $criteria;
+	}
+
+
+	/**
+	 * Adds a redirect to the response for the next action
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @param string $action Next action
+	 * @param string $resource Resource name
+	 * @param string $id ID of the next resource item
+	 * @return \Aimeos\MW\View\Iface Modified view object
+	 */
+	protected function nextAction( \Aimeos\MW\View\Iface $view, $action, $resource, $id = null )
+	{
+		$params = $this->getClientParams();
+		$params['resource'] = $resource;
+
+		switch( $action )
+		{
+			case 'search':
+				$target = $view->config( 'admin/jqadm/url/search/target' );
+				$cntl = $view->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
+				$action = $view->config( 'admin/jqadm/url/search/action', 'search' );
+				$conf = $view->config( 'admin/jqadm/url/search/config', [] );
+				$url = $view->url( $target, $cntl, $action, $params, [], $conf );
+				break;
+			case 'create':
+				$target = $view->config( 'admin/jqadm/url/create/target' );
+				$cntl = $view->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
+				$action = $view->config( 'admin/jqadm/url/create/action', 'create' );
+				$conf = $view->config( 'admin/jqadm/url/create/config', [] );
+				$url = $view->url( $target, $cntl, $action, $params, [], $conf );
+				break;
+			case 'copy':
+				$target = $view->config( 'admin/jqadm/url/copy/target' );
+				$cntl = $view->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
+				$action = $view->config( 'admin/jqadm/url/copy/action', 'copy' );
+				$conf = $view->config( 'admin/jqadm/url/copy/config', [] );
+				$url = $view->url( $target, $cntl, $action, ['id' => $id] + $params, [], $conf );
+				break;
+			default:
+				$target = $view->config( 'admin/jqadm/url/get/target' );
+				$cntl = $view->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
+				$action = $view->config( 'admin/jqadm/url/get/action', 'get' );
+				$conf = $view->config( 'admin/jqadm/url/get/config', [] );
+				$url = $view->url( $target, $cntl, $action, ['id' => $id] + $params, [], $conf );
+		}
+
+		$view->response()->withStatus( 302 );
+		$view->response()->withHeader( 'Location', $url );
+
+		return $view;
 	}
 
 

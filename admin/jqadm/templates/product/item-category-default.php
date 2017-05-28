@@ -31,7 +31,7 @@ $enc = $this->encoder();
 				<?php $listTypeId = $this->get( 'categoryListTypes/default' ); ?>
 				<?php foreach( $this->get( 'categoryData/catalog.lists.id', [] ) as $idx => $id ) : ?>
 					<?php if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
-						<tr class="<?= $this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ); ?>">
+						<tr class="<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?>">
 							<td>
 								<input class="item-listtypeid" type="hidden"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
@@ -44,14 +44,14 @@ $enc = $this->encoder();
 									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
 								<select class="combobox item-id" tabindex="<?= $this->get( "tabindex" ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ); ?> >
+									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?> >
 									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>" >
 										<?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>
 									</option>
 								</select>
 							</td>
 							<td class="actions">
-								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ) ) : ?>
+								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ) ) : ?>
 									<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 									</div>
@@ -105,7 +105,7 @@ $enc = $this->encoder();
 				<?php $listTypeId = $this->get( 'categoryListTypes/promotion' ); ?>
 				<?php foreach( $this->get( 'categoryData/catalog.lists.id', [] ) as $idx => $id ) : ?>
 					<?php if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
-						<tr class="<?= $this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ); ?>">
+						<tr class="<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?>">
 							<td>
 								<input class="item-listtypeid" type="hidden"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
@@ -118,14 +118,14 @@ $enc = $this->encoder();
 									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
 								<select class="combobox item-id" tabindex="<?= $this->get( "tabindex" ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ); ?> >
+									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?> >
 									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>">
 										<?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>
 									</option>
 								</select>
 							</td>
 							<td class="actions">
-								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.siteid/' . $idx ) ) ) : ?>
+								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ) ) : ?>
 									<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 									</div>

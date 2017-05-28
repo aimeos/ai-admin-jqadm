@@ -63,72 +63,45 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function copy()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->downloadData = $this->toArray( $view->item, true );
 		$view->downloadBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->downloadBody .= $client->copy();
 		}
 
-		/** admin/jqadm/product/download/template-item
-		 * Relative path to the HTML body template of the download subpart for products.
-		 *
-		 * The template file contains the HTML code and processing instructions
-		 * to generate the result shown in the body of the frontend. The
-		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
-		 *
-		 * You can overwrite the template file configuration in extensions and
-		 * provide alternative templates. These alternative templates should be
-		 * named like the default one but with the string "default" replaced by
-		 * an unique name. You may use the name of your project for this. If
-		 * you've implemented an alternative client class as well, "default"
-		 * should be replaced by the name of the new class.
-		 *
-		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
-		 * @category Developer
-		 */
-		$tplconf = 'admin/jqadm/product/download/template-item';
-		$default = 'product/item-download-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function create()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->downloadData = $view->param( 'download', [] );
 		$view->downloadBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->downloadBody .= $client->create();
 		}
 
-		$tplconf = 'admin/jqadm/product/download/template-item';
-		$default = 'product/item-download-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Deletes a resource
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function delete()
 	{
@@ -169,30 +142,25 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string admin output to display or null for redirecting to the list
+	 * @return string HTML output
 	 */
 	public function get()
 	{
 		$view = $this->getView();
 
-		$this->setData( $view );
+		$view->downloadData = $this->toArray( $view->item );
 		$view->downloadBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
 			$view->downloadBody .= $client->get();
 		}
 
-		$tplconf = 'admin/jqadm/product/download/template-item';
-		$default = 'product/item-download-default.php';
-
-		return $view->render( $view->config( $tplconf, $default ) );
+		return $this->render( $view );
 	}
 
 
 	/**
 	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function save()
 	{
@@ -207,7 +175,7 @@ class Standard
 
 		try
 		{
-			$this->updateItems( $view );
+			$this->fromArray( $view->item, $view->param( 'download', [] ) );
 			$view->downloadBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -222,19 +190,15 @@ class Standard
 		{
 			$error = array( 'product-item-download' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-
-			$attrManager->rollback();
-			$manager->rollback();
 		}
 		catch( \Exception $e )
 		{
-			$context->getLogger()->log( $e->getMessage() . ' - ' . $e->getTraceAsString() );
-			$error = array( 'product-item-download' => $e->getMessage() );
+			$error = array( 'product-item-download' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
-
-			$attrManager->rollback();
-			$manager->rollback();
 		}
+
+		$attrManager->rollback();
+		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -465,53 +429,6 @@ class Standard
 
 
 	/**
-	 * Returns the mapped input parameter or the existing items as expected by the template
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
-	 */
-	protected function setData( \Aimeos\MW\View\Iface $view )
-	{
-		$view->downloadData = (array) $view->param( 'download', [] );
-
-		if( !empty( $view->downloadData ) ) {
-			return;
-		}
-
-		$data = ['product.lists.siteid' => $this->getContext()->getLocale()->getSiteId()];
-		$listItems = $this->getListItems( $view->item->getId() );
-		$attrItems = $this->getAttributeItems( $listItems );
-
-		foreach( $listItems as $listItem )
-		{
-			if( !isset( $attrItems[$listItem->getRefId()] ) ) {
-				continue;
-			}
-
-			foreach( $listItem->toArray( true ) as $key => $value ) {
-				$data[$key] = $value;
-			}
-
-			foreach( $attrItems[$listItem->getRefId()]->toArray( true ) as $key => $value ) {
-				$data[$key] = $value;
-			}
-
-			$data['path'] = $attrItems[$listItem->getRefId()]->getCode();
-
-			try
-			{
-				$fs = $this->getContext()->getFilesystemManager()->get( 'fs-secure' );
-
-				$data['time'] = $fs->time( $data['path'] );
-				$data['size'] = $fs->size( $data['path'] );
-			}
-			catch( \Exception $e ) { ; } // Show product even if file isn't available any more
-		}
-
-		$view->downloadData = $data;
-	}
-
-
-	/**
 	 * Stores the uploaded file in the "fs-secure" file system
 	 *
 	 * @param \Psr\Http\Message\UploadedFileInterface $file
@@ -540,51 +457,139 @@ class Standard
 
 
 	/**
-	 * Updates existing product download references or creates new ones
+	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with helpers and assigned parameters
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param string[] $data Data array
 	 */
-	protected function updateItems( \Aimeos\MW\View\Iface $view )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$id = $view->item->getId();
 		$context = $this->getContext();
-
 		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
-		$listItems = $this->getListItems( $id );
-		$listId = $view->param( 'download/product.lists.id' );
+		$listId = $this->getValue( $data, 'product.lists.id' );
+		$listItems = $this->getListItems( $item->getId() );
 
 		if( isset( $listItems[$listId] ) ) {
 			$litem = $listItems[$listId];
 		} else {
-			$litem = $this->createListItem( $id );
+			$litem = $this->createListItem( $item->getId() );
 		}
 
-		if( ( $attrId = $view->param( 'download/attribute.id' ) ) != '' ) {
-			$item = $attrManager->getItem( $attrId );
+		if( ( $attrId = $this->getValue( $data, 'attribute.id' ) ) != '' ) {
+			$attrItem = $attrManager->getItem( $attrId );
 		} else {
-			$item = $this->createItem();
+			$attrItem = $this->createItem();
 		}
 
-		if( ( $file = $view->value( (array) $view->request()->getUploadedFiles(), 'download/file' ) ) !== null
+		if( ( $file = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'download/file' ) ) !== null
 			&& $file->getError() === UPLOAD_ERR_OK
 		) {
-			$path = ( $view->param( 'download/overwrite' ) == 1 ? $item->getCode() : null );
-			$item->setCode( $this->storeFile( $file, $path ) );
+			$path = ( $this->getValue( $data, 'overwrite' ) == 1 ? $attrItem->getCode() : null );
+			$attrItem->setCode( $this->storeFile( $file, $path ) );
 		}
 
-		if( ( $label = $view->param( 'download/attribute.label' ) ) != '' )
+		if( ( $label = $this->getValue( $data, 'attribute.label' ) ) != '' )
 		{
-			$item->setLabel( $label );
-			$attrManager->saveItem( $item );
+			$attrItem->setLabel( $label );
+			$attrManager->saveItem( $attrItem );
 
 			$litem->setPosition( 0 );
-			$litem->setRefId( $item->getId() );
-			$litem->setStatus( $view->param( 'download/product.lists.status' ) );
-			$listManager->saveItem( $litem );
+			$litem->setRefId( $attrItem->getId() );
+			$litem->setStatus( $this->getValue( $data, 'product.lists.status' ) );
+
+			$listManager->saveItem( $litem, false );
 		}
 
 		$this->cleanupItems( $listItems, array( $listId ) );
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param boolean $copy True if items should be copied, false if not
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	{
+		$listItems = $this->getListItems( $item->getId() );
+		$attrItems = $this->getAttributeItems( $listItems );
+
+		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$data = [];
+
+		if( $copy === true ) {
+			$data['product.lists.siteid'] = $siteId;
+		}
+
+		foreach( $listItems as $listItem )
+		{
+			if( !isset( $attrItems[$listItem->getRefId()] ) ) {
+				continue;
+			}
+
+			$list = $listItem->toArray( true );
+
+			if( $copy === true ) {
+				$list['product.lists.id'] = '';
+			}
+
+			foreach( $list as $key => $value ) {
+				$data[$key] = $value;
+			}
+
+			foreach( $attrItems[$listItem->getRefId()]->toArray( true ) as $key => $value ) {
+				$data[$key] = $value;
+			}
+
+			$data['path'] = $attrItems[$listItem->getRefId()]->getCode();
+
+			try
+			{
+				$fs = $this->getContext()->getFilesystemManager()->get( 'fs-secure' );
+
+				$data['time'] = $fs->time( $data['path'] );
+				$data['size'] = $fs->size( $data['path'] );
+			}
+			catch( \Exception $e ) { ; } // Show product even if file isn't available any more
+		}
+
+		return $data;
+	}
+
+
+	/**
+	 * Returns the rendered template including the view data
+	 *
+	 * @return string HTML output
+	 */
+	protected function render( \Aimeos\MW\View\Iface $view )
+	{
+		/** admin/jqadm/product/download/template-item
+		 * Relative path to the HTML body template of the download subpart for products.
+		 *
+		 * The template file contains the HTML code and processing instructions
+		 * to generate the result shown in the body of the frontend. The
+		 * configuration string is the path to the template file relative
+		 * to the templates directory (usually in admin/jqadm/templates).
+		 *
+		 * You can overwrite the template file configuration in extensions and
+		 * provide alternative templates. These alternative templates should be
+		 * named like the default one but with the string "default" replaced by
+		 * an unique name. You may use the name of your project for this. If
+		 * you've implemented an alternative client class as well, "default"
+		 * should be replaced by the name of the new class.
+		 *
+		 * @param string Relative path to the template creating the HTML code
+		 * @since 2016.04
+		 * @category Developer
+		 */
+		$tplconf = 'admin/jqadm/product/download/template-item';
+		$default = 'product/item-download-default.php';
+
+		return $view->render( $view->config( $tplconf, $default ) );
 	}
 }

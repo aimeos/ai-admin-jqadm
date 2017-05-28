@@ -18,6 +18,8 @@ $enc = $this->encoder();
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'File' ) ); ?></label>
 			<div class="col-sm-8">
+				<input class="item-siteid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.siteid' ) ) ); ?>"
+					value="<?= $enc->attr( $this->get( 'downloadData/product.lists.siteid' ) ); ?>" />
 				<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.id' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/product.lists.id' ) ); ?>" />
 				<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.id' ) ) ); ?>"

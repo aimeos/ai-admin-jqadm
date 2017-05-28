@@ -98,6 +98,15 @@ html {
 	color: #FFFFFF !important;
 }
 
+.btn-primary.focus, .btn-primary:focus {
+	box-shadow: none;
+}
+
+.btn-primary.active, .btn-primary:active,
+.btn-primary:hover, .show > .btn-primary.dropdown-toggle {
+	background-color: #3080B0;
+}
+
 .btn-secondary {
 	color: #292b2c;
 	background-color: #fff;
@@ -109,6 +118,10 @@ html {
 	background-color: #E05040;
 	border-color: #E05040;
 	color: #FFFFFF !important;
+}
+
+.btn-primary.dropdown-toggle-split {
+	border-left-color: #2070A0;
 }
 
 .form-inline label {
@@ -465,9 +478,9 @@ html {
 }
 
 .aimeos .main-navbar input,
-.aimeos .main-navbar .dropdown-item,
-.aimeos .main-navbar .dropdown-toggle,
-.aimeos .main-navbar .custom-select {
+.aimeos .main-navbar .custom-select,
+.aimeos .main-navbar .filter-columns .dropdown-item,
+.aimeos .main-navbar .filter-columns .dropdown-toggle {
 	font-family: monospace;
 	border-radius: 0;
 }
@@ -551,7 +564,7 @@ html {
 		z-index: 1030;
 		top: 0;
 	}
-	.aimeos .main-content form > .item-actions {
+	.aimeos .main-content .item-actions {
 		display: none;
 	}
 }
