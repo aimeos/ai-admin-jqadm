@@ -350,9 +350,13 @@ if( $lang ) {
 		</div>
 	</nav>
 
-	<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
+	<div class="main-content">
 
-	<?= $this->block()->get( 'jqadm_content' ); ?>
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
+
+		<?= $this->block()->get( 'jqadm_content' ); ?>
+
+	</div>
 
 	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-default.php' ) ); ?>
 
