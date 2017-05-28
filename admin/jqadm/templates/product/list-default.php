@@ -883,18 +883,18 @@ $sortcode = $this->param( 'sort' );
 							<td class="product-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
 						<?php endif; ?>
 
-						<td class="actions"><!--
+						<td class="actions">
 							<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-								--><a class="btn act-delete fa"
+								<a class="btn act-delete fa"
 									href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'product', 'id' => $id] + $params, [], $delConfig ) ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a><!--
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 							<?php endif; ?>
-							--><a class="btn act-copy fa"
+							<a class="btn act-copy fa"
 								href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a><!--
-						--></td>
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>

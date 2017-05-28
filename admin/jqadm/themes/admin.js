@@ -563,7 +563,7 @@ Aimeos.Product.List = {
 		var self = this;
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
-			$(self.element).submit();
+			window.location = $(self.element.context).attr("href");
 		});
 	}
 };
