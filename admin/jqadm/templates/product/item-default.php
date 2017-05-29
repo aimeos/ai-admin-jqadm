@@ -272,6 +272,20 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ); ?>
 						</div>
 					</div>
+				</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL target' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-target" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.target' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Route or page ID (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/product.target' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Route name or page ID of the product detail page if this product should shown on a different page' ) ); ?>
+						</div>
+					</div>
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>">
