@@ -79,12 +79,12 @@ Aimeos.Dashboard.Order = {
     chartDay : function() {
 
         var selector = "#order-day-data",
-            margin = {top: 20, bottom: 20, left: 15, right: 25},
-            cellSize = 16, cellPad = 2, cellWidth = cellSize + cellPad,
+            margin = {top: 20, bottom: 20, left: 15, right: 40},
             width = $(selector).width() - margin.left - margin.right,
-            height = $(selector).height() - margin.top - margin.bottom - 10;
+            height = $(selector).height() - margin.top - margin.bottom - 10,
+            cellPad = 2, cellSize = 16, cellWidth = cellSize + cellPad;
 
-        var weeks = Math.ceil((width - cellWidth) / cellWidth),
+        var weeks = Math.min(Math.ceil((width - cellWidth) / cellWidth), 58),
             firstdate = new Date(new Date().getTime() - weeks * 7 * 86400 * 1000 + (6 - new Date().getDay()) * 86400 * 1000),
             dateRange = d3.time.day.utc.range(firstdate, new Date());
 
@@ -147,7 +147,7 @@ Aimeos.Dashboard.Order = {
             svg.selectAll(".legend-month")
                 .data(d3.time.month.utc.range(firstdate, new Date()))
                 .enter().append("text")
-                    .text(function (d) { var num = d.getMonth() + 1; return (num < 10 ? "0" + num : num); })
+                    .text(function (d) { var num = d.getMonth(); return (num === 0 ? num = 12 : (num < 10 ? "0" + num : num)); })
                     .attr("class", "x axis")
                     .attr("y", -10)
                     .attr("x", function (d) {
@@ -293,21 +293,22 @@ Aimeos.Dashboard.Order = {
 
     chartPaymentStatus : function() {
 
-        var dates = [], numdays = 7,
+        var dates = [],
             selector = "#order-paymentstatus-data",
             translation = $(selector).data("translation"),
-            margin = {top: 20, right: 30, bottom: 30, left: 40},
+            margin = {top: 20, right: 60, bottom: 30, left: 40},
             width = $(selector).width() - margin.left - margin.right,
             height = $(selector).height() - margin.top - margin.bottom - 10,
             statusrange = ["pay-unfinished", "pay-deleted", "pay-canceled", "pay-refused", "pay-refund", "pay-pending", "pay-authorized", "pay-received"],
-            statuslist = [-1, 0, 1, 2, 3, 4, 5, 6];
+            statuslist = ['-1', '0', '2', '1', '3', '4', '5', '6'],
+            numdays = width / 25;
 
         for( var i = 0; i < numdays; i++ ) {
             dates.push(new Date(new Date().getTime() - (numdays - i - 1) * 86400 * 1000 ).toISOString().substr(0, 10));
         }
 
 
-        var criteria = {"&&": [{">=": {"order.cdate": dates[0]}}, {"<=": {"order.cdate": dates[dates.length-1]}}]};
+        var criteria = {"&&": [{">=": {"order.cdate": dates[0]}}, {"<=": {"order.cdate": dates[dates.length-2]}}]};
 
         Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 100000).then(function(data) {
 
@@ -321,19 +322,8 @@ Aimeos.Dashboard.Order = {
             var xScale = d3.time.scale().range([0, width]).domain([dateParser(dates[0]), dateParser(dates[dates.length-1])]);
             var yScale = d3.scale.linear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
-            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(Math.round(numdays / 2));
+            var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(Math.round(numdays / 5));
             var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));
-
-            var area = d3.svg.area()
-                .interpolate("monotone")
-                .x(function(d) { return xScale(d.key); })
-                .y0(function(d) { return yScale(d.y0); })
-                .y1(function(d) { d.y0 = d.y1; return yScale(d.y1); }); // y0 = y1: set new base line for next layer
-
-            var line = d3.svg.line()
-                .interpolate("monotone")
-                .x(function(d) { return xScale(d.key); })
-                .y(function(d) { return yScale(d.y1); });
 
             var svg = d3.select(selector)
                 .append("svg")
@@ -355,7 +345,18 @@ Aimeos.Dashboard.Order = {
             var responses = [], entries = {};
 
             dates.forEach(function(date) {
-                entries[date] = {'key': dateParser(date), 'status': {}, 'y0': 0, 'y1': 0};
+                var pdate = dateParser(date);
+                entries[date] = {
+                    '-1': {'key': pdate, 'status': '-1', 'y0': 0, 'y1': 0},
+                    '0': {'key': pdate, 'status': '0', 'y0': 0, 'y1': 0},
+                    '1': {'key': pdate, 'status': '1', 'y0': 0, 'y1': 0},
+                    '2': {'key': pdate, 'status': '2', 'y0': 0, 'y1': 0},
+                    '3': {'key': pdate, 'status': '3', 'y0': 0, 'y1': 0},
+                    '4': {'key': pdate, 'status': '4', 'y0': 0, 'y1': 0},
+                    '5': {'key': pdate, 'status': '5', 'y0': 0, 'y1': 0},
+                    '6': {'key': pdate, 'status': '6', 'y0': 0, 'y1': 0},
+                    'total': 0
+                };
             });
 
             // create a JSON request for every status value (-1 till 6)
@@ -378,25 +379,21 @@ Aimeos.Dashboard.Order = {
                     }
 
                     data.data.forEach(function(d) {
-                        entries[d.id]['status'][entry.status] = d.attributes;
-                        entries[d.id]['y1'] += +d.attributes;
+                        entries[d.id][entry.status]['count'] = (+d.attributes);
+                        entries[d.id][entry.status]['y0'] = entries[d.id]['total'];
+                        entries[d.id][entry.status]['y1'] = entries[d.id]['total'] + (+d.attributes);
+                        entries[d.id]['total'] += (+d.attributes);
                     });
 
-                    var list = [];
                     dates.forEach(function(d) {
-                        list.push(entries[d]);
+                        svg.append("rect")
+                            .datum(entries[d][entry.status])
+                            .attr("class", function(d) { return "bar " + color(d.status); })
+                            .attr("x", function(d) { return xScale(d.key); })
+                            .attr("width", width / dates.length - 2)
+                            .attr("y", function(d) { return yScale(d.y1); })
+                            .attr("height", function(d) { return height - yScale(d.y1 - d.y0); });
                     });
-
-                    svg.append("path")
-                        .datum(list)
-                        .attr("class", function(d) { return "layer " + color(entry.status); })
-                        .attr("d", area);
-
-                    svg.append("path")
-                        .datum(list)
-                        .attr("class", function(d) { return "line " + color(entry.status); })
-                        .attr("d", line);
-
                 });
             });
 
@@ -406,42 +403,32 @@ Aimeos.Dashboard.Order = {
 
                 statuslist.reverse(); // print counts per status in descending order
 
-                var focus = svg.append("line")
-                    .attr("x1", 0).attr("x2", 0)
-                    .attr("y1", 0).attr("y2", height);
-
                 var tooltip = $('<div class="tooltip" />').appendTo($(selector));
 
                 svg.append("rect")
                     .attr("class", "overlay")
-                    .attr("width", width)
+                    .attr("width", width+25)
                     .attr("height", height)
-                    .on("mouseover", function() { focus.classed("focus", true); tooltip.css("display", "block"); })
-                    .on("mouseout", function() { focus.classed("focus", false); tooltip.css("display", "none"); })
+                    .on("mouseover", function() { tooltip.css("display", "block"); })
+                    .on("mouseout", function() { tooltip.css("display", "none"); })
                     .on("mousemove", function() {
 
-                        // move the focus line to the nearest date in the diagram
+                        // now tooltip for the date in the diagram
                         var x0 = xScale.invert(d3.mouse(this)[0]),
-                            i = d3.bisector(function(d) { return dateParser(d); }).left(dates, x0),
-                            mouseX = xScale(x0);
+                            mouseX = xScale(x0),
+                            curdate, i;
 
-                        i = (i === 0 ? 1 : (i === dates.length ? dates.length - 1 : i));
+                        for(i=0; i<dates.length; i++) {
+                            curdate = dates[i];
 
-                        var date,
-                            d0 = dateParser(dates[i]),
-                            d1 = dateParser(dates[i-1]);
-
-                        if(Math.abs(x0 - d0) > Math.abs(d1 - x0) ) {
-                            xval = xScale(d1); date = dates[i-1];
-                        } else {
-                            xval = xScale(d0); date = dates[i];
+                            if(i === dates.length-1 || x0 >= dateParser(dates[i]) && x0 < dateParser(dates[i+1])) {
+                                break;
+                            }
                         }
 
-                        focus.attr("transform", "translate(" + xval + ",0)");
-
-                        var html = '<h1 class="head">' + dates[i] + '</h1><table class="values">';
+                        var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
                         statuslist.forEach(function(status) {
-                            html += '<tr><th>' + translation[status] + "</th><td>" + (entries[date]['status'][status] || 0) + '</td></tr>';
+                            html += '<tr><th>' + translation[status] + "</th><td>" + (entries[curdate][status]['count'] || 0) + '</td></tr>';
                         });
                         html += '</table>';
 
