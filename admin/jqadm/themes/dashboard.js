@@ -84,7 +84,7 @@ Aimeos.Dashboard.Order = {
             height = $(selector).height() - margin.top - margin.bottom - 10,
             cellPad = 2, cellSize = 16, cellWidth = cellSize + cellPad;
 
-        var weeks = Math.min(Math.ceil((width - cellWidth) / cellWidth), 58),
+        var weeks = Math.ceil((width - cellWidth) / cellWidth),
             firstdate = new Date(new Date().getTime() - weeks * 7 * 86400 * 1000 + (6 - new Date().getDay()) * 86400 * 1000),
             dateRange = d3.time.day.utc.range(firstdate, new Date());
 
@@ -152,7 +152,7 @@ Aimeos.Dashboard.Order = {
                     .attr("y", -10)
                     .attr("x", function (d) {
                         var idx = dateNumbers.indexOf(+d);
-                        if(idx !== -1) { return Math.floor(idx / 7) * cellWidth + 20; }
+                        if(idx !== -1) { return Math.floor(idx / 7) * cellWidth; }
                     });
 
 
@@ -340,6 +340,12 @@ Aimeos.Dashboard.Order = {
             svg.append("g")
                 .attr("class", "y axis")
                 .call(yAxis);
+
+
+            if( data.data.length == 0 ) { // no data avaiable
+                $(selector).removeClass("loading");
+                return;
+            }
 
 
             var responses = [], entries = {};

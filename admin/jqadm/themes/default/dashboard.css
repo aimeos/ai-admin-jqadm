@@ -147,10 +147,10 @@
   pointer-events: all;
 }
 
-.dashboard .order-paymentstatus .pay-unfinished { fill: #c7c7c7; }
+.dashboard .order-paymentstatus .pay-unfinished { fill: #969696; }
 .dashboard .order-paymentstatus .pay-deleted { fill: #e6550d; }
-.dashboard .order-paymentstatus .pay-canceled { fill: #fdae6b; }
-.dashboard .order-paymentstatus .pay-refused { fill: #fd8d3c; }
+.dashboard .order-paymentstatus .pay-canceled { fill: #fd8d3c; }
+.dashboard .order-paymentstatus .pay-refused { fill: #fdae6b; }
 .dashboard .order-paymentstatus .pay-refund { fill: #756bb1; }
 .dashboard .order-paymentstatus .pay-pending { fill: #3182bd; }
 .dashboard .order-paymentstatus .pay-authorized { fill: #74c476; }
