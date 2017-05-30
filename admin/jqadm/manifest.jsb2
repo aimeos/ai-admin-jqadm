@@ -22,6 +22,12 @@
 		},{
 			"text": "dashboard.js",
 			"path": "themes/"
+		},{
+			"text": "customer.js",
+			"path": "themes/"
+		},{
+			"text": "product.js",
+			"path": "themes/"
 		}]
 	}],
 	"resources" : []
