@@ -829,7 +829,7 @@ $sortcode = $this->param( 'sort' );
 						<td class="product-editor">
 							<input type="hidden" value="product.editor"
 								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 9] ) ); ?>" />
-							<input type="hidden" value=">"
+							<input type="hidden" value="=~"
 								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 9] ) ); ?>" />
 							<input class="form-control" type="text" tabindex="2"
 								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 9] ) ); ?>"
