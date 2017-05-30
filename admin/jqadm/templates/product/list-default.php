@@ -8,27 +8,6 @@
 $enc = $this->encoder();
 
 
-$checked = function( array $list, $code ) {
-	return ( in_array( $code, $list ) ? 'checked="checked"' : '' );
-};
-
-$selected = function( $key, $code ) {
-	return ( (string) $key === (string) $code ? 'selected="selected"' : '' );
-};
-
-$sort = function( $sortcode, $code ) {
-	return ( $sortcode === $code ? '-' . $code : $code );
-};
-
-$sortclass = function( $sortcode, $code ) {
-	if( $sortcode === $code ) {
-		return 'sort-desc';
-	}
-	if( $sortcode === '-' . $code ) {
-		return 'sort-asc';
-	}
-};
-
 /** admin/jqadm/url/search/target
  * Destination of the URL where the controller specified in the URL is known
  *
@@ -98,77 +77,6 @@ $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
  * @see admin/jqadm/url/search/action
  */
 $config = $this->config( 'admin/jqadm/url/search/config', [] );
-
-
-/** admin/jqadm/url/create/target
- * Destination of the URL where the controller specified in the URL is known
- *
- * The destination can be a page ID like in a content management system or the
- * module of a software development framework. This "target" must contain or know
- * the controller that should be called by the generated URL.
- *
- * @param string Destination of the URL
- * @since 2016.04
- * @category Developer
- * @see admin/jqadm/url/create/controller
- * @see admin/jqadm/url/create/action
- * @see admin/jqadm/url/create/config
- */
-$newTarget = $this->config( 'admin/jqadm/url/create/target' );
-
-/** admin/jqadm/url/create/controller
- * Name of the controller whose action should be called
- *
- * In Model-View-Controller (MVC) applications, the controller contains the methods
- * that create parts of the output displayed in the generated HTML page. Controller
- * names are usually alpha-numeric.
- *
- * @param string Name of the controller
- * @since 2016.04
- * @category Developer
- * @see admin/jqadm/url/create/target
- * @see admin/jqadm/url/create/action
- * @see admin/jqadm/url/create/config
- */
-$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
-
-/** admin/jqadm/url/create/action
- * Name of the action that should create the output
- *
- * In Model-View-Controller (MVC) applications, actions are the methods of a
- * controller that create parts of the output displayed in the generated HTML page.
- * Action names are usually alpha-numeric.
- *
- * @param string Name of the action
- * @since 2016.04
- * @category Developer
- * @see admin/jqadm/url/create/target
- * @see admin/jqadm/url/create/controller
- * @see admin/jqadm/url/create/config
- */
-$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
-
-/** admin/jqadm/url/create/config
- * Associative list of configuration options used for generating the URL
- *
- * You can specify additional options as key/value pairs used when generating
- * the URLs, like
- *
- *  admin/jqadm/url/create/config = ['absoluteUri' => true]
- *
- * The available key/value pairs depend on the application that embeds the e-commerce
- * framework. This is because the infrastructure of the application is used for
- * generating the URLs. The full list of available config options is referenced
- * in the "see also" section of this page.
- *
- * @param string Associative list of configuration options
- * @since 2016.04
- * @category Developer
- * @see admin/jqadm/url/create/target
- * @see admin/jqadm/url/create/controller
- * @see admin/jqadm/url/create/action
- */
-$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
 
 
 /** admin/jqadm/url/get/target
@@ -408,6 +316,77 @@ $fields = $this->param( 'fields', $default );
 $pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
 $sortcode = $this->param( 'sort' );
 
+$typeList = [];
+foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
+	$typeList[$id] = $typeItem->getCode();
+}
+
+
+/** admin/jqadm/partial/columns
+ * Relative path to the partial template for displaying the column selector in the list views
+ *
+ * The template file contains the HTML code and processing instructions
+ * to generate the result shown in the administration interface. The
+ * configuration string is the path to the template file relative
+ * to the templates directory (usually in admin/jqadm/templates).
+ *
+ * You can overwrite the template file configuration in extensions and
+ * provide alternative templates. These alternative templates should be
+ * named like the default one but with the string "default" replaced by
+ * an unique name. You may use the name of your project for this. If
+ * you've implemented an alternative client class as well, "default"
+ * should be replaced by the name of the new class.
+ *
+ * @param string Relative path to the partial creating the HTML code
+ * @since 2017.07
+ * @category Developer
+ * @see admin/jqadm/partial/confirm
+ * @see admin/jqadm/partial/error
+ */
+
+/** admin/jqadm/partial/listhead
+ * Relative path to the partial template for displaying the table header in the list views
+ *
+ * The template file contains the HTML code and processing instructions
+ * to generate the result shown in the administration interface. The
+ * configuration string is the path to the template file relative
+ * to the templates directory (usually in admin/jqadm/templates).
+ *
+ * You can overwrite the template file configuration in extensions and
+ * provide alternative templates. These alternative templates should be
+ * named like the default one but with the string "default" replaced by
+ * an unique name. You may use the name of your project for this. If
+ * you've implemented an alternative client class as well, "default"
+ * should be replaced by the name of the new class.
+ *
+ * @param string Relative path to the partial creating the HTML code
+ * @since 2017.07
+ * @category Developer
+ * @see admin/jqadm/partial/confirm
+ * @see admin/jqadm/partial/error
+ */
+
+/** admin/jqadm/partial/listsearch
+ * Relative path to the partial template for displaying the table search row in the list views
+ *
+ * The template file contains the HTML code and processing instructions
+ * to generate the result shown in the administration interface. The
+ * configuration string is the path to the template file relative
+ * to the templates directory (usually in admin/jqadm/templates).
+ *
+ * You can overwrite the template file configuration in extensions and
+ * provide alternative templates. These alternative templates should be
+ * named like the default one but with the string "default" replaced by
+ * an unique name. You may use the name of your project for this. If
+ * you've implemented an alternative client class as well, "default"
+ * should be replaced by the name of the new class.
+ *
+ * @param string Relative path to the partial creating the HTML code
+ * @since 2017.07
+ * @category Developer
+ * @see admin/jqadm/partial/confirm
+ * @see admin/jqadm/partial/error
+ */
 
 /** admin/jqadm/partial/filter
  * Relative path to the partial template for displaying the product filter
@@ -489,94 +468,23 @@ $sortcode = $this->param( 'sort' );
 
 		<i class="fa more"></i>
 
-		<div class="dropdown filter-columns">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<?= $enc->html( $this->translate( 'admin', 'Columns' ) ); ?>
-			</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.id" <?= $checked( $fields, 'product.id' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'ID' ) ); ?>
-					</label>
-				</li>
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.status" <?= $checked( $fields, 'product.status' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?>
-					</label>
-				</li>
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.typeid" <?= $checked( $fields, 'product.typeid' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?>
-					</label>
-				</li>
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.code" <?= $checked( $fields, 'product.code' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?>
-					</label>
-				</li>
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.label" <?= $checked( $fields, 'product.label' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?>
-					</label>
-				</li>
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.datestart" <?= $checked( $fields, 'product.datestart' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?>
-					</label>
-				</li>
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.dateend" <?= $checked( $fields, 'product.dateend' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?>
-					</label>
-				</li>
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.ctime" <?= $checked( $fields, 'product.ctime' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?>
-					</label>
-				</li>
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.mtime" <?= $checked( $fields, 'product.mtime' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'Last modified' ) ); ?>
-					</label>
-				</li>
-				<li class="dropdown-item">
-					<label>
-						<input type="checkbox"
-							name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
-							value="product.editor" <?= $checked( $fields, 'product.editor' ); ?> />
-						<?= $enc->html( $this->translate( 'admin', 'Editor' ) ); ?>
-					</label>
-				</li>
-			</ul>
-		</div>
+		<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ), [
+				'fields' => $fields,
+				'data' => [
+					'product.id' => $this->translate( 'admin', 'ID' ),
+					'product.status' => $this->translate( 'admin', 'Status' ),
+					'product.typeid' => $this->translate( 'admin', 'Type' ),
+					'product.code' => $this->translate( 'admin', 'Code' ),
+					'product.label' => $this->translate( 'admin', 'Label' ),
+					'product.datestart' => $this->translate( 'admin', 'Start date' ),
+					'product.dateend' => $this->translate( 'admin', 'End date' ),
+					'product.ctime' => $this->translate( 'admin', 'Created' ),
+					'product.mtime' => $this->translate( 'admin', 'Modified' ),
+					'product.editor' => $this->translate( 'admin', 'Editor' ),
+				]
+			] );
+		?>
 
 		<div class="input-group">
 			<select class="custom-select filter-key" name="<?= $this->formparam( ['filter', 'key', ''] ); ?>">
@@ -614,240 +522,50 @@ $sortcode = $this->param( 'sort' );
 	<div class="table-responsive">
 		<table class="list-items table table-hover table-striped">
 			<thead class="list-header">
-				<tr>
-					<?php if( in_array( 'product.id', $fields ) ) : ?>
-						<th class="product-id">
-							<a class="<?= $sortclass( $sortcode, 'product.id' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.id' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'ID' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<?php if( in_array( 'product.status', $fields ) ) : ?>
-						<th class="product-status">
-							<a class="<?= $sortclass( $sortcode, 'product.status' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.status' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<?php if( in_array( 'product.typeid', $fields ) ) : ?>
-						<th class="product-type">
-							<a class="<?= $sortclass( $sortcode, 'product.type' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.typeid' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<?php if( in_array( 'product.code', $fields ) ) : ?>
-						<th class="product-code">
-							<a class="<?= $sortclass( $sortcode, 'product.code' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.code' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<?php if( in_array( 'product.label', $fields ) ) : ?>
-						<th class="product-label">
-							<a class="<?= $sortclass( $sortcode, 'product.label' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.label' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<?php if( in_array( 'product.datestart', $fields ) ) : ?>
-						<th class="product-datestart">
-							<a class="<?= $sortclass( $sortcode, 'product.datestart' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.datestart' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<?php if( in_array( 'product.dateend', $fields ) ) : ?>
-						<th class="product-dateend">
-							<a class="<?= $sortclass( $sortcode, 'product.dateend' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.dateend' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<?php if( in_array( 'product.ctime', $fields ) ) : ?>
-						<th class="product-ctime">
-							<a class="<?= $sortclass( $sortcode, 'product.ctime' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.ctime' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<?php if( in_array( 'product.mtime', $fields ) ) : ?>
-						<th class="product-mtime">
-							<a class="<?= $sortclass( $sortcode, 'product.mtime' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.mtime' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'Last modified' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<?php if( in_array( 'product.editor', $fields ) ) : ?>
-						<th class="product-editor">
-							<a class="<?= $sortclass( $sortcode, 'product.editor' ); ?>"
-								href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, 'product.editor' )] + $params, [], $config ) ); ?>">
-								<?= $enc->html( $this->translate( 'admin', 'Editor' ) ); ?>
-							</a>
-						</th>
-					<?php endif; ?>
-					<th class="actions">
-						<a class="btn fa act-add"
-							href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+a)') ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
-						</a>
-					</th>
-				</tr>
+
+				<?= $this->partial(
+					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
+						'fields' => $fields, 'params' => $params,
+						'data' => [
+							'product.id' => $this->translate( 'admin', 'ID' ),
+							'product.status' => $this->translate( 'admin', 'Status' ),
+							'product.typeid' => $this->translate( 'admin', 'Type' ),
+							'product.code' => $this->translate( 'admin', 'Code' ),
+							'product.label' => $this->translate( 'admin', 'Label' ),
+							'product.datestart' => $this->translate( 'admin', 'Start date' ),
+							'product.dateend' => $this->translate( 'admin', 'End date' ),
+							'product.ctime' => $this->translate( 'admin', 'Created' ),
+							'product.mtime' => $this->translate( 'admin', 'Modified' ),
+							'product.editor' => $this->translate( 'admin', 'Editor' ),
+						]
+					] );
+				?>
+
 			</thead>
 			<tbody>
-				<tr class="list-search">
-					<?php if( in_array( 'product.id', $fields ) ) : ?>
-						<td class="product-id">
-							<input type="hidden" value="product.id"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 0] ) ); ?>" />
-							<input type="hidden" value="=="
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 0] ) ); ?>" />
-							<input class="form-control" type="text" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 0] ) ); ?>"
-								value="<?= $enc->attr( $this->param( 'filter/val/0' ) ); ?>" />
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'product.status', $fields ) ) : ?>
-						<td class="product-status">
-							<input type="hidden" value="product.status"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 1] ) ); ?>" />
-							<input type="hidden" value="=="
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 1] ) ); ?>" />
-							<select class="form-control custom-select" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 1] ) ); ?>">
-								<option value=""></option>
-								<option value="1" <?= $selected( $this->param( 'filter/val/1' ), '1' ); ?> >
-									<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
-								</option>
-								<option value="0" <?= $selected( $this->param( 'filter/val/1' ), '0' ); ?> >
-									<?= $enc->html( $this->translate( 'admin', 'status:disabled' ) ); ?>
-								</option>
-								<option value="-1" <?= $selected( $this->param( 'filter/val/1' ), '-1' ); ?> >
-									<?= $enc->html( $this->translate( 'admin', 'status:review' ) ); ?>
-								</option>
-								<option value="-2" <?= $selected( $this->param( 'filter/val/1' ), '-2' ); ?> >
-									<?= $enc->html( $this->translate( 'admin', 'status:archive' ) ); ?>
-								</option>
-							</select>
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'product.typeid', $fields ) ) : ?>
-						<td class="product-typeid">
-							<input type="hidden" value="product.typeid"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 2] ) ); ?>" />
-							<input type="hidden" value="=="
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 2] ) ); ?>" />
-							<select class="form-control custom-select" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 2] ) ); ?>">
-								<option value=""></option>
 
-								<?php foreach( $this->get( 'itemTypes', [] ) as $typeId => $typeItem ) : ?>
-									<option value="<?= $enc->attr( $typeId ); ?>" <?= $selected( $this->param( 'filter/val/2' ), $typeId ); ?> >
-										<?= $enc->html( $typeItem->getCode() ); ?>
-									</option>
-								<?php endforeach; ?>
-							</select>
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'product.code', $fields ) ) : ?>
-						<td class="product-code">
-							<input type="hidden" value="product.code"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 3] ) ); ?>" />
-							<input type="hidden" value="=~"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 3] ) ); ?>" />
-							<input class="form-control" type="text" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 3] ) ); ?>"
-								value="<?= $enc->attr( $this->param( 'filter/val/3' ) ); ?>" />
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'product.label', $fields ) ) : ?>
-						<td class="product-label">
-							<input type="hidden" value="product.label"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 4] ) ); ?>" />
-							<input type="hidden" value="=~"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 4] ) ); ?>" />
-							<input class="form-control" type="text" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 4] ) ); ?>"
-								value="<?= $enc->attr( $this->param( 'filter/val/4' ) ); ?>" />
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'product.datestart', $fields ) ) : ?>
-						<td class="product-datestart">
-							<input type="hidden" value="product.datestart"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 5] ) ); ?>" />
-							<input type="hidden" value=">"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 5] ) ); ?>" />
-							<input class="form-control" type="datetime" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 5] ) ); ?>"
-								value="<?= $enc->attr( $this->param( 'filter/val/5' ) ); ?>" />
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'product.dateend', $fields ) ) : ?>
-						<td class="product-dateend">
-							<input type="hidden" value="product.dateend"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 6] ) ); ?>" />
-							<input type="hidden" value=">"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 6] ) ); ?>" />
-							<input class="form-control" type="datetime" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 6] ) ); ?>"
-								value="<?= $enc->attr( $this->param( 'filter/val/6' ) ); ?>" />
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'product.ctime', $fields ) ) : ?>
-						<td class="product-ctime">
-							<input type="hidden" value="product.ctime"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 7] ) ); ?>" />
-							<input type="hidden" value=">"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 7] ) ); ?>" />
-							<input class="form-control" type="datetime" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 7] ) ); ?>"
-								value="<?= $enc->attr( $this->param( 'filter/val/7' ) ); ?>" />
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'product.mtime', $fields ) ) : ?>
-						<td class="product-mtime">
-							<input type="hidden" value="product.mtime"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 8] ) ); ?>" />
-							<input type="hidden" value=">"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 8] ) ); ?>" />
-							<input class="form-control" type="datetime" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 8] ) ); ?>"
-								value="<?= $enc->attr( $this->param( 'filter/val/8' ) ); ?>" />
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'product.editor', $fields ) ) : ?>
-						<td class="product-editor">
-							<input type="hidden" value="product.editor"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'key', 9] ) ); ?>" />
-							<input type="hidden" value="=~"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'op', 9] ) ); ?>" />
-							<input class="form-control" type="text" tabindex="2"
-								name="<?= $enc->attr( $this->formparam( ['filter', 'val', 9] ) ); ?>"
-								value="<?= $enc->attr( $this->param( 'filter/val/9' ) ); ?>" />
-						</td>
-					<?php endif; ?>
-
-					<td class="actions">
-						<a class="btn act-reset fa"
-							href="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParam, [], $config ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Reset search') ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"></a>
-						<button class="btn act-search fa"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Search entries') ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
-						</button>
-					</td>
-				</tr>
+				<?= $this->partial(
+					$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
+						'fields' => $fields, 'params' => $searchParam,
+						'data' => [
+							'product.id' => ['op' => '=='],
+							'product.status' => ['op' => '==', 'type' => 'select', 'val' => [
+								'1' => $this->translate( 'admin', 'status:enabled' ),
+								'0' => $this->translate( 'admin', 'status:disabled' ),
+								'-1' => $this->translate( 'admin', 'status:review' ),
+								'-2' => $this->translate( 'admin', 'status:archive' ),
+							]],
+							'product.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
+							'product.code' => [],
+							'product.label' => [],
+							'product.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
+							'product.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+							'product.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
+							'product.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+							'product.editor' => [],
+						]
+					] );
+				?>
 
 				<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 					<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
