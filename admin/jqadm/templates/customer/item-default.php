@@ -81,7 +81,6 @@ $subparts = $this->get( 'itemSubparts', [] );
 		<div class="col-md-9 item-content tab-content">
 
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
-
 				<div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
@@ -105,34 +104,277 @@ $subparts = $this->get( 'itemSubparts', [] );
 						</div>
 					</div>
 					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-code" type="text" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.code' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique customer code (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/customer.code' ) ); ?>"
+							<input class="form-control item-email" type="email" required="required" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.email' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-mail address (required)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.email' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Usually e-mail address' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Unique customer e-mail address' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-label" type="text" required="required" tabindex="1"
-								name="<?= $this->formparam( array( 'item', 'customer.label' ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/customer.label' ) ); ?>"
+
+							<?php $languages = $this->get( 'pageLanguages', [] ); ?>
+							<?php if( count( $languages ) > 1 ) : ?>
+								<select class="form-control c-select item-languageid" required="required" tabindex="1"
+									name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
+									<option value=""></option>
+
+									<?php foreach( $languages as $langId => $langItem ) : ?>
+										<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $this->get( 'itemData/customer.languageid', '' ), $langId ); ?> >
+											<?= $enc->html( $this->translate( 'client/language', $langId ) ); ?>
+										</option>
+									<?php endforeach; ?>
+								</select>
+							<?php else : ?>
+								<?php $language = ( ( $item = reset( $languages ) ) !== false ? $item->getId() : '' ); ?>
+								<input class="item-languageid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>" value="<?= $enc->attr( $language ); ?>" />
+							<?php endif; ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
+						<div class="col-sm-8">
+							<select class="form-control c-select item-salutation" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.salutation' ) ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
+								<option value="" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), '' ); ?> ></option>
+								<option value="company" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'company' ); ?> >
+									<?= $enc->html( $this->translate( 'client/code', 'company' ) ); ?>
+								</option>
+								<option value="mr" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'mr' ); ?> >
+									<?= $enc->html( $this->translate( 'client/code', 'mr' ) ); ?>
+								</option>
+								<option value="mrs" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'mrs' ); ?> >
+									<?= $enc->html( $this->translate( 'client/code', 'mrs' ) ); ?>
+								</option>
+								<option value="miss" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'miss' ); ?> >
+									<?= $enc->html( $this->translate( 'client/code', 'miss' ) ); ?>
+								</option>
+							</select>
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'How the customer is addressed in e-mails' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-title" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.title' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.title' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no customer name for the language is available' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Honorary titles like Dr., Ph.D, etc.' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row mandatory">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Last name' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-lastname" type="text" required="required" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.lastname' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.lastname' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Last name of the person or full name in cultures where no first names are used' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'First name' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-firstname" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.firstname' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.firstname' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Birthday' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-birthday" type="date" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Birthday (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.birthday' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Birthday of the customer' ) ); ?>
 						</div>
 					</div>
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-address1" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address1' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.address1' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'House number' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-address2" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address2' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.address2' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Address identifier of the customer\'s house for delivery' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor/Appartment' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-address3" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address3' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or appartment (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.address3' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s appartment can be found' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Zip code' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-postal" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.postal' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.postal' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Postal code for delivery if used in the area the customer is living' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row mandatory">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'City' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-city" type="text" required="required" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.city' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.city' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'State' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-state" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.state' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.state' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row mandatory">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-countryid" type="text" required="required" tabindex="1" maxlength="2" pattern="^[a-zA-Z]{2}$"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country code (required)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.countryid' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Two letter ISO country code' ) ); ?>
+						</div>
+					</div>
+				</div><!--
+
+				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-telephone" type="tel" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.telephone' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.telephone' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimilie' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-telefax" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.telefax' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimilie number (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.telefax' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', '(International) facsimilie number without separation characters, can start with a "+"' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Web site' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-website" type="url" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.website' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.website' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'URL of the customer web site' ) ); ?>
+						</div>
+					</div>
+				</div><!--
+
+				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-company" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.company' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.company' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'VAT ID' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-vatid" type="text" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.vatid' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/customer.vatid' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Official VAT ID to determine if the tax needs to be billed in invoices' ) ); ?>
+						</div>
+					</div>
 				</div>
 
 			</div>

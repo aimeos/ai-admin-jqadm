@@ -496,6 +496,9 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer' );
 
+		$data['customer.label'] = $data['customer.firstname'] . ' ' . $data['customer.lastname'];
+		$data['customer.code'] = $data['customer.email'];
+
 		$item = $manager->createItem();
 		$item->fromArray( $data );
 
@@ -518,6 +521,8 @@ class Standard
 		if( $copy === true )
 		{
 			$data['customer.siteid'] = $this->getContext()->getLocale()->getSiteId();
+			$data['customer.label'] = '';
+			$data['customer.email'] = '';
 			$data['customer.code'] = '';
 			$data['customer.id'] = '';
 		}
