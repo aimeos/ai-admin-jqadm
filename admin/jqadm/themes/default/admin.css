@@ -129,6 +129,15 @@ html {
 	justify-content: inherit;
 }
 
+.form-group {
+	margin-bottom: 1.75rem;
+}
+
+.form-group.row label {
+	font-weight: bold;
+	text-align: right;
+}
+
 .table-striped tbody tr:nth-of-type(odd) {
 	background-color: #FCFCFC;
 }
@@ -154,6 +163,7 @@ html {
 	border-left: 0.2rem solid transparent;
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
+	padding: .75em 1em;
 }
 
 .nav-tabs .nav-link:hover {
@@ -182,12 +192,22 @@ html {
 	border-top: 3px solid rgba(0, 0, 0, 0.125);
 }
 
+.aimeos {
+	font-size: 90%;
+}
+
+.form-control {
+	font-size: 100%;
+}
+
+input[type=date], input[type=time], input[type=datetime-local], input[type=month],
+select.form-control:not([size]):not([multiple]) {
+	height: calc(2.05rem + 2px);
+}
+
 @media (max-width: 767px) {
 	.aimeos {
-		font-size: 75%;
-	}
-	.btn, .form-control {
-		font-size: 100%;
+		font-size: 80%;
 	}
 	.navbar-brand {
 		font-size: 1rem;
@@ -195,9 +215,6 @@ html {
 	.custom-select,
 	.aimeos .main-navbar .dropdown-toggle {
 		height: 33px;
-	}
-	select.form-control:not([size]):not([multiple]) {
-		height: auto;
 	}
 }
 
@@ -804,6 +821,13 @@ html {
 
 
 /* Detail view */
+
+.aimeos h2.item-header {
+	font-size: 150%;
+	padding: 0.5rem 0;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid rgba(0,0,0,.15);
+}
 
 .aimeos .item-meta {
 	margin: 0.5rem 1rem;

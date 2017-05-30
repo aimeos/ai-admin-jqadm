@@ -214,8 +214,8 @@ foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) {
 							'customer.email' => [],
 							'customer.website' => [],
 							'customer.birthday' => ['op' => '==', 'type' => 'date'],
-							'customer.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-							'customer.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+							'customer.ctime' => ['op' => '>=', 'type' => 'datetime'],
+							'customer.mtime' => ['op' => '>=', 'type' => 'datetime'],
 							'customer.editor' => [],
 						]
 					] );
