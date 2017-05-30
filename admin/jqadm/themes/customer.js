@@ -19,12 +19,6 @@ Aimeos.Customer.Item = {
 
 	init : function() {
 
-		this.toggleCompany();
-	},
-
-
-	toggleCompany : function() {
-
 	}
 };
 
