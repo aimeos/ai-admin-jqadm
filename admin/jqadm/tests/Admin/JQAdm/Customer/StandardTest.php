@@ -86,7 +86,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->copy();
 
-		$this->assertContains( 'unitCustomer001', $result );
+		$this->assertContains( 'Example company', $result );
 	}
 
 
@@ -170,7 +170,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->get();
 
-		$this->assertContains( 'UTC001', $result );
+		$this->assertContains( 'unitCustomer001', $result );
 	}
 
 
@@ -223,8 +223,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'item' => array(
 				'customer.id' => '',
-				'customer.code' => 'jqadm_test',
-				'customer.label' => 'test label',
+				'customer.email' => 'jqadm@test',
+				'customer.firstname' => 'test',
+				'customer.lastname' => 'label',
 			),
 		);
 
@@ -233,7 +234,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->save();
 
-		$manager->deleteItem( $manager->findItem( 'jqadm_test' )->getId() );
+		$manager->deleteItem( $manager->findItem( 'jqadm@test' )->getId() );
 	}
 
 
@@ -241,21 +242,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Customer\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'fromArray' ) )
 			->getMock();
 
-		$name = 'AdminJQAdmStandard';
-		$this->context->getConfig()->set( 'mshop/customer/manager/name', $name );
-
-		$mock = $this->getMockBuilder( '\Aimeos\MShop\Customer\Manager\Standard' )
-			->setConstructorArgs( array( $this->context ) )
-			->setMethods( array( 'createItem' ) )
-			->getMock();
-
-		$mock->expects( $this->exactly( 2 ) )->method( 'createItem' )
+		$object->expects( $this->once() )->method( 'fromArray' )
 			->will( $this->throwException( new \RuntimeException() ) );
-
-		\Aimeos\MShop\Customer\Manager\Factory::injectManager( '\\Aimeos\\MShop\\Customer\\Manager\\' . $name, $mock );
 
 		$object->setView( $this->getViewNoRender() );
 
@@ -267,21 +258,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Customer\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'fromArray' ) )
 			->getMock();
 
-		$name = 'AdminJQAdmStandard';
-		$this->context->getConfig()->set( 'mshop/customer/manager/name', $name );
-
-		$mock = $this->getMockBuilder( '\Aimeos\MShop\Customer\Manager\Standard' )
-			->setConstructorArgs( array( $this->context ) )
-			->setMethods( array( 'createItem' ) )
-			->getMock();
-
-		$mock->expects( $this->exactly( 2 ) )->method( 'createItem' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		\Aimeos\MShop\Customer\Manager\Factory::injectManager( '\\Aimeos\\MShop\\Customer\\Manager\\' . $name, $mock );
+		$object->expects( $this->once() )->method( 'fromArray' )
+			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
 
@@ -293,21 +274,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Customer\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'fromArray' ) )
 			->getMock();
 
-		$name = 'AdminJQAdmStandard';
-		$this->context->getConfig()->set( 'mshop/customer/manager/name', $name );
-
-		$mock = $this->getMockBuilder( '\Aimeos\MShop\Customer\Manager\Standard' )
-			->setConstructorArgs( array( $this->context ) )
-			->setMethods( array( 'createItem' ) )
-			->getMock();
-
-		$mock->expects( $this->exactly( 2 ) )->method( 'createItem' )
-			->will( $this->throwException( new \Aimeos\Admin\JQAdm\Exception() ) );
-
-		\Aimeos\MShop\Customer\Manager\Factory::injectManager( '\\Aimeos\\MShop\\Customer\\Manager\\' . $name, $mock );
+		$object->expects( $this->once() )->method( 'fromArray' )
+			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
 
