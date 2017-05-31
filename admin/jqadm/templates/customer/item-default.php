@@ -79,10 +79,11 @@ $subparts = $this->get( 'itemSubparts', [] );
 		</div>
 
 		<div class="col-md-9 item-content tab-content">
+			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) : '' ); ?>
 
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
+				<div class="col-xl-6 content-block <?= $readonly ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
@@ -107,7 +108,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-email" type="email" required="required" tabindex="1"
+							<input class="form-control item-email" type="email" required="required" tabindex="1" autocomplete="off"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.email' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-mail address (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/customer.email' ) ); ?>"
@@ -117,12 +118,10 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<?= $enc->html( $this->translate( 'admin', 'Unique customer e-mail address' ) ); ?>
 						</div>
 					</div>
-				</div>
-				<div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Password' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-email" type="password" required="required" tabindex="1"
+							<input class="form-control item-email" type="password" required="required" tabindex="1" autocomplete="off"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Password (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/customer.password' ) ); ?>"
@@ -134,7 +133,25 @@ $subparts = $this->get( 'itemSubparts', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
+				--><div class="col-xl-6 content-block <?= $readonly ?>">
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ); ?></label>
+						<div class="col-sm-8">
+							<select class="form-control c-select item-groups" tabindex="1" size="8" multiple
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
+
+								<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>
+									<option value="<?= $enc->attr( $groupId ); ?>" <?= $selected( in_array( $groupId, $this->get( 'itemData/customer.groups', [] ) ), true ); ?> >
+										<?= $enc->html( $groupItem->getLabel() ); ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+					</div>
+				</div><!--
+
+				--><div class="col-xl-6 content-block <?= $readonly ?>">
 					<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ); ?></h2>
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
@@ -238,7 +255,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
+				--><div class="col-xl-6 content-block <?= $readonly ?>">
 					<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Billing address' ) ); ?></h2>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ); ?></label>
@@ -330,7 +347,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
+				--><div class="col-xl-6 content-block <?= $readonly ?>">
 					<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ); ?></h2>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ); ?></label>
@@ -373,7 +390,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>">
+				--><div class="col-xl-6 content-block <?= $readonly ?>">
 					<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ); ?></h2>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ); ?></label>

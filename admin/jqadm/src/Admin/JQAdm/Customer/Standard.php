@@ -56,17 +56,17 @@ class Standard
 	 */
 	private $subPartPath = 'admin/jqadm/customer/standard/subparts';
 
-	/** admin/jqadm/customer/special/name
-	 * Name of the special subpart used by the JQAdm customer implementation
+	/** admin/jqadm/customer/address/name
+	 * Name of the address subpart used by the JQAdm customer implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Customer\Special\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Customer\Address\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
 	 * @since 2017.06
 	 * @category Developer
 	 */
-	private $subPartNames = [];
+	private $subPartNames = ['address'];
 
 
 	/**
@@ -90,6 +90,7 @@ class Standard
 
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemSubparts = $this->getSubClientNames();
+			$view->itemGroups = $this->getGroupItems();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -137,6 +138,7 @@ class Standard
 			$data['customer.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();
+			$view->itemGroups = $this->getGroupItems();
 			$view->itemData = $data;
 			$view->itemBody = '';
 
@@ -230,6 +232,7 @@ class Standard
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
+			$view->itemGroups = $this->getGroupItems();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -468,9 +471,36 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		$domains = array( 'customer', 'product' );
+		$domains = ['address', 'customer', 'customer/group', 'product'];
 
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/customer/domains', $domains );
+	}
+
+
+	/**
+	 * Returns the available group items
+	 *
+	 * @return \Aimeos\MShop\Customer\Item\Group\Iface[] Associative list of group IDs as keys and group items as values
+	 */
+	protected function getGroupItems()
+	{
+		$list = [];
+		$isAdmin = $this->getView()->access( ['admin'] );
+
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/group' );
+		$search = $manager->createSearch();
+		$search->setSortations( [$search->sort( '+', 'customer.group.label' )] );
+
+		foreach( $manager->searchItems( $search ) as $groupId => $groupItem )
+		{
+			if( $isAdmin == false && in_array( $groupItem->getCode(), ['admin', 'editor', 'viewer'] ) ) {
+				continue;
+			}
+
+			$list[$groupId] = $groupItem;
+		}
+
+		return $list;
 	}
 
 
@@ -503,6 +533,10 @@ class Standard
 		$item->fromArray( $data );
 
 		$manager->saveItem( $item );
+
+		$groupsIds = array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() );
+		$item = $manager->getItem( $item->getId(), ['customer/group'] );
+		$manager->updateListItems( $item, array_flip( $groupsIds ), 'customer/group', 'default' );
 
 		return $item;
 	}
