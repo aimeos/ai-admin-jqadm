@@ -124,20 +124,6 @@ html {
 	border-left-color: #2070A0;
 }
 
-.form-inline label {
-	webkit-justify-content: inherit;
-	justify-content: inherit;
-}
-
-.form-group {
-	margin-bottom: 1.75rem;
-}
-
-.form-group.row label {
-	font-weight: bold;
-	text-align: right;
-}
-
 .table-striped tbody tr:nth-of-type(odd) {
 	background-color: #FCFCFC;
 }
@@ -196,8 +182,23 @@ html {
 	font-size: 90%;
 }
 
+.form-group {
+	margin-bottom: 1.75rem;
+}
+
+.form-group.row label {
+	font-weight: bold;
+	text-align: right;
+}
+
+.form-inline label {
+	webkit-justify-content: inherit;
+	justify-content: inherit;
+}
+
 .form-control {
 	font-size: 100%;
+	padding: .5rem;
 }
 
 input[type=date], input[type=time], input[type=datetime-local], input[type=month],

@@ -17,8 +17,9 @@ $enc = $this->encoder();
 	<div id="item-address-group" role="tablist" aria-multiselectable="true">
 
 		<?php foreach( (array) $this->get( 'addressData/customer.address.id', [] ) as $idx => $addressid ) : ?>
+			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ) : '' ); ?>
 
-			<div class="group-item card <?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?>">
+			<div class="group-item card <?= $readonly ?>">
 				<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.id', '' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'addressData/customer.address.id/' . $idx ) ); ?>" />
 
@@ -39,6 +40,9 @@ $enc = $this->encoder();
 					</span>
 					&nbsp;
 					<div class="card-tools-right">
+						<div class="btn btn-card-header act-copy fa"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>">
+						</div>
 						<?php if( !$this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ) ) : ?>
 							<div class="btn btn-card-header act-delete fa"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
@@ -50,7 +54,7 @@ $enc = $this->encoder();
 				<div id="item-address-group-data-<?= $enc->attr( $idx ); ?>" class="card-block collapse row <?= ( $idx === 0 ? 'show' : '' ); ?>"
 					role="tabpanel" aria-labelledby="item-address-group-item-<?= $enc->attr( $idx ); ?>">
 
-					<div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?>">
+					<div class="col-xl-6 content-block">
 						<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ); ?></h2>
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
@@ -118,7 +122,7 @@ $enc = $this->encoder();
 						</div>
 					</div><!--
 
-					--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid' ) ); ?>">
+					--><div class="col-xl-6 content-block">
 						<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Delivery address' ) ); ?></h2>
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ); ?></label>
@@ -210,7 +214,7 @@ $enc = $this->encoder();
 						</div>
 					</div><!--
 
-					--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?>">
+					--><div class="col-xl-6 content-block">
 						<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ); ?></h2>
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ); ?></label>
@@ -253,7 +257,7 @@ $enc = $this->encoder();
 						</div>
 					</div><!--
 
-					--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid' ) ); ?>">
+					--><div class="col-xl-6 content-block">
 						<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ); ?></h2>
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ); ?></label>
@@ -297,6 +301,9 @@ $enc = $this->encoder();
 				<span class="item-label header-label"></span>
 				&nbsp;
 				<div class="card-tools-right">
+					<div class="btn btn-card-header act-copy fa"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>">
+					</div>
 					<div class="btn btn-card-header act-delete fa"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 					</div>
@@ -304,7 +311,7 @@ $enc = $this->encoder();
 			</div>
 
 			<div id="item-address-group-data-" class="card-block collapse show row" role="tabpanel">
-				<input class="item-id" type="hidden" value=""
+				<input class="item-id" type="hidden" value="" disabled="disabled"
 					name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.id', '' ) ) ); ?>" />
 
 				<div class="col-xl-6 content-block">
