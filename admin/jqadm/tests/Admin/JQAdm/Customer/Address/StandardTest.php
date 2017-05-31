@@ -81,7 +81,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
-		$addrManager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/address' );
 
 		$item = $manager->findItem( 'UTC001' );
 		$item->setCode( 'jqadm-test' );
