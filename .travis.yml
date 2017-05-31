@@ -21,3 +21,8 @@ script:
 
 after_success:
   - php vendor/bin/coveralls -c ext/ai-admin-jqadm/.coveralls.yml
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm
