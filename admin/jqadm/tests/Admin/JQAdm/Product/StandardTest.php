@@ -404,6 +404,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
+		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, [] );
+		$view->addHelper( 'access', $helper );
+
 		return $view;
 	}
 }
