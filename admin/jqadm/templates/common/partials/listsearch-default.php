@@ -33,7 +33,7 @@ $enc = $this->encoder();
 <tr class="list-search">
 	<?php foreach( $this->get( 'data', [] ) as $key => $list ) : $idx++ ?>
 		<?php if( in_array( $key, $fields ) ) : ?>
-			<td class="customer-id">
+			<td class="<?= str_replace( '.', '-', $key ); ?>">
 				<input type="hidden" value="<?= $enc->attr( $key ); ?>"
 					name="<?= $enc->attr( $this->formparam( ['filter', 'key', $idx] ) ); ?>" />
 				<input type="hidden" value="<?= $enc->attr( $this->value( $list, 'op', '=~' ) ); ?>"

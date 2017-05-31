@@ -495,7 +495,7 @@ Aimeos.Filter = {
 		var select = $(".aimeos .main-navbar form .filter-operator");
 		var type = $(".aimeos .main-navbar form .filter-key option").first().data("type");
 
-		Aimeos.Product.Filter.selectFilterOperator(select, type);
+		Aimeos.Filter.selectFilterOperator(select, type);
 
 
 		$(".aimeos .main-navbar form").on("change", ".filter-key", function(ev) {
@@ -503,7 +503,7 @@ Aimeos.Filter = {
 			var select = $(".filter-operator", ev.delegateTarget);
 			var type = $(":selected", this).data("type");
 
-			Aimeos.Product.Filter.selectFilterOperator(select, type);
+			Aimeos.Filter.selectFilterOperator(select, type);
 		});
 	},
 
