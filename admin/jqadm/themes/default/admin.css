@@ -442,10 +442,10 @@ select.form-control:not([size]):not([multiple]) {
 
 @media (min-width: 992px) {
 	.aimeos .main-sidebar {
-		width: 6rem;
+		width: 5rem;
 	}
 	.aimeos .sidebar-wrapper {
-		width: 6rem;
+		width: 5rem;
 	}
 	.aimeos .logo img {
 		height: auto;
@@ -460,14 +460,14 @@ select.form-control:not([size]):not([multiple]) {
 		font-size: 90%;
 	}
 	.aimeos .sidebar-menu > li:hover > .tree-menu {
-		left: 6rem;
+		left: 5rem;
 	}
 	.aimeos .sidebar-menu li.active .tree-menu,
 	.aimeos .sidebar-menu li:hover .tree-menu {
-		left: 6rem;
+		left: 5rem;
 	}
 	.aimeos .main-content {
-		margin-left: 6rem;
+		margin-left: 5rem;
 	}
 }
 
