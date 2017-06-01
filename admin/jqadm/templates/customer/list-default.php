@@ -13,6 +13,11 @@ $controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $config = $this->config( 'admin/jqadm/url/search/config', [] );
 
+$newTarget = $this->config( 'admin/jqadm/url/create/target' );
+$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
+$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
+$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
+
 $getTarget = $this->config( 'admin/jqadm/url/get/target' );
 $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
@@ -142,41 +147,50 @@ foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) {
 	<div class="table-responsive">
 		<table class="list-items table table-hover table-striped">
 			<thead class="list-header">
+				<tr>
 
-				<?= $this->partial(
-					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
-						'fields' => $fields, 'params' => $params,
-						'data' => [
-							'customer.id' => $this->translate( 'admin', 'ID' ),
-							'customer.status' => $this->translate( 'admin', 'Status' ),
-							'customer.code' => $this->translate( 'admin', 'Code' ),
-							'customer.label' => $this->translate( 'admin', 'Label' ),
-							'customer.salutation' => $this->translate( 'admin', 'Salutation' ),
-							'customer.company' => $this->translate( 'admin', 'Company' ),
-							'customer.vatid' => $this->translate( 'admin', 'VAT ID' ),
-							'customer.title' => $this->translate( 'admin', 'Title' ),
-							'customer.firstname' => $this->translate( 'admin', 'First name' ),
-							'customer.lastname' => $this->translate( 'admin', 'Last name' ),
-							'customer.address1' => $this->translate( 'admin', 'Address 1' ),
-							'customer.address2' => $this->translate( 'admin', 'Address 2' ),
-							'customer.address3' => $this->translate( 'admin', 'Address 3' ),
-							'customer.postal' => $this->translate( 'admin', 'Postal' ),
-							'customer.city' => $this->translate( 'admin', 'City' ),
-							'customer.state' => $this->translate( 'admin', 'State' ),
-							'customer.languageid' => $this->translate( 'admin', 'Language ID' ),
-							'customer.countryid' => $this->translate( 'admin', 'Country ID' ),
-							'customer.telephone' => $this->translate( 'admin', 'State' ),
-							'customer.telefax' => $this->translate( 'admin', 'Facsimile' ),
-							'customer.email' => $this->translate( 'admin', 'Email' ),
-							'customer.website' => $this->translate( 'admin', 'Web site' ),
-							'customer.birthday' => $this->translate( 'admin', 'Birthday' ),
-							'customer.ctime' => $this->translate( 'admin', 'Created' ),
-							'customer.mtime' => $this->translate( 'admin', 'Modified' ),
-							'customer.editor' => $this->translate( 'admin', 'Editor' ),
-						]
-					] );
-				?>
+					<?= $this->partial(
+						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
+							'fields' => $fields, 'params' => $params,
+							'data' => [
+								'customer.id' => $this->translate( 'admin', 'ID' ),
+								'customer.status' => $this->translate( 'admin', 'Status' ),
+								'customer.code' => $this->translate( 'admin', 'Code' ),
+								'customer.label' => $this->translate( 'admin', 'Label' ),
+								'customer.salutation' => $this->translate( 'admin', 'Salutation' ),
+								'customer.company' => $this->translate( 'admin', 'Company' ),
+								'customer.vatid' => $this->translate( 'admin', 'VAT ID' ),
+								'customer.title' => $this->translate( 'admin', 'Title' ),
+								'customer.firstname' => $this->translate( 'admin', 'First name' ),
+								'customer.lastname' => $this->translate( 'admin', 'Last name' ),
+								'customer.address1' => $this->translate( 'admin', 'Address 1' ),
+								'customer.address2' => $this->translate( 'admin', 'Address 2' ),
+								'customer.address3' => $this->translate( 'admin', 'Address 3' ),
+								'customer.postal' => $this->translate( 'admin', 'Postal' ),
+								'customer.city' => $this->translate( 'admin', 'City' ),
+								'customer.state' => $this->translate( 'admin', 'State' ),
+								'customer.languageid' => $this->translate( 'admin', 'Language ID' ),
+								'customer.countryid' => $this->translate( 'admin', 'Country ID' ),
+								'customer.telephone' => $this->translate( 'admin', 'State' ),
+								'customer.telefax' => $this->translate( 'admin', 'Facsimile' ),
+								'customer.email' => $this->translate( 'admin', 'Email' ),
+								'customer.website' => $this->translate( 'admin', 'Web site' ),
+								'customer.birthday' => $this->translate( 'admin', 'Birthday' ),
+								'customer.ctime' => $this->translate( 'admin', 'Created' ),
+								'customer.mtime' => $this->translate( 'admin', 'Modified' ),
+								'customer.editor' => $this->translate( 'admin', 'Editor' ),
+							]
+						] );
+					?>
 
+					<th class="actions">
+						<a class="btn fa act-add"
+							href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+a)') ); ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+						</a>
+					</th>
+				</tr>
 			</thead>
 			<tbody>
 
@@ -214,8 +228,8 @@ foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) {
 							'customer.email' => [],
 							'customer.website' => [],
 							'customer.birthday' => ['op' => '==', 'type' => 'date'],
-							'customer.ctime' => ['op' => '>=', 'type' => 'datetime'],
-							'customer.mtime' => ['op' => '>=', 'type' => 'datetime'],
+							'customer.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
+							'customer.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 							'customer.editor' => [],
 						]
 					] );

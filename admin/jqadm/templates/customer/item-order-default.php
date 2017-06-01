@@ -94,31 +94,33 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
 	<div class="table-responsive">
 		<table class="list-items table table-hover">
 			<thead class="list-header">
-				<th class="order-id">
-					<?= $enc->html( $this->translate( 'admin', 'ID' ) ); ?>
-				</th>
-				<th class="order-base-address-name">
-					<?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?>
-				</th>
-				<th class="order-base-price">
-					<?= $enc->html( $this->translate( 'admin', 'Price' ) ); ?>
-				</th>
-				<th class="order-datepayment">
-					<?= $enc->html( $this->translate( 'admin', 'Purchased' ) ); ?>
-				</th>
-				<th class="order-statuspayment">
-					<?= $enc->html( $this->translate( 'admin', 'Payment status' ) ); ?>
-				</th>
-				<th class="order-base-service-payment">
-					<?= $enc->html( $this->translate( 'admin', 'Payment type' ) ); ?>
-				</th>
-				<th class="actions">
-					<a class="btn fa act-add"
-						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'order'], [], $newConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+a)') ); ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
-					</a>
-				</th>
+				<tr>
+					<th class="order-id">
+						<?= $enc->html( $this->translate( 'admin', 'ID' ) ); ?>
+					</th>
+					<th class="order-base-address-name">
+						<?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?>
+					</th>
+					<th class="order-base-price">
+						<?= $enc->html( $this->translate( 'admin', 'Price' ) ); ?>
+					</th>
+					<th class="order-datepayment">
+						<?= $enc->html( $this->translate( 'admin', 'Purchased' ) ); ?>
+					</th>
+					<th class="order-statuspayment">
+						<?= $enc->html( $this->translate( 'admin', 'Payment status' ) ); ?>
+					</th>
+					<th class="order-base-service-payment">
+						<?= $enc->html( $this->translate( 'admin', 'Payment type' ) ); ?>
+					</th>
+					<th class="actions">
+						<a class="btn fa act-add"
+							href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'order'], [], $newConfig ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+a)') ); ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+						</a>
+					</th>
+				</tr>
 			</thead>
 			<tbody>
 				<?php foreach( $this->get( 'orderItems', [] ) as $id => $item ) : ?>
