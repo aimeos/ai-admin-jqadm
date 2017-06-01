@@ -33,47 +33,83 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testSearch()
+	public function testCopy()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
 		$this->view->item = $manager->findItem( 'UTC001' );
 
-		$result = $this->object->search();
+		$result = $this->object->copy();
 
 		$this->assertContains( 'item-order', $result );
 		$this->assertContains( '4800.00', $result );
 	}
 
 
-	public function testSearchException()
+	public function testCreate()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Standard' )
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
+		$this->view->item = $manager->findItem( 'UTC001' );
+
+		$result = $this->object->create();
+
+		$this->assertContains( 'item-order', $result );
+		$this->assertContains( '4800.00', $result );
+	}
+
+
+	public function testGet()
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
+		$this->view->item = $manager->findItem( 'UTC001' );
+
+		$result = $this->object->get();
+
+		$this->assertContains( 'item-order', $result );
+		$this->assertContains( '4800.00', $result );
+	}
+
+
+	public function testGetException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Customer\Order\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'addOrders' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'addOrders' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
 
-		$object->search();
+		$object->get();
 	}
 
 
-	public function testSearchMShopException()
+	public function testGetMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Customer\Order\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'addOrders' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'addOrders' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );
 
-		$object->search();
+		$object->get();
+	}
+
+
+	public function testSave()
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
+		$this->view->item = $manager->findItem( 'UTC001' );
+
+		$result = $this->object->save();
+
+		$this->assertContains( 'item-order', $result );
+		$this->assertContains( '4800.00', $result );
 	}
 
 
