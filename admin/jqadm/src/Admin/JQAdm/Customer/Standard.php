@@ -66,7 +66,7 @@ class Standard
 	 * @since 2017.06
 	 * @category Developer
 	 */
-	private $subPartNames = ['address'];
+	private $subPartNames = ['address', 'order'];
 
 
 	/**

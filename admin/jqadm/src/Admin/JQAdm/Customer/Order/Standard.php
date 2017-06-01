@@ -65,6 +65,7 @@ class Standard
 	 */
 	public function copy()
 	{
+		return $this->get();
 	}
 
 
@@ -75,6 +76,7 @@ class Standard
 	 */
 	public function create()
 	{
+		return $this->get();
 	}
 
 
@@ -84,24 +86,6 @@ class Standard
 	 * @return string HTML output
 	 */
 	public function get()
-	{
-	}
-
-
-	/**
-	 * Saves the data
-	 */
-	public function save()
-	{
-	}
-
-
-	/**
-	 * Returns a list of resource according to the conditions
-	 *
-	 * @return string admin output to display
-	 */
-	public function search()
 	{
 		$view = $this->getView();
 
@@ -121,11 +105,30 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'customer-order' => $e->getMessage() );
+			$error = array( 'customer-order' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
 		return $this->render( $view );
+	}
+
+
+	/**
+	 * Saves the data
+	 */
+	public function save()
+	{
+		return $this->get();
+	}
+
+
+	/**
+	 * Returns a list of resource according to the conditions
+	 *
+	 * @return string admin output to display
+	 */
+	public function search()
+	{
 	}
 
 
