@@ -138,7 +138,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'order-latest' => $e->getMessage() );
+			$error = array( 'order-latest' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 

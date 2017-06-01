@@ -138,7 +138,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'order-paymentstatus' => $e->getMessage() );
+			$error = array( 'order-paymentstatus' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
