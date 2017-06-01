@@ -66,7 +66,29 @@ class Standard
 	 * @since 2017.06
 	 * @category Developer
 	 */
-	private $subPartNames = ['address', 'order'];
+
+	/** admin/jqadm/customer/order/name
+	 * Name of the order subpart used by the JQAdm customer implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Customer\Address\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2017.06
+	 * @category Developer
+	 */
+
+	/** admin/jqadm/customer/product/name
+	 * Name of the product subpart used by the JQAdm customer implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Customer\Address\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2017.06
+	 * @category Developer
+	 */
+	private $subPartNames = ['address', 'order', 'product'];
 
 
 	/**
