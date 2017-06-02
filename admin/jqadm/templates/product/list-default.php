@@ -382,7 +382,7 @@ unset( $formparams['fields'], $formparams['filter'], $formparams['page'] );
  * @category Developer
  */
 $default = $this->config( 'admin/jqadm/product/fields', ['product.id', 'product.status', 'product.typeid', 'product.code', 'product.label'] );
-$fields = $this->param( 'fields', $default );
+$fields = $this->param( 'fields/p', $default );
 
 $pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
 $sortcode = $this->param( 'sort' );
@@ -539,24 +539,6 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
 
 		<i class="fa more"></i>
 
-		<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ), [
-				'fields' => $fields,
-				'data' => [
-					'product.id' => $this->translate( 'admin', 'ID' ),
-					'product.status' => $this->translate( 'admin', 'Status' ),
-					'product.typeid' => $this->translate( 'admin', 'Type' ),
-					'product.code' => $this->translate( 'admin', 'Code' ),
-					'product.label' => $this->translate( 'admin', 'Label' ),
-					'product.datestart' => $this->translate( 'admin', 'Start date' ),
-					'product.dateend' => $this->translate( 'admin', 'End date' ),
-					'product.ctime' => $this->translate( 'admin', 'Created' ),
-					'product.mtime' => $this->translate( 'admin', 'Modified' ),
-					'product.editor' => $this->translate( 'admin', 'Editor' ),
-				]
-			] );
-		?>
-
 		<div class="input-group">
 			<select class="custom-select filter-key" name="<?= $this->formparam( ['filter', 'key', ''] ); ?>">
 				<?php foreach( $this->get( 'filterAttributes', [] ) as $code => $attrItem ) : ?>
@@ -590,13 +572,37 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
 <form method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
-	<div class="table-responsive">
-		<table class="list-items table table-hover table-striped">
-			<thead class="list-header">
-				<tr>
+	<table class="list-items table table-hover table-striped">
+		<thead class="list-header">
+			<tr>
+				<?= $this->partial(
+					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
+						'fields' => $fields, 'params' => $params,
+						'data' => [
+							'product.id' => $this->translate( 'admin', 'ID' ),
+							'product.status' => $this->translate( 'admin', 'Status' ),
+							'product.typeid' => $this->translate( 'admin', 'Type' ),
+							'product.code' => $this->translate( 'admin', 'Code' ),
+							'product.label' => $this->translate( 'admin', 'Label' ),
+							'product.datestart' => $this->translate( 'admin', 'Start date' ),
+							'product.dateend' => $this->translate( 'admin', 'End date' ),
+							'product.ctime' => $this->translate( 'admin', 'Created' ),
+							'product.mtime' => $this->translate( 'admin', 'Modified' ),
+							'product.editor' => $this->translate( 'admin', 'Editor' ),
+						]
+					] );
+				?>
+
+				<th class="actions">
+					<a class="btn fa act-add"
+						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+a)') ); ?>"
+						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+					</a>
+
 					<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
-							'fields' => $fields, 'params' => $params,
+						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ), [
+							'fields' => $fields, 'group' => 'p',
 							'data' => [
 								'product.id' => $this->translate( 'admin', 'ID' ),
 								'product.status' => $this->translate( 'admin', 'Status' ),
@@ -611,96 +617,88 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
 							]
 						] );
 					?>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
 
-					<th class="actions">
-						<a class="btn fa act-add"
-							href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+a)') ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
-						</a>
-					</th>
+			<?= $this->partial(
+				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
+					'fields' => $fields, 'params' => $searchParam,
+					'data' => [
+						'product.id' => ['op' => '=='],
+						'product.status' => ['op' => '==', 'type' => 'select', 'val' => [
+							'1' => $this->translate( 'admin', 'status:enabled' ),
+							'0' => $this->translate( 'admin', 'status:disabled' ),
+							'-1' => $this->translate( 'admin', 'status:review' ),
+							'-2' => $this->translate( 'admin', 'status:archive' ),
+						]],
+						'product.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
+						'product.code' => [],
+						'product.label' => [],
+						'product.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
+						'product.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+						'product.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'product.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'product.editor' => [],
+					]
+				] );
+			?>
+
+			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
+				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
+				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
+					<?php if( in_array( 'product.id', $fields ) ) : ?>
+						<td class="product-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.status', $fields ) ) : ?>
+						<td class="product-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.typeid', $fields ) ) : ?>
+						<td class="product-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.code', $fields ) ) : ?>
+						<td class="product-code"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getCode() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.label', $fields ) ) : ?>
+						<td class="product-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.datestart', $fields ) ) : ?>
+						<td class="product-datestart"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateStart() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.dateend', $fields ) ) : ?>
+						<td class="product-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.ctime', $fields ) ) : ?>
+						<td class="product-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.mtime', $fields ) ) : ?>
+						<td class="product-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.editor', $fields ) ) : ?>
+						<td class="product-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
+					<?php endif; ?>
+
+					<td class="actions">
+						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
+							<a class="btn act-delete fa"
+								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'product', 'id' => $id] + $params, [], $delConfig ) ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
+						<?php endif; ?>
+						<a class="btn act-copy fa"
+							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
+					</td>
 				</tr>
-			</thead>
-			<tbody>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
 
-				<?= $this->partial(
-					$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-						'fields' => $fields, 'params' => $searchParam,
-						'data' => [
-							'product.id' => ['op' => '=='],
-							'product.status' => ['op' => '==', 'type' => 'select', 'val' => [
-								'1' => $this->translate( 'admin', 'status:enabled' ),
-								'0' => $this->translate( 'admin', 'status:disabled' ),
-								'-1' => $this->translate( 'admin', 'status:review' ),
-								'-2' => $this->translate( 'admin', 'status:archive' ),
-							]],
-							'product.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
-							'product.code' => [],
-							'product.label' => [],
-							'product.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
-							'product.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
-							'product.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-							'product.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
-							'product.editor' => [],
-						]
-					] );
-				?>
-
-				<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-					<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
-					<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
-						<?php if( in_array( 'product.id', $fields ) ) : ?>
-							<td class="product-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
-						<?php endif; ?>
-						<?php if( in_array( 'product.status', $fields ) ) : ?>
-							<td class="product-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
-						<?php endif; ?>
-						<?php if( in_array( 'product.typeid', $fields ) ) : ?>
-							<td class="product-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
-						<?php endif; ?>
-						<?php if( in_array( 'product.code', $fields ) ) : ?>
-							<td class="product-code"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getCode() ); ?></a></td>
-						<?php endif; ?>
-						<?php if( in_array( 'product.label', $fields ) ) : ?>
-							<td class="product-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
-						<?php endif; ?>
-						<?php if( in_array( 'product.datestart', $fields ) ) : ?>
-							<td class="product-datestart"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateStart() ); ?></a></td>
-						<?php endif; ?>
-						<?php if( in_array( 'product.dateend', $fields ) ) : ?>
-							<td class="product-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
-						<?php endif; ?>
-						<?php if( in_array( 'product.ctime', $fields ) ) : ?>
-							<td class="product-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
-						<?php endif; ?>
-						<?php if( in_array( 'product.mtime', $fields ) ) : ?>
-							<td class="product-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
-						<?php endif; ?>
-						<?php if( in_array( 'product.editor', $fields ) ) : ?>
-							<td class="product-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
-						<?php endif; ?>
-
-						<td class="actions">
-							<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-								<a class="btn act-delete fa"
-									href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'product', 'id' => $id] + $params, [], $delConfig ) ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
-							<?php endif; ?>
-							<a class="btn act-copy fa"
-								href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
-
-		<?php if( $this->get( 'items', [] ) === [] ) : ?>
-			<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
-		<?php endif; ?>
-	</div>
+	<?php if( $this->get( 'items', [] ) === [] ) : ?>
+		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
+	<?php endif; ?>
 </form>
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'bottom'] ); ?>

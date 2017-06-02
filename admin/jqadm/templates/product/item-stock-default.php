@@ -46,6 +46,9 @@ $enc = $this->encoder();
 						<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> >
+							<option value="">
+								<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+							</option>
 
 							<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
 								<?php if( $typeId == $this->get( 'stockData/stock.typeid/' . $idx ) ) : ?>
@@ -86,11 +89,13 @@ $enc = $this->encoder();
 					<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="" disabled="disabled" />
 					<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>">
+						<option value="">
+							<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+						</option>
 
 						<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
 							<option value="<?= $enc->attr( $typeId ); ?>"><?= $enc->html( $typeItem->getLabel() ) ?></option>
 						<?php endforeach; ?>
-
 					</select>
 				</td>
 				<td class="stock-stocklevel optional">

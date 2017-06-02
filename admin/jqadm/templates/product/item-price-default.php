@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div id="price" class="item-price content-block tab-pane fade" role="tabpanel" aria-labelledby="price">
+<div id="price" class="item-price content-block tab-pane fade" role="tablist" aria-labelledby="price">
 	<div id="item-price-group" role="tablist" aria-multiselectable="true">
 
 		<?php foreach( (array) $this->get( 'priceData/price.currencyid', [] ) as $idx => $currencyid ) : ?>
@@ -104,6 +104,9 @@ $enc = $this->encoder();
 									<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>"
 										<?= $this->site()->readonly( $this->get( 'priceData/product.lists.siteid/' . $idx ) ); ?> >
+										<option value="">
+											<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+										</option>
 
 										<?php foreach( $this->get( 'priceCurrencies', [] ) as $currencyItem ) : ?>
 											<option value="<?= $enc->attr( $currencyItem->getCode() ); ?>" <?= ( $currencyid == $currencyItem->getCode() ? 'selected="selected"' : '' ) ?> >
@@ -125,6 +128,9 @@ $enc = $this->encoder();
 									<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
 										<?= $this->site()->readonly( $this->get( 'priceData/product.lists.siteid/' . $idx ) ); ?> >
+										<option value="">
+											<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+										</option>
 
 										<?php foreach( (array) $this->get( 'priceTypes', [] ) as $typeId => $typeItem ) : ?>
 											<option value="<?= $enc->attr( $typeId ); ?>" <?= ( $typeId == $this->get( 'priceData/price.typeid/' . $idx ) ? 'selected="selected"' : '' ) ?> >
@@ -228,8 +234,10 @@ $enc = $this->encoder();
 							<div class="col-xl-8">
 								<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>">
+									<option value="">
+										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+									</option>
 
-									<option value="" selected="selected"></option>
 									<?php foreach( $this->get( 'priceCurrencies', [] ) as $currencyItem ) : ?>
 										<option value="<?= $enc->attr( $currencyItem->getCode() ); ?>" >
 											<?= $enc->html( $currencyItem->getCode() ); ?>
@@ -251,14 +259,15 @@ $enc = $this->encoder();
 							<div class="col-lg-8">
 								<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>">
+									<option value="">
+										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+									</option>
 
-									<option value="" selected="selected"></option>
 									<?php foreach( (array) $this->get( 'priceTypes', [] ) as $typeId => $typeItem ) : ?>
 										<option value="<?= $enc->attr( $typeId ); ?>" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
-
 								</select>
 							</div>
 						</div>

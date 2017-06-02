@@ -338,7 +338,7 @@ if( $lang ) {
 						<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></strong></li>
 						<?php foreach( $this->get( 'pageLangList', [] ) as $langid ) : ?>
 							<li class="lang-<?= $enc->attr( $langid ) ?>">
-								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>"
+								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
 									<span class="name"><?= $enc->html( $this->translate( 'client/language', $langid ) ); ?> (<?= $langid ?>)</span>
 								</a>
 							</li>

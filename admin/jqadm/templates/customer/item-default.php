@@ -90,6 +90,9 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<select class="form-control c-select item-status" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.status' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
+								<option value="">
+									<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+								</option>
 								<option value="1" <?= $selected( $this->get( 'itemData/customer.status', 1 ), 1 ); ?> >
 									<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
 								</option>
@@ -162,7 +165,9 @@ $subparts = $this->get( 'itemSubparts', [] );
 								<select class="form-control c-select item-languageid" required="required" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
-									<option value=""></option>
+									<option value="">
+										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+									</option>
 
 									<?php foreach( $languages as $langId => $langItem ) : ?>
 										<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $this->get( 'itemData/customer.languageid', '' ), $langId ); ?> >
@@ -182,7 +187,9 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<select class="form-control c-select item-salutation" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.salutation' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
-								<option value="" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), '' ); ?> ></option>
+								<option value="" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), '' ); ?> >
+									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+								</option>
 								<option value="company" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'company' ); ?> >
 									<?= $enc->html( $this->translate( 'client/code', 'company' ) ); ?>
 								</option>
@@ -245,7 +252,6 @@ $subparts = $this->get( 'itemSubparts', [] );
 						<div class="col-sm-8">
 							<input class="form-control item-birthday" type="date" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Birthday (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/customer.birthday' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
 						</div>

@@ -42,7 +42,7 @@ $enc = $this->encoder();
 				<?php if( ( $type = $this->value( $list, 'type', 'text' ) ) === 'select' ) : ?>
 					<select class="form-control custom-select" tabindex="2"
 						name="<?= $enc->attr( $this->formparam( ['filter', 'val', $idx] ) ); ?>">
-						<option value=""></option>
+						<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?></option>
 
 						<?php foreach( (array) $this->value( $list, 'val', [] ) as $val => $name ) : ?>
 							<option value="<?= $enc->attr( $val ); ?>" <?= $selected( $this->param( 'filter/val/' . $idx ), $val ); ?> >

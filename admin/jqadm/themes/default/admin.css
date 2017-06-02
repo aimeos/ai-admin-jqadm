@@ -201,9 +201,19 @@ html {
 	padding: .5rem;
 }
 
+.btn, .dropdown-menu {
+	font-size: 100%;
+}
+
 input[type=date], input[type=time], input[type=datetime-local], input[type=month],
 select.form-control:not([size]):not([multiple]) {
 	height: calc(2.05rem + 2px);
+}
+
+@media (max-width: 575px) {
+	.form-group.row label {
+		text-align: left;
+	}
 }
 
 @media (max-width: 767px) {
@@ -213,8 +223,7 @@ select.form-control:not([size]):not([multiple]) {
 	.navbar-brand {
 		font-size: 1rem;
 	}
-	.custom-select,
-	.aimeos .main-navbar .dropdown-toggle {
+	.custom-select {
 		height: 33px;
 	}
 }
@@ -503,12 +512,6 @@ select.form-control:not([size]):not([multiple]) {
 	border-radius: 0;
 }
 
-.aimeos .main-navbar .dropdown-toggle {
-	height: calc(2.25rem + 2px);
-	padding-bottom: 0.375rem;
-	padding-top: 0.375rem;
-}
-
 .aimeos .main-navbar .dropdown-item input {
 	margin-right: 0.75rem;
 }
@@ -668,6 +671,10 @@ select.form-control:not([size]):not([multiple]) {
 	content: "\f06e";
 }
 
+.aimeos .btn.act-columns.fa:before {
+	content: "\f0db";
+}
+
 .aimeos .card-tools-left {
 	display: inline-block;
 }
@@ -711,8 +718,14 @@ select.form-control:not([size]):not([multiple]) {
 	width: 2%;
 }
 
-.aimeos table .actions form.delete {
+.aimeos table .actions a,
+.aimeos table .actions div,
+.aimeos table .actions .btn {
 	display: inline-block;
+}
+
+.aimeos table .actions .dropdown-toggle {
+	padding: 0.5rem 0.75rem;
 }
 
 .aimeos .actions-group {
@@ -785,6 +798,16 @@ select.form-control:not([size]):not([multiple]) {
 	white-space: nowrap;
 	font-weight: normal;
 	margin: auto;
+}
+
+.aimeos .list-items th .dropdown-toggle {
+	border-color: transparent;
+	background-color: inherit;
+	color: #FFF;
+}
+
+.aimeos .list-items th .dropdown-toggle:focus {
+	box-shadow: none;
 }
 
 .aimeos .list-items a.items-field {

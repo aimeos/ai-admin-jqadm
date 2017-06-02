@@ -187,6 +187,9 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<select class="form-control c-select item-status" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.status' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
+								<option value="">
+									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+								</option>
 								<option value="1" <?= $selected( $this->get( 'itemData/product.status', 1 ), 1 ); ?> >
 									<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
 								</option>
@@ -208,6 +211,9 @@ $subparts = $this->get( 'itemSubparts', [] );
 							<select class="form-control c-select item-typeid" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
+								<option value="">
+									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+								</option>
 
 								<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
 									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>" <?= $selected( $this->get( 'itemData/product.typeid' ), $id ); ?> >

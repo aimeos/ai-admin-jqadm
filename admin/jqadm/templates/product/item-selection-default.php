@@ -14,7 +14,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 
 
 ?>
-<div id="selection" class="item-selection content-block tab-pane fade" role="tabpanel" aria-labelledby="selection">
+<div id="selection" class="item-selection content-block tab-pane fade" role="tablist" aria-labelledby="selection">
 
 	<?php foreach( (array) $this->get( 'selectionData', [] ) as $code => $map ) : ?>
 

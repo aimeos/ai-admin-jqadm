@@ -452,7 +452,7 @@ Aimeos.Filter = {
 
 	selectDDInput : function() {
 
-		$(".aimeos .main-navbar .dropdown-menu label").on("click", function(ev) {
+		$(".aimeos .dropdown-menu label").on("click", function(ev) {
 			ev.stopPropagation();
 			return true;
 		});

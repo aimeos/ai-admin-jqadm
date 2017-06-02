@@ -56,13 +56,38 @@ $enc = $this->encoder();
 
 					<div class="col-xl-6 content-block">
 						<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ); ?></h2>
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
+							<div class="col-sm-8">
+
+								<?php $languages = $this->get( 'pageLanguages', [] ); ?>
+								<?php if( count( $languages ) > 1 ) : ?>
+									<select class="form-control c-select item-languageid" required="required" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
+										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
+
+										<?php foreach( $languages as $langId => $langItem ) : ?>
+											<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $this->get( 'itemData/customer.languageid', '' ), $langId ); ?> >
+												<?= $enc->html( $this->translate( 'client/language', $langId ) ); ?>
+											</option>
+										<?php endforeach; ?>
+									</select>
+								<?php else : ?>
+									<?php $language = ( ( $item = reset( $languages ) ) !== false ? $item->getId() : '' ); ?>
+									<input class="item-languageid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>" value="<?= $enc->attr( $language ); ?>" />
+								<?php endif; ?>
+							</div>
+						</div>
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control c-select item-salutation" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.salutation', '' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?> >
-									<option value="" <?= $selected( $this->get( 'addressData/customer.address.salutation/' . $idx, '' ), '' ); ?> ></option>
+									<option value="" <?= $selected( $this->get( 'addressData/customer.address.salutation/' . $idx, '' ), '' ); ?> >
+										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+									</option>
 									<option value="company" <?= $selected( $this->get( 'addressData/customer.address.salutation/' . $idx, '' ), 'company' ); ?> >
 										<?= $enc->html( $this->translate( 'client/code', 'company' ) ); ?>
 									</option>
@@ -321,7 +346,9 @@ $enc = $this->encoder();
 						<div class="col-sm-8">
 							<select class="form-control c-select item-salutation" tabindex="1" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.salutation', '' ) ) ); ?>"  >
-								<option value="" <?= $selected( $this->get( 'addressData/customer.address.salutation', '' ), '' ); ?> ></option>
+								<option value="" <?= $selected( $this->get( 'addressData/customer.address.salutation', '' ), '' ); ?> >
+									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+								</option>
 								<option value="company" <?= $selected( $this->get( 'addressData/customer.address.salutation', '' ), 'company' ); ?> >
 									<?= $enc->html( $this->translate( 'client/code', 'company' ) ); ?>
 								</option>

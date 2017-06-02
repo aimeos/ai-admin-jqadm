@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div id="text" class="item-text content-block tab-pane fade" role="tabpanel" aria-labelledby="text">
+<div id="text" class="item-text content-block tab-pane fade" role="tablist" aria-labelledby="text">
 
 	<?php foreach( (array) $this->get( 'textData/langid', [] ) as $idx => $langid ) : ?>
 
@@ -45,6 +45,9 @@ $enc = $this->encoder();
 								<select class="form-control custom-select text-langid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'textData/siteid/' . $idx ) ); ?> >
+									<option value="">
+										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+									</option>
 
 									<?php foreach( $this->get( 'pageLanguages', [] ) as $langItem ) : ?>
 										<option value="<?= $enc->attr( $langItem->getCode() ); ?>" <?= ( $langid == $langItem->getCode() ? 'selected="selected"' : '' ) ?> >
@@ -181,7 +184,7 @@ $enc = $this->encoder();
 			</div>
 		</div>
 
-		<div class="card-block collapse show row" role="tabpanel">
+		<div id="item-text-group-data-" class="card-block collapse show row" role="tabpanel" aria-labelledby="item-text-group-item-">
 
 			<?php $languages = $this->get( 'pageLanguages', [] ); ?>
 			<?php if( count( $languages ) > 1 ) : ?>
@@ -191,6 +194,9 @@ $enc = $this->encoder();
 						<div class="col-xl-8">
 							<select class="form-control custom-select text-langid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>" disabled="disabled">
+								<option value="">
+									<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+								</option>
 
 								<?php foreach( $this->get( 'pageLanguages', [] ) as $langItem ) : ?>
 									<option value="<?= $enc->attr( $langItem->getCode() ); ?>">

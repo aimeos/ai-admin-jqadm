@@ -88,6 +88,9 @@ $enc = $this->encoder();
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.id', '' ) ) ); ?>" value="" />
 					<select class="form-control c-select item-typeid" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>">
+						<option value="">
+							<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+						</option>
 
 						<?php foreach( $this->get( 'propertyTypes', [] ) as $typeid => $item ) : ?>
 							<option value="<?= $enc->attr( $typeid ); ?>" ><?= $enc->html( $item->getLabel() ); ?></option>
@@ -98,7 +101,7 @@ $enc = $this->encoder();
 				<td class="property-language">
 					<select class="custom-select item-languageid" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.languageid', '' ) ) ); ?>">
-						<option value="" selected="selected">
+						<option value="">
 							<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
 						</option>
 

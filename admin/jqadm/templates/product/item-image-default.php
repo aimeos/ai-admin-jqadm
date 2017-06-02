@@ -86,7 +86,7 @@ $enc = $this->encoder();
 					<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.id', '' ) ) ); ?>" value="" disabled="disabled" />
 					<select class="custom-select item-languageid" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>">
-						<option value="" selected="selected"><?= $enc->html( $this->translate( 'admin', 'All' ) ); ?></option>
+						<option value=""><?= $enc->html( $this->translate( 'admin', 'All' ) ); ?></option>
 
 						<?php foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) : ?>
 							<option value="<?= $enc->attr( $langId ); ?>"><?= $enc->html( $langId ); ?></option>
