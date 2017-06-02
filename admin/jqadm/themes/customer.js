@@ -10,6 +10,7 @@ Aimeos.Customer = {
 	init : function() {
 
 		Aimeos.Customer.Item.init();
+		Aimeos.Customer.Item.Product.init();
 	}
 };
 
@@ -89,6 +90,69 @@ Aimeos.Customer.Item = {
 
 };
 
+
+
+Aimeos.Customer.Item.Product = {
+
+	element: null,
+
+
+	init : function() {
+
+		this.askDelete();
+		this.confirmDelete();
+	},
+
+
+	askDelete : function() {
+		var self = this;
+
+		$(".item-customer .item-product .list-items").on("click", ".act-delete", function(e) {
+			$("#confirm-delete").modal("show", $(this));
+			self.element = $(this);
+			return false;
+		});
+	},
+
+
+	confirmDelete : function() {
+		var self = this;
+
+		$("#confirm-delete").on("click", ".btn-danger", function(e) {
+
+			if(self.element) {
+
+				$.when( Aimeos.options ).then(function(data) {
+
+					var resource = self.element.data("resource");
+					var params = {}, param = {};
+
+					param['id'] = self.element.data("id");
+
+					if( data.meta && data.meta.prefix ) {
+						params[data.meta.prefix] = param;
+					} else {
+						params = param;
+					}
+
+					if( data.meta && data.meta.csrf ) {
+						params[data.meta.csrf.name] = data.meta.csrf.value;
+					}
+
+					$.ajax({
+						dataType: "json",
+						method: 'DELETE',
+						url: data.meta.resources[resource] || null,
+						data: params
+					}).then(function() {
+						self.element.closest("tr").remove();
+						self.element = null;
+					});
+				});
+			}
+		});
+	}
+}
 
 
 $(function() {

@@ -31,9 +31,9 @@ Aimeos.Product.List = {
 	askDelete : function() {
 		var self = this;
 
-		$(".list-items").on("click", ".act-delete", function(e) {
+		$(".list-product .list-items").on("click", ".act-delete", function(e) {
 			$("#confirm-delete").modal("show", $(this));
-			self.element = $(this).parents("form.delete");
+			self.element = $(this);
 			return false;
 		});
 	},
@@ -43,7 +43,9 @@ Aimeos.Product.List = {
 		var self = this;
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
-			window.location = $(self.element.context).attr("href");
+			if(self.element) {
+				window.location = self.element.attr("href");
+			}
 		});
 	}
 };

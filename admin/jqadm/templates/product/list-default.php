@@ -569,7 +569,7 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
 <?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'top'] ); ?>
 
 <?php $searchParam = $params; unset( $searchParam['filter'] ); ?>
-<form method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list-product" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

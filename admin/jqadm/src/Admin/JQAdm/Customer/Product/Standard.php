@@ -91,6 +91,9 @@ class Standard
 
 		try
 		{
+			$view = $this->addItems( $view );
+			$view->productListTypes = $this->getListTypes();
+			$view->productTypes = $this->getProductTypes();
 			$view->productBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -218,6 +221,91 @@ class Standard
 
 
 	/**
+	 * Adds the found (list) items to the view object
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface $view View object with data assigned
+	 */
+	protected function addItems( \Aimeos\MW\View\Iface $view )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/lists' );
+
+		$search = $manager->createSearch();
+		$search->setSortations( [$search->sort( '-', 'customer.lists.ctime' )] );
+
+		$search = $this->initCriteria( $search, $view->param() );
+		$expr = [
+			$search->getConditions(),
+			$search->compare( '==', 'customer.lists.type.domain', 'product' ),
+		];
+		$search->setConditions( $search->combine( '&&', $expr ) );
+
+		$listItems = $manager->searchItems( $search );
+
+
+		$prodIds = [];
+		foreach( $listItems as $listItem ) {
+			$prodIds[] = $listItem->getRefId();
+		}
+
+
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
+
+		$prodSearch = $manager->createSearch();
+		$prodSearch->setConditions( $search->compare( '==', 'product.id', $prodIds ) );
+		$prodSearch->setSlice( 0, $search->getSliceSize() );
+
+		$items = $manager->searchItems( $prodSearch );
+
+
+		$view->productListItems = $listItems;
+		$view->productItems = $items;
+
+		return $view;
+	}
+
+
+	/**
+	 * Returns the available product list types
+	 *
+	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of type IDs as keys and type codes as values
+	 */
+	protected function getListTypes()
+	{
+		$list = [];
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/lists/type' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'customer.lists.type.domain', 'product' ) );
+		$search->setSortations( [$search->sort( '+', 'customer.lists.type.code' )] );
+
+		foreach( $manager->searchItems( $search ) as $id => $item ) {
+			$list[$id] = $item->getCode();
+		}
+
+		return $list;
+	}
+
+
+	/**
+	 * Returns the available product list types
+	 *
+	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of type IDs as keys and type codes as values
+	 */
+	protected function getProductTypes()
+	{
+		$list = [];
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/type' );
+
+		foreach( $manager->searchItems( $manager->createSearch() ) as $id => $item ) {
+			$list[$id] = $item->getCode();
+		}
+
+		return $list;
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -231,6 +319,7 @@ class Standard
 	/**
 	 * Returns the rendered template including the view data
 	 *
+	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
 	 * @return string HTML output
 	 */
 	protected function render( \Aimeos\MW\View\Iface $view )
