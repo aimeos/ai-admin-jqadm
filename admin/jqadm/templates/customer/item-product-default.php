@@ -156,7 +156,7 @@ $refItems = $this->get( 'productItems', [] );
 					<?php endif; ?>
 
 					<td class="actions">
-						<a class="btn act-delete fa" href="#" data-resource="customer/lists" data-id="<?= $enc->attr( $listItem->getRefId() ); ?>"
+						<a class="btn act-delete fa" href="#" data-resource="customer/lists" data-id="<?= $enc->attr( $listItem->getId() ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 						<a class="btn act-view fa" target="_blank"
