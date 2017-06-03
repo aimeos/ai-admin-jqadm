@@ -57,7 +57,7 @@ $sortcode = $this->param( 'sort' );
 $baseItems = $this->get( 'baseItems', [] );
 
 $columnList = [
-	'order.id' => $this->translate( 'admin', 'ID' ),
+	'order.id' => $this->translate( 'admin', 'Invoice' ),
 	'order.type' => $this->translate( 'admin', 'Type' ),
 	'order.statuspayment' => $this->translate( 'admin', 'Pay status' ),
 	'order.datepayment' => $this->translate( 'admin', 'Pay date' ),
@@ -67,7 +67,7 @@ $columnList = [
 	'order.ctime' => $this->translate( 'admin', 'Created' ),
 	'order.mtime' => $this->translate( 'admin', 'Modified' ),
 	'order.editor' => $this->translate( 'admin', 'Editor' ),
-	'order.base.customerid' => $this->translate( 'admin', 'Customer ID' ),
+	'order.base.customerid' => $this->translate( 'admin', 'Customer' ),
 	'order.base.sitecode' => $this->translate( 'admin', 'Site' ),
 	'order.base.languageid' => $this->translate( 'admin', 'Language' ),
 	'order.base.currencyid' => $this->translate( 'admin', 'Currency' ),
@@ -276,7 +276,13 @@ $statusList = [
 					<?php $baseItem = ( isset( $baseItems[$item->getBaseId()] ) ? $baseItems[$item->getBaseId()] : null ); ?>
 
 					<?php if( in_array( 'order.base.customerid', $fields ) ) : ?>
-						<td class="order-base-customerid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getCustomerId() ) : ''; ?></a></td>
+						<td class="order-base-customerid">
+							<?php if( $baseItem ) : ?>
+								<a class="items-field act-view fa" target="_blank" href="<?= $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $baseItem->getCustomerId()], [], $getConfig ); ?>">
+									<?= $enc->html( $baseItem->getCustomerId() ); ?>
+								</a>
+							<?php endif; ?>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.sitecode', $fields ) ) : ?>
 						<td class="order-base-sitecode"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getSiteCode() ) : ''; ?></a></td>

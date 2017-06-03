@@ -668,10 +668,6 @@ select.form-control:not([size]):not([multiple]) {
 	content: "\f06e";
 }
 
-.aimeos .btn.act-columns.fa:before {
-	content: "\f0db";
-}
-
 .aimeos .card-tools-left {
 	display: inline-block;
 }
@@ -839,6 +835,10 @@ select.form-control:not([size]):not([multiple]) {
 
 .aimeos .list-items .status--2:before {
 	content:"\f187";
+}
+
+.aimeos .list-items a.items-field.act-view:after {
+	content:"\f06e";
 }
 
 
