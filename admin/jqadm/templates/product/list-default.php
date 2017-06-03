@@ -363,36 +363,6 @@ $delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
 $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 
 
-$formparams = $params = $this->get( 'pageParams', [] );
-unset( $formparams['fields'], $formparams['filter'], $formparams['page'] );
-
-
-/** admin/jqadm/product/fields
- * List of product columns that should be displayed in the list view
- *
- * Changes the list of product columns shown by default in the product list view.
- * The columns can be changed by the editor as required within the administraiton
- * interface.
- *
- * The names of the colums are in fact the search keys defined by the managers,
- * e.g. "product.id" for the product ID.
- *
- * @param array List of field names, i.e. search keys
- * @since 2016.04
- * @category Developer
- */
-$default = $this->config( 'admin/jqadm/product/fields', ['product.id', 'product.status', 'product.typeid', 'product.code', 'product.label'] );
-$fields = $this->param( 'fields/p', $default );
-
-$pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
-$sortcode = $this->param( 'sort' );
-
-$typeList = [];
-foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
-	$typeList[$id] = $typeItem->getCode();
-}
-
-
 /** admin/jqadm/partial/columns
  * Relative path to the partial template for displaying the column selector in the list views
  *
@@ -524,6 +494,46 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
  * @category Developer
  */
 
+
+/** admin/jqadm/product/fields
+ * List of product columns that should be displayed in the list view
+ *
+ * Changes the list of product columns shown by default in the product list view.
+ * The columns can be changed by the editor as required within the administraiton
+ * interface.
+ *
+ * The names of the colums are in fact the search keys defined by the managers,
+ * e.g. "product.id" for the product ID.
+ *
+ * @param array List of field names, i.e. search keys
+ * @since 2016.04
+ * @category Developer
+ */
+$default = $this->config( 'admin/jqadm/product/fields', ['product.id', 'product.status', 'product.typeid', 'product.code', 'product.label'] );
+$fields = $this->param( 'fields/p', $default );
+
+$params = $this->get( 'pageParams', [] );
+$pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
+$sortcode = $this->param( 'sort' );
+
+$typeList = [];
+foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
+	$typeList[$id] = $typeItem->getCode();
+}
+
+$columnList = [
+	'product.id' => $this->translate( 'admin', 'ID' ),
+	'product.status' => $this->translate( 'admin', 'Status' ),
+	'product.typeid' => $this->translate( 'admin', 'Type' ),
+	'product.code' => $this->translate( 'admin', 'Code' ),
+	'product.label' => $this->translate( 'admin', 'Label' ),
+	'product.datestart' => $this->translate( 'admin', 'Start date' ),
+	'product.dateend' => $this->translate( 'admin', 'End date' ),
+	'product.ctime' => $this->translate( 'admin', 'Created' ),
+	'product.mtime' => $this->translate( 'admin', 'Modified' ),
+	'product.editor' => $this->translate( 'admin', 'Editor' ),
+];
+
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
@@ -534,35 +544,14 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
 		<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
 	</span>
 
-	<form class="form-inline" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $formparams, [], $config ) ); ?>">
-		<?= $this->csrf()->formfield(); ?>
-
-		<i class="fa more"></i>
-
-		<div class="input-group">
-			<select class="custom-select filter-key" name="<?= $this->formparam( ['filter', 'key', ''] ); ?>">
-				<?php foreach( $this->get( 'filterAttributes', [] ) as $code => $attrItem ) : ?>
-					<?php if( $attrItem->isPublic() ) : ?>
-						<option value="<?= $enc->attr( $code ); ?>" data-type="<?= $enc->attr( $attrItem->getType() ); ?>" <?= ( isset( $filter['key'] ) && $filter['key'] === $code ? 'selected' : '' ); ?> >
-							<?= $enc->html( $this->translate( 'admin/ext', $attrItem->getLabel() ) ); ?>
-						</option>
-					<?php endif; ?>
-				<?php endforeach; ?>
-			</select>
-			<select class="custom-select filter-operator" name="<?= $this->formparam( ['filter', 'op', ''] ); ?>">
-				<?php foreach( $this->get( 'filterOperators/compare', [] ) as $code ) : ?>
-					<option value="<?= $enc->attr( $code ); ?>" <?= ( isset( $filter['op'] ) && $filter['op'] === $code ? 'selected' : '' ); ?> >
-						<?= $enc->html( $code ) . ( strlen( $code ) === 1 ? '&nbsp;' : '' ); ?>&nbsp;&nbsp;<?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?>
-					</option>
-				<?php endforeach; ?>
-			</select>
-			<input type="text" class="form-control filter-value" name="<?= $this->formparam( ['filter', 'val', ''] ); ?>"
-				 value="<?= $enc->attr( ( isset( $filter['val'] ) ? $filter['val'] : '' ) ); ?>" >
-			<button class="input-group-addon btn btn-primary fa fa-search"></button>
-		</div>
-
-	</form>
-
+	<?= $this->partial(
+		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-default.php' ), [
+			'filterAttributes' => $this->get( 'filterAttributes', [] ),
+			'filterOperators' => $this->get( 'filterOperators', [] ),
+			'filterData' => $this->param( 'filter', [] ),
+			'params' => $params,
+		]
+	); ?>
 </nav>
 
 
@@ -576,21 +565,9 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
 		<thead class="list-header">
 			<tr>
 				<?= $this->partial(
-					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
-						'fields' => $fields, 'params' => $params,
-						'data' => [
-							'product.id' => $this->translate( 'admin', 'ID' ),
-							'product.status' => $this->translate( 'admin', 'Status' ),
-							'product.typeid' => $this->translate( 'admin', 'Type' ),
-							'product.code' => $this->translate( 'admin', 'Code' ),
-							'product.label' => $this->translate( 'admin', 'Label' ),
-							'product.datestart' => $this->translate( 'admin', 'Start date' ),
-							'product.dateend' => $this->translate( 'admin', 'End date' ),
-							'product.ctime' => $this->translate( 'admin', 'Created' ),
-							'product.mtime' => $this->translate( 'admin', 'Modified' ),
-							'product.editor' => $this->translate( 'admin', 'Editor' ),
-						]
-					] );
+						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ),
+						['fields' => $fields, 'params' => $params, 'data' => $columnList]
+					);
 				?>
 
 				<th class="actions">
@@ -601,21 +578,9 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
 					</a>
 
 					<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ), [
-							'fields' => $fields, 'group' => 'p',
-							'data' => [
-								'product.id' => $this->translate( 'admin', 'ID' ),
-								'product.status' => $this->translate( 'admin', 'Status' ),
-								'product.typeid' => $this->translate( 'admin', 'Type' ),
-								'product.code' => $this->translate( 'admin', 'Code' ),
-								'product.label' => $this->translate( 'admin', 'Label' ),
-								'product.datestart' => $this->translate( 'admin', 'Start date' ),
-								'product.dateend' => $this->translate( 'admin', 'End date' ),
-								'product.ctime' => $this->translate( 'admin', 'Created' ),
-								'product.mtime' => $this->translate( 'admin', 'Modified' ),
-								'product.editor' => $this->translate( 'admin', 'Editor' ),
-							]
-						] );
+							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),
+							['fields' => $fields, 'group' => 'p', 'data' => $columnList]
+						);
 					?>
 				</th>
 			</tr>

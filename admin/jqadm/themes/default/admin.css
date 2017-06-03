@@ -182,10 +182,6 @@ html {
 	font-size: 90%;
 }
 
-.form-group {
-	margin-bottom: 1.75rem;
-}
-
 .form-group.row label {
 	font-weight: bold;
 	text-align: right;
@@ -546,6 +542,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .aimeos .main-navbar .filter-value {
+	height: calc(2.25rem + 2px);
 	max-width: 9rem;
 }
 
@@ -704,9 +701,11 @@ select.form-control:not([size]):not([multiple]) {
 	text-align: center;
 	font-weight: normal;
 	vertical-align: middle;
-	padding: 0.25rem 0.5rem;
+	padding: 0.2rem;
 }
 
+.aimeos table th.order-id,
+.aimeos table td.order-id,
 .aimeos table th.product-id,
 .aimeos table td.product-id {
 	max-width: 5rem;

@@ -22,10 +22,8 @@ $listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
-$cancelParams = $params = $this->get( 'pageParams', [] );
-unset( $cancelParams['id'] );
-
 $subparts = $this->get( 'itemSubparts', [] );
+$params = $this->get( 'pageParams', [] );
 
 
 ?>
@@ -44,33 +42,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/order.base.siteid' ) ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
-			<a class="btn btn-secondary act-cancel"
-				title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
-				href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
-				<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
-					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
-				<?php else : ?>
-					<?= $enc->html( $this->translate( 'admin', 'Back' ) ); ?>
-				<?php endif; ?>
-			</a>
-
-			<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
-				<div class="btn-group">
-					<button type="submit" class="btn btn-primary act-save"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Save item (Ctrl+S)') ); ?>">
-						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
-					</button>
-						<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">
-							<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle Dropdown' ) ); ?></span>
-						</button>
-						<div class="dropdown-menu">
-							<a class="dropdown-item next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a>
-							<a class="dropdown-item next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a>
-							<a class="dropdown-item next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ); ?></a>
-						</div>
-				</div>
-			<?php endif; ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-default.php' ), ['params' => $params] ); ?>
 		</div>
 	</nav>
 
@@ -159,33 +131,7 @@ $subparts = $this->get( 'itemSubparts', [] );
 		</div>
 
 		<div class="item-actions">
-			<a class="btn btn-secondary act-cancel"
-				title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
-				href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $cancelParams, [], $listConfig ) ); ?>">
-				<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
-					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
-				<?php else : ?>
-					<?= $enc->html( $this->translate( 'admin', 'Back' ) ); ?>
-				<?php endif; ?>
-			</a>
-
-			<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
-				<div class="btn-group">
-					<button type="submit" class="btn btn-primary act-save"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Save item (Ctrl+S)') ); ?>">
-						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
-					</button>
-						<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">
-							<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle Dropdown' ) ); ?></span>
-						</button>
-						<div class="dropdown-menu">
-							<a class="dropdown-item next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a>
-							<a class="dropdown-item next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a>
-							<a class="dropdown-item next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ); ?></a>
-						</div>
-				</div>
-			<?php endif; ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-default.php' ), ['params' => $params] ); ?>
 		</div>
 	</div>
 </form>
