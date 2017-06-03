@@ -124,16 +124,7 @@ Aimeos.Customer.Item.Product = {
 
 				$.when( Aimeos.options ).then(function(data) {
 
-					var resource = self.element.data("resource");
-					var params = {}, param = {};
-
-					param['id'] = self.element.data("id");
-
-					if( data.meta && data.meta.prefix ) {
-						params[data.meta.prefix] = param;
-					} else {
-						params = param;
-					}
+					var params = {};
 
 					if( data.meta && data.meta.csrf ) {
 						params[data.meta.csrf.name] = data.meta.csrf.value;
@@ -142,7 +133,7 @@ Aimeos.Customer.Item.Product = {
 					$.ajax({
 						dataType: "json",
 						method: 'DELETE',
-						url: data.meta.resources[resource] || null,
+						url: self.element.attr("href") || null,
 						data: params
 					}).then(function() {
 						self.element.closest("tr").remove();

@@ -18,6 +18,11 @@ $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
 $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 
+$delTarget = $this->config( 'admin/jsonadm/url/target' );
+$delCntl = $this->config( 'admin/jsonadm/url/controller', 'Jsonadm' );
+$delAction = $this->config( 'admin/jsonadm/url/action', 'delete' );
+$delConfig = $this->config( 'admin/jsonadm/url/config', [] );
+
 
 /** admin/jqadm/customer/product/fields
  * List of list and product columns that should be displayed in the customer product view
@@ -156,7 +161,8 @@ $refItems = $this->get( 'productItems', [] );
 					<?php endif; ?>
 
 					<td class="actions">
-						<a class="btn act-delete fa" href="#" data-resource="customer/lists" data-id="<?= $enc->attr( $listItem->getId() ); ?>"
+						<a class="btn act-delete fa"
+							href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'customer/lists', 'id' => $listItem->getId()] + $params, [], $delConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 						<a class="btn act-view fa" target="_blank"
