@@ -93,7 +93,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->addHelper( 'param', $helper );
 
 		$this->view->item = $item;
-		$result = $this->object->save();
+		$this->object->save();
 
 		$actual = $manager->getItem( $item->getId(), ['attribute'] );
 		$manager->deleteItem( $item->getId() );
