@@ -477,6 +477,22 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 
+/* Footer */
+
+.aimeos .main-footer {
+	margin: 3rem 2.5% 0 calc(3rem + 2.5%);
+	padding: 1rem 0.5rem;
+	text-align: right;
+	background-color: #F8F8F8;
+}
+
+@media (min-width: 992px) {
+	.aimeos .main-footer {
+		margin-left: calc(5rem + 2.5%);
+	}
+}
+
+
 
 /* Content navigation */
 

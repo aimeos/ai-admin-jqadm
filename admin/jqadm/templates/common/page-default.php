@@ -350,13 +350,19 @@ if( $lang ) {
 		</div>
 	</nav>
 
-	<div class="main-content">
+	<main class="main-content">
 
 		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
 
 		<?= $this->block()->get( 'jqadm_content' ); ?>
 
-	</div>
+	</main>
+
+	<footer class="main-footer">
+		<a href="https://github.com/aimeos/ai-admin-jqadm/issues" target="_blank">
+			<?= $enc->html( $this->translate( 'admin', 'Bug or suggestion?' ) ); ?>
+		</a>
+	</footer>
 
 	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-default.php' ) ); ?>
 
