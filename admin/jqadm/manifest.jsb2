@@ -26,6 +26,9 @@
 			"text": "customer.js",
 			"path": "themes/"
 		},{
+			"text": "order.js",
+			"path": "themes/"
+		},{
 			"text": "product.js",
 			"path": "themes/"
 		}]

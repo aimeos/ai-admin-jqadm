@@ -75,11 +75,6 @@ html {
 	display: flex;
 }
 
-.form-group.row label {
-	padding: 0.5rem 15px;
-	margin-bottom: 0;
-}
-
 
 
 /* Aimeos Bootstrap theme */
@@ -178,13 +173,14 @@ html {
 	border-top: 3px solid rgba(0, 0, 0, 0.125);
 }
 
-.aimeos {
-	font-size: 90%;
+.form-group.row .form-control-label {
+	padding: 0.5rem 15px;
 }
 
 .form-group.row label {
 	font-weight: bold;
 	text-align: right;
+	margin-bottom: 0;
 }
 
 .form-inline label {
@@ -197,13 +193,25 @@ html {
 	padding: .5rem;
 }
 
+span.form-control {
+	border-color: transparent;
+}
+
 .btn, .dropdown-menu {
 	font-size: 100%;
+}
+
+.dropdown-item label {
+	margin: 0;
 }
 
 input[type=date], input[type=time], input[type=datetime-local], input[type=month],
 select.form-control:not([size]):not([multiple]) {
 	height: calc(2.05rem + 2px);
+}
+
+.aimeos {
+	font-size: 90%;
 }
 
 @media (max-width: 575px) {
@@ -713,7 +721,7 @@ select.form-control:not([size]):not([multiple]) {
 	text-align: center;
 	font-weight: normal;
 	vertical-align: middle;
-	padding: 0.2rem;
+	padding: 0.5rem;
 }
 
 .aimeos table th.order-id,
@@ -854,6 +862,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .aimeos .list-items a.items-field.act-view:after {
+	font: normal normal normal 14px/1 FontAwesome;
 	content:"\f06e";
 }
 
@@ -967,6 +976,126 @@ select.form-control:not([size]):not([multiple]) {
 
 .aimeos .item-navbar .nav-item.selection {
 	display: none;
+}
+
+
+/** Order */
+
+.aimeos .item-order .item-customerid a.act-view:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	content:"\f06e";
+}
+
+.aimeos .item-order .item-product-list th.item-column,
+.aimeos .item-order .item-product-list .product-sku {
+	font-weight: bold;
+}
+
+.aimeos .item-order .item-product-list .column-status {
+    max-width: 10rem;
+    min-width: 5rem;
+}
+
+.aimeos .item-order .item-product-list .column-desc {
+	text-align: left;
+}
+
+.aimeos .item-order .item-product-list .column-price,
+.aimeos .item-order .item-product-list .column-sum {
+	white-space: nowrap;
+	text-align: right;
+}
+
+.aimeos .item-order .item-product-list .product-name,
+.aimeos .item-order .item-product-list .product-attr,
+.aimeos .item-order .item-product-list .product-sku,
+.aimeos .item-order .item-product-list .product-status,
+.aimeos .item-order .item-product-list .product-quantity,
+.aimeos .item-order .item-product-list .product-price,
+.aimeos .item-order .item-product-list .product-costs,
+.aimeos .item-order .item-product-list .product-rebate {
+	display: block;
+}
+
+.aimeos .item-order .item-product-list .product-attr .attr-code:after {
+	content: ":";
+}
+
+.aimeos .item-order .item-product-list .product-attr .attr-value:not(:last-child):after {
+	content: ",";
+}
+
+.aimeos .item-order .item-product-list .product-costs:before {
+	content: "+ ";
+}
+
+.aimeos .item-order .item-product-list .product-rebate:before {
+	content: "(- ";
+}
+
+.aimeos .item-order .item-product-list .product-rebate:after {
+	content: ")";
+}
+
+.aimeos .item-order .item-address .address-form {
+	margin-top: 1rem;
+	display: none;
+}
+
+.aimeos .item-order .item-address .address-text {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.aimeos .item-order .item-address .address-edit {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.aimeos .item-order .item-address .address-edit:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f040";
+	cursor: pointer;
+}
+
+.aimeos .item-order .item-service .service-code {
+	font-weight: bold;
+}
+
+.aimeos .item-order .item-service .service-code:before {
+	content: "(";
+}
+
+.aimeos .item-order .item-service .service-rebate:before {
+	content: "(-";
+}
+
+.aimeos .item-order .item-service .service-code:after,
+.aimeos .item-order .item-service .service-rebate:after {
+	content: ")";
+}
+
+.aimeos .item-order .item-service .service-attr th,
+.aimeos .item-order .item-service .service-attr td {
+	width: 49%;
+}
+
+.aimeos .item-order .item-total .row {
+	padding: 0.75rem;
+	margin: 0;
+}
+
+.aimeos .item-order .item-total .value {
+	text-align: right;
+}
+
+.aimeos .item-order .item-total .total-subtotal,
+.aimeos .item-order .item-total .total-value {
+	background-color: #F8F8F8;
+}
+
+.aimeos .item-order .item-total .total-value {
+	font-weight: bold;
 }
 
 

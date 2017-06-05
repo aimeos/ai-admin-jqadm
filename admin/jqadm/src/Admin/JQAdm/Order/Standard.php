@@ -248,7 +248,7 @@ class Standard
 
 		$manager->rollback();
 
-		return $this->create();
+		return $this->get();
 	}
 
 
@@ -442,13 +442,67 @@ class Standard
 	protected function fromArray( array $data )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
+		$attrManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base/service/attribute' );
 
-		$item = $manager->createItem();
-		$item->fromArray( $data );
+		$basket = $manager->load( $data['order.base.id'] );
+		$basket->fromArray( $data );
 
-		$manager->store( $item );
+		foreach( $basket->getProducts() as $pos => $product )
+		{
+			if( isset( $data['product'][$pos]['order.base.product.status'] ) ) {
+				$product->setStatus( $data['product'][$pos]['order.base.product.status'] );
+			}
+		}
 
-		return $item;
+		foreach( $basket->getAddresses() as $type => $address )
+		{
+			if( isset( $data['address'][$type] ) ) {
+				$address->fromArray( (array) $data['address'][$type] );
+				$basket->setAddress( $address, $type );
+			} else {
+				$basket->deleteAddress( $type );
+			}
+		}
+
+		foreach( $basket->getServices() as $type => $service )
+		{
+			$list = [];
+			$attrItems = $service->getAttributes();
+
+			if( isset( $data['service'][$type] ) )
+			{
+				foreach( (array) $data['service'][$type] as $key => $pair )
+				{
+					foreach( $pair as $pos => $value ) {
+						$list[$pos][$key] = $value;
+					}
+				}
+
+				foreach( $list as $array )
+				{
+					if( isset( $attrItems[$array['order.base.service.attribute.id']] ) )
+					{
+						$attrItem = $attrItems[$array['order.base.service.attribute.id']];
+						unset( $attrItems[$array['order.base.service.attribute.id']] );
+					}
+					else
+					{
+						$attrItem = $attrManager->createItem();
+					}
+
+					$attrItem->fromArray( $array );
+					$attrItem->setParentId( $service->getId() );
+
+					$attrManager->saveItem( $attrItem );
+				}
+			}
+
+			$attrManager->deleteItems( array_keys( $attrItems ) );
+		}
+
+		$manager->store( $basket );
+
+		return $basket;
 	}
 
 
@@ -460,12 +514,45 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Order\Item\Base\Iface $item, $copy = false )
 	{
+		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$data = $item->toArray( true );
 
 		if( $copy === true )
 		{
-			$data['order.base.siteid'] = $this->getContext()->getLocale()->getSiteId();
+			$data['order.base.siteid'] = $siteId;
 			$data['order.base.id'] = '';
+		}
+
+		foreach( $item->getAddresses() as $type => $addrItem )
+		{
+			$list = $addrItem->toArray( true );
+
+			foreach( $list as $key => $value ) {
+				$data['address'][$type][$key] = $value;
+			}
+
+			if( $copy === true )
+			{
+				$data['address'][$type]['order.base.address.siteid'] = $siteId;
+				$data['address'][$type]['order.base.address.id'] = '';
+			}
+		}
+
+		foreach( $item->getServices() as $type => $serviceItem )
+		{
+			if( $copy !== true )
+			{
+				foreach( $serviceItem->getAttributes() as $attrItem )
+				{
+					foreach( $attrItem->toArray( true ) as $key => $value ) {
+						$data['service'][$type][$key][] = $value;
+					}
+				}
+			}
+		}
+
+		foreach( $item->getProducts() as $pos => $productItem ) {
+			$data['product'][$pos]['order.base.product.status'] = $productItem->getStatus();
 		}
 
 		return $data;
