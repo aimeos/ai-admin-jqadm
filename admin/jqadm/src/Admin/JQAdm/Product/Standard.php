@@ -655,7 +655,7 @@ class Standard
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 
-		$manager->saveItem( $item );
+		$item = $manager->saveItem( $item );
 
 		return $manager->getItem( $item->getId() ); // product.type must be available;
 	}

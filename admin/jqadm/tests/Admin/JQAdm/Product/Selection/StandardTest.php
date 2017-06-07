@@ -103,7 +103,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-selection' );
 		$item->setId( null );
 
-		$manager->saveItem( $item );
+		$item = $manager->saveItem( $item );
 
 		$attrManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
 		$attrItem = $attrManager->findItem( 'xs', [], 'product', 'size' );

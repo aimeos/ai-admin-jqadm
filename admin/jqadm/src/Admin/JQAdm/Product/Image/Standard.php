@@ -429,7 +429,7 @@ class Standard
 			$item->setLabel( $this->getValue( $data, 'media.label/' . $idx ) );
 			$item->setLanguageId( $this->getValue( $data, 'media.languageid/' . $idx ) );
 
-			$mediaManager->saveItem( $item );
+			$item = $mediaManager->saveItem( $item );
 
 			$litem->setPosition( $idx );
 			$litem->setRefId( $item->getId() );

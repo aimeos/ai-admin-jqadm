@@ -343,7 +343,7 @@ class Standard
 			$label = $priceItem->getQuantity() . ' ~ ' . $priceItem->getValue() . ' ' . $priceItem->getCurrencyId();
 			$priceItem->setLabel( $item->getLabel() . ' :: ' . $label );
 
-			$priceManager->saveItem( $priceItem );
+			$item = $priceManager->saveItem( $priceItem );
 
 			$litem->setPosition( $idx );
 			$litem->setRefId( $priceItem->getId() );

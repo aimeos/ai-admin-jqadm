@@ -399,7 +399,7 @@ class Standard
 				$item->setTypeId( $this->getTypeId( $type ) );
 				$item->setLanguageId( $langid );
 
-				$textManager->saveItem( $item );
+				$item = $textManager->saveItem( $item );
 
 				$litem->setPosition( $idx );
 				$litem->setRefId( $item->getId() );

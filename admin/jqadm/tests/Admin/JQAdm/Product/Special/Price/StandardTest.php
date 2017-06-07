@@ -86,7 +86,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-special-price' );
 		$item->setId( null );
 
-		$manager->saveItem( $item );
+		$item = $manager->saveItem( $item );
 
 		$params = ['site' => 'unittest', 'specialprice' => ['custom' => '1']];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $params );

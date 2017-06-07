@@ -88,7 +88,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-image' );
 		$item->setId( null );
 
-		$manager->saveItem( $item );
+		$item = $manager->saveItem( $item );
 
 
 		$param = array(
@@ -134,7 +134,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		\Aimeos\MShop\Factory::injectManager( $this->context, 'media', $mediaStub );
 
-		$mediaStub->expects( $this->once() )->method( 'saveItem' );
+		$mediaStub->expects( $this->once() )->method( 'saveItem' )
+			->will( $this->returnValue( $mediaStub->createItem() ) );
 
 
 		\Aimeos\MShop\Factory::setCache( true );

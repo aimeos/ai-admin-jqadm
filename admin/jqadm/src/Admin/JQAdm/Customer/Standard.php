@@ -554,7 +554,7 @@ class Standard
 		$item = $manager->createItem();
 		$item->fromArray( $data );
 
-		$manager->saveItem( $item );
+		$item = $manager->saveItem( $item );
 
 		$groupsIds = array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() );
 		$item = $manager->getItem( $item->getId(), ['customer/group'] );

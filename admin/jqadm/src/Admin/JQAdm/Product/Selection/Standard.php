@@ -450,7 +450,7 @@ class Standard
 			$item->setCode( $code );
 			$item->setLabel( $this->getValue( $list, 'product.label', '' ) );
 
-			$manager->saveItem( $item );
+			$item = $manager->saveItem( $item );
 
 			$litem->setPosition( $pos++ );
 			$litem->setRefId( $item->getId() );

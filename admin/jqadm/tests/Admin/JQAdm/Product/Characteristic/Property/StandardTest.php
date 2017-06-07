@@ -88,7 +88,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-property' );
 		$item->setId( null );
 
-		$manager->saveItem( $item );
+		$item = $manager->saveItem( $item );
 
 
 		$typeid = $typeManager->findItem( 'package-height', [], 'product' )->getId();

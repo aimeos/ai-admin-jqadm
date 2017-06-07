@@ -493,7 +493,7 @@ class Standard
 		if( ( $label = $this->getValue( $data, 'attribute.label' ) ) != '' )
 		{
 			$attrItem->setLabel( $label );
-			$attrManager->saveItem( $attrItem );
+			$item = $attrManager->saveItem( $attrItem );
 
 			$litem->setPosition( 0 );
 			$litem->setRefId( $attrItem->getId() );
