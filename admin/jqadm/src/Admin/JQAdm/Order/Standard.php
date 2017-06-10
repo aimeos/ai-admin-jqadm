@@ -444,7 +444,12 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
 		$attrManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base/service/attribute' );
 
-		$basket = $manager->load( $data['order.base.id'] );
+		if( isset( $data['order.base.id'] ) ) {
+			$basket = $manager->load( $data['order.base.id'] );
+		} else {
+			$basket = $manager->createItem();
+		}
+
 		$basket->fromArray( $data );
 
 		foreach( $basket->getProducts() as $pos => $product )
