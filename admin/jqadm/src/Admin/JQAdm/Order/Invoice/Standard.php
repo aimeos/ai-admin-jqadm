@@ -328,6 +328,14 @@ class Standard
 			}
 		}
 
+		foreach( $data['order.datepayment'] as $idx => $value ) {
+			$data['order.datepayment'][$idx] = str_replace( ' ', 'T', $value );
+		}
+
+		foreach( $data['order.datedelivery'] as $idx => $value ) {
+			$data['order.datedelivery'][$idx] = str_replace( ' ', 'T', $value );
+		}
+
 		return $data;
 	}
 

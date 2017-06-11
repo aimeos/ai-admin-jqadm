@@ -70,7 +70,7 @@ $serviceAttrCodes = [
 		<span class="navbar-brand">
 			<?= $enc->html( $this->translate( 'admin', 'Order' ) ); ?>:
 			<?= $enc->html( $basket->getId() ); ?> -
-			<?= $enc->html( $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() - $basket->getPrice()->getRebate() ) ); ?>
+			<?= $enc->html( $this->number( $basket->getPrice()->getValue() ) ); ?>
 			<?= $enc->html( $basket->getPrice()->getCurrencyId() ); ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $basket->getLocale()->getSiteId() ) ); ?>)</span>
 		</span>
@@ -276,7 +276,7 @@ $serviceAttrCodes = [
 
 					<div class="col-xl-6 content-block">
 						<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Coupon' ) ); ?></h2>
-						<?php if( !empty( $basket->getCoupons() ) ) : ?>
+						<?php if( $basket->getCoupons() !== [] ) : ?>
 							<?php foreach( $basket->getCoupons() as $code => $product ) : ?>
 								<div class="form-group row">
 									<label class="col-sm-4"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>

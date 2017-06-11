@@ -55,7 +55,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/order/standard/subparts';
-	private $subPartNames = [];
+	private $subPartNames = ['invoice'];
 
 
 	/**
