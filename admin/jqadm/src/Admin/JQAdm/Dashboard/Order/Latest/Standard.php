@@ -261,9 +261,7 @@ class Standard
 	 */
 	protected function addOrders( \Aimeos\MW\View\Iface $view )
 	{
-		$basketItems = [];
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
-		$baseManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
 
 		$search = $manager->createSearch();
 		$search->setSortations( array( $search->sort( '-', 'order.ctime' ) ) );
@@ -271,9 +269,20 @@ class Standard
 
 		$items = $manager->searchItems( $search );
 
+		$baseIds = [];
 		foreach( $items as $item ) {
-			$basketItems[$item->getBaseId()] = $baseManager->load( $item->getBaseId() );
+			$baseIds[] = $item->getBaseId();
 		}
+
+
+		$baseManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
+
+		$baseSearch = $manager->createSearch();
+		$baseSearch->setConditions( $baseSearch->compare( '==', 'order.base.id', $baseIds ) );
+		$baseSearch->setSlice( 0, 0x7fffffff );
+
+		$basketItems = $baseManager->searchItems( $search, ['order/base/address', 'order/base/service'] );
+
 
 		$view->orderlatestBaskets = $basketItems;
 		$view->orderlatestItems = $items;

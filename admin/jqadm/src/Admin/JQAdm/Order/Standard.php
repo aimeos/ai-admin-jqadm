@@ -410,15 +410,18 @@ class Standard
 	 */
 	protected function getOrderBaseItems( array $orderItems )
 	{
-		$list = [];
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
-		$parts = \Aimeos\MShop\Order\Manager\Base\Base::PARTS_ADDRESS | \Aimeos\MShop\Order\Manager\Base\Base::PARTS_SERVICE;
-
-		foreach( $orderItems as $orderItem ) {
-			$list[$orderItem->getBaseId()] = $manager->load( $orderItem->getBaseId(), $parts );
+		$baseIds = [];
+		foreach( $orderItems as $item ) {
+			$baseIds[] = $item->getBaseId();
 		}
 
-		return $list;
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
+		$search->setSlice( 0, 0x7fffffff );
+
+		return $manager->searchItems( $search, ['order/base/address', 'order/base/service'] );
 	}
 
 
