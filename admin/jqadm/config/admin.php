@@ -18,7 +18,7 @@ return [
 			],
 		],
 		'resources' => [
-			'd' => 'dashboard', 'o' => 'order', 'u' => 'customer', 'p' => 'product', /*'c' => 'catalog', 'v' => 'voucher'*/
+			'd' => 'dashboard', 'o' => 'order', 'u' => 'customer', 'p' => 'product', /*'c' => 'catalog',*/ 'v' => 'coupon'
 			/*'r' => 'supplier', 's' => 'service', 'g' => 'plugin', 'l' => 'locale', 't' => 'type'*/
 		],
 		'resources-admin' => ['supplier', 'service', 'plugin', 'locale', 'type'],
