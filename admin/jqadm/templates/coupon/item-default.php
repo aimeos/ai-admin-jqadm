@@ -126,7 +126,7 @@ $params = $this->get( 'pageParams', [] );
 						</div>
 					</div>
 					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-provider" type="text" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.provider' ) ) ); ?>"

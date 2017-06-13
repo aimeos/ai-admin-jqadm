@@ -34,7 +34,7 @@ $delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
 $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 
 
-$default = $this->config( 'admin/jqadm/coupon/fields', ['coupon.id', 'coupon.status', 'coupon.typeid', 'coupon.code', 'coupon.label'] );
+$default = $this->config( 'admin/jqadm/coupon/fields', ['coupon.status', 'coupon.label', 'coupon.provider'] );
 $fields = $this->param( 'fields/v', $default );
 
 $params = $this->get( 'pageParams', [] );
