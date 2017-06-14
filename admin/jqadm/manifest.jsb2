@@ -20,6 +20,9 @@
 			"text": "admin.js",
 			"path": "themes/"
 		},{
+			"text": "coupon.js",
+			"path": "themes/"
+		},{
 			"text": "dashboard.js",
 			"path": "themes/"
 		},{
