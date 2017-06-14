@@ -14,7 +14,7 @@ $enc = $this->encoder();
 $params = $searchParam = $this->get( 'pageParams', [] );
 unset( $searchParam['filter'] );
 
-$default = $this->config( 'admin/jqadm/coupon/code/fields', ['coupon.code', 'coupon.count', 'coupon.datestart'] );
+$default = $this->config( 'admin/jqadm/coupon/code/fields', ['coupon.code.code', 'coupon.code.count'] );
 $fields = $this->param( 'fields/vc', $default );
 
 $columnList = [
@@ -72,37 +72,67 @@ $columnList = [
 
 				<?php foreach( $this->get( 'codeItems', [] ) as $id => $item ) : ?>
 					<tr>
-						<td class="coupon-code">
+						<?php if( in_array( 'coupon.code.code', $fields ) ) : ?>
+							<td class="coupon-code">
+								<input class="form-control coupon-code-code" type="text"
+									name="<?= $enc->attr( $this->formparam( array( 'coupon.code.code' ) ) ); ?>"
+									value="<?= $enc->attr( $item->getCode() ); ?>"
+									<?= $this->site()->readonly( $item->getSiteId() ); ?> />
+							</td>
+						<?php endif; ?>
+						<?php if( in_array( 'coupon.code.count', $fields ) ) : ?>
+							<td class="coupon-count">
+								<input class="form-control coupon-code-count" type="text"
+									name="<?= $enc->attr( $this->formparam( array( 'coupon.code.count' ) ) ); ?>"
+									value="<?= $enc->attr( $item->getCount() ); ?>"
+									<?= $this->site()->readonly( $item->getSiteId() ); ?> />
+							</td>
+						<?php endif; ?>
+						<?php if( in_array( 'coupon.code.datestart', $fields ) ) : ?>
+							<td class="coupon-datestart">
+								<input class="form-control coupon-code-datestart" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'coupon.code.datestart' ) ) ); ?>"
+									value="<?= $enc->attr( str_replace( ' ', 'T', $item->getDateStart() ) ); ?>"
+									<?= $this->site()->readonly( $item->getSiteId() ); ?> />
+							</td>
+						<?php endif; ?>
+						<?php if( in_array( 'coupon.code.dateend', $fields ) ) : ?>
+							<td class="coupon-dateend">
+								<input class="form-control coupon-code-dateend" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'coupon.code.dateend' ) ) ); ?>"
+									value="<?= $enc->attr( str_replace( ' ', 'T', $item->getDateEnd() ) ); ?>"
+									<?= $this->site()->readonly( $item->getSiteId() ); ?> />
+							</td>
+						<?php endif; ?>
+						<?php if( in_array( 'coupon.code.ctime', $fields ) ) : ?>
+							<td class="coupon-ctime">
+								<span class="form-control coupon-code-ctime" <?= $this->site()->readonly( $item->getSiteId() ); ?> >
+									<?= $enc->attr( $item->getTimeCreated() ); ?>
+								</span>
+							</td>
+						<?php endif; ?>
+						<?php if( in_array( 'coupon.code.mtime', $fields ) ) : ?>
+							<td class="coupon-mtime">
+								<span class="form-control coupon-code-mtime" <?= $this->site()->readonly( $item->getSiteId() ); ?> >
+									<?= $enc->attr( $item->getTimeModified() ); ?>
+								</span>
+							</td>
+						<?php endif; ?>
+						<?php if( in_array( 'coupon.code.editor', $fields ) ) : ?>
+							<td class="coupon-editor">
+								<span class="form-control coupon-code-editor" <?= $this->site()->readonly( $item->getSiteId() ); ?> >
+									<?= $enc->attr( $item->getEditor() ); ?>
+								</span>
+							</td>
+						<?php endif; ?>
+						<td class="actions">
 							<input type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'coupon.code.id' ) ) ); ?>"
 								value="<?= $enc->attr( $id ); ?>" />
 							<input type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'coupon.code.parentid' ) ) ); ?>"
 								value="<?= $enc->attr( $item->getParentId() ); ?>" />
-							<input class="form-control coupon-code" type="text"
-								name="<?= $enc->attr( $this->formparam( array( 'coupon.code.code' ) ) ); ?>"
-								value="<?= $enc->attr( $item->getCode() ); ?>"
-								<?= $this->site()->readonly( $item->getSiteId() ); ?> />
-						</td>
-						<td class="coupon-count">
-							<input class="form-control coupon-count" type="hidden"
-								name="<?= $enc->attr( $this->formparam( array( 'coupon.code.count' ) ) ); ?>"
-								value="<?= $enc->attr( $item->getCount() ); ?>"
-								<?= $this->site()->readonly( $item->getSiteId() ); ?> />
-						</td>
-						<td class="coupon-datestart">
-							<input class="form-control coupon-datestart" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
-								name="<?= $enc->attr( $this->formparam( array( 'coupon.code.datestart' ) ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $item->getDateStart() ) ); ?>"
-								<?= $this->site()->readonly( $item->getSiteId() ); ?> />
-						</td>
-						<td class="coupon-dateend">
-							<input class="form-control coupon-dateend" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
-								name="<?= $enc->attr( $this->formparam( array( 'coupon.code.dateend' ) ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $item->getDateEnd() ) ); ?>"
-								<?= $this->site()->readonly( $item->getSiteId() ); ?> />
-						</td>
-						<td class="actions">
+
 							<a class="btn fa act-edit" href="#"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Edit entry') ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>">
@@ -126,4 +156,4 @@ $columnList = [
 		<?php endif; ?>
 	</div>
 </div>
-<?= $this->get( 'codeIBody' ); ?>
+<?= $this->get( 'codeBody' ); ?>
