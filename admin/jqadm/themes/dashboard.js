@@ -86,7 +86,7 @@ Aimeos.Dashboard.Order = {
 
 		var weeks = Math.ceil((width - cellWidth) / cellWidth),
 			firstdate = new Date(new Date().getTime() - weeks * 7 * 86400 * 1000 + (6 - new Date().getDay()) * 86400 * 1000),
-			dateRange = d3.time.day.utc.range(firstdate, new Date());
+			dateRange = d3.utcDay.range(firstdate, new Date());
 
 
 		var criteria = {">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}};
@@ -100,7 +100,7 @@ Aimeos.Dashboard.Order = {
 			var entries = {};
 			data.data.forEach(function(d) { entries[d.id] = d.attributes; });
 
-			var color = d3.scale.quantize()
+			var color = d3.scaleQuantize()
 				.range(d3.range(10).map(function(d) { return "q" + d; }))
 				.domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
@@ -118,17 +118,20 @@ Aimeos.Dashboard.Order = {
 					.attr("width", cellSize)
 					.attr("height", cellSize)
 					.attr("x", function(d) {
-						var first = d3.time.weekOfYear(new Date(d.getUTCFullYear(), 0, 1));
-						var weeks = d3.time.weekOfYear(new Date(firstdate.getUTCFullYear(), 11, 31));
+						var d1 = new Date(d.getUTCFullYear(), 0, 1);
+						var d51 = new Date(d.getUTCFullYear(), 11, 24);
+						var d52 = new Date(firstdate.getUTCFullYear(), 11, 31);
+						var first = d3.timeWeek.count(d3.timeYear(d1), d1);
+						var weeks = d3.timeWeek.count(d3.timeYear(d52), d52);
 
-						if(weeks == 1) { weeks = d3.time.weekOfYear(new Date(d.getUTCFullYear(), 11, 24)); }
+						if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d51), d51); }
 						if(first == 0) { weeks += 1; }
 
-						var result = d3.time.weekOfYear(d) - d3.time.weekOfYear(firstdate) + (weeks * (d.getUTCFullYear() - firstdate.getUTCFullYear()));
+						var result = d3.timeWeek.count(d3.timeYear(d), d) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (d.getUTCFullYear() - firstdate.getUTCFullYear()));
 						return result * cellWidth;
 					})
 					.attr("y", function(d) { return d.getUTCDay() * cellWidth; })
-					.datum(d3.time.format("%Y-%m-%d"));
+					.datum(d3.timeFormat("%Y-%m-%d"));
 
 			cell.attr("class", function(d) { return "day " + color(entries[d] || 0); })
 				.append("title").text(function(d) { return d + ": " + (entries[d] || 0); });
@@ -145,7 +148,7 @@ Aimeos.Dashboard.Order = {
 			// month numbers on top of the heat map
 			var dateNumbers = dateRange.map(Number);
 			svg.selectAll(".legend-month")
-				.data(d3.time.month.utc.range(firstdate, new Date()))
+				.data(d3.utcMonth.range(firstdate, new Date()))
 				.enter().append("text")
 					.text(function (d) { var num = d.getMonth(); return (num === 0 ? num = 12 : (num < 10 ? "0" + num : num)); })
 					.attr("class", "x axis")
@@ -158,7 +161,7 @@ Aimeos.Dashboard.Order = {
 
 			// outline of months in the heat map
 			svg.selectAll(".path-month")
-				.data(function() { return d3.time.months(firstdate, new Date()); })
+				.data(function() { return d3.timeMonths(firstdate, new Date()); })
 				.enter().append("path")
 					.attr("class", "path-month")
 					.attr("d", function(t0) {
@@ -168,15 +171,18 @@ Aimeos.Dashboard.Order = {
 						}
 
 						var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
-							first = d3.time.weekOfYear(new Date(t0.getUTCFullYear(), 0, 1)),
-							weeks = d3.time.weekOfYear(new Date(firstdate.getUTCFullYear(), 11, 31)),
+							d1 = new Date(t0.getUTCFullYear(), 0, 1),
+							d51 = new Date(t0.getUTCFullYear(), 11, 24),
+							d52 = new Date(firstdate.getUTCFullYear(), 11, 31),
+							first = d3.timeWeek.count(d3.timeYear(d1), d1),
+							weeks = d3.timeWeek.count(d3.timeYear(d52), d52),
 							d0 = t0.getDay(), d1 = t1.getDay();
 
-						if(weeks == 1) { weeks = d3.time.weekOfYear(new Date(t0.getUTCFullYear(), 11, 24)); }
+						if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d52), d52); }
 						if(first == 0) { weeks += 1; }
 
-						var w0 = d3.time.weekOfYear(t0) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
-						var w1 = d3.time.weekOfYear(t1) - d3.time.weekOfYear(firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
+						var w0 = d3.timeWeek.count(d3.timeYear(t0), t0) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
+						var w1 = d3.timeWeek.count(d3.timeYear(t1), t1) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
 
 						result = "M" + ((w0 + 1) * cellWidth - 1) + "," + d0 * cellWidth
 							+ "H" + (w0 * cellWidth - 1) + "V" + (7 * cellWidth - 1)
@@ -237,11 +243,11 @@ Aimeos.Dashboard.Order = {
 
 			var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
 
-			var xScale = d3.scale.linear().range([0, width]).domain([0,23]);
-			var yScale = d3.scale.linear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var xScale = d3.scaleLinear().range([0, width]).domain([0,23]);
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
-			var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks((width > 300 ? 12 : 6));
-			var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));
+			var xAxis = d3.axisBottom().scale(xScale);
+			var yAxis = d3.axisLeft().scale(yScale);
 
 			var svg = d3.select(selector)
 				.append("svg")
@@ -316,14 +322,14 @@ Aimeos.Dashboard.Order = {
 				throw error;
 			}
 
-			var dateParser = d3.time.format("%Y-%m-%d").parse;
+			var dateParser = d3.timeParse("%Y-%m-%d");
 
-			var color = d3.scale.ordinal().domain(statuslist).range(statusrange);
-			var xScale = d3.time.scale().range([0, width]).domain([dateParser(dates[0]), dateParser(dates[dates.length-1])]);
-			var yScale = d3.scale.linear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var color = d3.scaleOrdinal().domain(statuslist).range(statusrange);
+			var xScale = d3.scaleTime().range([0, width]).domain([dateParser(dates[0]), dateParser(dates[dates.length-1])]);
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
-			var xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(Math.round(numdays / 5));
-			var yAxis = d3.svg.axis().scale(yScale).orient("left").tickFormat(d3.format("d"));
+			var xAxis = d3.axisBottom().scale(xScale);
+			var yAxis = d3.axisLeft().scale(yScale);
 
 			var svg = d3.select(selector)
 				.append("svg")
@@ -468,14 +474,15 @@ Aimeos.Dashboard.Order = {
 				throw error;
 			}
 
-			var color = d3.scale.category20();
+			var color = d3.scaleOrdinal(d3.schemeCategory20);
 			var sum = d3.sum(data.data, function(d) { return d.attributes; });
 
-			var arc = d3.svg.arc()
+			var arc = d3.arc()
 				.outerRadius(radius)
 				.innerRadius(radius - 50);
 
-			var pie = d3.layout.pie()
+			var pie = d3.pie()
+				.padAngle(.02)
 				.sort(null)
 				.value(function(d) { return +d.attributes; });
 
