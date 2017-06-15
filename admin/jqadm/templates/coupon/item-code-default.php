@@ -133,17 +133,13 @@ $columnList = [
 								name="<?= $enc->attr( $this->formparam( array( 'coupon.code.parentid' ) ) ); ?>"
 								value="<?= $enc->attr( $item->getParentId() ); ?>" />
 
-							<a class="btn fa act-edit" href="#"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Edit entry') ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>">
+							<a class="btn fa act-delete" href="#"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 							</a>
 							<a class="btn fa act-save" href="#"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Save entry') ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Save' ) ); ?>">
-							</a>
-							<a class="btn fa act-delete" href="#"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 							</a>
 						</td>
 					</tr>

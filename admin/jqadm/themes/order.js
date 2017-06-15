@@ -266,11 +266,14 @@ Aimeos.Order.Item = {
 	setupServiceCodeSuggest : function() {
 
 		var node = $(".aimeos .item-order .service-attr");
-		this.addServiceSuggest($(".service-attr-code", node), node);
 
-		$(".aimeos .item-order .service-attr").on("click", ".service-attr-code", function(ev) {
-			$(this).autocomplete("search", "");
-		});
+        if( node.length > 0 ) {
+			this.addServiceSuggest($(".service-attr-code", node), node);
+
+			$(".aimeos .item-order .service-attr").on("click", ".service-attr-code", function(ev) {
+				$(this).autocomplete("search", "");
+			});
+		}
 	},
 
 

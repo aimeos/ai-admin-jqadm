@@ -697,6 +697,10 @@ select.form-control:not([size]):not([multiple]) {
 	content: "\f00d";
 }
 
+.aimeos .btn.act-save.fa:before {
+	content: "\f0c7";
+}
+
 .aimeos .btn.act-view.fa:before {
 	content: "\f06e";
 }
@@ -730,7 +734,7 @@ select.form-control:not([size]):not([multiple]) {
 	text-align: center;
 	font-weight: normal;
 	vertical-align: middle;
-	padding: 0.5rem;
+	padding: 0.25rem;
 }
 
 .aimeos table th.order-id,
