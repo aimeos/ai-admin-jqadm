@@ -127,12 +127,21 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-provider" type="text" required="required" tabindex="1"
+						<div class="col-sm-8 input-group">
+							<input class="form-control item-provider combobox" type="text" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.provider' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/coupon.provider' ) ); ?>"
+								data-names="<?= implode( ',', $this->get( 'itemProviders', [] ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?> />
+							<div class="dropdown input-group-addon">
+								<a class="dropdown-add" id="decoratorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="decoratorButton">
+									<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
+										<a class="dropdown-item decorator-name" href="#" data-name="<?= $enc->attr( $name ); ?>"><?= $enc->html( $name ); ?></a>
+									<?php endforeach; ?>
+								</div>
+							</div>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'One provider and zero or more decorator class names separated by commas' ) ); ?>

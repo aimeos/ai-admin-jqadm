@@ -75,6 +75,10 @@ html {
 	display: flex;
 }
 
+.input-group .form-control {
+	z-index: 1;
+}
+
 
 
 /* Aimeos Bootstrap theme */
@@ -778,6 +782,15 @@ select.form-control:not([size]):not([multiple]) {
 .aimeos .form-group input[type="radio"] {
 	margin: 0.75rem 0;
 	width: auto;
+}
+
+.aimeos .input-group-addon .dropdown-add {
+	margin: -0.5rem -0.75rem;
+	padding: 0.5rem 0.75rem;
+}
+
+.aimeos .input-group-addon .dropdown-add:after {
+	content: "+";
 }
 
 

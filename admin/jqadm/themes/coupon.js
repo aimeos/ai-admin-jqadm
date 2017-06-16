@@ -10,12 +10,46 @@ Aimeos.Coupon = {
 	init : function() {
 
 		Aimeos.Coupon.Item.init();
+		Aimeos.Coupon.Item.Code.init();
 	}
 };
 
 
 
 Aimeos.Coupon.Item = {
+
+	init : function() {
+
+		this.setupDecorator();
+		this.setupProvider();
+	},
+
+
+	setupDecorator : function() {
+
+		$(".aimeos .item-coupon .item-provider").parent().on("click", ".input-group-addon .decorator-name", function(ev) {
+
+			var input = $("input.item-provider", ev.delegateTarget);
+			input.val(input.val() + ',' + $(this).data("name"));
+		});
+	},
+
+
+	setupProvider : function() {
+
+		var input = $(".aimeos .item-coupon .item-provider")
+
+		input.autocomplete({
+			source: input.data("names").split(","),
+			minLength: 0,
+			delay: 0
+		});
+	}
+};
+
+
+
+Aimeos.Coupon.Item.Code = {
 
 	init : function() {
 
@@ -79,7 +113,7 @@ Aimeos.Coupon.Item = {
 			return false;
 		});
 	}
-}
+};
 
 
 
