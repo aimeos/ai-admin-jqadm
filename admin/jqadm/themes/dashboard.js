@@ -328,7 +328,7 @@ Aimeos.Dashboard.Order = {
 			var xScale = d3.scaleTime().range([0, width]).domain([dateParser(dates[0]), dateParser(dates[dates.length-1])]);
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
-			var xAxis = d3.axisBottom().scale(xScale);
+			var xAxis = d3.axisBottom().scale(xScale).ticks(numdays/3);
 			var yAxis = d3.axisLeft().scale(yScale);
 
 			var svg = d3.select(selector)

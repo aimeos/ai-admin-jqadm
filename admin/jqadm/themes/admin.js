@@ -153,7 +153,9 @@ Aimeos = {
 		this.checkFields();
 		this.checkSubmit();
 		this.createDatePicker();
+		this.resetSearch();
 		this.setupNext();
+		this.setupTabSwitch();
 		this.showErrors();
 		this.toggleHelp();
 		this.toggleMenu();
@@ -394,6 +396,15 @@ Aimeos = {
 	},
 
 
+	resetSearch : function() {
+
+		$(".aimeos .list-search").on("click", ".act-reset", function(ev) {
+			$("input", ev.delegateTarget).val("");
+			return false;
+		});
+	},
+
+
 	setupNext : function() {
 
 		$(".aimeos .item").on("click", ".next-action", function(ev) {
@@ -401,6 +412,37 @@ Aimeos = {
 			$(ev.delegateTarget).submit();
 			return false;
 		});
+	},
+
+
+	setupTabSwitch : function() {
+
+		var hash = '';
+		var url = document.location.toString();
+
+		if(url.match('#')) {
+			hash = url.split('#')[1];
+			$('.nav-tabs a[href="#' + hash + '"]').tab('show');
+
+			$("form").each(function() {
+				$(this).attr("action", $(this).attr("action").split('#')[0] + hash);
+			});
+		}
+
+		$('.nav-tabs a').on('shown.bs.tab', function (e) {
+			hash = e.target.hash;
+
+			if(history.pushState) {
+				history.pushState(null, null, hash);
+			} else {
+				window.location.hash = hash;
+				window.scrollTo(0, 0);
+			}
+
+			$("form").each(function() {
+				$(this).attr("action", $(this).attr("action").split('#')[0] + hash);
+			});
+		})
 	},
 
 

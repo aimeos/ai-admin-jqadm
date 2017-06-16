@@ -689,6 +689,10 @@ select.form-control:not([size]):not([multiple]) {
 	content: "\f067";
 }
 
+.aimeos .btn.act-close.fa:before {
+	content: "\f00d";
+}
+
 .aimeos .btn.act-copy.fa:before {
 	content: "\f0c5";
 }
@@ -809,6 +813,11 @@ select.form-control:not([size]):not([multiple]) {
 
 
 /* Item listing */
+
+.aimeos .list-search,
+.aimeos .list-item-new {
+	background-color: #F8F8F8;
+}
 
 .aimeos .list-items {
 	text-align: center;
@@ -1003,6 +1012,14 @@ select.form-control:not([size]):not([multiple]) {
 	font-weight: bold;
 }
 
+.aimeos .item-order .item-product-list .product-sku:before {
+	content: "(";
+}
+
+.aimeos .item-order .item-product-list .product-sku:after {
+	content: ")";
+}
+
 .aimeos .item-order .item-product-list .column-status {
     max-width: 10rem;
     min-width: 5rem;
@@ -1072,6 +1089,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .aimeos .item-order .item-service .service-code {
 	font-weight: bold;
+	display: block;
 }
 
 .aimeos .item-order .item-service .service-code:before {
