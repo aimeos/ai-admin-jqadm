@@ -20,8 +20,43 @@ Aimeos.Coupon.Item = {
 
 	init : function() {
 
+		this.setupConfig();
 		this.setupDecorator();
 		this.setupProvider();
+	},
+
+
+	setupConfig : function() {
+
+		$(".aimeos .item-coupon .item-basic").on("change", "input.item-provider", function(ev) {
+
+			Aimeos.options.done(function(data) {
+
+				$.ajax({
+					dataType: "json",
+					url: data.meta.resources['coupon/config'] || null,
+					data: {id: $(ev.currentTarget).val()}
+				}).done(function(result) {
+
+					$(result['data']).each(function(idx, entry) {
+						var found = false;
+
+						$("table.item-config .config-key", ev.delegateTarget).each(function() {
+							if($(this).val() === entry.id) {
+								found = true;
+							}
+						});
+
+						if(found === false) {
+							var clone = Aimeos.addClone($("table.item-config .prototype", ev.delegateTarget));
+
+							$(".config-key", clone).val(entry.id);
+							$(".config-value", clone).attr("placeholder", entry.attributes.label);
+						}
+					});
+				});
+			});
+		});
 	},
 
 
@@ -31,6 +66,7 @@ Aimeos.Coupon.Item = {
 
 			var input = $("input.item-provider", ev.delegateTarget);
 			input.val(input.val() + ',' + $(this).data("name"));
+			input.trigger("change");
 		});
 	},
 
