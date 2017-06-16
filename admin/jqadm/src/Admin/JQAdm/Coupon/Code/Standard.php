@@ -138,13 +138,11 @@ class Standard
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-echo $e->getMessage() . PHP_EOL;
 			$error = array( 'coupon-item-code' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
-echo $e->getMessage() . PHP_EOL;
 			$error = array( 'coupon-item-code' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
