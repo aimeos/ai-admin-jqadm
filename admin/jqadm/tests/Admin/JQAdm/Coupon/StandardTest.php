@@ -28,6 +28,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object = new \Aimeos\Admin\JQAdm\Coupon\Standard( $this->context, $templatePaths );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context, $templatePaths );
+		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}
 
@@ -50,10 +51,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'getSubClientNames' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClientNames' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
@@ -66,10 +67,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'getSubClientNames' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClientNames' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );
@@ -94,10 +95,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'getSubClientNames' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClientNames' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
@@ -110,10 +111,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'getSubClientNames' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClientNames' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );
@@ -176,10 +177,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'getSubClientNames' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClientNames' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
@@ -192,10 +193,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->setMethods( array( 'getSubClientNames' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClientNames' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );

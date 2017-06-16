@@ -90,6 +90,8 @@ class Standard
 			$view->item = $manager->getItem( $id );
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemSubparts = $this->getSubClientNames();
+			$view->itemProviders = $this->getProviderNames();
+			$view->itemDecorators = $this->getDecoratorNames();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -137,6 +139,8 @@ class Standard
 			$data['coupon.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();
+			$view->itemDecorators = $this->getDecoratorNames();
+			$view->itemProviders = $this->getProviderNames();
 			$view->itemData = $data;
 			$view->itemBody = '';
 
@@ -228,8 +232,10 @@ class Standard
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'coupon' );
 
 			$view->item = $manager->getItem( $id );
-			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
+			$view->itemSubparts = $this->getSubClientNames();
+			$view->itemDecorators = $this->getDecoratorNames();
+			$view->itemProviders = $this->getProviderNames();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -460,6 +466,29 @@ class Standard
 		return $this->getContext()->getConfig()->get( $this->subPartPath, $this->subPartNames );
 	}
 
+
+	/**
+	 * Returns the names of the available coupon decorators
+	 *
+	 * @return string[] List of decorator class names
+	 */
+	protected function getDecoratorNames()
+	{
+		$ds = DIRECTORY_SEPARATOR;
+		return $this->getClassNames( 'MShop' . $ds . 'Coupon' . $ds . 'Provider' . $ds . 'Decorator' );
+	}
+
+
+	/**
+	 * Returns the names of the available coupon providers
+	 *
+	 * @return string[] List of provider class names
+	 */
+	protected function getProviderNames()
+	{
+		$ds = DIRECTORY_SEPARATOR;
+		return $this->getClassNames( 'MShop' . $ds . 'Coupon' . $ds . 'Provider' );
+	}
 
 
 	/**

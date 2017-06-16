@@ -161,6 +161,31 @@ abstract class Base
 
 
 	/**
+	 * Returns the Aimeos bootstrap object
+	 *
+	 * @return \Aimeos\Bootstrap The Aimeos bootstrap object
+	 */
+	public function getAimeos()
+	{
+		return parent::getAimeos();
+	}
+
+
+	/**
+	 * Sets the Aimeos bootstrap object
+	 *
+	 * @param \Aimeos\Bootstrap $aimeos The Aimeos bootstrap object
+	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
+	 */
+	public function setAimeos( \Aimeos\Bootstrap $aimeos )
+	{
+		$this->client->setAimeos( $aimeos );
+		parent::setAimeos( $aimeos );
+		return $this;
+	}
+
+
+	/**
 	 * Returns the inner client object
 	 *
 	 * @return \Aimeos\Admin\JQAdm\Iface admin client

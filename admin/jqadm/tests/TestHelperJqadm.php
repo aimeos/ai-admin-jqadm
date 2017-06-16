@@ -81,7 +81,7 @@ class TestHelperJqadm
 	}
 
 
-	private static function getAimeos()
+	public static function getAimeos()
 	{
 		if( !isset( self::$aimeos ) )
 		{

@@ -21,6 +21,7 @@ abstract class Base
 	implements \Aimeos\Admin\JQAdm\Iface
 {
 	private $view;
+	private $aimeos;
 	private $context;
 	private $subclients;
 	private $templatePaths;
@@ -54,9 +55,37 @@ abstract class Base
 
 
 	/**
+	 * Returns the Aimeos bootstrap object
+	 *
+	 * @return \Aimeos\Bootstrap The Aimeos bootstrap object
+	 */
+	public function getAimeos()
+	{
+		if( !isset( $this->aimeos ) ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Aimeos object not available' ) );
+		}
+
+		return $this->aimeos;
+	}
+
+
+	/**
+	 * Sets the Aimeos bootstrap object
+	 *
+	 * @param \Aimeos\Bootstrap $aimeos The Aimeos bootstrap object
+	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
+	 */
+	public function setAimeos( \Aimeos\Bootstrap $aimeos )
+	{
+		$this->aimeos = $aimeos;
+		return $this;
+	}
+
+
+	/**
 	 * Returns the view object that will generate the admin output.
 	 *
-	 * @return \Aimeos\MW\View\Iface $view The view object which generates the admin output
+	 * @return \Aimeos\MW\View\Iface The view object which generates the admin output
 	 */
 	public function getView()
 	{
@@ -284,6 +313,37 @@ abstract class Base
 	 * @return array List of admin client names
 	 */
 	abstract protected function getSubClientNames();
+
+
+	/**
+	 * Returns the available class names without namespace that are stored in the given path
+	 *
+	 * @param string $relpath Path relative to the include paths
+	 * @param string[] $excludes List of file names to execlude
+	 * @return string[] List of available class names
+	 */
+	protected function getClassNames( $relpath, array $excludes = ['Base.php', 'Iface.php', 'Example.php', 'None.php'] )
+	{
+		$list = [];
+
+		foreach( $this->getAimeos()->getIncludePaths() as $path )
+		{
+			$path .= DIRECTORY_SEPARATOR . $relpath;
+
+			if( is_dir( $path ) )
+			{
+				foreach( new \DirectoryIterator( $path ) as $entry )
+				{
+					if( $entry->isFile() && !in_array( $entry->getFileName(), $excludes ) ) {
+						$list[] = pathinfo( $entry->getFileName(), PATHINFO_FILENAME );
+					}
+				}
+			}
+		}
+
+		sort( $list );
+		return $list;
+	}
 
 
 	/**
