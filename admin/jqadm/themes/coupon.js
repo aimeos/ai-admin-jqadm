@@ -39,11 +39,13 @@ Aimeos.Coupon.Item = {
 
 		var input = $(".aimeos .item-coupon .item-provider")
 
-		input.autocomplete({
-			source: input.data("names").split(","),
-			minLength: 0,
-			delay: 0
-		});
+		if(input.length > 0) {
+			input.autocomplete({
+				source: input.data("names").split(","),
+				minLength: 0,
+				delay: 0
+			});
+		}
 	}
 };
 
