@@ -66,10 +66,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Code\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'initCriteria' ) )
+			->setMethods( array( 'toArray' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'initCriteria' )
+		$object->expects( $this->once() )->method( 'toArray' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
@@ -82,10 +82,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Code\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'initCriteria' ) )
+			->setMethods( array( 'toArray' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'initCriteria' )
+		$object->expects( $this->once() )->method( 'toArray' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );
@@ -96,7 +96,59 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$this->assertNull( $this->object->save() );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'coupon/code' );
+
+		$param = array(
+			'site' => 'unittest',
+			'code' => array(
+				'coupon.code.id' => [''],
+				'coupon.code.code' => ['jqadm test code'],
+				'coupon.code.count' => ['10'],
+				'coupon.code.datestart' => ['2000-01-01T00:00:00'],
+				'coupon.code.dateend' => ['2010-01-01T00:00'],
+			),
+		);
+
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$this->view->item = $this->getCouponItem();
+
+		$this->object->save();
+
+		$manager->deleteItem( $manager->findItem( 'jqadm test code' )->getId() );
+	}
+
+
+	public function testSaveException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'fromArray' ) )
+			->getMock();
+
+		$object->expects( $this->once() )->method( 'fromArray' )
+			->will( $this->throwException( new \RuntimeException() ) );
+
+		$object->setView( $this->getViewNoRender() );
+
+		$object->save();
+	}
+
+
+	public function testSaveMShopException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Coupon\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'fromArray' ) )
+			->getMock();
+
+		$object->expects( $this->once() )->method( 'fromArray' )
+			->will( $this->throwException( new \RuntimeException() ) );
+
+		$object->setView( $this->getViewNoRender() );
+
+		$object->save();
 	}
 
 
@@ -113,6 +165,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();
+
+		$view->item = $this->getCouponItem();
 
 		return $view;
 	}

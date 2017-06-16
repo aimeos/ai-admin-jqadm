@@ -91,17 +91,7 @@ class Standard
 
 		try
 		{
-			$total = 0;
-			$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
-			$search = $this->initCriteria( $manager->createSearch(), $view->param() );
-			$expr = [
-				$search->compare( '==', 'coupon.code.parentid', $view->item->getId() ),
-				$search->getConditions(),
-			];
-			$search->setConditions( $search->combine( '&&', $expr ) );
-
-			$view->codeItems = $manager->searchItems( $search, [], $total );
-			$view->codeTotal = $total;
+			$view->codeData = $this->toArray( $view->item );
 			$view->codeBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -128,6 +118,40 @@ class Standard
 	 */
 	public function save()
 	{
+		$view = $this->getView();
+		$context = $this->getContext();
+
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'coupon/code' );
+		$manager->begin();
+
+		try
+		{
+			$this->fromArray( $view->item, $view->param( 'code', [] ) );
+			$view->couponBody = '';
+
+			foreach( $this->getSubClients() as $client ) {
+				$view->couponBody .= $client->save();
+			}
+
+			$manager->commit();
+			return;
+		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+echo $e->getMessage() . PHP_EOL;
+			$error = array( 'coupon-item-code' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+		catch( \Exception $e )
+		{
+echo $e->getMessage() . PHP_EOL;
+			$error = array( 'coupon-item-code' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+
+		$manager->rollback();
+
+		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
 
 
@@ -235,6 +259,63 @@ class Standard
 	protected function getSubClientNames()
 	{
 		return $this->getContext()->getConfig()->get( $this->subPartPath, $this->subPartNames );
+	}
+
+
+	/**
+	 * Creates new and updates existing items using the data array
+	 *
+	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
+	 * @param string[] $data Data array
+	 */
+	protected function fromArray( \Aimeos\MShop\Coupon\Item\Iface $item, array $data )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
+
+		foreach( $this->getValue( $data, 'coupon.code.id', [] ) as $idx => $id )
+		{
+			$citem = $manager->createItem();
+
+			$citem->setId( $id );
+			$citem->setParentId( $item->getId() );
+			$citem->setCode( $this->getValue( $data, 'coupon.code.code/' . $idx ) );
+			$citem->setCount( $this->getValue( $data, 'coupon.code.count/' . $idx ) );
+			$citem->setDateStart( $this->getValue( $data, 'coupon.code.datestart/' . $idx ) );
+			$citem->setDateEnd( $this->getValue( $data, 'coupon.code.dateend/' . $idx ) );
+
+			$manager->saveItem( $citem, false );
+		}
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
+	 * @param boolean $copy True if items should be copied, false if not
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( \Aimeos\MShop\Coupon\Item\Iface $item, $copy = false )
+	{
+		$data = [];
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
+
+		$search = $this->initCriteria( $manager->createSearch(), $this->getView()->param() );
+		$expr = [
+			$search->compare( '==', 'coupon.code.parentid', $item->getId() ),
+			$search->getConditions(),
+		];
+		$search->setConditions( $search->combine( '&&', $expr ) );
+
+
+		foreach( $manager->searchItems( $search ) as $citem )
+		{
+			foreach( $citem->toArray( true ) as $key => $value ) {
+				$data[$key][] = $value;
+			}
+		}
+
+		return $data;
 	}
 
 
