@@ -66,6 +66,7 @@ Aimeos.Product.Item = {
 		Aimeos.Product.Item.Image.init();
 		Aimeos.Product.Item.Option.init();
 		Aimeos.Product.Item.Price.init();
+		Aimeos.Product.Item.Related.init();
 		Aimeos.Product.Item.Selection.init();
 		Aimeos.Product.Item.Stock.init();
 		Aimeos.Product.Item.Text.init();
@@ -533,6 +534,111 @@ Aimeos.Product.Item.Price = {
 			var value = $(this).val();
 
 			$(".header .item-label", item).html(value);
+		});
+	}
+};
+
+
+
+Aimeos.Product.Item.Related = {
+
+	init : function() {
+
+		Aimeos.Product.Item.Related.Bought.init();
+		Aimeos.Product.Item.Related.Suggest.init();
+	}
+};
+
+
+
+Aimeos.Product.Item.Related.Bought = {
+
+	init : function() {
+
+		this.addLine();
+		this.removeLine();
+		this.setupComponents();
+	},
+
+
+	addLine : function() {
+
+		$(".item-product .item-related-bought").on("click", ".act-add", function(ev) {
+			Aimeos.addClone(
+				$(".prototype", ev.delegateTarget),
+				Aimeos.getOptionsProducts,
+				Aimeos.Product.Item.Bundle.select);
+		});
+	},
+
+
+	removeLine : function() {
+
+		$(".item-product .item-related-bought").on("click", ".act-delete", function() {
+			Aimeos.focusBefore($(this).parents("tr")).remove();
+		});
+	},
+
+
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget);
+		node.parents("tr").find("input.item-label").val(node.val());
+	},
+
+
+	setupComponents : function() {
+
+		$(".item-product .item-related-bought .combobox").combobox({
+			getfcn: Aimeos.getOptionsProducts,
+			select: Aimeos.Product.Item.Bundle.select
+		});
+	}
+};
+
+
+
+Aimeos.Product.Item.Related.Suggest = {
+
+	init : function() {
+
+		this.addLine();
+		this.removeLine();
+		this.setupComponents();
+	},
+
+
+	addLine : function() {
+
+		$(".item-product .item-related-suggest").on("click", ".act-add", function(ev) {
+			Aimeos.addClone(
+				$(".prototype", ev.delegateTarget),
+				Aimeos.getOptionsProducts,
+				Aimeos.Product.Item.Bundle.select);
+		});
+	},
+
+
+	removeLine : function() {
+
+		$(".item-product .item-related-suggest").on("click", ".act-delete", function() {
+			Aimeos.focusBefore($(this).parents("tr")).remove();
+		});
+	},
+
+
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget);
+		node.parents("tr").find("input.item-label").val(node.val());
+	},
+
+
+	setupComponents : function() {
+
+		$(".item-product .item-related-suggest .combobox").combobox({
+			getfcn: Aimeos.getOptionsProducts,
+			select: Aimeos.Product.Item.Bundle.select
 		});
 	}
 };

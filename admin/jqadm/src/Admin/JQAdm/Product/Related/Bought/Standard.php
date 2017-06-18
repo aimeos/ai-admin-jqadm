@@ -293,7 +293,6 @@ class Standard
 		$map = $this->getListItems( $item->getId() );
 		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
 
-
 		foreach( $listIds as $pos => $listid )
 		{
 			if( isset( $map[$listid] ) ) {
