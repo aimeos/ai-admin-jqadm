@@ -287,36 +287,36 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
+		$map = $this->getListItems( $item->getId() );
+
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
-
-		$map = $this->getListItems( $item->getId() );
-		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
-
-
-		foreach( $listIds as $pos => $listid )
-		{
-			if( isset( $map[$listid] ) ) {
-				unset( $map[$listid], $listIds[$pos] );
-			}
-		}
-
-		$manager->deleteItems( array_keys( $map ) );
-
 
 		$litem = $manager->createItem();
 		$litem->setTypeId( $typeManager->findItem( 'suggestion', [], 'product' )->getId() );
 		$litem->setParentId( $item->getId() );
 		$litem->setDomain( 'product' );
 
-		foreach( $listIds as $pos => $listid )
+		foreach( (array) $this->getValue( $data, 'product.lists.id', [] ) as $pos => $listid )
 		{
-			$litem->setId( null );
-			$litem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $pos ) );
-			$litem->setPosition( $pos );
+			if( isset( $map[$listid] ) )
+			{
+				$listItem = $map[$listid];
+				unset( $map[$listid] );
+			}
+			else
+			{
+				$listItem = $litem;
+				$listItem->setId( null );
+			}
 
-			$manager->saveItem( $litem, false );
+			$listItem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $pos ) );
+			$listItem->setPosition( $pos );
+
+			$manager->saveItem( $listItem, false );
 		}
+
+		$manager->deleteItems( array_keys( $map ) );
 	}
 
 
