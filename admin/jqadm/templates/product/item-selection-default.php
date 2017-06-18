@@ -229,7 +229,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 	</div>
 
 	<div class="card-tools-more">
-		<div class="btn btn-card-more act-add fa"
+		<div class="btn btn-primary btn-card-more act-add fa"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 		</div>
 	</div>
