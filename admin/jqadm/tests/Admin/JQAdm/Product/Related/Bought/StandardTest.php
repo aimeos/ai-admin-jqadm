@@ -40,7 +40,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
 
-		$this->assertContains( 'Bought together', $result );
+		$this->assertContains( 'Products bought together', $result );
 		$this->assertNull( $this->view->get( 'errors' ) );
 	}
 
@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'Bought together', $result );
+		$this->assertContains( 'Products bought together', $result );
 	}
 
 
@@ -74,7 +74,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'Bought together', $result );
+		$this->assertContains( 'Products bought together', $result );
 	}
 
 
