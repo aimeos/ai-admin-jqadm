@@ -1,12 +1,14 @@
 <?php
 
-namespace Aimeos\Admin\JQAdm;
-
-
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos (aimeos.org), 2015-2016
  */
+
+
+namespace Aimeos\Admin\JQAdm;
+
+
 class FactoryTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;

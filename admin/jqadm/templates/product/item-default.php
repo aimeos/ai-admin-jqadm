@@ -82,11 +82,6 @@ $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
  */
 $config = $this->config( 'admin/jqadm/url/save/config', [] );
 
-$listTarget = $this->config( 'admin/jqadm/url/search/target' );
-$listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
-
 $subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
