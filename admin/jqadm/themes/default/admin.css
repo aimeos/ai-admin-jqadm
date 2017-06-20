@@ -475,9 +475,6 @@ select.form-control:not([size]):not([multiple]) {
 		padding: 0 0.5em;
 		width: 100%;
 	}
-	.aimeos .main-sidebar .icon {
-		font-size: 200%;
-	}
 	.aimeos .main-sidebar .title {
 		display: block;
 		font-size: 90%;
@@ -918,13 +915,15 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .aimeos .item-meta {
-	margin: 0.5rem 1rem;
+	margin: 0.5rem;
 }
 
-.aimeos .item-meta small {
+.aimeos .item-meta small,
+.aimeos .item-catalog .item-meta small {
 	white-space: nowrap;
-	margin: 0.5rem 1rem;
+	margin: 0.5rem;
 	font-size: 80%;
+	display: inline-block;
 }
 
 .aimeos .item-meta .meta-value {
@@ -971,6 +970,25 @@ select.form-control:not([size]):not([multiple]) {
 
 .aimeos .item-navbar .nav-item.bundle {
 	display: none;
+}
+
+
+/* Catalog */
+
+.aimeos .item-catalog .tree-toolbar {
+	margin-bottom: 1.5rem;
+}
+
+.aimeos .item-catalog .tree-toolbar.input-group * {
+	padding: 0.65rem 0.75rem;
+}
+
+.aimeos .item-catalog .input-group-icon.expand-all:before {
+	content: "\f065";
+}
+
+.aimeos .item-catalog .input-group-icon.collapse-all:before {
+	content: "\f066";
 }
 
 

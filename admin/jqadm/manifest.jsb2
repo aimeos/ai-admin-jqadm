@@ -6,6 +6,9 @@
 		"file": "aimeos-core.css",
 		"isDebug": true,
 		"fileIncludes": [{
+			"text": "SvgTree.css",
+			"path": "themes/default/"
+		},{
 			"text": "admin.css",
 			"path": "themes/default/"
 		},{
@@ -17,7 +20,13 @@
 		"file": "aimeos-core.js",
 		"isDebug": true,
 		"fileIncludes": [{
+			"text": "SvgTree.js",
+			"path": "themes/"
+		},{
 			"text": "admin.js",
+			"path": "themes/"
+		},{
+			"text": "catalog.js",
 			"path": "themes/"
 		},{
 			"text": "coupon.js",

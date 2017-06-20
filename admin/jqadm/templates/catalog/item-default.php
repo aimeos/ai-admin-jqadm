@@ -44,14 +44,21 @@ $params = $this->get( 'pageParams', [] );
 
 	<div class="row item-container">
 
-		<div class="col-md-4 catalog-tree">
+		<div class="col-lg-3 catalog-tree">
+			<div class="tree-toolbar input-group">
+				<span class="input-group-addon input-group-icon expand-all fa"></span>
+				<span class="input-group-addon input-group-icon collapse-all fa"></span>
+				<input type="text" class="form-control search-input" placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ); ?>">
+			</div>
+			<div class="tree-content">
+			</div>
 		</div>
 
-		<div class="col-md-8 catalog-content">
+		<div class="col-lg-9 catalog-content">
 			<div class="row">
 
-				<div class="col-lg-3 item-navbar">
-					<ul class="nav nav-tabs flex-lg-column flex-wrap d-flex justify-content-between" role="tablist">
+				<div class="col-xl-12 item-navbar">
+					<ul class="nav nav-tabs flex-row flex-wrap d-flex justify-content-between" role="tablist">
 
 						<li class="nav-item basic">
 							<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
@@ -85,7 +92,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div>
 
-				<div class="col-lg-6 item-content tab-content">
+				<div class="col-xl-12 item-content tab-content">
 
 					<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
