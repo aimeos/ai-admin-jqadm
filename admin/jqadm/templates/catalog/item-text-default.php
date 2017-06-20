@@ -69,7 +69,7 @@ $enc = $this->encoder();
 
 				<div class="col-xl-6">
 					<div class="form-group row optional">
-						<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Product name' ) ); ?></label>
+						<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Category name' ) ); ?></label>
 						<div class="col-xl-8">
 							<input class="item-name-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'listid', '' ) ) ); ?>"

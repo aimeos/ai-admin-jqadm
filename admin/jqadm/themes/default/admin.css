@@ -224,6 +224,12 @@ select.form-control:not([size]):not([multiple]) {
 	}
 }
 
+@media (max-width: 1200px) {
+	.item-catalog .form-group.row label {
+		text-align: left;
+	}
+}
+
 @media (max-width: 767px) {
 	.aimeos {
 		font-size: 80%;
@@ -315,7 +321,7 @@ select.form-control:not([size]):not([multiple]) {
 .aimeos .main-sidebar .separator .icon,
 .aimeos .sidebar-menu > li > span,
 .aimeos .sidebar-menu > li > a {
-	padding: 0.75rem 0.2rem;
+	padding: 0.5rem 0.2rem;
 	display: block;
 }
 

@@ -469,7 +469,6 @@ class Standard
 	protected function fromArray( array $data )
 	{
 		$conf = [];
-		$parentId = null;
 
 		if( isset( $data['item']['config']['key'] ) )
 		{
@@ -483,10 +482,6 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog' );
 
-		if( isset( $data['catalog.parentid'] ) && $data['catalog.parentid'] != '' ) {
-			$parentId = $data['catalog.parentid'];
-		}
-
 		if( isset( $data['catalog.id'] ) && $data['catalog.id'] != '' ) {
 			$item = $manager->getItem( $data['catalog.id'] );
 		} else {
@@ -496,8 +491,10 @@ class Standard
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 
-		if( $item->getId() !== null ) {
-			return $manager->insertItem( $item, $parentId );
+		if( $item->getId() == null )
+		{
+			$pid = ( isset( $data['catalog.parentid'] ) && $data['catalog.parentid'] != '0' ? $data['catalog.parentid'] : null );
+			return $manager->insertItem( $item, $pid );
 		}
 
 		return $manager->saveItem( $item );

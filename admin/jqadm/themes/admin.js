@@ -425,7 +425,7 @@ Aimeos = {
 			$('.nav-tabs a[href="#' + hash + '"]').tab('show');
 
 			$("form").each(function() {
-				$(this).attr("action", $(this).attr("action").split('#')[0] + hash);
+				$(this).attr("action", $(this).attr("action").split('#')[0] + '#' + hash);
 			});
 		}
 
