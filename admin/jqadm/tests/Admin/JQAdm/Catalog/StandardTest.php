@@ -175,7 +175,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'item' => array(
 				'catalog.id' => '',
-				'catalog.parentid' => '',
+				'catalog.parentid' => '0',
 				'catalog.code' => 'jqadm catalog test',
 				'catalog.label' => 'test label',
 				'catalog.datestart' => null,
