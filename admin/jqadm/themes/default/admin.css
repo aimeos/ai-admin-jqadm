@@ -975,7 +975,8 @@ select.form-control:not([size]):not([multiple]) {
 
 /* Catalog */
 
-.aimeos .item-catalog .tree-toolbar {
+.aimeos .item-catalog .tree-toolbar,
+.aimeos .item-catalog .tree-content {
 	margin-bottom: 1.5rem;
 }
 

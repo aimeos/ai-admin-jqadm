@@ -66,36 +66,56 @@ Aimeos.Catalog = {
 
 	setupTree : function() {
 
-		this.tree = new SvgTree;
+		var tree = new SvgTree;
 
-		this.tree.initialize('.aimeos .catalog-tree .tree-content', {
+		tree.clickOnLabel = function(node) {
+			window.location = $(".aimeos .item-catalog").data("geturl").replace("#id#", node.identifier);
+		};
+
+		tree.initialize('.aimeos .catalog-tree .tree-content', {
 			'expandUpToLevel': 1,
 			'showIcons': false
 		}, function(callback) {
 			Aimeos.options.done(function(data) {
 
 				$.ajax(data['meta']['resources']['catalog'] || null, {
-					"data": {include: "catalog"},
+					"data": {
+						include: "catalog"
+					},
 					"dataType": "json"
 				}).done(function(result) {
 
-					if(result.errors && result.errors[0] || Array.isArray(result.data) === false) {
+					if(result.errors && result.errors[0]) {
 						throw result.errors[0];
 					}
 
-					nodes = result.data.map(function(entry) {
+					var nodes = [];
+					var mapper = function(entry) {
 						return {
 							identifier: entry.id,
 							name: entry.attributes['catalog.label'],
-							depth: 0, //entry.attributes['catalog.level'],
-							hasChildren: entry.attributes['catalog.hasChildren']
+							depth: entry.attributes['catalog.level'],
+							hasChildren: entry.attributes['catalog.hasChildren'],
+							checked: false
 						};
-					});
+					};
+
+					if(Array.isArray(result.data)) {
+						nodes = result.data.map(mapper);
+					} else {
+						nodes = [mapper(result.data)];
+					}
+
+					if(Array.isArray(result.included)) {
+						nodes = nodes.concat(result.included.map(mapper));
+					}
 
 					callback(nodes);
 				});
 			});
 		});
+
+		this.tree = tree;
 	},
 
 

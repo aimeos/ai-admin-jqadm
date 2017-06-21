@@ -17,6 +17,11 @@ $cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
 $config = $this->config( 'admin/jqadm/url/save/config', [] );
 
+$getTarget = $this->config( 'admin/jqadm/url/get/target' );
+$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
+$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
+$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
+
 $subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
@@ -24,9 +29,14 @@ $params = $this->get( 'pageParams', [] );
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
-<form class="item item-catalog form-horizontal" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.id' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/catalog.id' ) ); ?>" />
-	<input id="item-parentid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.parentid' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/catalog.parentid' ) ); ?>" />
+<form class="item item-catalog form-horizontal" method="POST" enctype="multipart/form-data"
+	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>"
+	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => '#id#'], [], $getConfig ) ); ?>">
+
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.id' ) ) ); ?>"
+		value="<?= $enc->attr( $this->get( 'itemData/catalog.id' ) ); ?>" />
+	<input id="item-parentid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.parentid' ) ) ); ?>"
+		value="<?= $enc->attr( $this->get( 'itemData/catalog.parentid' ) ); ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ); ?>" value="get" />
 	<?= $this->csrf()->formfield(); ?>
 

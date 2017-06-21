@@ -184,6 +184,9 @@ $(function() {
             this.scrollBottom = this.scrollTop + this.viewportHeight + (this.viewportHeight / 2);
         },
 
+        /**
+         * Transforms the nodes and adds them to the tree
+         */
         addNodes: function(nodes) {
             var me = this;
             nodes = nodes.map(function (node, index) {
@@ -406,7 +409,7 @@ $(function() {
             chevron
                 .append('rect')
                 .style('opacity', 0)
-                .attr('x', 0).attr('y', 0)
+                .attr('x', -5).attr('y', -8)
                 .attr('height', 16).attr('width', 16);
             chevron
                 .append('path')
@@ -474,7 +477,7 @@ $(function() {
          * @returns {String}
          */
         getNodeTitle: function (node) {
-            return 'uid=' + node.identifier;
+            return node.name;
         },
 
         /**
