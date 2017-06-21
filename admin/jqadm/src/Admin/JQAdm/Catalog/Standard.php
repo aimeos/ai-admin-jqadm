@@ -126,6 +126,7 @@ class Standard
 			$data['catalog.siteid'] = $view->item->getSiteId();
 			$data['catalog.parentid'] = $view->item->getParentId() ?: $view->param( 'item/catalog.parentid' );
 
+			$view->itemRootPath = $this->getRootPath( $view->item->getId() );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $data;
 			$view->itemBody = '';
@@ -218,6 +219,7 @@ class Standard
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
+			$view->itemRootPath = $this->getRootPath( $view->item->getId() );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = '';
@@ -314,6 +316,7 @@ class Standard
 
 		try
 		{
+			$view->itemRootPath = [$view->item->getId()];
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = '';
@@ -446,6 +449,23 @@ class Standard
 		$domains = array( 'media', 'text' );
 
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/catalog/domains', $domains );
+	}
+
+
+	/**
+	 * Returns the IDs of the nodes up to the tree root
+	 *
+	 * @param string|null $id Current node ID
+	 * @return string[] List of node IDs up to the root node including the current node
+	 */
+	protected function getRootPath( $id )
+	{
+		if( $id === null ) {
+			return [];
+		}
+
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog' );
+		return array_keys( $manager->getPath( $id ) );
 	}
 
 

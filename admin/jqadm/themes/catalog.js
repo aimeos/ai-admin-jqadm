@@ -69,7 +69,7 @@ Aimeos.Catalog = {
 		var tree = new SvgTree;
 
 		tree.clickOnLabel = function(node) {
-			window.location = $(".aimeos .item-catalog").data("geturl").replace("#id#", node.identifier);
+			window.location = $(".aimeos .item-catalog").data("geturl").replace(":id:", node.identifier);
 		};
 
 		tree.initialize('.aimeos .catalog-tree .tree-content', {
@@ -80,6 +80,7 @@ Aimeos.Catalog = {
 
 				$.ajax(data['meta']['resources']['catalog'] || null, {
 					"data": {
+						id: $(".aimeos .item-catalog").data("rootpath")[0] || null,
 						include: "catalog"
 					},
 					"dataType": "json"

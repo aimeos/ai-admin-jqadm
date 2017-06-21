@@ -31,7 +31,8 @@ $params = $this->get( 'pageParams', [] );
 
 <form class="item item-catalog form-horizontal" method="POST" enctype="multipart/form-data"
 	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>"
-	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => '#id#'], [], $getConfig ) ); ?>">
+	data-rootpath="<?= $enc->attr( json_encode( $this->get( 'itemRootPath', [] ) ) ); ?>"
+	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => ':id:'], [], $getConfig ) ); ?>">
 
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.id' ) ) ); ?>"
 		value="<?= $enc->attr( $this->get( 'itemData/catalog.id' ) ); ?>" />
