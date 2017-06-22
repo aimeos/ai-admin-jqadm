@@ -9,6 +9,9 @@
 			"text": "SvgTree.css",
 			"path": "themes/default/"
 		},{
+			"text": "jqtree.css",
+			"path": "themes/default/"
+		},{
 			"text": "admin.css",
 			"path": "themes/default/"
 		},{
@@ -21,6 +24,9 @@
 		"isDebug": true,
 		"fileIncludes": [{
 			"text": "SvgTree.js",
+			"path": "themes/"
+		},{
+			"text": "tree.jquery.js",
 			"path": "themes/"
 		},{
 			"text": "admin.js",
