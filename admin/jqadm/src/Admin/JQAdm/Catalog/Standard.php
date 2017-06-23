@@ -98,7 +98,41 @@ class Standard
 	 */
 	public function copy()
 	{
-		return '';
+		$view = $this->getView();
+		$context = $this->getContext();
+
+		try
+		{
+			if( ( $id = $view->param( 'id' ) ) === null ) {
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
+			}
+
+			$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
+			$view->item = $manager->getItem( $id, $this->getDomains() );
+
+			$view->itemData = $this->toArray( $view->item, true );
+			$view->itemSubparts = $this->getSubClientNames();
+			$view->itemRootId = $this->getRootId();
+			$view->itemBody = '';
+
+			foreach( $this->getSubClients() as $idx => $client )
+			{
+				$view->tabindex = ++$idx + 1;
+				$view->itemBody .= $client->create();
+			}
+		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$error = array( 'catalog-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+		catch( \Exception $e )
+		{
+			$error = array( 'catalog-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+
+		return $this->render( $view );
 	}
 
 
@@ -531,6 +565,13 @@ class Standard
 	{
 		$data = $item->toArray( true );
 		$data['config'] = [];
+
+		if( $copy === true )
+		{
+			$data['catalog.id'] = '';
+			$data['catalog.siteid'] = $item->getSiteId();
+			$data['catalog.code'] = $data['catalog.code'] . '_copy';
+		}
 
 		foreach( $item->getConfig() as $key => $value )
 		{

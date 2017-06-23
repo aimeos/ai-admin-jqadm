@@ -38,6 +38,52 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testCopy()
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
+
+		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'cafe' )->getId()];
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->copy();
+
+		$this->assertContains( 'cafe_copy', $result );
+	}
+
+
+	public function testCopyException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Catalog\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'getSubClients' ) )
+			->getMock();
+
+		$object->expects( $this->once() )->method( 'getSubClients' )
+			->will( $this->throwException( new \RuntimeException() ) );
+
+		$object->setView( $this->getViewNoRender() );
+
+		$object->copy();
+	}
+
+
+	public function testCopyMShopException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Catalog\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'getSubClients' ) )
+			->getMock();
+
+		$object->expects( $this->once() )->method( 'getSubClients' )
+			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
+
+		$object->setView( $this->getViewNoRender() );
+
+		$object->copy();
+	}
+
+
 	public function testCreate()
 	{
 		$this->assertContains( 'item-catalog', $this->object->create() );
