@@ -1000,9 +1000,11 @@ select.form-control:not([size]):not([multiple]) {
 	content: "\f068";
 }
 
-.aimeos .item-catalog .tree-content {
-	max-height: 400px;
-	overflow: auto;
+@media (max-width: 991px) {
+	.aimeos .item-catalog .tree-content {
+		max-height: 400px;
+		overflow: auto;
+	}
 }
 
 
