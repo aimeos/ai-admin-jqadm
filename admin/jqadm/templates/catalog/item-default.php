@@ -22,6 +22,16 @@ $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
 $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 
+$listTarget = $this->config( 'admin/jqadm/url/search/target' );
+$listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
+$listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
+$listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
+
+$newTarget = $this->config( 'admin/jqadm/url/create/target' );
+$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
+$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
+$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
+
 $subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
@@ -31,13 +41,14 @@ $params = $this->get( 'pageParams', [] );
 
 <form class="item item-catalog form-horizontal" method="POST" enctype="multipart/form-data"
 	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>"
-	data-rootpath="<?= $enc->attr( json_encode( $this->get( 'itemRootPath', [] ) ) ); ?>"
-	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => ':id:'], [], $getConfig ) ); ?>">
+	data-rootid="<?= $enc->attr( $this->get( 'itemRootId' ) ); ?>"
+	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => '_id_'], [], $getConfig ) ); ?>"
+	data-createurl="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'catalog', 'id' => '_id_'], [], $newConfig ) ); ?>">
 
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.id' ) ) ); ?>"
 		value="<?= $enc->attr( $this->get( 'itemData/catalog.id' ) ); ?>" />
 	<input id="item-parentid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.parentid' ) ) ); ?>"
-		value="<?= $enc->attr( $this->get( 'itemData/catalog.parentid' ) ); ?>" />
+		value="<?= $enc->attr( $this->get( 'itemData/catalog.parentid', $this->param( 'id' ) ) ); ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ); ?>" value="get" />
 	<?= $this->csrf()->formfield(); ?>
 
@@ -49,7 +60,32 @@ $params = $this->get( 'pageParams', [] );
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/catalog.siteid' ) ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-default.php' ), ['params' => $params] ); ?>
+			<a class="btn btn-secondary act-cancel"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Cancel') ); ?>"
+				href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $params, [], $listConfig ) ); ?>">
+				<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
+					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
+				<?php else : ?>
+					<?= $enc->html( $this->translate( 'admin', 'Back' ) ); ?>
+				<?php endif; ?>
+			</a>
+
+			<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
+				<div class="btn-group">
+					<button type="submit" class="btn btn-primary act-save"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Save item (Ctrl+S)') ); ?>">
+						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
+					</button>
+					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle Dropdown' ) ); ?></span>
+					</button>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a class="dropdown-item next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a>
+						<a class="dropdown-item next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ); ?></a>
+					</div>
+				</div>
+			<?php endif; ?>
 		</div>
 	</nav>
 
@@ -60,6 +96,8 @@ $params = $this->get( 'pageParams', [] );
 				<span class="input-group-addon input-group-icon expand-all fa"></span>
 				<span class="input-group-addon input-group-icon collapse-all fa"></span>
 				<input type="text" class="form-control search-input" placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ); ?>">
+				<span class="input-group-addon input-group-icon act-delete fa"></span>
+				<span class="input-group-addon input-group-icon act-add fa"></span>
 			</div>
 			<div class="tree-content">
 			</div>

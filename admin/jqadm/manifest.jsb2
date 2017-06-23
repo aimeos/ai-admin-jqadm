@@ -6,9 +6,6 @@
 		"file": "aimeos-core.css",
 		"isDebug": true,
 		"fileIncludes": [{
-			"text": "SvgTree.css",
-			"path": "themes/default/"
-		},{
 			"text": "jqtree.css",
 			"path": "themes/default/"
 		},{
@@ -23,9 +20,6 @@
 		"file": "aimeos-core.js",
 		"isDebug": true,
 		"fileIncludes": [{
-			"text": "SvgTree.js",
-			"path": "themes/"
-		},{
 			"text": "tree.jquery.js",
 			"path": "themes/"
 		},{

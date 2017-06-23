@@ -126,8 +126,8 @@ class Standard
 			$data['catalog.siteid'] = $view->item->getSiteId();
 			$data['catalog.parentid'] = $view->item->getParentId() ?: $view->param( 'item/catalog.parentid' );
 
-			$view->itemRootPath = $this->getRootPath( $view->item->getId() );
 			$view->itemSubparts = $this->getSubClientNames();
+			$view->itemRootId = $this->getRootId();
 			$view->itemData = $data;
 			$view->itemBody = '';
 
@@ -219,9 +219,9 @@ class Standard
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
-			$view->itemRootPath = $this->getRootPath( $view->item->getId() );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
+			$view->itemRootId = $this->getRootId();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -316,9 +316,9 @@ class Standard
 
 		try
 		{
-			$view->itemRootPath = [$view->item->getId()];
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
+			$view->itemRootId = $this->getRootId();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -453,19 +453,19 @@ class Standard
 
 
 	/**
-	 * Returns the IDs of the nodes up to the tree root
+	 * Returns the IDs of the root category
 	 *
-	 * @param string|null $id Current node ID
-	 * @return string[] List of node IDs up to the root node including the current node
+	 * @return string|null ID of the root category
 	 */
-	protected function getRootPath( $id )
+	protected function getRootId()
 	{
-		if( $id === null ) {
-			return [];
-		}
-
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog' );
-		return array_keys( $manager->getPath( $id ) );
+
+		try {
+			return $manager->getTree( null, [], \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE )->getId();
+		} catch( \Exception $e ) {
+			return null;
+		}
 	}
 
 

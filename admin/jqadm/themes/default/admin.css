@@ -224,12 +224,6 @@ select.form-control:not([size]):not([multiple]) {
 	}
 }
 
-@media (max-width: 1200px) {
-	.item-catalog .form-group.row label {
-		text-align: left;
-	}
-}
-
 @media (max-width: 767px) {
 	.aimeos {
 		font-size: 80%;
@@ -977,11 +971,12 @@ select.form-control:not([size]):not([multiple]) {
 
 .aimeos .item-catalog .tree-toolbar,
 .aimeos .item-catalog .tree-content {
-	margin-bottom: 1.5rem;
+	margin: 0.15rem 0;
+	margin-bottom: 1.35rem;
 }
 
 .aimeos .item-catalog .tree-toolbar.input-group * {
-	padding: 0.65rem 0.75rem;
+	padding: 0.5rem;
 }
 
 .aimeos .item-catalog .input-group-icon.expand-all:before {
@@ -990,6 +985,24 @@ select.form-control:not([size]):not([multiple]) {
 
 .aimeos .item-catalog .input-group-icon.collapse-all:before {
 	content: "\f066";
+}
+
+.aimeos .item-catalog .input-group-icon.act-add,
+.aimeos .item-catalog .input-group-icon.act-delete {
+	font-size: 75%;
+}
+
+.aimeos .item-catalog .input-group-icon.act-add:before {
+	content: "\f067";
+}
+
+.aimeos .item-catalog .input-group-icon.act-delete:before {
+	content: "\f068";
+}
+
+.aimeos .item-catalog .tree-content {
+	max-height: 400px;
+	overflow: auto;
 }
 
 
