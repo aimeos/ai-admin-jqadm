@@ -118,7 +118,7 @@ class Standard
 			foreach( $this->getSubClients() as $idx => $client )
 			{
 				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->create();
+				$view->itemBody .= $client->copy();
 			}
 		}
 		catch( \Aimeos\MShop\Exception $e )
