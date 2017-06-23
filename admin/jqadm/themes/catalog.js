@@ -58,11 +58,74 @@ Aimeos.options.done(function(data) {
 			"data": [root],
 			"autoOpen": 0,
 			"dragAndDrop": true,
-			"slide": false
+			"slide": false,
+			"onCanMoveTo": function(node, target, position) {
+				if(target === root.tree('getTree').children[0] && position !== 'inside') {
+					return false;
+				}
+				return true;
+			}
 		});
 
 		root.bind("tree.click", function(event) {
 			window.location = $(".aimeos .item-catalog").data("geturl").replace("_id_", event.node.id);
+		});
+
+		root.bind("tree.move", function(event) {
+			event.preventDefault();
+
+			Aimeos.options.done(function(data) {
+
+				if(!data['meta'] || !data['meta']['resources'] || !data['meta']['resources']['catalog']) {
+					return;
+				}
+
+				var targetid = event.move_info.target_node.id;
+				var url = data['meta']['resources']['catalog']
+				var get = params = {id: event.move_info.moved_node.id};
+				var entry = {
+					attributes: {},
+					id: event.move_info.moved_node.id,
+					parentid: event.move_info.previous_parent.id
+				};
+
+				if(event.move_info.position === 'inside') {
+					entry.targetid = targetid;
+				} else {
+					entry.targetid = event.move_info.target_node.parent.id;
+				}
+
+				if(event.move_info.position === 'after') {
+					var children = event.move_info.target_node.parent.children;
+
+					for(var i = 0; i < children.length; i++) {
+						if(children[i].id === targetid && i+1 < children.length) {
+							entry.refid = children[i+1].id;
+							break;
+						}
+					}
+				} else if(event.move_info.position === 'before') {
+					entry.refid = targetid;
+				}
+
+				if(data.meta && data.meta.csrf) {
+					params[data.meta.csrf.name] = data.meta.csrf.value;
+				}
+
+				if(data.meta.prefix) {
+					get[data.meta.prefix] = params;
+				} else {
+					get = params;
+				}
+
+				$.ajax(url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(get), {
+					"dataType": "json",
+					"method": "PATCH",
+					"data": JSON.stringify({data: entry})
+				}).done(function(result) {
+					event.move_info.do_move();
+				});
+			});
 		});
 
 		var id = $(".aimeos .item-catalog #item-id").val() || $(".aimeos .item-catalog #item-parentid").val();
@@ -119,16 +182,20 @@ Aimeos.Catalog = {
 
 		Aimeos.options.done(function(data) {
 
+			if(!data['meta'] || !data['meta']['resources'] || !data['meta']['resources']['catalog']) {
+				return;
+			}
+
 			var params = {id: node.id};
 
 			if(data.meta && data.meta.csrf) {
 				params[data.meta.csrf.name] = data.meta.csrf.value;
 			}
 
-			$.ajax(data['meta']['resources']['catalog'] || null, {
-				"method": "DELETE",
+			$.ajax(data['meta']['resources']['catalog'], {
 				"dataType": "json",
-				"data": params,
+				"method": "DELETE",
+				"data": params
 			}).done(function(result) {
 				if(!result.errors) {
 					window.location = $(".aimeos .item-catalog").data("createurl").replace("_id_", (parent ? parent.id : ''));
