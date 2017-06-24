@@ -56,10 +56,6 @@ Aimeos.Product.Item = {
 
 	init : function() {
 
-		this.addConfigLine();
-		this.deleteConfigLine();
-		this.configComplete();
-
 		Aimeos.Product.Item.Characteristic.init();
 		Aimeos.Product.Item.Bundle.init();
 		Aimeos.Product.Item.Category.init();
@@ -71,43 +67,6 @@ Aimeos.Product.Item = {
 		Aimeos.Product.Item.Stock.init();
 		Aimeos.Product.Item.Text.init();
 		Aimeos.Product.Item.Download.init();
-	},
-
-
-	addConfigLine : function() {
-
-		$(".aimeos .item-config").on("click", ".act-add", function(ev) {
-
-			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget));
-
-			$(".config-key", clone).autocomplete({
-				source: ['css-class'],
-				minLength: 0,
-				delay: 0
-			});
-		});
-	},
-
-
-	deleteConfigLine : function() {
-
-		$(".aimeos .item-config").on("click", ".act-delete", function(ev) {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	configComplete : function() {
-
-		$(".aimeos .config-item .config-key").autocomplete({
-			source: ['css-class'],
-			minLength: 0,
-			delay: 0
-		});
-
-		$(".aimeos .item").on("click", " .config-key", function(ev) {
-			$(this).autocomplete("search", "");
-		});
 	}
 };
 

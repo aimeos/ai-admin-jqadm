@@ -149,6 +149,10 @@ Aimeos = {
 
 	init : function() {
 
+		this.addConfigLine();
+		this.deleteConfigLine();
+		this.configComplete();
+
 		this.addShortcuts();
 		this.checkFields();
 		this.checkSubmit();
@@ -162,7 +166,7 @@ Aimeos = {
 	},
 
 
-	addClone : function(node, getfcn, selectfn) {
+	addClone : function(node, getfcn, selectfn, after) {
 
 		var clone = node.clone().removeClass("prototype");
 		var combo = $(".combobox-prototype", clone);
@@ -172,7 +176,12 @@ Aimeos = {
 		combo.addClass("combobox");
 
 		$("[disabled='disabled']", clone).prop("disabled", false);
-		clone.insertBefore(node);
+
+		if(after) {
+			clone.insertAfter(node);
+		} else {
+			clone.insertBefore(node);
+		}
 
 		return clone;
 	},
@@ -223,6 +232,43 @@ Aimeos = {
 			} else if(ev.which === 13) {
 				$(".btn:focus").trigger("click");
 			}
+		});
+	},
+
+
+	addConfigLine : function() {
+
+		$(".aimeos").on("click", ".item-config .act-add", function(ev) {
+
+			var clone = Aimeos.addClone($(".prototype", $(this).closest(".item-config")));
+
+			$(".config-key", clone).autocomplete({
+				source: ['css-class'],
+				minLength: 0,
+				delay: 0
+			});
+		});
+	},
+
+
+	deleteConfigLine : function() {
+
+		$(".aimeos").on("click", ".item-config .act-delete", function(ev) {
+			Aimeos.focusBefore($(this).closest("tr")).remove();
+		});
+	},
+
+
+	configComplete : function() {
+
+		$(".aimeos .config-item .config-key").autocomplete({
+			source: ['css-class'],
+			minLength: 0,
+			delay: 0
+		});
+
+		$(".aimeos .item").on("click", " .config-key", function(ev) {
+			$(this).autocomplete("search", "");
 		});
 	},
 
