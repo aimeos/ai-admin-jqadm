@@ -187,7 +187,6 @@ $params = $this->get( 'pageParams', [] );
 										<?= $enc->html( $typeItem->getLabel() ); ?>
 									</option>
 								<?php endforeach; ?>
-
 							</select>
 						</div>
 					</div>

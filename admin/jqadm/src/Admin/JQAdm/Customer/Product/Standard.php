@@ -236,7 +236,8 @@ class Standard
 		$search = $this->initCriteria( $search, $view->param() );
 		$expr = [
 			$search->getConditions(),
-			$search->compare( '==', 'customer.lists.type.domain', 'product' ),
+			$search->compare( '==', 'customer.lists.parentid', $view->item->getId() ),
+			$search->compare( '==', 'customer.lists.domain', 'product' ),
 		];
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
