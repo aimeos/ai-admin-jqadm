@@ -429,9 +429,27 @@ class Standard
 				$litem->setDateEnd( $this->getValue( $data, 'catalog.lists.dateend/' . $idx ) );
 			}
 
-			if( isset( $data['catalog.lists.config'][$idx] ) ) {
-				$litem->setConfig( json_decode( $this->getValue( $data, 'catalog.lists.config/' . $idx ), true ) );
+
+			$conf = [];
+
+			if( isset( $data[$idx]['config']['key'] ) )
+			{
+				foreach( (array) $data[$idx]['config']['key'] as $idx => $key )
+				{
+					if( trim( $key ) !== '' && isset( $data[$idx]['config']['val'][$idx] ) ) {
+						$conf[$key] = $data[$idx]['config']['val'][$idx];
+					}
+				}
+
+				$litem->setConfig( $conf );
 			}
+
+			if( isset( $data['catalog.lists.config'][$idx] )
+				&& ( $conf = json_decode( $this->getValue( $data, 'catalog.lists.config/' . $idx ), true ) ) !== null
+			) {
+				$litem->setConfig( $conf );
+			}
+error_log( print_R($litem, true ));
 
 			$listManager->saveItem( $litem, false );
 		}

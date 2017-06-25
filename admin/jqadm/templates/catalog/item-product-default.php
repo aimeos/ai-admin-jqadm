@@ -134,7 +134,7 @@ $refItems = $this->get( 'productItems', [] );
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 								<div class="col-sm-8">
 									<select class="form-control c-select item-status" required="required" tabindex="1" disabled="disabled"
-										name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.status' ) ) ); ?>">
+										name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.status', '' ) ) ); ?>">
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 										</option>
@@ -157,7 +157,7 @@ $refItems = $this->get( 'productItems', [] );
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 								<div class="col-sm-8">
 									<select class="form-control c-select item-typeid" required="required" tabindex="1" disabled="disabled"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.lists.typeid' ) ) ); ?>" >
+										name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.typeid', '' ) ) ); ?>" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 										</option>
@@ -171,8 +171,8 @@ $refItems = $this->get( 'productItems', [] );
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 								<div class="col-sm-8">
-									<input class="form-control catalog-lists-dateend" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
-										name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.dateend', '' ) ) ); ?>" disabled="disabled" />
+									<input class="form-control catalog-lists-datestart" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.datestart', '' ) ) ); ?>" disabled="disabled" />
 								</div>
 							</div>
 							<div class="form-group row optional">
@@ -191,7 +191,7 @@ $refItems = $this->get( 'productItems', [] );
 							</div>
 						</div>
 						<div class="col-xl-6">
-							<table class="item-config table table-striped">
+							<table class="item-config-cp table table-striped">
 								<thead>
 									<tr>
 										<th>
@@ -214,11 +214,11 @@ $refItems = $this->get( 'productItems', [] );
 									<tr class="prototype">
 										<td>
 											<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'product', 'config', 'key', '' ) ) ); ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'product', 'idx', 'config', 'key', '' ) ) ); ?>" />
 										</td>
 										<td>
 											<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'product', 'config', 'val', '' ) ) ); ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'product', 'idx', 'config', 'val', '' ) ) ); ?>" />
 										</td>
 										<td class="actions">
 											<div class="btn act-delete fa" tabindex="1"
@@ -232,8 +232,6 @@ $refItems = $this->get( 'productItems', [] );
 					</div>
 				</td>
 				<td class="actions">
-					<input type="hidden" name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.id', '' ) ) ); ?>" disabled="disabled" />
-
 					<a class="btn fa act-close" href="#"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Close') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>">
@@ -257,7 +255,7 @@ $refItems = $this->get( 'productItems', [] );
 					<?php if( in_array( 'catalog.lists.status', $fields ) ) : ?>
 						<td class="catalog-lists-status">
 							<select class="form-control c-select item-status" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.lists.status', '' ) ) ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.status', '' ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> >
 								<option value="">
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -304,9 +302,9 @@ $refItems = $this->get( 'productItems', [] );
 					<?php endif; ?>
 					<?php if( in_array( 'catalog.lists.datestart', $fields ) ) : ?>
 						<td class="catalog-lists-datestart">
-							<input class="form-control catalog-lists-dateend" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
-								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.dateend', '' ) ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'productData/catalog.lists.datestart/' . $idx ) ); ?>"
+							<input class="form-control catalog-lists-datestart" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.datestart', '' ) ) ); ?>"
+								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'productData/catalog.lists.datestart/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> />
 						</td>
 					<?php endif; ?>
@@ -314,7 +312,7 @@ $refItems = $this->get( 'productItems', [] );
 						<td class="catalog-lists-dateend">
 							<input class="form-control catalog-lists-dateend" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.dateend', '' ) ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'productData/catalog.lists.dateend/' . $idx ) ); ?>"
+								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'productData/catalog.lists.dateend/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> />
 						</td>
 					<?php endif; ?>

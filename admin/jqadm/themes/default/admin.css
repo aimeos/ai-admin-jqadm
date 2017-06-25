@@ -962,7 +962,8 @@ select.form-control:not([size]):not([multiple]) {
 	width: 49%;
 }
 
-.aimeos .item-config th {
+.aimeos .item-config th,
+.aimeos .item-config-cp th {
 	background-color: #ffffff;
 	color: #292b2c;
 }
@@ -1009,7 +1010,13 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .aimeos .item-catalog .item-product th.catalog-lists-position,
-.aimeos .item-catalog .item-product td.catalog-lists-position {
+.aimeos .item-catalog .item-product td.catalog-lists-position,
+.aimeos .item-catalog .item-product th.catalog-lists-status,
+.aimeos .item-catalog .item-product td.catalog-lists-status,
+.aimeos .item-catalog .item-product th.catalog-lists-type,
+.aimeos .item-catalog .item-product td.catalog-lists-type,
+.aimeos .item-catalog .item-product th.catalog-lists-config,
+.aimeos .item-catalog .item-product td.catalog-lists-config {
 	width: 15%;
 }
 
