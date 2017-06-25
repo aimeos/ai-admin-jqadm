@@ -278,40 +278,9 @@ Aimeos.Catalog.Item.Product = {
 
 	init : function() {
 
-		this.addConfigLine();
-		this.deleteConfigLine();
-
 		this.addItem();
 		this.closeItem();
 		this.removeItem();
-	},
-
-
-	addConfigLine : function() {
-
-		$(".aimeos").on("click", ".item-config-cp .act-add", function(ev) {
-
-			var clone = Aimeos.addClone($(".prototype", $(this).closest(".item-config-cp")));
-			var count = $(".aimeos .item-catalog .item-product .list-item-new").length;
-
-			$("input", clone).each(function() {
-				$(this).attr("name", $(this).attr("name").replace("idx", count-2));
-			});
-
-			$(".config-key", clone).autocomplete({
-				source: ['css-class'],
-				minLength: 0,
-				delay: 0
-			});
-		});
-	},
-
-
-	deleteConfigLine : function() {
-
-		$(".aimeos").on("click", ".item-config-cp .act-delete", function(ev) {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
 	},
 
 

@@ -238,9 +238,14 @@ Aimeos = {
 
 	addConfigLine : function() {
 
-		$(".aimeos").on("click", ".item-config .act-add", function(ev) {
+		$(".aimeos .item .tab-pane").on("click", ".item-config .act-add", function(ev) {
 
 			var clone = Aimeos.addClone($(".prototype", $(this).closest(".item-config")));
+			var count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and starting with 0
+
+			$("input", clone).each(function() {
+				$(this).attr("name", $(this).attr("name").replace("idx", count));
+			});
 
 			$(".config-key", clone).autocomplete({
 				source: ['css-class'],
@@ -253,7 +258,7 @@ Aimeos = {
 
 	deleteConfigLine : function() {
 
-		$(".aimeos").on("click", ".item-config .act-delete", function(ev) {
+		$(".aimeos .item .tab-pane").on("click", ".item-config .act-delete", function(ev) {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
@@ -261,7 +266,7 @@ Aimeos = {
 
 	configComplete : function() {
 
-		$(".aimeos .config-item .config-key").autocomplete({
+		$(".aimeos .item .config-item .config-key").autocomplete({
 			source: ['css-class'],
 			minLength: 0,
 			delay: 0

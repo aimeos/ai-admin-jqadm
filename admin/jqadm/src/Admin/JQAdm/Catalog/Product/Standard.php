@@ -70,7 +70,6 @@ class Standard
 		try
 		{
 			$view->productListTypes = $this->getListTypes();
-			$view->productTypes = $this->getProductTypes();
 			$view->productBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -429,27 +428,25 @@ class Standard
 				$litem->setDateEnd( $this->getValue( $data, 'catalog.lists.dateend/' . $idx ) );
 			}
 
-
-			$conf = [];
-
-			if( isset( $data[$idx]['config']['key'] ) )
-			{
-				foreach( (array) $data[$idx]['config']['key'] as $idx => $key )
-				{
-					if( trim( $key ) !== '' && isset( $data[$idx]['config']['val'][$idx] ) ) {
-						$conf[$key] = $data[$idx]['config']['val'][$idx];
-					}
-				}
-
-				$litem->setConfig( $conf );
-			}
-
 			if( isset( $data['catalog.lists.config'][$idx] )
 				&& ( $conf = json_decode( $this->getValue( $data, 'catalog.lists.config/' . $idx ), true ) ) !== null
 			) {
 				$litem->setConfig( $conf );
 			}
-error_log( print_R($litem, true ));
+
+			if( isset( $data['config'][$idx]['key'] ) )
+			{
+				$conf = [];
+
+				foreach( (array) $data['config'][$idx]['key'] as $pos => $key )
+				{
+					if( trim( $key ) !== '' && isset( $data['config'][$idx]['val'][$pos] ) ) {
+						$conf[$key] = $data['config'][$idx]['val'][$pos];
+					}
+				}
+
+				$litem->setConfig( $conf );
+			}
 
 			$listManager->saveItem( $litem, false );
 		}

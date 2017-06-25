@@ -191,7 +191,7 @@ $refItems = $this->get( 'productItems', [] );
 							</div>
 						</div>
 						<div class="col-xl-6">
-							<table class="item-config-cp table table-striped">
+							<table class="item-config config-multiple table table-striped">
 								<thead>
 									<tr>
 										<th>
@@ -214,11 +214,11 @@ $refItems = $this->get( 'productItems', [] );
 									<tr class="prototype">
 										<td>
 											<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'product', 'idx', 'config', 'key', '' ) ) ); ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'product', 'config', 'idx', 'key', '' ) ) ); ?>" />
 										</td>
 										<td>
 											<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'product', 'idx', 'config', 'val', '' ) ) ); ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'product', 'config', 'idx', 'val', '' ) ) ); ?>" />
 										</td>
 										<td class="actions">
 											<div class="btn act-delete fa" tabindex="1"
