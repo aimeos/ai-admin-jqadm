@@ -242,7 +242,7 @@ Aimeos = {
 		$(".aimeos .item .tab-pane").on("click", ".item-config .act-add", function(ev) {
 
 			var clone = Aimeos.addClone($(".prototype", $(this).closest(".item-config")));
-			var count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and starting with 0
+			var count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and must start with 0
 
 			$("input", clone).each(function() {
 				$(this).attr("name", $(this).attr("name").replace("idx", count));

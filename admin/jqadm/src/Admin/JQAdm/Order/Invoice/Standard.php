@@ -91,7 +91,9 @@ class Standard
 
 		try
 		{
-			$view->invoiceData = $this->toArray( $view->item );
+			$orderItems = $this->getOrderItems( $view->item, $view->param() );
+
+			$view->invoiceData = $this->toArray( $orderItems );
 			$view->invoiceBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -150,16 +152,6 @@ class Standard
 		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
-	}
-
-
-	/**
-	 * Returns a list of resource according to the conditions
-	 *
-	 * @return string admin output to display
-	 */
-	public function search()
-	{
 	}
 
 
@@ -263,16 +255,19 @@ class Standard
 	/**
 	 * Returns the order items (invoice records) for the given order base (basket) ID
 	 *
-	 * @param string $baseId Unique order base (basket) ID
+	 * @param \Aimeos\MShop\Order\Item\Base\Iface $order Current order base item
+	 * @param string $params GET/POST parameters containing the filter values
 	 * @return \Aimeos\MShop\Order\Item\Iface[] Associative list of order IDs as keys and items as values
 	 */
-	protected function getOrderItems( $baseId )
+	protected function getOrderItems( \Aimeos\MShop\Order\Item\Base\Iface $order, array $params )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
 
 		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'order.baseid', $baseId ) );
+		$search->setConditions( $search->compare( '==', 'order.baseid', $order->getId() ) );
 		$search->setSortations( array( $search->sort( '-', 'order.ctime' ) ) );
+
+		$search = $this->initCriteria( $search, $params );
 
 		return $manager->searchItems( $search );
 	}
@@ -286,10 +281,17 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Order\Item\Base\Iface $order, array $data )
 	{
+		$invoiceIds = $this->getValue( $data, 'order.id', [] );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
-		$items = $this->getOrderItems( $order->getId() );
 
-		foreach( $this->getValue( $data, 'order.id', [] ) as $idx => $id )
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'order.id', $invoiceIds ) );
+		$search->setSlice( 0, 0x7fffffff );
+
+		$items = $manager->searchItems( $search );
+
+
+		foreach( $invoiceIds as $idx => $id )
 		{
 			if( !isset( $items[$id] ) ) {
 				$item = $manager->createItem();
@@ -297,12 +299,30 @@ class Standard
 				$item = $items[$id];
 			}
 
-			$item->setDeliveryStatus( $this->getValue( $data, 'order.statusdelivery/' . $idx, -1 ) );
-			$item->setPaymentStatus( $this->getValue( $data, 'order.statuspayment/' . $idx, -1 ) );
-			$item->setDateDelivery( $this->getValue( $data, 'order.datedelivery/' . $idx ) );
-			$item->setDatePayment( $this->getValue( $data, 'order.datepayment/' . $idx ) );
-			$item->setRelatedId( $this->getValue( $data, 'order.relatedid/' . $idx ) );
-			$item->setType( $this->getValue( $data, 'order.type/' . $idx, '' ) );
+			if( isset( $data['order.statusdelivery'][$idx] ) ) {
+				$item->setDeliveryStatus( $data['order.statusdelivery'][$idx] );
+			}
+
+			if( isset( $data['order.statuspayment'][$idx] ) ) {
+				$item->setPaymentStatus( $data['order.statuspayment'][$idx] );
+			}
+
+			if( isset( $data['order.datedelivery'][$idx] ) ) {
+				$item->setDateDelivery( $data['order.datedelivery'][$idx] );
+			}
+
+			if( isset( $data['order.datepayment'][$idx] ) ) {
+				$item->setDatePayment( $data['order.datepayment'][$idx] );
+			}
+
+			if( isset( $data['order.relatedid'][$idx] ) ) {
+				$item->setRelatedId( $data['order.relatedid'][$idx] );
+			}
+
+			if( isset( $data['order.type'][$idx] ) ) {
+				$item->setType( $data['order.type'][$idx] );
+			}
+
 			$item->setBaseId( $order->getId() );
 
 			$manager->saveItem( $item, false );
@@ -313,27 +333,18 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Order\Item\Base\Iface $item Order base item object
-	 * @param boolean $copy True if item should be copied, false if not
+	 * @param \Aimeos\MShop\Order\Item\Iface[] $invoices List of invoices belonging to the order
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Order\Item\Base\Iface $item, $copy = false )
+	protected function toArray( array $invoices )
 	{
 		$data = [];
 
-		foreach( $this->getOrderItems( $item->getId() ) as $item )
+		foreach( $invoices as $item )
 		{
 			foreach( $item->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
-		}
-
-		foreach( $data['order.datepayment'] as $idx => $value ) {
-			$data['order.datepayment'][$idx] = str_replace( ' ', 'T', $value );
-		}
-
-		foreach( $data['order.datedelivery'] as $idx => $value ) {
-			$data['order.datedelivery'][$idx] = str_replace( ' ', 'T', $value );
 		}
 
 		return $data;

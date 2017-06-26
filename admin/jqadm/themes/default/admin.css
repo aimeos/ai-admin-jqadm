@@ -726,7 +726,6 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .aimeos .content-block {
-	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
 
