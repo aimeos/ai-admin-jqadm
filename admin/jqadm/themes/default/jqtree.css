@@ -31,6 +31,14 @@ ul.jqtree-tree .jqtree-toggler {
   color: #333;
 }
 
+ul.jqtree-tree .jqtree-folder .jqtree-toggler.jqtree-closed:before {
+  content: "►";
+}
+
+ul.jqtree-tree .jqtree-folder .jqtree-toggler:before {
+  content: "▼";
+}
+
 ul.jqtree-tree .jqtree-toggler:hover {
   color: #000;
   text-decoration: none;

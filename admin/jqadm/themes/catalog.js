@@ -58,6 +58,8 @@ Aimeos.options.done(function(data) {
 			"data": [root],
 			"autoOpen": 0,
 			"dragAndDrop": true,
+			"closedIcon": " ",
+			"openedIcon": " ",
 			"slide": false,
 			"onCanMoveTo": function(node, target, position) {
 				if(target === root.tree('getTree').children[0] && position !== 'inside') {
@@ -230,12 +232,9 @@ Aimeos.Catalog.Item = {
 	setupCollapseAll : function() {
 
 		$(".aimeos .item-catalog .catalog-tree").on("click", ".tree-toolbar .collapse-all", function(ev) {
-
-			var root = $(".tree-content", ev.delegateTarget);
-
-			$(".tree-content .jqtree-folder", ev.delegateTarget).each(function() {
-				root.tree('closeNode', root.tree('getNodeByHtmlElement', this));
-			});
+			$(".tree-content .jqtree-folder .jqtree-toggler", ev.delegateTarget).addClass("jqtree-closed");
+			$(".tree-content .jqtree-folder", ev.delegateTarget).addClass("jqtree-closed");
+			$('.tree-content ul.jqtree_common[role="group"]', ev.delegateTarget).css("display", "none");
 		});
 	},
 
@@ -243,12 +242,9 @@ Aimeos.Catalog.Item = {
 	setupExpandAll : function() {
 
 		$(".aimeos .item-catalog .catalog-tree").on("click", ".tree-toolbar .expand-all", function(ev) {
-
-			var root = $(".tree-content", ev.delegateTarget);
-
-			$(".tree-content .jqtree-folder.jqtree-closed", ev.delegateTarget).each(function() {
-				root.tree('openNode', root.tree('getNodeByHtmlElement', this));
-			});
+			$(".tree-content .jqtree-folder .jqtree-toggler.jqtree-closed", ev.delegateTarget).removeClass("jqtree-closed");
+			$(".tree-content .jqtree-folder.jqtree-closed", ev.delegateTarget).removeClass("jqtree-closed");
+			$('.tree-content ul.jqtree_common[role="group"]', ev.delegateTarget).css("display", "block");
 		});
 	},
 
