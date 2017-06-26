@@ -1076,6 +1076,14 @@ select.form-control:not([size]):not([multiple]) {
 
 /** Order */
 
+.aimeos .list-order .list-header .actions .act-add {
+	display: none;
+}
+
+.aimeos .list-order .list-item .actions .act-copy {
+	visibility: hidden;
+}
+
 .aimeos .item-order .item-customerid a.act-view:after {
 	font: normal normal normal 14px/1 FontAwesome;
 	content:"\f06e";

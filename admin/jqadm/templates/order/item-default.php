@@ -38,10 +38,16 @@ $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
 $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 
-$subparts = $this->get( 'itemSubparts', [] );
-$params = $this->get( 'pageParams', [] );
+$listTarget = $this->config( 'admin/jqadm/url/search/target' );
+$listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
+$listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
+$listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
 $basket = $this->item;
+$subparts = $this->get( 'itemSubparts', [] );
+
+$searchParams = $params = $this->get( 'pageParams', [] );
+unset( $searchParams['id'] );
 
 /// Price format with price value (%1$s) and currency (%2$s)
 $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
@@ -70,7 +76,31 @@ $serviceAttrCodes = [
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $basket->getLocale()->getSiteId() ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-default.php' ), ['params' => $params] ); ?>
+			<a class="btn btn-secondary act-cancel"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
+				href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $searchParams, [], $listConfig ) ); ?>">
+				<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
+					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
+				<?php else : ?>
+					<?= $enc->html( $this->translate( 'admin', 'Back' ) ); ?>
+				<?php endif; ?>
+			</a>
+
+			<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
+				<div class="btn-group">
+					<button type="submit" class="btn btn-primary act-save"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Save item (Ctrl+S)') ); ?>">
+						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
+					</button>
+					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle Dropdown' ) ); ?></span>
+					</button>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a class="dropdown-item next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a>
+					</div>
+				</div>
+			<?php endif; ?>
 		</div>
 	</nav>
 

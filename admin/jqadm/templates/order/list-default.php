@@ -241,7 +241,7 @@ $statusList = [
 
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>
-				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
+				<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>">
 					<?php if( in_array( 'order.id', $fields ) ) : ?>
 						<td class="order-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
