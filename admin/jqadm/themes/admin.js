@@ -158,6 +158,7 @@ Aimeos = {
 		this.checkSubmit();
 		this.createDatePicker();
 		this.resetSearch();
+		this.setPanelHeight();
 		this.setupNext();
 		this.setupTabSwitch();
 		this.showErrors();
@@ -450,8 +451,19 @@ Aimeos = {
 	resetSearch : function() {
 
 		$(".aimeos .list-search").on("click", ".act-reset", function(ev) {
+			$("select", ev.delegateTarget).val("");
 			$("input", ev.delegateTarget).val("");
 			return false;
+		});
+	},
+
+
+	setPanelHeight : function() {
+
+		$(".aimeos .tab-pane").on("click", ".filter-columns", function(ev) {
+			// CSS class "show" will be added afterwards, thus it's reversed
+			var height = ($(this).hasClass("show") ? 0 : $(".dropdown-menu", this).outerHeight());
+			$(ev.delegateTarget).css("min-height", $("thead", ev.delegateTarget).outerHeight() + height);
 		});
 	},
 

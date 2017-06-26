@@ -925,6 +925,10 @@ select.form-control:not([size]):not([multiple]) {
 	}
 }
 
+.aimeos .item .tab-pane {
+	overflow-x: auto;
+}
+
 .aimeos .item .form-group.mandatory label:after {
 	white-space: nowrap;
 	content: " *";
