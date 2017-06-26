@@ -169,7 +169,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$prodManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/lists/type' );
 
-		$prodId = $prodManager->findItem( 'CNC' )->getId();
 		$typeId = $typeManager->findItem( 'favorite', [], 'product' )->getId();
 
 		$item = $manager->findItem( 'UTC001' );

@@ -261,8 +261,7 @@ class Standard
 	 */
 	protected function addViewData( \Aimeos\MW\View\Iface $view )
 	{
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'text/type' );
 
 		$view->textTypes = $manager->searchItems( $manager->createSearch() );
 
@@ -439,8 +438,6 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Catalog\Item\Iface $item, $copy = false )
 	{
 		$data = [];
-		$context = $this->getContext();
-		$siteId = $context->getLocale()->getSiteId();
 
 		foreach( $item->getListItems( 'text', 'default' ) as $listItem )
 		{

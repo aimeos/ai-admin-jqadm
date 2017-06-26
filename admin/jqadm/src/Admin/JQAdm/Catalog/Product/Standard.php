@@ -392,7 +392,6 @@ class Standard
 		$listItem->setParentId( $item->getId() );
 		$listItem->setDomain( 'product' );
 
-		$num = 0;
 
 		foreach( (array) $listIds as $idx => $listid )
 		{
