@@ -13,15 +13,15 @@ $selected = function( $key, $code ) {
 $enc = $this->encoder();
 $searchParam = $params = $this->get( 'pageParams', [] );
 
-$newTarget = $this->config( 'admin/jqadm/url/create/target' );
-$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
-$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
-$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
-
 $getTarget = $this->config( 'admin/jqadm/url/get/target' );
 $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
 $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
+
+$newTarget = $this->config( 'admin/jqadm/url/create/target' );
+$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
+$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
+$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
 
 $delTarget = $this->config( 'admin/jsonadm/url/target' );
 $delCntl = $this->config( 'admin/jsonadm/url/controller', 'Jsonadm' );
@@ -246,7 +246,7 @@ $refItems = $this->get( 'productItems', [] );
 				<tr class="list-item <?= $this->site()->readonly( $siteId ); ?>">
 					<?php if( in_array( 'catalog.lists.position', $fields ) ) : ?>
 						<td class="catalog-lists-position">
-							<input class="form-control catalog-lists-position" type="number" step="1" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<input class="form-control item-position" type="number" step="1" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.position', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'productData/catalog.lists.position/' . $idx ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> />
@@ -294,7 +294,7 @@ $refItems = $this->get( 'productItems', [] );
 					<?php endif; ?>
 					<?php if( in_array( 'catalog.lists.config', $fields ) ) : ?>
 						<td class="catalog-lists-config">
-							<input class="form-control catalog-lists-config" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<input class="form-control item-config" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.config', '' ) ) ); ?>"
 								value="<?= $enc->attr( json_encode( $this->get( 'productData/catalog.lists.config/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> />
@@ -302,7 +302,7 @@ $refItems = $this->get( 'productItems', [] );
 					<?php endif; ?>
 					<?php if( in_array( 'catalog.lists.datestart', $fields ) ) : ?>
 						<td class="catalog-lists-datestart">
-							<input class="form-control catalog-lists-datestart" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<input class="form-control item-datestart" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.datestart', '' ) ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'productData/catalog.lists.datestart/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> />
@@ -310,7 +310,7 @@ $refItems = $this->get( 'productItems', [] );
 					<?php endif; ?>
 					<?php if( in_array( 'catalog.lists.dateend', $fields ) ) : ?>
 						<td class="catalog-lists-dateend">
-							<input class="form-control catalog-lists-dateend" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<input class="form-control item-dateend" type="datetime-local" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.dateend', '' ) ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'productData/catalog.lists.dateend/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> />
@@ -321,7 +321,7 @@ $refItems = $this->get( 'productItems', [] );
 
 					<?php if( in_array( 'catalog.lists.refid', $fields ) ) : ?>
 						<td class="catalog-lists-refid">
-							<input class="form-control catalog-lists-refid" type="hidden"
+							<input class="form-control item-refid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.refid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $refId ); ?>" />
 							<?= $enc->html( $refId ); ?>

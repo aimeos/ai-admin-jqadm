@@ -167,11 +167,6 @@ html {
 	border-left: 0.2rem solid #E05040;
 }
 
-.tab-pane {
-	overflow-x: auto;
-	height: 100%;
-}
-
 .card-header {
 	background: #FFF;
 	border-top: 3px solid #4090C0;
@@ -747,13 +742,6 @@ select.form-control:not([size]):not([multiple]) {
 	padding: 0.25rem;
 }
 
-.aimeos table th.order-id,
-.aimeos table td.order-id,
-.aimeos table th.product-id,
-.aimeos table td.product-id {
-	max-width: 5rem;
-}
-
 .aimeos table .actions {
 	white-space: nowrap;
 	text-align: right;
@@ -962,8 +950,7 @@ select.form-control:not([size]):not([multiple]) {
 	width: 49%;
 }
 
-.aimeos .item-config th,
-.aimeos .item-config-cp th {
+.aimeos .item-config th {
 	background-color: #ffffff;
 	color: #292b2c;
 }
@@ -1009,23 +996,24 @@ select.form-control:not([size]):not([multiple]) {
 	content: "\f068";
 }
 
-.aimeos .item-catalog .item-product th.catalog-lists-position,
-.aimeos .item-catalog .item-product td.catalog-lists-position,
-.aimeos .item-catalog .item-product th.catalog-lists-status,
-.aimeos .item-catalog .item-product td.catalog-lists-status,
-.aimeos .item-catalog .item-product th.catalog-lists-type,
-.aimeos .item-catalog .item-product td.catalog-lists-type,
-.aimeos .item-catalog .item-product th.catalog-lists-config,
-.aimeos .item-catalog .item-product td.catalog-lists-config {
+.aimeos .catalog-lists-position,
+.aimeos .customer-lists-position,
+.aimeos .catalog-lists-status,
+.aimeos .customer-lists-status,
+.aimeos .catalog-lists-type,
+.aimeos .customer-lists-type,
+.aimeos .catalog-lists-config,
+.aimeos .customer-lists-config {
 	width: 15%;
 }
 
-.aimeos .item-catalog .item-product th.catalog-lists-refid,
-.aimeos .item-catalog .item-product td.catalog-lists-refid {
+.aimeos .catalog-lists-refid,
+.aimeos .customer-lists-refid {
 	width: 35%;
 }
 
-.aimeos .item-catalog .item-product tr.list-item td.catalog-lists-refid {
+.aimeos .catalog-lists-refid,
+.aimeos .customer-lists-refid {
 	padding: 0 0.75rem;
 	text-align: left;
 }
