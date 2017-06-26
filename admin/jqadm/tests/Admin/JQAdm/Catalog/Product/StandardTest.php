@@ -166,7 +166,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
-		$prodManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog/lists/type' );
 
 		$typeId = $typeManager->findItem( 'promotion', [], 'product' )->getId();
