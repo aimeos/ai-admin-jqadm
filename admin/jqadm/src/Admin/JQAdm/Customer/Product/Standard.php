@@ -65,7 +65,29 @@ class Standard
 	 */
 	public function copy()
 	{
-		return $this->get();
+		$view = $this->getView();
+
+		try
+		{
+			$view->productListTypes = $this->getListTypes();
+			$view->productBody = '';
+
+			foreach( $this->getSubClients() as $client ) {
+				$view->productBody .= $client->copy();
+			}
+		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$error = array( 'customer-product' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+		catch( \Exception $e )
+		{
+			$error = array( 'customer-product' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+
+		return $this->render( $view );
 	}
 
 
@@ -76,7 +98,29 @@ class Standard
 	 */
 	public function create()
 	{
-		return $this->get();
+		$view = $this->getView();
+
+		try
+		{
+			$view->productListTypes = $this->getListTypes();
+			$view->productBody = '';
+
+			foreach( $this->getSubClients() as $client ) {
+				$view->productBody .= $client->create();
+			}
+		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$error = array( 'customer-product' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+		catch( \Exception $e )
+		{
+			$error = array( 'customer-product' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+
+		return $this->render( $view );
 	}
 
 
@@ -91,9 +135,11 @@ class Standard
 
 		try
 		{
-			$view = $this->addItems( $view );
+			$listItems = $this->getListItems( $view->item, $view->param() );
+
+			$view->productItems = $this->getProductItems( $listItems );
+			$view->productData = $this->toArray( $listItems );
 			$view->productListTypes = $this->getListTypes();
-			$view->productTypes = $this->getProductTypes();
 			$view->productBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -120,17 +166,39 @@ class Standard
 	 */
 	public function save()
 	{
-		return $this->get();
-	}
+		$view = $this->getView();
+		$context = $this->getContext();
 
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
 
-	/**
-	 * Returns a list of resource according to the conditions
-	 *
-	 * @return string admin output to display
-	 */
-	public function search()
-	{
+		$manager->begin();
+
+		try
+		{
+			$this->fromArray( $view->item, $view->param( 'product', [] ) );
+			$view->productBody = '';
+
+			foreach( $this->getSubClients() as $client ) {
+				$view->productBody .= $client->save();
+			}
+
+			$manager->commit();
+			return;
+		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$error = array( 'customer-item-image' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+		catch( \Exception $e )
+		{
+			$error = array( 'customer-item-image' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+
+		$manager->rollback();
+
+		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
 
 
@@ -221,48 +289,28 @@ class Standard
 
 
 	/**
-	 * Adds the found (list) items to the view object
+	 * Returns the customer list items referencing the products
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface $view View object with data assigned
+	 * @param \Aimeos\MShop\Customer\Item\Iface $item Customer item object
+	 * @param array $params Associative list of GET/POST parameters
+	 * @return \Aimeos\MShop\Common\Item\List\Iface[] Customer list items referencing the products
 	 */
-	protected function addItems( \Aimeos\MW\View\Iface $view )
+	protected function getListItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [] )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/lists' );
 
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '-', 'customer.lists.ctime' )] );
 
-		$search = $this->initCriteria( $search, $view->param() );
+		$search = $this->initCriteria( $search, $params );
 		$expr = [
 			$search->getConditions(),
-			$search->compare( '==', 'customer.lists.parentid', $view->item->getId() ),
+			$search->compare( '==', 'customer.lists.parentid', $item->getId() ),
 			$search->compare( '==', 'customer.lists.domain', 'product' ),
 		];
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		$listItems = $manager->searchItems( $search );
-
-
-		$prodIds = [];
-		foreach( $listItems as $listItem ) {
-			$prodIds[] = $listItem->getRefId();
-		}
-
-
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
-
-		$prodSearch = $manager->createSearch();
-		$prodSearch->setConditions( $search->compare( '==', 'product.id', $prodIds ) );
-		$prodSearch->setSlice( 0, $search->getSliceSize() );
-
-		$items = $manager->searchItems( $prodSearch );
-
-
-		$view->productListItems = $listItems;
-		$view->productItems = $items;
-
-		return $view;
+		return $manager->searchItems( $search );
 	}
 
 
@@ -289,20 +337,26 @@ class Standard
 
 
 	/**
-	 * Returns the available product list types
+	 * Returns the product items referenced by the given list items
 	 *
-	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of type IDs as keys and type codes as values
+	 * @param \Aimeos\MShop\Common\Item\List\Iface[] $listItems Customer list items referencing the products
+	 * @return \Aimeos\MShop\Product\Item\Iface[] Associative list of product IDs as keys and items as values
 	 */
-	protected function getProductTypes()
+	protected function getProductItems( array $listItems )
 	{
 		$list = [];
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/type' );
 
-		foreach( $manager->searchItems( $manager->createSearch() ) as $id => $item ) {
-			$list[$id] = $item->getCode();
+		foreach( $listItems as $listItem ) {
+			$list[] = $listItem->getRefId();
 		}
 
-		return $list;
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
+		$search->setSlice( 0, 0x7fffffff );
+
+		return $manager->searchItems( $search );
 	}
 
 
@@ -314,6 +368,109 @@ class Standard
 	protected function getSubClientNames()
 	{
 		return $this->getContext()->getConfig()->get( $this->subPartPath, $this->subPartNames );
+	}
+
+
+	/**
+	 * Creates new and updates existing items using the data array
+	 *
+	 * @param \Aimeos\MShop\Customer\Item\Iface $item Customer item object without referenced domain items
+	 * @param string[] $data Data array
+	 */
+	protected function fromArray( \Aimeos\MShop\Customer\Item\Iface $item, array $data )
+	{
+		$context = $this->getContext();
+		$listIds = $this->getValue( $data, 'customer.lists.id', [] );
+
+		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
+
+		$search = $listManager->createSearch();
+		$search->setConditions( $search->compare( '==', 'customer.lists.id', $listIds ) );
+		$search->setSlice( 0, 0x7fffffff );
+
+		$listItem = $listManager->createItem();
+		$listItem->setParentId( $item->getId() );
+		$listItem->setDomain( 'product' );
+
+		$num = 0;
+
+		foreach( (array) $listIds as $idx => $listid )
+		{
+			if( isset( $listItems[$listid] ) ) {
+				$litem = $listItems[$listid];
+			} else {
+				$litem = clone $listItem;
+			}
+
+			$litem->setId( $listid ?: null );
+
+			if( isset( $data['customer.lists.refid'][$idx] ) ) {
+				$litem->setRefId( $this->getValue( $data, 'customer.lists.refid/' . $idx ) );
+			}
+
+			if( isset( $data['customer.lists.status'][$idx] ) ) {
+				$litem->setStatus( $this->getValue( $data, 'customer.lists.status/' . $idx ) );
+			}
+
+			if( isset( $data['customer.lists.typeid'][$idx] ) ) {
+				$litem->setTypeId( $this->getValue( $data, 'customer.lists.typeid/' . $idx ) );
+			}
+
+			if( isset( $data['customer.lists.position'][$idx] ) ) {
+				$litem->setPosition( $this->getValue( $data, 'customer.lists.position/' . $idx ) );
+			}
+
+			if( isset( $data['customer.lists.datestart'][$idx] ) ) {
+				$litem->setDateStart( $this->getValue( $data, 'customer.lists.datestart/' . $idx ) );
+			}
+
+			if( isset( $data['customer.lists.dateend'][$idx] ) ) {
+				$litem->setDateEnd( $this->getValue( $data, 'customer.lists.dateend/' . $idx ) );
+			}
+
+			if( isset( $data['customer.lists.config'][$idx] )
+				&& ( $conf = json_decode( $this->getValue( $data, 'customer.lists.config/' . $idx ), true ) ) !== null
+			) {
+				$litem->setConfig( $conf );
+			}
+
+			if( isset( $data['config'][$idx]['key'] ) )
+			{
+				$conf = [];
+
+				foreach( (array) $data['config'][$idx]['key'] as $pos => $key )
+				{
+					if( trim( $key ) !== '' && isset( $data['config'][$idx]['val'][$pos] ) ) {
+						$conf[$key] = $data['config'][$idx]['val'][$pos];
+					}
+				}
+
+				$litem->setConfig( $conf );
+			}
+
+			$listManager->saveItem( $litem, false );
+		}
+	}
+
+
+	/**
+	 * Constructs the data array for the view from the given item
+	 *
+	 * @param \Aimeos\MShop\Common\Item\Lists\Iface[] $listItems Customer list items referencing the products
+	 * @return string[] Multi-dimensional associative list of item data
+	 */
+	protected function toArray( array $listItems )
+	{
+		$data = [];
+
+		foreach( $listItems as $listItem )
+		{
+			foreach( $listItem->toArray( true ) as $key => $value ) {
+				$data[$key][] = $value;
+			}
+		}
+
+		return $data;
 	}
 
 

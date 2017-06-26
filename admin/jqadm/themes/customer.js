@@ -94,56 +94,76 @@ Aimeos.Customer.Item = {
 
 Aimeos.Customer.Item.Product = {
 
-	element: null,
-
-
 	init : function() {
 
-		this.askDelete();
-		this.confirmDelete();
+		this.addItem();
+		this.closeItem();
+		this.removeItem();
 	},
 
 
-	askDelete : function() {
-		var self = this;
+	addItem : function() {
 
-		$(".item-customer .item-product .list-items").on("click", ".act-delete", function(e) {
-			$("#confirm-delete").modal("show", $(this));
-			self.element = $(this);
+		$(".item-customer .item-product").on("click", ".list-header .act-add", function(ev) {
+			Aimeos.addClone(
+				$(".list-item-new.prototype", ev.delegateTarget),
+				Aimeos.getOptionsProducts,
+				Aimeos.Customer.Item.Product.select);
+		});
+	},
+
+
+	closeItem : function() {
+
+		$(".item-customer .item-product").on("click", ".act-close", function(ev) {
+			$(this).closest("tr").remove();
+		});
+	},
+
+
+	removeItem : function() {
+
+		$(".item-customer .item-product .list-item").on("click", ".act-delete", function(ev) {
+
+			var elem = $(this);
+			var row = $(ev.delegateTarget);
+
+			Aimeos.options.done(function(data) {
+
+				var params = {}, param = {};
+
+				if(data.meta && data.meta.csrf) {
+					param[data.meta.csrf.name] = data.meta.csrf.value;
+				}
+
+				if(data.meta && data.meta.prefix) {
+					params[data.meta.prefix] = param;
+				} else {
+					params = param;
+				}
+
+				$.ajax({
+					dataType: "json",
+					method: "DELETE",
+					url: elem.attr("href"),
+					data: params,
+				}).done(function() {
+					Aimeos.focusBefore(row).remove();
+				});
+			});
+
 			return false;
 		});
 	},
 
 
-	confirmDelete : function() {
-		var self = this;
+	select: function(ev, ui) {
 
-		$("#confirm-delete").on("click", ".btn-danger", function(e) {
-
-			if(self.element) {
-
-				$.when( Aimeos.options ).then(function(data) {
-
-					var params = {};
-
-					if( data.meta && data.meta.csrf ) {
-						params[data.meta.csrf.name] = data.meta.csrf.value;
-					}
-
-					$.ajax({
-						dataType: "json",
-						method: 'DELETE',
-						url: self.element.attr("href") || null,
-						data: params
-					}).then(function() {
-						self.element.closest("tr").remove();
-						self.element = null;
-					});
-				});
-			}
-		});
+		var node = $(ev.delegateTarget);
+		node.closest("tr").find("input.item-label").val(node.val());
 	}
-}
+};
+
 
 
 $(function() {
