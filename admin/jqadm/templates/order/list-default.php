@@ -43,11 +43,7 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = $this->config( 'admin/jqadm/order/fields', [
-	'order.id', 'order.ctime', 'order.statuspayment',
-	'order.base.currencyid', 'order.base.price',
-	'order.base.address.lastname', 'order.base.service.code'
-] );
+$default = $this->config( 'admin/jqadm/order/fields', ['order.id', 'order.ctime', 'order.statuspayment', 'order.base.address.lastname'] );
 $fields = $this->param( 'fields/o', $default );
 
 $params = $this->get( 'pageParams', [] );

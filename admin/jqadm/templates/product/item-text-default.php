@@ -40,8 +40,8 @@ $enc = $this->encoder();
 				<?php if( count( $this->get( 'pageLanguages', [] ) ) > 1 ) : ?>
 					<div class="col-xl-6">
 						<div class="form-group row mandatory">
-							<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
-							<div class="col-xl-8">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
+							<div class="col-sm-8">
 								<select class="form-control custom-select text-langid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'textData/siteid/' . $idx ) ); ?> >
@@ -69,8 +69,8 @@ $enc = $this->encoder();
 
 				<div class="col-xl-6">
 					<div class="form-group row optional">
-						<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Product name' ) ); ?></label>
-						<div class="col-xl-8">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Product name' ) ); ?></label>
+						<div class="col-sm-8">
 							<input class="item-name-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'listid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/name/listid/' . $idx ) ); ?>" />
@@ -82,8 +82,8 @@ $enc = $this->encoder();
 						</div>
 					</div>
 					<div class="form-group row optional">
-						<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Short description' ) ); ?></label>
-						<div class="col-xl-8">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Short description' ) ); ?></label>
+						<div class="col-sm-8">
 							<input class="item-short-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'short', 'listid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/short/listid/' . $idx ) ); ?>" />
@@ -95,8 +95,8 @@ $enc = $this->encoder();
 						</div>
 					</div>
 					<div class="form-group row optional">
-						<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Long description' ) ); ?></label>
-						<div class="col-xl-8">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Long description' ) ); ?></label>
+						<div class="col-sm-8">
 							<input class="item-long-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'long', 'listid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/long/listid/' . $idx ) ); ?>" />
@@ -111,8 +111,8 @@ $enc = $this->encoder();
 
 				<div class="col-xl-6">
 					<div class="form-group row optional">
-						<label class="col-xl-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL segment' ) ); ?></label>
-						<div class="col-xl-8">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL segment' ) ); ?></label>
+						<div class="col-sm-8">
 							<input class="item-url-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'url', 'listid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/url/listid/' . $idx ) ); ?>" />
@@ -127,8 +127,8 @@ $enc = $this->encoder();
 						</div>
 					</div>
 					<div class="form-group row optional">
-						<label class="col-xl-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Meta keywords' ) ); ?></label>
-						<div class="col-xl-8">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Meta keywords' ) ); ?></label>
+						<div class="col-sm-8">
 							<input class="item-meta-keyword-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'meta-keyword', 'listid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/meta-keyword/listid/' . $idx ) ); ?>" />
@@ -143,8 +143,8 @@ $enc = $this->encoder();
 						</div>
 					</div>
 					<div class="form-group row optional">
-						<label class="col-xl-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Meta description' ) ); ?></label>
-						<div class="col-xl-8">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Meta description' ) ); ?></label>
+						<div class="col-sm-8">
 							<input class="item-meta-description-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'meta-description', 'listid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/meta-description/listid/' . $idx ) ); ?>" />
@@ -190,8 +190,8 @@ $enc = $this->encoder();
 			<?php if( count( $languages ) > 1 ) : ?>
 				<div class="col-xl-6">
 					<div class="form-group row mandatory">
-						<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
-						<div class="col-xl-8">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
+						<div class="col-sm-8">
 							<select class="form-control custom-select text-langid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>" disabled="disabled">
 								<option value="">
@@ -218,8 +218,8 @@ $enc = $this->encoder();
 
 			<div class="col-xl-6">
 				<div class="form-group row optional">
-					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Product name' ) ); ?></label>
-					<div class="col-xl-8">
+					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Product name' ) ); ?></label>
+					<div class="col-sm-8">
 						<input class="item-name-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'listid', '' ) ) ); ?>" />
 						<input class="form-control item-name-content" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
@@ -228,8 +228,8 @@ $enc = $this->encoder();
 					</div>
 				</div>
 				<div class="form-group row optional">
-					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Short description' ) ); ?></label>
-					<div class="col-xl-8">
+					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Short description' ) ); ?></label>
+					<div class="col-sm-8">
 						<input class="item-short-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'short', 'listid', '' ) ) ); ?>" />
 						<textarea class="form-control item-short-content" rows="2" tabindex="<?= $this->get( "tabindex" ); ?>"
@@ -238,8 +238,8 @@ $enc = $this->encoder();
 					</div>
 				</div>
 				<div class="form-group row optional">
-					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Long description' ) ); ?></label>
-					<div class="col-xl-8">
+					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Long description' ) ); ?></label>
+					<div class="col-sm-8">
 						<input class="item-long-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'long', 'listid', '' ) ) ); ?>" />
 						<textarea class="form-control htmleditor-prototype item-long-content" rows="6" tabindex="<?= $this->get( "tabindex" ); ?>"
@@ -251,8 +251,8 @@ $enc = $this->encoder();
 
 			<div class="col-xl-6">
 				<div class="form-group row optional">
-					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'URL segment' ) ); ?></label>
-					<div class="col-xl-8">
+					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'URL segment' ) ); ?></label>
+					<div class="col-sm-8">
 						<input class="item-url-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'url', 'listid', '' ) ) ); ?>" />
 						<input class="form-control item-url-content" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
@@ -261,8 +261,8 @@ $enc = $this->encoder();
 					</div>
 				</div>
 				<div class="form-group row optional">
-					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Meta keywords' ) ); ?></label>
-					<div class="col-xl-8">
+					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Meta keywords' ) ); ?></label>
+					<div class="col-sm-8">
 						<input class="item-meta-keyword-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'meta-keyword', 'listid', '' ) ) ); ?>" />
 						<textarea class="form-control item-meta-keyword-content" rows="2" tabindex="<?= $this->get( "tabindex" ); ?>"
@@ -271,8 +271,8 @@ $enc = $this->encoder();
 					</div>
 				</div>
 				<div class="form-group row optional">
-					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Meta description' ) ); ?></label>
-					<div class="col-xl-8">
+					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Meta description' ) ); ?></label>
+					<div class="col-sm-8">
 						<input class="item-meta-description-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'meta-description', 'listid', '' ) ) ); ?>" />
 						<textarea class="form-control item-meta-description-content" rows="6" tabindex="<?= $this->get( "tabindex" ); ?>"

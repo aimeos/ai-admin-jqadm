@@ -48,7 +48,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = $this->config( 'admin/jqadm/customer/fields', ['customer.code', 'customer.status', 'customer.firstname', 'customer.lastname', 'customer.postal', 'customer.city', 'customer.countryid'] );
+$default = $this->config( 'admin/jqadm/customer/fields', ['customer.code', 'customer.lastname', 'customer.postal', 'customer.city'] );
 $fields = $this->param( 'fields/u', $default );
 
 $params = $this->get( 'pageParams', [] );

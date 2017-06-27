@@ -167,6 +167,11 @@ html {
 	border-left: 0.2rem solid #E05040;
 }
 
+.card-block.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 .card-header {
 	background: #FFF;
 	border-top: 3px solid #4090C0;
@@ -179,6 +184,7 @@ html {
 
 .form-group.row .form-control-label {
 	padding: 0.5rem 15px;
+	font-size: 90%;
 }
 
 .form-group.row label {
@@ -233,6 +239,9 @@ select.form-control:not([size]):not([multiple]) {
 	}
 	.custom-select {
 		height: 33px;
+	}
+	.form-group.row .form-control-label {
+		font-size: 90%;
 	}
 }
 
