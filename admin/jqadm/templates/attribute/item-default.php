@@ -175,7 +175,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-position" type="text" required="required" tabindex="1"
+							<input class="form-control item-position" type="text" tabindex="1"
 								name="<?= $this->formparam( array( 'item', 'attribute.position' ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Attribute position (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/attribute.position' ) ); ?>"

@@ -440,6 +440,7 @@ select.form-control:not([size]):not([multiple]) {
 .aimeos .main-sidebar .customer .icon:before { content: "\f0c0" }
 .aimeos .main-sidebar .product .icon:before { content: "\f1b2" }
 .aimeos .main-sidebar .catalog .icon:before { content: "\f0e8" }
+.aimeos .main-sidebar .attribute .icon:before { content: "\f02c" }
 .aimeos .main-sidebar .coupon .icon:before { content: "\f295" }
 .aimeos .main-sidebar .separator .more:before { content: "\f0d7" }
 .aimeos .main-sidebar .separator .less:before { content: "\f0d8" }
