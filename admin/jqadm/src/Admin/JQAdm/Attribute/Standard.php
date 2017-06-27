@@ -88,7 +88,7 @@ class Standard
 	 * @since 2017.07
 	 * @category Developer
 	 */
-	private $subPartNames = [/*'image', 'text', 'price'*/];
+	private $subPartNames = ['image', 'text', 'price'];
 
 
 	/**

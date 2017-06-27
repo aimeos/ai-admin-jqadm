@@ -346,8 +346,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		// $result = $this->object->getSubClient( 'image' );
-		// $this->assertInstanceOf( '\Aimeos\Admin\JQAdm\Iface', $result );
+		$result = $this->object->getSubClient( 'image' );
+		$this->assertInstanceOf( '\Aimeos\Admin\JQAdm\Iface', $result );
 	}
 
 
