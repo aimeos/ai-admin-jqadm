@@ -535,8 +535,6 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Coupon\Item\Iface $item, $copy = false )
 	{
 		$data = $item->toArray( true );
-		$data['coupon.datestart'] = str_replace( ' ', 'T', $data['coupon.datestart'] );
-		$data['coupon.dateend'] = str_replace( ' ', 'T', $data['coupon.dateend'] );
 		$data['config'] = [];
 
 		if( $copy === true )

@@ -222,7 +222,7 @@ $params = $this->get( 'pageParams', [] );
 							<input class="form-control item-datestart date" type="text" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/product.datestart' ) ); ?>"
+								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/product.datestart' ) ) ); ?>"
 								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
@@ -236,7 +236,7 @@ $params = $this->get( 'pageParams', [] );
 							<input class="form-control item-dateend date" type="text" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/product.dateend' ) ); ?>"
+								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/product.dateend' ) ) ); ?>"
 								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>

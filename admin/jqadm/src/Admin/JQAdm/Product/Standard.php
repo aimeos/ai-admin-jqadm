@@ -681,8 +681,6 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
 	{
 		$data = $item->toArray( true );
-		$data['product.datestart'] = str_replace( ' ', 'T', $data['product.datestart'] );
-		$data['product.dateend'] = str_replace( ' ', 'T', $data['product.dateend'] );
 		$data['config'] = [];
 
 		if( $copy === true )
