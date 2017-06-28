@@ -89,12 +89,12 @@ $serviceAttrCodes = [
 			<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
 				<div class="btn-group">
 					<button type="submit" class="btn btn-primary act-save"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Save item (Ctrl+S)') ); ?>">
+						title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)') ); ?>">
 						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 					</button>
 					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle Dropdown' ) ); ?></span>
+						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
 					</button>
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a>
@@ -548,11 +548,11 @@ $serviceAttrCodes = [
 									</div>
 								</div>
 								<div class="form-group row optional">
-									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimilie' ) ); ?></label>
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ); ?></label>
 									<div class="col-sm-8">
 										<input class="form-control item-telefax" type="text" tabindex="1" data-field="telefax"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, 'order.base.address.telefax' ) ) ); ?>"
-											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimilie number (optional)' ) ); ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ); ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/order.base.address.telefax' ) ); ?>"
 											<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
 									</div>

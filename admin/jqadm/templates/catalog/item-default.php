@@ -73,12 +73,12 @@ $params = $this->get( 'pageParams', [] );
 			<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
 				<div class="btn-group">
 					<button type="submit" class="btn btn-primary act-save"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Save item (Ctrl+S)') ); ?>">
+						title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)') ); ?>">
 						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 					</button>
 					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle Dropdown' ) ); ?></span>
+						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
 					</button>
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a>
@@ -206,7 +206,7 @@ $params = $this->get( 'pageParams', [] );
 										<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ); ?> />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Route name or page ID of the catalog detail page if this catalog should shown on a different page' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Route name or page ID of the category page if this category should shown on a different page' ) ); ?>
 								</div>
 							</div>
 						</div><!--

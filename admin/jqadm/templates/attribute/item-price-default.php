@@ -64,7 +64,7 @@ $enc = $this->encoder();
 									<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> />
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Actual price customers can by the article for on the web site' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Actual price customers can buy the article for on the web site' ) ); ?>
 							</div>
 						</div>
 						<div class="form-group row optional">

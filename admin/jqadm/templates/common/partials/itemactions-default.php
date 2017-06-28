@@ -37,12 +37,12 @@ $enc = $this->encoder();
 <?php if( $this->access( ['admin', 'editor'] ) ) : ?>
 	<div class="btn-group">
 		<button type="submit" class="btn btn-primary act-save"
-			title="<?= $enc->attr( $this->translate( 'admin', 'Save item (Ctrl+S)') ); ?>">
+			title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)') ); ?>">
 			<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 		</button>
 		<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
 			aria-haspopup="true" aria-expanded="false">
-			<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle Dropdown' ) ); ?></span>
+			<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
 		</button>
 		<div class="dropdown-menu dropdown-menu-right">
 			<a class="dropdown-item next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a>

@@ -68,7 +68,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 
 				<th class="actions">
 					<a class="btn fa act-add" href="#"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+a)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
 
@@ -155,7 +155,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 									</select>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Last payment status of the invoice' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Last payment status of the order' ) ); ?>
 								</div>
 							</div>
 							<div class="form-group row mandatory">
@@ -203,7 +203,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 									</select>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Last delivery status of the invoice' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Last delivery status of the order' ) ); ?>
 								</div>
 							</div>
 							<div class="form-group row optional">

@@ -89,7 +89,7 @@ $columnList = [
 	'order.base.address.countryid' => $this->translate( 'admin', 'Country' ),
 	'order.base.address.languageid' => $this->translate( 'admin', 'Language' ),
 	'order.base.address.telephone' => $this->translate( 'admin', 'Telephone' ),
-	'order.base.address.telefax' => $this->translate( 'admin', 'Facsimilie' ),
+	'order.base.address.telefax' => $this->translate( 'admin', 'Facsimile' ),
 	'order.base.address.email' => $this->translate( 'admin', 'E-Mail' ),
 	'order.base.address.website' => $this->translate( 'admin', 'Web site' ),
 	'order.base.service.code' => $this->translate( 'admin', 'Payment' ),
@@ -167,7 +167,7 @@ $statusList = [
 				<th class="actions">
 					<a class="btn fa act-add"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+a)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
 

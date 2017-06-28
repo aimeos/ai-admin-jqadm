@@ -113,7 +113,7 @@ $params = $this->get( 'pageParams', [] );
 						<div class="col-sm-8">
 							<input class="form-control item-email" type="email" required="required" tabindex="1" autocomplete="off"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.email' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-mail address (required)' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/customer.email' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
 						</div>
@@ -369,11 +369,11 @@ $params = $this->get( 'pageParams', [] );
 						</div>
 					</div>
 					<div class="form-group row optional">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimilie' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-telefax" type="text" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.telefax' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimilie number (optional)' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/customer.telefax' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
 						</div>

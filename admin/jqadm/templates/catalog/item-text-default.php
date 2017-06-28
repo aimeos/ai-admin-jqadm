@@ -123,7 +123,7 @@ $enc = $this->encoder();
 								<?= $this->site()->readonly( $this->get( 'textData/siteid/' . $idx ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'The article name as used in URLs, e.g. for non-latin languages' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'The category name as used in URLs, e.g. for non-latin languages' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">
@@ -139,7 +139,7 @@ $enc = $this->encoder();
 							><?= $enc->attr( $this->get( 'textData/meta-keyword/content/' . $idx ) ); ?></textarea>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Keywords for search engines, added to the <head> section of the catalog detail page' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Keywords for search engines, added to the head section of the category page' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">
@@ -155,7 +155,7 @@ $enc = $this->encoder();
 							><?= $enc->attr( $this->get( 'textData/meta-description/content/' . $idx ) ); ?></textarea>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Article description shown by search engines, added to the <head> section of the catalog detail page' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Article description shown by search engines, added to the head section of the category page' ) ); ?>
 						</div>
 					</div>
 				</div>
@@ -217,7 +217,7 @@ $enc = $this->encoder();
 			<?php endif; ?>
 
 			<div class="col-xl-6">
-				<div class="form-group row optional">
+				<div class="form-group row optional help">
 					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Product name' ) ); ?></label>
 					<div class="col-xl-8">
 						<input class="item-name-listid" type="hidden" disabled="disabled"
@@ -227,7 +227,7 @@ $enc = $this->encoder();
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Product name' ) ); ?>" disabled="disabled" />
 					</div>
 				</div>
-				<div class="form-group row optional">
+				<div class="form-group row optional help">
 					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Short description' ) ); ?></label>
 					<div class="col-xl-8">
 						<input class="item-short-listid" type="hidden" disabled="disabled"
@@ -237,7 +237,7 @@ $enc = $this->encoder();
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Short description' ) ); ?>" disabled="disabled" ></textarea>
 					</div>
 				</div>
-				<div class="form-group row optional">
+				<div class="form-group row optional help">
 					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Long description' ) ); ?></label>
 					<div class="col-xl-8">
 						<input class="item-long-listid" type="hidden" disabled="disabled"
@@ -259,6 +259,9 @@ $enc = $this->encoder();
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'url', 'content', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'URL segment' ) ); ?>" value="" disabled="disabled" />
 					</div>
+					<div class="col-sm-12 form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'The category name as used in URLs, e.g. for non-latin languages' ) ); ?>
+					</div>
 				</div>
 				<div class="form-group row optional">
 					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Meta keywords' ) ); ?></label>
@@ -269,6 +272,9 @@ $enc = $this->encoder();
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'meta-keyword', 'content', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Meta keywords' ) ); ?>" disabled="disabled" ></textarea>
 					</div>
+					<div class="col-sm-12 form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Keywords for search engines, added to the head section of the category page' ) ); ?>
+					</div>
 				</div>
 				<div class="form-group row optional">
 					<label class="col-xl-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Meta description' ) ); ?></label>
@@ -278,6 +284,9 @@ $enc = $this->encoder();
 						<textarea class="form-control item-meta-description-content" rows="6" tabindex="<?= $this->get( "tabindex" ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'meta-description', 'content', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Meta description' ) ); ?>" disabled="disabled" ></textarea>
+					</div>
+					<div class="col-sm-12 form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Page description shown by search engines, added to the head section of the category page' ) ); ?>
 					</div>
 				</div>
 			</div>
