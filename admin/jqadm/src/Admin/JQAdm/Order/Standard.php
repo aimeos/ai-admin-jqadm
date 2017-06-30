@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Order;
 
+sprintf( 'order' ); // for translation
+
 
 /**
  * Default implementation of order JQAdm client.

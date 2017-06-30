@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Dashboard;
 
+sprintf( 'dashboard' ); // for translation
+
 
 /**
  * Default implementation of dashboard JQAdm client.
