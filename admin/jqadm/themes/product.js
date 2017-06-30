@@ -59,13 +59,10 @@ Aimeos.Product.Item = {
 		Aimeos.Product.Item.Characteristic.init();
 		Aimeos.Product.Item.Bundle.init();
 		Aimeos.Product.Item.Category.init();
-		Aimeos.Product.Item.Image.init();
 		Aimeos.Product.Item.Option.init();
-		Aimeos.Product.Item.Price.init();
 		Aimeos.Product.Item.Related.init();
 		Aimeos.Product.Item.Selection.init();
 		Aimeos.Product.Item.Stock.init();
-		Aimeos.Product.Item.Text.init();
 		Aimeos.Product.Item.Download.init();
 	}
 };
