@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Dashboard\Order\Paymenttype;
 
+sprintf( 'paymenttype' ); // for translation
+
 
 /**
  * Default implementation of dashboard paymenttype JQAdm client.

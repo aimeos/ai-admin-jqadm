@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Dashboard\Order\Latest;
 
+sprintf( 'latest' ); // for translation
+
 
 /**
  * Default implementation of dashboard latest order JQAdm client.

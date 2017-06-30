@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Coupon\Code;
 
+sprintf( 'code' ); // for translation
+
 
 /**
  * Default implementation of coupon code JQAdm client.

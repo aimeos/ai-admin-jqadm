@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Customer\Address;
 
+sprintf( 'address' ); // for translation
+
 
 /**
  * Default implementation of customer address JQAdm client.

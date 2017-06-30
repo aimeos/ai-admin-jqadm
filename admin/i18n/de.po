@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:16+0200\n"
-"PO-Revision-Date: 2017-06-30 06:19+0000\n"
+"POT-Creation-Date: 2017-06-30 08:46+0200\n"
+"PO-Revision-Date: 2017-06-30 06:47+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1786,6 +1786,10 @@ msgid "Zip code (optional)"
 msgstr "Postleitzahl (optional)"
 
 #, php-format
+msgid "address"
+msgstr "Adresse"
+
+#, php-format
 msgid "attribute"
 msgstr "Attribute"
 
@@ -1805,6 +1809,10 @@ msgstr "Kategorien"
 msgid "characteristic"
 msgstr "Merkmale"
 
+#, php-format
+msgid "code"
+msgstr "Codes"
+
 msgid "company"
 msgstr "Firma"
 
@@ -1821,12 +1829,32 @@ msgid "dashboard"
 msgstr "Übersicht"
 
 #, php-format
+msgid "day"
+msgstr "Tag"
+
+#, php-format
+msgid "deliverytype"
+msgstr "Lieferstatus"
+
+#, php-format
 msgid "download"
 msgstr "Downloads"
 
 #, php-format
+msgid "hour"
+msgstr "Stunde"
+
+#, php-format
 msgid "image"
 msgstr "Bilder"
+
+#, php-format
+msgid "invoice"
+msgstr "Rechnung"
+
+#, php-format
+msgid "latest"
+msgstr "Neuste"
 
 msgid "media"
 msgstr "Medien"
@@ -1852,7 +1880,7 @@ msgstr "Optionen"
 
 #, php-format
 msgid "order"
-msgstr "Bestellungen"
+msgstr "Bestellung"
 
 msgid "pay:-1"
 msgstr "Offen"
@@ -1901,6 +1929,14 @@ msgstr "Abgelehnt"
 
 msgid "pay:unfinished"
 msgstr "Noch offen"
+
+#, php-format
+msgid "paymentstatus"
+msgstr "Zahlungsstatus"
+
+#, php-format
+msgid "paymenttype"
+msgstr "Zahlungsart"
 
 #, php-format
 msgid "physical"

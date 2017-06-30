@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Order\Invoice;
 
+sprintf( 'invoice' ); // for translation
+
 
 /**
  * Default implementation of order invoice JQAdm client.

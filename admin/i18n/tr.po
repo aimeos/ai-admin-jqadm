@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:16+0200\n"
-"PO-Revision-Date: 2017-06-30 06:16+0000\n"
+"POT-Creation-Date: 2017-06-30 08:46+0200\n"
+"PO-Revision-Date: 2017-06-30 06:46+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -1784,6 +1784,10 @@ msgid "Zip code (optional)"
 msgstr ""
 
 #, php-format
+msgid "address"
+msgstr "Adres"
+
+#, php-format
 msgid "attribute"
 msgstr ""
 
@@ -1803,6 +1807,10 @@ msgstr "Kategoriler"
 msgid "characteristic"
 msgstr "Teknik özellikler"
 
+#, php-format
+msgid "code"
+msgstr ""
+
 msgid "company"
 msgstr ""
 
@@ -1819,12 +1827,32 @@ msgid "dashboard"
 msgstr "Gösterge Paneli"
 
 #, php-format
+msgid "day"
+msgstr ""
+
+#, php-format
+msgid "deliverytype"
+msgstr ""
+
+#, php-format
 msgid "download"
 msgstr "İndirmeler"
 
 #, php-format
+msgid "hour"
+msgstr ""
+
+#, php-format
 msgid "image"
 msgstr "Görüntüler"
+
+#, php-format
+msgid "invoice"
+msgstr ""
+
+#, php-format
+msgid "latest"
+msgstr ""
 
 msgid "media"
 msgstr ""
@@ -1899,6 +1927,14 @@ msgstr "Reddedildi"
 
 msgid "pay:unfinished"
 msgstr "Tamamlanmadı"
+
+#, php-format
+msgid "paymentstatus"
+msgstr ""
+
+#, php-format
+msgid "paymenttype"
+msgstr ""
 
 #, php-format
 msgid "physical"

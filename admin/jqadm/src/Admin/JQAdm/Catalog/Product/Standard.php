@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Catalog\Product;
 
+sprintf( 'product' ); // for translation
+
 
 /**
  * Default implementation of catalog product JQAdm client.

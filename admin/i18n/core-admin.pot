@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:16+0200\n"
+"POT-Creation-Date: 2017-06-30 08:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1708,6 +1708,10 @@ msgid "Zip code (optional)"
 msgstr ""
 
 #, php-format
+msgid "address"
+msgstr ""
+
+#, php-format
 msgid "attribute"
 msgstr ""
 
@@ -1727,6 +1731,10 @@ msgstr "Categories"
 msgid "characteristic"
 msgstr "Characteristics"
 
+#, php-format
+msgid "code"
+msgstr ""
+
 msgid "company"
 msgstr ""
 
@@ -1743,12 +1751,32 @@ msgid "dashboard"
 msgstr "Dashboard"
 
 #, php-format
+msgid "day"
+msgstr ""
+
+#, php-format
+msgid "deliverytype"
+msgstr ""
+
+#, php-format
 msgid "download"
 msgstr "Downloads"
 
 #, php-format
+msgid "hour"
+msgstr ""
+
+#, php-format
 msgid "image"
 msgstr "Images"
+
+#, php-format
+msgid "invoice"
+msgstr ""
+
+#, php-format
+msgid "latest"
+msgstr ""
 
 msgid "media"
 msgstr ""
@@ -1823,6 +1851,14 @@ msgstr "Refused"
 
 msgid "pay:unfinished"
 msgstr "Unfinished"
+
+#, php-format
+msgid "paymentstatus"
+msgstr ""
+
+#, php-format
+msgid "paymenttype"
+msgstr ""
 
 #, php-format
 msgid "physical"

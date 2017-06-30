@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Dashboard\Order\Paymentstatus;
 
+sprintf( 'paymentstatus' ); // for translation
+
 
 /**
  * Default implementation of dashboard paymentstatus JQAdm client.

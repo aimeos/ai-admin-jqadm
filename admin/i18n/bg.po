@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:16+0200\n"
-"PO-Revision-Date: 2017-06-30 06:16+0000\n"
+"POT-Creation-Date: 2017-06-30 08:46+0200\n"
+"PO-Revision-Date: 2017-06-30 06:46+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -1785,6 +1785,10 @@ msgid "Zip code (optional)"
 msgstr ""
 
 #, php-format
+msgid "address"
+msgstr "адрес"
+
+#, php-format
 msgid "attribute"
 msgstr ""
 
@@ -1804,6 +1808,10 @@ msgstr "Категории"
 msgid "characteristic"
 msgstr "Характеристики"
 
+#, php-format
+msgid "code"
+msgstr ""
+
 msgid "company"
 msgstr ""
 
@@ -1820,12 +1828,32 @@ msgid "dashboard"
 msgstr ""
 
 #, php-format
+msgid "day"
+msgstr ""
+
+#, php-format
+msgid "deliverytype"
+msgstr ""
+
+#, php-format
 msgid "download"
 msgstr "Изтегляне"
 
 #, php-format
+msgid "hour"
+msgstr ""
+
+#, php-format
 msgid "image"
 msgstr "Снимки"
+
+#, php-format
+msgid "invoice"
+msgstr ""
+
+#, php-format
+msgid "latest"
+msgstr ""
 
 msgid "media"
 msgstr ""
@@ -1900,6 +1928,14 @@ msgstr "плащане:отказано"
 
 msgid "pay:unfinished"
 msgstr "стат:незавършен"
+
+#, php-format
+msgid "paymentstatus"
+msgstr ""
+
+#, php-format
+msgid "paymenttype"
+msgstr ""
 
 #, php-format
 msgid "physical"

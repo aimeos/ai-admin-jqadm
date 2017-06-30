@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:16+0200\n"
+"POT-Creation-Date: 2017-06-30 08:46+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -1711,6 +1711,10 @@ msgid "Zip code (optional)"
 msgstr ""
 
 #, php-format
+msgid "address"
+msgstr ""
+
+#, php-format
 msgid "attribute"
 msgstr ""
 
@@ -1730,6 +1734,10 @@ msgstr "Categories"
 msgid "characteristic"
 msgstr "Characteristics"
 
+#, php-format
+msgid "code"
+msgstr ""
+
 msgid "company"
 msgstr ""
 
@@ -1746,12 +1754,32 @@ msgid "dashboard"
 msgstr "Dashboard"
 
 #, php-format
+msgid "day"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "deliverytype"
+msgstr "delivered"
+
+#, php-format
 msgid "download"
 msgstr "Downloads"
 
 #, php-format
+msgid "hour"
+msgstr ""
+
+#, php-format
 msgid "image"
 msgstr "Images"
+
+#, php-format
+msgid "invoice"
+msgstr ""
+
+#, php-format
+msgid "latest"
+msgstr ""
 
 msgid "media"
 msgstr ""
@@ -1826,6 +1854,14 @@ msgstr "refused"
 
 msgid "pay:unfinished"
 msgstr "unfinished"
+
+#, php-format
+msgid "paymentstatus"
+msgstr ""
+
+#, php-format
+msgid "paymenttype"
+msgstr ""
 
 #, php-format
 msgid "physical"

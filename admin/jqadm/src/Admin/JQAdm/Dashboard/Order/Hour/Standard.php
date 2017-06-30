@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Dashboard\Order\Hour;
 
+sprintf( 'hour' ); // for translation
+
 
 /**
  * Default implementation of dashboard hour JQAdm client.

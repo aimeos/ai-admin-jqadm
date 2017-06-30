@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Dashboard\Order\Day;
 
+sprintf( 'day' ); // for translation
+
 
 /**
  * Default implementation of dashboard day JQAdm client.

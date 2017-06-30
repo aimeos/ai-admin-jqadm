@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Dashboard\Order\Deliverytype;
 
+sprintf( 'deliverytype' ); // for translation
+
 
 /**
  * Default implementation of dashboard deliverytype JQAdm client.
