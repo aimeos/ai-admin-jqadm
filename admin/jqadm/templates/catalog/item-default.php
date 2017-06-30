@@ -93,11 +93,11 @@ $params = $this->get( 'pageParams', [] );
 
 		<div class="col-lg-3 catalog-tree">
 			<div class="tree-toolbar input-group">
-				<span class="input-group-addon input-group-icon expand-all fa"></span>
-				<span class="input-group-addon input-group-icon collapse-all fa"></span>
-				<input type="text" class="form-control search-input" placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ); ?>">
-				<span class="input-group-addon input-group-icon act-delete fa"></span>
-				<span class="input-group-addon input-group-icon act-add fa"></span>
+				<span class="input-group-addon input-group-icon expand-all fa" tabindex="1"></span>
+				<span class="input-group-addon input-group-icon collapse-all fa" tabindex="1"></span>
+				<input type="text" class="form-control search-input" tabindex="1" placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ); ?>">
+				<span class="input-group-addon input-group-icon act-delete fa" tabindex="1"></span>
+				<span class="input-group-addon input-group-icon act-add fa" tabindex="1"></span>
 			</div>
 			<div class="tree-content">
 			</div>
@@ -110,7 +110,7 @@ $params = $this->get( 'pageParams', [] );
 					<ul class="nav nav-tabs flex-row flex-wrap d-flex justify-content-between" role="tablist">
 
 						<li class="nav-item basic">
-							<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
+							<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic" tabindex="1">
 								<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
 							</a>
 						</li>

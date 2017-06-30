@@ -12,6 +12,7 @@
  * - data: Associative list of keys (e.g. "product.id") and translated names (e.g. "ID")
  * - fields: List of columns that are currently shown
  * - params: Associative list of current parameters
+ * - tabindex: Numerical index for tabbing through the fields and buttons
  */
 
 
@@ -45,7 +46,7 @@ $enc = $this->encoder();
 <?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 	<?php if( in_array( $key, $fields ) ) : ?>
 		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ); ?>">
-			<a class="<?= $sortclass( $sortcode, $key ); ?>"
+			<a class="<?= $sortclass( $sortcode, $key ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
 				href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, $key )] + $params, [], $config ) ); ?>">
 				<?= $enc->html( $name ); ?>
 			</a>

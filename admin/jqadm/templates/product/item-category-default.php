@@ -20,7 +20,7 @@ $enc = $this->encoder();
 						</div>
 					</th>
 					<th class="actions">
-						<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 						</div>
 					</th>
@@ -42,7 +42,7 @@ $enc = $this->encoder();
 								<input class="item-label" type="hidden"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
-								<select class="combobox item-id" tabindex="<?= $this->get( "tabindex" ); ?>"
+								<select class="combobox item-id" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?> >
 									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>" >
@@ -52,7 +52,7 @@ $enc = $this->encoder();
 							</td>
 							<td class="actions">
 								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ) ) : ?>
-									<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+									<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 									</div>
 								<?php endif; ?>
@@ -70,12 +70,12 @@ $enc = $this->encoder();
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
 						<input class="item-label" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" />
-						<select class="combobox-prototype item-id" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+						<select class="combobox-prototype item-id" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
 						</select>
 					</td>
 					<td class="actions">
-						<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 						</div>
 					</td>
@@ -94,7 +94,7 @@ $enc = $this->encoder();
 						</div>
 					</th>
 					<th class="actions">
-						<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 						</div>
 					</th>
@@ -116,7 +116,7 @@ $enc = $this->encoder();
 								<input class="item-label" type="hidden"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
-								<select class="combobox item-id" tabindex="<?= $this->get( "tabindex" ); ?>"
+								<select class="combobox item-id" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?> >
 									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>">
@@ -126,7 +126,7 @@ $enc = $this->encoder();
 							</td>
 							<td class="actions">
 								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ) ) : ?>
-									<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+									<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 									</div>
 								<?php endif; ?>
@@ -144,12 +144,12 @@ $enc = $this->encoder();
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
 						<input class="item-label" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" />
-						<select class="combobox-prototype item-id" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+						<select class="combobox-prototype item-id" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
 						</select>
 					</td>
 					<td class="actions">
-						<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 						</div>
 					</td>

@@ -165,7 +165,7 @@ $statusList = [
 				?>
 
 				<th class="actions">
-					<a class="btn fa act-add"
+					<a class="btn fa act-add" tabindex="1"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
@@ -239,7 +239,7 @@ $statusList = [
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>
 				<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>">
 					<?php if( in_array( 'order.id', $fields ) ) : ?>
-						<td class="order-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
+						<td class="order-id"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.type', $fields ) ) : ?>
 						<td class="order-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>

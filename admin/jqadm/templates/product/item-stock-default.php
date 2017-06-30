@@ -31,7 +31,7 @@ $enc = $this->encoder();
 					</div>
 				</th>
 				<th class="actions">
-					<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 					</div>
 				</th>
@@ -43,7 +43,7 @@ $enc = $this->encoder();
 				<tr class="<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?>">
 					<td class="stock-type mandatory">
 						<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="<?= $enc->attr( $id ); ?>" />
-						<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> >
 							<option value="">
@@ -61,13 +61,13 @@ $enc = $this->encoder();
 						</select>
 					</td>
 					<td class="stock-stocklevel optional">
-						<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.stocklevel', '' ) ) ); ?>"
 							value="<?= $enc->attr( $this->get( 'stockData/stock.stocklevel/' . $idx ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> />
 					</td>
 					<td class="stock-databack optional">
-						<input class="form-control item-dateback date" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<input class="form-control item-dateback date" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.dateback', '' ) ) ); ?>"
 							value="<?= $enc->attr( $this->get( 'stockData/stock.dateback/' . $idx ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
@@ -76,7 +76,7 @@ $enc = $this->encoder();
 					</td>
 					<td class="actions">
 						<?php if( !$this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ) ) : ?>
-							<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 							</div>
 						<?php endif; ?>
@@ -87,7 +87,7 @@ $enc = $this->encoder();
 			<tr class="prototype">
 				<td class="stock-type">
 					<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="" disabled="disabled" />
-					<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+					<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>">
 						<option value="">
 							<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -99,17 +99,17 @@ $enc = $this->encoder();
 					</select>
 				</td>
 				<td class="stock-stocklevel optional">
-					<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+					<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 					name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.stocklevel', '' ) ) ); ?>" />
 				</td>
 				<td class="stock-databack optional">
-					<input class="form-control date-prototype item-dateback" type="text" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+					<input class="form-control date-prototype item-dateback" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.dateback', '' ) ) ); ?>"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 						data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
 				</td>
 				<td class="actions">
-					<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+					<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 					</div>
 				</td>

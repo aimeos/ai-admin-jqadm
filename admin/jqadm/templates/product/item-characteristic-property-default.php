@@ -23,7 +23,7 @@ $enc = $this->encoder();
 					</div>
 				</th>
 				<th class="actions">
-					<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 					</div>
 				</th>
@@ -36,7 +36,7 @@ $enc = $this->encoder();
 					<td class="property-type">
 						<input class="item-id" type="hidden" value="<?= $enc->attr( $id ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.id', '' ) ) ); ?>" />
-						<select class="form-control c-select item-typeid" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<select class="form-control c-select item-typeid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'propertyData/product.property.siteid/' . $idx ) ); ?> >
 
@@ -49,7 +49,7 @@ $enc = $this->encoder();
 						</select>
 					</td>
 					<td class="property-language">
-						<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.languageid', '' ) ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'propertyData/product.property.siteid/' . $idx ) ); ?> >
 							<?php $lang = $this->get( 'propertyData/product.property.languageid/' . $idx ); ?>
@@ -66,7 +66,7 @@ $enc = $this->encoder();
 						</select>
 					</td>
 					<td class="property-value">
-						<input class="form-control item-value" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<input class="form-control item-value" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.value', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
 							value="<?= $enc->attr( $this->get( 'propertyData/product.property.value/' . $idx ) ); ?>"
@@ -74,7 +74,7 @@ $enc = $this->encoder();
 					</td>
 					<td class="actions">
 						<?php if( !$this->site()->readonly( $this->get( 'propertyData/product.property.siteid/' . $idx ) ) ) : ?>
-							<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 							</div>
 						<?php endif; ?>
@@ -86,7 +86,7 @@ $enc = $this->encoder();
 				<td class="property-type">
 					<input class="item-id" type="hidden" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.id', '' ) ) ); ?>" value="" />
-					<select class="form-control c-select item-typeid" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+					<select class="form-control c-select item-typeid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>">
 						<option value="">
 							<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -99,7 +99,7 @@ $enc = $this->encoder();
 					</select>
 				</td>
 				<td class="property-language">
-					<select class="custom-select item-languageid" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+					<select class="custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.languageid', '' ) ) ); ?>">
 						<option value="">
 							<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
@@ -113,12 +113,12 @@ $enc = $this->encoder();
 					</select>
 				</td>
 				<td class="property-value">
-					<input class="form-control item-value" type="text" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+					<input class="form-control item-value" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.value', '' ) ) ); ?>"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>" />
 				</td>
 				<td class="actions">
-					<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+					<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 					</div>
 				</td>

@@ -19,7 +19,7 @@ $enc = $this->encoder();
 					</div>
 				</th>
 				<th class="actions">
-					<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 					</div>
 				</th>
@@ -34,7 +34,7 @@ $enc = $this->encoder();
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'product.lists.id', '' ) ) ); ?>" />
 						<input class="item-label" type="hidden" value="<?= $enc->attr( $this->get( 'attributeData/attribute.label/' . $idx ) ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'attribute.label', '' ) ) ); ?>" />
-						<select class="combobox item-refid" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<select class="combobox item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'product.lists.refid', '' ) ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'attributeData/product.lists.siteid/' . $idx ) ); ?> >
 							<option value="<?= $enc->attr( $this->get( 'attributeData/product.lists.refid/' . $idx ) ); ?>" >
@@ -44,7 +44,7 @@ $enc = $this->encoder();
 					</td>
 					<td class="actions">
 						<?php if( !$this->site()->readonly( $this->get( 'attributeData/product.lists.siteid/' . $idx ) ) ) : ?>
-							<div class="btn act-delete fa"
+							<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 							</div>
 						<?php endif; ?>
@@ -58,12 +58,12 @@ $enc = $this->encoder();
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'product.lists.id', '' ) ) ); ?>" />
 					<input class="item-label" type="hidden" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'attribute.label', '' ) ) ); ?>" />
-					<select class="combobox-prototype item-refid" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+					<select class="combobox-prototype item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'product.lists.refid', '' ) ) ); ?>">
 					</select>
 				</td>
 				<td class="actions">
-					<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+					<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 					</div>
 				</td>

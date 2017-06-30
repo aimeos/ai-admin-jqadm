@@ -27,7 +27,7 @@ $enc = $this->encoder();
 					data-toggle="collapse" data-target="#item-address-group-data-<?= $enc->attr( $idx ); ?>"
 					aria-expanded="false" aria-controls="item-address-group-data-<?= $enc->attr( $idx ); ?>">
 					<div class="card-tools-left">
-						<div class="btn btn-card-header act-show fa"
+						<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 						</div>
 					</div>
@@ -40,11 +40,11 @@ $enc = $this->encoder();
 					</span>
 					&nbsp;
 					<div class="card-tools-right">
-						<div class="btn btn-card-header act-copy fa"
+						<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>">
 						</div>
 						<?php if( !$this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ) ) : ?>
-							<div class="btn btn-card-header act-delete fa"
+							<div class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 							</div>
 						<?php endif; ?>
@@ -62,7 +62,7 @@ $enc = $this->encoder();
 
 								<?php $languages = $this->get( 'pageLanguages', [] ); ?>
 								<?php if( count( $languages ) > 1 ) : ?>
-									<select class="form-control c-select item-languageid" required="required" tabindex="1"
+									<select class="form-control c-select item-languageid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>"
 										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
@@ -82,7 +82,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control c-select item-salutation" tabindex="1"
+								<select class="form-control c-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.salutation', '' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?> >
 									<option value="" <?= $selected( $this->get( 'addressData/customer.address.salutation/' . $idx, '' ), '' ); ?> >
@@ -109,7 +109,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-title" type="text" tabindex="1"
+								<input class="form-control item-title" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.title', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.title/' . $idx ) ); ?>"
@@ -122,7 +122,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Last name' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-lastname" type="text" required="required" tabindex="1"
+								<input class="form-control item-lastname" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.lastname', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.lastname/' . $idx ) ); ?>"
@@ -135,7 +135,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'First name' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-firstname" type="text" tabindex="1"
+								<input class="form-control item-firstname" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.firstname', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.firstname/' . $idx ) ); ?>"
@@ -152,7 +152,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-address1" type="text" tabindex="1"
+								<input class="form-control item-address1" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.address1', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.address1/' . $idx ) ); ?>"
@@ -165,7 +165,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'House number' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-address2" type="text" tabindex="1"
+								<input class="form-control item-address2" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.address2', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.address2/' . $idx ) ); ?>"
@@ -178,7 +178,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor / Appartment' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-address3" type="text" tabindex="1"
+								<input class="form-control item-address3" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.address3', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or appartment (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.address3/' . $idx ) ); ?>"
@@ -191,7 +191,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Zip code' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-postal" type="text" tabindex="1"
+								<input class="form-control item-postal" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.postal', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.postal/' . $idx ) ); ?>"
@@ -204,7 +204,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'City' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-city" type="text" required="required" tabindex="1"
+								<input class="form-control item-city" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.city', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.city/' . $idx ) ); ?>"
@@ -214,7 +214,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'State' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-state" type="text" tabindex="1"
+								<input class="form-control item-state" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.state', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.state/' . $idx ) ); ?>"
@@ -227,7 +227,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-countryid" type="text" required="required" tabindex="1" maxlength="2" pattern="^[a-zA-Z]{2}$"
+								<input class="form-control item-countryid" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" maxlength="2" pattern="^[a-zA-Z]{2}$"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.countryid', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country code (required)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.countryid/' . $idx ) ); ?>"
@@ -244,7 +244,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-telephone" type="tel" tabindex="1"
+								<input class="form-control item-telephone" type="tel" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.telephone', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.telephone/' . $idx ) ); ?>"
@@ -257,7 +257,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-telefax" type="text" tabindex="1"
+								<input class="form-control item-telefax" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.telefax', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.telefax/' . $idx ) ); ?>"
@@ -270,7 +270,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Web site' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-website" type="url" tabindex="1"
+								<input class="form-control item-website" type="url" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.website', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.website/' . $idx ) ); ?>"
@@ -287,7 +287,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-company" type="text" tabindex="1"
+								<input class="form-control item-company" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.company', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.company/' . $idx ) ); ?>"
@@ -297,7 +297,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'VAT ID' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-vatid" type="text" tabindex="1"
+								<input class="form-control item-vatid" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.vatid', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/customer.address.vatid/' . $idx ) ); ?>"
@@ -319,17 +319,17 @@ $enc = $this->encoder();
 			<div id="item-address-group-item-" class="card-header header" role="tab"
 				data-toggle="collapse" data-target="#item-address-group-data-">
 				<div class="card-tools-left">
-					<div class="btn btn-card-header act-show fa"
+					<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 					</div>
 				</div>
 				<span class="item-label header-label"></span>
 				&nbsp;
 				<div class="card-tools-right">
-					<div class="btn btn-card-header act-copy fa"
+					<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>">
 					</div>
-					<div class="btn btn-card-header act-delete fa"
+					<div class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 					</div>
 				</div>
@@ -344,7 +344,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control c-select item-salutation" tabindex="1" disabled="disabled"
+							<select class="form-control c-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.salutation', '' ) ) ); ?>"  >
 								<option value="" <?= $selected( $this->get( 'addressData/customer.address.salutation', '' ), '' ); ?> >
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -370,7 +370,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-title" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-title" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.title', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ); ?>" />
 						</div>
@@ -381,7 +381,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Last name' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-lastname" type="text" required="required" tabindex="1" disabled="disabled"
+							<input class="form-control item-lastname" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.lastname', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ); ?>" />
 						</div>
@@ -392,7 +392,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'First name' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-firstname" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-firstname" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.firstname', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ); ?>" />
 						</div>
@@ -407,7 +407,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-address1" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-address1" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.address1', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ); ?>" />
 						</div>
@@ -418,7 +418,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'House number' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-address2" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-address2" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.address2', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ); ?>"/>
 						</div>
@@ -429,7 +429,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor / Appartment' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-address3" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-address3" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.address3', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or appartment (optional)' ) ); ?>" />
 						</div>
@@ -440,7 +440,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Zip code' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-postal" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-postal" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.postal', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ); ?>" />
 						</div>
@@ -451,7 +451,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'City' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-city" type="text" required="required" tabindex="1" disabled="disabled"
+							<input class="form-control item-city" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.city', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ); ?>" />
 						</div>
@@ -459,7 +459,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'State' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-state" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-state" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.state', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ); ?>" />
 						</div>
@@ -470,7 +470,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-countryid" type="text" required="required" tabindex="1" maxlength="2" pattern="^[a-zA-Z]{2}$" disabled="disabled"
+							<input class="form-control item-countryid" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" maxlength="2" pattern="^[a-zA-Z]{2}$" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.countryid', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country code (required)' ) ); ?>" />
 						</div>
@@ -485,7 +485,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-telephone" type="tel" tabindex="1" disabled="disabled"
+							<input class="form-control item-telephone" type="tel" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.telephone', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ); ?>" />
 						</div>
@@ -496,7 +496,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-telefax" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-telefax" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.telefax', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ); ?>" />
 						</div>
@@ -507,7 +507,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Web site' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-website" type="url" tabindex="1" disabled="disabled"
+							<input class="form-control item-website" type="url" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.website', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ); ?>" />
 						</div>
@@ -522,7 +522,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-company" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-company" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.company', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ); ?>" />
 						</div>
@@ -530,7 +530,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'VAT ID' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-vatid" type="text" tabindex="1" disabled="disabled"
+							<input class="form-control item-vatid" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.vatid', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ); ?>" />
 						</div>
@@ -544,7 +544,7 @@ $enc = $this->encoder();
 		</div>
 
 		<div class="card-tools-more">
-			<div class="btn btn-primary btn-card-more act-add fa"
+			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 				title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 			</div>
 		</div>

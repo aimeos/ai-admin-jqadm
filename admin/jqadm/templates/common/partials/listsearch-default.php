@@ -15,6 +15,7 @@ $selected = function( $key, $code ) {
  * Available data:
  * - data: Associative list of keys (e.g. "product.id") and translated names (e.g. "ID")
  * - fields: List of columns that are currently shown
+ * - tabindex: Numerical index for tabbing through the fields and buttons
  */
 
 $fields = $this->get( 'fields', [] );
@@ -34,7 +35,7 @@ $enc = $this->encoder();
 					name="<?= $enc->attr( $this->formparam( ['filter', 'op', $idx] ) ); ?>" />
 
 				<?php if( ( $type = $this->value( $list, 'type', 'text' ) ) === 'select' ) : ?>
-					<select class="form-control custom-select" tabindex="2"
+					<select class="form-control custom-select" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						name="<?= $enc->attr( $this->formparam( ['filter', 'val', $idx] ) ); ?>">
 						<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?></option>
 
@@ -45,7 +46,7 @@ $enc = $this->encoder();
 						<?php endforeach; ?>
 					</select>
 				<?php else : ?>
-					<input class="form-control" type="<?= $enc->attr( $type ); ?>" tabindex="2"
+					<input class="form-control" type="<?= $enc->attr( $type ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						name="<?= $enc->attr( $this->formparam( ['filter', 'val', $idx] ) ); ?>"
 						value="<?= $enc->attr( $this->param( 'filter/val/' . $idx ) ); ?>" />
 				<?php endif; ?>
@@ -54,10 +55,10 @@ $enc = $this->encoder();
 	<?php endforeach; ?>
 
 	<td class="actions">
-		<a class="btn act-reset fa" href="#"
+		<a class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Reset') ); ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"></a>
-		<button class="btn act-search fa"
+		<button class="btn act-search fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Search') ); ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
 		</button>

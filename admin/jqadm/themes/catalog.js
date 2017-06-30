@@ -58,6 +58,7 @@ Aimeos.options.done(function(data) {
 			"data": [root],
 			"autoOpen": 0,
 			"dragAndDrop": true,
+			"keyboardSupport": false,
 			"closedIcon": " ",
 			"openedIcon": " ",
 			"slide": false,
@@ -66,6 +67,10 @@ Aimeos.options.done(function(data) {
 					return false;
 				}
 				return true;
+			},
+			"onCreateLi": function(node, li, isselected) {
+				$(".jqtree-toggler", li).attr("tabindex", 1);
+				$(".jqtree-title", li).attr("tabindex", 1);
 			}
 		});
 

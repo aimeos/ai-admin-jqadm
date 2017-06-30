@@ -22,7 +22,7 @@ $enc = $this->encoder();
 					data-toggle="collapse" data-target="#item-price-group-data-<?= $enc->attr( $idx ); ?>"
 					aria-expanded="false" aria-controls="item-price-group-data-<?= $enc->attr( $idx ); ?>">
 					<div class="card-tools-left">
-						<div class="btn btn-card-header act-show fa"
+						<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 						</div>
 					</div>
@@ -30,7 +30,7 @@ $enc = $this->encoder();
 					&nbsp;
 					<div class="card-tools-right">
 						<?php if( !$this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ) ) : ?>
-							<div class="btn btn-card-header act-delete fa"
+							<div class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 							</div>
 						<?php endif; ?>
@@ -44,7 +44,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-taxrate" type="number" step="0.01" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+								<input class="form-control item-taxrate" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrate', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.taxrate/' . $idx, 0 ) ); ?>"
@@ -57,7 +57,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Actual current price' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+								<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.value', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual current price' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.value/' . $idx, '0.00' ) ); ?>"
@@ -71,7 +71,7 @@ $enc = $this->encoder();
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?></label>
 							<div class="col-sm-8">
 								<input class="form-control item-rebate" type="number" step="0.01"
-									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.rebate', '' ) ) ); ?>" tabindex="<?= $this->get( "tabindex" ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.rebate', '' ) ) ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.rebate/' . $idx, '0.00' ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> />
@@ -84,7 +84,7 @@ $enc = $this->encoder();
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping costs per item' ) ); ?></label>
 							<div class="col-sm-8">
 								<input class="form-control item-costs" type="number" step="0.01"
-									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.costs', '' ) ) ); ?>" tabindex="<?= $this->get( "tabindex" ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.costs', '' ) ) ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping costs per item' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.costs/' . $idx, '0.00' ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> />
@@ -101,7 +101,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+									<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>"
 										<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> >
 										<option value="">
@@ -125,7 +125,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+									<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
 										<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> >
 										<option value="">
@@ -152,7 +152,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Minimum quantity' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+								<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.quantity', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Minimum quantity' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.quantity/' . $idx, 1 ) ); ?>"
@@ -176,14 +176,14 @@ $enc = $this->encoder();
 			<div id="item-price-group-item-" class="card-header header" role="tab"
 				data-toggle="collapse" data-target="#item-price-group-data-">
 				<div class="card-tools-left">
-					<div class="btn btn-card-header act-show fa"
+					<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 					</div>
 				</div>
 				<span class="item-label header-label"></span>
 				&nbsp;
 				<div class="card-tools-right">
-					<div class="btn btn-card-header act-delete fa"
+					<div class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 					</div>
 				</div>
@@ -195,7 +195,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-taxrate" type="number" step="0.01" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+							<input class="form-control item-taxrate" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrate', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>" />
 						</div>
@@ -203,7 +203,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Actual current price' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+							<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.value', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual current price' ) ); ?>" />
 						</div>
@@ -211,7 +211,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-rebate" type="number" step="0.01" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+							<input class="form-control item-rebate" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.rebate', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?>" />
 						</div>
@@ -219,7 +219,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Shipping costs per item' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-costs" type="number" step="0.01" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+							<input class="form-control item-costs" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.costs', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping costs per item' ) ); ?>" />
 						</div>
@@ -232,7 +232,7 @@ $enc = $this->encoder();
 						<div class="form-group row">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+								<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>">
 									<option value="">
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -257,7 +257,7 @@ $enc = $this->encoder();
 						<div class="form-group row">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+								<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>">
 									<option value="">
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -281,7 +281,7 @@ $enc = $this->encoder();
 					<div class="form-group row">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Minimum quantity' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+							<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.quantity', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Minimum quantity' ) ); ?>"
 								value="1" />
@@ -294,7 +294,7 @@ $enc = $this->encoder();
 		</div>
 
 		<div class="card-tools-more">
-			<div class="btn btn-primary btn-card-more act-add fa"
+			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 				title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 			</div>
 		</div>

@@ -571,7 +571,7 @@ $columnList = [
 				?>
 
 				<th class="actions">
-					<a class="btn fa act-add"
+					<a class="btn fa act-add" tabindex="1"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
@@ -614,7 +614,7 @@ $columnList = [
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
 					<?php if( in_array( 'product.id', $fields ) ) : ?>
-						<td class="product-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
+						<td class="product-id"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'product.status', $fields ) ) : ?>
 						<td class="product-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
@@ -646,12 +646,12 @@ $columnList = [
 
 					<td class="actions">
 						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-							<a class="btn act-delete fa"
+							<a class="btn act-delete fa" tabindex="1"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'product', 'id' => $id] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 						<?php endif; ?>
-						<a class="btn act-copy fa"
+						<a class="btn act-copy fa" tabindex="1"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>

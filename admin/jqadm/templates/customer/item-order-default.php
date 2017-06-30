@@ -113,7 +113,7 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
 					<?= $enc->html( $this->translate( 'admin', 'Payment type' ) ); ?>
 				</th>
 				<th class="actions">
-					<a class="btn fa act-add"
+					<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'order'], [], $newConfig ) ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
@@ -132,10 +132,10 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
 					<td class="order-base-service-payment"><?= $enc->html( $payment( $baskets, $item ) ); ?></td>
 
 					<td class="actions">
-						<a class="btn act-view fa" target="_blank"
+						<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
 							href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
-						<a class="btn act-copy fa"
+						<a class="btn act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>

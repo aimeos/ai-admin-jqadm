@@ -100,7 +100,6 @@ $columnList = [
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'top'] ); ?>
 
-<?php $searchParam = $params; unset( $searchParam['filter'] ); ?>
 <form class="list-attribute" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
@@ -109,12 +108,12 @@ $columnList = [
 			<tr>
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ),
-						['fields' => $fields, 'params' => $params, 'data' => $columnList]
+						['fields' => $fields, 'params' => $params, 'tabindex' => 1, 'data' => $columnList]
 					);
 				?>
 
 				<th class="actions">
-					<a class="btn fa act-add"
+					<a class="btn fa act-add" tabindex="1"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
@@ -122,7 +121,7 @@ $columnList = [
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),
-							['fields' => $fields, 'group' => 'a', 'data' => $columnList]
+							['fields' => $fields, 'group' => 'a', 'tabindex' => 1, 'data' => $columnList]
 						);
 					?>
 				</th>
@@ -132,7 +131,7 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-					'fields' => $fields, 'params' => $searchParam,
+					'fields' => $fields, 'tabindex' => 1,
 					'data' => [
 						'attribute.id' => ['op' => '=='],
 						'attribute.domain' => ['op' => '==', 'type' => 'select', 'val' => [
@@ -174,7 +173,7 @@ $columnList = [
 						<td class="attribute-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'attribute.code', $fields ) ) : ?>
-						<td class="attribute-code"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getCode() ); ?></a></td>
+						<td class="attribute-code"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getCode() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'attribute.label', $fields ) ) : ?>
 						<td class="attribute-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
@@ -194,12 +193,12 @@ $columnList = [
 
 					<td class="actions">
 						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-							<a class="btn act-delete fa"
+							<a class="btn act-delete fa" tabindex="1"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'attribute', 'id' => $id] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 						<?php endif; ?>
-						<a class="btn act-copy fa"
+						<a class="btn act-copy fa" tabindex="1"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>

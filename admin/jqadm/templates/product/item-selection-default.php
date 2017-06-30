@@ -58,7 +58,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 					<div class="form-group row mandatory">
 						<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
 								value="<?= $enc->attr( $code ); ?>"
@@ -71,7 +71,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 					<div class="form-group row mandatory">
 						<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->value( $map, 'product.label' ) ); ?>"
@@ -93,7 +93,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 									</div>
 								</th>
 								<th class="actions">
-									<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"></div>
+									<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"></div>
 								</th>
 							</tr>
 						</thead>
@@ -106,7 +106,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" />
 										<input class="item-attr-label" type="hidden" value="<?= $enc->attr( $this->value( $list, 'label' ) ); ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" />
-										<select class="combobox item-attr-id" tabindex="<?= $this->get( "tabindex" ); ?>"
+										<select class="combobox item-attr-id" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>"
 											<?= $this->site()->readonly( $this->value( $list, 'siteid' ) ); ?> >
 											<option value="<?= $enc->attr( $attrid ); ?>" ><?= $enc->html( $this->value( $list, 'label' ) ); ?></option>
@@ -114,7 +114,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 									</td>
 									<td class="actions">
 										<?php if( !$this->site()->readonly( $this->value( $list, 'siteid' ) ) ) : ?>
-											<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+											<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 											</div>
 										<?php endif; ?>
@@ -128,12 +128,12 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" />
 									<input class="item-attr-label" type="hidden" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" />
-									<select class="combobox-prototype item-attr-id" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+									<select class="combobox-prototype item-attr-id" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">
 									</select>
 								</td>
 								<td class="actions">
-									<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+									<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 									</div>
 								</td>
@@ -170,7 +170,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 				<div class="form-group row mandatory">
 					<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 					<div class="col-lg-8">
-						<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+						<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>">
 					</div>
@@ -181,7 +181,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 				<div class="form-group row mandatory">
 					<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 					<div class="col-lg-8">
-						<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+						<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>">
 					</div>
@@ -201,7 +201,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 								</div>
 							</th>
 							<th class="actions">
-								<div class="btn act-add fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+								<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 								</div>
 							</th>
@@ -212,12 +212,12 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 							<td>
 								<input class="item-attr-ref" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" value="" disabled="disabled" />
 								<input class="item-attr-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" value="" disabled="disabled" />
-								<select class="combobox-prototype item-attr-id" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+								<select class="combobox-prototype item-attr-id" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 									name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">
 								</select>
 							</td>
 							<td class="actions">
-								<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+								<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 								</div>
 							</td>

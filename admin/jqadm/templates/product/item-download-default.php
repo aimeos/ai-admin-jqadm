@@ -14,7 +14,7 @@ $enc = $this->encoder();
 
 ?>
 <div id="download" class="row item-download tab-pane fade" role="tabpanel" aria-labelledby="download">
-	<div class="col-lg-6 content-block <?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid' ) ); ?>">
+	<div class="col-lg-6 content-block <?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSite->getId() ) ); ?>">
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'File' ) ); ?></label>
 			<div class="col-sm-8">
@@ -24,15 +24,15 @@ $enc = $this->encoder();
 					value="<?= $enc->attr( $this->get( 'downloadData/product.lists.id' ) ); ?>" />
 				<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.id' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/attribute.id' ) ); ?>" />
-				<input class="fileupload" type="file" name="download[file]" tabindex="<?= $this->get( "tabindex" ); ?>" />
+				<input class="fileupload" type="file" name="download[file]" tabindex="<?= $this->get( 'tabindex' ); ?>" />
 			</div>
 		</div>
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 			<div class="col-sm-8">
-				<select class="form-control custom-select item-status" tabindex="<?= $this->get( "tabindex" ); ?>"
+				<select class="form-control custom-select item-status" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.status' ) ) ); ?>"
-					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid' ) ); ?> >
+					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSite->getId() ) ); ?> >
 					<option value="1" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), 1 ); ?> >
 						<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
 					</option>
@@ -51,10 +51,10 @@ $enc = $this->encoder();
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></label>
 			<div class="col-sm-8">
-				<input class="form-control item-label" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
+				<input class="form-control item-label" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.label' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/attribute.label' ) ); ?>"
-					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid' ) ); ?> />
+					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSite->getId() ) ); ?> />
 			</div>
 			<div class="col-sm-12 form-text text-muted help-text">
 				<?= $enc->html( $this->translate( 'admin', 'Name of the downloaded file when customers saves the file on their computers' ) ); ?>
@@ -63,8 +63,9 @@ $enc = $this->encoder();
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Replace file' ) ); ?></label>
 			<div class="col-sm-8">
-				<input class="form-control item-overwrite" type="checkbox" tabindex="<?= $this->get( "tabindex" ); ?>"
+				<input class="form-control item-overwrite" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'overwrite' ) ) ); ?>" value="1"
+					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSite->getId() ) ); ?>
 					<?= $selected( $this->get( 'downloadData/overwrite' ), 1 ); ?> />
 			</div>
 			<div class="col-sm-12 form-text text-muted help-text">

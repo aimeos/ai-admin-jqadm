@@ -19,7 +19,7 @@ $enc = $this->encoder();
 				data-toggle="collapse" data-target="#item-text-group-data-<?= $enc->attr( $idx ); ?>"
 				aria-expanded="false" aria-controls="item-text-group-data-<?= $enc->attr( $idx ); ?>">
 				<div class="card-tools-left">
-					<div class="btn btn-card-header act-show fa"
+					<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 					</div>
 				</div>
@@ -27,7 +27,7 @@ $enc = $this->encoder();
 				&nbsp;
 				<div class="card-tools-right">
 					<?php if( !$this->site()->readonly( $this->get( 'textData/siteid/' . $idx ) ) ) : ?>
-						<div class="btn btn-card-header act-delete fa"
+						<div class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 						</div>
 					<?php endif; ?>
@@ -42,7 +42,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select text-langid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+								<select class="form-control custom-select text-langid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'textData/siteid/' . $idx ) ); ?> >
 									<option value="">
@@ -70,7 +70,7 @@ $enc = $this->encoder();
 							<input class="item-name-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'listid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/name/listid/' . $idx ) ); ?>" />
-							<input class="form-control item-name-content" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<input class="form-control item-name-content" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'content', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Attribute name' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/name/content/' . $idx ) ); ?>"
@@ -83,7 +83,7 @@ $enc = $this->encoder();
 							<input class="item-short-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'short', 'listid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/short/listid/' . $idx ) ); ?>" />
-							<textarea class="form-control item-short-content" rows="2" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<textarea class="form-control item-short-content" rows="2" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'short', 'content', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Short description' ) ); ?>"
 								 <?= $this->site()->readonly( $this->get( 'textData/siteid/' . $idx ) ); ?>
@@ -99,7 +99,7 @@ $enc = $this->encoder();
 							<input class="item-long-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'long', 'listid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/long/listid/' . $idx ) ); ?>" />
-							<textarea class="form-control htmleditor item-long-content" rows="10" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<textarea class="form-control htmleditor item-long-content" rows="10" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'long', 'content', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Long description' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'textData/siteid/' . $idx ) ); ?>
@@ -119,14 +119,14 @@ $enc = $this->encoder();
 			data-toggle="collapse" data-target="#item-text-group-data-"
 			aria-expanded="true" aria-controls="item-text-group-data-">
 			<div class="card-tools-left">
-				<div class="btn btn-card-header act-show fa"
+				<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 				</div>
 			</div>
 			<span class="item-name-content header-label"></span>
 			&nbsp;
 			<div class="card-tools-right">
-				<div class="btn btn-card-header act-delete fa"
+				<div class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 				</div>
 			</div>
@@ -140,7 +140,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select text-langid" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<select class="form-control custom-select text-langid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>" disabled="disabled">
 								<option value="">
 									<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -166,7 +166,7 @@ $enc = $this->encoder();
 					<div class="col-sm-8">
 						<input class="item-name-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'listid', '' ) ) ); ?>" />
-						<input class="form-control item-name-content" type="text" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<input class="form-control item-name-content" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'content', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Attribute name' ) ); ?>" disabled="disabled" />
 					</div>
@@ -176,7 +176,7 @@ $enc = $this->encoder();
 					<div class="col-sm-8">
 						<input class="item-short-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'short', 'listid', '' ) ) ); ?>" />
-						<textarea class="form-control item-short-content" rows="2" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<textarea class="form-control item-short-content" rows="2" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'short', 'content', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Short description' ) ); ?>" disabled="disabled" ></textarea>
 					</div>
@@ -189,7 +189,7 @@ $enc = $this->encoder();
 					<div class="col-sm-8">
 						<input class="item-long-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'long', 'listid', '' ) ) ); ?>" />
-						<textarea class="form-control htmleditor-prototype item-long-content" rows="6" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<textarea class="form-control htmleditor-prototype item-long-content" rows="6" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'long', 'content', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Long description' ) ); ?>" disabled="disabled" ></textarea>
 					</div>
@@ -203,7 +203,7 @@ $enc = $this->encoder();
 	<?= $this->get( 'textBody' ); ?>
 
 	<div class="card-tools-more">
-		<div class="btn btn-primary btn-card-more act-add fa"
+		<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
 		</div>
 	</div>

@@ -30,7 +30,7 @@ $enc = $this->encoder();
 				<th class="actions">
 					<div class="btn fa fa-plus"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
-						<input class="fileupload act-add" type="file" name="image[files][]" tabindex="<?= $this->get( "tabindex" ); ?>" multiple />
+						<input class="fileupload act-add" type="file" name="image[files][]" tabindex="<?= $this->get( 'tabindex' ); ?>" multiple />
 					</div>
 				</th>
 			</tr>
@@ -47,7 +47,7 @@ $enc = $this->encoder();
 					</td>
 					<td class="image-language optional">
 
-						<select class="custom-select item-languageid" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<select class="custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'imageData/catalog.lists.siteid/' . $idx ) ); ?> >
 							<?php $lang = $this->get( 'imageData/media.languageid/' . $idx ); ?>
@@ -65,14 +65,14 @@ $enc = $this->encoder();
 
 					</td>
 					<td class="image-label mandatory">
-						<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>"
+						<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'image', 'media.label', '' ) ) ); ?>"
 							value="<?= $enc->attr( $this->get( 'imageData/media.label/' . $idx ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'imageData/catalog.lists.siteid/' . $idx ) ); ?> />
 					</td>
 					<td class="actions">
 						<?php if( !$this->site()->readonly( $this->get( 'imageData/catalog.lists.siteid/' . $idx ) ) ) : ?>
-							<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+							<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 							</div>
 						<?php endif; ?>
@@ -84,7 +84,7 @@ $enc = $this->encoder();
 				<td class="image-preview"></td>
 				<td class="image-language optional">
 					<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'image', 'catalog.lists.id', '' ) ) ); ?>" value="" disabled="disabled" />
-					<select class="custom-select item-languageid" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+					<select class="custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>">
 						<option value=""><?= $enc->html( $this->translate( 'admin', 'All' ) ); ?></option>
 
@@ -95,11 +95,11 @@ $enc = $this->encoder();
 					</select>
 				</td>
 				<td class="image-label mandatory">
-					<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( "tabindex" ); ?>" disabled="disabled"
+					<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'image', 'media.label', '' ) ) ); ?>" />
 				</td>
 				<td class="actions">
-					<div class="btn act-delete fa" tabindex="<?= $this->get( "tabindex" ); ?>"
+					<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 					</div>
 				</td>
