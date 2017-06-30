@@ -125,7 +125,7 @@
 }
 
 .aimeos table .actions .dropdown-toggle {
-	padding: 0.5rem 0.75rem;
+	padding: 0.5rem;
 }
 
 .aimeos .actions-group {
@@ -151,4 +151,9 @@
 
 .aimeos .input-group-addon .dropdown-add:after {
 	content: "+";
+}
+
+.aimeos input.fileupload {
+	padding: 0.25rem 0;
+	width: 100%;
 }

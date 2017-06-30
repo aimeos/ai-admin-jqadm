@@ -71,7 +71,7 @@
 }
 
 .aimeos .list-items th .dropdown-toggle:focus {
-	box-shadow: none;
+	box-shadow: 0 0 0 2px rgba(2,117,216,.25);
 }
 
 .aimeos .list-items a.items-field {
