@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-28 18:42+0200\n"
-"PO-Revision-Date: 2017-06-28 16:58+0000\n"
+"POT-Creation-Date: 2017-06-30 08:16+0200\n"
+"PO-Revision-Date: 2017-06-30 06:16+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -128,7 +128,7 @@ msgstr ""
 
 msgid ""
 "Article description shown by search engines, added to the head section of "
-"the category page"
+"the product detail page"
 msgstr ""
 
 msgid ""
@@ -741,6 +741,11 @@ msgstr "Feladatok"
 
 msgid ""
 "Keywords for search engines, added to the head section of the category page"
+msgstr ""
+
+msgid ""
+"Keywords for search engines, added to the head section of the product detail"
+" page"
 msgstr ""
 
 msgid "Label"
@@ -1780,9 +1785,14 @@ msgid "Zip code (optional)"
 msgstr ""
 
 #, php-format
+msgid "attribute"
+msgstr ""
+
+#, php-format
 msgid "bundle"
 msgstr "Csomagok"
 
+#, php-format
 msgid "catalog"
 msgstr ""
 
@@ -1797,6 +1807,15 @@ msgstr "Jellemzők"
 msgid "company"
 msgstr ""
 
+#, php-format
+msgid "coupon"
+msgstr ""
+
+#, php-format
+msgid "customer"
+msgstr ""
+
+#, php-format
 msgid "dashboard"
 msgstr "Vezérlőpult"
 
@@ -1829,6 +1848,10 @@ msgstr ""
 #, php-format
 msgid "option"
 msgstr "Opciók"
+
+#, php-format
+msgid "order"
+msgstr "Rendelés"
 
 msgid "pay:-1"
 msgstr ""
@@ -1886,6 +1909,7 @@ msgstr ""
 msgid "price"
 msgstr "Árak"
 
+#, php-format
 msgid "product"
 msgstr "Termék"
 

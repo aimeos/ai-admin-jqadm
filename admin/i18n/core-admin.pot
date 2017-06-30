@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-28 18:59+0200\n"
+"POT-Creation-Date: 2017-06-30 08:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,10 +116,7 @@ msgstr ""
 msgid "Allow customers to choose themselves how much they want to pay"
 msgstr ""
 
-msgid "Article description shown by search engines, added to the <head> section of the product detail page"
-msgstr ""
-
-msgid "Article description shown by search engines, added to the head section of the category page"
+msgid "Article description shown by search engines, added to the head section of the product detail page"
 msgstr ""
 
 msgid "Article specific configuration options, will be available as key/value pairs in the templates"
@@ -714,10 +711,10 @@ msgstr "Job item details"
 msgid "Jobs"
 msgstr "Jobs"
 
-msgid "Keywords for search engines, added to the <head> section of the product detail page"
+msgid "Keywords for search engines, added to the head section of the category page"
 msgstr ""
 
-msgid "Keywords for search engines, added to the head section of the category page"
+msgid "Keywords for search engines, added to the head section of the product detail page"
 msgstr ""
 
 msgid "Label"
@@ -1711,9 +1708,14 @@ msgid "Zip code (optional)"
 msgstr ""
 
 #, php-format
+msgid "attribute"
+msgstr ""
+
+#, php-format
 msgid "bundle"
 msgstr "Bundles"
 
+#, php-format
 msgid "catalog"
 msgstr ""
 
@@ -1728,6 +1730,15 @@ msgstr "Characteristics"
 msgid "company"
 msgstr ""
 
+#, php-format
+msgid "coupon"
+msgstr ""
+
+#, php-format
+msgid "customer"
+msgstr ""
+
+#, php-format
 msgid "dashboard"
 msgstr "Dashboard"
 
@@ -1760,6 +1771,10 @@ msgstr ""
 #, php-format
 msgid "option"
 msgstr "Options"
+
+#, php-format
+msgid "order"
+msgstr ""
 
 msgid "pay:-1"
 msgstr ""
@@ -1817,6 +1832,7 @@ msgstr "Physical"
 msgid "price"
 msgstr "Prices"
 
+#, php-format
 msgid "product"
 msgstr "Product"
 
