@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -947,9 +947,6 @@ msgstr ""
 msgid "Next"
 msgstr "Далее"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr "Информация об ошибке недоступна"
 
@@ -970,6 +967,9 @@ msgstr ""
 #, php-format
 msgid "No view available"
 msgstr "Нет доступных режимов вывода"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1785,11 +1785,11 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "адрес"
+msgstr "Адреса"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Атрибуты"
 
 #, php-format
 msgid "bundle"
@@ -1797,7 +1797,7 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Категории"
 
 #, php-format
 msgid "category"
@@ -1809,7 +1809,7 @@ msgstr "Характеристики"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Коды"
 
 msgid "company"
 msgstr ""
@@ -1858,13 +1858,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Мисс"
 
 msgid "mr"
-msgstr ""
+msgstr "Мистер"
 
 msgid "mrs"
-msgstr ""
+msgstr "Миссис"
 
 msgid "new"
 msgstr "новое"
@@ -1878,31 +1878,31 @@ msgstr "Параметры"
 
 #, php-format
 msgid "order"
-msgstr "заказ"
+msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "незакончен"
 
 msgid "pay:0"
-msgstr ""
+msgstr "удален"
 
 msgid "pay:1"
-msgstr ""
+msgstr "отменен"
 
 msgid "pay:2"
-msgstr ""
+msgstr "отклонен"
 
 msgid "pay:3"
-msgstr ""
+msgstr "возмещен"
 
 msgid "pay:4"
-msgstr ""
+msgstr "в ожидании"
 
 msgid "pay:5"
-msgstr ""
+msgstr "авторизирован"
 
 msgid "pay:6"
-msgstr ""
+msgstr "получен"
 
 msgid "pay:authorized"
 msgstr "оплата:разрешена"
@@ -1930,7 +1930,7 @@ msgstr "стат:незакончен"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Статус оплаты"
 
 #, php-format
 msgid "paymenttype"
@@ -1946,11 +1946,11 @@ msgstr ""
 
 #, php-format
 msgid "product"
-msgstr "Товар"
+msgstr "Товары"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "Товары"
 
 #, php-format
 msgid "selection"
@@ -1961,31 +1961,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "незакончен"
 
 msgid "stat:0"
-msgstr ""
+msgstr "удален"
 
 msgid "stat:1"
-msgstr ""
+msgstr "в ожидании"
 
 msgid "stat:2"
-msgstr ""
+msgstr "в обработке"
 
 msgid "stat:3"
-msgstr ""
+msgstr "отправлен"
 
 msgid "stat:4"
-msgstr ""
+msgstr "получен"
 
 msgid "stat:5"
-msgstr ""
+msgstr "потерян"
 
 msgid "stat:6"
-msgstr ""
+msgstr "отклонен"
 
 msgid "stat:7"
-msgstr ""
+msgstr "возращен"
 
 msgid "stat:deleted"
 msgstr "стат:удалено"

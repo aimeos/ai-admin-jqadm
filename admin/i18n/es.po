@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -949,9 +949,6 @@ msgstr ""
 msgid "Next"
 msgstr "Siguiente"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr "No hay información del error disponible"
 
@@ -972,6 +969,9 @@ msgstr ""
 #, php-format
 msgid "No view available"
 msgstr "No hay vistas disponibles"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1787,11 +1787,11 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "dirección"
+msgstr "Direcciones"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Atributos"
 
 #, php-format
 msgid "bundle"
@@ -1799,7 +1799,7 @@ msgstr "Paquetes"
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Categorías"
 
 #, php-format
 msgid "category"
@@ -1811,7 +1811,7 @@ msgstr "Características"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Códigos"
 
 msgid "company"
 msgstr ""
@@ -1860,13 +1860,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Srta"
 
 msgid "mr"
-msgstr ""
+msgstr "Sr"
 
 msgid "mrs"
-msgstr ""
+msgstr "Sra"
 
 msgid "new"
 msgstr "nuevo"
@@ -1880,31 +1880,31 @@ msgstr "Opciones"
 
 #, php-format
 msgid "order"
-msgstr "pedido"
+msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "inacabado"
 
 msgid "pay:0"
-msgstr ""
+msgstr "eliminado"
 
 msgid "pay:1"
-msgstr ""
+msgstr "cancelado"
 
 msgid "pay:2"
-msgstr ""
+msgstr "rechazado"
 
 msgid "pay:3"
-msgstr ""
+msgstr "reembolsado"
 
 msgid "pay:4"
-msgstr ""
+msgstr "pendiente"
 
 msgid "pay:5"
-msgstr ""
+msgstr "autorizado"
 
 msgid "pay:6"
-msgstr ""
+msgstr "recibido"
 
 msgid "pay:authorized"
 msgstr "autorizado"
@@ -1932,11 +1932,11 @@ msgstr "inacabado"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Estado del pago"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "Tipos de Pago"
 
 #, php-format
 msgid "physical"
@@ -1948,11 +1948,11 @@ msgstr "Precios"
 
 #, php-format
 msgid "product"
-msgstr "Producto"
+msgstr "Productos"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "Productos"
 
 #, php-format
 msgid "selection"
@@ -1963,31 +1963,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "inacabado"
 
 msgid "stat:0"
-msgstr ""
+msgstr "eliminado"
 
 msgid "stat:1"
-msgstr ""
+msgstr "pendiente"
 
 msgid "stat:2"
-msgstr ""
+msgstr "en progreso"
 
 msgid "stat:3"
-msgstr ""
+msgstr "enviado"
 
 msgid "stat:4"
-msgstr ""
+msgstr "entregado"
 
 msgid "stat:5"
-msgstr ""
+msgstr "perdido"
 
 msgid "stat:6"
-msgstr ""
+msgstr "rechazado"
 
 msgid "stat:7"
-msgstr ""
+msgstr "devuelto"
 
 msgid "stat:deleted"
 msgstr "eliminado"

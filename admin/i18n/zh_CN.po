@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/aimeos/aimeos-core/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -948,9 +948,6 @@ msgstr ""
 msgid "Next"
 msgstr "下"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr ""
 
@@ -971,6 +968,9 @@ msgstr ""
 #, php-format
 msgid "No view available"
 msgstr "没有可用的视图"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1790,7 +1790,7 @@ msgstr "地址"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "属性"
 
 #, php-format
 msgid "bundle"
@@ -1798,7 +1798,7 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "类目"
 
 #, php-format
 msgid "category"
@@ -1859,13 +1859,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "女士"
 
 msgid "mr"
-msgstr ""
+msgstr "先生"
 
 msgid "mrs"
-msgstr ""
+msgstr "女士"
 
 msgid "new"
 msgstr ""
@@ -1879,31 +1879,31 @@ msgstr "选项"
 
 #, php-format
 msgid "order"
-msgstr "订单"
+msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "未完成"
 
 msgid "pay:0"
-msgstr ""
+msgstr "已删除"
 
 msgid "pay:1"
-msgstr ""
+msgstr "取消"
 
 msgid "pay:2"
-msgstr ""
+msgstr "被拒收"
 
 msgid "pay:3"
-msgstr ""
+msgstr "已退款"
 
 msgid "pay:4"
-msgstr ""
+msgstr "处理中"
 
 msgid "pay:5"
-msgstr ""
+msgstr "已授权"
 
 msgid "pay:6"
-msgstr ""
+msgstr "已收到"
 
 msgid "pay:authorized"
 msgstr ""
@@ -1931,7 +1931,7 @@ msgstr ""
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "支付状态"
 
 #, php-format
 msgid "paymenttype"
@@ -1947,7 +1947,7 @@ msgstr "价格"
 
 #, php-format
 msgid "product"
-msgstr "商品"
+msgstr ""
 
 #, php-format
 msgid "related"
@@ -1962,31 +1962,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "未完成"
 
 msgid "stat:0"
-msgstr ""
+msgstr "已删除"
 
 msgid "stat:1"
-msgstr ""
+msgstr "处理中"
 
 msgid "stat:2"
-msgstr ""
+msgstr "处理中"
 
 msgid "stat:3"
-msgstr ""
+msgstr "配送中"
 
 msgid "stat:4"
-msgstr ""
+msgstr "已交货"
 
 msgid "stat:5"
-msgstr ""
+msgstr "无法确定"
 
 msgid "stat:6"
-msgstr ""
+msgstr "被拒收"
 
 msgid "stat:7"
-msgstr ""
+msgstr "被退货"
 
 msgid "stat:deleted"
 msgstr ""

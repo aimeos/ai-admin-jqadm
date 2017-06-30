@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -948,9 +948,6 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr ""
 
@@ -971,6 +968,9 @@ msgstr ""
 #, php-format
 msgid "No view available"
 msgstr "Žádný náhled k dispozici"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1786,11 +1786,11 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "adresa"
+msgstr "Adresy"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Atributy"
 
 #, php-format
 msgid "bundle"
@@ -1798,7 +1798,7 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Kategorie"
 
 #, php-format
 msgid "category"
@@ -1810,7 +1810,7 @@ msgstr "Vlastnosti"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Kódy"
 
 msgid "company"
 msgstr ""
@@ -1859,13 +1859,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Slečna"
 
 msgid "mr"
-msgstr ""
+msgstr "Pan"
 
 msgid "mrs"
-msgstr ""
+msgstr "Paní"
 
 msgid "new"
 msgstr "nový"
@@ -1879,31 +1879,31 @@ msgstr "Možnosti"
 
 #, php-format
 msgid "order"
-msgstr "objednat"
+msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "nedokončeno"
 
 msgid "pay:0"
-msgstr ""
+msgstr "odstraněno"
 
 msgid "pay:1"
-msgstr ""
+msgstr "zrušeno"
 
 msgid "pay:2"
-msgstr ""
+msgstr "odmítnuto"
 
 msgid "pay:3"
-msgstr ""
+msgstr "vráceno"
 
 msgid "pay:4"
-msgstr ""
+msgstr "nevyřízeno"
 
 msgid "pay:5"
-msgstr ""
+msgstr "autorizováno"
 
 msgid "pay:6"
-msgstr ""
+msgstr "obdrženo"
 
 msgid "pay:authorized"
 msgstr "pay:authorized"
@@ -1931,7 +1931,7 @@ msgstr "stat:unfinished"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Stav platby"
 
 #, php-format
 msgid "paymenttype"
@@ -1947,7 +1947,7 @@ msgstr ""
 
 #, php-format
 msgid "product"
-msgstr "Produkt"
+msgstr ""
 
 #, php-format
 msgid "related"
@@ -1962,31 +1962,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "nedokončeno"
 
 msgid "stat:0"
-msgstr ""
+msgstr "odstraněno"
 
 msgid "stat:1"
-msgstr ""
+msgstr "nevyřízeno"
 
 msgid "stat:2"
-msgstr ""
+msgstr "probíhá"
 
 msgid "stat:3"
-msgstr ""
+msgstr "odesláno"
 
 msgid "stat:4"
-msgstr ""
+msgstr "doručeno"
 
 msgid "stat:5"
-msgstr ""
+msgstr "ztraceno"
 
 msgid "stat:6"
-msgstr ""
+msgstr "odmítnuto"
 
 msgid "stat:7"
-msgstr ""
+msgstr "vráceno"
 
 msgid "stat:deleted"
 msgstr "stat:deleted"

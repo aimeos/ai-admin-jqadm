@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: French (http://www.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -947,9 +947,6 @@ msgstr ""
 msgid "Next"
 msgstr "Suivant"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr "Aucune information disponible sur l'erreur"
 
@@ -970,6 +967,9 @@ msgstr ""
 #, php-format
 msgid "No view available"
 msgstr "Pas de visuel disponible"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1785,7 +1785,7 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "Adresse"
+msgstr "Adresses"
 
 #, php-format
 msgid "attribute"
@@ -1858,13 +1858,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Mademoiselle"
 
 msgid "mr"
-msgstr ""
+msgstr "Mr"
 
 msgid "mrs"
-msgstr ""
+msgstr "Mme"
 
 msgid "new"
 msgstr "nouveau"
@@ -1878,31 +1878,31 @@ msgstr "Options"
 
 #, php-format
 msgid "order"
-msgstr "commande"
+msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "en cours"
 
 msgid "pay:0"
-msgstr ""
+msgstr "annulée"
 
 msgid "pay:1"
-msgstr ""
+msgstr "annulé"
 
 msgid "pay:2"
-msgstr ""
+msgstr "refusée"
 
 msgid "pay:3"
-msgstr ""
+msgstr "remboursé"
 
 msgid "pay:4"
-msgstr ""
+msgstr "en attente"
 
 msgid "pay:5"
-msgstr ""
+msgstr "autorisé"
 
 msgid "pay:6"
-msgstr ""
+msgstr "reçu"
 
 msgid "pay:authorized"
 msgstr "autorisé"
@@ -1930,7 +1930,7 @@ msgstr "inachevé"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Statut du paiement"
 
 #, php-format
 msgid "paymenttype"
@@ -1946,11 +1946,11 @@ msgstr ""
 
 #, php-format
 msgid "product"
-msgstr "Produit"
+msgstr "Produits"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "Produits"
 
 #, php-format
 msgid "selection"
@@ -1961,31 +1961,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "en cours"
 
 msgid "stat:0"
-msgstr ""
+msgstr "annulée"
 
 msgid "stat:1"
-msgstr ""
+msgstr "en attente"
 
 msgid "stat:2"
-msgstr ""
+msgstr "en cours"
 
 msgid "stat:3"
-msgstr ""
+msgstr "expédiée"
 
 msgid "stat:4"
-msgstr ""
+msgstr "livrée"
 
 msgid "stat:5"
-msgstr ""
+msgstr "perdue"
 
 msgid "stat:6"
-msgstr ""
+msgstr "refusée"
 
 msgid "stat:7"
-msgstr ""
+msgstr "renvoyée"
 
 msgid "stat:deleted"
 msgstr "supprimé"

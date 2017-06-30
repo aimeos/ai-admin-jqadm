@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -948,9 +948,6 @@ msgstr ""
 msgid "Next"
 msgstr "下一筆"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr "沒有可用的錯誤訊息"
 
@@ -971,6 +968,9 @@ msgstr ""
 #, php-format
 msgid "No view available"
 msgstr "没有可用的view"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1790,7 +1790,7 @@ msgstr "地址"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "屬性"
 
 #, php-format
 msgid "bundle"
@@ -1798,7 +1798,7 @@ msgstr "組合包"
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "商品型錄"
 
 #, php-format
 msgid "category"
@@ -1810,7 +1810,7 @@ msgstr "特色"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "代碼"
 
 msgid "company"
 msgstr ""
@@ -1859,13 +1859,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "小姐"
 
 msgid "mr"
-msgstr ""
+msgstr "先生"
 
 msgid "mrs"
-msgstr ""
+msgstr "女士"
 
 msgid "new"
 msgstr "新"
@@ -1879,31 +1879,31 @@ msgstr "選項"
 
 #, php-format
 msgid "order"
-msgstr "訂單"
+msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "尚未完成"
 
 msgid "pay:0"
-msgstr ""
+msgstr "已删除"
 
 msgid "pay:1"
-msgstr ""
+msgstr "取消"
 
 msgid "pay:2"
-msgstr ""
+msgstr "被拒絕"
 
 msgid "pay:3"
-msgstr ""
+msgstr "已退款"
 
 msgid "pay:4"
-msgstr ""
+msgstr "處理中"
 
 msgid "pay:5"
-msgstr ""
+msgstr "已授權"
 
 msgid "pay:6"
-msgstr ""
+msgstr "已收款"
 
 msgid "pay:authorized"
 msgstr "支付：已授權"
@@ -1931,7 +1931,7 @@ msgstr "狀態：未完成"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "支付狀態"
 
 #, php-format
 msgid "paymenttype"
@@ -1951,7 +1951,7 @@ msgstr "商品"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "商品"
 
 #, php-format
 msgid "selection"
@@ -1962,31 +1962,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "尚未完成"
 
 msgid "stat:0"
-msgstr ""
+msgstr "已删除"
 
 msgid "stat:1"
-msgstr ""
+msgstr "處理中"
 
 msgid "stat:2"
-msgstr ""
+msgstr "程序進行中"
 
 msgid "stat:3"
-msgstr ""
+msgstr "已出貨"
 
 msgid "stat:4"
-msgstr ""
+msgstr "已送達"
 
 msgid "stat:5"
-msgstr ""
+msgstr "遺失"
 
 msgid "stat:6"
-msgstr ""
+msgstr "被拒絕"
 
 msgid "stat:7"
-msgstr ""
+msgstr "被退貨"
 
 msgid "stat:deleted"
 msgstr "狀態：被刪除"

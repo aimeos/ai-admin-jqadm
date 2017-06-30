@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:47+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:58+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -232,7 +232,7 @@ msgid "Birthday of the customer"
 msgstr "Geburtstag des Kunden"
 
 msgid "Bug or suggestion?"
-msgstr "Fehler oder Verbesserungsvorschlag?"
+msgstr "Fehler oder Verbesserung?"
 
 msgid "Bundles"
 msgstr "Produktpakete"
@@ -949,9 +949,6 @@ msgstr "Neu"
 msgid "Next"
 msgstr "Nächste"
 
-msgid "No coupon"
-msgstr "Kein Gutschein"
-
 msgid "No error information available"
 msgstr "Es liegen keine weiteren Information über den Fehler vor"
 
@@ -963,7 +960,7 @@ msgid "No items"
 msgstr "Keine Einträge"
 
 msgid "No items found"
-msgstr "Eine Einträge gefunden"
+msgstr "Keine Einträge gefunden"
 
 #, php-format
 msgid "No items found for \"%1$s %2$s %3$s\""
@@ -972,6 +969,9 @@ msgstr "Keine Einträge für \"%1$s %2$s %3$s\" gefunden"
 #, php-format
 msgid "No view available"
 msgstr "Es ist kein View vorhanden"
+
+msgid "No voucher"
+msgstr "Kein Gutschein"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1787,7 +1787,7 @@ msgstr "Postleitzahl (optional)"
 
 #, php-format
 msgid "address"
-msgstr "Adresse"
+msgstr "Adressen"
 
 #, php-format
 msgid "attribute"
@@ -1850,7 +1850,7 @@ msgstr "Bilder"
 
 #, php-format
 msgid "invoice"
-msgstr "Rechnung"
+msgstr "Rechnungen"
 
 #, php-format
 msgid "latest"
@@ -1880,7 +1880,7 @@ msgstr "Optionen"
 
 #, php-format
 msgid "order"
-msgstr "Bestellung"
+msgstr "Bestellungen"
 
 msgid "pay:-1"
 msgstr "Offen"
@@ -1892,7 +1892,7 @@ msgid "pay:1"
 msgstr "Abgebrochen"
 
 msgid "pay:2"
-msgstr "Abgelehnt"
+msgstr "Annahme verweigert"
 
 msgid "pay:3"
 msgstr "Erstattet"
@@ -1936,7 +1936,7 @@ msgstr "Zahlungsstatus"
 
 #, php-format
 msgid "paymenttype"
-msgstr "Zahlungsart"
+msgstr "Zahlungsarten"
 
 #, php-format
 msgid "physical"
@@ -1948,7 +1948,7 @@ msgstr "Preise"
 
 #, php-format
 msgid "product"
-msgstr "Produkt"
+msgstr "Produkte"
 
 #, php-format
 msgid "related"
@@ -1975,7 +1975,7 @@ msgid "stat:2"
 msgstr "In Bearbeitung"
 
 msgid "stat:3"
-msgstr "Verstandt"
+msgstr "Versandt"
 
 msgid "stat:4"
 msgstr "Ausgeliefert"

@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -952,9 +952,6 @@ msgstr ""
 msgid "Next"
 msgstr "Volgende"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr "Geen fout informatie beschikaar"
 
@@ -975,6 +972,9 @@ msgstr ""
 #, php-format
 msgid "No view available"
 msgstr "Geen weergave beschikbaar"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1790,11 +1790,11 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "adres"
+msgstr "Adressen"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Attributen"
 
 #, php-format
 msgid "bundle"
@@ -1802,7 +1802,7 @@ msgstr "Bundels"
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Categorieën"
 
 #, php-format
 msgid "category"
@@ -1814,7 +1814,7 @@ msgstr "Karakteristieken"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Codes"
 
 msgid "company"
 msgstr ""
@@ -1863,13 +1863,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Mevr"
 
 msgid "mr"
-msgstr ""
+msgstr "Dhr"
 
 msgid "mrs"
-msgstr ""
+msgstr "Mevr"
 
 msgid "new"
 msgstr "nieuw"
@@ -1883,31 +1883,31 @@ msgstr "Opties"
 
 #, php-format
 msgid "order"
-msgstr "Bestelling"
+msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "niet gereed"
 
 msgid "pay:0"
-msgstr ""
+msgstr "verwijderd"
 
 msgid "pay:1"
-msgstr ""
+msgstr "geannuleerd"
 
 msgid "pay:2"
-msgstr ""
+msgstr "geweigerd"
 
 msgid "pay:3"
-msgstr ""
+msgstr "Terug gestort"
 
 msgid "pay:4"
-msgstr ""
+msgstr "in behandeling"
 
 msgid "pay:5"
-msgstr ""
+msgstr "bevoegd"
 
 msgid "pay:6"
-msgstr ""
+msgstr "ontvangen"
 
 msgid "pay:authorized"
 msgstr "betaling:geautoriseerd"
@@ -1935,11 +1935,11 @@ msgstr "status:onafgerond"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Betalings status"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "Betaalmethodes"
 
 #, php-format
 msgid "physical"
@@ -1951,11 +1951,11 @@ msgstr "Prijzen"
 
 #, php-format
 msgid "product"
-msgstr "Product"
+msgstr "Producten"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "Producten"
 
 #, php-format
 msgid "selection"
@@ -1966,31 +1966,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "niet gereed"
 
 msgid "stat:0"
-msgstr ""
+msgstr "verwijderd"
 
 msgid "stat:1"
-msgstr ""
+msgstr "in behandeling"
 
 msgid "stat:2"
-msgstr ""
+msgstr "in behandeling"
 
 msgid "stat:3"
-msgstr ""
+msgstr "verzonden"
 
 msgid "stat:4"
-msgstr ""
+msgstr "afgeleverd"
 
 msgid "stat:5"
-msgstr ""
+msgstr "zoek geraakt"
 
 msgid "stat:6"
-msgstr ""
+msgstr "geweigerd"
 
 msgid "stat:7"
-msgstr ""
+msgstr "geretouneerd"
 
 msgid "stat:deleted"
 msgstr "status:verwijderd"

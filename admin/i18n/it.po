@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -948,9 +948,6 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr ""
 
@@ -970,6 +967,9 @@ msgstr ""
 
 #, php-format
 msgid "No view available"
+msgstr ""
+
+msgid "No voucher"
 msgstr ""
 
 #, php-format
@@ -1786,11 +1786,11 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "Indirizzi"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Attributi"
 
 #, php-format
 msgid "bundle"
@@ -1798,7 +1798,7 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Categorie"
 
 #, php-format
 msgid "category"
@@ -1810,7 +1810,7 @@ msgstr "Caratteristiche"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Codici"
 
 msgid "company"
 msgstr ""

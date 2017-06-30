@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/aimeos/aimeos-core/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -949,9 +949,6 @@ msgstr ""
 msgid "Next"
 msgstr "Ďalší"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr "Žiadné dostupné chybové hlásenia"
 
@@ -971,6 +968,9 @@ msgstr ""
 
 #, php-format
 msgid "No view available"
+msgstr ""
+
+msgid "No voucher"
 msgstr ""
 
 #, php-format
@@ -1787,11 +1787,11 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "Adresy"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Atribúty"
 
 #, php-format
 msgid "bundle"
@@ -1799,7 +1799,7 @@ msgstr "Zväzky"
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Kategórie"
 
 #, php-format
 msgid "category"
@@ -1811,7 +1811,7 @@ msgstr "Charakteristika"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Kódy"
 
 msgid "company"
 msgstr ""
@@ -1860,13 +1860,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Slečna"
 
 msgid "mr"
-msgstr ""
+msgstr "Pán"
 
 msgid "mrs"
-msgstr ""
+msgstr "Paní"
 
 msgid "new"
 msgstr "nové"
@@ -1932,7 +1932,7 @@ msgstr "stat:unfinished"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Stav platby"
 
 #, php-format
 msgid "paymenttype"
@@ -1948,11 +1948,11 @@ msgstr "Ceny"
 
 #, php-format
 msgid "product"
-msgstr "Produkt"
+msgstr "Produkty"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "Produkty"
 
 #, php-format
 msgid "selection"

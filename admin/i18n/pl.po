@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -948,9 +948,6 @@ msgstr ""
 msgid "Next"
 msgstr "Następny"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr "Niedostępna informacja o błędzie"
 
@@ -971,6 +968,9 @@ msgstr ""
 #, php-format
 msgid "No view available"
 msgstr "Widok niedostępny"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1786,7 +1786,7 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "adres"
+msgstr "Adresy"
 
 #, php-format
 msgid "attribute"
@@ -1810,7 +1810,7 @@ msgstr "Parametry"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Kody"
 
 msgid "company"
 msgstr ""
@@ -1859,13 +1859,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Panna"
 
 msgid "mr"
-msgstr ""
+msgstr "Pan"
 
 msgid "mrs"
-msgstr ""
+msgstr "Pani"
 
 msgid "new"
 msgstr "nowy"
@@ -1879,31 +1879,31 @@ msgstr "Opcje"
 
 #, php-format
 msgid "order"
-msgstr "zamówienie"
+msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "niedokończone"
 
 msgid "pay:0"
-msgstr ""
+msgstr "usunięte"
 
 msgid "pay:1"
-msgstr ""
+msgstr "anulowane"
 
 msgid "pay:2"
-msgstr ""
+msgstr "odmowa"
 
 msgid "pay:3"
-msgstr ""
+msgstr "zwrócone"
 
 msgid "pay:4"
-msgstr ""
+msgstr "w oczekiwaniu"
 
 msgid "pay:5"
-msgstr ""
+msgstr "autoryzowana"
 
 msgid "pay:6"
-msgstr ""
+msgstr "otrzymane"
 
 msgid "pay:authorized"
 msgstr "autoryzowana"
@@ -1931,7 +1931,7 @@ msgstr "niedokończona"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Status płatności"
 
 #, php-format
 msgid "paymenttype"
@@ -1947,11 +1947,11 @@ msgstr ""
 
 #, php-format
 msgid "product"
-msgstr "Produkt"
+msgstr "Produkty"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "Produkty"
 
 #, php-format
 msgid "selection"
@@ -1962,31 +1962,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "niedokończone"
 
 msgid "stat:0"
-msgstr ""
+msgstr "usunięte"
 
 msgid "stat:1"
-msgstr ""
+msgstr "w oczekiwaniu"
 
 msgid "stat:2"
-msgstr ""
+msgstr "przetwarzane"
 
 msgid "stat:3"
-msgstr ""
+msgstr "wysłane"
 
 msgid "stat:4"
-msgstr ""
+msgstr "dostarczone"
 
 msgid "stat:5"
-msgstr ""
+msgstr "zgubione"
 
 msgid "stat:6"
-msgstr ""
+msgstr "odmowa"
 
 msgid "stat:7"
-msgstr ""
+msgstr "zwrócone"
 
 msgid "stat:deleted"
 msgstr "usuniętę"

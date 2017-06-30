@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s(Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
@@ -947,9 +947,6 @@ msgstr "Yeni"
 msgid "Next"
 msgstr "Sonraki"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr "Hiçbir hata bilgisi mevcut değil"
 
@@ -970,6 +967,9 @@ msgstr "\"%1$s %2$s %3$s\" için ürün bulunamadı"
 #, php-format
 msgid "No view available"
 msgstr "Hiçbir görünüm mevcut değil"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1785,11 +1785,11 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "Adres"
+msgstr "Adresler"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Nitelikler"
 
 #, php-format
 msgid "bundle"
@@ -1797,7 +1797,7 @@ msgstr "Birlikte verilenler"
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Kategoriler"
 
 #, php-format
 msgid "category"
@@ -1809,7 +1809,7 @@ msgstr "Teknik özellikler"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Kodlar"
 
 msgid "company"
 msgstr ""
@@ -1858,13 +1858,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Bayan"
 
 msgid "mr"
-msgstr ""
+msgstr "Bay"
 
 msgid "mrs"
-msgstr ""
+msgstr "Bayan"
 
 msgid "new"
 msgstr "yeni"
@@ -1878,31 +1878,31 @@ msgstr "Seçenekler"
 
 #, php-format
 msgid "order"
-msgstr "sipariş"
+msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "tamamlanmadı"
 
 msgid "pay:0"
-msgstr ""
+msgstr "silindi"
 
 msgid "pay:1"
-msgstr ""
+msgstr "iptal edildi"
 
 msgid "pay:2"
-msgstr ""
+msgstr "reddedildi"
 
 msgid "pay:3"
-msgstr ""
+msgstr "geri ödendi"
 
 msgid "pay:4"
-msgstr ""
+msgstr "beklemede"
 
 msgid "pay:5"
-msgstr ""
+msgstr "onaylanmış"
 
 msgid "pay:6"
-msgstr ""
+msgstr "teslim alındı"
 
 msgid "pay:authorized"
 msgstr "Yetkili"
@@ -1930,11 +1930,11 @@ msgstr "Tamamlanmadı"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Ödeme durumu"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "Ödeme türleri"
 
 #, php-format
 msgid "physical"
@@ -1946,11 +1946,11 @@ msgstr "Fiyatlar"
 
 #, php-format
 msgid "product"
-msgstr "Ürün"
+msgstr "Ürünler"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "Ürünler"
 
 #, php-format
 msgid "selection"
@@ -1961,31 +1961,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "tamamlanmadı"
 
 msgid "stat:0"
-msgstr ""
+msgstr "silindi"
 
 msgid "stat:1"
-msgstr ""
+msgstr "beklemede"
 
 msgid "stat:2"
-msgstr ""
+msgstr "devam etmekte"
 
 msgid "stat:3"
-msgstr ""
+msgstr "sevk edildi"
 
 msgid "stat:4"
-msgstr ""
+msgstr "teslim edildi"
 
 msgid "stat:5"
-msgstr ""
+msgstr "kayıp"
 
 msgid "stat:6"
-msgstr ""
+msgstr "reddedildi"
 
 msgid "stat:7"
-msgstr ""
+msgstr "geri döndü"
 
 msgid "stat:deleted"
 msgstr "Silindi"
@@ -2028,7 +2028,7 @@ msgstr "İncelemede"
 
 #, php-format
 msgid "stock"
-msgstr "Stok"
+msgstr "Stoklar"
 
 #, php-format
 msgid "text"

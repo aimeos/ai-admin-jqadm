@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 08:46+0200\n"
-"PO-Revision-Date: 2017-06-30 06:46+0000\n"
+"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"PO-Revision-Date: 2017-06-30 17:57+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Persian (http://www.transifex.com/aimeos/aimeos-core/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -948,9 +948,6 @@ msgstr ""
 msgid "Next"
 msgstr "بعدی"
 
-msgid "No coupon"
-msgstr ""
-
 msgid "No error information available"
 msgstr ""
 
@@ -971,6 +968,9 @@ msgstr ""
 #, php-format
 msgid "No view available"
 msgstr "نمایشی موجود نمی‌باشد"
+
+msgid "No voucher"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1786,11 +1786,11 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "آدرس"
+msgstr "آدرس ها"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "خصوصیت"
 
 #, php-format
 msgid "bundle"
@@ -1798,7 +1798,7 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "دسته بندی‌ها"
 
 #, php-format
 msgid "category"
@@ -1810,7 +1810,7 @@ msgstr "مشخصات"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "کدها"
 
 msgid "company"
 msgstr ""
@@ -1879,7 +1879,7 @@ msgstr "گزینه‌ها"
 
 #, php-format
 msgid "order"
-msgstr "سفارش"
+msgstr ""
 
 msgid "pay:-1"
 msgstr ""
@@ -1931,7 +1931,7 @@ msgstr ""
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "وضعیت پرداخت"
 
 #, php-format
 msgid "paymenttype"
@@ -1947,7 +1947,7 @@ msgstr ""
 
 #, php-format
 msgid "product"
-msgstr "محصول"
+msgstr ""
 
 #, php-format
 msgid "related"
