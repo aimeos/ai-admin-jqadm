@@ -309,7 +309,7 @@ $serviceAttrCodes = [
 								</div>
 							<?php endforeach; ?>
 						<?php else : ?>
-							<?= $enc->html( $this->translate( 'admin', 'No coupon' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'No voucher' ) ); ?>
 						<?php endif; ?>
 					</div>
 
