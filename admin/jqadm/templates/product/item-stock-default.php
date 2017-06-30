@@ -43,7 +43,7 @@ $enc = $this->encoder();
 				<tr class="<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?>">
 					<td class="stock-type mandatory">
 						<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="<?= $enc->attr( $id ); ?>" />
-						<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> >
 							<option value="">
@@ -87,7 +87,7 @@ $enc = $this->encoder();
 			<tr class="prototype">
 				<td class="stock-type">
 					<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="" disabled="disabled" />
-					<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+					<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>">
 						<option value="">
 							<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>

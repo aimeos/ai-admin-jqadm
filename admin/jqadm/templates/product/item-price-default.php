@@ -125,7 +125,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
 										<?= $this->site()->readonly( $this->get( 'priceData/product.lists.siteid/' . $idx ) ); ?> >
 										<option value="">
@@ -257,7 +257,7 @@ $enc = $this->encoder();
 						<div class="form-group row">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>">
 									<option value="">
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>

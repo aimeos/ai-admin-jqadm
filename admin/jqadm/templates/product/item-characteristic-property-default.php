@@ -36,7 +36,7 @@ $enc = $this->encoder();
 					<td class="property-type">
 						<input class="item-id" type="hidden" value="<?= $enc->attr( $id ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.id', '' ) ) ); ?>" />
-						<select class="form-control c-select item-typeid" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<select class="form-control custom-select item-typeid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'propertyData/product.property.siteid/' . $idx ) ); ?> >
 
@@ -86,7 +86,7 @@ $enc = $this->encoder();
 				<td class="property-type">
 					<input class="item-id" type="hidden" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.id', '' ) ) ); ?>" value="" />
-					<select class="form-control c-select item-typeid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+					<select class="form-control custom-select item-typeid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>">
 						<option value="">
 							<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>

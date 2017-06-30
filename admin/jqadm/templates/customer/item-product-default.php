@@ -133,7 +133,7 @@ $refItems = $this->get( 'productItems', [] );
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control c-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+									<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.status', '' ) ) ); ?>">
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -156,7 +156,7 @@ $refItems = $this->get( 'productItems', [] );
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+									<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.typeid', '' ) ) ); ?>" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -254,7 +254,7 @@ $refItems = $this->get( 'productItems', [] );
 					<?php endif; ?>
 					<?php if( in_array( 'customer.lists.status', $fields ) ) : ?>
 						<td class="customer-lists-status">
-							<select class="form-control c-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.status', '' ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> >
 								<option value="">
@@ -277,7 +277,7 @@ $refItems = $this->get( 'productItems', [] );
 					<?php endif; ?>
 					<?php if( in_array( 'customer.lists.typeid', $fields ) ) : ?>
 						<td class="customer-lists-typeid">
-							<select class="form-control c-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.typeid', '' ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> >
 								<option value="">

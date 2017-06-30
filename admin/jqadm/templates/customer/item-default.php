@@ -87,7 +87,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control c-select item-status" required="required" tabindex="1"
+							<select class="form-control custom-select item-status" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.status' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
 								<option value="">
@@ -140,7 +140,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control c-select item-groups" tabindex="1" size="7" multiple
+							<select class="form-control custom-select item-groups" tabindex="1" size="7" multiple
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
 
@@ -162,7 +162,7 @@ $params = $this->get( 'pageParams', [] );
 
 							<?php $languages = $this->get( 'pageLanguages', [] ); ?>
 							<?php if( count( $languages ) > 1 ) : ?>
-								<select class="form-control c-select item-languageid" required="required" tabindex="1"
+								<select class="form-control custom-select item-languageid" required="required" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
 									<option value="">
@@ -184,7 +184,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control c-select item-salutation" tabindex="1"
+							<select class="form-control custom-select item-salutation" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.salutation' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
 								<option value="" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), '' ); ?> >

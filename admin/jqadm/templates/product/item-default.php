@@ -151,7 +151,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control c-select item-status" required="required" tabindex="1"
+							<select class="form-control custom-select item-status" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.status' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
 								<option value="">
@@ -175,7 +175,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control c-select item-typeid" required="required" tabindex="1"
+							<select class="form-control custom-select item-typeid" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
 								<option value="">

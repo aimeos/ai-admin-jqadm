@@ -150,7 +150,7 @@ $serviceAttrCodes = [
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Subscription' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control c-select item-status" required="required" tabindex="1"
+								<select class="form-control custom-select item-status" required="required" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.status' ) ) ); ?>"
 									<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 									<option value="">
@@ -168,7 +168,7 @@ $serviceAttrCodes = [
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control c-select item-languageid" required="required" tabindex="1"
+								<select class="form-control custom-select item-languageid" required="required" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.languageid' ) ) ); ?>"
 									<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 									<option value="">
@@ -229,7 +229,7 @@ $serviceAttrCodes = [
 								<?php foreach( (array) $basket->getProducts() as $pos => $orderProduct ) : ?>
 									<tr class="list-item">
 										<td class="item-column column-status">
-											<select class="form-control c-select product-status" required="required" tabindex="1"
+											<select class="form-control custom-select product-status" required="required" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.status' ) ) ); ?>"
 												<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 												<option value="">
@@ -363,7 +363,7 @@ $serviceAttrCodes = [
 
 										<?php $languages = $this->get( 'pageLanguages', [] ); ?>
 										<?php if( count( $languages ) > 1 ) : ?>
-											<select class="form-control c-select item-languageid" required="required" tabindex="1" data-field="languageid"
+											<select class="form-control custom-select item-languageid" required="required" tabindex="1" data-field="languageid"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, 'order.base.address.languageid' ) ) ); ?>"
 												<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 												<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
@@ -383,7 +383,7 @@ $serviceAttrCodes = [
 								<div class="form-group row optional">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 									<div class="col-sm-8">
-										<select class="form-control c-select item-salutation" tabindex="1" data-field="salutation"
+										<select class="form-control custom-select item-salutation" tabindex="1" data-field="salutation"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, 'order.base.address.salutation' ) ) ); ?>"
 											<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 											<option value="" <?= $selected( $this->get( 'itemData/address/' . $type . '/order.base.address.salutation' ), '' ); ?> >

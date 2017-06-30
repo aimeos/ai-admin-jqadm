@@ -62,7 +62,7 @@ $enc = $this->encoder();
 
 								<?php $languages = $this->get( 'pageLanguages', [] ); ?>
 								<?php if( count( $languages ) > 1 ) : ?>
-									<select class="form-control c-select item-languageid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select class="form-control custom-select item-languageid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>"
 										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
@@ -82,7 +82,7 @@ $enc = $this->encoder();
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control c-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								<select class="form-control custom-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.salutation', '' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?> >
 									<option value="" <?= $selected( $this->get( 'addressData/customer.address.salutation/' . $idx, '' ), '' ); ?> >
@@ -344,7 +344,7 @@ $enc = $this->encoder();
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control c-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+							<select class="form-control custom-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.salutation', '' ) ) ); ?>"  >
 								<option value="" <?= $selected( $this->get( 'addressData/customer.address.salutation', '' ), '' ); ?> >
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
