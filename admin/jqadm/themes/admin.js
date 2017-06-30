@@ -4,144 +4,6 @@
  */
 
 
-(function( $ ) {
-
-	$.widget( "ai.combobox", {
-
-		_create: function() {
-
-			this.wrapper = $( "<span>" ).addClass( "ai-combobox" ).insertAfter( this.element );
-
-			this._createAutocomplete(this.element.hide());
-			this._createShowAll();
-		},
-
-
-		_createAutocomplete: function(select) {
-
-			var selected = this.element.children(":selected");
-			var value = selected.val() ? selected.text() : "";
-			var self = this;
-
-			this.input = $("<input>");
-			this.input.appendTo(this.wrapper);
-			this.input.val(String(value).trim());
-			this.input.attr("title", "");
-			this.input.attr("tabindex", select.attr("tabindex" ));
-			this.input.prop("readonly", this.element.is("[readonly]"));
-			this.input.addClass("ai-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left");
-
-			this.input.autocomplete({
-				delay: 0,
-				minLength: 0,
-				source: $.proxy( this, "_source" ),
-				select: function(ev, ui) {
-					self.element.val(ui.item.value).find("input").val(ui.item.label);
-					ev.preventDefault();
-				},
-				focus: function(ev, ui) {
-					self.element.val(ui.item.value).next().find("input").val(ui.item.label);
-					ev.preventDefault();
-				}
-			});
-
-			this.input.tooltip({
-				tooltipClass: "ui-state-highlight"
-			});
-
-			this._on( this.input, {
-				autocompleteselect: function( event, ui ) {
-					ui.item.option.selected = true;
-					this._trigger( "select", event, {
-						item: ui.item.option
-					});
-				},
-
-				autocompletechange: "_removeInvalid"
-			});
-		},
-
-
-		_createShowAll: function() {
-
-			var input = this.input;
-			var wasOpen = false;
-
-			var btn = $( '<button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icons-only"><span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span></button>' );
-
-			btn.attr("tabindex", -1);
-			btn.appendTo(this.wrapper);
-			btn.button();
-			btn.removeClass("ui-corner-all");
-			btn.prop("disabled", this.element.is("[readonly]"));
-			btn.addClass("ai-combobox-toggle ui-corner-right");
-
-			btn.mousedown(function() {
-				wasOpen = input.autocomplete( "widget" ).is( ":visible" );
-			});
-
-			btn.click(function(ev) {
-				ev.stopPropagation();
-				ev.preventDefault();
-				input.focus();
-
-				// Close if already visible
-				if ( wasOpen ) {
-					return;
-				}
-
-				// Pass empty string as value to search for, displaying all results
-				input.autocomplete( "search", "" );
-			});
-		},
-
-
-		_source: function( request, response ) {
-			this.options.getfcn( request, response, this.element );
-		},
-
-
-		_removeInvalid: function( event, ui ) {
-
-			// Selected an item, nothing to do
-			if ( ui.item ) {
-				return;
-			}
-
-			// Search for a match (case-insensitive)
-			var valueLowerCase = this.input.val().toLowerCase();
-			var valid = false;
-
-			this.element.children( "option" ).each(function() {
-				if ( $( this ).text().toLowerCase() === valueLowerCase ) {
-					this.selected = valid = true;
-					return false;
-				}
-			});
-
-			// Found a match, nothing to do
-			if ( valid ) {
-				return;
-			}
-
-			// Remove invalid value
-			this.input.val( "" );
-			this.element.val( "" );
-			this.input.autocomplete( "instance" ).term = "";
-		},
-
-
-		_destroy: function() {
-
-			this.wrapper.remove();
-			this.element.show();
-		}
-	});
-
-})( jQuery );
-
-
-
 Aimeos = {
 
 	options : null,
@@ -149,21 +11,6 @@ Aimeos = {
 
 	init : function() {
 
-		this.addConfigLine();
-		this.deleteConfigLine();
-		this.configComplete();
-
-		this.addShortcuts();
-		this.checkFields();
-		this.checkSubmit();
-		this.createDatePicker();
-		this.resetSearch();
-		this.setPanelHeight();
-		this.setupNext();
-		this.setupTabSwitch();
-		this.showErrors();
-		this.toggleHelp();
-		this.toggleMenu();
 	},
 
 
@@ -185,173 +32,6 @@ Aimeos = {
 		}
 
 		return clone;
-	},
-
-
-	addShortcuts : function() {
-
-		$(window).bind('keydown', function(ev) {
-			if(ev.ctrlKey || ev.metaKey) {
-				if(ev.altKey) {
-					var key = String.fromCharCode(ev.which).toLowerCase();
-					if(key.match(/[a-z]/)) {
-						ev.preventDefault();
-						window.location = $(".aimeos .sidebar-menu a[data-ctrlkey=" + key + "]").first().attr("href");
-						return false;
-					}
-				}
-				switch(String.fromCharCode(ev.which).toLowerCase()) {
-					case 'a':
-						ev.preventDefault();
-						var node = $(".aimeos :focus").closest(".card,.content-block").find(".act-add:visible").first();
-						if(node.length > 0) {
-							node.trigger("click");
-							return false;
-						}
-
-						node = $(".aimeos .act-add:visible").first();
-						if(node.attr("href")) {
-							window.location = node.attr('href');
-						} else {
-							node.trigger("click");
-						}
-						return false;
-					case 'd':
-						ev.preventDefault();
-						var node = $(".aimeos .act-copy:visible").first();
-						if(node.attr("href")) {
-							window.location = node.attr('href');
-						} else {
-							node.trigger("click");
-						}
-						return false;
-					case 's':
-						ev.preventDefault();
-						$(".aimeos form.item").first().submit();
-						return false;
-				}
-			} else if(ev.which === 13) {
-				$(".btn:focus").trigger("click");
-			}
-		});
-	},
-
-
-	addConfigLine : function() {
-
-		$(".aimeos .item .tab-pane").on("click", ".item-config .act-add", function(ev) {
-
-			var clone = Aimeos.addClone($(".prototype", $(this).closest(".item-config")));
-			var count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and must start with 0
-
-			$("input", clone).each(function() {
-				$(this).attr("name", $(this).attr("name").replace("idx", count));
-			});
-
-			$(".config-key", clone).autocomplete({
-				source: ['css-class'],
-				minLength: 0,
-				delay: 0
-			});
-		});
-	},
-
-
-	deleteConfigLine : function() {
-
-		$(".aimeos .item .tab-pane").on("click", ".item-config .act-delete", function(ev) {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	configComplete : function() {
-
-		$(".aimeos .item .config-item .config-key").autocomplete({
-			source: ['css-class'],
-			minLength: 0,
-			delay: 0
-		});
-
-		$(".aimeos .item").on("click", " .config-key", function(ev) {
-			$(this).autocomplete("search", "");
-		});
-	},
-
-
-	checkFields : function() {
-
-		$(".aimeos .item-content .readonly").on("change", "input,select", function(ev) {
-			$(this).parent().addClass("has-danger");
-		});
-
-
-		$(".aimeos .item-content").on("blur", "input,select", function(ev) {
-
-			if($(this).closest(".readonly").length > 0) {
-				return;
-			}
-
-			if($(this).is(":invalid") === true) {
-				$(this).parent().removeClass("has-success").addClass("has-danger");
-			} else {
-				$(this).parent().removeClass("has-danger").addClass("has-success");
-			}
-		});
-	},
-
-
-	checkSubmit : function() {
-
-		$(".aimeos form").each(function() {
-			this.noValidate = true;
-		});
-
-		$(".aimeos form").on("submit", function(ev) {
-			var nodes = [];
-
-			$(".card-header", this).removeClass("has-danger");
-			$(".item-navbar .nav-link", this).removeClass("has-danger");
-
-			$(".item-content input,select", this).each(function(idx, element) {
-				var elem = $(element);
-
-				if(elem.parents(".prototype").length === 0 && elem.is(":invalid") === true) {
-					elem.parent().addClass("has-danger");
-					nodes.push(element);
-				} else {
-					elem.parent().removeClass("has-danger");
-				}
-			});
-
-			$.each(nodes, function() {
-				$(".card-header", $(this).closest(".card")).addClass("has-danger");
-
-				$(this).parents(".tab-pane").each(function() {
-					$(".item-navbar .nav-item." + $(this).attr("id") + " .nav-link").addClass("has-danger");
-				});
-			});
-
-			if( nodes.length > 0 ) {
-				$('html, body').animate({
-					scrollTop: '0px'
-				});
-
-				return false;
-			}
-		});
-	},
-
-
-	createDatePicker : function() {
-
-		$(".aimeos .date").each(function(idx, elem) {
-
-			$(elem).datepicker({
-				dateFormat: $(elem).data("format"),
-				constrainInput: false
-			});
-		});
 	},
 
 
@@ -445,6 +125,61 @@ Aimeos = {
 
 	getOptionsProducts : function(request, response, element, criteria) {
 		Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', criteria);
+	}
+};
+
+
+
+Aimeos.Config = {
+
+	init : function() {
+
+		this.addConfigLine();
+		this.deleteConfigLine();
+		this.configComplete();
+		this.resetSearch();
+	},
+
+
+	addConfigLine : function() {
+
+		$(".aimeos .item .tab-pane").on("click", ".item-config .act-add", function(ev) {
+
+			var clone = Aimeos.addClone($(".prototype", $(this).closest(".item-config")));
+			var count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and must start with 0
+
+			$("input", clone).each(function() {
+				$(this).attr("name", $(this).attr("name").replace("idx", count));
+			});
+
+			$(".config-key", clone).autocomplete({
+				source: ['css-class'],
+				minLength: 0,
+				delay: 0
+			});
+		});
+	},
+
+
+	deleteConfigLine : function() {
+
+		$(".aimeos .item .tab-pane").on("click", ".item-config .act-delete", function(ev) {
+			Aimeos.focusBefore($(this).closest("tr")).remove();
+		});
+	},
+
+
+	configComplete : function() {
+
+		$(".aimeos .item .config-item .config-key").autocomplete({
+			source: ['css-class'],
+			minLength: 0,
+			delay: 0
+		});
+
+		$(".aimeos .item").on("click", " .config-key", function(ev) {
+			$(this).autocomplete("search", "");
+		});
 	},
 
 
@@ -455,93 +190,8 @@ Aimeos = {
 			$("input", ev.delegateTarget).val("");
 			return false;
 		});
-	},
-
-
-	setPanelHeight : function() {
-
-		$(".aimeos .tab-pane").on("click", ".filter-columns", function(ev) {
-			// CSS class "show" will be added afterwards, thus it's reversed
-			var height = ($(this).hasClass("show") ? 0 : $(".dropdown-menu", this).outerHeight());
-			$(ev.delegateTarget).css("min-height", $("thead", ev.delegateTarget).outerHeight() + height);
-		});
-	},
-
-
-	setupNext : function() {
-
-		$(".aimeos .item").on("click", ".next-action", function(ev) {
-			$("#item-next", ev.delegateTarget).val($(this).data('next'));
-			$(ev.delegateTarget).submit();
-			return false;
-		});
-	},
-
-
-	setupTabSwitch : function() {
-
-		var hash = '';
-		var url = document.location.toString();
-
-		if(url.match('#')) {
-			hash = url.split('#')[1];
-			$('.nav-tabs a[href="#' + hash + '"]').tab('show');
-
-			$("form").each(function() {
-				$(this).attr("action", $(this).attr("action").split('#')[0] + '#' + hash);
-			});
-		}
-
-		$('.nav-tabs a').on('shown.bs.tab', function (e) {
-			hash = e.target.hash;
-
-			if(history.pushState) {
-				history.pushState(null, null, hash);
-			} else {
-				window.location.hash = hash;
-				window.scrollTo(0, 0);
-			}
-
-			$("form").each(function() {
-				$(this).attr("action", $(this).attr("action").split('#')[0] + hash);
-			});
-		})
-	},
-
-
-	showErrors : function() {
-
-		$(".aimeos .error-list .error-item").each(function() {
-			$(".aimeos ." + $(this).data("key") + " .header").addClass("has-danger");
-		});
-	},
-
-
-	toggleHelp : function() {
-
-		$(".aimeos").on("click", ".help", function(ev) {
-			$("~ .help-text", this).slideToggle(300);
-		});
-	},
-
-
-	toggleMenu : function() {
-
-		$(".aimeos .main-sidebar").on("click", ".separator .more", function(ev) {
-			$(".advanced", ev.delegateTarget).slideDown(300, function() {
-				$(ev.currentTarget).removeClass("more").addClass("less");
-			});
-		});
-
-		$(".aimeos .main-sidebar").on("click", ".separator .less", function(ev) {
-			$(".advanced", ev.delegateTarget).slideUp(300, function() {
-				$(ev.currentTarget).removeClass("less").addClass("more");
-			});
-		});
 	}
 };
-
-
 
 
 
@@ -631,6 +281,252 @@ Aimeos.Filter = {
 
 
 
+Aimeos.Form = {
+
+	init : function() {
+
+		this.checkFields();
+		this.checkSubmit();
+		this.createDatePicker();
+		this.setupNext();
+		this.showErrors();
+		this.toggleHelp();
+	},
+
+
+	checkFields : function() {
+
+		$(".aimeos .item-content .readonly").on("change", "input,select", function(ev) {
+			$(this).parent().addClass("has-danger");
+		});
+
+
+		$(".aimeos .item-content").on("blur", "input,select", function(ev) {
+
+			if($(this).closest(".readonly").length > 0) {
+				return;
+			}
+
+			if($(this).is(":invalid") === true) {
+				$(this).parent().removeClass("has-success").addClass("has-danger");
+			} else {
+				$(this).parent().removeClass("has-danger").addClass("has-success");
+			}
+		});
+	},
+
+
+	checkSubmit : function() {
+
+		$(".aimeos form").each(function() {
+			this.noValidate = true;
+		});
+
+		$(".aimeos form").on("submit", function(ev) {
+			var nodes = [];
+
+			$(".card-header", this).removeClass("has-danger");
+			$(".item-navbar .nav-link", this).removeClass("has-danger");
+
+			$(".item-content input,select", this).each(function(idx, element) {
+				var elem = $(element);
+
+				if(elem.parents(".prototype").length === 0 && elem.is(":invalid") === true) {
+					elem.parent().addClass("has-danger");
+					nodes.push(element);
+				} else {
+					elem.parent().removeClass("has-danger");
+				}
+			});
+
+			$.each(nodes, function() {
+				$(".card-header", $(this).closest(".card")).addClass("has-danger");
+
+				$(this).parents(".tab-pane").each(function() {
+					$(".item-navbar .nav-item." + $(this).attr("id") + " .nav-link").addClass("has-danger");
+				});
+			});
+
+			if( nodes.length > 0 ) {
+				$('html, body').animate({
+					scrollTop: '0px'
+				});
+
+				return false;
+			}
+		});
+	},
+
+
+	createDatePicker : function() {
+
+		$(".aimeos .date").each(function(idx, elem) {
+
+			$(elem).datepicker({
+				dateFormat: $(elem).data("format"),
+				constrainInput: false
+			});
+		});
+	},
+
+
+	setupNext : function() {
+
+		$(".aimeos .item").on("click", ".next-action", function(ev) {
+			$("#item-next", ev.delegateTarget).val($(this).data('next'));
+			$(ev.delegateTarget).submit();
+			return false;
+		});
+	},
+
+
+	showErrors : function() {
+
+		$(".aimeos .error-list .error-item").each(function() {
+			$(".aimeos ." + $(this).data("key") + " .header").addClass("has-danger");
+		});
+	},
+
+
+	toggleHelp : function() {
+
+		$(".aimeos").on("click", ".help", function(ev) {
+			$(".help-text", this).slideToggle(300);
+		});
+	}
+};
+
+
+
+Aimeos.Nav = {
+
+	init : function() {
+
+		this.addShortcuts();
+		this.toggleMenu();
+	},
+
+
+	addShortcuts : function() {
+
+		$(window).bind('keydown', function(ev) {
+			if(ev.ctrlKey || ev.metaKey) {
+				if(ev.altKey) {
+					var key = String.fromCharCode(ev.which).toLowerCase();
+					if(key.match(/[a-z]/)) {
+						ev.preventDefault();
+						window.location = $(".aimeos .sidebar-menu a[data-ctrlkey=" + key + "]").first().attr("href");
+						return false;
+					}
+				}
+				switch(String.fromCharCode(ev.which).toLowerCase()) {
+					case 'a':
+						ev.preventDefault();
+						var node = $(".aimeos :focus").closest(".card,.content-block").find(".act-add:visible").first();
+						if(node.length > 0) {
+							node.trigger("click");
+							return false;
+						}
+
+						node = $(".aimeos .act-add:visible").first();
+						if(node.attr("href")) {
+							window.location = node.attr('href');
+						} else {
+							node.trigger("click");
+						}
+						return false;
+					case 'd':
+						ev.preventDefault();
+						var node = $(".aimeos .act-copy:visible").first();
+						if(node.attr("href")) {
+							window.location = node.attr('href');
+						} else {
+							node.trigger("click");
+						}
+						return false;
+					case 's':
+						ev.preventDefault();
+						$(".aimeos form.item").first().submit();
+						return false;
+				}
+			} else if(ev.which === 13) {
+				$(".btn:focus").trigger("click");
+			}
+		});
+	},
+
+
+	toggleMenu : function() {
+
+		$(".aimeos .main-sidebar").on("click", ".separator .more", function(ev) {
+			$(".advanced", ev.delegateTarget).slideDown(300, function() {
+				$(ev.currentTarget).removeClass("more").addClass("less");
+			});
+		});
+
+		$(".aimeos .main-sidebar").on("click", ".separator .less", function(ev) {
+			$(".advanced", ev.delegateTarget).slideUp(300, function() {
+				$(ev.currentTarget).removeClass("less").addClass("more");
+			});
+		});
+	}
+};
+
+
+
+Aimeos.Tabs = {
+
+	init : function() {
+
+		this.setPanelHeight();
+		this.setupTabSwitch();
+	},
+
+
+	setPanelHeight : function() {
+
+		$(".aimeos .tab-pane").on("click", ".filter-columns", function(ev) {
+			// CSS class "show" will be added afterwards, thus it's reversed
+			var height = ($(this).hasClass("show") ? 0 : $(".dropdown-menu", this).outerHeight());
+			$(ev.delegateTarget).css("min-height", $("thead", ev.delegateTarget).outerHeight() + height);
+		});
+	},
+
+
+	setupTabSwitch : function() {
+
+		var hash = '';
+		var url = document.location.toString();
+
+		if(url.match('#')) {
+			hash = url.split('#')[1];
+			$('.nav-tabs a[href="#' + hash + '"]').tab('show');
+
+			$("form").each(function() {
+				$(this).attr("action", $(this).attr("action").split('#')[0] + '#' + hash);
+			});
+		}
+
+		$('.nav-tabs a').on('shown.bs.tab', function (e) {
+			hash = e.target.hash;
+
+			if(history.pushState) {
+				history.pushState(null, null, hash);
+			} else {
+				window.location.hash = hash;
+				window.scrollTo(0, 0);
+			}
+
+			$("form").each(function() {
+				$(this).attr("action", $(this).attr("action").split('#')[0] + hash);
+			});
+		})
+	}
+};
+
+
+
+
 /**
  * Load JSON admin resource definition immediately
  */
@@ -643,5 +539,9 @@ Aimeos.options = $.ajax($(".aimeos").data("url"), {
 $(function() {
 
 	Aimeos.init();
+	Aimeos.Config.init();
 	Aimeos.Filter.init();
+	Aimeos.Form.init();
+	Aimeos.Nav.init();
+	Aimeos.Tabs.init();
 });

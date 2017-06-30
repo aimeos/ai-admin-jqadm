@@ -1,0 +1,154 @@
+/**
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos (aimeos.org), 2015-2017
+ */
+
+
+
+/* Common styles */
+
+.aimeos .readonly {
+	border-left: 0.25rem solid #FFB070;
+	opacity: 0.66 !important;
+}
+
+.aimeos .readonly select:focus {
+	border-color: #D9534F !important;
+}
+
+.aimeos .error-list {
+	list-style: none;
+}
+
+.aimeos .error-list .sr-only:after {
+	content: ":";
+}
+
+.aimeos .card {
+	margin-bottom: 0.5rem;
+}
+
+.aimeos .card-header {
+	padding: 0.25rem;
+}
+
+.aimeos .header.has-danger {
+	border-top: solid 3px #E05040;
+}
+
+.aimeos .card-header .header-label {
+	vertical-align: middle;
+}
+
+.aimeos .btn.act-reset.fa:before {
+	content: "\f00d";
+}
+
+.aimeos .btn.act-search.fa:before {
+	content: "\f002";
+}
+
+.aimeos .main-navbar .btn.act-show.fa:before,
+.aimeos .card-header.collapsed .btn.act-show.fa:before {
+	content: "\f078";
+}
+
+.aimeos .card-header .btn.act-show.fa:before {
+	content: "\f077";
+}
+
+.aimeos .btn.act-add.fa:before {
+	content: "\f067";
+}
+
+.aimeos .btn.act-close.fa:before {
+	content: "\f00d";
+}
+
+.aimeos .btn.act-copy.fa:before {
+	content: "\f0c5";
+}
+
+.aimeos .btn.act-delete.fa:before {
+	content: "\f00d";
+}
+
+.aimeos .btn.act-save.fa:before {
+	content: "\f0c7";
+}
+
+.aimeos .btn.act-view.fa:before {
+	content: "\f06e";
+}
+
+.aimeos .card-tools-left {
+	display: inline-block;
+}
+
+.aimeos .card-tools-right {
+	position: absolute;
+	right: 0.5rem;
+	top: 0.45rem;
+}
+
+.aimeos .card-tools-more {
+	padding: 0 0.5rem;
+	text-align: right;
+}
+
+.aimeos .content-block {
+	margin-bottom: 1rem;
+}
+
+.aimeos .table {
+	margin: 0;
+}
+
+.aimeos table th,
+.aimeos table td {
+	text-align: center;
+	font-weight: normal;
+	vertical-align: middle;
+	padding: 0.25rem;
+}
+
+.aimeos table .actions {
+	white-space: nowrap;
+	text-align: right;
+	width: 2%;
+}
+
+.aimeos table .actions a,
+.aimeos table .actions div,
+.aimeos table .actions .btn {
+	display: inline-block;
+}
+
+.aimeos table .actions .dropdown-toggle {
+	padding: 0.5rem 0.75rem;
+}
+
+.aimeos .actions-group {
+	text-align: center;
+	clear: both;
+}
+
+.aimeos .actions-group .btn {
+	min-width: 8rem;
+	margin: 0.5rem;
+}
+
+.aimeos .form-group input[type="checkbox"],
+.aimeos .form-group input[type="radio"] {
+	margin: 0.75rem 0;
+	width: auto;
+}
+
+.aimeos .input-group-addon .dropdown-add {
+	margin: -0.5rem -0.75rem;
+	padding: 0.5rem 0.75rem;
+}
+
+.aimeos .input-group-addon .dropdown-add:after {
+	content: "+";
+}

@@ -1,0 +1,199 @@
+/**
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos (aimeos.org), 2015-2017
+ */
+
+
+/* Fixes */
+
+html {
+	overflow-y: scroll;
+	position: relative;
+	min-height: 100%;
+}
+
+
+
+/* Bootstrap bugfixes */
+
+.card-block:after,
+.card-header:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.card-block.collapse.show,
+.tab-content > .row.active {
+	display: flex;
+}
+
+.input-group .form-control {
+	z-index: 1;
+}
+
+
+
+/* Aimeos Bootstrap theme */
+
+.btn {
+	box-shadow: none;
+	border: 1px solid transparent;
+	background: transparent;
+	color: #98A0B0;
+}
+
+.btn-primary {
+	border: 1px solid #4090C0;
+	background-color: #4090C0;
+	border-color: #4090C0;
+	color: #FFFFFF !important;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+	box-shadow: none;
+}
+
+.btn-primary.active, .btn-primary:active,
+.btn-primary:hover, .show > .btn-primary.dropdown-toggle {
+	background-color: #3080B0;
+}
+
+.btn-secondary {
+	color: #292b2c;
+	background-color: #fff;
+	border-color: #ccc;
+}
+
+.btn-danger {
+	border: 1px solid #E05040;
+	background-color: #E05040;
+	border-color: #E05040;
+	color: #FFFFFF !important;
+}
+
+.btn-primary.dropdown-toggle-split {
+	border-left-color: #2070A0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: #FCFCFC;
+}
+
+.table-striped tbody tr:hover {
+	background-color: #F2F2F2;
+}
+
+.nav-tabs {
+	border: none;
+	background-color: #F8F8F8;
+	border-bottom: 1px solid #E0E0E0;
+	margin-bottom: 1rem;
+}
+
+.nav-tabs .nav-item {
+	min-width: 15%;
+}
+
+.nav-tabs .nav-link {
+	color: #333;
+	border: none;
+	border-left: 0.2rem solid transparent;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+	padding: .75em 1em;
+}
+
+.nav-tabs .nav-link:hover {
+	background-color: #E0E0E0;
+	border-left: 0.2rem solid #4090C0;
+}
+
+.nav-tabs .nav-link.active {
+	border-left: 0.2rem solid #4090C0;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+	background-color: #E0E0E0;
+}
+
+.nav-tabs .nav-link.has-danger {
+	border-left: 0.2rem solid #E05040;
+}
+
+.card-block.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.card-header {
+	background: #FFF;
+	border-top: 3px solid #4090C0;
+	border-bottom: none;
+}
+
+.card-header.collapsed {
+	border-top: 3px solid rgba(0, 0, 0, 0.125);
+}
+
+.form-group.row .form-control-label {
+	padding: 0.5rem 15px;
+	font-size: 90%;
+}
+
+.form-group.row label {
+	font-weight: bold;
+	text-align: right;
+	margin-bottom: 0;
+}
+
+.form-inline label {
+	webkit-justify-content: inherit;
+	justify-content: inherit;
+}
+
+.form-control {
+	font-size: 100%;
+	padding: .5rem;
+}
+
+span.form-control {
+	border-color: transparent;
+}
+
+.btn, .dropdown-menu {
+	font-size: 100%;
+}
+
+.dropdown-item label {
+	margin: 0;
+}
+
+input[type=date], input[type=time], input[type=datetime-local], input[type=month],
+select.form-control:not([size]):not([multiple]) {
+	height: calc(2.05rem + 2px);
+}
+
+.aimeos {
+	font-size: 90%;
+}
+
+@media (max-width: 575px) {
+	.form-group.row label {
+		text-align: left;
+	}
+}
+
+@media (max-width: 767px) {
+	.aimeos {
+		font-size: 80%;
+	}
+	.navbar-brand {
+		font-size: 1rem;
+	}
+	.custom-select {
+		height: 33px;
+	}
+	.form-group.row .form-control-label {
+		font-size: 90%;
+	}
+}

@@ -1,0 +1,51 @@
+/**
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos (aimeos.org), 2015-2017
+ */
+
+
+
+/* JQuery UI styles */
+
+.ai-combobox {
+	position: relative;
+	display: inline-block;
+	text-align: left;
+}
+
+.ai-combobox-toggle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin-left: -1px;
+	padding: 0;
+}
+
+.ai-combobox-input {
+	margin: 0;
+	padding: 5px 10px;
+	width: calc(100% - 2rem);
+}
+
+.ai-combobox .ui-button-icons-only {
+	width: 2rem;
+}
+
+.ui-autocomplete.ui-menu {
+	max-height: 20rem;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background: #ffffff;
+	color: #464a4c;
+}
+
+.ui-state-default[readonly], .ui-widget-content .ui-state-default[readonly], .ui-widget-header .ui-state-default[readonly] {
+	background: #eceeef;
+}
+
+.ui-button[disabled] {
+	background: #ededed;
+}
