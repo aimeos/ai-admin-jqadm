@@ -155,7 +155,7 @@ $enc = $this->encoder();
 							><?= $enc->attr( $this->get( 'textData/meta-description/content/' . $idx ) ); ?></textarea>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Article description shown by search engines, added to the head section of the category page' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Page description shown by search engines, added to the head section of the category page' ) ); ?>
 						</div>
 					</div>
 				</div>
