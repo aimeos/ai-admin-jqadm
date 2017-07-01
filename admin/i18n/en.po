@@ -1712,11 +1712,11 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "Addresses"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Attributes"
 
 #, php-format
 msgid "bundle"
@@ -1724,7 +1724,7 @@ msgstr "Bundles"
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Categories"
 
 #, php-format
 msgid "category"
@@ -1736,18 +1736,18 @@ msgstr "Characteristics"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Codes"
 
 msgid "company"
-msgstr ""
+msgstr "Company"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "Vouchers"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "Customers"
 
 #, php-format
 msgid "dashboard"
@@ -1755,11 +1755,10 @@ msgstr "Dashboard"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "By day"
 
-#, fuzzy, php-format
 msgid "deliverytype"
-msgstr "delivered"
+msgstr "By delivery type"
 
 #, php-format
 msgid "download"
@@ -1767,7 +1766,7 @@ msgstr "Downloads"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "By hour"
 
 #, php-format
 msgid "image"
@@ -1775,23 +1774,23 @@ msgstr "Images"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "Invoices"
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Latest"
 
 msgid "media"
-msgstr ""
+msgstr "Media"
 
 msgid "miss"
-msgstr ""
+msgstr "Miss"
 
 msgid "mr"
-msgstr ""
+msgstr "Mr"
 
 msgid "mrs"
-msgstr ""
+msgstr "Mrs"
 
 msgid "new"
 msgstr ""
@@ -1805,31 +1804,31 @@ msgstr "Options"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "Orders"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "unfinished"
 
 msgid "pay:0"
-msgstr ""
+msgstr "deleted"
 
 msgid "pay:1"
-msgstr ""
+msgstr "canceled"
 
 msgid "pay:2"
-msgstr ""
+msgstr "refund"
 
 msgid "pay:3"
-msgstr ""
+msgstr "refund"
 
 msgid "pay:4"
-msgstr ""
+msgstr "pending"
 
 msgid "pay:5"
-msgstr ""
+msgstr "authorized"
 
 msgid "pay:6"
-msgstr ""
+msgstr "received"
 
 msgid "pay:authorized"
 msgstr "authorized"
@@ -1857,11 +1856,11 @@ msgstr "unfinished"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "By payment status"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "By payment type"
 
 #, php-format
 msgid "physical"
@@ -1873,11 +1872,11 @@ msgstr "Prices"
 
 #, php-format
 msgid "product"
-msgstr "Product"
+msgstr "Products"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "Products"
 
 #, php-format
 msgid "selection"
@@ -1885,43 +1884,34 @@ msgstr "Variants"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "Special"
 
-#, fuzzy
 msgid "stat:-1"
-msgstr "lost"
+msgstr "unfinished"
 
-#, fuzzy
 msgid "stat:0"
-msgstr "lost"
+msgstr "deleted"
 
-#, fuzzy
 msgid "stat:1"
-msgstr "lost"
+msgstr "pending"
 
-#, fuzzy
 msgid "stat:2"
-msgstr "lost"
+msgstr "in progress"
 
-#, fuzzy
 msgid "stat:3"
-msgstr "lost"
+msgstr "dispatched"
 
-#, fuzzy
 msgid "stat:4"
-msgstr "lost"
+msgstr "delivered"
 
-#, fuzzy
 msgid "stat:5"
 msgstr "lost"
 
-#, fuzzy
 msgid "stat:6"
-msgstr "lost"
+msgstr "refused"
 
-#, fuzzy
 msgid "stat:7"
-msgstr "lost"
+msgstr "returned"
 
 msgid "stat:deleted"
 msgstr "deleted"
@@ -1939,7 +1929,7 @@ msgid "stat:pending"
 msgstr "pending"
 
 msgid "stat:progress"
-msgstr "progress"
+msgstr "in progress"
 
 msgid "stat:refused"
 msgstr "refused"
@@ -1971,7 +1961,7 @@ msgid "text"
 msgstr "Texts"
 
 msgid "unknown"
-msgstr ""
+msgstr "Unknown"
 
 msgid "yes"
 msgstr ""
