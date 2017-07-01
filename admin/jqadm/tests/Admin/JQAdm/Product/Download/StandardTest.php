@@ -30,6 +30,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( array( $this->context, $templatePaths ) )
 			->setMethods( array( 'storeFile' ) )
 			->getMock();
+
+		$this->view->pageSite = $this->context->getLocale()->getSite();
 		$this->object->setView( $this->view );
 	}
 
