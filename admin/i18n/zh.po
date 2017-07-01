@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 19:55+0200\n"
-"PO-Revision-Date: 2017-06-30 17:57+0000\n"
+"POT-Creation-Date: 2017-07-01 12:30+0200\n"
+"PO-Revision-Date: 2017-07-01 10:24+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -1813,7 +1813,7 @@ msgid "code"
 msgstr "代碼"
 
 msgid "company"
-msgstr ""
+msgstr "公司"
 
 #, php-format
 msgid "coupon"
@@ -1856,7 +1856,7 @@ msgid "latest"
 msgstr ""
 
 msgid "media"
-msgstr ""
+msgstr "媒體"
 
 msgid "miss"
 msgstr "小姐"
@@ -1931,7 +1931,7 @@ msgstr "狀態：未完成"
 
 #, php-format
 msgid "paymentstatus"
-msgstr "支付狀態"
+msgstr ""
 
 #, php-format
 msgid "paymenttype"
@@ -2036,7 +2036,7 @@ msgid "text"
 msgstr "文本"
 
 msgid "unknown"
-msgstr "未知"
+msgstr ""
 
 msgid "yes"
 msgstr ""

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 19:55+0200\n"
-"PO-Revision-Date: 2017-06-30 17:57+0000\n"
+"POT-Creation-Date: 2017-07-01 12:30+0200\n"
+"PO-Revision-Date: 2017-07-01 10:24+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -1813,7 +1813,7 @@ msgid "code"
 msgstr "Kódy"
 
 msgid "company"
-msgstr ""
+msgstr "Společnost"
 
 #, php-format
 msgid "coupon"
@@ -1931,7 +1931,7 @@ msgstr "stat:unfinished"
 
 #, php-format
 msgid "paymentstatus"
-msgstr "Stav platby"
+msgstr ""
 
 #, php-format
 msgid "paymenttype"
@@ -2036,7 +2036,7 @@ msgid "text"
 msgstr ""
 
 msgid "unknown"
-msgstr "neznámé"
+msgstr ""
 
 msgid "yes"
 msgstr ""

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 19:55+0200\n"
-"PO-Revision-Date: 2017-06-30 17:57+0000\n"
+"POT-Creation-Date: 2017-07-01 12:30+0200\n"
+"PO-Revision-Date: 2017-07-01 10:24+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/aimeos/aimeos-core/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -1812,7 +1812,7 @@ msgid "code"
 msgstr "Códigos"
 
 msgid "company"
-msgstr ""
+msgstr "Empresa"
 
 #, php-format
 msgid "coupon"
@@ -1855,7 +1855,7 @@ msgid "latest"
 msgstr ""
 
 msgid "media"
-msgstr ""
+msgstr "Mídia"
 
 msgid "miss"
 msgstr "Srta"
@@ -1930,11 +1930,11 @@ msgstr "estatística:inacabado"
 
 #, php-format
 msgid "paymentstatus"
-msgstr "Status de pagamento"
+msgstr ""
 
 #, php-format
 msgid "paymenttype"
-msgstr "Formas de pagamento"
+msgstr ""
 
 #, php-format
 msgid "physical"
@@ -2035,7 +2035,7 @@ msgid "text"
 msgstr "Textos"
 
 msgid "unknown"
-msgstr "desconhecido"
+msgstr ""
 
 msgid "yes"
 msgstr ""
