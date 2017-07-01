@@ -98,11 +98,12 @@ Aimeos.Dashboard.Order = {
 			}
 
 			var entries = {};
+			var max = d3.max(data.data, function(d) { return +d.attributes; });
 			data.data.forEach(function(d) { entries[d.id] = d.attributes; });
 
 			var color = d3.scaleQuantize()
 				.range(d3.range(10).map(function(d) { return "q" + d; }))
-				.domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+				.domain([0, (max ? max : 1)]);
 
 			var svg = d3.select(selector)
 				.append("svg")
