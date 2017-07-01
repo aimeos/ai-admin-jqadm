@@ -1736,7 +1736,7 @@ msgid "code"
 msgstr "Codes"
 
 msgid "company"
-msgstr ""
+msgstr "Company"
 
 #, php-format
 msgid "coupon"
@@ -1752,11 +1752,11 @@ msgstr "Dashboard"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "By days"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "By delivery type"
 
 #, php-format
 msgid "download"
@@ -1764,7 +1764,7 @@ msgstr "Downloads"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "By hour"
 
 #, php-format
 msgid "image"
@@ -1779,7 +1779,7 @@ msgid "latest"
 msgstr "Latest"
 
 msgid "media"
-msgstr "media"
+msgstr "Media"
 
 msgid "miss"
 msgstr "Miss"
@@ -1802,7 +1802,7 @@ msgstr "Options"
 
 #, php-format
 msgid "order"
-msgstr "orders"
+msgstr "Orders"
 
 msgid "pay:-1"
 msgstr "unfinished"
@@ -1854,11 +1854,11 @@ msgstr "Unfinished"
 
 #, php-format
 msgid "paymentstatus"
-msgstr "Payment status"
+msgstr "By payment status"
 
 #, php-format
 msgid "paymenttype"
-msgstr "Payment types"
+msgstr "By payment types"
 
 #, php-format
 msgid "physical"
@@ -1959,7 +1959,7 @@ msgid "text"
 msgstr "Texts"
 
 msgid "unknown"
-msgstr ""
+msgstr "Unknown"
 
 msgid "yes"
 msgstr ""
