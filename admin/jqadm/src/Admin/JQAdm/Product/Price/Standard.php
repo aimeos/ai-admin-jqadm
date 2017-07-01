@@ -400,12 +400,6 @@ class Standard
 			}
 		}
 
-		if( !isset( $data['price.currencyid'] ) ) // show at least one block
-		{
-			$data['price.currencyid'][] = $locale->getCurrencyId();
-			$data['product.lists.siteid'][] = $siteId;
-		}
-
 		return $data;
 	}
 
