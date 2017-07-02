@@ -5,6 +5,19 @@
 
 
 /**
+ * Attention:
+ *
+ * Updating tree.jquery.js requires removing or overwriting these lines from
+ * NodeElement.prototype.select() and NodeElement.prototype.deselect():
+ *
+ * var $span = this.getSpan();
+ * $span.attr("tabindex", 0);
+ * $span.focus();
+ */
+
+
+
+/**
  * Load categories and create catalog tree
  */
 Aimeos.options.done(function(data) {
