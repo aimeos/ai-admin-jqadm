@@ -43,3 +43,16 @@ msgstr "Search"
 
 msgid "~="
 msgstr "contains"
+
+
+msgid "address:delivery"
+msgstr "Delivery address"
+
+msgid "address:payment"
+msgstr "Billing address"
+
+msgid "service:delivery"
+msgstr "Delivery"
+
+msgid "service:payment"
+msgstr "Payment"

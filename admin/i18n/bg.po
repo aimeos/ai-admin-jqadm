@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-01 12:30+0200\n"
-"PO-Revision-Date: 2017-07-01 10:24+0000\n"
+"POT-Creation-Date: 2017-07-01 18:07+0200\n"
+"PO-Revision-Date: 2017-07-01 16:10+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -1788,6 +1788,12 @@ msgstr ""
 msgid "address"
 msgstr "Адреси"
 
+msgid "address:delivery"
+msgstr "Адрес на доставка"
+
+msgid "address:payment"
+msgstr "Разплащателен адрес"
+
 #, php-format
 msgid "attribute"
 msgstr "Атрибути"
@@ -1956,6 +1962,12 @@ msgstr "Продукти"
 #, php-format
 msgid "selection"
 msgstr "Варианти"
+
+msgid "service:delivery"
+msgstr "Доставка"
+
+msgid "service:payment"
+msgstr "Заплащане"
 
 #, php-format
 msgid "special"

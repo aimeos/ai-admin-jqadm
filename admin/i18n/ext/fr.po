@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2016-06-07 09:37+0000\n"
+"PO-Revision-Date: 2017-07-01 16:17+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: French (http://www.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -43,3 +43,15 @@ msgstr "Recherche"
 
 msgid "~="
 msgstr "contient"
+
+msgid "address:delivery"
+msgstr "Adresse de livraison"
+
+msgid "address:payment"
+msgstr "Adresse de facturation"
+
+msgid "service:delivery"
+msgstr "Livraison"
+
+msgid "service:payment"
+msgstr "Paiement"

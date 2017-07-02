@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-01 12:30+0200\n"
-"PO-Revision-Date: 2017-07-01 10:27+0000\n"
+"POT-Creation-Date: 2017-07-01 18:07+0200\n"
+"PO-Revision-Date: 2017-07-01 16:10+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1789,6 +1789,12 @@ msgstr "Postleitzahl (optional)"
 msgid "address"
 msgstr "Adressen"
 
+msgid "address:delivery"
+msgstr "Lieferadresse"
+
+msgid "address:payment"
+msgstr "Rechnungsadresse"
+
 #, php-format
 msgid "attribute"
 msgstr "Attribute"
@@ -1957,6 +1963,12 @@ msgstr "Produkte"
 #, php-format
 msgid "selection"
 msgstr "Varianten"
+
+msgid "service:delivery"
+msgstr "Versand"
+
+msgid "service:payment"
+msgstr "Zahlung"
 
 #, php-format
 msgid "special"

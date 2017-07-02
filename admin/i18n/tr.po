@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-01 12:30+0200\n"
-"PO-Revision-Date: 2017-07-01 10:24+0000\n"
+"POT-Creation-Date: 2017-07-01 18:07+0200\n"
+"PO-Revision-Date: 2017-07-01 16:10+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -1787,6 +1787,12 @@ msgstr "Posta kodu (isteğe bağlı)"
 msgid "address"
 msgstr "Adresler"
 
+msgid "address:delivery"
+msgstr "Teslimat adresi"
+
+msgid "address:payment"
+msgstr "Fatura adresi"
+
 #, php-format
 msgid "attribute"
 msgstr "Nitelikler"
@@ -1955,6 +1961,12 @@ msgstr "Ürünler"
 #, php-format
 msgid "selection"
 msgstr "Değişkenler"
+
+msgid "service:delivery"
+msgstr "Teslimat"
+
+msgid "service:payment"
+msgstr "Ödeme"
 
 #, php-format
 msgid "special"

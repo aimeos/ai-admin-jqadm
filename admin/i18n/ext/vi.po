@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2015-07-09 22:03+0000\n"
+"PO-Revision-Date: 2017-07-01 16:17+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/aimeos/aimeos-core/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -43,3 +43,15 @@ msgstr ""
 
 msgid "~="
 msgstr ""
+
+msgid "address:delivery"
+msgstr "Địa chỉ gửi"
+
+msgid "address:payment"
+msgstr "Địa chỉ hóa đơn"
+
+msgid "service:delivery"
+msgstr "Vận chuyển"
+
+msgid "service:payment"
+msgstr "Chi trả"

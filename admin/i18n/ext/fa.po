@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2017-05-13 17:38+0000\n"
+"PO-Revision-Date: 2017-07-01 16:17+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Persian (http://www.transifex.com/aimeos/aimeos-core/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -43,3 +43,15 @@ msgstr "جستجو"
 
 msgid "~="
 msgstr ""
+
+msgid "address:delivery"
+msgstr "آدرس تحویل"
+
+msgid "address:payment"
+msgstr "آدرس صورتحساب"
+
+msgid "service:delivery"
+msgstr "تحویل"
+
+msgid "service:payment"
+msgstr "پرداخت"

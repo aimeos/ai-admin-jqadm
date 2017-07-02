@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"POT-Creation-Date: 2017-07-01 18:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1711,6 +1711,12 @@ msgstr ""
 msgid "address"
 msgstr "Addresses"
 
+msgid "address:delivery"
+msgstr "Delivery address"
+
+msgid "address:payment"
+msgstr "Billing address"
+
 #, php-format
 msgid "attribute"
 msgstr "Attributes"
@@ -1879,6 +1885,12 @@ msgstr "Products"
 #, php-format
 msgid "selection"
 msgstr "Variants"
+
+msgid "service:delivery"
+msgstr "Delivery"
+
+msgid "service:payment"
+msgstr "Payment"
 
 #, php-format
 msgid "special"

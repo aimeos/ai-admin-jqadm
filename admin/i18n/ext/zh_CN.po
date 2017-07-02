@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2016-06-07 09:37+0000\n"
+"PO-Revision-Date: 2017-07-01 16:17+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/aimeos/aimeos-core/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -43,3 +43,15 @@ msgstr "搜索"
 
 msgid "~="
 msgstr "~="
+
+msgid "address:delivery"
+msgstr "送货地址"
+
+msgid "address:payment"
+msgstr "账单地址"
+
+msgid "service:delivery"
+msgstr "交货"
+
+msgid "service:payment"
+msgstr "付款"

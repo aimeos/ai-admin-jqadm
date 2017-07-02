@@ -14,6 +14,7 @@ return array(
 	),
 	'i18n' => array(
 		'admin' => 'admin/i18n',
+		'admin/ext' => 'admin/i18n/ext',
 	),
 	'custom' => array(
 		'admin/jqadm' => array(

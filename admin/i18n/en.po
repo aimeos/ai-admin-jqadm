@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-30 19:55+0200\n"
+"POT-Creation-Date: 2017-07-01 18:05+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -1757,6 +1757,7 @@ msgstr "Dashboard"
 msgid "day"
 msgstr "By day"
 
+#, php-format
 msgid "deliverytype"
 msgstr "By delivery type"
 
@@ -1881,6 +1882,12 @@ msgstr "Products"
 #, php-format
 msgid "selection"
 msgstr "Variants"
+
+msgid "service:delivery"
+msgstr "Delivery"
+
+msgid "service:payment"
+msgstr "Payment"
 
 #, php-format
 msgid "special"

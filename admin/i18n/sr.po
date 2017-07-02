@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-01 12:30+0200\n"
-"PO-Revision-Date: 2017-07-01 10:24+0000\n"
+"POT-Creation-Date: 2017-07-01 18:07+0200\n"
+"PO-Revision-Date: 2017-07-01 16:10+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/aimeos/aimeos-core/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -1787,6 +1787,12 @@ msgstr ""
 msgid "address"
 msgstr "Adrese"
 
+msgid "address:delivery"
+msgstr "Adresa Isporuke"
+
+msgid "address:payment"
+msgstr "Adresa za račun"
+
 #, php-format
 msgid "attribute"
 msgstr ""
@@ -1955,6 +1961,12 @@ msgstr "Proizvodi"
 #, php-format
 msgid "selection"
 msgstr ""
+
+msgid "service:delivery"
+msgstr "Isporuka"
+
+msgid "service:payment"
+msgstr "Placanje"
 
 #, php-format
 msgid "special"
