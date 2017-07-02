@@ -439,8 +439,6 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
 	{
 		$data = [];
-		$context = $this->getContext();
-		$siteId = $context->getLocale()->getSiteId();
 
 		foreach( $item->getListItems( 'text', 'default' ) as $listItem )
 		{
