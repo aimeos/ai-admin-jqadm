@@ -101,8 +101,8 @@ Aimeos.Dashboard.Order = {
 			data.data.forEach(function(d) { entries[d.id] = d.attributes; });
 
 			var color = d3.scaleQuantize()
-				.range(d3.range(10).map(function(d) { return "q" + d; }))
-				.domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+				.range(d3.range(9).map(function(d) { return "q" + (d+1); }))
+				.domain([1, d3.max(data.data, function(d) { return +d.attributes; })]);
 
 			var svg = d3.select(selector)
 				.append("svg")
@@ -133,7 +133,7 @@ Aimeos.Dashboard.Order = {
 					.attr("y", function(d) { return d.getUTCDay() * cellWidth; })
 					.datum(d3.timeFormat("%Y-%m-%d"));
 
-			cell.attr("class", function(d) { return "day " + color(entries[d] || 0); })
+			cell.attr("class", function(d) { return "day " + (entries[d]>0 ? color(entries[d]) : "q0"); })
 				.append("title").text(function(d) { return d + ": " + (entries[d] || 0); });
 
 

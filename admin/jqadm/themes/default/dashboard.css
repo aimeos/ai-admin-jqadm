@@ -59,15 +59,15 @@
 }
 
 .dashboard .order-day .q0 { fill: #f8f8f8; }
-.dashboard .order-day .q1 { fill: #ffffdd; }
-.dashboard .order-day .q2 { fill: #f7fcb9; }
-.dashboard .order-day .q3 { fill: #d9f0a3; }
-.dashboard .order-day .q4 { fill: #addd8e; }
-.dashboard .order-day .q5 { fill: #78c679; }
-.dashboard .order-day .q6 { fill: #41ab5d; }
-.dashboard .order-day .q7 { fill: #238443; }
-.dashboard .order-day .q8 { fill: #006837; }
-.dashboard .order-day .q9 { fill: #004529; }
+.dashboard .order-day .q1 { fill: #d5efcf; }
+.dashboard .order-day .q2 { fill: #bae4b4; }
+.dashboard .order-day .q3 { fill: #9ad696; }
+.dashboard .order-day .q4 { fill: #75c47a; }
+.dashboard .order-day .q5 { fill: #4fb063; }
+.dashboard .order-day .q6 { fill: #30994f; }
+.dashboard .order-day .q7 { fill: #167f3b; }
+.dashboard .order-day .q8 { fill: #036429; }
+.dashboard .order-day .q9 { fill: #00441b; }
 
 
 /* Order per hour diagram styles */
