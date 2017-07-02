@@ -144,7 +144,6 @@
 
 .dashboard .order-paymentstatus .overlay {
 	pointer-events: all;
-	z-index: 10;
 	fill: none;
 }
 

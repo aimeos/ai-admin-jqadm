@@ -319,7 +319,7 @@ Aimeos.Dashboard.Order = {
 		Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 100000).then(function(data) {
 
 			if( typeof data.data == "undefined" ) {
-				throw error;
+				throw 'No data in response';
 			}
 
 			var dateParser = d3.timeParse("%Y-%m-%d");
@@ -354,7 +354,7 @@ Aimeos.Dashboard.Order = {
 			}
 
 
-			var responses = [], entries = {};
+			var res = [], entries = {};
 
 			dates.forEach(function(date) {
 				var pdate = dateParser(date);
@@ -379,81 +379,89 @@ Aimeos.Dashboard.Order = {
 					{"==": {"order.statuspayment": statuslist[i]}}
 				]};
 
-				responses.push({'promise': Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 10000), 'status': statuslist[i]});
+				res.push(Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 10000));
 			};
 
-			// draw a new layer for each status value, order is maintained by waiting for the promise of the status value
-			$(responses).each(function(idx, entry) {
-				entry.promise.then(function(data) {
+			// draw a new layer for each status value
+			var drawLayer = function(status, data) {
+				if( typeof data.data == "undefined" ) {
+					throw 'No data in response';
+				}
 
-					if( typeof data.data == "undefined" ) {
-						throw error;
-					}
-
-					data.data.forEach(function(d) {
-						entries[d.id][entry.status]['count'] = (+d.attributes);
-						entries[d.id][entry.status]['y0'] = entries[d.id]['total'];
-						entries[d.id][entry.status]['y1'] = entries[d.id]['total'] + (+d.attributes);
-						entries[d.id]['total'] += (+d.attributes);
-					});
-
-					dates.forEach(function(d) {
-						svg.append("rect")
-							.datum(entries[d][entry.status])
-							.attr("class", function(d) { return "bar " + color(d.status); })
-							.attr("x", function(d) { return xScale(d.key); })
-							.attr("width", width / dates.length - 2)
-							.attr("y", function(d) { return yScale(d.y1); })
-							.attr("height", function(d) { return height - yScale(d.y1 - d.y0); });
-					});
+				data.data.forEach(function(d) {
+					entries[d.id][status]['count'] = (+d.attributes);
+					entries[d.id][status]['y0'] = entries[d.id]['total'];
+					entries[d.id][status]['y1'] = entries[d.id]['total'] + (+d.attributes);
+					entries[d.id]['total'] += (+d.attributes);
 				});
-			});
+
+				dates.forEach(function(d) {
+					svg.append("rect")
+						.datum(entries[d][status])
+						.attr("class", function(d) { return "bar " + color(d.status); })
+						.attr("x", function(d) { return xScale(d.key); })
+						.attr("width", width / dates.length - 2)
+						.attr("y", function(d) { return yScale(d.y1); })
+						.attr("height", function(d) { return height - yScale(d.y1 - d.y0); });
+				});
+			};
 
 
-			// interactive chart details
-			responses[responses.length-1].promise.then(function() {
+			// order is maintained by waiting for the promise of the status value
+			$.when(res[0], res[1], res[2], res[3], res[4], res[5], res[6], res[7])
+				.done(function(dt0, dt1, dt2, dt3, dt4, dt5, dt6, dt7) {
+					drawLayer('-1', dt0[0]);
+					drawLayer('0', dt1[0]);
+					drawLayer('1', dt2[0]);
+					drawLayer('2', dt3[0]);
+					drawLayer('3', dt4[0]);
+					drawLayer('4', dt5[0]);
+					drawLayer('5', dt6[0]);
+					drawLayer('6', dt7[0]);
 
-				statuslist.reverse(); // print counts per status in descending order
 
-				var tooltip = $('<div class="tooltip" />').appendTo($(selector));
+					statuslist.reverse(); // print counts per status in descending order
 
-				svg.append("rect")
-					.attr("class", "overlay")
-					.attr("width", width+25)
-					.attr("height", height)
-					.on("mouseover", function() { tooltip.css("display", "block"); })
-					.on("mouseout", function() { tooltip.css("display", "none"); })
-					.on("mousemove", function() {
+					// interactive chart details
+					var tooltip = $('<div class="tooltip" />').appendTo($(selector));
 
-						// now tooltip for the date in the diagram
-						var x0 = xScale.invert(d3.mouse(this)[0]),
-							mouseX = xScale(x0),
-							curdate, i;
+					svg.append("rect")
+						.attr("class", "overlay")
+						.attr("width", width+25)
+						.attr("height", height)
+						.on("mouseover", function() { tooltip.css("display", "block"); })
+						.on("mouseout", function() { tooltip.css("display", "none"); })
+						.on("mousemove", function() {
 
-						for(i=0; i<dates.length; i++) {
-							curdate = dates[i];
+							// now tooltip for the date in the diagram
+							var x0 = xScale.invert(d3.mouse(this)[0]),
+								mouseX = xScale(x0),
+								curdate, i;
 
-							if(i === dates.length-1 || x0 >= dateParser(dates[i]) && x0 < dateParser(dates[i+1])) {
-								break;
+							for(i=0; i<dates.length; i++) {
+								curdate = dates[i];
+
+								if(i === dates.length-1 || x0 >= dateParser(dates[i]) && x0 < dateParser(dates[i+1])) {
+									break;
+								}
 							}
-						}
 
-						var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
-						statuslist.forEach(function(status) {
-							html += '<tr><th>' + translation[status] + "</th><td>" + (entries[curdate][status]['count'] || 0) + '</td></tr>';
+							var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
+							statuslist.forEach(function(status) {
+								html += '<tr><th>' + translation[status] + "</th><td>" + (entries[curdate][status]['count'] || 0) + '</td></tr>';
+							});
+							html += '</table>';
+
+							// avoid pointer being inside the tooltip to prevent flickering
+							// dispay tooltip right or left of the pointer depending on the position in the diagram
+							tooltip.html(html)
+								.css("top", margin.top)
+								.css("left", (mouseX - width / 2 > 0 ? mouseX - tooltip.outerWidth() : mouseX + 20) + margin.left);
 						});
-						html += '</table>';
 
-						// avoid pointer being inside the tooltip to prevent flickering
-						// dispay tooltip right or left of the pointer depending on the position in the diagram
-						tooltip.html(html)
-							.css("top", margin.top)
-							.css("left", (mouseX - width / 2 > 0 ? mouseX - tooltip.outerWidth() : mouseX + 20) + margin.left);
-					});
-
-			}).done(function() {
-				$(selector).removeClass("loading");
-			});
+					$(selector).removeClass("loading");
+				}
+			);
 		});
 	},
 
