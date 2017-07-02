@@ -187,17 +187,17 @@ $serviceAttrCodes = [
 
 					<div class="col-xl-6 content-block <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?>">
 						<div class="form-group row">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></label>
-							<div class="col-sm-8">
+							<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></label>
+							<div class="col-8">
 								<span class="form-control item-sitecode"><?= $enc->html( $basket->getSiteCode() ); ?></span>
 							</div>
-							<div class="col-sm-12 form-text text-muted help-text">
+							<div class="col-12 form-text text-muted help-text">
 								<?= $enc->html( $this->translate( 'admin', 'Site the order was placed at' ) ); ?>
 							</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ); ?></label>
-							<div class="col-sm-8">
+							<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ); ?></label>
+							<div class="col-8">
 								<span class="form-control item-customerid">
 									<a class="act-view" target="_blank"
 										href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId()], [], $getConfig ) ); ?>">
@@ -331,7 +331,7 @@ $serviceAttrCodes = [
 					<?php foreach( $sortItems( $basket->getAddresses() ) as $type => $addressItem ) : $code = 'address:' . $type; ?>
 
 						<div class="col-xl-6 content-block item-address">
-							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></h2>
+							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
 
 							<div class="address-short">
 								<?php
@@ -606,13 +606,13 @@ $serviceAttrCodes = [
 					<?php foreach( $sortItems( $basket->getServices() ) as $type => $serviceItem ) : $code = 'service:' . $type; ?>
 
 						<div class="col-xl-6 content-block item-service">
-							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', $code ) ); ?></h2>
+							<h2 class="col-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
 							<div class="row">
-								<div class="col-sm-6 content-block">
+								<div class="col-6 content-block">
 									<span class="service-name"><?= $enc->html( $serviceItem->getName() ); ?></span>
 									<span class="service-code"><?= $enc->html( $serviceItem->getCode() ); ?></span>
 								</div>
-								<div class="col-sm-6 content-block">
+								<div class="col-6 content-block">
 									<span class="service-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $serviceItem->getPrice()->getValue() + $serviceItem->getPrice()->getCosts() ), $currency ) ); ?></span>
 									<?php if( $serviceItem->getPrice()->getRebate() > 0 ) : ?>
 										<span class="service-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $serviceItem->getPrice()->getRebate() ), $currency ) ); ?></span>
@@ -706,26 +706,26 @@ $serviceAttrCodes = [
 					<div class="col-xl-6 content-block item-total">
 						<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Order totals' ) ); ?></h2>
 						<div class="form-group row total-subtotal">
-							<div class="col-sm-6 name"><?= $enc->html( $this->translate( 'admin', 'Sub-total' ) ); ?></div>
-							<div class="col-sm-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() ), $currency ) ); ?></div>
+							<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Sub-total' ) ); ?></div>
+							<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() ), $currency ) ); ?></div>
 						</div>
 						<div class="form-group row total-shipping">
-							<div class="col-sm-6 name"><?= $enc->html( $this->translate( 'admin', 'Shipping' ) ); ?></div>
-							<div class="col-sm-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
+							<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Shipping' ) ); ?></div>
+							<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
 						</div>
 						<div class="form-group row total-value">
-							<div class="col-sm-6 name"><?= $enc->html( $this->translate( 'admin', 'Total' ) ); ?></div>
-							<div class="col-sm-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
+							<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Total' ) ); ?></div>
+							<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
 						</div>
 						<div class="form-group row total-tax">
-							<div class="col-sm-6 name">
+							<div class="col-6 name">
 								<?php if( $basket->getPrice()->getTaxFlag() ) : ?>
 									<?= $enc->html( $this->translate( 'admin', 'Incl. tax' ) ); ?>
 								<?php else : ?>
 									<?= $enc->html( $this->translate( 'admin', 'Excl. tax' ) ); ?>
 								<?php endif; ?>
 							</div>
-							<div class="col-sm-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getTaxValue() ), $currency ) ); ?></div>
+							<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getTaxValue() ), $currency ) ); ?></div>
 						</div>
 					</div>
 				</div>
