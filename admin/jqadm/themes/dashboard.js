@@ -383,7 +383,7 @@ Aimeos.Dashboard.Order = {
 			};
 
 			// draw a new layer for each status value, order is maintained by waiting for the promise of the status value
-			responses.forEach(function(entry) {
+			$(responses).each(function(idx, entry) {
 				entry.promise.then(function(data) {
 
 					if( typeof data.data == "undefined" ) {
@@ -411,45 +411,49 @@ Aimeos.Dashboard.Order = {
 
 
 			// interactive chart details
-			statuslist.reverse(); // print counts per status in descending order
+			responses[responses.length-1].promise.then(function() {
 
-			var tooltip = $('<div class="tooltip" />').appendTo($(selector));
+				statuslist.reverse(); // print counts per status in descending order
 
-			svg.append("rect")
-				.attr("class", "overlay")
-				.attr("width", width+25)
-				.attr("height", height)
-				.on("mouseover", function() { tooltip.css("display", "block"); })
-				.on("mouseout", function() { tooltip.css("display", "none"); })
-				.on("mousemove", function() {
+				var tooltip = $('<div class="tooltip" />').appendTo($(selector));
 
-					// now tooltip for the date in the diagram
-					var x0 = xScale.invert(d3.mouse(this)[0]),
-						mouseX = xScale(x0),
-						curdate, i;
+				svg.append("rect")
+					.attr("class", "overlay")
+					.attr("width", width+25)
+					.attr("height", height)
+					.on("mouseover", function() { tooltip.css("display", "block"); })
+					.on("mouseout", function() { tooltip.css("display", "none"); })
+					.on("mousemove", function() {
 
-					for(i=0; i<dates.length; i++) {
-						curdate = dates[i];
+						// now tooltip for the date in the diagram
+						var x0 = xScale.invert(d3.mouse(this)[0]),
+							mouseX = xScale(x0),
+							curdate, i;
 
-						if(i === dates.length-1 || x0 >= dateParser(dates[i]) && x0 < dateParser(dates[i+1])) {
-							break;
+						for(i=0; i<dates.length; i++) {
+							curdate = dates[i];
+
+							if(i === dates.length-1 || x0 >= dateParser(dates[i]) && x0 < dateParser(dates[i+1])) {
+								break;
+							}
 						}
-					}
 
-					var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
-					statuslist.forEach(function(status) {
-						html += '<tr><th>' + translation[status] + "</th><td>" + (entries[curdate][status]['count'] || 0) + '</td></tr>';
+						var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
+						statuslist.forEach(function(status) {
+							html += '<tr><th>' + translation[status] + "</th><td>" + (entries[curdate][status]['count'] || 0) + '</td></tr>';
+						});
+						html += '</table>';
+
+						// avoid pointer being inside the tooltip to prevent flickering
+						// dispay tooltip right or left of the pointer depending on the position in the diagram
+						tooltip.html(html)
+							.css("top", margin.top)
+							.css("left", (mouseX - width / 2 > 0 ? mouseX - tooltip.outerWidth() : mouseX + 20) + margin.left);
 					});
-					html += '</table>';
 
-					// avoid pointer being inside the tooltip to prevent flickering
-					// dispay tooltip right or left of the pointer depending on the position in the diagram
-					tooltip.html(html)
-						.css("top", margin.top)
-						.css("left", (mouseX - width / 2 > 0 ? mouseX - tooltip.outerWidth() : mouseX + 20) + margin.left);
-				});
-
-			$(selector).removeClass("loading");
+			}).done(function() {
+				$(selector).removeClass("loading");
+			});
 		});
 	},
 
