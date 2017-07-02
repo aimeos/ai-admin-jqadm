@@ -143,8 +143,9 @@
 }
 
 .dashboard .order-paymentstatus .overlay {
-  fill: none;
-  pointer-events: all;
+	pointer-events: all;
+	z-index: 10;
+	fill: none;
 }
 
 .dashboard .order-paymentstatus .pay-unfinished { fill: #969696; }
