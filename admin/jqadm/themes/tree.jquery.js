@@ -2356,9 +2356,6 @@ var ElementsRenderer = (function () {
         title_span.setAttribute("aria-level", "" + level);
         title_span.setAttribute("aria-selected", util_1.getBoolString(is_selected));
         title_span.setAttribute("aria-expanded", util_1.getBoolString(is_open));
-        if (is_selected) {
-            title_span.setAttribute("tabindex", "0");
-        }
         title_span.innerHTML = this.escapeIfNecessary(node_name);
         return title_span;
     };

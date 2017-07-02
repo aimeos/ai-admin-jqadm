@@ -63,7 +63,6 @@ Aimeos.Catalog = {
 			"data": [root],
 			"autoOpen": 0,
 			"dragAndDrop": true,
-			"keyboardSupport": false,
 			"closedIcon": " ",
 			"openedIcon": " ",
 			"slide": false,
