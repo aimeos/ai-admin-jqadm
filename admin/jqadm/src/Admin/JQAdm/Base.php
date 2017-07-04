@@ -462,7 +462,7 @@ abstract class Base
 			foreach( (array) $params['filter']['key'] as $idx => $key )
 			{
 				if( $key != '' && isset( $params['filter']['op'][$idx] ) && $params['filter']['op'][$idx] != ''
-					&& isset( $params['filter']['val'][$idx] )
+					&& isset( $params['filter']['val'][$idx] ) && $params['filter']['val'][$idx] != ''
 				) {
 					$expr[] = $criteria->compare( $params['filter']['op'][$idx], $key, $params['filter']['val'][$idx] );
 				}
