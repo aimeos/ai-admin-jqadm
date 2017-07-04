@@ -32,6 +32,10 @@ html {
 	z-index: 1;
 }
 
+.custom-select {
+	height: auto;
+}
+
 
 
 /* Aimeos Bootstrap theme */
