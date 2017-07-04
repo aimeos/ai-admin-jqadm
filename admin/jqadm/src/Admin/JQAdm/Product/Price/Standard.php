@@ -332,8 +332,8 @@ class Standard
 			}
 			else
 			{
-				$priceItem = $litem->getRefItem();
 				$litem = $listItems[$listid];
+				$priceItem = $litem->getRefItem();
 			}
 
 			$priceItem->setTypeId( $this->getValue( $data, 'price.typeid/' . $idx ) );
