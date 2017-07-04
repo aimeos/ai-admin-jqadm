@@ -118,7 +118,9 @@ $enc = $this->encoder();
 								</div>
 							</div>
 						<?php else : ?>
-							<input class="item-currencyid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>" value="<?= $enc->attr( $currencyid ); ?>" />
+							<input class="item-currencyid" type="hidden"
+								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'priceCurrencyDefault' ) ); ?>" />
 						<?php endif; ?>
 
 						<?php if( count( $this->get( 'priceTypes', [] ) ) > 1 ) : ?>
