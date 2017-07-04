@@ -22,6 +22,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->context = \TestHelperJqadm::getContext();
 		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
+		$langManager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/language' );
+
+		$this->view->pageLanguages = $langManager->searchItems( $langManager->createSearch() );
 		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Product\Text\Standard( $this->context, $templatePaths );

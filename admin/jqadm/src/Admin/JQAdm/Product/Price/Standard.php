@@ -280,12 +280,11 @@ class Standard
 
 		$currencyItems = $currencyManager->searchItems( $currencyManager->createSearch( true ) );
 
-		if( ( $default = reset( $currencyItems ) ) === false ) {
+		if( $currencyItems === [] ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
 		}
 
 		$view->priceTypes = $priceManager->searchItems( $search );
-		$view->priceCurrencyDefault = $default->getId();
 		$view->priceCurrencies = $currencyItems;
 
 		return $view;
@@ -326,11 +325,10 @@ class Standard
 		{
 			if( !isset( $listItems[$listid] ) )
 			{
+				$priceItem = clone $newItem;
+
 				$litem = $listItem;
 				$litem->setId( null );
-
-				$priceItem = $newItem;
-				$priceItem->setId( null );
 			}
 			else
 			{

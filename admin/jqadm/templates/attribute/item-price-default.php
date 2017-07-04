@@ -97,7 +97,8 @@ $enc = $this->encoder();
 
 					<div class="col-xl-6">
 
-						<?php if( count( $this->get( 'priceCurrencies', [] ) ) > 1 ) : ?>
+						<?php $currencies = $this->get( 'priceCurrencies', [] ); ?>
+						<?php if( count( $currencies ) > 1 ) : ?>
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 								<div class="col-sm-8">
@@ -108,7 +109,7 @@ $enc = $this->encoder();
 											<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 										</option>
 
-										<?php foreach( $this->get( 'priceCurrencies', [] ) as $currencyItem ) : ?>
+										<?php foreach( $currencies as $currencyItem ) : ?>
 											<option value="<?= $enc->attr( $currencyItem->getCode() ); ?>" <?= ( $currencyid == $currencyItem->getCode() ? 'selected="selected"' : '' ) ?> >
 												<?= $enc->html( $currencyItem->getCode() ); ?>
 											</option>
@@ -118,10 +119,13 @@ $enc = $this->encoder();
 								</div>
 							</div>
 						<?php else : ?>
-							<input class="item-currencyid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>" value="<?= $enc->attr( $currencyid ); ?>" />
+							<input class="item-currencyid" type="hidden"
+								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>"
+								value="<?= $enc->attr( $currencyid ); ?>" />
 						<?php endif; ?>
 
-						<?php if( count( $this->get( 'priceTypes', [] ) ) > 1 ) : ?>
+						<?php $priceTypes = $this->get( 'priceTypes', [] ); ?>
+						<?php if( count( $priceTypes ) > 1 ) : ?>
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 								<div class="col-sm-8">
@@ -132,21 +136,21 @@ $enc = $this->encoder();
 											<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 										</option>
 
-										<?php foreach( (array) $this->get( 'priceTypes', [] ) as $typeId => $typeItem ) : ?>
+										<?php foreach( (array) $priceTypes as $typeId => $typeItem ) : ?>
 											<option value="<?= $enc->attr( $typeId ); ?>" <?= ( $typeId == $this->get( 'priceData/price.typeid/' . $idx ) ? 'selected="selected"' : '' ) ?> >
 												<?= $enc->html( $typeItem->getLabel() ); ?>
 											</option>
 										<?php endforeach; ?>
-
 									</select>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Types for additional prices like per one lb/kg or per month' ) ); ?>
 								</div>
 							</div>
-						<?php else : ?>
-							<?php $priceTypes = $this->get( 'priceTypes', [] ); $priceType = ( ( $item = reset( $priceTypes ) ) !== false ? $item->getId() : null ); ?>
-							<input class="item-typeid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>" value="<?= $enc->attr( $priceType ); ?>" />
+						<?php else : $priceType = reset( $priceTypes ); ?>
+							<input class="item-typeid" type="hidden"
+								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
+								value="<?= $enc->attr( $priceType ? $priceType->getId() : '' ); ?>" />
 						<?php endif; ?>
 
 						<div class="form-group row mandatory">
@@ -228,7 +232,8 @@ $enc = $this->encoder();
 
 				<div class="col-xl-6">
 
-					<?php if( count( $this->get( 'priceCurrencies', [] ) ) > 1 ) : ?>
+					<?php $currencies = $this->get( 'priceCurrencies', [] ); ?>
+					<?php if( count( $currencies ) > 1 ) : ?>
 						<div class="form-group row">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 							<div class="col-sm-8">
@@ -243,17 +248,17 @@ $enc = $this->encoder();
 											<?= $enc->html( $currencyItem->getCode() ); ?>
 										</option>
 									<?php endforeach; ?>
-
 								</select>
 							</div>
 						</div>
-					<?php else : ?>
+					<?php else : $currencyItem = reset( $currencies ); ?>
 						<input class="item-currencyid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>"
-							value="<?= $enc->attr( $this->get( 'priceCurrencyDefault' ) ); ?>" />
+							value="<?= $enc->attr( $currencyItem ? $currencyItem->getId() : '' ); ?>" />
 					<?php endif; ?>
 
-					<?php if( count( $this->get( 'priceTypes', [] ) ) > 1 ) : ?>
+					<?php $priceTypes = $this->get( 'priceTypes', [] ); ?>
+					<?php if( count( $priceTypes ) > 1 ) : ?>
 						<div class="form-group row">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
@@ -263,7 +268,7 @@ $enc = $this->encoder();
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
 
-									<?php foreach( (array) $this->get( 'priceTypes', [] ) as $typeId => $typeItem ) : ?>
+									<?php foreach( (array) $priceTypes as $typeId => $typeItem ) : ?>
 										<option value="<?= $enc->attr( $typeId ); ?>" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
@@ -271,11 +276,10 @@ $enc = $this->encoder();
 								</select>
 							</div>
 						</div>
-					<?php else : ?>
-						<?php $priceTypes = $this->get( 'priceTypes', [] ); $priceType = ( ( $item = reset( $priceTypes ) ) !== false ? $item->getId() : null ); ?>
+					<?php else : $priceType = reset( $priceTypes ); ?>
 						<input class="item-typeid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
-							value="<?= $enc->attr( $priceType ); ?>" />
+							value="<?= $enc->attr( $priceType ? $priceType->getId() : '' ); ?>" />
 					<?php endif; ?>
 
 					<div class="form-group row">
