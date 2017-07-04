@@ -320,30 +320,29 @@ class Standard
 		{
 			if( !isset( $listItems[$listid] ) )
 			{
+				$priceItem = clone $newItem;
+
 				$litem = $listItem;
 				$litem->setId( null );
-
-				$priceItem = $newItem;
-				$priceItem->setId( null );
 			}
 			else
 			{
-				$litem = $listItems[$listid];
 				$priceItem = $litem->getRefItem();
+				$litem = $listItems[$listid];
 			}
 
 			$priceItem->setTypeId( $this->getValue( $data, 'price.typeid/' . $idx ) );
 			$priceItem->setCurrencyId( $this->getValue( $data, 'price.currencyid/' . $idx ) );
-			$priceItem->setQuantity( $this->getValue( $data, 'price.quantity/' . $idx ) );
-			$priceItem->setValue( $this->getValue( $data, 'price.value/' . $idx ) );
-			$priceItem->setCosts( $this->getValue( $data, 'price.costs/' . $idx ) );
-			$priceItem->setRebate( $this->getValue( $data, 'price.rebate/' . $idx ) );
-			$priceItem->setTaxRate( $this->getValue( $data, 'price.taxrate/' . $idx ) );
+			$priceItem->setQuantity( $this->getValue( $data, 'price.quantity/' . $idx, 1 ) );
+			$priceItem->setValue( $this->getValue( $data, 'price.value/' . $idx, '0.00' ) );
+			$priceItem->setCosts( $this->getValue( $data, 'price.costs/' . $idx, '0.00' ) );
+			$priceItem->setRebate( $this->getValue( $data, 'price.rebate/' . $idx, '0.00' ) );
+			$priceItem->setTaxRate( $this->getValue( $data, 'price.taxrate/' . $idx, '0.00' ) );
 
 			$label = $priceItem->getQuantity() . ' ~ ' . $priceItem->getValue() . ' ' . $priceItem->getCurrencyId();
 			$priceItem->setLabel( $item->getLabel() . ' :: ' . $label );
 
-			$item = $priceManager->saveItem( $priceItem );
+			$priceItem = $priceManager->saveItem( $priceItem );
 
 			$litem->setPosition( $idx );
 			$litem->setRefId( $priceItem->getId() );

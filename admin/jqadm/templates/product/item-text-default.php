@@ -37,7 +37,8 @@ $enc = $this->encoder();
 			<div id="item-text-group-data-<?= $enc->attr( $idx ); ?>" class="card-block collapse row <?= ( $idx === 0 ? 'show' : '' ); ?>"
 				role="tabpanel" aria-labelledby="item-text-group-item-<?= $enc->attr( $idx ); ?>">
 
-				<?php if( count( $this->get( 'pageLanguages', [] ) ) > 1 ) : ?>
+				<?php $languages = $this->get( 'pageLanguages', [] ); ?>
+				<?php if( count( $languages ) > 1 ) : ?>
 					<div class="col-xl-6">
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
@@ -49,12 +50,11 @@ $enc = $this->encoder();
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
 
-									<?php foreach( $this->get( 'pageLanguages', [] ) as $langItem ) : ?>
+									<?php foreach( $languages as $langItem ) : ?>
 										<option value="<?= $enc->attr( $langItem->getCode() ); ?>" <?= ( $langid == $langItem->getCode() ? 'selected="selected"' : '' ) ?> >
 											<?= $enc->html( $this->translate( 'client/language', $langItem->getCode() ) ); ?>
 										</option>
 									<?php endforeach; ?>
-
 								</select>
 							</div>
 						</div>
@@ -198,22 +198,21 @@ $enc = $this->encoder();
 									<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
-								<?php foreach( $this->get( 'pageLanguages', [] ) as $langItem ) : ?>
+								<?php foreach( $languages as $langItem ) : ?>
 									<option value="<?= $enc->attr( $langItem->getCode() ); ?>">
 										<?= $enc->html( $this->translate( 'client/language', $langItem->getCode() ) ); ?>
 									</option>
 								<?php endforeach; ?>
-
 							</select>
 						</div>
 					</div>
 				</div>
 				<div class="col-xl-6">
 				</div>
-			<?php else : ?>
+			<?php else : $langItem = reset( $languages ); ?>
 				<input class="item-name-langid" type="hidden" disabled="disabled"
 					name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>"
-					value="<?= $enc->attr( reset( $languages ) ?: '' ); ?>" />
+					value="<?= $enc->attr( $langItem ? $langItem->getId() : '' ); ?>" />
 			<?php endif; ?>
 
 			<div class="col-xl-6">
