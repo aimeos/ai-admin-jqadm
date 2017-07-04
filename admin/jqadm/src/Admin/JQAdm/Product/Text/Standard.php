@@ -393,8 +393,8 @@ class Standard
 				}
 				else
 				{
-					$textItem = $litem->getRefItem();
 					$litem = $listItems[$listid];
+					$textItem = $litem->getRefItem();
 				}
 
 				$textItem->setContent( $content );
