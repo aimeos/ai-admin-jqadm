@@ -553,9 +553,13 @@ class Standard
 		$data['customer.label'] = $data['customer.firstname'] . ' ' . $data['customer.lastname'];
 		$data['customer.code'] = $data['customer.email'];
 
-		$item = $manager->createItem();
-		$item->fromArray( $data );
+		if( isset( $data['customer.id'] ) && $data['customer.id'] != '' ) {
+			$item = $manager->getItem( $data['customer.id']);
+		} else {
+			$item = $manager->createItem();
+		}
 
+		$item->fromArray( $data );
 		$item = $manager->saveItem( $item );
 
 		$groupsIds = array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() );
