@@ -363,9 +363,9 @@ class Standard
 		$listItem->setParentId( $id );
 		$listItem->setStatus( 1 );
 
-		$textItem = $textManager->createItem();
-		$textItem->setDomain( 'catalog' );
-		$textItem->setStatus( 1 );
+		$newItem = $textManager->createItem();
+		$newItem->setDomain( 'catalog' );
+		$newItem->setStatus( 1 );
 
 
 		foreach( $langIds as $idx => $langid )
@@ -381,27 +381,26 @@ class Standard
 
 				if( !isset( $listItems[$listid] ) )
 				{
+					$textItem = clone $newItem;
+
 					$litem = $listItem;
 					$litem->setId( null );
-
-					$item = $textItem;
-					$item->setId( null );
 				}
 				else
 				{
 					$litem = $listItems[$listid];
-					$item = $litem->getRefItem();
+					$textItem = $litem->getRefItem();
 				}
 
-				$item->setContent( $content );
-				$item->setLabel( mb_strcut( $item->getContent(), 0, 255 ) );
-				$item->setTypeId( $this->getTypeId( $type ) );
-				$item->setLanguageId( $langid );
+				$textItem->setContent( $content );
+				$textItem->setLabel( mb_strcut( $textItem->getContent(), 0, 255 ) );
+				$textItem->setTypeId( $this->getTypeId( $type ) );
+				$textItem->setLanguageId( $langid );
 
-				$item = $textManager->saveItem( $item );
+				$textItem = $textManager->saveItem( $textItem );
 
 				$litem->setPosition( $idx );
-				$litem->setRefId( $item->getId() );
+				$litem->setRefId( $textItem->getId() );
 
 				$listManager->saveItem( $litem, false );
 			}
