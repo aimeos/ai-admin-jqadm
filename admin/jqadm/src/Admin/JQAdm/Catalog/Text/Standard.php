@@ -261,8 +261,11 @@ class Standard
 	 */
 	protected function addViewData( \Aimeos\MW\View\Iface $view )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'text/type' );
+		if( $view->get( 'pageLanguages', [] ) === [] ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( 'No languages available. Please enable at least one language' );
+		}
 
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'text/type' );
 		$view->textTypes = $manager->searchItems( $manager->createSearch() );
 
 		return $view;
