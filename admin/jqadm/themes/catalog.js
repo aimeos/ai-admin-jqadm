@@ -28,11 +28,16 @@ Aimeos.options.done(function(data) {
 		return;
 	}
 
+	var params = {};
+
+	if(data['meta'] && data['meta']['prefix']) {
+		params[data['meta']['prefix']] = {id: rootId, include: "catalog"};
+	} else {
+		params = {id: rootId, include: "catalog"};
+	}
+
 	$.ajax(data['meta']['resources']['catalog'], {
-		"data": {
-			id: rootId,
-			include: "catalog"
-		},
+		"data": params,
 		"dataType": "json"
 	}).done(function(result) {
 
