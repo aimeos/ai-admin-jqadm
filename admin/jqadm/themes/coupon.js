@@ -28,17 +28,25 @@ Aimeos.Coupon.Item = {
 
 	setupConfig : function() {
 
-		$(".aimeos .item-coupon .item-basic").on("change", "input.item-provider", function(ev) {
+		$(".aimeos .item-coupon .item-basic").on("change input blur", "input.item-provider", function(ev) {
 
 			Aimeos.options.done(function(data) {
 
+				var params = {};
+
+				if(data.meta && data.meta.prefix) {
+					params[data.meta.prefix] = {id: $(ev.currentTarget).val()};
+				} else {
+					params['id'] = $(ev.currentTarget).val();
+				}
+
 				$.ajax({
-					dataType: "json",
 					url: data.meta.resources['coupon/config'] || null,
-					data: {id: $(ev.currentTarget).val()}
+					dataType: "json",
+					data: params
 				}).done(function(result) {
 
-					$(result['data']).each(function(idx, entry) {
+					$(result.data).each(function(idx, entry) {
 						var found = false;
 
 						$("table.item-config .config-key", ev.delegateTarget).each(function() {
@@ -73,15 +81,16 @@ Aimeos.Coupon.Item = {
 
 	setupProvider : function() {
 
-		var input = $(".aimeos .item-coupon .item-provider")
+		var input = $(".aimeos .item-coupon").on("focus", ".item-provider", function(ev) {
 
-		if(input.length > 0) {
-			input.autocomplete({
-				source: input.data("names").split(","),
+			$(this).autocomplete({
+				source: $(this).data("names").split(","),
 				minLength: 0,
 				delay: 0
 			});
-		}
+
+			$(this).autocomplete("search", "");
+		});
 	}
 };
 
