@@ -20,29 +20,33 @@
 /**
  * Load categories and create catalog tree
  */
-Aimeos.options.done(function(data) {
+Aimeos.options.done(function(result) {
 
 	var rootId = $(".aimeos .item-catalog").data("rootid");
 
-	if(!rootId || !data['meta'] || !data['meta']['resources'] || !data['meta']['resources']['catalog']) {
+	if(!rootId || !result || !result.meta || !result.meta.resources || !result.meta.resources.catalog) {
 		return;
 	}
 
 	var params = {};
 
-	if(data['meta'] && data['meta']['prefix']) {
-		params[data['meta']['prefix']] = {id: rootId, include: "catalog"};
+	if(result.meta && result.meta.prefix) {
+		params[result.meta.prefix] = {id: rootId, include: "catalog"};
 	} else {
 		params = {id: rootId, include: "catalog"};
 	}
 
-	$.ajax(data['meta']['resources']['catalog'], {
+	$.ajax(result.meta.resources.catalog, {
 		"data": params,
 		"dataType": "json"
 	}).done(function(result) {
 
-		if(!result.data) {
-			return;
+		if(!result || !result.data || !result.meta) {
+			throw {"msg": "No valid data in response", "result": result};
+		}
+
+		if(result.meta.csrf) {
+			Aimeos.Catalog.csrf = result.meta.csrf;
 		}
 
 		var root = Aimeos.Catalog.createTree(Aimeos.Catalog.transformNodes(result));
@@ -61,6 +65,9 @@ Aimeos.options.done(function(data) {
 
 
 Aimeos.Catalog = {
+
+	csrf : null,
+
 
 	createTree : function(root) {
 
@@ -95,15 +102,26 @@ Aimeos.Catalog = {
 	onMove : function(event) {
 		event.preventDefault();
 
-		Aimeos.options.done(function(data) {
+		Aimeos.options.done(function(result) {
 
-			if(!data['meta'] || !data['meta']['resources'] || !data['meta']['resources']['catalog']) {
-				return;
+			if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog) {
+				throw {"msg": "No valid data in response", "result": result};
 			}
 
+			var params = {};
+			var url = result.meta.resources.catalog;
 			var targetid = event.move_info.target_node.id;
-			var url = data['meta']['resources']['catalog']
-			var get = params = {id: event.move_info.moved_node.id};
+
+			if(result.meta.prefix) {
+				params[result.meta.prefix] = {id: event.move_info.moved_node.id};
+			} else {
+				params = {id: event.move_info.moved_node.id};
+			}
+
+			if(Aimeos.Catalog.csrf) {
+				params[Aimeos.Catalog.csrf.name] = Aimeos.Catalog.csrf.value;
+			}
+
 			var entry = {
 				attributes: {},
 				id: event.move_info.moved_node.id,
@@ -129,22 +147,16 @@ Aimeos.Catalog = {
 				entry.refid = targetid;
 			}
 
-			if(data.meta && data.meta.csrf) {
-				params[data.meta.csrf.name] = data.meta.csrf.value;
-			}
-
-			if(data.meta.prefix) {
-				get[data.meta.prefix] = params;
-			} else {
-				get = params;
-			}
-
-			$.ajax(url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(get), {
+			$.ajax(url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(params), {
 				"dataType": "json",
 				"method": "PATCH",
-				"data": JSON.stringify({data: entry})
+				"data": JSON.stringify({"data": entry})
 			}).done(function(result) {
 				event.move_info.do_move();
+
+				if(result.meta.csrf) {
+					Aimeos.Catalog.csrf = result.meta.csrf;
+				}
 			});
 		});
 	},
@@ -229,23 +241,34 @@ Aimeos.Catalog.Item = {
 
 	deleteNode : function(node, parent) {
 
-		Aimeos.options.done(function(data) {
+		Aimeos.options.done(function(result) {
 
-			if(!data['meta'] || !data['meta']['resources'] || !data['meta']['resources']['catalog']) {
-				return;
+			if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog) {
+				throw {"msg": "No valid data in response", "result": result};
 			}
 
-			var params = {id: node.id};
+			var params = {};
+			var url = result.meta.resources.catalog;
 
-			if(data.meta && data.meta.csrf) {
-				params[data.meta.csrf.name] = data.meta.csrf.value;
+			if(result.meta.prefix) {
+				params[result.meta.prefix] = {id: node.id};
+			} else {
+				params = {id: node.id};
 			}
 
-			$.ajax(data['meta']['resources']['catalog'], {
+			if(Aimeos.Catalog.csrf) {
+				params[Aimeos.Catalog.csrf.name] = Aimeos.Catalog.csrf.value;
+			}
+
+			$.ajax(url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(params), {
 				"dataType": "json",
-				"method": "DELETE",
-				"data": params
+				"method": "DELETE"
 			}).done(function(result) {
+
+				if(result.meta.csrf) {
+					Aimeos.Catalog.csrf = result.meta.csrf;
+				}
+
 				if(!result.errors) {
 					window.location = $(".aimeos .item-catalog").data("createurl").replace("_id_", (parent ? parent.id : ''));
 				}
@@ -347,26 +370,35 @@ Aimeos.Catalog.Item.Product = {
 			var elem = $(this);
 			var row = $(ev.delegateTarget);
 
-			Aimeos.options.done(function(data) {
+			Aimeos.options.done(function(result) {
 
-				var params = {}, param = {};
-
-				if(data.meta && data.meta.csrf) {
-					param[data.meta.csrf.name] = data.meta.csrf.value;
+				if(!result || !result.meta) {
+					throw {"msg": "No valid data in response", "result": result};
 				}
 
-				if(data.meta && data.meta.prefix) {
-					params[data.meta.prefix] = param;
+				var params = {}, param = {};
+				var url = elem.attr("href");
+
+				if(result.meta.prefix) {
+					params[result.meta.prefix] = param;
 				} else {
 					params = param;
 				}
 
+				if(Aimeos.Catalog.csrf) {
+					params[Aimeos.Catalog.csrf.name] = Aimeos.Catalog.csrf.value;
+				}
+
 				$.ajax({
-					dataType: "json",
-					method: "DELETE",
-					url: elem.attr("href"),
-					data: params,
-				}).done(function() {
+					"url": url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(params),
+					"dataType": "json",
+					"method": "DELETE"
+				}).done(function(result) {
+
+					if(result.meta.csrf) {
+						Aimeos.Catalog.csrf = result.meta.csrf;
+					}
+
 					Aimeos.focusBefore(row).remove();
 				});
 			});
