@@ -6,18 +6,22 @@
  */
 
 $enc = $this->encoder();
+$stockTypes = $this->get( 'stockTypes', [] );
+
 
 ?>
 <div id="stock" class="item-stock content-block tab-pane fade" role="tabpanel" aria-labelledby="stock">
 	<table class="stock-list table table-default">
 		<thead>
 			<tr>
-				<th class="stock-type">
-					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></span>
-					<div class="form-text text-muted help-text">
-						<?= $enc->html( $this->translate( 'admin', 'Warehouse or local store if your articles are available at several locations' ) ); ?>
-					</div>
-				</th>
+				<?php if( count( $stockTypes ) > 1 ) : ?>
+					<th class="stock-type">
+						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></span>
+						<div class="form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Warehouse or local store if your articles are available at several locations' ) ); ?>
+						</div>
+					</th>
+				<?php endif; ?>
 				<th class="stock-stocklevel">
 					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ); ?></span>
 					<div class="form-text text-muted help-text">
@@ -41,25 +45,30 @@ $enc = $this->encoder();
 
 			<?php foreach( $this->get( 'stockData/stock.id', [] ) as $idx => $id ) : ?>
 				<tr class="<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?>">
-					<td class="stock-type mandatory">
-						<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="<?= $enc->attr( $id ); ?>" />
-						<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+					<?php if( count( $stockTypes ) > 1 ) : ?>
+						<td class="stock-type mandatory">
+							<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> >
+								<option value="">
+									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+								</option>
+
+								<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
+									<?php if( $typeId == $this->get( 'stockData/stock.typeid/' . $idx ) ) : ?>
+										<option value="<?= $enc->attr( $typeId ); ?>" selected="selected"><?= $enc->html( $typeItem->getLabel() ) ?></option>
+									<?php else : ?>
+										<option value="<?= $enc->attr( $typeId ); ?>"><?= $enc->html( $typeItem->getLabel() ) ?></option>
+									<?php endif; ?>
+								<?php endforeach; ?>
+
+							</select>
+						</td>
+					<?php else : $stockType = reset( $stockTypes ); ?>
+						<input class="item-typeid" type="hidden"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>"
-							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> >
-							<option value="">
-								<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-							</option>
-
-							<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
-								<?php if( $typeId == $this->get( 'stockData/stock.typeid/' . $idx ) ) : ?>
-									<option value="<?= $enc->attr( $typeId ); ?>" selected="selected"><?= $enc->html( $typeItem->getLabel() ) ?></option>
-								<?php else : ?>
-									<option value="<?= $enc->attr( $typeId ); ?>"><?= $enc->html( $typeItem->getLabel() ) ?></option>
-								<?php endif; ?>
-							<?php endforeach; ?>
-
-						</select>
-					</td>
+							value="<?= $enc->attr( $stockType ? $stockType->getId() : '' ); ?>" />
+					<?php endif; ?>
 					<td class="stock-stocklevel optional">
 						<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.stocklevel', '' ) ) ); ?>"
@@ -75,6 +84,8 @@ $enc = $this->encoder();
 							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> />
 					</td>
 					<td class="actions">
+						<input class="item-id" type="hidden" value="<?= $enc->attr( $id ); ?>"
+							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" />
 						<?php if( !$this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ) ) : ?>
 							<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
@@ -85,19 +96,24 @@ $enc = $this->encoder();
 			<?php endforeach; ?>
 
 			<tr class="prototype">
-				<td class="stock-type">
-					<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" value="" disabled="disabled" />
-					<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>">
-						<option value="">
-							<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
-						</option>
+				<?php if( count( $stockTypes ) > 1 ) : ?>
+					<td class="stock-type">
+						<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>">
+							<option value="">
+								<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+							</option>
 
-						<?php foreach( $this->get( 'stockTypes', [] ) as $typeId => $typeItem ) : ?>
-							<option value="<?= $enc->attr( $typeId ); ?>"><?= $enc->html( $typeItem->getLabel() ) ?></option>
-						<?php endforeach; ?>
-					</select>
-				</td>
+							<?php foreach( $stockTypes as $typeId => $typeItem ) : ?>
+								<option value="<?= $enc->attr( $typeId ); ?>"><?= $enc->html( $typeItem->getLabel() ) ?></option>
+							<?php endforeach; ?>
+						</select>
+					</td>
+				<?php else : $stockType = reset( $stockTypes ); ?>
+					<input class="item-typeid" type="hidden"
+						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>"
+						value="<?= $enc->attr( $stockType ? $stockType->getId() : '' ); ?>" />
+				<?php endif; ?>
 				<td class="stock-stocklevel optional">
 					<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 					name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.stocklevel', '' ) ) ); ?>" />
@@ -109,6 +125,8 @@ $enc = $this->encoder();
 						data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
 				</td>
 				<td class="actions">
+					<input class="item-id" type="hidden" value="" disabled="disabled"
+						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" />
 					<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 					</div>
