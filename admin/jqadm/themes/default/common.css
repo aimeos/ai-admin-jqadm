@@ -124,6 +124,10 @@
 	display: inline-block;
 }
 
+.aimeos table .actions .dropdown {
+	margin: 0 0.25rem;
+}
+
 .aimeos table .actions .dropdown-toggle {
 	padding: 0.5rem;
 }
