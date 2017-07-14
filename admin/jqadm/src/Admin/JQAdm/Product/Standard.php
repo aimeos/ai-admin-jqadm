@@ -652,12 +652,12 @@ class Standard
 	{
 		$conf = [];
 
-		if( isset( $data['item']['config']['key'] ) )
+		if( isset( $data['config']['key'] ) )
 		{
-			foreach( (array) $data['item']['config']['key'] as $idx => $key )
+			foreach( (array) $data['config']['key'] as $idx => $key )
 			{
-				if( trim( $key ) !== '' && isset( $data['item']['config']['val'][$idx] ) ) {
-					$conf[$key] = $data['item']['config']['val'][$idx];
+				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) ) {
+					$conf[$key] = $data['config']['val'][$idx];
 				}
 			}
 		}

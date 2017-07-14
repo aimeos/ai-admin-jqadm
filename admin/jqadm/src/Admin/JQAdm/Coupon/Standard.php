@@ -503,14 +503,14 @@ class Standard
 	{
 		$conf = [];
 
-		if( isset( $data['item']['config']['key'] ) )
+		if( isset( $data['config']['key'] ) )
 		{
-			foreach( (array) $data['item']['config']['key'] as $idx => $key )
+			foreach( (array) $data['config']['key'] as $idx => $key )
 			{
-				if( trim( $key ) !== '' && isset( $data['item']['config']['val'][$idx] ) )
+				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) )
 				{
-					if( ( $val = json_decode( $data['item']['config']['val'][$idx] ) ) === null ) {
-						$conf[$key] = $data['item']['config']['val'][$idx];
+					if( ( $val = json_decode( $data['config']['val'][$idx] ) ) === null ) {
+						$conf[$key] = $data['config']['val'][$idx];
 					} else {
 						$conf[$key] = $val;
 					}
