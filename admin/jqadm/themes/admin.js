@@ -391,7 +391,7 @@ Aimeos.Form = {
 	toggleHelp : function() {
 
 		$(".aimeos").on("click", ".help", function(ev) {
-			$(".help-text", this).slideToggle(300);
+			$(".help-text", $(this).parent()).slideToggle(300);
 		});
 	}
 };
