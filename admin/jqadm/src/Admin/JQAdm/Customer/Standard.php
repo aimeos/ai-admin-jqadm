@@ -563,10 +563,9 @@ class Standard
 		$item = $manager->saveItem( $item );
 
 		$groupsIds = array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() );
-		$item = $manager->getItem( $item->getId(), ['customer/group'] );
-		$manager->updateListItems( $item, array_flip( $groupsIds ), 'customer/group', 'default' );
+		$item = $manager->getItem( $item->getId(), ['customer/group'] )->setGroups( $groupsIds );
 
-		return $item;
+		return $manager->saveItem( $item );
 	}
 
 
