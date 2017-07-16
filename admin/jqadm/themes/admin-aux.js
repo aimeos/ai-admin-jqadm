@@ -175,9 +175,9 @@ Aimeos.Text = {
 
 	updateHeader : function() {
 
-		$(".item-text").on("blur", "input.item-name-content", function() {
+		$(".item-text").on("blur change", "input.item-name-content,.text-langid", function() {
 			var item = $(this).parents(".group-item");
-			var value = $(this).val();
+			var value = $(".text-langid", item).val() + ': ' + $("input.item-name-content", item).val();
 
 			$(".header .item-name-content", item).html(value);
 		});

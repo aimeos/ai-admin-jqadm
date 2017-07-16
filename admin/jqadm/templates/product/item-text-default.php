@@ -23,7 +23,7 @@ $enc = $this->encoder();
 						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 					</div>
 				</div>
-				<span class="item-name-content header-label"><?= $enc->html( $this->get( 'textData/name/content/' . $idx ) ); ?></span>
+				<span class="item-name-content header-label"><?= $enc->html( $langid . ': ' . $this->get( 'textData/name/content/' . $idx ) ); ?></span>
 				&nbsp;
 				<div class="card-tools-right">
 					<?php if( !$this->site()->readonly( $this->get( 'textData/siteid/' . $idx ) ) ) : ?>
@@ -62,7 +62,7 @@ $enc = $this->encoder();
 					<div class="col-xl-6">
 					</div>
 				<?php else : ?>
-					<input class="item-name-langid" type="hidden"
+					<input class="text-langid" type="hidden"
 						name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>"
 						value="<?= $enc->attr( $langid ); ?>" />
 				<?php endif; ?>
@@ -210,7 +210,7 @@ $enc = $this->encoder();
 				<div class="col-xl-6">
 				</div>
 			<?php else : $langItem = reset( $languages ); ?>
-				<input class="item-name-langid" type="hidden" disabled="disabled"
+				<input class="text-langid" type="hidden" disabled="disabled"
 					name="<?= $enc->attr( $this->formparam( array( 'text', 'langid', '' ) ) ); ?>"
 					value="<?= $enc->attr( $langItem ? $langItem->getId() : '' ); ?>" />
 			<?php endif; ?>
