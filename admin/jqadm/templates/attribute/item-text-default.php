@@ -66,7 +66,7 @@ $enc = $this->encoder();
 					<?php endif; ?>
 
 					<div class="form-group row optional">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Attribute name' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Attribute name' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="item-name-listid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'listid', '' ) ) ); ?>"
@@ -76,6 +76,9 @@ $enc = $this->encoder();
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Attribute name' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'textData/name/content/' . $idx ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'textData/siteid/' . $idx ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Label will be used if empty but then there must be no name for all languages. Otherwise, items will not be shown when sorting by name' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">
@@ -162,13 +165,16 @@ $enc = $this->encoder();
 				<?php endif; ?>
 
 				<div class="form-group row optional">
-					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Attribute name' ) ); ?></label>
+					<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Attribute name' ) ); ?></label>
 					<div class="col-sm-8">
 						<input class="item-name-listid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'listid', '' ) ) ); ?>" />
 						<input class="form-control item-name-content" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'text', 'name', 'content', '' ) ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Attribute name' ) ); ?>" disabled="disabled" />
+					</div>
+					<div class="col-sm-12 form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Label will be used if empty but then there must be no name for all languages. Otherwise, items will not be shown when sorting by name' ) ); ?>
 					</div>
 				</div>
 				<div class="form-group row optional">
