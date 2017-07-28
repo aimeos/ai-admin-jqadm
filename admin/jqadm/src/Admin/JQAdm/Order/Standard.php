@@ -165,6 +165,7 @@ class Standard
 		try
 		{
 			$msg = [
+				'sitecode' => $context->getLocale()->getSite()->getCode(),
 				'filter' => $this->getCriteriaConditions( $view->param() ),
 				'sort' => $this->getCriteriaSortations( $view->param() ),
 			];
