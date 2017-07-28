@@ -353,6 +353,7 @@ if( $lang ) {
 	<main class="main-content">
 
 		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'common/partials/info-default.php' ), array( 'info' => $this->get( 'info', [] ) ) ); ?>
 
 		<?= $this->block()->get( 'jqadm_content' ); ?>
 

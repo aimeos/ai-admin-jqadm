@@ -170,6 +170,64 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testExport()
+	{
+		$param = ['site' => 'unittest',
+			'filter' => [
+				'key' => [0 => 'order.id'],
+				'op' => [0 => '=='],
+				'val' => [0 => '1'],
+			],
+			'sort' => ['-order.ctime', 'order.id'],
+		];
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->export();
+
+		$mq = $this->context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( 'order-export' );
+
+		$msg = $mq->get();
+		$this->assertNotNull( $msg );
+		$mq->del( $msg );
+
+		$expected = '{"filter":{"&&":[{"==":{"order.id":"1"}}]},"sort":{"order.ctime":"-","order.id":"+"}}';
+		$this->assertEquals( $expected, $msg->getBody() );
+	}
+
+
+	public function testExportException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Order\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'getCriteriaConditions' ) )
+			->getMock();
+
+		$object->expects( $this->atLeastOnce() )->method( 'getCriteriaConditions' )
+			->will( $this->throwException( new \RuntimeException() ) );
+
+		$object->setView( $this->getViewNoRender() );
+
+		$object->export();
+	}
+
+
+	public function testExportMShopException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Order\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'getCriteriaConditions' ) )
+			->getMock();
+
+		$object->expects( $this->atLeastOnce() )->method( 'getCriteriaConditions' )
+			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
+
+		$object->setView( $this->getViewNoRender() );
+
+		$object->export();
+	}
+
+
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'order/base' );

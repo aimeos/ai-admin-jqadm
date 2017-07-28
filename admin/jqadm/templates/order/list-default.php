@@ -13,10 +13,10 @@ $controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $config = $this->config( 'admin/jqadm/url/search/config', [] );
 
-$newTarget = $this->config( 'admin/jqadm/url/create/target' );
-$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
-$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
-$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
+$expTarget = $this->config( 'admin/jqadm/url/export/target' );
+$expCntl = $this->config( 'admin/jqadm/url/export/controller', 'Jqadm' );
+$expAction = $this->config( 'admin/jqadm/url/export/action', 'export' );
+$expConfig = $this->config( 'admin/jqadm/url/export/config', [] );
 
 $getTarget = $this->config( 'admin/jqadm/url/get/target' );
 $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
@@ -165,10 +165,10 @@ $statusList = [
 				?>
 
 				<th class="actions">
-					<a class="btn fa act-add" tabindex="1"
-						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+					<a class="btn fa act-download" tabindex="1"
+						href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params, [], $expConfig ) ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Download') ); ?>"
+						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>">
 					</a>
 
 					<?= $this->partial(

@@ -89,6 +89,17 @@ abstract class Base
 
 
 	/**
+	 * Exports a resource
+	 *
+	 * @return string Admin output to display
+	 */
+	public function export()
+	{
+		return $this->client->export();
+	}
+
+
+	/**
 	 * Returns a single resource
 	 *
 	 * @return string|null admin output to display or null for redirecting to the list
@@ -96,6 +107,17 @@ abstract class Base
 	public function get()
 	{
 		return $this->client->get();
+	}
+
+
+	/**
+	 * Imports a resource
+	 *
+	 * @return string Admin output to display
+	 */
+	public function import()
+	{
+		return $this->client->import();
 	}
 
 

@@ -153,12 +153,40 @@ class Standard
 
 
 	/**
-	 * Deletes a resource
+	 * Exports a resource
 	 *
-	 * @return string|null HTML output
+	 * @return string Admin output to display
 	 */
-	public function delete()
+	public function export()
 	{
+		$view = $this->getView();
+		$context = $this->getContext();
+
+		try
+		{
+			$msg = [
+				'filter' => $this->getCriteriaConditions( $view->param() ),
+				'sort' => $this->getCriteriaSortations( $view->param() ),
+			];
+
+			$mq = $context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( 'order-export' );
+			$mq->add( json_encode( $msg ) );
+
+			$msg = $context->getI18n()->dt( 'admin', 'Your export will be available in a few minutes for download' );
+			$view->info = $view->get( 'info', [] ) + ['order-item' => $msg];
+		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$error = array( 'order-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+		catch( \Exception $e )
+		{
+			$error = array( 'order-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
+
+		return $this->search();
 	}
 
 

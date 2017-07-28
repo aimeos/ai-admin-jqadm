@@ -73,6 +73,10 @@
 	content: "\f00d";
 }
 
+.aimeos .btn.act-download.fa:before {
+	content: "\f019";
+}
+
 .aimeos .btn.act-save.fa:before {
 	content: "\f0c7";
 }

@@ -111,11 +111,71 @@ abstract class Base
 
 
 	/**
+	 * Copies a resource
+	 *
+	 * @return string|null admin output to display or null for redirecting to the list
+	 */
+	public function copy()
+	{
+	}
+
+
+	/**
+	 * Creates a new resource
+	 *
+	 * @return string|null admin output to display or null for redirecting to the list
+	 */
+	public function create()
+	{
+	}
+
+
+	/**
 	 * Deletes a resource
 	 *
 	 * @return string|null admin output to display or null for redirecting to the list
 	 */
 	public function delete()
+	{
+	}
+
+
+	/**
+	 * Exports a resource
+	 *
+	 * @return string|null admin output to display or null for redirecting to the list
+	 */
+	public function export()
+	{
+	}
+
+
+	/**
+	 * Returns a resource
+	 *
+	 * @return string|null admin output to display or null for redirecting to the list
+	 */
+	public function get()
+	{
+	}
+
+
+	/**
+	 * Imports a resource
+	 *
+	 * @return string|null admin output to display or null for redirecting to the list
+	 */
+	public function import()
+	{
+	}
+
+
+	/**
+	 * Saves the data
+	 *
+	 * @return string|null admin output to display or null for redirecting to the list
+	 */
+	public function save()
 	{
 	}
 
@@ -347,6 +407,58 @@ abstract class Base
 
 
 	/**
+	 * Returns the array of criteria conditions based on the given parameters
+	 *
+	 * @param array $params List of criteria data with condition, sorting and paging
+	 * @return array Multi-dimensional associative list of criteria conditions
+	 */
+	protected function getCriteriaConditions( array $params )
+	{
+		$expr = [];
+
+		if( isset( $params['filter'] ) && isset( $params['filter']['key'] ) )
+		{
+			foreach( (array) $params['filter']['key'] as $idx => $key )
+			{
+				if( $key != '' && isset( $params['filter']['op'][$idx] ) && $params['filter']['op'][$idx] != ''
+					&& isset( $params['filter']['val'][$idx] ) && $params['filter']['val'][$idx] != ''
+				) {
+					$expr[] = [$params['filter']['op'][$idx] => [$key => $params['filter']['val'][$idx]]];
+				}
+			}
+		}
+
+		return ['&&' => $expr];
+	}
+
+
+	/**
+	 * Returns the array of criteria sortations based on the given parameters
+	 *
+	 * @param array $params List of criteria data with condition, sorting and paging
+	 * @return array Associative list of criteria sortations
+	 */
+	protected function getCriteriaSortations( array $params )
+	{
+		$sortation = [];
+
+		if( isset( $params['sort'] ) )
+		{
+			foreach( (array) $params['sort'] as $sort )
+			{
+				if( $sort[0] === '-' ) {
+					$sortation[substr( $sort, 1 )] = '-';
+				} else {
+					$sortation[$sort] = '+';
+				}
+			}
+		}
+
+		return $sortation;
+	}
+
+
+	/**
 	 * Returns the configured sub-clients or the ones named in the default parameter if none are configured.
 	 *
 	 * @return array List of sub-clients implementing \Aimeos\Admin\JQAdm\Iface ordered in the same way as the names
@@ -386,9 +498,9 @@ abstract class Base
 	 */
 	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
-		$this->initCriteriaConditions( $criteria, $params );
-		$this->initCriteriaSortations( $criteria, $params );
-		$this->initCriteriaSlice( $criteria, $params );
+		$criteria = $this->initCriteriaConditions( $criteria, $params );
+		$criteria = $this->initCriteriaSortations( $criteria, $params );
+		$criteria = $this->initCriteriaSlice( $criteria, $params );
 
 		return $criteria;
 	}
@@ -451,26 +563,14 @@ abstract class Base
 	 *
 	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
 	 * @param array $params List of criteria data with condition, sorting and paging
+	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
 	private function initCriteriaConditions( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
-		if( isset( $params['filter'] ) && isset( $params['filter']['key'] ) )
-		{
-			$expr = [];
-			$existing = $criteria->getConditions();
+		$expr = $this->getCriteriaConditions( $params );
+		$expr[] = $criteria->getConditions();
 
-			foreach( (array) $params['filter']['key'] as $idx => $key )
-			{
-				if( $key != '' && isset( $params['filter']['op'][$idx] ) && $params['filter']['op'][$idx] != ''
-					&& isset( $params['filter']['val'][$idx] ) && $params['filter']['val'][$idx] != ''
-				) {
-					$expr[] = $criteria->compare( $params['filter']['op'][$idx], $key, $params['filter']['val'][$idx] );
-				}
-			}
-
-			$expr[] = $existing;
-			$criteria->setConditions( $criteria->combine( '&&', $expr ) );
-		}
+		return $criteria->setConditions( $criteria->toConditions( $expr ) );
 	}
 
 
@@ -479,13 +579,14 @@ abstract class Base
 	 *
 	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
 	 * @param array $params List of criteria data with condition, sorting and paging
+	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
 	private function initCriteriaSlice( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
 		$start = ( isset( $params['page']['offset'] ) ? $params['page']['offset'] : 0 );
 		$size = ( isset( $params['page']['limit'] ) ? $params['page']['limit'] : 100 );
 
-		$criteria->setSlice( $start, $size );
+		return $criteria->setSlice( $start, $size );
 	}
 
 
@@ -494,24 +595,10 @@ abstract class Base
 	 *
 	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
 	 * @param array $params List of criteria data with condition, sorting and paging
+	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
 	private function initCriteriaSortations( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
-		if( !isset( $params['sort'] ) ) {
-			return;
-		}
-
-		$sortation = [];
-
-		foreach( (array) $params['sort'] as $sort )
-		{
-			if( $sort[0] === '-' ) {
-				$sortation[] = $criteria->sort( '-', substr( $sort, 1 ) );
-			} else {
-				$sortation[] = $criteria->sort( '+', $sort ); break;
-			}
-		}
-
-		$criteria->setSortations( $sortation );
+		return $criteria->setSortations( $criteria->toSortations( $this->getCriteriaSortations( $params ) ) );
 	}
 }
