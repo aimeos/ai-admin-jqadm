@@ -266,7 +266,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
 
 		$search = $manager->createSearch();
-		$search->setSortations( array( $search->sort( '-', 'order.ctime' ) ) );
+		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
 		$search->setSlice( 0, 10 );
 
 		$items = $manager->searchItems( $search );

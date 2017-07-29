@@ -55,6 +55,12 @@ $status = function( $list, $key )
 };
 
 
+$getTarget = $this->config( 'admin/jqadm/url/get/target' );
+$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
+$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
+$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
+
+
 $enc = $this->encoder();
 $baskets = $this->get( 'orderlatestBaskets', [] );
 /// price format with value (%1$s) and currency (%2$s)
@@ -88,13 +94,26 @@ $statuslist = array(
 			<table class="list-items table table-hover">
 				<tbody>
 					<?php foreach( $this->get( 'orderlatestItems', [] ) as $id => $item ) : ?>
+						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id], [], $getConfig ) ); ?>
 						<tr>
-							<td class="order-id"><?= $enc->html( $item->getId() ); ?></td>
-							<td class="order-base-address-name"><?= $enc->html( $name( $baskets, $item ) ); ?></td>
-							<td class="order-base-price"><?= $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></td>
-							<td class="order-datepayment"><?= $enc->html( $item->getDatePayment() ); ?></td>
-							<td class="order-statuspayment"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></td>
-							<td class="order-base-service-payment"><?= $enc->html( $payment( $baskets, $item ) ); ?></td>
+							<td class="order-id">
+								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a>
+							</td>
+							<td class="order-base-address-name">
+								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $name( $baskets, $item ) ); ?></a>
+							</td>
+							<td class="order-base-price">
+								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></a>
+							</td>
+							<td class="order-datepayment">
+								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDatePayment() ); ?></a>
+							</td>
+							<td class="order-statuspayment">
+								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></a>
+							</td>
+							<td class="order-base-service-payment">
+								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $payment( $baskets, $item ) ); ?></a>
+							</td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
