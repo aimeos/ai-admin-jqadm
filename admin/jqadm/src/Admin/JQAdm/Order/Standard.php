@@ -297,7 +297,10 @@ class Standard
 		{
 			$total = 0;
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'order' );
-			$search = $this->initCriteria( $manager->createSearch(), $view->param() );
+
+			$search = $manager->createSearch();
+			$search->setSortations( [$search->sort( '-', 'order.id' )] );
+			$search = $this->initCriteria( $search, $view->param() );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->baseItems = $this->getOrderBaseItems( $view->items );
