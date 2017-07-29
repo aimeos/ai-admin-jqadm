@@ -137,6 +137,7 @@ abstract class Base
 	 */
 	public function delete()
 	{
+		return $this->search();
 	}
 
 
