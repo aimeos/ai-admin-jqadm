@@ -30,6 +30,22 @@
 	background-size: 128px;
 }
 
+.dashboard table {
+	margin: 0;
+}
+
+.dashboard td {
+	border-top: none;
+}
+
+
+
+/* job styles */
+
+.dashboard .dashboard-job .content {
+	height: auto;
+}
+
 
 /* Common SVG diagram styles */
 
@@ -80,15 +96,8 @@
 /* Latest order list styles */
 
 .dashboard .order-latest .content {
-	height: 340px;
-}
-
-.dashboard .order-latest table {
-	margin: 0;
-}
-
-.dashboard .order-latest td {
-	border-top: none;
+	min-height: 280px;
+	height: auto;
 }
 
 .dashboard .order-latest .order-id,
@@ -129,7 +138,6 @@
 		display: none;
 	}
 }
-
 
 
 /* Order per payment status diagram styles */

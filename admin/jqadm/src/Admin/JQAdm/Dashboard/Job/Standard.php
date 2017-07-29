@@ -154,7 +154,7 @@ class Standard
 			$manager = \Aimeos\MAdmin\Factory::createManager( $context, 'job' );
 
 			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '-', 'job.ctime' )] );
+			$search->setSortations( [$search->sort( '-', 'job.ctime' ), $search->sort( '-', 'job.id' )] );
 			$total = 0;
 
 			$view->jobBody = '';

@@ -58,6 +58,17 @@ class Standard
 	 */
 	private $subPartPath = 'admin/jqadm/dashboard/standard/subparts';
 
+	/** admin/jqadm/dashboard/job/name
+	 * Name of the job subpart used by the JQAdm dashboard implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Job\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2017.08
+	 * @category Developer
+	 */
+
 	/** admin/jqadm/dashboard/order/name
 	 * Name of the order subpart used by the JQAdm dashboard implementation
 	 *
@@ -68,62 +79,7 @@ class Standard
 	 * @since 2016.07
 	 * @category Developer
 	 */
-	private $subPartNames = array( 'order' );
-
-
-	/**
-	 * Copies a resource
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
-	 */
-	public function copy()
-	{
-		throw new \Aimeos\Admin\JQAdm\Exception( 'The resource can not be copied' );
-	}
-
-
-	/**
-	 * Creates a new resource
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
-	 */
-	public function create()
-	{
-		throw new \Aimeos\Admin\JQAdm\Exception( 'New resources can not be created' );
-	}
-
-
-	/**
-	 * Deletes a resource
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
-	 */
-	public function delete()
-	{
-		throw new \Aimeos\Admin\JQAdm\Exception( 'The resource can not be deleted' );
-	}
-
-
-	/**
-	 * Returns a single resource
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
-	 */
-	public function get()
-	{
-		throw new \Aimeos\Admin\JQAdm\Exception( 'The resource can not be retrieved' );
-	}
-
-
-	/**
-	 * Saves the data
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
-	 */
-	public function save()
-	{
-		throw new \Aimeos\Admin\JQAdm\Exception( 'The resource can not be modified' );
-	}
+	private $subPartNames = array( 'job', 'order' );
 
 
 	/**
