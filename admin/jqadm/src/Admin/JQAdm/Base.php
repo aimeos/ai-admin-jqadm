@@ -117,6 +117,9 @@ abstract class Base
 	 */
 	public function copy()
 	{
+		foreach( $this->getSubClients() as $client ) {
+			$client->copy();
+		}
 	}
 
 
@@ -127,6 +130,9 @@ abstract class Base
 	 */
 	public function create()
 	{
+		foreach( $this->getSubClients() as $client ) {
+			$client->create();
+		}
 	}
 
 
@@ -137,6 +143,10 @@ abstract class Base
 	 */
 	public function delete()
 	{
+		foreach( $this->getSubClients() as $client ) {
+			$client->delete();
+		}
+
 		return $this->search();
 	}
 
@@ -148,6 +158,9 @@ abstract class Base
 	 */
 	public function export()
 	{
+		foreach( $this->getSubClients() as $client ) {
+			$client->export();
+		}
 	}
 
 
@@ -158,6 +171,9 @@ abstract class Base
 	 */
 	public function get()
 	{
+		foreach( $this->getSubClients() as $client ) {
+			$client->get();
+		}
 	}
 
 
@@ -168,6 +184,9 @@ abstract class Base
 	 */
 	public function import()
 	{
+		foreach( $this->getSubClients() as $client ) {
+			$client->import();
+		}
 	}
 
 
@@ -178,6 +197,9 @@ abstract class Base
 	 */
 	public function save()
 	{
+		foreach( $this->getSubClients() as $client ) {
+			$client->save();
+		}
 	}
 
 
@@ -188,6 +210,9 @@ abstract class Base
 	 */
 	public function search()
 	{
+		foreach( $this->getSubClients() as $client ) {
+			$client->search();
+		}
 	}
 
 

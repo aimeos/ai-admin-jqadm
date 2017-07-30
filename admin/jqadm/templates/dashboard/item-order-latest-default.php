@@ -62,6 +62,7 @@ $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 
 
 $enc = $this->encoder();
+$params = $this->param();
 $baskets = $this->get( 'orderlatestBaskets', [] );
 /// price format with value (%1$s) and currency (%2$s)
 $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
@@ -93,8 +94,8 @@ $statuslist = array(
 		<div class="table-responsive">
 			<table class="list-items table table-hover">
 				<tbody>
-					<?php foreach( $this->get( 'orderlatestItems', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id], [], $getConfig ) ); ?>
+					<?php foreach( $this->get( 'orderlatestItems', [] ) as $item ) : ?>
+						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>
 						<tr>
 							<td class="order-id">
 								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a>
