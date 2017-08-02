@@ -16,10 +16,12 @@
 	border-color: #D9534F !important;
 }
 
+.aimeos .info-list,
 .aimeos .error-list {
 	list-style: none;
 }
 
+.aimeos .info-list .sr-only:after,
 .aimeos .error-list .sr-only:after {
 	content: ":";
 }
