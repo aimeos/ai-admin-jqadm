@@ -452,9 +452,13 @@ abstract class Base
 					$expr[] = [$params['filter']['op'][$idx] => [$key => $params['filter']['val'][$idx]]];
 				}
 			}
+
+			if( !empty( $expr ) ) {
+				$expr = ['&&' => $expr];
+			}
 		}
 
-		return ['&&' => $expr];
+		return $expr;
 	}
 
 
@@ -593,10 +597,13 @@ abstract class Base
 	 */
 	private function initCriteriaConditions( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
-		$expr = $this->getCriteriaConditions( $params );
-		$expr[] = $criteria->getConditions();
+		if( ( $expr = $this->getCriteriaConditions( $params ) ) !== [] )
+		{
+			$expr[] = $criteria->getConditions();
+			return $criteria->setConditions( $criteria->toConditions( $expr ) );
+		}
 
-		return $criteria->setConditions( $criteria->toConditions( $expr ) );
+		return $criteria;
 	}
 
 
