@@ -304,7 +304,7 @@ class Standard
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '+', 'catalog.lists.position' )] );
 
-		$search = $this->initCriteria( $search, $params );
+		$search = $this->initCriteria( $search, $params, 'catalogproduct' );
 		$expr = [
 			$search->getConditions(),
 			$search->compare( '==', 'catalog.lists.parentid', $item->getId() ),

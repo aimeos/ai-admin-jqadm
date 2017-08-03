@@ -300,7 +300,7 @@ class Standard
 		$data = [];
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
 
-		$search = $this->initCriteria( $manager->createSearch(), $this->getView()->param() );
+		$search = $this->initCriteria( $manager->createSearch(), $this->getView()->param(), 'couponcode' );
 		$expr = [
 			$search->compare( '==', 'coupon.code.parentid', $item->getId() ),
 			$search->getConditions(),

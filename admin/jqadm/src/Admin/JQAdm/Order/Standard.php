@@ -300,7 +300,7 @@ class Standard
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
-			$search = $this->initCriteria( $search, $view->param() );
+			$search = $this->initCriteria( $search, $view->param(), 'order' );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->baseItems = $this->getOrderBaseItems( $view->items );

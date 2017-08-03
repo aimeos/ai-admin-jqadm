@@ -269,7 +269,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'order.baseid', $order->getId() ) );
 		$search->setSortations( array( $search->sort( '-', 'order.ctime' ) ) );
 
-		$search = $this->initCriteria( $search, $params );
+		$search = $this->initCriteria( $search, $params, 'orderinvoice' );
 
 		return $manager->searchItems( $search );
 	}

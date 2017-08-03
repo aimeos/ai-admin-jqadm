@@ -231,7 +231,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
 		$baseManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
 
-		$search = $this->initCriteria( $manager->createSearch(), $view->param() );
+		$search = $this->initCriteria( $manager->createSearch(), $view->param(), 'customerorder' );
 		$search->setConditions( $search->compare( '==', 'order.base.customerid', $view->item->getId() ) );
 		$search->setSortations( array( $search->sort( '-', 'order.ctime' ) ) );
 

@@ -304,7 +304,7 @@ class Standard
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '-', 'customer.lists.ctime' )] );
 
-		$search = $this->initCriteria( $search, $params );
+		$search = $this->initCriteria( $search, $params, 'customerproduct' );
 		$expr = [
 			$search->getConditions(),
 			$search->compare( '==', 'customer.lists.parentid', $item->getId() ),
