@@ -5,19 +5,23 @@
  * @copyright Aimeos (aimeos.org), 2017
  */
 
-$selected = function( $key, $code ) {
-	return ( (string) $key === (string) $code ? 'selected="selected"' : '' );
-};
-
 /**
  * Renders the table row with the search fields in the list view
  *
  * Available data:
  * - data: Associative list of keys (e.g. "product.id") and translated names (e.g. "ID")
  * - fields: List of columns that are currently shown
+ * - filter: List of filter parameters
  * - tabindex: Numerical index for tabbing through the fields and buttons
  */
 
+
+$selected = function( $key, $code ) {
+	return ( (string) $key === (string) $code ? 'selected="selected"' : '' );
+};
+
+
+$filter = $this->get( 'filter', [] );
 $fields = $this->get( 'fields', [] );
 $idx = -1;
 
@@ -40,7 +44,7 @@ $enc = $this->encoder();
 						<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?></option>
 
 						<?php foreach( (array) $this->value( $list, 'val', [] ) as $val => $name ) : ?>
-							<option value="<?= $enc->attr( $val ); ?>" <?= $selected( $this->param( 'filter/val/' . $idx ), $val ); ?> >
+							<option value="<?= $enc->attr( $val ); ?>" <?= $selected( $this->value( $filter, 'val/' . $idx ), $val ); ?> >
 								<?= $enc->html( $name ); ?>
 							</option>
 						<?php endforeach; ?>
@@ -48,7 +52,7 @@ $enc = $this->encoder();
 				<?php else : ?>
 					<input class="form-control" type="<?= $enc->attr( $type ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						name="<?= $enc->attr( $this->formparam( ['filter', 'val', $idx] ) ); ?>"
-						value="<?= $enc->attr( $this->param( 'filter/val/' . $idx ) ); ?>" />
+						value="<?= $enc->attr( $this->value( $filter, 'val/' . $idx ) ); ?>" />
 				<?php endif; ?>
 			</td>
 		<?php endif; ?>

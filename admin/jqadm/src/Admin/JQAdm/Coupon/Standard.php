@@ -322,8 +322,9 @@ class Standard
 		try
 		{
 			$total = 0;
+			$params = $this->getSearchParams( $view->param(), 'coupon' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'coupon' );
-			$search = $this->initCriteria( $manager->createSearch(), $view->param(), 'coupon' );
+			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );

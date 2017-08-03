@@ -53,7 +53,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @category Developer
  */
 $default = $this->config( 'admin/jqadm/attribute/fields', ['attribute.status', 'attribute.typeid', 'attribute.code', 'attribute.label'] );
-$fields = $this->param( 'fields/a', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/attribute/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
 $pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
@@ -89,16 +89,20 @@ $columnList = [
 
 	<?= $this->partial(
 		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-default.php' ), [
+			'filter' => $this->session( 'aimeos/admin/jqadm/attribute/filter', [] ),
 			'filterAttributes' => $this->get( 'filterAttributes', [] ),
 			'filterOperators' => $this->get( 'filterOperators', [] ),
-			'filterData' => $this->param( 'filter', [] ),
 			'params' => $params,
 		]
 	); ?>
 </nav>
 
 
-<?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'top'] ); ?>
+<?= $this->partial(
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/attribute/page', [] )]
+	);
+?>
 
 <form class="list-attribute" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
@@ -108,7 +112,7 @@ $columnList = [
 			<tr>
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ),
-						['fields' => $fields, 'params' => $params, 'tabindex' => 1, 'data' => $columnList]
+						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/attribute/sort' )]
 					);
 				?>
 
@@ -121,7 +125,7 @@ $columnList = [
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),
-							['fields' => $fields, 'group' => 'a', 'tabindex' => 1, 'data' => $columnList]
+							['fields' => $fields, 'data' => $columnList]
 						);
 					?>
 				</th>
@@ -131,7 +135,7 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-					'fields' => $fields, 'tabindex' => 1,
+					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/attribute/filter', [] ),
 					'data' => [
 						'attribute.id' => ['op' => '=='],
 						'attribute.domain' => ['op' => '==', 'type' => 'select', 'val' => [
@@ -213,7 +217,11 @@ $columnList = [
 	<?php endif; ?>
 </form>
 
-<?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'bottom'] ); ?>
+<?= $this->partial(
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/attribute/page', [] )]
+	);
+?>
 
 <?php $this->block()->stop(); ?>
 

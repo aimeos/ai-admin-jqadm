@@ -35,7 +35,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 
 
 $default = $this->config( 'admin/jqadm/coupon/fields', ['coupon.status', 'coupon.label', 'coupon.provider'] );
-$fields = $this->param( 'fields/v', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
 $pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
@@ -70,16 +70,20 @@ $columnList = [
 
 	<?= $this->partial(
 		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-default.php' ), [
+			'filter' => $this->session( 'aimeos/admin/jqadm/coupon/filter', [] ),
 			'filterAttributes' => $this->get( 'filterAttributes', [] ),
 			'filterOperators' => $this->get( 'filterOperators', [] ),
-			'filterData' => $this->param( 'filter', [] ),
 			'params' => $params,
 		]
 	); ?>
 </nav>
 
 
-<?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'top'] ); ?>
+<?= $this->partial(
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/coupon/page', [] )]
+	);
+?>
 
 <form class="list-product" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
@@ -89,7 +93,7 @@ $columnList = [
 			<tr>
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ),
-						['fields' => $fields, 'params' => $params, 'tabindex' => 1, 'data' => $columnList]
+						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/coupon/sort' )]
 					);
 				?>
 
@@ -102,7 +106,7 @@ $columnList = [
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),
-							['fields' => $fields, 'group' => 'v', 'tabindex' => 1, 'data' => $columnList]
+							['fields' => $fields, 'data' => $columnList]
 						);
 					?>
 				</th>
@@ -112,7 +116,7 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-					'fields' => $fields, 'tabindex' => 1,
+					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
 					'data' => [
 						'coupon.id' => ['op' => '=='],
 						'coupon.status' => ['op' => '==', 'type' => 'select', 'val' => [
@@ -185,7 +189,11 @@ $columnList = [
 	<?php endif; ?>
 </form>
 
-<?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'bottom'] ); ?>
+<?= $this->partial(
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/coupon/page', [] )]
+	);
+?>
 
 <?php $this->block()->stop(); ?>
 

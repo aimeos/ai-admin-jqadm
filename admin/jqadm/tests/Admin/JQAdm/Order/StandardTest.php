@@ -200,10 +200,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Order\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getCriteriaConditions' ) )
+			->setMethods( array( 'getSearchParams' ) )
 			->getMock();
 
-		$object->expects( $this->atLeastOnce() )->method( 'getCriteriaConditions' )
+		$object->expects( $this->atLeastOnce() )->method( 'getSearchParams' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
@@ -216,10 +216,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Order\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getCriteriaConditions' ) )
+			->setMethods( array( 'getSearchParams' ) )
 			->getMock();
 
-		$object->expects( $this->atLeastOnce() )->method( 'getCriteriaConditions' )
+		$object->expects( $this->atLeastOnce() )->method( 'getSearchParams' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );

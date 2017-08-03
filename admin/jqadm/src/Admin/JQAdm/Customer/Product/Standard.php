@@ -137,7 +137,8 @@ class Standard
 
 		try
 		{
-			$listItems = $this->getListItems( $view->item, $view->param() );
+			$params = $this->getSearchParams( $view->param(), 'customerproduct' );
+			$listItems = $this->getListItems( $view->item, $params );
 
 			$view->productItems = $this->getProductItems( $listItems );
 			$view->productData = $this->toArray( $listItems );
@@ -304,7 +305,7 @@ class Standard
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '-', 'customer.lists.ctime' )] );
 
-		$search = $this->initCriteria( $search, $params, 'customerproduct' );
+		$search = $this->initCriteria( $search, $params );
 		$expr = [
 			$search->getConditions(),
 			$search->compare( '==', 'customer.lists.parentid', $item->getId() ),

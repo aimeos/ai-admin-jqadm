@@ -12,6 +12,7 @@
  * Available data:
  * - filterAttributes: Associative list of keys (e.g. "product.id") and translated names (e.g. "ID")
  * - filterOperators: List of columns that are currently shown
+ * - filter: Associative list of filter parameters
  * - params: Associative list of current parameters
  */
 
@@ -26,7 +27,7 @@ $controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $config = $this->config( 'admin/jqadm/url/search/config', [] );
 
-$filter = $this->get( 'filterData', [] );
+$filter = $this->get( 'filter', [] );
 $params = $this->get( 'params', [] );
 unset( $params['filter'], $params['page'] );
 

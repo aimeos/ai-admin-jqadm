@@ -510,11 +510,11 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @category Developer
  */
 $default = $this->config( 'admin/jqadm/product/fields', ['product.id', 'product.status', 'product.typeid', 'product.code', 'product.label'] );
-$fields = $this->param( 'fields/p', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
 $pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
-$sortcode = $this->param( 'sort' );
+$sortcode = $this->session( 'aimeos/admin/jqadm/product/sort' );
 
 $typeList = [];
 foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
@@ -534,6 +534,7 @@ $columnList = [
 	'product.editor' => $this->translate( 'admin', 'Editor' ),
 ];
 
+
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
@@ -546,18 +547,21 @@ $columnList = [
 
 	<?= $this->partial(
 		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-default.php' ), [
+			'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
 			'filterAttributes' => $this->get( 'filterAttributes', [] ),
 			'filterOperators' => $this->get( 'filterOperators', [] ),
-			'filterData' => $this->param( 'filter', [] ),
 			'params' => $params,
 		]
 	); ?>
 </nav>
 
 
-<?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'top'] ); ?>
+<?= $this->partial(
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/product/page', [] )]
+	);
+?>
 
-<?php $searchParam = $params; unset( $searchParam['filter'] ); ?>
 <form class="list-product" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
@@ -566,7 +570,8 @@ $columnList = [
 			<tr>
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ),
-						['fields' => $fields, 'params' => $params, 'data' => $columnList]
+						['fields' => $fields, 'params' => $params, 'data' => $columnList,
+						'sort' => $this->session( 'aimeos/admin/jqadm/product/sort' )]
 					);
 				?>
 
@@ -579,7 +584,7 @@ $columnList = [
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),
-							['fields' => $fields, 'group' => 'p', 'data' => $columnList]
+							['fields' => $fields, 'data' => $columnList]
 						);
 					?>
 				</th>
@@ -589,7 +594,7 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-					'fields' => $fields, 'params' => $searchParam,
+					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
 					'data' => [
 						'product.id' => ['op' => '=='],
 						'product.status' => ['op' => '==', 'type' => 'select', 'val' => [
@@ -666,7 +671,11 @@ $columnList = [
 	<?php endif; ?>
 </form>
 
-<?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'bottom'] ); ?>
+<?= $this->partial(
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/product/page', [] )]
+	);
+?>
 
 <?php $this->block()->stop(); ?>
 

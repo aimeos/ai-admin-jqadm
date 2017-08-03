@@ -16,11 +16,10 @@ $jsonAction = $this->config( 'admin/jsonadm/url/action', 'index' );
 $jsonConfig = $this->config( 'admin/jsonadm/url/config', [] );
 
 $enc = $this->encoder();
-$params = $searchParam = $this->get( 'pageParams', [] );
-unset( $searchParam['filter'] );
+$params = $this->get( 'pageParams', [] );
 
 $default = $this->config( 'admin/jqadm/coupon/code/fields', ['coupon.code.code', 'coupon.code.count'] );
-$fields = $this->param( 'fields/vc', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/couponcode/fields', $default );
 
 $columnList = [
 	'coupon.code.code' => $this->translate( 'admin', 'Code' ),
@@ -40,7 +39,8 @@ $columnList = [
 			<tr>
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ),
-						['fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ), 'data' => $columnList]
+						['fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
+						'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/couponcode/sort' )]
 					);
 				?>
 
@@ -52,7 +52,7 @@ $columnList = [
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),
-							['fields' => $fields, 'group' => 'vc', 'tabindex' => $this->get( 'tabindex' ), 'data' => $columnList]
+							['fields' => $fields, 'data' => $columnList, 'tabindex' => $this->get( 'tabindex' )]
 						);
 					?>
 				</th>
@@ -61,6 +61,7 @@ $columnList = [
 		<tbody>
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
+					'filter' => $this->session( 'aimeos/admin/jqadm/couponcode/filter', [] ),
 					'fields' => $fields, 'tabindex' => $this->get( 'tabindex' ),
 					'data' => [
 						'coupon.code.code' => [],

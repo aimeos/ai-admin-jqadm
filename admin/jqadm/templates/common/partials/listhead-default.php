@@ -12,6 +12,7 @@
  * - data: Associative list of keys (e.g. "product.id") and translated names (e.g. "ID")
  * - fields: List of columns that are currently shown
  * - params: Associative list of current parameters
+ * - sort: Current sort code
  * - tabindex: Numerical index for tabbing through the fields and buttons
  */
 
@@ -37,7 +38,7 @@ $config = $this->config( 'admin/jqadm/url/search/config', [] );
 
 $fields = $this->get( 'fields', [] );
 $params = $this->get( 'params', [] );
-$sortcode = $this->get( 'params/sort' );
+$sortcode = $this->get( 'sort' );
 
 $enc = $this->encoder();
 
@@ -46,7 +47,7 @@ $enc = $this->encoder();
 <?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 	<?php if( in_array( $key, $fields ) ) : ?>
 		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ); ?>">
-			<a class="<?= $sortclass( $sortcode, $key ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
+			<a class="<?= $sortclass( $sortcode, $key ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
 				href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, $key )] + $params, [], $config ) ); ?>">
 				<?= $enc->html( $name ); ?>
 			</a>

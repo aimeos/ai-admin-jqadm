@@ -44,7 +44,7 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
  * @category Developer
  */
 $default = $this->config( 'admin/jqadm/order/fields', ['order.id', 'order.ctime', 'order.statuspayment', 'order.base.address.lastname'] );
-$fields = $this->param( 'fields/o', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
 $pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
@@ -140,16 +140,20 @@ $statusList = [
 
 	<?= $this->partial(
 		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-default.php' ), [
+			'filter' => $this->session( 'aimeos/admin/jqadm/order/filter', [] ),
 			'filterAttributes' => $this->get( 'filterAttributes', [] ),
 			'filterOperators' => $this->get( 'filterOperators', [] ),
-			'filterData' => $this->param( 'filter', [] ),
 			'params' => $params,
 		]
 	); ?>
 </nav>
 
 
-<?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'top'] ); ?>
+<?= $this->partial(
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/order/page', [] )]
+	);
+?>
 
 <?php $searchParam = $params; unset( $searchParam['filter'] ); ?>
 <form class="list-order" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
@@ -160,7 +164,7 @@ $statusList = [
 			<tr>
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ),
-						['fields' => $fields, 'params' => $params, 'data' => $columnList]
+						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/order/sort' )]
 					);
 				?>
 
@@ -173,7 +177,7 @@ $statusList = [
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),
-							['fields' => $fields, 'group' => 'o', 'data' => $columnList]
+							['fields' => $fields, 'data' => $columnList]
 						);
 					?>
 				</th>
@@ -183,7 +187,7 @@ $statusList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-					'fields' => $fields, 'params' => $searchParam,
+					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/order/filter', [] ),
 					'data' => [
 						'order.id' => ['op' => '=='],
 						'order.type' => [],
@@ -410,7 +414,11 @@ $statusList = [
 	<?php endif; ?>
 </form>
 
-<?= $this->partial( $this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ), $pageParams + ['pos' => 'bottom'] ); ?>
+<?= $this->partial(
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/order/page', [] )]
+	);
+?>
 
 <?php $this->block()->stop(); ?>
 

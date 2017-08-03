@@ -43,8 +43,8 @@ $delConfig = $this->config( 'admin/jsonadm/url/config', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = ['catalog.lists.status', 'catalog.lists.typeid', 'catalog.lists.position', 'catalog.lists.refid'];
-$fields = $this->param( 'fields/up', $this->config( 'admin/jqadm/catalog/product/fields', $default ) );
+$default = $this->config( 'admin/jqadm/product/fields', ['catalog.lists.status', 'catalog.lists.typeid', 'catalog.lists.position', 'catalog.lists.refid'] );
+$fields = $this->session( 'aimeos/admin/jqadm/catalogproduct/fields', $default );
 
 $listItems = $this->get( 'productListItems', [] );
 $refItems = $this->get( 'productItems', [] );
@@ -58,6 +58,7 @@ $refItems = $this->get( 'productItems', [] );
 				<?= $this->partial(
 					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
+						'sort' => $this->session( 'aimeos/admin/jqadm/product/sort' ),
 						'data' => [
 							'catalog.lists.position' => $this->translate( 'admin', 'Position' ),
 							'catalog.lists.status' => $this->translate( 'admin', 'Status' ),
@@ -78,7 +79,7 @@ $refItems = $this->get( 'productItems', [] );
 
 					<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ), [
-							'fields' => $fields, 'group' => 'up', 'tabindex' => $this->get( 'tabindex' ),
+							'fields' => $fields, 'tabindex' => $this->get( 'tabindex' ),
 							'data' => [
 								'catalog.lists.position' => $this->translate( 'admin', 'Position' ),
 								'catalog.lists.status' => $this->translate( 'admin', 'Status' ),
@@ -97,6 +98,7 @@ $refItems = $this->get( 'productItems', [] );
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
 					'fields' => $fields, 'tabindex' => $this->get( 'tabindex' ),
+					'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
 					'data' => [
 						'catalog.lists.position' => ['op' => '>=', 'type' => 'number'],
 						'catalog.lists.status' => ['op' => '==', 'type' => 'select', 'val' => [
@@ -355,5 +357,6 @@ $refItems = $this->get( 'productItems', [] );
 	<?php if( $this->get( 'productData', [] ) === [] ) : ?>
 		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
 	<?php endif; ?>
+
 </div>
 <?= $this->get( 'productBody' ); ?>

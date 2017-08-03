@@ -93,7 +93,8 @@ class Standard
 
 		try
 		{
-			$orderItems = $this->getOrderItems( $view->item, $view->param() );
+			$params = $this->getSearchParams( $view->param(), 'orderinvoice' );
+			$orderItems = $this->getOrderItems( $view->item, $params );
 
 			$view->invoiceData = $this->toArray( $orderItems );
 			$view->invoiceBody = '';

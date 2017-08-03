@@ -454,8 +454,9 @@ class Standard
 		try
 		{
 			$total = 0;
+			$params = $this->getSearchParams( $view->param(), 'product' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
-			$search = $this->initCriteria( $manager->createSearch(), $view->param(), 'product' );
+			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );

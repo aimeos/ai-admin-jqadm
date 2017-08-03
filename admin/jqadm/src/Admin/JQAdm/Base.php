@@ -442,14 +442,14 @@ abstract class Base
 	{
 		$expr = [];
 
-		if( isset( $params['filter'] ) && isset( $params['filter']['key'] ) )
+		if( isset( $params['key'] ) )
 		{
-			foreach( (array) $params['filter']['key'] as $idx => $key )
+			foreach( (array) $params['key'] as $idx => $key )
 			{
-				if( $key != '' && isset( $params['filter']['op'][$idx] ) && $params['filter']['op'][$idx] != ''
-					&& isset( $params['filter']['val'][$idx] ) && $params['filter']['val'][$idx] != ''
+				if( $key != '' && isset( $params['op'][$idx] ) && $params['op'][$idx] != ''
+					&& isset( $params['val'][$idx] ) && $params['val'][$idx] != ''
 				) {
-					$expr[] = [$params['filter']['op'][$idx] => [$key => $params['filter']['val'][$idx]]];
+					$expr[] = [$params['op'][$idx] => [$key => $params['val'][$idx]]];
 				}
 			}
 
@@ -472,19 +472,53 @@ abstract class Base
 	{
 		$sortation = [];
 
-		if( isset( $params['sort'] ) )
+		foreach( $params as $sort )
 		{
-			foreach( (array) $params['sort'] as $sort )
-			{
-				if( $sort[0] === '-' ) {
-					$sortation[substr( $sort, 1 )] = '-';
-				} else {
-					$sortation[$sort] = '+';
-				}
+			if( $sort[0] === '-' ) {
+				$sortation[substr( $sort, 1 )] = '-';
+			} else {
+				$sortation[$sort] = '+';
 			}
 		}
 
 		return $sortation;
+	}
+
+
+	/**
+	 * Stores and returns the parameters used for searching items
+	 *
+	 * @param array $params GET/POST parameter set
+	 * @param string $name Name of the panel/subpanel
+	 * @return array Associative list of parameters for searching items
+	 */
+	protected function getSearchParams( array $params, $name )
+	{
+		$key = 'aimeos/admin/jqadm/' . $name;
+		$session = $this->getContext()->getSession();
+
+		if( isset( $params['filter'] ) ) {
+			$session->set( $key . '/filter', $params['filter'] );
+		}
+
+		if( isset( $params['sort'] ) ) {
+			$session->set( $key . '/sort', $params['sort'] );
+		}
+
+		if( isset( $params['page'] ) ) {
+			$session->set( $key . '/page', $params['page'] );
+		}
+
+		if( isset( $params['fields'] ) ) {
+			$session->set( $key . '/fields', $params['fields'] );
+		}
+
+		return [
+			'fields' => $session->get( $key . '/fields' ),
+			'filter' => $session->get( $key . '/filter' ),
+			'page' => $session->get( $key . '/page' ),
+			'sort' => $session->get( $key . '/sort' ),
+		];
 	}
 
 
@@ -524,14 +558,21 @@ abstract class Base
 	 *
 	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
 	 * @param array $params List of criteria data with condition, sorting and paging
-	 * @param string $name Name of the panel/subpanel the criteria are for
 	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
-	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params, $name )
+	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
-		$criteria = $this->initCriteriaConditions( $criteria, $params, $name );
-		$criteria = $this->initCriteriaSortations( $criteria, $params, $name );
-		$criteria = $this->initCriteriaSlice( $criteria, $params, $name );
+		if( isset( $params['filter'] ) ) {
+			$criteria = $this->initCriteriaConditions( $criteria, $params['filter'] );
+		}
+
+		if( isset( $params['sort'] ) ) {
+			$criteria = $this->initCriteriaSortations( $criteria, $params['sort'] );
+		}
+
+		if( isset( $params['page'] ) ) {
+			$criteria = $this->initCriteriaSlice( $criteria, $params['page'] );
+		}
 
 		return $criteria;
 	}
@@ -594,24 +635,16 @@ abstract class Base
 	 *
 	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
 	 * @param array $params List of criteria data with condition, sorting and paging
-	 * @param string $name Name of the panel/subpanel the criteria are for
 	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
-	private function initCriteriaConditions( \Aimeos\MW\Criteria\Iface $criteria, array $params, $name )
+	private function initCriteriaConditions( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
-		$key = 'aimeos/jqadm/' . $name . '/filter';
-		$session = $this->getContext()->getSession();
+		$expr = [
+			$criteria->toConditions( $this->getCriteriaConditions( $params ) ),
+			$criteria->getConditions(),
+		];
 
-		$filter = ( isset( $params['filter'] ) ? $params['filter'] : $session->get( $key, [] ) );
-		$session->set( $key, $filter );
-
-		if( ( $expr = $this->getCriteriaConditions( $filter ) ) !== [] )
-		{
-			$expr[] = $criteria->getConditions();
-			return $criteria->setConditions( $criteria->toConditions( $expr ) );
-		}
-
-		return $criteria;
+		return $criteria->setConditions( $criteria->combine( '&&', $expr ) );
 	}
 
 
@@ -620,19 +653,12 @@ abstract class Base
 	 *
 	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
 	 * @param array $params List of criteria data with condition, sorting and paging
-	 * @param string $name Name of the panel/subpanel the criteria are for
 	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
-	private function initCriteriaSlice( \Aimeos\MW\Criteria\Iface $criteria, array $params, $name )
+	private function initCriteriaSlice( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
-		$key = 'aimeos/jqadm/' . $name . '/page';
-		$session = $this->getContext()->getSession();
-
-		$page = ( isset( $params['page'] ) ? $params['page'] : $session->get( $key, [] ) );
-		$session->set( $key, $page );
-
-		$start = ( isset( $page['offset'] ) ? $page['offset'] : 0 );
-		$size = ( isset( $page['limit'] ) ? $page['limit'] : 100 );
+		$start = ( isset( $params['offset'] ) ? $params['offset'] : 0 );
+		$size = ( isset( $params['limit'] ) ? $params['limit'] : 100 );
 
 		return $criteria->setSlice( $start, $size );
 	}
@@ -643,21 +669,10 @@ abstract class Base
 	 *
 	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
 	 * @param array $params List of criteria data with condition, sorting and paging
-	 * @param string $name Name of the panel/subpanel the criteria are for
 	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
-	private function initCriteriaSortations( \Aimeos\MW\Criteria\Iface $criteria, array $params, $name )
+	private function initCriteriaSortations( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
-		$key = 'aimeos/jqadm/' . $name . '/sort';
-		$session = $this->getContext()->getSession();
-
-		$sort = ( isset( $params['sort'] ) ? $params['sort'] : $session->get( $key, [] ) );
-		$session->set( $key, $sort );
-
-		if( ( $expr = $this->getCriteriaSortations( $sort ) ) !== [] ) {
-			$criteria->setSortations( $criteria->toSortations( $expr ) );
-		}
-
-		return $criteria;
+		return $criteria->setSortations( $criteria->toSortations( $this->getCriteriaSortations( $params ) ) );
 	}
 }

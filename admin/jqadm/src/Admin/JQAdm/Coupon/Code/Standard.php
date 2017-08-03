@@ -298,9 +298,10 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Coupon\Item\Iface $item, $copy = false )
 	{
 		$data = [];
+		$params = $this->getSearchParams( $this->getView()->param(), 'couponcode' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
 
-		$search = $this->initCriteria( $manager->createSearch(), $this->getView()->param(), 'couponcode' );
+		$search = $this->initCriteria( $manager->createSearch(), $params );
 		$expr = [
 			$search->compare( '==', 'coupon.code.parentid', $item->getId() ),
 			$search->getConditions(),

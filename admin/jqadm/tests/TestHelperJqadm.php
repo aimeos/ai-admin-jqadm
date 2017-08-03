@@ -56,6 +56,9 @@ class TestHelperJqadm
 		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $config );
 		$view->addHelper( 'config', $helper );
 
+		$helper = new \Aimeos\MW\View\Helper\Session\Standard( $view, new \Aimeos\MW\Session\None() );
+		$view->addHelper( 'session', $helper );
+
 		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $view, new \Zend\Diactoros\ServerRequest() );
 		$view->addHelper( 'request', $helper );
 

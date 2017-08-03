@@ -29,7 +29,7 @@ $params = $this->get( 'pageParams', [] );
  * @category Developer
  */
 $default = ['order.id', 'order.datepayment', 'order.statuspayment', 'order.statusdelivery'];
-$fields = $this->param( 'fields/oi', $this->config( 'admin/jqadm/order/invoice/fields', $default ) );
+$fields = $this->session( 'aimeos/admin/jqadm/orderinvoice/fields', $default );
 
 
 /** admin/jqadm/order/invoice/types
@@ -54,6 +54,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 				<?= $this->partial(
 					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
+						'sort' => $this->session( 'aimeos/admin/jqadm/product/sort' ),
 						'data' => [
 							'order.id' => $this->translate( 'admin', 'Invoice' ),
 							'order.datepayment' => $this->translate( 'admin', 'Purchased' ),
@@ -74,7 +75,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 
 					<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ), [
-							'fields' => $fields, 'group' => 'oi', 'tabindex' => $this->get( 'tabindex' ),
+							'fields' => $fields, 'tabindex' => $this->get( 'tabindex' ),
 							'data' => [
 								'order.id' => $this->translate( 'admin', 'Invoice' ),
 								'order.datepayment' => $this->translate( 'admin', 'Purchased' ),
@@ -92,6 +93,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 		<tbody>
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
+					'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
 					'fields' => $fields, 'tabindex' => $this->get( 'tabindex' ),
 					'data' => [
 						'order.id' => ['oi' => '==', 'type' => 'number'],

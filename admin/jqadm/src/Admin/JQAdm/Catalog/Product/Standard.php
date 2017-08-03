@@ -137,7 +137,8 @@ class Standard
 
 		try
 		{
-			$listItems = $this->getListItems( $view->item, $view->param() );
+			$params = $this->getSearchParams( $view->param(), 'catalogproduct' );
+			$listItems = $this->getListItems( $view->item, $params );
 
 			$view->productItems = $this->getProductItems( $listItems );
 			$view->productData = $this->toArray( $listItems );

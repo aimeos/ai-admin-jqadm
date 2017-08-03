@@ -164,11 +164,16 @@ class Standard
 
 		try
 		{
-			$msg = [
-				'sitecode' => $context->getLocale()->getSite()->getCode(),
-				'filter' => $this->getCriteriaConditions( $view->param() ),
-				'sort' => $this->getCriteriaSortations( $view->param() ),
-			];
+			$params = $this->getSearchParams( $view->param(), 'order' );
+			$msg = ['sitecode' => $context->getLocale()->getSite()->getCode()];
+
+			if( isset( $params['filter'] ) ) {
+				$msg['filter'] = $this->getCriteriaConditions( $params['filter'] );
+			}
+
+			if( isset( $params['sort'] ) ) {
+				$msg['sort'] = $this->getCriteriaSortations( $params['sort'] );
+			}
 
 			$mq = $context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( 'order-export' );
 			$mq->add( json_encode( $msg ) );
@@ -296,11 +301,12 @@ class Standard
 		try
 		{
 			$total = 0;
+			$params = $this->getSearchParams( $view->param(), 'order' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'order' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
-			$search = $this->initCriteria( $search, $view->param(), 'order' );
+			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->baseItems = $this->getOrderBaseItems( $view->items );
