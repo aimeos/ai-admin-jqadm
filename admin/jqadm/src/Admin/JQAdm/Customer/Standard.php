@@ -341,7 +341,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->getSearchParams( $view->param(), 'customer' );
+			$params = $this->storeSearchParams( $view->param(), 'customer' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 

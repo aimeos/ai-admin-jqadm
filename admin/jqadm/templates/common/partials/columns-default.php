@@ -11,6 +11,7 @@
  * Available data:
  * - data: Associative list of keys (e.g. "product.id") and translated names (e.g. "ID")
  * - fields: List of columns that are currently shown
+ * - group: Parameter group if several lists are on one page
  * - tabindex: Numerical index for tabbing through the fields and buttons
  */
 
@@ -22,6 +23,7 @@ $checked = function( array $list, $code ) {
 
 $enc = $this->encoder();
 $fields = $this->get( 'fields', [] );
+$names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 
 
 ?>
@@ -34,7 +36,7 @@ $fields = $this->get( 'fields', [] );
 			<li class="dropdown-item">
 				<label>
 					<input type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-						name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ); ?>"
+						name="<?= $enc->attr( $this->formparam( $names ) ); ?>"
 						value="<?= $enc->attr( $key ); ?>" <?= $checked( $fields, $key ); ?> />
 					<?= $enc->html( $name ); ?>
 				</label>

@@ -93,7 +93,7 @@ class Standard
 
 		try
 		{
-			$params = $this->getSearchParams( $view->param(), 'orderinvoice' );
+			$params = $this->storeSearchParams( $view->param(), 'orderinvoice' );
 			$orderItems = $this->getOrderItems( $view->item, $params );
 
 			$view->invoiceData = $this->toArray( $orderItems );
@@ -131,6 +131,7 @@ class Standard
 
 		try
 		{
+			$this->storeSearchParams( $view->param( 'oi', [] ), 'orderinvoice' );
 			$this->fromArray( $view->item, $view->param( 'invoice', [] ) );
 			$view->invoiceBody = '';
 

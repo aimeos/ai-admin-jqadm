@@ -12,6 +12,7 @@
  * - data: Associative list of keys (e.g. "product.id") and translated names (e.g. "ID")
  * - fields: List of columns that are currently shown
  * - filter: List of filter parameters
+ * - group: Parameter group if several lists are on one page
  * - tabindex: Numerical index for tabbing through the fields and buttons
  */
 
@@ -21,6 +22,7 @@ $selected = function( $key, $code ) {
 };
 
 
+$group = (array) $this->get( 'group', [] );
 $filter = $this->get( 'filter', [] );
 $fields = $this->get( 'fields', [] );
 $idx = -1;
@@ -34,13 +36,13 @@ $enc = $this->encoder();
 		<?php if( in_array( $key, $fields ) ) : ?>
 			<td class="<?= str_replace( '.', '-', $key ); ?>">
 				<input type="hidden" value="<?= $enc->attr( $key ); ?>"
-					name="<?= $enc->attr( $this->formparam( ['filter', 'key', $idx] ) ); ?>" />
+					name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'key', $idx] ) ) ); ?>" />
 				<input type="hidden" value="<?= $enc->attr( $this->value( $list, 'op', '=~' ) ); ?>"
-					name="<?= $enc->attr( $this->formparam( ['filter', 'op', $idx] ) ); ?>" />
+					name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ); ?>" />
 
 				<?php if( ( $type = $this->value( $list, 'type', 'text' ) ) === 'select' ) : ?>
 					<select class="form-control custom-select" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( ['filter', 'val', $idx] ) ); ?>">
+						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>">
 						<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?></option>
 
 						<?php foreach( (array) $this->value( $list, 'val', [] ) as $val => $name ) : ?>
@@ -51,7 +53,7 @@ $enc = $this->encoder();
 					</select>
 				<?php else : ?>
 					<input class="form-control" type="<?= $enc->attr( $type ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( ['filter', 'val', $idx] ) ); ?>"
+						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>"
 						value="<?= $enc->attr( $this->value( $filter, 'val/' . $idx ) ); ?>" />
 				<?php endif; ?>
 			</td>
@@ -62,7 +64,7 @@ $enc = $this->encoder();
 		<a class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Reset') ); ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"></a>
-		<button class="btn act-search fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+		<button type="submit" class="btn act-search fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Search') ); ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
 		</button>

@@ -164,7 +164,7 @@ class Standard
 
 		try
 		{
-			$params = $this->getSearchParams( $view->param(), 'order' );
+			$params = $this->storeSearchParams( $view->param(), 'order' );
 			$msg = ['sitecode' => $context->getLocale()->getSite()->getCode()];
 
 			if( isset( $params['filter'] ) ) {
@@ -301,7 +301,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->getSearchParams( $view->param(), 'order' );
+			$params = $this->storeSearchParams( $view->param(), 'order' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'order' );
 
 			$search = $manager->createSearch();

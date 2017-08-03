@@ -35,7 +35,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 
 
 $default = $this->config( 'admin/jqadm/coupon/fields', ['coupon.status', 'coupon.label', 'coupon.provider'] );
-$fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/coupon/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
 $pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
@@ -116,7 +116,7 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
+					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/coupon/filter', [] ),
 					'data' => [
 						'coupon.id' => ['op' => '=='],
 						'coupon.status' => ['op' => '==', 'type' => 'select', 'val' => [

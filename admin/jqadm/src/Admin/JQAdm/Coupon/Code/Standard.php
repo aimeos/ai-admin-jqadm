@@ -128,6 +128,7 @@ class Standard
 
 		try
 		{
+			$this->storeSearchParams( $view->param( 'vc', [] ), 'couponcode' );
 			$this->fromArray( $view->item, $view->param( 'code', [] ) );
 			$view->couponBody = '';
 
@@ -298,7 +299,7 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Coupon\Item\Iface $item, $copy = false )
 	{
 		$data = [];
-		$params = $this->getSearchParams( $this->getView()->param(), 'couponcode' );
+		$params = $this->storeSearchParams( $this->getView()->param(), 'couponcode' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
 
 		$search = $this->initCriteria( $manager->createSearch(), $params );

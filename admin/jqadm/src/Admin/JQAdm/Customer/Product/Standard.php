@@ -137,7 +137,7 @@ class Standard
 
 		try
 		{
-			$params = $this->getSearchParams( $view->param(), 'customerproduct' );
+			$params = $this->storeSearchParams( $view->param(), 'customerproduct' );
 			$listItems = $this->getListItems( $view->item, $params );
 
 			$view->productItems = $this->getProductItems( $listItems );
@@ -178,6 +178,7 @@ class Standard
 
 		try
 		{
+			$this->storeSearchParams( $view->param( 'up', [] ), 'customerproduct' );
 			$this->fromArray( $view->item, $view->param( 'product', [] ) );
 			$view->productBody = '';
 

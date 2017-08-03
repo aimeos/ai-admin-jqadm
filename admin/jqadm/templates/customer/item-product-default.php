@@ -58,6 +58,7 @@ $refItems = $this->get( 'productItems', [] );
 				<?= $this->partial(
 					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
+						'group' => 'up', 'action' => 'get', 'fragment' => 'product',
 						'sort' => $this->session( 'aimeos/admin/jqadm/product/sort' ),
 						'data' => [
 							'customer.lists.position' => $this->translate( 'admin', 'Position' ),
@@ -79,7 +80,7 @@ $refItems = $this->get( 'productItems', [] );
 
 					<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ), [
-							'fields' => $fields, 'tabindex' => $this->get( 'tabindex' ),
+							'fields' => $fields, 'group' => 'up', 'tabindex' => $this->get( 'tabindex' ),
 							'data' => [
 								'customer.lists.position' => $this->translate( 'admin', 'Position' ),
 								'customer.lists.status' => $this->translate( 'admin', 'Status' ),
@@ -98,7 +99,7 @@ $refItems = $this->get( 'productItems', [] );
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
 					'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
-					'fields' => $fields, 'tabindex' => $this->get( 'tabindex' ),
+					'fields' => $fields, 'group' => 'up', 'tabindex' => $this->get( 'tabindex' ),
 					'data' => [
 						'customer.lists.position' => ['op' => '>=', 'type' => 'number'],
 						'customer.lists.status' => ['op' => '==', 'type' => 'select', 'val' => [

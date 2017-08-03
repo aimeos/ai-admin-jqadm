@@ -228,7 +228,7 @@ class Standard
 	protected function addOrders( \Aimeos\MW\View\Iface $view )
 	{
 		$basketItems = [];
-		$params = $this->getSearchParams( $view->param(), 'customerorder' );
+		$params = $this->storeSearchParams( $view->param(), 'customerorder' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
 		$baseManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
 

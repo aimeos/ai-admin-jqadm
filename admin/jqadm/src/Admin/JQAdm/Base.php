@@ -492,7 +492,7 @@ abstract class Base
 	 * @param string $name Name of the panel/subpanel
 	 * @return array Associative list of parameters for searching items
 	 */
-	protected function getSearchParams( array $params, $name )
+	protected function storeSearchParams( array $params, $name )
 	{
 		$key = 'aimeos/admin/jqadm/' . $name;
 		$session = $this->getContext()->getSession();
@@ -563,15 +563,15 @@ abstract class Base
 	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
 		if( isset( $params['filter'] ) ) {
-			$criteria = $this->initCriteriaConditions( $criteria, $params['filter'] );
+			$criteria = $this->initCriteriaConditions( $criteria, (array) $params['filter'] );
 		}
 
 		if( isset( $params['sort'] ) ) {
-			$criteria = $this->initCriteriaSortations( $criteria, $params['sort'] );
+			$criteria = $this->initCriteriaSortations( $criteria, (array) $params['sort'] );
 		}
 
 		if( isset( $params['page'] ) ) {
-			$criteria = $this->initCriteriaSlice( $criteria, $params['page'] );
+			$criteria = $this->initCriteriaSlice( $criteria, (array) $params['page'] );
 		}
 
 		return $criteria;

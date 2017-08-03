@@ -49,7 +49,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @category Developer
  */
 $default = $this->config( 'admin/jqadm/customer/fields', ['customer.code', 'customer.lastname', 'customer.postal', 'customer.city'] );
-$fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/customer/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
 $pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];

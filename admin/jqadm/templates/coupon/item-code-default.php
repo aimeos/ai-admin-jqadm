@@ -40,7 +40,8 @@ $columnList = [
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ),
 						['fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
-						'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/couponcode/sort' )]
+						'data' => $columnList, 'group' => 'vc', 'action' => 'get', 'fragment' => 'code',
+						'sort' => $this->session( 'aimeos/admin/jqadm/couponcode/sort' )]
 					);
 				?>
 
@@ -52,7 +53,7 @@ $columnList = [
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),
-							['fields' => $fields, 'data' => $columnList, 'tabindex' => $this->get( 'tabindex' )]
+							['fields' => $fields, 'group' => 'vc', 'data' => $columnList, 'tabindex' => $this->get( 'tabindex' )]
 						);
 					?>
 				</th>
@@ -62,7 +63,7 @@ $columnList = [
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
 					'filter' => $this->session( 'aimeos/admin/jqadm/couponcode/filter', [] ),
-					'fields' => $fields, 'tabindex' => $this->get( 'tabindex' ),
+					'fields' => $fields, 'group' => 'vc', 'tabindex' => $this->get( 'tabindex' ),
 					'data' => [
 						'coupon.code.code' => [],
 						'coupon.code.count' => ['op' => '=='],

@@ -44,7 +44,7 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
  * @category Developer
  */
 $default = $this->config( 'admin/jqadm/order/fields', ['order.id', 'order.ctime', 'order.statuspayment', 'order.base.address.lastname'] );
-$fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/order/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
 $pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
