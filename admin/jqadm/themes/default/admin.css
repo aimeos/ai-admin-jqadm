@@ -64,7 +64,7 @@
 	margin: auto;
 }
 
-.aimeos .list-items th .dropdown-toggle {
+.aimeos .list-items th button {
 	border-color: transparent;
 	background-color: inherit;
 	color: #FFF;

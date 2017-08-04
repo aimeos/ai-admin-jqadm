@@ -67,6 +67,10 @@
 	content: "\f00d";
 }
 
+.aimeos .btn.act-columns.fa:before {
+	content: "\f0db";
+}
+
 .aimeos .btn.act-copy.fa:before {
 	content: "\f0c5";
 }
@@ -128,15 +132,6 @@
 .aimeos table .actions div,
 .aimeos table .actions .btn {
 	display: inline-block;
-}
-
-.aimeos table .actions .dropdown {
-	margin: 0 0.25rem;
-}
-
-.aimeos table .actions .dropdown-toggle {
-	padding: 0.98rem 0.5rem;
-	margin: 0 0.25rem;
 }
 
 .aimeos .actions-group {

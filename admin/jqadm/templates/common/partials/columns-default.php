@@ -28,7 +28,7 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 
 ?>
 <div class="dropdown filter-columns">
-	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+	<button class="btn act-columns fa" type="button" id="dropdownMenuButton"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ); ?>">
 	</button>
 	<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
