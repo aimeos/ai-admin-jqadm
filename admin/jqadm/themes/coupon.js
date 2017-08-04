@@ -72,9 +72,13 @@ Aimeos.Coupon.Item = {
 
 		$(".aimeos .item-coupon .item-provider").parent().on("click", ".input-group-addon .decorator-name", function(ev) {
 
+			var name = $(this).data("name");
 			var input = $("input.item-provider", ev.delegateTarget);
-			input.val(input.val() + ',' + $(this).data("name"));
-			input.trigger("change");
+
+			if(input.val().indexOf(name) === -1) {
+				input.val(input.val() + ',' + name);
+				input.trigger("change");
+			}
 		});
 	},
 
