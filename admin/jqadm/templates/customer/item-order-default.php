@@ -168,11 +168,11 @@ $deliveryStatusList = [
 				?>
 
 				<th class="actions">
-					<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ); ?>"
+					<!-- a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'order'] + $params, [], $newConfig ) ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
-					</a>
+					</a -->
 
 					<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ), [
