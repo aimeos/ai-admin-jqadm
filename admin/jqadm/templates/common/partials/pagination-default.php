@@ -12,9 +12,21 @@
  * Available data:
  * - pageParams: Associative list of page parameters
  * - page: Current pagination parameters
+ * - pos: Drop-down direction (top/bottom)
  * - total: Total number available items
+ * - group: Parameter group if several lists are on one page
  * - tabindex: Numerical index for tabbing through the fields and buttons
  */
+
+
+$pgroup = function( $params, $group )
+{
+	if( $group !== null ) {
+		return [$group => $params];
+	}
+
+	return $params;
+};
 
 
 $enc = $this->encoder();
@@ -26,6 +38,8 @@ $config = $this->config( 'admin/jqadm/url/search/config', [] );
 
 $params = $this->get( 'pageParams', [] );
 $total = $this->get( 'total', 0 );
+$page = $this->get( 'page', [] );
+$group = $this->get( 'group' );
 
 $offset = max( $this->get( 'page/offset', 0 ), 0 );
 $limit = max( $this->get( 'page/limit', 100 ), 1 );
@@ -45,14 +59,14 @@ $pageTotal = ( $total != 0 ? ceil( $total / $limit ) : 1 );
 		<ul class="page-offset pagination">
 			<li class="page-item">
 				<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-					href="<?php $params['page']['offset'] = $first; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>"
+					href="<?php $page['offset'] = $first; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $page, $group ) + $params, [], $config ) ); ?>"
 					aria-label="<?= $enc->attr( $this->translate( 'admin', 'First' ) ); ?>">
 					<span class="fa fa-fast-backward" aria-hidden="true"></span>
 				</a>
 			</li><!--
 			--><li class="page-item">
 				<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-					href="<?php $params['page']['offset'] = $prev; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>"
+					href="<?php $page['offset'] = $prev; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $page, $group ) + $params, [], $config ) ); ?>"
 					aria-label="<?= $enc->attr( $this->translate( 'admin', 'Previous' ) ); ?>">
 					<span class="fa fa-step-backward" aria-hidden="true"></span>
 				</a>
@@ -64,14 +78,14 @@ $pageTotal = ( $total != 0 ? ceil( $total / $limit ) : 1 );
 			</li><!--
 			--><li class="page-item">
 				<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-					href="<?php $params['page']['offset'] = $next; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>"
+					href="<?php $page['offset'] = $next; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $page, $group ) + $params, [], $config ) ); ?>"
 					aria-label="<?= $enc->attr( $this->translate( 'admin', 'Next' ) ); ?>">
 					<span class="fa fa-step-forward" aria-hidden="true"></span>
 				</a>
 			</li><!--
 			--><li class="page-item">
 				<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-					href="<?php $params['page']['offset'] = $last; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>"
+					href="<?php $page['offset'] = $last; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $page, $group ) + $params, [], $config ) ); ?>"
 					aria-label="<?= $enc->attr( $this->translate( 'admin', 'Last' ) ); ?>">
 					<span class="fa fa-fast-forward" aria-hidden="true"></span>
 				</a>
@@ -84,19 +98,24 @@ $pageTotal = ( $total != 0 ? ceil( $total / $limit ) : 1 );
 			</button>
 			<ul class="dropdown-menu">
 				<li class="dropdown-item">
-					<a href="<?php $params['page']['limit'] = 25; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>">25</a>
+					<a href="<?php $page['limit'] = 25; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $page, $group ) + $params, [], $config ) ); ?>"
+						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">25</a>
 				</li>
 				<li class="dropdown-item">
-					<a href="<?php $params['page']['limit'] = 50; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>">50</a>
+					<a href="<?php $page['limit'] = 50; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $page, $group ) + $params, [], $config ) ); ?>"
+						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">50</a>
 				</li>
 				<li class="dropdown-item">
-					<a href="<?php $params['page']['limit'] = 100; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>">100</a>
+					<a href="<?php $page['limit'] = 100; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $page, $group ) + $params, [], $config ) ); ?>"
+						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">100</a>
 				</li>
 				<li class="dropdown-item">
-					<a href="<?php $params['page']['limit'] = 200; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>">200</a>
+					<a href="<?php $page['limit'] = 200; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $page, $group ) + $params, [], $config ) ); ?>"
+						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">200</a>
 				</li>
 				<li class="dropdown-item">
-					<a href="<?php $params['page']['limit'] = 500; echo $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>">500</a>
+					<a href="<?php $page['limit'] = 500; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $page, $group ) + $params, [], $config ) ); ?>"
+						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">500</a>
 				</li>
 			</ul>
 		</div>

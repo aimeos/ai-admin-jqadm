@@ -486,43 +486,6 @@ abstract class Base
 
 
 	/**
-	 * Stores and returns the parameters used for searching items
-	 *
-	 * @param array $params GET/POST parameter set
-	 * @param string $name Name of the panel/subpanel
-	 * @return array Associative list of parameters for searching items
-	 */
-	protected function storeSearchParams( array $params, $name )
-	{
-		$key = 'aimeos/admin/jqadm/' . $name;
-		$session = $this->getContext()->getSession();
-
-		if( isset( $params['filter'] ) ) {
-			$session->set( $key . '/filter', $params['filter'] );
-		}
-
-		if( isset( $params['sort'] ) ) {
-			$session->set( $key . '/sort', $params['sort'] );
-		}
-
-		if( isset( $params['page'] ) ) {
-			$session->set( $key . '/page', $params['page'] );
-		}
-
-		if( isset( $params['fields'] ) ) {
-			$session->set( $key . '/fields', $params['fields'] );
-		}
-
-		return [
-			'fields' => $session->get( $key . '/fields' ),
-			'filter' => $session->get( $key . '/filter' ),
-			'page' => $session->get( $key . '/page' ),
-			'sort' => $session->get( $key . '/sort' ),
-		];
-	}
-
-
-	/**
 	 * Returns the configured sub-clients or the ones named in the default parameter if none are configured.
 	 *
 	 * @return array List of sub-clients implementing \Aimeos\Admin\JQAdm\Iface ordered in the same way as the names
@@ -627,6 +590,43 @@ abstract class Base
 		$view->response()->withHeader( 'Location', $url );
 
 		return $view;
+	}
+
+
+	/**
+	 * Stores and returns the parameters used for searching items
+	 *
+	 * @param array $params GET/POST parameter set
+	 * @param string $name Name of the panel/subpanel
+	 * @return array Associative list of parameters for searching items
+	 */
+	protected function storeSearchParams( array $params, $name )
+	{
+		$key = 'aimeos/admin/jqadm/' . $name;
+		$session = $this->getContext()->getSession();
+
+		if( isset( $params['filter'] ) ) {
+			$session->set( $key . '/filter', $params['filter'] );
+		}
+
+		if( isset( $params['sort'] ) ) {
+			$session->set( $key . '/sort', $params['sort'] );
+		}
+
+		if( isset( $params['page'] ) ) {
+			$session->set( $key . '/page', $params['page'] );
+		}
+
+		if( isset( $params['fields'] ) ) {
+			$session->set( $key . '/fields', $params['fields'] );
+		}
+
+		return [
+			'fields' => $session->get( $key . '/fields' ),
+			'filter' => $session->get( $key . '/filter' ),
+			'page' => $session->get( $key . '/page' ),
+			'sort' => $session->get( $key . '/sort' ),
+		];
 	}
 
 

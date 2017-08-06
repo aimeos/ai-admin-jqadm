@@ -93,7 +93,12 @@ class Standard
 
 		try
 		{
-			$view->codeData = $this->toArray( $view->item );
+			$total = 0;
+			$params = $this->storeSearchParams( $view->param( 'vc', [] ), 'couponcode' );
+			$codeItems = $this->getCodeItems( $view->item, $params, $total );
+
+			$view->codeData = $this->toArray( $codeItems );
+			$view->codeTotal = $total;
 			$view->codeBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -153,16 +158,6 @@ class Standard
 		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
-	}
-
-
-	/**
-	 * Returns a list of resource according to the conditions
-	 *
-	 * @return string admin output to display
-	 */
-	public function search()
-	{
 	}
 
 
@@ -253,6 +248,32 @@ class Standard
 
 
 	/**
+	 * Returns the coupon code items referenced by the coupon item
+	 *
+	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
+	 * @param array $params Associative list of GET/POST parameters
+	 * @param integer $total Value/result parameter that will contain the item total afterwards
+	 * @return \Aimeos\MShop\Common\Item\List\Iface[] Catalog list items referencing the products
+	 */
+	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], &$total )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
+
+		$search = $manager->createSearch();
+		$search->setSortations( [$search->sort( '+', 'coupon.code.code' )] );
+
+		$search = $this->initCriteria( $search, $params );
+		$expr = [
+			$search->compare( '==', 'coupon.code.parentid', $item->getId() ),
+			$search->getConditions(),
+		];
+		$search->setConditions( $search->combine( '&&', $expr ) );
+
+		return $manager->searchItems( $search, [], $total );
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -292,27 +313,16 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
-	 * @param boolean $copy True if items should be copied, false if not
+	 * @param \Aimeos\MShop\Coupon\Item\Code\Iface[] $items Coupon code items
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Coupon\Item\Iface $item, $copy = false )
+	protected function toArray( array $items )
 	{
 		$data = [];
-		$params = $this->storeSearchParams( $this->getView()->param(), 'couponcode' );
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
 
-		$search = $this->initCriteria( $manager->createSearch(), $params );
-		$expr = [
-			$search->compare( '==', 'coupon.code.parentid', $item->getId() ),
-			$search->getConditions(),
-		];
-		$search->setConditions( $search->combine( '&&', $expr ) );
-
-
-		foreach( $manager->searchItems( $search ) as $citem )
+		foreach( $items as $item )
 		{
-			foreach( $citem->toArray( true ) as $key => $value ) {
+			foreach( $item->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
 		}

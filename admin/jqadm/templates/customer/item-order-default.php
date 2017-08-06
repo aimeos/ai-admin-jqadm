@@ -57,7 +57,7 @@ $status = function( $list, $key )
 
 $enc = $this->encoder();
 $params = $this->get( 'pageParams', [] );
-$baskets = $this->get( 'orderBaskets', [] );
+$baseItems = $this->get( 'orderBaseItems', [] );
 
 /// price format with value (%1$s) and currency (%2$s)
 $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
@@ -89,54 +89,189 @@ $copyAction = $this->config( 'admin/jqadm/url/copy/action', 'copy' );
 $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
 
 
+/** admin/jqadm/customer/order/fields
+ * List of order columns that should be displayed in the customer order view
+ *
+ * Changes the list of order columns shown by default in the customer order view.
+ * The columns can be changed by the editor as required within the administraiton
+ * interface.
+ *
+ * The names of the colums are in fact the search keys defined by the managers,
+ * e.g. "order.id" for the ID value.
+ *
+ * @param array List of field names, i.e. search keys
+ * @since 2017.10
+ * @category Developer
+ */
+$default = $this->config( 'admin/jqadm/customer/order/fields', ['order.id', 'order.datepayment', 'order.statuspayment', 'order.baseid'] );
+$fields = $this->session( 'aimeos/admin/jqadm/customerorder/fields', $default );
+
+$columns = [
+	'order.id' => $this->translate( 'admin', 'ID' ),
+	'order.type' => $this->translate( 'admin', 'Type' ),
+	'order.datepayment' => $this->translate( 'admin', 'Purchase' ),
+	'order.statuspayment' => $this->translate( 'admin', 'Pay status' ),
+	'order.datedelivery' => $this->translate( 'admin', 'Delivery' ),
+	'order.statusdelivery' => $this->translate( 'admin', 'Ship status' ),
+	'order.relatedid' => $this->translate( 'admin', 'Related ID' ),
+	'order.baseid' => $this->translate( 'admin', 'Basket' ),
+	'order.ctime' => $this->translate( 'admin', 'Created' ),
+	'order.mtime' => $this->translate( 'admin', 'Modifed' ),
+	'order.editor' => $this->translate( 'admin', 'Editor' ),
+];
+
+$paymentStatusList = [
+	'-1' => $this->translate( 'client/code', 'pay:-1' ),
+	'0' => $this->translate( 'client/code', 'pay:0' ),
+	'1' => $this->translate( 'client/code', 'pay:1' ),
+	'2' => $this->translate( 'client/code', 'pay:2' ),
+	'3' => $this->translate( 'client/code', 'pay:3' ),
+	'4' => $this->translate( 'client/code', 'pay:4' ),
+	'5' => $this->translate( 'client/code', 'pay:5' ),
+	'6' => $this->translate( 'client/code', 'pay:6' ),
+];
+
+$deliveryStatusList = [
+	'-1' => $this->translate( 'client/code', 'stat:-1' ),
+	'0' => $this->translate( 'client/code', 'stat:0' ),
+	'1' => $this->translate( 'client/code', 'stat:1' ),
+	'2' => $this->translate( 'client/code', 'stat:2' ),
+	'3' => $this->translate( 'client/code', 'stat:3' ),
+	'4' => $this->translate( 'client/code', 'stat:4' ),
+	'5' => $this->translate( 'client/code', 'stat:5' ),
+	'6' => $this->translate( 'client/code', 'stat:6' ),
+	'7' => $this->translate( 'client/code', 'stat:7' ),
+];
+
+
 ?>
 <div id="order" class="item-order content-block tab-pane fade" role="tabpanel" aria-labelledby="order">
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'orderTotal' ),
+			'group' => 'uo', 'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]
+		);
+	?>
+
 	<table class="list-items table table-striped table-hover">
 		<thead class="list-header">
 			<tr>
-				<th class="order-id">
-					<?= $enc->html( $this->translate( 'admin', 'ID' ) ); ?>
-				</th>
-				<th class="order-base-address-name">
-					<?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?>
-				</th>
-				<th class="order-base-price">
-					<?= $enc->html( $this->translate( 'admin', 'Price' ) ); ?>
-				</th>
-				<th class="order-datepayment">
-					<?= $enc->html( $this->translate( 'admin', 'Purchased' ) ); ?>
-				</th>
-				<th class="order-statuspayment">
-					<?= $enc->html( $this->translate( 'admin', 'Payment status' ) ); ?>
-				</th>
-				<th class="order-base-service-payment">
-					<?= $enc->html( $this->translate( 'admin', 'Payment type' ) ); ?>
-				</th>
+				<?= $this->partial(
+					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
+						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
+						'data' => $columns, 'group' => 'uo', 'action' => 'get', 'fragment' => 'order',
+						'sort' => $this->session( 'aimeos/admin/jqadm/customerorder/sort' ),
+					] );
+				?>
+
 				<th class="actions">
 					<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'order'], [], $newConfig ) ); ?>"
+						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'order'] + $params, [], $newConfig ) ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
+
+					<?= $this->partial(
+						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ), [
+							'data' => $columns, 'fields' => $fields, 'group' => 'uo', 'tabindex' => $this->get( 'tabindex' ),
+						] );
+					?>
 				</th>
 			</tr>
 		</thead>
 		<tbody>
+			<?= $this->partial(
+				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
+					'fields' => $fields, 'group' => 'uo', 'tabindex' => $this->get( 'tabindex' ),
+					'filter' => $this->session( 'aimeos/admin/jqadm/customerorder/filter', [] ),
+					'data' => [
+						'order.id' => ['op' => '==', 'type' => 'number'],
+						'order.type' => ['op' => '=~'],
+						'order.datepayment' => ['op' => '>=', 'type' => 'datetime-local'],
+						'order.statuspayment' => ['op' => '==', 'type' => 'select', 'val' => $paymentStatusList],
+						'order.datedelivery' => ['op' => '>=', 'type' => 'datetime-local'],
+						'order.statusdelivery' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
+						'order.relatedid' => ['op' => '=='],
+						'order.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'order.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'order.editor' => ['op' => '=~'],
+						'order.baseid' => ['op' => '=='],
+					]
+				] );
+			?>
+
 			<?php foreach( $this->get( 'orderItems', [] ) as $id => $item ) : ?>
-				<tr>
-					<td class="order-id"><?= $enc->html( $item->getId() ); ?></td>
-					<td class="order-base-address-name"><?= $enc->html( $name( $baskets, $item ) ); ?></td>
-					<td class="order-base-price"><?= $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></td>
-					<td class="order-datepayment"><?= $enc->html( $item->getDatePayment() ); ?></td>
-					<td class="order-statuspayment"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></td>
-					<td class="order-base-service-payment"><?= $enc->html( $payment( $baskets, $item ) ); ?></td>
+				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>
+				<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>">
+					<?php if( in_array( 'order.id', $fields ) ) : ?>
+						<td class="order-id">
+							<a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getId() ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.type', $fields ) ) : ?>
+						<td class="order-type">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
+						<td class="order-statuspayment">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $paymentStatusList[$item->getPaymentStatus()] ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.datepayment', $fields ) ) : ?>
+						<td class="order-datepayment">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDatePayment() ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
+						<td class="order-statusdelivery">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $deliveryStatusList[$item->getDeliveryStatus()] ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.datedelivery', $fields ) ) : ?>
+						<td class="order-datedelivery">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateDelivery() ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.relatedid', $fields ) ) : ?>
+						<td class="order-relatedid">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getRelatedId() ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.ctime', $fields ) ) : ?>
+						<td class="order-ctime">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.mtime', $fields ) ) : ?>
+						<td class="order-mtime">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.editor', $fields ) ) : ?>
+						<td class="order-editor">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a>
+						</td>
+					<?php endif; ?>
+
+					<?php $baseItem = ( isset( $baseItems[$item->getBaseId()] ) ? $baseItems[$item->getBaseId()] : null ); ?>
+
+					<?php if( in_array( 'order.baseid', $fields ) ) : ?>
+						<td class="order-baseid">
+							<?= $enc->html( $item->getBaseId() ); ?>
+							<?php if( $baseItem ) : ?>
+								- <?= $enc->html( $baseItem->getPrice()->getValue() . '+' . $baseItem->getPrice()->getCosts() . ' ' . $baseItem->getPrice()->getCurrencyId() ); ?>
+							<?php endif; ?>
+						</td>
+					<?php endif; ?>
 
 					<td class="actions">
 						<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
 							href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
 						<a class="btn act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
+							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['resource' => 'order', 'id' => $id] + $params, [], $copyConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
 					</td>
@@ -148,5 +283,13 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
 	<?php if( $this->get( 'orderItems', [] ) === [] ) : ?>
 		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
 	<?php endif; ?>
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'orderTotal' ),
+			'group' => 'uo', 'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]
+		);
+	?>
+
 </div>
 <?= $this->get( 'orderBody' ); ?>

@@ -44,6 +44,7 @@ $delConfig = $this->config( 'admin/jsonadm/url/config', [] );
  * @category Developer
  */
 $default = ['customer.lists.typeid', 'customer.lists.config', 'customer.lists.refid'];
+$default = $this->config( 'admin/jqadm/customer/product/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/customerproduct/fields', $default );
 
 $listItems = $this->get( 'productListItems', [] );
@@ -52,6 +53,14 @@ $refItems = $this->get( 'productItems', [] );
 
 ?>
 <div id="product" class="item-product content-block tab-pane fade" role="tabpanel" aria-labelledby="product">
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'productTotal' ),
+			'group' => 'up', 'page' => $this->session( 'aimeos/admin/jqadm/customerproduct/page', [] )]
+		);
+	?>
+
 	<table class="list-items table table-striped table-hover">
 		<thead class="list-header">
 			<tr>
@@ -59,7 +68,7 @@ $refItems = $this->get( 'productItems', [] );
 					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
 						'group' => 'up', 'action' => 'get', 'fragment' => 'product',
-						'sort' => $this->session( 'aimeos/admin/jqadm/product/sort' ),
+						'sort' => $this->session( 'aimeos/admin/jqadm/customerproduct/sort' ),
 						'data' => [
 							'customer.lists.position' => $this->translate( 'admin', 'Position' ),
 							'customer.lists.status' => $this->translate( 'admin', 'Status' ),
@@ -98,7 +107,7 @@ $refItems = $this->get( 'productItems', [] );
 		<tbody>
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-					'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
+					'filter' => $this->session( 'aimeos/admin/jqadm/customerproduct/filter', [] ),
 					'fields' => $fields, 'group' => 'up', 'tabindex' => $this->get( 'tabindex' ),
 					'data' => [
 						'customer.lists.position' => ['op' => '>=', 'type' => 'number'],
@@ -358,5 +367,13 @@ $refItems = $this->get( 'productItems', [] );
 	<?php if( $this->get( 'productData', [] ) === [] ) : ?>
 		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
 	<?php endif; ?>
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'productTotal' ),
+			'group' => 'up', 'page' =>$this->session( 'aimeos/admin/jqadm/customerproduct/page', [] )]
+		);
+	?>
+
 </div>
 <?= $this->get( 'productBody' ); ?>

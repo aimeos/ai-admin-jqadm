@@ -112,7 +112,8 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/customer/page', [] )]
+		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ),
+		'page' => $this->session( 'aimeos/admin/jqadm/customer/page', [] )]
 	);
 ?>
 
@@ -294,7 +295,8 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ), $this->session( 'aimeos/admin/jqadm/customer/page', [] )]
+		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
+		'page' => $this->session( 'aimeos/admin/jqadm/customer/page', [] )]
 	);
 ?>
 

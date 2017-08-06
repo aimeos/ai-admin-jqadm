@@ -29,6 +29,7 @@ $params = $this->get( 'pageParams', [] );
  * @category Developer
  */
 $default = ['order.id', 'order.datepayment', 'order.statuspayment', 'order.statusdelivery'];
+$default = $this->config( 'admin/jqadm/order/invoice/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/orderinvoice/fields', $default );
 
 
@@ -48,6 +49,14 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 
 ?>
 <div id="invoice" class="item-invoice content-block tab-pane fade" role="tabpanel" aria-labelledby="invoice">
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'invoiceTotal' ),
+			'group' => 'oi', 'page' => $this->session( 'aimeos/admin/jqadm/orderinvoice/page', [] )]
+		);
+	?>
+
 	<table class="list-items table table-striped table-hover">
 		<thead class="list-header">
 			<tr>
@@ -94,7 +103,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 		<tbody>
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-					'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
+					'filter' => $this->session( 'aimeos/admin/jqadm/orderinvoice/filter', [] ),
 					'fields' => $fields, 'group' => 'oi', 'tabindex' => $this->get( 'tabindex' ),
 					'data' => [
 						'order.id' => ['oi' => '==', 'type' => 'number'],
@@ -366,5 +375,13 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 	<?php if( $this->get( 'invoiceData/order.id', [] ) === [] ) : ?>
 		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
 	<?php endif; ?>
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'invoiceTotal' ),
+			'group' => 'oi', 'page' =>$this->session( 'aimeos/admin/jqadm/orderinvoice/page', [] )]
+		);
+	?>
+
 </div>
 <?= $this->get( 'invoiceIBody' ); ?>

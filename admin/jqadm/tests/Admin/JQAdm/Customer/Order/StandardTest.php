@@ -73,10 +73,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Customer\Order\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'addOrders' ) )
+			->setMethods( array( 'storeSearchParams' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'addOrders' )
+		$object->expects( $this->once() )->method( 'storeSearchParams' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
@@ -89,10 +89,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Customer\Order\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'addOrders' ) )
+			->setMethods( array( 'storeSearchParams' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'addOrders' )
+		$object->expects( $this->once() )->method( 'storeSearchParams' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );

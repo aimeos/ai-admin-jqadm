@@ -137,12 +137,14 @@ class Standard
 
 		try
 		{
-			$params = $this->storeSearchParams( $view->param(), 'catalogproduct' );
-			$listItems = $this->getListItems( $view->item, $params );
+			$total = 0;
+			$params = $this->storeSearchParams( $view->param( 'cp', [] ), 'catalogproduct' );
+			$listItems = $this->getListItems( $view->item, $params, $total );
 
 			$view->productItems = $this->getProductItems( $listItems );
 			$view->productData = $this->toArray( $listItems );
 			$view->productListTypes = $this->getListTypes();
+			$view->productTotal = $total;
 			$view->productBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -297,9 +299,10 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Catalog\Item\Iface $item Catalog item object
 	 * @param array $params Associative list of GET/POST parameters
+	 * @param integer $total Value/result parameter that will contain the item total afterwards
 	 * @return \Aimeos\MShop\Common\Item\List\Iface[] Catalog list items referencing the products
 	 */
-	protected function getListItems( \Aimeos\MShop\Catalog\Item\Iface $item, array $params = [] )
+	protected function getListItems( \Aimeos\MShop\Catalog\Item\Iface $item, array $params = [], &$total )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists' );
 
@@ -314,7 +317,7 @@ class Standard
 		];
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		return $manager->searchItems( $search );
+		return $manager->searchItems( $search, [], $total );
 	}
 
 

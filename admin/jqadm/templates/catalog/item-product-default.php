@@ -11,7 +11,7 @@ $selected = function( $key, $code ) {
 
 
 $enc = $this->encoder();
-$searchParam = $params = $this->get( 'pageParams', [] );
+$params = $this->get( 'pageParams', [] );
 
 $getTarget = $this->config( 'admin/jqadm/url/get/target' );
 $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
@@ -30,20 +30,21 @@ $delConfig = $this->config( 'admin/jsonadm/url/config', [] );
 
 
 /** admin/jqadm/catalog/product/fields
- * List of list and product columns that should be displayed in the catalog product view
+ * List of catalog list and product columns that should be displayed in the catalogproduct view
  *
- * Changes the list of list and product columns shown by default in the catalog product view.
- * The columns can be changed by the editor as required within the administraiton
- * interface.
+ * Changes the list of catalog list and product columns shown by default in the
+ * catalog product view. The columns can be changed by the editor as required
+ * within the administraiton interface.
  *
  * The names of the colums are in fact the search keys defined by the managers,
  * e.g. "catalog.lists.status" for the status value.
  *
  * @param array List of field names, i.e. search keys
- * @since 2017.07
+ * @since 2017.10
  * @category Developer
  */
-$default = $this->config( 'admin/jqadm/product/fields', ['catalog.lists.status', 'catalog.lists.typeid', 'catalog.lists.position', 'catalog.lists.refid'] );
+$default = ['catalog.lists.status', 'catalog.lists.typeid', 'catalog.lists.position', 'catalog.lists.refid'];
+$default = $this->config( 'admin/jqadm/catalog/product/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/catalogproduct/fields', $default );
 
 $listItems = $this->get( 'productListItems', [] );
@@ -52,6 +53,14 @@ $refItems = $this->get( 'productItems', [] );
 
 ?>
 <div id="product" class="item-product content-block tab-pane fade" role="tabpanel" aria-labelledby="product">
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'productTotal' ),
+			'group' => 'cp', 'page' => $this->session( 'aimeos/admin/jqadm/catalogproduct/page', [] )]
+		);
+	?>
+
 	<table class="list-items table table-striped table-hover">
 		<thead class="list-header">
 			<tr>
@@ -59,7 +68,7 @@ $refItems = $this->get( 'productItems', [] );
 					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
 						'group' => 'cp', 'action' => 'get', 'fragment' => 'product',
-						'sort' => $this->session( 'aimeos/admin/jqadm/product/sort' ),
+						'sort' => $this->session( 'aimeos/admin/jqadm/catalogproduct/sort' ),
 						'data' => [
 							'catalog.lists.position' => $this->translate( 'admin', 'Position' ),
 							'catalog.lists.status' => $this->translate( 'admin', 'Status' ),
@@ -99,7 +108,7 @@ $refItems = $this->get( 'productItems', [] );
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
 					'fields' => $fields, 'group' => 'cp', 'tabindex' => $this->get( 'tabindex' ),
-					'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
+					'filter' => $this->session( 'aimeos/admin/jqadm/catalogproduct/filter', [] ),
 					'data' => [
 						'catalog.lists.position' => ['op' => '>=', 'type' => 'number'],
 						'catalog.lists.status' => ['op' => '==', 'type' => 'select', 'val' => [
@@ -358,6 +367,13 @@ $refItems = $this->get( 'productItems', [] );
 	<?php if( $this->get( 'productData', [] ) === [] ) : ?>
 		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
 	<?php endif; ?>
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'productTotal' ),
+			'group' => 'cp', 'page' =>$this->session( 'aimeos/admin/jqadm/catalogproduct/page', [] )]
+		);
+	?>
 
 </div>
 <?= $this->get( 'productBody' ); ?>

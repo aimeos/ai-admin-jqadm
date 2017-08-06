@@ -93,10 +93,12 @@ class Standard
 
 		try
 		{
-			$params = $this->storeSearchParams( $view->param(), 'orderinvoice' );
-			$orderItems = $this->getOrderItems( $view->item, $params );
+			$total = 0;
+			$params = $this->storeSearchParams( $view->param( 'oi', [] ), 'orderinvoice' );
+			$orderItems = $this->getOrderItems( $view->item, $params, $total );
 
 			$view->invoiceData = $this->toArray( $orderItems );
+			$view->invoiceTotal = $total;
 			$view->invoiceBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -261,19 +263,24 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Order\Item\Base\Iface $order Current order base item
 	 * @param string $params GET/POST parameters containing the filter values
+	 * @param integer $total Value/result parameter that will contain the item total afterwards
 	 * @return \Aimeos\MShop\Order\Item\Iface[] Associative list of order IDs as keys and items as values
 	 */
-	protected function getOrderItems( \Aimeos\MShop\Order\Item\Base\Iface $order, array $params )
+	protected function getOrderItems( \Aimeos\MShop\Order\Item\Base\Iface $order, array $params, &$total )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
 
 		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'order.baseid', $order->getId() ) );
-		$search->setSortations( array( $search->sort( '-', 'order.ctime' ) ) );
+		$search->setSortations( [$search->sort( '-', 'order.ctime' )] );
 
 		$search = $this->initCriteria( $search, $params, 'orderinvoice' );
+		$expr = [
+			$search->compare( '==', 'order.baseid', $order->getId() ),
+			$search->getConditions(),
+		];
+		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		return $manager->searchItems( $search );
+		return $manager->searchItems( $search, [], $total );
 	}
 
 

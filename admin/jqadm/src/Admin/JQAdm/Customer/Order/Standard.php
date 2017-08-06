@@ -93,7 +93,14 @@ class Standard
 
 		try
 		{
-			$this->addOrders( $view );
+			$total = 0;
+			$params = $this->storeSearchParams( $view->param( 'uo', [] ), 'customerorder' );
+			$orderItems = $this->getOrderItems( $view->item, $params, $total );
+			$baseItems = $this->getOrderBaseItems( $orderItems );
+
+			$view->orderItems = $orderItems;
+			$view->orderBaseItems = $baseItems;
+			$view->orderTotal = $total;
 			$view->orderBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -121,16 +128,6 @@ class Standard
 	public function save()
 	{
 		return $this->get();
-	}
-
-
-	/**
-	 * Returns a list of resource according to the conditions
-	 *
-	 * @return string admin output to display
-	 */
-	public function search()
-	{
 	}
 
 
@@ -221,29 +218,52 @@ class Standard
 
 
 	/**
-	 * Adds the latest orders to the view object
+	 * Returns the basket items for the given orders
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object to add the parameters to
+	 * @param \Aimeos\MShop\Order\Item\Iface[] $items Order item objects
+	 * @return \Aimeos\MShop\Order\Item\Base\Iface[] Basket items
 	 */
-	protected function addOrders( \Aimeos\MW\View\Iface $view )
+	protected function getOrderBaseItems( array $items )
 	{
-		$basketItems = [];
-		$params = $this->storeSearchParams( $view->param(), 'customerorder' );
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
-		$baseManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
-
-		$search = $this->initCriteria( $manager->createSearch(), $params );
-		$search->setConditions( $search->compare( '==', 'order.base.customerid', $view->item->getId() ) );
-		$search->setSortations( array( $search->sort( '-', 'order.ctime' ) ) );
-
-		$items = $manager->searchItems( $search );
+		$ids = [];
 
 		foreach( $items as $item ) {
-			$basketItems[$item->getBaseId()] = $baseManager->load( $item->getBaseId() );
+			$ids[] = $item->getBaseId();
 		}
 
-		$view->orderBaskets = $basketItems;
-		$view->orderItems = $items;
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'order.base.id', $ids ) );
+		$search->setSlice( 0, 0x7fffffff );
+
+		return $manager->searchItems( $search );
+	}
+
+
+	/**
+	 * Returns the order items of the customer
+	 *
+	 * @param \Aimeos\MShop\Customer\Item\Iface $item Customer item object
+	 * @param array $params Associative list of GET/POST parameters
+	 * @param integer $total Value/result parameter that will contain the item total afterwards
+	 * @return \Aimeos\MShop\Order\Item\Iface[] Order items of the customer
+	 */
+	protected function getOrderItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [], &$total )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
+
+		$search = $manager->createSearch();
+		$search->setSortations( [$search->sort( '-', 'order.ctime' )] );
+
+		$search = $this->initCriteria( $search, $params );
+		$expr = [
+			$search->compare( '==', 'order.base.customerid', $item->getId() ),
+			$search->getConditions(),
+		];
+		$search->setConditions( $search->combine( '&&', $expr ) );
+
+		return $manager->searchItems( $search, [], $total );
 	}
 
 

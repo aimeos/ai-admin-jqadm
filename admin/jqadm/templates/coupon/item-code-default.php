@@ -18,6 +18,21 @@ $jsonConfig = $this->config( 'admin/jsonadm/url/config', [] );
 $enc = $this->encoder();
 $params = $this->get( 'pageParams', [] );
 
+
+/** admin/jqadm/coupon/code/fields
+ * List of coupon code columns that should be displayed in the coupon code view
+ *
+ * Changes the list of coupon code columns shown by default in the coupon code view.
+ * The columns can be changed by the editor as required within the administraiton
+ * interface.
+ *
+ * The names of the colums are in fact the search keys defined by the managers,
+ * e.g. "coupon.code.code" for the ID value.
+ *
+ * @param array List of field names, i.e. search keys
+ * @since 2017.10
+ * @category Developer
+ */
 $default = $this->config( 'admin/jqadm/coupon/code/fields', ['coupon.code.code', 'coupon.code.count'] );
 $fields = $this->session( 'aimeos/admin/jqadm/couponcode/fields', $default );
 
@@ -34,6 +49,14 @@ $columnList = [
 
 ?>
 <div id="code" class="item-code content-block tab-pane fade" role="tabpanel" aria-labelledby="code">
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'codeTotal' ),
+			'group' => 'vc', 'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]
+		);
+	?>
+
 	<table class="list-items table table-hover">
 		<thead class="list-header">
 			<tr>
@@ -195,5 +218,12 @@ $columnList = [
 	<?php if( $this->get( 'codeData/coupon.code.siteid', [] ) === [] ) : ?>
 		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
 	<?php endif; ?>
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
+			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'codeTotal' ),
+			'group' => 'vc', 'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]
+		);
+	?>
 </div>
 <?= $this->get( 'codeBody' ); ?>
