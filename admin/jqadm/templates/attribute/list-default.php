@@ -52,11 +52,11 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = $this->config( 'admin/jqadm/attribute/fields', ['attribute.status', 'attribute.typeid', 'attribute.code', 'attribute.label'] );
+$default = ['attribute.status', 'attribute.typeid', 'attribute.code', 'attribute.label'];
+$default = $this->config( 'admin/jqadm/attribute/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/attribute/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
-$pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
 $sortcode = $this->param( 'sort' );
 
 $typeList = [];
@@ -100,7 +100,7 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/attribute/page', [] )]
 	);
 ?>
@@ -220,7 +220,7 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/attribute/page', [] )]
 	);
 ?>

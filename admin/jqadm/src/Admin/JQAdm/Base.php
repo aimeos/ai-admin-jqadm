@@ -658,7 +658,7 @@ abstract class Base
 	private function initCriteriaSlice( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
 		$start = ( isset( $params['offset'] ) ? $params['offset'] : 0 );
-		$size = ( isset( $params['limit'] ) ? $params['limit'] : 100 );
+		$size = ( isset( $params['limit'] ) ? $params['limit'] : 25 );
 
 		return $criteria->setSlice( $start, $size );
 	}

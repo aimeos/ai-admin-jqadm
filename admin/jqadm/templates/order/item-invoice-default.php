@@ -53,7 +53,8 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'invoiceTotal' ),
-			'group' => 'oi', 'page' => $this->session( 'aimeos/admin/jqadm/orderinvoice/page', [] )]
+			'group' => 'oi', 'action' => 'get', 'fragment' => 'invoice',
+			'page' => $this->session( 'aimeos/admin/jqadm/orderinvoice/page', [] )]
 		);
 	?>
 
@@ -373,13 +374,14 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 	</table>
 
 	<?php if( $this->get( 'invoiceData/order.id', [] ) === [] ) : ?>
-		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
+		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
 	<?php endif; ?>
 
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'invoiceTotal' ),
-			'group' => 'oi', 'page' =>$this->session( 'aimeos/admin/jqadm/orderinvoice/page', [] )]
+			'group' => 'oi', 'action' => 'get', 'fragment' => 'invoice',
+			'page' =>$this->session( 'aimeos/admin/jqadm/orderinvoice/page', [] )]
 		);
 	?>
 

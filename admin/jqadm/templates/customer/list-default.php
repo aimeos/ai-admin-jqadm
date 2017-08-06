@@ -48,11 +48,11 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = $this->config( 'admin/jqadm/customer/fields', ['customer.code', 'customer.lastname', 'customer.postal', 'customer.city'] );
+$default = ['customer.code', 'customer.lastname', 'customer.postal', 'customer.city'];
+$default = $this->config( 'admin/jqadm/customer/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/customer/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
-$pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
 
 $langList = [];
 foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) {
@@ -112,7 +112,7 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/customer/page', [] )]
 	);
 ?>
@@ -295,7 +295,7 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/customer/page', [] )]
 	);
 ?>

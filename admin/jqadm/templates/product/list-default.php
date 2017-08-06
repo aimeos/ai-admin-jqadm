@@ -513,7 +513,6 @@ $default = $this->config( 'admin/jqadm/product/fields', ['product.id', 'product.
 $fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
-$pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
 $sortcode = $this->session( 'aimeos/admin/jqadm/product/sort' );
 
 $typeList = [];
@@ -558,7 +557,7 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
 		'page' =>$this->session( 'aimeos/admin/jqadm/product/page', [] )]
 	);
 ?>
@@ -674,7 +673,7 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/product/page', [] )]
 	);
 ?>

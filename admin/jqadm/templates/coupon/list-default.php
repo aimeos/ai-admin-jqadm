@@ -34,11 +34,25 @@ $delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
 $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 
 
-$default = $this->config( 'admin/jqadm/coupon/fields', ['coupon.status', 'coupon.label', 'coupon.provider'] );
+/** admin/jqadm/coupon/fields
+ * List of coupon columns that should be displayed in the list view
+ *
+ * Changes the list of coupon columns shown by default in the coupon list view.
+ * The columns can be changed by the editor as required within the administraiton
+ * interface.
+ *
+ * The names of the colums are in fact the search keys defined by the managers,
+ * e.g. "coupon.id" for the customer ID.
+ *
+ * @param array List of field names, i.e. search keys
+ * @since 2017.07
+ * @category Developer
+ */
+$default = ['coupon.status', 'coupon.label', 'coupon.provider'];
+$default = $this->config( 'admin/jqadm/coupon/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/coupon/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
-$pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
 $sortcode = $this->param( 'sort' );
 
 $typeList = [];
@@ -81,7 +95,7 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/coupon/page', [] )]
 	);
 ?>
@@ -192,7 +206,7 @@ $columnList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/coupon/page', [] )]
 	);
 ?>

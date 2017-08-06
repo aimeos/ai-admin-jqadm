@@ -103,7 +103,8 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
  * @since 2017.10
  * @category Developer
  */
-$default = $this->config( 'admin/jqadm/customer/order/fields', ['order.id', 'order.datepayment', 'order.statuspayment', 'order.baseid'] );
+$default = ['order.id', 'order.datepayment', 'order.statuspayment', 'order.baseid'];
+$default = $this->config( 'admin/jqadm/customer/order/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/customerorder/fields', $default );
 
 $columns = [
@@ -150,7 +151,8 @@ $deliveryStatusList = [
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'orderTotal' ),
-			'group' => 'uo', 'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]
+			'group' => 'uo', 'action' => 'get', 'fragment' => 'order',
+			'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]
 		);
 	?>
 
@@ -287,7 +289,8 @@ $deliveryStatusList = [
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'orderTotal' ),
-			'group' => 'uo', 'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]
+			'group' => 'uo', 'action' => 'get', 'fragment' => 'order',
+			'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]
 		);
 	?>
 

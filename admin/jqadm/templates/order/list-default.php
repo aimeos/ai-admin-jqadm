@@ -46,11 +46,10 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
 $default = $this->config( 'admin/jqadm/order/fields', ['order.id', 'order.ctime', 'order.statuspayment', 'order.base.address.lastname'] );
 $fields = $this->session( 'aimeos/admin/jqadm/order/fields', $default );
 
+$baseItems = $this->get( 'baseItems', [] );
 $params = $this->get( 'pageParams', [] );
-$pageParams = ['total' => $this->get( 'total', 0 ), 'pageParams' => $params];
 $sortcode = $this->param( 'sort' );
 
-$baseItems = $this->get( 'baseItems', [] );
 
 $columnList = [
 	'order.id' => $this->translate( 'admin', 'Invoice' ),
@@ -151,7 +150,7 @@ $statusList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'top', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/order/page', [] )]
 	);
 ?>
@@ -417,7 +416,7 @@ $statusList = [
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
-		['pageParams' => $pageParams, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
+		['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/order/page', [] )]
 	);
 ?>

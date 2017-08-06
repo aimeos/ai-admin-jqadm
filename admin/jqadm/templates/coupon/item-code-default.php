@@ -53,7 +53,8 @@ $columnList = [
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'codeTotal' ),
-			'group' => 'vc', 'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]
+			'group' => 'vc', 'action' => 'get', 'fragment' => 'code',
+			'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]
 		);
 	?>
 
@@ -222,7 +223,8 @@ $columnList = [
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'codeTotal' ),
-			'group' => 'vc', 'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]
+			'group' => 'vc', 'action' => 'get', 'fragment' => 'code',
+			'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]
 		);
 	?>
 </div>
