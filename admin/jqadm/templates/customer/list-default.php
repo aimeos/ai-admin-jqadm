@@ -289,7 +289,7 @@ $columnList = [
 	</table>
 
 	<?php if( $this->get( 'items', [] ) === [] ) : ?>
-		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
+		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
 	<?php endif; ?>
 </form>
 

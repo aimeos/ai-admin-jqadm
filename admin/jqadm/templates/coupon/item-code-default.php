@@ -216,7 +216,7 @@ $columnList = [
 	</table>
 
 	<?php if( $this->get( 'codeData/coupon.code.siteid', [] ) === [] ) : ?>
-		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
+		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
 	<?php endif; ?>
 
 	<?= $this->partial(

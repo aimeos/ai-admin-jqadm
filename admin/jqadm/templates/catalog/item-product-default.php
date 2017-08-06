@@ -365,7 +365,7 @@ $refItems = $this->get( 'productItems', [] );
 	</table>
 
 	<?php if( $this->get( 'productData', [] ) === [] ) : ?>
-		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
+		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
 	<?php endif; ?>
 
 	<?= $this->partial(
