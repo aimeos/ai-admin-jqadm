@@ -148,7 +148,7 @@ class Standard
 			$view->productBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
-				$view->productBody .= $client->search();
+				$view->productBody .= $client->get();
 			}
 		}
 		catch( \Aimeos\MShop\Exception $e )

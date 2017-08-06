@@ -57,7 +57,7 @@ $refItems = $this->get( 'productItems', [] );
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'productTotal' ),
-			'group' => 'cp', 'action' => 'get', 'fragment' => 'product',
+			'group' => 'cp', 'action' => ( $this->param( 'id') ? 'get' : 'search' ), 'fragment' => 'product',
 			'page' => $this->session( 'aimeos/admin/jqadm/catalogproduct/page', [] )]
 		);
 	?>
@@ -372,7 +372,7 @@ $refItems = $this->get( 'productItems', [] );
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'productTotal' ),
-			'group' => 'cp', 'action' => 'get', 'fragment' => 'product',
+			'group' => 'cp', ( $this->param( 'id') ? 'get' : 'search' ), 'fragment' => 'product',
 			'page' =>$this->session( 'aimeos/admin/jqadm/catalogproduct/page', [] )]
 		);
 	?>
