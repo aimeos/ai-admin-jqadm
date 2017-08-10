@@ -70,10 +70,26 @@ $columnList = [
 				?>
 
 				<th class="actions">
-					<a class="btn fa act-add" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
-					</a>
+					<div class="dropdown list-menu">
+						<button class="btn act-menu fa" type="button" id="menuButton"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>">
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="menuButton">
+							<li class="dropdown-item">
+								<a class="btn act-add fa label" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+									<?= $enc->html( $this->translate( 'admin', 'Add' ) ); ?>
+								</a>
+							</li>
+							<li class="dropdown-item">
+								<div class="btn fa fa-upload label">
+									<?= $enc->html( $this->translate( 'admin', 'Import' ) ); ?>
+									<input class="fileupload act-import" type="file" name="code[file]" tabindex="<?= $this->get( 'tabindex' ); ?>" />
+								</div>
+							</li>
+						</ul>
+					</div>
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),

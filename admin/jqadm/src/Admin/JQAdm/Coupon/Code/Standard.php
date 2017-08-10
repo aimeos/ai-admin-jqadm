@@ -134,6 +134,7 @@ class Standard
 		try
 		{
 			$this->storeSearchParams( $view->param( 'vc', [] ), 'couponcode' );
+			$this->storeFile( $view->item, (array) $view->request()->getUploadedFiles() );
 			$this->fromArray( $view->item, $view->param( 'code', [] ) );
 			$view->couponBody = '';
 
@@ -248,12 +249,44 @@ class Standard
 
 
 	/**
-	 * Returns the coupon code items referenced by the coupon item
+	 * Checks if an error during upload occured
+	 *
+	 * @param \Psr\Http\Message\UploadedFileInterface $file Uploaded file
+	 * @throws \Aimeos\Admin\JQAdm\Exception If an error occured during upload
+	 */
+	protected function checkFileUpload( \Psr\Http\Message\UploadedFileInterface $file )
+	{
+		if( $file->getError() !== UPLOAD_ERR_OK )
+		{
+			switch( $file->getError() )
+			{
+				case UPLOAD_ERR_INI_SIZE:
+				case UPLOAD_ERR_FORM_SIZE:
+					throw new \Aimeos\Admin\JQAdm\Exception( 'The uploaded file exceeds the max. allowed filesize' );
+				case UPLOAD_ERR_PARTIAL:
+					throw new \Aimeos\Admin\JQAdm\Exception( 'The uploaded file was only partially uploaded' );
+				case UPLOAD_ERR_NO_FILE:
+					throw new \Aimeos\Admin\JQAdm\Exception( 'No file was uploaded' );
+				case UPLOAD_ERR_NO_TMP_DIR:
+					throw new \Aimeos\Admin\JQAdm\Exception( 'Temporary folder is missing' );
+				case UPLOAD_ERR_CANT_WRITE:
+					throw new \Aimeos\Admin\JQAdm\Exception( 'Failed to write file to disk' );
+				case UPLOAD_ERR_EXTENSION:
+					throw new \Aimeos\Admin\JQAdm\Exception( 'File upload stopped by extension' );
+				default:
+					throw new \Aimeos\Admin\JQAdm\Exception( 'Unknown upload error' );
+			}
+		}
+	}
+
+
+	/**
+	 * Returns the coupon code items associated by the coupon item
 	 *
 	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
 	 * @param array $params Associative list of GET/POST parameters
 	 * @param integer $total Value/result parameter that will contain the item total afterwards
-	 * @return \Aimeos\MShop\Common\Item\List\Iface[] Catalog list items referencing the products
+	 * @return \Aimeos\MShop\Coupon\Item\Code\Iface[] Coupon code items associated to the coupon item
 	 */
 	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], &$total )
 	{
@@ -307,6 +340,32 @@ class Standard
 
 			$manager->saveItem( $citem, false );
 		}
+	}
+
+
+	/**
+	 * Stores the uploaded CSV file containing the coupon codes
+	 *
+	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
+	 * @param array $files File upload array including the PSR-7 file upload objects
+	 */
+	protected function storeFile( \Aimeos\MShop\Coupon\Item\Iface $item, array $files )
+	{
+		if( ( $file = $this->getValue( $files, 'code/file' ) ) == null ) {
+			return;
+		}
+
+		$this->checkFileUpload( $file );
+
+		$context = $this->getContext();
+		$fs = $context->getFilesystemManager()->get( 'fs-import' );
+		$dir = 'couponcode/' . $context->getLocale()->getSite()->getCode();
+
+		if( $fs->isdir( $dir ) === false ) {
+			$fs->mkdir( $dir );
+		}
+
+		$fs->writes( $dir . '/' . $item->getId() . '.csv', $file->getStream()->detach() );
 	}
 
 
