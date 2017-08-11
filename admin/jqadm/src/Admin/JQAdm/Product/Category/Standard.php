@@ -373,26 +373,29 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists' );
 		$listIds = (array) $this->getValue( $data, 'catalog.lists.id', [] );
-		$map = $this->getListItems( $item->getId() );
+		$listItems = $map = $this->getListItems( $item->getId() );
 
 
 		foreach( $listIds as $idx => $listid )
 		{
 			if( isset( $map[$listid] ) ) {
-				unset( $map[$listid], $listIds[$idx] );
+				unset( $map[$listid] );
 			}
 		}
 
 		$manager->deleteItems( array_keys( $map ) );
 
 
-		$litem = $manager->createItem();
-		$litem->setRefId( $item->getId() );
-		$litem->setDomain( 'product' );
-
 		foreach( $listIds as $idx => $listid )
 		{
-			$litem->setId( null );
+			if( isset( $listItems[$listid] ) ) {
+				$litem = $listItems[$listid];
+			} else {
+				$litem = $manager->createItem();
+			}
+
+			$litem->setDomain( 'product' );
+			$litem->setRefId( $item->getId() );
 			$litem->setParentId( $this->getValue( $data, 'catalog.id/' . $idx ) );
 			$litem->setTypeId( $this->getValue( $data, 'catalog.lists.typeid/' . $idx ) );
 
