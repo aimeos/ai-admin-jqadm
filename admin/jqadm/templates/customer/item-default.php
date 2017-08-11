@@ -124,7 +124,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Password' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-email" type="password" required="required" tabindex="1" autocomplete="off"
+							<input class="form-control item-password" type="password" required="required" tabindex="1" autocomplete="off"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Password (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/customer.password' ) ); ?>"
