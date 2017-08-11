@@ -19,7 +19,7 @@ return [
 		],
 		'resources' => [
 			'd' => 'dashboard', 'o' => 'order', 'u' => 'customer', 'p' => 'product',
-			'c' => 'catalog', 'a' => 'attribute', 'v' => 'coupon'
+			'c' => 'catalog', 'a' => 'attribute', 'v' => 'coupon',
 			'r' => 'supplier', /*'s' => 'service', 'g' => 'plugin', 'l' => 'locale', 't' => 'type'*/
 		],
 		'resources-admin' => ['supplier', 'service', 'plugin', 'locale', 'type'],
