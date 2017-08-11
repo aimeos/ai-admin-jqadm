@@ -496,7 +496,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		$domains = ['address', 'customer/group'];
+		$domains = ['customer/address', 'customer/group'];
 
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/customer/domains', $domains );
 	}
