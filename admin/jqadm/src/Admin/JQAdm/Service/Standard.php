@@ -352,7 +352,7 @@ class Standard
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
-			$view->filterServices = $manager->getSearchServices( true );
+			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemTypes = $this->getTypeItems();
 			$view->total = $total;
