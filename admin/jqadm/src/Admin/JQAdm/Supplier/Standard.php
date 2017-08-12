@@ -79,7 +79,7 @@ class Standard
 	 * @since 2017.10
 	 * @category Developer
 	 */
-	private $subPartNames = ['address'/*, 'product'*/];
+	private $subPartNames = ['address', 'product'];
 
 
 	/**
