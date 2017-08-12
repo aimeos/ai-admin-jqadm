@@ -63,8 +63,9 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
 $columnList = [
 	'coupon.id' => $this->translate( 'admin', 'ID' ),
 	'coupon.status' => $this->translate( 'admin', 'Status' ),
-	'coupon.label' => $this->translate( 'admin', 'Label' ),
 	'coupon.provider' => $this->translate( 'admin', 'Provider' ),
+	'coupon.label' => $this->translate( 'admin', 'Label' ),
+	'coupon.config' => $this->translate( 'admin', 'Config' ),
 	'coupon.datestart' => $this->translate( 'admin', 'Start date' ),
 	'coupon.dateend' => $this->translate( 'admin', 'End date' ),
 	'coupon.ctime' => $this->translate( 'admin', 'Created' ),
@@ -140,8 +141,9 @@ $columnList = [
 							'-1' => $this->translate( 'admin', 'status:review' ),
 							'-2' => $this->translate( 'admin', 'status:archive' ),
 						]],
-						'coupon.label' => [],
 						'coupon.provider' => [],
+						'coupon.label' => [],
+						'coupon.config' => [],
 						'coupon.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
@@ -160,11 +162,14 @@ $columnList = [
 					<?php if( in_array( 'coupon.status', $fields ) ) : ?>
 						<td class="coupon-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
 					<?php endif; ?>
+					<?php if( in_array( 'coupon.provider', $fields ) ) : ?>
+						<td class="coupon-provider"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getProvider() ); ?></a></td>
+					<?php endif; ?>
 					<?php if( in_array( 'coupon.label', $fields ) ) : ?>
 						<td class="coupon-label"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getLabel() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'coupon.provider', $fields ) ) : ?>
-						<td class="coupon-provider"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getProvider() ); ?></a></td>
+					<?php if( in_array( 'coupon.config', $fields ) ) : ?>
+						<td class="coupon-config"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( json_encode( $item->getConfig() ) ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.datestart', $fields ) ) : ?>
 						<td class="coupon-datestart"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateStart() ); ?></a></td>
