@@ -48,7 +48,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = ['service.status', 'service.label', 'service.provider'];
+$default = ['service.status', 'service.typeid', 'service.label', 'service.provider'];
 $default = $this->config( 'admin/jqadm/service/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/service/fields', $default );
 

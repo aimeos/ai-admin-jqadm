@@ -9,8 +9,6 @@ $selected = function( $key, $code ) {
 	return ( $key == $code ? 'selected="selected"' : '' );
 };
 
-$enc = $this->encoder();
-
 
 $target = $this->config( 'admin/jqadm/url/save/target' );
 $cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
@@ -20,12 +18,16 @@ $config = $this->config( 'admin/jqadm/url/save/config', [] );
 $subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
+$enc = $this->encoder();
+
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
-<form class="item item-service form-horizontal" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'service.id' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/service.id' ) ); ?>" />
+<form class="item item-service form-horizontal" method="POST" enctype="multipart/form-data"
+	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'service.id' ) ) ); ?>"
+		value="<?= $enc->attr( $this->get( 'itemData/service.id' ) ); ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ); ?>" value="get" />
 	<?= $this->csrf()->formfield(); ?>
 
@@ -118,7 +120,8 @@ $params = $this->get( 'pageParams', [] );
 								</option>
 
 								<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
-									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>" <?= $selected( $this->get( 'itemData/product.typeid' ), $id ); ?> >
+									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>"
+										<?= $selected( $this->get( 'itemData/service.typeid' ), $id ); ?> >
 										<?= $enc->html( $typeItem->getLabel() ); ?>
 									</option>
 								<?php endforeach; ?>
@@ -158,7 +161,8 @@ $params = $this->get( 'pageParams', [] );
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'service.provider' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/service.provider' ) ); ?>"
-								data-names="<?= implode( ',', $this->get( 'itemProviders', [] ) ); ?>"
+								data-delivery="<?= implode( ',', $this->get( 'itemProviders/delivery', [] ) ); ?>"
+								data-payment="<?= implode( ',', $this->get( 'itemProviders/payment', [] ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?> />
 							<div class="dropdown input-group-addon">
 								<a class="dropdown-add" id="decoratorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>

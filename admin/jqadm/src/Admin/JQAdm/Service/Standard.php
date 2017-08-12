@@ -349,7 +349,10 @@ class Standard
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'service' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'service' );
-			$search = $this->initCriteria( $manager->createSearch(), $params );
+
+			$search = $manager->createSearch();
+			$search->setSortations( [$search->sort( '+', 'service.typeid' ), $search->sort( '+', 'service.position' )] );
+			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
@@ -529,7 +532,10 @@ class Standard
 	protected function getProviderNames()
 	{
 		$ds = DIRECTORY_SEPARATOR;
-		return $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' );
+		return [
+			'delivery' => $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Delivery' ),
+			'payment' => $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Payment' ),
+		];
 	}
 
 

@@ -86,8 +86,10 @@ Aimeos.Service.Item = {
 
 		var input = $(".aimeos .item-service").on("focus", ".item-provider", function(ev) {
 
+			var type = $(".item-typeid option:selected", ev.delegateTarget).data("code");
+
 			$(this).autocomplete({
-				source: $(this).data("names").split(","),
+				source: $(this).data(type).split(","),
 				minLength: 0,
 				delay: 0
 			});
