@@ -55,11 +55,6 @@ $fields = $this->session( 'aimeos/admin/jqadm/coupon/fields', $default );
 $params = $this->get( 'pageParams', [] );
 $sortcode = $this->param( 'sort' );
 
-$typeList = [];
-foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
-	$typeList[$id] = $typeItem->getCode();
-}
-
 $columnList = [
 	'coupon.id' => $this->translate( 'admin', 'ID' ),
 	'coupon.status' => $this->translate( 'admin', 'Status' ),

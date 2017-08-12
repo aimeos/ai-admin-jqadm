@@ -54,11 +54,6 @@ $fields = $this->session( 'aimeos/admin/jqadm/supplier/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
 
-$langList = [];
-foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) {
-	$langList[$langId] = $this->translate( 'client/language', $langId );
-}
-
 $columnList = [
 	'supplier.id' => $this->translate( 'admin', 'ID' ),
 	'supplier.status' => $this->translate( 'admin', 'Status' ),
