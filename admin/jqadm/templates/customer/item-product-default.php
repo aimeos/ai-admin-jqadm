@@ -136,6 +136,8 @@ $refItems = $this->get( 'productItems', [] );
 								<div class="col-sm-8">
 									<input class="item-listid" type="hidden" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.id', '' ) ) ); ?>" />
+									<input class="item-config" type="hidden" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.config', '' ) ) ); ?>" />
 									<input class="item-label" type="hidden" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'product', 'product.label', '' ) ) ); ?>" />
 									<select class="combobox-prototype item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"

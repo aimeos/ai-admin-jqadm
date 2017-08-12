@@ -395,9 +395,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'customer.lists.id', $listIds ) );
 		$search->setSlice( 0, 0x7fffffff );
 
-		$listItem = $listManager->createItem();
-		$listItem->setParentId( $item->getId() );
-		$listItem->setDomain( 'product' );
+		$listItems = $listManager->searchItems( $search );
 
 
 		foreach( (array) $listIds as $idx => $listid )
@@ -405,10 +403,11 @@ class Standard
 			if( isset( $listItems[$listid] ) ) {
 				$litem = $listItems[$listid];
 			} else {
-				$litem = clone $listItem;
+				$litem = $listManager->createItem();
 			}
 
-			$litem->setId( $listid ?: null );
+			$litem->setParentId( $item->getId() );
+			$litem->setDomain( 'product' );
 
 			if( isset( $data['customer.lists.refid'][$idx] ) ) {
 				$litem->setRefId( $this->getValue( $data, 'customer.lists.refid/' . $idx ) );
@@ -440,7 +439,7 @@ class Standard
 				$litem->setConfig( $conf );
 			}
 
-			if( isset( $data['config'][$idx]['key'] ) )
+			if( $litem->getId() === null && isset( $data['config'][$idx]['key'] ) )
 			{
 				$conf = [];
 
