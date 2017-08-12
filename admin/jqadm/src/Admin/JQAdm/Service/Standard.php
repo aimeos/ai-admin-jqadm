@@ -53,7 +53,7 @@ class Standard
 	 * design.
 	 *
 	 * @param array List of sub-client names
-	 * @since 2017.07
+	 * @since 2017.10
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/service/standard/subparts';
@@ -65,7 +65,7 @@ class Standard
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
-	 * @since 2017.07
+	 * @since 2017.10
 	 * @category Developer
 	 */
 
@@ -76,7 +76,7 @@ class Standard
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
-	 * @since 2017.07
+	 * @since 2017.10
 	 * @category Developer
 	 */
 
@@ -87,10 +87,10 @@ class Standard
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
-	 * @since 2017.07
+	 * @since 2017.10
 	 * @category Developer
 	 */
-	private $subPartNames = [/*'image', 'text', 'price'*/];
+	private $subPartNames = ['image', /*'text', 'price'*/];
 
 
 	/**
@@ -430,7 +430,7 @@ class Standard
 		 * "client/jqadm/common/decorators/default" to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2017.07
+		 * @since 2017.10
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/decorators/global
@@ -454,7 +454,7 @@ class Standard
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2017.07
+		 * @since 2017.10
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/decorators/excludes
@@ -478,7 +478,7 @@ class Standard
 		 * "\Aimeos\Admin\JQAdm\Service\Decorator\Decorator2" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2017.07
+		 * @since 2017.10
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/decorators/excludes

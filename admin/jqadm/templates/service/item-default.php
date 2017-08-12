@@ -188,7 +188,7 @@ $enc = $this->encoder();
 								<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site after that date and time, useful or seasonal articles' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'The option is only shown on the web site after that date and time' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">
@@ -202,7 +202,7 @@ $enc = $this->encoder();
 								<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'The option is only shown on the web site until that date and time' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row mandatory">
