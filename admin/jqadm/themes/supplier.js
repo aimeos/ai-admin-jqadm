@@ -9,13 +9,13 @@ Aimeos.Supplier = {
 
 	init : function() {
 
-		Aimeos.Supplier.Item.Product.init();
+		Aimeos.Supplier.Product.init();
 	}
 };
 
 
 
-Aimeos.Supplier.Item.Product = {
+Aimeos.Supplier.Product = {
 
 	init : function() {
 
@@ -31,7 +31,7 @@ Aimeos.Supplier.Item.Product = {
 			Aimeos.addClone(
 				$(".list-item-new.prototype", ev.delegateTarget),
 				Aimeos.getOptionsProducts,
-				Aimeos.Supplier.Item.Product.select);
+				Aimeos.Supplier.Product.select);
 		});
 	},
 
