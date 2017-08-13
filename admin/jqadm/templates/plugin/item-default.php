@@ -121,7 +121,7 @@ $enc = $this->encoder();
 
 								<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
 									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>"
-										<?= $selected( $this->get( 'itemData/plugin.typeid' ), $id ); ?> >
+										<?= $selected( $this->get( 'itemData/plugin.type', 'order' ), $typeItem->getCode() ); ?> >
 										<?= $enc->html( $typeItem->getLabel() ); ?>
 									</option>
 								<?php endforeach; ?>
@@ -148,8 +148,7 @@ $enc = $this->encoder();
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.provider' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/plugin.provider' ) ); ?>"
-								data-delivery="<?= implode( ',', $this->get( 'itemProviders/delivery', [] ) ); ?>"
-								data-payment="<?= implode( ',', $this->get( 'itemProviders/payment', [] ) ); ?>"
+								data-order="<?= implode( ',', $this->get( 'itemProviders/order', [] ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> />
 							<div class="dropdown input-group-addon">
 								<a class="dropdown-add" id="decoratorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
