@@ -31,17 +31,20 @@ class Factory
 	 */
 	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths, $type, $name = null )
 	{
+		$config = $context->getConfig();
 		$admin = $context->getView()->access( 'admin' );
 
 		if( empty( $type ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Admin JQAdm type is empty' ) );
 		}
 
-		if( !in_array( $type, $context->getConfig()->get( 'admin/jqadm/resources', [] ) ) ) {
+		if( !in_array( $type, $config->get( 'admin/jqadm/resources', [] ) )
+			&& !in_array( $type, $config->get( 'admin/jqadm/resources-admin', [] ) )
+		) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
 		}
 
-		if( $admin === false && in_array( $type, $context->getConfig()->get( 'admin/jqadm/resources-admin', [] ) ) ) {
+		if( $admin === false && in_array( $type, $config->get( 'admin/jqadm/resources-admin', [] ) ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
 		}
 
