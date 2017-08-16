@@ -31,7 +31,7 @@ $params = $this->get( 'pageParams', [] );
 
 	<nav class="main-navbar">
 		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Locale' ) ); ?>:
+			<?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?>:
 			<?= $enc->html( $this->get( 'itemData/locale.site.id' ) ); ?> -
 			<?= $enc->html( $this->get( 'itemData/locale.site.label', $this->translate( 'admin', 'New' ) ) ); ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/locale.site.id' ) ) ); ?>)</span>
