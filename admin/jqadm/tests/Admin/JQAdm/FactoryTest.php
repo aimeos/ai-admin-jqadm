@@ -39,6 +39,14 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testCreateSubClient()
+	{
+		$this->context->getConfig()->set( 'admin/jqadm/resources', ['locale/site'] );
+		$client = \Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->templatePaths, 'locale/site' );
+		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
+	}
+
+
 	public function testCreateClientNameEmpty()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );

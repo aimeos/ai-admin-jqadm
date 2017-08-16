@@ -37,10 +37,6 @@ class Factory
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Admin JQAdm type is empty' ) );
 		}
 
-		if( ctype_alnum( $type ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid characters in client name "%1$s"', $type ) );
-		}
-
 		if( !in_array( $type, $context->getConfig()->get( 'admin/jqadm/resources', [] ) ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
 		}
@@ -49,7 +45,20 @@ class Factory
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
 		}
 
-		$factory = '\\Aimeos\\Admin\\JQAdm\\' . ucwords( $type ) . '\\Factory';
+
+		$parts = explode( '/', $type );
+
+		foreach( $parts as $idx => $part )
+		{
+			if( ctype_alnum( $part ) === false ) {
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid characters in client name "%1$s"', $type ) );
+			}
+
+			$parts[$idx] = ucwords( $part );
+		}
+
+
+		$factory = '\\Aimeos\\Admin\\JQAdm\\' . implode( '\\', $parts ) . '\\Factory';
 
 		if( class_exists( $factory ) === false ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not available', $factory ) );

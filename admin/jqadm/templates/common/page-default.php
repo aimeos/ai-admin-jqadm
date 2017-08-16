@@ -318,6 +318,31 @@ if( $lang ) {
 						<?php endif; ?>
 					<?php endforeach; ?>
 
+					<?php if( in_array( 'locale', $adminList ) ) : ?>
+						<?php $active = ( strncmp( $this->param( 'resource' ), 'locale', 6 ) ? '' : 'active' ); ?>
+						<li class="locale treeview <?= $active ?>">
+							<span>
+								<i class="icon"></i>
+								<span class="title"><?= $enc->attr( $this->translate( 'admin', 'Locale' ) ); ?></span>
+							</span>
+							<ul class="tree-menu">
+								<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Locale' ) ); ?></strong></li>
+								<li class="locale-list">
+									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => 'locale'] + $params, [], $config ) ); ?>">
+										<span class="name"><?= $enc->html( $this->translate( 'admin', 'List' ) ); ?></span>
+									</a>
+								</li>
+								<?php if( in_array( 'locale/site', $adminList ) ) : ?>
+									<li class="locale-site">
+										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => 'locale/site'] + $params, [], $config ) ); ?>">
+											<span class="name"><?= $enc->html( $this->translate( 'admin', 'Sites' ) ); ?></span>
+										</a>
+									</li>
+								<?php endif; ?>
+							</ul>
+						</li>
+					<?php endif; ?>
+
 					<li class="expert">
 						<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>"
 							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), 'Expert', 'E' ) ); ?>"
