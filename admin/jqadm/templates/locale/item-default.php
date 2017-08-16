@@ -117,7 +117,7 @@ $params = $this->get( 'pageParams', [] );
 						<div class="col-sm-8">
 							<input class="form-control item-languageid" required="required" tabindex="1" autocomplete="off"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.languageid' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label (required)' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Language ID (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/locale.languageid' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ); ?> />
 						</div>
@@ -130,7 +130,7 @@ $params = $this->get( 'pageParams', [] );
 						<div class="col-sm-8">
 							<input class="form-control item-currencyid" required="required" tabindex="1" autocomplete="off"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.currencyid' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label (required)' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Currency ID (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/locale.currencyid' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ); ?> />
 						</div>
