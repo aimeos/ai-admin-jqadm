@@ -351,7 +351,9 @@ class Standard
 	 */
 	protected function storeFile( \Aimeos\MShop\Coupon\Item\Iface $item, array $files )
 	{
-		if( ( $file = $this->getValue( $files, 'code/file' ) ) == null ) {
+		$file = $this->getValue( $files, 'code/file' );
+
+		if( $file == null || $file->getError() === UPLOAD_ERR_NO_FILE ) {
 			return;
 		}
 
