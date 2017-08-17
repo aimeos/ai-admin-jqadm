@@ -77,10 +77,12 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
-			$view->item = $manager->getItem( $id, $this->getDomains() );
+			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemSubparts = $this->getSubClientNames();
+			$view->itemCurrencies = $this->getCurrencyItems();
+			$view->itemLanguages = $this->getLanguageItems();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -124,10 +126,11 @@ class Standard
 				$data = $this->toArray( $view->item );
 			}
 
-			$data['locale.id'] = $view->item->getId();
 			$data['locale.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();
+			$view->itemCurrencies = $this->getCurrencyItems();
+			$view->itemLanguages = $this->getLanguageItems();
 			$view->itemData = $data;
 			$view->itemBody = '';
 
@@ -171,7 +174,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$view->item = $manager->getItem( $id, $this->getDomains() );
+			$view->item = $manager->getItem( $id );
 
 			foreach( $this->getSubClients() as $client ) {
 				$client->delete();
@@ -218,9 +221,11 @@ class Standard
 
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale' );
 
-			$view->item = $manager->getItem( $id, $this->getDomains() );
+			$view->item = $manager->getItem( $id );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
+			$view->itemCurrencies = $this->getCurrencyItems();
+			$view->itemLanguages = $this->getLanguageItems();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -443,26 +448,36 @@ class Standard
 
 
 	/**
-	 * Returns the domain names whose items should be fetched too
+	 * Returns the available currencies
 	 *
-	 * @return string[] List of domain names
+	 * @return \Aimeos\MShop\Locale\Item\Currency\Iface[] List of currency items
 	 */
-	protected function getDomains()
+	protected function getCurrencyItems()
 	{
-		/** admin/jqadm/locale/domains
-		 * List of domain items that should be fetched along with the locale
-		 *
-		 * If you need to display additional content, you can configure your own
-		 * list of domains (attribute, media, price, locale, text, etc. are
-		 * domains) whose items are fetched from the storage.
-		 *
-		 * @param array List of domain names
-		 * @since 2017.10
-		 * @category Developer
-		 */
-		$domains = ['locale/address'];
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'locale/currency' );
 
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/locale/domains', $domains );
+		$search = $manager->createSearch( true );
+		$search->setSortations( [$search->sort( '+', 'locale.currency.id')] );
+		$search->setSlice( 0, 250 );
+
+		return $manager->searchItems( $search );
+	}
+
+
+	/**
+	 * Returns the available languages
+	 *
+	 * @return \Aimeos\MShop\Locale\Item\Language\Iface[] List of language items
+	 */
+	protected function getLanguageItems()
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'locale/language' );
+
+		$search = $manager->createSearch( true );
+		$search->setSortations( [$search->sort( '+', 'locale.language.id')] );
+		$search->setSlice( 0, 250 );
+
+		return $manager->searchItems( $search );
 	}
 
 

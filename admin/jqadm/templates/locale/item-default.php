@@ -115,11 +115,19 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-languageid" required="required" tabindex="1" autocomplete="off"
+							<select class="form-control custom-select item-languageid" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.languageid' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Language ID (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/locale.languageid' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ); ?> />
+								<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ); ?> >
+								<option value="">
+									<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+								</option>
+
+								<?php foreach( $this->get( 'itemLanguages', [] ) as $id => $item ) : ?>
+									<option value="<?= $enc->attr( $id ); ?>" <?= $selected( $this->get( 'itemData/locale.languageid' ), $id ); ?> >
+										<?= $enc->html( $id ); ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Available language for the current site' ) ); ?>
@@ -128,11 +136,19 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-currencyid" required="required" tabindex="1" autocomplete="off"
+							<select class="form-control custom-select item-currencyid" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.currencyid' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Currency ID (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/locale.currencyid' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ); ?> />
+								<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ); ?> >
+								<option value="">
+									<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+								</option>
+
+								<?php foreach( $this->get( 'itemCurrencies', [] ) as $id => $item ) : ?>
+									<option value="<?= $enc->attr( $id ); ?>" <?= $selected( $this->get( 'itemData/locale.currencyid' ), $id ); ?> >
+										<?= $enc->html( $id ); ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Available currency for the current site' ) ); ?>
