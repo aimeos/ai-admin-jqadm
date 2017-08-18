@@ -181,6 +181,18 @@ $resourceList = $this->config( 'admin/jqadm/resources', [] );
  */
 $adminList = $this->config( 'admin/jqadm/resources-admin', [] );
 
+/** admin/jqadm/resources-types
+ * List of type resource clients in the JQAdm interface
+ *
+ * The JQAdm admin interface consists of several clients for different resources.
+ * This configuration setting lists the names of the type resources and their order.
+ *
+ * @param array List of resource client names
+ * @since 2017.10
+ * @category Developer
+ */
+$typesList = $this->config( 'admin/jqadm/resources-types', [] );
+
 
 $resource = $this->param( 'resource', 'dashboard' );
 $site = $this->param( 'site', 'default' );
@@ -317,6 +329,27 @@ if( $lang ) {
 
 						<?php endif; ?>
 					<?php endforeach; ?>
+
+					<?php if( in_array( 'type', $adminList ) ) : ?>
+						<?php $active = ( strncmp( $this->param( 'resource' ), 'type', 6 ) ? '' : 'active' ); ?>
+						<li class="type treeview <?= $active ?>">
+							<span>
+								<i class="icon"></i>
+								<span class="title"><?= $enc->attr( $this->translate( 'admin', 'Types' ) ); ?></span>
+							</span>
+							<ul class="tree-menu">
+								<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Types' ) ); ?></strong></li>
+
+								<?php foreach( $typesList as $type ) : ?>
+									<li class="locale-list">
+										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $type] + $params, [], $config ) ); ?>">
+											<span class="name"><?= $enc->html( $this->translate( 'admin', $type ) ); ?></span>
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						</li>
+					<?php endif; ?>
 
 					<?php if( in_array( 'locale', $adminList ) ) : ?>
 						<?php $active = ( strncmp( $this->param( 'resource' ), 'locale', 6 ) ? '' : 'active' ); ?>

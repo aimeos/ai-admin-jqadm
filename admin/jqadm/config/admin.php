@@ -25,7 +25,10 @@ return [
 		],
 		'resources-admin' => [
 			'supplier', 'service', 'plugin',
-			'locale', 'locale/site', 'type',
+			'locale', 'locale/site',
+		],
+		'resources-types' => [
+			'attribute/type', 'attribute/listtype'
 		],
 	],
 ];
