@@ -12,7 +12,7 @@ namespace Aimeos\Admin\JQAdm\Attribute\Liststype;
 
 
 /**
- * Factory for attribute liststype JQAdm client
+ * Factory for attribute lists type JQAdm client
  *
  * @package Admin
  * @subpackage JQAdm
@@ -22,7 +22,7 @@ class Factory
 	implements \Aimeos\Admin\JQAdm\Common\Factory\Iface
 {
 	/**
-	 * Creates a attribute liststype client object
+	 * Creates a attribute lists type client object
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Shop context instance with necessary objects
 	 * @param array $templatePaths List of file system paths where the templates are stored

@@ -125,9 +125,6 @@ $params = $this->get( 'pageParams', [] );
 							</select>
 						</div>
 					</div>
-				</div><!--
-
-				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/attribute.type.siteid' ) ); ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
 						<div class="col-sm-8">

@@ -331,7 +331,7 @@ if( $lang ) {
 					<?php endforeach; ?>
 
 					<?php if( in_array( 'type', $adminList ) ) : ?>
-						<?php $active = ( strncmp( $this->param( 'resource' ), 'type', 6 ) ? '' : 'active' ); ?>
+						<?php $active = ( $resource && substr_compare( $resource, '/type', -5 ) ? '' : 'active' ); ?>
 						<li class="type treeview <?= $active ?>">
 							<span>
 								<i class="icon"></i>
@@ -341,7 +341,7 @@ if( $lang ) {
 								<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Types' ) ); ?></strong></li>
 
 								<?php foreach( $typesList as $type ) : ?>
-									<li class="locale-list">
+									<li class="<?= $enc->attr( str_replace( '/', '-', $type ) ) . ' ' . $active ?>">
 										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $type] + $params, [], $config ) ); ?>">
 											<span class="name"><?= $enc->html( $this->translate( 'admin', $type ) ); ?></span>
 										</a>

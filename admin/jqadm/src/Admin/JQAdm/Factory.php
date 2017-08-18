@@ -40,6 +40,7 @@ class Factory
 
 		if( !in_array( $type, $config->get( 'admin/jqadm/resources', [] ) )
 			&& !in_array( $type, $config->get( 'admin/jqadm/resources-admin', [] ) )
+			&& !in_array( $type, $config->get( 'admin/jqadm/resources-types', [] ) )
 		) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
 		}
