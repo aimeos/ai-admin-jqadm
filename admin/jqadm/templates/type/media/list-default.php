@@ -88,7 +88,7 @@ $columnList = [
 	<?= $this->partial(
 		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-default.php' ), [
 			'filter' => $this->session( 'aimeos/admin/jqadm/type/media/filter', [] ),
-			'filterMedias' => $this->get( 'filterMedias', [] ),
+			'filterAttributes' => $this->get( 'filterAttributes', [] ),
 			'filterOperators' => $this->get( 'filterOperators', [] ),
 			'params' => $params,
 		]

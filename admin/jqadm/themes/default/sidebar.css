@@ -215,8 +215,8 @@
 .aimeos .main-sidebar .service .icon:before { content: "\f09d" }
 .aimeos .main-sidebar .service .icon:after { content: "\f0d1" }
 .aimeos .main-sidebar .plugin .icon:before { content: "\f1e6" }
+.aimeos .main-sidebar .type .icon:before { content: "\f02b" }
 .aimeos .main-sidebar .locale .icon:before { content: "\f0ac" }
-.aimeos .main-sidebar .type .icon:before { content: "\f02c" }
 .aimeos .main-sidebar .config .icon:before { content: "\f1ab" }
 
 
