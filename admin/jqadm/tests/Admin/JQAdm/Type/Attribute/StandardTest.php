@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Attribute\Type;
+namespace Aimeos\Admin\JQAdm\Type\Attribute;
 
 
 class StandardTest extends \PHPUnit\Framework\TestCase
@@ -22,7 +22,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->context = \TestHelperJqadm::getContext();
 		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
-		$this->object = new \Aimeos\Admin\JQAdm\Attribute\Type\Standard( $this->context, $templatePaths );
+		$this->object = new \Aimeos\Admin\JQAdm\Type\Attribute\Standard( $this->context, $templatePaths );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context, $templatePaths );
 		$this->object->setView( $this->view );
 	}
@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -58,7 +58,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -88,7 +88,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopyException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -104,7 +104,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopyMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -126,7 +126,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDeleteException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients', 'search' ) )
 			->getMock();
@@ -142,7 +142,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDeleteMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients', 'search' ) )
 			->getMock();
@@ -172,7 +172,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -188,7 +188,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -204,7 +204,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetViewException()
 	{
-		$object = new \Aimeos\Admin\JQAdm\Attribute\Type\Standard( $this->context, [] );
+		$object = new \Aimeos\Admin\JQAdm\Type\Attribute\Standard( $this->context, [] );
 
 		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$object->getView();
@@ -237,7 +237,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSaveException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'fromArray' ) )
 			->getMock();
@@ -253,7 +253,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSaveMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'fromArray' ) )
 			->getMock();
@@ -269,7 +269,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSaveJQAdmException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'fromArray' ) )
 			->getMock();
@@ -305,7 +305,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearchException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'initCriteria' ) )
 			->getMock();
@@ -321,7 +321,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearchMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Attribute\Type\Standard' )
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Type\Attribute\Standard' )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'initCriteria' ) )
 			->getMock();

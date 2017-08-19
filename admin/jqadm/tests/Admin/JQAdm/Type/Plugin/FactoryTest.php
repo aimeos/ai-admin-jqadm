@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Attribute\Type;
+namespace Aimeos\Admin\JQAdm\Type\Plugin;
 
 
 class FactoryTest extends \PHPUnit\Framework\TestCase
@@ -25,14 +25,14 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClient()
 	{
-		$client = \Aimeos\Admin\JQAdm\Attribute\Type\Factory::createClient( $this->context, $this->templatePaths );
+		$client = \Aimeos\Admin\JQAdm\Type\Plugin\Factory::createClient( $this->context, $this->templatePaths );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
 
 	public function testCreateClientName()
 	{
-		$client = \Aimeos\Admin\JQAdm\Attribute\Type\Factory::createClient( $this->context, $this->templatePaths, 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Type\Plugin\Factory::createClient( $this->context, $this->templatePaths, 'Standard' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
@@ -40,21 +40,21 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	public function testCreateClientNameEmpty()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Attribute\Type\Factory::createClient( $this->context, $this->templatePaths, '' );
+		\Aimeos\Admin\JQAdm\Type\Plugin\Factory::createClient( $this->context, $this->templatePaths, '' );
 	}
 
 
 	public function testCreateClientNameInvalid()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Attribute\Type\Factory::createClient( $this->context, $this->templatePaths, '%attribute/type' );
+		\Aimeos\Admin\JQAdm\Type\Plugin\Factory::createClient( $this->context, $this->templatePaths, '%type/plugin' );
 	}
 
 
 	public function testCreateClientNameNotFound()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Attribute\Type\Factory::createClient( $this->context, $this->templatePaths, 'test' );
+		\Aimeos\Admin\JQAdm\Type\Plugin\Factory::createClient( $this->context, $this->templatePaths, 'test' );
 	}
 
 }

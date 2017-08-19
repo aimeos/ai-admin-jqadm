@@ -8,11 +8,11 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Attribute\Type;
+namespace Aimeos\Admin\JQAdm\Type\Plugin;
 
 
 /**
- * Factory for attribute type JQAdm client
+ * Factory for plugin type JQAdm client
  *
  * @package Admin
  * @subpackage JQAdm
@@ -22,7 +22,7 @@ class Factory
 	implements \Aimeos\Admin\JQAdm\Common\Factory\Iface
 {
 	/**
-	 * Creates a attribute type client object
+	 * Creates a plugin type client object
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Shop context instance with necessary objects
 	 * @param array $templatePaths List of file system paths where the templates are stored
@@ -32,7 +32,7 @@ class Factory
 	 */
 	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths, $name = null )
 	{
-		/** admin/jqadm/attribute/type/name
+		/** admin/jqadm/type/plugin/name
 		 * Class name of the used account favorite client implementation
 		 *
 		 * Each default admin client can be replace by an alternative imlementation.
@@ -42,15 +42,15 @@ class Factory
 		 *
 		 * For example, if the name of the default class is
 		 *
-		 *  \Aimeos\Admin\JQAdm\Attribute\Type\Standard
+		 *  \Aimeos\Admin\JQAdm\Type\Plugin\Standard
 		 *
 		 * and you want to replace it with your own version named
 		 *
-		 *  \Aimeos\Admin\JQAdm\Attribute\Type\Myfavorite
+		 *  \Aimeos\Admin\JQAdm\Type\Plugin\Myfavorite
 		 *
 		 * then you have to set the this configuration option:
 		 *
-		 *  admin/jqadm/attribute/type/name = Myfavorite
+		 *  admin/jqadm/type/plugin/name = Myfavorite
 		 *
 		 * The value is the last part of your own class name and it's case sensitive,
 		 * so take care that the configuration value is exactly named like the last
@@ -66,21 +66,21 @@ class Factory
 		 * @category Developer
 		 */
 		if( $name === null ) {
-			$name = $context->getConfig()->get( 'admin/jqadm/attribute/type/name', 'Standard' );
+			$name = $context->getConfig()->get( 'admin/jqadm/type/plugin/name', 'Standard' );
 		}
 
 		if( ctype_alnum( $name ) === false )
 		{
-			$classname = is_string( $name ) ? '\\Aimeos\\Admin\\JQAdm\\Attribute\\Type\\' . $name : '<not a string>';
+			$classname = is_string( $name ) ? '\\Aimeos\\Admin\\JQAdm\\Type\\Plugin\\' . $name : '<not a string>';
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid characters in class name "%1$s"', $classname ) );
 		}
 
 		$iface = '\\Aimeos\\Admin\\JQAdm\\Iface';
-		$classname = '\\Aimeos\\Admin\\JQAdm\\Attribute\\Type\\' . $name;
+		$classname = '\\Aimeos\\Admin\\JQAdm\\Type\\Plugin\\' . $name;
 
 		$client = self::createClientBase( $context, $classname, $iface, $templatePaths );
 
-		return self::addClientDecorators( $context, $client, $templatePaths, 'attribute/type' );
+		return self::addClientDecorators( $context, $client, $templatePaths, 'type/plugin' );
 	}
 
 }

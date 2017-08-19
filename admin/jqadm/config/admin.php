@@ -21,14 +21,13 @@ return [
 			'd' => 'dashboard', 'o' => 'order', 'u' => 'customer', 'p' => 'product',
 			'c' => 'catalog', 'a' => 'attribute', 'v' => 'coupon',
 			'r' => 'supplier', 's' => 'service', 'g' => 'plugin',
-			/*'t' => 'type'*/
 		],
 		'resources-admin' => [
-			'supplier', 'service', 'plugin',
+			'supplier', 'service', 'plugin', 'type',
 			'locale', 'locale/site',
 		],
 		'resources-types' => [
-			'attribute/type', 'attribute/listtype'
+			'type/attribute', 'type/plugin', 'type/price', 'type/product', 'type/service', 'type/text',
 		],
 	],
 ];

@@ -38,23 +38,23 @@ $delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
 $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 
 
-/** admin/jqadm/attribute/type/fields
- * List of attribute type columns that should be displayed in the list view
+/** admin/jqadm/type/price/fields
+ * List of price type columns that should be displayed in the list view
  *
- * Changes the list of attribute type columns shown by default in the attribute type
+ * Changes the list of price type columns shown by default in the price type
  * list view. The columns can be changed by the editor as required within the
  * administraiton interface.
  *
  * The names of the colums are in fact the search keys defined by the managers,
- * e.g. "attribute.type.id" for the attribute type ID.
+ * e.g. "price.type.id" for the price type ID.
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
  * @category Developer
  */
-$default = ['attribute.type.domain', 'attribute.type.status', 'attribute.type.code', 'attribute.type.label'];
-$default = $this->config( 'admin/jqadm/attribute/type/fields', $default );
-$fields = $this->session( 'aimeos/admin/jqadm/attribute/type/fields', $default );
+$default = ['price.type.domain', 'price.type.status', 'price.type.code', 'price.type.label'];
+$default = $this->config( 'admin/jqadm/type/price/fields', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/type/price/fields', $default );
 
 $params = $this->get( 'pageParams', [] );
 $sortcode = $this->param( 'sort' );
@@ -65,14 +65,14 @@ foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
 }
 
 $columnList = [
-	'attribute.type.id' => $this->translate( 'admin', 'ID' ),
-	'attribute.type.domain' => $this->translate( 'admin', 'Domain' ),
-	'attribute.type.status' => $this->translate( 'admin', 'Status' ),
-	'attribute.type.code' => $this->translate( 'admin', 'Code' ),
-	'attribute.type.label' => $this->translate( 'admin', 'Label' ),
-	'attribute.type.ctime' => $this->translate( 'admin', 'Created' ),
-	'attribute.type.mtime' => $this->translate( 'admin', 'Modified' ),
-	'attribute.type.editor' => $this->translate( 'admin', 'Editor' ),
+	'price.type.id' => $this->translate( 'admin', 'ID' ),
+	'price.type.domain' => $this->translate( 'admin', 'Domain' ),
+	'price.type.status' => $this->translate( 'admin', 'Status' ),
+	'price.type.code' => $this->translate( 'admin', 'Code' ),
+	'price.type.label' => $this->translate( 'admin', 'Label' ),
+	'price.type.ctime' => $this->translate( 'admin', 'Created' ),
+	'price.type.mtime' => $this->translate( 'admin', 'Modified' ),
+	'price.type.editor' => $this->translate( 'admin', 'Editor' ),
 ];
 
 ?>
@@ -81,14 +81,14 @@ $columnList = [
 <nav class="main-navbar">
 
 	<span class="navbar-brand">
-		<?= $enc->html( $this->translate( 'admin', 'Attribute Types' ) ); ?>
+		<?= $enc->html( $this->translate( 'admin', 'Price Types' ) ); ?>
 		<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
 	</span>
 
 	<?= $this->partial(
 		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-default.php' ), [
-			'filter' => $this->session( 'aimeos/admin/jqadm/attribute/type/filter', [] ),
-			'filterAttributes' => $this->get( 'filterAttributes', [] ),
+			'filter' => $this->session( 'aimeos/admin/jqadm/type/price/filter', [] ),
+			'filterPrices' => $this->get( 'filterPrices', [] ),
 			'filterOperators' => $this->get( 'filterOperators', [] ),
 			'params' => $params,
 		]
@@ -99,11 +99,11 @@ $columnList = [
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
-		'page' => $this->session( 'aimeos/admin/jqadm/attribute/type/page', [] )]
+		'page' => $this->session( 'aimeos/admin/jqadm/type/price/page', [] )]
 	);
 ?>
 
-<form class="list-attribute" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list-price" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">
@@ -111,7 +111,7 @@ $columnList = [
 			<tr>
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-default.php' ),
-						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/attribute/type/sort' )]
+						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/type/price/sort' )]
 					);
 				?>
 
@@ -134,11 +134,11 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-default.php' ), [
-					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/attribute/type/filter', [] ),
+					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/type/price/filter', [] ),
 					'data' => [
-						'attribute.type.id' => ['op' => '=='],
-						'attribute.type.domain' => ['op' => '==', 'type' => 'select', 'val' => [
-							'attribute' => $this->translate( 'admin', 'attribute' ),
+						'price.type.id' => ['op' => '=='],
+						'price.type.domain' => ['op' => '==', 'type' => 'select', 'val' => [
+							'price' => $this->translate( 'admin', 'price' ),
 							'catalog' => $this->translate( 'admin', 'catalog' ),
 							'customer' => $this->translate( 'admin', 'customer' ),
 							'media' => $this->translate( 'admin', 'media' ),
@@ -148,17 +148,17 @@ $columnList = [
 							'supplier' => $this->translate( 'admin', 'supplier' ),
 							'text' => $this->translate( 'admin', 'text' ),
 						]],
-						'attribute.type.status' => ['op' => '==', 'type' => 'select', 'val' => [
+						'price.type.status' => ['op' => '==', 'type' => 'select', 'val' => [
 							'1' => $this->translate( 'admin', 'status:enabled' ),
 							'0' => $this->translate( 'admin', 'status:disabled' ),
 							'-1' => $this->translate( 'admin', 'status:review' ),
 							'-2' => $this->translate( 'admin', 'status:archive' ),
 						]],
-						'attribute.type.code' => [],
-						'attribute.type.label' => [],
-						'attribute.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'attribute.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'attribute.editor' => [],
+						'price.type.code' => [],
+						'price.type.label' => [],
+						'price.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'price.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'price.editor' => [],
 					]
 				] );
 			?>
@@ -166,29 +166,29 @@ $columnList = [
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
-					<?php if( in_array( 'attribute.type.id', $fields ) ) : ?>
-						<td class="attribute-type-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
+					<?php if( in_array( 'price.type.id', $fields ) ) : ?>
+						<td class="price-type-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'attribute.type.domain', $fields ) ) : ?>
-						<td class="attribute-type-domain"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDomain() ); ?></a></td>
+					<?php if( in_array( 'price.type.domain', $fields ) ) : ?>
+						<td class="price-type-domain"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDomain() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'attribute.type.status', $fields ) ) : ?>
-						<td class="attribute-type-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
+					<?php if( in_array( 'price.type.status', $fields ) ) : ?>
+						<td class="price-type-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'attribute.type.code', $fields ) ) : ?>
-						<td class="attribute-type-code"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getCode() ); ?></a></td>
+					<?php if( in_array( 'price.type.code', $fields ) ) : ?>
+						<td class="price-type-code"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getCode() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'attribute.type.label', $fields ) ) : ?>
-						<td class="attribute-type-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+					<?php if( in_array( 'price.type.label', $fields ) ) : ?>
+						<td class="price-type-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'attribute.type.ctime', $fields ) ) : ?>
-						<td class="attribute-type-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
+					<?php if( in_array( 'price.type.ctime', $fields ) ) : ?>
+						<td class="price-type-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'attribute.type.mtime', $fields ) ) : ?>
-						<td class="attribute-type-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
+					<?php if( in_array( 'price.type.mtime', $fields ) ) : ?>
+						<td class="price-type-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'attribute.type.editor', $fields ) ) : ?>
-						<td class="attribute-type-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
+					<?php if( in_array( 'price.type.editor', $fields ) ) : ?>
+						<td class="price-type-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
 					<?php endif; ?>
 
 					<td class="actions">
@@ -216,7 +216,7 @@ $columnList = [
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-default.php' ),
 		['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
-		'page' => $this->session( 'aimeos/admin/jqadm/attribute/type/page', [] )]
+		'page' => $this->session( 'aimeos/admin/jqadm/type/price/page', [] )]
 	);
 ?>
 
