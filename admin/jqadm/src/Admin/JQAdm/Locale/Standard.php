@@ -118,15 +118,14 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item' );
+			$data = $view->param( 'item', [] );
+			$data['locale.siteid'] = $view->item->getSiteId();
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'locale' )->createItem();
 			} else {
 				$data = $this->toArray( $view->item );
 			}
-
-			$data['locale.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemCurrencies = $this->getCurrencyItems();

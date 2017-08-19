@@ -156,9 +156,9 @@ $columnList = [
 						]],
 						'media.type.code' => [],
 						'media.type.label' => [],
-						'media.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'media.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'media.editor' => [],
+						'media.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'media.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'media.type.editor' => [],
 					]
 				] );
 			?>

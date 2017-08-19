@@ -156,9 +156,9 @@ $columnList = [
 						]],
 						'plugin.type.code' => [],
 						'plugin.type.label' => [],
-						'plugin.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'plugin.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'plugin.editor' => [],
+						'plugin.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'plugin.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'plugin.type.editor' => [],
 					]
 				] );
 			?>

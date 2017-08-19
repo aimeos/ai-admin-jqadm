@@ -116,7 +116,8 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item' );
+			$data = $view->param( 'item', [] );
+			$data['service.type.siteid'] = $context->getLocale()->getSiteId();
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'service/type' )->createItem();
@@ -307,7 +308,7 @@ class Standard
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
-			$view->filterServices = $manager->getSearchServices( true );
+			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->total = $total;
 			$view->itemBody = '';
@@ -483,7 +484,9 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( $copy === true ) {
+		if( $copy === true )
+		{
+			$data['service.type.code'] = $data['service.type.code'] . '_copy';
 			$data['service.type.id'] = '';
 		}
 

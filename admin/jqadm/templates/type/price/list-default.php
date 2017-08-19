@@ -1,4 +1,4 @@
-<?php
+.type<?php
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
@@ -156,9 +156,9 @@ $columnList = [
 						]],
 						'price.type.code' => [],
 						'price.type.label' => [],
-						'price.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'price.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'price.editor' => [],
+						'price.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'price.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'price.type.editor' => [],
 					]
 				] );
 			?>

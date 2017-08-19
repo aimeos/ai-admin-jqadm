@@ -116,16 +116,13 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item' );
+			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' )->createItem();
 			} else {
 				$data = $this->toArray( $view->item );
 			}
-
-			$data['locale.id'] = $view->item->getId();
-			$data['locale.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $data;
@@ -476,9 +473,9 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'locale/site' );
 
-		if( isset( $data['locale.id'] ) && $data['locale.id'] != '' )
+		if( isset( $data['locale.site.id'] ) && $data['locale.site.id'] != '' )
 		{
-			$item = $manager->getItem( $data['locale.id'] );
+			$item = $manager->getItem( $data['locale.site.id'] );
 			$item->fromArray( $data );
 			$item->setConfig( $conf );
 			$item = $manager->saveItem( $item );

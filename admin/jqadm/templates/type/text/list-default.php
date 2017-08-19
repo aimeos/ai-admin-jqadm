@@ -156,9 +156,9 @@ $columnList = [
 						]],
 						'text.type.code' => [],
 						'text.type.label' => [],
-						'text.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'text.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'text.editor' => [],
+						'text.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'text.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'text.type.editor' => [],
 					]
 				] );
 			?>

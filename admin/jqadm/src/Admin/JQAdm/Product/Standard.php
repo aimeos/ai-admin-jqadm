@@ -263,7 +263,7 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item' );
+			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'product' )->createItem();

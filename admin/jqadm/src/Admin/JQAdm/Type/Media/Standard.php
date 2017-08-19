@@ -116,7 +116,8 @@ class Standard
 
 		try
 		{
-			$data = $view->param( 'item' );
+			$data = $view->param( 'item', [] );
+			$data['media.type.siteid'] = $context->getLocale()->getSiteId();
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'media/type' )->createItem();
