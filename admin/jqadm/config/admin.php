@@ -27,8 +27,10 @@ return [
 			'locale', 'locale/site',
 		],
 		'resources-types' => [
-			'type/attribute', 'type/media', 'type/plugin', 'type/price', 'type/product',
-			'type/service', 'type/stock', 'type/tag', 'type/text',
+			'type/attribute', 'type/attribute/lists', 'type/catalog/lists', 'type/customer/lists',
+			'type/media', 'type/media/lists', 'type/plugin', 'type/price', 'type/price/lists',
+			'type/product', 'type/product/lists', 'type/product/property', 'type/service', 'type/service/lists',
+			'type/stock', 'type/tag', 'type/text', 'type/text/lists',
 		],
 	],
 ];
