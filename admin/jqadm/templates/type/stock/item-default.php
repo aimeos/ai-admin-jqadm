@@ -24,7 +24,7 @@ $params = $this->get( 'pageParams', [] );
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
-<form class="item item-stock form-horizontal" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
+<form class="item item-stock-type form-horizontal" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'stock.type.id' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/stock.type.id' ) ); ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ); ?>" value="get" />
 	<?= $this->csrf()->formfield(); ?>
@@ -93,7 +93,7 @@ $params = $this->get( 'pageParams', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
-								<?php foreach( ['stock', 'catalog', 'customer', 'stock', 'price', 'product', 'service', 'supplier', 'text'] as $domain ) : ?>
+								<?php foreach( ['stock'] as $domain ) : ?>
 									<option value="<?= $enc->attr( $domain ); ?>" <?= $selected( $this->get( 'itemData/stock.type.domain', 'product' ), $domain ); ?> >
 										<?= $enc->html( $this->translate( 'admin', $domain ) ); ?>
 									</option>
