@@ -484,7 +484,9 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( $copy === true ) {
+		if( $copy === true )
+		{
+			$data['text.lists.type.code'] = $data['text.lists.type.code'] . '_copy';
 			$data['text.lists.type.id'] = '';
 		}
 
