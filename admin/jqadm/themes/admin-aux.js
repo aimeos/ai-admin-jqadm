@@ -12,6 +12,7 @@ Aimeos.Address = {
 		this.addBlock();
 		this.copyBlock();
 		this.removeBlock();
+		this.setupComponents();
 		this.updateHeader();
 	},
 
@@ -23,15 +24,12 @@ Aimeos.Address = {
 
 			var number = Math.floor((Math.random() * 1000));
 			var node = $(".group-item.prototype", ev.delegateTarget);
-			var clone = node.clone().removeClass("prototype");
+			var clone = Aimeos.addClone(node, Aimeos.getCountries, Aimeos.Address.select);
 
 			$(".card-block", clone).attr("id", "item-address-group-data-" + number);
 			$(".card-header", clone).attr("id", "item-address-group-item-" + number);
 			$(".card-header", clone).attr("data-target", "#item-address-group-data-" + number);
 			$(".card-header", clone).attr("aria-controls", "item-address-group-data-" + number);
-
-			$("[disabled='disabled']", clone).prop("disabled", false);
-			clone.insertBefore(node);
 		});
 	},
 
@@ -43,14 +41,12 @@ Aimeos.Address = {
 
 			var number = Math.floor((Math.random() * 1000));
 			var block = $(this).parents(".group-item");
-			var clone = block.clone();
+			var clone = Aimeos.addClone(block, Aimeos.getCountries, Aimeos.Address.select);
 
 			$(".card-block", clone).attr("id", "item-address-group-data-" + number);
 			$(".card-header", clone).attr("id", "item-address-group-item-" + number);
 			$(".card-header", clone).attr("data-target", "#item-address-group-data-" + number);
 			$(".card-header", clone).attr("aria-controls", "item-address-group-data-" + number);
-
-			clone.insertAfter(block);
 
 			$("input.item-id", clone).val('');
 			$(".card-header .header-label", clone).empty();
@@ -65,6 +61,21 @@ Aimeos.Address = {
 		});
 	},
 
+
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget);
+		node.closest("card-block").find("input.item-countryid").val(node.val());
+	},
+
+
+	setupComponents : function() {
+
+		$(".item-address .item-countryid.combobox").combobox({
+			getfcn: Aimeos.getCountries,
+			select: Aimeos.Address.select
+		});
+	},
 
 	updateHeader : function() {
 
@@ -228,8 +239,6 @@ Aimeos.Text = {
 			$(".card-header", clone).attr("aria-controls", "#item-text-group-data-" + number);
 
 			$(".htmleditor-prototype", clone).ckeditor({toolbar: Aimeos.Text.editorcfg});
-
-			return false;
 		});
 	},
 

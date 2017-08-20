@@ -9,7 +9,25 @@ Aimeos.Customer = {
 
 	init : function() {
 
+		this.setupComponents();
+
 		Aimeos.Customer.Product.init();
+	},
+
+
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget);
+		node.closest("card-block").find("input.item-countryid").val(node.val());
+	},
+
+
+	setupComponents : function() {
+
+		$(".item-customer .item-countryid.combobox").combobox({
+			getfcn: Aimeos.getCountries,
+			select: Aimeos.Customer.select
+		});
 	}
 };
 

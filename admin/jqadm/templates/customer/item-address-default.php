@@ -211,6 +211,21 @@ $enc = $this->encoder();
 									<?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?> />
 							</div>
 						</div>
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
+							<div class="col-sm-8">
+								<select class="combobox item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" maxlength="2" pattern="^[a-zA-Z]{2}$"
+									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.countryid', '' ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?> />
+									<option value="<?= $enc->attr( $this->get( 'addressData/customer.address.countryid/' . $idx ) ); ?>" >
+										<?= $enc->html( $this->get( 'addressData/customer.address.countryid/' . $idx ) ); ?>
+									</option>
+								</select>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Two letter ISO country code' ) ); ?>
+							</div>
+						</div>
 						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'State' ) ); ?></label>
 							<div class="col-sm-8">
@@ -222,19 +237,6 @@ $enc = $this->encoder();
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
 								<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ); ?>
-							</div>
-						</div>
-						<div class="form-group row mandatory">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
-							<div class="col-sm-8">
-								<input class="form-control item-countryid" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" maxlength="2" pattern="^[a-zA-Z]{2}$"
-									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.countryid', '' ) ) ); ?>"
-									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country code (required)' ) ); ?>"
-									value="<?= $enc->attr( $this->get( 'addressData/customer.address.countryid/' . $idx ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?> />
-							</div>
-							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Two letter ISO country code' ) ); ?>
 							</div>
 						</div>
 					</div><!--
@@ -456,6 +458,17 @@ $enc = $this->encoder();
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ); ?>" />
 						</div>
 					</div>
+					<div class="form-group row mandatory">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
+						<div class="col-sm-8">
+							<select class="combobox-prototype item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" maxlength="2" pattern="^[a-zA-Z]{2}$" disabled="disabled"
+								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.countryid', '' ) ) ); ?>">
+							</select>
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Two letter ISO country code' ) ); ?>
+						</div>
+					</div>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'State' ) ); ?></label>
 						<div class="col-sm-8">
@@ -465,17 +478,6 @@ $enc = $this->encoder();
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ); ?>
-						</div>
-					</div>
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-countryid" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" maxlength="2" pattern="^[a-zA-Z]{2}$" disabled="disabled"
-								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.countryid', '' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country code (required)' ) ); ?>" />
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Two letter ISO country code' ) ); ?>
 						</div>
 					</div>
 				</div><!--
