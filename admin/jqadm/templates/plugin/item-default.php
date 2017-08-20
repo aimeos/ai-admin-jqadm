@@ -173,7 +173,7 @@ $enc = $this->encoder();
 								<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Order of the plugin options in the checkout process' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Execution order of the plugins' ) ); ?>
 						</div>
 					</div>
 				</div><!--

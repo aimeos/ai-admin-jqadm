@@ -51,7 +51,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 										<?php endif; ?>
 										<a class="btn act-download fa" tabindex="1"
 											href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $getConfig ) ); ?>"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Download this entry') ); ?>"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Download this file') ); ?>"
 											aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>"></a>
 									</td>
 								</tr>

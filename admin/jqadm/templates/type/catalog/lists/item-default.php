@@ -135,7 +135,7 @@ $params = $this->get( 'pageParams', [] );
 								<?= $this->site()->readonly( $this->get( 'itemData/catalog.lists.type.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Unique type code, e.g. "color" for attributes like "green", "blue", "red"' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Unique type code' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row mandatory">

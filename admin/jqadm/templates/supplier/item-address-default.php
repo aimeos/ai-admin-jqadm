@@ -172,20 +172,20 @@ $enc = $this->encoder();
 									<?= $this->site()->readonly( $this->get( 'addressData/supplier.address.siteid/' . $idx ) ); ?> />
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Address identifier of the supplier\'s house for delivery' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Address identifier of the supplier\'s office' ) ); ?>
 							</div>
 						</div>
 						<div class="form-group row optional">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor / Appartment' ) ); ?></label>
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor / Office' ) ); ?></label>
 							<div class="col-sm-8">
 								<input class="form-control item-address3" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'address', 'supplier.address.address3', '' ) ) ); ?>"
-									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or appartment (optional)' ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or office (optional)' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'addressData/supplier.address.address3/' . $idx ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'addressData/supplier.address.siteid/' . $idx ) ); ?> />
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Additional information where the supplier\'s appartment can be found' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Additional information where the supplier\'s office can be found' ) ); ?>
 							</div>
 						</div>
 						<div class="form-group row optional">
@@ -236,7 +236,7 @@ $enc = $this->encoder();
 									<?= $this->site()->readonly( $this->get( 'addressData/supplier.address.siteid/' . $idx ) ); ?> />
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the supplier is living' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the supplier has his office' ) ); ?>
 							</div>
 						</div>
 					</div><!--
@@ -425,18 +425,18 @@ $enc = $this->encoder();
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ); ?>"/>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Address identifier of the supplier\'s house for delivery' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Address identifier of the supplier\'s office' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor / Appartment' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor / Office' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-address3" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'supplier.address.address3', '' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or appartment (optional)' ) ); ?>" />
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or office (optional)' ) ); ?>" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Additional information where the supplier\'s appartment can be found' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Additional information where the supplier\'s office can be found' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">
@@ -477,7 +477,7 @@ $enc = $this->encoder();
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ); ?>" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the supplier is living' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the supplier has his office' ) ); ?>
 						</div>
 					</div>
 				</div><!--
