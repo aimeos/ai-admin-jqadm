@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-20 13:19+0200\n"
-"PO-Revision-Date: 2017-08-20 11:21+0000\n"
+"PO-Revision-Date: 2017-08-20 11:36+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -171,7 +171,7 @@ msgid "Attribute"
 msgstr "Attribut"
 
 msgid "Attribute Lists Type"
-msgstr "Attribute-Listentyp"
+msgstr "Attribute-Listentypen"
 
 msgid "Attribute Type"
 msgstr "Attributtyp"
@@ -921,7 +921,7 @@ msgid "Loading"
 msgstr "Laden"
 
 msgid "Locale"
-msgstr "Gebietsschema"
+msgstr "Gebiete"
 
 #. : Locale currency item panel title with currency label ({0}) and currency
 #. code ({1)}
@@ -929,12 +929,12 @@ msgstr "Gebietsschema"
 #. code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
-msgstr "Währung im Gebietsschema: {0} ({1})"
+msgstr "Währung im Gebiet: {0} ({1})"
 
 #. : Locale item panel title with site code ({1)}
 #, python-brace-format
 msgid "Locale item details ({1})"
-msgstr "Details des Gebietsschemas ({1})"
+msgstr "Details des Gebiets ({1})"
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
@@ -942,7 +942,7 @@ msgstr "Details des Gebietsschemas ({1})"
 #. code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
-msgstr "Sprache im Gebietsschema: {0} ({1})"
+msgstr "Sprache im Gebiets: {0} ({1})"
 
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
 #, python-brace-format
@@ -2297,59 +2297,59 @@ msgstr "Texte"
 
 #, php-format
 msgid "type/attribute"
-msgstr "Attributtyp"
+msgstr "Attributtypen"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr "Attribute-Listentyp"
+msgstr "Attribute-Listentypen"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr "Katalog-Listentyp"
+msgstr "Katalog-Listentypen"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr "Kunden-Listentyp"
+msgstr "Kunden-Listentypen"
 
 #, php-format
 msgid "type/media"
-msgstr "Medientyp"
+msgstr "Medientypen"
 
 #, php-format
 msgid "type/media/lists"
-msgstr "Medien-Listentyp"
+msgstr "Medien-Listentypen"
 
 #, php-format
 msgid "type/plugin"
-msgstr "Plugintyp"
+msgstr "Plugin-Typen"
 
 #, php-format
 msgid "type/price"
-msgstr "Preistyp"
+msgstr "Preistypen"
 
 #, php-format
 msgid "type/price/lists"
-msgstr "Preis-Listentyp"
+msgstr "Preis-Listentypen"
 
 #, php-format
 msgid "type/product"
-msgstr "Produkttyp"
+msgstr "Produkttypen"
 
 #, php-format
 msgid "type/product/lists"
-msgstr "Product-Listentyp"
+msgstr "Product-Listentypen"
 
 #, php-format
 msgid "type/product/property"
-msgstr "Produkteigenschaftstyp"
+msgstr "Produkt-Eigenschaftstypen"
 
 #, php-format
 msgid "type/service"
-msgstr "Diensttyp"
+msgstr "Diensttypen"
 
 #, php-format
 msgid "type/service/lists"
-msgstr "Dienst-Listentyp"
+msgstr "Dienst-Listentypen"
 
 #, php-format
 msgid "type/stock"
@@ -2357,15 +2357,15 @@ msgstr "Warenlager"
 
 #, php-format
 msgid "type/tag"
-msgstr "Schlagworttyp"
+msgstr "Schlagworttypen"
 
 #, php-format
 msgid "type/text"
-msgstr "Texttyp"
+msgstr "Texttypen"
 
 #, php-format
 msgid "type/text/lists"
-msgstr "Text-Listentyp"
+msgstr "Text-Listentypen"
 
 msgid "unknown"
 msgstr "Unbekannt"
