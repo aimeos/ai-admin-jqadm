@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-01 18:07+0200\n"
-"PO-Revision-Date: 2017-07-02 15:47+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>\n"
+"POT-Creation-Date: 2017-08-20 13:19+0200\n"
+"PO-Revision-Date: 2017-08-20 11:19+0000\n"
+"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,6 +79,9 @@ msgstr "Her bir ürün için ilave teslimat maliyetleri, örn; ağır bir öğe 
 msgid "Additional information where the customer's appartment can be found"
 msgstr "Müşteri dairesinin bulunabileceği ilave bilgi"
 
+msgid "Additional information where the supplier's office can be found"
+msgstr ""
+
 msgid "Additional information, e.g. flat number"
 msgstr "Ek bilgiler, örn. daire numarası"
 
@@ -99,6 +102,9 @@ msgstr "Adres ID"
 
 msgid "Address identifier of the customer's house for delivery"
 msgstr "Teslimat için müşterinin evinin adres tanımlayıcısı"
+
+msgid "Address identifier of the supplier's office"
+msgstr ""
 
 msgid "Addresses"
 msgstr "Adresler"
@@ -162,6 +168,15 @@ msgstr "İlişkili metinler"
 msgid "Attribute"
 msgstr "Nitelik"
 
+msgid "Attribute Lists Type"
+msgstr ""
+
+msgid "Attribute Type"
+msgstr ""
+
+msgid "Attribute Types"
+msgstr ""
+
 msgid "Attribute name"
 msgstr "Nitelik adı"
 
@@ -187,11 +202,17 @@ msgstr "Nitelikler"
 msgid "Available attributes"
 msgstr "Mevcut nitelikler"
 
+msgid "Available currency for the current site"
+msgstr ""
+
 msgid "Available customer groups"
 msgstr "Mevcut müşteri grupları"
 
 msgid "Available customers"
 msgstr "Mevcut müşteriler"
+
+msgid "Available language for the current site"
+msgstr ""
 
 msgid "Available media"
 msgstr "Mevcut medya"
@@ -219,6 +240,9 @@ msgstr "Baz ID"
 
 msgid "Basic"
 msgstr "Temel bilgiler"
+
+msgid "Basket"
+msgstr "Sepet"
 
 msgid "Billing address"
 msgstr "Fatura adresi"
@@ -249,6 +273,12 @@ msgstr "İptal et ve listeye dön"
 
 msgid "Catalog"
 msgstr "Katalog"
+
+msgid "Catalog Lists Type"
+msgstr ""
+
+msgid "Catalog Types"
+msgstr ""
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #, python-brace-format
@@ -311,6 +341,9 @@ msgstr "Kapat"
 
 msgid "Code"
 msgstr "Kod"
+
+msgid "Code to uniquely identify the site"
+msgstr ""
 
 msgid "Codes"
 msgstr "Kodlar"
@@ -429,6 +462,12 @@ msgstr "Müşteri"
 msgid "Customer ID"
 msgstr "Müşteri ID'si"
 
+msgid "Customer Lists Type"
+msgstr ""
+
+msgid "Customer Types"
+msgstr ""
+
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
 #. : Customer address item panel title with customer name ({0}) and site code
@@ -501,6 +540,9 @@ msgstr "Teslimat durumu"
 msgid "Delivery types"
 msgstr "Teslimat türleri"
 
+msgid "Descritive name of the site"
+msgstr ""
+
 msgid "Details"
 msgstr "Detaylar"
 
@@ -515,6 +557,9 @@ msgstr "Domain (gerekli)"
 
 msgid "Download"
 msgstr "İndir"
+
+msgid "Download this file"
+msgstr ""
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr "Girişi kopyala (Ctrl+D)"
@@ -548,6 +593,9 @@ msgstr "Hata"
 
 msgid "Excl. tax"
 msgstr "KDV hariç"
+
+msgid "Execution order of the plugins"
+msgstr ""
 
 msgid "Expert"
 msgstr "Uzman"
@@ -609,8 +657,14 @@ msgstr "Kat"
 msgid "Floor / Appartment"
 msgstr "Kat / Daire"
 
+msgid "Floor / Office"
+msgstr ""
+
 msgid "Floor and/or appartment (optional)"
 msgstr "Kat ve/veya daire (isteğe bağlı)"
+
+msgid "Floor and/or office (optional)"
+msgstr ""
 
 msgid "Flush"
 msgstr "Temizle"
@@ -654,6 +708,9 @@ msgstr "Ev numarası (isteğe bağlı)"
 msgid "How the customer is addressed in e-mails"
 msgstr "E-maillerde müşteriye nasıl hitap edilir"
 
+msgid "How the supplier is addressed in e-mails"
+msgstr ""
+
 msgid "ID"
 msgstr "Kimlik"
 
@@ -671,8 +728,14 @@ msgstr "Resimler sadece bu dil için gösterilir, eğer resim metin içeriyorsa 
 msgid "Import"
 msgstr "İçe aktar"
 
+msgid "Import/Export jobs"
+msgstr ""
+
 msgid "Incl. tax"
 msgstr "KDV dahil"
+
+msgid "Info"
+msgstr ""
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
@@ -694,6 +757,9 @@ msgstr "İç ad"
 
 msgid "Internal name (required)"
 msgstr "İç ad (gerekli)"
+
+msgid "Internal type name shown in the administration interface"
+msgstr ""
 
 #, python-brace-format
 msgid "Invalid action \"{0}\""
@@ -749,6 +815,14 @@ msgstr "Arama motorları için anahtar kelimeler, ürün detay sayfasının üst
 
 msgid "Label"
 msgstr "Etiket"
+
+msgid "Label (required)"
+msgstr ""
+
+msgid ""
+"Label will be used if empty but then there must be no name for all "
+"languages. Otherwise, items will not be shown when sorting by name"
+msgstr ""
 
 msgid "Language"
 msgstr "Dil"
@@ -882,6 +956,15 @@ msgstr "Uzun açıklama"
 msgid "Media"
 msgstr "Medya"
 
+msgid "Media Lists Type"
+msgstr ""
+
+msgid "Media Type"
+msgstr ""
+
+msgid "Media Types"
+msgstr ""
+
 msgid "Media type"
 msgstr "Medya türü"
 
@@ -915,6 +998,9 @@ msgstr "Minimum miktar"
 
 msgid "Miss"
 msgstr "Bayan"
+
+msgid "Modifed"
+msgstr ""
 
 msgid "Modified"
 msgstr "Değiştirilmiş"
@@ -1006,6 +1092,12 @@ msgstr "Sipariş"
 msgid "Order item details"
 msgstr "Sipariş öğe detayları"
 
+msgid "Order of the language/currency combinations"
+msgstr ""
+
+msgid "Order of the service options in the checkout process"
+msgstr ""
+
 msgid "Order product ID"
 msgstr "Sipariş ürün kimliği"
 
@@ -1086,6 +1178,9 @@ msgstr "Ödeme türleri"
 msgid "Personal data"
 msgstr "Kişisel veri"
 
+msgid "Phone"
+msgstr ""
+
 msgid "Physical values"
 msgstr "Fiziksel değerler"
 
@@ -1106,6 +1201,18 @@ msgstr "Lütfen sağ tarafta bir öğe seçin ve sürükleyip bırakma yöntemiy
 msgid "Plugin"
 msgstr "Plugin"
 
+msgid "Plugin Type"
+msgstr ""
+
+msgid "Plugin Types"
+msgstr ""
+
+msgid "Plugin position (required)"
+msgstr ""
+
+msgid "Plugin provider or plugin decorator configuration name"
+msgstr ""
+
 msgid "Plugin type"
 msgstr "Plugin türü"
 
@@ -1122,6 +1229,9 @@ msgstr "Plugin: {0} ({1})"
 msgid "Position"
 msgstr "Pozisyon"
 
+msgid "Position (required)"
+msgstr ""
+
 msgid "Postal"
 msgstr "Posta"
 
@@ -1130,6 +1240,9 @@ msgstr "Posta kodu"
 
 msgid "Postal code for delivery if used in the area the customer is living"
 msgstr "Müşterinin yaşadığı bölgede kullanılıyorsa teslimat için posta kodu"
+
+msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr ""
 
 msgid "Preview"
 msgstr "Önizleme"
@@ -1142,6 +1255,15 @@ msgstr "Önceki"
 
 msgid "Price"
 msgstr "Fiyat"
+
+msgid "Price Lists Type"
+msgstr ""
+
+msgid "Price Type"
+msgstr ""
+
+msgid "Price Types"
+msgstr ""
 
 msgid "Price type"
 msgstr "Fiyat türü"
@@ -1167,6 +1289,18 @@ msgstr "Ürün"
 
 msgid "Product ID"
 msgstr "Ürün ID"
+
+msgid "Product Lists Type"
+msgstr ""
+
+msgid "Product Property Type"
+msgstr ""
+
+msgid "Product Type"
+msgstr ""
+
+msgid "Product Types"
+msgstr ""
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
@@ -1273,6 +1407,9 @@ msgstr "Sağlayıcı"
 
 msgid "Provider/decorator class names (required)"
 msgstr "Sağlayıcı/dekoratör sınıf isimleri (gerekli)"
+
+msgid "Purchase"
+msgstr ""
 
 msgid "Purchase date"
 msgstr "Satın alma tarihi"
@@ -1390,6 +1527,15 @@ msgstr "Servis"
 msgid "Service ID"
 msgstr "Servis ID"
 
+msgid "Service Lists Type"
+msgstr ""
+
+msgid "Service Type"
+msgstr ""
+
+msgid "Service Types"
+msgstr ""
+
 msgid "Service attribute code"
 msgstr "Servis nitelik kodu"
 
@@ -1398,6 +1544,15 @@ msgstr "Hizmet ücretleri"
 
 msgid "Service item details"
 msgstr "Servis öğe detayları"
+
+msgid "Service name"
+msgstr ""
+
+msgid "Service position (required)"
+msgstr ""
+
+msgid "Service provider or service decorator configuration name"
+msgstr ""
 
 msgid "Service type"
 msgstr "Servis türü"
@@ -1434,6 +1589,11 @@ msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr "Kısa eyalet kodu (örn NY) "
 
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier has his "
+"office"
+msgstr ""
+
 msgid "Show"
 msgstr "Göster"
 
@@ -1452,8 +1612,15 @@ msgstr "Basit mod"
 msgid "Site"
 msgstr "Site"
 
+msgid ""
+"Site specific configuration options, will be available as key/value pairs"
+msgstr ""
+
 msgid "Site the order was placed at"
 msgstr "Siparişin verildiği site"
+
+msgid "Sites"
+msgstr ""
 
 msgid "Size"
 msgstr "Boyut"
@@ -1481,6 +1648,12 @@ msgstr "Durum"
 
 msgid "Stock"
 msgstr "Stok"
+
+msgid "Stock Type"
+msgstr ""
+
+msgid "Stock Types"
+msgstr ""
 
 msgid "Stock level"
 msgstr "Stok seviyesi"
@@ -1520,6 +1693,9 @@ msgstr "Tedarikçi"
 msgid "Supplier address: {0} ({1})"
 msgstr "Tedarikçi adresi: {0} ({1})"
 
+msgid "Supplier name or company"
+msgstr ""
+
 #. : Supplier item panel title with supplier label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Supplier: {0} ({1})"
@@ -1530,6 +1706,12 @@ msgstr "Dil değiştiriliyor ..."
 
 msgid "Switching site ..."
 msgstr "Site değiştiriliyor ..."
+
+msgid "Tag Type"
+msgstr ""
+
+msgid "Tag Types"
+msgstr ""
 
 msgid "Tag value (required)"
 msgstr "Etiket değeri (gerekli)"
@@ -1565,6 +1747,15 @@ msgstr "Telefon numarası, örn. +155512345"
 
 msgid "Text"
 msgstr "Metin"
+
+msgid "Text Lists Type"
+msgstr ""
+
+msgid "Text Type"
+msgstr ""
+
+msgid "Text Types"
+msgstr ""
 
 msgid "Text type"
 msgstr "Metin türü"
@@ -1606,6 +1797,12 @@ msgstr "Dışa aktarılan metinli dosyalar bir kaç dakika içinde hazır olacak
 msgid "The image title is used for the title tag of the image on the web site"
 msgstr "Resim başlığı sitedeki resmin başlık etiketi için kullanılır"
 
+msgid "The option is only shown on the web site after that date and time"
+msgstr ""
+
+msgid "The option is only shown on the web site until that date and time"
+msgstr ""
+
 msgid ""
 "The texts of your uploaded file will be imported within a few minutes. You "
 "can check the status of the import in the \"Job\" panel of the \"Overview\" "
@@ -1642,6 +1839,9 @@ msgstr "Bir lb/kg başına veya her ay gibi ek fiyatlar için türler"
 msgid "URL of the customer web site"
 msgstr "Müşteri web sitesinin URL'si"
 
+msgid "URL of the supplier web site"
+msgstr ""
+
 msgid "URL segment"
 msgstr "URL segmenti"
 
@@ -1672,8 +1872,29 @@ msgstr "Benzersiz kategori kodu, ya harici sistemden ya da kendinden oluşturulm
 msgid "Unique code (required)"
 msgstr "Benzersiz kod (gerekli)"
 
+msgid "Unique code to identify the service, usually self-invented"
+msgstr ""
+
 msgid "Unique customer e-mail address"
 msgstr "Benzersiz müşteri e-posta adresi"
+
+msgid "Unique service code (required)"
+msgstr ""
+
+msgid "Unique site code (required)"
+msgstr ""
+
+msgid "Unique supplier code"
+msgstr ""
+
+msgid "Unique type code"
+msgstr ""
+
+msgid "Unique type code (required)"
+msgstr ""
+
+msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+msgstr ""
 
 #, php-format
 msgid "Unknown type \"%1$s\""
@@ -1744,6 +1965,9 @@ msgstr "Ürünleriniz birkaç farklı yerde bulunuyorsa depo veya yerel mağaza"
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
 msgstr "Depo: {0} ({1})"
+
+msgid "Web"
+msgstr ""
 
 msgid "Web site"
 msgstr "Web sitesi"
@@ -1860,6 +2084,14 @@ msgstr "Faturalar"
 msgid "latest"
 msgstr "En yeni"
 
+#, php-format
+msgid "locale"
+msgstr ""
+
+#, php-format
+msgid "locale/site"
+msgstr ""
+
 msgid "media"
 msgstr "Medya"
 
@@ -1947,6 +2179,10 @@ msgid "physical"
 msgstr "Fiziksel"
 
 #, php-format
+msgid "plugin"
+msgstr ""
+
+#, php-format
 msgid "price"
 msgstr "Fiyatlar"
 
@@ -1961,6 +2197,10 @@ msgstr "Ürünler"
 #, php-format
 msgid "selection"
 msgstr "Değişkenler"
+
+#, php-format
+msgid "service"
+msgstr "Servisler"
 
 msgid "service:delivery"
 msgstr "Teslimat"
@@ -2043,8 +2283,87 @@ msgid "stock"
 msgstr "Stoklar"
 
 #, php-format
+msgid "supplier"
+msgstr ""
+
+msgid "tag"
+msgstr "Etiketler"
+
+#, php-format
 msgid "text"
 msgstr "Metinler"
+
+#, php-format
+msgid "type/attribute"
+msgstr ""
+
+#, php-format
+msgid "type/attribute/lists"
+msgstr ""
+
+#, php-format
+msgid "type/catalog/lists"
+msgstr ""
+
+#, php-format
+msgid "type/customer/lists"
+msgstr ""
+
+#, php-format
+msgid "type/media"
+msgstr ""
+
+#, php-format
+msgid "type/media/lists"
+msgstr ""
+
+#, php-format
+msgid "type/plugin"
+msgstr ""
+
+#, php-format
+msgid "type/price"
+msgstr ""
+
+#, php-format
+msgid "type/price/lists"
+msgstr ""
+
+#, php-format
+msgid "type/product"
+msgstr ""
+
+#, php-format
+msgid "type/product/lists"
+msgstr ""
+
+#, php-format
+msgid "type/product/property"
+msgstr ""
+
+#, php-format
+msgid "type/service"
+msgstr ""
+
+#, php-format
+msgid "type/service/lists"
+msgstr ""
+
+#, php-format
+msgid "type/stock"
+msgstr ""
+
+#, php-format
+msgid "type/tag"
+msgstr ""
+
+#, php-format
+msgid "type/text"
+msgstr ""
+
+#, php-format
+msgid "type/text/lists"
+msgstr ""
 
 msgid "unknown"
 msgstr "Bilinmiyor"

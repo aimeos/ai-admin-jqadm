@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-01 18:07+0200\n"
-"PO-Revision-Date: 2017-07-01 16:10+0000\n"
+"POT-Creation-Date: 2017-08-20 13:19+0200\n"
+"PO-Revision-Date: 2017-08-20 11:19+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -80,6 +80,9 @@ msgstr ""
 msgid "Additional information where the customer's appartment can be found"
 msgstr ""
 
+msgid "Additional information where the supplier's office can be found"
+msgstr ""
+
 msgid "Additional information, e.g. flat number"
 msgstr "Допълнителна информация, например номер на апартамент"
 
@@ -99,6 +102,9 @@ msgid "Address ID"
 msgstr "Номер на адрес"
 
 msgid "Address identifier of the customer's house for delivery"
+msgstr ""
+
+msgid "Address identifier of the supplier's office"
 msgstr ""
 
 msgid "Addresses"
@@ -163,6 +169,15 @@ msgstr "Свързани текстове"
 msgid "Attribute"
 msgstr "Атрибут"
 
+msgid "Attribute Lists Type"
+msgstr ""
+
+msgid "Attribute Type"
+msgstr ""
+
+msgid "Attribute Types"
+msgstr ""
+
 msgid "Attribute name"
 msgstr ""
 
@@ -188,11 +203,17 @@ msgstr "Атрибути"
 msgid "Available attributes"
 msgstr "Налични атрибути"
 
+msgid "Available currency for the current site"
+msgstr ""
+
 msgid "Available customer groups"
 msgstr "Налични клиентски групи"
 
 msgid "Available customers"
 msgstr "Налични клиенти"
+
+msgid "Available language for the current site"
+msgstr ""
 
 msgid "Available media"
 msgstr "Налични медии"
@@ -220,6 +241,9 @@ msgstr "Базов номер"
 
 msgid "Basic"
 msgstr "Основа"
+
+msgid "Basket"
+msgstr "Кошница"
 
 msgid "Billing address"
 msgstr "Адрес за фактуриране"
@@ -250,6 +274,12 @@ msgstr ""
 
 msgid "Catalog"
 msgstr "Каталог"
+
+msgid "Catalog Lists Type"
+msgstr ""
+
+msgid "Catalog Types"
+msgstr ""
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #, python-brace-format
@@ -312,6 +342,9 @@ msgstr "Затвори"
 
 msgid "Code"
 msgstr "Код"
+
+msgid "Code to uniquely identify the site"
+msgstr ""
 
 msgid "Codes"
 msgstr "Кодове"
@@ -430,6 +463,12 @@ msgstr "Клиент"
 msgid "Customer ID"
 msgstr ""
 
+msgid "Customer Lists Type"
+msgstr ""
+
+msgid "Customer Types"
+msgstr ""
+
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
 #. : Customer address item panel title with customer name ({0}) and site code
@@ -502,6 +541,9 @@ msgstr "Статус на доставка"
 msgid "Delivery types"
 msgstr ""
 
+msgid "Descritive name of the site"
+msgstr ""
+
 msgid "Details"
 msgstr "Детайли"
 
@@ -516,6 +558,9 @@ msgstr "Домейн (задължително)"
 
 msgid "Download"
 msgstr "Изтегли"
+
+msgid "Download this file"
+msgstr ""
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
@@ -548,6 +593,9 @@ msgid "Error"
 msgstr "Грешка"
 
 msgid "Excl. tax"
+msgstr ""
+
+msgid "Execution order of the plugins"
 msgstr ""
 
 msgid "Expert"
@@ -610,7 +658,13 @@ msgstr ""
 msgid "Floor / Appartment"
 msgstr ""
 
+msgid "Floor / Office"
+msgstr ""
+
 msgid "Floor and/or appartment (optional)"
+msgstr ""
+
+msgid "Floor and/or office (optional)"
 msgstr ""
 
 msgid "Flush"
@@ -655,6 +709,9 @@ msgstr ""
 msgid "How the customer is addressed in e-mails"
 msgstr ""
 
+msgid "How the supplier is addressed in e-mails"
+msgstr ""
+
 msgid "ID"
 msgstr "ID"
 
@@ -672,7 +729,13 @@ msgstr ""
 msgid "Import"
 msgstr "Импорт"
 
+msgid "Import/Export jobs"
+msgstr ""
+
 msgid "Incl. tax"
+msgstr ""
+
+msgid "Info"
 msgstr ""
 
 msgid ""
@@ -695,6 +758,9 @@ msgstr "Вътрешно име"
 
 msgid "Internal name (required)"
 msgstr "Вътрешно име (задължително)"
+
+msgid "Internal type name shown in the administration interface"
+msgstr ""
 
 #, python-brace-format
 msgid "Invalid action \"{0}\""
@@ -750,6 +816,14 @@ msgstr ""
 
 msgid "Label"
 msgstr "Етикет"
+
+msgid "Label (required)"
+msgstr ""
+
+msgid ""
+"Label will be used if empty but then there must be no name for all "
+"languages. Otherwise, items will not be shown when sorting by name"
+msgstr ""
 
 msgid "Language"
 msgstr "Език"
@@ -883,6 +957,15 @@ msgstr "Цялостно описание"
 msgid "Media"
 msgstr "Медия"
 
+msgid "Media Lists Type"
+msgstr ""
+
+msgid "Media Type"
+msgstr ""
+
+msgid "Media Types"
+msgstr ""
+
 msgid "Media type"
 msgstr "Тип на медиа"
 
@@ -916,6 +999,9 @@ msgstr "Минимално количество"
 
 msgid "Miss"
 msgstr "Г-ца"
+
+msgid "Modifed"
+msgstr ""
 
 msgid "Modified"
 msgstr ""
@@ -1007,6 +1093,12 @@ msgstr "Поръчка"
 msgid "Order item details"
 msgstr "Детайли на поръчка"
 
+msgid "Order of the language/currency combinations"
+msgstr ""
+
+msgid "Order of the service options in the checkout process"
+msgstr ""
+
 msgid "Order product ID"
 msgstr "Номер на поръчания продукт"
 
@@ -1087,6 +1179,9 @@ msgstr ""
 msgid "Personal data"
 msgstr ""
 
+msgid "Phone"
+msgstr ""
+
 msgid "Physical values"
 msgstr "Физични стойности"
 
@@ -1107,6 +1202,18 @@ msgstr "Изберете елемент отдясно и го завлечет�
 msgid "Plugin"
 msgstr "Допълнение"
 
+msgid "Plugin Type"
+msgstr ""
+
+msgid "Plugin Types"
+msgstr ""
+
+msgid "Plugin position (required)"
+msgstr ""
+
+msgid "Plugin provider or plugin decorator configuration name"
+msgstr ""
+
 msgid "Plugin type"
 msgstr "Тип на допълнение"
 
@@ -1123,6 +1230,9 @@ msgstr "Допълнение:  {0} ({1})"
 msgid "Position"
 msgstr "Позиция"
 
+msgid "Position (required)"
+msgstr ""
+
 msgid "Postal"
 msgstr ""
 
@@ -1130,6 +1240,9 @@ msgid "Postal code"
 msgstr "Пощенски код"
 
 msgid "Postal code for delivery if used in the area the customer is living"
+msgstr ""
+
+msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr ""
 
 msgid "Preview"
@@ -1143,6 +1256,15 @@ msgstr "Предишен"
 
 msgid "Price"
 msgstr "Цена"
+
+msgid "Price Lists Type"
+msgstr ""
+
+msgid "Price Type"
+msgstr ""
+
+msgid "Price Types"
+msgstr ""
 
 msgid "Price type"
 msgstr "Тип на цена"
@@ -1168,6 +1290,18 @@ msgstr "Продукт"
 
 msgid "Product ID"
 msgstr "Номер на продукта"
+
+msgid "Product Lists Type"
+msgstr ""
+
+msgid "Product Property Type"
+msgstr ""
+
+msgid "Product Type"
+msgstr ""
+
+msgid "Product Types"
+msgstr ""
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
@@ -1273,6 +1407,9 @@ msgid "Provider"
 msgstr "Доставчик"
 
 msgid "Provider/decorator class names (required)"
+msgstr ""
+
+msgid "Purchase"
 msgstr ""
 
 msgid "Purchase date"
@@ -1391,6 +1528,15 @@ msgstr "Услуга"
 msgid "Service ID"
 msgstr "Номер на услуга"
 
+msgid "Service Lists Type"
+msgstr ""
+
+msgid "Service Type"
+msgstr ""
+
+msgid "Service Types"
+msgstr ""
+
 msgid "Service attribute code"
 msgstr ""
 
@@ -1399,6 +1545,15 @@ msgstr "Такси за услуги"
 
 msgid "Service item details"
 msgstr "Информация за услугата"
+
+msgid "Service name"
+msgstr ""
+
+msgid "Service position (required)"
+msgstr ""
+
+msgid "Service provider or service decorator configuration name"
+msgstr ""
 
 msgid "Service type"
 msgstr "Тип на услуга"
@@ -1435,6 +1590,11 @@ msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr ""
 
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier has his "
+"office"
+msgstr ""
+
 msgid "Show"
 msgstr "Покажи"
 
@@ -1453,7 +1613,14 @@ msgstr "Опростен вид"
 msgid "Site"
 msgstr "Сайт"
 
+msgid ""
+"Site specific configuration options, will be available as key/value pairs"
+msgstr ""
+
 msgid "Site the order was placed at"
+msgstr ""
+
+msgid "Sites"
 msgstr ""
 
 msgid "Size"
@@ -1482,6 +1649,12 @@ msgstr "Статус"
 
 msgid "Stock"
 msgstr "Наличност"
+
+msgid "Stock Type"
+msgstr ""
+
+msgid "Stock Types"
+msgstr ""
 
 msgid "Stock level"
 msgstr "Стокови нива"
@@ -1521,6 +1694,9 @@ msgstr "Доставчик"
 msgid "Supplier address: {0} ({1})"
 msgstr "Адрес на доставчик: {0} ({1})"
 
+msgid "Supplier name or company"
+msgstr ""
+
 #. : Supplier item panel title with supplier label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Supplier: {0} ({1})"
@@ -1531,6 +1707,12 @@ msgstr "Смяна на език ... "
 
 msgid "Switching site ..."
 msgstr "Смяна на сайта ..."
+
+msgid "Tag Type"
+msgstr ""
+
+msgid "Tag Types"
+msgstr ""
 
 msgid "Tag value (required)"
 msgstr "Стойност на таг (задължително)"
@@ -1566,6 +1748,15 @@ msgstr "Телефонен номер, например +155512345"
 
 msgid "Text"
 msgstr "Текст "
+
+msgid "Text Lists Type"
+msgstr ""
+
+msgid "Text Type"
+msgstr ""
+
+msgid "Text Types"
+msgstr ""
 
 msgid "Text type"
 msgstr "Тип на текст"
@@ -1607,6 +1798,12 @@ msgstr "Файлът с експортираните текстове ще бъ�
 msgid "The image title is used for the title tag of the image on the web site"
 msgstr ""
 
+msgid "The option is only shown on the web site after that date and time"
+msgstr ""
+
+msgid "The option is only shown on the web site until that date and time"
+msgstr ""
+
 msgid ""
 "The texts of your uploaded file will be imported within a few minutes. You "
 "can check the status of the import in the \"Job\" panel of the \"Overview\" "
@@ -1643,6 +1840,9 @@ msgstr ""
 msgid "URL of the customer web site"
 msgstr ""
 
+msgid "URL of the supplier web site"
+msgstr ""
+
 msgid "URL segment"
 msgstr "URL сегмент"
 
@@ -1673,7 +1873,28 @@ msgstr ""
 msgid "Unique code (required)"
 msgstr "Уникален код (задължително)"
 
+msgid "Unique code to identify the service, usually self-invented"
+msgstr ""
+
 msgid "Unique customer e-mail address"
+msgstr ""
+
+msgid "Unique service code (required)"
+msgstr ""
+
+msgid "Unique site code (required)"
+msgstr ""
+
+msgid "Unique supplier code"
+msgstr ""
+
+msgid "Unique type code"
+msgstr ""
+
+msgid "Unique type code (required)"
+msgstr ""
+
+msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr ""
 
 #, php-format
@@ -1745,6 +1966,9 @@ msgstr ""
 #, python-brace-format
 msgid "Warehouse: {0} ({1})"
 msgstr "Склад: {0} ({1})"
+
+msgid "Web"
+msgstr ""
 
 msgid "Web site"
 msgstr "Уеб сайт"
@@ -1861,6 +2085,14 @@ msgstr ""
 msgid "latest"
 msgstr ""
 
+#, php-format
+msgid "locale"
+msgstr ""
+
+#, php-format
+msgid "locale/site"
+msgstr ""
+
 msgid "media"
 msgstr "Медия"
 
@@ -1948,6 +2180,10 @@ msgid "physical"
 msgstr ""
 
 #, php-format
+msgid "plugin"
+msgstr ""
+
+#, php-format
 msgid "price"
 msgstr "Цени"
 
@@ -1962,6 +2198,10 @@ msgstr "Продукти"
 #, php-format
 msgid "selection"
 msgstr "Варианти"
+
+#, php-format
+msgid "service"
+msgstr "Услуги"
 
 msgid "service:delivery"
 msgstr "Доставка"
@@ -2044,8 +2284,87 @@ msgid "stock"
 msgstr ""
 
 #, php-format
+msgid "supplier"
+msgstr ""
+
+msgid "tag"
+msgstr "Тагове"
+
+#, php-format
 msgid "text"
 msgstr "Текстове"
+
+#, php-format
+msgid "type/attribute"
+msgstr ""
+
+#, php-format
+msgid "type/attribute/lists"
+msgstr ""
+
+#, php-format
+msgid "type/catalog/lists"
+msgstr ""
+
+#, php-format
+msgid "type/customer/lists"
+msgstr ""
+
+#, php-format
+msgid "type/media"
+msgstr ""
+
+#, php-format
+msgid "type/media/lists"
+msgstr ""
+
+#, php-format
+msgid "type/plugin"
+msgstr ""
+
+#, php-format
+msgid "type/price"
+msgstr ""
+
+#, php-format
+msgid "type/price/lists"
+msgstr ""
+
+#, php-format
+msgid "type/product"
+msgstr ""
+
+#, php-format
+msgid "type/product/lists"
+msgstr ""
+
+#, php-format
+msgid "type/product/property"
+msgstr ""
+
+#, php-format
+msgid "type/service"
+msgstr ""
+
+#, php-format
+msgid "type/service/lists"
+msgstr ""
+
+#, php-format
+msgid "type/stock"
+msgstr ""
+
+#, php-format
+msgid "type/tag"
+msgstr ""
+
+#, php-format
+msgid "type/text"
+msgstr ""
+
+#, php-format
+msgid "type/text/lists"
+msgstr ""
 
 msgid "unknown"
 msgstr ""
