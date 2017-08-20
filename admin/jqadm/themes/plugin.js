@@ -9,13 +9,13 @@ Aimeos.Plugin = {
 
 	init : function() {
 
-		Aimeos.Plugin.Item.init();
+		Aimeos.Plugin.init();
 	}
 };
 
 
 
-Aimeos.Plugin.Item = {
+Aimeos.Plugin = {
 
 	init : function() {
 

@@ -398,6 +398,42 @@ Aimeos.Form = {
 
 
 
+Aimeos.List = {
+
+	element : null,
+
+
+	init : function() {
+
+		this.askDelete();
+		this.confirmDelete();
+	},
+
+
+	askDelete : function() {
+		var self = this;
+
+		$(".aimeos .list-items").on("click", ".act-delete", function(e) {
+			$("#confirm-delete").modal("show", $(this));
+			self.element = $(this);
+			return false;
+		});
+	},
+
+
+	confirmDelete : function() {
+		var self = this;
+
+		$("#confirm-delete").on("click", ".btn-danger", function(e) {
+			if(self.element) {
+				window.location = self.element.attr("href");
+			}
+		});
+	}
+};
+
+
+
 Aimeos.Nav = {
 
 	init : function() {
@@ -542,6 +578,7 @@ $(function() {
 	Aimeos.Config.init();
 	Aimeos.Filter.init();
 	Aimeos.Form.init();
+	Aimeos.List.init();
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();
 });

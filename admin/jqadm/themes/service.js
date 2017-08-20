@@ -9,13 +9,13 @@ Aimeos.Service = {
 
 	init : function() {
 
-		Aimeos.Service.Item.init();
+		Aimeos.Service.init();
 	}
 };
 
 
 
-Aimeos.Service.Item = {
+Aimeos.Service = {
 
 	init : function() {
 

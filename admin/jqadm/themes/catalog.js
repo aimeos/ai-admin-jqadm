@@ -67,6 +67,19 @@ Aimeos.options.done(function(result) {
 Aimeos.Catalog = {
 
 	csrf : null,
+	element : null,
+
+
+	init : function() {
+
+		this.askDelete();
+		this.confirmDelete();
+
+		this.setupAdd();
+		this.setupSearch();
+		this.setupExpandAll();
+		this.setupCollapseAll();
+	},
 
 
 	createTree : function(root) {
@@ -192,27 +205,6 @@ Aimeos.Catalog = {
 		}
 
 		return root;
-	}
-};
-
-
-
-Aimeos.Catalog.Item = {
-
-	element : null,
-
-
-	init : function() {
-
-		this.askDelete();
-		this.confirmDelete();
-
-		this.setupAdd();
-		this.setupSearch();
-		this.setupExpandAll();
-		this.setupCollapseAll();
-
-		Aimeos.Catalog.Item.Product.init();
 	},
 
 
@@ -334,7 +326,7 @@ Aimeos.Catalog.Item = {
 
 
 
-Aimeos.Catalog.Item.Product = {
+Aimeos.Catalog.Product = {
 
 	init : function() {
 
@@ -350,7 +342,7 @@ Aimeos.Catalog.Item.Product = {
 			Aimeos.addClone(
 				$(".list-item-new.prototype", ev.delegateTarget),
 				Aimeos.getOptionsProducts,
-				Aimeos.Catalog.Item.Product.select);
+				Aimeos.Catalog.Product.select);
 		});
 	},
 
@@ -419,5 +411,5 @@ Aimeos.Catalog.Item.Product = {
 
 $(function() {
 
-	Aimeos.Catalog.Item.init();
+	Aimeos.Catalog.init();
 });

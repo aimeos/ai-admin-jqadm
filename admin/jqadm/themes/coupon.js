@@ -9,20 +9,11 @@ Aimeos.Coupon = {
 
 	init : function() {
 
-		Aimeos.Coupon.Item.init();
-		Aimeos.Coupon.Item.Code.init();
-	}
-};
-
-
-
-Aimeos.Coupon.Item = {
-
-	init : function() {
-
 		this.setupConfig();
 		this.setupDecorator();
 		this.setupProvider();
+
+		Aimeos.Coupon.Code.init();
 	},
 
 
@@ -100,7 +91,7 @@ Aimeos.Coupon.Item = {
 
 
 
-Aimeos.Coupon.Item.Code = {
+Aimeos.Coupon.Code = {
 
 	init : function() {
 

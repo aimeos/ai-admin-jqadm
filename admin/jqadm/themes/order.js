@@ -215,16 +215,6 @@ Aimeos.Order = {
 
 	init : function() {
 
-		Aimeos.Order.Item.init();
-	}
-};
-
-
-
-Aimeos.Order.Item = {
-
-	init : function() {
-
 		this.addServcieAttributeLine();
 		this.deleteServcieAttributeLine();
 		this.setupServiceCodeSuggest();
@@ -232,7 +222,7 @@ Aimeos.Order.Item = {
 		this.toggleAddressForm();
 		this.updateShortAddress();
 
-		Aimeos.Order.Item.Invoice.init();
+		Aimeos.Order.Invoice.init();
 	},
 
 
@@ -323,7 +313,7 @@ Aimeos.Order.Item = {
 
 
 
-Aimeos.Order.Item.Invoice = {
+Aimeos.Order.Invoice = {
 
 	init : function() {
 
