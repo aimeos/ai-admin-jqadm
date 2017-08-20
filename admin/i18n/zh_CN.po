@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-20 13:19+0200\n"
-"PO-Revision-Date: 2017-08-20 11:35+0000\n"
+"PO-Revision-Date: 2017-08-20 13:04+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/aimeos/aimeos-core/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -2296,7 +2296,7 @@ msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "属性"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2324,7 +2324,7 @@ msgstr ""
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "价格"
 
 #, php-format
 msgid "type/price/lists"
@@ -2344,7 +2344,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "服务"
 
 #, php-format
 msgid "type/service/lists"

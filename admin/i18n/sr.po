@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-20 13:19+0200\n"
-"PO-Revision-Date: 2017-08-20 11:35+0000\n"
+"PO-Revision-Date: 2017-08-20 13:04+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/aimeos/aimeos-core/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -2311,7 +2311,7 @@ msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "Mediji"
 
 #, php-format
 msgid "type/media/lists"
@@ -2331,7 +2331,7 @@ msgstr ""
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "Proizvodi"
 
 #, php-format
 msgid "type/product/lists"
@@ -2343,7 +2343,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Usluga"
 
 #, php-format
 msgid "type/service/lists"
@@ -2355,7 +2355,7 @@ msgstr ""
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "Oznake"
 
 #, php-format
 msgid "type/text"

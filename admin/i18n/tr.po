@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-20 13:19+0200\n"
-"PO-Revision-Date: 2017-08-20 11:35+0000\n"
+"PO-Revision-Date: 2017-08-20 13:04+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -2295,7 +2295,7 @@ msgstr "Metinler"
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "Nitelikler"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2311,7 +2311,7 @@ msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "Medya"
 
 #, php-format
 msgid "type/media/lists"
@@ -2323,7 +2323,7 @@ msgstr ""
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "Fiyatlar"
 
 #, php-format
 msgid "type/price/lists"
@@ -2331,7 +2331,7 @@ msgstr ""
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "Ürünler"
 
 #, php-format
 msgid "type/product/lists"
@@ -2343,7 +2343,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Servisler"
 
 #, php-format
 msgid "type/service/lists"
@@ -2351,15 +2351,15 @@ msgstr ""
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "Stoklar"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "Etiketler"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "Metinler"
 
 #, php-format
 msgid "type/text/lists"

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-20 13:19+0200\n"
-"PO-Revision-Date: 2017-08-20 11:36+0000\n"
+"PO-Revision-Date: 2017-08-20 13:05+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2202,7 +2202,7 @@ msgstr "Varianten"
 
 #, php-format
 msgid "service"
-msgstr "Zahlung und Lieferung"
+msgstr "Dienste"
 
 msgid "service:delivery"
 msgstr "Versand"
@@ -2297,75 +2297,75 @@ msgstr "Texte"
 
 #, php-format
 msgid "type/attribute"
-msgstr "Attributtypen"
+msgstr "Attribute"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr "Attribute-Listentypen"
+msgstr "Attributlisten"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr "Katalog-Listentypen"
+msgstr "Kataloglisten"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr "Kunden-Listentypen"
+msgstr "Kundenlisten"
 
 #, php-format
 msgid "type/media"
-msgstr "Medientypen"
+msgstr "Medien"
 
 #, php-format
 msgid "type/media/lists"
-msgstr "Medien-Listentypen"
+msgstr "Medienlisten"
 
 #, php-format
 msgid "type/plugin"
-msgstr "Plugin-Typen"
+msgstr "Plugins"
 
 #, php-format
 msgid "type/price"
-msgstr "Preistypen"
+msgstr "Preise"
 
 #, php-format
 msgid "type/price/lists"
-msgstr "Preis-Listentypen"
+msgstr "Preislisten"
 
 #, php-format
 msgid "type/product"
-msgstr "Produkttypen"
+msgstr "Produkte"
 
 #, php-format
 msgid "type/product/lists"
-msgstr "Product-Listentypen"
+msgstr "Produktlisten"
 
 #, php-format
 msgid "type/product/property"
-msgstr "Produkt-Eigenschaftstypen"
+msgstr "Produkteigenschaften"
 
 #, php-format
 msgid "type/service"
-msgstr "Diensttypen"
+msgstr "Dienste"
 
 #, php-format
 msgid "type/service/lists"
-msgstr "Dienst-Listentypen"
+msgstr "Dienstelisten"
 
 #, php-format
 msgid "type/stock"
-msgstr "Warenlager"
+msgstr "Bestände"
 
 #, php-format
 msgid "type/tag"
-msgstr "Schlagworttypen"
+msgstr "Schlagwörter"
 
 #, php-format
 msgid "type/text"
-msgstr "Texttypen"
+msgstr "Texte"
 
 #, php-format
 msgid "type/text/lists"
-msgstr "Text-Listentypen"
+msgstr "Textlisten"
 
 msgid "unknown"
 msgstr "Unbekannt"

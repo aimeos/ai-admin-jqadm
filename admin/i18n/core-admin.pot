@@ -2214,75 +2214,75 @@ msgstr "Texts"
 
 #, php-format
 msgid "type/attribute"
-msgstr "Attribute Types"
+msgstr "Attributes"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr "Attribute Lists Types"
+msgstr "Attribute Lists"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr "Catalog Lists Types"
+msgstr "Catalog Lists"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr "Customer Lists Types"
+msgstr "Customer Lists"
 
 #, php-format
 msgid "type/media"
-msgstr "Media Types"
+msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"
-msgstr "Media Lists Types"
+msgstr "Media Lists"
 
 #, php-format
 msgid "type/plugin"
-msgstr "Plugin Types"
+msgstr "Plugins"
 
 #, php-format
 msgid "type/price"
-msgstr "Price Types"
+msgstr "Prices"
 
 #, php-format
 msgid "type/price/lists"
-msgstr "Price Lists Types"
+msgstr "Price Lists"
 
 #, php-format
 msgid "type/product"
-msgstr "Product Types"
+msgstr "Products"
 
 #, php-format
 msgid "type/product/lists"
-msgstr "Product Lists Types"
+msgstr "Product Lists"
 
 #, php-format
 msgid "type/product/property"
-msgstr "Product Property Types"
+msgstr "Product Properties"
 
 #, php-format
 msgid "type/service"
-msgstr "Service Types"
+msgstr "Services"
 
 #, php-format
 msgid "type/service/lists"
-msgstr "Service Lists Types"
+msgstr "Service Lists"
 
 #, php-format
 msgid "type/stock"
-msgstr "Stock Types"
+msgstr "Stocks"
 
 #, php-format
 msgid "type/tag"
-msgstr "Tag Types"
+msgstr "Tags"
 
 #, php-format
 msgid "type/text"
-msgstr "Text Types"
+msgstr "Texts"
 
 #, php-format
 msgid "type/text/lists"
-msgstr "Text Lists Types"
+msgstr "Text Lists"
 
 msgid "unknown"
 msgstr "Unknown"

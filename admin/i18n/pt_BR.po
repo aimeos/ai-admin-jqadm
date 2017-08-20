@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-20 13:19+0200\n"
-"PO-Revision-Date: 2017-08-20 11:35+0000\n"
+"PO-Revision-Date: 2017-08-20 13:04+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -2295,7 +2295,7 @@ msgstr "Textos"
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "Atributos"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2311,7 +2311,7 @@ msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "Mídia"
 
 #, php-format
 msgid "type/media/lists"
@@ -2323,7 +2323,7 @@ msgstr ""
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "Preços"
 
 #, php-format
 msgid "type/price/lists"
@@ -2331,7 +2331,7 @@ msgstr ""
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "Produtos"
 
 #, php-format
 msgid "type/product/lists"
@@ -2343,7 +2343,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Serviços"
 
 #, php-format
 msgid "type/service/lists"
@@ -2355,11 +2355,11 @@ msgstr ""
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "Etiquetas"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "Textos"
 
 #, php-format
 msgid "type/text/lists"
