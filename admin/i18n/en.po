@@ -157,13 +157,11 @@ msgstr ""
 msgid "Attribute Lists Type"
 msgstr ""
 
-#, fuzzy
 msgid "Attribute Type"
-msgstr "Attributes"
+msgstr ""
 
-#, fuzzy
 msgid "Attribute Types"
-msgstr "Attributes"
+msgstr ""
 
 msgid "Attribute name"
 msgstr ""
@@ -265,9 +263,8 @@ msgstr ""
 msgid "Catalog Lists Type"
 msgstr ""
 
-#, fuzzy
 msgid "Catalog Types"
-msgstr "Categories"
+msgstr ""
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #, python-brace-format
@@ -283,9 +280,8 @@ msgstr ""
 msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
 
-#, fuzzy
 msgid "Category name"
-msgstr "Categories"
+msgstr ""
 
 msgid "Category specific configuration options, will be available as key/value pairs in the templates"
 msgstr ""
@@ -451,9 +447,8 @@ msgstr ""
 msgid "Customer Lists Type"
 msgstr ""
 
-#, fuzzy
 msgid "Customer Types"
-msgstr "Customers"
+msgstr ""
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -483,9 +478,8 @@ msgstr ""
 msgid "Customer: {0} ({1})"
 msgstr ""
 
-#, fuzzy
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr ""
 
 msgid "Date"
 msgstr ""
@@ -619,9 +613,8 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#, fuzzy
 msgid "Find category"
-msgstr "Categories"
+msgstr ""
 
 msgid "First"
 msgstr ""
@@ -1110,9 +1103,8 @@ msgstr ""
 msgid "Pay name"
 msgstr ""
 
-#, fuzzy
 msgid "Pay price"
-msgstr "Prices"
+msgstr ""
 
 msgid "Pay rebate"
 msgstr ""
@@ -1254,13 +1246,11 @@ msgstr ""
 msgid "Product Property Type"
 msgstr ""
 
-#, fuzzy
 msgid "Product Type"
-msgstr "Products"
+msgstr ""
 
-#, fuzzy
 msgid "Product Types"
-msgstr "Products"
+msgstr ""
 
 msgid "Product attributes stored in the basket where customers can enter their own texts or values"
 msgstr ""
@@ -1493,9 +1483,8 @@ msgstr ""
 msgid "Service item details"
 msgstr ""
 
-#, fuzzy
 msgid "Service name"
-msgstr "Payment"
+msgstr ""
 
 msgid "Service position (required)"
 msgstr ""
@@ -1940,11 +1929,9 @@ msgstr ""
 msgid "address"
 msgstr "Addresses"
 
-#, fuzzy
 msgid "address:delivery"
 msgstr "Delivery"
 
-#, fuzzy
 msgid "address:payment"
 msgstr "Payment"
 
@@ -2017,11 +2004,11 @@ msgstr "Latest"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "Locales"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "Sites"
 
 msgid "media"
 msgstr "Media"
@@ -2111,7 +2098,7 @@ msgstr "Physical"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "Plugins"
 
 #, php-format
 msgid "price"
@@ -2129,9 +2116,8 @@ msgstr "Products"
 msgid "selection"
 msgstr "Variants"
 
-#, fuzzy, php-format
 msgid "service"
-msgstr "Payment"
+msgstr "Services"
 
 msgid "service:delivery"
 msgstr "Delivery"
@@ -2215,87 +2201,79 @@ msgstr "Stocks"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Suppliers"
 
-#, fuzzy
 msgid "tag"
-msgstr "Categories"
+msgstr "Tags"
 
 #, php-format
 msgid "text"
 msgstr "Texts"
 
-#, fuzzy, php-format
 msgid "type/attribute"
 msgstr "Attributes"
 
-#, fuzzy, php-format
 msgid "type/attribute/lists"
-msgstr "Attributes"
+msgstr "Attribute lists"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "Catalog lists"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "Customer lists"
 
-#, fuzzy, php-format
 msgid "type/media"
 msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "Media lists"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "Plugins"
 
-#, fuzzy, php-format
 msgid "type/price"
 msgstr "Prices"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "Price lists"
 
-#, fuzzy, php-format
 msgid "type/product"
 msgstr "Products"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "Product lists"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "Product properties"
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Services"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "Service lists"
 
-#, fuzzy, php-format
 msgid "type/stock"
 msgstr "Stocks"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "Tags"
 
-#, fuzzy, php-format
 msgid "type/text"
 msgstr "Texts"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "Text lists"
 
 msgid "unknown"
 msgstr "Unknown"
