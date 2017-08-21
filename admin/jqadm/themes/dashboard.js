@@ -45,6 +45,94 @@ Aimeos.Dashboard = {
 				data: params
 			});
 		});
+	},
+
+
+
+	drawDonut : function(selector, resource, key, criteria, sort, limit) {
+
+		var lgspace = 190, txheight = 20,
+			margin = {top: 20, right: 20, bottom: 20, left: 20},
+			width = $(selector).width() - margin.left - margin.right,
+			height = $(selector).height() - margin.top - margin.bottom - 10,
+			radius = (width - lgspace > height ? Math.min(width - lgspace, height) : Math.min(width, height) ) / 2;
+
+
+		Aimeos.Dashboard.getData(resource, key, criteria, sort, limit).then(function(data) {
+
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var color = d3.scaleOrdinal(d3.schemeCategory20);
+			var sum = d3.sum(data.data, function(d) { return d.attributes; });
+
+			var arc = d3.arc()
+				.outerRadius(radius)
+				.innerRadius(radius - 50);
+
+			var pie = d3.pie()
+				.padAngle(.02)
+				.sort(null)
+				.value(function(d) { return +d.attributes; });
+
+			var svg = d3.select(selector)
+				.append("svg")
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", (width - lgspace > height ? height + margin.top + margin.bottom : radius * 2 + margin.top + data.data.length * txheight + 25 ));
+
+			var donut = svg.append("g")
+				.attr("transform", "translate(" + (radius + margin.left) + "," + (radius + margin.top) + ")")
+				.selectAll(".arc")
+					.data(pie(data.data))
+					.enter()
+					.append("g")
+						.attr("class", "arc");
+
+			donut.append("path")
+				.attr("d", arc)
+				.style("fill", function(d, i) { return color(i); });
+
+			donut.append("text")
+				.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+				.attr("dx", "-1.25em")
+				.attr("dy", ".35em")
+				.text(function(d) {
+					var perc = Math.round(d.data.attributes / sum * 1000) / 10;
+					return ( perc > 5.0 ? perc + "%" : "" );
+				});
+
+			var legend = svg.selectAll(".legend")
+				.data(data.data)
+				.enter()
+				.append("g")
+					.attr("class", "legend-item");
+
+			legend.append("rect")
+				.style("fill", function(d, i) { return color(i); })
+				.attr("height", 10)
+				.attr("width", 10)
+				.attr("transform", function(d, i) {
+					if(width - lgspace > height) {
+						return "translate(" + (radius * 2 + margin.left + 25) + "," + (margin.top + i * txheight + 10) + ")";
+					} else {
+						return "translate(" + margin.left + "," + (radius * 2 + margin.top + 25 + i * txheight) + ")";
+					}
+				});
+
+			legend.append("text")
+				.text(function(d, i) { return d.id; })
+				.attr("transform", function(d, i) {
+					if(width - lgspace > height) {
+						return "translate(" + (radius * 2 + margin.left + 50) + "," + (margin.top + i * txheight + 20) + ")";
+					} else {
+						return "translate(" + (margin.left + 25) + "," + (radius * 2 + margin.top + 25 + i * txheight + 10) + ")";
+					}
+				});
+
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
 	}
 };
 
@@ -94,7 +182,7 @@ Aimeos.Dashboard.Order = {
 		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", 10000).then(function(data) {
 
 			if( typeof data.data == "undefined" ) {
-				throw error;
+				throw 'No data in response';
 			}
 
 			var entries = {};
@@ -148,14 +236,14 @@ Aimeos.Dashboard.Order = {
 			// month numbers on top of the heat map
 			var dateNumbers = dateRange.map(Number);
 			svg.selectAll(".legend-month")
-				.data(d3.utcMonth.range(firstdate, new Date()))
+				.data(d3.utcMonth.range(new Date(firstdate.getTime() + 28*24*3600*1000), new Date()))
 				.enter().append("text")
 					.text(function (d) { var num = d.getMonth(); return (num === 0 ? num = 12 : (num < 10 ? "0" + num : num)); })
 					.attr("class", "x axis")
 					.attr("y", -10)
 					.attr("x", function (d) {
 						var idx = dateNumbers.indexOf(+d);
-						if(idx !== -1) { return Math.floor(idx / 7) * cellWidth; }
+						if(idx != -1) { return (Math.floor(idx / 7) - 1) * cellWidth; }
 					});
 
 
@@ -238,7 +326,7 @@ Aimeos.Dashboard.Order = {
 		Aimeos.Dashboard.getData("order", "order.chour", {}, "-order.ctime", 1000).then(function(data) {
 
 			if( typeof data.data == "undefined" ) {
-				throw error;
+				throw 'No data in response';
 			}
 
 			var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
@@ -284,7 +372,7 @@ Aimeos.Dashboard.Order = {
 	chartDeliveryType : function() {
 
 		var criteria = {"==": {"order.base.service.type": "delivery"}};
-		this.drawDonut("#order-deliverytype-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
+		Aimeos.Dashboard.drawDonut("#order-deliverytype-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
 	},
 
 
@@ -292,7 +380,7 @@ Aimeos.Dashboard.Order = {
 	chartPaymentType : function() {
 
 		var criteria = {"==": {"order.base.service.type": "payment"}};
-		this.drawDonut("#order-paymenttype-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
+		Aimeos.Dashboard.drawDonut("#order-paymenttype-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
 	},
 
 
@@ -463,96 +551,7 @@ Aimeos.Dashboard.Order = {
 				}
 			);
 		});
-	},
-
-
-
-	drawDonut : function(selector, resource, key, criteria, sort, limit) {
-
-		var lgspace = 190, txheight = 20,
-			margin = {top: 20, right: 20, bottom: 20, left: 20},
-			width = $(selector).width() - margin.left - margin.right,
-			height = $(selector).height() - margin.top - margin.bottom - 10,
-			radius = (width - lgspace > height ? Math.min(width - lgspace, height) : Math.min(width, height) ) / 2;
-
-
-		Aimeos.Dashboard.getData(resource, key, criteria, sort, limit).then(function(data) {
-
-			if( typeof data.data == "undefined" ) {
-				throw error;
-			}
-
-			var color = d3.scaleOrdinal(d3.schemeCategory20);
-			var sum = d3.sum(data.data, function(d) { return d.attributes; });
-
-			var arc = d3.arc()
-				.outerRadius(radius)
-				.innerRadius(radius - 50);
-
-			var pie = d3.pie()
-				.padAngle(.02)
-				.sort(null)
-				.value(function(d) { return +d.attributes; });
-
-			var svg = d3.select(selector)
-				.append("svg")
-					.attr("width", width + margin.left + margin.right)
-					.attr("height", (width - lgspace > height ? height + margin.top + margin.bottom : radius * 2 + margin.top + data.data.length * txheight + 25 ));
-
-			var donut = svg.append("g")
-				.attr("transform", "translate(" + (radius + margin.left) + "," + (radius + margin.top) + ")")
-				.selectAll(".arc")
-					.data(pie(data.data))
-					.enter()
-					.append("g")
-						.attr("class", "arc");
-
-			donut.append("path")
-				.attr("d", arc)
-				.style("fill", function(d, i) { return color(i); });
-
-			donut.append("text")
-				.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-				.attr("dx", "-1.25em")
-				.attr("dy", ".35em")
-				.text(function(d) {
-					var perc = Math.round(d.data.attributes / sum * 1000) / 10;
-					return ( perc > 5.0 ? perc + "%" : "" );
-				});
-
-			var legend = svg.selectAll(".legend")
-				.data(data.data)
-				.enter()
-				.append("g")
-					.attr("class", "legend-item");
-
-			legend.append("rect")
-				.style("fill", function(d, i) { return color(i); })
-				.attr("height", 10)
-				.attr("width", 10)
-				.attr("transform", function(d, i) {
-					if(width - lgspace > height) {
-						return "translate(" + (radius * 2 + margin.left + 25) + "," + (margin.top + i * txheight + 10) + ")";
-					} else {
-						return "translate(" + margin.left + "," + (radius * 2 + margin.top + 25 + i * txheight) + ")";
-					}
-				});
-
-			legend.append("text")
-				.text(function(d, i) { return d.id; })
-				.attr("transform", function(d, i) {
-					if(width - lgspace > height) {
-						return "translate(" + (radius * 2 + margin.left + 50) + "," + (margin.top + i * txheight + 20) + ")";
-					} else {
-						return "translate(" + (margin.left + 25) + "," + (radius * 2 + margin.top + 25 + i * txheight + 10) + ")";
-					}
-				});
-
-		}).done(function() {
-			$(selector).removeClass("loading");
-		});
-	}
-};
+	}};
 
 
 $(function() {
