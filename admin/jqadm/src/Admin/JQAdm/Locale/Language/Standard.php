@@ -304,7 +304,10 @@ class Standard
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'locale/language' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/language' );
-			$search = $this->initCriteria( $manager->createSearch(), $params );
+
+			$search = $manager->createSearch();
+			$search->setSortations( [$search->sort( '-', 'locale.language.status'), $search->sort( '+', 'locale.language.id')] );
+			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );

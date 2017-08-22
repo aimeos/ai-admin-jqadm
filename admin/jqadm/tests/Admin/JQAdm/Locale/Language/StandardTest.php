@@ -74,8 +74,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/language' );
-
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['id' => 'de'] );
 		$this->view->addHelper( 'param', $helper );
 
@@ -157,8 +155,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/language' );
-
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['id' => 'de'] );
 		$this->view->addHelper( 'param', $helper );
 
@@ -354,8 +350,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/language' );
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['id' => 'de'] );
 		$view->addHelper( 'param', $helper );
