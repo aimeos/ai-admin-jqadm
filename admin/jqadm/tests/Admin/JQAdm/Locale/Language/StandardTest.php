@@ -79,7 +79,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->copy();
 
-		$this->assertContains( 'de', $result );
+		$this->assertContains( 'German', $result );
 	}
 
 
