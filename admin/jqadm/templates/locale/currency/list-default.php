@@ -48,7 +48,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2017.10
  * @category Developer
  */
-$default = ['locale.currency.id', 'locale.currency.status', 'locale.currency.label'];
+$default = ['locale.currency.status', 'locale.currency.code', 'locale.currency.label'];
 $default = $this->config( 'admin/jqadm/locale/currency/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/locale/currency/fields', $default );
 
@@ -133,8 +133,8 @@ $columnList = [
 							'-1' => $this->translate( 'admin', 'status:review' ),
 							'-2' => $this->translate( 'admin', 'status:archive' ),
 						]],
-						'locale.currency.label' => [],
 						'locale.currency.code' => ['op' => '=='],
+						'locale.currency.label' => [],
 						'locale.currency.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'locale.currency.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'locale.currency.editor' => [],
@@ -150,6 +150,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'locale.currency.status', $fields ) ) : ?>
 						<td class="locale-currency-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'locale.currency.code', $fields ) ) : ?>
+						<td class="locale-currency-code"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getCode() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'locale.currency.label', $fields ) ) : ?>
 						<td class="locale-currency-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>

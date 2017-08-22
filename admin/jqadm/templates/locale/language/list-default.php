@@ -48,7 +48,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2017.10
  * @category Developer
  */
-$default = ['locale.language.id', 'locale.language.status', 'locale.language.label'];
+$default = ['locale.language.status', 'locale.language.code', 'locale.language.label'];
 $default = $this->config( 'admin/jqadm/locale/language/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/locale/language/fields', $default );
 
@@ -133,8 +133,8 @@ $columnList = [
 							'-1' => $this->translate( 'admin', 'status:review' ),
 							'-2' => $this->translate( 'admin', 'status:archive' ),
 						]],
-						'locale.language.label' => [],
 						'locale.language.code' => ['op' => '=='],
+						'locale.language.label' => [],
 						'locale.language.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'locale.language.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'locale.language.editor' => [],
@@ -150,6 +150,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'locale.language.status', $fields ) ) : ?>
 						<td class="locale-language-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'locale.language.code', $fields ) ) : ?>
+						<td class="locale-language-code"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getCode() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'locale.language.label', $fields ) ) : ?>
 						<td class="locale-language-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
