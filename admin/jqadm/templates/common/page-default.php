@@ -379,6 +379,13 @@ if( $lang ) {
 										</a>
 									</li>
 								<?php endif; ?>
+								<?php if( in_array( 'locale/currency', $adminList ) ) : ?>
+									<li class="locale-currency">
+										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => 'locale/currency'] + $params, [], $config ) ); ?>">
+											<span class="name"><?= $enc->html( $this->translate( 'admin', 'Currencies' ) ); ?></span>
+										</a>
+									</li>
+								<?php endif; ?>
 							</ul>
 						</li>
 					<?php endif; ?>
