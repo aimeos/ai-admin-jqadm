@@ -24,7 +24,7 @@ return [
 		],
 		'resources-admin' => [
 			'supplier', 'service', 'plugin', 'type',
-			'locale', 'locale/site',
+			'locale', 'locale/site', 'locale/language',
 		],
 		'resources-types' => [
 			'type/attribute', 'type/attribute/lists', 'type/catalog/lists', 'type/customer/lists',
