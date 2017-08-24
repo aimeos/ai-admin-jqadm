@@ -484,17 +484,22 @@ Aimeos.Nav = {
 
 	addShortcuts : function() {
 
-		$(window).bind('keydown', function(ev) {
+		$(document).bind('keydown', function(ev) {
 			if(ev.ctrlKey || ev.metaKey) {
+				var key = String.fromCharCode(ev.which).toLowerCase();
+
 				if(ev.altKey) {
-					var key = String.fromCharCode(ev.which).toLowerCase();
 					if(key.match(/[a-z]/)) {
 						ev.preventDefault();
-						window.location = $(".aimeos .sidebar-menu a[data-ctrlkey=" + key + "]").first().attr("href");
+						var link = $(".aimeos .sidebar-menu a[data-ctrlkey=" + key + "]").first();
+
+						if(link.length) {
+							window.location = link.attr("href");
+						}
 						return false;
 					}
 				}
-				switch(String.fromCharCode(ev.which).toLowerCase()) {
+				switch(key) {
 					case 'a':
 						ev.preventDefault();
 						var node = $(".aimeos :focus").closest(".card,.content-block").find(".act-add:visible").first();

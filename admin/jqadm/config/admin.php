@@ -18,13 +18,60 @@ return [
 			],
 		],
 		'resources' => [
-			'd' => 'dashboard', 'o' => 'order', 'u' => 'customer', 'p' => 'product',
-			'c' => 'catalog', 'a' => 'attribute', 'v' => 'coupon',
-			'r' => 'supplier', 's' => 'service', 'g' => 'plugin',
-		],
-		'resources-admin' => [
-			'supplier', 'service', 'plugin', 'type',
-			'locale', 'locale/site', 'locale/language', 'locale/currency',
+			'site' => [
+				'groups' => ['admin'],
+			],
+			'dashboard' => [
+				'groups' => ['admin', 'editor', 'viewer'],
+			],
+			'order' => [
+				'groups' => ['admin', 'editor', 'viewer'],
+			],
+			'customer' => [
+				'groups' => ['admin', 'editor', 'viewer'],
+			],
+			'product' => [
+				'groups' => ['admin', 'editor'],
+			],
+			'catalog' => [
+				'groups' => ['admin', 'editor'],
+			],
+			'attribute' => [
+				'groups' => ['admin', 'editor'],
+			],
+			'coupon' => [
+				'groups' => ['admin', 'editor'],
+			],
+			'supplier' => [
+				'groups' => ['admin', 'editor'],
+			],
+			'service' => [
+				'groups' => ['admin'],
+			],
+			'plugin' => [
+				'groups' => ['admin'],
+			],
+			'type' => [
+				'groups' => ['admin'],
+			],
+			'locale' => [
+				'groups' => ['admin'],
+				'site' => [
+					'groups' => ['admin'],
+				],
+				'language' => [
+					'groups' => ['admin'],
+				],
+				'currency' => [
+					'groups' => ['admin'],
+				],
+			],
+			'expert' => [
+				'groups' => ['admin'],
+			],
+			'language' => [
+				'groups' => ['admin', 'editor', 'viewer'],
+			],
 		],
 		'resources-types' => [
 			'type/attribute', 'type/attribute/lists', 'type/catalog/lists', 'type/customer/lists',

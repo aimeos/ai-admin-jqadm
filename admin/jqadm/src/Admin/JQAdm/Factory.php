@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2016
+ * @copyright Aimeos (aimeos.org), 2015-2017
  * @package Admin
  * @subpackage JQAdm
  */
@@ -31,24 +31,16 @@ class Factory
 	 */
 	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths, $type, $name = null )
 	{
-		$config = $context->getConfig();
-		$admin = $context->getView()->access( 'admin' );
-
 		if( empty( $type ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Admin JQAdm type is empty' ) );
 		}
 
-		if( !in_array( $type, $config->get( 'admin/jqadm/resources', [] ) )
-			&& !in_array( $type, $config->get( 'admin/jqadm/resources-admin', [] ) )
-			&& !in_array( $type, $config->get( 'admin/jqadm/resources-types', [] ) )
-		) {
+		$view = $context->getView();
+		$config = $context->getConfig();
+
+		if( $view->access( $config->get( 'admin/jqadm/resources/' . $type . '/groups', [] ) ) !== true ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
 		}
-
-		if( $admin === false && in_array( $type, $config->get( 'admin/jqadm/resources-admin', [] ) ) ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
-		}
-
 
 		$parts = explode( '/', $type );
 
@@ -74,7 +66,7 @@ class Factory
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid factory "%1$s"', $factory ) );
 		}
 
-		$client->setView( $context->getView() );
+		$client->setView( $view );
 
 		return $client;
 	}
