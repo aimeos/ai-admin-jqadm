@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-20 13:19+0200\n"
+"POT-Creation-Date: 2017-08-25 13:19+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -429,6 +429,9 @@ msgstr ""
 msgid "Created"
 msgstr ""
 
+msgid "Currencies"
+msgstr ""
+
 msgid "Currency"
 msgstr ""
 
@@ -518,6 +521,12 @@ msgid "Delivery status"
 msgstr ""
 
 msgid "Delivery types"
+msgstr ""
+
+msgid "Descritive name of the currency"
+msgstr ""
+
+msgid "Descritive name of the language"
 msgstr ""
 
 msgid "Descritive name of the site"
@@ -697,6 +706,12 @@ msgstr ""
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr ""
 
+msgid "ISO currency code (required)"
+msgstr ""
+
+msgid "ISO language code (required)"
+msgstr ""
+
 msgid "Images"
 msgstr ""
 
@@ -798,6 +813,9 @@ msgid "Language (required)"
 msgstr ""
 
 msgid "Language ID"
+msgstr ""
+
+msgid "Languages"
 msgstr ""
 
 msgid "Last"
@@ -1060,6 +1078,10 @@ msgstr ""
 msgid "Order totals"
 msgstr ""
 
+#, fuzzy
+msgid "Orders"
+msgstr "Orders"
+
 msgid "Orders by day"
 msgstr ""
 
@@ -1175,6 +1197,10 @@ msgstr ""
 #, python-brace-format
 msgid "Plugin: {0} ({1})"
 msgstr ""
+
+#, fuzzy
+msgid "Plugins"
+msgstr "Plugins"
 
 msgid "Position"
 msgstr ""
@@ -1634,6 +1660,10 @@ msgstr ""
 msgid "Supplier: {0} ({1})"
 msgstr ""
 
+#, fuzzy
+msgid "Suppliers"
+msgstr "Suppliers"
+
 msgid "Switching language ..."
 msgstr ""
 
@@ -1736,6 +1766,9 @@ msgstr ""
 msgid "This combination already exists"
 msgstr ""
 
+msgid "Three letter ISO currency code"
+msgstr ""
+
 msgid "Title"
 msgstr ""
 
@@ -1746,6 +1779,12 @@ msgid "Total"
 msgstr ""
 
 msgid "Two letter ISO country code"
+msgstr ""
+
+msgid "Two letter ISO currency code"
+msgstr ""
+
+msgid "Two letter ISO language code"
 msgstr ""
 
 msgid "Two letter country code, e.g. \"US\" (required)"
@@ -1843,6 +1882,9 @@ msgstr ""
 msgid "User name, e.g. e-mail address (required)"
 msgstr ""
 
+msgid "Users"
+msgstr ""
+
 msgid "VAT ID"
 msgstr ""
 
@@ -1871,6 +1913,9 @@ msgid "View details"
 msgstr ""
 
 msgid "Voucher"
+msgstr ""
+
+msgid "Vouchers"
 msgstr ""
 
 msgid "Warehouse"
@@ -2006,6 +2051,14 @@ msgstr "Latest"
 msgid "locale"
 msgstr "Locales"
 
+#, fuzzy, php-format
+msgid "locale/currency"
+msgstr "Sites"
+
+#, fuzzy, php-format
+msgid "locale/language"
+msgstr "Sites"
+
 #, php-format
 msgid "locale/site"
 msgstr "Sites"
@@ -2116,6 +2169,7 @@ msgstr "Products"
 msgid "selection"
 msgstr "Variants"
 
+#, php-format
 msgid "service"
 msgstr "Services"
 
@@ -2210,9 +2264,11 @@ msgstr "Tags"
 msgid "text"
 msgstr "Texts"
 
+#, php-format
 msgid "type/attribute"
 msgstr "Attributes"
 
+#, php-format
 msgid "type/attribute/lists"
 msgstr "Attribute lists"
 
@@ -2224,6 +2280,7 @@ msgstr "Catalog lists"
 msgid "type/customer/lists"
 msgstr "Customer lists"
 
+#, php-format
 msgid "type/media"
 msgstr "Media"
 
@@ -2235,6 +2292,7 @@ msgstr "Media lists"
 msgid "type/plugin"
 msgstr "Plugins"
 
+#, php-format
 msgid "type/price"
 msgstr "Prices"
 
@@ -2242,6 +2300,7 @@ msgstr "Prices"
 msgid "type/price/lists"
 msgstr "Price lists"
 
+#, php-format
 msgid "type/product"
 msgstr "Products"
 
@@ -2261,6 +2320,7 @@ msgstr "Services"
 msgid "type/service/lists"
 msgstr "Service lists"
 
+#, php-format
 msgid "type/stock"
 msgstr "Stocks"
 
@@ -2268,6 +2328,7 @@ msgstr "Stocks"
 msgid "type/tag"
 msgstr "Tags"
 
+#, php-format
 msgid "type/text"
 msgstr "Texts"
 

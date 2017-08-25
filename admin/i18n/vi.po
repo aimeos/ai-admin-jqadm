@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-20 13:19+0200\n"
-"PO-Revision-Date: 2017-08-20 13:04+0000\n"
+"POT-Creation-Date: 2017-08-25 13:19+0200\n"
+"PO-Revision-Date: 2017-08-25 11:20+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/aimeos/aimeos-core/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -446,6 +446,9 @@ msgstr ""
 msgid "Created"
 msgstr ""
 
+msgid "Currencies"
+msgstr ""
+
 msgid "Currency"
 msgstr ""
 
@@ -537,6 +540,12 @@ msgid "Delivery status"
 msgstr ""
 
 msgid "Delivery types"
+msgstr ""
+
+msgid "Descritive name of the currency"
+msgstr ""
+
+msgid "Descritive name of the language"
 msgstr ""
 
 msgid "Descritive name of the site"
@@ -716,6 +725,12 @@ msgstr ""
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr ""
 
+msgid "ISO currency code (required)"
+msgstr ""
+
+msgid "ISO language code (required)"
+msgstr ""
+
 msgid "Images"
 msgstr ""
 
@@ -830,6 +845,9 @@ msgid "Language (required)"
 msgstr ""
 
 msgid "Language ID"
+msgstr ""
+
+msgid "Languages"
 msgstr ""
 
 msgid "Last"
@@ -1103,6 +1121,9 @@ msgstr ""
 msgid "Order totals"
 msgstr ""
 
+msgid "Orders"
+msgstr ""
+
 msgid "Orders by day"
 msgstr ""
 
@@ -1223,6 +1244,9 @@ msgstr ""
 #. : Plugin item panel title with attribute label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Plugin: {0} ({1})"
+msgstr ""
+
+msgid "Plugins"
 msgstr ""
 
 msgid "Position"
@@ -1700,6 +1724,9 @@ msgstr ""
 msgid "Supplier: {0} ({1})"
 msgstr ""
 
+msgid "Suppliers"
+msgstr ""
+
 msgid "Switching language ..."
 msgstr ""
 
@@ -1811,6 +1838,9 @@ msgstr ""
 msgid "This combination already exists"
 msgstr ""
 
+msgid "Three letter ISO currency code"
+msgstr ""
+
 msgid "Title"
 msgstr ""
 
@@ -1821,6 +1851,9 @@ msgid "Total"
 msgstr "Tổng cộng"
 
 msgid "Two letter ISO country code"
+msgstr ""
+
+msgid "Two letter ISO language code"
 msgstr ""
 
 msgid "Two letter country code, e.g. \"US\" (required)"
@@ -1920,6 +1953,9 @@ msgstr ""
 msgid "User name, e.g. e-mail address (required)"
 msgstr ""
 
+msgid "Users"
+msgstr ""
+
 msgid "VAT ID"
 msgstr ""
 
@@ -1948,6 +1984,9 @@ msgid "View details"
 msgstr ""
 
 msgid "Voucher"
+msgstr ""
+
+msgid "Vouchers"
 msgstr ""
 
 msgid "Warehouse"
@@ -2085,6 +2124,14 @@ msgstr ""
 
 #, php-format
 msgid "locale"
+msgstr ""
+
+#, php-format
+msgid "locale/currency"
+msgstr ""
+
+#, php-format
+msgid "locale/language"
 msgstr ""
 
 #, php-format

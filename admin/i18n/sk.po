@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-20 13:19+0200\n"
-"PO-Revision-Date: 2017-08-20 13:04+0000\n"
+"POT-Creation-Date: 2017-08-25 13:19+0200\n"
+"PO-Revision-Date: 2017-08-25 11:20+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/aimeos/aimeos-core/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -449,6 +449,9 @@ msgstr "Kupóny"
 msgid "Created"
 msgstr "Vytvorené"
 
+msgid "Currencies"
+msgstr ""
+
 msgid "Currency"
 msgstr "Mena"
 
@@ -540,6 +543,12 @@ msgid "Delivery status"
 msgstr "Stav doručenia"
 
 msgid "Delivery types"
+msgstr ""
+
+msgid "Descritive name of the currency"
+msgstr ""
+
+msgid "Descritive name of the language"
 msgstr ""
 
 msgid "Descritive name of the site"
@@ -719,6 +728,12 @@ msgstr "ID"
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr ""
 
+msgid "ISO currency code (required)"
+msgstr ""
+
+msgid "ISO language code (required)"
+msgstr ""
+
 msgid "Images"
 msgstr "Obrázky"
 
@@ -833,6 +848,9 @@ msgid "Language (required)"
 msgstr "Jazyk (povinné)"
 
 msgid "Language ID"
+msgstr ""
+
+msgid "Languages"
 msgstr ""
 
 msgid "Last"
@@ -1106,6 +1124,9 @@ msgstr "ID produktu objednávky"
 msgid "Order totals"
 msgstr ""
 
+msgid "Orders"
+msgstr ""
+
 msgid "Orders by day"
 msgstr ""
 
@@ -1227,6 +1248,9 @@ msgstr "Typ rozšírenia: {0} ({1})"
 #, python-brace-format
 msgid "Plugin: {0} ({1})"
 msgstr "Rozšírenie: {0} ({1})"
+
+msgid "Plugins"
+msgstr ""
 
 msgid "Position"
 msgstr "Pozícia"
@@ -1703,6 +1727,9 @@ msgstr ""
 msgid "Supplier: {0} ({1})"
 msgstr "Dodávateľ: {0} ({1})"
 
+msgid "Suppliers"
+msgstr ""
+
 msgid "Switching language ..."
 msgstr "Mením jazyk ..."
 
@@ -1814,6 +1841,9 @@ msgstr "The texts of your uploaded file will be imported within a few minutes. Y
 msgid "This combination already exists"
 msgstr "Táto kombinácia už existuje"
 
+msgid "Three letter ISO currency code"
+msgstr ""
+
 msgid "Title"
 msgstr "Titulok"
 
@@ -1824,6 +1854,9 @@ msgid "Total"
 msgstr "Celkom"
 
 msgid "Two letter ISO country code"
+msgstr ""
+
+msgid "Two letter ISO language code"
 msgstr ""
 
 msgid "Two letter country code, e.g. \"US\" (required)"
@@ -1923,6 +1956,9 @@ msgstr "Používateľské meno"
 msgid "User name, e.g. e-mail address (required)"
 msgstr "Používateľské meno, napr. e-mail adresa (povinné)"
 
+msgid "Users"
+msgstr ""
+
 msgid "VAT ID"
 msgstr ""
 
@@ -1951,6 +1987,9 @@ msgid "View details"
 msgstr ""
 
 msgid "Voucher"
+msgstr ""
+
+msgid "Vouchers"
 msgstr ""
 
 msgid "Warehouse"
@@ -2088,6 +2127,14 @@ msgstr ""
 
 #, php-format
 msgid "locale"
+msgstr ""
+
+#, php-format
+msgid "locale/currency"
+msgstr ""
+
+#, php-format
+msgid "locale/language"
 msgstr ""
 
 #, php-format

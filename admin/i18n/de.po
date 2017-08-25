@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-20 13:19+0200\n"
-"PO-Revision-Date: 2017-08-20 13:05+0000\n"
+"POT-Creation-Date: 2017-08-25 13:19+0200\n"
+"PO-Revision-Date: 2017-08-25 11:23+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -449,6 +449,9 @@ msgstr "Gutscheine"
 msgid "Created"
 msgstr "Erstellt am"
 
+msgid "Currencies"
+msgstr "Währungen"
+
 msgid "Currency"
 msgstr "Währung"
 
@@ -541,6 +544,12 @@ msgstr "Lieferstatus"
 
 msgid "Delivery types"
 msgstr "Versandarten"
+
+msgid "Descritive name of the currency"
+msgstr "Beschreibender Name der Währung"
+
+msgid "Descritive name of the language"
+msgstr "Beschreibender Name der Sprache"
 
 msgid "Descritive name of the site"
 msgstr "Beschreibender Name des Mandanten"
@@ -719,6 +728,12 @@ msgstr "ID"
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr "ID einer zugehörigen Rechnung, z.B. einer geänderten oder stornierten Rechnung"
 
+msgid "ISO currency code (required)"
+msgstr "ISO Wärungscode (benötigt)"
+
+msgid "ISO language code (required)"
+msgstr "ISO Sprachcode (benötigt)"
+
 msgid "Images"
 msgstr "Bilder"
 
@@ -834,6 +849,9 @@ msgstr "Sprache (benötigt)"
 
 msgid "Language ID"
 msgstr "Sprach-ID"
+
+msgid "Languages"
+msgstr "Ssprachen"
 
 msgid "Last"
 msgstr "Letzte"
@@ -1106,6 +1124,9 @@ msgstr "Bestell-ID des Produkts"
 msgid "Order totals"
 msgstr "Rechnungsbetrag"
 
+msgid "Orders"
+msgstr "Bestellung"
+
 msgid "Orders by day"
 msgstr "Bestellungen nach Tagen"
 
@@ -1227,6 +1248,9 @@ msgstr "Plugintyp: {0} ({1})"
 #, python-brace-format
 msgid "Plugin: {0} ({1})"
 msgstr "Plug-in: {0} ({1})"
+
+msgid "Plugins"
+msgstr "Plugins"
 
 msgid "Position"
 msgstr "Position"
@@ -1703,6 +1727,9 @@ msgstr "Lieferantenname oder Firma"
 msgid "Supplier: {0} ({1})"
 msgstr "Lieferant: {0} ({1})"
 
+msgid "Suppliers"
+msgstr "Lieferanten"
+
 msgid "Switching language ..."
 msgstr "Wechsle Sprache ..."
 
@@ -1814,6 +1841,9 @@ msgstr "Die Texte Ihrer hochgeladenen Datei werden innerhalb der nächsten Minut
 msgid "This combination already exists"
 msgstr "Diese Kombination existiert bereits"
 
+msgid "Three letter ISO currency code"
+msgstr "Dreistelliger ISO Währungscode"
+
 msgid "Title"
 msgstr "Titel"
 
@@ -1824,7 +1854,10 @@ msgid "Total"
 msgstr "Gesamtsumme"
 
 msgid "Two letter ISO country code"
-msgstr "Zweistelliger Ländercode"
+msgstr "Zweistelliger ISO Ländercode"
+
+msgid "Two letter ISO language code"
+msgstr "Zweistelliger ISO Sprachcode"
 
 msgid "Two letter country code, e.g. \"US\" (required)"
 msgstr "Zweistelliger Ländercode, z.B. \"DE\" (benötigt)"
@@ -1923,6 +1956,9 @@ msgstr "Benutzername"
 msgid "User name, e.g. e-mail address (required)"
 msgstr "Benutzername, z.B. E-Mailadresse (benötigt)"
 
+msgid "Users"
+msgstr "Kunden"
+
 msgid "VAT ID"
 msgstr "USt-ID"
 
@@ -1952,6 +1988,9 @@ msgstr "Details anzeigen"
 
 msgid "Voucher"
 msgstr "Gutschein"
+
+msgid "Vouchers"
+msgstr "Gutscheine"
 
 msgid "Warehouse"
 msgstr "Warenlager"
@@ -2089,6 +2128,14 @@ msgstr "Neuste"
 #, php-format
 msgid "locale"
 msgstr "Gebiete"
+
+#, php-format
+msgid "locale/currency"
+msgstr "Währungen"
+
+#, php-format
+msgid "locale/language"
+msgstr "Sprachen"
 
 #, php-format
 msgid "locale/site"
