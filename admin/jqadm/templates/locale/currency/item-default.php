@@ -113,7 +113,7 @@ $params = $this->get( 'pageParams', [] );
 								value="<?= $enc->attr( $this->get( 'itemData/locale.currency.code' ) ); ?>" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Two letter ISO currency code' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Three letter ISO currency code' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row mandatory">

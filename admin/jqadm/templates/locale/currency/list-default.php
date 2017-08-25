@@ -71,7 +71,7 @@ $columnList = [
 <nav class="main-navbar">
 
 	<span class="navbar-brand">
-		<?= $enc->html( $this->translate( 'admin', 'Currencys' ) ); ?>
+		<?= $enc->html( $this->translate( 'admin', 'Currencies' ) ); ?>
 	</span>
 
 	<?= $this->partial(
