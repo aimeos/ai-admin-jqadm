@@ -34,7 +34,6 @@ $params = $this->get( 'pageParams', [] );
 			<?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?>:
 			<?= $enc->html( $this->get( 'itemData/locale.site.id' ) ); ?> -
 			<?= $enc->html( $this->get( 'itemData/locale.site.label', $this->translate( 'admin', 'New' ) ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/locale.site.id' ) ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
 			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-default.php' ), ['params' => $params] ); ?>
@@ -79,17 +78,14 @@ $params = $this->get( 'pageParams', [] );
 		</div>
 
 		<div class="col-md-9 item-content tab-content">
-			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ) : '' ); ?>
-
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 content-block <?= $readonly ?>">
+				<div class="col-xl-6 content-block">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
 							<select class="form-control custom-select item-status" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.status' ) ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ); ?> >
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.status' ) ) ); ?>" >
 								<option value="">
 									<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
@@ -114,8 +110,7 @@ $params = $this->get( 'pageParams', [] );
 							<input class="form-control item-code" required="required" tabindex="1" autocomplete="off"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.code' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique site code (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ); ?> />
+								value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ); ?>" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Code to uniquely identify the site' ) ); ?>
@@ -127,8 +122,7 @@ $params = $this->get( 'pageParams', [] );
 							<input class="form-control item-label" required="required" tabindex="1" autocomplete="off"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.label' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/locale.site.label' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ); ?> />
+								value="<?= $enc->attr( $this->get( 'itemData/locale.site.label' ) ); ?>" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Descritive name of the site' ) ); ?>
@@ -136,7 +130,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ); ?>">
+				--><div class="col-xl-6 content-block">
 					<table class="item-config table table-striped">
 						<thead>
 							<tr>
@@ -150,11 +144,9 @@ $params = $this->get( 'pageParams', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
 								</th>
 								<th class="actions">
-									<?php if( !$this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ) ) : ?>
-										<div class="btn act-add fa" tabindex="1"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
-										</div>
-									<?php endif; ?>
+									<div class="btn act-add fa" tabindex="1"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+									</div>
 								</th>
 							</tr>
 						</thead>
@@ -165,21 +157,17 @@ $params = $this->get( 'pageParams', [] );
 									<td>
 										<input type="text" class="config-key form-control" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ); ?> />
+											value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>" />
 									</td>
 									<td>
 										<input type="text" class="config-value form-control" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/config/val/' . $idx ) ); ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ); ?> />
+											value="<?= $enc->attr( $this->get( 'itemData/config/val/' . $idx ) ); ?>" />
 									</td>
 									<td class="actions">
-										<?php if( !$this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ) ) : ?>
-											<div class="btn act-delete fa" tabindex="1"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-											</div>
-										<?php endif; ?>
+										<div class="btn act-delete fa" tabindex="1"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+										</div>
 									</td>
 								</tr>
 							<?php endforeach; ?>
@@ -194,11 +182,9 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
 								</td>
 								<td class="actions">
-									<?php if( !$this->site()->readonly( $this->get( 'itemData/locale.site.id' ) ) ) : ?>
-										<div class="btn act-delete fa" tabindex="1"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-										</div>
-									<?php endif; ?>
+									<div class="btn act-delete fa" tabindex="1"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+									</div>
 								</td>
 							</tr>
 						</tbody>
