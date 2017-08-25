@@ -66,6 +66,67 @@ return [
 					'groups' => ['admin'],
 				],
 			],
+			'type' => [
+				'groups' => ['admin'],
+				'attribute' => [
+					'groups' => ['admin'],
+					'lists' => [
+						'groups' => ['admin'],
+					],
+				],
+				'catalog' => [
+					'lists' => [
+						'groups' => ['admin'],
+					],
+				],
+				'customer' => [
+					'lists' => [
+						'groups' => ['admin'],
+					],
+				],
+				'media' => [
+					'groups' => ['admin'],
+					'lists' => [
+						'groups' => ['admin'],
+					],
+				],
+				'plugin' => [
+					'groups' => ['admin'],
+				],
+				'price' => [
+					'groups' => ['admin'],
+					'lists' => [
+						'groups' => ['admin'],
+					],
+				],
+				'product' => [
+					'groups' => ['admin'],
+					'lists' => [
+						'groups' => ['admin'],
+					],
+					'property' => [
+						'groups' => ['admin'],
+					],
+				],
+				'service' => [
+					'groups' => ['admin'],
+					'lists' => [
+						'groups' => ['admin'],
+					],
+				],
+				'stock' => [
+					'groups' => ['admin'],
+				],
+				'tag' => [
+					'groups' => ['admin'],
+				],
+				'text' => [
+					'groups' => ['admin'],
+					'lists' => [
+						'groups' => ['admin'],
+					],
+				],
+			],
 			'expert' => [
 				'groups' => ['admin'],
 			],
