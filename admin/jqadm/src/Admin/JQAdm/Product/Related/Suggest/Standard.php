@@ -86,8 +86,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
+		$data = $view->param( 'related/suggest', [] );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		$view->suggestData = $view->param( 'related/suggest', [] );
+		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
+			$data['product.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->suggestData = $data;
 		$view->suggestBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

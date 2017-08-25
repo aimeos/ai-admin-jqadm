@@ -88,8 +88,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
+		$data = $view->param( 'download', [] );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		$view->downloadData = $view->param( 'download', [] );
+		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
+			$data['product.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->downloadData = $data;
 		$view->downloadBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

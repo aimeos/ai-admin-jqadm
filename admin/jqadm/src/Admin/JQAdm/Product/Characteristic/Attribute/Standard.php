@@ -86,8 +86,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
+		$data = $view->param( 'characteristic/attribute', [] );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		$view->attributeData = $view->param( 'characteristic/attribute', [] );
+		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
+			$data['product.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->attributeData = $data;
 		$view->attributeBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

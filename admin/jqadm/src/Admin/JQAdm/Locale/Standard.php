@@ -127,6 +127,8 @@ class Standard
 				$data = $this->toArray( $view->item );
 			}
 
+			$data['locale.siteid'] = $view->item->getSiteId();
+
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemCurrencies = $this->getCurrencyItems();
 			$view->itemLanguages = $this->getLanguageItems();

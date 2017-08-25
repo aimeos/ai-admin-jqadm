@@ -347,7 +347,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/locale/site/template-list';
-		$default = 'locale/site-list-default.php';
+		$default = 'locale/site/list-default.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -502,7 +502,9 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( $copy === true ) {
+		if( $copy === true )
+		{
+			$data['locale.site.code'] = $data['locale.site.code'] . '_copy';
 			$data['locale.site.id'] = '';
 		}
 
@@ -543,7 +545,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/locale/site/template-item';
-		$default = 'locale/site-item-default.php';
+		$default = 'locale/site/item-default.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

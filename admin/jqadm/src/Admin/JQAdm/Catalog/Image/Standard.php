@@ -88,8 +88,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
+		$data = $view->param( 'image', [] );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		$view->imageData = $view->param( 'image', [] );
+		foreach( $view->value( $data, 'catalog.lists.id', [] ) as $idx => $value ) {
+			$data['catalog.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->imageData = $data;
 		$view->imageBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

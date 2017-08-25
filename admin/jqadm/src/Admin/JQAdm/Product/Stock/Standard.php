@@ -88,8 +88,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->addViewData( $this->getView() );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = $view->param( 'stock', [] );
 
-		$view->stockData = $view->param( 'stock', [] );
+		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
+			$data['product.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->stockData = $data;
 		$view->stockBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

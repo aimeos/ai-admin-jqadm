@@ -86,8 +86,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
+		$data = $view->param( 'option/custom', [] );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		$view->customData = $view->param( 'option/custom', [] );
+		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
+			$data['product.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->customData = $data;
 		$view->customBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

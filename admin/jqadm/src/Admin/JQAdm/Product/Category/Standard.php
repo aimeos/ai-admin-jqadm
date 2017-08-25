@@ -89,8 +89,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
+		$data = $view->param( 'category', [] );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		$view->categoryData = $view->param( 'category', [] );
+		foreach( $view->value( $data, 'catalog.lists.id', [] ) as $idx => $value ) {
+			$data['catalog.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->categoryData = $data;
 		$view->categoryListTypes = $this->getListTypes();
 		$view->categoryBody = '';
 

@@ -88,8 +88,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->addViewData( $this->getView() );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = $view->param( 'price', [] );
 
-		$view->priceData = $view->param( 'price', [] );
+		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
+			$data['product.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->priceData = $data;
 		$view->priceBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

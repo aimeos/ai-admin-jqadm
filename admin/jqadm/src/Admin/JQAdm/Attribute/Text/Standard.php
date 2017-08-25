@@ -90,8 +90,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->addViewData( $this->getView() );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = $view->param( 'text', [] );
 
-		$view->textData = $view->param( 'text', [] );
+		foreach( $view->value( $data, 'attribute.lists.id', [] ) as $idx => $value ) {
+			$data['attribute.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->textData = $data;
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

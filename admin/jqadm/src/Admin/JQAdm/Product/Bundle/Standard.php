@@ -88,8 +88,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
+		$data = $view->param( 'bundle', [] );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		$view->bundleData = $view->param( 'bundle', [] );
+		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
+			$data['product.lists.siteid'][$idx] = $siteid;
+		}
+
+		$view->bundleData = $data;
 		$view->bundleBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

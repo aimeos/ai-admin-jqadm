@@ -88,8 +88,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
+		$data = $view->param( 'address', [] );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		$view->addressData = $view->param( 'address', [] );
+		foreach( $view->value( $data, 'customer.address.id', [] ) as $idx => $value ) {
+			$data['customer.address.siteid'][$idx] = $siteid;
+		}
+
+		$view->addressData = $data;
 		$view->addressBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

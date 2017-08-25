@@ -88,8 +88,14 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
+		$data = $view->param( 'physical', [] );
+		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		$view->physicalData = $view->param( 'physical', [] );
+		foreach( $view->value( $data, 'product.property.id', [] ) as $idx => $value ) {
+			$data['product.property.siteid'][$idx] = $siteid;
+		}
+
+		$view->physicalData = $data;
 		$view->physicalBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
