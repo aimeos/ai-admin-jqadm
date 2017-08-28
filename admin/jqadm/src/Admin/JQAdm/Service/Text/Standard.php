@@ -93,8 +93,8 @@ class Standard
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'text', [] );
 
-		foreach( $view->value( $data, 'service.lists.id', [] ) as $idx => $value ) {
-			$data['service.lists.siteid'][$idx] = $siteid;
+		foreach( $view->value( $data, 'langid', [] ) as $idx => $value ) {
+			$data['siteid'][$idx] = $siteid;
 		}
 
 		$view->textData = $data;

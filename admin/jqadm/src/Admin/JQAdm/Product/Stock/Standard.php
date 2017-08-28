@@ -91,8 +91,8 @@ class Standard
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'stock', [] );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data['product.lists.siteid'][$idx] = $siteid;
+		foreach( $view->value( $data, 'stock.id', [] ) as $idx => $value ) {
+			$data['stock.siteid'][$idx] = $siteid;
 		}
 
 		$view->stockData = $data;
