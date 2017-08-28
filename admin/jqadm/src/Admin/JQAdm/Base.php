@@ -146,8 +146,6 @@ abstract class Base
 		foreach( $this->getSubClients() as $client ) {
 			$client->delete();
 		}
-
-		return $this->search();
 	}
 
 
