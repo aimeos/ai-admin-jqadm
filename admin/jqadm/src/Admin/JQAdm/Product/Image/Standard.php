@@ -409,7 +409,7 @@ class Standard
 				}
 				else if( ( $file = $this->getValue( $files, $num ) ) !== null )
 				{
-					$item = $mediaItem;
+					$item = clone $mediaItem;
 					$item->setId( null );
 
 					$cntl->add( $item, $file );
