@@ -111,6 +111,8 @@ class Standard
 	 */
 	public function delete()
 	{
+		parent::delete();
+
 		$view = $this->getView();
 		$listManager = \Aimeos\MShop\Factory::createManager( $context = $this->getContext(), 'product/lists' );
 		$search = $listManager->createSearch();

@@ -109,6 +109,18 @@ class Standard
 
 
 	/**
+	 * Deletes a resource
+	 */
+	public function delete()
+	{
+		parent::delete();
+
+		$refIds = array_keys( $this->getView()->item->getRefItems( 'text' ) );
+		\Aimeos\MShop\Factory::createManager( $this->getContext(), 'text' )->deleteItems( $refIds );
+	}
+
+
+	/**
 	 * Returns a single resource
 	 *
 	 * @return string HTML output

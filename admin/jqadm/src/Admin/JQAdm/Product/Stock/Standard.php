@@ -111,9 +111,7 @@ class Standard
 	 */
 	public function delete()
 	{
-		foreach( $this->getSubClients() as $client ) {
-			$client->delete();
-		}
+		parent::delete();
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock' );
 

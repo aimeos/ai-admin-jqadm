@@ -62,6 +62,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'service' );
+
+		$this->view->item = $manager->createItem();
 		$result = $this->object->delete();
 
 		$this->assertNull( $this->view->get( 'errors' ) );

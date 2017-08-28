@@ -107,6 +107,16 @@ class Standard
 
 
 	/**
+	 * Deletes a resource
+	 */
+	public function delete()
+	{
+		parent::delete();
+		$this->cleanupItems( $this->getView()->item->getListItems( 'media' ), [] );
+	}
+
+
+	/**
 	 * Returns a single resource
 	 *
 	 * @return string HTML output
