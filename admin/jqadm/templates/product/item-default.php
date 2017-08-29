@@ -82,6 +82,21 @@ $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
  */
 $config = $this->config( 'admin/jqadm/url/save/config', [] );
 
+
+/** admin/jqadm/product/item/config/suggest
+ * List of suggested configuration keys in product item panel
+ *
+ * Product items can store arbitrary key value pairs. This setting gives editors
+ * a hint which config keys are available and are used in the templates.
+ *
+ * @param string List of suggested config keys
+ * @since 2017.10
+ * @category Developer
+ * @see admin/jqadm/catalog/item/config/suggest
+ */
+$cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] );
+
+
 $subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
@@ -183,7 +198,8 @@ $params = $this->get( 'pageParams', [] );
 								</option>
 
 								<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
-									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>" <?= $selected( $this->get( 'itemData/product.typeid' ), $id ); ?> >
+									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>"
+										<?= $selected( $this->get( 'itemData/product.typeid' ), $id ); ?> >
 										<?= $enc->html( $typeItem->getLabel() ); ?>
 									</option>
 								<?php endforeach; ?>
@@ -260,7 +276,7 @@ $params = $this->get( 'pageParams', [] );
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>">
-					<table class="item-config table table-striped">
+							<table class="item-config table table-striped" data-keys="<?= $enc->attr( json_encode( $cfgSuggest ) ); ?>">
 						<thead>
 							<tr>
 								<th>

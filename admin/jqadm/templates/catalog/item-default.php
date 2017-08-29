@@ -36,6 +36,20 @@ $subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
 
+/** admin/jqadm/catalog/item/config/suggest
+ * List of suggested configuration keys in catalog item panel
+ *
+ * Catalog items can store arbitrary key value pairs. This setting gives editors
+ * a hint which config keys are available and are used in the templates.
+ *
+ * @param string List of suggested config keys
+ * @since 2017.10
+ * @category Developer
+ * @see admin/jqadm/product/item/config/suggest
+ */
+$cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-class'] );
+
+
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
@@ -212,7 +226,7 @@ $params = $this->get( 'pageParams', [] );
 						</div><!--
 
 						--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ); ?>">
-							<table class="item-config table table-striped">
+							<table class="item-config table table-striped" data-keys="<?= $enc->attr( json_encode( $cfgSuggest ) ); ?>">
 								<thead>
 									<tr>
 										<th>

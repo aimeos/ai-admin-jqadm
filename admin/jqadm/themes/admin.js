@@ -184,7 +184,8 @@ Aimeos.Config = {
 
 		$(".aimeos .item .tab-pane").on("click", ".item-config .act-add", function(ev) {
 
-			var clone = Aimeos.addClone($(".prototype", $(this).closest(".item-config")));
+			var node = $(this).closest(".item-config");
+			var clone = Aimeos.addClone($(".prototype", node));
 			var count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and must start with 0
 
 			$("input", clone).each(function() {
@@ -192,7 +193,7 @@ Aimeos.Config = {
 			});
 
 			$(".config-key", clone).autocomplete({
-				source: ['css-class'],
+				source: node.data("keys") || [],
 				minLength: 0,
 				delay: 0
 			});
@@ -210,8 +211,9 @@ Aimeos.Config = {
 
 	configComplete : function() {
 
-		$(".aimeos .item .config-item .config-key").autocomplete({
-			source: ['css-class'],
+		var node = $(".aimeos .item-config");
+		$(".config-item .config-key", node).autocomplete({
+			source: node.data("keys") || [],
 			minLength: 0,
 			delay: 0
 		});
