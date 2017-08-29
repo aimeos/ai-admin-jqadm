@@ -160,7 +160,15 @@ $columnList = [
 						<td class="locale-site-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'locale.site.config', $fields ) ) : ?>
-						<td class="locale-site-config"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( json_encode( $item->getConfig() ) ); ?></a></td>
+						<td class="locale.site-config config-item">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $item->getConfig() as $key => $value ) : ?>
+									<span class="config-key"><?= $enc->html( $key ); ?></span>
+									<span class="config-value"><?= $enc->html( !is_scalar( $value ) ? json_encode( $value ) : $value ); ?></span>
+									<br/>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'locale.site.ctime', $fields ) ) : ?>
 						<td class="locale-site-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

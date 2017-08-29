@@ -528,6 +528,7 @@ $columnList = [
 	'product.label' => $this->translate( 'admin', 'Label' ),
 	'product.datestart' => $this->translate( 'admin', 'Start date' ),
 	'product.dateend' => $this->translate( 'admin', 'End date' ),
+	'product.config' => $this->translate( 'admin', 'Config' ),
 	'product.ctime' => $this->translate( 'admin', 'Created' ),
 	'product.mtime' => $this->translate( 'admin', 'Modified' ),
 	'product.editor' => $this->translate( 'admin', 'Editor' ),
@@ -608,6 +609,7 @@ $columnList = [
 						'product.label' => [],
 						'product.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'product.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+						'product.config' => ['op' => '~='],
 						'product.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'product.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'product.editor' => [],
@@ -638,6 +640,17 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'product.dateend', $fields ) ) : ?>
 						<td class="product-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.config', $fields ) ) : ?>
+						<td class="product-config config-item">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $item->getConfig() as $key => $value ) : ?>
+									<span class="config-key"><?= $enc->html( $key ); ?></span>
+									<span class="config-value"><?= $enc->html( !is_scalar( $value ) ? json_encode( $value ) : $value ); ?></span>
+									<br/>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'product.ctime', $fields ) ) : ?>
 						<td class="product-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

@@ -64,12 +64,13 @@ $columnList = [
 	'service.id' => $this->translate( 'admin', 'ID' ),
 	'service.status' => $this->translate( 'admin', 'Status' ),
 	'service.typeid' => $this->translate( 'admin', 'Type' ),
+	'service.position' => $this->translate( 'admin', 'Position' ),
 	'service.code' => $this->translate( 'admin', 'Code' ),
 	'service.label' => $this->translate( 'admin', 'Label' ),
 	'service.provider' => $this->translate( 'admin', 'Provider' ),
 	'service.datestart' => $this->translate( 'admin', 'Start date' ),
 	'service.dateend' => $this->translate( 'admin', 'End date' ),
-	'service.position' => $this->translate( 'admin', 'Position' ),
+	'service.config' => $this->translate( 'admin', 'Config' ),
 	'service.ctime' => $this->translate( 'admin', 'Created' ),
 	'service.mtime' => $this->translate( 'admin', 'Modified' ),
 	'service.editor' => $this->translate( 'admin', 'Editor' ),
@@ -144,12 +145,13 @@ $columnList = [
 							'-2' => $this->translate( 'admin', 'status:archive' ),
 						]],
 						'service.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
+						'service.position' => ['op' => '>=', 'type' => 'number'],
 						'service.code' => [],
 						'service.label' => [],
 						'service.provider' => [],
 						'service.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'service.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
-						'service.position' => ['op' => '>=', 'type' => 'number'],
+						'service.config' => ['op' => '~='],
 						'service.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'service.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'service.editor' => [],
@@ -169,6 +171,9 @@ $columnList = [
 					<?php if( in_array( 'service.typeid', $fields ) ) : ?>
 						<td class="service-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
 					<?php endif; ?>
+					<?php if( in_array( 'service.position', $fields ) ) : ?>
+						<td class="service-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
+					<?php endif; ?>
 					<?php if( in_array( 'service.code', $fields ) ) : ?>
 						<td class="service-code"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getCode() ); ?></a></td>
 					<?php endif; ?>
@@ -184,8 +189,16 @@ $columnList = [
 					<?php if( in_array( 'service.dateend', $fields ) ) : ?>
 						<td class="service-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'service.position', $fields ) ) : ?>
-						<td class="service-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
+					<?php if( in_array( 'service.config', $fields ) ) : ?>
+						<td class="service-config config-item">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $item->getConfig() as $key => $value ) : ?>
+									<span class="config-key"><?= $enc->html( $key ); ?></span>
+									<span class="config-value"><?= $enc->html( !is_scalar( $value ) ? json_encode( $value ) : $value ); ?></span>
+									<br/>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'service.ctime', $fields ) ) : ?>
 						<td class="service-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

@@ -60,9 +60,9 @@ $columnList = [
 	'coupon.status' => $this->translate( 'admin', 'Status' ),
 	'coupon.provider' => $this->translate( 'admin', 'Provider' ),
 	'coupon.label' => $this->translate( 'admin', 'Label' ),
-	'coupon.config' => $this->translate( 'admin', 'Config' ),
 	'coupon.datestart' => $this->translate( 'admin', 'Start date' ),
 	'coupon.dateend' => $this->translate( 'admin', 'End date' ),
+	'coupon.config' => $this->translate( 'admin', 'Config' ),
 	'coupon.ctime' => $this->translate( 'admin', 'Created' ),
 	'coupon.mtime' => $this->translate( 'admin', 'Modified' ),
 	'coupon.editor' => $this->translate( 'admin', 'Editor' ),
@@ -138,9 +138,9 @@ $columnList = [
 						]],
 						'coupon.provider' => [],
 						'coupon.label' => [],
-						'coupon.config' => [],
 						'coupon.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+						'coupon.config' => ['op' => '~='],
 						'coupon.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.editor' => [],
@@ -163,14 +163,22 @@ $columnList = [
 					<?php if( in_array( 'coupon.label', $fields ) ) : ?>
 						<td class="coupon-label"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getLabel() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'coupon.config', $fields ) ) : ?>
-						<td class="coupon-config"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( json_encode( $item->getConfig() ) ); ?></a></td>
-					<?php endif; ?>
 					<?php if( in_array( 'coupon.datestart', $fields ) ) : ?>
 						<td class="coupon-datestart"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateStart() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.dateend', $fields ) ) : ?>
 						<td class="coupon-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'coupon.config', $fields ) ) : ?>
+						<td class="coupon-config config-item">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $item->getConfig() as $key => $value ) : ?>
+									<span class="config-key"><?= $enc->html( $key ); ?></span>
+									<span class="config-value"><?= $enc->html( !is_scalar( $value ) ? json_encode( $value ) : $value ); ?></span>
+									<br/>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.ctime', $fields ) ) : ?>
 						<td class="coupon-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

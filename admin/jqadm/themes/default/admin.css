@@ -106,6 +106,21 @@
 	content:"\f187";
 }
 
+.aimeos .list-items .config-item {
+	white-space: nowrap;
+	text-align: left;
+	max-width: 15rem;
+	overflow: hidden;
+}
+
+.aimeos .list-items .config-key:after {
+	content: ":";
+}
+
+.aimeos .list-items .config-value {
+	color: #687090;
+}
+
 .aimeos .list-items a.items-field.act-view:after {
 	font: normal normal normal 14px/1 FontAwesome;
 	content:"\f06e";

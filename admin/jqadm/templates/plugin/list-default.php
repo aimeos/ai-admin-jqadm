@@ -64,9 +64,10 @@ $columnList = [
 	'plugin.id' => $this->translate( 'admin', 'ID' ),
 	'plugin.status' => $this->translate( 'admin', 'Status' ),
 	'plugin.typeid' => $this->translate( 'admin', 'Type' ),
+	'plugin.position' => $this->translate( 'admin', 'Position' ),
 	'plugin.label' => $this->translate( 'admin', 'Label' ),
 	'plugin.provider' => $this->translate( 'admin', 'Provider' ),
-	'plugin.position' => $this->translate( 'admin', 'Position' ),
+	'plugin.config' => $this->translate( 'admin', 'Config' ),
 	'plugin.ctime' => $this->translate( 'admin', 'Created' ),
 	'plugin.mtime' => $this->translate( 'admin', 'Modified' ),
 	'plugin.editor' => $this->translate( 'admin', 'Editor' ),
@@ -141,9 +142,10 @@ $columnList = [
 							'-2' => $this->translate( 'admin', 'status:archive' ),
 						]],
 						'plugin.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
+						'plugin.position' => ['op' => '>=', 'type' => 'number'],
 						'plugin.label' => [],
 						'plugin.provider' => [],
-						'plugin.position' => ['op' => '>=', 'type' => 'number'],
+						'plugin.config' => ['op' => '~='],
 						'plugin.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'plugin.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'plugin.editor' => [],
@@ -163,14 +165,25 @@ $columnList = [
 					<?php if( in_array( 'plugin.typeid', $fields ) ) : ?>
 						<td class="plugin-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
 					<?php endif; ?>
+					<?php if( in_array( 'plugin.position', $fields ) ) : ?>
+						<td class="plugin-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
+					<?php endif; ?>
 					<?php if( in_array( 'plugin.label', $fields ) ) : ?>
 						<td class="plugin-label"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getLabel() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'plugin.provider', $fields ) ) : ?>
 						<td class="plugin-provider"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getProvider() ); ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'plugin.position', $fields ) ) : ?>
-						<td class="plugin-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
+					<?php if( in_array( 'plugin.config', $fields ) ) : ?>
+						<td class="plugin-config config-item">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $item->getConfig() as $key => $value ) : ?>
+									<span class="config-key"><?= $enc->html( $key ); ?></span>
+									<span class="config-value"><?= $enc->html( !is_scalar( $value ) ? json_encode( $value ) : $value ); ?></span>
+									<br/>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'plugin.ctime', $fields ) ) : ?>
 						<td class="plugin-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
