@@ -372,7 +372,7 @@ Aimeos.Form = {
 			$(".item-content input,select", this).each(function(idx, element) {
 				var elem = $(element);
 
-				if(elem.parents(".prototype").length === 0 && elem.is(":invalid") === true) {
+				if(elem.closest(".prototype").length === 0 && elem.is(":invalid") === true) {
 					elem.parent().addClass("has-danger");
 					nodes.push(element);
 				} else {
@@ -383,7 +383,7 @@ Aimeos.Form = {
 			$.each(nodes, function() {
 				$(".card-header", $(this).closest(".card")).addClass("has-danger");
 
-				$(this).parents(".tab-pane").each(function() {
+				$(this).closest(".tab-pane").each(function() {
 					$(".item-navbar .nav-item." + $(this).attr("id") + " .nav-link").addClass("has-danger");
 				});
 			});

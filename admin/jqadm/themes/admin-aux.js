@@ -40,7 +40,7 @@ Aimeos.Address = {
 			ev.stopPropagation();
 
 			var number = Math.floor((Math.random() * 1000));
-			var block = $(this).parents(".group-item");
+			var block = $(this).closest(".group-item");
 			var clone = Aimeos.addClone(block, Aimeos.getCountries, Aimeos.Address.select);
 
 			$(".card-block", clone).attr("id", "item-address-group-data-" + number);
@@ -57,7 +57,7 @@ Aimeos.Address = {
 	removeBlock : function() {
 
 		$(".item-address").on("click", ".header .act-delete", function() {
-			Aimeos.focusBefore($(this).parents(".group-item")).remove();
+			Aimeos.focusBefore($(this).closest(".group-item")).remove();
 		});
 	},
 
@@ -80,7 +80,7 @@ Aimeos.Address = {
 	updateHeader : function() {
 
 		$(".item-address").on("blur", "input.item-firstname,input.item-lastname,input.item-postal,input.item-city", function() {
-			var item = $(this).parents(".group-item");
+			var item = $(this).closest(".group-item");
 			var value = $("input.item-firstname", item).val() + ' ' + $("input.item-lastname", item).val()
 				+ ' - ' + $("input.item-postal", item).val() + ' ' + $("input.item-city", item).val();
 
@@ -145,7 +145,7 @@ Aimeos.Image = {
 	removeLine : function() {
 
 		$(".item-image").on("click", ".act-delete", function(ev) {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	}
 };
@@ -183,7 +183,7 @@ Aimeos.Price = {
 	removeBlock : function() {
 
 		$(".item-price").on("click", ".header .act-delete", function() {
-			$(this).parents(".group-item").remove();
+			$(this).closest(".group-item").remove();
 		});
 	},
 
@@ -191,7 +191,7 @@ Aimeos.Price = {
 	updateHeader : function() {
 
 		$(".item-price").on("blur", "input.item-label", function() {
-			var item = $(this).parents(".group-item");
+			var item = $(this).closest(".group-item");
 			var value = $(this).val();
 
 			$(".header .item-label", item).html(value);
@@ -246,7 +246,7 @@ Aimeos.Text = {
 	removeBlock : function() {
 
 		$(".item-text").on("click", ".header .act-delete", function() {
-			$(this).parents(".group-item").remove();
+			$(this).closest(".group-item").remove();
 		});
 	},
 
@@ -261,7 +261,7 @@ Aimeos.Text = {
 	updateHeader : function() {
 
 		$(".item-text").on("blur change", "input.item-name-content,.text-langid", function() {
-			var item = $(this).parents(".group-item");
+			var item = $(this).closest(".group-item");
 			var value = $(".text-langid", item).val() + ': ' + $("input.item-name-content", item).val();
 
 			$(".header .item-name-content", item).html(value);

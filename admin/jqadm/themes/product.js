@@ -47,7 +47,7 @@ Aimeos.Product.Bundle = {
 	removeLine : function() {
 
 		$(".item-product .item-bundle").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -55,7 +55,7 @@ Aimeos.Product.Bundle = {
 	select: function(ev, ui) {
 
 		var node = $(ev.delegateTarget);
-		node.parents("tr").find("input.item-label").val(node.val());
+		node.closest("tr").find("input.item-label").val(node.val());
 	},
 
 
@@ -115,7 +115,7 @@ Aimeos.Product.Characteristic.Attribute = {
 	removeLine : function() {
 
 		$(".item-characteristic-attribute").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -123,7 +123,7 @@ Aimeos.Product.Characteristic.Attribute = {
 	select: function(ev, ui) {
 
 		var node = $(ev.delegateTarget);
-		node.parents("tr").find("input.item-label").val(node.val());
+		node.closest("tr").find("input.item-label").val(node.val());
 	},
 
 
@@ -158,7 +158,7 @@ Aimeos.Product.Characteristic.Property = {
 	removeLine : function() {
 
 		$(".item-characteristic-property").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -194,7 +194,7 @@ Aimeos.Product.Category = {
 	removeLine : function() {
 
 		$(".item-category .category-list").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -202,7 +202,7 @@ Aimeos.Product.Category = {
 	select: function(ev, ui) {
 
 		var node = $(ev.delegateTarget);
-		node.parents("tr").find("input.item-label").val(node.val());
+		node.closest("tr").find("input.item-label").val(node.val());
 	},
 
 
@@ -271,7 +271,7 @@ Aimeos.Product.Option.Config = {
 	removeLine : function() {
 
 		$(".item-option-config").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -279,7 +279,7 @@ Aimeos.Product.Option.Config = {
 	select: function(ev, ui) {
 
 		var node = $(ev.delegateTarget);
-		node.parents("tr").find("input.item-label").val(node.val());
+		node.closest("tr").find("input.item-label").val(node.val());
 	},
 
 
@@ -317,7 +317,7 @@ Aimeos.Product.Option.Custom = {
 	removeLine : function() {
 
 		$(".item-option-custom").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -325,7 +325,7 @@ Aimeos.Product.Option.Custom = {
 	select: function(ev, ui) {
 
 		var node = $(ev.delegateTarget);
-		node.parents("tr").find("input.item-label").val(node.val());
+		node.closest("tr").find("input.item-label").val(node.val());
 	},
 
 
@@ -375,7 +375,7 @@ Aimeos.Product.Related.Bought = {
 	removeLine : function() {
 
 		$(".item-product .item-related-bought").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -383,7 +383,7 @@ Aimeos.Product.Related.Bought = {
 	select: function(ev, ui) {
 
 		var node = $(ev.delegateTarget);
-		node.parents("tr").find("input.item-label").val(node.val());
+		node.closest("tr").find("input.item-label").val(node.val());
 	},
 
 
@@ -422,7 +422,7 @@ Aimeos.Product.Related.Suggest = {
 	removeLine : function() {
 
 		$(".item-product .item-related-suggest").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -430,7 +430,7 @@ Aimeos.Product.Related.Suggest = {
 	select: function(ev, ui) {
 
 		var node = $(ev.delegateTarget);
-		node.parents("tr").find("input.item-label").val(node.val());
+		node.closest("tr").find("input.item-label").val(node.val());
 	},
 
 
@@ -465,8 +465,8 @@ Aimeos.Product.Selection = {
 
 		$(".item-selection").on("click", ".selection-item-attributes .act-add", function(ev) {
 
-			var code = $(this).parents(".group-item").find("input.item-code").val();
-			var line = $(this).parents(".selection-item-attributes").find(".prototype");
+			var code = $(this).closest(".group-item").find("input.item-code").val();
+			var line = $(this).closest(".selection-item-attributes").find(".prototype");
 			var clone = Aimeos.addClone(line, Aimeos.getOptionsAttributes, Aimeos.Product.Selection.select);
 
 			$("input.item-attr-ref", clone).val(code);
@@ -477,7 +477,7 @@ Aimeos.Product.Selection = {
 	removeAttribute : function() {
 
 		$(".item-selection").on("click", ".selection-item-attributes .act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
 
@@ -508,7 +508,7 @@ Aimeos.Product.Selection = {
 			ev.stopPropagation();
 
 			var number = Math.floor((Math.random() * 1000));
-			var block = $(this).parents(".group-item");
+			var block = $(this).closest(".group-item");
 			var clone = block.clone();
 
 			$(".card-block", clone).attr("id", "item-selection-group-data-" + number);
@@ -537,7 +537,7 @@ Aimeos.Product.Selection = {
 	removeBlock : function() {
 
 		$(".item-selection").on("click", ".header .act-delete", function() {
-			Aimeos.focusBefore($(this).parents(".group-item")).remove();
+			Aimeos.focusBefore($(this).closest(".group-item")).remove();
 		});
 	},
 
@@ -545,7 +545,7 @@ Aimeos.Product.Selection = {
 	select: function(ev, ui) {
 
 		var node = $(ev.delegateTarget);
-		node.parents("tr").find("input.item-attr-label").val(node.val());
+		node.closest("tr").find("input.item-attr-label").val(node.val());
 	},
 
 
@@ -581,7 +581,7 @@ Aimeos.Product.Selection = {
 	updateCode : function() {
 
 		$(".item-selection").on("blur", "input.item-code", function() {
-			var item = $(this).parents(".group-item");
+			var item = $(this).closest(".group-item");
 			var value = $(this).val();
 
 			$(".header .item-code", item).html(value);
@@ -621,7 +621,7 @@ Aimeos.Product.Stock = {
 	removeLine : function() {
 
 		$(".item-stock").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).parents("tr")).remove();
+			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	}
 };

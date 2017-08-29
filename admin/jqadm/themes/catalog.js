@@ -315,7 +315,7 @@ Aimeos.Catalog = {
 				var node = $(node);
 
 				if(regex.test(node.html())) {
-					node.parents("li.jqtree_common").show();
+					node.closest("li.jqtree_common").show();
 				} else {
 					node.closest("li.jqtree_common").hide();
 				}
