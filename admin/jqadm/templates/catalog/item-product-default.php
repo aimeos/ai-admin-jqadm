@@ -262,14 +262,14 @@ $refItems = $this->get( 'productItems', [] );
 							<input class="form-control item-position" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.position', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'productData/catalog.lists.position/' . $idx ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> />
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'catalog.lists.status', $fields ) ) : ?>
 						<td class="catalog-lists-status">
 							<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.status', '' ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> >
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" >
 								<option value="">
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
@@ -292,7 +292,7 @@ $refItems = $this->get( 'productItems', [] );
 						<td class="catalog-lists-typeid">
 							<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.typeid', '' ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> >
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" >
 								<option value="">
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
@@ -310,7 +310,7 @@ $refItems = $this->get( 'productItems', [] );
 							<input class="form-control item-config" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.config', '' ) ) ); ?>"
 								value="<?= $enc->attr( json_encode( $this->get( 'productData/catalog.lists.config/' . $idx ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> />
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'catalog.lists.datestart', $fields ) ) : ?>
@@ -318,7 +318,7 @@ $refItems = $this->get( 'productItems', [] );
 							<input class="form-control item-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.datestart', '' ) ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'productData/catalog.lists.datestart/' . $idx ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> />
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'catalog.lists.dateend', $fields ) ) : ?>
@@ -326,7 +326,7 @@ $refItems = $this->get( 'productItems', [] );
 							<input class="form-control item-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.dateend', '' ) ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'productData/catalog.lists.dateend/' . $idx ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> />
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 
@@ -336,16 +336,21 @@ $refItems = $this->get( 'productItems', [] );
 						<td class="catalog-lists-refid">
 							<input class="form-control item-refid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.refid', '' ) ) ); ?>"
-								value="<?= $enc->attr( $refId ); ?>" />
-							<?= $enc->html( $refId ); ?>
-							<?php if( $refItem ) : ?>
-								- <?= $enc->html( $refItem->getLabel() . ' (' . $refItem->getCode() . ')' ); ?>
-							<?php endif; ?>
+								value="<?= $enc->attr( $refId ); ?>" disabled="disabled" />
+							<a class="btn act-view fa item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
+								href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'product', 'id' => $refId] + $params, [], $getConfig ) ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Show entry') ); ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show' ) ); ?>">
+								<?= $enc->html( $refId ); ?>
+								<?php if( $refItem ) : ?>
+									- <?= $enc->html( $refItem->getLabel() . ' (' . $refItem->getCode() . ')' ); ?>
+								<?php endif; ?>
+							</a>
 						</td>
 					<?php endif; ?>
 
 					<td class="actions">
-						<input type="hidden" value="<?= $enc->attr( $listId ); ?>"
+						<input type="hidden" value="<?= $enc->attr( $listId ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.id', '' ) ) ); ?>" />
 
 						<?php if( !$this->site()->readonly( $siteId ) ) : ?>
@@ -353,11 +358,10 @@ $refItems = $this->get( 'productItems', [] );
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'catalog/lists', 'id' => $listId] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
+							<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
 						<?php endif; ?>
-						<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
-							href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'product', 'id' => $refId] + $params, [], $getConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Show entry') ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show' ) ); ?>"></a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

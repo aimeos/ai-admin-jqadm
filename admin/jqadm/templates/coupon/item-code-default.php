@@ -164,13 +164,13 @@ $columnList = [
 			</tr>
 
 			<?php foreach( $this->get( 'codeData/coupon.code.id', [] ) as $idx => $id ) : ?>
-				<tr class="<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?>">
+				<tr class="list-item <?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?>">
 					<?php if( in_array( 'coupon.code.code', $fields ) ) : ?>
 						<td class="coupon-code">
 							<input class="form-control coupon-code-code" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.code', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'codeData/coupon.code.code/' . $idx ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> />
+								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.code.count', $fields ) ) : ?>
@@ -178,7 +178,7 @@ $columnList = [
 							<input class="form-control coupon-code-count" type="number" min="0" step="1" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.count', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'codeData/coupon.code.count/' . $idx ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> />
+								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.code.datestart', $fields ) ) : ?>
@@ -186,7 +186,7 @@ $columnList = [
 							<input class="form-control coupon-code-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.datestart', '' ) ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'codeData/coupon.code.datestart/' . $idx ) ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> />
+								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.code.dateend', $fields ) ) : ?>
@@ -194,7 +194,7 @@ $columnList = [
 							<input class="form-control coupon-code-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.dateend', '' ) ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'codeData/coupon.code.dateend/' . $idx ) ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> />
+								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.code.ctime', $fields ) ) : ?>
@@ -219,13 +219,17 @@ $columnList = [
 						</td>
 					<?php endif; ?>
 					<td class="actions">
-						<input type="hidden" name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.id', '' ) ) ); ?>" value="<?= $enc->attr( $id ); ?>" />
+						<input type="hidden" value="<?= $enc->attr( $id ); ?>" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.id', '' ) ) ); ?>" />
 
 						<a class="btn fa act-delete" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							href="<?= $this->url( $jsonTarget, $jsonCntl, $jsonAction, ['resource' => 'coupon/code', 'id' => $id], [], $jsonConfig ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 						</a>
+						<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

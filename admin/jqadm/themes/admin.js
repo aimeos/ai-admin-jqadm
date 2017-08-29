@@ -329,6 +329,7 @@ Aimeos.Form = {
 		this.checkFields();
 		this.checkSubmit();
 		this.createDatePicker();
+		this.editFields();
 		this.setupNext();
 		this.showErrors();
 		this.toggleHelp();
@@ -407,6 +408,15 @@ Aimeos.Form = {
 				dateFormat: $(elem).data("format"),
 				constrainInput: false
 			});
+		});
+	},
+
+
+	editFields : function() {
+
+		$(".aimeos .list-item").on("click", ".act-edit", function(ev) {
+			$("[disabled=disabled]", ev.delegateTarget).removeAttr("disabled");
+			return false;
 		});
 	},
 

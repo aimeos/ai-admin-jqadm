@@ -69,7 +69,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 						'data' => [
 							'order.id' => $this->translate( 'admin', 'Invoice' ),
 							'order.type' => $this->translate( 'admin', 'Type' ),
-							'order.datepayment' => $this->translate( 'admin', 'Purchased' ),
+							'order.datepayment' => $this->translate( 'admin', 'Payment' ),
 							'order.statuspayment' => $this->translate( 'admin', 'Payment status' ),
 							'order.datedelivery' => $this->translate( 'admin', 'Delivery' ),
 							'order.statusdelivery' => $this->translate( 'admin', 'Delivery status' ),
@@ -93,7 +93,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 							'data' => [
 								'order.id' => $this->translate( 'admin', 'Invoice' ),
 								'order.type' => $this->translate( 'admin', 'Type' ),
-								'order.datepayment' => $this->translate( 'admin', 'Purchased' ),
+								'order.datepayment' => $this->translate( 'admin', 'Payment' ),
 								'order.statuspayment' => $this->translate( 'admin', 'Payment status' ),
 								'order.datedelivery' => $this->translate( 'admin', 'Delivery' ),
 								'order.statusdelivery' => $this->translate( 'admin', 'Delivery status' ),
@@ -170,7 +170,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 								</div>
 							</div>
 							<div class="form-group row mandatory">
-								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Purchased' ) ); ?></label>
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Payment' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control order-datepayment" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ); ?>" disabled="disabled" />
@@ -260,7 +260,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 						<td class="order-id">
 							<input class="order-id" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ); ?>"
-								value="<?= $enc->attr( $orderId ); ?>" />
+								value="<?= $enc->attr( $orderId ); ?>" disabled="disabled" />
 							<?= $enc->html( $orderId ); ?>
 						</td>
 					<?php endif; ?>
@@ -268,7 +268,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 						<td class="order-type">
 							<select class="form-control custom-select order-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.type', '' ) ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'invoiceData/order.type/' . $idx ) ); ?>" />
+								value="<?= $enc->attr( $this->get( 'invoiceData/order.type/' . $idx ) ); ?>" disabled="disabled" />
 								<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
 
 								<?php foreach( $types as $type ) : ?>
@@ -284,14 +284,14 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 							<input class="form-control order-datepayment" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'invoiceData/order.datepayment/' . $idx ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> />
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 						<td class="order-statuspayment">
 							<select class="form-control custom-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> >
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" >
 								<option value="">
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
@@ -327,14 +327,14 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 							<input class="form-control order-datedelivery" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datedelivery', '' ) ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'invoiceData/order.datedelivery/' . $idx ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> />
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
 						<td class="order-statusdelivery">
 							<select class="form-control custom-select order-statusdelivery" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> >
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" >
 								<option value="">
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
@@ -373,7 +373,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 							<input class="form-control order-relatedid" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.relatedid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'invoiceData/order.relatedid/' . $idx ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> />
+								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.ctime', $fields ) ) : ?>
@@ -385,7 +385,13 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 					<?php if( in_array( 'order.editor', $fields ) ) : ?>
 						<td class="order-editor"><?= $enc->html( $this->get( 'invoiceData/order.editor/' . $idx ) ); ?></td>
 					<?php endif; ?>
-					<td class="actions"></td>
+					<td class="actions">
+						<?php if( !$this->site()->readonly( $siteId ) ) : ?>
+							<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
+						<?php endif; ?>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>

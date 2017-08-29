@@ -83,6 +83,10 @@
 	content: "\f019";
 }
 
+.aimeos .btn.act-edit.fa:before {
+	content: "\f040";
+}
+
 .aimeos .btn.act-import.fa:before {
 	content: "\f093";
 }
@@ -96,7 +100,13 @@
 }
 
 .aimeos .btn.act-view.fa:before {
+	font: normal normal normal 14px/1 FontAwesome;
 	content: "\f06e";
+}
+
+.aimeos .item-refid.btn.act-view.fa {
+	font-family: inherit;
+	color: inherit;
 }
 
 .aimeos .card-tools-left {

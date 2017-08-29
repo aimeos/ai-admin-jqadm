@@ -261,10 +261,12 @@ $deliveryStatusList = [
 
 					<?php if( in_array( 'order.baseid', $fields ) ) : ?>
 						<td class="order-baseid">
-							<?= $enc->html( $item->getBaseId() ); ?>
-							<?php if( $baseItem ) : ?>
-								- <?= $enc->html( $baseItem->getPrice()->getValue() . '+' . $baseItem->getPrice()->getCosts() . ' ' . $baseItem->getPrice()->getCurrencyId() ); ?>
-							<?php endif; ?>
+							<a class="items-field" href="<?= $url; ?>">
+								<?= $enc->html( $item->getBaseId() ); ?>
+								<?php if( $baseItem ) : ?>
+									- <?= $enc->html( $baseItem->getPrice()->getValue() . '+' . $baseItem->getPrice()->getCosts() . ' ' . $baseItem->getPrice()->getCurrencyId() ); ?>
+								<?php endif; ?>
+							</a>
 						</td>
 					<?php endif; ?>
 
@@ -272,10 +274,6 @@ $deliveryStatusList = [
 						<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
 							href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
-						<a class="btn act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['resource' => 'order', 'id' => $id] + $params, [], $copyConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
 					</td>
 				</tr>
 			<?php endforeach; ?>
