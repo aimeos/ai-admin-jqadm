@@ -74,6 +74,9 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 							'order.datedelivery' => $this->translate( 'admin', 'Delivery' ),
 							'order.statusdelivery' => $this->translate( 'admin', 'Delivery status' ),
 							'order.relatedid' => $this->translate( 'admin', 'Related ID' ),
+							'order.ctime' => $this->translate( 'admin', 'Created' ),
+							'order.mtime' => $this->translate( 'admin', 'Modified' ),
+							'order.editor' => $this->translate( 'admin', 'Editor' ),
 						]
 					] );
 				?>
@@ -95,6 +98,9 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 								'order.datedelivery' => $this->translate( 'admin', 'Delivery' ),
 								'order.statusdelivery' => $this->translate( 'admin', 'Delivery status' ),
 								'order.relatedid' => $this->translate( 'admin', 'Related ID' ),
+								'order.ctime' => $this->translate( 'admin', 'Created' ),
+								'order.mtime' => $this->translate( 'admin', 'Modified' ),
+								'order.editor' => $this->translate( 'admin', 'Editor' ),
 							]
 						] );
 					?>
@@ -136,6 +142,9 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 							'7' => $this->translate( 'client/code', 'stat:7' ),
 						]],
 						'order.relatedid' => ['oi' => '=='],
+						'order.ctime' => ['op' => '>=', 'type' => 'date'],
+						'order.mtime' => ['op' => '>=', 'type' => 'date'],
+						'order.editor' => [],
 					]
 				] );
 			?>
@@ -366,6 +375,15 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 								value="<?= $enc->attr( $this->get( 'invoiceData/order.relatedid/' . $idx ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> />
 						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.ctime', $fields ) ) : ?>
+						<td class="order-ctime"><?= $enc->html( $this->get( 'invoiceData/order.ctime/' . $idx ) ); ?></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.mtime', $fields ) ) : ?>
+						<td class="order-mtime"><?= $enc->html( $this->get( 'invoiceData/order.mtime/' . $idx ) ); ?></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.editor', $fields ) ) : ?>
+						<td class="order-editor"><?= $enc->html( $this->get( 'invoiceData/order.editor/' . $idx ) ); ?></td>
 					<?php endif; ?>
 					<td class="actions"></td>
 				</tr>
