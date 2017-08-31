@@ -22,6 +22,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->context = \TestHelperJqadm::getContext();
 		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
+		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $this->view, ['super'] );
+		$this->view->addHelper( 'access', $helper );
+
 		$this->object = new \Aimeos\Admin\JQAdm\Locale\Site\Standard( $this->context, $templatePaths );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context, $templatePaths );
 		$this->object->setView( $this->view );
@@ -368,7 +371,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, [] );
+		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $this->view, ['super'] );
 		$view->addHelper( 'access', $helper );
 
 		return $view;
