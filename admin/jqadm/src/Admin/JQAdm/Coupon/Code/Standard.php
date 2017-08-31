@@ -67,7 +67,7 @@ class Standard
 	 */
 	public function copy()
 	{
-		return $this->get();
+		return $this->render( $this->getView() );
 	}
 
 
@@ -78,7 +78,7 @@ class Standard
 	 */
 	public function create()
 	{
-		return $this->get();
+		return $this->render( $this->getView() );
 	}
 
 
