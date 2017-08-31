@@ -177,6 +177,19 @@ $enc = $this->encoder();
 							<?= $enc->html( $this->translate( 'admin', 'One provider and zero or more decorator class names separated by commas' ) ); ?>
 						</div>
 					</div>
+					<div class="form-group row mandatory">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-position" type="number" required="required" tabindex="1"
+								name="<?= $this->formparam( array( 'item', 'service.position' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Service position (required)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/service.position' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Order of the service options in the checkout process' ) ); ?>
+						</div>
+					</div>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
@@ -203,19 +216,6 @@ $enc = $this->encoder();
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'The option is only shown on the web site until that date and time' ) ); ?>
-						</div>
-					</div>
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-position" type="number" required="required" tabindex="1"
-								name="<?= $this->formparam( array( 'item', 'service.position' ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Service position (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/service.position' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?> />
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Order of the service options in the checkout process' ) ); ?>
 						</div>
 					</div>
 				</div><!--
