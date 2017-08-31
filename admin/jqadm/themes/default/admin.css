@@ -162,7 +162,9 @@
 }
 
 .aimeos .item .tab-pane {
+	overflow-y: -webkit-paged-y;
 	overflow-x: auto;
+	height: 100%;
 }
 
 .aimeos .item .form-group.mandatory label:after {
