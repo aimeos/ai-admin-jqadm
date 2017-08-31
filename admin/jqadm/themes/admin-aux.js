@@ -31,6 +31,12 @@ Aimeos.Image = {
 
 		$(".item-image").on("change", ".fileupload", function(ev) {
 
+			$(".upload .item-listid", ev.delegateTarget).each( function(idx, el) {
+				if($(this).val() == '') {
+					$(this).closest(".upload").remove();
+				}
+			});
+
 			$(this).each( function(idx, el) {
 				var line = $(".prototype", ev.delegateTarget);
 
