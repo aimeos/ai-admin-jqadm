@@ -107,11 +107,13 @@ $columnList = [
 				?>
 
 				<th class="actions">
-					<a class="btn fa act-add" tabindex="1"
-						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
-					</a>
+					<?php if( $this->access( 'super' ) ) : ?>
+						<a class="btn fa act-add" tabindex="1"
+							href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+						</a>
+					<?php endif; ?>
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-default.php' ),
@@ -146,7 +148,7 @@ $columnList = [
 
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
-				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
+				<tr>
 					<?php if( in_array( 'locale.site.id', $fields ) ) : ?>
 						<td class="locale-site-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
@@ -181,16 +183,16 @@ $columnList = [
 					<?php endif; ?>
 
 					<td class="actions">
-						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
+						<?php if( $this->access( 'super' ) ) : ?>
 							<a class="btn act-delete fa" tabindex="1"
-								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'locale/site', 'id' => $id] + $params, [], $delConfig ) ); ?>"
+								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
+							<a class="btn act-copy fa" tabindex="1"
+								href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
 						<?php endif; ?>
-						<a class="btn act-copy fa" tabindex="1"
-							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

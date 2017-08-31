@@ -48,7 +48,7 @@ class Page extends Base
 			$siteid = $siteItem->getSiteId();
 		}
 
-		if( $view->access( 'admin' ) ) {
+		if( $view->access( ['admin', 'super'] ) ) {
 			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_TREE;
 		} else {
 			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE;

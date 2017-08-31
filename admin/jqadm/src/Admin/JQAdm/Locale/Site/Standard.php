@@ -76,6 +76,8 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
+			$this->checkSite( $view->access( 'super' ), $id );
+
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
 			$view->item = $manager->getItem( $id );
 
@@ -89,14 +91,19 @@ class Standard
 				$view->itemBody .= $client->copy();
 			}
 		}
+		catch( \Aimeos\Admin\JQAdm\Exception $e )
+		{
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'locale-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
@@ -116,6 +123,8 @@ class Standard
 
 		try
 		{
+			$this->checkSite( $view->access( 'super' ) );
+
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
@@ -134,14 +143,19 @@ class Standard
 				$view->itemBody .= $client->create();
 			}
 		}
+		catch( \Aimeos\Admin\JQAdm\Exception $e )
+		{
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'locale-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
@@ -168,6 +182,8 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
+			$this->checkSite( $view->access( 'super' ), $id );
+
 			$view->item = $manager->getItem( $id );
 
 			foreach( $this->getSubClients() as $client ) {
@@ -180,14 +196,19 @@ class Standard
 			$this->nextAction( $view, 'search', 'locale/site' );
 			return;
 		}
+		catch( \Aimeos\Admin\JQAdm\Exception $e )
+		{
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'locale-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
@@ -213,6 +234,8 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
+			$this->checkSite( $view->access( 'super' ), $id );
+
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
 
 			$view->item = $manager->getItem( $id );
@@ -226,14 +249,19 @@ class Standard
 				$view->itemBody .= $client->get();
 			}
 		}
+		catch( \Aimeos\Admin\JQAdm\Exception $e )
+		{
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'locale-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
@@ -256,7 +284,7 @@ class Standard
 
 		try
 		{
-			$view->item = $this->fromArray( $view->param( 'item', [] ) );
+			$view->item = $this->fromArray( $view->param( 'item', [] ), $view->access( 'super' ) );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -270,16 +298,17 @@ class Standard
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
 		{
-			// fall through to create
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'locale-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 
@@ -305,6 +334,14 @@ class Standard
 			$params = $this->storeSearchParams( $view->param(), 'locale/site' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
+
+			if( $view->access( 'super' ) === false )
+			{
+				$search->setConditions( $search->combine( '&&', [
+					$search->compare( '==', 'locale.site.id', $this->getUserSiteId() ),
+					$search->getConditions(),
+				] ) );
+			}
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
@@ -440,6 +477,37 @@ class Standard
 
 
 	/**
+	 * Checks if the user is allowed to access the site item
+	 *
+	 * @param boolean $super True if user is a super user
+	 * @param string $id ID of the site to access
+	 * @throws \Aimeos\Admin\JQAdm\Exception If user isn't allowed to access the site
+	 */
+	protected function checkSite( $super, $id = null )
+	{
+		if( $super === true || (string) $this->getUserSiteId() === (string) $id ) {
+			return;
+		}
+
+		throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Permission denied' ) );
+	}
+
+
+	/**
+	 * Returns the site ID of the current user
+	 *
+	 * @return string|null Site ID of the current user
+	 */
+	protected function getUserSiteId()
+	{
+		$context = $this->getContext();
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+
+		return $manager->getItem( $context->getUserId() )->getSiteId();
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -450,14 +518,14 @@ class Standard
 	}
 
 
-
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
-	 * @param string[] Data array
+	 * @param string[] $data Data array
+	 * @param boolean $super If current user is a super user
 	 * @return \Aimeos\MShop\Locale\Item\Iface New locale item object
 	 */
-	protected function fromArray( array $data )
+	protected function fromArray( array $data, $super )
 	{
 		$conf = [];
 
@@ -475,6 +543,8 @@ class Standard
 
 		if( isset( $data['locale.site.id'] ) && $data['locale.site.id'] != '' )
 		{
+			$this->checkSite( $super, $data['locale.site.id'] );
+
 			$item = $manager->getItem( $data['locale.site.id'] );
 			$item->fromArray( $data );
 			$item->setConfig( $conf );
@@ -482,6 +552,8 @@ class Standard
 		}
 		else
 		{
+			$this->checkSite( $super );
+
 			$item = $manager->createItem();
 			$item->fromArray( $data );
 			$item->setConfig( $conf );
