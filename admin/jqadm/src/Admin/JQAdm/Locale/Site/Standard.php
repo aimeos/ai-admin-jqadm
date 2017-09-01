@@ -573,6 +573,7 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Locale\Item\Site\Iface $item, $copy = false )
 	{
 		$data = $item->toArray( true );
+		$data['config'] = [];
 
 		if( $copy === true )
 		{
