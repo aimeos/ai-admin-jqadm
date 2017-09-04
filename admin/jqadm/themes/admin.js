@@ -512,7 +512,7 @@ Aimeos.Nav = {
 					}
 				}
 				switch(key) {
-					case '+':
+					case 'i':
 						ev.preventDefault();
 						var node = $(".aimeos :focus").closest(".card,.content-block").find(".act-add:visible").first();
 						if(node.length > 0) {
