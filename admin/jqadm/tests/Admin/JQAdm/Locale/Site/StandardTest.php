@@ -33,13 +33,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function tearDown()
 	{
-		unset( $this->object );
+		unset( $this->object, $this->context, $this->view );
 	}
 
 
 	public function testCreate()
 	{
-		$this->object->create();
+		$this->assertContains( 'item-locale-site', $this->object->create() );
 	}
 
 
