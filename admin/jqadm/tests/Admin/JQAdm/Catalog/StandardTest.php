@@ -239,7 +239,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->object->save();
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
-		$manager->deleteItem( $manager->findItem( 'jqadm catalog test' )->getId() );
+		$item = $manager->findItem( 'jqadm catalog test' );
+		$manager->deleteItem( $item->getId() );
 
 		$this->assertEquals( ['test key' => 'test value'], $item->getConfig() );
 	}
