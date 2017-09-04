@@ -53,7 +53,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
-<form class="item item-catalog form-horizontal" method="POST" enctype="multipart/form-data"
+<form class="item item-catalog item-tree form-horizontal" method="POST" enctype="multipart/form-data"
 	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>"
 	data-rootid="<?= $enc->attr( $this->get( 'itemRootId' ) ); ?>"
 	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => '_id_'], [], $getConfig ) ); ?>"

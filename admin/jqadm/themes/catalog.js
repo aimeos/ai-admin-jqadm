@@ -315,9 +315,10 @@ Aimeos.Catalog = {
 				var node = $(node);
 
 				if(regex.test(node.html())) {
-					node.closest("li.jqtree_common").show();
+					node.parents("li.jqtree_common").show();
+					node.show();
 				} else {
-					node.closest("li.jqtree_common").hide();
+					node.hide();
 				}
 			});
 		});
