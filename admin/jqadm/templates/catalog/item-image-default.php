@@ -29,7 +29,7 @@ $enc = $this->encoder();
 				</th>
 				<th class="actions">
 					<div class="btn fa fa-plus"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl++)') ); ?>">
 						<input class="fileupload act-add" type="file" name="image[files][]" tabindex="<?= $this->get( 'tabindex' ); ?>" multiple />
 					</div>
 				</th>

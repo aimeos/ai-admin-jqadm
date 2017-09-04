@@ -83,7 +83,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 
 				<th class="actions">
 					<a class="btn fa act-add" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl++)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
 

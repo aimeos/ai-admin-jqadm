@@ -188,7 +188,7 @@ $params = $this->get( 'pageParams', [] );
 								<th class="actions">
 									<?php if( !$this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ) : ?>
 										<div class="btn act-add fa" tabindex="1"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+											title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl++)') ); ?>">
 										</div>
 									<?php endif; ?>
 								</th>

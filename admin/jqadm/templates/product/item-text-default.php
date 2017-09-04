@@ -304,7 +304,7 @@ $enc = $this->encoder();
 
 	<div class="card-tools-more">
 		<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-			title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl+A)') ); ?>">
+			title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl++)') ); ?>">
 		</div>
 	</div>
 </div>
