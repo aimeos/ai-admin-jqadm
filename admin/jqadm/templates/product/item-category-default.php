@@ -21,7 +21,7 @@ $enc = $this->encoder();
 					</th>
 					<th class="actions">
 						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl++)') ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
 						</div>
 					</th>
 				</tr>
@@ -95,7 +95,7 @@ $enc = $this->encoder();
 					</th>
 					<th class="actions">
 						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl++)') ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
 						</div>
 					</th>
 				</tr>

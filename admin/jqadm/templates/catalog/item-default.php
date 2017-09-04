@@ -248,7 +248,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 										<th class="actions">
 											<?php if( !$this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ) : ?>
 												<div class="btn act-add fa" tabindex="1"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl++)') ); ?>">
+													title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
 												</div>
 											<?php endif; ?>
 										</th>

@@ -84,7 +84,7 @@ $refItems = $this->get( 'productItems', [] );
 
 				<th class="actions">
 					<a class="btn fa act-add" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl++)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
 
@@ -218,7 +218,7 @@ $refItems = $this->get( 'productItems', [] );
 										</th>
 										<th class="actions">
 											<div class="btn act-add fa" tabindex="1"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Add new entry (Ctrl++)') ); ?>">
+												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
 											</div>
 										</th>
 									</tr>
