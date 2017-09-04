@@ -1228,14 +1228,12 @@ var JqTreeWidget = (function (_super) {
     };
     JqTreeWidget.prototype._getDataUrlInfo = function (node) {
         var _this = this;
-        var data_name = this.element.data("name") || this.options.dataName || 'node';
-        var data_url = this.element.data("url") || this.options.dataUrl;
+        var data_url = this.options.dataUrl || this.element.data("url");
         var getUrlFromString = function () {
             var url_info = { url: data_url };
             if (node && node.id) {
-                var data = {};
-                // Load on demand of a subtree; add node ID parameter
-                data[data_name] = node.id;
+                // Load on demand of a subtree; add node parameter
+                var data = { node: node.id };
                 // tslint:disable-next-line: no-string-literal
                 url_info["data"] = data;
             }
