@@ -110,12 +110,12 @@ Aimeos.Catalog = {
 			dataUrl: function(node) {
 				var result = {
 					'url': $(".aimeos .item-tree").data("jsonurl"),
+					'data': {'include': 'catalog'},
 					'method': 'GET'
 				}
 
 				if(node) {
 					var name = $(".aimeos .item-tree").data("idname");
-					result['data'] = {};
 					result['data'][name] = node.id;
 				}
 
@@ -223,6 +223,7 @@ Aimeos.Catalog = {
 						result.push({
 							id: list[i].id,
 							name: list[i].attributes['catalog.label'],
+							load_on_demand: list[i].attributes['catalog.hasChildren'],
 							children: getChildren(list, list[i].id)
 						});
 					}
