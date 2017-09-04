@@ -32,6 +32,11 @@ $newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
 $newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
 $newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
 
+$jsonTarget = $this->config( 'admin/jsonadm/url/target' );
+$jsonCntl = $this->config( 'admin/jsonadm/url/controller', 'Jsonadm' );
+$jsonAction = $this->config( 'admin/jsonadm/url/action', 'get' );
+$jsonConfig = $this->config( 'admin/jsonadm/url/config', [] );
+
 $subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
@@ -58,6 +63,8 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 	data-rootid="<?= $enc->attr( $this->get( 'itemRootId' ) ); ?>"
 	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => '_id_'], [], $getConfig ) ); ?>"
 	data-createurl="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'catalog', 'id' => '_id_'], [], $newConfig ) ); ?>">
+	data-jsonurl="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, ['resource' => 'locale/site'], [], $jsonConfig ) ); ?>"
+	data-idname="<?= $this->formparam( 'id' ); ?>" >
 
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.id' ) ) ); ?>"
 		value="<?= $enc->attr( $this->get( 'itemData/catalog.id' ) ); ?>" />

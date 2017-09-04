@@ -86,11 +86,41 @@ Aimeos.Catalog = {
 
 		var tree = $(".aimeos .item-catalog .tree-content").tree({
 			"data": [root],
-			"autoOpen": 0,
 			"dragAndDrop": true,
 			"closedIcon": " ",
 			"openedIcon": " ",
 			"slide": false,
+			"dataFilter": function(result) {
+				var list = [];
+
+				for(var i in result.included) {
+					if(result.included[i].type !== 'catalog') {
+						continue;
+					}
+					list.push({
+						id: result.included[i].id,
+						name: result.included[i].attributes['catalog.label'],
+						load_on_demand: result.included[i].attributes['catalog.hasChildren'],
+						children: []
+					});
+				}
+
+				return list;
+			},
+			dataUrl: function(node) {
+				var result = {
+					'url': $(".aimeos .item-tree").data("jsonurl"),
+					'method': 'GET'
+				}
+
+				if(node) {
+					var name = $(".aimeos .item-tree").data("idname");
+					result['data'] = {};
+					result['data'][name] = node.id;
+				}
+
+				return result;
+			},
 			"onCanMoveTo": function(node, target, position) {
 				if(target === tree.tree('getTree').children[0] && position !== 'inside') {
 					return false;
