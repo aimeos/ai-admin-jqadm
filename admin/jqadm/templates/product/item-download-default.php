@@ -14,7 +14,7 @@ $enc = $this->encoder();
 
 ?>
 <div id="download" class="row item-download tab-pane fade" role="tabpanel" aria-labelledby="download">
-	<div class="col-lg-6 content-block <?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSite->getId() ) ); ?>">
+	<div class="col-lg-6 content-block <?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ); ?>">
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'File' ) ); ?></label>
 			<div class="col-sm-8">
@@ -32,7 +32,7 @@ $enc = $this->encoder();
 			<div class="col-sm-8">
 				<select class="form-control custom-select item-status" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.status' ) ) ); ?>"
-					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSite->getId() ) ); ?> >
+					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ); ?> >
 					<option value="1" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), 1 ); ?> >
 						<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
 					</option>
@@ -54,7 +54,7 @@ $enc = $this->encoder();
 				<input class="form-control item-label" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.label' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/attribute.label' ) ); ?>"
-					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSite->getId() ) ); ?> />
+					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ); ?> />
 			</div>
 			<div class="col-sm-12 form-text text-muted help-text">
 				<?= $enc->html( $this->translate( 'admin', 'Name of the downloaded file when customers saves the file on their computers' ) ); ?>
@@ -65,7 +65,7 @@ $enc = $this->encoder();
 			<div class="col-sm-8">
 				<input class="form-control item-overwrite" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'overwrite' ) ) ); ?>" value="1"
-					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSite->getId() ) ); ?>
+					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ); ?>
 					<?= $selected( $this->get( 'downloadData/overwrite' ), 1 ); ?> />
 			</div>
 			<div class="col-sm-12 form-text text-muted help-text">
