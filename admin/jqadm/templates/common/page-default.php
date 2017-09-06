@@ -241,7 +241,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 
 			<ul class="sidebar-menu basic">
 
-				<?php if( $this->pageSite->getChildren() !== [] && $this->access( $this->config( 'admin/jqadm/resources/site/groups', [] ) ) ) : ?>
+				<?php if( $this->pageSiteTree->getChildren() !== [] && $this->access( $this->config( 'admin/jqadm/resources/site/groups', [] ) ) ) : ?>
 					<li class="site treeview">
 						<a href="#">
 							<i class="icon"></i>
@@ -264,7 +264,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 									<?php endif; ?>
 								</li>
 
-							<?php }; $siteFcn( $this->pageSite ); ?>
+							<?php }; $siteFcn( $this->pageSiteTree ); ?>
 
 						</ul>
 					</li>
@@ -461,7 +461,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 						</span>
 						<ul class="tree-menu">
 							<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></strong></li>
-							<?php foreach( $this->get( 'pageLangList', [] ) as $langid ) : ?>
+							<?php foreach( $this->get( 'pageI18nList', [] ) as $langid ) : ?>
 								<li class="lang-<?= $enc->attr( $langid ) ?>">
 									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
 										<span class="name"><?= $enc->html( $this->translate( 'client/language', $langid ) ); ?> (<?= $langid ?>)</span>

@@ -39,7 +39,7 @@ $enc = $this->encoder();
 
 				<div class="col-xl-6">
 
-					<?php $languages = $this->get( 'pageLanguages', [] ); ?>
+					<?php $languages = $this->get( 'pageLangItems', [] ); ?>
 					<?php if( count( $languages ) > 1 ) : ?>
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
@@ -139,7 +139,7 @@ $enc = $this->encoder();
 		<div id="item-text-group-data-" class="card-block collapse show row" role="tabpanel" aria-labelledby="item-text-group-item-">
 			<div class="col-xl-6">
 
-				<?php $languages = $this->get( 'pageLanguages', [] ); ?>
+				<?php $languages = $this->get( 'pageLangItems', [] ); ?>
 				<?php if( count( $languages ) > 1 ) : ?>
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>

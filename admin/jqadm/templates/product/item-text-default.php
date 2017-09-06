@@ -37,7 +37,7 @@ $enc = $this->encoder();
 			<div id="item-text-group-data-<?= $enc->attr( $idx ); ?>" class="card-block collapse row <?= ( $idx === 0 ? 'show' : '' ); ?>"
 				role="tabpanel" aria-labelledby="item-text-group-item-<?= $enc->attr( $idx ); ?>">
 
-				<?php $languages = $this->get( 'pageLanguages', [] ); ?>
+				<?php $languages = $this->get( 'pageLangItems', [] ); ?>
 				<?php if( count( $languages ) > 1 ) : ?>
 					<div class="col-xl-6">
 						<div class="form-group row mandatory">
@@ -189,7 +189,7 @@ $enc = $this->encoder();
 
 		<div id="item-text-group-data-" class="card-block collapse show row" role="tabpanel" aria-labelledby="item-text-group-item-">
 
-			<?php $languages = $this->get( 'pageLanguages', [] ); ?>
+			<?php $languages = $this->get( 'pageLangItems', [] ); ?>
 			<?php if( count( $languages ) > 1 ) : ?>
 				<div class="col-xl-6">
 					<div class="form-group row mandatory">

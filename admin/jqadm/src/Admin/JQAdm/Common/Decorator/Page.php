@@ -51,10 +51,11 @@ class Page extends Base
 			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE;
 		}
 
-		$view->pageLanguages = $langManager->searchItems( $langManager->createSearch( true ) );
+		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
+		$view->pageLangItems = $langManager->searchItems( $langManager->createSearch( true ) );
+		$view->pageSiteTree = $siteManager->getTree( $siteid, [], $level );
 		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
-		$view->pageSite = $siteManager->getTree( $siteid, [], $level );
-		$view->pageLangList = $this->getAimeos()->getI18nList( 'admin' );
+		$view->pageSiteItem = $siteItem;
 
 		$this->getClient()->setView( $view );
 		return $this;

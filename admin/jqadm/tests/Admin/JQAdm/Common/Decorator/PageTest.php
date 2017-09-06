@@ -41,7 +41,9 @@ class PageTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $view->get( 'pageUser' ) );
 		$this->assertInternalType( 'array', $view->pageParams );
-		$this->assertInternalType( 'array', $view->pageLangList );
-		$this->assertInstanceOf( '\Aimeos\MShop\Locale\Item\Site\Iface', $view->pageSite );
+		$this->assertInternalType( 'array', $view->pageI18nList );
+		$this->assertInternalType( 'array', $view->pageLangItems );
+		$this->assertInstanceOf( '\Aimeos\MShop\Locale\Item\Site\Iface', $view->pageSiteTree );
+		$this->assertInstanceOf( '\Aimeos\MShop\Locale\Item\Site\Iface', $view->pageSiteItem );
 	}
 }
