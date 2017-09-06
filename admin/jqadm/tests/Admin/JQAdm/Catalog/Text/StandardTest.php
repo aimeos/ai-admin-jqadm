@@ -28,13 +28,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' )->createItem();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Catalog\Text\Standard( $this->context, $templatePaths );
+		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}
 
 
 	protected function tearDown()
 	{
-		unset( $this->object );
+		unset( $this->object, $this->view, $this->context );
 	}
 
 

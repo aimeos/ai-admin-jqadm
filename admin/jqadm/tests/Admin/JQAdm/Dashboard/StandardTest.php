@@ -27,13 +27,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Dashboard\Standard( $this->context, $templatePaths );
+		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}
 
 
 	protected function tearDown()
 	{
-		unset( $this->object );
+		unset( $this->object, $this->view, $this->context );
 	}
 
 
@@ -47,15 +48,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearchException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Standard' )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
+		$object = $this->getClientMock( 'getSubClients' );
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
 
 		$object->search();
 	}
@@ -63,15 +59,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearchMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Standard' )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
+		$object = $this->getClientMock( 'getSubClients' );
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
 
 		$object->search();
 	}
@@ -81,6 +72,20 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->getSubClient( 'order' );
 		$this->assertInstanceOf( '\Aimeos\Admin\JQAdm\Iface', $result );
+	}
+
+
+	public function getClientMock( $method )
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( [$method] )
+			->getMock();
+
+		$object->setAimeos( \TestHelperJqadm::getAimeos() );
+		$object->setView( $this->getViewNoRender() );
+
+		return $object;
 	}
 
 

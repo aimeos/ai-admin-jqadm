@@ -32,13 +32,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->getMock();
 
 		$this->view->pageSite = $this->context->getLocale()->getSite();
+		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}
 
 
 	protected function tearDown()
 	{
-		unset( $this->object );
+		unset( $this->object, $this->view, $this->context );
 	}
 
 

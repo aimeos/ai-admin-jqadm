@@ -22,6 +22,8 @@ class PageTest extends \PHPUnit\Framework\TestCase
 
 		$client = new \Aimeos\Admin\JQAdm\Product\Standard( $this->context, $templatePaths );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $client, $this->context, $templatePaths );
+		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
+		$this->object->setView( \TestHelperJqadm::getView() );
 	}
 
 

@@ -24,13 +24,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object = new \Aimeos\Admin\JQAdm\Type\Product\Property\Standard( $this->context, $templatePaths );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context, $templatePaths );
+		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}
 
 
 	protected function tearDown()
 	{
-		unset( $this->object );
+		unset( $this->object, $this->view, $this->context );
 	}
 
 
