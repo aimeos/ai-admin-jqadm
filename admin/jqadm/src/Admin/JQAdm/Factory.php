@@ -23,13 +23,13 @@ class Factory
 	 * Creates a new client object.
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Shop context instance with necessary objects
-	 * @param array List of file system paths where the templates are stored
+	 * @param \Aimeos\Bootstrap $aimeos Aimeos object
 	 * @param string $type Type of the client, e.g 'product' for \Aimeos\Admin\JQAdm\Product\Standard
 	 * @param string|null $name Admin name (default: "Standard")
 	 * @return \Aimeos\Admin\JQAdm\Iface admin client implementing \Aimeos\Admin\JQAdm\Iface
 	 * @throws \Aimeos\Admin\JQAdm\Exception If requested client implementation couldn't be found or initialisation fails
 	 */
-	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths, $type, $name = null )
+	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\Bootstrap $aimeos, $type, $name = null )
 	{
 		if( empty( $type ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Admin JQAdm type is empty' ) );
@@ -37,6 +37,7 @@ class Factory
 
 		$view = $context->getView();
 		$config = $context->getConfig();
+		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
 
 		if( $view->access( $config->get( 'admin/jqadm/resources/' . $type . '/groups', [] ) ) !== true ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
@@ -66,6 +67,7 @@ class Factory
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid factory "%1$s"', $factory ) );
 		}
 
+		$client->setAimeos( $aimeos );
 		$client->setView( $view );
 
 		return $client;

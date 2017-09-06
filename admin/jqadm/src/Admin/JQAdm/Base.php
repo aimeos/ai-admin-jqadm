@@ -330,6 +330,7 @@ abstract class Base
 		}
 
 		$object = $this->addClientDecorators( $object, $this->templatePaths, $path );
+		$object->setAimeos( $this->aimeos );
 		$object->setView( $this->view );
 
 		return $object;

@@ -31,9 +31,6 @@ class Page extends Base
 
 		// set first to be able to show errors occuring afterwards
 		$view->pageParams = $this->getClientParams();
-
-		$ext = dirname( dirname( dirname( dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) ) ) );
-		$aimeos = new \Aimeos\Bootstrap( array( $ext ) );
 		$context = $this->getContext();
 
 		$siteManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
@@ -57,7 +54,7 @@ class Page extends Base
 		$view->pageLanguages = $langManager->searchItems( $langManager->createSearch( true ) );
 		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
 		$view->pageSite = $siteManager->getTree( $siteid, [], $level );
-		$view->pageLangList = $aimeos->getI18nList( 'admin' );
+		$view->pageLangList = $this->getAimeos()->getI18nList( 'admin' );
 
 		$this->getClient()->setView( $view );
 		return $this;

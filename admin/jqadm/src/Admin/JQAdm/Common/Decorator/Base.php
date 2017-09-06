@@ -176,8 +176,8 @@ abstract class Base
 	public function setView( \Aimeos\MW\View\Iface $view )
 	{
 		parent::setView( $view );
-		$this->client->setView( $view );
 
+		$this->client->setView( $view );
 		return $this;
 	}
 
@@ -189,7 +189,7 @@ abstract class Base
 	 */
 	public function getAimeos()
 	{
-		return parent::getAimeos();
+		return $this->client->getAimeos();
 	}
 
 
@@ -201,8 +201,9 @@ abstract class Base
 	 */
 	public function setAimeos( \Aimeos\Bootstrap $aimeos )
 	{
-		$this->client->setAimeos( $aimeos );
 		parent::setAimeos( $aimeos );
+
+		$this->client->setAimeos( $aimeos );
 		return $this;
 	}
 
