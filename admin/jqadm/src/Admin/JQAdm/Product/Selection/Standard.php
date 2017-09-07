@@ -101,6 +101,20 @@ class Standard
 
 
 	/**
+	 * Deletes a resource
+	 */
+	public function delete()
+	{
+		parent::delete();
+		$item = $this->getView()->item;
+
+		if( $item->getType() === 'select' ) {
+			$this->cleanupItems( $item->getListItems( 'product', 'default' ), [] );
+		}
+	}
+
+
+	/**
 	 * Returns a single resource
 	 *
 	 * @return string HTML output
@@ -262,15 +276,15 @@ class Standard
 		$rmListIds = array_diff( array_keys( $listItems ), $listIds );
 
 		foreach( $rmListIds as $rmListId ) {
-			$rmIds[] = $listItems[$rmListId]->getRefId();
+			$rmIds[ $listItems[$rmListId]->getRefId() ] = null;
 		}
 
 		$search = $listManager->createSearch();
 		$expr = array(
-			$search->compare( '==', 'product.lists.refid', $rmIds ),
 			$search->compare( '==', 'product.lists.domain', 'product' ),
 			$search->compare( '==', 'product.lists.type.code', 'default' ),
 			$search->compare( '==', 'product.lists.type.domain', 'product' ),
+			$search->compare( '==', 'product.lists.refid', array_keys( $rmIds ) ),
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );
 		$search->setSlice( 0, 0x7fffffff );
@@ -283,7 +297,7 @@ class Standard
 		}
 
 		$listManager->deleteItems( $rmListIds  );
-		$manager->deleteItems( $rmIds  );
+		$manager->deleteItems( array_keys( $rmIds )  );
 	}
 
 
@@ -435,11 +449,9 @@ class Standard
 
 			if( !isset( $listItems[$listid] ) )
 			{
-				$litem = $listItem;
-				$litem->setId( null );
-
-				$item = $prodItem;
-				$item->setId( null );
+				$litem = clone $listItem;
+				$item = clone $prodItem;
+				$item->setId( $this->getValue( $list, 'product.id' ) );
 			}
 			else
 			{
@@ -447,8 +459,8 @@ class Standard
 				$item = $litem->getRefItem();
 			}
 
-			$item->setCode( $code );
 			$item->setLabel( $this->getValue( $list, 'product.label', '' ) );
+			$item->setCode( $code );
 
 			$item = $manager->saveItem( $item );
 

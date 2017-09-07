@@ -167,6 +167,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 
 		<div id="item-selection-group-data-" class="card-block collapse show row">
 			<div class="col-lg-6">
+				<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.id', '' ) ) ); ?>" value="" />
 				<div class="form-group row mandatory">
 					<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 					<div class="col-lg-8">

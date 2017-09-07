@@ -467,7 +467,7 @@ Aimeos.Product.Selection = {
 
 			var code = $(this).closest(".group-item").find("input.item-code").val();
 			var line = $(this).closest(".selection-item-attributes").find(".prototype");
-			var clone = Aimeos.addClone(line, Aimeos.getOptionsAttributes, Aimeos.Product.Selection.select);
+			var clone = Aimeos.addClone(line, Aimeos.getOptionsAttributes, Aimeos.Product.Selection.selectAttributes);
 
 			$("input.item-attr-ref", clone).val(code);
 		});
@@ -520,7 +520,7 @@ Aimeos.Product.Selection = {
 			$(".ai-combobox", clone).remove();
 			$(".combobox", clone).combobox({
 				getfcn: Aimeos.getOptionsAttributes,
-				select: Aimeos.Product.Selection.select
+				select: Aimeos.Product.Selection.selectAttributes
 			});
 
 			var codeNode = $("input.item-code", clone);
@@ -542,7 +542,47 @@ Aimeos.Product.Selection = {
 	},
 
 
-	select: function(ev, ui) {
+	getArticles : function(request, response) {
+
+		Aimeos.options.done(function(data) {
+
+			if(!data.meta.resources['product']) {
+				return;
+			}
+
+			var params = {}, param = {};
+
+			param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type.code': 'default'}}]};
+			param['fields'] = {'product': 'product.id,product.code,product.label'};
+			param['sort'] = 'product.code';
+
+			if( data.meta && data.meta.prefix ) {
+				params[data.meta.prefix] = param;
+			} else {
+				params = param;
+			}
+
+			$.ajax({
+				dataType: "json",
+				url: data.meta.resources['product'],
+				data: params,
+				success: function(result) {
+					var list = result.data || [];
+
+					response( list.map(function(obj) {
+						return {
+							id: obj.id || null,
+							code: obj.attributes['product.code'] || null,
+							label: obj.attributes['product.label'] || null
+						};
+					}));
+				}
+			});
+		});
+	},
+
+
+	selectAttributes: function(ev, ui) {
 
 		var node = $(ev.delegateTarget);
 		node.closest("tr").find("input.item-attr-label").val(node.val());
@@ -553,7 +593,30 @@ Aimeos.Product.Selection = {
 
 		$(".item-selection .combobox").combobox({
 			getfcn: Aimeos.getOptionsAttributes,
-			select: Aimeos.Product.Selection.select
+			select: Aimeos.Product.Selection.selectAttributes
+		});
+
+		$(".aimeos .item-product .item-selection").on("focus", ".item-code", function(ev) {
+
+			if( $(".item-id", $(ev.target).closest(".group-item")).val() == '' ) {
+
+				$(this).autocomplete({
+					source: Aimeos.Product.Selection.getArticles,
+					minLength: 3,
+					delay: 200,
+					select: function(event, ui) {
+						var el = $(ev.target).closest(".group-item");
+
+						$(".item-id", el).val(ui.item.id);
+						$(".item-code", el).val(ui.item.code);
+						$(".item-label", el).val(ui.item.label);
+
+						return false;
+					}
+				}).autocomplete( "instance" )._renderItem = function(ul, item) {
+					return $("<li>").append("<div>" + item.code + "</div>").appendTo(ul);
+				};
+			}
 		});
 	},
 
