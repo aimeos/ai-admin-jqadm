@@ -116,6 +116,7 @@ class Standard
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemProviders = $this->getProviderNames();
 			$view->itemDecorators = $this->getDecoratorNames();
+			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemTypes = $this->getTypeItems();
 			$view->itemBody = '';
 
@@ -262,6 +263,7 @@ class Standard
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemDecorators = $this->getDecoratorNames();
 			$view->itemProviders = $this->getProviderNames();
+			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemTypes = $this->getTypeItems();
 			$view->itemBody = '';
 
@@ -485,6 +487,24 @@ class Standard
 		 * @see admin/jqadm/service/decorators/global
 		 */
 		return $this->createSubClient( 'service/' . $type, $name );
+	}
+
+
+	/**
+	 * Returns the backend configuration attributes of the provider and decorators
+	 *
+	 * @param \Aimeos\MShop\Service\Item\Iface $item Service item incl. provider/decorator property
+	 * @return \Aimeos\MW\Common\Critera\Attribute\Iface[] List of configuration attributes
+	 */
+	public function getConfigAttributes( \Aimeos\MShop\Service\Item\Iface $item )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service' );
+
+		try {
+			return $manager->getProvider( $item, '' )->getConfigBE();
+		} catch( \Aimeos\MShop\Exception $e ) {
+			return [];
+		}
 	}
 
 

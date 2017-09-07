@@ -17,6 +17,7 @@ $cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
 $config = $this->config( 'admin/jqadm/url/save/config', [] );
 
+$attributes = $this->get( 'itemAttributes', [] );
 $subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
@@ -203,6 +204,9 @@ $params = $this->get( 'pageParams', [] );
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>"
 											<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?> />
+										<div class="form-text text-muted help-text">
+											<?= ( isset( $attributes[$key] ) ? $enc->html( $attributes[$key]->getLabel() ) : '' ); ?>
+										</div>
 									</td>
 									<td>
 										<?php $cfgval = $this->get( 'itemData/config/val/' . $idx ); ?>
@@ -222,11 +226,12 @@ $params = $this->get( 'pageParams', [] );
 							<?php endforeach; ?>
 
 							<tr class="prototype">
-								<td>
+								<td class="config-row-key">
 									<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" />
+									<div class="form-text text-muted help-text"></div>
 								</td>
-								<td>
+								<td class="config-row-value">
 									<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
 								</td>

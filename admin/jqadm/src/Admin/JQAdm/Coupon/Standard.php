@@ -94,6 +94,7 @@ class Standard
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemProviders = $this->getProviderNames();
 			$view->itemDecorators = $this->getDecoratorNames();
+			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -238,6 +239,7 @@ class Standard
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemDecorators = $this->getDecoratorNames();
 			$view->itemProviders = $this->getProviderNames();
+			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -456,6 +458,24 @@ class Standard
 		 * @see admin/jqadm/coupon/decorators/global
 		 */
 		return $this->createSubClient( 'coupon/' . $type, $name );
+	}
+
+
+	/**
+	 * Returns the backend configuration attributes of the provider and decorators
+	 *
+	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item incl. provider/decorator property
+	 * @return \Aimeos\MW\Common\Critera\Attribute\Iface[] List of configuration attributes
+	 */
+	public function getConfigAttributes( \Aimeos\MShop\Coupon\Item\Iface $item )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon' );
+
+		try {
+			return $manager->getProvider( $item, '' )->getConfigBE();
+		} catch( \Aimeos\MShop\Exception $e ) {
+			return [];
+		}
 	}
 
 

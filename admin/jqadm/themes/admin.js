@@ -442,7 +442,13 @@ Aimeos.Form = {
 	toggleHelp : function() {
 
 		$(".aimeos").on("click", ".help", function(ev) {
-			$(".help-text", $(this).parent()).slideToggle(300);
+			var list = $(this).closest("table.item-config");
+
+			if( list.length === 0 ) {
+				list = $(this).parent();
+			}
+
+			$(".help-text", list).slideToggle(300);
 		});
 	}
 };

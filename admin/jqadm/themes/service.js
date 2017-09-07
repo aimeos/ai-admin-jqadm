@@ -48,7 +48,7 @@ Aimeos.Service = {
 					$(result.data).each(function(idx, entry) {
 						var found = false;
 
-						$("table.item-config .config-key", ev.delegateTarget).each(function() {
+						$("table.item-config input.config-key", ev.delegateTarget).each(function() {
 							if($(this).val() === entry.id) {
 								found = true;
 							}
@@ -57,8 +57,8 @@ Aimeos.Service = {
 						if(found === false) {
 							var clone = Aimeos.addClone($("table.item-config .prototype", ev.delegateTarget));
 
-							$(".config-key", clone).val(entry.id);
-							$(".config-value", clone).attr("placeholder", entry.attributes.label);
+							$("input.config-key", clone).val(entry.id);
+							$(".config-row-key .help-text", clone).html(entry.attributes.label);
 						}
 					});
 				});

@@ -136,7 +136,7 @@
 .aimeos table td {
 	text-align: center;
 	font-weight: normal;
-	vertical-align: middle;
+	vertical-align: top;
 	padding: 0.125rem 0.25rem;
 	height: 2.5rem;
 }
