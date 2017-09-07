@@ -89,6 +89,7 @@ Aimeos.Catalog = {
 			"dragAndDrop": true,
 			"closedIcon": " ",
 			"openedIcon": " ",
+			"saveState": true,
 			"slide": false,
 			"dataFilter": function(result) {
 				var list = [];
