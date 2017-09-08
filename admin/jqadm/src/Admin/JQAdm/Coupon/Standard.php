@@ -557,6 +557,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Coupon\Item\Iface $item, $copy = false )
 	{
+		$config = $item->getConfig();
 		$data = $item->toArray( true );
 		$data['config'] = [];
 
@@ -566,7 +567,9 @@ class Standard
 			$data['coupon.id'] = '';
 		}
 
-		foreach( $item->getConfig() as $key => $value )
+		ksort( $config );
+
+		foreach( $config as $key => $value )
 		{
 			$data['config']['key'][] = $key;
 			$data['config']['val'][] = $value;

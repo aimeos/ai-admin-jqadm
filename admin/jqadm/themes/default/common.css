@@ -136,9 +136,13 @@
 .aimeos table td {
 	text-align: center;
 	font-weight: normal;
-	vertical-align: top;
+	vertical-align: middle;
 	padding: 0.125rem 0.25rem;
 	height: 2.5rem;
+}
+
+.aimeos table td {
+	vertical-align: top;
 }
 
 .aimeos table .actions {

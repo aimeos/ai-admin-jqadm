@@ -222,14 +222,22 @@
 }
 
 
-.aimeos .item-config th,
-.aimeos .item-config td {
+.aimeos .item-config .config-row-key,
+.aimeos .item-config .config-row-value {
 	width: 49%;
 }
 
 .aimeos .item-config th {
 	background-color: #ffffff;
 	color: #292b2c;
+}
+
+.aimeos .item-config .config-map-table {
+	display: none;
+}
+
+.aimeos .item-config td.config-map-action-add {
+	width: 2%;
 }
 
 
@@ -466,6 +474,7 @@
 }
 
 
+.prototype-map,
 .prototype {
 	display: none;
 }

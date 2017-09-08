@@ -83,6 +83,7 @@ class Standard
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemProviders = $this->getProviderNames();
 			$view->itemDecorators = $this->getDecoratorNames();
+			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemTypes = $this->getTypeItems();
 			$view->itemBody = '';
 
@@ -229,6 +230,7 @@ class Standard
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemDecorators = $this->getDecoratorNames();
 			$view->itemProviders = $this->getProviderNames();
+			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemTypes = $this->getTypeItems();
 			$view->itemBody = '';
 
@@ -456,6 +458,24 @@ class Standard
 
 
 	/**
+	 * Returns the backend configuration attributes of the provider and decorators
+	 *
+	 * @param \Aimeos\MShop\Plugin\Item\Iface $item Plugin item incl. provider/decorator property
+	 * @return \Aimeos\MW\Common\Critera\Attribute\Iface[] List of configuration attributes
+	 */
+	public function getConfigAttributes( \Aimeos\MShop\Plugin\Item\Iface $item )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin' );
+
+		try {
+			return $manager->getProvider( $item )->getConfigBE();
+		} catch( \Aimeos\MShop\Exception $e ) {
+			return [];
+		}
+	}
+
+
+	/**
 	 * Returns the names of the available plugin decorators
 	 *
 	 * @return string[] List of decorator class names
@@ -551,6 +571,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Plugin\Item\Iface $item, $copy = false )
 	{
+		$config = $item->getConfig();
 		$data = $item->toArray( true );
 		$data['config'] = [];
 
@@ -560,7 +581,9 @@ class Standard
 			$data['plugin.id'] = '';
 		}
 
-		foreach( $item->getConfig() as $key => $value )
+		ksort( $config );
+
+		foreach( $config as $key => $value )
 		{
 			$data['config']['key'][] = $key;
 			$data['config']['val'][] = $value;

@@ -501,7 +501,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service' );
 
 		try {
-			return $manager->getProvider( $item, '' )->getConfigBE();
+			return $manager->getProvider( $item )->getConfigBE();
 		} catch( \Aimeos\MShop\Exception $e ) {
 			return [];
 		}
@@ -629,6 +629,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Service\Item\Iface $item, $copy = false )
 	{
+		$config = $item->getConfig();
 		$data = $item->toArray( true );
 		$data['config'] = [];
 
@@ -639,7 +640,9 @@ class Standard
 			$data['service.id'] = '';
 		}
 
-		foreach( $item->getConfig() as $key => $value )
+		ksort( $config );
+
+		foreach( $config as $key => $value )
 		{
 			$data['config']['key'][] = $key;
 			$data['config']['val'][] = $value;

@@ -5,6 +5,11 @@
  * @copyright Aimeos (aimeos.org), 2017
  */
 
+$attr = function( $list, $key, $code ) {
+	$map = ( isset( $list[$key] ) ? $list[$key]->toArray() : [] );
+	return ( isset( $map[$code] ) ? $map[$code] : '' );
+};
+
 $selected = function( $key, $code ) {
 	return ( $key == $code ? 'selected="selected"' : '' );
 };
@@ -15,6 +20,7 @@ $cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
 $config = $this->config( 'admin/jqadm/url/save/config', [] );
 
+$attributes = $this->get( 'itemAttributes', [] );
 $subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
@@ -182,7 +188,7 @@ $enc = $this->encoder();
 					<table class="item-config table table-striped">
 						<thead>
 							<tr>
-								<th>
+								<th class="config-row-key">
 									<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
 									<div class="form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'Plugin provider or plugin decorator configuration name' ) ); ?>
@@ -190,7 +196,7 @@ $enc = $this->encoder();
 								</th>
 								<th>
 									<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
-								</th>
+								</th class="config-row-value">
 								<th class="actions">
 									<?php if( !$this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ) : ?>
 										<div class="btn act-add fa" tabindex="1"
@@ -204,17 +210,18 @@ $enc = $this->encoder();
 
 							<?php foreach( (array) $this->get( 'itemData/config/key', [] ) as $idx => $key ) : ?>
 								<tr class="config-item">
-									<td>
+									<td class="config-row-key">
 										<input type="text" class="config-key form-control" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>"
 											<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> />
+										<div class="form-text text-muted help-text"></div>
 									</td>
-									<td>
+									<td class="config-row-value">
 										<?php $cfgval = $this->get( 'itemData/config/val/' . $idx ); ?>
-										<input type="text" class="config-value form-control" tabindex="1"
+										<input type="text" class="config-value form-control config-type" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>"
-											value="<?= $enc->attr( is_array( $cfgval ) ? json_encode( $cfgval ) : $cfgval ); ?>"
+											value="<?= $enc->attr( !is_scalar( $cfgval ) ? json_encode( $cfgval ) : $cfgval ); ?>"
 											<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> />
 									</td>
 									<td class="actions">
@@ -227,21 +234,80 @@ $enc = $this->encoder();
 								</tr>
 							<?php endforeach; ?>
 
-							<tr class="prototype">
-								<td>
+							<tr class="config-item prototype">
+								<td class="config-row-key">
 									<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" />
+									<div class="form-text text-muted help-text"></div>
 								</td>
-								<td>
-									<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
+								<td class="config-row-value">
+
+									<div class="config-type config-type-map">
+										<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
+
+										<table class="table table-striped config-map-table">
+											<tr class="config-map-row prototype-map">
+												<td class="config-map-actions">
+													<div class="btn act-delete fa" tabindex="1"
+														title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+													</div>
+												</td>
+												<td class="config-map-row-key">
+													<input type="text" class="config-map-key form-control" tabindex="1" disabled="disabled" name="" />
+												</td>
+												<td class="config-map-row-value">
+													<input type="text" class="config-map-value form-control" tabindex="1" disabled="disabled" name="" />
+												</td>
+											</tr>
+											<tr class="config-map-actions">
+												<td class="config-map-action-add">
+													<div class="btn act-add fa" tabindex="1"
+														title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry') ); ?>">
+													</div>
+												</td>
+												<td class="config-map-action-update" colspan="2">
+													<div class="btn btn-primary act-update" tabindex="1">
+														<?= $enc->attr( $this->translate( 'admin', 'OK') ); ?>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+
+									<select class="config-value form-control config-type config-type-select" tabindex="1" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" >
+									</select>
+
+									<select class="config-value form-control config-type config-type-boolean" tabindex="1" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" >
+										<option value=""></option>
+										<option value="0"><?= $enc->html( $this->translate( 'client', 'no' ) ); ?></option>
+										<option value="1"><?= $enc->html( $this->translate( 'client', 'yes' ) ); ?></option>
+									</select>
+
+									<input type="text" class="config-value form-control config-type config-type-string" tabindex="1" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
+
+									<input type="number" class="config-value form-control config-type config-type-number" tabindex="1" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" step="0.01" />
+
+									<input type="number" class="config-value form-control config-type config-type-integer" tabindex="1" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
+
+									<input type="date" class="config-value form-control config-type config-type-date" tabindex="1" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
+
+									<input type="datetime-local" class="config-value form-control config-type config-type-datetime" tabindex="1" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
+
+									<input type="time" class="config-value form-control config-type config-type-time" tabindex="1" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
 								</td>
 								<td class="actions">
-									<?php if( !$this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ) : ?>
-										<div class="btn act-delete fa" tabindex="1"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-										</div>
-									<?php endif; ?>
+									<div class="btn act-delete fa" tabindex="1"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+									</div>
 								</td>
 							</tr>
 						</tbody>

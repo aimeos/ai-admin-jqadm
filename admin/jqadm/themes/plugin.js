@@ -27,42 +27,14 @@ Aimeos.Plugin = {
 
 	setupConfig : function() {
 
-		$(".aimeos .item-plugin .item-basic").on("change input blur", "input.item-provider", function(ev) {
+		var delegate = $(".aimeos .item-plugin .item-basic");
 
-			Aimeos.options.done(function(data) {
+		if(delegate.length > 0 ) {
+			Aimeos.Config.setup('plugin/config', $("input.item-provider", delegate).val(), delegate);
+		}
 
-				var params = {};
-
-				if(data.meta && data.meta.prefix) {
-					params[data.meta.prefix] = {id: $(ev.currentTarget).val()};
-				} else {
-					params['id'] = $(ev.currentTarget).val();
-				}
-
-				$.ajax({
-					url: data.meta.resources['plugin/config'] || null,
-					dataType: "json",
-					data: params
-				}).done(function(result) {
-
-					$(result.data).each(function(idx, entry) {
-						var found = false;
-
-						$("table.item-config .config-key", ev.delegateTarget).each(function() {
-							if($(this).val() === entry.id) {
-								found = true;
-							}
-						});
-
-						if(found === false) {
-							var clone = Aimeos.addClone($("table.item-config .prototype", ev.delegateTarget));
-
-							$(".config-key", clone).val(entry.id);
-							$(".config-value", clone).attr("placeholder", entry.attributes.label);
-						}
-					});
-				});
-			});
+		delegate.on("change input blur", "input.item-provider", function(ev) {
+			Aimeos.Config.setup('plugin/config', $(ev.currentTarget).val(), ev.delegateTarget);
 		});
 	},
 

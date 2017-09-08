@@ -176,17 +176,85 @@ Aimeos.Config = {
 		this.addConfigLine();
 		this.deleteConfigLine();
 		this.configComplete();
-		this.resetSearch();
+
+		this.addConfigMapLine();
+		this.deleteConfigMapLine();
+		this.hideConfigMap();
+		this.showConfigMap();
+	},
+
+
+	setup : function(resource, provider, target) {
+
+		Aimeos.options.done(function(data) {
+
+			if(!data.meta || !data.meta.resources || !data.meta.resources[resource]) {
+				return;
+			}
+
+			var params = {};
+
+			if(data.meta && data.meta.prefix) {
+				params[data.meta.prefix] = {id: provider};
+			} else {
+				params = {id: provider};
+			}
+
+			$.ajax({
+				url: data.meta.resources[resource],
+				dataType: "json",
+				data: params
+			}).done(function(result) {
+
+				$(result.data).each(function(idx, entry) {
+					var cfgkey = $("table.item-config input.config-key[value='" + entry.id + "']", target);
+
+					if(cfgkey.length > 0) {
+						var el = $("table.item-config .config-item.prototype .config-type-" + entry.attributes.type, target).clone();
+						var row = cfgkey.closest(".config-item");
+						var old = $(".config-type", row);
+
+						$("> [disabled='disabled']", el).prop("disabled", false);
+						$("> input", el).val(old.val());
+						el.prop("disabled", false);
+						el.val(old.val());
+						old.remove();
+
+						$(".help-text", row).html(entry.attributes.label);
+						$(".config-row-value", row).append(el);
+					} else {
+						var row = Aimeos.addClone($("table.item-config .config-item.prototype", target));
+
+						$(".config-row-value .config-type:not(.config-type-" + entry.attributes.type + ")", row).remove();
+						$(".config-row-key .help-text", row).html(entry.attributes.label);
+						$("input.config-key", row).attr("value", entry.id);
+					}
+
+					if(!entry.attributes.required) {
+						$(".config-value", row).prop("required", false);
+						row.removeClass("mandatory");
+					} else {
+						$(".config-value", row).prop("required", true);
+						row.addClass("mandatory");
+					}
+				});
+			});
+		});
 	},
 
 
 	addConfigLine : function() {
 
-		$(".aimeos .item .tab-pane").on("click", ".item-config .act-add", function(ev) {
+		$(".aimeos .item .tab-pane").on("click", ".item-config .actions .act-add", function(ev) {
 
 			var node = $(this).closest(".item-config");
 			var clone = Aimeos.addClone($(".prototype", node));
 			var count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and must start with 0
+			var types = $(".config-type", clone);
+
+			if(types.length > 0 ) {
+				$(".config-type:not(.config-type-string)", clone).remove();
+			}
 
 			$("input", clone).each(function() {
 				$(this).attr("name", $(this).attr("name").replace("idx", count));
@@ -203,7 +271,7 @@ Aimeos.Config = {
 
 	deleteConfigLine : function() {
 
-		$(".aimeos .item .tab-pane").on("click", ".item-config .act-delete", function(ev) {
+		$(".aimeos .item .tab-pane").on("click", ".item-config .actions .act-delete", function(ev) {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
@@ -224,12 +292,75 @@ Aimeos.Config = {
 	},
 
 
-	resetSearch : function() {
+	addConfigMapLine : function() {
 
-		$(".aimeos .list-search").on("click", ".act-reset", function(ev) {
-			$("select", ev.delegateTarget).val("");
-			$("input", ev.delegateTarget).val("");
+		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-add", function(ev) {
+
+			var node = $(this).closest(".config-map-table");
+			var clone = Aimeos.addClone($(".prototype-map", node));
+
+			clone.removeClass("prototype-map");
+			$(".act-delete", clone).focus();
+
 			return false;
+		});
+	},
+
+
+	deleteConfigMapLine : function() {
+
+		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-delete", function(ev) {
+			Aimeos.focusBefore($(this).closest("tr")).remove();
+		});
+	},
+
+
+	hideConfigMap : function() {
+
+		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-update", function(ev) {
+
+			var obj = {};
+			var table = $(this).closest(".config-map-table");
+			var lines = $(".config-map-row:not(.prototype-map)", table)
+
+			lines.each(function() {
+				obj[ $("input.config-map-key", this).val() ] = $("input.config-map-value", this).val();
+			});
+
+			$(".config-value", table.parent()).val(JSON.stringify(obj));
+
+			table.hide();
+			lines.remove();
+
+			return false;
+		});
+	},
+
+
+	showConfigMap : function() {
+
+		$(".aimeos .item-config").on("focus", ".config-value", function() {
+
+			var table = $(".config-map-table", $(this).parent());
+
+			if(table.is(":visible")) {
+				return false;
+			}
+
+			try {
+				var obj = JSON.parse($(this).val())
+			} catch(e) {
+				var obj = {};
+			}
+
+			for(var key in obj) {
+				var clone = Aimeos.addClone($(".prototype-map", table));
+				$(".config-map-value", clone).val(obj[key]);
+				$(".config-map-key", clone).val(key);
+				clone.removeClass("prototype-map");
+			}
+
+			table.show();
 		});
 	}
 };
@@ -330,6 +461,7 @@ Aimeos.Form = {
 		this.checkSubmit();
 		this.createDatePicker();
 		this.editFields();
+		this.resetSearch();
 		this.setupNext();
 		this.showErrors();
 		this.toggleHelp();
@@ -416,6 +548,16 @@ Aimeos.Form = {
 
 		$(".aimeos .list-item").on("click", ".act-edit", function(ev) {
 			$("[disabled=disabled]", ev.delegateTarget).removeAttr("disabled");
+			return false;
+		});
+	},
+
+
+	resetSearch : function() {
+
+		$(".aimeos .list-search").on("click", ".act-reset", function(ev) {
+			$("select", ev.delegateTarget).val("");
+			$("input", ev.delegateTarget).val("");
 			return false;
 		});
 	},
