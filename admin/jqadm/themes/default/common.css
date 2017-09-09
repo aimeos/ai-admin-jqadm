@@ -141,10 +141,6 @@
 	height: 2.5rem;
 }
 
-.aimeos table td {
-	vertical-align: top;
-}
-
 .aimeos table .actions {
 	white-space: nowrap;
 	text-align: right;
