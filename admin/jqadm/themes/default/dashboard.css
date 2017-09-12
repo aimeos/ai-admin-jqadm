@@ -100,6 +100,10 @@
 	height: auto;
 }
 
+.dashboard .order-latest td {
+	height: inherit;
+}
+
 .dashboard .order-latest .order-id,
 .dashboard .order-latest .order-base-price,
 .dashboard .order-latest .order-statuspayment {
