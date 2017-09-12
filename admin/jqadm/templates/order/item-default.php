@@ -175,7 +175,7 @@ $serviceAttrCodes = [
 										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
 
-									<?php foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) : ?>
+									<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
 										<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $basket->getLocale()->getLanguageId(), $langId ); ?> >
 											<?= $enc->html( $this->translate( 'client/language', $langId ) ); ?>
 										</option>
@@ -199,10 +199,12 @@ $serviceAttrCodes = [
 							<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ); ?></label>
 							<div class="col-8">
 								<span class="form-control item-customerid">
-									<a class="act-view" target="_blank"
-										href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId()], [], $getConfig ) ); ?>">
-										<?= $enc->attr( $basket->getCustomerId() ); ?>
-									</a>
+									<?php if( $basket->getCustomerId() ) : ?>
+										<a class="act-view" target="_blank"
+											href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId()], [], $getConfig ) ); ?>">
+											<?= $enc->attr( $basket->getCustomerId() ); ?>
+										</a>
+									<?php endif; ?>
 								</span>
 							</div>
 						</div>
@@ -521,10 +523,10 @@ $serviceAttrCodes = [
 										<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ); ?>
 									</div>
 								</div>
-								<div class="form-group row mandatory">
+								<div class="form-group row optional">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
 									<div class="col-sm-8">
-										<input class="form-control item-countryid" type="text" required="required" tabindex="1" maxlength="2" pattern="^[a-zA-Z]{2}$" data-field="countryid"
+										<input class="form-control item-countryid" type="text" tabindex="1" maxlength="2" pattern="^[a-zA-Z]{2}$" data-field="countryid"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, 'order.base.address.countryid' ) ) ); ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country code (required)' ) ); ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/order.base.address.countryid' ) ); ?>"

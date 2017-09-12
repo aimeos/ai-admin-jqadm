@@ -276,13 +276,7 @@ $statusList = [
 					<?php $baseItem = ( isset( $baseItems[$item->getBaseId()] ) ? $baseItems[$item->getBaseId()] : null ); ?>
 
 					<?php if( in_array( 'order.base.customerid', $fields ) ) : ?>
-						<td class="order-base-customerid">
-							<?php if( $baseItem ) : ?>
-								<a class="items-field act-view fa" target="_blank" href="<?= $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $baseItem->getCustomerId()], [], $getConfig ); ?>">
-									<?= $enc->html( $baseItem->getCustomerId() ); ?>
-								</a>
-							<?php endif; ?>
-						</td>
+						<td class="order-base-customerid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getCustomerId() ) : ''; ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.sitecode', $fields ) ) : ?>
 						<td class="order-base-sitecode"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getSiteCode() ) : ''; ?></a></td>
