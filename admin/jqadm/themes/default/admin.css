@@ -78,8 +78,10 @@
 	background-color: #F8F8F8;
 }
 
-.aimeos .list-items {
+.aimeos .list-items td,
+.aimeos .list-items th {
 	text-align: center;
+	height: 2.5rem;
 }
 
 .aimeos .list-items .btn.fa {
@@ -197,7 +199,6 @@
 }
 
 .aimeos .item .tab-pane {
-	overflow-y: -webkit-paged-y;
 	overflow-x: auto;
 	height: 100%;
 }
