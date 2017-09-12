@@ -428,7 +428,7 @@ class Standard
 
 		foreach( $listItems as $id => $listItem )
 		{
-			if( in_array( $listItem->getRefItem()->getType(), $this->getTypes() ) ) {
+			if( $listItem->getRefItem() && in_array( $listItem->getRefItem()->getType(), $this->getTypes() ) ) {
 				$allListIds[] = $id;
 			}
 		}
