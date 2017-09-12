@@ -308,11 +308,41 @@ $refItems = $this->get( 'productItems', [] );
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'supplier.lists.config', $fields ) ) : ?>
-						<td class="supplier-lists-config">
-							<input class="form-control item-config" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								name="<?= $enc->attr( $this->formparam( array( 'product', 'supplier.lists.config', '' ) ) ); ?>"
-								value="<?= $enc->attr( json_encode( $this->get( 'productData/supplier.lists.config/' . $idx ) ) ); ?>"
-								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
+						<td class="supplier-lists-config item-config">
+							<div class="config-type config-type-map">
+								<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'product', 'supplier.lists.config', '' ) ) ); ?>"
+									value="<?= $enc->attr( json_encode( $this->get( 'productData/supplier.lists.config/' . $idx ) ) ); ?>"
+									<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
+
+								<table class="table table-striped config-map-table">
+									<tr class="config-map-row prototype-map">
+										<td class="config-map-actions">
+											<div class="btn act-delete fa" tabindex="1"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+											</div>
+										</td>
+										<td class="config-map-row-key">
+											<input type="text" class="config-map-key form-control" tabindex="1" disabled="disabled" name="" />
+										</td>
+										<td class="config-map-row-value">
+											<input type="text" class="config-map-value form-control" tabindex="1" disabled="disabled" name="" />
+										</td>
+									</tr>
+									<tr class="config-map-actions">
+										<td class="config-map-action-add">
+											<div class="btn act-add fa" tabindex="1"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry') ); ?>">
+											</div>
+										</td>
+										<td class="config-map-action-update" colspan="2">
+											<div class="btn btn-primary act-update" tabindex="1">
+												<?= $enc->attr( $this->translate( 'admin', 'OK') ); ?>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'supplier.lists.datestart', $fields ) ) : ?>
@@ -339,15 +369,16 @@ $refItems = $this->get( 'productItems', [] );
 							<input class="form-control item-refid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'supplier.lists.refid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $refId ); ?>" disabled="disabled" />
-							<a class="btn act-view fa item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
-								href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'product', 'id' => $refId] + $params, [], $getConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Show entry') ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show' ) ); ?>">
-								<?= $enc->html( $refId ); ?>
-								<?php if( $refItem ) : ?>
-									- <?= $enc->html( $refItem->getLabel() . ' (' . $refItem->getCode() . ')' ); ?>
-								<?php endif; ?>
-							</a>
+							<?php if( $refItem ) : ?>
+								<a class="btn act-view fa item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
+									href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'product', 'id' => $refId] + $params, [], $getConfig ) ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Show entry') ); ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show' ) ); ?>">
+									<?= $enc->html( $refId ); ?> - <?= $enc->html( $refItem->getLabel() . ' (' . $refItem->getCode() . ')' ); ?>
+								</a>
+							<?php else : ?>
+								<?= $enc->html( $refId ); ?> (<?= $enc->html( $this->translate( 'admin', 'not available any more' ) ); ?>)
+							<?php endif; ?>
 						</td>
 					<?php endif; ?>
 
