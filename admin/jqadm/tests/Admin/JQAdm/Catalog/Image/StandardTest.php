@@ -50,11 +50,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
 
-		$this->view->item = $manager->findItem( 'new', array( 'media' ) );
+		$this->view->item = $manager->findItem( 'misc', array( 'media' ) );
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'src="/path/to/folder/example2.jpg"', $result );
+		$this->assertContains( 'src="/path/to/folder/example1.jpg"', $result );
 	}
 
 
@@ -74,11 +74,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
 
-		$this->view->item = $manager->findItem( 'new', array( 'media' ) );
+		$this->view->item = $manager->findItem( 'misc', array( 'media' ) );
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'src="/path/to/folder/example2.jpg"', $result );
+		$this->assertContains( 'src="/path/to/folder/example1.jpg"', $result );
 	}
 
 

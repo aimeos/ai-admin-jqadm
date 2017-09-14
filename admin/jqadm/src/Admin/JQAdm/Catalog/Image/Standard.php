@@ -357,24 +357,6 @@ class Standard
 
 
 	/**
-	 * Returns the media items for the given IDs
-	 *
-	 * @param array $ids List of media IDs
-	 * @return array List of media items with ID as key and items implementing \Aimeos\MShop\Media\Item\Iface as values
-	 */
-	protected function getMediaItems( array $ids )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media' );
-
-		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'media.id', $ids ) );
-		$search->setSlice( 0, 0x7fffffff );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -402,7 +384,6 @@ class Standard
 
 		$listIds = (array) $this->getValue( $data, 'catalog.lists.id', [] );
 		$listItems = $manager->getItem( $item->getId(), array( 'media' ) )->getListItems( 'media', 'default' );
-		$mediaItems = $this->getMediaItems( $this->getValue( $data, 'media.id', [] ) );
 
 		$mediaItem = $this->createItem();
 		$listItem = $this->createListItem( $item->getId() );
@@ -450,18 +431,12 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Catalog\Item\Iface $item, $copy = false )
 	{
-		$data = $ids = [];
+		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
-
-		foreach( $item->getListItems( 'media', 'default' ) as $listItem ) {
-			$ids[] = $listItem->getRefId();
-		}
-
-		$mediaItems = $this->getMediaItems( $ids );
 
 		foreach( $item->getListItems( 'media', 'default' ) as $listItem )
 		{
-			if( !isset( $mediaItems[$listItem->getRefId()] ) ) {
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
@@ -477,7 +452,7 @@ class Standard
 				$data[$key][] = $value;
 			}
 
-			foreach( $mediaItems[$listItem->getRefId()]->toArray( true ) as $key => $value ) {
+			foreach( $refItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
 		}
