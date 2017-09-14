@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-25 13:19+0200\n"
-"PO-Revision-Date: 2017-08-25 11:20+0000\n"
+"PO-Revision-Date: 2017-09-13 12:31+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Danish (http://www.transifex.com/aimeos/aimeos-core/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -229,7 +229,7 @@ msgid "Available texts"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Tilbage"
 
 msgid "Back in stock"
 msgstr ""
@@ -241,13 +241,13 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr ""
+msgstr "Indkøbskurv"
 
 msgid "Billing address"
-msgstr ""
+msgstr "Faktureringsadresse"
 
 msgid "Birthday"
-msgstr ""
+msgstr "Fødselsdag"
 
 msgid "Birthday of the customer"
 msgstr ""
@@ -285,7 +285,7 @@ msgid "Catalog: {0} ({1})"
 msgstr ""
 
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
@@ -305,7 +305,7 @@ msgid "Characteristics"
 msgstr ""
 
 msgid "City"
-msgstr ""
+msgstr "By"
 
 msgid "City name (required)"
 msgstr ""
@@ -336,7 +336,7 @@ msgid "Click to upload"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "Luk"
 
 msgid "Code"
 msgstr ""
@@ -357,7 +357,7 @@ msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr ""
+msgstr "Firma"
 
 msgid "Company details"
 msgstr ""
@@ -399,7 +399,7 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 msgid "Country ID"
 msgstr ""
@@ -552,7 +552,7 @@ msgid "Descritive name of the site"
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "Detajler"
 
 msgid "Display field is empty"
 msgstr ""
@@ -573,7 +573,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr ""
+msgstr "Email"
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -639,7 +639,7 @@ msgid "File URL"
 msgstr ""
 
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 msgid "Find category"
 msgstr ""
@@ -648,7 +648,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "Fornavn"
 
 msgid "First name (optional)"
 msgstr ""
@@ -839,7 +839,7 @@ msgid ""
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Sprog"
 
 msgid "Language (required)"
 msgstr ""
@@ -863,7 +863,7 @@ msgid "Last modified"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "Efternavn"
 
 msgid "Last name (required)"
 msgstr ""
@@ -1029,7 +1029,7 @@ msgid "Mrs"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 msgid "Name of the coupon provider class (required)"
 msgstr ""
@@ -1048,7 +1048,7 @@ msgid "New"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Næste"
 
 msgid "No error information available"
 msgstr ""
@@ -1154,7 +1154,7 @@ msgid "Parameter"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "kodeord"
 
 msgid "Password (required)"
 msgstr ""
@@ -1181,13 +1181,13 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr ""
+msgstr "Betaling"
 
 msgid "Payment date"
 msgstr ""
 
 msgid "Payment status"
-msgstr ""
+msgstr "Betalingsstatus"
 
 msgid "Payment type"
 msgstr ""
@@ -1274,10 +1274,10 @@ msgid "Preview URL"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Forrige"
 
 msgid "Price"
-msgstr ""
+msgstr "Pris"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1308,7 +1308,7 @@ msgid "Priority"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 msgid "Product ID"
 msgstr ""
@@ -1441,7 +1441,7 @@ msgid "Purchased"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Antal"
 
 msgid "Quantity or empty if unlimited (optional)"
 msgstr ""
@@ -1532,7 +1532,7 @@ msgid "Schema {0} is  not registered"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Søg"
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
@@ -1618,7 +1618,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "Vis"
 
 msgid "Show entry"
 msgstr ""
@@ -1682,7 +1682,7 @@ msgid "Stock level"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Gade"
 
 msgid "Street (required)"
 msgstr ""
@@ -1703,7 +1703,7 @@ msgid "Suggested products"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "Total"
 
 msgid "Supplier"
 msgstr ""
@@ -1763,7 +1763,7 @@ msgid "Telefax"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "Telefon"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1848,7 +1848,7 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Two letter ISO country code"
 msgstr ""
@@ -2053,7 +2053,7 @@ msgid "address:delivery"
 msgstr ""
 
 msgid "address:payment"
-msgstr ""
+msgstr "Faktureringsadresse"
 
 #, php-format
 msgid "attribute"
@@ -2065,11 +2065,11 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Kategorier"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "Kategorier"
 
 #, php-format
 msgid "characteristic"
@@ -2080,7 +2080,7 @@ msgid "code"
 msgstr ""
 
 msgid "company"
-msgstr ""
+msgstr "Firma"
 
 #, php-format
 msgid "coupon"
@@ -2104,7 +2104,7 @@ msgstr ""
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "Downloads"
 
 #, php-format
 msgid "hour"
@@ -2252,7 +2252,7 @@ msgid "service:delivery"
 msgstr ""
 
 msgid "service:payment"
-msgstr ""
+msgstr "Betaling"
 
 #, php-format
 msgid "special"

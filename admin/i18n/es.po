@@ -5,14 +5,15 @@
 # Translators:
 # Aldemar Hernández <napalm-beach@lycos.com>, 2016
 # Daniel Vega <danielvega131990@gmail.com>, 2015
+# Juan Ramos <juancagb.17@gmail.com>, 2017
 # nsendetzky, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-25 13:19+0200\n"
-"PO-Revision-Date: 2017-08-25 11:20+0000\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"PO-Revision-Date: 2017-09-13 21:08+0000\n"
+"Last-Translator: Juan Ramos <juancagb.17@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,7 +66,7 @@ msgid "Add"
 msgstr "Añadir"
 
 msgid "Add filter"
-msgstr "Agregar Filtro"
+msgstr "Agregar filtro"
 
 msgid "Add new entry (Ctrl+A)"
 msgstr ""
@@ -128,10 +129,10 @@ msgid ""
 msgstr ""
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Permitir precio personalizado"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Permitir a los clientes escoger por ellos mismos la cantidad que desean pagar"
 
 msgid ""
 "Article description shown by search engines, added to the head section of "
@@ -174,13 +175,13 @@ msgid "Attribute Lists Type"
 msgstr ""
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Tipo de atributo"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Tipos de atributo"
 
 msgid "Attribute name"
-msgstr ""
+msgstr "Nombre del atributo"
 
 msgid "Attribute position (optional)"
 msgstr ""
@@ -214,7 +215,7 @@ msgid "Available customers"
 msgstr "Clientes disponibles"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "Lenguaje disponible para el sitio actual"
 
 msgid "Available media"
 msgstr "Medios disponibles"
@@ -253,10 +254,10 @@ msgid "Birthday"
 msgstr "Cumpleaños"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Cumpleaños del cliente"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "¿Algún error o sugerencia?"
 
 msgid "Bundles"
 msgstr "Paquetes"
@@ -271,7 +272,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Cancelar y volver al listado"
 
 msgid "Catalog"
 msgstr "Catálogo"
@@ -297,7 +298,7 @@ msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
 
 msgid "Category name"
-msgstr ""
+msgstr "Nombre de la categoría"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
@@ -357,13 +358,13 @@ msgid "Comment"
 msgstr "Comentarios"
 
 msgid "Communication"
-msgstr ""
+msgstr "Comunicación"
 
 msgid "Company"
 msgstr "Compañía"
 
 msgid "Company details"
-msgstr ""
+msgstr "Detalles de la compañía"
 
 msgid "Company name"
 msgstr "Nombre compañía"
@@ -405,13 +406,13 @@ msgid "Country"
 msgstr "País"
 
 msgid "Country ID"
-msgstr ""
+msgstr "ID del país"
 
 msgid "Country code"
 msgstr "Código de país"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "Código de país (obligatorio)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
@@ -450,7 +451,7 @@ msgid "Created"
 msgstr "Creado"
 
 msgid "Currencies"
-msgstr ""
+msgstr "Divisas"
 
 msgid "Currency"
 msgstr "Divisa"
@@ -459,19 +460,19 @@ msgid "Currency (required)"
 msgstr "Divisa (obligatorio)"
 
 msgid "Custom"
-msgstr ""
+msgstr "Personalizado"
 
 msgid "Customer"
 msgstr "Cliente"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "ID de cliente"
 
 msgid "Customer Lists Type"
 msgstr ""
 
 msgid "Customer Types"
-msgstr ""
+msgstr "Tipos de cliente"
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -485,7 +486,7 @@ msgid "Customer comment (optional)"
 msgstr ""
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "E-mail del cliente"
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -496,7 +497,7 @@ msgid "Customer group: {0} ({1})"
 msgstr "Grupo de clientes: {0} ({1})"
 
 msgid "Customer password"
-msgstr ""
+msgstr "Contraseña del cliente"
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
@@ -504,7 +505,7 @@ msgid "Customer: {0} ({1})"
 msgstr "Cliente: {0} ({1})"
 
 msgid "Dashboard"
-msgstr "Panel de Instrumentos"
+msgstr "Panel de control"
 
 msgid "Date"
 msgstr "Fecha"
@@ -519,7 +520,7 @@ msgid "Date of the last payment status change"
 msgstr ""
 
 msgid "Default"
-msgstr "Por Defecto"
+msgstr "Por defecto"
 
 msgid "Delete"
 msgstr "Eliminar"
@@ -528,7 +529,7 @@ msgid "Delete items?"
 msgstr "¿Eliminar elementos?"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Eliminar esta entrada"
 
 msgid "Delivery"
 msgstr "Entrega"
@@ -546,13 +547,13 @@ msgid "Delivery types"
 msgstr "Tipos de envío"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Nombre descriptivo de la divisa"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Nombre descriptivo del lenguaje"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "Nombre descriptivo del sitio"
 
 msgid "Details"
 msgstr "Detalles"
@@ -570,16 +571,16 @@ msgid "Download"
 msgstr "Descargar"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Descargar este archivo"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "Duplicar entrada (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "Correo electrónico"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "Correo electrónico (obligatorio)"
 
 msgid "E-Mail, e.g. me@example.com (required)"
 msgstr "Correo electrónico, ej. yo@ejemplo.com (obligatorio)"
@@ -606,13 +607,13 @@ msgid "Excl. tax"
 msgstr ""
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Orden de ejecución de los plugins"
 
 msgid "Expert"
-msgstr ""
+msgstr "Experto"
 
 msgid "Expert mode"
-msgstr "Modo Experto"
+msgstr "Modo experto"
 
 msgid "Expires"
 msgstr "Vence"
@@ -645,7 +646,7 @@ msgid "Filter"
 msgstr "Filtro"
 
 msgid "Find category"
-msgstr ""
+msgstr "Buscar categoría"
 
 msgid "First"
 msgstr "Primero"
@@ -654,7 +655,7 @@ msgid "First name"
 msgstr "Nombre"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Nombre (opcional)"
 
 msgid "First name of the person if used in cultures where they are used"
 msgstr ""
@@ -702,7 +703,7 @@ msgid "Honorary title"
 msgstr "Título honorífico"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Título honorífico (opcional)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
@@ -714,7 +715,7 @@ msgid "House number"
 msgstr "Número de casa"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Nro de casa (opcional)"
 
 msgid "How the customer is addressed in e-mails"
 msgstr ""
@@ -823,18 +824,18 @@ msgstr "Tareas"
 
 msgid ""
 "Keywords for search engines, added to the head section of the category page"
-msgstr ""
+msgstr "Palabras clave para los motores de búsqueda, agregados en la cabecera de la página de categoría"
 
 msgid ""
 "Keywords for search engines, added to the head section of the product detail"
 " page"
-msgstr ""
+msgstr "Palabras clave para los motores de búsqueda, agregados en la cabecera de la página de detalle de producto"
 
 msgid "Label"
 msgstr "Etiqueta"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Etiqueta (obligatorio)"
 
 msgid ""
 "Label will be used if empty but then there must be no name for all "
@@ -848,10 +849,10 @@ msgid "Language (required)"
 msgstr "Idioma (obligatorio)"
 
 msgid "Language ID"
-msgstr ""
+msgstr "ID de idioma"
 
 msgid "Languages"
-msgstr ""
+msgstr "Idiomas"
 
 msgid "Last"
 msgstr "Último"
@@ -921,10 +922,10 @@ msgid ""
 msgstr ""
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "Lista de productos que usualmente se compran juntos"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Listado de productos sugeridos"
 
 msgid "List position"
 msgstr "Posición de lista"
@@ -1023,7 +1024,7 @@ msgid "Modifed"
 msgstr ""
 
 msgid "Modified"
-msgstr ""
+msgstr "Modificado"
 
 msgid "Mr"
 msgstr "Sr"
@@ -1039,7 +1040,7 @@ msgstr "Nombre de la clase del proveedor de cupón (obligatorio)"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "Nombre del archivo descargado cuando los clientes lo guardan en sus computadoras"
 
 msgid "Name of the plugin provider class (required)"
 msgstr "Nombre de la clase del proveedor de plugin (obligatorio)"
@@ -1048,7 +1049,7 @@ msgid "Name of the service provider class (required)"
 msgstr "Nombre de la clase del proveedor de servicios (obligatorio)"
 
 msgid "New"
-msgstr ""
+msgstr "Nuevo"
 
 msgid "Next"
 msgstr "Siguiente"
@@ -1064,7 +1065,7 @@ msgid "No items"
 msgstr "No hay elementos"
 
 msgid "No items found"
-msgstr ""
+msgstr "No se encontraron elementos"
 
 #, php-format
 msgid "No items found for \"%1$s %2$s %3$s\""
@@ -1089,7 +1090,7 @@ msgstr "Aviso"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "Número de artículos actualmente en stock, dejar vacío para una cantidad ilimitada"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr ""
@@ -1125,7 +1126,7 @@ msgid "Order totals"
 msgstr ""
 
 msgid "Orders"
-msgstr ""
+msgstr "Pedidos"
 
 msgid "Orders by day"
 msgstr "Pedidos por día"
@@ -1134,7 +1135,7 @@ msgid "Orders by hour"
 msgstr "Pedidos por hora"
 
 msgid "Orders by payment status"
-msgstr "Pedidos por Estado de pago"
+msgstr "Pedidos por estado de pago"
 
 msgid "Overview"
 msgstr "General"
@@ -1151,7 +1152,7 @@ msgstr "Página %1$d de %2$d"
 msgid ""
 "Page description shown by search engines, added to the head section of the "
 "category page"
-msgstr ""
+msgstr "Descripción de la página que se muestra a los buscadores, en la cabecera de la página de categoría"
 
 msgid "Parameter"
 msgstr "Parámetro"
@@ -1193,19 +1194,19 @@ msgid "Payment status"
 msgstr "Estado del pago"
 
 msgid "Payment type"
-msgstr ""
+msgstr "Tipo de pago"
 
 msgid "Payment types"
-msgstr "Tipos de Pago"
+msgstr "Tipos de pago"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Datos personales"
 
 msgid "Phone"
-msgstr ""
+msgstr "Teléfonos"
 
 msgid "Physical values"
-msgstr "Valores Físicos"
+msgstr "Valores físicos"
 
 msgid "Please recheck your data"
 msgstr "Por favor vuelva a comprobar sus datos"
@@ -1331,13 +1332,13 @@ msgstr ""
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "Atributos de productos que están almacenados en la cesta de clientes, donde pueden ingresar sus propios textos o valores"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "Atributos de productos que son usados por otros productos también"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "Características de productos que no son compartidas con otros productos"
 
 msgid "Product code"
 msgstr "Código del producto"
@@ -1441,7 +1442,7 @@ msgid "Purchase date"
 msgstr "Fecha de compra"
 
 msgid "Purchased"
-msgstr ""
+msgstr "Comprado"
 
 msgid "Quantity"
 msgstr "Cantidad"
@@ -1464,7 +1465,7 @@ msgid "Related ID"
 msgstr ""
 
 msgid "Related order"
-msgstr ""
+msgstr "Pedido relacionado"
 
 msgid "Related order ID"
 msgstr "ID del pedido"
@@ -1488,7 +1489,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Reiniciar"
 
 msgid "Result"
 msgstr "Resultado"
@@ -1516,16 +1517,16 @@ msgid "Save"
 msgstr "Guardar"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Guardar y cerrar"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Guardar y copiar"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Guardar y nuevo"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "Guardar entrada (Ctrl+S)"
 
 msgid "Saving"
 msgstr "Guardando"
@@ -1557,10 +1558,10 @@ msgid "Service Lists Type"
 msgstr ""
 
 msgid "Service Type"
-msgstr ""
+msgstr "Tipo de servicio"
 
 msgid "Service Types"
-msgstr ""
+msgstr "Tipos de servicio"
 
 msgid "Service attribute code"
 msgstr ""
@@ -1572,7 +1573,7 @@ msgid "Service item details"
 msgstr "Detalles del servicio"
 
 msgid "Service name"
-msgstr ""
+msgstr "Nombre de servicio"
 
 msgid "Service position (required)"
 msgstr ""
@@ -1606,7 +1607,7 @@ msgid "Shipping"
 msgstr "Envío"
 
 msgid "Shipping costs per item"
-msgstr ""
+msgstr "Costos de envío por elemento"
 
 msgid "Short description"
 msgstr "Descripción corta"
@@ -1624,13 +1625,13 @@ msgid "Show"
 msgstr "Mostrar"
 
 msgid "Show entry"
-msgstr ""
+msgstr "Mostrar entrada"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "Mostrar/ocultar esta entrada"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "Mostrado si el artículo alcanza un stock de 0"
 
 msgid "Simple mode"
 msgstr "Modo simple"
@@ -1643,10 +1644,10 @@ msgid ""
 msgstr ""
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "Sitio donde el pedido fue entregado"
 
 msgid "Sites"
-msgstr ""
+msgstr "Sitios"
 
 msgid "Size"
 msgstr "Talla"
@@ -1655,7 +1656,7 @@ msgid "Sorry, adding orders manually is currently not implemented"
 msgstr "Lo sentimos, aún no se ha implementado la adición manual de pedidos"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "Orden de los atributos dentro del mismo tipo de atributo"
 
 msgid "Source"
 msgstr "Origen"
@@ -1676,10 +1677,10 @@ msgid "Stock"
 msgstr "Existencias"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "Tipo de existencias"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "Tipos de existencias"
 
 msgid "Stock level"
 msgstr "Nivel de existencias"
@@ -1691,13 +1692,13 @@ msgid "Street (required)"
 msgstr "Calle (obligatorio)"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "Nombre de la calle (opcional)"
 
 msgid "Sub-total"
 msgstr "Subtotal"
 
 msgid "Subscription"
-msgstr ""
+msgstr "Suscripción"
 
 msgid "Substracted rebate amount"
 msgstr "Cantidad de devolución sustraída"
@@ -1728,7 +1729,7 @@ msgid "Supplier: {0} ({1})"
 msgstr "Proveedor: {0} ({1})"
 
 msgid "Suppliers"
-msgstr ""
+msgstr "Proveedores"
 
 msgid "Switching language ..."
 msgstr "Cambiando idioma ..."
@@ -1769,7 +1770,7 @@ msgid "Telephone"
 msgstr "Teléfono"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "Nro de teléfono (opcional)"
 
 msgid "Telephone number, e.g. +155512345"
 msgstr "Número de teléfono, ej. +155512345"
@@ -1872,16 +1873,16 @@ msgid "Types for additional prices like per one lb/kg or per month"
 msgstr ""
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "URL del sitio web del cliente"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "URL del sitio web del proveedor"
 
 msgid "URL segment"
 msgstr "Segmento de URL"
 
 msgid "URL target"
-msgstr ""
+msgstr "URL objetivo"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
@@ -1899,7 +1900,7 @@ msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
 msgstr ""
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "Código único de categoría (obligatorio)"
 
 msgid "Unique category code, either from external system or self-invented"
 msgstr ""
@@ -1948,7 +1949,7 @@ msgid "Used by"
 msgstr "Usado por"
 
 msgid "User groups"
-msgstr ""
+msgstr "Grupos de usuario"
 
 msgid "User name"
 msgstr "Nombre de usuario"
@@ -1957,7 +1958,7 @@ msgid "User name, e.g. e-mail address (required)"
 msgstr "Nombre de usuario, ej. dirección de correo electrónico (obligatorio)"
 
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 msgid "VAT ID"
 msgstr ""
@@ -1984,7 +1985,7 @@ msgid "Verification date"
 msgstr "Fecha de verificación"
 
 msgid "View details"
-msgstr ""
+msgstr "Ver detalles"
 
 msgid "Voucher"
 msgstr ""
@@ -2014,7 +2015,7 @@ msgid "Web site"
 msgstr "Sitio web"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "URL del sitio web (opcional)"
 
 msgid "Web site, e.g. www.example.com"
 msgstr "Sitio web, ej. www.ejemplo.com"
@@ -2046,7 +2047,7 @@ msgid "Zip code"
 msgstr "Código zip"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "Código zip (opcional)"
 
 #, php-format
 msgid "address"
@@ -2091,7 +2092,7 @@ msgstr ""
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "Clientes"
 
 #, php-format
 msgid "dashboard"
@@ -2099,11 +2100,11 @@ msgstr "Panel de Instrumentos"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "Por días"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "Por tipo de entrega"
 
 #, php-format
 msgid "download"
@@ -2111,7 +2112,7 @@ msgstr "Descargas"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "Por hora"
 
 #, php-format
 msgid "image"
@@ -2119,23 +2120,23 @@ msgstr "Imágenes"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "Facturas"
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Últimos"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "Lugares"
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "lugar/divisa"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "lugar/idioma"
 
 #, php-format
 msgid "locale/site"
@@ -2165,7 +2166,7 @@ msgstr "Opciones"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "Pedidos"
 
 msgid "pay:-1"
 msgstr "inacabado"
@@ -2217,11 +2218,11 @@ msgstr "inacabado"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Por estado de pago"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "Por tipos de pago"
 
 #, php-format
 msgid "physical"
@@ -2259,7 +2260,7 @@ msgstr "Pago"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "Especial"
 
 msgid "stat:-1"
 msgstr "inacabado"
@@ -2329,11 +2330,11 @@ msgstr "revisar"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "Existencias"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Proveedores"
 
 msgid "tag"
 msgstr "Etiquetas"
@@ -2356,7 +2357,7 @@ msgstr ""
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "Listas de cliente"
 
 #, php-format
 msgid "type/media"
@@ -2400,7 +2401,7 @@ msgstr ""
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "Existencias"
 
 #, php-format
 msgid "type/tag"
@@ -2415,10 +2416,10 @@ msgid "type/text/lists"
 msgstr ""
 
 msgid "unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgid "yes"
-msgstr ""
+msgstr "sí"
 
 msgid "yy-mm-dd"
 msgstr "aa-mm-dd"
