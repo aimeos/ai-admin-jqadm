@@ -408,38 +408,22 @@ class Standard
 		$listItem = $this->createListItem( $item->getId() );
 
 		$files = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'image/files', [] );
-		$num = 0;
 
 		foreach( $listIds as $idx => $listid )
 		{
 			if( !isset( $listItems[$listid] ) )
 			{
-				$litem = $listItem;
-				$litem->setId( null );
-
-				$mediaId = $this->getValue( $data, 'media.id/' . $idx );
-
-				if( $mediaId !== '' && isset( $mediaItems[$mediaId] ) )
-				{
-					$item = $mediaItems[$mediaId];
-				}
-				else if( ( $file = $this->getValue( $files, $num ) ) !== null )
-				{
-					$item = $mediaItem;
-					$item->setId( null );
-
-					$cntl->add( $item, $file );
-					$num++;
-				}
-				else
-				{
-					throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'No file uploaded for %1$d. new image', $num+1 ) );
-				}
+				$litem = clone $listItem;
+				$item = clone $mediaItem;
 			}
 			else
 			{
 				$litem = $listItems[$listid];
 				$item = $litem->getRefItem();
+			}
+
+			if( ( $file = $this->getValue( $files, $idx ) ) !== null ) {
+				$cntl->add( $item, $file );
 			}
 
 			$item->setLabel( $this->getValue( $data, 'media.label/' . $idx ) );

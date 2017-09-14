@@ -96,63 +96,83 @@ Aimeos.Image = {
 
 	init : function() {
 
-		this.addFocus();
-		this.addLines();
-		this.removeLine();
+		this.addBlock();
+		this.removeBlock();
+		this.selectImage();
+		this.update();
 	},
 
 
-	addFocus : function() {
+	addBlock : function() {
 
-		$(".item-image .btn").on("focus", ".fileupload", function(ev) {
-			$(ev.delegateTarget).addClass("focus");
-		});
+		$(".item-image").on("click", ".card-tools-more .act-add", function(ev) {
+			ev.stopPropagation();
 
-		$(".item-image .btn").on("blur", ".fileupload", function(ev) {
-			$(ev.delegateTarget).removeClass("focus");
+			var number = Math.floor((Math.random() * 1000));
+			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
+
+			$(".card-block", clone).attr("id", "item-image-group-data-" + number);
+			$(".card-header", clone).attr("id", "item-image-group-item-" + number);
+			$(".card-header", clone).attr("data-target", "#item-image-group-data-" + number);
+			$(".card-header", clone).attr("aria-controls", "item-image-group-data-" + number);
+
+			return false;
 		});
 	},
 
 
-	addLines : function() {
+	removeBlock : function() {
+
+		$(".item-image").on("click", ".header .act-delete", function() {
+			$(this).closest(".group-item").remove();
+		});
+	},
+
+
+	selectImage : function() {
 
 		$(".item-image").on("change", ".fileupload", function(ev) {
 
-			$(".upload .item-listid", ev.delegateTarget).each( function(idx, el) {
-				if($(this).val() == '') {
-					$(this).closest(".upload").remove();
-				}
-			});
+			if(this.files.length > 0) {
 
-			$(this).each( function(idx, el) {
-				var line = $(".prototype", ev.delegateTarget);
+				var item = $(this).closest(".group-item");
+				var file = this.files[0];
+				var img = new Image();
 
-				for(i=0; i<el.files.length; i++) {
+				img.src = file;
 
-					var img = new Image();
-					var file = el.files[i];
-					var clone = Aimeos.addClone(line, Aimeos.getOptionsLanguages);
+				$(".image-preview img", item).remove();
+				$(".image-preview", item).append(img);
 
-					clone.addClass("upload");
-					$("input.item-label", clone).val(el.files[i].name);
+				$("input.item-label", item).val(this.files[0].name);
+				Aimeos.Image.updateHeader(item);
 
-					img.src = file;
-					$(".image-preview", clone).append(img);
-
-					var reader = new FileReader();
-					reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
-					reader.readAsDataURL(file);
-				}
-			});
+				var reader = new FileReader();
+				reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+				reader.readAsDataURL(file);
+			}
 		});
 	},
 
 
-	removeLine : function() {
+	update : function() {
 
-		$(".item-image").on("click", ".act-delete", function(ev) {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
+		$(".item-image").on("blur", "input.item-label", function() {
+			Aimeos.Image.updateHeader($(this).closest(".group-item"));
 		});
+
+		$(".item-image").on("change", ".item-languageid", function() {
+			Aimeos.Image.updateHeader($(this).closest(".group-item"));
+		});
+	},
+
+
+	updateHeader : function(item) {
+
+		var label = $(".card-block .item-label", item).val();
+		var lang = $(".card-block .item-languageid", item).val();
+
+		$(".header .item-label", item).html(lang ? lang + ': ' + label : label);
 	}
 };
 

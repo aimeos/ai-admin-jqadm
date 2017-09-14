@@ -287,39 +287,27 @@
 
 /* Images */
 
-.aimeos .item-image .actions .btn {
-	position: relative;
-	overflow: hidden;
-}
-
-.aimeos .item-image .actions .btn.focus {
-	-webkit-box-shadow: 0 0 0 2px rgba(2,117,216,.25);
-	box-shadow: 0 0 0 2px rgba(2,117,216,.25);
-	outline: 0;
-}
-
 .aimeos .item-image .fileupload {
 	cursor: pointer;
 	overflow: hidden;
 	position: absolute;
 	top: 0rem;
 	right: 0rem;
-	height: 2.25rem;
-	width: 2.75rem;
+	height: 10rem;
+	margin: 0 15px;
 	opacity: 0;
 }
 
+.aimeos .item-image .image-preview {
+	border: 2px dashed #B0B0B0;
+	border-radius: .25rem;
+	height: 10rem;
+	width: 100%;
+}
+
 .aimeos .item-image .image-preview img {
-	max-width: 100px;
-	max-height: 100px;
-}
-
-.aimeos .item-image .ai-combobox {
-	width: 3rem;
-}
-
-.aimeos .item-image .image-label {
-	min-width: 7.5em;
+	max-width: 100%;
+	max-height: 10rem;
 }
 
 
