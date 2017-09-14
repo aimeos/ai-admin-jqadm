@@ -126,7 +126,7 @@ class Standard
 			$search->compare( '==', 'catalog.lists.domain', 'product' )
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );
-		$search->setSortations( array( $search->sort( '+', 'catalog.lists.id' ) ) );
+		$search->setSlice( 0, 0x7fffffff );
 
 		$start = 0;
 

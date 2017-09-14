@@ -310,14 +310,14 @@ class Standard
 		$manager->deleteItems( array_keys( $map ) );
 
 
-		$litem = $manager->createItem();
-		$litem->setDomain( 'attribute' );
-		$litem->setParentId( $item->getId() );
-		$litem->setTypeId( $typeManager->findItem( 'default', [], 'attribute' )->getId() );
+		$listItem = $manager->createItem();
+		$listItem->setDomain( 'attribute' );
+		$listItem->setParentId( $item->getId() );
+		$listItem->setTypeId( $typeManager->findItem( 'default', [], 'attribute' )->getId() );
 
 		foreach( $listIds as $idx => $listid )
 		{
-			$litem->setId( null );
+			$litem = clone $listItem;
 			$litem->setPosition( $idx );
 			$litem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $idx ) );
 

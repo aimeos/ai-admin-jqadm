@@ -35,8 +35,7 @@ class TestHelperJqadm
 
 		$view = new \Aimeos\MW\View\Standard( self::getTemplatePaths() );
 
-		$param = ['site' => 'unittest'];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, ['site' => 'unittest'] );
 		$view->addHelper( 'param', $helper );
 
 		$trans = new \Aimeos\MW\Translation\None( 'de_DE' );
