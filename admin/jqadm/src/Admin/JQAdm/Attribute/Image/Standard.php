@@ -70,6 +70,7 @@ class Standard
 		$view = $this->getView();
 
 		$view->imageData = $this->toArray( $view->item, true );
+		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -96,6 +97,7 @@ class Standard
 		}
 
 		$view->imageData = $data;
+		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -112,6 +114,7 @@ class Standard
 	public function delete()
 	{
 		parent::delete();
+
 		$this->cleanupItems( $this->getView()->item->getListItems( 'media' ), [] );
 	}
 
@@ -126,6 +129,7 @@ class Standard
 		$view = $this->getView();
 
 		$view->imageData = $this->toArray( $view->item );
+		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -353,6 +357,23 @@ class Standard
 		$item->setStatus( 1 );
 
 		return $item;
+	}
+
+
+	/**
+	 * Returns the available media types
+	 *
+	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of media type ID as keys and items as values
+	 */
+	protected function getMediaTypes()
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/type' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'media.type.domain', 'attribute' ) );
+		$search->setSortations( array( $search->sort( '+', 'media.type.label' ) ) );
+
+		return $manager->searchItems( $search );
 	}
 
 

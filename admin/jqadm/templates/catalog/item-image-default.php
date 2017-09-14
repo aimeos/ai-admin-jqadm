@@ -75,6 +75,36 @@ $enc = $this->encoder();
 								<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the image contains text or is language sepecific' ) ); ?>
 							</div>
 						</div>
+
+						<?php $mediaTypes = $this->get( 'imageTypes', [] ); ?>
+						<?php if( count( $mediaTypes ) > 1 ) : ?>
+							<div class="form-group row mandatory">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
+								<div class="col-sm-8">
+									<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'image', 'media.typeid', '' ) ) ); ?>"
+										<?= $this->site()->readonly( $this->get( 'imageData/catalog.lists.siteid/' . $idx ) ); ?> >
+										<option value="">
+											<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+										</option>
+
+										<?php foreach( (array) $mediaTypes as $typeId => $typeItem ) : ?>
+											<option value="<?= $enc->attr( $typeId ); ?>" <?= ( $typeId == $this->get( 'imageData/media.typeid/' . $idx ) ? 'selected="selected"' : '' ) ?> >
+												<?= $enc->html( $typeItem->getLabel() ); ?>
+											</option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Types for additional images like icons' ) ); ?>
+								</div>
+							</div>
+						<?php else : $mediaType = reset( $mediaTypes ); ?>
+							<input class="item-typeid" type="hidden"
+								name="<?= $enc->attr( $this->formparam( array( 'image', 'media.typeid', '' ) ) ); ?>"
+								value="<?= $enc->attr( $mediaType ? $mediaType->getId() : '' ); ?>" />
+						<?php endif; ?>
+
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ); ?></label>
 							<div class="col-sm-8">
@@ -138,6 +168,35 @@ $enc = $this->encoder();
 							<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the image contains text or is language sepecific' ) ); ?>
 						</div>
 					</div>
+
+					<?php $mediaTypes = $this->get( 'mediaTypes', [] ); ?>
+					<?php if( count( $mediaTypes ) > 1 ) : ?>
+						<div class="form-group row">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
+							<div class="col-sm-8">
+								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+									name="<?= $enc->attr( $this->formparam( array( 'image', 'media.typeid', '' ) ) ); ?>">
+									<option value="">
+										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+									</option>
+
+									<?php foreach( (array) $mediaTypes as $typeId => $typeItem ) : ?>
+										<option value="<?= $enc->attr( $typeId ); ?>" >
+											<?= $enc->html( $typeItem->getLabel() ); ?>
+										</option>
+									<?php endforeach; ?>
+								</select>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Types for additional images like icons' ) ); ?>
+							</div>
+						</div>
+					<?php else : $mediaType = reset( $mediaTypes ); ?>
+						<input class="item-typeid" type="hidden" disabled="disabled"
+							name="<?= $enc->attr( $this->formparam( array( 'image', 'media.typeid', '' ) ) ); ?>"
+							value="<?= $enc->attr( $mediaType ? $mediaType->getId() : '' ); ?>" />
+					<?php endif; ?>
+
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ); ?></label>
 						<div class="col-sm-8">
