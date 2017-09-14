@@ -26,7 +26,15 @@ $enc = $this->encoder();
 							title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 						</div>
 					</div>
-					<span class="item-label header-label"><?= $enc->html( $this->get( 'priceData/price.label/' . $idx ) ); ?></span>
+					<span class="item-label header-label">
+						<?php if( ( $currency = $this->get( 'priceData/price.currencyid/' . $idx ) ) != '' ) : ?>
+							<?= $enc->html( $currency ); ?>:
+						<?php endif; ?>
+						<?= $enc->html( $this->get( 'priceData/price.value/' . $idx ) ); ?>
+						<?php if( ( $costs = $this->get( 'priceData/price.costs/' . $idx ) ) != '0.00' ) : ?>
+							+ <?= $enc->html( $costs ); ?>
+						<?php endif; ?>
+					</span>
 					&nbsp;
 					<div class="card-tools-right">
 						<?php if( !$this->site()->readonly( $this->get( 'priceData/service.lists.siteid/' . $idx ) ) ) : ?>
@@ -55,48 +63,21 @@ $enc = $this->encoder();
 							</div>
 						</div>
 						<div class="form-group row mandatory">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Actual current price' ) ); ?></label>
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping or payment costs' ) ); ?></label>
 							<div class="col-sm-8">
-								<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.value', '' ) ) ); ?>"
-									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual current price' ) ); ?>"
-									value="<?= $enc->attr( $this->get( 'priceData/price.value/' . $idx, '0.00' ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'priceData/service.lists.siteid/' . $idx ) ); ?> />
-							</div>
-							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Actual price customers can buy the article for on the web site' ) ); ?>
-							</div>
-						</div>
-						<div class="form-group row optional">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?></label>
-							<div class="col-sm-8">
-								<input class="form-control item-rebate" type="number" step="0.01"
-									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.rebate', '' ) ) ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?>"
-									value="<?= $enc->attr( $this->get( 'priceData/price.rebate/' . $idx, '0.00' ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'priceData/service.lists.siteid/' . $idx ) ); ?> />
-							</div>
-							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Reduction from the original price, used to calculate the rebate in % and the cross price' ) ); ?>
-							</div>
-						</div>
-						<div class="form-group row optional">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping costs per item' ) ); ?></label>
-							<div class="col-sm-8">
-								<input class="form-control item-costs" type="number" step="0.01"
-									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.costs', '' ) ) ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								<input class="form-control item-costs" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.costs', '' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping costs per item' ) ); ?>"
 									value="<?= $enc->attr( $this->get( 'priceData/price.costs/' . $idx, '0.00' ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'priceData/service.lists.siteid/' . $idx ) ); ?> />
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Delivery costs for the whole order or additional costs for payment options' ) ); ?>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-xl-6">
-
 						<?php $currencies = $this->get( 'priceCurrencies', [] ); ?>
 						<?php if( count( $currencies ) > 1 ) : ?>
 							<div class="form-group row mandatory">
@@ -152,20 +133,6 @@ $enc = $this->encoder();
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $priceType ? $priceType->getId() : '' ); ?>" />
 						<?php endif; ?>
-
-						<div class="form-group row mandatory">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Minimum quantity' ) ); ?></label>
-							<div class="col-sm-8">
-								<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.quantity', '' ) ) ); ?>"
-									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Minimum quantity' ) ); ?>"
-									value="<?= $enc->attr( $this->get( 'priceData/price.quantity/' . $idx, 1 ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'priceData/service.lists.siteid/' . $idx ) ); ?> />
-							</div>
-							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00' ) ); ?>
-							</div>
-						</div>
 					</div>
 
 				</div>
@@ -197,44 +164,33 @@ $enc = $this->encoder();
 
 				<div class="col-xl-6">
 					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-taxrate" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrate', '' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>" />
 						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)' ) ); ?>
+						</div>
 					</div>
 					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Actual current price' ) ); ?></label>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping or payment costs' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.value', '' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual current price' ) ); ?>" />
-						</div>
-					</div>
-					<div class="form-group row optional">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-rebate" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.rebate', '' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?>" />
-						</div>
-					</div>
-					<div class="form-group row optional">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Shipping costs per item' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-costs" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+							<input class="form-control item-costs" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.costs', '' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping costs per item' ) ); ?>" />
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping/Payment costs' ) ); ?>" />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Delivery costs for the whole order or additional costs for payment options' ) ); ?>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-xl-6">
-
 					<?php $currencies = $this->get( 'priceCurrencies', [] ); ?>
 					<?php if( count( $currencies ) > 1 ) : ?>
-						<div class="form-group row">
+						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
@@ -260,7 +216,7 @@ $enc = $this->encoder();
 					<?php $priceTypes = $this->get( 'priceTypes', [] ); ?>
 					<?php if( count( $priceTypes ) > 1 ) : ?>
 						<div class="form-group row">
-							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>">
@@ -275,22 +231,15 @@ $enc = $this->encoder();
 									<?php endforeach; ?>
 								</select>
 							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Types for additional prices like per one lb/kg or per month' ) ); ?>
+							</div>
 						</div>
 					<?php else : $priceType = reset( $priceTypes ); ?>
 						<input class="item-typeid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
 							value="<?= $enc->attr( $priceType ? $priceType->getId() : '' ); ?>" />
 					<?php endif; ?>
-
-					<div class="form-group row">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Minimum quantity' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.quantity', '' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Minimum quantity' ) ); ?>"
-								value="1" />
-						</div>
-					</div>
 				</div>
 
 			</div>

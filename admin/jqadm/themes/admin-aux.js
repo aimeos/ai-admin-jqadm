@@ -184,7 +184,7 @@ Aimeos.Price = {
 
 		this.addBlock();
 		this.removeBlock();
-		this.updateHeader();
+		this.update();
 	},
 
 
@@ -214,14 +214,41 @@ Aimeos.Price = {
 	},
 
 
-	updateHeader : function() {
+	update : function() {
 
-		$(".item-price").on("blur", "input.item-label", function() {
-			var item = $(this).closest(".group-item");
-			var value = $(this).val();
-
-			$(".header .item-label", item).html(value);
+		$(".item-price").on("blur", ".item-value", function() {
+			Aimeos.Price.updateHeader($(this).closest(".group-item"));
 		});
+
+		$(".item-price").on("blur", ".item-costs", function() {
+			Aimeos.Price.updateHeader($(this).closest(".group-item"));
+		});
+
+		$(".item-price").on("change", ".item-currencyid", function() {
+			Aimeos.Price.updateHeader($(this).closest(".group-item"));
+		});
+	},
+
+
+	updateHeader : function(item) {
+
+		var label = $(".card-block .item-value", item).val();
+		var costs = $(".card-block .item-costs", item).val();
+		var currency = $(".card-block .item-currencyid", item).val();
+
+		if(typeof label == 'undefined') {
+			label = '';
+		}
+
+		if(currency) {
+			label = currency + ': ' + label;
+		}
+
+		if(costs) {
+			label += ' + ' + costs;
+		}
+
+		$(".header .item-label", item).html(label);
 	}
 };
 

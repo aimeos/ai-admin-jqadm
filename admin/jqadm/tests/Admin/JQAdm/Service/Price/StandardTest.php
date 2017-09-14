@@ -55,9 +55,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertContains( 'value="EUR" selected="selected"', $result );
-		$this->assertContains( 'value="12.95"', $result );
 		$this->assertContains( 'value="1.99"', $result );
-		$this->assertContains( 'value="1"', $result );
 	}
 
 
@@ -82,9 +80,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertContains( 'value="EUR" selected="selected"', $result );
-		$this->assertContains( 'value="12.95"', $result );
 		$this->assertContains( 'value="1.99"', $result );
-		$this->assertContains( 'value="1"', $result );
 	}
 
 
@@ -106,10 +102,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'service.lists.id' => array( '' ),
 				'price.typeid' => array( $typeManager->findItem( 'default', [], 'service' )->getId() ),
 				'price.currencyid' => array( 'EUR' ),
-				'price.quantity' => array( '2' ),
-				'price.value' => array( '10.00' ),
 				'price.costs' => array( '1.00' ),
-				'price.rebate' => array( '5.00' ),
 				'price.taxrate' => array( '20.00' ),
 			),
 		);
@@ -135,10 +128,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			$refItem = $listItem->getRefItem();
 			$this->assertEquals( 'default', $refItem->getType() );
 			$this->assertEquals( 'EUR', $refItem->getCurrencyId() );
-			$this->assertEquals( '2', $refItem->getQuantity() );
-			$this->assertEquals( '10.00', $refItem->getValue() );
+			$this->assertEquals( '1', $refItem->getQuantity() );
 			$this->assertEquals( '1.00', $refItem->getCosts() );
-			$this->assertEquals( '5.00', $refItem->getRebate() );
 			$this->assertEquals( '20.00', $refItem->getTaxRate() );
 			$this->assertNotEmpty( $refItem->getLabel() );
 		}
