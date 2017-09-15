@@ -287,27 +287,24 @@
 
 /* Images */
 
-.aimeos .item-image .fileupload {
-	cursor: pointer;
-	overflow: hidden;
-	position: absolute;
-	top: 0rem;
-	right: 0rem;
-	height: 10rem;
-	margin: 0 15px;
-	opacity: 0;
-}
-
 .aimeos .item-image .image-preview {
 	border: 2px dashed #B0B0B0;
 	border-radius: .25rem;
-	height: 10rem;
-	width: 100%;
 }
 
 .aimeos .item-image .image-preview img {
+	max-height: calc(10rem - 4px);
 	max-width: 100%;
-	max-height: 10rem;
+	display: block;
+	margin: auto;
+}
+
+.aimeos .item-image .image-preview .fileupload {
+	height: calc(10rem - 4px);
+	position: absolute;
+	overflow: hidden;
+	cursor: pointer;
+	opacity: 0;
 }
 
 
