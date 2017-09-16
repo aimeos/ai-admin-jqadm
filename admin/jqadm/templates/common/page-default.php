@@ -241,7 +241,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 
 			<ul class="sidebar-menu basic">
 
-				<?php if( $this->pageSiteTree->getChildren() !== [] && $this->access( $this->config( 'admin/jqadm/resources/site/groups', [] ) ) ) : ?>
+				<?php if( $this->pageSiteTree->getChildren() !== [] && $this->access( $this->config( 'admin/jqadm/access/site/groups', [] ) ) ) : ?>
 					<li class="site treeview">
 						<a href="#">
 							<i class="icon"></i>
@@ -270,7 +270,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/dashboard/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/dashboard/groups', [] ) ) ) : ?>
 					<li class="dashboard <?= $this->param( 'resource', 'dashboard' ) === 'dashboard' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'dashboard' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Dashboard' ), 'D' ) ); ?>"
@@ -281,7 +281,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/order/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/order/groups', [] ) ) ) : ?>
 					<li class="order <?= $this->param( 'resource' ) === 'order' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'order' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Orders' ), 'O' ) ); ?>"
@@ -292,7 +292,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/customer/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/customer/groups', [] ) ) ) : ?>
 					<li class="customer <?= $this->param( 'resource' ) === 'customer' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'customer' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Users' ), 'U' ) ); ?>"
@@ -303,7 +303,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/product/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/product/groups', [] ) ) ) : ?>
 					<li class="product <?= $this->param( 'resource' ) === 'product' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'product' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Products' ), 'P' ) ); ?>"
@@ -314,7 +314,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/catalog/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/catalog/groups', [] ) ) ) : ?>
 					<li class="catalog <?= $this->param( 'resource' ) === 'catalog' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'catalog' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Categories' ), 'C' ) ); ?>"
@@ -325,7 +325,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/attribute/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/attribute/groups', [] ) ) ) : ?>
 					<li class="attribute <?= $this->param( 'resource' ) === 'attribute' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'attribute' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Attributes' ), 'T' ) ); ?>"
@@ -336,7 +336,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/coupon/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/coupon/groups', [] ) ) ) : ?>
 					<li class="coupon <?= $this->param( 'resource' ) === 'coupon' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'coupon' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Vouchers' ), 'V' ) ); ?>"
@@ -351,7 +351,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 			<div class="separator"><i class="icon more"></i></div>
 
 			<ul class="sidebar-menu advanced">
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/supplier/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/supplier/groups', [] ) ) ) : ?>
 					<li class="supplier <?= $this->param( 'resource' ) === 'supplier' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'supplier' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Suppliers' ), 'I' ) ); ?>"
@@ -362,7 +362,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/service/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/service/groups', [] ) ) ) : ?>
 					<li class="service <?= $this->param( 'resource' ) === 'service' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'service' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Services' ), 'S' ) ); ?>"
@@ -373,7 +373,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/plugin/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/plugin/groups', [] ) ) ) : ?>
 					<li class="plugin <?= $this->param( 'resource' ) === 'plugin' ? 'active' : '' ?>">
 						<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => 'plugin' ) + $params, [], $config ) ); ?>"
 							title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', 'Plugins' ), 'G' ) ); ?>"
@@ -384,7 +384,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/type/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/type/groups', [] ) ) ) : ?>
 					<li class="type treeview <?= substr_compare( $this->param( 'resource', '<none>' ), '/type', -5 ) ? '' : 'active' ?>">
 						<span>
 							<i class="icon"></i>
@@ -394,17 +394,19 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 							<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Types' ) ); ?></strong></li>
 
 							<?php foreach( $typesList as $type ) : ?>
-								<li class="<?= $enc->attr( str_replace( '/', '-', $type ) ) . ' ' . ( $this->param( 'resource' ) === $type ? 'active' : '' ) ?>">
-									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $type] + $params, [], $config ) ); ?>">
-										<span class="name"><?= $enc->html( $this->translate( 'admin', $type ) ); ?></span>
-									</a>
-								</li>
+								<?php if( $this->access( $this->config( 'admin/jqadm/access/ . $type . /groups', [] ) ) ) : ?>
+									<li class="<?= $enc->attr( str_replace( '/', '-', $type ) ) . ' ' . ( $this->param( 'resource' ) === $type ? 'active' : '' ) ?>">
+										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $type] + $params, [], $config ) ); ?>">
+											<span class="name"><?= $enc->html( $this->translate( 'admin', $type ) ); ?></span>
+										</a>
+									</li>
+								<?php endif; ?>
 							<?php endforeach; ?>
 						</ul>
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/locale/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/locale/groups', [] ) ) ) : ?>
 					<li class="locale treeview <?= strncmp( $this->param( 'resource' ), 'locale', 6 ) ? '' : 'active' ?>">
 						<span>
 							<i class="icon"></i>
@@ -417,21 +419,21 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 									<span class="name"><?= $enc->html( $this->translate( 'admin', 'List' ) ); ?></span>
 								</a>
 							</li>
-							<?php if( $this->access( $this->config( 'admin/jqadm/resources/locale/site/groups', [] ) ) ) : ?>
+							<?php if( $this->access( $this->config( 'admin/jqadm/access/locale/site/groups', [] ) ) ) : ?>
 								<li class="locale-site">
 									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => 'locale/site'] + $params, [], $config ) ); ?>">
 										<span class="name"><?= $enc->html( $this->translate( 'admin', 'Sites' ) ); ?></span>
 									</a>
 								</li>
 							<?php endif; ?>
-							<?php if( $this->access( $this->config( 'admin/jqadm/resources/locale/language/groups', [] ) ) ) : ?>
+							<?php if( $this->access( $this->config( 'admin/jqadm/access/locale/language/groups', [] ) ) ) : ?>
 								<li class="locale-language">
 									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => 'locale/language'] + $params, [], $config ) ); ?>">
 										<span class="name"><?= $enc->html( $this->translate( 'admin', 'Languages' ) ); ?></span>
 									</a>
 								</li>
 							<?php endif; ?>
-							<?php if( $this->access( $this->config( 'admin/jqadm/resources/locale/currency/groups', [] ) ) ) : ?>
+							<?php if( $this->access( $this->config( 'admin/jqadm/access/locale/currency/groups', [] ) ) ) : ?>
 								<li class="locale-currency">
 									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => 'locale/currency'] + $params, [], $config ) ); ?>">
 										<span class="name"><?= $enc->html( $this->translate( 'admin', 'Currencies' ) ); ?></span>
@@ -442,7 +444,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/expert/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/expert/groups', [] ) ) ) : ?>
 					<li class="expert">
 						<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>"
 							title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), 'Expert', 'E' ) ); ?>"
@@ -453,7 +455,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					</li>
 				<?php endif; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resources/language/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/access/language/groups', [] ) ) ) : ?>
 					<li class="language treeview">
 						<span>
 							<i class="icon"></i>
