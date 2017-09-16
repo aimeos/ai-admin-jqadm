@@ -510,7 +510,8 @@ class Standard
 	protected function getGroupItems()
 	{
 		$list = [];
-		$isAdmin = $this->getView()->access( ['super', 'admin'] );
+		$isSuper = $this->getView()->access( ['super'] );
+		$isAdmin = $this->getView()->access( ['admin'] );
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/group' );
 		$search = $manager->createSearch();
@@ -518,7 +519,11 @@ class Standard
 
 		foreach( $manager->searchItems( $search ) as $groupId => $groupItem )
 		{
-			if( $isAdmin == false && in_array( $groupItem->getCode(), ['super', 'admin', 'editor', 'viewer'] ) ) {
+			if( $isSuper == false && in_array( $groupItem->getCode(), ['super', 'admin'] ) ) {
+				continue;
+			}
+
+			if( $isAdmin == false && in_array( $groupItem->getCode(), ['super', 'admin', 'editor'] ) ) {
 				continue;
 			}
 
