@@ -36,6 +36,7 @@
 
 .dashboard td {
 	border-top: none;
+	height: inherit;
 }
 
 

@@ -78,12 +78,6 @@
 	background-color: #F8F8F8;
 }
 
-.aimeos .list-items td,
-.aimeos .list-items th {
-	text-align: center;
-	height: 2.5rem;
-}
-
 .aimeos .list-items .btn.fa {
 	margin: 0 0.25rem;
 	padding: 0.5rem;
