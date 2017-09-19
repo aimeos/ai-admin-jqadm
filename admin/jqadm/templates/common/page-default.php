@@ -394,7 +394,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 							<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Types' ) ); ?></strong></li>
 
 							<?php foreach( $typesList as $type ) : ?>
-								<?php if( $this->access( $this->config( 'admin/jqadm/access/ . $type . /groups', [] ) ) ) : ?>
+								<?php if( $this->access( $this->config( 'admin/jqadm/access/' . $type . '/groups', [] ) ) ) : ?>
 									<li class="<?= $enc->attr( str_replace( '/', '-', $type ) ) . ' ' . ( $this->param( 'resource' ) === $type ? 'active' : '' ) ?>">
 										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $type] + $params, [], $config ) ); ?>">
 											<span class="name"><?= $enc->html( $this->translate( 'admin', $type ) ); ?></span>
