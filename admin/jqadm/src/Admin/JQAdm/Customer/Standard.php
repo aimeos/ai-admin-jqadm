@@ -519,11 +519,11 @@ class Standard
 
 		foreach( $manager->searchItems( $search ) as $groupId => $groupItem )
 		{
-			if( $isSuper == false && in_array( $groupItem->getCode(), ['super', 'admin'] ) ) {
+			if( !$isSuper && in_array( $groupItem->getCode(), ['super', 'admin'] ) ) {
 				continue;
 			}
 
-			if( $isAdmin == false && in_array( $groupItem->getCode(), ['super', 'admin', 'editor'] ) ) {
+			if( !$isSuper && !$isAdmin && in_array( $groupItem->getCode(), ['super', 'admin', 'editor'] ) ) {
 				continue;
 			}
 
