@@ -84,29 +84,23 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 			<a class="btn btn-secondary act-cancel"
 				title="<?= $enc->attr( $this->translate( 'admin', 'Cancel') ); ?>"
 				href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $params, [], $listConfig ) ); ?>">
-				<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
-					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
-				<?php else : ?>
-					<?= $enc->html( $this->translate( 'admin', 'Back' ) ); ?>
-				<?php endif; ?>
+				<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
 			</a>
 
-			<?php if( $this->access( ['admin', 'editor'] ) ) : ?>
-				<div class="btn-group">
-					<button type="submit" class="btn btn-primary act-save"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)') ); ?>">
-						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
-					</button>
-					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
-						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
-					</button>
-					<div class="dropdown-menu dropdown-menu-right">
-						<a class="dropdown-item next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a>
-						<a class="dropdown-item next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ); ?></a>
-					</div>
+			<div class="btn-group">
+				<button type="submit" class="btn btn-primary act-save"
+					title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)') ); ?>">
+					<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
+				</button>
+				<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
+				</button>
+				<div class="dropdown-menu dropdown-menu-right">
+					<a class="dropdown-item next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a>
+					<a class="dropdown-item next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ); ?></a>
 				</div>
-			<?php endif; ?>
+			</div>
 		</div>
 	</nav>
 
@@ -118,7 +112,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 				<span class="input-group-addon input-group-icon collapse-all fa" tabindex="1"></span>
 				<input type="text" class="form-control search-input" tabindex="1" placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ); ?>">
 				<span class="input-group-addon input-group-icon act-delete fa" tabindex="1"></span>
-				<span class="input-group-addon input-group-icon act-add fa" tabindex="1"></span>
+				<span class="input-group-addon input-group-icon act-add fa btn-primary" tabindex="1"></span>
 			</div>
 			<div class="tree-content">
 			</div>
