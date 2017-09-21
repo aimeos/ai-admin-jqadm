@@ -76,11 +76,10 @@ $stockTypes = $this->get( 'stockTypes', [] );
 							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> />
 					</td>
 					<td class="stock-databack optional">
-						<input class="form-control item-dateback date" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<input class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.dateback', '' ) ) ); ?>"
 							value="<?= $enc->attr( $this->get( 'stockData/stock.dateback/' . $idx ) ); ?>"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-							data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>"
 							<?= $this->site()->readonly( $this->get( 'stockData/stock.siteid/' . $idx ) ); ?> />
 					</td>
 					<td class="actions">
@@ -119,10 +118,9 @@ $stockTypes = $this->get( 'stockTypes', [] );
 					name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.stocklevel', '' ) ) ); ?>" />
 				</td>
 				<td class="stock-databack optional">
-					<input class="form-control date-prototype item-dateback" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+					<input class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.dateback', '' ) ) ); ?>"
-						placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-						data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>" />
+						placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>" />
 				</td>
 				<td class="actions">
 					<input class="item-id" type="hidden" value="" disabled="disabled"
