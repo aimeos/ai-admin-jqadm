@@ -532,11 +532,12 @@ abstract class Base
 			$criteria = $this->initCriteriaSortations( $criteria, (array) $params['sort'] );
 		}
 
+		$page = [];
 		if( isset( $params['page'] ) ) {
-			$criteria = $this->initCriteriaSlice( $criteria, (array) $params['page'] );
+			$page = (array) $params['page'];
 		}
 
-		return $criteria;
+		return $this->initCriteriaSlice( $criteria, $page );
 	}
 
 
