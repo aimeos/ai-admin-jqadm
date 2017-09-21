@@ -25,7 +25,7 @@ $selected = function( $key, $code ) {
 $group = (array) $this->get( 'group', [] );
 $filter = $this->get( 'filter', [] );
 $fields = $this->get( 'fields', [] );
-$idx = -1;
+$idx = 0;
 
 $enc = $this->encoder();
 
