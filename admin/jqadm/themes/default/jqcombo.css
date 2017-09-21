@@ -7,6 +7,10 @@
 
 /* JQuery UI styles */
 
+#ui-datepicker-div {
+	z-index: 2000 !important;
+}
+
 .ai-combobox {
 	position: relative;
 	display: inline-block;

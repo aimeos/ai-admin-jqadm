@@ -193,4 +193,5 @@
 .dashboard .order-paymentstatus .tooltip .values th,
 .dashboard .order-paymentstatus .tooltip .values td {
 	text-align: right;
+	height: inherit;
 }

@@ -235,11 +235,10 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-datestart date" type="text" tabindex="1"
+							<input class="form-control item-datestart" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/product.datestart' ) ) ); ?>"
-								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -249,11 +248,10 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-dateend date" type="text" tabindex="1"
+							<input class="form-control item-dateend" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/product.dateend' ) ) ); ?>"
-								data-format="<?= $this->translate( 'admin', 'yy-mm-dd' ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">

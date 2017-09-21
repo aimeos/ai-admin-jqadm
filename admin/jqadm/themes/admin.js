@@ -25,6 +25,15 @@ Aimeos = {
 
 		$("[disabled='disabled']", clone).prop("disabled", false);
 
+		if(Modernizr && !Modernizr.inputtypes['datetime-local']) {
+			$("input[type='datetime-local']", clone).each(function(idx, elem) {
+				$(elem).datepicker({
+					dateFormat: 'yy-mm-dd',
+					constrainInput: false
+				});
+			});
+		}
+
 		if(after) {
 			clone.insertAfter(node);
 		} else {
@@ -534,13 +543,16 @@ Aimeos.Form = {
 
 	createDatePicker : function() {
 
-		$(".aimeos .date").each(function(idx, elem) {
-
-			$(elem).datepicker({
-				dateFormat: $(elem).data("format"),
-				constrainInput: false
+		if(Modernizr && !Modernizr.inputtypes['datetime-local']) {
+			$(".aimeos input[type='datetime-local']").each(function(idx, elem) {
+				if($(elem).closest(".prototype").length === 0) {
+					$(elem).datepicker({
+						dateFormat: 'yy-mm-dd',
+						constrainInput: false
+					});
+				}
 			});
-		});
+		}
 	},
 
 
