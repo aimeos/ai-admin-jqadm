@@ -25,22 +25,24 @@ Aimeos = {
 
 		$("[disabled='disabled']", clone).prop("disabled", false);
 
-		if(Modernizr && !Modernizr.inputtypes['datetime-local']) {
-			$("input[type='datetime-local']", clone).each(function(idx, elem) {
-				$(elem).datepicker({
-					dateFormat: 'yy-mm-dd',
-					constrainInput: false
+		if(typeof Modernizr != 'undefined') {
+			if(!Modernizr.inputtypes['datetime-local']) {
+				$("input[type='datetime-local']", clone).each(function(idx, elem) {
+					$(elem).datepicker({
+						dateFormat: 'yy-mm-dd',
+						constrainInput: false
+					});
 				});
-			});
-		}
+			}
 
-		if(Modernizr && !Modernizr.inputtypes['date']) {
-			$("input[type='date']", clone).each(function(idx, elem) {
-				$(elem).datepicker({
-					dateFormat: 'yy-mm-dd',
-					constrainInput: false
+			if(!Modernizr.inputtypes['date']) {
+				$("input[type='date']", clone).each(function(idx, elem) {
+					$(elem).datepicker({
+						dateFormat: 'yy-mm-dd',
+						constrainInput: false
+					});
 				});
-			});
+			}
 		}
 
 		if(after) {
@@ -552,26 +554,28 @@ Aimeos.Form = {
 
 	createDatePicker : function() {
 
-		if(Modernizr && !Modernizr.inputtypes['datetime-local']) {
-			$(".aimeos input[type='datetime-local']").each(function(idx, elem) {
-				if($(elem).closest(".prototype").length === 0) {
-					$(elem).datepicker({
-						dateFormat: 'yy-mm-dd',
-						constrainInput: false
-					});
-				}
-			});
-		}
+		if(typeof Modernizr != 'undefined') {
+			if(!Modernizr.inputtypes['datetime-local']) {
+				$(".aimeos input[type='datetime-local']").each(function(idx, elem) {
+					if($(elem).closest(".prototype").length === 0) {
+						$(elem).datepicker({
+							dateFormat: 'yy-mm-dd',
+							constrainInput: false
+						});
+					}
+				});
+			}
 
-		if(Modernizr && !Modernizr.inputtypes['date']) {
-			$(".aimeos input[type='date']").each(function(idx, elem) {
-				if($(elem).closest(".prototype").length === 0) {
-					$(elem).datepicker({
-						dateFormat: 'yy-mm-dd',
-						constrainInput: false
-					});
-				}
-			});
+			if(Modernizr && !Modernizr.inputtypes['date']) {
+				$(".aimeos input[type='date']").each(function(idx, elem) {
+					if($(elem).closest(".prototype").length === 0) {
+						$(elem).datepicker({
+							dateFormat: 'yy-mm-dd',
+							constrainInput: false
+						});
+					}
+				});
+			}
 		}
 	},
 
