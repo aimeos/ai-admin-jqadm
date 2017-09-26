@@ -117,13 +117,14 @@ class Standard
 		try
 		{
 			$data = $view->param( 'item', [] );
-			$data['service.type.siteid'] = $context->getLocale()->getSiteId();
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'service/type' )->createItem();
 			} else {
 				$data = $this->toArray( $view->item );
 			}
+
+			$data['service.type.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $data;
