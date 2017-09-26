@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm;
 
+sprintf( 'type' ); // for translation
+
 
 /**
  * Common abstract class for all admin client classes.

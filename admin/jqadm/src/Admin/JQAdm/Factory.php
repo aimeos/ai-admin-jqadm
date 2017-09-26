@@ -39,7 +39,7 @@ class Factory
 		$config = $context->getConfig();
 		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
 
-		if( $view->access( $config->get( 'admin/jqadm/access/' . $type . '/groups', [] ) ) !== true ) {
+		if( $view->access( $config->get( 'admin/jqadm/resource/' . $type . '/groups', [] ) ) !== true ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
 		}
 
