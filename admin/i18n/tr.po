@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 13:19+0200\n"
-"PO-Revision-Date: 2017-08-25 11:20+0000\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"POT-Creation-Date: 2017-09-26 23:42+0200\n"
+"PO-Revision-Date: 2017-09-26 21:44+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -448,7 +448,7 @@ msgid "Created"
 msgstr "Oluşturuldu"
 
 msgid "Currencies"
-msgstr ""
+msgstr "Para Birimleri"
 
 msgid "Currency"
 msgstr "Para birimi"
@@ -534,6 +534,10 @@ msgstr "Teslimat"
 msgid "Delivery address"
 msgstr "Teslimat adresi"
 
+msgid ""
+"Delivery costs for the whole order or additional costs for payment options"
+msgstr ""
+
 msgid "Delivery date"
 msgstr "Teslimat tarihi"
 
@@ -544,10 +548,10 @@ msgid "Delivery types"
 msgstr "Teslimat türleri"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Para biriminin tanımlayıcı adı"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Dilin tanımlayıcı adı"
 
 msgid "Descritive name of the site"
 msgstr "Sitenin açıklayıcı adı"
@@ -587,6 +591,9 @@ msgstr "EAN, SKU veya ürün numarası (gerekli)"
 
 msgid "Edit"
 msgstr "Düzenle"
+
+msgid "Edit this entry"
+msgstr ""
 
 msgid "Editor"
 msgstr "Editör"
@@ -727,10 +734,10 @@ msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr "İlgili bir faturanın ID'si, örn; değiştirilmiş veya iade edilmiş bir faturanın"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO para birimi kodu (gerekli)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO dil kodu (gerekli)"
 
 msgid "Images"
 msgstr "Görüntüler"
@@ -751,6 +758,12 @@ msgstr "KDV dahil"
 
 msgid "Info"
 msgstr "Bilgi"
+
+msgid "Insert new entry"
+msgstr ""
+
+msgid "Insert new entry (Ctrl+I)"
+msgstr ""
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
@@ -849,7 +862,7 @@ msgid "Language ID"
 msgstr "Dil ID'si"
 
 msgid "Languages"
-msgstr ""
+msgstr "Diller"
 
 msgid "Last"
 msgstr "Sonuncu"
@@ -1089,6 +1102,9 @@ msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr "Şu anda stokta olan ürün sayısı, sınırsız miktar için boş bırakın"
 
+msgid "OK"
+msgstr ""
+
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr "Verginin faturada faturalandırılmasının gerekip gerekmediğini belirlemek için resmi Vergi Numarası"
 
@@ -1195,6 +1211,10 @@ msgstr "Ödeme türü"
 
 msgid "Payment types"
 msgstr "Ödeme türleri"
+
+#, php-format
+msgid "Permission denied"
+msgstr ""
 
 msgid "Personal data"
 msgstr "Kişisel veri"
@@ -1606,6 +1626,12 @@ msgstr "Nakliye"
 msgid "Shipping costs per item"
 msgstr "Ürün başına nakliye ücreti"
 
+msgid "Shipping or payment costs"
+msgstr ""
+
+msgid "Shipping/Payment costs"
+msgstr ""
+
 msgid "Short description"
 msgstr "Kısa açıklama"
 
@@ -1840,7 +1866,7 @@ msgid "This combination already exists"
 msgstr "Bu kombinasyon zaten mevcut"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "İki harfli ISO para birimi kodu"
 
 msgid "Title"
 msgstr "Başlık"
@@ -1855,7 +1881,7 @@ msgid "Two letter ISO country code"
 msgstr "İki harfli ülke ISO kodu"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "İki harfli ISO dil kodu"
 
 msgid "Two letter country code, e.g. \"US\" (required)"
 msgstr "İki harfli ülke kodu, örn. \"TR\" (gerekli)"
@@ -1865,6 +1891,9 @@ msgstr "Tür"
 
 msgid "Types"
 msgstr "Türler"
+
+msgid "Types for additional images like icons"
+msgstr ""
 
 msgid "Types for additional prices like per one lb/kg or per month"
 msgstr "Bir lb/kg başına veya her ay gibi ek fiyatlar için türler"
@@ -1955,7 +1984,7 @@ msgid "User name, e.g. e-mail address (required)"
 msgstr "Kullanıcı adı, örn. e-mail adresi (gerekli)"
 
 msgid "Users"
-msgstr ""
+msgstr "Kullanıcılar"
 
 msgid "VAT ID"
 msgstr "Vergi Numarası"
@@ -2129,15 +2158,15 @@ msgstr "Yerel Ayarlar"
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "Para Birimleri"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "Diller"
 
 #, php-format
 msgid "locale/site"
-msgstr "Yerel Siteler"
+msgstr "Siteler"
 
 msgid "media"
 msgstr "Medya"
@@ -2156,6 +2185,9 @@ msgstr "yeni"
 
 msgid "no"
 msgstr "hayır"
+
+msgid "not available any more"
+msgstr ""
 
 #, php-format
 msgid "option"
@@ -2339,6 +2371,10 @@ msgstr "Etiketler"
 #, php-format
 msgid "text"
 msgstr "Metinler"
+
+#, php-format
+msgid "type"
+msgstr ""
 
 #, php-format
 msgid "type/attribute"

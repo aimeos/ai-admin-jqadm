@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 13:19+0200\n"
-"PO-Revision-Date: 2017-08-25 11:20+0000\n"
-"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"POT-Creation-Date: 2017-09-26 23:42+0200\n"
+"PO-Revision-Date: 2017-09-26 21:43+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -535,6 +535,10 @@ msgstr "Dostawa"
 msgid "Delivery address"
 msgstr "Adres dostawy"
 
+msgid ""
+"Delivery costs for the whole order or additional costs for payment options"
+msgstr ""
+
 msgid "Delivery date"
 msgstr "Data dostawy"
 
@@ -588,6 +592,9 @@ msgstr "EAN, SKU lub numer produktu (wymagane)"
 
 msgid "Edit"
 msgstr "Edytuj"
+
+msgid "Edit this entry"
+msgstr ""
 
 msgid "Editor"
 msgstr "Edytor"
@@ -751,6 +758,12 @@ msgid "Incl. tax"
 msgstr ""
 
 msgid "Info"
+msgstr ""
+
+msgid "Insert new entry"
+msgstr ""
+
+msgid "Insert new entry (Ctrl+I)"
 msgstr ""
 
 msgid ""
@@ -1090,6 +1103,9 @@ msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr ""
 
+msgid "OK"
+msgstr ""
+
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr ""
 
@@ -1195,6 +1211,10 @@ msgid "Payment type"
 msgstr ""
 
 msgid "Payment types"
+msgstr ""
+
+#, php-format
+msgid "Permission denied"
 msgstr ""
 
 msgid "Personal data"
@@ -1607,6 +1627,12 @@ msgstr "Dostawa"
 msgid "Shipping costs per item"
 msgstr ""
 
+msgid "Shipping or payment costs"
+msgstr ""
+
+msgid "Shipping/Payment costs"
+msgstr ""
+
 msgid "Short description"
 msgstr ""
 
@@ -1866,6 +1892,9 @@ msgstr "Typ"
 
 msgid "Types"
 msgstr "Typy"
+
+msgid "Types for additional images like icons"
+msgstr ""
 
 msgid "Types for additional prices like per one lb/kg or per month"
 msgstr ""
@@ -2158,6 +2187,9 @@ msgstr "nowy"
 msgid "no"
 msgstr ""
 
+msgid "not available any more"
+msgstr ""
+
 #, php-format
 msgid "option"
 msgstr "Opcje"
@@ -2339,6 +2371,10 @@ msgstr "Tagi"
 
 #, php-format
 msgid "text"
+msgstr ""
+
+#, php-format
+msgid "type"
 msgstr ""
 
 #, php-format
