@@ -158,7 +158,6 @@ class Standard
 				$data = $this->toArray( $view->item );
 			}
 
-			$data['customer.id'] = $view->item->getId();
 			$data['customer.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();

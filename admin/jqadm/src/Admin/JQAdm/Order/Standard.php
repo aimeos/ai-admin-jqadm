@@ -124,7 +124,6 @@ class Standard
 				$data = $this->toArray( $view->item );
 			}
 
-			$data['order.id'] = $view->item->getId();
 			$data['order.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();

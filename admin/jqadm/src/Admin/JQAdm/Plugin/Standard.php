@@ -128,7 +128,6 @@ class Standard
 				$data = $this->toArray( $view->item );
 			}
 
-			$data['plugin.id'] = $view->item->getId();
 			$data['plugin.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();

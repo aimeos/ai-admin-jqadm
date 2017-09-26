@@ -119,7 +119,6 @@ class Standard
 		try
 		{
 			$data = $view->param( 'item', [] );
-			$data['locale.siteid'] = $context->getLocale()->getSiteId();
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'locale' )->createItem();

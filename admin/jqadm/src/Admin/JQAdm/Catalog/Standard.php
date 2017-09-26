@@ -158,7 +158,6 @@ class Standard
 				$data = $this->toArray( $view->item );
 			}
 
-			$data['catalog.id'] = $view->item->getId();
 			$data['catalog.siteid'] = $view->item->getSiteId();
 			$data['catalog.parentid'] = $view->item->getParentId() ?: $view->param( 'item/catalog.parentid' );
 

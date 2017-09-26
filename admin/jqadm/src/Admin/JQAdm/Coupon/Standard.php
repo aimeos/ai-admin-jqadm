@@ -138,7 +138,6 @@ class Standard
 				$data = $this->toArray( $view->item );
 			}
 
-			$data['coupon.id'] = $view->item->getId();
 			$data['coupon.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();

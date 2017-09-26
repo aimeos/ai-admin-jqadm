@@ -161,7 +161,6 @@ class Standard
 				$data = $this->toArray( $view->item );
 			}
 
-			$data['service.id'] = $view->item->getId();
 			$data['service.siteid'] = $view->item->getSiteId();
 
 			$view->itemSubparts = $this->getSubClientNames();
