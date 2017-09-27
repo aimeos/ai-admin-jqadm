@@ -157,22 +157,41 @@ $extConfig = $this->config( 'admin/extjs/url/config', [] );
 
 
 /** admin/jqadm/navbar
- * List of JQAdm client names shown in the navigation bar of the administration interface
+ * List of JQAdm client names shown in the navigation bar of the admin interface
  *
+ * You can add, remove or reorder the links in the navigation bar by
+ * setting a new list of client resource names.
+
+ * In the configuration files of extensions, you should only add entries using
+ * one of these lines:
+ *
+ *  'myclient' => 'myclient',
+ *  'myclient-subclient' => 'myclient/subclient',
+ *
+ * The key of the new client must be unique in the extension configuration so
+ * it's not overwritten by other extensions. Don't use slashes in keys (/)
+ * because they are interpreted as keys of sub-arrays in the configuration.
  *
  * @param array List of resource client names
  * @since 2017.10
  * @category Developer
+ * @see admin/jqadm/navbar-limit
  */
 $navlist = $this->config( 'admin/jqadm/navbar', [] );
 
 /** admin/jqadm/navbar-limit
  * Number of JQAdm client links in the navigation bar shown by default
  *
+ * The navigation bar is divided into the basic and advanced section.
+ * All admin client links in the basic section are always shown
+ * while the links in the advanced section are hidden by default. The
+ * entries in the navigation bar are defined by admin/jqadm/navbar. Using
+ * this setting you can change how many links are always shown.
  *
- * @param integer Number of client resources
+ * @param integer Number of client resource links
  * @since 2017.10
  * @category Developer
+ * @see admin/jqadm/navbar
  */
 $navlimit = $this->config( 'admin/jqadm/navbar-limit', 6 );
 
