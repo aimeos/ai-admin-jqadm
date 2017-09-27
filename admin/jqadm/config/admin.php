@@ -8,6 +8,7 @@ return [
 			'customer',
 			'product',
 			'catalog',
+			'attribute',
 			'coupon',
 			'supplier',
 			'service',
