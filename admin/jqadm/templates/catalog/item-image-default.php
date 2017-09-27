@@ -44,7 +44,7 @@ $enc = $this->encoder();
 					role="tabpanel" aria-labelledby="item-image-group-item-<?= $enc->attr( $idx ); ?>">
 
 					<div class="col-xl-6">
-						<div class="image-preview">
+						<div class="form-group row image-preview">
 							<input class="fileupload" type="file" name="image[files][]" tabindex="<?= $this->get( 'tabindex' ); ?>" />
 							<img class="item-preview" src="<?= $this->content( $this->get( 'imageData/media.preview/' . $idx ) ); ?>"
 								alt="<?= $enc->html( $this->translate( 'admin', 'Preview' ) ); ?>" />
@@ -145,7 +145,7 @@ $enc = $this->encoder();
 
 			<div id="item-image-group-data-" class="card-block collapse show row" role="tabpanel">
 				<div class="col-xl-6">
-					<div class="image-preview">
+					<div class="form-group row image-preview">
 						<input class="fileupload" type="file" name="image[files][]" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled" />
 					</div>
 				</div>

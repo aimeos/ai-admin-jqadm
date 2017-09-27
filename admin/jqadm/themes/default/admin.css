@@ -284,6 +284,7 @@
 .aimeos .item-image .image-preview {
 	border: 2px dashed #B0B0B0;
 	border-radius: .25rem;
+	height: 10rem;
 }
 
 .aimeos .item-image .image-preview img {

@@ -145,7 +145,7 @@ $enc = $this->encoder();
 
 			<div id="item-image-group-data-" class="card-block collapse show row" role="tabpanel">
 				<div class="col-xl-6">
-					<div class="image-preview">
+					<div class="form-group row image-preview">
 						<input class="fileupload" type="file" name="image[files][]" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled" />
 					</div>
 				</div>
