@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-26 23:42+0200\n"
-"PO-Revision-Date: 2017-09-26 21:44+0000\n"
+"POT-Creation-Date: 2017-10-02 17:37+0200\n"
+"PO-Revision-Date: 2017-10-02 15:52+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -536,7 +536,7 @@ msgstr "Teslimat adresi"
 
 msgid ""
 "Delivery costs for the whole order or additional costs for payment options"
-msgstr ""
+msgstr "Siparişin tamamı için teslimat masrafları veya ödeme seçenekleri için ilave maliyetler"
 
 msgid "Delivery date"
 msgstr "Teslimat tarihi"
@@ -593,7 +593,7 @@ msgid "Edit"
 msgstr "Düzenle"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Bu girişi düzenle"
 
 msgid "Editor"
 msgstr "Editör"
@@ -760,10 +760,10 @@ msgid "Info"
 msgstr "Bilgi"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Yeni giriş ekle"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Yeni giriş ekle (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
@@ -1103,7 +1103,7 @@ msgid ""
 msgstr "Şu anda stokta olan ürün sayısı, sınırsız miktar için boş bırakın"
 
 msgid "OK"
-msgstr ""
+msgstr "TAMAM"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr "Verginin faturada faturalandırılmasının gerekip gerekmediğini belirlemek için resmi Vergi Numarası"
@@ -1214,7 +1214,7 @@ msgstr "Ödeme türleri"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "İzin reddedildi"
 
 msgid "Personal data"
 msgstr "Kişisel veri"
@@ -1627,10 +1627,10 @@ msgid "Shipping costs per item"
 msgstr "Ürün başına nakliye ücreti"
 
 msgid "Shipping or payment costs"
-msgstr ""
+msgstr "Nakliye veya ödeme masrafları"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "Nakliye/Ödeme masrafları"
 
 msgid "Short description"
 msgstr "Kısa açıklama"
@@ -1893,7 +1893,7 @@ msgid "Types"
 msgstr "Türler"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "Simgeler gibi ek görüntüler için türler"
 
 msgid "Types for additional prices like per one lb/kg or per month"
 msgstr "Bir lb/kg başına veya her ay gibi ek fiyatlar için türler"
@@ -2187,7 +2187,7 @@ msgid "no"
 msgstr "hayır"
 
 msgid "not available any more"
-msgstr ""
+msgstr "artık mevcut değil"
 
 #, php-format
 msgid "option"
@@ -2374,7 +2374,7 @@ msgstr "Metinler"
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "tür"
 
 #, php-format
 msgid "type/attribute"
