@@ -66,7 +66,7 @@ $enc = $this->encoder();
 
 									<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
 										<option value="<?= $enc->attr( $langId ); ?>" <?= ( $lang == $langId ? 'selected="selected"' : '' ) ?> >
-											<?= $enc->html( $langId ); ?>
+											<?= $enc->html( $langItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>
@@ -159,7 +159,7 @@ $enc = $this->encoder();
 								<option value=""><?= $enc->html( $this->translate( 'admin', 'All' ) ); ?></option>
 
 								<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-									<option value="<?= $enc->attr( $langId ); ?>"><?= $enc->html( $langId ); ?></option>
+									<option value="<?= $enc->attr( $langId ); ?>"><?= $enc->html( $langItem->getLabel() ); ?></option>
 								<?php endforeach; ?>
 
 							</select>
