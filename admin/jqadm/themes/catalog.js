@@ -445,4 +445,5 @@ Aimeos.Catalog.Product = {
 $(function() {
 
 	Aimeos.Catalog.init();
+	Aimeos.Catalog.Product.init();
 });

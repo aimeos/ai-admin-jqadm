@@ -249,24 +249,24 @@
 
 /* Catalog */
 
-.aimeos .catalog-lists-position,
-.aimeos .customer-lists-position,
-.aimeos .catalog-lists-status,
-.aimeos .customer-lists-status,
-.aimeos .catalog-lists-type,
-.aimeos .customer-lists-type,
-.aimeos .catalog-lists-config,
-.aimeos .customer-lists-config {
+.aimeos .list-search .catalog-lists-position,
+.aimeos .list-search .customer-lists-position,
+.aimeos .list-search .catalog-lists-status,
+.aimeos .list-search .customer-lists-status,
+.aimeos .list-search .catalog-lists-type,
+.aimeos .list-search .customer-lists-type,
+.aimeos .list-search .catalog-lists-config,
+.aimeos .list-search .customer-lists-config {
 	width: 15%;
 }
 
-.aimeos .catalog-lists-refid,
-.aimeos .customer-lists-refid {
+.aimeos .list-search .catalog-lists-refid,
+.aimeos .list-search .customer-lists-refid {
 	width: 35%;
 }
 
-.aimeos .catalog-lists-refid,
-.aimeos .customer-lists-refid {
+.aimeos .list-search .catalog-lists-refid,
+.aimeos .list-search .customer-lists-refid {
 	padding: 0 0.75rem;
 	text-align: left;
 }
