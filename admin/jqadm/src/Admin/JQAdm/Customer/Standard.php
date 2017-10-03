@@ -518,7 +518,7 @@ class Standard
 
 		foreach( $manager->searchItems( $search ) as $groupId => $groupItem )
 		{
-			if( !$isSuper && in_array( $groupItem->getCode(), ['super', 'admin'] ) ) {
+			if( !$isSuper && in_array( $groupItem->getCode(), ['super'] ) ) {
 				continue;
 			}
 
