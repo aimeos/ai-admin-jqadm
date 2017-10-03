@@ -13,11 +13,6 @@ $controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $config = $this->config( 'admin/jqadm/url/search/config', [] );
 
-$expTarget = $this->config( 'admin/jqadm/url/export/target' );
-$expCntl = $this->config( 'admin/jqadm/url/export/controller', 'Jqadm' );
-$expAction = $this->config( 'admin/jqadm/url/export/action', 'export' );
-$expConfig = $this->config( 'admin/jqadm/url/export/config', [] );
-
 $getTarget = $this->config( 'admin/jqadm/url/get/target' );
 $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
@@ -27,6 +22,76 @@ $copyTarget = $this->config( 'admin/jqadm/url/copy/target' );
 $copyCntl = $this->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
 $copyAction = $this->config( 'admin/jqadm/url/copy/action', 'copy' );
 $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
+
+/** admin/jqadm/url/export/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2017.10
+ * @category Developer
+ * @see admin/jqadm/url/export/controller
+ * @see admin/jqadm/url/export/action
+ * @see admin/jqadm/url/export/config
+ */
+$expTarget = $this->config( 'admin/jqadm/url/export/target' );
+
+/** admin/jqadm/url/export/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/export/target
+ * @see admin/jqadm/url/export/action
+ * @see admin/jqadm/url/export/config
+ */
+$expCntl = $this->config( 'admin/jqadm/url/export/controller', 'Jqadm' );
+
+/** admin/jqadm/url/export/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/export/target
+ * @see admin/jqadm/url/export/controller
+ * @see admin/jqadm/url/export/config
+ */
+$expAction = $this->config( 'admin/jqadm/url/export/action', 'export' );
+
+/** admin/jqadm/url/export/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/jqadm/url/export/config = ['absoluteUri' => true )
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2016.04
+ * @category Developer
+ * @see admin/jqadm/url/export/target
+ * @see admin/jqadm/url/export/controller
+ * @see admin/jqadm/url/export/action
+ */
+$expConfig = $this->config( 'admin/jqadm/url/export/config', [] );
 
 
 /** admin/jqadm/order/fields

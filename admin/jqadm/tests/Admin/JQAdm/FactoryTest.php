@@ -64,7 +64,7 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	public function testCreateClientNameNotFound()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->aimeos, 'prod' );
+		\Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->aimeos, 'unknown' );
 	}
 
 }

@@ -300,10 +300,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientDecoratorInvalid()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/coupon/image/decorators/global', array( 'Invalid' ) );
+		$this->context->getConfig()->set( 'admin/jqadm/coupon/code/decorators/global', array( 'Invalid' ) );
 
 		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
-		$this->object->getSubClient( 'image' );
+		$this->object->getSubClient( 'code' );
 	}
 
 

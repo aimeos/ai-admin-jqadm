@@ -54,8 +54,33 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 $currency = $this->translate( 'client/currency', $basket->getPrice()->getCurrencyId() );
 
 $serviceAttrCodes = [
-	'delivery' => $this->config( 'admin/jqadm/order/service/delivery/attribute/codes', ['trackingid'] ),
-	'payment' => $this->config( 'admin/jqadm/order/service/payment/attribute/codes', [] ),
+	/** admin/jqadm/order/service/delivery/attribute/suggest
+	 * List of suggested configuration keys for delivery service attributes in orders
+	 *
+	 * Service attributes in orders can store arbitrary key value pairs. This
+	 * setting gives editors a hint which config keys are available and are used
+	 * in the templates.
+	 *
+	 * @param string List of suggested config keys
+	 * @since 2017.10
+	 * @category Developer
+	 * @see admin/jqadm/order/service/payment/attribute/suggest
+	 */
+	'delivery' => $this->config( 'admin/jqadm/order/service/delivery/attribute/suggest', ['trackingid'] ),
+
+	/** admin/jqadm/order/service/payment/attribute/suggest
+	 * List of suggested configuration keys for payment service attributes in orders
+	 *
+	 * Service attributes in orders can store arbitrary key value pairs. This
+	 * setting gives editors a hint which config keys are available and are used
+	 * in the templates.
+	 *
+	 * @param string List of suggested config keys
+	 * @since 2017.10
+	 * @category Developer
+	 * @see admin/jqadm/order/service/delivery/attribute/suggest
+	 */
+	'payment' => $this->config( 'admin/jqadm/order/service/payment/attribute/suggest', [] ),
 ];
 
 

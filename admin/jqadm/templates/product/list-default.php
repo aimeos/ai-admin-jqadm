@@ -429,8 +429,8 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @see admin/jqadm/partial/error
  */
 
-/** admin/jqadm/partial/filter
- * Relative path to the partial template for displaying the product filter
+/** admin/jqadm/partial/navsearch
+ * Relative path to the partial template for displaying the search filter in the navigation bar
  *
  * The template file contains the HTML code and processing instructions
  * to generate the result shown in the administration interface. The
@@ -469,7 +469,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @param string Relative path to the partial creating the HTML code
  * @since 2016.04
  * @category Developer
- * @see admin/jqadm/partial/filter
+ * @see admin/jqadm/partial/navsearch
  * @see admin/jqadm/partial/confirm
  * @see admin/jqadm/partial/error
  */

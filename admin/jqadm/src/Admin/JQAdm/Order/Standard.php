@@ -57,6 +57,17 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/order/standard/subparts';
+
+	/** admin/jqadm/order/invoice/name
+	 * Name of the invoice subpart used by the JQAdm order implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Order\Invoice\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2017.07
+	 * @category Developer
+	 */
 	private $subPartNames = ['invoice'];
 
 

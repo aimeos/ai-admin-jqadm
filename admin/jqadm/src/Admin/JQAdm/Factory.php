@@ -35,14 +35,6 @@ class Factory
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Admin JQAdm type is empty' ) );
 		}
 
-		$view = $context->getView();
-		$config = $context->getConfig();
-		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
-
-		if( $view->access( $config->get( 'admin/jqadm/resource/' . $type . '/groups', [] ) ) !== true ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
-		}
-
 		$parts = explode( '/', $type );
 
 		foreach( $parts as $idx => $part )
@@ -52,6 +44,14 @@ class Factory
 			}
 
 			$parts[$idx] = ucwords( $part );
+		}
+
+		$view = $context->getView();
+		$config = $context->getConfig();
+		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
+
+		if( $view->access( $config->get( 'admin/jqadm/resource/' . $type . '/groups', [] ) ) !== true ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
 		}
 
 
