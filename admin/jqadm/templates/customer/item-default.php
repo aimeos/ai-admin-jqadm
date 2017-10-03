@@ -160,7 +160,7 @@ $params = $this->get( 'pageParams', [] );
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 						<div class="col-sm-8">
 
-							<?php $languages = $this->get( 'pageLanguages', [] ); ?>
+							<?php $languages = $this->get( 'pageLangItems', [] ); ?>
 							<?php if( count( $languages ) > 1 ) : ?>
 								<select class="form-control custom-select item-languageid" required="required" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>"
