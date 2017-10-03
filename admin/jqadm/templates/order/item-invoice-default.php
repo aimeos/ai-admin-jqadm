@@ -153,6 +153,9 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 				<td colspan="<?= count( $fields ); ?>">
 					<div class="content-block row">
 						<div class="col-xl-6">
+							<input class="order-id" type="hidden" value="" disabled="disabled"
+								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ); ?>" />
+
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 								<div class="col-sm-8">
