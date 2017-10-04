@@ -416,7 +416,12 @@ class Standard
 			if( !isset( $listItems[$listid] ) )
 			{
 				$litem = clone $listItem;
-				$item = clone $mediaItem;
+
+				if( ( $refId = $this->getValue( $data, 'attribute.lists.refid/' . $idx ) ) !== null ) {
+					$item = $mediaManager->getItem( $refId ); // copy existing item
+				} else {
+					$item = clone $mediaItem;
+				}
 			}
 			else
 			{
