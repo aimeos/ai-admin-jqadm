@@ -204,7 +204,11 @@ Aimeos.Config = {
 	},
 
 
-	setup : function(resource, provider, target) {
+	setup : function(resource, provider, target, type) {
+
+		if(!provider) {
+			return;
+		}
 
 		Aimeos.options.done(function(data) {
 
@@ -212,12 +216,16 @@ Aimeos.Config = {
 				return;
 			}
 
-			var params = {};
+			var params = {}, param = {id: provider};
+
+			if(type) {
+				param["type"] = type;
+			}
 
 			if(data.meta && data.meta.prefix) {
-				params[data.meta.prefix] = {id: provider};
+				params[data.meta.prefix] = param;
 			} else {
-				params = {id: provider};
+				params = param;
 			}
 
 			$.ajax({

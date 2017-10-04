@@ -30,11 +30,13 @@ Aimeos.Service = {
 		var delegate = $(".aimeos .item-service .item-basic");
 
 		if(delegate.length > 0 ) {
-			Aimeos.Config.setup('service/config', $("input.item-provider", delegate).val(), delegate);
+			var type = $(".item-typeid option:selected", delegate).data("code");
+			Aimeos.Config.setup('service/config', $("input.item-provider", delegate).val(), delegate, type);
 		}
 
 		delegate.on("change input blur", "input.item-provider", function(ev) {
-			Aimeos.Config.setup('service/config', $(ev.currentTarget).val(), ev.delegateTarget);
+			var type = $(".item-typeid option:selected", delegate).data("code");
+			Aimeos.Config.setup('service/config', $(ev.currentTarget).val(), ev.delegateTarget, type);
 		});
 	},
 
@@ -60,13 +62,15 @@ Aimeos.Service = {
 
 			var type = $(".item-typeid option:selected", ev.delegateTarget).data("code");
 
-			$(this).autocomplete({
-				source: $(this).data(type).split(","),
-				minLength: 0,
-				delay: 0
-			});
+			if(type) {
+				$(this).autocomplete({
+					source: $(this).data(type).split(","),
+					minLength: 0,
+					delay: 0
+				});
 
-			$(this).autocomplete("search", "");
+				$(this).autocomplete("search", "");
+			}
 		});
 	}
 };
