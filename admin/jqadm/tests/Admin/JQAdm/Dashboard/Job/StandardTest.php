@@ -87,9 +87,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$path = dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . '/tmp/jobtest.csv';
+		$dir = dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . '/tmp';
+		$path = $dir . '/jobtest.csv';
 
-		if( touch( $path ) === false ) {
+		if( mkdir( $dir, 0755, true ) === false || touch( $path ) === false ) {
 			throw new \Exception( 'Cannot create test file' );
 		}
 
