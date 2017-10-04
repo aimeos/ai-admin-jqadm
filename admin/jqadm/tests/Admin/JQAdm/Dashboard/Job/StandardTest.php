@@ -90,7 +90,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$dir = dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . '/tmp';
 		$path = $dir . '/jobtest.csv';
 
-		if( mkdir( $dir, 0755, true ) === false || touch( $path ) === false ) {
+		if( file_exists( $dir ) === false && mkdir( $dir, 0755, true ) === false ) {
+			throw new \Exception( 'Cannot create temp directory' );
+		}
+
+		if( touch( $path ) === false ) {
 			throw new \Exception( 'Cannot create test file' );
 		}
 
