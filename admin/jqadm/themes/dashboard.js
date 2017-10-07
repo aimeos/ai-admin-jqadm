@@ -145,6 +145,10 @@ Aimeos.Dashboard.Order = {
 			this.chartPaymentStatus();
 		}
 
+		if( $(".order-weekday").length ) {
+			this.chartWeekday();
+		}
+
 		if( $(".order-hour").length ) {
 			this.chartHour();
 		}
@@ -558,7 +562,67 @@ Aimeos.Dashboard.Order = {
 				}
 			);
 		});
-	}};
+	},
+
+
+
+	chartWeekday : function() {
+
+		var selector = "#order-weekday-data",
+			margin = {top: 20, right: 30, bottom: 30, left: 40},
+			width = $("#order-weekday-data").width() - margin.left - margin.right,
+			height = $("#order-weekday-data").height() - margin.top - margin.bottom - 10;
+
+
+		Aimeos.Dashboard.getData("order", "order.cwday", {}, "-order.ctime", 1000).then(function(data) {
+
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var xScale = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]);
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+
+			var xAxis = d3.axisBottom().scale(xScale).tickFormat(function(d) { return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d]; });
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+
+			var svg = d3.select(selector)
+				.append("svg")
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", height + margin.top + margin.bottom)
+				.append("g")
+					.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xAxis);
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis);
+
+			var bars = svg.selectAll(".bar")
+				.data(data.data).enter()
+				.append("g").attr("class", "bar");
+
+			bars.append("rect")
+				.attr("class", function(d) { return "bar weekday-" + d.id; })
+				.attr("x", function(d) { return xScale(+d.id); })
+				.attr("width", width / 7 - 5)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); });
+
+			bars.append("text").text(function(d){ return +d.attributes; })
+				.attr("x", function(d) { return xScale(+d.id) + (width / 7 - 5) / 2; })
+				.attr("y", function(d) { return yScale(+d.attributes) - 5; })
+				.attr("text-anchor", "middle");
+
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
+	}
+};
 
 
 $(function() {

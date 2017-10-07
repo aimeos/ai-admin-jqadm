@@ -52,7 +52,6 @@
 
 .dashboard .axis {
 	fill: #808080;
-	text-anchor: middle;
 }
 
 .dashboard .axis line,
@@ -64,6 +63,10 @@
 
 
 /* Order per day diagram styles */
+
+.dashboard .order-day .axis {
+	text-anchor: middle;
+}
 
 .dashboard .order-day .day {
 	fill: #f8f8f8;
@@ -85,6 +88,21 @@
 .dashboard .order-day .q7 { fill: #167f3b; }
 .dashboard .order-day .q8 { fill: #036429; }
 .dashboard .order-day .q9 { fill: #00441b; }
+
+
+/* Order per weekday diagram styles */
+
+.dashboard .order-weekday .bar {
+	fill: #1f77b4;
+}
+
+.dashboard .order-weekday .weekday-0 { fill: #e6550d }
+.dashboard .order-weekday .weekday-1 { fill: #fd8d3c }
+.dashboard .order-weekday .weekday-2 { fill: #fdae6b }
+.dashboard .order-weekday .weekday-3 { fill: #756bb1 }
+.dashboard .order-weekday .weekday-4 { fill: #3182bd }
+.dashboard .order-weekday .weekday-5 { fill: #74c476 }
+.dashboard .order-weekday .weekday-6 { fill: #31a354 }
 
 
 /* Order per hour diagram styles */
