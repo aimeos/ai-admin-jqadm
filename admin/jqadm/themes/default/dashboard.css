@@ -96,13 +96,8 @@
 	fill: #1f77b4;
 }
 
-.dashboard .order-weekday .weekday-0 { fill: #e6550d }
-.dashboard .order-weekday .weekday-1 { fill: #fd8d3c }
-.dashboard .order-weekday .weekday-2 { fill: #fdae6b }
-.dashboard .order-weekday .weekday-3 { fill: #756bb1 }
-.dashboard .order-weekday .weekday-4 { fill: #3182bd }
-.dashboard .order-weekday .weekday-5 { fill: #74c476 }
-.dashboard .order-weekday .weekday-6 { fill: #31a354 }
+.dashboard .order-weekday .barcnt .bar { fill: #2C81BF }
+.dashboard .order-weekday .barsum .bar { fill: #9CC9E2 }
 
 
 /* Order per hour diagram styles */

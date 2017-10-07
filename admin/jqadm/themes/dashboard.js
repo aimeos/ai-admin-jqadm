@@ -9,14 +9,16 @@ Aimeos.Dashboard = {
 	/**
 	 * Returns a jQuery promise for the constructed request
 	 *
-	 * @param resource Resource name like "product", "order" or "order/base/address"
-	 * @param key Aggregation key to group results by, e.g. "order.cdate", "order.base.address.countryid"
-	 * @param criteria Polish notation object with conditions for limiting the results, e.g. {">": {"order.cdate": "2000-01-01"}}
-	 * @param sort|null Optional sorting criteria like "order.cdate" (ascending) or "-order.cdate" (descending), also more then one separated by comma
-	 * @param limit|null Optional limit for the number of records that are selected before aggregation (default: 25)
+	 * @param string resource Resource name like "product", "order" or "order/base/address"
+	 * @param string key Aggregation key to group results by, e.g. "order.cdate", "order.base.address.countryid"
+	 * @param object criteria Polish notation object with conditions for limiting the results, e.g. {">": {"order.cdate": "2000-01-01"}}
+	 * @param string|null sort Optional sorting criteria like "order.cdate" (ascending) or "-order.cdate" (descending), also more then one separated by comma
+	 * @param integer|null limit Optional limit for the number of records that are selected before aggregation (default: 25)
+	 * @param string|null value Aggregate values from that column, e.g "order.base.price" (in combination with type)
+	 * @param string|null type Type of aggregation like "sum" or "avg" (default: null for count)
 	 * @return jQuery promise object
 	 */
-	getData : function(resource, key, criteria, sort, limit) {
+	getData : function(resource, key, criteria, sort, limit, value, type) {
 
 		return $.when( Aimeos.options ).then(function(data) {
 
@@ -31,6 +33,14 @@ Aimeos.Dashboard = {
 
 			if(limit) {
 				param["page"] = {"limit": limit};
+			}
+
+			if(value) {
+				param["value"] = value;
+			}
+
+			if(type) {
+				param["type"] = type;
 			}
 
 			if( data.meta && data.meta.prefix ) {
@@ -335,7 +345,8 @@ Aimeos.Dashboard.Order = {
 
 			var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
 
-			var xScale = d3.scaleLinear().range([0, width]).domain([0,23]);
+
+			var xScale = d3.scaleBand().range([0, width]).domain([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]).padding(0.15);
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
 			var xAxis = d3.axisBottom().scale(xScale);
@@ -364,12 +375,12 @@ Aimeos.Dashboard.Order = {
 			bars.append("rect")
 				.attr("class", "bar")
 				.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24); })
-				.attr("width", width / 24 - 2)
+				.attr("width", xScale.bandwidth())
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); });
 
 			bars.append("text").text(function(d){ return +d.attributes; })
-				.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24) + (width / 24 - 2) / 2; })
+				.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24) + xScale.bandwidth() / 2; })
 				.attr("y", function(d) { return yScale(+d.attributes) - 5; })
 				.attr("text-anchor", "middle");
 
@@ -569,9 +580,24 @@ Aimeos.Dashboard.Order = {
 	chartWeekday : function() {
 
 		var selector = "#order-weekday-data",
-			margin = {top: 20, right: 30, bottom: 30, left: 40},
+			margin = {top: 20, right: 40, bottom: 30, left: 40},
 			width = $("#order-weekday-data").width() - margin.left - margin.right,
 			height = $("#order-weekday-data").height() - margin.top - margin.bottom - 10;
+
+		var xScale = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]).padding(0.15);
+		var xAxis = d3.axisBottom().scale(xScale).tickFormat(function(d) { return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d]; });
+
+		var svg = d3.select(selector)
+			.append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+			.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		svg.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis);
 
 
 		Aimeos.Dashboard.getData("order", "order.cwday", {}, "-order.ctime", 1000).then(function(data) {
@@ -580,43 +606,55 @@ Aimeos.Dashboard.Order = {
 				throw 'No data in response';
 			}
 
-			var xScale = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]);
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
-
-			var xAxis = d3.axisBottom().scale(xScale).tickFormat(function(d) { return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d]; });
 			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
 
-			var svg = d3.select(selector)
-				.append("svg")
-					.attr("width", width + margin.left + margin.right)
-					.attr("height", height + margin.top + margin.bottom)
-				.append("g")
-					.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
 			svg.append("g")
-				.attr("class", "x axis")
-				.attr("transform", "translate(0," + height + ")")
-				.call(xAxis);
-
-			svg.append("g")
-				.attr("class", "y axis")
+				.attr("class", "y axis left")
 				.call(yAxis);
 
-			var bars = svg.selectAll(".bar")
+			var bars = svg.selectAll(".barcnt")
 				.data(data.data).enter()
-				.append("g").attr("class", "bar");
+				.append("g").attr("class", "barcnt");
 
 			bars.append("rect")
 				.attr("class", function(d) { return "bar weekday-" + d.id; })
 				.attr("x", function(d) { return xScale(+d.id); })
-				.attr("width", width / 7 - 5)
+				.attr("width", xScale.bandwidth() / 2 - 2)
 				.attr("y", function(d) { return yScale(+d.attributes); })
-				.attr("height", function(d) { return height - yScale(+d.attributes); });
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d) { return +d.attributes; });
 
-			bars.append("text").text(function(d){ return +d.attributes; })
-				.attr("x", function(d) { return xScale(+d.id) + (width / 7 - 5) / 2; })
-				.attr("y", function(d) { return yScale(+d.attributes) - 5; })
-				.attr("text-anchor", "middle");
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
+
+
+		Aimeos.Dashboard.getData("order", "order.cwday", {}, "-order.ctime", 1000, "order.base.price", "sum").then(function(data) {
+
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var yAxis = d3.axisRight().scale(yScale).ticks(7);
+
+			svg.append("g")
+				.attr("class", "y axis right")
+				.attr("transform", "translate(" + width + ",0)")
+				.call(yAxis);
+
+			var bars = svg.selectAll(".barsum")
+				.data(data.data).enter()
+				.append("g").attr("class", "barsum");
+
+			bars.append("rect")
+				.attr("class", function(d) { return "bar weekday-" + d.id; })
+				.attr("x", function(d) { return xScale(+d.id) + xScale.bandwidth() / 2 + 2; })
+				.attr("width", xScale.bandwidth() / 2 - 2)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d) { return +d.attributes; });
 
 		}).done(function() {
 			$(selector).removeClass("loading");
