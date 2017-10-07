@@ -92,19 +92,14 @@
 
 /* Order per weekday diagram styles */
 
-.dashboard .order-weekday .bar {
-	fill: #1f77b4;
-}
-
 .dashboard .order-weekday .barcnt .bar { fill: #2C81BF }
 .dashboard .order-weekday .barsum .bar { fill: #9CC9E2 }
 
 
 /* Order per hour diagram styles */
 
-.dashboard .order-hour .bar {
-	fill: #1f77b4;
-}
+.dashboard .order-hour .barcnt .bar { fill: #2C81BF }
+.dashboard .order-hour .barsum .bar { fill: #9CC9E2 }
 
 
 /* Latest order list styles */

@@ -332,9 +332,27 @@ Aimeos.Dashboard.Order = {
 	chartHour : function() {
 
 		var selector = "#order-hour-data",
-			margin = {top: 20, right: 30, bottom: 30, left: 40},
+			numFmt = new Intl.NumberFormat(),
+			margin = {top: 20, right: 40, bottom: 30, left: 40},
 			width = $("#order-hour-data").width() - margin.left - margin.right,
 			height = $("#order-hour-data").height() - margin.top - margin.bottom - 10;
+
+		var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
+
+		var xScale = d3.scaleBand().range([0, width]).domain([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]).paddingInner(0.15);
+		var xAxis = d3.axisBottom().scale(xScale);
+
+		var svg = d3.select(selector)
+			.append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+			.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		svg.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis);
 
 
 		Aimeos.Dashboard.getData("order", "order.chour", {}, "-order.ctime", 1000).then(function(data) {
@@ -343,46 +361,55 @@ Aimeos.Dashboard.Order = {
 				throw 'No data in response';
 			}
 
-			var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
-
-
-			var xScale = d3.scaleBand().range([0, width]).domain([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]).padding(0.15);
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
-
-			var xAxis = d3.axisBottom().scale(xScale);
 			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
 
-			var svg = d3.select(selector)
-				.append("svg")
-					.attr("width", width + margin.left + margin.right)
-					.attr("height", height + margin.top + margin.bottom)
-				.append("g")
-					.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
 			svg.append("g")
-				.attr("class", "x axis")
-				.attr("transform", "translate(0," + height + ")")
-				.call(xAxis);
-
-			svg.append("g")
-				.attr("class", "y axis")
+				.attr("class", "y axis left")
 				.call(yAxis);
 
-			var bars = svg.selectAll(".bar")
+			var bars = svg.selectAll(".barcnt")
 				.data(data.data).enter()
-				.append("g").attr("class", "bar");
+				.append("g").attr("class", "barcnt");
 
 			bars.append("rect")
 				.attr("class", "bar")
 				.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24); })
-				.attr("width", xScale.bandwidth())
+				.attr("width", xScale.bandwidth() / 2 - 1)
 				.attr("y", function(d) { return yScale(+d.attributes); })
-				.attr("height", function(d) { return height - yScale(+d.attributes); });
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d){ return numFmt.format(d.attributes); });
 
-			bars.append("text").text(function(d){ return +d.attributes; })
-				.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24) + xScale.bandwidth() / 2; })
-				.attr("y", function(d) { return yScale(+d.attributes) - 5; })
-				.attr("text-anchor", "middle");
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
+
+
+		Aimeos.Dashboard.getData("order", "order.chour", {}, "-order.ctime", 1000, "order.base.price", "sum").then(function(data) {
+
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var yAxis = d3.axisRight().scale(yScale).ticks(7);
+
+			svg.append("g")
+				.attr("class", "y axis right")
+				.attr("transform", "translate(" + width + ",0)")
+				.call(yAxis);
+
+			var bars = svg.selectAll(".barsum")
+				.data(data.data).enter()
+				.append("g").attr("class", "barsum");
+
+			bars.append("rect")
+				.attr("class", "bar")
+				.attr("x", function(d) { return xScale(+d.id) + xScale.bandwidth() / 2 + 1; })
+				.attr("width", xScale.bandwidth() / 2 - 1)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d) { return numFmt.format(d.attributes); });
 
 		}).done(function() {
 			$(selector).removeClass("loading");
@@ -580,11 +607,12 @@ Aimeos.Dashboard.Order = {
 	chartWeekday : function() {
 
 		var selector = "#order-weekday-data",
+			numFmt = new Intl.NumberFormat(),
 			margin = {top: 20, right: 40, bottom: 30, left: 40},
 			width = $("#order-weekday-data").width() - margin.left - margin.right,
 			height = $("#order-weekday-data").height() - margin.top - margin.bottom - 10;
 
-		var xScale = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]).padding(0.15);
+		var xScale = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]).paddingInner(0.15);
 		var xAxis = d3.axisBottom().scale(xScale).tickFormat(function(d) { return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d]; });
 
 		var svg = d3.select(selector)
@@ -620,10 +648,10 @@ Aimeos.Dashboard.Order = {
 			bars.append("rect")
 				.attr("class", function(d) { return "bar weekday-" + d.id; })
 				.attr("x", function(d) { return xScale(+d.id); })
-				.attr("width", xScale.bandwidth() / 2 - 2)
+				.attr("width", xScale.bandwidth() / 2 - 1)
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
-				.append("title").text(function(d) { return +d.attributes; });
+				.append("title").text(function(d) { return numFmt.format(d.attributes); });
 
 		}).done(function() {
 			$(selector).removeClass("loading");
@@ -650,11 +678,11 @@ Aimeos.Dashboard.Order = {
 
 			bars.append("rect")
 				.attr("class", function(d) { return "bar weekday-" + d.id; })
-				.attr("x", function(d) { return xScale(+d.id) + xScale.bandwidth() / 2 + 2; })
-				.attr("width", xScale.bandwidth() / 2 - 2)
+				.attr("x", function(d) { return xScale(+d.id) + xScale.bandwidth() / 2 + 1; })
+				.attr("width", xScale.bandwidth() / 2 - 1)
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
-				.append("title").text(function(d) { return +d.attributes; });
+				.append("title").text(function(d) { return numFmt.format(d.attributes); });
 
 		}).done(function() {
 			$(selector).removeClass("loading");
