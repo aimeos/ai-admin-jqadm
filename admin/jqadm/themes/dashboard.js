@@ -335,7 +335,7 @@ Aimeos.Dashboard.Order = {
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
 			var xAxis = d3.axisBottom().scale(xScale);
-			var yAxis = d3.axisLeft().scale(yScale);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
 
 			var svg = d3.select(selector)
 				.append("svg")
@@ -353,14 +353,21 @@ Aimeos.Dashboard.Order = {
 				.attr("class", "y axis")
 				.call(yAxis);
 
-			svg.selectAll(".bar")
-					.data(data.data)
-				.enter().append("rect")
-					.attr("class", "bar")
-					.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24); })
-					.attr("width", width / 24 - 2)
-					.attr("y", function(d) { return yScale(+d.attributes); })
-					.attr("height", function(d) { return height - yScale(+d.attributes); });
+			var bars = svg.selectAll(".bar")
+				.data(data.data).enter()
+				.append("g").attr("class", "bar");
+
+			bars.append("rect")
+				.attr("class", "bar")
+				.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24); })
+				.attr("width", width / 24 - 2)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); });
+
+			bars.append("text").text(function(d){ return +d.attributes; })
+				.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24) + (width / 24 - 2) / 2; })
+				.attr("y", function(d) { return yScale(+d.attributes) - 5; })
+				.attr("text-anchor", "middle");
 
 		}).done(function() {
 			$(selector).removeClass("loading");
@@ -417,7 +424,7 @@ Aimeos.Dashboard.Order = {
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 
 			var xAxis = d3.axisBottom().scale(xScale).ticks(numdays/3);
-			var yAxis = d3.axisLeft().scale(yScale);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
 
 			var svg = d3.select(selector)
 				.append("svg")
