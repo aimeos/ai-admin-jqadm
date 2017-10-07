@@ -181,7 +181,7 @@ Aimeos.Dashboard.Order = {
 	chartDay : function() {
 
 		var selector = "#order-day-data",
-			margin = {top: 20, bottom: 20, left: 15, right: 40},
+			margin = {top: 20, bottom: 20, left: 35, right: 40},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,
 			cellPad = 2, cellSize = 16, cellWidth = cellSize + cellPad;
@@ -333,7 +333,7 @@ Aimeos.Dashboard.Order = {
 
 		var selector = "#order-hour-data",
 			numFmt = new Intl.NumberFormat(),
-			margin = {top: 20, right: 40, bottom: 30, left: 40},
+			margin = {top: 20, right: 50, bottom: 30, left: 50},
 			width = $("#order-hour-data").width() - margin.left - margin.right,
 			height = $("#order-hour-data").height() - margin.top - margin.bottom - 10;
 
@@ -439,7 +439,7 @@ Aimeos.Dashboard.Order = {
 		var dates = [],
 			selector = "#order-paymentstatus-data",
 			translation = $(selector).data("translation"),
-			margin = {top: 20, right: 60, bottom: 30, left: 40},
+			margin = {top: 20, right: 50, bottom: 30, left: 50},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,
 			statusrange = ["pay-unfinished", "pay-deleted", "pay-canceled", "pay-refused", "pay-refund", "pay-pending", "pay-authorized", "pay-received"],
@@ -608,7 +608,7 @@ Aimeos.Dashboard.Order = {
 
 		var selector = "#order-weekday-data",
 			numFmt = new Intl.NumberFormat(),
-			margin = {top: 20, right: 40, bottom: 30, left: 40},
+			margin = {top: 20, right: 50, bottom: 30, left: 50},
 			width = $("#order-weekday-data").width() - margin.left - margin.right,
 			height = $("#order-weekday-data").height() - margin.top - margin.bottom - 10;
 
