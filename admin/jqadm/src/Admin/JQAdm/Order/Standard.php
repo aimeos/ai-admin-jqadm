@@ -596,14 +596,19 @@ class Standard
 			}
 		}
 
-		foreach( $item->getServices() as $type => $serviceItem )
+		if( $copy !== true )
 		{
-			if( $copy !== true )
+			foreach( $item->getServices() as $type => $services )
 			{
-				foreach( $serviceItem->getAttributes() as $attrItem )
+				foreach( $services as $serviceItem )
 				{
-					foreach( $attrItem->toArray( true ) as $key => $value ) {
-						$data['service'][$type][$key][] = $value;
+					$serviceId = $serviceItem->getServiceId();
+
+					foreach( $serviceItem->getAttributes() as $attrItem )
+					{
+						foreach( $attrItem->toArray( true ) as $key => $value ) {
+							$data['service'][$type][$serviceId][$key][] = $value;
+						}
 					}
 				}
 			}

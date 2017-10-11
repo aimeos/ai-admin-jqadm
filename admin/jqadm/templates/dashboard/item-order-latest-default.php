@@ -40,11 +40,15 @@ $payment = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
 {
 	if( isset( $orders[$item->getBaseId()] ) )
 	{
-		$services = $orders[$item->getBaseId()]->getServices();
+		$type = \Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT;
+		$services = $orders[$item->getBaseId()]->getService( $type );
+		$codes = [];
 
-		if( isset( $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT] ) ) {
-			return $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT]->getCode();
+		foreach( $services as $service ) {
+			$codes[] = $service->getCode();
 		}
+
+		return implode( ', ', $codes );
 	}
 };
 

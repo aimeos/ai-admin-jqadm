@@ -624,64 +624,88 @@ $serviceAttrCodes = [
 				</div>
 
 				<div class="row">
-					<?php foreach( $sortItems( $basket->getServices() ) as $type => $serviceItem ) : $code = 'service:' . $type; ?>
+					<?php foreach( $sortItems( $basket->getServices() ) as $type => $services ) : $code = 'service:' . $type; ?>
+						<?php foreach( $services as $serviceItem ) : $serviceId = $serviceItem->getServiceId(); ?>
 
-						<div class="col-xl-6 content-block item-service">
-							<h2 class="col-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
-							<div class="row">
-								<div class="col-6 content-block">
-									<span class="service-name"><?= $enc->html( $serviceItem->getName() ); ?></span>
-									<span class="service-code"><?= $enc->html( $serviceItem->getCode() ); ?></span>
+							<div class="col-xl-6 content-block item-service">
+								<h2 class="col-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
+								<div class="row">
+									<div class="col-6 content-block">
+										<span class="service-name"><?= $enc->html( $serviceItem->getName() ); ?></span>
+										<span class="service-code"><?= $enc->html( $serviceItem->getCode() ); ?></span>
+									</div>
+									<div class="col-6 content-block">
+										<span class="service-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $serviceItem->getPrice()->getValue() + $serviceItem->getPrice()->getCosts() ), $currency ) ); ?></span>
+										<?php if( $serviceItem->getPrice()->getRebate() > 0 ) : ?>
+											<span class="service-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $serviceItem->getPrice()->getRebate() ), $currency ) ); ?></span>
+										<?php endif; ?>
+									</div>
 								</div>
-								<div class="col-6 content-block">
-									<span class="service-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $serviceItem->getPrice()->getValue() + $serviceItem->getPrice()->getCosts() ), $currency ) ); ?></span>
-									<?php if( $serviceItem->getPrice()->getRebate() > 0 ) : ?>
-										<span class="service-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $serviceItem->getPrice()->getRebate() ), $currency ) ); ?></span>
-									<?php endif; ?>
-								</div>
-							</div>
 
-							<table class="service-attr table table-striped" data-codes="<?= $enc->attr( isset( $serviceAttrCodes[$type] ) ? implode( ',', $serviceAttrCodes[$type] ) : '' ); ?>">
-								<thead>
-									<tr>
-										<th>
-											<span class="help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></span>
-											<div class="form-text text-muted help-text">
-												<?= $enc->html( $this->translate( 'admin', 'Service attribute code' ) ); ?>
-											</div>
-										</th>
-										<th>
-											<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
-										</th>
-										<th class="actions">
-											<?php if( !$this->site()->readonly( $basket->getLocale()->getSiteId() ) ) : ?>
-												<div class="btn act-add fa" tabindex="1"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+								<table class="service-attr table table-striped" data-codes="<?= $enc->attr( isset( $serviceAttrCodes[$type] ) ? implode( ',', $serviceAttrCodes[$type] ) : '' ); ?>">
+									<thead>
+										<tr>
+											<th>
+												<span class="help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></span>
+												<div class="form-text text-muted help-text">
+													<?= $enc->html( $this->translate( 'admin', 'Service attribute code' ) ); ?>
 												</div>
-											<?php endif; ?>
-										</th>
-									</tr>
-								</thead>
-								<tbody>
+											</th>
+											<th>
+												<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
+											</th>
+											<th class="actions">
+												<?php if( !$this->site()->readonly( $basket->getLocale()->getSiteId() ) ) : ?>
+													<div class="btn act-add fa" tabindex="1"
+														title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+													</div>
+												<?php endif; ?>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
 
-									<?php foreach( (array) $this->get( 'itemData/service/' . $type . '/order.base.service.attribute.id', [] ) as $idx => $attrId ) : ?>
-										<tr class="service-attr-item">
+										<?php foreach( (array) $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.base.service.attribute.id', [] ) as $idx => $attrId ) : ?>
+											<tr class="service-attr-item">
+												<td>
+													<input type="hidden" class="service-attr-id" value="<?= $enc->attr( $attrId ); ?>"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.id', '' ) ) ); ?>" />
+													<input type="hidden" class="service-attr-type"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.type', '' ) ) ); ?>"
+														value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/order.base.service.attribute.type/' . $idx ) ); ?>" />
+													<input type="text" class="service-attr-code form-control" tabindex="1"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.code', '' ) ) ); ?>"
+														value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/order.base.service.attribute.code/' . $idx ) ); ?>"
+														<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
+												</td>
+												<td>
+													<input type="text" class="service-attr-value form-control" tabindex="1"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.value', '' ) ) ); ?>"
+														value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/order.base.service.attribute.value/' . $idx ) ); ?>"
+														<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
+												</td>
+												<td class="actions">
+													<?php if( !$this->site()->readonly( $basket->getLocale()->getSiteId() ) ) : ?>
+														<div class="btn act-delete fa" tabindex="1"
+															title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+														</div>
+													<?php endif; ?>
+												</td>
+											</tr>
+										<?php endforeach; ?>
+
+										<tr class="prototype">
 											<td>
-												<input type="hidden" class="service-attr-id" value="<?= $enc->attr( $attrId ); ?>"
+												<input type="hidden" class="service-attr-id" value="" disabled="disabled"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.id', '' ) ) ); ?>" />
-												<input type="hidden" class="service-attr-type"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.type', '' ) ) ); ?>"
-													value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/order.base.service.attribute.type/' . $idx ) ); ?>" />
-												<input type="text" class="service-attr-code form-control" tabindex="1"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.code', '' ) ) ); ?>"
-													value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/order.base.service.attribute.code/' . $idx ) ); ?>"
-													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
+												<input type="hidden" class="service-attr-type" value="<?= $enc->attr( $type ); ?>" disabled="disabled"
+													name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.type', '' ) ) ); ?>" />
+												<input type="text" class="service-attr-code form-control" tabindex="1" disabled="disabled"
+													name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.code', '' ) ) ); ?>" />
 											</td>
 											<td>
-												<input type="text" class="service-attr-value form-control" tabindex="1"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.value', '' ) ) ); ?>"
-													value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/order.base.service.attribute.value/' . $idx ) ); ?>"
-													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
+												<input type="text" class="service-attr-value form-control" tabindex="1" disabled="disabled"
+													name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.value', '' ) ) ); ?>" />
 											</td>
 											<td class="actions">
 												<?php if( !$this->site()->readonly( $basket->getLocale()->getSiteId() ) ) : ?>
@@ -691,33 +715,11 @@ $serviceAttrCodes = [
 												<?php endif; ?>
 											</td>
 										</tr>
-									<?php endforeach; ?>
+									</tbody>
+								</table>
+							</div>
 
-									<tr class="prototype">
-										<td>
-											<input type="hidden" class="service-attr-id" value="" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.id', '' ) ) ); ?>" />
-											<input type="hidden" class="service-attr-type" value="<?= $enc->attr( $type ); ?>" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.type', '' ) ) ); ?>" />
-											<input type="text" class="service-attr-code form-control" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.code', '' ) ) ); ?>" />
-										</td>
-										<td>
-											<input type="text" class="service-attr-value form-control" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, 'order.base.service.attribute.value', '' ) ) ); ?>" />
-										</td>
-										<td class="actions">
-											<?php if( !$this->site()->readonly( $basket->getLocale()->getSiteId() ) ) : ?>
-												<div class="btn act-delete fa" tabindex="1"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-												</div>
-											<?php endif; ?>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
+						<?php endforeach; ?>
 					<?php endforeach; ?>
 				</div>
 
