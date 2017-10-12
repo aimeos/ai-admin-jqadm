@@ -72,6 +72,10 @@
 	fill: #f8f8f8;
 }
 
+.dashboard .order-day .day:hover {
+	opacity: 0.75
+}
+
 .dashboard .order-day .path-month {
 	fill: none;
 	stroke: #800000;
@@ -92,14 +96,24 @@
 
 /* Order per weekday diagram styles */
 
-.dashboard .order-weekday .barcnt .bar { fill: #FF7F00 }
-.dashboard .order-weekday .barsum .bar { fill: #FFBB72 }
+.dashboard .order-weekday .barcnt { fill: #FF7F00 }
+.dashboard .order-weekday .barsum { fill: #FFBB72 }
+
+.dashboard .order-weekday .barcnt:hover,
+.dashboard .order-weekday .barsum:hover {
+	opacity: 0.75
+}
 
 
 /* Order per hour diagram styles */
 
 .dashboard .order-hour .barcnt .bar { fill: #1776B6 }
 .dashboard .order-hour .barsum .bar { fill: #ADC6E9 }
+
+.dashboard .order-hour .barcnt:hover,
+.dashboard .order-hour .barsum:hover {
+	opacity: 0.75
+}
 
 
 /* Latest order list styles */

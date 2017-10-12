@@ -447,7 +447,7 @@ Aimeos.Dashboard.Order = {
 			numdays = width / 25;
 
 		for( var i = 0; i < numdays; i++ ) {
-			dates.push(new Date(new Date().getTime() - (numdays - i - 1) * 86400 * 1000 ).toISOString().substr(0, 10));
+			dates.push(new Date(new Date().getTime() - (numdays - i) * 86400 * 1000 ).toISOString().substr(0, 10));
 		}
 
 
@@ -480,10 +480,12 @@ Aimeos.Dashboard.Order = {
 				.attr("transform", "translate(0," + height + ")")
 				.call(xAxis);
 
+			svg.selectAll(".tick line").attr("transform", "translate(10,0)");
+			svg.selectAll(".tick text").attr("transform", "translate(10,0)");
+
 			svg.append("g")
 				.attr("class", "y axis")
 				.call(yAxis);
-
 
 			if( data.data.length == 0 ) { // no data avaiable
 				$(selector).removeClass("loading");
@@ -612,7 +614,7 @@ Aimeos.Dashboard.Order = {
 			width = $("#order-weekday-data").width() - margin.left - margin.right,
 			height = $("#order-weekday-data").height() - margin.top - margin.bottom - 10;
 
-		var xScale = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]).paddingInner(0.15);
+		var xScale = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]).padding(0.25);
 		var xAxis = d3.axisBottom().scale(xScale).tickFormat(function(d) { return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d]; });
 
 		var svg = d3.select(selector)
