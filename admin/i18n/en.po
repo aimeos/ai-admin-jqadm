@@ -1093,9 +1093,8 @@ msgstr ""
 msgid "Order totals"
 msgstr ""
 
-#, fuzzy
 msgid "Orders"
-msgstr "Orders"
+msgstr ""
 
 msgid "Orders by day"
 msgstr ""
@@ -1217,9 +1216,8 @@ msgstr ""
 msgid "Plugin: {0} ({1})"
 msgstr ""
 
-#, fuzzy
 msgid "Plugins"
-msgstr "Plugins"
+msgstr ""
 
 msgid "Position"
 msgstr ""
@@ -1685,9 +1683,8 @@ msgstr ""
 msgid "Supplier: {0} ({1})"
 msgstr ""
 
-#, fuzzy
 msgid "Suppliers"
-msgstr "Suppliers"
+msgstr ""
 
 msgid "Switching language ..."
 msgstr ""
@@ -2076,13 +2073,13 @@ msgstr "Latest"
 msgid "locale"
 msgstr "Locales"
 
-#, fuzzy, php-format
+#, php-format
 msgid "locale/currency"
-msgstr "Sites"
+msgstr "Currencies"
 
-#, fuzzy, php-format
+#, php-format
 msgid "locale/language"
-msgstr "Sites"
+msgstr "languages"
 
 #, php-format
 msgid "locale/site"
