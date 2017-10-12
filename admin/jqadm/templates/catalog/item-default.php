@@ -61,8 +61,8 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 <form class="item item-catalog item-tree form-horizontal" method="POST" enctype="multipart/form-data"
 	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>"
 	data-rootid="<?= $enc->attr( $this->get( 'itemRootId' ) ); ?>"
-	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => '_id_'], [], $getConfig ) ); ?>"
-	data-createurl="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'catalog', 'id' => '_id_'], [], $newConfig ) ); ?>"
+	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => '_ID_'], [], $getConfig ) ); ?>"
+	data-createurl="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'catalog', 'id' => '_ID_'], [], $newConfig ) ); ?>"
 	data-jsonurl="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, ['resource' => 'catalog'], [], $jsonConfig ) ); ?>"
 	data-idname="<?= $this->formparam( 'id' ); ?>" >
 
