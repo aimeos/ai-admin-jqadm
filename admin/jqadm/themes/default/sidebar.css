@@ -156,7 +156,6 @@
 	transition-duration: .3s;
 }
 
-.aimeos .sidebar-menu li.active .tree-menu,
 .aimeos .sidebar-menu li:hover .tree-menu {
 	transform: translateX(0);
 	visibility: visible;
@@ -244,7 +243,6 @@
 	.aimeos .sidebar-menu > li:hover > .tree-menu {
 		left: 5rem;
 	}
-	.aimeos .sidebar-menu li.active .tree-menu,
 	.aimeos .sidebar-menu li:hover .tree-menu {
 		left: 5rem;
 	}
