@@ -139,7 +139,7 @@ Aimeos.Catalog = {
 
 
 	onClick : function(event) {
-		window.location = $(".aimeos .item-catalog").data("geturl").replace("_id_", event.node.id);
+		window.location = $(".aimeos .item-catalog").data("geturl").replace("_ID_", event.node.id);
 	},
 
 
@@ -294,7 +294,7 @@ Aimeos.Catalog = {
 				}
 
 				if(!result.errors) {
-					window.location = $(".aimeos .item-catalog").data("createurl").replace("_id_", (parent ? parent.id : ''));
+					window.location = $(".aimeos .item-catalog").data("createurl").replace("_ID_", (parent ? parent.id : ''));
 				}
 			});
 		});
@@ -312,7 +312,7 @@ Aimeos.Catalog = {
 				node = root.tree("getNodeByHtmlElement", $(".jqtree-tree > .jqtree-folder", root));
 			}
 
-			window.location = $(ev.delegateTarget).data("createurl").replace("_id_", (node ? node.id : ''));
+			window.location = $(ev.delegateTarget).data("createurl").replace("_ID_", (node ? node.id : ''));
 		});
 	},
 
