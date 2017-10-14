@@ -89,11 +89,7 @@ class Standard
 	{
 		$view = $this->getView();
 		$data = $view->param( 'download', [] );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
-
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data['product.lists.siteid'][$idx] = $siteid;
-		}
+		$data['product.lists.siteid'] = $this->getContext()->getLocale()->getSiteId();
 
 		$view->downloadData = $data;
 		$view->downloadBody = '';
