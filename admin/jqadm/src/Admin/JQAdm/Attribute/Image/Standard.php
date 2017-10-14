@@ -429,7 +429,7 @@ class Standard
 				$item = $litem->getRefItem();
 			}
 
-			if( ( $file = $this->getValue( $files, $idx ) ) !== null ) {
+			if( ( $file = $this->getValue( $files, $idx ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
 				$cntl->add( $item, $file );
 			}
 

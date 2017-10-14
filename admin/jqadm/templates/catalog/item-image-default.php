@@ -45,9 +45,12 @@ $enc = $this->encoder();
 
 					<div class="col-xl-6">
 						<div class="form-group row image-preview">
-							<input class="item-refid" type="hidden" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							<input class="item-refid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'image', 'catalog.lists.refid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'imageData/catalog.lists.refid/' . $idx ) ); ?>" />
+							<input class="item-preview" type="hidden"
+								name="<?= $enc->attr( $this->formparam( array( 'image', 'media.preview', '' ) ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'imageData/media.preview/' . $idx ) ); ?>" />
 							<input class="fileupload" type="file" name="image[files][]" tabindex="<?= $this->get( 'tabindex' ); ?>" />
 							<img class="item-preview" src="<?= $this->content( $this->get( 'imageData/media.preview/' . $idx ) ); ?>"
 								alt="<?= $enc->html( $this->translate( 'admin', 'Preview' ) ); ?>" />
