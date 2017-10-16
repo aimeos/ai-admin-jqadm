@@ -254,6 +254,39 @@ Aimeos.Price = {
 
 
 
+Aimeos.Property = {
+
+	init : function() {
+
+		this.addLine();
+		this.removeLine();
+		this.setupComponents();
+	},
+
+
+	addLine : function() {
+
+		$(".item-property").on("click", ".act-add", function(ev) {
+			Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
+		});
+	},
+
+
+	removeLine : function() {
+
+		$(".item-property").on("click", ".act-delete", function() {
+			Aimeos.focusBefore($(this).closest("tr")).remove();
+		});
+	},
+
+
+	setupComponents : function() {
+		$(".item-property .combobox").combobox({getfcn: Aimeos.getOptionsLanguages});
+	}
+};
+
+
+
 Aimeos.Text = {
 
 	editorcfg : [
@@ -330,5 +363,6 @@ $(function() {
 	Aimeos.Address.init();
 	Aimeos.Image.init();
 	Aimeos.Price.init();
+	Aimeos.Property.init();
 	Aimeos.Text.init();
 });

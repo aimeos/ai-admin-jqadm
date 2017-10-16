@@ -12,7 +12,7 @@ $selected = function( $key, $code ) {
 $enc = $this->encoder();
 
 ?>
-<div class="col-xl-12 content-block item-property">
+<div id="property" class="item-property tab-pane fade" role="tabpanel" aria-labelledby="property">
 	<table class="property-list table table-default">
 		<thead>
 			<tr>
@@ -58,9 +58,9 @@ $enc = $this->encoder();
 								<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
 							</option>
 
-							<?php foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) : ?>
+							<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
 								<option value="<?= $enc->attr( $langId ); ?>" <?= ( $lang == $langId ? 'selected="selected"' : '' ) ?> >
-									<?= $enc->html( $langId ); ?>
+									<?= $enc->html( $langItem->getLabel() ); ?>
 								</option>
 							<?php endforeach; ?>
 						</select>
