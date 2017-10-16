@@ -22,6 +22,7 @@ return [
 			'type' => [
 				'type/attribute',
 				'type/attribute/lists',
+				'type/attribute/property',
 				'type/catalog/lists',
 				'type/customer/lists',
 				'type/media',
@@ -275,6 +276,15 @@ return [
 					'lists' => [
 						/** admin/jqadm/resource/type/attribute/lists/groups
 						 * List of user groups that are allowed to access the attribute lists type panel
+						 *
+						 * @param array List of user group names
+						 * @since 2017.10
+						 */
+						'groups' => ['admin', 'super'],
+					],
+					'property' => [
+						/** admin/jqadm/resource/type/attribute/property/groups
+						 * List of user groups that are allowed to access the attribute property type panel
 						 *
 						 * @param array List of user group names
 						 * @since 2017.10
