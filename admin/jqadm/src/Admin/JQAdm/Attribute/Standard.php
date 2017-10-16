@@ -90,7 +90,18 @@ class Standard
 	 * @since 2017.07
 	 * @category Developer
 	 */
-	private $subPartNames = ['image', 'text', 'price'];
+
+	/** admin/jqadm/attribute/property/name
+	 * Name of the property subpart used by the JQAdm attribute implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Attribute\Property\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2017.07
+	 * @category Developer
+	 */
+	private $subPartNames = ['image', 'text', 'price', 'property'];
 
 
 	/**
