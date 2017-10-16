@@ -99,15 +99,15 @@ $enc = $this->encoder();
 					</select>
 				</td>
 				<td class="property-language">
-					<select class="custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+					<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
 						name="<?= $enc->attr( $this->formparam( array( 'property', 'attribute.property.languageid', '' ) ) ); ?>">
 						<option value="">
 							<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
 						</option>
 
-						<?php foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) : ?>
+						<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
 							<option value="<?= $enc->attr( $langId ); ?>">
-								<?= $enc->html( $langId ); ?>
+								<?= $enc->html( $langItem->getLabel() ); ?>
 							</option>
 						<?php endforeach; ?>
 					</select>
