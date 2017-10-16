@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-26 23:42+0200\n"
+"POT-Creation-Date: 2017-10-16 14:55+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -167,6 +167,9 @@ msgid "Attribute name"
 msgstr ""
 
 msgid "Attribute position (optional)"
+msgstr ""
+
+msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
 
 msgid "Attribute type"
@@ -1103,6 +1106,9 @@ msgid "Orders by hour"
 msgstr ""
 
 msgid "Orders by payment status"
+msgstr ""
+
+msgid "Orders by weekday"
 msgstr ""
 
 msgid "Overview"
@@ -2187,6 +2193,10 @@ msgid "product"
 msgstr "Products"
 
 #, php-format
+msgid "property"
+msgstr "Properties"
+
+#, php-format
 msgid "related"
 msgstr "Products"
 
@@ -2302,6 +2312,10 @@ msgid "type/attribute/lists"
 msgstr "Attribute lists"
 
 #, php-format
+msgid "type/attribute/property"
+msgstr "Attribute properties"
+
+#, php-format
 msgid "type/catalog/lists"
 msgstr "Catalog lists"
 
@@ -2367,6 +2381,10 @@ msgstr "Text lists"
 
 msgid "unknown"
 msgstr "Unknown"
+
+#, php-format
+msgid "weekday"
+msgstr ""
 
 msgid "yes"
 msgstr ""

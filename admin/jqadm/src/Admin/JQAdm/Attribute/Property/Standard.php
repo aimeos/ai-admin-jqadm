@@ -10,6 +10,8 @@
 
 namespace Aimeos\Admin\JQAdm\Attribute\Property;
 
+sprintf( 'property' ); // for translation
+
 
 /**
  * Default implementation of attribute property JQAdm client.

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # jerzys <jerzy.skalski@gmail.com>, 2014
 # jerzys <jerzy.skalski@gmail.com>, 2014
@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2017-10-02 15:52+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid "!="
@@ -43,9 +43,6 @@ msgstr "po (łącz.)"
 msgid "Search"
 msgstr "Szukaj"
 
-msgid "~="
-msgstr "zawiera"
-
 msgid "address:delivery"
 msgstr "Adres dostawy"
 
@@ -57,3 +54,6 @@ msgstr "Dostawa"
 
 msgid "service:payment"
 msgstr "Płatność"
+
+msgid "~="
+msgstr "zawiera"
