@@ -31,7 +31,7 @@ $params = $this->get( 'pageParams', [] );
 
 	<nav class="main-navbar">
 		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Attribute Lists Type' ) ); ?>:
+			<?= $enc->html( $this->translate( 'admin', 'Attribute Property Type' ) ); ?>:
 			<?= $enc->html( $this->get( 'itemData/attribute.property.type.id' ) ); ?> -
 			<?= $enc->html( $this->get( 'itemData/attribute.property.type.label', $this->translate( 'admin', 'New' ) ) ); ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/attribute.property.type.siteid' ) ) ); ?>)</span>
