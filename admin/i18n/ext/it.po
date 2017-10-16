@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2017-10-02 15:52+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "!="
@@ -41,6 +41,9 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+msgid "~="
+msgstr ""
+
 msgid "address:delivery"
 msgstr "Indirizzo di consegna"
 
@@ -51,7 +54,4 @@ msgid "service:delivery"
 msgstr "Consegna"
 
 msgid "service:payment"
-msgstr ""
-
-msgid "~="
 msgstr ""

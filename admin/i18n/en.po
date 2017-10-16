@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-16 14:55+0200\n"
+"POT-Creation-Date: 2017-10-16 15:11+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -157,6 +157,17 @@ msgstr ""
 msgid "Attribute Lists Type"
 msgstr ""
 
+msgid "Attribute Lists Types"
+msgstr ""
+
+#, fuzzy
+msgid "Attribute Property Type"
+msgstr "Attribute properties"
+
+#, fuzzy
+msgid "Attribute Property Types"
+msgstr "Attribute properties"
+
 msgid "Attribute Type"
 msgstr ""
 
@@ -264,6 +275,9 @@ msgid "Catalog"
 msgstr ""
 
 msgid "Catalog Lists Type"
+msgstr ""
+
+msgid "Catalog Lists Types"
 msgstr ""
 
 msgid "Catalog Types"
@@ -451,6 +465,9 @@ msgid "Customer ID"
 msgstr ""
 
 msgid "Customer Lists Type"
+msgstr ""
+
+msgid "Customer Lists Types"
 msgstr ""
 
 msgid "Customer Types"
@@ -953,6 +970,9 @@ msgstr ""
 msgid "Media Lists Type"
 msgstr ""
 
+msgid "Media Lists Types"
+msgstr ""
+
 msgid "Media Type"
 msgstr ""
 
@@ -1258,6 +1278,9 @@ msgstr ""
 msgid "Price Lists Type"
 msgstr ""
 
+msgid "Price Lists Types"
+msgstr ""
+
 msgid "Price Type"
 msgstr ""
 
@@ -1292,8 +1315,15 @@ msgstr ""
 msgid "Product Lists Type"
 msgstr ""
 
+msgid "Product Lists Types"
+msgstr ""
+
 msgid "Product Property Type"
 msgstr ""
+
+#, fuzzy
+msgid "Product Property Types"
+msgstr "Product properties"
 
 msgid "Product Type"
 msgstr ""
@@ -1515,6 +1545,9 @@ msgid "Service ID"
 msgstr ""
 
 msgid "Service Lists Type"
+msgstr ""
+
+msgid "Service Lists Types"
 msgstr ""
 
 msgid "Service Type"
@@ -1740,6 +1773,9 @@ msgid "Text"
 msgstr ""
 
 msgid "Text Lists Type"
+msgstr ""
+
+msgid "Text Lists Types"
 msgstr ""
 
 msgid "Text Type"
