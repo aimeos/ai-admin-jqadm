@@ -81,7 +81,7 @@ $columnList = [
 <nav class="main-navbar">
 
 	<span class="navbar-brand">
-		<?= $enc->html( $this->translate( 'admin', 'Text Types' ) ); ?>
+		<?= $enc->html( $this->translate( 'admin', 'Text Lists Types' ) ); ?>
 		<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
 	</span>
 
