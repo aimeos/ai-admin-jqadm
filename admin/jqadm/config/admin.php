@@ -441,15 +441,6 @@ return [
 					],
 				],
 			],
-			'expert' => [
-				/** admin/jqadm/resource/expert/groups
-				 * List of user groups that are allowed to access the expert mode
-				 *
-				 * @param array List of user group names
-				 * @since 2017.10
-				 */
-				'groups' => ['admin', 'super'],
-			],
 			'language' => [
 				/** admin/jqadm/resource/language/groups
 				 * List of user groups that are allowed to switch languages

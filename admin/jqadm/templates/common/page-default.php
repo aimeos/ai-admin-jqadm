@@ -413,17 +413,6 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 					<?php endif; ?>
 				<?php endforeach; ?>
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resource/expert/groups', [] ) ) ) : ?>
-					<li class="expert">
-						<a href="<?= $enc->attr( $this->url( $extTarget, $extCntl, $extAction, $extParams, [], $extConfig ) ); ?>"
-							title="<?= $enc->attr( sprintf( $this->translate( 'admin', $title ), 'Expert', 'E' ) ); ?>"
-							data-ctrlkey="e">
-							<i class="icon"></i>
-							<span class="title"><?= $enc->html( $this->translate( 'admin', 'Expert' ) ); ?></span>
-						</a>
-					</li>
-				<?php endif; ?>
-
 				<?php if( $this->access( $this->config( 'admin/jqadm/resource/language/groups', [] ) ) ) : ?>
 					<li class="language treeview">
 						<span>
