@@ -37,6 +37,18 @@ html {
 }
 
 
+/* Bootstrap improvments */
+
+.dropdown-item {
+	padding: 0;
+}
+
+.dropdown-item a {
+	display: block;
+	padding: 3px 1.5rem;
+}
+
+
 
 /* Aimeos Bootstrap theme */
 

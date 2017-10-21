@@ -67,7 +67,7 @@ $enc = $this->encoder();
 
 
 ?>
-<?php if( $total > $limit ) : ?>
+<?php if( $total > $limit || $offset > 0 || $this->get( 'pos', 'top' ) === 'bottom' ) : ?>
 	<nav class="list-page">
 		<ul class="page-offset pagination">
 			<li class="page-item <?= ( $first === null ? 'disabled' : '' ) ?>">
