@@ -374,7 +374,7 @@ Aimeos.Dashboard.Order = {
 
 			bars.append("rect")
 				.attr("class", "bar")
-				.attr("x", function(d) { return xScale((+d.id - tzoffset)); })
+				.attr("x", function(d) { return xScale(((+d.id - tzoffset)) % 24); })
 				.attr("width", xScale.bandwidth() / 2 - 1)
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
@@ -405,7 +405,7 @@ Aimeos.Dashboard.Order = {
 
 			bars.append("rect")
 				.attr("class", "bar")
-				.attr("x", function(d) { return xScale(+d.id - tzoffset) + xScale.bandwidth() / 2 + 1; })
+				.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24) + xScale.bandwidth() / 2 + 1; })
 				.attr("width", xScale.bandwidth() / 2 - 1)
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
