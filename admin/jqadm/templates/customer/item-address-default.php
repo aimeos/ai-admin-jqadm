@@ -270,6 +270,19 @@ $enc = $this->encoder();
 							</div>
 						</div>
 						<div class="form-group row optional">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-mail' ) ); ?></label>
+							<div class="col-sm-8">
+								<input class="form-control item-email" type="email" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.email', '' ) ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-mail address (optional)' ) ); ?>"
+									value="<?= $enc->attr( $this->get( 'addressData/customer.address.email/' . $idx ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'addressData/customer.address.siteid/' . $idx ) ); ?> />
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'E-mail address that belongs to the address' ) ); ?>
+							</div>
+						</div>
+						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Web site' ) ); ?></label>
 							<div class="col-sm-8">
 								<input class="form-control item-website" type="url" tabindex="<?= $this->get( 'tabindex' ); ?>"
@@ -504,6 +517,17 @@ $enc = $this->encoder();
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', '(International) facsimilie number without separation characters, can start with a "+"' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-mail' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-email" type="email" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.email', '' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-mail address (optional)' ) ); ?>" />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'E-mail address that belongs to the address' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">
