@@ -552,10 +552,14 @@ abstract class Base
 	 * @param string $id ID of the next resource item
 	 * @return \Aimeos\MW\View\Iface Modified view object
 	 */
-	protected function nextAction( \Aimeos\MW\View\Iface $view, $action, $resource, $id = null )
+	protected function nextAction( \Aimeos\MW\View\Iface $view, $action, $resource, $id = null, $act = null )
 	{
 		$params = $this->getClientParams();
 		$params['resource'] = $resource;
+
+		if( $act ) {
+			$params['act'] = $act;
+		}
 
 		switch( $action )
 		{

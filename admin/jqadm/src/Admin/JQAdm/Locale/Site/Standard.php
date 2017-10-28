@@ -193,7 +193,7 @@ class Standard
 			$manager->deleteItem( $id );
 			$manager->commit();
 
-			$this->nextAction( $view, 'search', 'locale/site' );
+			$this->nextAction( $view, 'search', 'locale/site', null, 'delete' );
 			return;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
@@ -293,7 +293,7 @@ class Standard
 
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'locale/site', $view->item->getId() );
+			$this->nextAction( $view, $view->param( 'next' ), 'locale/site', $view->item->getId(), 'save' );
 			return;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )

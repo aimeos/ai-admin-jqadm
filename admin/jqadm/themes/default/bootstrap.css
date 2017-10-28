@@ -52,6 +52,16 @@ html {
 
 /* Aimeos Bootstrap theme */
 
+.alert {
+	padding: 0.9rem 1.25rem;
+}
+
+.info-list.alert {
+	position: fixed;
+	z-index: 10000;
+	width: 90%;
+}
+
 .btn {
 	box-shadow: none;
 	border: 1px solid transparent;

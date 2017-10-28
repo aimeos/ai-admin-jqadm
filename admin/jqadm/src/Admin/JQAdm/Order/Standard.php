@@ -274,7 +274,7 @@ class Standard
 
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'order', $view->item->getId() );
+			$this->nextAction( $view, $view->param( 'next' ), 'order', $view->item->getId(), 'save' );
 			return;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )

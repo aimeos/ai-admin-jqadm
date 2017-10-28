@@ -327,7 +327,7 @@ class Standard
 			$manager->deleteItem( $id );
 			$manager->commit();
 
-			$this->nextAction( $view, 'search', 'product' );
+			$this->nextAction( $view, 'search', 'product', null, 'delete' );
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
@@ -416,7 +416,7 @@ class Standard
 
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'product', $view->item->getId() );
+			$this->nextAction( $view, $view->param( 'next' ), 'product', $view->item->getId(), 'save' );
 			return;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )

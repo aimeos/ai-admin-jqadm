@@ -177,7 +177,7 @@ class Standard
 			$manager->deleteItem( $id );
 			$manager->commit();
 
-			$this->nextAction( $view, 'search', 'locale/language' );
+			$this->nextAction( $view, 'search', 'locale/language', null, 'delete' );
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
@@ -265,7 +265,7 @@ class Standard
 
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'locale/language', $view->item->getId() );
+			$this->nextAction( $view, $view->param( 'next' ), 'locale/language', $view->item->getId(), 'save' );
 			return;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )

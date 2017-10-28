@@ -179,7 +179,7 @@ class Standard
 			$manager->deleteItem( $id );
 			$manager->commit();
 
-			$this->nextAction( $view, 'search', 'type/text/lists' );
+			$this->nextAction( $view, 'search', 'type/text/lists', null, 'delete' );
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
@@ -267,7 +267,7 @@ class Standard
 
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'type/text/lists', $view->item->getId() );
+			$this->nextAction( $view, $view->param( 'next' ), 'type/text/lists', $view->item->getId(), 'save' );
 			return;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )

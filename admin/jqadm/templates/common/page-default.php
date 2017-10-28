@@ -210,6 +210,18 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
  * @see admin/jqadm/partial/error
  */
 
+
+$infoMsgs = $this->get( 'info', [] );
+
+switch( $this->param( 'act' ) )
+{
+	case 'save':
+		$infoMsgs[] = $this->translate( 'admin', 'Item saved successfully' ); break;
+	case 'delete':
+		$infoMsgs[] = $this->translate( 'admin', 'Item deleted successfully' ); break;
+}
+
+
 ?>
 <div class="aimeos" lang="<?= $this->param( 'lang' ); ?>" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
 
@@ -368,7 +380,7 @@ $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 	<main class="main-content">
 
 		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-default.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'common/partials/info-default.php' ), array( 'info' => $this->get( 'info', [] ) ) ); ?>
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'common/partials/info-default.php' ), array( 'info' => $infoMsgs ) ); ?>
 
 		<?= $this->block()->get( 'jqadm_content' ); ?>
 

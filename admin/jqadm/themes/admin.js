@@ -677,6 +677,21 @@ Aimeos.List = {
 
 
 
+Aimeos.Msg = {
+
+	init : function() {
+
+		this.fadeInfo();
+	},
+
+
+	fadeInfo : function() {
+		$(".info-list.alert").delay(2500).slideUp();
+	}
+};
+
+
+
 Aimeos.Nav = {
 
 	init : function() {
@@ -838,6 +853,7 @@ $(function() {
 	Aimeos.Filter.init();
 	Aimeos.Form.init();
 	Aimeos.List.init();
+	Aimeos.Msg.init();
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();
 });
