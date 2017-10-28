@@ -742,15 +742,26 @@ Aimeos.Nav = {
 
 	toggleMenu : function() {
 
+		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/sidebar') == 1) {
+			$(".aimeos .main-sidebar .separator .more").removeClass("more").addClass("less");
+			$(".aimeos .main-sidebar .advanced").show();
+		}
+
 		$(".aimeos .main-sidebar").on("click", ".separator .more", function(ev) {
 			$(".advanced", ev.delegateTarget).slideDown(300, function() {
 				$(ev.currentTarget).removeClass("more").addClass("less");
+				if(window.sessionStorage) {
+					window.sessionStorage.setItem('aimeos/jqadm/sidebar', 1);
+				}
 			});
 		});
 
 		$(".aimeos .main-sidebar").on("click", ".separator .less", function(ev) {
 			$(".advanced", ev.delegateTarget).slideUp(300, function() {
 				$(ev.currentTarget).removeClass("less").addClass("more");
+				if(window.sessionStorage) {
+					window.sessionStorage.setItem('aimeos/jqadm/sidebar', 0);
+				}
 			});
 		});
 	}
