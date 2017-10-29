@@ -138,15 +138,7 @@ $columnList = [
 					'data' => [
 						'stock.type.id' => ['op' => '=='],
 						'stock.type.domain' => ['op' => '==', 'type' => 'select', 'val' => [
-							'stock' => $this->translate( 'admin', 'stock' ),
-							'catalog' => $this->translate( 'admin', 'catalog' ),
-							'customer' => $this->translate( 'admin', 'customer' ),
-							'stock' => $this->translate( 'admin', 'stock' ),
-							'price' => $this->translate( 'admin', 'price' ),
 							'product' => $this->translate( 'admin', 'product' ),
-							'service' => $this->translate( 'admin', 'service' ),
-							'supplier' => $this->translate( 'admin', 'supplier' ),
-							'text' => $this->translate( 'admin', 'text' ),
 						]],
 						'stock.type.status' => ['op' => '==', 'type' => 'select', 'val' => [
 							'1' => $this->translate( 'admin', 'status:enabled' ),
