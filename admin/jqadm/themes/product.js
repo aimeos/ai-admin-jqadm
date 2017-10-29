@@ -661,6 +661,7 @@ Aimeos.Product.Stock = {
 
 		this.addLine();
 		this.removeLine();
+		this.setup();
 	},
 
 
@@ -677,15 +678,34 @@ Aimeos.Product.Stock = {
 					constrainInput: false
 				});
 			});
+
+			if($(".item-stock input.item-typeid").length > 0 && $(".item-stock .stock-list :not(tr.prototype)").length > 0) {
+				$(".item-stock .act-add").hide();
+			}
 		});
 	},
 
 
 	removeLine : function() {
 
-		$(".item-stock").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
+		$(".item-stock").on("click", ".act-delete", function(ev) {
+
+			var line = $(this).closest("tr");
+
+			Aimeos.focusBefore(line).remove();
+
+			if($(".item-stock input.item-typeid").length == 0 || $(".item-stock .stock-list tbody tr:not(.prototype)").length == 0) {
+				$(".item-stock .act-add").show();
+			}
 		});
+	},
+
+
+	setup : function() {
+
+		if($(".item-stock input.item-typeid").length > 0 && $(".item-stock .stock-list :not(tr.prototype)").length > 0) {
+			$(".item-stock .act-add").hide();
+		}
 	}
 };
 
