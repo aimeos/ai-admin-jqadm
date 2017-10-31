@@ -37,7 +37,6 @@ $jsonCntl = $this->config( 'admin/jsonadm/url/controller', 'Jsonadm' );
 $jsonAction = $this->config( 'admin/jsonadm/url/action', 'get' );
 $jsonConfig = $this->config( 'admin/jsonadm/url/config', [] );
 
-$subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
 
@@ -130,7 +129,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 							</a>
 						</li>
 
-						<?php foreach( $subparts as $idx => $subpart ) : ?>
+						<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 							<li class="nav-item <?= $enc->attr( $subpart ); ?>">
 								<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx+1; ?>">
 									<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>

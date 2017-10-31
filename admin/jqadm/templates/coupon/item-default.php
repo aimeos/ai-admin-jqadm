@@ -23,7 +23,6 @@ $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
 $config = $this->config( 'admin/jqadm/url/save/config', [] );
 
 $attributes = $this->get( 'itemAttributes', [] );
-$subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
 
@@ -58,7 +57,7 @@ $params = $this->get( 'pageParams', [] );
 					</a>
 				</li>
 
-				<?php foreach( $subparts as $idx => $subpart ) : ?>
+				<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
 						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx+1; ?>">
 							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
