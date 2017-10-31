@@ -118,7 +118,6 @@ $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-cl
  */
 
 
-$subparts = $this->get( 'itemSubparts', [] );
 $params = $this->get( 'pageParams', [] );
 
 
@@ -153,7 +152,7 @@ $params = $this->get( 'pageParams', [] );
 					</a>
 				</li>
 
-				<?php foreach( $subparts as $idx => $subpart ) : ?>
+				<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
 						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx+1; ?>">
 							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>

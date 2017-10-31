@@ -44,7 +44,6 @@ $listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
 $basket = $this->item;
-$subparts = $this->get( 'itemSubparts', [] );
 
 $searchParams = $params = $this->get( 'pageParams', [] );
 unset( $searchParams['id'] );
@@ -134,7 +133,7 @@ $serviceAttrCodes = [
 					</a>
 				</li>
 
-				<?php foreach( $subparts as $type => $subpart ) : ?>
+				<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $type => $subpart ) : ?>
 					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
 						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$type+1; ?>">
 							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
