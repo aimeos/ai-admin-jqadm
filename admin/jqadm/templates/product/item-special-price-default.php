@@ -11,7 +11,7 @@ $enc = $this->encoder();
 ?>
 <div id="special-price" class="col-xl-6 content-block item-special-price">
 
-	<div class="form-group row optional bg-warning">
+	<div class="form-group row optional warning">
 		<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Allow custom price' ) ); ?></label>
 		<div class="col-sm-8">
 			<input class="form-control item-special-price-custom" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ); ?>"

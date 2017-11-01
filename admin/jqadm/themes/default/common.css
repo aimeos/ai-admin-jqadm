@@ -7,6 +7,11 @@
 
 /* Common styles */
 
+.aimeos .warning,
+.aimeos .warning input {
+	color: #ff4000;
+}
+
 .aimeos .readonly {
 	border-left: 0.25rem solid #FFB070;
 	opacity: 0.66 !important;
