@@ -211,7 +211,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 									<?= $enc->html( $this->translate( 'admin', 'Internal category name, will be used on the web site if no name for the language is available' ) ); ?>
 								</div>
 							</div>
-							<div class="form-group row optional">
+							<div class="form-group row optional warning">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL target' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-target" type="text" tabindex="1"
