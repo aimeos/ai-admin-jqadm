@@ -6,7 +6,7 @@
 			<div class="btn btn-card-header act-show fa"></div>
 		</div>
 		<span class="item-label header-label">
-			Umsatzentwicklung der letzten 30 Tage
+			<?= $enc->html( $this->translate( 'admin', 'Sales of the last 30 days' ) ); ?>
 		</span>
 	</div>
 	<div id="order-saleslastmonth-data" class="card-block collapse show content loading" role="tabpanel" aria-labelledby="order-saleslastmonth-head">
