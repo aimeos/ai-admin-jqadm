@@ -1,3 +1,14 @@
+<?php
+
+/**
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos (aimeos.org), 2016-2017
+ */
+
+$enc = $this->encoder();
+
+?>
+
 <div class="order-saleslastmonth card col-lg-12">
 	<div id="order-saleslastmonth-head" class="card-header header" role="tab"
 		 data-toggle="collapse" data-target="#order-saleslastmonth-data"
