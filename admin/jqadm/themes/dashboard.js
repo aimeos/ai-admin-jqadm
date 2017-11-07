@@ -88,16 +88,16 @@ Aimeos.Dashboard = {
 
 			var svg = d3.select(selector)
 				.append("svg")
-					.attr("width", width + margin.left + margin.right)
-					.attr("height", (width - lgspace > height ? height + margin.top + margin.bottom : radius * 2 + margin.top + data.data.length * txheight + 25 ));
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", (width - lgspace > height ? height + margin.top + margin.bottom : radius * 2 + margin.top + data.data.length * txheight + 25 ));
 
 			var donut = svg.append("g")
 				.attr("transform", "translate(" + (radius + margin.left) + "," + (radius + margin.top) + ")")
 				.selectAll(".arc")
-					.data(pie(data.data))
-					.enter()
-					.append("g")
-						.attr("class", "arc");
+				.data(pie(data.data))
+				.enter()
+				.append("g")
+				.attr("class", "arc");
 
 			donut.append("path")
 				.attr("d", arc)
@@ -116,7 +116,7 @@ Aimeos.Dashboard = {
 				.data(data.data)
 				.enter()
 				.append("g")
-					.attr("class", "legend-item");
+				.attr("class", "legend-item");
 
 			legend.append("rect")
 				.style("fill", function(d, i) { return color(i); })
@@ -174,7 +174,7 @@ Aimeos.Dashboard.Order = {
 		if( $(".order-deliverytype").length ) {
 			this.chartDeliveryType();
 		}
-		
+
 		if( $(".order-saleslastmonth").length ) {
 			this.chartSalesLastMonth();
 		}
@@ -216,32 +216,32 @@ Aimeos.Dashboard.Order = {
 
 			var svg = d3.select(selector)
 				.append("svg")
-					.attr("width", width + margin.left + margin.right)
-					.attr("height", height + margin.top + margin.bottom)
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
 				.append("g")
-					.attr("transform", "translate(" + margin.left + "," + ((height - cellWidth * 7) / 2 + margin.top) + ")");
+				.attr("transform", "translate(" + margin.left + "," + ((height - cellWidth * 7) / 2 + margin.top) + ")");
 
 			var cell = svg.selectAll(".day")
 				.data(dateRange)
 				.enter().append("rect")
-					.attr("class", "day")
-					.attr("width", cellSize)
-					.attr("height", cellSize)
-					.attr("x", function(d) {
-						var d1 = new Date(d.getUTCFullYear(), 0, 1);
-						var d51 = new Date(d.getUTCFullYear(), 11, 24);
-						var d52 = new Date(firstdate.getUTCFullYear(), 11, 31);
-						var first = d3.timeWeek.count(d3.timeYear(d1), d1);
-						var weeks = d3.timeWeek.count(d3.timeYear(d52), d52);
+				.attr("class", "day")
+				.attr("width", cellSize)
+				.attr("height", cellSize)
+				.attr("x", function(d) {
+					var d1 = new Date(d.getUTCFullYear(), 0, 1);
+					var d51 = new Date(d.getUTCFullYear(), 11, 24);
+					var d52 = new Date(firstdate.getUTCFullYear(), 11, 31);
+					var first = d3.timeWeek.count(d3.timeYear(d1), d1);
+					var weeks = d3.timeWeek.count(d3.timeYear(d52), d52);
 
-						if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d51), d51); }
-						if(first == 0) { weeks += 1; }
+					if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d51), d51); }
+					if(first == 0) { weeks += 1; }
 
-						var result = d3.timeWeek.count(d3.timeYear(d), d) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (d.getUTCFullYear() - firstdate.getUTCFullYear()));
-						return result * cellWidth;
-					})
-					.attr("y", function(d) { return d.getUTCDay() * cellWidth; })
-					.datum(d3.timeFormat("%Y-%m-%d"));
+					var result = d3.timeWeek.count(d3.timeYear(d), d) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (d.getUTCFullYear() - firstdate.getUTCFullYear()));
+					return result * cellWidth;
+				})
+				.attr("y", function(d) { return d.getUTCDay() * cellWidth; })
+				.datum(d3.timeFormat("%Y-%m-%d"));
 
 			cell.attr("class", function(d) { return "day " + (entries[d]>0 ? color(entries[d]) : "q0"); })
 				.append("title").text(function(d) { return d + ": " + (entries[d] || 0); });
@@ -260,48 +260,48 @@ Aimeos.Dashboard.Order = {
 			svg.selectAll(".legend-month")
 				.data(d3.utcMonth.range(new Date(firstdate.getTime() + 28*24*3600*1000), new Date()))
 				.enter().append("text")
-					.text(function (d) { var num = d.getMonth(); return (num === 0 ? num = 12 : (num < 10 ? "0" + num : num)); })
-					.attr("class", "x axis")
-					.attr("y", -10)
-					.attr("x", function (d) {
-						var idx = dateNumbers.indexOf(+d);
-						if(idx != -1) { return (Math.floor(idx / 7) - 1) * cellWidth; }
-					});
+				.text(function (d) { var num = d.getMonth(); return (num === 0 ? num = 12 : (num < 10 ? "0" + num : num)); })
+				.attr("class", "x axis")
+				.attr("y", -10)
+				.attr("x", function (d) {
+					var idx = dateNumbers.indexOf(+d);
+					if(idx != -1) { return (Math.floor(idx / 7) - 1) * cellWidth; }
+				});
 
 
 			// outline of months in the heat map
 			svg.selectAll(".path-month")
 				.data(function() { return d3.timeMonths(firstdate, new Date()); })
 				.enter().append("path")
-					.attr("class", "path-month")
-					.attr("d", function(t0) {
+				.attr("class", "path-month")
+				.attr("d", function(t0) {
 
-						if(t0.getFullYear() === new Date().getFullYear() && t0.getMonth() === new Date().getMonth()) {
-							return;
-						}
+					if(t0.getFullYear() === new Date().getFullYear() && t0.getMonth() === new Date().getMonth()) {
+						return;
+					}
 
-						var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
-							d1 = new Date(t0.getUTCFullYear(), 0, 1),
-							d51 = new Date(t0.getUTCFullYear(), 11, 24),
-							d52 = new Date(firstdate.getUTCFullYear(), 11, 31),
-							first = d3.timeWeek.count(d3.timeYear(d1), d1),
-							weeks = d3.timeWeek.count(d3.timeYear(d52), d52),
-							d0 = t0.getDay(), d1 = t1.getDay();
+					var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
+						d1 = new Date(t0.getUTCFullYear(), 0, 1),
+						d51 = new Date(t0.getUTCFullYear(), 11, 24),
+						d52 = new Date(firstdate.getUTCFullYear(), 11, 31),
+						first = d3.timeWeek.count(d3.timeYear(d1), d1),
+						weeks = d3.timeWeek.count(d3.timeYear(d52), d52),
+						d0 = t0.getDay(), d1 = t1.getDay();
 
-						if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d52), d52); }
-						if(first == 0) { weeks += 1; }
+					if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d52), d52); }
+					if(first == 0) { weeks += 1; }
 
-						var w0 = d3.timeWeek.count(d3.timeYear(t0), t0) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
-						var w1 = d3.timeWeek.count(d3.timeYear(t1), t1) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
+					var w0 = d3.timeWeek.count(d3.timeYear(t0), t0) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
+					var w1 = d3.timeWeek.count(d3.timeYear(t1), t1) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
 
-						result = "M" + ((w0 + 1) * cellWidth - 1) + "," + d0 * cellWidth
-							+ "H" + (w0 * cellWidth - 1) + "V" + (7 * cellWidth - 1)
-							+ "H" + (w1 * cellWidth - 1) + "V" + ((d1 + 1) * cellWidth - 1)
-							+ "H" + ((w1 + 1) * cellWidth - 1) + "V" + 0
-							+ "H" + ((w0 + 1) * cellWidth -1) + "Z";
+					result = "M" + ((w0 + 1) * cellWidth - 1) + "," + d0 * cellWidth
+						+ "H" + (w0 * cellWidth - 1) + "V" + (7 * cellWidth - 1)
+						+ "H" + (w1 * cellWidth - 1) + "V" + ((d1 + 1) * cellWidth - 1)
+						+ "H" + ((w1 + 1) * cellWidth - 1) + "V" + 0
+						+ "H" + ((w0 + 1) * cellWidth -1) + "Z";
 
-						return result;
-					});
+					return result;
+				});
 
 
 			// color scale below the heat map
@@ -313,10 +313,10 @@ Aimeos.Dashboard.Order = {
 				.data(color.range())
 				.enter()
 				.append("rect")
-					.attr("width", cellSize)
-					.attr("height", cellSize)
-					.attr("class", function (d) { return "legend-day " + d; })
-					.attr("x", function (d, i) { return i * cellWidth; });
+				.attr("width", cellSize)
+				.attr("height", cellSize)
+				.attr("class", function (d) { return "legend-day " + d; })
+				.attr("x", function (d, i) { return i * cellWidth; });
 
 			legend.append("text")
 				.attr("class", "legend-less")
@@ -352,10 +352,10 @@ Aimeos.Dashboard.Order = {
 
 		var svg = d3.select(selector)
 			.append("svg")
-				.attr("width", width + margin.left + margin.right)
-				.attr("height", height + margin.top + margin.bottom)
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
 			.append("g")
-				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		svg.append("g")
 			.attr("class", "x axis")
@@ -478,10 +478,10 @@ Aimeos.Dashboard.Order = {
 
 			var svg = d3.select(selector)
 				.append("svg")
-					.attr("width", width + margin.left + margin.right)
-					.attr("height", height + margin.top + margin.bottom)
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
 				.append("g")
-					.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 			svg.append("g")
 				.attr("class", "x axis")
@@ -557,58 +557,58 @@ Aimeos.Dashboard.Order = {
 			// order is maintained by waiting for the promise of the status value
 			$.when(res[0], res[1], res[2], res[3], res[4], res[5], res[6], res[7])
 				.done(function(dt0, dt1, dt2, dt3, dt4, dt5, dt6, dt7) {
-					drawLayer('-1', dt0[0]);
-					drawLayer('0', dt1[0]);
-					drawLayer('1', dt2[0]);
-					drawLayer('2', dt3[0]);
-					drawLayer('3', dt4[0]);
-					drawLayer('4', dt5[0]);
-					drawLayer('5', dt6[0]);
-					drawLayer('6', dt7[0]);
+						drawLayer('-1', dt0[0]);
+						drawLayer('0', dt1[0]);
+						drawLayer('1', dt2[0]);
+						drawLayer('2', dt3[0]);
+						drawLayer('3', dt4[0]);
+						drawLayer('4', dt5[0]);
+						drawLayer('5', dt6[0]);
+						drawLayer('6', dt7[0]);
 
 
-					statuslist.reverse(); // print counts per status in descending order
+						statuslist.reverse(); // print counts per status in descending order
 
-					// interactive chart details
-					var tooltip = $('<div class="tooltip" />').appendTo($(selector));
+						// interactive chart details
+						var tooltip = $('<div class="tooltip" />').appendTo($(selector));
 
-					svg.append("rect")
-						.attr("class", "overlay")
-						.attr("width", width+25)
-						.attr("height", height)
-						.on("mouseover", function() { tooltip.css("display", "block"); })
-						.on("mouseout", function() { tooltip.css("display", "none"); })
-						.on("mousemove", function() {
+						svg.append("rect")
+							.attr("class", "overlay")
+							.attr("width", width+25)
+							.attr("height", height)
+							.on("mouseover", function() { tooltip.css("display", "block"); })
+							.on("mouseout", function() { tooltip.css("display", "none"); })
+							.on("mousemove", function() {
 
-							// now tooltip for the date in the diagram
-							var x0 = xScale.invert(d3.mouse(this)[0]),
-								mouseX = xScale(x0),
-								curdate, i;
+								// now tooltip for the date in the diagram
+								var x0 = xScale.invert(d3.mouse(this)[0]),
+									mouseX = xScale(x0),
+									curdate, i;
 
-							for(i=0; i<dates.length; i++) {
-								curdate = dates[i];
+								for(i=0; i<dates.length; i++) {
+									curdate = dates[i];
 
-								if(i === dates.length-1 || x0 >= dateParser(dates[i]) && x0 < dateParser(dates[i+1])) {
-									break;
+									if(i === dates.length-1 || x0 >= dateParser(dates[i]) && x0 < dateParser(dates[i+1])) {
+										break;
+									}
 								}
-							}
 
-							var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
-							statuslist.forEach(function(status) {
-								html += '<tr><th>' + translation[status] + "</th><td>" + (entries[curdate][status]['count'] || 0) + '</td></tr>';
+								var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
+								statuslist.forEach(function(status) {
+									html += '<tr><th>' + translation[status] + "</th><td>" + (entries[curdate][status]['count'] || 0) + '</td></tr>';
+								});
+								html += '</table>';
+
+								// avoid pointer being inside the tooltip to prevent flickering
+								// dispay tooltip right or left of the pointer depending on the position in the diagram
+								tooltip.html(html)
+									.css("top", margin.top)
+									.css("left", (mouseX - width / 2 > 0 ? mouseX - tooltip.outerWidth() : mouseX + 20) + margin.left);
 							});
-							html += '</table>';
 
-							// avoid pointer being inside the tooltip to prevent flickering
-							// dispay tooltip right or left of the pointer depending on the position in the diagram
-							tooltip.html(html)
-								.css("top", margin.top)
-								.css("left", (mouseX - width / 2 > 0 ? mouseX - tooltip.outerWidth() : mouseX + 20) + margin.left);
-						});
-
-					$(selector).removeClass("loading");
-				}
-			);
+						$(selector).removeClass("loading");
+					}
+				);
 		});
 	},
 
@@ -627,10 +627,10 @@ Aimeos.Dashboard.Order = {
 
 		var svg = d3.select(selector)
 			.append("svg")
-				.attr("width", width + margin.left + margin.right)
-				.attr("height", height + margin.top + margin.bottom)
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
 			.append("g")
-				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		svg.append("g")
 			.attr("class", "x axis")
@@ -698,7 +698,35 @@ Aimeos.Dashboard.Order = {
 			$(selector).removeClass("loading");
 		});
 	},
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	chartSalesLastMonth : function() {
 
 		var selector = "#order-saleslastmonth-data",
@@ -734,10 +762,7 @@ Aimeos.Dashboard.Order = {
 
 		var criteria = {"&&": [
 			{">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
-			{"||": [
-				{"==": {"order.statuspayment": 5}},
-				{"==": {"order.statuspayment": 6}}
-			]}
+			{">=": {"order.statuspayment": 5}}
 		]};
 
 		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", limit).then(function(data) {
@@ -805,7 +830,7 @@ Aimeos.Dashboard.Order = {
 				.attr("width", xScale.bandwidth() / 2 - 1)
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
-				.append("title").text(function(d) { return d.attributes.replace('.', ',') + ' €'; });
+				.append("title").text(function(d) { return numFmt.format(d.attributes); });
 
 		}).done(function() {
 			$(selector).removeClass("loading");
@@ -847,10 +872,7 @@ Aimeos.Dashboard.Order = {
 
 		var criteria = {"&&": [
 			{">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
-			{"||": [
-				{"==": {"order.statuspayment": 5}},
-				{"==": {"order.statuspayment": 6}}
-			]}
+			{">=": {"order.statuspayment": 5}}
 		]};
 
 		Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", limit).then(function(data) {
@@ -905,7 +927,7 @@ Aimeos.Dashboard.Order = {
 				.attr("width", xScale.bandwidth() / 2 - 1)
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
-				.append("title").text(function(d) { return d.attributes.replace('.', ',') + ' €'; });
+				.append("title").text(function(d) { return numFmt.format(d.attributes); });
 
 		}).done(function() {
 			$(selector).removeClass("loading");
