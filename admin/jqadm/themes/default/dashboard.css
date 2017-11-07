@@ -218,11 +218,21 @@
 	height: inherit;
 }
 
-.dashboard .order-saleslastmonth .ordercount { fill: #74c476; }
-.dashboard .order-saleslastmonth .sum { fill: #31a354; }
+.dashboard .order-saleslastmonth .ordercount {
+	fill: #74c476;
+}
 
-.dashboard .order-saleslastyear .ordercount { fill: #74c476; }
-.dashboard .order-saleslastyear .sum { fill: #31a354; }
+.dashboard .order-saleslastmonth .sum {
+	fill: #31a354;
+}
+
+.dashboard .order-saleslastyear .ordercount {
+	fill: #74c476;
+}
+
+.dashboard .order-saleslastyear .sum {
+	fill: #31a354;
+}
 
 .dashboard g.tick .weekend {
 	stroke-width: 5px;
