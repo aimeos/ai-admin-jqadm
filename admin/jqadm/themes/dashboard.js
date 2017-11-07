@@ -732,7 +732,13 @@ Aimeos.Dashboard.Order = {
 			.attr("transform", "translate(0," + height + ")")
 			.call(xAxis);
 
-		var criteria = {">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}};
+		var criteria = {"&&": [
+			{">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
+			{"||": [
+				{"==": {"order.statuspayment": 5}},
+				{"==": {"order.statuspayment": 6}}
+			]}
+		]};
 
 		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", limit).then(function(data) {
 			if( typeof data.data == "undefined" ) {
@@ -839,7 +845,13 @@ Aimeos.Dashboard.Order = {
 			.attr("transform", "translate(0," + height + ")")
 			.call(xAxis);
 
-		var criteria = {">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}};
+		var criteria = {"&&": [
+			{">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
+			{"||": [
+				{"==": {"order.statuspayment": 5}},
+				{"==": {"order.statuspayment": 6}}
+			]}
+		]};
 
 		Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", limit).then(function(data) {
 			if( typeof data.data == "undefined" ) {
