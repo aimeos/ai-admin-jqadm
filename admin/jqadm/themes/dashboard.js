@@ -174,6 +174,14 @@ Aimeos.Dashboard.Order = {
 		if( $(".order-deliverytype").length ) {
 			this.chartDeliveryType();
 		}
+		
+		if( $(".order-saleslastmonth").length ) {
+			this.chartSalesLastMonth();
+		}
+
+		if( $(".order-saleslastyear").length ) {
+			this.chartSalesLastYear();
+		}
 	},
 
 
@@ -685,6 +693,207 @@ Aimeos.Dashboard.Order = {
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
 				.append("title").text(function(d) { return numFmt.format(d.attributes); });
+
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
+	},
+	
+	chartSalesLastMonth : function() {
+
+		var selector = "#order-saleslastmonth-data",
+			numFmt = new Intl.NumberFormat();
+
+		var margin = {top: 20, bottom: 20, left: 35, right: 40},
+			width = $(selector).width() - margin.left - margin.right,
+			height = $(selector).height() - margin.top - margin.bottom - 10,
+			cellPad = 2, cellSize = 16, cellWidth = cellSize + cellPad;
+
+		var limit = 1000000000, days = 30, firstdate = new Date(new Date().getTime() - days * 86400 * 1000),
+			dateRange = d3.utcDay.range(firstdate, new Date());
+
+		var domain = [];
+		for (var i = 0; i<dateRange.length; i++) {
+			domain.push(dateRange[i].toISOString().substr(8, 2));
+		}
+
+		var xScale = d3.scaleBand().range([0, width]).domain(domain).paddingInner(0.15);
+		var xAxis = d3.axisBottom().scale(xScale);
+
+		var svg = d3.select(selector)
+			.append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+			.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		svg.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis);
+
+		var criteria = {">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}};
+
+		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", limit).then(function(data) {
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+
+			svg.append("g")
+				.attr("class", "y axis left")
+				.call(yAxis);
+
+			var bars = svg.selectAll(".barcnt")
+				.data(data.data).enter()
+				.append("g").attr("class", "barcnt");
+
+			d3.selectAll('#order-saleslastmonth-data .x g.tick')
+				.filter( function(d) {
+					var today = new Date();
+					var tmpDate = new Date();
+					if (d > today.getDate()) {
+						tmpDate.setMonth(today.getMonth()-1);
+					}
+					tmpDate.setDate(d);
+					return (tmpDate.getDay() === 6 || tmpDate.getDay() === 0 );
+				} )
+				.select('line')
+				.attr('class', 'weekend');
+
+			bars.append("rect")
+				.attr("class", "bar ordercount")
+				.attr("x", function(d) { return xScale(d.id.substr(8,10)); })
+				.attr("width", xScale.bandwidth() / 2 - 1)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d){ return numFmt.format(d.attributes); });
+
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
+
+		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", limit, "order.base.price", "sum").then(function(data) {
+
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var yAxis = d3.axisRight().scale(yScale).ticks(7);
+
+			svg.append("g")
+				.attr("class", "y axis right")
+				.attr("transform", "translate(" + width + ",0)")
+				.call(yAxis);
+
+			var bars = svg.selectAll(".barsum")
+				.data(data.data).enter()
+				.append("g").attr("class", "bar sum");
+
+			bars.append("rect")
+				.attr("class", "bar sum")
+				.attr("x", function(d) { return (xScale(d.id.substr(8,10)) + xScale.bandwidth() / 2 + 1); })
+				.attr("width", xScale.bandwidth() / 2 - 1)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d) { return d.attributes.replace('.', ',') + ' €'; });
+
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
+	},
+
+	chartSalesLastYear : function() {
+
+		var selector = "#order-saleslastyear-data",
+			numFmt = new Intl.NumberFormat();
+
+		var margin = {top: 20, bottom: 20, left: 35, right: 40},
+			width = $(selector).width() - margin.left - margin.right,
+			height = $(selector).height() - margin.top - margin.bottom - 10,
+			cellPad = 2, cellSize = 16, cellWidth = cellSize + cellPad;
+
+		var limit = 1000000000, days = 365, firstdate = new Date(new Date().getTime() - days * 86400 * 1000),
+			dateRange = d3.utcMonth.range(firstdate, new Date());
+
+		var domain = [];
+		for (var i = 0; i<dateRange.length; i++) {
+			domain.push(dateRange[i].toISOString().substr(5, 2));
+		}
+
+		var xScale = d3.scaleBand().range([0, width]).domain(domain).paddingInner(0.15);
+		var xAxis = d3.axisBottom().scale(xScale);
+
+		var svg = d3.select(selector)
+			.append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+			.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		svg.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis);
+
+		var criteria = {">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}};
+
+		Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", limit).then(function(data) {
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+
+			svg.append("g")
+				.attr("class", "y axis left")
+				.call(yAxis);
+
+			var bars = svg.selectAll(".barcnt")
+				.data(data.data).enter()
+				.append("g").attr("class", "barcnt");
+
+			bars.append("rect")
+				.attr("class", "bar ordercount")
+				.attr("x", function(d) { return xScale(d.id.substr(5,2)); })
+				.attr("width", xScale.bandwidth() / 2 - 1)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d){ return numFmt.format(d.attributes); });
+
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
+
+		Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", limit, "order.base.price", "sum").then(function(data) {
+
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var yAxis = d3.axisRight().scale(yScale).ticks(7);
+
+			svg.append("g")
+				.attr("class", "y axis right")
+				.attr("transform", "translate(" + width + ",0)")
+				.call(yAxis);
+
+			var bars = svg.selectAll(".barsum")
+				.data(data.data).enter()
+				.append("g").attr("class", "barsum");
+
+			bars.append("rect")
+				.attr("class", "bar sum")
+				.attr("x", function(d) { return (xScale((d.id.substr(5,2))) + xScale.bandwidth() / 2 + 1); })
+				.attr("width", xScale.bandwidth() / 2 - 1)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d) { return d.attributes.replace('.', ',') + ' €'; });
 
 		}).done(function() {
 			$(selector).removeClass("loading");
