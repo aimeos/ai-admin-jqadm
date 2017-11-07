@@ -6,7 +6,7 @@
 			<div class="btn btn-card-header act-show fa"></div>
 		</div>
 		<span class="item-label header-label">
-			Gesamtumsatz der letzten 12 Monate
+			<?= $enc->html( $this->translate( 'admin', 'Sales of the last year' ) ); ?>
 		</span>
 	</div>
 	<div id="order-saleslastyear-data" class="card-block collapse show content loading" role="tabpanel" aria-labelledby="order-saleslastyear-head">
