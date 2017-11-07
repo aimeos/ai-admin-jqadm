@@ -51,7 +51,7 @@ class Standard
      * design.
      *
      * @param array List of sub-client names
-     * @since 2016.07
+     * @since 2018.01
      * @category Developer
      */
     private $subPartPath = 'admin/jqadm/dashboard/order/saleslastmonth/standard/subparts';
@@ -103,7 +103,7 @@ class Standard
          * should be replaced by the name of the new class.
          *
          * @param string Relative path to the template creating the HTML code
-         * @since 2016.04
+         * @since 2018.01
          * @category Developer
          */
         $tplconf = 'admin/jqadm/dashboard/order/saleslastmonth/template-item';
@@ -141,7 +141,7 @@ class Standard
          * "admin/jqadm/common/decorators/default" to the JQAdm client.
          *
          * @param array List of decorator names
-         * @since 2016.07
+         * @since 2018.01
          * @category Developer
          * @see admin/jqadm/common/decorators/default
          * @see admin/jqadm/dashboard/order/saleslastmonth/decorators/global
@@ -165,7 +165,7 @@ class Standard
          * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
          *
          * @param array List of decorator names
-         * @since 2016.07
+         * @since 2018.01
          * @category Developer
          * @see admin/jqadm/common/decorators/default
          * @see admin/jqadm/dashboard/order/saleslastmonth/decorators/excludes
@@ -189,7 +189,7 @@ class Standard
          * "\Aimeos\Admin\JQAdm\Dashboard\Decorator\Decorator2" only to the JQAdm client.
          *
          * @param array List of decorator names
-         * @since 2016.07
+         * @since 2018.01
          * @category Developer
          * @see admin/jqadm/common/decorators/default
          * @see admin/jqadm/dashboard/order/saleslastmonth/decorators/excludes
