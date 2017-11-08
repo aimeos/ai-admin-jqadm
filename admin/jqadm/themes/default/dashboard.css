@@ -48,74 +48,6 @@
 }
 
 
-/* Common SVG diagram styles */
-
-.dashboard .axis {
-	fill: #808080;
-}
-
-.dashboard .axis line,
-.dashboard .axis path {
-	fill: none;
-	stroke: #A0A0A0;
-	shape-rendering: crispEdges;
-}
-
-
-/* Order per day diagram styles */
-
-.dashboard .order-day .axis {
-	text-anchor: middle;
-}
-
-.dashboard .order-day .day {
-	fill: #f8f8f8;
-}
-
-.dashboard .order-day .day:hover {
-	opacity: 0.75
-}
-
-.dashboard .order-day .path-month {
-	fill: none;
-	stroke: #800000;
-	stroke-width: 1px;
-}
-
-.dashboard .order-day .q0 { fill: #f8f8f8; }
-.dashboard .order-day .q1 { fill: #d5efcf; }
-.dashboard .order-day .q2 { fill: #bae4b4; }
-.dashboard .order-day .q3 { fill: #9ad696; }
-.dashboard .order-day .q4 { fill: #75c47a; }
-.dashboard .order-day .q5 { fill: #4fb063; }
-.dashboard .order-day .q6 { fill: #30994f; }
-.dashboard .order-day .q7 { fill: #167f3b; }
-.dashboard .order-day .q8 { fill: #036429; }
-.dashboard .order-day .q9 { fill: #00441b; }
-
-
-/* Order per weekday diagram styles */
-
-.dashboard .order-weekday .barcnt { fill: #FF7F00 }
-.dashboard .order-weekday .barsum { fill: #FFBB72 }
-
-.dashboard .order-weekday .barcnt:hover,
-.dashboard .order-weekday .barsum:hover {
-	opacity: 0.75
-}
-
-
-/* Order per hour diagram styles */
-
-.dashboard .order-hour .barcnt .bar { fill: #1776B6 }
-.dashboard .order-hour .barsum .bar { fill: #ADC6E9 }
-
-.dashboard .order-hour .barcnt:hover,
-.dashboard .order-hour .barsum:hover {
-	opacity: 0.75
-}
-
-
 /* Latest order list styles */
 
 .dashboard .order-latest .content {
@@ -164,6 +96,84 @@
 	.dashboard .order-latest .order-base-address-name {
 		display: none;
 	}
+}
+
+
+/* Common SVG diagram styles */
+
+.dashboard .axis {
+	fill: #808080;
+}
+
+.dashboard .axis line,
+.dashboard .axis path {
+	fill: none;
+	stroke: #A0A0A0;
+	shape-rendering: crispEdges;
+}
+
+.dashboard .barcnt:hover,
+.dashboard .barsum:hover {
+	opacity: 0.75
+}
+
+
+/* Order per day diagram styles */
+
+.dashboard .order-day .axis {
+	text-anchor: middle;
+}
+
+.dashboard .order-day .day {
+	fill: #f8f8f8;
+}
+
+.dashboard .order-day .day:hover {
+	opacity: 0.75
+}
+
+.dashboard .order-day .path-month {
+	fill: none;
+	stroke: #800000;
+	stroke-width: 1px;
+}
+
+.dashboard .order-day .q0 { fill: #f8f8f8; }
+.dashboard .order-day .q1 { fill: #d5efcf; }
+.dashboard .order-day .q2 { fill: #bae4b4; }
+.dashboard .order-day .q3 { fill: #9ad696; }
+.dashboard .order-day .q4 { fill: #75c47a; }
+.dashboard .order-day .q5 { fill: #4fb063; }
+.dashboard .order-day .q6 { fill: #30994f; }
+.dashboard .order-day .q7 { fill: #167f3b; }
+.dashboard .order-day .q8 { fill: #036429; }
+.dashboard .order-day .q9 { fill: #00441b; }
+
+
+/* Order per weekday diagram styles */
+
+.dashboard .order-weekday .barcnt { fill: #FFBB72 }
+.dashboard .order-weekday .barsum { fill: #FF7F00 }
+
+
+/* Order per hour diagram styles */
+
+.dashboard .order-hour .barcnt .bar { fill: #68add8 }
+
+
+/* Sales last month diagram styles */
+
+.dashboard .order-saleslastmonth .barcnt .bar { fill: #74c476; }
+.dashboard .order-saleslastmonth .barsum .bar { fill: #31a354; }
+
+
+/* Sales per month diagram styles */
+
+.dashboard .order-saleslastyear .barcnt .bar { fill: #74c476; }
+.dashboard .order-saleslastyear .barsum .bar { fill: #31a354; }
+
+.dashboard g.tick .weekend {
+	stroke-width: 5px;
 }
 
 
@@ -216,24 +226,4 @@
 .dashboard .order-paymentstatus .tooltip .values td {
 	text-align: right;
 	height: inherit;
-}
-
-.dashboard .order-saleslastmonth .ordercount {
-	fill: #74c476;
-}
-
-.dashboard .order-saleslastmonth .sum {
-	fill: #31a354;
-}
-
-.dashboard .order-saleslastyear .ordercount {
-	fill: #74c476;
-}
-
-.dashboard .order-saleslastyear .sum {
-	fill: #31a354;
-}
-
-.dashboard g.tick .weekend {
-	stroke-width: 5px;
 }

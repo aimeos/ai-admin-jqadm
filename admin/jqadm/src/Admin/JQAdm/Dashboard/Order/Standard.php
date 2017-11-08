@@ -132,7 +132,7 @@ class Standard
 	 * @since 2018.01
 	 * @category Developer
 	 */
-	private $subPartNames = array( 'latest', 'saleslastmonth', 'saleslastyear', 'paymentstatus', 'hour', 'day', 'paymenttype', 'deliverytype' );
+	private $subPartNames = array( 'latest', 'saleslastmonth', 'saleslastyear', 'weekday', 'paymentstatus', 'hour', 'day', 'paymenttype', 'deliverytype' );
 
 
 	/**

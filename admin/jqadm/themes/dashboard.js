@@ -189,7 +189,7 @@ Aimeos.Dashboard.Order = {
 	chartDay : function() {
 
 		var selector = "#order-day-data",
-			margin = {top: 20, bottom: 20, left: 35, right: 40},
+			margin = {top: 20, bottom: 20, left: 50, right: 50},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,
 			cellPad = 2, cellSize = 16, cellWidth = cellSize + cellPad;
@@ -341,7 +341,7 @@ Aimeos.Dashboard.Order = {
 
 		var selector = "#order-hour-data",
 			numFmt = new Intl.NumberFormat(),
-			margin = {top: 20, right: 50, bottom: 30, left: 50},
+			margin = {top: 20, right: 50, bottom: 40, left: 50},
 			width = $("#order-hour-data").width() - margin.left - margin.right,
 			height = $("#order-hour-data").height() - margin.top - margin.bottom - 10;
 
@@ -363,7 +363,7 @@ Aimeos.Dashboard.Order = {
 			.call(xAxis);
 
 
-		Aimeos.Dashboard.getData("order", "order.chour", {}, "-order.ctime", 1000).then(function(data) {
+		Aimeos.Dashboard.getData("order", "order.chour", {}, "-order.ctime", 10000).then(function(data) {
 
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
@@ -383,41 +383,10 @@ Aimeos.Dashboard.Order = {
 			bars.append("rect")
 				.attr("class", "bar")
 				.attr("x", function(d) { return xScale(((+d.id - tzoffset)) % 24); })
-				.attr("width", xScale.bandwidth() / 2 - 1)
+				.attr("width", xScale.bandwidth())
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
 				.append("title").text(function(d){ return numFmt.format(d.attributes); });
-
-		}).done(function() {
-			$(selector).removeClass("loading");
-		});
-
-
-		Aimeos.Dashboard.getData("order", "order.chour", {}, "-order.ctime", 1000, "order.base.price", "sum").then(function(data) {
-
-			if( typeof data.data == "undefined" ) {
-				throw 'No data in response';
-			}
-
-			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
-			var yAxis = d3.axisRight().scale(yScale).ticks(7);
-
-			svg.append("g")
-				.attr("class", "y axis right")
-				.attr("transform", "translate(" + width + ",0)")
-				.call(yAxis);
-
-			var bars = svg.selectAll(".barsum")
-				.data(data.data).enter()
-				.append("g").attr("class", "barsum");
-
-			bars.append("rect")
-				.attr("class", "bar")
-				.attr("x", function(d) { return xScale((+d.id - tzoffset) % 24) + xScale.bandwidth() / 2 + 1; })
-				.attr("width", xScale.bandwidth() / 2 - 1)
-				.attr("y", function(d) { return yScale(+d.attributes); })
-				.attr("height", function(d) { return height - yScale(+d.attributes); })
-				.append("title").text(function(d) { return numFmt.format(d.attributes); });
 
 		}).done(function() {
 			$(selector).removeClass("loading");
@@ -447,7 +416,7 @@ Aimeos.Dashboard.Order = {
 		var dates = [],
 			selector = "#order-paymentstatus-data",
 			translation = $(selector).data("translation"),
-			margin = {top: 20, right: 50, bottom: 30, left: 50},
+			margin = {top: 20, right: 50, bottom: 40, left: 50},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,
 			statusrange = ["pay-unfinished", "pay-deleted", "pay-canceled", "pay-refused", "pay-refund", "pay-pending", "pay-authorized", "pay-received"],
@@ -614,130 +583,16 @@ Aimeos.Dashboard.Order = {
 
 
 
-	chartWeekday : function() {
-
-		var selector = "#order-weekday-data",
-			numFmt = new Intl.NumberFormat(),
-			margin = {top: 20, right: 50, bottom: 30, left: 50},
-			width = $("#order-weekday-data").width() - margin.left - margin.right,
-			height = $("#order-weekday-data").height() - margin.top - margin.bottom - 10;
-
-		var xScale = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]).padding(0.25);
-		var xAxis = d3.axisBottom().scale(xScale).tickFormat(function(d) { return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d]; });
-
-		var svg = d3.select(selector)
-			.append("svg")
-			.attr("width", width + margin.left + margin.right)
-			.attr("height", height + margin.top + margin.bottom)
-			.append("g")
-			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-		svg.append("g")
-			.attr("class", "x axis")
-			.attr("transform", "translate(0," + height + ")")
-			.call(xAxis);
-
-
-		Aimeos.Dashboard.getData("order", "order.cwday", {}, "-order.ctime", 1000).then(function(data) {
-
-			if( typeof data.data == "undefined" ) {
-				throw 'No data in response';
-			}
-
-			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
-			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
-
-			svg.append("g")
-				.attr("class", "y axis left")
-				.call(yAxis);
-
-			var bars = svg.selectAll(".barcnt")
-				.data(data.data).enter()
-				.append("g").attr("class", "barcnt");
-
-			bars.append("rect")
-				.attr("class", function(d) { return "bar weekday-" + d.id; })
-				.attr("x", function(d) { return xScale(+d.id); })
-				.attr("width", xScale.bandwidth() / 2 - 1)
-				.attr("y", function(d) { return yScale(+d.attributes); })
-				.attr("height", function(d) { return height - yScale(+d.attributes); })
-				.append("title").text(function(d) { return numFmt.format(d.attributes); });
-
-		}).done(function() {
-			$(selector).removeClass("loading");
-		});
-
-
-		Aimeos.Dashboard.getData("order", "order.cwday", {}, "-order.ctime", 1000, "order.base.price", "sum").then(function(data) {
-
-			if( typeof data.data == "undefined" ) {
-				throw 'No data in response';
-			}
-
-			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
-			var yAxis = d3.axisRight().scale(yScale).ticks(7);
-
-			svg.append("g")
-				.attr("class", "y axis right")
-				.attr("transform", "translate(" + width + ",0)")
-				.call(yAxis);
-
-			var bars = svg.selectAll(".barsum")
-				.data(data.data).enter()
-				.append("g").attr("class", "barsum");
-
-			bars.append("rect")
-				.attr("class", function(d) { return "bar weekday-" + d.id; })
-				.attr("x", function(d) { return xScale(+d.id) + xScale.bandwidth() / 2 + 1; })
-				.attr("width", xScale.bandwidth() / 2 - 1)
-				.attr("y", function(d) { return yScale(+d.attributes); })
-				.attr("height", function(d) { return height - yScale(+d.attributes); })
-				.append("title").text(function(d) { return numFmt.format(d.attributes); });
-
-		}).done(function() {
-			$(selector).removeClass("loading");
-		});
-	},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	chartSalesLastMonth : function() {
 
 		var selector = "#order-saleslastmonth-data",
 			numFmt = new Intl.NumberFormat();
 
-		var margin = {top: 20, bottom: 20, left: 35, right: 40},
+		var margin = {top: 20, bottom: 40, left: 50, right: 50},
 			width = $(selector).width() - margin.left - margin.right,
-			height = $(selector).height() - margin.top - margin.bottom - 10,
-			cellPad = 2, cellSize = 16, cellWidth = cellSize + cellPad;
+			height = $(selector).height() - margin.top - margin.bottom - 10;
 
-		var limit = 1000000000, days = 30, firstdate = new Date(new Date().getTime() - days * 86400 * 1000),
+		var limit = 10000, days = 31, firstdate = new Date(new Date().getTime() - days * 86400 * 1000),
 			dateRange = d3.utcDay.range(firstdate, new Date());
 
 		var domain = [];
@@ -750,22 +605,36 @@ Aimeos.Dashboard.Order = {
 
 		var svg = d3.select(selector)
 			.append("svg")
-			.attr("width", width + margin.left + margin.right)
-			.attr("height", height + margin.top + margin.bottom)
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
 			.append("g")
-			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		svg.append("g")
 			.attr("class", "x axis")
 			.attr("transform", "translate(0," + height + ")")
 			.call(xAxis);
 
+		d3.selectAll('#order-saleslastmonth-data .x g.tick')
+			.filter( function(d) {
+				var today = new Date();
+				var tmpDate = new Date();
+				if (d > today.getDate()) {
+					tmpDate.setMonth(today.getMonth()-1);
+				}
+				tmpDate.setDate(d);
+				return (tmpDate.getDay() === 6 || tmpDate.getDay() === 0 );
+			} )
+			.select('line')
+			.attr('class', 'weekend');
+
 		var criteria = {"&&": [
-			{">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
+			{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
 			{">=": {"order.statuspayment": 5}}
 		]};
 
-		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", limit).then(function(data) {
+		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", limit, "order.base.price", "sum").then(function(data) {
+
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
 			}
@@ -777,57 +646,14 @@ Aimeos.Dashboard.Order = {
 				.attr("class", "y axis left")
 				.call(yAxis);
 
-			var bars = svg.selectAll(".barcnt")
-				.data(data.data).enter()
-				.append("g").attr("class", "barcnt");
-
-			d3.selectAll('#order-saleslastmonth-data .x g.tick')
-				.filter( function(d) {
-					var today = new Date();
-					var tmpDate = new Date();
-					if (d > today.getDate()) {
-						tmpDate.setMonth(today.getMonth()-1);
-					}
-					tmpDate.setDate(d);
-					return (tmpDate.getDay() === 6 || tmpDate.getDay() === 0 );
-				} )
-				.select('line')
-				.attr('class', 'weekend');
-
-			bars.append("rect")
-				.attr("class", "bar ordercount")
-				.attr("x", function(d) { return xScale(d.id.substr(8,10)); })
-				.attr("width", xScale.bandwidth() / 2 - 1)
-				.attr("y", function(d) { return yScale(+d.attributes); })
-				.attr("height", function(d) { return height - yScale(+d.attributes); })
-				.append("title").text(function(d){ return numFmt.format(d.attributes); });
-
-		}).done(function() {
-			$(selector).removeClass("loading");
-		});
-
-		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", limit, "order.base.price", "sum").then(function(data) {
-
-			if( typeof data.data == "undefined" ) {
-				throw 'No data in response';
-			}
-
-			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
-			var yAxis = d3.axisRight().scale(yScale).ticks(7);
-
-			svg.append("g")
-				.attr("class", "y axis right")
-				.attr("transform", "translate(" + width + ",0)")
-				.call(yAxis);
-
 			var bars = svg.selectAll(".barsum")
 				.data(data.data).enter()
-				.append("g").attr("class", "bar sum");
+				.append("g").attr("class", "barsum");
 
 			bars.append("rect")
 				.attr("class", "bar sum")
-				.attr("x", function(d) { return (xScale(d.id.substr(8,10)) + xScale.bandwidth() / 2 + 1); })
-				.attr("width", xScale.bandwidth() / 2 - 1)
+				.attr("x", function(d) { return (xScale(d.id.substr(8,10))); })
+				.attr("width", xScale.bandwidth())
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
 				.append("title").text(function(d) { return numFmt.format(d.attributes); });
@@ -837,17 +663,18 @@ Aimeos.Dashboard.Order = {
 		});
 	},
 
+
+
 	chartSalesLastYear : function() {
 
 		var selector = "#order-saleslastyear-data",
 			numFmt = new Intl.NumberFormat();
 
-		var margin = {top: 20, bottom: 20, left: 35, right: 40},
+		var margin = {top: 20, bottom: 40, left: 50, right: 50},
 			width = $(selector).width() - margin.left - margin.right,
-			height = $(selector).height() - margin.top - margin.bottom - 10,
-			cellPad = 2, cellSize = 16, cellWidth = cellSize + cellPad;
+			height = $(selector).height() - margin.top - margin.bottom - 10;
 
-		var limit = 1000000000, days = 365, firstdate = new Date(new Date().getTime() - days * 86400 * 1000),
+		var limit = 100000, days = 365, firstdate = new Date(new Date().getTime() - days * 86400 * 1000),
 			dateRange = d3.utcMonth.range(firstdate, new Date());
 
 		var domain = [];
@@ -875,7 +702,9 @@ Aimeos.Dashboard.Order = {
 			{">=": {"order.statuspayment": 5}}
 		]};
 
-		Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", limit).then(function(data) {
+
+		Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", limit, "order.base.price", "sum").then(function(data) {
+
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
 			}
@@ -887,13 +716,43 @@ Aimeos.Dashboard.Order = {
 				.attr("class", "y axis left")
 				.call(yAxis);
 
+			var bars = svg.selectAll(".barsum")
+				.data(data.data).enter()
+				.append("g").attr("class", "barsum");
+
+			bars.append("rect")
+				.attr("class", "bar sum")
+				.attr("x", function(d) { return xScale(d.id.substr(5,2)); })
+				.attr("width", xScale.bandwidth() / 2 - 1)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d) { return numFmt.format(d.attributes); });
+
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
+
+
+		Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", limit).then(function(data) {
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var yAxis = d3.axisRight().scale(yScale).ticks(7);
+
+			svg.append("g")
+				.attr("transform", "translate(" + width + ",0)")
+				.attr("class", "y axis right")
+				.call(yAxis);
+
 			var bars = svg.selectAll(".barcnt")
 				.data(data.data).enter()
 				.append("g").attr("class", "barcnt");
 
 			bars.append("rect")
 				.attr("class", "bar ordercount")
-				.attr("x", function(d) { return xScale(d.id.substr(5,2)); })
+				.attr("x", function(d) { return xScale(d.id.substr(5,2)) + xScale.bandwidth() / 2 + 1; })
 				.attr("width", xScale.bandwidth() / 2 - 1)
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
@@ -902,8 +761,67 @@ Aimeos.Dashboard.Order = {
 		}).done(function() {
 			$(selector).removeClass("loading");
 		});
+	},
 
-		Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", limit, "order.base.price", "sum").then(function(data) {
+
+
+	chartWeekday : function() {
+
+		var selector = "#order-weekday-data",
+			numFmt = new Intl.NumberFormat(),
+			margin = {top: 20, right: 50, bottom: 40, left: 50},
+			width = $("#order-weekday-data").width() - margin.left - margin.right,
+			height = $("#order-weekday-data").height() - margin.top - margin.bottom - 10;
+
+		var xScale = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]).padding(0.25);
+		var xAxis = d3.axisBottom().scale(xScale).tickFormat(function(d) { return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d]; });
+
+		var svg = d3.select(selector)
+			.append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+			.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		svg.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis);
+
+		var criteria = {">=": {"order.statuspayment": 5}};
+
+
+		Aimeos.Dashboard.getData("order", "order.cwday", {}, "-order.ctime", 1000, "order.base.price", "sum").then(function(data) {
+
+			if( typeof data.data == "undefined" ) {
+				throw 'No data in response';
+			}
+
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+
+			svg.append("g")
+				.attr("class", "y axis left")
+				.call(yAxis);
+
+			var bars = svg.selectAll(".barsum")
+				.data(data.data).enter()
+				.append("g").attr("class", "barsum");
+
+			bars.append("rect")
+				.attr("class", function(d) { return "bar weekday-" + d.id; })
+				.attr("x", function(d) { return xScale(+d.id); })
+				.attr("width", xScale.bandwidth() / 2 - 1)
+				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("height", function(d) { return height - yScale(+d.attributes); })
+				.append("title").text(function(d) { return numFmt.format(d.attributes); });
+
+		}).done(function() {
+			$(selector).removeClass("loading");
+		});
+
+
+		Aimeos.Dashboard.getData("order", "order.cwday", criteria, "-order.ctime", 1000).then(function(data) {
 
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
@@ -913,17 +831,17 @@ Aimeos.Dashboard.Order = {
 			var yAxis = d3.axisRight().scale(yScale).ticks(7);
 
 			svg.append("g")
-				.attr("class", "y axis right")
 				.attr("transform", "translate(" + width + ",0)")
+				.attr("class", "y axis right")
 				.call(yAxis);
 
-			var bars = svg.selectAll(".barsum")
+			var bars = svg.selectAll(".barcnt")
 				.data(data.data).enter()
-				.append("g").attr("class", "barsum");
+				.append("g").attr("class", "barcnt");
 
 			bars.append("rect")
-				.attr("class", "bar sum")
-				.attr("x", function(d) { return (xScale((d.id.substr(5,2))) + xScale.bandwidth() / 2 + 1); })
+				.attr("class", function(d) { return "bar weekday-" + d.id; })
+				.attr("x", function(d) { return xScale(+d.id) + xScale.bandwidth() / 2 + 1; })
 				.attr("width", xScale.bandwidth() / 2 - 1)
 				.attr("y", function(d) { return yScale(+d.attributes); })
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
