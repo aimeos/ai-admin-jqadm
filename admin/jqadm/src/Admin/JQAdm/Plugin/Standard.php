@@ -467,7 +467,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin' );
 
 		try {
-			return $manager->getProvider( $item )->getConfigBE();
+			return $manager->getProvider( $item, $item->getType() )->getConfigBE();
 		} catch( \Aimeos\MShop\Exception $e ) {
 			return [];
 		}
