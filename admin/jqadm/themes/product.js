@@ -679,7 +679,7 @@ Aimeos.Product.Stock = {
 				});
 			});
 
-			if($(".item-stock input.item-typeid").length > 0 && $(".item-stock .stock-list :not(tr.prototype)").length > 0) {
+			if($(".item-stock input.item-typeid").length > 0 && $(".item-stock .stock-list tbody > :not(tr.prototype)").length > 0) {
 				$(".item-stock .act-add").hide();
 			}
 		});
@@ -694,7 +694,7 @@ Aimeos.Product.Stock = {
 
 			Aimeos.focusBefore(line).remove();
 
-			if($(".item-stock input.item-typeid").length == 0 || $(".item-stock .stock-list tbody tr:not(.prototype)").length == 0) {
+			if($(".item-stock input.item-typeid").length == 0 || $(".item-stock .stock-list tbody > tr:not(.prototype)").length == 0) {
 				$(".item-stock .act-add").show();
 			}
 		});
@@ -703,7 +703,7 @@ Aimeos.Product.Stock = {
 
 	setup : function() {
 
-		if($(".item-stock input.item-typeid").length > 0 && $(".item-stock .stock-list :not(tr.prototype)").length > 0) {
+		if($(".item-stock input.item-typeid").length > 0 && $(".item-stock .stock-list tbody > :not(tr.prototype)").length > 0) {
 			$(".item-stock .act-add").hide();
 		}
 	}

@@ -312,6 +312,8 @@ class Standard
 
 		$list = (array) $this->getValue( $data, 'stock.id', [] );
 
+		$manager->deleteItems( array_diff( array_keys( $stockItems ), $list ) );
+
 		foreach( $list as $idx => $id )
 		{
 			if( !isset( $stockItems[$id] ) ) {
@@ -327,8 +329,6 @@ class Standard
 
 			$manager->saveItem( $stockItem, false );
 		}
-
-		$manager->deleteItems( array_diff( array_keys( $stockItems ), $list ) );
 	}
 
 
