@@ -38,15 +38,6 @@
 			"text": "combo.jquery.js",
 			"path": "themes/"
 		},{
-			"text": "dashboard.js",
-			"path": "themes/"
-		},{
-			"text": "dashboard-sales.js",
-			"path": "themes/"
-		},{
-			"text": "dashboard-order.js",
-			"path": "themes/"
-		},{
 			"text": "tree.jquery.js",
 			"path": "themes/"
 		},{
@@ -60,6 +51,15 @@
 			"path": "themes/"
 		},{
 			"text": "coupon.js",
+			"path": "themes/"
+		},{
+			"text": "dashboard.js",
+			"path": "themes/"
+		},{
+			"text": "dashboard-sales.js",
+			"path": "themes/"
+		},{
+			"text": "dashboard-order.js",
 			"path": "themes/"
 		},{
 			"text": "customer.js",
