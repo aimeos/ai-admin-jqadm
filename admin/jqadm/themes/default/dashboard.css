@@ -39,6 +39,25 @@
 	height: inherit;
 }
 
+.dashboard .legend {
+	display: block;
+	margin-left: 50px;
+}
+
+.dashboard .legend-item {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.dashboard .legend-square {
+	display: inline-block;
+	height: 10px;
+	width: 10px;
+}
+
+.dashboard .legend-text {
+	margin-left: 5px;
+}
 
 
 /* job styles */
