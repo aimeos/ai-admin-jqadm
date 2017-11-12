@@ -6,6 +6,7 @@
 
 Aimeos.Dashboard.Sales = {
 
+	colors: ["#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02", "#a6761d", "#666666"],
 	currencyPromise: null,
 
 
@@ -34,15 +35,15 @@ Aimeos.Dashboard.Sales = {
 		});
 
 
-		if( $(".order-saleslastmonth").length ) {
+		if( $(".order-salesday").length ) {
 			this.chartDay();
 		}
 
-		if( $(".order-saleslastyear").length ) {
+		if( $(".order-salesmonth").length ) {
 			this.chartMonth();
 		}
 
-		if( $(".order-weekday").length ) {
+		if( $(".order-salesweekday").length ) {
 			this.chartWeekday();
 		}
 	},
@@ -51,7 +52,7 @@ Aimeos.Dashboard.Sales = {
 
 	chartDay : function() {
 
-		var selector = "#order-saleslastmonth-data",
+		var selector = "#order-salesday-data",
 			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 50},
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
@@ -123,7 +124,7 @@ Aimeos.Dashboard.Sales = {
 			var lang = $(".dashboard-order").data("language") || "en";
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, width/days]).padding(0.05);
-			var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
 			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
@@ -160,7 +161,7 @@ Aimeos.Dashboard.Sales = {
 
 	chartMonth : function() {
 
-		var selector = "#order-saleslastyear-data",
+		var selector = "#order-salesmonth-data",
 			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 50},
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
@@ -231,7 +232,7 @@ Aimeos.Dashboard.Sales = {
 			var lang = $(".dashboard-order").data("language") || "en";
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleMonths.bandwidth()]).padding(0.05);
-			var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
 			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
@@ -268,7 +269,7 @@ Aimeos.Dashboard.Sales = {
 
 	chartWeekday : function() {
 
-		var selector = "#order-weekday-data",
+		var selector = "#order-salesweekday-data",
 			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 50},
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
@@ -337,7 +338,7 @@ Aimeos.Dashboard.Sales = {
 			var lang = $(".dashboard-order").data("language") || "en";
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleWdays.bandwidth()]).padding(0.05);
-			var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
 			var yAxis = d3.axisLeft().scale(yScale).ticks(7);

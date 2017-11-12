@@ -158,42 +158,20 @@
 }
 
 .dashboard .order-day .q0 { fill: #f8f8f8; }
-.dashboard .order-day .q1 { fill: #d5efcf; }
-.dashboard .order-day .q2 { fill: #bae4b4; }
-.dashboard .order-day .q3 { fill: #9ad696; }
-.dashboard .order-day .q4 { fill: #75c47a; }
-.dashboard .order-day .q5 { fill: #4fb063; }
-.dashboard .order-day .q6 { fill: #30994f; }
-.dashboard .order-day .q7 { fill: #167f3b; }
-.dashboard .order-day .q8 { fill: #036429; }
-.dashboard .order-day .q9 { fill: #00441b; }
-
-
-/* Order per weekday diagram styles */
-
-.dashboard .order-weekday .barcnt { fill: #FFBB72 }
-.dashboard .order-weekday .barsum { fill: #FF7F00 }
+.dashboard .order-day .q1 { fill: #f7fbff; }
+.dashboard .order-day .q2 { fill: #deebf7; }
+.dashboard .order-day .q3 { fill: #c6dbef; }
+.dashboard .order-day .q4 { fill: #9ecae1; }
+.dashboard .order-day .q5 { fill: #6baed6; }
+.dashboard .order-day .q6 { fill: #4292c6; }
+.dashboard .order-day .q7 { fill: #2171b5; }
+.dashboard .order-day .q8 { fill: #08519c; }
+.dashboard .order-day .q9 { fill: #08306b; }
 
 
 /* Order per hour diagram styles */
 
-.dashboard .order-hour .barcnt .bar { fill: #68add8 }
-
-
-/* Sales last month diagram styles */
-
-.dashboard .order-saleslastmonth .barcnt .bar { fill: #74c476; }
-.dashboard .order-saleslastmonth .barsum .bar { fill: #31a354; }
-
-
-/* Sales per month diagram styles */
-
-.dashboard .order-saleslastyear .barcnt .bar { fill: #74c476; }
-.dashboard .order-saleslastyear .barsum .bar { fill: #31a354; }
-
-.dashboard g.tick .weekend {
-	stroke-width: 5px;
-}
+.dashboard .order-hour .barcnt .bar { fill: #4292c6 }
 
 
 /* Order per payment status diagram styles */
