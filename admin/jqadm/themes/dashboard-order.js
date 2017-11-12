@@ -8,24 +8,16 @@ Aimeos.Dashboard.Order = {
 
 	init : function() {
 
-		if( $(".order-paymentstatus").length ) {
+		if( $(".order-countpaystatus").length ) {
 			this.chartPaymentStatus();
 		}
 
-		if( $(".order-hour").length ) {
+		if( $(".order-counthour").length ) {
 			this.chartHour();
 		}
 
-		if( $(".order-day").length ) {
+		if( $(".order-countday").length ) {
 			this.chartDay();
-		}
-
-		if( $(".order-paymenttype").length ) {
-			this.chartPaymentType();
-		}
-
-		if( $(".order-deliverytype").length ) {
-			this.chartDeliveryType();
 		}
 	},
 
@@ -33,7 +25,7 @@ Aimeos.Dashboard.Order = {
 
 	chartDay : function() {
 
-		var selector = "#order-day-data",
+		var selector = "#order-countday-data",
 			margin = {top: 20, bottom: 20, left: 50, right: 50},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,
@@ -184,7 +176,7 @@ Aimeos.Dashboard.Order = {
 
 	chartHour : function() {
 
-		var selector = "#order-hour-data",
+		var selector = "#order-counthour-data",
 			numFmt = new Intl.NumberFormat(),
 			margin = {top: 20, right: 50, bottom: 40, left: 50},
 			width = $("#order-hour-data").width() - margin.left - margin.right,
@@ -240,26 +232,10 @@ Aimeos.Dashboard.Order = {
 
 
 
-	chartDeliveryType : function() {
-
-		var criteria = {"==": {"order.base.service.type": "delivery"}};
-		Aimeos.Dashboard.drawDonut("#order-deliverytype-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
-	},
-
-
-
-	chartPaymentType : function() {
-
-		var criteria = {"==": {"order.base.service.type": "payment"}};
-		Aimeos.Dashboard.drawDonut("#order-paymenttype-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
-	},
-
-
-
 	chartPaymentStatus : function() {
 
 		var dates = [],
-			selector = "#order-paymentstatus-data",
+			selector = "#order-countpaystatus-data",
 			translation = $(selector).data("translation"),
 			margin = {top: 20, right: 50, bottom: 40, left: 50},
 			width = $(selector).width() - margin.left - margin.right,

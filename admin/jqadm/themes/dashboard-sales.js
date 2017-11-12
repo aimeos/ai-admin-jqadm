@@ -248,7 +248,7 @@ Aimeos.Dashboard.Sales = {
 				.selectAll("g")
 				.data(Object.entries(result))
 				.enter().append("g")
-					.attr("transform", function(d) { console.log(d); return "translate(" + xScaleMonths(d[0]) + ",0)"; })
+					.attr("transform", function(d) { return "translate(" + xScaleMonths(d[0]) + ",0)"; })
 				.selectAll("rect")
 				.data(function(d) { return Object.entries(d[1]); })
 				.enter().append("rect")
