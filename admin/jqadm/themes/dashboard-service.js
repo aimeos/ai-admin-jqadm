@@ -22,7 +22,7 @@ Aimeos.Dashboard.Service = {
 	chartDelivery : function() {
 
 		var criteria = {"==": {"order.base.service.type": "delivery"}};
-		Aimeos.Dashboard.drawDonut("#order-deliverytype-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
+		Aimeos.Dashboard.drawDonut("#order-servicedelivery-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
 	},
 
 
@@ -30,7 +30,7 @@ Aimeos.Dashboard.Service = {
 	chartPayment : function() {
 
 		var criteria = {"==": {"order.base.service.type": "payment"}};
-		Aimeos.Dashboard.drawDonut("#order-paymenttype-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
+		Aimeos.Dashboard.drawDonut("#order-servicepayment-data", "order", "order.base.service.code", criteria, "-order.ctime", 1000);
 	}
 };
 

@@ -139,66 +139,66 @@
 
 /* Order per day diagram styles */
 
-.dashboard .order-day .axis {
+.dashboard .order-countday .axis {
 	text-anchor: middle;
 }
 
-.dashboard .order-day .day {
+.dashboard .order-countday .day {
 	fill: #f8f8f8;
 }
 
-.dashboard .order-day .day:hover {
+.dashboard .order-countday .day:hover {
 	opacity: 0.75
 }
 
-.dashboard .order-day .path-month {
+.dashboard .order-countday .path-month {
 	fill: none;
 	stroke: #800000;
 	stroke-width: 1px;
 }
 
-.dashboard .order-day .q0 { fill: #f8f8f8; }
-.dashboard .order-day .q1 { fill: #f7fbff; }
-.dashboard .order-day .q2 { fill: #deebf7; }
-.dashboard .order-day .q3 { fill: #c6dbef; }
-.dashboard .order-day .q4 { fill: #9ecae1; }
-.dashboard .order-day .q5 { fill: #6baed6; }
-.dashboard .order-day .q6 { fill: #4292c6; }
-.dashboard .order-day .q7 { fill: #2171b5; }
-.dashboard .order-day .q8 { fill: #08519c; }
-.dashboard .order-day .q9 { fill: #08306b; }
+.dashboard .order-countday .q0 { fill: #f8f8f8; }
+.dashboard .order-countday .q1 { fill: #f7fbff; }
+.dashboard .order-countday .q2 { fill: #deebf7; }
+.dashboard .order-countday .q3 { fill: #c6dbef; }
+.dashboard .order-countday .q4 { fill: #9ecae1; }
+.dashboard .order-countday .q5 { fill: #6baed6; }
+.dashboard .order-countday .q6 { fill: #4292c6; }
+.dashboard .order-countday .q7 { fill: #2171b5; }
+.dashboard .order-countday .q8 { fill: #08519c; }
+.dashboard .order-countday .q9 { fill: #08306b; }
 
 
 /* Order per hour diagram styles */
 
-.dashboard .order-hour .barcnt .bar { fill: #4292c6 }
+.dashboard .order-counthour .barcnt .bar { fill: #4292c6 }
 
 
 /* Order per payment status diagram styles */
 
-.dashboard #order-paymentstatus-data {
+.dashboard #order-countpaystatus-data {
 	position: relative;
 }
 
-.dashboard .order-paymentstatus .focus {
+.dashboard .order-countpaystatus .focus {
 	stroke: #555;
 }
 
-.dashboard .order-paymentstatus .overlay {
+.dashboard .order-countpaystatus .overlay {
 	pointer-events: all;
 	fill: none;
 }
 
-.dashboard .order-paymentstatus .pay-unfinished { fill: #969696; }
-.dashboard .order-paymentstatus .pay-deleted { fill: #e6550d; }
-.dashboard .order-paymentstatus .pay-canceled { fill: #fd8d3c; }
-.dashboard .order-paymentstatus .pay-refused { fill: #fdae6b; }
-.dashboard .order-paymentstatus .pay-refund { fill: #756bb1; }
-.dashboard .order-paymentstatus .pay-pending { fill: #3182bd; }
-.dashboard .order-paymentstatus .pay-authorized { fill: #74c476; }
-.dashboard .order-paymentstatus .pay-received { fill: #31a354; }
+.dashboard .order-countpaystatus .pay-unfinished { fill: #969696; }
+.dashboard .order-countpaystatus .pay-deleted { fill: #e6550d; }
+.dashboard .order-countpaystatus .pay-canceled { fill: #fd8d3c; }
+.dashboard .order-countpaystatus .pay-refused { fill: #fdae6b; }
+.dashboard .order-countpaystatus .pay-refund { fill: #756bb1; }
+.dashboard .order-countpaystatus .pay-pending { fill: #3182bd; }
+.dashboard .order-countpaystatus .pay-authorized { fill: #74c476; }
+.dashboard .order-countpaystatus .pay-received { fill: #31a354; }
 
-.dashboard .order-paymentstatus .tooltip {
+.dashboard .order-countpaystatus .tooltip {
 	background: rgba(0, 0, 0, 0.6);
 	border-radius: 2px;
 	font-weight: bold;
@@ -213,14 +213,14 @@
 	top: 0;
 }
 
-.dashboard .order-paymentstatus .tooltip .head {
+.dashboard .order-countpaystatus .tooltip .head {
 	font-size: 100%;
 	font-weight: bold;
 	text-align: center;
 }
 
-.dashboard .order-paymentstatus .tooltip .values th,
-.dashboard .order-paymentstatus .tooltip .values td {
+.dashboard .order-countpaystatus .tooltip .values th,
+.dashboard .order-countpaystatus .tooltip .values td {
 	text-align: right;
 	height: inherit;
 }

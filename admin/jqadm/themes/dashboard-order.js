@@ -179,8 +179,8 @@ Aimeos.Dashboard.Order = {
 		var selector = "#order-counthour-data",
 			numFmt = new Intl.NumberFormat(),
 			margin = {top: 20, right: 50, bottom: 40, left: 50},
-			width = $("#order-hour-data").width() - margin.left - margin.right,
-			height = $("#order-hour-data").height() - margin.top - margin.bottom - 10;
+			width = $(selector).width() - margin.left - margin.right,
+			height = $(selector).height() - margin.top - margin.bottom - 10;
 
 		var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
 
