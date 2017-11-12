@@ -115,9 +115,9 @@ $serviceAttrCodes = [
 					aria-haspopup="true" aria-expanded="false">
 					<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
 				</button>
-				<div class="dropdown-menu dropdown-menu-right">
-					<a class="dropdown-item next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a>
-				</div>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li class="dropdown-item"><a class="next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
