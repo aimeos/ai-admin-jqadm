@@ -23,12 +23,12 @@ html {
 	clear: both;
 }
 
-/*
+
 .card-block.collapse.show,
 .tab-content > .row.active {
 	display: flex;
 }
-*/
+
 
 .input-group .form-control {
 	z-index: 1;

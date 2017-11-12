@@ -23,6 +23,10 @@
 	height: 280px;
 }
 
+.dashboard .card-block.collapse.show {
+	display: block;
+}
+
 .dashboard .loading {
 	background-image: url('https://aimeos.org/aimeos-spinner.gif');
 	background-repeat: no-repeat;
