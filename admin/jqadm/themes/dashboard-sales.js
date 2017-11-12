@@ -121,7 +121,7 @@ Aimeos.Dashboard.Sales = {
 		}).done(function() {
 
 			var dateParser = d3.timeParse("%Y-%m-%d");
-			var lang = $(".dashboard-order").data("language") || "en";
+			var lang = $(".aimeos").attr("lang") || "en";
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, width/days]).padding(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
@@ -144,6 +144,7 @@ Aimeos.Dashboard.Sales = {
 				.selectAll("rect")
 				.data(function(d) { return Object.entries(d[1]); })
 				.enter().append("rect")
+					.attr("class", "barsum")
 					.attr("x", function(d) { return xScaleCurrencies(d[0]); })
 					.attr("y", function(d) { return yScale(d[1]); })
 					.attr("width", xScaleCurrencies.bandwidth())
@@ -229,7 +230,7 @@ Aimeos.Dashboard.Sales = {
 
 		}).done(function() {
 
-			var lang = $(".dashboard-order").data("language") || "en";
+			var lang = $(".aimeos").attr("lang") || "en";
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleMonths.bandwidth()]).padding(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
@@ -252,6 +253,7 @@ Aimeos.Dashboard.Sales = {
 				.selectAll("rect")
 				.data(function(d) { return Object.entries(d[1]); })
 				.enter().append("rect")
+					.attr("class", "barsum")
 					.attr("x", function(d) { return xScaleCurrencies(d[0]); })
 					.attr("y", function(d) { return yScale(d[1]); })
 					.attr("width", xScaleCurrencies.bandwidth())
@@ -335,7 +337,7 @@ Aimeos.Dashboard.Sales = {
 
 		}).done(function() {
 
-			var lang = $(".dashboard-order").data("language") || "en";
+			var lang = $(".aimeos").attr("lang") || "en";
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleWdays.bandwidth()]).padding(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
@@ -358,6 +360,7 @@ Aimeos.Dashboard.Sales = {
 				.selectAll("rect")
 				.data(function(d) { return Object.entries(d[1]); })
 				.enter().append("rect")
+					.attr("class", "barsum")
 					.attr("x", function(d) { return xScaleCurrencies(d[0]); })
 					.attr("y", function(d) { return yScale(d[1]); })
 					.attr("width", xScaleCurrencies.bandwidth())
