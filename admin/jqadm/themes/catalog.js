@@ -30,7 +30,8 @@ Aimeos.options.done(function(result) {
 
 	var params = {};
 
-	if(result.meta && result.meta.prefix) {
+	if(result.meta.prefix) {
+		Aimeos.Catalog.prefix = result.meta.prefix;
 		params[result.meta.prefix] = {id: rootId, include: "catalog"};
 	} else {
 		params = {id: rootId, include: "catalog"};
@@ -68,6 +69,7 @@ Aimeos.Catalog = {
 
 	csrf : null,
 	element : null,
+	prefix: null,
 
 
 	init : function() {
@@ -109,9 +111,18 @@ Aimeos.Catalog = {
 				return list;
 			},
 			dataUrl: function(node) {
+
+				var params = {};
+
+				if(Aimeos.Catalog.prefix) {
+					params[Aimeos.Catalog.prefix] = {'include': 'catalog'};
+				} else {
+					params = {'include': 'catalog'};
+				}
+
 				var result = {
 					'url': $(".aimeos .item-tree").data("jsonurl"),
-					'data': {'include': 'catalog'},
+					'data': params,
 					'method': 'GET'
 				}
 
