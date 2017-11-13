@@ -12,4 +12,4 @@
 
 JQuery and Bootstrap based admin interface for Aimeos
 
-[![Aimeos demo](https://aimeos.org/fileadmin/user_upload/demo.jpg)](http://demo.aimeos.org/)
+[![Aimeos demo](https://aimeos.org/fileadmin/aimeos.org/images/aimeos-backend.png)](http://admin.demo.aimeos.org/)
