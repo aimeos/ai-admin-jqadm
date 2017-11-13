@@ -154,7 +154,7 @@ class Standard
 	 * @since 2018.01
 	 * @category Developer
 	 */
-	private $subPartNames = array( 'latest', 'salesday', 'salesmonth', 'salesweekday', 'countpaystatus', 'counthour', 'countday', 'servicepayment', 'servicedelivery' );
+	private $subPartNames = array( 'latest', 'salesday', 'salesmonth', 'salesweekday', 'countday', 'countpaystatus', 'counthour', 'servicepayment', 'servicedelivery' );
 
 
 	/**

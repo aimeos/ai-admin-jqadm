@@ -8,16 +8,16 @@ Aimeos.Dashboard.Order = {
 
 	init : function() {
 
-		if( $(".order-countpaystatus").length ) {
-			this.chartPaymentStatus();
-		}
-
 		if( $(".order-counthour").length ) {
 			this.chartHour();
 		}
 
 		if( $(".order-countday").length ) {
 			this.chartDay();
+		}
+
+		if( $(".order-countpaystatus").length ) {
+			this.chartPaymentStatus();
 		}
 	},
 
@@ -385,5 +385,7 @@ Aimeos.Dashboard.Order = {
 
 $(function() {
 
-	Aimeos.Dashboard.Order.init();
+	$.when(Aimeos.Dashboard.Sales.promise).then(function() {
+		Aimeos.Dashboard.Order.init();
+	});
 });

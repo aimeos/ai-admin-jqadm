@@ -38,5 +38,7 @@ Aimeos.Dashboard.Service = {
 
 $(function() {
 
-	Aimeos.Dashboard.Service.init();
+	$.when(Aimeos.Dashboard.Sales.promise).then(function() {
+		Aimeos.Dashboard.Service.init();
+	});
 });

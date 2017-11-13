@@ -7,12 +7,12 @@
 Aimeos.Dashboard.Sales = {
 
 	colors: ["#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02", "#a6761d", "#666666"],
-	currencyPromise: null,
+	promise: null,
 
 
 	init: function() {
 
-		this.currencyPromise = $.when(Aimeos.options).pipe(function(data) {
+		this.promise = $.when(Aimeos.options).pipe(function(data) {
 
 			if( typeof data.meta == "undefined" ) {
 				throw 'No meta data in response';
@@ -79,7 +79,7 @@ Aimeos.Dashboard.Sales = {
 
 		var currencies = [], result = {}, max = 0;
 
-		$.when(Aimeos.Dashboard.Sales.currencyPromise).pipe(function(data) {
+		$.when(Aimeos.Dashboard.Sales.promise).pipe(function(data) {
 
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
@@ -190,7 +190,7 @@ Aimeos.Dashboard.Sales = {
 
 		var currencies = [], result = {}, max = 0;
 
-		$.when(Aimeos.Dashboard.Sales.currencyPromise).pipe(function(data) {
+		$.when(Aimeos.Dashboard.Sales.promise).pipe(function(data) {
 
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
@@ -298,7 +298,7 @@ Aimeos.Dashboard.Sales = {
 
 		var currencies = [], result = {}, max = 0;
 
-		$.when(Aimeos.Dashboard.Sales.currencyPromise).pipe(function(data) {
+		$.when(Aimeos.Dashboard.Sales.promise).pipe(function(data) {
 
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
