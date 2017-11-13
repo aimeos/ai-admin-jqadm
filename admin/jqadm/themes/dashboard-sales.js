@@ -85,7 +85,7 @@ Aimeos.Dashboard.Sales = {
 				throw 'No data in response';
 			}
 
-			var criteria, currencyid, promises ={};
+			var criteria, currencyid, promises = {};
 
 			for(var i=0; i<data.data.length; i++) {
 
@@ -123,7 +123,7 @@ Aimeos.Dashboard.Sales = {
 			var dateParser = d3.timeParse("%Y-%m-%d");
 			var lang = $(".aimeos").attr("lang") || "en";
 
-			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, width/days]).padding(0.05);
+			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, width/days]).padding(0.15).paddingInner(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
@@ -154,6 +154,7 @@ Aimeos.Dashboard.Sales = {
 						return new Intl.NumberFormat(lang, {style: 'currency', currency: d[0]}).format(d[1]);
 					});
 
+		}).always(function() {
 			$(selector).removeClass("loading");
 		});
 	},
@@ -263,6 +264,7 @@ Aimeos.Dashboard.Sales = {
 						return new Intl.NumberFormat(lang, {style: 'currency', currency: d[0]}).format(d[1]);
 					});
 
+		}).always(function() {
 			$(selector).removeClass("loading");
 		});
 	},
@@ -370,6 +372,7 @@ Aimeos.Dashboard.Sales = {
 						return new Intl.NumberFormat(lang, {style: 'currency', currency: d[0]}).format(d[1]);
 					});
 
+		}).always(function() {
 			$(selector).removeClass("loading");
 		});
 	}

@@ -95,7 +95,7 @@ Aimeos.Dashboard = {
 			radius = (width - lgspace > height ? Math.min(width - lgspace, height) : Math.min(width, height) ) / 2;
 
 
-		Aimeos.Dashboard.getData(resource, key, criteria, sort, limit).then(function(data) {
+		Aimeos.Dashboard.getData(resource, key, criteria, sort, limit).done(function(data) {
 
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
@@ -167,7 +167,7 @@ Aimeos.Dashboard = {
 					}
 				});
 
-		}).done(function() {
+		}).always(function() {
 			$(selector).removeClass("loading");
 		});
 	}
