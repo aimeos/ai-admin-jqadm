@@ -228,3 +228,19 @@
 	text-align: right;
 	height: inherit;
 }
+
+
+/* Service charts */
+
+
+.dashboard .order-servicedelivery .legend,
+.dashboard .order-servicepayment .legend {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+}
+
+.dashboard .order-servicedelivery .legend-item,
+.dashboard .order-servicepayment .legend-item {
+	display: block;
+}

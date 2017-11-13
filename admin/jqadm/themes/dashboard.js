@@ -94,29 +94,28 @@ Aimeos.Dashboard = {
 			height = $(selector).height() - margin.top - margin.bottom - 10,
 			radius = (width - lgspace > height ? Math.min(width - lgspace, height) : Math.min(width, height) ) / 2;
 
+		if(width > height) {
+			width = height;
+		}
 
-		Aimeos.Dashboard.getData(resource, key, criteria, sort, limit).done(function(data) {
+
+		Aimeos.Dashboard.getData(resource, key, criteria, sort, limit).then(function(data) {
 
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
 			}
 
-			var color = d3.scaleOrdinal(d3.schemeCategory20);
+			var colorScale = d3.scaleOrdinal(d3.schemeCategory20);
+			var domain = data.data.map(function(d) { return d.id; })
 			var sum = d3.sum(data.data, function(d) { return d.attributes; });
 
-			var arc = d3.arc()
-				.outerRadius(radius)
-				.innerRadius(radius - 50);
-
-			var pie = d3.pie()
-				.padAngle(.02)
-				.sort(null)
-				.value(function(d) { return +d.attributes; });
+			var arc = d3.arc().outerRadius(radius).innerRadius(radius - 50);
+			var pie = d3.pie().padAngle(.02).sort(null).value(function(d) { return +d.attributes; });
 
 			var svg = d3.select(selector)
 				.append("svg")
 				.attr("width", width + margin.left + margin.right)
-				.attr("height", (width - lgspace > height ? height + margin.top + margin.bottom : radius * 2 + margin.top + data.data.length * txheight + 25 ));
+				.attr("height", height + margin.top + margin.bottom);
 
 			var donut = svg.append("g")
 				.attr("transform", "translate(" + (radius + margin.left) + "," + (radius + margin.top) + ")")
@@ -128,7 +127,7 @@ Aimeos.Dashboard = {
 
 			donut.append("path")
 				.attr("d", arc)
-				.style("fill", function(d, i) { return color(i); });
+				.style("fill", function(d, i) { return colorScale(d.data.id); });
 
 			donut.append("text")
 				.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
@@ -139,35 +138,9 @@ Aimeos.Dashboard = {
 					return ( perc > 5.0 ? perc + "%" : "" );
 				});
 
-			var legend = svg.selectAll(".legend")
-				.data(data.data)
-				.enter()
-				.append("g")
-				.attr("class", "legend-item");
+			Aimeos.Dashboard.addLegend(selector, domain, colorScale);
 
-			legend.append("rect")
-				.style("fill", function(d, i) { return color(i); })
-				.attr("height", 10)
-				.attr("width", 10)
-				.attr("transform", function(d, i) {
-					if(width - lgspace > height) {
-						return "translate(" + (radius * 2 + margin.left + 25) + "," + (margin.top + i * txheight + 10) + ")";
-					} else {
-						return "translate(" + margin.left + "," + (radius * 2 + margin.top + 25 + i * txheight) + ")";
-					}
-				});
-
-			legend.append("text")
-				.text(function(d, i) { return d.id; })
-				.attr("transform", function(d, i) {
-					if(width - lgspace > height) {
-						return "translate(" + (radius * 2 + margin.left + 50) + "," + (margin.top + i * txheight + 20) + ")";
-					} else {
-						return "translate(" + (margin.left + 25) + "," + (radius * 2 + margin.top + 25 + i * txheight + 10) + ")";
-					}
-				});
-
-		}).always(function() {
+		}).done(function() {
 			$(selector).removeClass("loading");
 		});
 	}
