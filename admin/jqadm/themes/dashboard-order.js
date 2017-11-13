@@ -38,14 +38,17 @@ Aimeos.Dashboard.Order = {
 
 		var criteria = {">=": {"order.cdate": firstdate.toISOString().substr(0, 10)}};
 
-		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", 10000).then(function(data) {
+		Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", 10000).done(function(data) {
 
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
 			}
 
+			var lang = $(".aimeos").attr("lang") || "en";
+			var numFmt = new Intl.NumberFormat(lang);
+
 			var entries = {};
-			data.data.forEach(function(d) { entries[d.id] = d.attributes; });
+			data.data.forEach(function(d) { entries[d.id] = +d.attributes; });
 
 			var color = d3.scaleQuantize()
 				.range(d3.range(9).map(function(d) { return "q" + (d+1); }))
@@ -53,35 +56,36 @@ Aimeos.Dashboard.Order = {
 
 			var svg = d3.select(selector)
 				.append("svg")
-				.attr("width", width + margin.left + margin.right)
-				.attr("height", height + margin.top + margin.bottom)
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", height + margin.top + margin.bottom)
 				.append("g")
-				.attr("transform", "translate(" + margin.left + "," + ((height - cellWidth * 7) / 2 + margin.top) + ")");
+					.attr("transform", "translate(" + margin.left + "," + ((height - cellWidth * 7) / 2 + margin.top) + ")");
 
 			var cell = svg.selectAll(".day")
 				.data(dateRange)
-				.enter().append("rect")
-				.attr("class", "day")
-				.attr("width", cellSize)
-				.attr("height", cellSize)
-				.attr("x", function(d) {
-					var d1 = new Date(d.getUTCFullYear(), 0, 1);
-					var d51 = new Date(d.getUTCFullYear(), 11, 24);
-					var d52 = new Date(firstdate.getUTCFullYear(), 11, 31);
-					var first = d3.timeWeek.count(d3.timeYear(d1), d1);
-					var weeks = d3.timeWeek.count(d3.timeYear(d52), d52);
+				.enter()
+				.append("rect")
+					.attr("class", "day")
+					.attr("width", cellSize)
+					.attr("height", cellSize)
+					.attr("x", function(d) {
+						var d1 = new Date(d.getUTCFullYear(), 0, 1);
+						var d51 = new Date(d.getUTCFullYear(), 11, 24);
+						var d52 = new Date(firstdate.getUTCFullYear(), 11, 31);
+						var first = d3.timeWeek.count(d3.timeYear(d1), d1);
+						var weeks = d3.timeWeek.count(d3.timeYear(d52), d52);
 
-					if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d51), d51); }
-					if(first == 0) { weeks += 1; }
+						if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d51), d51); }
+						if(first == 0) { weeks += 1; }
 
-					var result = d3.timeWeek.count(d3.timeYear(d), d) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (d.getUTCFullYear() - firstdate.getUTCFullYear()));
-					return result * cellWidth;
-				})
-				.attr("y", function(d) { return d.getUTCDay() * cellWidth; })
-				.datum(d3.timeFormat("%Y-%m-%d"));
+						var result = d3.timeWeek.count(d3.timeYear(d), d) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (d.getUTCFullYear() - firstdate.getUTCFullYear()));
+						return result * cellWidth;
+					})
+					.attr("y", function(d) { return d.getUTCDay() * cellWidth; })
+					.datum(d3.timeFormat("%Y-%m-%d"));
 
 			cell.attr("class", function(d) { return "day " + (entries[d]>0 ? color(entries[d]) : "q0"); })
-				.append("title").text(function(d) { return d + ": " + (entries[d] || 0); });
+				.append("title").text(function(d) { return d + ": " + numFmt.format(entries[d] || 0); });
 
 
 			// day of week initials left of the heat map
@@ -167,7 +171,7 @@ Aimeos.Dashboard.Order = {
 				.attr("y", 13) // @todo calculate
 				.text("+");
 
-		}).done(function() {
+		}).always(function() {
 			$(selector).removeClass("loading");
 		});
 	},
@@ -177,22 +181,21 @@ Aimeos.Dashboard.Order = {
 	chartHour : function() {
 
 		var selector = "#order-counthour-data",
-			numFmt = new Intl.NumberFormat(),
 			margin = {top: 20, right: 50, bottom: 40, left: 50},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10;
 
 		var tzoffset = Math.floor((new Date()).getTimezoneOffset() / 60); // orders are stored with UTC timestamps
 
-		var xScale = d3.scaleBand().range([0, width]).domain([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]).paddingInner(0.15);
+		var xScale = d3.scaleBand().range([0, width]).domain(d3.range(0, 24, 1)).paddingInner(0.15);
 		var xAxis = d3.axisBottom().scale(xScale);
 
 		var svg = d3.select(selector)
 			.append("svg")
-			.attr("width", width + margin.left + margin.right)
-			.attr("height", height + margin.top + margin.bottom)
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
 			.append("g")
-			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		svg.append("g")
 			.attr("class", "x axis")
@@ -200,7 +203,7 @@ Aimeos.Dashboard.Order = {
 			.call(xAxis);
 
 
-		Aimeos.Dashboard.getData("order", "order.chour", {}, "-order.ctime", 10000).then(function(data) {
+		Aimeos.Dashboard.getData("order", "order.chour", {}, "-order.ctime", 10000).done(function(data) {
 
 			if( typeof data.data == "undefined" ) {
 				throw 'No data in response';
@@ -208,6 +211,9 @@ Aimeos.Dashboard.Order = {
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
 			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+
+			var lang = $(".aimeos").attr("lang") || "en";
+			var numFmt = new Intl.NumberFormat(lang);
 
 			svg.append("g")
 				.attr("class", "y axis left")
@@ -220,12 +226,12 @@ Aimeos.Dashboard.Order = {
 			bars.append("rect")
 				.attr("class", "bar")
 				.attr("x", function(d) { return xScale(((+d.id - tzoffset)) % 24); })
-				.attr("width", xScale.bandwidth())
 				.attr("y", function(d) { return yScale(+d.attributes); })
+				.attr("width", xScale.bandwidth())
 				.attr("height", function(d) { return height - yScale(+d.attributes); })
 				.append("title").text(function(d){ return numFmt.format(d.attributes); });
 
-		}).done(function() {
+		}).always(function() {
 			$(selector).removeClass("loading");
 		});
 	},
@@ -234,171 +240,143 @@ Aimeos.Dashboard.Order = {
 
 	chartPaymentStatus : function() {
 
-		var dates = [],
-			selector = "#order-countpaystatus-data",
-			translation = $(selector).data("translation"),
+		var selector = "#order-countpaystatus-data",
 			margin = {top: 20, right: 50, bottom: 40, left: 50},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,
-			statusrange = ["pay-unfinished", "pay-deleted", "pay-canceled", "pay-refused", "pay-refund", "pay-pending", "pay-authorized", "pay-received"],
-			statuslist = ['-1', '0', '1', '2', '3', '4', '5', '6'],
-			numdays = width / 25;
+			bandwidth = 25;
 
-		for( var i = 0; i < numdays; i++ ) {
-			dates.push(new Date(new Date().getTime() - (numdays - i) * 86400 * 1000 ).toISOString().substr(0, 10));
+		var statuslist = ['-1', '0', '1', '2', '3', '4', '5', '6'],
+			statusrange = [
+				"pay-unfinished", "pay-deleted", "pay-canceled", "pay-refused",
+				"pay-refund", "pay-pending", "pay-authorized", "pay-received"
+			];
+
+		var numdays = Math.floor(width / bandwidth),
+			firstdate = new Date(new Date().getTime() - numdays * 86400 * 1000),
+			dateRange = d3.utcDay.range(firstdate, new Date());
+
+
+		var colorScale = d3.scaleOrdinal().domain(statuslist).range(statusrange);
+		var xScale = d3.scaleTime().range([0, width]).domain([firstdate, new Date()]);
+		var xAxis = d3.axisBottom().scale(xScale).ticks(numdays/3);
+
+		var svg = d3.select(selector)
+			.append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+			.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		svg.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0," + height + ")")
+			.call(xAxis);
+
+
+		// Move ticks and label to the middle of the bars
+		svg.selectAll(".tick line").attr("transform", "translate(" + (bandwidth / 2 - 2) + ",0)");
+		svg.selectAll(".tick text").attr("transform", "translate(" + (bandwidth / 2 - 2) + ",0)");
+
+
+		var criteria, promises = {}, result = {};
+
+		for(var i=0; i<statuslist.length; i++) {
+
+			criteria = {"&&": [
+				{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
+				{"==": {"order.statuspayment": statuslist[i]}}
+			]};
+
+			promises[statuslist[i]] = Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", 10000);
 		}
 
+		jQuery.each(promises, function(status, promise) {
+			promise.done(function(data) {
 
-		var criteria = {"&&": [{">=": {"order.cdate": dates[0]}}, {"<=": {"order.cdate": dates[dates.length-2]}}]};
+				if(typeof data.data == "undefined") {
+					throw 'No data in response';
+				}
 
-		Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 100000).then(function(data) {
+				for(var i=0; i<data.data.length; i++) {
+					result[data.data[i].id] = result[data.data[i].id] || {};
+					result[data.data[i].id][status] = +data.data[i].attributes;
+				}
+			});
+		});
 
-			if( typeof data.data == "undefined" ) {
-				throw 'No data in response';
-			}
+
+		$.when.apply($, Object.values(promises)).done(function() {
 
 			var dateParser = d3.timeParse("%Y-%m-%d");
 
-			var color = d3.scaleOrdinal().domain(statuslist).range(statusrange);
-			var xScale = d3.scaleTime().range([0, width]).domain([dateParser(dates[0]), dateParser(dates[dates.length-1])]);
-			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
+			var stack = d3.stack().keys(statuslist).value(function(d, key) { return d[1][key] || 0; });
+			var max = d3.max(Object.entries(result), function(d) { return d3.sum(Object.values(d[1])); });
 
-			var xAxis = d3.axisBottom().scale(xScale).ticks(numdays/3);
+			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
 			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
-
-			var svg = d3.select(selector)
-				.append("svg")
-				.attr("width", width + margin.left + margin.right)
-				.attr("height", height + margin.top + margin.bottom)
-				.append("g")
-				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-			svg.append("g")
-				.attr("class", "x axis")
-				.attr("transform", "translate(0," + height + ")")
-				.call(xAxis);
-
-			svg.selectAll(".tick line").attr("transform", "translate(10,0)");
-			svg.selectAll(".tick text").attr("transform", "translate(10,0)");
 
 			svg.append("g")
 				.attr("class", "y axis")
 				.call(yAxis);
 
-			if( data.data.length == 0 ) { // no data avaiable
-				$(selector).removeClass("loading");
-				return;
-			}
+			svg.append("g")
+				.selectAll("g")
+				.data(stack(Object.entries(result)))
+				.enter().append("g")
+					.attr("class", function(d) { return colorScale(d.key); })
+					.selectAll("rect")
+					.data(function(d) { return d; })
+					.enter().append("rect")
+						.attr("class", "barcnt")
+						.attr("x", function(d) { return xScale(dateParser(d.data[0])) - 1; })
+						.attr("y", function(d) { return yScale(d[1]); })
+						.attr("height", function(d) { return yScale(d[0]) - yScale(d[1]); })
+						.attr("width", width/numdays - 2);
 
 
-			var res = [], entries = {};
+			statuslist.reverse(); // print counts per status in descending order
 
-			dates.forEach(function(date) {
-				var pdate = dateParser(date);
-				entries[date] = {
-					'-1': {'key': pdate, 'status': '-1', 'y0': 0, 'y1': 0},
-					'0': {'key': pdate, 'status': '0', 'y0': 0, 'y1': 0},
-					'1': {'key': pdate, 'status': '1', 'y0': 0, 'y1': 0},
-					'2': {'key': pdate, 'status': '2', 'y0': 0, 'y1': 0},
-					'3': {'key': pdate, 'status': '3', 'y0': 0, 'y1': 0},
-					'4': {'key': pdate, 'status': '4', 'y0': 0, 'y1': 0},
-					'5': {'key': pdate, 'status': '5', 'y0': 0, 'y1': 0},
-					'6': {'key': pdate, 'status': '6', 'y0': 0, 'y1': 0},
-					'total': 0
-				};
-			});
+			// interactive chart details
+			var tooltip = $('<div class="tooltip" />').appendTo($(selector));
+			var translation = $(selector).data("translation");
 
-			// create a JSON request for every status value (-1 till 6)
-			for(var i=0; i<statuslist.length; i++) {
-				var criteria = {"&&": [
-					{">=": {"order.cdate": dates[0]}},
-					{"<=": {"order.cdate": dates[dates.length-1]}},
-					{"==": {"order.statuspayment": statuslist[i]}}
-				]};
+			svg.append("rect")
+				.attr("class", "overlay")
+				.attr("width", width + 25)
+				.attr("height", height)
+				.on("mouseover", function() { tooltip.css("display", "block"); })
+				.on("mouseout", function() { tooltip.css("display", "none"); })
+				.on("mousemove", function() {
 
-				res.push(Aimeos.Dashboard.getData("order", "order.cdate", criteria, '-order.cdate', 10000));
-			};
+					// now tooltip for the date in the diagram
+					var x0 = xScale.invert(d3.mouse(this)[0]),
+						mouseX = xScale(x0),
+						curdate, i;
 
-			// draw a new layer for each status value
-			var drawLayer = function(status, data) {
-				if( typeof data.data == "undefined" ) {
-					throw 'No data in response';
-				}
+					for(i=0; i<dateRange.length; i++) {
+						curdate = dateRange[i].toISOString().substr(0, 10);
 
-				data.data.forEach(function(d) {
-					entries[d.id][status]['count'] = (+d.attributes);
-					entries[d.id][status]['y0'] = entries[d.id]['total'];
-					entries[d.id][status]['y1'] = entries[d.id]['total'] + (+d.attributes);
-					entries[d.id]['total'] += (+d.attributes);
-				});
-
-				dates.forEach(function(d) {
-					svg.append("rect")
-						.datum(entries[d][status])
-						.attr("class", function(d) { return "bar " + color(d.status); })
-						.attr("x", function(d) { return xScale(d.key); })
-						.attr("width", width / dates.length - 2)
-						.attr("y", function(d) { return yScale(d.y1); })
-						.attr("height", function(d) { return height - yScale(d.y1 - d.y0); });
-				});
-			};
-
-
-			// order is maintained by waiting for the promise of the status value
-			$.when(res[0], res[1], res[2], res[3], res[4], res[5], res[6], res[7])
-				.done(function(dt0, dt1, dt2, dt3, dt4, dt5, dt6, dt7) {
-						drawLayer('-1', dt0[0]);
-						drawLayer('0', dt1[0]);
-						drawLayer('1', dt2[0]);
-						drawLayer('2', dt3[0]);
-						drawLayer('3', dt4[0]);
-						drawLayer('4', dt5[0]);
-						drawLayer('5', dt6[0]);
-						drawLayer('6', dt7[0]);
-
-
-						statuslist.reverse(); // print counts per status in descending order
-
-						// interactive chart details
-						var tooltip = $('<div class="tooltip" />').appendTo($(selector));
-
-						svg.append("rect")
-							.attr("class", "overlay")
-							.attr("width", width+25)
-							.attr("height", height)
-							.on("mouseover", function() { tooltip.css("display", "block"); })
-							.on("mouseout", function() { tooltip.css("display", "none"); })
-							.on("mousemove", function() {
-
-								// now tooltip for the date in the diagram
-								var x0 = xScale.invert(d3.mouse(this)[0]),
-									mouseX = xScale(x0),
-									curdate, i;
-
-								for(i=0; i<dates.length; i++) {
-									curdate = dates[i];
-
-									if(i === dates.length-1 || x0 >= dateParser(dates[i]) && x0 < dateParser(dates[i+1])) {
-										break;
-									}
-								}
-
-								var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
-								statuslist.forEach(function(status) {
-									html += '<tr><th>' + translation[status] + "</th><td>" + (entries[curdate][status]['count'] || 0) + '</td></tr>';
-								});
-								html += '</table>';
-
-								// avoid pointer being inside the tooltip to prevent flickering
-								// dispay tooltip right or left of the pointer depending on the position in the diagram
-								tooltip.html(html)
-									.css("top", margin.top)
-									.css("left", (mouseX - width / 2 > 0 ? mouseX - tooltip.outerWidth() : mouseX + 20) + margin.left);
-							});
-
-						$(selector).removeClass("loading");
+						if(i === dateRange.length-1 || x0 >= dateRange[i] && x0 < dateRange[i+1]) {
+							break;
+						}
 					}
-				);
+
+					var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
+					statuslist.forEach(function(status) {
+						html += '<tr><th>' + translation[status] + "</th><td>" + (result[curdate][status] || 0) + '</td></tr>';
+					});
+					html += '</table>';
+
+					// avoid pointer being inside the tooltip to prevent flickering
+					// dispay tooltip right or left of the pointer depending on the position in the diagram
+					tooltip.html(html)
+						.css("top", margin.top)
+						.css("left", (mouseX - width / 2 > 0 ? mouseX - tooltip.outerWidth() - 20 : mouseX + 20) + margin.left);
+				});
+
+		}).always(function() {
+			$(selector).removeClass("loading");
 		});
 	}
 };
