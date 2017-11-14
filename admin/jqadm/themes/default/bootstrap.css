@@ -52,6 +52,16 @@ html {
 
 /* Aimeos Bootstrap theme */
 
+.alert {
+	padding: 0.9rem 1.25rem;
+}
+
+.info-list.alert {
+	position: fixed;
+	z-index: 10000;
+	width: calc(95% - 5rem);
+}
+
 .btn {
 	box-shadow: none;
 	border: 1px solid transparent;
@@ -211,5 +221,12 @@ select.form-control:not([size]):not([multiple]) {
 	}
 	.form-group.row .form-control-label {
 		font-size: 90%;
+	}
+}
+
+
+@media (max-width: 991px) {
+	.info-list.alert {
+		width: calc(95% - 3rem);
 	}
 }
