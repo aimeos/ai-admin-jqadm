@@ -6,7 +6,7 @@
 
 Aimeos.Dashboard.Sales = {
 
-	colors: ["#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02", "#a6761d", "#666666"],
+	colors: ["#31A354", "#FF8E00", "#68D6AD", "#DD3737", "#E3E700"],
 	promise: null,
 
 
@@ -53,7 +53,7 @@ Aimeos.Dashboard.Sales = {
 	chartDay : function() {
 
 		var selector = "#order-salesday-data",
-			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 50},
+			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 20},
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
 
@@ -168,7 +168,7 @@ Aimeos.Dashboard.Sales = {
 	chartMonth : function() {
 
 		var selector = "#order-salesmonth-data",
-			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 50},
+			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 20},
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
 
@@ -279,7 +279,7 @@ Aimeos.Dashboard.Sales = {
 	chartWeekday : function() {
 
 		var selector = "#order-salesweekday-data",
-			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 50},
+			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 20},
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
 

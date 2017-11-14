@@ -26,7 +26,7 @@ Aimeos.Dashboard.Order = {
 	chartDay : function() {
 
 		var selector = "#order-countday-data",
-			margin = {top: 20, bottom: 20, left: 50, right: 50},
+			margin = {top: 20, bottom: 20, left: 30, right: 35},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,
 			cellPad = 2, cellSize = 16, cellWidth = cellSize + cellPad;
@@ -181,7 +181,7 @@ Aimeos.Dashboard.Order = {
 	chartHour : function() {
 
 		var selector = "#order-counthour-data",
-			margin = {top: 20, right: 50, bottom: 40, left: 50},
+			margin = {top: 20, bottom: 40, left: 50, right: 20},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10;
 
@@ -241,7 +241,7 @@ Aimeos.Dashboard.Order = {
 	chartPaymentStatus : function() {
 
 		var selector = "#order-countpaystatus-data",
-			margin = {top: 20, right: 50, bottom: 40, left: 50},
+			margin = {top: 20, bottom: 40, left: 50, right: 20},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,
 			bandwidth = 25;
