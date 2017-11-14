@@ -58,11 +58,14 @@ Aimeos.Dashboard.Sales = {
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
 
 		var days = 30,
-			firstdate = new Date(new Date().getTime() - days * 86400 * 1000),
-			dateRange = d3.utcDay.range(firstdate, new Date());
+			startdate = new Date(new Date().getTime() - (days+1) * 86400 * 1000),
+			enddate = new Date(new Date().getTime() + 86400 * 1000);
 
-		var xScaleDays = d3.scaleTime().rangeRound([0, width]).domain([firstdate, new Date()]).nice(days);
-		var xAxis = d3.axisBottom().scale(xScaleDays);
+		var lang = $(".aimeos").attr("lang") || "en",
+			dateFmt = new Intl.DateTimeFormat(lang, {month: "numeric", day: "numeric"});
+
+		var xScaleDays = d3.scaleTime().rangeRound([0, width]).domain([startdate, enddate]);
+		var xAxis = d3.axisBottom().scale(xScaleDays).ticks(width/days/2).tickFormat(function(d) { return dateFmt.format(d); });
 
 		var svg = d3.select(selector)
 			.append("svg")
@@ -85,7 +88,8 @@ Aimeos.Dashboard.Sales = {
 				throw 'No data in response';
 			}
 
-			var criteria, currencyid, promises = {};
+			var criteria, currencyid, promises = {},
+				firstdate = new Date(new Date().getTime() - days * 86400 * 1000);
 
 			for(var i=0; i<data.data.length; i++) {
 
@@ -121,13 +125,13 @@ Aimeos.Dashboard.Sales = {
 		}).done(function() {
 
 			var dateParser = d3.timeParse("%Y-%m-%d");
-			var lang = $(".aimeos").attr("lang") || "en";
+			var numFmt = Intl.NumberFormat(lang);
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, width/days]).padding(0.15).paddingInner(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
-			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7).tickFormat(function(d) { return numFmt.format(d); });
 
 
 			Aimeos.Dashboard.addLegend(selector, currencies, colorScale);
@@ -173,7 +177,7 @@ Aimeos.Dashboard.Sales = {
 			months = d3.utcMonth.range(firstdate, new Date()).map(function(d) { return d.toISOString().substr(0, 7); });
 
 		var xScaleMonths = d3.scaleBand().range([0, width]).domain(months).paddingInner(0.15);
-		var xAxis = d3.axisBottom().scale(xScaleMonths);
+		var xAxis = d3.axisBottom().scale(xScaleMonths).tickFormat(function(d) { return d.substr(5, 2); });
 
 		var svg = d3.select(selector)
 			.append("svg")
@@ -232,12 +236,13 @@ Aimeos.Dashboard.Sales = {
 		}).done(function() {
 
 			var lang = $(".aimeos").attr("lang") || "en";
+			var numFmt = Intl.NumberFormat(lang);
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleMonths.bandwidth()]).padding(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
-			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7).tickFormat(function(d) { return numFmt.format(d); });
 
 
 			Aimeos.Dashboard.addLegend(selector, currencies, colorScale);
@@ -278,10 +283,18 @@ Aimeos.Dashboard.Sales = {
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
 
-		var firstdate = new Date(new Date().getTime() - 365 * 86400 * 1000);
+		var lang = $(".aimeos").attr("lang") || "en",
+			dateFmt = new Intl.DateTimeFormat(lang, {weekday: "short"});
+
+		var weekdays = [],
+			firstdate = new Date(new Date().getTime() - 365 * 86400 * 1000);
+
+		for(var i=1; i<=7; i++) {
+			weekdays.push(dateFmt.format(new Date('1970-02-0' + i))); // Sunday to Saturday
+		}
 
 		var xScaleWdays = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]).paddingInner(0.15);
-		var xAxis = d3.axisBottom().scale(xScaleWdays).tickFormat(function(d) { return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d]; });
+		var xAxis = d3.axisBottom().scale(xScaleWdays).tickFormat(function(d) { return weekdays[d]; });
 
 		var svg = d3.select(selector)
 			.append("svg")
@@ -339,13 +352,13 @@ Aimeos.Dashboard.Sales = {
 
 		}).done(function() {
 
-			var lang = $(".aimeos").attr("lang") || "en";
+			var numFmt = Intl.NumberFormat(lang);
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleWdays.bandwidth()]).padding(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
-			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7).tickFormat(function(d) { return numFmt.format(d); });
 
 
 			Aimeos.Dashboard.addLegend(selector, currencies, colorScale);

@@ -210,7 +210,7 @@ Aimeos.Dashboard.Order = {
 			}
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, d3.max(data.data, function(d) { return +d.attributes; })]);
-			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7).tickFormat(function(d) { return numFmt.format(d); });
 
 			var lang = $(".aimeos").attr("lang") || "en";
 			var numFmt = new Intl.NumberFormat(lang);
@@ -256,10 +256,13 @@ Aimeos.Dashboard.Order = {
 			firstdate = new Date(new Date().getTime() - numdays * 86400 * 1000),
 			dateRange = d3.utcDay.range(firstdate, new Date());
 
+		var lang = $(".aimeos").attr("lang") || "en",
+			dateFmt = new Intl.DateTimeFormat(lang, {month: "numeric", day: "numeric"});
+
 
 		var colorScale = d3.scaleOrdinal().domain(statuslist).range(statusrange);
 		var xScale = d3.scaleTime().range([0, width]).domain([firstdate, new Date()]);
-		var xAxis = d3.axisBottom().scale(xScale).ticks(numdays/3);
+		var xAxis = d3.axisBottom().scale(xScale).ticks(numdays/2).tickFormat(function(d) { return dateFmt.format(d); });
 
 		var svg = d3.select(selector)
 			.append("svg")
@@ -309,12 +312,13 @@ Aimeos.Dashboard.Order = {
 		$.when.apply($, Object.values(promises)).done(function() {
 
 			var dateParser = d3.timeParse("%Y-%m-%d");
+			var numFmt = Intl.NumberFormat(lang);
 
 			var stack = d3.stack().keys(statuslist).value(function(d, key) { return d[1][key] || 0; });
 			var max = d3.max(Object.entries(result), function(d) { return d3.sum(Object.values(d[1])); });
 
 			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
-			var yAxis = d3.axisLeft().scale(yScale).ticks(7);
+			var yAxis = d3.axisLeft().scale(yScale).ticks(7).tickFormat(function(d) { return numFmt.format(d); });
 
 			svg.append("g")
 				.attr("class", "y axis")
