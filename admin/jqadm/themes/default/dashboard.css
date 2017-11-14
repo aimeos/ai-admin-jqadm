@@ -232,6 +232,10 @@
 
 /* Service charts */
 
+.dashboard .order-servicedelivery .card-block.collapse.show,
+.dashboard .order-servicepayment .card-block.collapse.show {
+	display: flex;
+}
 
 .dashboard .order-servicedelivery .legend,
 .dashboard .order-servicepayment .legend {
