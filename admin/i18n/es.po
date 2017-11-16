@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 17:37+0200\n"
-"PO-Revision-Date: 2017-10-02 15:52+0000\n"
+"POT-Creation-Date: 2017-10-16 15:11+0200\n"
+"PO-Revision-Date: 2017-10-16 13:12+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -174,6 +174,15 @@ msgstr "Atributo"
 msgid "Attribute Lists Type"
 msgstr ""
 
+msgid "Attribute Lists Types"
+msgstr ""
+
+msgid "Attribute Property Type"
+msgstr ""
+
+msgid "Attribute Property Types"
+msgstr ""
+
 msgid "Attribute Type"
 msgstr "Tipo de atributo"
 
@@ -184,6 +193,9 @@ msgid "Attribute name"
 msgstr "Nombre del atributo"
 
 msgid "Attribute position (optional)"
+msgstr ""
+
+msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
 
 msgid "Attribute type"
@@ -278,6 +290,9 @@ msgid "Catalog"
 msgstr "Catálogo"
 
 msgid "Catalog Lists Type"
+msgstr ""
+
+msgid "Catalog Lists Types"
 msgstr ""
 
 msgid "Catalog Types"
@@ -469,6 +484,9 @@ msgid "Customer ID"
 msgstr "ID de cliente"
 
 msgid "Customer Lists Type"
+msgstr ""
+
+msgid "Customer Lists Types"
 msgstr ""
 
 msgid "Customer Types"
@@ -993,6 +1011,9 @@ msgstr "Medios"
 msgid "Media Lists Type"
 msgstr ""
 
+msgid "Media Lists Types"
+msgstr ""
+
 msgid "Media Type"
 msgstr ""
 
@@ -1153,6 +1174,9 @@ msgstr "Pedidos por hora"
 msgid "Orders by payment status"
 msgstr "Pedidos por estado de pago"
 
+msgid "Orders by weekday"
+msgstr ""
+
 msgid "Overview"
 msgstr "General"
 
@@ -1306,6 +1330,9 @@ msgstr "Precio"
 msgid "Price Lists Type"
 msgstr ""
 
+msgid "Price Lists Types"
+msgstr ""
+
 msgid "Price Type"
 msgstr ""
 
@@ -1340,7 +1367,13 @@ msgstr "ID del producto"
 msgid "Product Lists Type"
 msgstr ""
 
+msgid "Product Lists Types"
+msgstr ""
+
 msgid "Product Property Type"
+msgstr ""
+
+msgid "Product Property Types"
 msgstr ""
 
 msgid "Product Type"
@@ -1577,6 +1610,9 @@ msgstr "ID de servicio"
 msgid "Service Lists Type"
 msgstr ""
 
+msgid "Service Lists Types"
+msgstr ""
+
 msgid "Service Type"
 msgstr "Tipo de servicio"
 
@@ -1805,6 +1841,9 @@ msgid "Text"
 msgstr "Texto"
 
 msgid "Text Lists Type"
+msgstr ""
+
+msgid "Text Lists Types"
 msgstr ""
 
 msgid "Text Type"
@@ -2273,6 +2312,10 @@ msgid "product"
 msgstr "Productos"
 
 #, php-format
+msgid "property"
+msgstr ""
+
+#, php-format
 msgid "related"
 msgstr "Productos"
 
@@ -2388,6 +2431,10 @@ msgid "type/attribute/lists"
 msgstr ""
 
 #, php-format
+msgid "type/attribute/property"
+msgstr ""
+
+#, php-format
 msgid "type/catalog/lists"
 msgstr ""
 
@@ -2453,6 +2500,10 @@ msgstr ""
 
 msgid "unknown"
 msgstr "Desconocido"
+
+#, php-format
+msgid "weekday"
+msgstr ""
 
 msgid "yes"
 msgstr "sí"

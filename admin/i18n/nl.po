@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 17:37+0200\n"
-"PO-Revision-Date: 2017-10-03 20:20+0000\n"
-"Last-Translator: Maurice Lourens <mlourens@gmail.com>\n"
+"POT-Creation-Date: 2017-10-16 15:11+0200\n"
+"PO-Revision-Date: 2017-10-16 13:12+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -176,6 +176,15 @@ msgstr "Kenmerk"
 msgid "Attribute Lists Type"
 msgstr "Kenmerk Lijst Type"
 
+msgid "Attribute Lists Types"
+msgstr ""
+
+msgid "Attribute Property Type"
+msgstr ""
+
+msgid "Attribute Property Types"
+msgstr ""
+
 msgid "Attribute Type"
 msgstr "Kenmerk Type"
 
@@ -187,6 +196,9 @@ msgstr "Kenmerk naam"
 
 msgid "Attribute position (optional)"
 msgstr "Kenmerk positie (optioneel)"
+
+msgid "Attribute properties that are not shared with other attributes"
+msgstr ""
 
 msgid "Attribute type"
 msgstr "Type kenmerk"
@@ -280,6 +292,9 @@ msgid "Catalog"
 msgstr "Catalogus"
 
 msgid "Catalog Lists Type"
+msgstr ""
+
+msgid "Catalog Lists Types"
 msgstr ""
 
 msgid "Catalog Types"
@@ -471,6 +486,9 @@ msgid "Customer ID"
 msgstr "Klant ID"
 
 msgid "Customer Lists Type"
+msgstr ""
+
+msgid "Customer Lists Types"
 msgstr ""
 
 msgid "Customer Types"
@@ -995,6 +1013,9 @@ msgstr "Media"
 msgid "Media Lists Type"
 msgstr ""
 
+msgid "Media Lists Types"
+msgstr ""
+
 msgid "Media Type"
 msgstr "Media type"
 
@@ -1155,6 +1176,9 @@ msgstr "Bestellingen per uur"
 msgid "Orders by payment status"
 msgstr "Bestellingen op betaalstatus"
 
+msgid "Orders by weekday"
+msgstr ""
+
 msgid "Overview"
 msgstr "Overzicht"
 
@@ -1308,6 +1332,9 @@ msgstr "Prijs"
 msgid "Price Lists Type"
 msgstr ""
 
+msgid "Price Lists Types"
+msgstr ""
+
 msgid "Price Type"
 msgstr ""
 
@@ -1342,7 +1369,13 @@ msgstr "Product ID"
 msgid "Product Lists Type"
 msgstr ""
 
+msgid "Product Lists Types"
+msgstr ""
+
 msgid "Product Property Type"
+msgstr ""
+
+msgid "Product Property Types"
 msgstr ""
 
 msgid "Product Type"
@@ -1579,6 +1612,9 @@ msgstr "Dienst ID"
 msgid "Service Lists Type"
 msgstr ""
 
+msgid "Service Lists Types"
+msgstr ""
+
 msgid "Service Type"
 msgstr ""
 
@@ -1807,6 +1843,9 @@ msgid "Text"
 msgstr "Tekst"
 
 msgid "Text Lists Type"
+msgstr ""
+
+msgid "Text Lists Types"
 msgstr ""
 
 msgid "Text Type"
@@ -2275,6 +2314,10 @@ msgid "product"
 msgstr "Producten"
 
 #, php-format
+msgid "property"
+msgstr ""
+
+#, php-format
 msgid "related"
 msgstr "Producten"
 
@@ -2390,6 +2433,10 @@ msgid "type/attribute/lists"
 msgstr ""
 
 #, php-format
+msgid "type/attribute/property"
+msgstr ""
+
+#, php-format
 msgid "type/catalog/lists"
 msgstr ""
 
@@ -2454,6 +2501,10 @@ msgid "type/text/lists"
 msgstr ""
 
 msgid "unknown"
+msgstr ""
+
+#, php-format
+msgid "weekday"
 msgstr ""
 
 msgid "yes"

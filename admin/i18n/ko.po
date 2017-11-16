@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-16 15:11+0200\n"
-"PO-Revision-Date: 2017-10-16 13:12+0000\n"
-"Last-Translator: Aimeos\n"
-"Language-Team: Danish (http://www.transifex.com/aimeos/aimeos-core/language/da/)\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Korean (http://www.transifex.com/aimeos/aimeos-core/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #, php-format
 msgid ""
@@ -241,7 +241,7 @@ msgid "Available texts"
 msgstr ""
 
 msgid "Back"
-msgstr "Tilbage"
+msgstr ""
 
 msgid "Back in stock"
 msgstr ""
@@ -253,13 +253,13 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr "Indkøbskurv"
+msgstr ""
 
 msgid "Billing address"
-msgstr "Faktureringsadresse"
+msgstr ""
 
 msgid "Birthday"
-msgstr "Fødselsdag"
+msgstr ""
 
 msgid "Birthday of the customer"
 msgstr ""
@@ -300,7 +300,7 @@ msgid "Catalog: {0} ({1})"
 msgstr ""
 
 msgid "Categories"
-msgstr "Kategorier"
+msgstr ""
 
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
@@ -320,7 +320,7 @@ msgid "Characteristics"
 msgstr ""
 
 msgid "City"
-msgstr "By"
+msgstr ""
 
 msgid "City name (required)"
 msgstr ""
@@ -351,7 +351,7 @@ msgid "Click to upload"
 msgstr ""
 
 msgid "Close"
-msgstr "Luk"
+msgstr ""
 
 msgid "Code"
 msgstr ""
@@ -372,7 +372,7 @@ msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr "Firma"
+msgstr ""
 
 msgid "Company details"
 msgstr ""
@@ -414,7 +414,7 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr "Land"
+msgstr ""
 
 msgid "Country ID"
 msgstr ""
@@ -574,7 +574,7 @@ msgid "Descritive name of the site"
 msgstr ""
 
 msgid "Details"
-msgstr "Detajler"
+msgstr ""
 
 msgid "Display field is empty"
 msgstr ""
@@ -595,7 +595,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr "Email"
+msgstr ""
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -664,7 +664,7 @@ msgid "File URL"
 msgstr ""
 
 msgid "Filter"
-msgstr "Filter"
+msgstr ""
 
 msgid "Find category"
 msgstr ""
@@ -673,7 +673,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr "Fornavn"
+msgstr ""
 
 msgid "First name (optional)"
 msgstr ""
@@ -870,7 +870,7 @@ msgid ""
 msgstr ""
 
 msgid "Language"
-msgstr "Sprog"
+msgstr ""
 
 msgid "Language (required)"
 msgstr ""
@@ -894,7 +894,7 @@ msgid "Last modified"
 msgstr ""
 
 msgid "Last name"
-msgstr "Efternavn"
+msgstr ""
 
 msgid "Last name (required)"
 msgstr ""
@@ -1063,7 +1063,7 @@ msgid "Mrs"
 msgstr ""
 
 msgid "Name"
-msgstr "Navn"
+msgstr ""
 
 msgid "Name of the coupon provider class (required)"
 msgstr ""
@@ -1082,7 +1082,7 @@ msgid "New"
 msgstr ""
 
 msgid "Next"
-msgstr "Næste"
+msgstr ""
 
 msgid "No error information available"
 msgstr ""
@@ -1194,7 +1194,7 @@ msgid "Parameter"
 msgstr ""
 
 msgid "Password"
-msgstr "kodeord"
+msgstr ""
 
 msgid "Password (required)"
 msgstr ""
@@ -1221,13 +1221,13 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr "Betaling"
+msgstr ""
 
 msgid "Payment date"
 msgstr ""
 
 msgid "Payment status"
-msgstr "Betalingsstatus"
+msgstr ""
 
 msgid "Payment type"
 msgstr ""
@@ -1318,10 +1318,10 @@ msgid "Preview URL"
 msgstr ""
 
 msgid "Previous"
-msgstr "Forrige"
+msgstr ""
 
 msgid "Price"
-msgstr "Pris"
+msgstr ""
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1355,7 +1355,7 @@ msgid "Priority"
 msgstr ""
 
 msgid "Product"
-msgstr "Produkt"
+msgstr ""
 
 msgid "Product ID"
 msgstr ""
@@ -1494,7 +1494,7 @@ msgid "Purchased"
 msgstr ""
 
 msgid "Quantity"
-msgstr "Antal"
+msgstr ""
 
 msgid "Quantity or empty if unlimited (optional)"
 msgstr ""
@@ -1585,7 +1585,7 @@ msgid "Schema {0} is  not registered"
 msgstr ""
 
 msgid "Search"
-msgstr "Søg"
+msgstr ""
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
@@ -1680,7 +1680,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr "Vis"
+msgstr ""
 
 msgid "Show entry"
 msgstr ""
@@ -1744,7 +1744,7 @@ msgid "Stock level"
 msgstr ""
 
 msgid "Street"
-msgstr "Gade"
+msgstr ""
 
 msgid "Street (required)"
 msgstr ""
@@ -1765,7 +1765,7 @@ msgid "Suggested products"
 msgstr ""
 
 msgid "Sum"
-msgstr "Total"
+msgstr ""
 
 msgid "Supplier"
 msgstr ""
@@ -1825,7 +1825,7 @@ msgid "Telefax"
 msgstr ""
 
 msgid "Telephone"
-msgstr "Telefon"
+msgstr ""
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1913,7 +1913,7 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr ""
@@ -2121,7 +2121,7 @@ msgid "address:delivery"
 msgstr ""
 
 msgid "address:payment"
-msgstr "Faktureringsadresse"
+msgstr ""
 
 #, php-format
 msgid "attribute"
@@ -2133,11 +2133,11 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr "Kategorier"
+msgstr ""
 
 #, php-format
 msgid "category"
-msgstr "Kategorier"
+msgstr ""
 
 #, php-format
 msgid "characteristic"
@@ -2148,7 +2148,7 @@ msgid "code"
 msgstr ""
 
 msgid "company"
-msgstr "Firma"
+msgstr ""
 
 #, php-format
 msgid "coupon"
@@ -2172,7 +2172,7 @@ msgstr ""
 
 #, php-format
 msgid "download"
-msgstr "Downloads"
+msgstr ""
 
 #, php-format
 msgid "hour"
@@ -2327,7 +2327,7 @@ msgid "service:delivery"
 msgstr ""
 
 msgid "service:payment"
-msgstr "Betaling"
+msgstr ""
 
 #, php-format
 msgid "special"

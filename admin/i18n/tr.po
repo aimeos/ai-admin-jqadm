@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 17:37+0200\n"
-"PO-Revision-Date: 2017-10-04 13:25+0000\n"
+"POT-Creation-Date: 2017-10-16 15:11+0200\n"
+"PO-Revision-Date: 2017-11-02 22:54+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -171,6 +171,15 @@ msgstr "Nitelik"
 msgid "Attribute Lists Type"
 msgstr "Nitelik Liste Türü"
 
+msgid "Attribute Lists Types"
+msgstr "Nitelik Liste Türleri"
+
+msgid "Attribute Property Type"
+msgstr "Nitelik Özellik Türü"
+
+msgid "Attribute Property Types"
+msgstr "Nitelik Özellik Türleri"
+
 msgid "Attribute Type"
 msgstr "Nitelik Türü"
 
@@ -182,6 +191,9 @@ msgstr "Nitelik adı"
 
 msgid "Attribute position (optional)"
 msgstr "Nitelik pozisyonu (isteğe bağlı)"
+
+msgid "Attribute properties that are not shared with other attributes"
+msgstr "Diğer niteliklerle paylaşılmayan nitelik özellikleri"
 
 msgid "Attribute type"
 msgstr "Nitelik türü"
@@ -276,6 +288,9 @@ msgstr "Katalog"
 
 msgid "Catalog Lists Type"
 msgstr "Katalog Liste Türü"
+
+msgid "Catalog Lists Types"
+msgstr "Katalog Liste Türleri"
 
 msgid "Catalog Types"
 msgstr "Katalog Türleri"
@@ -467,6 +482,9 @@ msgstr "Müşteri ID'si"
 
 msgid "Customer Lists Type"
 msgstr "Müşteri Liste Türü"
+
+msgid "Customer Lists Types"
+msgstr "Müşteri Liste Türleri"
 
 msgid "Customer Types"
 msgstr "Müşteri Türleri"
@@ -990,6 +1008,9 @@ msgstr "Medya"
 msgid "Media Lists Type"
 msgstr "Medya Liste Türleri"
 
+msgid "Media Lists Types"
+msgstr "Medya Liste Türleri"
+
 msgid "Media Type"
 msgstr "Medya Türü"
 
@@ -1150,6 +1171,9 @@ msgstr "Saatlere göre siparişler"
 msgid "Orders by payment status"
 msgstr "Ödeme durumuna göre siparişler"
 
+msgid "Orders by weekday"
+msgstr "Haftanın gününe göre siparişler"
+
 msgid "Overview"
 msgstr "Genel bakış"
 
@@ -1303,6 +1327,9 @@ msgstr "Fiyat"
 msgid "Price Lists Type"
 msgstr "Fiyat Liste Türleri"
 
+msgid "Price Lists Types"
+msgstr "Fiyat Liste Türleri"
+
 msgid "Price Type"
 msgstr "Fiyat Türü"
 
@@ -1337,8 +1364,14 @@ msgstr "Ürün ID"
 msgid "Product Lists Type"
 msgstr "Ürün Liste Türleri"
 
+msgid "Product Lists Types"
+msgstr "Ürün Liste Türleri"
+
 msgid "Product Property Type"
 msgstr "Ürün Nitelik Türü"
+
+msgid "Product Property Types"
+msgstr "Ürün Özellik Türleri"
 
 msgid "Product Type"
 msgstr "Ürün Türü"
@@ -1574,6 +1607,9 @@ msgstr "Servis ID"
 msgid "Service Lists Type"
 msgstr "Servis Liste Türleri"
 
+msgid "Service Lists Types"
+msgstr "Hizmet Liste Türleri"
+
 msgid "Service Type"
 msgstr "Servis Türü"
 
@@ -1803,6 +1839,9 @@ msgstr "Metin"
 
 msgid "Text Lists Type"
 msgstr "Etiket Liste Türleri"
+
+msgid "Text Lists Types"
+msgstr "Metin Liste Türleri"
 
 msgid "Text Type"
 msgstr "Metin Türü"
@@ -2270,6 +2309,10 @@ msgid "product"
 msgstr "Ürünler"
 
 #, php-format
+msgid "property"
+msgstr "nitelik"
+
+#, php-format
 msgid "related"
 msgstr "Ürünler"
 
@@ -2385,6 +2428,10 @@ msgid "type/attribute/lists"
 msgstr "Nitelik Listeleri"
 
 #, php-format
+msgid "type/attribute/property"
+msgstr "tür/nitelik/özellik"
+
+#, php-format
 msgid "type/catalog/lists"
 msgstr "Katalog Listeleri"
 
@@ -2450,6 +2497,10 @@ msgstr "Metin Listeleri"
 
 msgid "unknown"
 msgstr "Bilinmiyor"
+
+#, php-format
+msgid "weekday"
+msgstr "hafta içi"
 
 msgid "yes"
 msgstr "evet"
