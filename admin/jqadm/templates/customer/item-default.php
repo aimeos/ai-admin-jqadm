@@ -170,7 +170,7 @@ $params = $this->get( 'pageParams', [] );
 
 									<?php foreach( $languages as $langId => $langItem ) : ?>
 										<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $this->get( 'itemData/customer.languageid', '' ), $langId ); ?> >
-											<?= $enc->html( $this->translate( 'client/language', $langId ) ); ?>
+											<?= $enc->html( $this->translate( 'language', $langId ) ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>

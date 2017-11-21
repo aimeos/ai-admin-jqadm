@@ -50,7 +50,7 @@ unset( $searchParams['id'] );
 
 /// Price format with price value (%1$s) and currency (%2$s)
 $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
-$currency = $this->translate( 'client/currency', $basket->getPrice()->getCurrencyId() );
+$currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() );
 
 $serviceAttrCodes = [
 	/** admin/jqadm/order/service/delivery/attribute/suggest
@@ -195,7 +195,7 @@ $serviceAttrCodes = [
 
 									<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
 										<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $basket->getLocale()->getLanguageId(), $langId ); ?> >
-											<?= $enc->html( $this->translate( 'client/language', $langId ) ); ?>
+											<?= $enc->html( $this->translate( 'language', $langId ) ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>
@@ -390,7 +390,7 @@ $serviceAttrCodes = [
 
 												<?php foreach( $languages as $langId => $langItem ) : ?>
 													<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $this->get( 'itemData/address/' . $type . '/order.base.address.languageid' ), $langId ); ?> >
-														<?= $enc->html( $this->translate( 'client/language', $langId ) ); ?>
+														<?= $enc->html( $this->translate( 'language', $langId ) ); ?>
 													</option>
 												<?php endforeach; ?>
 											</select>

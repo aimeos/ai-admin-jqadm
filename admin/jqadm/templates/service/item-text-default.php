@@ -53,7 +53,7 @@ $enc = $this->encoder();
 
 									<?php foreach( $languages as $langItem ) : ?>
 										<option value="<?= $enc->attr( $langItem->getCode() ); ?>" <?= ( $langid == $langItem->getCode() ? 'selected="selected"' : '' ) ?> >
-											<?= $enc->html( $this->translate( 'client/language', $langItem->getCode() ) ); ?>
+											<?= $enc->html( $this->translate( 'language', $langItem->getCode() ) ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>
@@ -152,7 +152,7 @@ $enc = $this->encoder();
 
 								<?php foreach( $languages as $langItem ) : ?>
 									<option value="<?= $enc->attr( $langItem->getCode() ); ?>">
-										<?= $enc->html( $this->translate( 'client/language', $langItem->getCode() ) ); ?>
+										<?= $enc->html( $this->translate( 'language', $langItem->getCode() ) ); ?>
 									</option>
 								<?php endforeach; ?>
 							</select>

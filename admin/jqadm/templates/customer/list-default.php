@@ -56,7 +56,7 @@ $params = $this->get( 'pageParams', [] );
 
 $langList = [];
 foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) {
-	$langList[$langId] = $this->translate( 'client/language', $langId );
+	$langList[$langId] = $this->translate( 'language', $langId );
 }
 
 $columnList = [

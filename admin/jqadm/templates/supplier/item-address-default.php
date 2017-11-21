@@ -69,7 +69,7 @@ $enc = $this->encoder();
 
 										<?php foreach( $languages as $langId => $langItem ) : ?>
 											<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $this->get( 'itemData/supplier.languageid', '' ), $langId ); ?> >
-												<?= $enc->html( $this->translate( 'client/language', $langId ) ); ?>
+												<?= $enc->html( $this->translate( 'language', $langId ) ); ?>
 											</option>
 										<?php endforeach; ?>
 									</select>

@@ -358,14 +358,14 @@ switch( $this->param( 'act' ) )
 					<li class="language treeview">
 						<span>
 							<i class="icon"></i>
-							<span class="title"><?= $enc->attr( $this->translate( 'client/language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
+							<span class="title"><?= $enc->attr( $this->translate( 'language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
 						</span>
 						<ul class="tree-menu">
 							<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></strong></li>
 							<?php foreach( $this->get( 'pageI18nList', [] ) as $langid ) : ?>
 								<li class="lang-<?= $enc->attr( $langid ) ?>">
 									<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
-										<span class="name"><?= $enc->html( $this->translate( 'client/language', $langid ) ); ?> (<?= $langid ?>)</span>
+										<span class="name"><?= $enc->html( $this->translate( 'language', $langid ) ); ?> (<?= $langid ?>)</span>
 									</a>
 								</li>
 							<?php endforeach; ?>
