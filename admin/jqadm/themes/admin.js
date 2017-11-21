@@ -656,7 +656,7 @@ Aimeos.List = {
 	askDelete : function() {
 		var self = this;
 
-		$(".aimeos .list-items").on("click", ".act-delete", function(e) {
+		$(".aimeos form.list .list-items").on("click", ".act-delete", function(e) {
 			$("#confirm-delete").modal("show", $(this));
 			self.element = $(this);
 			return false;
