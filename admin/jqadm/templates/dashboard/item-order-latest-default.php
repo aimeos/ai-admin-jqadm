@@ -72,14 +72,14 @@ $baskets = $this->get( 'orderlatestBaskets', [] );
 $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
 
 $statuslist = array(
-	Aimeos\MShop\Order\Item\Base::PAY_UNFINISHED => $this->translate( 'admin', 'pay:unfinished' ),
-	Aimeos\MShop\Order\Item\Base::PAY_DELETED => $this->translate( 'admin', 'pay:deleted' ),
-	Aimeos\MShop\Order\Item\Base::PAY_CANCELED => $this->translate( 'admin', 'pay:canceled' ),
-	Aimeos\MShop\Order\Item\Base::PAY_REFUSED => $this->translate( 'admin', 'pay:refused' ),
-	Aimeos\MShop\Order\Item\Base::PAY_REFUND => $this->translate( 'admin', 'pay:refund' ),
-	Aimeos\MShop\Order\Item\Base::PAY_PENDING => $this->translate( 'admin', 'pay:pending' ),
-	Aimeos\MShop\Order\Item\Base::PAY_AUTHORIZED => $this->translate( 'admin', 'pay:authorized' ),
-	Aimeos\MShop\Order\Item\Base::PAY_RECEIVED => $this->translate( 'admin', 'pay:received' ),
+	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
+	'0' => $this->translate( 'mshop/code', 'pay:0' ),
+	'1' => $this->translate( 'mshop/code', 'pay:1' ),
+	'2' => $this->translate( 'mshop/code', 'pay:2' ),
+	'3' => $this->translate( 'mshop/code', 'pay:3' ),
+	'4' => $this->translate( 'mshop/code', 'pay:4' ),
+	'5' => $this->translate( 'mshop/code', 'pay:5' ),
+	'6' => $this->translate( 'mshop/code', 'pay:6' ),
 );
 
 ?>

@@ -7,14 +7,14 @@
 
 $enc = $this->encoder();
 $trans = array(
-	'-1' => $this->translate( 'admin', 'pay:unfinished' ),
-	'0' => $this->translate( 'admin', 'pay:deleted' ),
-	'1' => $this->translate( 'admin', 'pay:canceled' ),
-	'2' => $this->translate( 'admin', 'pay:refused' ),
-	'3' => $this->translate( 'admin', 'pay:refund' ),
-	'4' => $this->translate( 'admin', 'pay:pending' ),
-	'5' => $this->translate( 'admin', 'pay:authorized' ),
-	'6' => $this->translate( 'admin', 'pay:received' ),
+	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
+	'0' => $this->translate( 'mshop/code', 'pay:0' ),
+	'1' => $this->translate( 'mshop/code', 'pay:1' ),
+	'2' => $this->translate( 'mshop/code', 'pay:2' ),
+	'3' => $this->translate( 'mshop/code', 'pay:3' ),
+	'4' => $this->translate( 'mshop/code', 'pay:4' ),
+	'5' => $this->translate( 'mshop/code', 'pay:5' ),
+	'6' => $this->translate( 'mshop/code', 'pay:6' ),
 );
 
 ?>

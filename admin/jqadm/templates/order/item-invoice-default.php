@@ -47,6 +47,30 @@ $fields = $this->session( 'aimeos/admin/jqadm/orderinvoice/fields', $default );
 $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 
 
+$paymentStatusList = [
+	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
+	'0' => $this->translate( 'mshop/code', 'pay:0' ),
+	'1' => $this->translate( 'mshop/code', 'pay:1' ),
+	'2' => $this->translate( 'mshop/code', 'pay:2' ),
+	'3' => $this->translate( 'mshop/code', 'pay:3' ),
+	'4' => $this->translate( 'mshop/code', 'pay:4' ),
+	'5' => $this->translate( 'mshop/code', 'pay:5' ),
+	'6' => $this->translate( 'mshop/code', 'pay:6' ),
+];
+
+$statusList = [
+	'-1' => $this->translate( 'mshop/code', 'stat:-1' ),
+	'0' => $this->translate( 'mshop/code', 'stat:0' ),
+	'1' => $this->translate( 'mshop/code', 'stat:1' ),
+	'2' => $this->translate( 'mshop/code', 'stat:2' ),
+	'3' => $this->translate( 'mshop/code', 'stat:3' ),
+	'4' => $this->translate( 'mshop/code', 'stat:4' ),
+	'5' => $this->translate( 'mshop/code', 'stat:5' ),
+	'6' => $this->translate( 'mshop/code', 'stat:6' ),
+	'7' => $this->translate( 'mshop/code', 'stat:7' ),
+];
+
+
 ?>
 <div id="invoice" class="item-invoice content-block tab-pane fade" role="tabpanel" aria-labelledby="invoice">
 
@@ -115,32 +139,13 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 					'data' => [
 						'order.id' => ['oi' => '==', 'type' => 'number'],
 						'order.type' => ['oi' => '~=', 'type' => 'select', 'val' => [
-							'web' => $this->translate( 'client/code', 'Web' ),
-							'phone' => $this->translate( 'client/code', 'Phone' ),
+							'web' => $this->translate( 'mshop/code', 'order:web' ),
+							'phone' => $this->translate( 'mshop/code', 'order:phone' ),
 						]],
 						'order.datepayment' => ['oi' => '>=', 'type' => 'datetime-local'],
-						'order.statuspayment' => ['oi' => '==', 'type' => 'select', 'val' => [
-							'-1' => $this->translate( 'client/code', 'pay:-1' ),
-							'0' => $this->translate( 'client/code', 'pay:0' ),
-							'1' => $this->translate( 'client/code', 'pay:1' ),
-							'2' => $this->translate( 'client/code', 'pay:2' ),
-							'3' => $this->translate( 'client/code', 'pay:3' ),
-							'4' => $this->translate( 'client/code', 'pay:4' ),
-							'5' => $this->translate( 'client/code', 'pay:5' ),
-							'6' => $this->translate( 'client/code', 'pay:6' ),
-						]],
+						'order.statuspayment' => ['oi' => '==', 'type' => 'select', 'val' => $paymentStatusList],
 						'order.datedelivery' => ['oi' => '>=', 'type' => 'datetime-local'],
-						'order.statusdelivery' => ['oi' => '==', 'type' => 'select', 'val' => [
-							'-1' => $this->translate( 'client/code', 'stat:-1' ),
-							'0' => $this->translate( 'client/code', 'stat:0' ),
-							'1' => $this->translate( 'client/code', 'stat:1' ),
-							'2' => $this->translate( 'client/code', 'stat:2' ),
-							'3' => $this->translate( 'client/code', 'stat:3' ),
-							'4' => $this->translate( 'client/code', 'stat:4' ),
-							'5' => $this->translate( 'client/code', 'stat:5' ),
-							'6' => $this->translate( 'client/code', 'stat:6' ),
-							'7' => $this->translate( 'client/code', 'stat:7' ),
-						]],
+						'order.statusdelivery' => ['oi' => '==', 'type' => 'select', 'val' => $statusList],
 						'order.relatedid' => ['oi' => '=='],
 						'order.ctime' => ['op' => '>=', 'type' => 'date'],
 						'order.mtime' => ['op' => '>=', 'type' => 'date'],
@@ -188,14 +193,9 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 									<select class="form-control custom-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ); ?>" disabled="disabled">
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
-										<option value="-1"><?= $enc->html( $this->translate( 'client/code', 'pay:-1' ) ); ?></option>
-										<option value="0"><?= $enc->html( $this->translate( 'client/code', 'pay:0' ) ); ?></option>
-										<option value="1"><?= $enc->html( $this->translate( 'client/code', 'pay:1' ) ); ?></option>
-										<option value="2"><?= $enc->html( $this->translate( 'client/code', 'pay:2' ) ); ?></option>
-										<option value="3"><?= $enc->html( $this->translate( 'client/code', 'pay:3' ) ); ?></option>
-										<option value="4"><?= $enc->html( $this->translate( 'client/code', 'pay:4' ) ); ?></option>
-										<option value="5"><?= $enc->html( $this->translate( 'client/code', 'pay:5' ) ); ?></option>
-										<option value="6"><?= $enc->html( $this->translate( 'client/code', 'pay:6' ) ); ?></option>
+										<?php foreach( $paymentStatusList as $code => $label ) : ?>
+											<option value="<= $code ?>"><?= $enc->html( $label ); ?></option>
+										<?php endforeach; ?>
 									</select>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -220,14 +220,9 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 									<select class="form-control custom-select order-statusdelivery" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ); ?>" disabled="disabled">
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
-										<option value="-1"><?= $enc->html( $this->translate( 'client/code', 'stat:-1' ) ); ?></option>
-										<option value="0"><?= $enc->html( $this->translate( 'client/code', 'stat:0' ) ); ?></option>
-										<option value="1"><?= $enc->html( $this->translate( 'client/code', 'stat:1' ) ); ?></option>
-										<option value="2"><?= $enc->html( $this->translate( 'client/code', 'stat:2' ) ); ?></option>
-										<option value="3"><?= $enc->html( $this->translate( 'client/code', 'stat:3' ) ); ?></option>
-										<option value="4"><?= $enc->html( $this->translate( 'client/code', 'stat:4' ) ); ?></option>
-										<option value="5"><?= $enc->html( $this->translate( 'client/code', 'stat:5' ) ); ?></option>
-										<option value="6"><?= $enc->html( $this->translate( 'client/code', 'stat:6' ) ); ?></option>
+										<?php foreach( $statusList as $code => $label ) : ?>
+											<option value="<= $code ?>"><?= $enc->html( $label ); ?></option>
+										<?php endforeach; ?>
 									</select>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -298,30 +293,11 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 								<option value="">
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
-								<option value="-1" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), '-1' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'pay:-1' ) ); ?>
-								</option>
-								<option value="0" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), '0' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'pay:0' ) ); ?>
-								</option>
-								<option value="1" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), '1' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'pay:1' ) ); ?>
-								</option>
-								<option value="2" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), '2' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'pay:2' ) ); ?>
-								</option>
-								<option value="3" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), '3' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'pay:3' ) ); ?>
-								</option>
-								<option value="4" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), '4' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'pay:4' ) ); ?>
-								</option>
-								<option value="5" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), '5' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'pay:5' ) ); ?>
-								</option>
-								<option value="6" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), '6' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'pay:6' ) ); ?>
-								</option>
+								<?php foreach( $paymentStatusList as $code => $label ) : ?>
+									<option value="<= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), $code ); ?> >
+										<?= $enc->html( $label ); ?>
+									</option>
+								<?php endforeach; ?>
 							</select>
 						</td>
 					<?php endif; ?>
@@ -341,33 +317,11 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 								<option value="">
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
-								<option value="-1" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), '-1' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'stat:-1' ) ); ?>
-								</option>
-								<option value="0" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), '0' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'stat:0' ) ); ?>
-								</option>
-								<option value="1" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), '1' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'stat:1' ) ); ?>
-								</option>
-								<option value="2" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), '2' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'stat:2' ) ); ?>
-								</option>
-								<option value="3" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), '3' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'stat:3' ) ); ?>
-								</option>
-								<option value="4" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), '4' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'stat:4' ) ); ?>
-								</option>
-								<option value="5" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), '5' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'stat:5' ) ); ?>
-								</option>
-								<option value="6" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), '6' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'stat:6' ) ); ?>
-								</option>
-								<option value="7" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), '7' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'stat:7' ) ); ?>
-								</option>
+								<?php foreach( $statusList as $code => $label ) : ?>
+									<option value="<= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), $code ); ?> >
+										<?= $enc->html( $label ); ?>
+									</option>
+								<?php endforeach; ?>
 							</select>
 						</td>
 					<?php endif; ?>

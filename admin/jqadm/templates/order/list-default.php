@@ -164,26 +164,26 @@ $columnList = [
 ];
 
 $paymentStatusList = [
-	'-1' => $this->translate( 'client/code', 'pay:-1' ),
-	'0' => $this->translate( 'client/code', 'pay:0' ),
-	'1' => $this->translate( 'client/code', 'pay:1' ),
-	'2' => $this->translate( 'client/code', 'pay:2' ),
-	'3' => $this->translate( 'client/code', 'pay:3' ),
-	'4' => $this->translate( 'client/code', 'pay:4' ),
-	'5' => $this->translate( 'client/code', 'pay:5' ),
-	'6' => $this->translate( 'client/code', 'pay:6' ),
+	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
+	'0' => $this->translate( 'mshop/code', 'pay:0' ),
+	'1' => $this->translate( 'mshop/code', 'pay:1' ),
+	'2' => $this->translate( 'mshop/code', 'pay:2' ),
+	'3' => $this->translate( 'mshop/code', 'pay:3' ),
+	'4' => $this->translate( 'mshop/code', 'pay:4' ),
+	'5' => $this->translate( 'mshop/code', 'pay:5' ),
+	'6' => $this->translate( 'mshop/code', 'pay:6' ),
 ];
 
 $deliveryStatusList = [
-	'-1' => $this->translate( 'client/code', 'stat:-1' ),
-	'0' => $this->translate( 'client/code', 'stat:0' ),
-	'1' => $this->translate( 'client/code', 'stat:1' ),
-	'2' => $this->translate( 'client/code', 'stat:2' ),
-	'3' => $this->translate( 'client/code', 'stat:3' ),
-	'4' => $this->translate( 'client/code', 'stat:4' ),
-	'5' => $this->translate( 'client/code', 'stat:5' ),
-	'6' => $this->translate( 'client/code', 'stat:6' ),
-	'7' => $this->translate( 'client/code', 'stat:7' ),
+	'-1' => $this->translate( 'mshop/code', 'stat:-1' ),
+	'0' => $this->translate( 'mshop/code', 'stat:0' ),
+	'1' => $this->translate( 'mshop/code', 'stat:1' ),
+	'2' => $this->translate( 'mshop/code', 'stat:2' ),
+	'3' => $this->translate( 'mshop/code', 'stat:3' ),
+	'4' => $this->translate( 'mshop/code', 'stat:4' ),
+	'5' => $this->translate( 'mshop/code', 'stat:5' ),
+	'6' => $this->translate( 'mshop/code', 'stat:6' ),
+	'7' => $this->translate( 'mshop/code', 'stat:7' ),
 ];
 
 $statusList = [
