@@ -93,7 +93,7 @@ $columnList = [
 	);
 ?>
 
-<form method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-supplier" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

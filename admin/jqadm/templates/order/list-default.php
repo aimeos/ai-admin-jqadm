@@ -221,7 +221,7 @@ $statusList = [
 ?>
 
 <?php $searchParam = $params; unset( $searchParam['filter'] ); ?>
-<form class="list-order" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-order" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">
