@@ -72,7 +72,9 @@ $columnList = [
 				<th class="actions">
 					<div class="dropdown list-menu">
 						<button class="btn act-menu fa" type="button" id="menuButton"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>">
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'More' ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'More') ); ?>">
 						</button>
 						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="menuButton">
 							<li class="dropdown-item">
@@ -222,14 +224,14 @@ $columnList = [
 						<input type="hidden" value="<?= $enc->attr( $id ); ?>" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.id', '' ) ) ); ?>" />
 
+						<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
 						<a class="btn fa act-delete" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							href="<?= $this->url( $jsonTarget, $jsonCntl, $jsonAction, ['resource' => 'coupon/code', 'id' => $id], [], $jsonConfig ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 						</a>
-						<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

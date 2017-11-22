@@ -385,13 +385,13 @@ $refItems = $this->get( 'productItems', [] );
 							name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.id', '' ) ) ); ?>" />
 
 						<?php if( !$this->site()->readonly( $siteId ) ) : ?>
+							<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
 							<a class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'catalog/lists', 'id' => $listId] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
-							<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
 						<?php endif; ?>
 					</td>
 				</tr>

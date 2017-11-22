@@ -61,12 +61,12 @@ $enc = $this->encoder();
 	<?php endforeach; ?>
 
 	<td class="actions">
-		<a class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-			title="<?= $enc->attr( $this->translate( 'admin', 'Reset') ); ?>"
-			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"></a>
 		<button type="submit" class="btn act-search fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Search') ); ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
 		</button>
+		<a class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
+			title="<?= $enc->attr( $this->translate( 'admin', 'Reset') ); ?>"
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"></a>
 	</td>
 </tr>

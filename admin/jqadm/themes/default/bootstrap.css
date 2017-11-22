@@ -68,6 +68,7 @@ html {
 	box-shadow: none;
 	border: 1px solid transparent;
 	background: transparent;
+	cursor: pointer;
 	color: #98A0B0;
 }
 

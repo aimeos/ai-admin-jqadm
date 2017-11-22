@@ -97,7 +97,7 @@
 }
 
 .aimeos .btn.act-menu.fa:before {
-	content: "\f150";
+	content: "\f067";
 }
 
 .aimeos .btn.act-save.fa:before {
@@ -145,6 +145,10 @@
 	height: 2.5rem;
 }
 
+.aimeos table th.actions {
+	background-color: #5A6884;
+}
+
 .aimeos table .actions {
 	white-space: nowrap;
 	text-align: right;
@@ -189,8 +193,6 @@
 
 .aimeos .dropdown-item .label {
 	display: block !important;
-	padding: 0 !important;
-	margin: 0 !important;
 	text-align: left;
 	color: #464a4c;
 }

@@ -73,7 +73,10 @@
 
 /* Item listing */
 
-.aimeos .list-search,
+.aimeos tbody tr.list-search {
+	background-color: #E4E8F2;
+}
+
 .aimeos .list-item-new {
 	background-color: #F8F8F8;
 }
@@ -217,25 +220,25 @@
 }
 
 
-.aimeos .item-config .config-row-key,
-.aimeos .item-config .config-row-value {
+.aimeos table.item-config .config-row-key,
+.aimeos table.item-config .config-row-value {
 	width: 49%;
 }
 
-.aimeos .item-config th {
+.aimeos table.item-config th {
 	background-color: #ffffff;
 	color: #292b2c;
 }
 
-.aimeos .item-config td {
+.aimeos table.item-config td {
 	vertical-align: top;
 }
 
-.aimeos .item-config .config-map-table {
+.aimeos table.item-config .config-map-table {
 	display: none;
 }
 
-.aimeos .item-config td.config-map-action-add {
+.aimeos table.item-config td.config-map-action-add {
 	width: 2%;
 }
 
