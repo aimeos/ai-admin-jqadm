@@ -599,10 +599,10 @@ $columnList = [
 					'data' => [
 						'product.id' => ['op' => '=='],
 						'product.status' => ['op' => '==', 'type' => 'select', 'val' => [
-							'1' => $this->translate( 'admin', 'status:enabled' ),
-							'0' => $this->translate( 'admin', 'status:disabled' ),
-							'-1' => $this->translate( 'admin', 'status:review' ),
-							'-2' => $this->translate( 'admin', 'status:archive' ),
+							'1' => $this->translate( 'mshop/code', 'status:1' ),
+							'0' => $this->translate( 'mshop/code', 'status:0' ),
+							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
+							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
 						'product.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
 						'product.code' => [],

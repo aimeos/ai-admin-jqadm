@@ -34,16 +34,16 @@ $enc = $this->encoder();
 					name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.status' ) ) ); ?>"
 					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ); ?> >
 					<option value="1" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), 1 ); ?> >
-						<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
+						<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
 					</option>
 					<option value="0" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), 0 ); ?> >
-						<?= $enc->html( $this->translate( 'admin', 'status:disabled' ) ); ?>
+						<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
 					</option>
 					<option value="-1" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), -1 ); ?> >
-						<?= $enc->html( $this->translate( 'admin', 'status:review' ) ); ?>
+						<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
 					</option>
 					<option value="-2" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), -2 ); ?> >
-						<?= $enc->html( $this->translate( 'admin', 'status:archive' ) ); ?>
+						<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
 					</option>
 				</select>
 			</div>

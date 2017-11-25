@@ -113,10 +113,10 @@ $refItems = $this->get( 'productItems', [] );
 					'data' => [
 						'catalog.lists.position' => ['op' => '>=', 'type' => 'number'],
 						'catalog.lists.status' => ['op' => '==', 'type' => 'select', 'val' => [
-							'1' => $this->translate( 'admin', 'status:enabled' ),
-							'0' => $this->translate( 'admin', 'status:disabled' ),
-							'-1' => $this->translate( 'admin', 'status:review' ),
-							'-2' => $this->translate( 'admin', 'status:archive' ),
+							'1' => $this->translate( 'mshop/code', 'status:1' ),
+							'0' => $this->translate( 'mshop/code', 'status:0' ),
+							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
+							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
 						'catalog.lists.typeid' => ['op' => '==', 'type' => 'select', 'val' => $this->get( 'productListTypes', [])],
 						'catalog.lists.config' => ['op' => '~='],
@@ -152,16 +152,16 @@ $refItems = $this->get( 'productItems', [] );
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 										</option>
 										<option value="1">
-											<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
 										</option>
 										<option value="0">
-											<?= $enc->html( $this->translate( 'admin', 'status:disabled' ) ); ?>
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
 										</option>
 										<option value="-1">
-											<?= $enc->html( $this->translate( 'admin', 'status:review' ) ); ?>
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
 										</option>
 										<option value="-2">
-											<?= $enc->html( $this->translate( 'admin', 'status:archive' ) ); ?>
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
 										</option>
 									</select>
 								</div>
@@ -274,16 +274,16 @@ $refItems = $this->get( 'productItems', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 								<option value="1" <?= $selected( $this->get( 'productData/catalog.lists.status/' . $idx, 1 ), 1 ); ?> >
-									<?= $enc->html( $this->translate( 'admin', 'status:enabled' ) ); ?>
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
 								</option>
 								<option value="0" <?= $selected( $this->get( 'productData/catalog.lists.status/' . $idx, 1 ), 0 ); ?> >
-									<?= $enc->html( $this->translate( 'admin', 'status:disabled' ) ); ?>
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
 								</option>
 								<option value="-1" <?= $selected( $this->get( 'productData/catalog.lists.status/' . $idx, 1 ), -1 ); ?> >
-									<?= $enc->html( $this->translate( 'admin', 'status:review' ) ); ?>
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
 								</option>
 								<option value="-2" <?= $selected( $this->get( 'productData/catalog.lists.status/' . $idx, 1 ), -2 ); ?> >
-									<?= $enc->html( $this->translate( 'admin', 'status:archive' ) ); ?>
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
 								</option>
 							</select>
 						</td>

@@ -128,10 +128,10 @@ $columnList = [
 					'data' => [
 						'locale.language.id' => ['op' => '=='],
 						'locale.language.status' => ['op' => '==', 'type' => 'select', 'val' => [
-							'1' => $this->translate( 'admin', 'status:enabled' ),
-							'0' => $this->translate( 'admin', 'status:disabled' ),
-							'-1' => $this->translate( 'admin', 'status:review' ),
-							'-2' => $this->translate( 'admin', 'status:archive' ),
+							'1' => $this->translate( 'mshop/code', 'status:1' ),
+							'0' => $this->translate( 'mshop/code', 'status:0' ),
+							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
+							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
 						'locale.language.code' => ['op' => '=='],
 						'locale.language.label' => [],
