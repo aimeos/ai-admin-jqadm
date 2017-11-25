@@ -191,7 +191,7 @@
 	width: 100%;
 }
 
-.aimeos .dropdown-item .label {
+.aimeos .dropdown-item label {
 	display: block !important;
 	text-align: left;
 	color: #464a4c;

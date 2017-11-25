@@ -46,7 +46,7 @@ html {
 }
 
 .dropdown-item a {
-	display: block;
+	display: block !important;
 	padding: 3px 1.5rem;
 }
 

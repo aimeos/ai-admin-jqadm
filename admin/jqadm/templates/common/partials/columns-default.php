@@ -36,12 +36,12 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 	<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 		<?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 			<li class="dropdown-item">
-				<label>
+				<a href="#"><label>
 					<input type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
 						name="<?= $enc->attr( $this->formparam( $names ) ); ?>"
 						value="<?= $enc->attr( $key ); ?>" <?= $checked( $fields, $key ); ?> />
 					<?= $enc->html( $name ); ?>
-				</label>
+				</label></a>
 			</li>
 		<?php endforeach; ?>
 	</ul>
