@@ -109,7 +109,7 @@ Aimeos.Image = {
 			ev.stopPropagation();
 
 			var number = Math.floor((Math.random() * 1000));
-			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
+			var clone = Aimeos.addClone($(".card.prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
 
 			$(".card-block", clone).attr("id", "item-image-group-data-" + number);
 			$(".card-header", clone).attr("id", "item-image-group-item-" + number);
