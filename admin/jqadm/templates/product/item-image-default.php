@@ -5,7 +5,13 @@
  * @copyright Aimeos (aimeos.org), 2017
  */
 
+$selected = function( $key, $code ) {
+	return ( $key == $code ? 'selected="selected"' : '' );
+};
+
+
 $enc = $this->encoder();
+
 
 ?>
 <div id="image" class="item-image tab-pane fade" role="tabpanel" aria-labelledby="image">
@@ -58,27 +64,24 @@ $enc = $this->encoder();
 					</div>
 
 					<div class="col-xl-6">
-						<div class="form-group row optional">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?> >
-									<?php $lang = $this->get( 'imageData/media.languageid/' . $idx ); ?>
-
-									<option value="" <?= ( $lang == '' ? 'selected="selected"' : '' ) ?> >
-										<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
+								<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'image', 'media.status', '' ) ) ); ?>">
+									<option value="1" <?= $selected( $this->get( 'imageData/media.status/' . $idx, 1 ), 1 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
 									</option>
-
-									<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-										<option value="<?= $enc->attr( $langId ); ?>" <?= ( $lang == $langId ? 'selected="selected"' : '' ) ?> >
-											<?= $enc->html( $langItem->getLabel() ); ?>
-										</option>
-									<?php endforeach; ?>
+									<option value="0" <?= $selected( $this->get( 'imageData/media.status/' . $idx, 1 ), 0 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+									</option>
+									<option value="-1" <?= $selected( $this->get( 'imageData/media.status/' . $idx, 1 ), -1 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+									</option>
+									<option value="-2" <?= $selected( $this->get( 'imageData/media.status/' . $idx, 1 ), -2 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+									</option>
 								</select>
-							</div>
-							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the image contains text or is language sepecific' ) ); ?>
 							</div>
 						</div>
 
@@ -105,10 +108,10 @@ $enc = $this->encoder();
 									<?= $enc->html( $this->translate( 'admin', 'Types for additional images like icons' ) ); ?>
 								</div>
 							</div>
-						<?php else : $mediaType = reset( $mediaTypes ); ?>
+						<?php else : ?>
 							<input class="item-typeid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'image', 'media.typeid', '' ) ) ); ?>"
-								value="<?= $enc->attr( $mediaType ? $mediaType->getId() : '' ); ?>" />
+								value="<?= $enc->attr( key( $mediaTypes ) ); ?>" />
 						<?php endif; ?>
 
 						<div class="form-group row mandatory">
@@ -123,6 +126,163 @@ $enc = $this->encoder();
 								<?= $enc->html( $this->translate( 'admin', 'The image title is used for the title tag of the image on the web site' ) ); ?>
 							</div>
 						</div>
+
+						<div class="form-group row optional">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
+							<div class="col-sm-8">
+								<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?> >
+									<?php $lang = $this->get( 'imageData/media.languageid/' . $idx ); ?>
+
+									<option value="" <?= ( $lang == '' ? 'selected="selected"' : '' ) ?> >
+										<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
+									</option>
+
+									<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
+										<option value="<?= $enc->attr( $langId ); ?>" <?= ( $lang == $langId ? 'selected="selected"' : '' ) ?> >
+											<?= $enc->html( $langItem->getLabel() ); ?>
+										</option>
+									<?php endforeach; ?>
+								</select>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the image contains text or is language sepecific' ) ); ?>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-xl-12 advanced collapsed">
+						<div class="card-tools-left">
+							<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data') ); ?>">
+							</div>
+						</div>
+						<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
+					</div>
+
+					<div class="col-xl-6 content-block secondary">
+						<?php $listTypes = $this->get( 'imageListTypes', [] ); ?>
+						<?php if( count( $listTypes ) > 1 ) : ?>
+							<div class="form-group row mandatory">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
+								<div class="col-sm-8">
+									<select class="form-control custom-select listitem-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.typeid', '' ) ) ); ?>"
+										<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?> >
+
+										<?php foreach( $this->get( 'imageListTypes', [] ) as $id => $typeItem ) : ?>
+											<option value="<?= $enc->attr( $id ); ?>" <?= $selected( $this->get( 'imageData/product.lists.typeid/' . $idx ), $id ); ?> >
+												<?= $enc->html( $typeItem->getLabel() ); ?>
+											</option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Second level type for grouping items' ) ); ?>
+								</div>
+							</div>
+						<?php else : ?>
+							<input class="listitem-typeid" type="hidden"
+								name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.typeid', '' ) ) ); ?>"
+								value="<?= $enc->attr( key( $listTypes ) ); ?>" />
+						<?php endif; ?>
+						<div class="form-group row optional">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
+							<div class="col-sm-8">
+								<input class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.datestart', '' ) ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
+									value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'imageData/product.lists.datestart/' . $idx ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?> />
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ); ?>
+							</div>
+						</div>
+						<div class="form-group row optional">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
+							<div class="col-sm-8">
+								<input class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.dateend', '' ) ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
+									value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'imageData/product.lists.dateend/' . $idx ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?> />
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ); ?>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-6 content-block secondary <?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?>">
+						<table class="item-config table table-striped" data-keys="<?= $enc->attr( json_encode( [] ) ); ?>">
+							<thead>
+								<tr>
+									<th>
+										<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
+										<div class="form-text text-muted help-text">
+											<?= $enc->html( $this->translate( 'admin', 'Configuration options, will be available as key/value pairs in the list item' ) ); ?>
+										</div>
+									</th>
+									<th>
+										<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
+									</th>
+									<th class="actions">
+										<?php if( !$this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ) ) : ?>
+											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+											</div>
+										<?php endif; ?>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<?php foreach( (array) $this->get( 'imageData/config/' . $idx . '/key', [] ) as $num => $key ) : ?>
+									<tr class="config-item">
+										<td>
+											<input type="text" class="config-key form-control" tabindex="<?= $this->get( 'tabindex' ); ?>"
+												name="<?= $enc->attr( $this->formparam( array( 'image', 'config', $idx, 'key', '' ) ) ); ?>"
+												value="<?= $enc->attr( $this->get( 'imageData/config/' . $idx . '/key/' . $num, $key ) ); ?>"
+												<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?> />
+										</td>
+										<td>
+											<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>"
+												name="<?= $enc->attr( $this->formparam( array( 'image', 'config', $idx, 'val', '' ) ) ); ?>"
+												value="<?= $enc->attr( $this->get( 'imageData/config/' . $idx . '/val/' . $num ) ); ?>"
+												<?= $this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ); ?> />
+										</td>
+										<td class="actions">
+											<?php if( !$this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ) ) : ?>
+												<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+												</div>
+											<?php endif; ?>
+										</td>
+									</tr>
+								<?php endforeach; ?>
+
+								<tr class="prototype">
+									<td>
+										<input type="text" class="config-key form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+											name="<?= $enc->attr( $this->formparam( array( 'image', 'config', $idx, 'key', '' ) ) ); ?>" />
+									</td>
+									<td>
+										<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+											name="<?= $enc->attr( $this->formparam( array( 'image', 'config', $idx, 'val', '' ) ) ); ?>" />
+									</td>
+									<td class="actions">
+										<?php if( !$this->site()->readonly( $this->get( 'imageData/product.lists.siteid/' . $idx ) ) ) : ?>
+											<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+											</div>
+										<?php endif; ?>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 
 				</div>
@@ -157,27 +317,30 @@ $enc = $this->encoder();
 				</div>
 
 				<div class="col-xl-6">
-					<div class="form-group row optional">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
+					<div class="form-group row mandatory">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-								name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>">
-								<option value=""><?= $enc->html( $this->translate( 'admin', 'All' ) ); ?></option>
-
-								<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-									<option value="<?= $enc->attr( $langId ); ?>"><?= $enc->html( $langItem->getLabel() ); ?></option>
-								<?php endforeach; ?>
-
+							<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'image', 'media.status', '' ) ) ); ?>">
+								<option value="1">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+								</option>
+								<option value="0">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+								</option>
+								<option value="-1">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+								</option>
+								<option value="-2">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+								</option>
 							</select>
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the image contains text or is language sepecific' ) ); ?>
 						</div>
 					</div>
 
-					<?php $mediaTypes = $this->get( 'mediaTypes', [] ); ?>
+					<?php $mediaTypes = $this->get( 'imageTypes', [] ); ?>
 					<?php if( count( $mediaTypes ) > 1 ) : ?>
-						<div class="form-group row">
+						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
@@ -197,10 +360,10 @@ $enc = $this->encoder();
 								<?= $enc->html( $this->translate( 'admin', 'Types for additional images like icons' ) ); ?>
 							</div>
 						</div>
-					<?php else : $mediaType = reset( $mediaTypes ); ?>
+					<?php else : ?>
 						<input class="item-typeid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'image', 'media.typeid', '' ) ) ); ?>"
-							value="<?= $enc->attr( $mediaType ? $mediaType->getId() : '' ); ?>" />
+							value="<?= $enc->attr( key( $mediaTypes ) ); ?>" />
 					<?php endif; ?>
 
 					<div class="form-group row mandatory">
@@ -213,6 +376,123 @@ $enc = $this->encoder();
 							<?= $enc->html( $this->translate( 'admin', 'The image title is used for the title tag of the image on the web site' ) ); ?>
 						</div>
 					</div>
+
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
+						<div class="col-sm-8">
+							<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+								name="<?= $enc->attr( $this->formparam( array( 'image', 'media.languageid', '' ) ) ); ?>">
+								<option value=""><?= $enc->html( $this->translate( 'admin', 'All' ) ); ?></option>
+
+								<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
+									<option value="<?= $enc->attr( $langId ); ?>"><?= $enc->html( $langItem->getLabel() ); ?></option>
+								<?php endforeach; ?>
+
+							</select>
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the image contains text or is language sepecific' ) ); ?>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-xl-12 advanced collapsed">
+					<div class="card-tools-left">
+						<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data') ); ?>">
+						</div>
+					</div>
+					<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
+				</div>
+
+				<div class="col-xl-6 content-block secondary">
+					<?php $listTypes = $this->get( 'imageListTypes', [] ); ?>
+					<?php if( count( $listTypes ) > 1 ) : ?>
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
+							<div class="col-sm-8">
+								<select class="form-control custom-select listitem-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.typeid', '' ) ) ); ?>" >
+
+									<?php foreach( $this->get( 'imageListTypes', [] ) as $id => $typeItem ) : ?>
+										<option value="<?= $enc->attr( $id ); ?>" >
+											<?= $enc->html( $typeItem->getLabel() ); ?>
+										</option>
+									<?php endforeach; ?>
+								</select>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Second level type for grouping items' ) ); ?>
+							</div>
+						</div>
+					<?php else : ?>
+						<input class="listitem-typeid" type="hidden"
+							name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.typeid', '' ) ) ); ?>"
+							value="<?= $enc->attr( key( $listTypes ) ); ?>" />
+					<?php endif; ?>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.datestart', '' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>" />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.dateend', '' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>" />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ); ?>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-6 content-block secondary">
+					<table class="item-config table table-striped" data-keys="<?= $enc->attr( json_encode( [] ) ); ?>">
+						<thead>
+							<tr>
+								<th>
+									<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
+									<div class="form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Configuration options, will be available as key/value pairs in the list item' ) ); ?>
+									</div>
+								</th>
+								<th>
+									<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
+								</th>
+								<th class="actions">
+									<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="prototype">
+								<td>
+									<input type="text" class="config-key form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'image', 'config', 'idx', 'key', '' ) ) ); ?>" />
+								</td>
+								<td>
+									<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'image', 'config', 'idx', 'val', '' ) ) ); ?>" />
+								</td>
+								<td class="actions">
+									<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 
 			</div>

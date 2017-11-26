@@ -86,6 +86,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/lists/type' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
 		$item = $manager->findItem( 'CNC' );
@@ -99,6 +100,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'image' => array(
 				'product.lists.id' => array( '' ),
+				'product.lists.typeid' => array( $listTypeManager->findItem( 'default', [], 'media' )->getId() ),
 				'media.languageid' => array( 'de' ),
 				'media.label' => array( 'test' ),
 			),

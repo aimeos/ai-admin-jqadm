@@ -70,6 +70,7 @@ class Standard
 		$view = $this->getView();
 
 		$view->imageData = $this->toArray( $view->item, true );
+		$view->imageListTypes = $this->getMediaListTypes();
 		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
@@ -97,6 +98,7 @@ class Standard
 		}
 
 		$view->imageData = $data;
+		$view->imageListTypes = $this->getMediaListTypes();
 		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
@@ -114,7 +116,7 @@ class Standard
 	public function delete()
 	{
 		parent::delete();
-		$this->cleanupItems( $this->getView()->item->getListItems( 'media' ), [] );
+		$this->cleanupItems( $this->getView()->item->getListItems( 'media', null, null, false ), [] );
 	}
 
 
@@ -128,6 +130,7 @@ class Standard
 		$view = $this->getView();
 
 		$view->imageData = $this->toArray( $view->item );
+		$view->imageListTypes = $this->getMediaListTypes();
 		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
@@ -347,10 +350,8 @@ class Standard
 	{
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'default', [], 'media' )->getId() );
 		$item->setDomain( 'media' );
 		$item->setParentId( $id );
 		$item->setStatus( 1 );
@@ -368,9 +369,26 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/type' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch( true );
 		$search->setConditions( $search->compare( '==', 'media.type.domain', 'product' ) );
 		$search->setSortations( array( $search->sort( '+', 'media.type.label' ) ) );
+
+		return $manager->searchItems( $search );
+	}
+
+
+	/**
+	 * Returns the available product list types for media references
+	 *
+	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of product list type ID as keys and items as values
+	 */
+	protected function getMediaListTypes()
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists/type' );
+
+		$search = $manager->createSearch( true );
+		$search->setConditions( $search->compare( '==', 'product.lists.type.domain', 'media' ) );
+		$search->setSortations( array( $search->sort( '+', 'product.lists.type.label' ) ) );
 
 		return $manager->searchItems( $search );
 	}
@@ -403,7 +421,7 @@ class Standard
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
 		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
-		$listItems = $manager->getItem( $item->getId(), array( 'media' ) )->getListItems( 'media', 'default' );
+		$listItems = $manager->getItem( $item->getId(), array( 'media' ) )->getListItems( 'media', null, null, false );
 
 		$mediaItem = $this->createItem();
 		$listItem = $this->createListItem( $item->getId() );
@@ -433,12 +451,29 @@ class Standard
 			}
 
 			$item->setLabel( $this->getValue( $data, 'media.label/' . $idx ) );
+			$item->setStatus( $this->getValue( $data, 'media.status/' . $idx ) );
 			$item->setLanguageId( $this->getValue( $data, 'media.languageid/' . $idx ) );
 
 			$item = $mediaManager->saveItem( $item );
 
+
+			$conf = [];
+
+			foreach( (array) $this->getValue( $data, 'config/' . $idx . '/key' ) as $num => $key )
+			{
+				$val = $this->getValue( $data, 'config/' . $idx . '/val/' . $num );
+
+				if( trim( $key ) !== '' && $val !== null ) {
+					$conf[$key] = trim( $val );
+				}
+			}
+
+			$litem->setConfig( $conf );
 			$litem->setPosition( $idx );
 			$litem->setRefId( $item->getId() );
+			$litem->setTypeId( $this->getValue( $data, 'product.lists.typeid/' . $idx ) );
+			$litem->setDateStart( $this->getValue( $data, 'product.lists.datestart/' . $idx ) );
+			$litem->setDateEnd( $this->getValue( $data, 'product.lists.dateend/' . $idx ) );
 
 			$listManager->saveItem( $litem, false );
 		}
@@ -456,10 +491,11 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
 	{
+		$idx = 0;
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'media', 'default' ) as $listItem )
+		foreach( $item->getListItems( 'media', null, null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
@@ -477,9 +513,17 @@ class Standard
 				$data[$key][] = $value;
 			}
 
+			foreach( $list['product.lists.config'] as $key => $val )
+			{
+				$data['config'][$idx]['key'][] = $key;
+				$data['config'][$idx]['val'][] = $val;
+			}
+
 			foreach( $refItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
+
+			$idx++;
 		}
 
 		return $data;
