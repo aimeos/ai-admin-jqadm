@@ -70,6 +70,7 @@ class Standard
 		$view = $this->getView();
 
 		$view->imageData = $this->toArray( $view->item, true );
+		$view->imageListTypes = $this->getMediaListTypes();
 		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
@@ -98,6 +99,7 @@ class Standard
 
 		$view->imageData = $data;
 		$view->imageTypes = $this->getMediaTypes();
+		$view->imageListTypes = $this->getMediaListTypes();
 		$view->imageBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -115,7 +117,7 @@ class Standard
 	{
 		parent::delete();
 
-		$this->cleanupItems( $this->getView()->item->getListItems( 'media' ), [] );
+		$this->cleanupItems( $this->getView()->item->getListItems( 'media', null, null, false ), [] );
 	}
 
 
@@ -129,6 +131,7 @@ class Standard
 		$view = $this->getView();
 
 		$view->imageData = $this->toArray( $view->item );
+		$view->imageListTypes = $this->getMediaListTypes();
 		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
@@ -378,6 +381,23 @@ class Standard
 
 
 	/**
+	 * Returns the available attribute list types for media references
+	 *
+	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of attribute list type ID as keys and items as values
+	 */
+	protected function getMediaListTypes()
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'attribute/lists/type' );
+
+		$search = $manager->createSearch( true );
+		$search->setConditions( $search->compare( '==', 'attribute.lists.type.domain', 'media' ) );
+		$search->setSortations( array( $search->sort( '+', 'attribute.lists.type.label' ) ) );
+
+		return $manager->searchItems( $search );
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -404,7 +424,7 @@ class Standard
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
 		$listIds = (array) $this->getValue( $data, 'attribute.lists.id', [] );
-		$listItems = $manager->getItem( $item->getId(), array( 'media' ) )->getListItems( 'media', 'default' );
+		$listItems = $manager->getItem( $item->getId(), array( 'media' ) )->getListItems( 'media', null, null, false );
 
 		$mediaItem = $this->createItem();
 		$listItem = $this->createListItem( $item->getId() );
@@ -434,12 +454,29 @@ class Standard
 			}
 
 			$item->setLabel( $this->getValue( $data, 'media.label/' . $idx ) );
+			$item->setStatus( $this->getValue( $data, 'media.status/' . $idx ) );
 			$item->setLanguageId( $this->getValue( $data, 'media.languageid/' . $idx ) );
 
 			$item = $mediaManager->saveItem( $item );
 
+
+			$conf = [];
+
+			foreach( (array) $this->getValue( $data, 'config/' . $idx . '/key' ) as $num => $key )
+			{
+				$val = $this->getValue( $data, 'config/' . $idx . '/val/' . $num );
+
+				if( trim( $key ) !== '' && $val !== null ) {
+					$conf[$key] = trim( $val );
+				}
+			}
+
+			$litem->setConfig( $conf );
 			$litem->setPosition( $idx );
 			$litem->setRefId( $item->getId() );
+			$litem->setTypeId( $this->getValue( $data, 'attribute.lists.typeid/' . $idx ) );
+			$litem->setDateStart( $this->getValue( $data, 'attribute.lists.datestart/' . $idx ) );
+			$litem->setDateEnd( $this->getValue( $data, 'attribute.lists.dateend/' . $idx ) );
 
 			$listManager->saveItem( $litem, false );
 		}
@@ -457,6 +494,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Attribute\Item\Iface $item, $copy = false )
 	{
+		$idx = 0;
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
@@ -478,9 +516,17 @@ class Standard
 				$data[$key][] = $value;
 			}
 
+			foreach( $list['attribute.lists.config'] as $key => $val )
+			{
+				$data['config'][$idx]['key'][] = $key;
+				$data['config'][$idx]['val'][] = $val;
+			}
+
 			foreach( $refItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
+
+			$idx++;
 		}
 
 		return $data;
