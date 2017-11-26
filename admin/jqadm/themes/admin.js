@@ -11,6 +11,7 @@ Aimeos = {
 
 	init : function() {
 
+		this.toggleAdvanced();
 	},
 
 
@@ -184,6 +185,20 @@ Aimeos = {
 
 	getOptionsProducts : function(request, response, element, criteria) {
 		Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', criteria);
+	},
+
+
+	toggleAdvanced : function() {
+
+		$(".aimeos .tab-pane").on("click", ".card-block .advanced.collapsed", function(ev) {
+			$(".secondary", $(this).parent()).show();
+			$(this).removeClass("collapsed");
+		});
+
+		$(".aimeos .tab-pane").on("click", ".card-block .advanced:not(.collapsed)", function(ev) {
+			$(".secondary", $(this).parent()).hide();
+			$(this).addClass("collapsed");
+		});
 	}
 };
 
@@ -277,8 +292,15 @@ Aimeos.Config = {
 
 			var node = $(this).closest(".item-config");
 			var clone = Aimeos.addClone($(".prototype", node));
-			var count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and must start with 0
 			var types = $(".config-type", clone);
+
+			var count = $(".group-item:not(.prototype)", $(this).closest(".tab-pane")).length;
+
+			if(count === 0) {
+				count = $(".list-item-new", ev.delegateTarget).length - 2; // minus prototype and must start with 0
+			} else {
+				count -= 1; // minus already added block
+			}
 
 			if(types.length > 0 ) {
 				$(".config-type:not(.config-type-string)", clone).remove();

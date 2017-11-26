@@ -56,10 +56,12 @@
 }
 
 .aimeos .main-navbar .btn.act-show.fa:before,
+.aimeos .advanced.collapsed .btn.act-show.fa:before,
 .aimeos .card-header.collapsed .btn.act-show.fa:before {
 	content: "\f078";
 }
 
+.aimeos .advanced .btn.act-show.fa:before,
 .aimeos .card-header .btn.act-show.fa:before {
 	content: "\f077";
 }
@@ -109,6 +111,10 @@
 	content: "\f06e";
 }
 
+.aimeos .btn.act-show.fa:before {
+	content: "\f078";
+}
+
 .aimeos .item-refid.btn.act-view.fa {
 	font-family: inherit;
 	color: inherit;
@@ -130,6 +136,19 @@
 
 .aimeos .content-block {
 	margin-bottom: 1rem;
+}
+
+.aimeos .card-block .advanced {
+	border-top: solid 1px #DFDFDF;
+	margin-bottom: 1rem;
+}
+
+.aimeos .card-block .advanced.collapsed {
+	border-bottom: solid 1px #DFDFDF;
+}
+
+.aimeos .card-block .secondary {
+	display: none;
 }
 
 .aimeos .table {
