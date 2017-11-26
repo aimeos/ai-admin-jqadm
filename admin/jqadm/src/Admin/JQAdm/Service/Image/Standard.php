@@ -454,6 +454,7 @@ class Standard
 
 			$item->setLabel( $this->getValue( $data, 'media.label/' . $idx ) );
 			$item->setStatus( $this->getValue( $data, 'media.status/' . $idx ) );
+			$item->setTypeId( $this->getValue( $data, 'media.typeid/' . $idx ) );
 			$item->setLanguageId( $this->getValue( $data, 'media.languageid/' . $idx ) );
 
 			$item = $mediaManager->saveItem( $item );
@@ -497,7 +498,7 @@ class Standard
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'media', 'default' ) as $listItem )
+		foreach( $item->getListItems( 'media', null, null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;

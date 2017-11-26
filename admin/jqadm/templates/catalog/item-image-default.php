@@ -338,7 +338,7 @@ $enc = $this->encoder();
 						</div>
 					</div>
 
-					<?php $mediaTypes = $this->get( 'mediaTypes', [] ); ?>
+					<?php $mediaTypes = $this->get( 'imageTypes', [] ); ?>
 					<?php if( count( $mediaTypes ) > 1 ) : ?>
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
