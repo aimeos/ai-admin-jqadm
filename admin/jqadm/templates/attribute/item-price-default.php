@@ -5,6 +5,11 @@
  * @copyright Aimeos (aimeos.org), 2017
  */
 
+$selected = function( $key, $code ) {
+	return ( $key == $code ? 'selected="selected"' : '' );
+};
+
+
 $enc = $this->encoder();
 
 
@@ -147,10 +152,10 @@ $enc = $this->encoder();
 									<?= $enc->html( $this->translate( 'admin', 'Types for additional prices like per one lb/kg or per month' ) ); ?>
 								</div>
 							</div>
-						<?php else : $priceType = reset( $priceTypes ); ?>
+						<?php else : ?>
 							<input class="item-typeid" type="hidden"
 								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
-								value="<?= $enc->attr( $priceType ? $priceType->getId() : '' ); ?>" />
+								value="<?= $enc->attr( key( $priceTypes ) ); ?>" />
 						<?php endif; ?>
 
 						<div class="form-group row mandatory">
@@ -166,6 +171,139 @@ $enc = $this->encoder();
 								<?= $enc->html( $this->translate( 'admin', 'Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00' ) ); ?>
 							</div>
 						</div>
+					</div>
+
+
+					<div class="col-xl-12 advanced collapsed">
+						<div class="card-tools-left">
+							<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data') ); ?>">
+							</div>
+						</div>
+						<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
+					</div>
+
+					<div class="col-xl-6 content-block secondary">
+						<?php $listTypes = $this->get( 'priceListTypes', [] ); ?>
+						<?php if( count( $listTypes ) > 1 ) : ?>
+							<div class="form-group row mandatory">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
+								<div class="col-sm-8">
+									<select class="form-control custom-select listitem-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'price', 'attribute.lists.typeid', '' ) ) ); ?>"
+										<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> >
+
+										<?php foreach( $this->get( 'priceListTypes', [] ) as $id => $typeItem ) : ?>
+											<option value="<?= $enc->attr( $id ); ?>" <?= $selected( $this->get( 'priceData/attribute.lists.typeid/' . $idx ), $id ); ?> >
+												<?= $enc->html( $typeItem->getLabel() ); ?>
+											</option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Second level price type for distinguishing prices' ) ); ?>
+								</div>
+							</div>
+						<?php else : ?>
+							<input class="listitem-typeid" type="hidden"
+								name="<?= $enc->attr( $this->formparam( array( 'price', 'attribute.lists.typeid', '' ) ) ); ?>"
+								value="<?= $enc->attr( key( $listTypes ) ); ?>" />
+						<?php endif; ?>
+						<div class="form-group row optional">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
+							<div class="col-sm-8">
+								<input class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'attribute.lists.datestart', '' ) ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
+									value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'priceData/attribute.lists.datestart/' . $idx ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> />
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'The price is only shown on the web site after that date and time, useful or seasonal prices' ) ); ?>
+							</div>
+						</div>
+						<div class="form-group row optional">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
+							<div class="col-sm-8">
+								<input class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'attribute.lists.dateend', '' ) ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
+									value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'priceData/attribute.lists.dateend/' . $idx ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> />
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'The price is only shown on the web site until that date and time, useful or seasonal prices' ) ); ?>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-6 content-block secondary <?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?>">
+						<table class="item-config table table-striped" data-keys="<?= $enc->attr( json_encode( [] ) ); ?>">
+							<thead>
+								<tr>
+									<th>
+										<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
+										<div class="form-text text-muted help-text">
+											<?= $enc->html( $this->translate( 'admin', 'Price specific configuration options, will be available as key/value pairs in the templates' ) ); ?>
+										</div>
+									</th>
+									<th>
+										<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
+									</th>
+									<th class="actions">
+										<?php if( !$this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ) ) : ?>
+											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+											</div>
+										<?php endif; ?>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<?php foreach( (array) $this->get( 'priceData/config/' . $idx . '/key', [] ) as $num => $key ) : ?>
+									<tr class="config-item">
+										<td>
+											<input type="text" class="config-key form-control" tabindex="<?= $this->get( 'tabindex' ); ?>"
+												name="<?= $enc->attr( $this->formparam( array( 'price', 'config', $idx, 'key', '' ) ) ); ?>"
+												value="<?= $enc->attr( $this->get( 'priceData/config/' . $idx . '/key/' . $num, $key ) ); ?>"
+												<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> />
+										</td>
+										<td>
+											<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>"
+												name="<?= $enc->attr( $this->formparam( array( 'price', 'config', $idx, 'val', '' ) ) ); ?>"
+												value="<?= $enc->attr( $this->get( 'priceData/config/' . $idx . '/val/' . $num ) ); ?>"
+												<?= $this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ); ?> />
+										</td>
+										<td class="actions">
+											<?php if( !$this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ) ) : ?>
+												<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+												</div>
+											<?php endif; ?>
+										</td>
+									</tr>
+								<?php endforeach; ?>
+
+								<tr class="prototype">
+									<td>
+										<input type="text" class="config-key form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+											name="<?= $enc->attr( $this->formparam( array( 'price', 'config', $idx, 'key', '' ) ) ); ?>" />
+									</td>
+									<td>
+										<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+											name="<?= $enc->attr( $this->formparam( array( 'price', 'config', $idx, 'val', '' ) ) ); ?>" />
+									</td>
+									<td class="actions">
+										<?php if( !$this->site()->readonly( $this->get( 'priceData/attribute.lists.siteid/' . $idx ) ) ) : ?>
+											<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+											</div>
+										<?php endif; ?>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 
 				</div>
@@ -291,10 +429,10 @@ $enc = $this->encoder();
 								<?= $enc->html( $this->translate( 'admin', 'Types for additional prices like per one lb/kg or per month' ) ); ?>
 							</div>
 						</div>
-					<?php else : $priceType = reset( $priceTypes ); ?>
+					<?php else : ?>
 						<input class="item-typeid" type="hidden" disabled="disabled"
 							name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
-							value="<?= $enc->attr( $priceType ? $priceType->getId() : '' ); ?>" />
+							value="<?= $enc->attr( key( $priceTypes ) ); ?>" />
 					<?php endif; ?>
 
 					<div class="form-group row">
@@ -309,6 +447,105 @@ $enc = $this->encoder();
 							<?= $enc->html( $this->translate( 'admin', 'Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00' ) ); ?>
 						</div>
 					</div>
+				</div>
+
+
+				<div class="col-xl-12 advanced collapsed">
+					<div class="card-tools-left">
+						<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data') ); ?>">
+						</div>
+					</div>
+					<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
+				</div>
+
+				<div class="col-xl-6 content-block secondary">
+					<?php $listTypes = $this->get( 'priceListTypes', [] ); ?>
+					<?php if( count( $listTypes ) > 1 ) : ?>
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
+							<div class="col-sm-8">
+								<select class="form-control custom-select listitem-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'attribute.lists.typeid', '' ) ) ); ?>" >
+
+									<?php foreach( $this->get( 'priceListTypes', [] ) as $id => $typeItem ) : ?>
+										<option value="<?= $enc->attr( $id ); ?>" >
+											<?= $enc->html( $typeItem->getLabel() ); ?>
+										</option>
+									<?php endforeach; ?>
+								</select>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Second level price type for distinguishing prices' ) ); ?>
+							</div>
+						</div>
+					<?php else : ?>
+						<input class="listitem-typeid" type="hidden"
+							name="<?= $enc->attr( $this->formparam( array( 'price', 'attribute.lists.typeid', '' ) ) ); ?>"
+							value="<?= $enc->attr( key( $listTypes ) ); ?>" />
+					<?php endif; ?>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'price', 'attribute.lists.datestart', '' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>" />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'The price is only shown on the web site after that date and time, useful or seasonal prices' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'price', 'attribute.lists.dateend', '' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>" />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'The price is only shown on the web site until that date and time, useful or seasonal prices' ) ); ?>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-6 content-block secondary">
+					<table class="item-config table table-striped" data-keys="<?= $enc->attr( json_encode( [] ) ); ?>">
+						<thead>
+							<tr>
+								<th>
+									<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
+									<div class="form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Price specific configuration options, will be available as key/value pairs in the templates' ) ); ?>
+									</div>
+								</th>
+								<th>
+									<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
+								</th>
+								<th class="actions">
+									<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="prototype">
+								<td>
+									<input type="text" class="config-key form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'price', 'config', 'idx', 'key', '' ) ) ); ?>" />
+								</td>
+								<td>
+									<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'price', 'config', 'idx', 'val', '' ) ) ); ?>" />
+								</td>
+								<td class="actions">
+									<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 
 			</div>

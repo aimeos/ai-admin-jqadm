@@ -90,6 +90,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute/lists/type' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'price/type' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
 
@@ -104,6 +105,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'price' => array(
 				'attribute.lists.id' => array( '' ),
+				'attribute.lists.typeid' => array( $listTypeManager->findItem( 'default', [], 'price' )->getId() ),
 				'price.typeid' => array( $typeManager->findItem( 'default', [], 'attribute' )->getId() ),
 				'price.currencyid' => array( 'EUR' ),
 				'price.quantity' => array( '2' ),
