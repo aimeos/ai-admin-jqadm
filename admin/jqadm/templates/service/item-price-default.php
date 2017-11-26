@@ -168,7 +168,7 @@ $enc = $this->encoder();
 									</select>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Second level price type for distinguishing prices' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Second level type for grouping items' ) ); ?>
 								</div>
 							</div>
 						<?php else : ?>
@@ -186,7 +186,7 @@ $enc = $this->encoder();
 									<?= $this->site()->readonly( $this->get( 'priceData/service.lists.siteid/' . $idx ) ); ?> />
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'The price is only shown on the web site after that date and time, useful or seasonal prices' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ); ?>
 							</div>
 						</div>
 						<div class="form-group row optional">
@@ -199,7 +199,7 @@ $enc = $this->encoder();
 									<?= $this->site()->readonly( $this->get( 'priceData/service.lists.siteid/' . $idx ) ); ?> />
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'The price is only shown on the web site until that date and time, useful or seasonal prices' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ); ?>
 							</div>
 						</div>
 					</div>
@@ -211,7 +211,7 @@ $enc = $this->encoder();
 									<th>
 										<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
 										<div class="form-text text-muted help-text">
-											<?= $enc->html( $this->translate( 'admin', 'Price specific configuration options, will be available as key/value pairs in the templates' ) ); ?>
+											<?= $enc->html( $this->translate( 'admin', 'Configuration options, will be available as key/value pairs in the list item' ) ); ?>
 										</div>
 									</th>
 									<th>
@@ -407,7 +407,7 @@ $enc = $this->encoder();
 								</select>
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Second level price type for distinguishing prices' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Second level type for grouping items' ) ); ?>
 							</div>
 						</div>
 					<?php else : ?>
@@ -423,7 +423,7 @@ $enc = $this->encoder();
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'The price is only shown on the web site after that date and time, useful or seasonal prices' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">
@@ -434,7 +434,7 @@ $enc = $this->encoder();
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'The price is only shown on the web site until that date and time, useful or seasonal prices' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ); ?>
 						</div>
 					</div>
 				</div>
@@ -446,7 +446,7 @@ $enc = $this->encoder();
 								<th>
 									<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
 									<div class="form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'Price specific configuration options, will be available as key/value pairs in the templates' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Configuration options, will be available as key/value pairs in the list item' ) ); ?>
 									</div>
 								</th>
 								<th>
