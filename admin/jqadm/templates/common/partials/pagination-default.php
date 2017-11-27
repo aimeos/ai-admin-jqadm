@@ -30,22 +30,6 @@ $pgroup = function( array $params, $group )
 	return ['page' => $params];
 };
 
-
-if( $this->get( 'action' ) === 'get' )
-{
-	$target = $this->config( 'admin/jqadm/url/get/target' );
-	$controller = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-	$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
-	$config = $this->config( 'admin/jqadm/url/get/config', [] );
-}
-else
-{
-	$target = $this->config( 'admin/jqadm/url/search/target' );
-	$controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-	$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
-	$config = $this->config( 'admin/jqadm/url/search/config', [] );
-}
-
 $fragment = (array) $this->get( 'fragment', [] );
 $params = $this->get( 'pageParams', [] );
 $total = $this->get( 'total', 0 );
@@ -62,6 +46,33 @@ $last = ( floor(($total - 1) / $limit) * $limit > $offset ? floor(($total - 1) /
 
 $pageCurrent = floor( $offset / $limit ) + 1;
 $pageTotal = ( $total != 0 ? ceil( $total / $limit ) : 1 );
+
+
+if( $this->get( 'action' ) === 'get' )
+{
+	if( isset( $params['id'] ) )
+	{
+		$target = $this->config( 'admin/jqadm/url/get/target' );
+		$controller = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
+		$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
+		$config = $this->config( 'admin/jqadm/url/get/config', [] );
+	}
+	else
+	{
+		$target = $this->config( 'admin/jqadm/url/create/target' );
+		$controller = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
+		$action = $this->config( 'admin/jqadm/url/create/action', 'create' );
+		$config = $this->config( 'admin/jqadm/url/create/config', [] );
+	}
+}
+else
+{
+	$target = $this->config( 'admin/jqadm/url/search/target' );
+	$controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
+	$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
+	$config = $this->config( 'admin/jqadm/url/search/config', [] );
+}
+
 
 $enc = $this->encoder();
 
