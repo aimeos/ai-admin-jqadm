@@ -390,7 +390,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'product.lists.type.domain', 'media' ) );
 		$search->setSortations( array( $search->sort( '+', 'product.lists.type.label' ) ) );
 
-		return $manager->searchItems( $search );
+		return $this->sortType( $manager->searchItems( $search ) );
 	}
 
 

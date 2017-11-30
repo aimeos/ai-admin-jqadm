@@ -311,9 +311,9 @@ class Standard
 		}
 
 
-		$view->priceListTypes = $listTypeManager->searchItems( $listSearch );
-		$view->priceTypes = $priceTypeManager->searchItems( $search );
 		$view->priceCurrencies = $currencyItems;
+		$view->priceTypes = $priceTypeManager->searchItems( $search );
+		$view->priceListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
 
 		return $view;
 	}

@@ -600,6 +600,27 @@ abstract class Base
 
 
 	/**
+	 * Sorts the type item with code "default" first
+	 *
+	 * @param \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of type IDs as keys and items as values
+	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Sorted associative list of type IDs as keys and items as values
+	 */
+	protected function sortType( array $items )
+	{
+		foreach( $items as $id => $item )
+		{
+			if( $item instanceof \Aimeos\MShop\Common\Item\Type\Iface && $item->getCode() === 'default' )
+			{
+				unset( $items[$id] );
+				return [$id => $item] + $items;
+			}
+		}
+
+		return $items;
+	}
+
+
+	/**
 	 * Stores and returns the parameters used for searching items
 	 *
 	 * @param array $params GET/POST parameter set

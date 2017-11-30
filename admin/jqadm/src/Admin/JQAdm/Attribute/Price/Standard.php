@@ -304,11 +304,16 @@ class Standard
 
 
 		$currencyManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
+		$currencyItems = $currencyManager->searchItems( $currencyManager->createSearch( true ) );
 
-		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true ) );
-		$view->priceCurrencyDefault = $context->getLocale()->getCurrencyId();
-		$view->priceListTypes = $listTypeManager->searchItems( $listSearch );
+		if( $currencyItems === [] ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
+		}
+
+
+		$view->priceCurrencies = $currencyItems;
 		$view->priceTypes = $priceTypeManager->searchItems( $search );
+		$view->priceListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
 
 		return $view;
 	}
