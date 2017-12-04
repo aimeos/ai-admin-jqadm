@@ -199,11 +199,6 @@
 	}
 }
 
-.aimeos .item .tab-pane {
-	overflow-x: auto;
-	height: 100%;
-}
-
 .aimeos .item .form-group.mandatory label:after {
 	white-space: nowrap;
 	content: " *";

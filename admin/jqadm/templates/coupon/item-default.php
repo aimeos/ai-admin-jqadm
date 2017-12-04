@@ -136,11 +136,11 @@ $params = $this->get( 'pageParams', [] );
 								<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?> />
 							<div class="dropdown input-group-addon">
 								<a class="dropdown-add" id="decoratorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="decoratorButton">
+								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="decoratorButton">
 									<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
-										<a class="dropdown-item decorator-name" href="#" data-name="<?= $enc->attr( $name ); ?>"><?= $enc->html( $name ); ?></a>
+										<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ); ?>"><?= $enc->html( $name ); ?></a></li>
 									<?php endforeach; ?>
-								</div>
+								</ul>
 							</div>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
