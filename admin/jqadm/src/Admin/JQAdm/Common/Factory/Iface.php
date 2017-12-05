@@ -23,9 +23,8 @@ interface Iface
 	 *	Creates a client object.
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context instance with necessary objects
-	 * @param array List of file system paths where the templates are stored
 	 * @param string $name Admin name (from configuration or "Standard" if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface New client object
 	 */
-	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths, $name = null );
+	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, $name = null );
 }

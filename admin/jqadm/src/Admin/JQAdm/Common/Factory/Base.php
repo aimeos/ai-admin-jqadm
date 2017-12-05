@@ -41,13 +41,12 @@ class Base
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context instance with necessary objects
 	 * @param \Aimeos\Admin\JQAdm\Iface $client Admin object
-	 * @param array $templatePaths List of file system paths where the templates are stored
 	 * @param array $decorators List of decorator name that should be wrapped around the client
 	 * @param string $classprefix Decorator class prefix, e.g. "\Aimeos\Admin\JQAdm\Catalog\Decorator\"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 */
 	protected static function addDecorators( \Aimeos\MShop\Context\Item\Iface $context,
-		\Aimeos\Admin\JQAdm\Iface $client, array $templatePaths, array $decorators, $classprefix )
+		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, $classprefix )
 	{
 		$iface = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface';
 
@@ -65,7 +64,7 @@ class Base
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ) );
 			}
 
-			$client = new $classname( $client, $context, $templatePaths );
+			$client = new $classname( $client, $context );
 
 			if( !( $client instanceof $iface ) ) {
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" does not implement "%2$s"', $classname, $iface ) );
@@ -81,12 +80,11 @@ class Base
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context instance with necessary objects
 	 * @param \Aimeos\Admin\JQAdm\Iface $client Admin object
-	 * @param array $templatePaths List of file system paths where the templates are stored
 	 * @param string $path Path of the client in lower case, e.g. "catalog/detail"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 */
 	protected static function addClientDecorators( \Aimeos\MShop\Context\Item\Iface $context,
-		\Aimeos\Admin\JQAdm\Iface $client, array $templatePaths, $path )
+		\Aimeos\Admin\JQAdm\Iface $client, $path )
 	{
 		if( !is_string( $path ) || $path === '' ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid domain "%1$s"', $path ) );
@@ -128,15 +126,15 @@ class Base
 		}
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\';
-		$client = self::addDecorators( $context, $client, $templatePaths, $decorators, $classprefix );
+		$client = self::addDecorators( $context, $client, $decorators, $classprefix );
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\';
 		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/global', [] );
-		$client = self::addDecorators( $context, $client, $templatePaths, $decorators, $classprefix );
+		$client = self::addDecorators( $context, $client, $decorators, $classprefix );
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\' . $localClass . '\\Decorator\\';
 		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/local', [] );
-		$client = self::addDecorators( $context, $client, $templatePaths, $decorators, $classprefix );
+		$client = self::addDecorators( $context, $client, $decorators, $classprefix );
 
 		return $client;
 	}
@@ -148,11 +146,10 @@ class Base
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context instance with necessary objects
 	 * @param string $classname Name of the client class
 	 * @param string $interface Name of the client interface
-	 * @param array $templatePaths List of file system paths where the templates are stored
 	 * @return \Aimeos\Admin\JQAdm\\Iface Admin object
 	 * @throws \Aimeos\Admin\JQAdm\Exception If client couldn't be found or doesn't implement the interface
 	 */
-	protected static function createClientBase( \Aimeos\MShop\Context\Item\Iface $context, $classname, $interface, $templatePaths )
+	protected static function createClientBase( \Aimeos\MShop\Context\Item\Iface $context, $classname, $interface )
 	{
 		if( isset( self::$objects[$classname] ) ) {
 			return self::$objects[$classname];
@@ -162,7 +159,7 @@ class Base
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not available', $classname ) );
 		}
 
-		$client = new $classname( $context, $templatePaths );
+		$client = new $classname( $context );
 
 		if( !( $client instanceof $interface ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" does not implement interface "%2$s"', $classname, $interface ) );

@@ -48,7 +48,6 @@ class Factory
 
 		$view = $context->getView();
 		$config = $context->getConfig();
-		$templatePaths = $aimeos->getCustomPaths( 'admin/jqadm/templates' );
 
 		if( $view->access( $config->get( 'admin/jqadm/resource/' . $type . '/groups', [] ) ) !== true ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $type ) );
@@ -61,7 +60,7 @@ class Factory
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not available', $factory ) );
 		}
 
-		$client = @call_user_func_array( array( $factory, 'createClient' ), array( $context, $templatePaths, $name ) );
+		$client = @call_user_func_array( array( $factory, 'createClient' ), array( $context, $name ) );
 
 		if( $client === false ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid factory "%1$s"', $factory ) );

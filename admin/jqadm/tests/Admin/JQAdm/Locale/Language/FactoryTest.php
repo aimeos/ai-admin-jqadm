@@ -12,12 +12,10 @@ namespace Aimeos\Admin\JQAdm\Locale\Language;
 class FactoryTest extends \PHPUnit\Framework\TestCase
 {
 	private $context;
-	private $templatePaths;
 
 
 	protected function setUp()
 	{
-		$this->templatePaths = \TestHelperJqadm::getTemplatePaths();
 		$this->context = \TestHelperJqadm::getContext();
 		$this->context->setView( \TestHelperJqadm::getView() );
 	}
@@ -25,14 +23,14 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClient()
 	{
-		$client = \Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context, $this->templatePaths );
+		$client = \Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
 
 	public function testCreateClientName()
 	{
-		$client = \Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context, $this->templatePaths, 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context, 'Standard' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
@@ -40,21 +38,21 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	public function testCreateClientNameEmpty()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context, $this->templatePaths, '' );
+		\Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context, '' );
 	}
 
 
 	public function testCreateClientNameInvalid()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context, $this->templatePaths, '%locale/language' );
+		\Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context, '%locale/language' );
 	}
 
 
 	public function testCreateClientNameNotFound()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context, $this->templatePaths, 'test' );
+		\Aimeos\Admin\JQAdm\Locale\Language\Factory::createClient( $this->context, 'test' );
 	}
 
 }

@@ -25,12 +25,11 @@ class Factory
 	 * Creates a coupon client object
 	 *
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Shop context instance with necessary objects
-	 * @param array $templatePaths List of file system paths where the templates are stored
 	 * @param string|null $name Admin name (default: "Standard")
 	 * @return \Aimeos\Admin\JQAdm\Iface Filter part implementing \Aimeos\Admin\JQAdm\Iface
 	 * @throws \Aimeos\Admin\JQAdm\Exception If requested client implementation couldn't be found or initialisation fails
 	 */
-	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, array $templatePaths, $name = null )
+	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, $name = null )
 	{
 		/** admin/jqadm/coupon/name
 		 * Class name of the used account favorite client implementation
@@ -78,9 +77,9 @@ class Factory
 		$iface = '\\Aimeos\\Admin\\JQAdm\\Iface';
 		$classname = '\\Aimeos\\Admin\\JQAdm\\Coupon\\' . $name;
 
-		$client = self::createClientBase( $context, $classname, $iface, $templatePaths );
+		$client = self::createClientBase( $context, $classname, $iface );
 
-		return self::addClientDecorators( $context, $client, $templatePaths, 'coupon' );
+		return self::addClientDecorators( $context, $client, 'coupon' );
 	}
 
 }
