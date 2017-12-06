@@ -403,9 +403,30 @@ $enc = $this->encoder();
 
 				<div class="col-xl-6">
 
+					<div class="form-group row mandatory">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
+						<div class="col-sm-8">
+							<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.status', '' ) ) ); ?>">
+								<option value="1">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+								</option>
+								<option value="0">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+								</option>
+								<option value="-1">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+								</option>
+								<option value="-2">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+								</option>
+							</select>
+						</div>
+					</div>
+
 					<?php $currencies = $this->get( 'priceCurrencies', [] ); ?>
 					<?php if( count( $currencies ) > 1 ) : ?>
-						<div class="form-group row">
+						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
@@ -430,7 +451,7 @@ $enc = $this->encoder();
 
 					<?php $priceTypes = $this->get( 'priceTypes', [] ); ?>
 					<?php if( count( $priceTypes ) > 1 ) : ?>
-						<div class="form-group row">
+						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
@@ -456,7 +477,7 @@ $enc = $this->encoder();
 							value="<?= $enc->attr( $priceType ? $priceType->getId() : '' ); ?>" />
 					<?php endif; ?>
 
-					<div class="form-group row">
+					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Minimum quantity' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"

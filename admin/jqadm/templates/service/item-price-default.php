@@ -83,6 +83,28 @@ $enc = $this->encoder();
 					</div>
 
 					<div class="col-xl-6">
+
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
+							<div class="col-sm-8">
+								<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.status', '' ) ) ); ?>">
+									<option value="1" <?= $selected( $this->get( 'priceData/price.status/' . $idx, 1 ), 1 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+									</option>
+									<option value="0" <?= $selected( $this->get( 'priceData/price.status/' . $idx, 1 ), 0 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+									</option>
+									<option value="-1" <?= $selected( $this->get( 'priceData/price.status/' . $idx, 1 ), -1 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+									</option>
+									<option value="-2" <?= $selected( $this->get( 'priceData/price.status/' . $idx, 1 ), -2 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+									</option>
+								</select>
+							</div>
+						</div>
+
 						<?php $currencies = $this->get( 'priceCurrencies', [] ); ?>
 						<?php if( count( $currencies ) > 1 ) : ?>
 							<div class="form-group row mandatory">
@@ -326,6 +348,28 @@ $enc = $this->encoder();
 				</div>
 
 				<div class="col-xl-6">
+
+					<div class="form-group row mandatory">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
+						<div class="col-sm-8">
+							<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'price', 'price.status', '' ) ) ); ?>">
+								<option value="1">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+								</option>
+								<option value="0">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+								</option>
+								<option value="-1">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+								</option>
+								<option value="-2">
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+								</option>
+							</select>
+						</div>
+					</div>
+
 					<?php $currencies = $this->get( 'priceCurrencies', [] ); ?>
 					<?php if( count( $currencies ) > 1 ) : ?>
 						<div class="form-group row mandatory">
@@ -353,7 +397,7 @@ $enc = $this->encoder();
 
 					<?php $priceTypes = $this->get( 'priceTypes', [] ); ?>
 					<?php if( count( $priceTypes ) > 1 ) : ?>
-						<div class="form-group row">
+						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
