@@ -84,4 +84,17 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 			return 'readonly';
 		}
 	}
+
+
+	/**
+	 * Returns the site ID of the current site
+	 *
+	 * @return string|null Site ID or null if not available
+	 */
+	public function siteid()
+	{
+		if( ( $item = end( $this->sitepath ) ) !== false ) {
+			return $item->getId();
+		}
+	}
 }

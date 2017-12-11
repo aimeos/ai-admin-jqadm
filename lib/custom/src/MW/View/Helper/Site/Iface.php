@@ -48,4 +48,11 @@ interface Iface extends \Aimeos\MW\View\Helper\Iface
 	 * @return string|null "readonly" if item is from a parent site, null if not
 	 */
 	public function readonly( $siteid );
+
+	/**
+	 * Returns the site ID of the current site
+	 *
+	 * @return string|null Site ID or null if not available
+	 */
+	public function siteid();
 }
