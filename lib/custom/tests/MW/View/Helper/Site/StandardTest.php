@@ -54,6 +54,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->assertEquals( 'readonly', $this->object->transform()->readonly( 1 ) );
 	}
+
+
+	public function testSiteid()
+	{
+		$this->assertEquals( 3, $this->object->transform()->siteid() );
+	}
 }
 
 
