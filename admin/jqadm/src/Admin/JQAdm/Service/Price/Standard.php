@@ -436,9 +436,15 @@ class Standard
 				$list['service.lists.id'] = '';
 			}
 
+			$list['service.lists.datestart'] = str_replace( ' ', 'T', $list['service.lists.datestart'] );
+			$list['service.lists.dateend'] = str_replace( ' ', 'T', $list['service.lists.dateend'] );
+
 			foreach( $list as $key => $value ) {
 				$data[$key][] = $value;
 			}
+
+			$data['config'][$idx]['key'] = [];
+			$data['config'][$idx]['val'] = [];
 
 			foreach( $list['service.lists.config'] as $key => $val )
 			{

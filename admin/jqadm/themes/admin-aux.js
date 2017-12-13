@@ -5,6 +5,92 @@
 
 
 
+var vprices = new Vue({
+	'el': '.item-price',
+	'data': {
+		'advanced': [],
+		'items': $("#item-price-group").data("items"),
+		'siteid': $("#item-price-group").data("siteid")
+	},
+	'methods': {
+
+		checkSite : function(key, idx) {
+			return this.items[key][idx] != this.siteid;
+		},
+
+
+		addItem : function(siteid, listPrefix) {
+
+			this.items[listPrefix + 'siteid'].push(this.siteid);
+			this.items['price.siteid'].push(this.siteid);
+			this.items['price.value'].push('0.00');
+			this.items['price.costs'].push('0.00');
+			this.items['price.rebate'].push('0.00');
+			this.items['price.taxrate'].push('0.00');
+			this.items['price.status'].push('1');
+			this.items['price.quantity'].push('1');
+			this.items['price.currencyid'].push($('.item-price input.item-currencyid').val() || '');
+
+			var options = $(".item-price .listitem-typeid option");
+
+			if(options.length > 0) {
+				this.items[listPrefix + 'typeid'].push(options.first().val());
+			}
+		},
+
+
+		removeItem : function(idx) {
+
+			for(key in this.items) {
+				this.items[key].splice(idx, 1);
+			}
+		},
+
+
+		addConfig : function(idx) {
+
+			if(!this.items['config'][idx]) {
+				this.$set(this.items['config'], idx, {'key': [], 'val': []});
+			}
+			this.items['config'][idx]['key'].push('');
+		},
+
+
+		getConfig : function(idx) {
+
+			 if(this.items['config'] && this.items['config'][idx] && this.items['config'][idx]['key']) {
+				 return this.items['config'][idx]['key'];
+			 }
+			 return [];
+		},
+
+
+		removeConfig : function(idx, pos) {
+			this.items['config'][idx]['key'].splice(pos, 1)
+		},
+
+
+		getCss : function(idx) {
+			return ( idx !== 0 && this.items['price.id'][idx] ? 'collapsed' : 'show' );
+		},
+
+
+		getLabel : function(idx) {
+			var label = '';
+
+			label += (this.items['price.quantity'][idx] ? this.items['price.quantity'][idx] + ' ~ ' : '');
+			label += (this.items['price.value'][idx] ? this.items['price.value'][idx] : '');
+			label += (this.items['price.costs'][idx] ? ' + ' + this.items['price.costs'][idx] : '');
+			label += (this.items['price.currencyid'][idx] ? ' ' + this.items['price.currencyid'][idx] : '');
+			label += (this.items['price.type'][idx] ? ' (' + this.items['price.type'][idx] + ')' : '');
+
+			return label;
+		}
+	}
+});
+
+
+
 Aimeos.Address = {
 
 	init : function() {
@@ -178,82 +264,6 @@ Aimeos.Image = {
 
 
 
-Aimeos.Price = {
-
-	init : function() {
-
-		this.addBlock();
-		this.removeBlock();
-		this.update();
-	},
-
-
-	addBlock : function() {
-
-		$(".item-price").on("click", ".card-tools-more .act-add", function(ev) {
-			ev.stopPropagation();
-
-			var number = Math.floor((Math.random() * 1000));
-			var clone = Aimeos.addClone($(".card.prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
-
-			$(".card-block", clone).attr("id", "item-price-group-data-" + number);
-			$(".card-header", clone).attr("id", "item-price-group-item-" + number);
-			$(".card-header", clone).attr("data-target", "#item-price-group-data-" + number);
-			$(".card-header", clone).attr("aria-controls", "item-price-group-data-" + number);
-
-			return false;
-		});
-	},
-
-
-	removeBlock : function() {
-
-		$(".item-price").on("click", ".header .act-delete", function() {
-			$(this).closest(".group-item").remove();
-		});
-	},
-
-
-	update : function() {
-
-		$(".item-price").on("blur", ".item-value", function() {
-			Aimeos.Price.updateHeader($(this).closest(".group-item"));
-		});
-
-		$(".item-price").on("blur", ".item-costs", function() {
-			Aimeos.Price.updateHeader($(this).closest(".group-item"));
-		});
-
-		$(".item-price").on("change", ".item-currencyid", function() {
-			Aimeos.Price.updateHeader($(this).closest(".group-item"));
-		});
-	},
-
-
-	updateHeader : function(item) {
-
-		var label = $(".card-block .item-value", item).val();
-		var costs = $(".card-block .item-costs", item).val();
-		var currency = $(".card-block .item-currencyid", item).val();
-
-		if(typeof label == 'undefined') {
-			label = '';
-		}
-
-		if(currency) {
-			label = currency + ': ' + label;
-		}
-
-		if(costs) {
-			label += ' + ' + costs;
-		}
-
-		$(".header .item-label", item).html(label);
-	}
-};
-
-
-
 Aimeos.Property = {
 
 	init : function() {
@@ -362,7 +372,7 @@ $(function() {
 
 	Aimeos.Address.init();
 	Aimeos.Image.init();
-	Aimeos.Price.init();
 	Aimeos.Property.init();
 	Aimeos.Text.init();
+
 });
