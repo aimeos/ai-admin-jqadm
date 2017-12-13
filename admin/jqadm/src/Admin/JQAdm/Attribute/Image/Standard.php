@@ -513,9 +513,15 @@ class Standard
 				$list['attribute.lists.id'] = '';
 			}
 
+			$list['attribute.lists.datestart'] = str_replace( ' ', 'T', $list['attribute.lists.datestart'] );
+			$list['attribute.lists.dateend'] = str_replace( ' ', 'T', $list['attribute.lists.dateend'] );
+
 			foreach( $list as $key => $value ) {
 				$data[$key][] = $value;
 			}
+
+			$data['config'][$idx]['key'] = [];
+			$data['config'][$idx]['val'] = [];
 
 			foreach( $list['attribute.lists.config'] as $key => $val )
 			{

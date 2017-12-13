@@ -5,6 +5,107 @@
 
 
 
+var vmedia = new Vue({
+	'el': '.item-image',
+	'data': {
+		'advanced': [],
+		'items': $("#item-image-group").data("items"),
+		'siteid': $("#item-image-group").data("siteid")
+	},
+	'methods': {
+
+		checkSite : function(key, idx) {
+			return this.items[key][idx] != this.siteid;
+		},
+
+
+		addItem : function(listPrefix) {
+
+			var listtypeid = $('#item-image-group').data('listtypeid') || '';
+
+			this.$set(this.items, listPrefix + 'id', (this.items[listPrefix + 'id'] || []).concat(['']));
+			this.$set(this.items, listPrefix + 'siteid', (this.items[listPrefix + 'siteid'] || []).concat([this.siteid]));
+			this.$set(this.items, listPrefix + 'typeid', (this.items[listPrefix + 'typeid'] || []).concat([listtypeid]));
+			this.$set(this.items, listPrefix + 'datestart', (this.items[listPrefix + 'datestart'] || []).concat(['']));
+			this.$set(this.items, listPrefix + 'dateend', (this.items[listPrefix + 'dateend'] || []).concat(['']));
+
+			this.$set(this.items, 'media.siteid', (this.items['media.siteid'] || []).concat([this.siteid]));
+			this.$set(this.items, 'media.preview', (this.items['media.preview'] || []).concat(['']));
+			this.$set(this.items, 'media.url', (this.items['media.url'] || []).concat(['']));
+			this.$set(this.items, 'media.label', (this.items['media.label'] || []).concat(['']));
+			this.$set(this.items, 'media.status', (this.items['media.status'] || []).concat(['1']));
+			this.$set(this.items, 'media.typeid', (this.items['media.typeid'] || []).concat(['']));
+			this.$set(this.items, 'media.typename', (this.items['media.typename'] || []).concat(['']));
+			this.$set(this.items, 'media.languageid', (this.items['media.languageid'] || []).concat([null]));
+		},
+
+
+		removeItem : function(idx) {
+
+			for(key in this.items) {
+				this.items[key].splice(idx, 1);
+			}
+		},
+
+
+		addConfig : function(idx) {
+
+			if(!this.items['config'][idx]) {
+				this.$set(this.items['config'], idx, {'key': [], 'val': []});
+			}
+			this.items['config'][idx]['key'].push('');
+		},
+
+
+		getConfig : function(idx) {
+
+			 if(this.items['config'] && this.items['config'][idx] && this.items['config'][idx]['key']) {
+				 return this.items['config'][idx]['key'];
+			 }
+			 return [];
+		},
+
+
+		removeConfig : function(idx, pos) {
+			this.items['config'][idx]['key'].splice(pos, 1);
+			this.items['config'][idx]['val'].splice(pos, 1);
+		},
+
+
+		getCss : function(idx) {
+			return ( idx !== 0 && this.items['media.id'][idx] ? 'collapsed' : 'show' );
+		},
+
+
+		getLabel : function(idx) {
+			var label = '';
+
+			label += (this.items['media.languageid'][idx] ? this.items['media.languageid'][idx] + ': ' : '');
+			label += (this.items['media.label'][idx] ? this.items['media.label'][idx] : '');
+			label += (this.items['media.typename'][idx] ? ' (' + this.items['media.typename'][idx] + ')' : '');
+
+			return label;
+		},
+
+
+		getUrl : function(prefix, url) {
+
+			var str = url.substr(0, 4);
+			return (str === 'http' || str === 'data' ? url : prefix + url);
+		},
+
+
+		updateFile : function(idx, files) {
+
+			if(files.length > 0) {
+				this.$set(this.items['media.label'], idx, files[0].name);
+			}
+		}
+	}
+});
+
+
+
 var vprices = new Vue({
 	'el': '.item-price',
 	'data': {
@@ -34,9 +135,9 @@ var vprices = new Vue({
 			this.$set(this.items, 'price.value', (this.items['price.value'] || []).concat(['0.00']));
 			this.$set(this.items, 'price.costs', (this.items['price.costs'] || []).concat(['0.00']));
 			this.$set(this.items, 'price.status', (this.items['price.status'] || []).concat(['1']));
-			this.$set(this.items, 'price.typeid', (this.items['price.typeid'] || []).concat(['']));
-			this.$set(this.items, 'price.type', (this.items['price.type'] || []).concat(['']));
 			this.$set(this.items, 'price.label', (this.items['price.label'] || []).concat(['']));
+			this.$set(this.items, 'price.typeid', (this.items['price.typeid'] || []).concat(['']));
+			this.$set(this.items, 'price.typename', (this.items['price.typename'] || []).concat(['']));
 			this.$set(this.items, 'price.rebate', (this.items['price.rebate'] || []).concat(['0.00']));
 			this.$set(this.items, 'price.taxrate', (this.items['price.taxrate'] || []).concat(['0.00']));
 			this.$set(this.items, 'price.quantity', (this.items['price.quantity'] || []).concat(['1']));
@@ -71,7 +172,8 @@ var vprices = new Vue({
 
 
 		removeConfig : function(idx, pos) {
-			this.items['config'][idx]['key'].splice(pos, 1)
+			this.items['config'][idx]['key'].splice(pos, 1);
+			this.items['config'][idx]['val'].splice(pos, 1);
 		},
 
 
@@ -87,7 +189,7 @@ var vprices = new Vue({
 			label += (this.items['price.value'][idx] ? this.items['price.value'][idx] : '');
 			label += (this.items['price.costs'][idx] ? ' + ' + this.items['price.costs'][idx] : '');
 			label += (this.items['price.currencyid'][idx] ? ' ' + this.items['price.currencyid'][idx] : '');
-			label += (this.items['price.type'][idx] ? ' (' + this.items['price.type'][idx] + ')' : '');
+			label += (this.items['price.typename'][idx] ? ' (' + this.items['price.typename'][idx] + ')' : '');
 
 			return label;
 		}
@@ -179,92 +281,6 @@ Aimeos.Address = {
 		});
 	}
 
-};
-
-
-
-Aimeos.Image = {
-
-	init : function() {
-
-		this.addBlock();
-		this.removeBlock();
-		this.selectImage();
-		this.update();
-	},
-
-
-	addBlock : function() {
-
-		$(".item-image").on("click", ".card-tools-more .act-add", function(ev) {
-			ev.stopPropagation();
-
-			var number = Math.floor((Math.random() * 1000));
-			var clone = Aimeos.addClone($(".card.prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
-
-			$(".card-block", clone).attr("id", "item-image-group-data-" + number);
-			$(".card-header", clone).attr("id", "item-image-group-item-" + number);
-			$(".card-header", clone).attr("data-target", "#item-image-group-data-" + number);
-			$(".card-header", clone).attr("aria-controls", "item-image-group-data-" + number);
-
-			return false;
-		});
-	},
-
-
-	removeBlock : function() {
-
-		$(".item-image").on("click", ".header .act-delete", function() {
-			$(this).closest(".group-item").remove();
-		});
-	},
-
-
-	selectImage : function() {
-
-		$(".item-image").on("change", ".fileupload", function(ev) {
-
-			if(this.files.length > 0) {
-
-				var item = $(this).closest(".group-item");
-				var file = this.files[0];
-				var img = new Image();
-
-				img.src = file;
-
-				$(".image-preview img", item).remove();
-				$(".image-preview", item).append(img);
-
-				$("input.item-label", item).val(this.files[0].name);
-				Aimeos.Image.updateHeader(item);
-
-				var reader = new FileReader();
-				reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
-				reader.readAsDataURL(file);
-			}
-		});
-	},
-
-
-	update : function() {
-
-		$(".item-image").on("blur", "input.item-label", function() {
-			Aimeos.Image.updateHeader($(this).closest(".group-item"));
-		});
-
-		$(".item-image").on("change", ".item-languageid", function() {
-			Aimeos.Image.updateHeader($(this).closest(".group-item"));
-		});
-	},
-
-
-	updateHeader : function(item) {
-
-		var label = $(".card-block .item-label", item).val();
-		var lang = $(".card-block .item-languageid", item).val();
-
-		$(".header .item-label", item).html(lang ? lang + ': ' + label : label);
-	}
 };
 
 
@@ -376,7 +392,6 @@ Aimeos.Text = {
 $(function() {
 
 	Aimeos.Address.init();
-	Aimeos.Image.init();
 	Aimeos.Property.init();
 	Aimeos.Text.init();
 

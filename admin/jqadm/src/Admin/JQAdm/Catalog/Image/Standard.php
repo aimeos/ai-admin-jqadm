@@ -512,9 +512,15 @@ class Standard
 				$list['catalog.lists.id'] = '';
 			}
 
+			$list['catalog.lists.datestart'] = str_replace( ' ', 'T', $list['catalog.lists.datestart'] );
+			$list['catalog.lists.dateend'] = str_replace( ' ', 'T', $list['catalog.lists.dateend'] );
+
 			foreach( $list as $key => $value ) {
 				$data[$key][] = $value;
 			}
+
+			$data['config'][$idx]['key'] = [];
+			$data['config'][$idx]['val'] = [];
 
 			foreach( $list['catalog.lists.config'] as $key => $val )
 			{

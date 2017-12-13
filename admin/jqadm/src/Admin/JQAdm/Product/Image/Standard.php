@@ -510,9 +510,15 @@ class Standard
 				$list['product.lists.id'] = '';
 			}
 
+			$list['product.lists.datestart'] = str_replace( ' ', 'T', $list['product.lists.datestart'] );
+			$list['product.lists.dateend'] = str_replace( ' ', 'T', $list['product.lists.dateend'] );
+
 			foreach( $list as $key => $value ) {
 				$data[$key][] = $value;
 			}
+
+			$data['config'][$idx]['key'] = [];
+			$data['config'][$idx]['val'] = [];
 
 			foreach( $list['product.lists.config'] as $key => $val )
 			{
