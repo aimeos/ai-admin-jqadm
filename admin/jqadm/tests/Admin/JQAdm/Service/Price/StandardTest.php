@@ -54,8 +54,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="EUR" selected="selected"', $result );
-		$this->assertContains( 'value="1.99"', $result );
+		$this->assertContains( '&quot;price.currencyid&quot;:[&quot;EUR&quot;,&quot;EUR&quot;]', $result );
+		$this->assertContains( '&quot;price.costs&quot;:[&quot;1.99&quot;,&quot;0.00&quot;]', $result );
 	}
 
 
@@ -79,8 +79,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="EUR" selected="selected"', $result );
-		$this->assertContains( 'value="1.99"', $result );
+		$this->assertContains( '&quot;price.currencyid&quot;:[&quot;EUR&quot;,&quot;EUR&quot;]', $result );
+		$this->assertContains( '&quot;price.costs&quot;:[&quot;1.99&quot;,&quot;0.00&quot;]', $result );
 	}
 
 
