@@ -54,8 +54,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'src="/prod_123x103/195_prod_123x103.jpg"', $result );
-		$this->assertContains( 'src="/prod_266x221/198_prod_266x221.jpg"', $result );
+		$this->assertRegexp( '/&quot;media.preview&quot;:\[.*&quot;prod_123x103..195_prod_123x103\.jpg&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;media.preview&quot;:\[.*&quot;prod_266x221..198_prod_266x221\.jpg&quot;.*\]/', $result );
 	}
 
 
@@ -79,8 +79,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'src="/prod_123x103/195_prod_123x103.jpg"', $result );
-		$this->assertContains( 'src="/prod_266x221/198_prod_266x221.jpg"', $result );
+		$this->assertRegexp( '/&quot;media.preview&quot;:\[.*&quot;prod_123x103..195_prod_123x103\.jpg&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;media.preview&quot;:\[.*&quot;prod_266x221..198_prod_266x221.jpg&quot;.*\]/', $result );
 	}
 
 

@@ -54,7 +54,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'src="/path/to/folder/example1.jpg"', $result );
+		$this->assertContains( '&quot;media.preview&quot;:[&quot;path\/to\/folder\/example1.jpg&quot;]', $result );
 	}
 
 
@@ -78,7 +78,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'src="/path/to/folder/example1.jpg"', $result );
+		$this->assertContains( '&quot;media.preview&quot;:[&quot;path\/to\/folder\/example1.jpg&quot;]', $result );
 	}
 
 
