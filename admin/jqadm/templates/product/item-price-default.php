@@ -8,11 +8,16 @@
 
 $enc = $this->encoder();
 
+$currencies = $this->get( 'priceCurrencies', [] );
+$currencyId = ( count( $currencies ) === 1 ? key( $currencies ) : '' );
+
 
 ?>
 <div id="price" class="item-price content-block tab-pane fade" role="tablist" aria-labelledby="price">
 	<div id="item-price-group" role="tablist" aria-multiselectable="true"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'priceData', [] ) ) ); ?>"
+		data-listtypeid="<?= key( $this->get( 'priceListTypes', [] ) ) ?>"
+		data-currencyid="<?= $currencyId ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<div v-for="(siteid, idx) in items['product.lists.siteid']" class="group-item card">

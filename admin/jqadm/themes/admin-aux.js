@@ -21,21 +21,26 @@ var vprices = new Vue({
 
 		addItem : function(siteid, listPrefix) {
 
-			this.items[listPrefix + 'siteid'].push(this.siteid);
-			this.items['price.siteid'].push(this.siteid);
-			this.items['price.value'].push('0.00');
-			this.items['price.costs'].push('0.00');
-			this.items['price.rebate'].push('0.00');
-			this.items['price.taxrate'].push('0.00');
-			this.items['price.status'].push('1');
-			this.items['price.quantity'].push('1');
-			this.items['price.currencyid'].push($('.item-price input.item-currencyid').val() || '');
+			var listtypeid = $('#item-price-group').data('listtypeid') || '';
+			var currencyid = $('#item-price-group').data('currencyid') || '';
 
-			var options = $(".item-price .listitem-typeid option");
+			this.$set(this.items, listPrefix + 'id', (this.items[listPrefix + 'id'] || []).concat(['']));
+			this.$set(this.items, listPrefix + 'siteid', (this.items[listPrefix + 'siteid'] || []).concat([this.siteid]));
+			this.$set(this.items, listPrefix + 'typeid', (this.items[listPrefix + 'typeid'] || []).concat([listtypeid]));
+			this.$set(this.items, listPrefix + 'datestart', (this.items[listPrefix + 'datestart'] || []).concat(['']));
+			this.$set(this.items, listPrefix + 'dateend', (this.items[listPrefix + 'dateend'] || []).concat(['']));
 
-			if(options.length > 0) {
-				this.items[listPrefix + 'typeid'].push(options.first().val());
-			}
+			this.$set(this.items, 'price.siteid', (this.items['price.siteid'] || []).concat([this.siteid]));
+			this.$set(this.items, 'price.value', (this.items['price.value'] || []).concat(['0.00']));
+			this.$set(this.items, 'price.costs', (this.items['price.costs'] || []).concat(['0.00']));
+			this.$set(this.items, 'price.status', (this.items['price.status'] || []).concat(['1']));
+			this.$set(this.items, 'price.typeid', (this.items['price.typeid'] || []).concat(['']));
+			this.$set(this.items, 'price.type', (this.items['price.type'] || []).concat(['']));
+			this.$set(this.items, 'price.label', (this.items['price.label'] || []).concat(['']));
+			this.$set(this.items, 'price.rebate', (this.items['price.rebate'] || []).concat(['0.00']));
+			this.$set(this.items, 'price.taxrate', (this.items['price.taxrate'] || []).concat(['0.00']));
+			this.$set(this.items, 'price.quantity', (this.items['price.quantity'] || []).concat(['1']));
+			this.$set(this.items, 'price.currencyid', (this.items['price.currencyid'] || []).concat([currencyid]));
 		},
 
 
