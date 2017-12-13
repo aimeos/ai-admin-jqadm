@@ -50,9 +50,14 @@ var vmedia = new Vue({
 
 		addConfig : function(idx) {
 
+			if(!this.items['config']) {
+				this.$set(this.items, 'config', {});
+			}
+
 			if(!this.items['config'][idx]) {
 				this.$set(this.items['config'], idx, {'key': [], 'val': []});
 			}
+
 			this.items['config'][idx]['key'].push('');
 		},
 
@@ -155,9 +160,14 @@ var vprices = new Vue({
 
 		addConfig : function(idx) {
 
+			if(!this.items['config']) {
+				this.$set(this.items, 'config', {});
+			}
+
 			if(!this.items['config'][idx]) {
 				this.$set(this.items['config'], idx, {'key': [], 'val': []});
 			}
+
 			this.items['config'][idx]['key'].push('');
 		},
 
