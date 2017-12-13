@@ -286,7 +286,7 @@ $enc = $this->encoder();
 						</thead>
 						<tbody>
 
-							<tr v-for="(key, pos) in getConfig(idx)">
+							<tr v-for="(key, pos) in getConfig(idx)" v-bind:key="pos">
 								<td>
 									<input is="auto-complete" v-once
 										v-model="items['config'][idx]['key'][pos]"
