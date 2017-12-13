@@ -130,7 +130,7 @@ $enc = $this->encoder();
 								<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.currencyid', '' ) ) ); ?>"
 									v-bind:readonly="checkSite('price.siteid', idx)"
-									v-model="items['price.currencyid'][idx]" />
+									v-model="items['price.currencyid'][idx]" >
 									<option value="" disabled>
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
@@ -158,7 +158,7 @@ $enc = $this->encoder();
 								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'price', 'price.typeid', '' ) ) ); ?>"
 									v-bind:readonly="checkSite('price.siteid', idx)"
-									v-model="items['price.typeid'][idx]" />
+									v-model="items['price.typeid'][idx]" >
 									<option value="">
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
