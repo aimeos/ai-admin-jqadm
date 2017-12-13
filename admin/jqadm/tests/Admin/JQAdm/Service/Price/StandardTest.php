@@ -55,7 +55,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;price.currencyid&quot;:[&quot;EUR&quot;,&quot;EUR&quot;]', $result );
-		$this->assertContains( '&quot;price.costs&quot;:[&quot;1.99&quot;,&quot;0.00&quot;]', $result );
+		$this->assertRegexp( '/&quot;price.costs&quot;:\[.*&quot;1.99&quot;.*\]/', $result );
 	}
 
 
@@ -80,7 +80,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;price.currencyid&quot;:[&quot;EUR&quot;,&quot;EUR&quot;]', $result );
-		$this->assertContains( '&quot;price.costs&quot;:[&quot;1.99&quot;,&quot;0.00&quot;]', $result );
+		$this->assertRegexp( '/&quot;price.costs&quot;:\[.*&quot;1.99&quot;.*\]/', $result );
 	}
 
 

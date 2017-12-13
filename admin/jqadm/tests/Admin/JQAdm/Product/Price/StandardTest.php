@@ -55,11 +55,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;price.taxrate&quot;:[&quot;19.00&quot;,&quot;19.00&quot;]', $result );
-		$this->assertContains( '&quot;price.value&quot;:[&quot;600.00&quot;,&quot;580.00&quot;]', $result );
-		$this->assertContains( '&quot;price.value&quot;:[&quot;600.00&quot;,&quot;580.00&quot;]', $result );
-		$this->assertContains( '&quot;price.costs&quot;:[&quot;30.00&quot;,&quot;20.00&quot;]', $result );
 		$this->assertContains( '&quot;price.currencyid&quot;:[&quot;EUR&quot;,&quot;EUR&quot;]', $result );
-		$this->assertContains( '&quot;price.quantity&quot;:[1,100]', $result );
+		$this->assertRegexp( '/&quot;price.value&quot;:\[.*&quot;600.00&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;price.costs&quot;:\[.*&quot;30.00&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;price.quantity&quot;:\[.*100.*\]/', $result );
 	}
 
 
@@ -84,11 +83,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;price.taxrate&quot;:[&quot;19.00&quot;,&quot;19.00&quot;]', $result );
-		$this->assertContains( '&quot;price.value&quot;:[&quot;600.00&quot;,&quot;580.00&quot;]', $result );
-		$this->assertContains( '&quot;price.value&quot;:[&quot;600.00&quot;,&quot;580.00&quot;]', $result );
-		$this->assertContains( '&quot;price.costs&quot;:[&quot;30.00&quot;,&quot;20.00&quot;]', $result );
 		$this->assertContains( '&quot;price.currencyid&quot;:[&quot;EUR&quot;,&quot;EUR&quot;]', $result );
-		$this->assertContains( '&quot;price.quantity&quot;:[1,100]', $result );
+		$this->assertRegexp( '/&quot;price.value&quot;:\[.*&quot;600.00&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;price.costs&quot;:\[.*&quot;30.00&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;price.quantity&quot;:\[.*100.*\]/', $result );
 	}
 
 
