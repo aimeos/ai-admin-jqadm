@@ -4,33 +4,6 @@
  */
 
 
-Vue.component('auto-complete', {
-	template: '<input type="text" class="form-control" v-bind:name="name" v-bind:value="value" v-bind:readonly="readonly" v-bind:tabindex="tabindex" />',
-	props: ['keys', 'name', 'value', 'readonly', 'tabindex'],
-
-	mounted: function() {
-		var vm = this;
-
-		$(this.$el).autocomplete({
-			change: function(event) {
-				vm.$emit('input', $(event.currentTarget).val());
-			},
-			source: vm.keys || [],
-			minLength: 0,
-			delay: 0
-		});
-
-		$(this.$el).on('focus', function(event) {
-			$(this).autocomplete("search", "");
-		});
-	},
-
-	destroyed: function() {
-		$(this.$el).off().autocomplete('destroy');
-	}
-});
-
-
 
 Aimeos = {
 
