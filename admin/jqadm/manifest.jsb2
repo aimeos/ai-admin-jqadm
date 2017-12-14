@@ -44,6 +44,9 @@
 			"text": "admin.js",
 			"path": "themes/"
 		},{
+			"text": "vue-components.js",
+			"path": "themes/"
+		},{
 			"text": "admin-aux.js",
 			"path": "themes/"
 		},{
@@ -81,9 +84,6 @@
 			"path": "themes/"
 		},{
 			"text": "supplier.js",
-			"path": "themes/"
-		},{
-			"text": "vue-components.js",
 			"path": "themes/"
 		}]
 	}],
