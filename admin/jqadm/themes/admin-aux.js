@@ -125,7 +125,7 @@ var vprices = new Vue({
 		},
 
 
-		addItem : function(siteid, listPrefix) {
+		addItem : function(listPrefix) {
 
 			var listtypeid = $('#item-price-group').data('listtypeid') || '';
 			var currencyid = $('#item-price-group').data('currencyid') || '';
