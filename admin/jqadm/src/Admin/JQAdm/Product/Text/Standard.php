@@ -72,6 +72,7 @@ class Standard
 		$view = $this->addViewData( $this->getView() );
 
 		$view->textData = $this->toArray( $view->item, true );
+		$view->textTypes = $this->getTypes();
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -98,6 +99,7 @@ class Standard
 		}
 
 		$view->textData = $data;
+		$view->textTypes = $this->getTypes();
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -130,6 +132,7 @@ class Standard
 		$view = $this->addViewData( $this->getView() );
 
 		$view->textData = $this->toArray( $view->item );
+		$view->textTypes = $this->getTypes();
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -371,7 +374,7 @@ class Standard
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$listItems = $manager->getItem( $id, array( 'text' ) )->getListItems( 'text', 'default' );
-		$langIds = (array) $this->getValue( $data, 'langid', [] );
+		$langIds = (array) $this->getValue( $data, 'text.languageid', [] );
 
 
 		$listItem = $listManager->createItem();
@@ -389,11 +392,11 @@ class Standard
 		{
 			foreach( $this->getTypes() as $type )
 			{
-				if( ( $content = trim( $this->getValue( $data, $type . '/content/' . $idx, '' ) ) ) === '' ) {
+				if( ( $content = trim( $this->getValue( $data, $type . '/text.content/' . $idx, '' ) ) ) === '' ) {
 					continue;
 				}
 
-				$listid = $this->getValue( $data, $type . '/listid/' . $idx );
+				$listid = $this->getValue( $data, $type . '/product.lists.id/' . $idx );
 				$listIds[] = $listid;
 
 				if( !isset( $listItems[$listid] ) )
@@ -453,7 +456,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
 	{
-		$data = [];
+		$data = $map = [];
 
 		foreach( $item->getListItems( 'text', 'default' ) as $listItem )
 		{
@@ -462,15 +465,20 @@ class Standard
 			}
 
 			$type = $refItem->getType();
-			$langid = $refItem->getLanguageId();
-			$data['langid'][$langid] = $langid;
-			$data['siteid'][$langid] = $item->getSiteId();
 
 			if( in_array( $type, $this->getTypes() ) )
 			{
-				$data[$type]['listid'][$langid] = $listItem->getId();
-				$data[$type]['content'][$langid] = $refItem->getContent();
+				$langid = $refItem->getLanguageId();
+
+				$map[$langid]['text.languageid'] = $langid;
+				$map[$langid]['text.siteid'] = $item->getSiteId();
+				$map[$langid]['text.content'][$type] = $refItem->getContent();
+				$map[$langid]['product.lists.id'][$type] = $listItem->getId();
 			}
+		}
+
+		foreach( $map as $entry ) {
+			$data[] = $entry;
 		}
 
 		return $data;

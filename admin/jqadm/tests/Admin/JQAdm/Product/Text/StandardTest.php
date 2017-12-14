@@ -59,7 +59,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="Unterproduct 1"', $result );
+		$this->assertContains( '&quot;name&quot;:&quot;Unterproduct 1&quot;', $result );
 	}
 
 
@@ -83,7 +83,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="Unterproduct 1"', $result );
+		$this->assertContains( '&quot;name&quot;:&quot;Unterproduct 1&quot;', $result );
 	}
 
 
@@ -101,13 +101,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'text' => array(
-				'langid' => array( 'de' ),
-				'name' => array( 'listid' => '', 'content' => 'test name' ),
-				'short' => array( 'listid' => '', 'content' => 'short desc' ),
-				'long' => array( 'listid' => '', 'content' => 'long desc' ),
-				'url' => array( 'listid' => '', 'content' => 'url segment' ),
-				'meta-keyword' => array( 'listid' => '', 'content' => 'meta keywords' ),
-				'meta-description' => array( 'listid' => '', 'content' => 'meta desc' ),
+				'text.languageid' => array( 'de' ),
+				'name' => array( 'product.lists.id' => '', 'text.content' => 'test name' ),
+				'short' => array( 'product.lists.id' => '', 'text.content' => 'short desc' ),
+				'long' => array( 'product.lists.id' => '', 'text.content' => 'long desc' ),
+				'url' => array( 'product.lists.id' => '', 'text.content' => 'url segment' ),
+				'meta-keyword' => array( 'product.lists.id' => '', 'text.content' => 'meta keywords' ),
+				'meta-description' => array( 'product.lists.id' => '', 'text.content' => 'meta desc' ),
 			),
 		);
 

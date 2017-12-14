@@ -208,6 +208,62 @@ var vprices = new Vue({
 
 
 
+var vtexts = new Vue({
+	'el': '.item-text',
+	'data': {
+		'advanced': [],
+		'items': $("#item-text-group").data("items"),
+		'siteid': $("#item-text-group").data("siteid"),
+		'types': $("#item-text-group").data("types")
+	},
+	'methods': {
+
+		checkSite : function(key, idx) {
+			return this.items[idx][key] != this.siteid;
+		},
+
+
+		addItem : function(listKey) {
+			var entry = {
+				'text.siteid': this.siteid,
+				'text.languageid': '',
+				'text.content': {}
+			};
+			entry[listKey] = {};
+
+			for(type in this.types) {
+				entry['text.content'][type] = '';
+				entry[listKey][type] = '';
+			}
+
+			this.items.push(entry);
+		},
+
+
+		removeItem : function(idx) {
+			this.items.splice(idx, 1);
+		},
+
+
+		getCss : function(idx) {
+			return ( idx !== 0 && this.items[idx]['text.languageid'] ? 'collapsed' : 'show' );
+		},
+
+
+		getLabel : function(idx) {
+			var label = '';
+
+			label += (this.items[idx]['text.languageid'] ? this.items[idx]['text.languageid'] + ': ' : '');
+			label += (this.items[idx]['text.content']['name'] ? this.items[idx]['text.content']['name'] : '');
+
+			return label;
+		}
+	}
+});
+
+
+
+
 Aimeos.Address = {
 
 	init : function() {
@@ -328,81 +384,10 @@ Aimeos.Property = {
 
 
 
-Aimeos.Text = {
-
-	editorcfg : [
-		{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
-		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
-		{ name: 'insert', items: [ 'Image', 'SpecialChar' ] },
-		{ name: 'tools', items: [ 'Maximize' ] },
-		{ name: 'document', items: [ 'Source' ] },
-		'/',
-		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
-		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Blockquote' ] },
-		{ name: 'styles', items: [ 'Format' ] }
-	],
-
-
-	init : function() {
-
-		this.addBlock();
-		this.removeBlock();
-		this.setupComponents();
-		this.updateHeader();
-	},
-
-
-	addBlock : function() {
-
-		$(".item-text").on("click", ".card-tools-more .act-add", function(ev) {
-			ev.stopPropagation();
-
-			var number = Math.floor((Math.random() * 1000));
-			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
-
-			$(".card-block", clone).attr("id", "item-text-group-data-" + number);
-			$(".card-header", clone).attr("id", "item-text-group-item-" + number);
-			$(".card-header", clone).attr("data-target", "#item-text-group-data-" + number);
-			$(".card-header", clone).attr("aria-controls", "#item-text-group-data-" + number);
-
-			$(".htmleditor-prototype", clone).ckeditor({toolbar: Aimeos.Text.editorcfg});
-		});
-	},
-
-
-	removeBlock : function() {
-
-		$(".item-text").on("click", ".header .act-delete", function() {
-			$(this).closest(".group-item").remove();
-		});
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-text .combobox").combobox({getfcn: Aimeos.getOptionsLanguages});
-		$(".item-text .htmleditor").ckeditor({toolbar: Aimeos.Text.editorcfg});
-	},
-
-
-	updateHeader : function() {
-
-		$(".item-text").on("blur change", "input.item-name-content,.text-langid", function() {
-			var item = $(this).closest(".group-item");
-			var value = $(".text-langid", item).val() + ': ' + $("input.item-name-content", item).val();
-
-			$(".header .item-name-content", item).html(value);
-		});
-	}
-};
-
-
-
 
 $(function() {
 
 	Aimeos.Address.init();
 	Aimeos.Property.init();
-	Aimeos.Text.init();
 
 });

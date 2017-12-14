@@ -101,13 +101,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'text' => array(
-				'langid' => array( 'de' ),
-				'name' => array( 'listid' => '', 'content' => 'test name' ),
-				'short' => array( 'listid' => '', 'content' => 'short desc' ),
-				'long' => array( 'listid' => '', 'content' => 'long desc' ),
-				'url' => array( 'listid' => '', 'content' => 'url segment' ),
-				'meta-keyword' => array( 'listid' => '', 'content' => 'meta keywords' ),
-				'meta-description' => array( 'listid' => '', 'content' => 'meta desc' ),
+				'text.languageid' => array( 'de' ),
+				'name' => array( 'catalog.lists.id' => '', 'text.content' => 'test name' ),
+				'short' => array( 'catalog.lists.id' => '', 'text.content' => 'short desc' ),
+				'long' => array( 'catalog.lists.id' => '', 'text.content' => 'long desc' ),
+				'url' => array( 'catalog.lists.id' => '', 'text.content' => 'url segment' ),
+				'meta-keyword' => array( 'catalog.lists.id' => '', 'text.content' => 'meta keywords' ),
+				'meta-description' => array( 'catalog.lists.id' => '', 'text.content' => 'meta desc' ),
 			),
 		);
 

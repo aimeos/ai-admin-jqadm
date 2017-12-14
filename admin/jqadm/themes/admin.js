@@ -9,6 +9,19 @@ Aimeos = {
 
 	options : null,
 
+	editorcfg : [
+		{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
+		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+		{ name: 'insert', items: [ 'Image', 'SpecialChar' ] },
+		{ name: 'tools', items: [ 'Maximize' ] },
+		'/',
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Blockquote' ] },
+		'/',
+		{ name: 'styles', items: [ 'Format' ] },
+		{ name: 'document', items: [ 'Source' ] }
+	],
+
 
 	init : function() {
 

@@ -59,7 +59,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="weiß"', $result );
+		$this->assertContains( '&quot;name&quot;:&quot;wei\u00df&quot;', $result );
 	}
 
 
@@ -83,7 +83,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="weiß"', $result );
+		$this->assertContains( '&quot;name&quot;:&quot;wei\u00df&quot;', $result );
 	}
 
 
@@ -101,10 +101,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'text' => array(
-				'langid' => array( 'de' ),
-				'name' => array( 'listid' => '', 'content' => 'test name' ),
-				'short' => array( 'listid' => '', 'content' => 'short desc' ),
-				'long' => array( 'listid' => '', 'content' => 'long desc' ),
+				'text.languageid' => array( 'de' ),
+				'name' => array( 'attribute.lists.id' => '', 'text.content' => 'test name' ),
+				'short' => array( 'attribute.lists.id' => '', 'text.content' => 'short desc' ),
+				'long' => array( 'attribute.lists.id' => '', 'text.content' => 'long desc' ),
 			),
 		);
 
