@@ -78,7 +78,7 @@ var vmedia = new Vue({
 
 
 		getCss : function(idx) {
-			return ( idx !== 0 && this.items['media.id'][idx] ? 'collapsed' : 'show' );
+			return ( idx !== 0 && this.items['media.id'] && this.items['media.id'][idx] ? 'collapsed' : 'show' );
 		},
 
 
@@ -108,7 +108,8 @@ var vmedia = new Vue({
 		}
 	},
 	'mounted' : function() {
-		Sortable.create(document.getElementById('item-media-group'));
+		var el = document.getElementById('item-image-group');
+		if(el) { Sortable.create(el, {handle: '.act-move'}); }
 	}
 });
 
@@ -191,7 +192,7 @@ var vprices = new Vue({
 
 
 		getCss : function(idx) {
-			return ( idx !== 0 && this.items['price.id'][idx] ? 'collapsed' : 'show' );
+			return ( idx !== 0 && this.items['price.id'] && this.items['price.id'][idx] ? 'collapsed' : 'show' );
 		},
 
 
@@ -208,7 +209,8 @@ var vprices = new Vue({
 		}
 	},
 	'mounted' : function() {
-		Sortable.create(document.getElementById('item-price-group'));
+		var el = document.getElementById('item-price-group');
+		if(el) { Sortable.create(el, {handle: '.act-move'}); }
 	}
 });
 
@@ -266,7 +268,8 @@ var vtexts = new Vue({
 		}
 	},
 	'mounted' : function() {
-		Sortable.create(document.getElementById('item-text-group'));
+		var el = document.getElementById('item-text-group');
+		if(el) { Sortable.create(el, {handle: '.act-move'}); }
 	}
 });
 

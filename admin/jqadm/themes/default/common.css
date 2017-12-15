@@ -102,6 +102,10 @@
 	content: "\f067";
 }
 
+.aimeos .btn.act-move.fa:before {
+	content: "\f047";
+}
+
 .aimeos .btn.act-save.fa:before {
 	content: "\f0c7";
 }

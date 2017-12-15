@@ -31,6 +31,9 @@ $enc = $this->encoder();
 				<span class="item-label header-label">{{ getLabel(idx) }}</span>
 				&nbsp;
 				<div class="card-tools-right">
+					<div class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down') ); ?>">
+					</div>
 					<div v-if="!checkSite('product.lists.siteid', idx)"
 						class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
@@ -274,18 +277,16 @@ $enc = $this->encoder();
 					</table>
 				</div>
 
-
 				<?= $this->get( 'imageBody' ); ?>
 
 			</div>
 		</div>
+	</div>
 
-		<div class="card-tools-more">
-			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
-				v-on:click="addItem('product.lists.')" >
-			</div>
+	<div class="card-tools-more">
+		<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+			title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+			v-on:click="addItem('product.lists.')" >
 		</div>
-
 	</div>
 </div>
