@@ -106,6 +106,9 @@ var vmedia = new Vue({
 				this.$set(this.items['media.label'], idx, files[0].name);
 			}
 		}
+	},
+	'mounted' : function() {
+		Sortable.create(document.getElementById('item-media-group'));
 	}
 });
 
@@ -203,6 +206,9 @@ var vprices = new Vue({
 
 			return label;
 		}
+	},
+	'mounted' : function() {
+		Sortable.create(document.getElementById('item-price-group'));
 	}
 });
 
@@ -258,6 +264,9 @@ var vtexts = new Vue({
 
 			return label;
 		}
+	},
+	'mounted' : function() {
+		Sortable.create(document.getElementById('item-text-group'));
 	}
 });
 

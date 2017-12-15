@@ -41,6 +41,9 @@
 			"text": "tree.jquery.js",
 			"path": "themes/"
 		},{
+			"text": "sortable.js",
+			"path": "themes/"
+		},{
 			"text": "admin.js",
 			"path": "themes/"
 		},{
