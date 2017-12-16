@@ -15,24 +15,36 @@
 	position: relative;
 	display: inline-block;
 	text-align: left;
+	width: 100%;
+}
+
+.ai-combobox .ui-widget.ui-widget-content,
+.ai-combobox .ui-button {
+	border: none;
+    outline: 0;
+}
+
+.ai-combobox.form-control {
+	padding: 0;
+}
+
+.ai-combobox .ui-button-icons-only {
+	border-left: 1px solid #c5c5c5;
+	width: 2rem;
 }
 
 .ai-combobox-toggle {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	margin-left: -1px;
 	padding: 0;
+	margin: 0;
 }
 
 .ai-combobox-input {
 	margin: 0;
-	padding: 5px 10px;
+	padding: 8px 10px;
 	width: calc(100% - 2rem);
-}
-
-.ai-combobox .ui-button-icons-only {
-	width: 2rem;
 }
 
 .ui-autocomplete.ui-menu {

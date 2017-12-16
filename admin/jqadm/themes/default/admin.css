@@ -204,10 +204,6 @@
 	content: " *";
 }
 
-.aimeos .ai-combobox {
-	width: 100%;
-}
-
 .aimeos .help {
 	text-decoration: underline dotted;
 	cursor: help;

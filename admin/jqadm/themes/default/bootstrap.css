@@ -185,9 +185,11 @@ html {
 	padding: .5rem;
 }
 
+/*
 span.form-control {
 	border-color: transparent;
 }
+*/
 
 .btn, .dropdown-menu {
 	font-size: 100%;

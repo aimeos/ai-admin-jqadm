@@ -4,6 +4,7 @@
  */
 
 
+
 Vue.component('auto-complete', {
 	template: '<input type="text" class="form-control" v-bind:name="name" v-bind:value="value" v-bind:readonly="readonly" v-bind:tabindex="tabindex" />',
 	props: ['keys', 'name', 'value', 'readonly', 'tabindex'],
@@ -29,6 +30,33 @@ Vue.component('auto-complete', {
 		$(this.$el).off().autocomplete('destroy');
 	}
 });
+
+
+
+Vue.component('combo-box', {
+	template: '\
+		<select v-bind:name="name" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
+			<option v-bind:value="value">{{ value }}</option>\
+		</select>\
+	',
+	props: ['name', 'value', 'readonly', 'tabindex', 'getfcn'],
+
+	mounted: function() {
+		var vm = this;
+
+		var box = $(this.$el).combobox({
+			getfcn: this.getfcn(),
+			select: function(event, ui) {
+				vm.$emit('input', ui.item[0].value);
+			}
+		});
+	},
+
+	beforeDestroy: function() {
+		$(this.$el).off().combobox('destroy');
+	}
+});
+
 
 
 Vue.component('html-editor', {

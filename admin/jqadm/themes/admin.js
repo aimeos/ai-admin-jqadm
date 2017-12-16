@@ -23,12 +23,6 @@ Aimeos = {
 	],
 
 
-	init : function() {
-
-		this.toggleAdvanced();
-	},
-
-
 	addClone : function(node, getfcn, selectfn, after) {
 
 		var clone = node.clone().removeClass("prototype");
@@ -112,7 +106,7 @@ Aimeos = {
 					opt.appendTo(element);
 
 					return {
-						label: obj.name || null,
+						label: obj.name || obj.alpha2Code,
 						value: obj.alpha2Code,
 						option: opt
 					};
@@ -199,20 +193,6 @@ Aimeos = {
 
 	getOptionsProducts : function(request, response, element, criteria) {
 		Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', criteria);
-	},
-
-
-	toggleAdvanced : function() {
-
-		$(".aimeos .tab-pane").on("click", ".card-block .advanced.collapsed", function(ev) {
-			$(".secondary", $(this).parent()).show();
-			$(this).removeClass("collapsed");
-		});
-
-		$(".aimeos .tab-pane").on("click", ".card-block .advanced:not(.collapsed)", function(ev) {
-			$(".secondary", $(this).parent()).hide();
-			$(this).addClass("collapsed");
-		});
 	}
 };
 
@@ -535,7 +515,7 @@ Aimeos.Form = {
 	checkFields : function() {
 
 		$(".aimeos .item-content .readonly").on("change", "input,select", function(ev) {
-			$(this).parent().addClass("has-danger");
+			$(this).closest("div").addClass("has-danger");
 		});
 
 
@@ -546,9 +526,9 @@ Aimeos.Form = {
 			}
 
 			if($(this).is(":invalid") === true) {
-				$(this).parent().removeClass("has-success").addClass("has-danger");
+				$(this).closest("div").removeClass("has-success").addClass("has-danger");
 			} else {
-				$(this).parent().removeClass("has-danger").addClass("has-success");
+				$(this).closest("div").removeClass("has-danger").addClass("has-success");
 			}
 		});
 	},
@@ -884,7 +864,6 @@ Aimeos.options = $.ajax($(".aimeos").data("url"), {
 
 $(function() {
 
-	Aimeos.init();
 	Aimeos.Config.init();
 	Aimeos.Filter.init();
 	Aimeos.Form.init();

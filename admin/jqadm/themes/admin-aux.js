@@ -5,6 +5,73 @@
 
 
 
+var vaddresses = new Vue({
+	'el': '.item-address',
+	'data': {
+		'advanced': [],
+		'items': $("#item-address-group").data("items"),
+		'siteid': $("#item-address-group").data("siteid")
+	},
+	'methods': {
+
+		checkSite : function(key, idx) {
+			return this.items[key][idx] != this.siteid;
+		},
+
+
+		addItem : function(prefix) {
+
+			this.$set(this.items, prefix + 'siteid', (this.items[prefix + 'siteid'] || []).concat([this.siteid]));
+			this.$set(this.items, prefix + 'id', (this.items[prefix + 'id'] || []).concat(['']));
+		},
+
+
+		duplicateItem : function(idx) {
+
+			for(key in this.items) {
+				this.items[key].push(this.items[key][idx]);
+			}
+		},
+
+
+		removeItem : function(idx) {
+
+			for(key in this.items) {
+				this.items[key].splice(idx, 1);
+			}
+		},
+
+
+		getCountries : function() {
+			return Aimeos.getCountries;
+		},
+
+
+		getCss : function(idx, prefix) {
+			return ( idx !== 0 && this.items[prefix + 'id'] && this.items[prefix + 'id'][idx] ? 'collapsed' : 'show' );
+		},
+
+
+		getLabel : function(idx, prefix) {
+			var label = '', addr = '';
+
+			label += (this.items[prefix + 'firstname'][idx] ? this.items[prefix + 'firstname'][idx] + ' ' : '');
+			label += (this.items[prefix + 'lastname'][idx] ? this.items[prefix + 'lastname'][idx] : '');
+
+			addr += (this.items[prefix + 'postal'][idx] ? ' ' + this.items[prefix + 'postal'][idx] : '');
+			addr += (this.items[prefix + 'city'][idx] ? ' ' + this.items[prefix + 'city'][idx] : '');
+
+			if(addr && label) {
+				return label + ' -' + addr;
+			}
+
+			return label + ' ' + addr;
+		},
+	}
+});
+
+
+
 var vmedia = new Vue({
 	'el': '.item-image',
 	'data': {
@@ -280,56 +347,6 @@ Aimeos.Address = {
 
 	init : function() {
 
-		this.addBlock();
-		this.copyBlock();
-		this.removeBlock();
-		this.setupComponents();
-		this.updateHeader();
-	},
-
-
-	addBlock : function() {
-
-		$(".item-address").on("click", ".card-tools-more .act-add", function(ev) {
-			ev.stopPropagation();
-
-			var number = Math.floor((Math.random() * 1000));
-			var node = $(".group-item.prototype", ev.delegateTarget);
-			var clone = Aimeos.addClone(node, Aimeos.getCountries, Aimeos.Address.select);
-
-			$(".card-block", clone).attr("id", "item-address-group-data-" + number);
-			$(".card-header", clone).attr("id", "item-address-group-item-" + number);
-			$(".card-header", clone).attr("data-target", "#item-address-group-data-" + number);
-			$(".card-header", clone).attr("aria-controls", "item-address-group-data-" + number);
-		});
-	},
-
-
-	copyBlock : function() {
-
-		$(".item-address").on("click", ".header .act-copy", function(ev) {
-			ev.stopPropagation();
-
-			var number = Math.floor((Math.random() * 1000));
-			var block = $(this).closest(".group-item");
-			var clone = Aimeos.addClone(block, Aimeos.getCountries, Aimeos.Address.select);
-
-			$(".card-block", clone).attr("id", "item-address-group-data-" + number);
-			$(".card-header", clone).attr("id", "item-address-group-item-" + number);
-			$(".card-header", clone).attr("data-target", "#item-address-group-data-" + number);
-			$(".card-header", clone).attr("aria-controls", "item-address-group-data-" + number);
-
-			$("input.item-id", clone).val('');
-			$(".card-header .header-label", clone).empty();
-		});
-	},
-
-
-	removeBlock : function() {
-
-		$(".item-address").on("click", ".header .act-delete", function() {
-			Aimeos.focusBefore($(this).closest(".group-item")).remove();
-		});
 	},
 
 
@@ -346,19 +363,7 @@ Aimeos.Address = {
 			getfcn: Aimeos.getCountries,
 			select: Aimeos.Address.select
 		});
-	},
-
-	updateHeader : function() {
-
-		$(".item-address").on("blur", "input.item-firstname,input.item-lastname,input.item-postal,input.item-city", function() {
-			var item = $(this).closest(".group-item");
-			var value = $("input.item-firstname", item).val() + ' ' + $("input.item-lastname", item).val()
-				+ ' - ' + $("input.item-postal", item).val() + ' ' + $("input.item-city", item).val();
-
-			$(".header .item-label", item).html(value);
-		});
 	}
-
 };
 
 

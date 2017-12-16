@@ -10,7 +10,7 @@
 
 		_create: function() {
 
-			this.wrapper = $( "<span>" ).addClass( "ai-combobox" ).insertAfter( this.element );
+			this.wrapper = $( "<span>" ).addClass( "ai-combobox form-control" ).insertAfter( this.element );
 
 			this._createAutocomplete(this.element.hide());
 			this._createShowAll();
@@ -29,6 +29,7 @@
 			this.input.attr("title", "");
 			this.input.attr("tabindex", select.attr("tabindex" ));
 			this.input.prop("readonly", this.element.is("[readonly]"));
+			this.input.prop("required", this.element.is("[required]"));
 			this.input.addClass("ai-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left");
 
 			this.input.autocomplete({
