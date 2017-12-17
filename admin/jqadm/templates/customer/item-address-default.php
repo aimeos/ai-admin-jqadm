@@ -8,14 +8,23 @@
 
 $enc = $this->encoder();
 
+$keys = [
+	'customer.address.id', 'customer.address.siteid', 'customer.address.languageid', 'customer.address.salutation',
+	'customer.address.title', 'customer.address.firstname', 'customer.address.lastname', 'customer.address.address1',
+	'customer.address.address2', 'customer.address.address3', 'customer.address.postal', 'customer.address.city',
+	'customer.address.countryid', 'customer.address.state', 'customer.address.telephone', 'customer.address.telefax',
+	'customer.address.email', 'customer.address.website', 'customer.address.company', 'customer.address.vatid'
+];
+
 
 ?>
 <div id="address" class="item-address content-block tab-pane fade" role="tabpanel" aria-labelledby="address">
 	<div id="item-address-group" role="tablist" aria-multiselectable="true"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'addressData', [] ) ) ); ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
-		<div v-for="(siteid, idx) in items['customer.address.id']" v-bind:key="idx" class="group-item card">
+		<div v-for="(id, idx) in items['customer.address.id']" v-bind:key="idx" class="group-item card">
 			<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.id', '' ) ) ); ?>"
 				v-bind:value="items['customer.address.id'][idx]" />
 

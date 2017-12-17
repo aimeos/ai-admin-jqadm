@@ -8,8 +8,13 @@
 
 $enc = $this->encoder();
 
+$keys = [
+	'service.lists.id', 'service.lists.siteid', 'service.lists.typeid', 'service.lists.datestart', 'service.lists.dateend',
+	'price.id', 'price.siteid', 'price.taxrate', 'price.value', 'price.rebate', 'price.costs',
+	'price.status', 'price.currencyid', 'price.typeid', 'price.quantity'
+];
+
 $currencies = $this->get( 'priceCurrencies', [] );
-$currencyId = ( count( $currencies ) === 1 ? key( $currencies ) : '' );
 
 
 ?>
@@ -17,10 +22,11 @@ $currencyId = ( count( $currencies ) === 1 ? key( $currencies ) : '' );
 	<div id="item-price-group" role="tablist" aria-multiselectable="true"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'priceData', [] ) ) ); ?>"
 		data-listtypeid="<?= key( $this->get( 'priceListTypes', [] ) ) ?>"
-		data-currencyid="<?= $currencyId ?>"
+		data-currencyid="<?= key( $currencies ) ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
-		<div v-for="(siteid, idx) in items['service.lists.siteid']" class="group-item card">
+		<div v-for="(id, idx) in items['service.lists.id']" class="group-item card">
 			<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'price', 'service.lists.id', '' ) ) ); ?>"
 				v-bind:value="items['service.lists.id'][idx]" />
 
@@ -130,7 +136,6 @@ $currencyId = ( count( $currencies ) === 1 ? key( $currencies ) : '' );
 							</select>
 						</div>
 					</div>
-					<?php $currencies = $this->get( 'priceCurrencies', [] ); ?>
 					<?php if( count( $currencies ) > 1 ) : ?>
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>

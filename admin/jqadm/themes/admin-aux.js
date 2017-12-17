@@ -10,6 +10,7 @@ var vaddresses = new Vue({
 	'data': {
 		'advanced': [],
 		'items': $("#item-address-group").data("items"),
+		'keys': $("#item-address-group").data("keys"),
 		'siteid': $("#item-address-group").data("siteid")
 	},
 	'methods': {
@@ -21,8 +22,13 @@ var vaddresses = new Vue({
 
 		addItem : function(prefix) {
 
-			this.$set(this.items, prefix + 'siteid', (this.items[prefix + 'siteid'] || []).concat([this.siteid]));
-			this.$set(this.items, prefix + 'id', (this.items[prefix + 'id'] || []).concat(['']));
+			var idx = (this.items[prefix + 'id'] || []).length;
+
+			for(var key in this.keys) {
+				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+			}
+
+			this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
 		},
 
 
@@ -77,6 +83,7 @@ var vmedia = new Vue({
 	'data': {
 		'advanced': [],
 		'items': $("#item-image-group").data("items"),
+		'keys': $("#item-image-group").data("keys"),
 		'siteid': $("#item-image-group").data("siteid")
 	},
 	'methods': {
@@ -86,24 +93,19 @@ var vmedia = new Vue({
 		},
 
 
-		addItem : function(listPrefix) {
+		addItem : function(prefix) {
 
+			var idx = (this.items[prefix + 'id'] || []).length;
 			var listtypeid = $('#item-image-group').data('listtypeid') || '';
 
-			this.$set(this.items, listPrefix + 'id', (this.items[listPrefix + 'id'] || []).concat(['']));
-			this.$set(this.items, listPrefix + 'siteid', (this.items[listPrefix + 'siteid'] || []).concat([this.siteid]));
-			this.$set(this.items, listPrefix + 'typeid', (this.items[listPrefix + 'typeid'] || []).concat([listtypeid]));
-			this.$set(this.items, listPrefix + 'datestart', (this.items[listPrefix + 'datestart'] || []).concat(['']));
-			this.$set(this.items, listPrefix + 'dateend', (this.items[listPrefix + 'dateend'] || []).concat(['']));
+			for(var key in this.keys) {
+				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+			}
 
-			this.$set(this.items, 'media.siteid', (this.items['media.siteid'] || []).concat([this.siteid]));
-			this.$set(this.items, 'media.preview', (this.items['media.preview'] || []).concat(['']));
-			this.$set(this.items, 'media.url', (this.items['media.url'] || []).concat(['']));
-			this.$set(this.items, 'media.label', (this.items['media.label'] || []).concat(['']));
-			this.$set(this.items, 'media.status', (this.items['media.status'] || []).concat(['1']));
-			this.$set(this.items, 'media.typeid', (this.items['media.typeid'] || []).concat(['']));
-			this.$set(this.items, 'media.typename', (this.items['media.typename'] || []).concat(['']));
-			this.$set(this.items, 'media.languageid', (this.items['media.languageid'] || []).concat([null]));
+			this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
+			this.$set(this.items[prefix + 'typeid'], idx, listtypeid);
+			this.$set(this.items['media.siteid'], idx, this.siteid);
+			this.$set(this.items['media.languageid'], idx, null);
 		},
 
 
@@ -154,7 +156,7 @@ var vmedia = new Vue({
 
 			label += (this.items['media.languageid'][idx] ? this.items['media.languageid'][idx] + ': ' : '');
 			label += (this.items['media.label'][idx] ? this.items['media.label'][idx] : '');
-			label += (this.items['media.typename'][idx] ? ' (' + this.items['media.typename'][idx] + ')' : '');
+			label += (this.items['media.typename'] && this.items['media.typename'][idx] ? ' (' + this.items['media.typename'][idx] + ')' : '');
 
 			return label;
 		},
@@ -187,6 +189,7 @@ var vprices = new Vue({
 	'data': {
 		'advanced': [],
 		'items': $("#item-price-group").data("items"),
+		'keys': $("#item-price-group").data("keys"),
 		'siteid': $("#item-price-group").data("siteid")
 	},
 	'methods': {
@@ -196,28 +199,22 @@ var vprices = new Vue({
 		},
 
 
-		addItem : function(listPrefix) {
+		addItem : function(prefix) {
 
+			var idx = (this.items[prefix + 'id'] || []).length;
 			var listtypeid = $('#item-price-group').data('listtypeid') || '';
 			var currencyid = $('#item-price-group').data('currencyid') || '';
 
-			this.$set(this.items, listPrefix + 'id', (this.items[listPrefix + 'id'] || []).concat(['']));
-			this.$set(this.items, listPrefix + 'siteid', (this.items[listPrefix + 'siteid'] || []).concat([this.siteid]));
-			this.$set(this.items, listPrefix + 'typeid', (this.items[listPrefix + 'typeid'] || []).concat([listtypeid]));
-			this.$set(this.items, listPrefix + 'datestart', (this.items[listPrefix + 'datestart'] || []).concat(['']));
-			this.$set(this.items, listPrefix + 'dateend', (this.items[listPrefix + 'dateend'] || []).concat(['']));
+			for(var key in this.keys) {
+				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+			}
 
-			this.$set(this.items, 'price.siteid', (this.items['price.siteid'] || []).concat([this.siteid]));
-			this.$set(this.items, 'price.value', (this.items['price.value'] || []).concat(['0.00']));
-			this.$set(this.items, 'price.costs', (this.items['price.costs'] || []).concat(['0.00']));
-			this.$set(this.items, 'price.status', (this.items['price.status'] || []).concat(['1']));
-			this.$set(this.items, 'price.label', (this.items['price.label'] || []).concat(['']));
-			this.$set(this.items, 'price.typeid', (this.items['price.typeid'] || []).concat(['']));
-			this.$set(this.items, 'price.typename', (this.items['price.typename'] || []).concat(['']));
-			this.$set(this.items, 'price.rebate', (this.items['price.rebate'] || []).concat(['0.00']));
-			this.$set(this.items, 'price.taxrate', (this.items['price.taxrate'] || []).concat(['0.00']));
-			this.$set(this.items, 'price.quantity', (this.items['price.quantity'] || []).concat(['1']));
-			this.$set(this.items, 'price.currencyid', (this.items['price.currencyid'] || []).concat([currencyid]));
+			this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
+			this.$set(this.items[prefix + 'typeid'], idx, listtypeid);
+			this.$set(this.items['price.currencyid'], idx, currencyid);
+			this.$set(this.items['price.siteid'], idx, this.siteid);
+			this.$set(this.items['price.quantity'], idx, '1');
+			this.$set(this.items['price.status'], idx, '1');
 		},
 
 
@@ -270,7 +267,7 @@ var vprices = new Vue({
 			label += (this.items['price.value'][idx] ? this.items['price.value'][idx] : '');
 			label += (this.items['price.costs'][idx] ? ' + ' + this.items['price.costs'][idx] : '');
 			label += (this.items['price.currencyid'][idx] ? ' ' + this.items['price.currencyid'][idx] : '');
-			label += (this.items['price.typename'][idx] ? ' (' + this.items['price.typename'][idx] + ')' : '');
+			label += (this.items['price.typename'] && this.items['price.typename'][idx] ? ' (' + this.items['price.typename'][idx] + ')' : '');
 
 			return label;
 		}

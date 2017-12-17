@@ -8,15 +8,21 @@
 
 $enc = $this->encoder();
 
+$keys = [
+	'product.lists.id', 'product.lists.siteid', 'product.lists.typeid', 'product.lists.datestart', 'product.lists.dateend',
+	'media.siteid', 'media.preview', 'media.label', 'media.status', 'media.typeid', 'media.languageid'
+];
+
 
 ?>
 <div id="image" class="item-image content-block tab-pane fade" role="tablist" aria-labelledby="image">
 	<div id="item-image-group" role="tablist" aria-multiselectable="true"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'imageData', [] ) ) ); ?>"
 		data-listtypeid="<?= key( $this->get( 'imageListTypes', [] ) ) ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
-		<div v-for="(siteid, idx) in items['product.lists.siteid']" class="group-item card">
+		<div v-for="(id, idx) in items['product.lists.id']" class="group-item card">
 			<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'image', 'product.lists.id', '' ) ) ); ?>"
 				v-bind:value="items['product.lists.id'][idx]" />
 
