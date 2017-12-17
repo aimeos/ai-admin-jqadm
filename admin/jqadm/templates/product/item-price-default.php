@@ -47,7 +47,7 @@ $currencies = $this->get( 'priceCurrencies', [] );
 					<div v-if="!checkSite('product.lists.siteid', idx)"
 						class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
-						v-on:click="removeItem(idx)">
+						v-on:click.stop="removeItem(idx)">
 					</div>
 				</div>
 			</div>
