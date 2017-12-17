@@ -342,32 +342,6 @@ var vtexts = new Vue({
 
 
 
-
-Aimeos.Address = {
-
-	init : function() {
-
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.closest("card-block").find("input.item-countryid").val(node.val());
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-address .item-countryid.combobox").combobox({
-			getfcn: Aimeos.getCountries,
-			select: Aimeos.Address.select
-		});
-	}
-};
-
-
-
 Aimeos.Property = {
 
 	init : function() {
@@ -404,7 +378,6 @@ Aimeos.Property = {
 
 $(function() {
 
-	Aimeos.Address.init();
 	Aimeos.Property.init();
 
 });

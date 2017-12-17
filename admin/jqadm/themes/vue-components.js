@@ -47,7 +47,7 @@ Vue.component('combo-box', {
 		var box = $(this.$el).combobox({
 			getfcn: this.getfcn(),
 			select: function(event, ui) {
-				vm.$emit('input', ui.item[0].value);
+				$(vm.$el).val(ui.item[0].value);
 			}
 		});
 	},
