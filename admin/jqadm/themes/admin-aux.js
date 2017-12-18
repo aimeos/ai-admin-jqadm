@@ -339,42 +339,39 @@ var vtexts = new Vue({
 
 
 
-Aimeos.Property = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
+var vproperties = new Vue({
+	'el': '.property-list',
+	'data': {
+		'advanced': [],
+		'items': $(".property-list").data("items"),
+		'keys': $(".property-list").data("keys"),
+		'siteid': $(".property-list").data("siteid")
 	},
+	'methods': {
+
+		checkSite : function(key, idx) {
+			return this.items[key][idx] != this.siteid;
+		},
 
 
-	addLine : function() {
+		addItem : function(prefix) {
 
-		$(".item-property").on("click", ".act-add", function(ev) {
-			Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
-		});
-	},
+			var idx = (this.items[prefix + 'id'] || []).length;
 
+			for(var key in this.keys) {
+				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+			}
 
-	removeLine : function() {
-
-		$(".item-property").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
+			this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
+			this.$set(this.items[prefix + 'languageid'], idx, null);
+		},
 
 
-	setupComponents : function() {
-		$(".item-property .combobox").combobox({getfcn: Aimeos.getOptionsLanguages});
+		removeItem : function(idx) {
+
+			for(key in this.items) {
+				this.items[key].splice(idx, 1);
+			}
+		}
 	}
-};
-
-
-
-
-$(function() {
-
-	Aimeos.Property.init();
-
 });

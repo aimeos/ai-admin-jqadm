@@ -515,7 +515,7 @@ Aimeos.Form = {
 	checkFields : function() {
 
 		$(".aimeos .item-content .readonly").on("change", "input,select", function(ev) {
-			$(this).closest("div").addClass("has-danger");
+			$(this).closest("div,td").addClass("has-danger");
 		});
 
 
@@ -526,9 +526,9 @@ Aimeos.Form = {
 			}
 
 			if($(this).is(":invalid") === true) {
-				$(this).closest("div").removeClass("has-success").addClass("has-danger");
+				$(this).closest("div,td").removeClass("has-success").addClass("has-danger");
 			} else {
-				$(this).closest("div").removeClass("has-danger").addClass("has-success");
+				$(this).closest("div,td").removeClass("has-danger").addClass("has-success");
 			}
 		});
 	},
