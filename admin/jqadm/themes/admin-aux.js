@@ -169,6 +169,11 @@ var vmedia = new Vue({
 		},
 
 
+		toggle : function(idx) {
+			this.$set(this.advanced, idx, (!this.advanced[idx] ? true : false));
+		},
+
+
 		updateFile : function(idx, files) {
 
 			if(files.length > 0) {
@@ -270,6 +275,11 @@ var vprices = new Vue({
 			label += (this.items['price.typename'] && this.items['price.typename'][idx] ? ' (' + this.items['price.typename'][idx] + ')' : '');
 
 			return label;
+		},
+
+
+		toggle : function(idx) {
+			this.$set(this.advanced, idx, (!this.advanced[idx] ? true : false));
 		}
 	},
 	'mounted' : function() {
@@ -283,7 +293,6 @@ var vprices = new Vue({
 var vtexts = new Vue({
 	'el': '.item-text',
 	'data': {
-		'advanced': [],
 		'items': $("#item-text-group").data("items"),
 		'siteid': $("#item-text-group").data("siteid"),
 		'types': $("#item-text-group").data("types")

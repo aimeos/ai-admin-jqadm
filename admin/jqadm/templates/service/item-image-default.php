@@ -166,7 +166,7 @@ $keys = [
 				</div>
 
 
-				<div v-on:click="advanced[idx] = !advanced[idx]" class="col-xl-12 advanced" v-bind:class="{ 'collapsed': !advanced[idx] }">
+				<div v-on:click="toggle(idx)" class="col-xl-12 advanced" v-bind:class="{ 'collapsed': !advanced[idx] }">
 					<div class="card-tools-left">
 						<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data') ); ?>">
