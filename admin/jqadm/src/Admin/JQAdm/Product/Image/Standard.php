@@ -433,6 +433,7 @@ class Standard
 			}
 
 			$item->setLabel( $this->getValue( $data, 'media.label/' . $idx ) );
+			$item->setTypeId( $this->getValue( $data, 'media.typeid/' . $idx ) );
 			$item->setLanguageId( $this->getValue( $data, 'media.languageid/' . $idx ) );
 
 			$item = $mediaManager->saveItem( $item );
