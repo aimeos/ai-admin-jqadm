@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-16 15:11+0200\n"
-"PO-Revision-Date: 2017-10-16 13:12+0000\n"
+"PO-Revision-Date: 2017-11-29 14:31+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -332,11 +332,11 @@ msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr ""
+msgstr "La classe \"%1$s\" non implementa \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" does not implement interface \"%2$s\""
-msgstr ""
+msgstr "La classe \"%1$s\" non implementa l'interfaccia \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -1050,7 +1050,7 @@ msgid "Minimum quantity"
 msgstr ""
 
 msgid "Miss"
-msgstr ""
+msgstr "Sig.ra"
 
 msgid "Modifed"
 msgstr ""
@@ -1059,13 +1059,13 @@ msgid "Modified"
 msgstr ""
 
 msgid "Mr"
-msgstr ""
+msgstr "Sig."
 
 msgid "Mrs"
-msgstr ""
+msgstr "Sig.ra"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Name of the coupon provider class (required)"
 msgstr ""
@@ -1084,7 +1084,7 @@ msgid "New"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Procedi"
 
 msgid "No error information available"
 msgstr ""
@@ -1135,7 +1135,7 @@ msgid ""
 msgstr ""
 
 msgid "Option"
-msgstr ""
+msgstr "Opzione"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
@@ -1185,7 +1185,7 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Pagina %1$d di %2$d"
 
 msgid ""
 "Page description shown by search engines, added to the head section of the "
@@ -1196,7 +1196,7 @@ msgid "Parameter"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgid "Password (required)"
 msgstr ""
@@ -1223,13 +1223,13 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr ""
+msgstr "Pagamento"
 
 msgid "Payment date"
 msgstr ""
 
 msgid "Payment status"
-msgstr ""
+msgstr "Status del pagamento"
 
 msgid "Payment type"
 msgstr ""
@@ -1257,7 +1257,7 @@ msgid "Please save the coupon first before you can add codes"
 msgstr ""
 
 msgid "Please select"
-msgstr ""
+msgstr "Perfavore seleziona"
 
 msgid ""
 "Please select an item on the right side and add it via drag and drop to this"
@@ -1305,7 +1305,7 @@ msgid "Postal"
 msgstr ""
 
 msgid "Postal code"
-msgstr ""
+msgstr "Codice di avviamento postale (CAP)"
 
 msgid "Postal code for delivery if used in the area the customer is living"
 msgstr ""
@@ -1320,10 +1320,10 @@ msgid "Preview URL"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Precedente"
 
 msgid "Price"
-msgstr ""
+msgstr "Prezzo"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1357,7 +1357,7 @@ msgid "Priority"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 msgid "Product ID"
 msgstr ""
@@ -1472,7 +1472,7 @@ msgid "Promotion"
 msgstr ""
 
 msgid "Properties"
-msgstr ""
+msgstr "Proprietà"
 
 msgid "Property"
 msgstr ""
@@ -1496,7 +1496,7 @@ msgid "Purchased"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Quantità"
 
 msgid "Quantity or empty if unlimited (optional)"
 msgstr ""
@@ -1562,7 +1562,7 @@ msgid "SKU"
 msgstr ""
 
 msgid "Salutation"
-msgstr ""
+msgstr "Saluto"
 
 msgid "Save"
 msgstr ""
@@ -1587,7 +1587,7 @@ msgid "Schema {0} is  not registered"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
@@ -1621,7 +1621,7 @@ msgid "Service attribute code"
 msgstr ""
 
 msgid "Service fees"
-msgstr ""
+msgstr "Commissioni"
 
 msgid "Service item details"
 msgstr ""
@@ -1649,7 +1649,7 @@ msgid "Service: {0} ({1})"
 msgstr ""
 
 msgid "Services"
-msgstr ""
+msgstr "Servizi"
 
 msgid "Ship date"
 msgstr ""
@@ -1658,7 +1658,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr ""
+msgstr "Spedizione"
 
 msgid "Shipping costs per item"
 msgstr ""
@@ -1682,7 +1682,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "Mostra"
 
 msgid "Show entry"
 msgstr ""
@@ -1710,7 +1710,7 @@ msgid "Sites"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Misura"
 
 msgid "Sorry, adding orders manually is currently not implemented"
 msgstr ""
@@ -1728,7 +1728,7 @@ msgid "Start date"
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Provincia"
 
 msgid "Status"
 msgstr ""
@@ -1746,7 +1746,7 @@ msgid "Stock level"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Indirizzo"
 
 msgid "Street (required)"
 msgstr ""
@@ -1755,7 +1755,7 @@ msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr ""
+msgstr "Subtotale"
 
 msgid "Subscription"
 msgstr ""
@@ -1764,10 +1764,10 @@ msgid "Substracted rebate amount"
 msgstr ""
 
 msgid "Suggested products"
-msgstr ""
+msgstr "Prodotti suggeriti"
 
 msgid "Sum"
-msgstr ""
+msgstr "Somma"
 
 msgid "Supplier"
 msgstr ""
@@ -1827,7 +1827,7 @@ msgid "Telefax"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "Telefono"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1915,7 +1915,7 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Totale"
 
 msgid "Two letter ISO country code"
 msgstr ""
@@ -2042,7 +2042,7 @@ msgid "Variants"
 msgstr ""
 
 msgid "Vat ID"
-msgstr ""
+msgstr "Partita Iva"
 
 msgid "Vat ID, e.g. \"GB999999999\""
 msgstr ""
@@ -2078,7 +2078,7 @@ msgid "Web"
 msgstr ""
 
 msgid "Web site"
-msgstr ""
+msgstr "Sito Web"
 
 msgid "Web site URL (optional)"
 msgstr ""
@@ -2093,7 +2093,7 @@ msgid "Weight"
 msgstr ""
 
 msgid "Width"
-msgstr ""
+msgstr "Larghezza"
 
 msgid "YYYY-MM-DD (optional)"
 msgstr ""
@@ -2190,7 +2190,7 @@ msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Ultimo"
 
 #, php-format
 msgid "locale"
@@ -2212,13 +2212,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Sig.ra"
 
 msgid "mr"
-msgstr ""
+msgstr "Sig."
 
 msgid "mrs"
-msgstr ""
+msgstr "Sig.ra"
 
 msgid "new"
 msgstr ""
@@ -2231,35 +2231,35 @@ msgstr ""
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "Opzioni"
 
 #, php-format
 msgid "order"
 msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "non completato"
 
 msgid "pay:0"
-msgstr ""
+msgstr "cancellato"
 
 msgid "pay:1"
-msgstr ""
+msgstr "cancellato"
 
 msgid "pay:2"
-msgstr ""
+msgstr "rifiutato"
 
 msgid "pay:3"
-msgstr ""
+msgstr "rimborsato"
 
 msgid "pay:4"
-msgstr ""
+msgstr "in sospeso"
 
 msgid "pay:5"
-msgstr ""
+msgstr "autorizzato"
 
 msgid "pay:6"
-msgstr ""
+msgstr "ricevuto"
 
 msgid "pay:authorized"
 msgstr ""
@@ -2323,44 +2323,44 @@ msgstr ""
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "Servizi"
 
 msgid "service:delivery"
 msgstr "Consegna"
 
 msgid "service:payment"
-msgstr ""
+msgstr "Pagamento"
 
 #, php-format
 msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "non completato"
 
 msgid "stat:0"
-msgstr ""
+msgstr "cancellato"
 
 msgid "stat:1"
-msgstr ""
+msgstr "in sospeso"
 
 msgid "stat:2"
-msgstr ""
+msgstr "in lavorazione"
 
 msgid "stat:3"
-msgstr ""
+msgstr "spedito"
 
 msgid "stat:4"
-msgstr ""
+msgstr "consegnato"
 
 msgid "stat:5"
-msgstr ""
+msgstr "disperso"
 
 msgid "stat:6"
-msgstr ""
+msgstr "rifiutato"
 
 msgid "stat:7"
-msgstr ""
+msgstr "reso"
 
 msgid "stat:deleted"
 msgstr ""
@@ -2390,16 +2390,16 @@ msgid "stat:unfinished"
 msgstr ""
 
 msgid "status:archive"
-msgstr ""
+msgstr "Archiviato"
 
 msgid "status:disabled"
-msgstr ""
+msgstr "Disabilitato"
 
 msgid "status:enabled"
-msgstr ""
+msgstr "Abilitato"
 
 msgid "status:review"
-msgstr ""
+msgstr "In revisione"
 
 #, php-format
 msgid "stock"
@@ -2474,7 +2474,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Servizi"
 
 #, php-format
 msgid "type/service/lists"
