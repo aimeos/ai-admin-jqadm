@@ -342,6 +342,7 @@ class Standard
 		{
 			$refItem = $listItem->getRefItem();
 			$data['attribute.label'][] = ( $refItem ? $refItem->getLabel() : '' );
+			$data['attribute.type'][] = ( $refItem ? $refItem->getType() : '' );
 
 			$list = $listItem->toArray( true );
 

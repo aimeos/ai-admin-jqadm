@@ -9,7 +9,6 @@ Aimeos.Product = {
 
 	init : function() {
 
-		Aimeos.Product.Characteristic.init();
 		Aimeos.Product.Bundle.init();
 		Aimeos.Product.Category.init();
 		Aimeos.Product.Option.init();
@@ -76,95 +75,6 @@ Aimeos.Product.Bundle = {
 		$(".item-basic .item-typeid").on("change", function() {
 			$("option:selected", this).data("code") === 'bundle' ? tab.show() : tab.hide();
 		});
-	}
-};
-
-
-
-Aimeos.Product.Characteristic = {
-
-	init : function() {
-
-		Aimeos.Product.Characteristic.Attribute.init();
-		Aimeos.Product.Characteristic.Property.init();
-	}
-};
-
-
-Aimeos.Product.Characteristic.Attribute = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
-	},
-
-
-	addLine : function() {
-
-		$(".item-characteristic-attribute").on("click", ".act-add", function(ev) {
-			Aimeos.addClone(
-				$(".prototype", ev.delegateTarget),
-				Aimeos.getOptionsAttributes,
-				Aimeos.Product.Characteristic.Attribute.select);
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-characteristic-attribute").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.closest("tr").find("input.item-label").val(node.val());
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-characteristic-attribute .combobox").combobox({
-			getfcn: Aimeos.getOptionsAttributes,
-			select: Aimeos.Product.Characteristic.Attribute.select
-		});
-	}
-};
-
-
-Aimeos.Product.Characteristic.Property = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
-	},
-
-
-	addLine : function() {
-
-		$(".item-characteristic-property").on("click", ".act-add", function(ev) {
-			Aimeos.addClone($(".prototype", ev.delegateTarget), Aimeos.getOptionsLanguages);
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-characteristic-property").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	setupComponents : function() {
-		$(".item-characteristic-property .combobox").combobox({getfcn: Aimeos.getOptionsLanguages});
 	}
 };
 

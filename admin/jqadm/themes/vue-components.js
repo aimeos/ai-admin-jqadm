@@ -36,10 +36,10 @@ Vue.component('auto-complete', {
 Vue.component('combo-box', {
 	template: '\
 		<select v-bind:name="name" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
-			<option v-bind:value="value">{{ value }}</option>\
+			<option v-bind:value="value">{{ label || value }}</option>\
 		</select>\
 	',
-	props: ['name', 'value', 'readonly', 'tabindex', 'getfcn'],
+	props: ['name', 'value', 'label', 'readonly', 'tabindex', 'getfcn'],
 
 	mounted: function() {
 		var vm = this;

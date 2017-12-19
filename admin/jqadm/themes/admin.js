@@ -117,7 +117,7 @@ Aimeos = {
 	},
 
 
-	getOptions : function(request, response, element, domain, key, sort, criteria) {
+	getOptions : function(request, response, element, domain, key, sort, criteria, labelFcn) {
 
 		Aimeos.options.done(function(data) {
 
@@ -125,7 +125,6 @@ Aimeos = {
 
 			compare[key] = request.term;
 			list = criteria ? [{'=~': compare}, criteria] : [{'=~': compare}];
-			field[domain] = key;
 
 			param['filter'] = {'&&': list};
 			param['fields'] = field;
@@ -144,6 +143,12 @@ Aimeos = {
 				success: function(result) {
 					var list = result.data || [];
 
+					if(!labelFcn) {
+						labelFcn = function(attr) {
+							return attr[key] || null
+						}
+					}
+
 					$("option", element).remove();
 
 					response( list.map(function(obj) {
@@ -151,11 +156,11 @@ Aimeos = {
 						var opt = $("<option/>");
 
 						opt.attr("value", obj.id);
-						opt.text(obj.attributes[key]);
+						opt.text(labelFcn(obj.attributes));
 						opt.appendTo(element);
 
 						return {
-							label: obj.attributes[key] || null,
+							label: labelFcn(obj.attributes),
 							value: obj.id,
 							option: opt
 						};
@@ -166,28 +171,28 @@ Aimeos = {
 	},
 
 
-	getOptionsAttributes : function(request, response, element, criteria) {
-		Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', criteria);
+	getOptionsAttributes : function(request, response, element, criteria, labelFcn) {
+		Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', criteria, labelFcn);
 	},
 
 
-	getOptionsCategories : function(request, response, element, criteria) {
-		Aimeos.getOptions(request, response, element, 'catalog', 'catalog.label', 'catalog.label', criteria);
+	getOptionsCategories : function(request, response, element, criteria, labelFcn) {
+		Aimeos.getOptions(request, response, element, 'catalog', 'catalog.label', 'catalog.label', criteria, labelFcn);
 	},
 
 
-	getOptionsCurrencies : function(request, response, element, criteria) {
-		Aimeos.getOptions(request, response, element, 'locale/currency', 'locale.currency.id', '-locale.currency.status,locale.currency.id', criteria);
+	getOptionsCurrencies : function(request, response, element, criteria, labelFcn) {
+		Aimeos.getOptions(request, response, element, 'locale/currency', 'locale.currency.id', '-locale.currency.status,locale.currency.id', criteria, labelFcn);
 	},
 
 
-	getOptionsLanguages : function(request, response, element, criteria) {
-		Aimeos.getOptions(request, response, element, 'locale/language', 'locale.language.id', '-locale.language.status,locale.language.id', criteria);
+	getOptionsLanguages : function(request, response, element, criteria, labelFcn) {
+		Aimeos.getOptions(request, response, element, 'locale/language', 'locale.language.id', '-locale.language.status,locale.language.id', criteria, labelFcn);
 	},
 
 
-	getOptionsSites : function(request, response, element, criteria) {
-		Aimeos.getOptions(request, response, element, 'locale/site', 'locale.site.label', '-locale.site.status,locale.site.label', criteria);
+	getOptionsSites : function(request, response, element, criteria, labelFcn) {
+		Aimeos.getOptions(request, response, element, 'locale/site', 'locale.site.label', '-locale.site.status,locale.site.label', criteria, labelFcn);
 	},
 
 
