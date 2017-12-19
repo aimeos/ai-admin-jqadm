@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-16 15:11+0200\n"
-"PO-Revision-Date: 2017-11-02 22:54+0000\n"
+"PO-Revision-Date: 2017-11-19 20:37+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -321,13 +321,13 @@ msgid "Characteristics"
 msgstr "Teknik özellikler"
 
 msgid "City"
-msgstr "Şehir"
+msgstr "İlçe"
 
 msgid "City name (required)"
-msgstr "Şehir ismi (gerekli)"
+msgstr "İlçe ismi (gerekli)"
 
 msgid "City or town name (required)"
-msgstr "Şehir veya kasaba adı (gerekli)"
+msgstr "İlçe veya kasaba adı (gerekli)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
@@ -1727,7 +1727,7 @@ msgid "Start date"
 msgstr "Başlangıç tarihi"
 
 msgid "State"
-msgstr "Devlet"
+msgstr "Eyalet/İl"
 
 msgid "Status"
 msgstr "Durum"
