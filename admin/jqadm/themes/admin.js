@@ -255,7 +255,8 @@ Aimeos.Config = {
 
 						$(".config-row-value .config-type:not(.config-type-" + entry.attributes.type + ")", row).remove();
 						$(".config-row-key .help-text", row).html(entry.attributes.label);
-						$("input.config-key", row).attr("value", entry.id);
+						$(".config-value", row).val(entry.attributes.default);
+						$(".config-key", row).val(entry.id);
 					}
 
 					if(!entry.attributes.required) {
