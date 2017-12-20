@@ -15,7 +15,7 @@ $keys = [
 
 
 ?>
-<div class="col-xl-6 content-block item-characteristic-property">
+<div class="col-xl-12 content-block item-characteristic-property">
 
 	<table class="property-list table table-default"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'propertyData', [] ) ) ); ?>"
