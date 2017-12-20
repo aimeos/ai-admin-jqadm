@@ -310,14 +310,18 @@ class Standard
 		$rmItems = [];
 		$rmListIds = array_diff( array_keys( $listItems ), $listIds );
 
-		foreach( $rmListIds as $rmListId )
+		foreach( $rmListIds as $idx => $rmListId )
 		{
-			if( ( $item = $listItems[$rmListId]->getRefItem() ) !== null )
+			if( ( $item = $listItems[$rmListId]->getRefItem() ) !== null && $item->getType() === 'download' )
 			{
 				if( $item->getCode() != '' && $fs->has( $item->getCode() ) ) {
 					$fs->rm( $item->getCode() );
 				}
 				$rmItems[] = $item->getId();
+			}
+			else
+			{
+				unset( $rmListIds[$idx] );
 			}
 		}
 
