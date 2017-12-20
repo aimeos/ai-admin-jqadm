@@ -86,6 +86,7 @@ Aimeos.Product.Characteristic = {
 	init : function() {
 
 		Aimeos.Product.Characteristic.Attribute.init();
+		Aimeos.Product.Characteristic.Hidden.init();
 		Aimeos.Product.Characteristic.Property.init();
 	}
 };
@@ -132,6 +133,52 @@ Aimeos.Product.Characteristic.Attribute = {
 		$(".item-characteristic-attribute .combobox").combobox({
 			getfcn: Aimeos.getOptionsAttributes,
 			select: Aimeos.Product.Characteristic.Attribute.select
+		});
+	}
+};
+
+
+Aimeos.Product.Characteristic.Hidden = {
+
+	init : function() {
+
+		this.addLine();
+		this.removeLine();
+		this.setupComponents();
+	},
+
+
+	addLine : function() {
+
+		$(".item-characteristic-attribute").on("click", ".act-add", function(ev) {
+			Aimeos.addClone(
+				$(".prototype", ev.delegateTarget),
+				Aimeos.getOptionsAttributes,
+				Aimeos.Product.Characteristic.Hidden.select);
+		});
+	},
+
+
+	removeLine : function() {
+
+		$(".item-characteristic-attribute").on("click", ".act-delete", function() {
+			Aimeos.focusBefore($(this).closest("tr")).remove();
+		});
+	},
+
+
+	select: function(ev, ui) {
+
+		var node = $(ev.delegateTarget);
+		node.closest("tr").find("input.item-label").val(node.val());
+	},
+
+
+	setupComponents : function() {
+
+		$(".item-characteristic-attribute .combobox").combobox({
+			getfcn: Aimeos.getOptionsAttributes,
+			select: Aimeos.Product.Characteristic.Hidden.select
 		});
 	}
 };

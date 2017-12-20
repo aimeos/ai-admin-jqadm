@@ -12,7 +12,7 @@ $selected = function( $key, $code ) {
 $enc = $this->encoder();
 
 ?>
-<div class="col-xl-6 content-block item-characteristic-property">
+<div class="col-xl-12 content-block item-characteristic-property">
 	<table class="property-list table table-default">
 		<thead>
 			<tr>
