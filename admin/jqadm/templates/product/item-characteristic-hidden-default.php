@@ -38,7 +38,7 @@ $enc = $this->encoder();
 							name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'hidden', 'product.lists.refid', '' ) ) ); ?>"
 							<?= $this->site()->readonly( $this->get( 'hiddenData/product.lists.siteid/' . $idx ) ); ?> >
 							<option value="<?= $enc->attr( $this->get( 'hiddenData/product.lists.refid/' . $idx ) ); ?>" >
-								<?= $enc->html( $this->get( 'hiddenData/hidden.label/' . $idx ) ); ?>
+								<?= $enc->html( $this->get( 'hiddenData/attribute.label/' . $idx ) ); ?>
 							</option>
 						</select>
 					</td>

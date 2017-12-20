@@ -150,7 +150,7 @@ Aimeos.Product.Characteristic.Hidden = {
 
 	addLine : function() {
 
-		$(".item-characteristic-attribute").on("click", ".act-add", function(ev) {
+		$(".item-characteristic-hidden").on("click", ".act-add", function(ev) {
 			Aimeos.addClone(
 				$(".prototype", ev.delegateTarget),
 				Aimeos.getOptionsAttributes,
@@ -161,7 +161,7 @@ Aimeos.Product.Characteristic.Hidden = {
 
 	removeLine : function() {
 
-		$(".item-characteristic-attribute").on("click", ".act-delete", function() {
+		$(".item-characteristic-hidden").on("click", ".act-delete", function() {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
@@ -176,7 +176,7 @@ Aimeos.Product.Characteristic.Hidden = {
 
 	setupComponents : function() {
 
-		$(".item-characteristic-attribute .combobox").combobox({
+		$(".item-characteristic-hidden .combobox").combobox({
 			getfcn: Aimeos.getOptionsAttributes,
 			select: Aimeos.Product.Characteristic.Hidden.select
 		});
