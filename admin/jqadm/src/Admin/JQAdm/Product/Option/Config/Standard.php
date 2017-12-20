@@ -340,8 +340,11 @@ class Standard
 
 		foreach( $item->getListItems( 'attribute', 'config' ) as $listItem )
 		{
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				continue;
+			}
+
 			$refItem = $listItem->getRefItem();
-			$data['attribute.label'][] = ( $refItem ? $refItem->getLabel() : '' );
 
 			$list = $listItem->toArray( true );
 
@@ -352,6 +355,10 @@ class Standard
 			}
 
 			foreach( $list as $key => $value ) {
+				$data[$key][] = $value;
+			}
+
+			foreach( $refItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
 		}

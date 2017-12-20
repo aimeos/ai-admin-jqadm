@@ -5,13 +5,121 @@
 
 
 
+var mxattributes = {
+	methods: {
+		checkSite : function(key, idx) {
+			return this.items[key][idx] != this.siteid;
+		},
+
+
+		addItem : function(prefix) {
+
+			var idx = (this.items[prefix + 'id'] || []).length;
+
+			for(var key in this.keys) {
+				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+			}
+
+			this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
+		},
+
+
+		removeItem : function(idx) {
+			for(key in this.items) {
+				this.items[key].splice(idx, 1);
+			}
+		},
+
+
+		getAttributes : function() {
+
+			return function(request, response, element) {
+
+				var labelFcn = function(attr) {
+					return attr['attribute.label'] + ' (' + attr['attribute.type'] + ')';
+				}
+				Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', null, labelFcn);
+			}
+		},
+
+
+		getLabel : function(idx) {
+
+			var label = this.items['attribute.label'][idx];
+
+			if(this.items['attribute.type'][idx]) {
+				label += ' (' + this.items['attribute.type'][idx] + ')'
+			}
+
+			return label;
+		},
+
+
+		update : function(ev) {
+			this.$set(this.items[this.prefix + 'id'], ev.idx, '');
+			this.$set(this.items[this.prefix + 'refid'], ev.idx, ev.val);
+		}
+	}
+}
+
+
+var vattributes = new Vue({
+	'el': '.item-characteristic-attribute .attribute-list',
+	'data': {
+		'items': $(".item-characteristic-attribute .attribute-list").data("items"),
+		'keys': $(".item-characteristic-attribute .attribute-list").data("keys"),
+		'prefix': $(".item-characteristic-attribute .attribute-list").data("prefix"),
+		'siteid': $(".item-characteristic-attribute .attribute-list").data("siteid")
+	},
+	'mixins': [mxattributes]
+});
+
+
+var vattrhidden = new Vue({
+	'el': '.item-characteristic-hidden .attribute-list',
+	'data': {
+		'items': $(".item-characteristic-hidden .attribute-list").data("items"),
+		'keys': $(".item-characteristic-hidden .attribute-list").data("keys"),
+		'prefix': $(".item-characteristic-hidden .attribute-list").data("prefix"),
+		'siteid': $(".item-characteristic-hidden .attribute-list").data("siteid")
+	},
+	'mixins': [mxattributes]
+});
+
+
+var voptionconfig = new Vue({
+	'el': '.item-option-config .attribute-list',
+	'data': {
+		'items': $(".item-option-config .attribute-list").data("items"),
+		'keys': $(".item-option-config .attribute-list").data("keys"),
+		'prefix': $(".item-option-config .attribute-list").data("prefix"),
+		'siteid': $(".item-option-config .attribute-list").data("siteid")
+	},
+	'mixins': [mxattributes]
+});
+
+
+var voptioncustom = new Vue({
+	'el': '.item-option-custom .attribute-list',
+	'data': {
+		'items': $(".item-option-custom .attribute-list").data("items"),
+		'keys': $(".item-option-custom .attribute-list").data("keys"),
+		'prefix': $(".item-option-custom .attribute-list").data("prefix"),
+		'siteid': $(".item-option-custom .attribute-list").data("siteid")
+	},
+	'mixins': [mxattributes]
+});
+
+
+
+
+
 Aimeos.Product = {
 
 	init : function() {
 
 		Aimeos.Product.Bundle.init();
 		Aimeos.Product.Category.init();
-		Aimeos.Product.Option.init();
 		Aimeos.Product.Related.init();
 		Aimeos.Product.Selection.init();
 		Aimeos.Product.Stock.init();
@@ -141,109 +249,6 @@ Aimeos.Product.Download = {
 			$(this.files).each( function(idx, file) {
 				$("input.item-label", ev.delegateTarget).val(file.name);
 			});
-		});
-	}
-};
-
-
-
-Aimeos.Product.Option = {
-
-	init : function() {
-
-		Aimeos.Product.Option.Config.init();
-		Aimeos.Product.Option.Custom.init();
-	}
-};
-
-
-Aimeos.Product.Option.Config = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
-	},
-
-
-	addLine : function() {
-
-		$(".item-option-config").on("click", ".act-add", function(ev) {
-			Aimeos.addClone(
-				$(".prototype", ev.delegateTarget),
-				Aimeos.getOptionsAttributes,
-				Aimeos.Product.Option.Config.select);
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-option-config").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.closest("tr").find("input.item-label").val(node.val());
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-option-config .combobox").combobox({
-			getfcn: Aimeos.getOptionsAttributes,
-			select: Aimeos.Product.Option.Config.select
-		});
-	}
-};
-
-
-Aimeos.Product.Option.Custom = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
-	},
-
-
-	addLine : function() {
-
-		$(".item-option-custom").on("click", ".act-add", function(ev) {
-			Aimeos.addClone(
-				$(".prototype", ev.delegateTarget),
-				Aimeos.getOptionsAttributes,
-				Aimeos.Product.Option.Custom.select);
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-option-custom").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.closest("tr").find("input.item-label").val(node.val());
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-option-custom .combobox").combobox({
-			getfcn: Aimeos.getOptionsAttributes,
-			select: Aimeos.Product.Option.Custom.select
 		});
 	}
 };

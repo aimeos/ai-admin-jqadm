@@ -78,55 +78,6 @@ var vaddresses = new Vue({
 
 
 
-var vattributes = new Vue({
-	'el': '.attribute-list',
-	'data': {
-		'items': $(".attribute-list").data("items"),
-		'keys': $(".attribute-list").data("keys"),
-		'siteid': $(".attribute-list").data("siteid")
-	},
-	'methods': {
-
-		checkSite : function(key, idx) {
-			return this.items[key][idx] != this.siteid;
-		},
-
-
-		addItem : function(prefix) {
-
-			var idx = (this.items[prefix + 'id'] || []).length;
-
-			for(var key in this.keys) {
-				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
-			}
-
-			this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
-		},
-
-
-		removeItem : function(idx) {
-
-			for(key in this.items) {
-				this.items[key].splice(idx, 1);
-			}
-		},
-
-
-		getAttributes : function() {
-
-			return function(request, response, element) {
-
-				var labelFcn = function(attr) {
-					return attr['attribute.label'] + ' (' + attr['attribute.type'] + ')';
-				}
-				Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', null, labelFcn);
-			}
-		}
-	}
-});
-
-
-
 var vmedia = new Vue({
 	'el': '.item-image',
 	'data': {

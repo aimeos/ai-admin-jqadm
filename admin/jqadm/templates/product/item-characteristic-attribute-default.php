@@ -5,6 +5,7 @@
  * @copyright Aimeos (aimeos.org), 2016-2017
  */
 
+
 $enc = $this->encoder();
 
 $keys = [
@@ -19,6 +20,7 @@ $keys = [
 	<table class="attribute-list table table-default"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'attributeData', [] ) ) ); ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-prefix="product.lists."
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<thead>
@@ -39,7 +41,6 @@ $keys = [
 		</thead>
 
 		<tbody>
-
 			<tr v-for="(id, idx) in items['product.lists.id']" v-bind:key="idx"
 				v-bind:class="items['product.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
@@ -53,17 +54,15 @@ $keys = [
 					<input class="item-type" type="hidden" v-model="items['attribute.type'][idx]"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'attribute.type', '' ) ) ); ?>" />
 
-					<select is="combo-box" class="form-control custom-select item-refid" required="required"
+					<select is="combo-box" class="form-control custom-select item-refid"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'product.lists.refid', '' ) ) ); ?>'"
-						v-bind:label="items['attribute.label'][idx] + ' (' + items['attribute.type'][idx] + ')'"
 						v-bind:readonly="checkSite('product.lists.siteid', idx)"
 						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 						v-bind:getfcn="getAttributes"
+						v-bind:label="getLabel(idx)"
+						v-bind:required="'required'"
+						v-on:select="update"
 						v-model="items['product.lists.refid'][idx]" >
-
-						<option v-bind:value="items['product.lists.refid'][idx]" >
-
-						</option>
 					</select>
 				</td>
 				<td class="actions">
@@ -71,8 +70,8 @@ $keys = [
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 						v-on:click.stop="removeItem(idx)">
 				</td>
-			</tr>
 
+			</tr>
 		</tbody>
 
 	</table>

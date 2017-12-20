@@ -299,7 +299,6 @@ class Standard
 		$map = $this->getListItems( $item->getId() );
 		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
 
-
 		foreach( $listIds as $pos => $listid )
 		{
 			if( isset( $map[$listid] ) ) {
@@ -340,8 +339,9 @@ class Standard
 
 		foreach( $item->getListItems( 'attribute', 'custom' ) as $listItem )
 		{
-			$refItem = $listItem->getRefItem();
-			$data['attribute.label'][] = ( $refItem ? $refItem->getLabel() : '' );
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				continue;
+			}
 
 			$list = $listItem->toArray( true );
 
@@ -352,6 +352,10 @@ class Standard
 			}
 
 			foreach( $list as $key => $value ) {
+				$data[$key][] = $value;
+			}
+
+			foreach( $refItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
 		}

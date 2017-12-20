@@ -35,11 +35,11 @@ Vue.component('auto-complete', {
 
 Vue.component('combo-box', {
 	template: '\
-		<select v-bind:name="name" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
+		<select class="template" v-bind:name="name" v-bind:readonly="readonly" v-bind:required="required" v-bind:tabindex="tabindex">\
 			<option v-bind:value="value">{{ label || value }}</option>\
 		</select>\
 	',
-	props: ['name', 'value', 'label', 'readonly', 'tabindex', 'getfcn'],
+	props: ['index', 'name', 'value', 'label', 'readonly', 'required', 'tabindex', 'getfcn'],
 
 	mounted: function() {
 		var vm = this;
@@ -47,13 +47,17 @@ Vue.component('combo-box', {
 		var box = $(this.$el).combobox({
 			getfcn: this.getfcn(),
 			select: function(event, ui) {
-				$(vm.$el).val(ui.item[0].value);
+				vm.$emit('select',  {idx: vm.index, val: ui.item[0].value});
 			}
 		});
 	},
 
 	beforeDestroy: function() {
 		$(this.$el).off().combobox('destroy');
+	},
+
+	updated : function() {
+		$(this.$el).combobox('instance').input[0].value = this.label;
 	}
 });
 
