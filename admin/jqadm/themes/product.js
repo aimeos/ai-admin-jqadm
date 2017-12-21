@@ -204,6 +204,92 @@ var vcatpromotion = new Vue({
 
 
 
+var mxproducts = {
+	methods: {
+		checkSite : function(key, idx) {
+			return this.items[key][idx] != this.siteid;
+		},
+
+
+		addItem : function() {
+
+			var idx = (this.items[this.prefix + 'id'] || []).length;
+
+			for(var key in this.keys) {
+				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+			}
+
+			this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
+		},
+
+
+		removeItem : function(idx) {
+			for(key in this.items) {
+				this.items[key].splice(idx, 1);
+			}
+		},
+
+
+		getItems : function() {
+
+			return function(request, response, element) {
+
+				var labelFcn = function(attr) {
+					return attr['product.label'] + ' (' + attr['product.code'] + ')';
+				}
+				Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', null, labelFcn);
+			}
+		},
+
+
+		getLabel : function(idx) {
+
+			var label = this.items['product.label'][idx];
+
+			if(this.items['product.code'][idx]) {
+				label += ' (' + this.items['product.code'][idx] + ')';
+			}
+
+			return label;
+		},
+
+
+		update : function(ev) {
+			this.$set(this.items[this.prefix + 'id'], ev.index, '');
+			this.$set(this.items[this.prefix + 'siteid'], ev.index, this.siteid);
+			this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
+			this.$set(this.items['product.label'], ev.index, ev.label);
+			this.$set(this.items['product.code'], ev.index, '');
+		}
+	}
+}
+
+
+var vsuggest = new Vue({
+	'el': '.item-related-suggest .product-list',
+	'data': {
+		'items': $(".item-related-suggest .product-list").data("items"),
+		'keys': $(".item-related-suggest .product-list").data("keys"),
+		'prefix': $(".item-related-suggest .product-list").data("prefix"),
+		'siteid': $(".item-related-suggest .product-list").data("siteid")
+	},
+	'mixins': [mxproducts]
+});
+
+
+var vbought = new Vue({
+	'el': '.item-related-bought .product-list',
+	'data': {
+		'items': $(".item-related-bought .product-list").data("items"),
+		'keys': $(".item-related-bought .product-list").data("keys"),
+		'prefix': $(".item-related-bought .product-list").data("prefix"),
+		'siteid': $(".item-related-bought .product-list").data("siteid")
+	},
+	'mixins': [mxproducts]
+});
+
+
+
 
 
 Aimeos.Product = {
@@ -211,7 +297,6 @@ Aimeos.Product = {
 	init : function() {
 
 		Aimeos.Product.Bundle.init();
-		Aimeos.Product.Related.init();
 		Aimeos.Product.Selection.init();
 		Aimeos.Product.Stock.init();
 		Aimeos.Product.Download.init();
@@ -293,111 +378,6 @@ Aimeos.Product.Download = {
 			$(this.files).each( function(idx, file) {
 				$("input.item-label", ev.delegateTarget).val(file.name);
 			});
-		});
-	}
-};
-
-
-
-Aimeos.Product.Related = {
-
-	init : function() {
-
-		Aimeos.Product.Related.Bought.init();
-		Aimeos.Product.Related.Suggest.init();
-	}
-};
-
-
-
-Aimeos.Product.Related.Bought = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
-	},
-
-
-	addLine : function() {
-
-		$(".item-product .item-related-bought").on("click", ".act-add", function(ev) {
-			Aimeos.addClone(
-				$(".prototype", ev.delegateTarget),
-				Aimeos.getOptionsProducts,
-				Aimeos.Product.Bundle.select);
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-product .item-related-bought").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.closest("tr").find("input.item-label").val(node.val());
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-product .item-related-bought .combobox").combobox({
-			getfcn: Aimeos.getOptionsProducts,
-			select: Aimeos.Product.Bundle.select
-		});
-	}
-};
-
-
-
-Aimeos.Product.Related.Suggest = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
-	},
-
-
-	addLine : function() {
-
-		$(".item-product .item-related-suggest").on("click", ".act-add", function(ev) {
-			Aimeos.addClone(
-				$(".prototype", ev.delegateTarget),
-				Aimeos.getOptionsProducts,
-				Aimeos.Product.Bundle.select);
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-product .item-related-suggest").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.closest("tr").find("input.item-label").val(node.val());
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-product .item-related-suggest .combobox").combobox({
-			getfcn: Aimeos.getOptionsProducts,
-			select: Aimeos.Product.Bundle.select
 		});
 	}
 };

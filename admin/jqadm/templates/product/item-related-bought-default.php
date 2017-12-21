@@ -7,9 +7,20 @@
 
 $enc = $this->encoder();
 
+$keys = [
+	'product.lists.id', 'product.lists.siteid', 'product.lists.refid', 'product.label', 'product.code'
+];
+
+
 ?>
 <div class="col-xl-6 content-block item-related-bought">
-	<table class="bought-list table table-default">
+
+	<table class="product-list table table-default"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'boughtData', [] ) ) ); ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-prefix="product.lists."
+		data-siteid="<?= $this->site()->siteid() ?>" >
+
 		<thead>
 			<tr>
 				<th>
@@ -20,56 +31,44 @@ $enc = $this->encoder();
 				</th>
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+						v-on:click="addItem()">
 					</div>
 				</th>
 			</tr>
 		</thead>
+
 		<tbody>
 
-			<?php foreach( $this->get( 'boughtData/product.lists.id', [] ) as $idx => $id ) : ?>
-				<tr class="<?= $this->site()->readonly( $this->get( 'boughtData/product.lists.siteid/' . $idx ) ); ?>">
-					<td>
-						<input class="item-listid" type="hidden"
-							name="<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.lists.id', '' ) ) ); ?>"
-							value="<?= $enc->attr( $id ); ?>" />
-						<input class="item-label" type="hidden"
-							name="<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.label', '' ) ) ); ?>"
-							value="<?= $enc->attr( $this->get( 'boughtData/product.label/' . $idx ) ); ?>" />
-						<select class="combobox item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							name="<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.lists.refid', '' ) ) ); ?>"
-							<?= $this->site()->readonly( $this->get( 'boughtData/product.lists.siteid/' . $idx ) ); ?> >
-							<option value="<?= $enc->attr( $this->get( 'boughtData/product.lists.refid/' . $idx ) ); ?>" >
-								<?= $enc->html( $this->get( 'boughtData/product.label/' . $idx ) ); ?>
-							</option>
-						</select>
-					</td>
-					<td class="actions">
-						<?php if( !$this->site()->readonly( $this->get( 'boughtData/product.lists.siteid/' . $idx ) ) ) : ?>
-							<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-							</div>
-						<?php endif; ?>
-					</td>
-				</tr>
-			<?php endforeach; ?>
+			<tr v-for="(id, idx) in items['product.lists.id']" v-bind:key="idx"
+				v-bind:class="items['product.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
-			<tr class="prototype">
 				<td>
-					<input class="item-listid" type="hidden" disabled="disabled"
+					<input class="item-listid" type="hidden" v-model="items['product.lists.id'][idx]"
 						name="<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.lists.id', '' ) ) ); ?>" />
-					<input class="item-label" type="hidden" disabled="disabled"
+
+					<input class="item-label" type="hidden" v-model="items['product.label'][idx]"
 						name="<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.label', '' ) ) ); ?>" />
-					<select class="combobox-prototype item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-						name="<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.lists.refid', '' ) ) ); ?>">
+
+					<select is="combo-box" class="form-control custom-select item-refid"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.lists.refid', '' ) ) ); ?>'"
+						v-bind:readonly="checkSite('product.lists.siteid', idx)"
+						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+						v-bind:label="getLabel(idx)"
+						v-bind:required="'required'"
+						v-bind:getfcn="getItems"
+						v-bind:index="idx"
+						v-on:select="update"
+						v-model="items['product.lists.refid'][idx]" >
 					</select>
 				</td>
 				<td class="actions">
-					<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-					</div>
+					<div v-if="!checkSite('product.lists.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+						v-on:click.stop="removeItem(idx)">
 				</td>
 			</tr>
+
 		</tbody>
 	</table>
 
