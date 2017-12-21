@@ -34,7 +34,7 @@ $keys = [
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
-						v-on:click="addItem('product.lists.')">
+						v-on:click="addItem()">
 					</div>
 				</th>
 			</tr>
@@ -61,6 +61,7 @@ $keys = [
 						v-bind:getfcn="getAttributes"
 						v-bind:label="getLabel(idx)"
 						v-bind:required="'required'"
+						v-bind:index="idx"
 						v-on:select="update"
 						v-model="items['product.lists.refid'][idx]" >
 					</select>

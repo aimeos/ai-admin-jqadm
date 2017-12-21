@@ -12,15 +12,16 @@ var mxattributes = {
 		},
 
 
-		addItem : function(prefix) {
+		addItem : function() {
 
-			var idx = (this.items[prefix + 'id'] || []).length;
+			var idx = (this.items[this.prefix + 'id'] || []).length;
+console.log('index: ' + idx);
 
 			for(var key in this.keys) {
 				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
 			}
 
-			this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
+			this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
 		},
 
 
@@ -56,8 +57,9 @@ var mxattributes = {
 
 
 		update : function(ev) {
-			this.$set(this.items[this.prefix + 'id'], ev.idx, '');
-			this.$set(this.items[this.prefix + 'refid'], ev.idx, ev.val);
+			this.$set(this.items[this.prefix + 'id'], ev.index, '');
+			this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
+			this.$set(this.items['attribute.label'], ev.index, ev.label);
 		}
 	}
 }

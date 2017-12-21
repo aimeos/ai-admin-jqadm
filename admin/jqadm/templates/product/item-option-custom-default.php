@@ -59,6 +59,7 @@ $keys = [
 						v-bind:getfcn="getAttributes"
 						v-bind:label="getLabel(idx)"
 						v-bind:required="'required'"
+						v-bind:index="idx"
 						v-on:select="update"
 						v-model="items['product.lists.refid'][idx]" >
 					</select>
