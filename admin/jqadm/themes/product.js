@@ -153,14 +153,25 @@ var mxcategories = {
 
 
 		getLabel : function(idx) {
-			return this.items['catalog.label'][idx] + ' (' + this.items['catalog.code'][idx] + ')';
+
+			var label = this.items['catalog.label'][idx];
+
+			if(this.items['catalog.code'][idx]) {
+				 label += ' (' + this.items['catalog.code'][idx] + ')';
+			}
+
+			return label;
 		},
 
 
 		update : function(ev) {
 			this.$set(this.items[this.prefix + 'id'], ev.index, '');
+			this.$set(this.items[this.prefix + 'siteid'], ev.index, this.siteid);
+			this.$set(this.items[this.prefix + 'typeid'], ev.index, this.listtypeid);
 			this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
 			this.$set(this.items['catalog.label'], ev.index, ev.label);
+			this.$set(this.items['catalog.id'], ev.index, ev.value);
+			this.$set(this.items['catalog.code'], ev.index, '');
 		}
 	}
 }
@@ -200,7 +211,6 @@ Aimeos.Product = {
 	init : function() {
 
 		Aimeos.Product.Bundle.init();
-		Aimeos.Product.Category.init();
 		Aimeos.Product.Related.init();
 		Aimeos.Product.Selection.init();
 		Aimeos.Product.Stock.init();
@@ -263,53 +273,6 @@ Aimeos.Product.Bundle = {
 
 		$(".item-basic .item-typeid").on("change", function() {
 			$("option:selected", this).data("code") === 'bundle' ? tab.show() : tab.hide();
-		});
-	}
-};
-
-
-
-Aimeos.Product.Category = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
-	},
-
-
-	addLine : function() {
-
-		$(".item-category .category-list").on("click", ".act-add", function(ev) {
-			Aimeos.addClone(
-				$(".prototype", ev.delegateTarget),
-				Aimeos.getOptionsCategories,
-				Aimeos.Product.Category.select);
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-category .category-list").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.closest("tr").find("input.item-label").val(node.val());
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-category .combobox").combobox({
-			getfcn: Aimeos.getOptionsCategories,
-			select: Aimeos.Product.Category.select
 		});
 	}
 };
