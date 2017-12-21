@@ -61,9 +61,9 @@ $keys = [
 							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>'"
 							v-bind:readonly="checkSite('catalog.lists.siteid', idx)"
 							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
-							v-bind:getfcn="getCategories"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
+							v-bind:getfcn="getItems"
 							v-bind:index="idx"
 							v-on:select="update"
 							v-model="items['catalog.id'][idx]" >
@@ -126,9 +126,9 @@ $keys = [
 							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>'"
 							v-bind:readonly="checkSite('catalog.lists.siteid', idx)"
 							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
-							v-bind:getfcn="getCategories"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
+							v-bind:getfcn="getItems"
 							v-bind:index="idx"
 							v-on:select="update"
 							v-model="items['catalog.id'][idx]" >

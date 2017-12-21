@@ -31,7 +31,7 @@ var mxattributes = {
 		},
 
 
-		getAttributes : function() {
+		getItems : function() {
 
 			return function(request, response, element) {
 
@@ -139,7 +139,7 @@ var mxcategories = {
 		},
 
 
-		getCategories : function() {
+		getItems : function() {
 
 			return function(request, response, element) {
 

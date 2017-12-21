@@ -58,9 +58,9 @@ $keys = [
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'option', 'config', 'product.lists.refid', '' ) ) ); ?>'"
 						v-bind:readonly="checkSite('product.lists.siteid', idx)"
 						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
-						v-bind:getfcn="getAttributes"
 						v-bind:label="getLabel(idx)"
 						v-bind:required="'required'"
+						v-bind:getfcn="getItems"
 						v-bind:index="idx"
 						v-on:select="update"
 						v-model="items['product.lists.refid'][idx]" >
