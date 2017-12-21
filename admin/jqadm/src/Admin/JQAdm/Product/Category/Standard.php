@@ -428,10 +428,8 @@ class Standard
 		{
 			$catId = $listItem->getParentId();
 
-			if( isset( $catItems[$catId] ) )
-			{
-				$data['catalog.id'][] = $catId;
-				$data['catalog.label'][] = $catItems[$catId]->getLabel();
+			if( !isset( $catItems[$catId] ) ) {
+				continue;
 			}
 
 			$list = $listItem->toArray( true );
@@ -443,6 +441,10 @@ class Standard
 			}
 
 			foreach( $list as $key => $value ) {
+				$data[$key][] = $value;
+			}
+
+			foreach( $catItems[$catId]->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
 		}

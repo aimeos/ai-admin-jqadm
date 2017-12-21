@@ -15,7 +15,6 @@ var mxattributes = {
 		addItem : function() {
 
 			var idx = (this.items[this.prefix + 'id'] || []).length;
-console.log('index: ' + idx);
 
 			for(var key in this.keys) {
 				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
@@ -49,7 +48,7 @@ console.log('index: ' + idx);
 			var label = this.items['attribute.label'][idx];
 
 			if(this.items['attribute.type'][idx]) {
-				label += ' (' + this.items['attribute.type'][idx] + ')'
+				label += ' (' + this.items['attribute.type'][idx] + ')';
 			}
 
 			return label;
@@ -110,6 +109,86 @@ var voptioncustom = new Vue({
 		'siteid': $(".item-option-custom .attribute-list").data("siteid")
 	},
 	'mixins': [mxattributes]
+});
+
+
+
+var mxcategories = {
+	methods: {
+		checkSite : function(key, idx) {
+			return this.items[key][idx] != this.siteid;
+		},
+
+
+		addItem : function() {
+			var idx = (this.items[this.prefix + 'id'] || []).length;
+
+			for(var key in this.keys) {
+				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+			}
+
+			this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
+			this.$set(this.items[this.prefix + 'typeid'], idx, this.listtypeid);
+		},
+
+
+		removeItem : function(idx) {
+			for(key in this.items) {
+				this.items[key].splice(idx, 1);
+			}
+		},
+
+
+		getCategories : function() {
+
+			return function(request, response, element) {
+
+				var labelFcn = function(attr) {
+					return attr['catalog.label'] + ' (' + attr['catalog.code'] + ')';
+				}
+
+				Aimeos.getOptions(request, response, element, 'catalog', 'catalog.label', 'catalog.label', null, labelFcn);
+			}
+		},
+
+
+		getLabel : function(idx) {
+			return this.items['catalog.label'][idx] + ' (' + this.items['catalog.code'][idx] + ')';
+		},
+
+
+		update : function(ev) {
+			this.$set(this.items[this.prefix + 'id'], ev.index, '');
+			this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
+			this.$set(this.items['catalog.label'], ev.index, ev.label);
+		}
+	}
+}
+
+
+var vcatdefault = new Vue({
+	'el': '.item-category .catalog-default .category-list',
+	'data': {
+		'items': $(".item-category .catalog-default .category-list").data("items"),
+		'keys': $(".item-category .catalog-default .category-list").data("keys"),
+		'listtypeid': $(".item-category .catalog-default .category-list").data("listtypeid"),
+		'prefix': $(".item-category .catalog-default .category-list").data("prefix"),
+		'siteid': $(".item-category .catalog-default .category-list").data("siteid")
+	},
+	'mixins': [mxcategories]
+});
+
+
+var vcatpromotion = new Vue({
+	'el': '.item-category .catalog-promotion .category-list',
+	'data': {
+		'items': $(".item-category .catalog-promotion .category-list").data("items"),
+		'keys': $(".item-category .catalog-promotion .category-list").data("keys"),
+		'listtypeid': $(".item-category .catalog-promotion .category-list").data("listtypeid"),
+		'prefix': $(".item-category .catalog-promotion .category-list").data("prefix"),
+		'siteid': $(".item-category .catalog-promotion .category-list").data("siteid")
+	},
+	'mixins': [mxcategories]
 });
 
 

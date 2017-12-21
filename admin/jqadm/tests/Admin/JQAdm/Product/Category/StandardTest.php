@@ -54,9 +54,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="Internet"', $result );
-		$this->assertContains( 'value="Neu"', $result );
-		$this->assertContains( 'value="Kaffee"', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Internet&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Kaffee&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Neu&quot;.*\]/', $result );
 	}
 
 
@@ -77,9 +77,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'value="Internet"', $result );
-		$this->assertContains( 'value="Neu"', $result );
-		$this->assertContains( 'value="Kaffee"', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Internet&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Kaffee&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Neu&quot;.*\]/', $result );
 	}
 
 

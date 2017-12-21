@@ -5,12 +5,26 @@
  * @copyright Aimeos (aimeos.org), 2015-2017
  */
 
+
 $enc = $this->encoder();
+
+$keys = [
+	'catalog.lists.id', 'catalog.lists.siteid', 'catalog.lists.refid', 'catalog.label', 'catalog.code'
+];
+
 
 ?>
 <div id="category" class="row item-category tab-pane fade" role="tabpanel" aria-labelledby="category">
-	<div class="col-xl-6 content-block">
-		<table class="category-list table table-default">
+
+	<div class="col-xl-6 content-block catalog-default">
+
+		<table class="category-list table table-default"
+			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
+			data-listtypeid="<?= $this->get( 'categoryListTypes/default' ) ?>"
+			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+			data-prefix="catalog.lists."
+			data-siteid="<?= $this->site()->siteid() ?>" >
+
 			<thead>
 				<tr>
 					<th>
@@ -21,70 +35,61 @@ $enc = $this->encoder();
 					</th>
 					<th class="actions">
 						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+							v-on:click="addItem()">
 						</div>
 					</th>
 				</tr>
 			</thead>
+
 			<tbody>
 
-				<?php $listTypeId = $this->get( 'categoryListTypes/default' ); ?>
-				<?php foreach( $this->get( 'categoryData/catalog.lists.id', [] ) as $idx => $id ) : ?>
-					<?php if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
-						<tr class="<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?>">
-							<td>
-								<input class="item-listtypeid" type="hidden"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
-									value="<?= $enc->attr( $listTypeId ); ?>" />
-								<input class="item-listid" type="hidden"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>"
-									value="<?= $enc->attr( $id ); ?>" />
-								<input class="item-label" type="hidden"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
-									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
-								<select class="combobox item-id" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?> >
-									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>" >
-										<?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>
-									</option>
-								</select>
-							</td>
-							<td class="actions">
-								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ) ) : ?>
-									<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-									</div>
-								<?php endif; ?>
-							</td>
-						</tr>
-					<?php endif; ?>
-				<?php endforeach; ?>
+				<tr v-for="(id, idx) in items['catalog.lists.id']" v-if="items['catalog.lists.typeid'][idx] == listtypeid" v-bind:key="idx"
+					v-bind:class="items['catalog.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
-				<tr class="prototype">
 					<td>
-						<input class="item-listtypeid" type="hidden" disabled="disabled"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
-							value="<?= $enc->attr( $listTypeId ); ?>" />
-						<input class="item-listid" type="hidden" disabled="disabled"
+						<input class="item-listtypeid" type="hidden" v-model="items['catalog.lists.typeid'][idx]"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>" />
+
+						<input class="item-listid" type="hidden" v-model="items['catalog.lists.id'][idx]"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
-						<input class="item-label" type="hidden" disabled="disabled"
+
+						<input class="item-label" type="hidden" v-model="items['catalog.label'][idx]"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" />
-						<select class="combobox-prototype item-id" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
+
+						<select is="combo-box" class="form-control custom-select item-id"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>'"
+							v-bind:readonly="checkSite('catalog.lists.siteid', idx)"
+							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+							v-bind:getfcn="getCategories"
+							v-bind:label="getLabel(idx)"
+							v-bind:required="'required'"
+							v-bind:index="idx"
+							v-on:select="update"
+							v-model="items['catalog.id'][idx]" >
 						</select>
 					</td>
 					<td class="actions">
-						<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-						</div>
+						<div v-if="!checkSite('catalog.lists.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+							v-on:click.stop="removeItem(idx)">
 					</td>
 				</tr>
+
 			</tbody>
+
 		</table>
+
 	</div>
-	<div class="col-xl-6 content-block">
-		<table class="category-list table table-default">
+	<div class="col-xl-6 content-block catalog-promotion">
+
+		<table class="category-list table table-default"
+			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
+			data-listtypeid="<?= $this->get( 'categoryListTypes/promotion' ) ?>"
+			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+			data-prefix="catalog.lists."
+			data-siteid="<?= $this->site()->siteid() ?>" >
+
 			<thead>
 				<tr>
 					<th>
@@ -95,68 +100,52 @@ $enc = $this->encoder();
 					</th>
 					<th class="actions">
 						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+							v-on:click="addItem()">
 						</div>
 					</th>
 				</tr>
 			</thead>
+
 			<tbody>
 
-				<?php $listTypeId = $this->get( 'categoryListTypes/promotion' ); ?>
-				<?php foreach( $this->get( 'categoryData/catalog.lists.id', [] ) as $idx => $id ) : ?>
-					<?php if( $this->get( 'categoryData/catalog.lists.typeid/' . $idx ) == $listTypeId ) : ?>
-						<tr class="<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?>">
-							<td>
-								<input class="item-listtypeid" type="hidden"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
-									value="<?= $enc->attr( $listTypeId ); ?>" />
-								<input class="item-listid" type="hidden"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>"
-									value="<?= $enc->attr( $id ); ?>" />
-								<input class="item-label" type="hidden"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>"
-									value="<?= $enc->attr( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>" />
-								<select class="combobox item-id" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ); ?> >
-									<option value="<?= $enc->attr( $this->get( 'categoryData/catalog.id/' . $idx ) ); ?>">
-										<?= $enc->html( $this->get( 'categoryData/catalog.label/' . $idx ) ); ?>
-									</option>
-								</select>
-							</td>
-							<td class="actions">
-								<?php if( !$this->site()->readonly( $this->get( 'categoryData/catalog.lists.siteid/' . $idx ) ) ) : ?>
-									<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-									</div>
-								<?php endif; ?>
-							</td>
-						</tr>
-					<?php endif; ?>
-				<?php endforeach; ?>
+				<tr v-for="(id, idx) in items['catalog.lists.id']" v-if="items['catalog.lists.typeid'][idx] == listtypeid" v-bind:key="idx"
+					v-bind:class="items['catalog.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
-				<tr class="prototype">
 					<td>
-						<input class="item-listtypeid" type="hidden" disabled="disabled"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>"
-							value="<?= $enc->attr( $listTypeId ); ?>" />
-						<input class="item-listid" type="hidden" disabled="disabled"
+						<input class="item-listtypeid" type="hidden" v-model="items['catalog.lists.typeid'][idx]"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>" />
+
+						<input class="item-listid" type="hidden" v-model="items['catalog.lists.id'][idx]"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
-						<input class="item-label" type="hidden" disabled="disabled"
+
+						<input class="item-label" type="hidden" v-model="items['catalog.label'][idx]"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" />
-						<select class="combobox-prototype item-id" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>">
+
+						<select is="combo-box" class="form-control custom-select item-id"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>'"
+							v-bind:readonly="checkSite('catalog.lists.siteid', idx)"
+							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+							v-bind:getfcn="getCategories"
+							v-bind:label="getLabel(idx)"
+							v-bind:required="'required'"
+							v-bind:index="idx"
+							v-on:select="update"
+							v-model="items['catalog.id'][idx]" >
 						</select>
 					</td>
 					<td class="actions">
-						<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-						</div>
+						<div v-if="!checkSite('catalog.lists.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+							v-on:click.stop="removeItem(idx)">
 					</td>
 				</tr>
+
 			</tbody>
+
 		</table>
 	</div>
 
 	<?= $this->get( 'categoryBody' ); ?>
+
 </div>
