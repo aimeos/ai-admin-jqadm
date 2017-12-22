@@ -20,13 +20,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
-		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
 		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $this->view, ['super'] );
 		$this->view->addHelper( 'access', $helper );
 
-		$this->object = new \Aimeos\Admin\JQAdm\Locale\Site\Standard( $this->context, $templatePaths );
-		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context, $templatePaths );
+		$this->object = new \Aimeos\Admin\JQAdm\Locale\Site\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}

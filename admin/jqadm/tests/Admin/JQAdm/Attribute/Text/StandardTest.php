@@ -20,14 +20,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
-		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
 		$langManager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/language' );
 
 		$this->view->pageLanguages = $langManager->searchItems( $langManager->createSearch() );
 		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' )->createItem();
 
-		$this->object = new \Aimeos\Admin\JQAdm\Attribute\Text\Standard( $this->context, $templatePaths );
+		$this->object = new \Aimeos\Admin\JQAdm\Attribute\Text\Standard( $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}

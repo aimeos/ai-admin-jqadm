@@ -29,11 +29,10 @@ class CacheTest extends \PHPUnit\Framework\TestCase
 			->disableOriginalConstructor()
 			->getMock();
 
-		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 		$this->context = \TestHelperJqadm::getContext();
 		$this->context->setCache( $this->cache );
 
-		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Cache( $this->mock, $this->context, $templatePaths );
+		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Cache( $this->mock, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( \TestHelperJqadm::getView() );
 	}

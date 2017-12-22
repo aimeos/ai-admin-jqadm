@@ -24,10 +24,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view ->addHelper( 'request', $helper );
 
 		$this->context = \TestHelperJqadm::getContext();
-		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
 		$this->object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Download\Standard' )
-			->setConstructorArgs( array( $this->context, $templatePaths ) )
+			->setConstructorArgs( array( $this->context ) )
 			->setMethods( array( 'storeFile' ) )
 			->getMock();
 

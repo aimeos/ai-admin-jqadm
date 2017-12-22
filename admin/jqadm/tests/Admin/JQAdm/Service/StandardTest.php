@@ -24,10 +24,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view ->addHelper( 'request', $helper );
 
 		$this->context = \TestHelperJqadm::getContext();
-		$templatePaths = \TestHelperJqadm::getTemplatePaths();
 
-		$this->object = new \Aimeos\Admin\JQAdm\Service\Standard( $this->context, $templatePaths );
-		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context, $templatePaths );
+		$this->object = new \Aimeos\Admin\JQAdm\Service\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}
