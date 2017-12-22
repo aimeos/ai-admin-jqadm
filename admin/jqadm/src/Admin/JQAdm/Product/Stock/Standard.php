@@ -360,6 +360,8 @@ class Standard
 				$list['stock.id'] = '';
 			}
 
+			$list['stock.dateback'] = str_replace( ' ', 'T', $list['stock.dateback'] );
+
 			foreach( $list as $key => $value ) {
 				$data[$key][] = $value;
 			}

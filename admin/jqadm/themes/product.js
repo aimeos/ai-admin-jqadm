@@ -290,6 +290,42 @@ var vbought = new Vue({
 
 
 
+var vstock = new Vue({
+	'el': '.item-stock .stock-list',
+	'data': {
+		'items': $(".item-stock .stock-list").data("items"),
+		'keys': $(".item-stock .stock-list").data("keys"),
+		'prefix': $(".item-stock .stock-list").data("prefix"),
+		'siteid': $(".item-stock .stock-list").data("siteid")
+	},
+	methods: {
+		checkSite : function(key, idx) {
+			return this.items[key][idx] != this.siteid;
+		},
+
+
+		addItem : function() {
+
+			var idx = (this.items[this.prefix + 'id'] || []).length;
+
+			for(var key in this.keys) {
+				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+			}
+
+			this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
+		},
+
+
+		removeItem : function(idx) {
+			for(key in this.items) {
+				this.items[key].splice(idx, 1);
+			}
+		}
+	}
+});
+
+
+
 
 
 Aimeos.Product = {
@@ -298,7 +334,6 @@ Aimeos.Product = {
 
 		Aimeos.Product.Bundle.init();
 		Aimeos.Product.Selection.init();
-		Aimeos.Product.Stock.init();
 		Aimeos.Product.Download.init();
 	}
 };
@@ -589,62 +624,6 @@ Aimeos.Product.Selection = {
 			$(".header .item-code", item).html(value);
 			$(".selection-item-attributes .item-attr-ref", item).val(value);
 		});
-	}
-};
-
-
-
-Aimeos.Product.Stock = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setup();
-	},
-
-
-	addLine : function() {
-
-		$(".item-stock").on("click", ".act-add", function(ev) {
-
-			var clone = Aimeos.addClone($(".prototype", ev.delegateTarget));
-
-			$(".date-prototype", clone).each(function(idx, elem) {
-				$(elem).addClass("date").removeClass("date-prototype");
-				$(elem).datepicker({
-					dateFormat: $(elem).data("format"),
-					constrainInput: false
-				});
-			});
-
-			if($(".item-stock input.item-typeid").length > 0 && $(".item-stock .stock-list tbody > :not(tr.prototype)").length > 0) {
-				$(".item-stock .act-add").hide();
-			}
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-stock").on("click", ".act-delete", function(ev) {
-
-			var line = $(this).closest("tr");
-
-			Aimeos.focusBefore(line).remove();
-
-			if($(".item-stock input.item-typeid").length == 0 || $(".item-stock .stock-list tbody > tr:not(.prototype)").length == 0) {
-				$(".item-stock .act-add").show();
-			}
-		});
-	},
-
-
-	setup : function() {
-
-		if($(".item-stock input.item-typeid").length > 0 && $(".item-stock .stock-list tbody > :not(tr.prototype)").length > 0) {
-			$(".item-stock .act-add").hide();
-		}
 	}
 };
 
