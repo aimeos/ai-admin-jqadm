@@ -5,326 +5,10 @@
 
 
 
-var mxattributes = {
-	methods: {
-		checkSite : function(key, idx) {
-			return this.items[key][idx] != this.siteid;
-		},
+$(function() {
 
-
-		addItem : function() {
-
-			var idx = (this.items[this.prefix + 'id'] || []).length;
-
-			for(var key in this.keys) {
-				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
-			}
-
-			this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
-		},
-
-
-		removeItem : function(idx) {
-			for(key in this.items) {
-				this.items[key].splice(idx, 1);
-			}
-		},
-
-
-		getItems : function() {
-
-			return function(request, response, element) {
-
-				var labelFcn = function(attr) {
-					return attr['attribute.label'] + ' (' + attr['attribute.type'] + ')';
-				}
-				Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', null, labelFcn);
-			}
-		},
-
-
-		getLabel : function(idx) {
-
-			var label = this.items['attribute.label'][idx];
-
-			if(this.items['attribute.type'][idx]) {
-				label += ' (' + this.items['attribute.type'][idx] + ')';
-			}
-
-			return label;
-		},
-
-
-		update : function(ev) {
-			this.$set(this.items[this.prefix + 'id'], ev.index, '');
-			this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
-			this.$set(this.items['attribute.label'], ev.index, ev.label);
-		}
-	}
-}
-
-
-var vattributes = new Vue({
-	'el': '.item-characteristic-attribute .attribute-list',
-	'data': {
-		'items': $(".item-characteristic-attribute .attribute-list").data("items"),
-		'keys': $(".item-characteristic-attribute .attribute-list").data("keys"),
-		'prefix': $(".item-characteristic-attribute .attribute-list").data("prefix"),
-		'siteid': $(".item-characteristic-attribute .attribute-list").data("siteid")
-	},
-	'mixins': [mxattributes]
+	Aimeos.Product.init();
 });
-
-
-var vattrhidden = new Vue({
-	'el': '.item-characteristic-hidden .attribute-list',
-	'data': {
-		'items': $(".item-characteristic-hidden .attribute-list").data("items"),
-		'keys': $(".item-characteristic-hidden .attribute-list").data("keys"),
-		'prefix': $(".item-characteristic-hidden .attribute-list").data("prefix"),
-		'siteid': $(".item-characteristic-hidden .attribute-list").data("siteid")
-	},
-	'mixins': [mxattributes]
-});
-
-
-var voptionconfig = new Vue({
-	'el': '.item-option-config .attribute-list',
-	'data': {
-		'items': $(".item-option-config .attribute-list").data("items"),
-		'keys': $(".item-option-config .attribute-list").data("keys"),
-		'prefix': $(".item-option-config .attribute-list").data("prefix"),
-		'siteid': $(".item-option-config .attribute-list").data("siteid")
-	},
-	'mixins': [mxattributes]
-});
-
-
-var voptioncustom = new Vue({
-	'el': '.item-option-custom .attribute-list',
-	'data': {
-		'items': $(".item-option-custom .attribute-list").data("items"),
-		'keys': $(".item-option-custom .attribute-list").data("keys"),
-		'prefix': $(".item-option-custom .attribute-list").data("prefix"),
-		'siteid': $(".item-option-custom .attribute-list").data("siteid")
-	},
-	'mixins': [mxattributes]
-});
-
-
-
-var mxcategories = {
-	methods: {
-		checkSite : function(key, idx) {
-			return this.items[key][idx] != this.siteid;
-		},
-
-
-		addItem : function() {
-			var idx = (this.items[this.prefix + 'id'] || []).length;
-
-			for(var key in this.keys) {
-				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
-			}
-
-			this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
-			this.$set(this.items[this.prefix + 'typeid'], idx, this.listtypeid);
-		},
-
-
-		removeItem : function(idx) {
-			for(key in this.items) {
-				this.items[key].splice(idx, 1);
-			}
-		},
-
-
-		getItems : function() {
-
-			return function(request, response, element) {
-
-				var labelFcn = function(attr) {
-					return attr['catalog.label'] + ' (' + attr['catalog.code'] + ')';
-				}
-
-				Aimeos.getOptions(request, response, element, 'catalog', 'catalog.label', 'catalog.label', null, labelFcn);
-			}
-		},
-
-
-		getLabel : function(idx) {
-
-			var label = this.items['catalog.label'][idx];
-
-			if(this.items['catalog.code'][idx]) {
-				 label += ' (' + this.items['catalog.code'][idx] + ')';
-			}
-
-			return label;
-		},
-
-
-		update : function(ev) {
-			this.$set(this.items[this.prefix + 'id'], ev.index, '');
-			this.$set(this.items[this.prefix + 'siteid'], ev.index, this.siteid);
-			this.$set(this.items[this.prefix + 'typeid'], ev.index, this.listtypeid);
-			this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
-			this.$set(this.items['catalog.label'], ev.index, ev.label);
-			this.$set(this.items['catalog.id'], ev.index, ev.value);
-			this.$set(this.items['catalog.code'], ev.index, '');
-		}
-	}
-}
-
-
-var vcatdefault = new Vue({
-	'el': '.item-category .catalog-default .category-list',
-	'data': {
-		'items': $(".item-category .catalog-default .category-list").data("items"),
-		'keys': $(".item-category .catalog-default .category-list").data("keys"),
-		'listtypeid': $(".item-category .catalog-default .category-list").data("listtypeid"),
-		'prefix': $(".item-category .catalog-default .category-list").data("prefix"),
-		'siteid': $(".item-category .catalog-default .category-list").data("siteid")
-	},
-	'mixins': [mxcategories]
-});
-
-
-var vcatpromotion = new Vue({
-	'el': '.item-category .catalog-promotion .category-list',
-	'data': {
-		'items': $(".item-category .catalog-promotion .category-list").data("items"),
-		'keys': $(".item-category .catalog-promotion .category-list").data("keys"),
-		'listtypeid': $(".item-category .catalog-promotion .category-list").data("listtypeid"),
-		'prefix': $(".item-category .catalog-promotion .category-list").data("prefix"),
-		'siteid': $(".item-category .catalog-promotion .category-list").data("siteid")
-	},
-	'mixins': [mxcategories]
-});
-
-
-
-var mxproducts = {
-	methods: {
-		checkSite : function(key, idx) {
-			return this.items[key][idx] != this.siteid;
-		},
-
-
-		addItem : function() {
-
-			var idx = (this.items[this.prefix + 'id'] || []).length;
-
-			for(var key in this.keys) {
-				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
-			}
-
-			this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
-		},
-
-
-		removeItem : function(idx) {
-			for(key in this.items) {
-				this.items[key].splice(idx, 1);
-			}
-		},
-
-
-		getItems : function() {
-
-			return function(request, response, element) {
-
-				var labelFcn = function(attr) {
-					return attr['product.label'] + ' (' + attr['product.code'] + ')';
-				}
-				Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', null, labelFcn);
-			}
-		},
-
-
-		getLabel : function(idx) {
-
-			var label = this.items['product.label'][idx];
-
-			if(this.items['product.code'][idx]) {
-				label += ' (' + this.items['product.code'][idx] + ')';
-			}
-
-			return label;
-		},
-
-
-		update : function(ev) {
-			this.$set(this.items[this.prefix + 'id'], ev.index, '');
-			this.$set(this.items[this.prefix + 'siteid'], ev.index, this.siteid);
-			this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
-			this.$set(this.items['product.label'], ev.index, ev.label);
-			this.$set(this.items['product.code'], ev.index, '');
-		}
-	}
-}
-
-
-var vsuggest = new Vue({
-	'el': '.item-related-suggest .product-list',
-	'data': {
-		'items': $(".item-related-suggest .product-list").data("items"),
-		'keys': $(".item-related-suggest .product-list").data("keys"),
-		'prefix': $(".item-related-suggest .product-list").data("prefix"),
-		'siteid': $(".item-related-suggest .product-list").data("siteid")
-	},
-	'mixins': [mxproducts]
-});
-
-
-var vbought = new Vue({
-	'el': '.item-related-bought .product-list',
-	'data': {
-		'items': $(".item-related-bought .product-list").data("items"),
-		'keys': $(".item-related-bought .product-list").data("keys"),
-		'prefix': $(".item-related-bought .product-list").data("prefix"),
-		'siteid': $(".item-related-bought .product-list").data("siteid")
-	},
-	'mixins': [mxproducts]
-});
-
-
-
-var vstock = new Vue({
-	'el': '.item-stock .stock-list',
-	'data': {
-		'items': $(".item-stock .stock-list").data("items"),
-		'keys': $(".item-stock .stock-list").data("keys"),
-		'prefix': $(".item-stock .stock-list").data("prefix"),
-		'siteid': $(".item-stock .stock-list").data("siteid")
-	},
-	methods: {
-		checkSite : function(key, idx) {
-			return this.items[key][idx] != this.siteid;
-		},
-
-
-		addItem : function() {
-
-			var idx = (this.items[this.prefix + 'id'] || []).length;
-
-			for(var key in this.keys) {
-				key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
-			}
-
-			this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
-		},
-
-
-		removeItem : function(idx) {
-			for(key in this.items) {
-				this.items[key].splice(idx, 1);
-			}
-		}
-	}
-});
-
-
 
 
 
@@ -332,9 +16,13 @@ Aimeos.Product = {
 
 	init : function() {
 
+		Aimeos.Product.Attribute.init();
 		Aimeos.Product.Bundle.init();
-		Aimeos.Product.Selection.init();
+		Aimeos.Product.Category.init();
 		Aimeos.Product.Download.init();
+		Aimeos.Product.Product.init();
+		Aimeos.Product.Selection.init();
+		Aimeos.Product.Stock.init();
 	}
 };
 
@@ -630,7 +318,347 @@ Aimeos.Product.Selection = {
 
 
 
-$(function() {
 
-	Aimeos.Product.init();
-});
+Aimeos.Product.Attribute = {
+
+	mixins: {
+		methods: {
+			checkSite : function(key, idx) {
+				return this.items[key][idx] != this.siteid;
+			},
+
+
+			addItem : function() {
+
+				var idx = (this.items[this.prefix + 'id'] || []).length;
+
+				for(var key in this.keys) {
+					key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+				}
+
+				this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
+			},
+
+
+			removeItem : function(idx) {
+				for(key in this.items) {
+					this.items[key].splice(idx, 1);
+				}
+			},
+
+
+			getItems : function() {
+
+				return function(request, response, element) {
+
+					var labelFcn = function(attr) {
+						return attr['attribute.label'] + ' (' + attr['attribute.type'] + ')';
+					}
+					Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', null, labelFcn);
+				}
+			},
+
+
+			getLabel : function(idx) {
+
+				var label = this.items['attribute.label'][idx];
+
+				if(this.items['attribute.type'][idx]) {
+					label += ' (' + this.items['attribute.type'][idx] + ')';
+				}
+
+				return label;
+			},
+
+
+			update : function(ev) {
+				this.$set(this.items[this.prefix + 'id'], ev.index, '');
+				this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
+				this.$set(this.items['attribute.label'], ev.index, ev.label);
+				this.$set(this.items['attribute.type'], ev.index, '');
+			}
+		}
+	},
+
+
+	init : function() {
+
+		this.vattribute = new Vue({
+			'el': '.item-characteristic-attribute .attribute-list',
+			'data': {
+				'items': $(".item-characteristic-attribute .attribute-list").data("items"),
+				'keys': $(".item-characteristic-attribute .attribute-list").data("keys"),
+				'prefix': $(".item-characteristic-attribute .attribute-list").data("prefix"),
+				'siteid': $(".item-characteristic-attribute .attribute-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+
+
+		this.vhidden = new Vue({
+			'el': '.item-characteristic-hidden .attribute-list',
+			'data': {
+				'items': $(".item-characteristic-hidden .attribute-list").data("items"),
+				'keys': $(".item-characteristic-hidden .attribute-list").data("keys"),
+				'prefix': $(".item-characteristic-hidden .attribute-list").data("prefix"),
+				'siteid': $(".item-characteristic-hidden .attribute-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+
+
+		this.vconfig = new Vue({
+			'el': '.item-option-config .attribute-list',
+			'data': {
+				'items': $(".item-option-config .attribute-list").data("items"),
+				'keys': $(".item-option-config .attribute-list").data("keys"),
+				'prefix': $(".item-option-config .attribute-list").data("prefix"),
+				'siteid': $(".item-option-config .attribute-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+
+
+		this.vcustom = new Vue({
+			'el': '.item-option-custom .attribute-list',
+			'data': {
+				'items': $(".item-option-custom .attribute-list").data("items"),
+				'keys': $(".item-option-custom .attribute-list").data("keys"),
+				'prefix': $(".item-option-custom .attribute-list").data("prefix"),
+				'siteid': $(".item-option-custom .attribute-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+	}
+};
+
+
+
+Aimeos.Product.Category = {
+
+	mixins : {
+		methods: {
+			checkSite : function(key, idx) {
+				return this.items[key][idx] != this.siteid;
+			},
+
+
+			addItem : function() {
+				var idx = (this.items[this.prefix + 'id'] || []).length;
+
+				for(var key in this.keys) {
+					key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+				}
+
+				this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
+				this.$set(this.items[this.prefix + 'typeid'], idx, this.listtypeid);
+			},
+
+
+			removeItem : function(idx) {
+				for(key in this.items) {
+					this.items[key].splice(idx, 1);
+				}
+			},
+
+
+			getItems : function() {
+
+				return function(request, response, element) {
+
+					var labelFcn = function(attr) {
+						return attr['catalog.label'] + ' (' + attr['catalog.code'] + ')';
+					}
+
+					Aimeos.getOptions(request, response, element, 'catalog', 'catalog.label', 'catalog.label', null, labelFcn);
+				}
+			},
+
+
+			getLabel : function(idx) {
+
+				var label = this.items['catalog.label'][idx];
+
+				if(this.items['catalog.code'][idx]) {
+					 label += ' (' + this.items['catalog.code'][idx] + ')';
+				}
+
+				return label;
+			},
+
+
+			update : function(ev) {
+				this.$set(this.items[this.prefix + 'id'], ev.index, '');
+				this.$set(this.items[this.prefix + 'siteid'], ev.index, this.siteid);
+				this.$set(this.items[this.prefix + 'typeid'], ev.index, this.listtypeid);
+				this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
+				this.$set(this.items['catalog.label'], ev.index, ev.label);
+				this.$set(this.items['catalog.id'], ev.index, ev.value);
+				this.$set(this.items['catalog.code'], ev.index, '');
+			}
+		}
+	},
+
+
+	init : function() {
+
+		this.vdefault = new Vue({
+			'el': '.item-category .catalog-default .category-list',
+			'data': {
+				'items': $(".item-category .catalog-default .category-list").data("items"),
+				'keys': $(".item-category .catalog-default .category-list").data("keys"),
+				'listtypeid': $(".item-category .catalog-default .category-list").data("listtypeid"),
+				'prefix': $(".item-category .catalog-default .category-list").data("prefix"),
+				'siteid': $(".item-category .catalog-default .category-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+
+
+		this.vpromotion = new Vue({
+			'el': '.item-category .catalog-promotion .category-list',
+			'data': {
+				'items': $(".item-category .catalog-promotion .category-list").data("items"),
+				'keys': $(".item-category .catalog-promotion .category-list").data("keys"),
+				'listtypeid': $(".item-category .catalog-promotion .category-list").data("listtypeid"),
+				'prefix': $(".item-category .catalog-promotion .category-list").data("prefix"),
+				'siteid': $(".item-category .catalog-promotion .category-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+	}
+};
+
+
+
+Aimeos.Product.Product = {
+
+	mixins : {
+		methods: {
+			checkSite : function(key, idx) {
+				return this.items[key][idx] != this.siteid;
+			},
+
+
+			addItem : function() {
+
+				var idx = (this.items[this.prefix + 'id'] || []).length;
+
+				for(var key in this.keys) {
+					key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+				}
+
+				this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
+			},
+
+
+			removeItem : function(idx) {
+				for(key in this.items) {
+					this.items[key].splice(idx, 1);
+				}
+			},
+
+
+			getItems : function() {
+
+				return function(request, response, element) {
+
+					var labelFcn = function(attr) {
+						return attr['product.label'] + ' (' + attr['product.code'] + ')';
+					}
+					Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', null, labelFcn);
+				}
+			},
+
+
+			getLabel : function(idx) {
+
+				var label = this.items['product.label'][idx];
+
+				if(this.items['product.code'][idx]) {
+					label += ' (' + this.items['product.code'][idx] + ')';
+				}
+
+				return label;
+			},
+
+
+			update : function(ev) {
+				this.$set(this.items[this.prefix + 'id'], ev.index, '');
+				this.$set(this.items[this.prefix + 'siteid'], ev.index, this.siteid);
+				this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
+				this.$set(this.items['product.label'], ev.index, ev.label);
+				this.$set(this.items['product.code'], ev.index, '');
+			}
+		}
+	},
+
+
+	init : function()  {
+
+		this.vsuggest = new Vue({
+			'el': '.item-related-suggest .product-list',
+			'data': {
+				'items': $(".item-related-suggest .product-list").data("items"),
+				'keys': $(".item-related-suggest .product-list").data("keys"),
+				'prefix': $(".item-related-suggest .product-list").data("prefix"),
+				'siteid': $(".item-related-suggest .product-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+
+
+		this.vbought = new Vue({
+			'el': '.item-related-bought .product-list',
+			'data': {
+				'items': $(".item-related-bought .product-list").data("items"),
+				'keys': $(".item-related-bought .product-list").data("keys"),
+				'prefix': $(".item-related-bought .product-list").data("prefix"),
+				'siteid': $(".item-related-bought .product-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+	}
+};
+
+
+
+Aimeos.Product.Stock = {
+
+	init : function()  {
+
+		this.vstock = new Vue({
+			'el': '.item-stock .stock-list',
+			'data': {
+				'items': $(".item-stock .stock-list").data("items"),
+				'keys': $(".item-stock .stock-list").data("keys"),
+				'prefix': $(".item-stock .stock-list").data("prefix"),
+				'siteid': $(".item-stock .stock-list").data("siteid")
+			},
+			methods: {
+				checkSite : function(key, idx) {
+					return this.items[key][idx] != this.siteid;
+				},
+
+
+				addItem : function() {
+
+					var idx = (this.items[this.prefix + 'id'] || []).length;
+
+					for(var key in this.keys) {
+						key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+					}
+
+					this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
+				},
+
+
+				removeItem : function(idx) {
+					for(key in this.items) {
+						this.items[key].splice(idx, 1);
+					}
+				}
+			}
+		});
+	}
+};
