@@ -360,7 +360,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/order/template-list';
-		$default = 'order/list-default.php';
+		$default = 'order/list-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -650,7 +650,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/order/template-item';
-		$default = 'order/item-default.php';
+		$default = 'order/item-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

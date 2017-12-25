@@ -349,7 +349,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/type/stock/template-list';
-		$default = 'type/stock/list-default.php';
+		$default = 'type/stock/list-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -523,7 +523,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/type/stock/template-item';
-		$default = 'type/stock/item-default.php';
+		$default = 'type/stock/item-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

@@ -385,7 +385,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/customer/template-list';
-		$default = 'customer/list-default.php';
+		$default = 'customer/list-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -625,7 +625,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/customer/template-item';
-		$default = 'customer/item-default.php';
+		$default = 'customer/item-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

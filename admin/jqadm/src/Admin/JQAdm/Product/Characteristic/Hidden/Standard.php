@@ -393,7 +393,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/characteristic/hidden/template-item';
-		$default = 'product/item-characteristic-hidden-default.php';
+		$default = 'product/item-characteristic-hidden-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

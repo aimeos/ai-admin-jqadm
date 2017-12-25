@@ -350,7 +350,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/locale/currency/template-list';
-		$default = 'locale/currency/list-default.php';
+		$default = 'locale/currency/list-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -524,7 +524,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/locale/currency/template-item';
-		$default = 'locale/currency/item-default.php';
+		$default = 'locale/currency/item-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

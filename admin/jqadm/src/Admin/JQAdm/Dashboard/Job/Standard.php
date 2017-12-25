@@ -199,7 +199,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/job/template-list';
-		$default = 'dashboard/list-job-default.php';
+		$default = 'dashboard/list-job-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

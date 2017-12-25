@@ -109,7 +109,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/countday/template-item';
-		$default = 'dashboard/item-order-countday-default.php';
+		$default = 'dashboard/item-order-countday-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

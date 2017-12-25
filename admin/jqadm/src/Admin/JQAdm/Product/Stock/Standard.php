@@ -399,7 +399,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/stock/template-item';
-		$default = 'product/item-stock-default.php';
+		$default = 'product/item-stock-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

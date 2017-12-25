@@ -268,7 +268,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/special/template-item';
-		$default = 'product/item-special-default.php';
+		$default = 'product/item-special-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

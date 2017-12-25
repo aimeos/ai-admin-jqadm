@@ -491,7 +491,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/service/price/template-item';
-		$default = 'service/item-price-default.php';
+		$default = 'service/item-price-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

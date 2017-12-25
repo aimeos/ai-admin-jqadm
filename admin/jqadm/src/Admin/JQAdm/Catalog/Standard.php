@@ -612,7 +612,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/catalog/template-item';
-		$default = 'catalog/item-default.php';
+		$default = 'catalog/item-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

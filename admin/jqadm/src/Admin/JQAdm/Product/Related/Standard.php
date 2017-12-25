@@ -279,7 +279,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/related/template-item';
-		$default = 'product/item-related-default.php';
+		$default = 'product/item-related-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

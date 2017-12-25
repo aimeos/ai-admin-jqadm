@@ -507,7 +507,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/supplier/product/template-item';
-		$default = 'supplier/item-product-default.php';
+		$default = 'supplier/item-product-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

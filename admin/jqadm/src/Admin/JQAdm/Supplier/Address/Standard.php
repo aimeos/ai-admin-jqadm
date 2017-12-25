@@ -392,7 +392,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/supplier/address/template-item';
-		$default = 'supplier/item-address-default.php';
+		$default = 'supplier/item-address-standard.php';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
