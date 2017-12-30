@@ -37,9 +37,6 @@ $keys = [
 				<span class="item-label header-label">{{ getLabel(idx) }}</span>
 				&nbsp;
 				<div class="card-tools-right">
-					<div class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down') ); ?>">
-					</div>
 					<div v-if="!checkSite('service.lists.siteid', idx)"
 						class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
