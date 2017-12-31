@@ -133,7 +133,7 @@ $columnList = [
 		<tbody>
 
 			<?= $this->partial(
-				$this->config( 'admin/jqadm/partial/propertyearch', 'common/partials/listsearch-standard.php' ), [
+				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard.php' ), [
 					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/type/attribute/property/filter', [] ),
 					'data' => [
 						'attribute.property.type.id' => ['op' => '=='],
