@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 20:23+0100\n"
+"POT-Creation-Date: 2018-01-03 21:17+0100\n"
 "PO-Revision-Date: 2017-01-03 11:21+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/aimeos/aimeos-core/language/pt_PT/)\n"
@@ -1003,6 +1003,9 @@ msgid "Media Lists Types"
 msgstr ""
 
 msgid "Media Property Type"
+msgstr ""
+
+msgid "Media Property Types"
 msgstr ""
 
 msgid "Media Type"
