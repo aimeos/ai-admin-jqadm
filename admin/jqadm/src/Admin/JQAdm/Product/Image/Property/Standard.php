@@ -259,15 +259,16 @@ class Standard
 
 
 	/**
-	 * Returns the available product property types
+	 * Returns the available media property types
 	 *
 	 * @return array Associative list of property type IDs as keys and property type items as values
 	 */
 	protected function getPropertyTypes()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property/type' );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/property/type' );
 
 		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
 		$search->setSlice( 0, 0x7fffffff );
 
 		return $manager->searchItems( $search );

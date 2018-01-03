@@ -199,7 +199,7 @@ Aimeos.Media = {
 			},
 
 
-			addPropertyItem : function(prefix, idx) {
+			addPropertyItem : function(idx) {
 
 				if(!this.items['property']) {
 					this.$set(this.items, 'property', {});
@@ -209,13 +209,23 @@ Aimeos.Media = {
 					this.$set(this.items['property'], idx, {});
 				}
 
-				var keys = ['media.property.id', 'media.property.siteid', 'media.property.languageid', 'media.property.typeid', 'media.property.value'];
+				var keys = ['media.property.id', 'media.property.languageid', 'media.property.typeid', 'media.property.value'];
 
 				for(key in keys) {
 					key = keys[key]; this.$set(this.items['property'][idx], key, (this.items['property'][idx][key] || []).concat(['']));
 				}
 
 				this.$set(this.items['property'][idx], 'media.property.siteid', (this.items['property'][idx]['media.property.siteid'] || []).concat([this.siteid]));
+			},
+
+
+			getPropertyData : function(idx) {
+
+				if(this.items['property'] && this.items['property'][idx] && this.items['property'][idx]['media.property.id']) {
+					return this.items['property'][idx]['media.property.id'];
+				}
+
+				return [];
 			},
 
 

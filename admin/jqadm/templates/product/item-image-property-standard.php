@@ -12,11 +12,11 @@ $enc = $this->encoder();
 ?>
 <div v-show="advanced[idx]" class="item-image-property col-xl-12 content-block secondary" v-bind:class="items['product.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
-	<table class="property-list table table-default" >
+	<table class="table table-default" >
 
 		<thead>
 			<tr>
-				<th>
+				<th colspan="3">
 					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Media properties' ) ); ?></span>
 					<div class="form-text text-muted help-text">
 						<?= $enc->html( $this->translate( 'admin', 'Non-shared properties for the media item' ) ); ?>
@@ -33,7 +33,7 @@ $enc = $this->encoder();
 		<tbody>
 
 			<tr v-for="(id, propidx) in getPropertyData(idx)" v-bind:key="idx"
-				v-bind:class="items['media.property.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+				v-bind:class="items['property'][idx]['media.property.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 				<td class="property-type">
 					<input class="item-id" type="hidden" v-bind:value="items['property'][idx]['media.property.id'][idx]"
 						name="<?= $enc->attr( $this->formparam( array( 'image', 'property', 'media.property.id', '' ) ) ); ?>" />
