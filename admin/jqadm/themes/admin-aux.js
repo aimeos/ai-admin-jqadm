@@ -196,6 +196,34 @@ Aimeos.Media = {
 				if(files.length > 0) {
 					this.$set(this.items['media.label'], idx, files[0].name);
 				}
+			},
+
+
+			addPropertyItem : function(prefix, idx) {
+
+				if(!this.items['property']) {
+					this.$set(this.items, 'property', {});
+				}
+
+				if(!this.items['property'][idx]) {
+					this.$set(this.items['property'], idx, {});
+				}
+
+				var keys = ['media.property.id', 'media.property.siteid', 'media.property.languageid', 'media.property.typeid', 'media.property.value'];
+
+				for(key in keys) {
+					key = keys[key]; this.$set(this.items['property'][idx], key, (this.items['property'][idx][key] || []).concat(['']));
+				}
+
+				this.$set(this.items['property'][idx], 'media.property.siteid', (this.items['property'][idx]['media.property.siteid'] || []).concat([this.siteid]));
+			},
+
+
+			removePropertyItem : function(idx, propidx) {
+
+				for(key in this.items) {
+					this.items['property'][idx][key].splice(propidx, 1);
+				}
 			}
 		},
 		'mounted' : function() {
