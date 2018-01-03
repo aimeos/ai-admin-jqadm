@@ -27,6 +27,7 @@ return [
 				'type/customer/lists',
 				'type/media',
 				'type/media/lists',
+				'type/media/property',
 				'type/plugin',
 				'type/price',
 				'type/price/lists',
@@ -325,6 +326,15 @@ return [
 					'lists' => [
 						/** admin/jqadm/resource/type/media/lists/groups
 						 * List of user groups that are allowed to access the media lists type panel
+						 *
+						 * @param array List of user group names
+						 * @since 2017.10
+						 */
+						'groups' => ['admin', 'super'],
+					],
+					'property' => [
+						/** admin/jqadm/resource/type/media/property/groups
+						 * List of user groups that are allowed to access the media property type panel
 						 *
 						 * @param array List of user group names
 						 * @since 2017.10
