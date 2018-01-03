@@ -35,10 +35,10 @@ $enc = $this->encoder();
 			<tr v-for="(id, propidx) in getPropertyData(idx)" v-bind:key="idx"
 				v-bind:class="items['property'][idx]['media.property.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 				<td class="property-type">
-					<input class="item-id" type="hidden" v-bind:value="items['property'][idx]['media.property.id'][idx]"
-						name="<?= $enc->attr( $this->formparam( array( 'image', 'property', 'media.property.id', '' ) ) ); ?>" />
+					<input class="item-propertyid" type="hidden" v-bind:value="items['property'][idx]['media.property.id'][idx]"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'property', 'idx', 'media.property.id', '' ) ) ); ?>'.replace( 'idx', idx )" />
 					<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array( 'image', 'property', 'media.property.typeid', '' ) ) ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'property', 'idx', 'media.property.typeid', '' ) ) ); ?>'.replace( 'idx', idx )"
 						v-bind:readonly="checkSite('media.siteid', idx)"
 						v-model="items['property'][idx]['media.property.typeid'][idx]" >
 
@@ -52,7 +52,7 @@ $enc = $this->encoder();
 				</td>
 				<td class="property-language">
 					<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array( 'image', 'property', 'media.property.languageid', '' ) ) ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'property', 'idx', 'media.property.languageid', '' ) ) ); ?>'.replace( 'idx', idx )"
 						v-bind:readonly="checkSite('media.siteid', idx)"
 						v-model="items['property'][idx]['media.property.languageid'][propidx]" >
 
@@ -69,7 +69,7 @@ $enc = $this->encoder();
 				</td>
 				<td class="property-value">
 					<input class="form-control item-value" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array( 'image', 'property', 'media.property.value', '' ) ) ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'property', 'idx', 'media.property.value', '' ) ) ); ?>'.replace( 'idx', idx )"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
 						v-bind:readonly="checkSite('media.siteid', idx)"
 						v-model="items['property'][idx]['media.property.value'][propidx]" >

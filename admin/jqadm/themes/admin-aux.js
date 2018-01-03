@@ -231,7 +231,7 @@ Aimeos.Media = {
 
 			removePropertyItem : function(idx, propidx) {
 
-				for(key in this.items) {
+				for(key in this.items['property'][idx]) {
 					this.items['property'][idx][key].splice(propidx, 1);
 				}
 			}

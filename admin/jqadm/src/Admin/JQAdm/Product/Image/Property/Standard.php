@@ -92,9 +92,9 @@ class Standard
 		$data = $view->param( 'image', [] );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $view->value( $data, 'media.id', [] ) as $index => $x )
+		foreach( $view->value( $data, 'media.id', [] ) as $index => $x ) {
 		{
-			foreach( $view->value( $data, 'property', [] ) as $idx => $y ) {
+			foreach( $view->value( $data, 'property', [] ) as $idx => $y )
 				$data['property'][$index]['product.lists.siteid'][$idx] = $siteid;
 			}
 		}
@@ -268,7 +268,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/property/type' );
 
 		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
+		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'product' ) );
 		$search->setSlice( 0, 0x7fffffff );
 
 		return $manager->searchItems( $search );
