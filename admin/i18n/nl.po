@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-16 15:11+0200\n"
-"PO-Revision-Date: 2017-10-16 13:12+0000\n"
+"POT-Creation-Date: 2018-01-03 20:23+0100\n"
+"PO-Revision-Date: 2018-01-03 19:25+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -116,6 +116,9 @@ msgstr "Adressen"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
+msgstr ""
+
+msgid "Advanced"
 msgstr ""
 
 #, php-format
@@ -365,6 +368,9 @@ msgstr "Code"
 msgid "Code to uniquely identify the site"
 msgstr ""
 
+msgid "Code to uniquely identify the site, renaming is dangerous!"
+msgstr ""
+
 msgid "Codes"
 msgstr "Codes"
 
@@ -397,6 +403,10 @@ msgstr ""
 
 msgid "Configuration"
 msgstr "Configuratie"
+
+msgid ""
+"Configuration options, will be available as key/value pairs in the list item"
+msgstr ""
 
 msgid "Content"
 msgstr "Inhoud"
@@ -609,6 +619,15 @@ msgstr ""
 msgid "E-Mail, e.g. me@example.com (required)"
 msgstr "E-Mail, bijv. me@example.com (verplicht)"
 
+msgid "E-mail"
+msgstr ""
+
+msgid "E-mail address (optional)"
+msgstr ""
+
+msgid "E-mail address that belongs to the address"
+msgstr ""
+
 msgid "EAN, SKU or article number (required)"
 msgstr "EAN, SKU of artikelnummer (verplicht)"
 
@@ -725,6 +744,12 @@ msgstr "Groep label (verplicht)"
 
 msgid "Height"
 msgstr "Hoogte"
+
+msgid "Hidden attributes"
+msgstr ""
+
+msgid "Hidden product attributes that are stored with the ordered products"
+msgstr ""
 
 msgid "Honorary title"
 msgstr "Titel"
@@ -846,8 +871,14 @@ msgstr "Ongeldige waarde voor configuratie sleutel \"{0}\""
 msgid "Invoice"
 msgstr "Factuur"
 
+msgid "Item deleted successfully"
+msgstr ""
+
 msgid "Item position within the same type"
 msgstr "Item positie van hetzelfde type"
+
+msgid "Item saved successfully"
+msgstr ""
 
 msgid "Job item details"
 msgstr "Job item details"
@@ -1016,11 +1047,17 @@ msgstr ""
 msgid "Media Lists Types"
 msgstr ""
 
+msgid "Media Property Type"
+msgstr ""
+
 msgid "Media Type"
 msgstr "Media type"
 
 msgid "Media Types"
 msgstr "Media Typen"
+
+msgid "Media properties"
+msgstr ""
 
 msgid "Media type"
 msgstr "Media type"
@@ -1061,6 +1098,12 @@ msgstr "Aangepast"
 
 msgid "Modified"
 msgstr "Aangepast"
+
+msgid "More"
+msgstr ""
+
+msgid "Move this entry up/down"
+msgstr ""
 
 msgid "Mr"
 msgstr "Dhr"
@@ -1113,6 +1156,9 @@ msgstr "Geen weergave beschikbaar"
 
 msgid "No voucher"
 msgstr "Geen coupon"
+
+msgid "Non-shared properties for the media item"
+msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1315,6 +1361,9 @@ msgid "Postal code for delivery if used in the area the customer is living"
 msgstr ""
 
 msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr ""
+
+msgid "Postal code for delivery if used in the area the supplier's office"
 msgstr ""
 
 msgid "Preview"
@@ -1565,6 +1614,15 @@ msgstr ""
 msgid "SKU"
 msgstr ""
 
+msgid "Sales by weekday"
+msgstr ""
+
+msgid "Sales of the last 30 days"
+msgstr ""
+
+msgid "Sales per month"
+msgstr ""
+
 msgid "Salutation"
 msgstr "Aanhef"
 
@@ -1597,8 +1655,14 @@ msgstr "Zoeken"
 msgid "Search schema {0} is  not registered"
 msgstr "Zoek schema {0} is niet geregistreerd"
 
+msgid "Second level type for grouping items"
+msgstr ""
+
 msgid "Select Item"
 msgstr "Selecteer item"
+
+msgid "Select file"
+msgstr ""
 
 msgid "Select languages to export"
 msgstr "Selecteer talen om te exporteren"
@@ -1689,6 +1753,9 @@ msgid "Show"
 msgstr "Toon"
 
 msgid "Show entry"
+msgstr ""
+
+msgid "Show/hide advanced data"
 msgstr ""
 
 msgid "Show/hide this entry"
@@ -1892,6 +1959,12 @@ msgid ""
 msgstr "Het bestand met de geexporteerde teksten zal binnen enkele minuten beschikbaar zijn. Deze kan dan gedownload worden in het \"Job\" panel in het tab \"Overzicht\"."
 
 msgid "The image title is used for the title tag of the image on the web site"
+msgstr ""
+
+msgid "The item is only shown on the web site after that date and time"
+msgstr ""
+
+msgid "The item is only shown on the web site until that date and time"
 msgstr ""
 
 msgid "The option is only shown on the web site after that date and time"
@@ -2157,6 +2230,18 @@ msgid "company"
 msgstr "Organisatie"
 
 #, php-format
+msgid "countday"
+msgstr ""
+
+#, php-format
+msgid "counthour"
+msgstr ""
+
+#, php-format
+msgid "countpaystatus"
+msgstr ""
+
+#, php-format
 msgid "coupon"
 msgstr ""
 
@@ -2241,6 +2326,12 @@ msgstr "Opties"
 msgid "order"
 msgstr ""
 
+msgid "order:phone"
+msgstr ""
+
+msgid "order:web"
+msgstr ""
+
 msgid "pay:-1"
 msgstr "niet gereed"
 
@@ -2322,6 +2413,10 @@ msgid "related"
 msgstr "Producten"
 
 #, php-format
+msgid "salesweekday"
+msgstr ""
+
+#, php-format
 msgid "selection"
 msgstr "Variaties"
 
@@ -2334,6 +2429,14 @@ msgstr "Bezorging"
 
 msgid "service:payment"
 msgstr "Betaling"
+
+#, php-format
+msgid "servicedelivery"
+msgstr ""
+
+#, php-format
+msgid "servicepayment"
+msgstr ""
 
 #, php-format
 msgid "special"
@@ -2393,6 +2496,18 @@ msgstr "Status:geretourneerd"
 msgid "stat:unfinished"
 msgstr "status:onafgerond"
 
+msgid "status:-1"
+msgstr ""
+
+msgid "status:-2"
+msgstr ""
+
+msgid "status:0"
+msgstr ""
+
+msgid "status:1"
+msgstr ""
+
 msgid "status:archive"
 msgstr "status:gearchiveerd"
 
@@ -2450,6 +2565,10 @@ msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"
+msgstr ""
+
+#, php-format
+msgid "type/media/property"
 msgstr ""
 
 #, php-format

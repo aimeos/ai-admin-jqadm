@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-16 15:11+0200\n"
+"POT-Creation-Date: 2018-01-03 20:23+0100\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -103,6 +103,9 @@ msgstr ""
 
 #, php-format
 msgid "Admin JQAdm type is empty"
+msgstr ""
+
+msgid "Advanced"
 msgstr ""
 
 #, php-format
@@ -346,6 +349,9 @@ msgstr ""
 msgid "Code to uniquely identify the site"
 msgstr ""
 
+msgid "Code to uniquely identify the site, renaming is dangerous!"
+msgstr ""
+
 msgid "Codes"
 msgstr ""
 
@@ -377,6 +383,9 @@ msgid "Configurable"
 msgstr ""
 
 msgid "Configuration"
+msgstr ""
+
+msgid "Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
 
 msgid "Content"
@@ -585,6 +594,15 @@ msgstr ""
 msgid "E-Mail, e.g. me@example.com (required)"
 msgstr ""
 
+msgid "E-mail"
+msgstr ""
+
+msgid "E-mail address (optional)"
+msgstr ""
+
+msgid "E-mail address that belongs to the address"
+msgstr ""
+
 msgid "EAN, SKU or article number (required)"
 msgstr ""
 
@@ -702,6 +720,13 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
+#, fuzzy
+msgid "Hidden attributes"
+msgstr "Attributes"
+
+msgid "Hidden product attributes that are stored with the ordered products"
+msgstr ""
+
 msgid "Honorary title"
 msgstr ""
 
@@ -814,7 +839,13 @@ msgstr ""
 msgid "Invoice"
 msgstr ""
 
+msgid "Item deleted successfully"
+msgstr ""
+
 msgid "Item position within the same type"
+msgstr ""
+
+msgid "Item saved successfully"
 msgstr ""
 
 msgid "Job item details"
@@ -973,10 +1004,17 @@ msgstr ""
 msgid "Media Lists Types"
 msgstr ""
 
+#, fuzzy
+msgid "Media Property Type"
+msgstr "Product properties"
+
 msgid "Media Type"
 msgstr ""
 
 msgid "Media Types"
+msgstr ""
+
+msgid "Media properties"
 msgstr ""
 
 msgid "Media type"
@@ -1017,6 +1055,12 @@ msgid "Modifed"
 msgstr ""
 
 msgid "Modified"
+msgstr ""
+
+msgid "More"
+msgstr ""
+
+msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Mr"
@@ -1068,6 +1112,9 @@ msgid "No view available"
 msgstr ""
 
 msgid "No voucher"
+msgstr ""
+
+msgid "Non-shared properties for the media item"
 msgstr ""
 
 #, php-format
@@ -1261,6 +1308,9 @@ msgid "Postal code for delivery if used in the area the customer is living"
 msgstr ""
 
 msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr ""
+
+msgid "Postal code for delivery if used in the area the supplier's office"
 msgstr ""
 
 msgid "Preview"
@@ -1500,6 +1550,15 @@ msgstr ""
 msgid "SKU"
 msgstr ""
 
+msgid "Sales by weekday"
+msgstr ""
+
+msgid "Sales of the last 30 days"
+msgstr ""
+
+msgid "Sales per month"
+msgstr ""
+
 msgid "Salutation"
 msgstr ""
 
@@ -1532,8 +1591,15 @@ msgstr ""
 msgid "Search schema {0} is  not registered"
 msgstr ""
 
+msgid "Second level type for grouping items"
+msgstr ""
+
 msgid "Select Item"
 msgstr ""
+
+#, fuzzy
+msgid "Select file"
+msgstr "Variants"
 
 msgid "Select languages to export"
 msgstr ""
@@ -1621,6 +1687,9 @@ msgid "Show"
 msgstr ""
 
 msgid "Show entry"
+msgstr ""
+
+msgid "Show/hide advanced data"
 msgstr ""
 
 msgid "Show/hide this entry"
@@ -1816,6 +1885,12 @@ msgid "The file with the exported texts will be available within a few minutes. 
 msgstr ""
 
 msgid "The image title is used for the title tag of the image on the web site"
+msgstr ""
+
+msgid "The item is only shown on the web site after that date and time"
+msgstr ""
+
+msgid "The item is only shown on the web site until that date and time"
 msgstr ""
 
 msgid "The option is only shown on the web site after that date and time"
@@ -2072,6 +2147,18 @@ msgid "company"
 msgstr "Company"
 
 #, php-format
+msgid "countday"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "counthour"
+msgstr "By hour"
+
+#, fuzzy, php-format
+msgid "countpaystatus"
+msgstr "By payment status"
+
+#, php-format
 msgid "coupon"
 msgstr "Vouchers"
 
@@ -2156,6 +2243,14 @@ msgstr "Options"
 msgid "order"
 msgstr "Orders"
 
+#, fuzzy
+msgid "order:phone"
+msgstr "Orders"
+
+#, fuzzy
+msgid "order:web"
+msgstr "Orders"
+
 msgid "pay:-1"
 msgstr "unfinished"
 
@@ -2237,6 +2332,10 @@ msgid "related"
 msgstr "Products"
 
 #, php-format
+msgid "salesweekday"
+msgstr ""
+
+#, php-format
 msgid "selection"
 msgstr "Variants"
 
@@ -2248,6 +2347,14 @@ msgid "service:delivery"
 msgstr "Delivery"
 
 msgid "service:payment"
+msgstr "Payment"
+
+#, fuzzy, php-format
+msgid "servicedelivery"
+msgstr "Delivery"
+
+#, fuzzy, php-format
+msgid "servicepayment"
 msgstr "Payment"
 
 #, php-format
@@ -2308,6 +2415,22 @@ msgstr "returned"
 msgid "stat:unfinished"
 msgstr "unfinished"
 
+#, fuzzy
+msgid "status:-1"
+msgstr "unfinished"
+
+#, fuzzy
+msgid "status:-2"
+msgstr "in progress"
+
+#, fuzzy
+msgid "status:0"
+msgstr "deleted"
+
+#, fuzzy
+msgid "status:1"
+msgstr "pending"
+
 msgid "status:archive"
 msgstr "archive"
 
@@ -2366,6 +2489,10 @@ msgstr "Media"
 #, php-format
 msgid "type/media/lists"
 msgstr "Media lists"
+
+#, fuzzy, php-format
+msgid "type/media/property"
+msgstr "Product properties"
 
 #, php-format
 msgid "type/plugin"

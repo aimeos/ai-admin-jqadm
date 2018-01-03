@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aimeos, 2015-2017
+# Aimeos, 2015-2018
 # Michael Spahn <michael@spahn.me>, 2014
 # nsendetzky, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-16 15:11+0200\n"
-"PO-Revision-Date: 2017-10-16 13:15+0000\n"
+"POT-Creation-Date: 2018-01-03 20:23+0100\n"
+"PO-Revision-Date: 2018-01-03 19:48+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -114,6 +114,9 @@ msgstr "Adressen"
 #, php-format
 msgid "Admin JQAdm type is empty"
 msgstr "Admin JQAdm Typ ist leer"
+
+msgid "Advanced"
+msgstr "Erweitert"
 
 #, php-format
 msgid "Aimeos object not available"
@@ -362,6 +365,9 @@ msgstr "Schlüssel"
 msgid "Code to uniquely identify the site"
 msgstr "Eindeutiger Schlüssel zur Identifizierung des Mandanten"
 
+msgid "Code to uniquely identify the site, renaming is dangerous!"
+msgstr "Eindeutiger Schlüssel zur Identifizierung des Mandanten, umbenennen auf eigene Gefahr!"
+
 msgid "Codes"
 msgstr "Schlüssel"
 
@@ -394,6 +400,10 @@ msgstr "Konfigurationen"
 
 msgid "Configuration"
 msgstr "Konfiguration"
+
+msgid ""
+"Configuration options, will be available as key/value pairs in the list item"
+msgstr ""
 
 msgid "Content"
 msgstr "Inhalt"
@@ -606,6 +616,15 @@ msgstr "E-Mail Adresse (benötigt)"
 msgid "E-Mail, e.g. me@example.com (required)"
 msgstr "E-Mail, z.B. me@example.com (benötigt)"
 
+msgid "E-mail"
+msgstr "E-Mail"
+
+msgid "E-mail address (optional)"
+msgstr "E-Mail Adresse (optional)"
+
+msgid "E-mail address that belongs to the address"
+msgstr "E-Mail, die zur Adresse gehört"
+
 msgid "EAN, SKU or article number (required)"
 msgstr "EAN, SKU oder Artikelnummer (benötigt)"
 
@@ -722,6 +741,12 @@ msgstr "Interner Gruppenname (benötigt)"
 
 msgid "Height"
 msgstr "Höhe"
+
+msgid "Hidden attributes"
+msgstr "Versteckte Attribute"
+
+msgid "Hidden product attributes that are stored with the ordered products"
+msgstr "Versteckte Attribute, die zusammen mit den bestellen Produkten gespeichert werden"
 
 msgid "Honorary title"
 msgstr "Ehrentitel"
@@ -843,8 +868,14 @@ msgstr "Ungültiger Wert für Konfigurationsschlüssel \"{0}\""
 msgid "Invoice"
 msgstr "Rechnung"
 
+msgid "Item deleted successfully"
+msgstr "Eintrag erfolgreich gelöscht"
+
 msgid "Item position within the same type"
 msgstr "Position des Eintrags für den selben Typ"
+
+msgid "Item saved successfully"
+msgstr "Eintrag erfolgreich gespeichert"
 
 msgid "Job item details"
 msgstr "Aufgabendetails"
@@ -1013,11 +1044,17 @@ msgstr "Medien-Listentyp"
 msgid "Media Lists Types"
 msgstr "Medien-Listentypen"
 
+msgid "Media Property Type"
+msgstr "Medien-Eigenschaftstypen"
+
 msgid "Media Type"
 msgstr "Medientyp"
 
 msgid "Media Types"
 msgstr "Medientypen"
+
+msgid "Media properties"
+msgstr "Medieneigenschaften"
 
 msgid "Media type"
 msgstr "Medientyp"
@@ -1058,6 +1095,12 @@ msgstr "Geändert"
 
 msgid "Modified"
 msgstr "Geändert"
+
+msgid "More"
+msgstr "Mehr"
+
+msgid "Move this entry up/down"
+msgstr "Eintrag nach oben/unten verschieben"
 
 msgid "Mr"
 msgstr "Herr"
@@ -1110,6 +1153,9 @@ msgstr "Es ist kein View vorhanden"
 
 msgid "No voucher"
 msgstr "Kein Gutschein"
+
+msgid "Non-shared properties for the media item"
+msgstr "Eigenschaften von Medieneinträgen"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1312,6 +1358,9 @@ msgid "Postal code for delivery if used in the area the customer is living"
 msgstr "PLZ für den Versand wenn die Kundenadresse diese Information enthält"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr "PLZ für den Versand wenn die Lieferantenadresse diese Information enthält"
+
+msgid "Postal code for delivery if used in the area the supplier's office"
 msgstr "PLZ für den Versand wenn die Lieferantenadresse diese Information enthält"
 
 msgid "Preview"
@@ -1562,6 +1611,15 @@ msgstr "Routenname oder Seiten-ID (optional)"
 msgid "SKU"
 msgstr "Artikelcode"
 
+msgid "Sales by weekday"
+msgstr "Umsatz nach Wochentagen"
+
+msgid "Sales of the last 30 days"
+msgstr "Umsätze der letzten 30 Tage"
+
+msgid "Sales per month"
+msgstr "Umsätze pro Monat"
+
 msgid "Salutation"
 msgstr "Anrede"
 
@@ -1594,8 +1652,14 @@ msgstr "Suchen"
 msgid "Search schema {0} is  not registered"
 msgstr "Suchschema {0} ist nicht registriert"
 
+msgid "Second level type for grouping items"
+msgstr "Zweiter Typ zur Gruppierung von Einträgen"
+
 msgid "Select Item"
 msgstr "Eintrag auswählen"
+
+msgid "Select file"
+msgstr "Datei auswählen"
 
 msgid "Select languages to export"
 msgstr "Wählen Sie die Sprachen für den Export"
@@ -1687,6 +1751,9 @@ msgstr "Anzeigen"
 
 msgid "Show entry"
 msgstr "Eintrag anzeigen"
+
+msgid "Show/hide advanced data"
+msgstr "Erweiterte Daten zeigen/verstecken"
 
 msgid "Show/hide this entry"
 msgstr "Eintrag zeigen/verstecken"
@@ -1890,6 +1957,12 @@ msgstr "Die Datei mit den exportierten Texten wird in wenigen Minuten verfügbar
 
 msgid "The image title is used for the title tag of the image on the web site"
 msgstr "Wird für den Titel des Bildes auf der Webseite verwendet"
+
+msgid "The item is only shown on the web site after that date and time"
+msgstr "Dieser Eintrag wird auf der Webseite erst nach dem Datum und der Uhrzeit angezeigt"
+
+msgid "The item is only shown on the web site until that date and time"
+msgstr "Dieser Eintrag wird auf der Webseite bis zu dem Datum und der Uhrzeit angezeigt"
 
 msgid "The option is only shown on the web site after that date and time"
 msgstr "Diese Option wird auf der Webseite erst nach dem Datum und der Uhrzeit angezeigt"
@@ -2154,6 +2227,18 @@ msgid "company"
 msgstr "Firma"
 
 #, php-format
+msgid "countday"
+msgstr "Bestellungen nach Tagen"
+
+#, php-format
+msgid "counthour"
+msgstr "Bestellungen nach Stunden"
+
+#, php-format
+msgid "countpaystatus"
+msgstr "Bestellungen nach Zahlungsstatus"
+
+#, php-format
 msgid "coupon"
 msgstr "Gutscheine"
 
@@ -2238,6 +2323,12 @@ msgstr "Optionen"
 msgid "order"
 msgstr "Bestellung"
 
+msgid "order:phone"
+msgstr "Telefon"
+
+msgid "order:web"
+msgstr "Web"
+
 msgid "pay:-1"
 msgstr "Offen"
 
@@ -2319,6 +2410,10 @@ msgid "related"
 msgstr "Produkte"
 
 #, php-format
+msgid "salesweekday"
+msgstr "Umsatz nach Wochentag"
+
+#, php-format
 msgid "selection"
 msgstr "Varianten"
 
@@ -2331,6 +2426,14 @@ msgstr "Versand"
 
 msgid "service:payment"
 msgstr "Zahlung"
+
+#, php-format
+msgid "servicedelivery"
+msgstr "Bestellungen nach Versandmethode"
+
+#, php-format
+msgid "servicepayment"
+msgstr "Bestellungen nach Zahlungsmethode"
 
 #, php-format
 msgid "special"
@@ -2390,6 +2493,18 @@ msgstr "Zurück geschickt"
 msgid "stat:unfinished"
 msgstr "Noch offen"
 
+msgid "status:-1"
+msgstr "Zur Prüfung"
+
+msgid "status:-2"
+msgstr "Archiviert"
+
+msgid "status:0"
+msgstr "Deaktiviert"
+
+msgid "status:1"
+msgstr "Verfügbar"
+
 msgid "status:archive"
 msgstr "Archiviert"
 
@@ -2448,6 +2563,10 @@ msgstr "Medien"
 #, php-format
 msgid "type/media/lists"
 msgstr "Medienlisten"
+
+#, php-format
+msgid "type/media/property"
+msgstr "Medieneigenschaften"
 
 #, php-format
 msgid "type/plugin"

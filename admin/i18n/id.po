@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ranu Yulianto <vanarif@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-16 15:11+0200\n"
-"PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2018-01-03 20:23+0100\n"
+"PO-Revision-Date: 2018-01-03 19:25+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Indonesian (http://www.transifex.com/aimeos/aimeos-core/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,13 +63,13 @@ msgid "Add"
 msgstr ""
 
 msgid "Add filter"
-msgstr ""
+msgstr "Tambah filter"
 
 msgid "Add new entry (Ctrl+A)"
-msgstr ""
+msgstr "Tambah entri baru (Ctrl+A)"
 
 msgid "Additional"
-msgstr ""
+msgstr "Tambahan"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -85,16 +86,16 @@ msgid "Additional information, e.g. flat number"
 msgstr ""
 
 msgid "Address"
-msgstr ""
+msgstr "Alamat"
 
 msgid "Address 1"
-msgstr ""
+msgstr "Alamat 1"
 
 msgid "Address 2"
-msgstr ""
+msgstr "Alamat 2"
 
 msgid "Address 3"
-msgstr ""
+msgstr "Alamat 3"
 
 msgid "Address ID"
 msgstr ""
@@ -106,10 +107,13 @@ msgid "Address identifier of the supplier's office"
 msgstr ""
 
 msgid "Addresses"
-msgstr ""
+msgstr "Alamat"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
+msgstr ""
+
+msgid "Advanced"
 msgstr ""
 
 #, php-format
@@ -117,7 +121,7 @@ msgid "Aimeos object not available"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Semua"
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
@@ -141,31 +145,31 @@ msgid ""
 msgstr ""
 
 msgid "Associated attributes"
-msgstr ""
+msgstr "Atribut terkait"
 
 msgid "Associated customer groups"
-msgstr ""
+msgstr "Grup pelanggan terkait"
 
 msgid "Associated customers"
-msgstr ""
+msgstr "Pelanggan terkait"
 
 msgid "Associated media"
-msgstr ""
+msgstr "Media terkait"
 
 msgid "Associated prices"
-msgstr ""
+msgstr "Harga terkait"
 
 msgid "Associated products"
-msgstr ""
+msgstr "Produk terkait"
 
 msgid "Associated tags"
-msgstr ""
+msgstr "Tag terkait"
 
 msgid "Associated texts"
-msgstr ""
+msgstr "Teks terkait"
 
 msgid "Attribute"
-msgstr ""
+msgstr "Atribut"
 
 msgid "Attribute Lists Type"
 msgstr ""
@@ -208,7 +212,7 @@ msgid "Attribute: {0} ({1})"
 msgstr ""
 
 msgid "Attributes"
-msgstr ""
+msgstr "Atribut "
 
 msgid "Available attributes"
 msgstr ""
@@ -226,25 +230,25 @@ msgid "Available language for the current site"
 msgstr ""
 
 msgid "Available media"
-msgstr ""
+msgstr "Media yang tersedia"
 
 msgid "Available prices"
-msgstr ""
+msgstr "Harga yang tersedia"
 
 msgid "Available products"
-msgstr ""
+msgstr "Produk yang tersedia"
 
 msgid "Available tags"
-msgstr ""
+msgstr "Tag yang tersedia"
 
 msgid "Available texts"
-msgstr ""
+msgstr "Teks yang tersedia"
 
 msgid "Back"
-msgstr ""
+msgstr "Kembali"
 
 msgid "Back in stock"
-msgstr ""
+msgstr "Tersedia kembali"
 
 msgid "Base ID"
 msgstr ""
@@ -253,19 +257,19 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr ""
+msgstr "Keranjang belanja"
 
 msgid "Billing address"
-msgstr ""
+msgstr "Alamat penagihan"
 
 msgid "Birthday"
-msgstr ""
+msgstr "Tanggal lahir"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Tanggal lahir pelangga"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Bug atau saran?"
 
 msgid "Bundles"
 msgstr ""
@@ -277,13 +281,13 @@ msgid "Cache item details"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Batal dan kembali ke list"
 
 msgid "Catalog"
-msgstr ""
+msgstr "Katalog"
 
 msgid "Catalog Lists Type"
 msgstr ""
@@ -300,7 +304,7 @@ msgid "Catalog: {0} ({1})"
 msgstr ""
 
 msgid "Categories"
-msgstr ""
+msgstr "Kategori"
 
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
@@ -309,7 +313,7 @@ msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
 
 msgid "Category name"
-msgstr ""
+msgstr "Nama kategori"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
@@ -317,16 +321,16 @@ msgid ""
 msgstr ""
 
 msgid "Characteristics"
-msgstr ""
+msgstr "Karakteristik"
 
 msgid "City"
-msgstr ""
+msgstr "Kota"
 
 msgid "City name (required)"
-msgstr ""
+msgstr "Nama kota (required)"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Nama kabupaten atau kota (required)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
@@ -345,55 +349,62 @@ msgid "Class \"%1$s\" not found"
 msgstr ""
 
 msgid "Clear"
-msgstr ""
+msgstr "Bersihkan"
 
 msgid "Click to upload"
-msgstr ""
+msgstr "Klik untuk unggah"
 
 msgid "Close"
-msgstr ""
+msgstr "Tutup"
 
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 msgid "Code to uniquely identify the site"
+msgstr "Kode unik untuk identifikasi situs"
+
+msgid "Code to uniquely identify the site, renaming is dangerous!"
 msgstr ""
 
 msgid "Codes"
-msgstr ""
+msgstr "Kode"
 
 msgid "Columns"
-msgstr ""
+msgstr "Kolom"
 
 msgid "Comment"
-msgstr ""
+msgstr "Komentar"
 
 msgid "Communication"
-msgstr ""
+msgstr "Komunikasi"
 
 msgid "Company"
-msgstr ""
+msgstr "Perusahaan"
 
 msgid "Company details"
-msgstr ""
+msgstr "Detail perusahaan"
 
 msgid "Company name"
-msgstr ""
+msgstr "Nama perusahaan"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Nama perusahaan (optional)"
 
 msgid "Config"
-msgstr ""
+msgstr "Konfigurasi"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Dapat diedit"
 
 msgid "Configuration"
+msgstr "Konfigurasi"
+
+msgid ""
+"Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
 
 msgid "Content"
-msgstr ""
+msgstr "Konten"
 
 msgid "Copy"
 msgstr ""
@@ -402,19 +413,19 @@ msgid "Copy this entry"
 msgstr ""
 
 msgid "Costs"
-msgstr ""
+msgstr "Biaya"
 
 msgid "Costs per item"
-msgstr ""
+msgstr "Biaya per item"
 
 msgid "Could not upload file. Please notify your administrator"
-msgstr ""
+msgstr "Tidak bisa unggah file. Hubungi admin"
 
 msgid "Count"
-msgstr ""
+msgstr "Jumlah"
 
 msgid "Country"
-msgstr ""
+msgstr "Negara"
 
 msgid "Country ID"
 msgstr ""
@@ -437,10 +448,10 @@ msgid "Country state, e.g. \"NY\""
 msgstr ""
 
 msgid "Coupon"
-msgstr ""
+msgstr "Kupon"
 
 msgid "Coupon code"
-msgstr ""
+msgstr "Kode kupon"
 
 #. : Coupon code item panel title with coupon code ({0}) and site code ({1)}
 #, python-brace-format
@@ -456,10 +467,10 @@ msgid "Coupon: {0} ({1})"
 msgstr ""
 
 msgid "Coupons"
-msgstr ""
+msgstr "Kupon"
 
 msgid "Created"
-msgstr ""
+msgstr "Dibuat"
 
 msgid "Currencies"
 msgstr ""
@@ -474,10 +485,10 @@ msgid "Custom"
 msgstr ""
 
 msgid "Customer"
-msgstr ""
+msgstr "Pelanggan"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "ID pelanggan"
 
 msgid "Customer Lists Type"
 msgstr ""
@@ -519,10 +530,10 @@ msgid "Customer: {0} ({1})"
 msgstr ""
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard "
 
 msgid "Date"
-msgstr ""
+msgstr "Tanggal"
 
 msgid "Date back"
 msgstr ""
@@ -537,19 +548,19 @@ msgid "Default"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Hapus"
 
 msgid "Delete items?"
-msgstr ""
+msgstr "Hapus item?"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Hapus entri ini"
 
 msgid "Delivery"
-msgstr ""
+msgstr "Pegiriman"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "Alamat pengiriman"
 
 msgid ""
 "Delivery costs for the whole order or additional costs for payment options"
@@ -574,7 +585,7 @@ msgid "Descritive name of the site"
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "Detail"
 
 msgid "Display field is empty"
 msgstr ""
@@ -601,6 +612,15 @@ msgid "E-Mail address (required)"
 msgstr ""
 
 msgid "E-Mail, e.g. me@example.com (required)"
+msgstr ""
+
+msgid "E-mail"
+msgstr ""
+
+msgid "E-mail address (optional)"
+msgstr ""
+
+msgid "E-mail address that belongs to the address"
 msgstr ""
 
 msgid "EAN, SKU or article number (required)"
@@ -673,7 +693,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "Nama depan"
 
 msgid "First name (optional)"
 msgstr ""
@@ -718,6 +738,12 @@ msgid "Group label (required)"
 msgstr ""
 
 msgid "Height"
+msgstr ""
+
+msgid "Hidden attributes"
+msgstr ""
+
+msgid "Hidden product attributes that are stored with the ordered products"
 msgstr ""
 
 msgid "Honorary title"
@@ -840,7 +866,13 @@ msgstr ""
 msgid "Invoice"
 msgstr ""
 
+msgid "Item deleted successfully"
+msgstr ""
+
 msgid "Item position within the same type"
+msgstr ""
+
+msgid "Item saved successfully"
 msgstr ""
 
 msgid "Job item details"
@@ -894,7 +926,7 @@ msgid "Last modified"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "Nama akhir (keluarga)"
 
 msgid "Last name (required)"
 msgstr ""
@@ -917,7 +949,7 @@ msgid "Latest orders"
 msgstr ""
 
 msgid "Length"
-msgstr ""
+msgstr "Panjang"
 
 msgid "List"
 msgstr ""
@@ -1010,10 +1042,16 @@ msgstr ""
 msgid "Media Lists Types"
 msgstr ""
 
+msgid "Media Property Type"
+msgstr ""
+
 msgid "Media Type"
 msgstr ""
 
 msgid "Media Types"
+msgstr ""
+
+msgid "Media properties"
 msgstr ""
 
 msgid "Media type"
@@ -1054,6 +1092,12 @@ msgid "Modifed"
 msgstr ""
 
 msgid "Modified"
+msgstr ""
+
+msgid "More"
+msgstr ""
+
+msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Mr"
@@ -1108,6 +1152,9 @@ msgstr ""
 msgid "No voucher"
 msgstr ""
 
+msgid "Non-shared properties for the media item"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr ""
@@ -1133,7 +1180,7 @@ msgid ""
 msgstr ""
 
 msgid "Option"
-msgstr ""
+msgstr "Pilihan"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
@@ -1221,7 +1268,7 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr ""
+msgstr "Pembayaran"
 
 msgid "Payment date"
 msgstr ""
@@ -1255,7 +1302,7 @@ msgid "Please save the coupon first before you can add codes"
 msgstr ""
 
 msgid "Please select"
-msgstr ""
+msgstr "Silahkan pilih"
 
 msgid ""
 "Please select an item on the right side and add it via drag and drop to this"
@@ -1303,12 +1350,15 @@ msgid "Postal"
 msgstr ""
 
 msgid "Postal code"
-msgstr ""
+msgstr "Kode pos"
 
 msgid "Postal code for delivery if used in the area the customer is living"
 msgstr ""
 
 msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr ""
+
+msgid "Postal code for delivery if used in the area the supplier's office"
 msgstr ""
 
 msgid "Preview"
@@ -1318,10 +1368,10 @@ msgid "Preview URL"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Sebelumnya"
 
 msgid "Price"
-msgstr ""
+msgstr "Harga"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1355,7 +1405,7 @@ msgid "Priority"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Produk"
 
 msgid "Product ID"
 msgstr ""
@@ -1470,7 +1520,7 @@ msgid "Promotion"
 msgstr ""
 
 msgid "Properties"
-msgstr ""
+msgstr "Properti"
 
 msgid "Property"
 msgstr ""
@@ -1494,7 +1544,7 @@ msgid "Purchased"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Jumlah"
 
 msgid "Quantity or empty if unlimited (optional)"
 msgstr ""
@@ -1559,6 +1609,15 @@ msgstr ""
 msgid "SKU"
 msgstr ""
 
+msgid "Sales by weekday"
+msgstr ""
+
+msgid "Sales of the last 30 days"
+msgstr ""
+
+msgid "Sales per month"
+msgstr ""
+
 msgid "Salutation"
 msgstr ""
 
@@ -1585,13 +1644,19 @@ msgid "Schema {0} is  not registered"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Cari"
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
 msgstr ""
 
+msgid "Second level type for grouping items"
+msgstr ""
+
 msgid "Select Item"
+msgstr ""
+
+msgid "Select file"
 msgstr ""
 
 msgid "Select languages to export"
@@ -1619,7 +1684,7 @@ msgid "Service attribute code"
 msgstr ""
 
 msgid "Service fees"
-msgstr ""
+msgstr "Biaya layanan"
 
 msgid "Service item details"
 msgstr ""
@@ -1647,7 +1712,7 @@ msgid "Service: {0} ({1})"
 msgstr ""
 
 msgid "Services"
-msgstr ""
+msgstr "layanan"
 
 msgid "Ship date"
 msgstr ""
@@ -1685,6 +1750,9 @@ msgstr ""
 msgid "Show entry"
 msgstr ""
 
+msgid "Show/hide advanced data"
+msgstr ""
+
 msgid "Show/hide this entry"
 msgstr ""
 
@@ -1708,7 +1776,7 @@ msgid "Sites"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Ukuran"
 
 msgid "Sorry, adding orders manually is currently not implemented"
 msgstr ""
@@ -1744,7 +1812,7 @@ msgid "Stock level"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Jalan"
 
 msgid "Street (required)"
 msgstr ""
@@ -1753,7 +1821,7 @@ msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr ""
+msgstr "Sub-total"
 
 msgid "Subscription"
 msgstr ""
@@ -1765,7 +1833,7 @@ msgid "Suggested products"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "Jumlah"
 
 msgid "Supplier"
 msgstr ""
@@ -1888,6 +1956,12 @@ msgstr ""
 msgid "The image title is used for the title tag of the image on the web site"
 msgstr ""
 
+msgid "The item is only shown on the web site after that date and time"
+msgstr ""
+
+msgid "The item is only shown on the web site until that date and time"
+msgstr ""
+
 msgid "The option is only shown on the web site after that date and time"
 msgstr ""
 
@@ -1950,7 +2024,7 @@ msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "Tidak bisa memanggil method \"%1$s\""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -2091,7 +2165,7 @@ msgid "Weight"
 msgstr ""
 
 msgid "Width"
-msgstr ""
+msgstr "Lebar"
 
 msgid "YYYY-MM-DD (optional)"
 msgstr ""
@@ -2115,17 +2189,17 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "Alamat"
 
 msgid "address:delivery"
-msgstr ""
+msgstr "Alamat pengiriman"
 
 msgid "address:payment"
-msgstr ""
+msgstr "Alamat penagihan"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Atribut "
 
 #, php-format
 msgid "bundle"
@@ -2133,21 +2207,33 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Kategori"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "Kategori"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "Karakteristik"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "Kode"
 
 msgid "company"
+msgstr "Perusahaan"
+
+#, php-format
+msgid "countday"
+msgstr ""
+
+#, php-format
+msgid "counthour"
+msgstr ""
+
+#, php-format
+msgid "countpaystatus"
 msgstr ""
 
 #, php-format
@@ -2160,7 +2246,7 @@ msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "Dashboard "
 
 #, php-format
 msgid "day"
@@ -2172,7 +2258,7 @@ msgstr ""
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "Unduh"
 
 #, php-format
 msgid "hour"
@@ -2233,6 +2319,12 @@ msgstr ""
 
 #, php-format
 msgid "order"
+msgstr ""
+
+msgid "order:phone"
+msgstr ""
+
+msgid "order:web"
 msgstr ""
 
 msgid "pay:-1"
@@ -2316,17 +2408,29 @@ msgid "related"
 msgstr ""
 
 #, php-format
+msgid "salesweekday"
+msgstr ""
+
+#, php-format
 msgid "selection"
 msgstr ""
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "layanan"
 
 msgid "service:delivery"
-msgstr ""
+msgstr "Pegiriman"
 
 msgid "service:payment"
+msgstr "Pembayaran"
+
+#, php-format
+msgid "servicedelivery"
+msgstr ""
+
+#, php-format
+msgid "servicepayment"
 msgstr ""
 
 #, php-format
@@ -2387,6 +2491,18 @@ msgstr ""
 msgid "stat:unfinished"
 msgstr ""
 
+msgid "status:-1"
+msgstr ""
+
+msgid "status:-2"
+msgstr ""
+
+msgid "status:0"
+msgstr ""
+
+msgid "status:1"
+msgstr ""
+
 msgid "status:archive"
 msgstr ""
 
@@ -2420,7 +2536,7 @@ msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "Atribut "
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2444,6 +2560,10 @@ msgstr ""
 
 #, php-format
 msgid "type/media/lists"
+msgstr ""
+
+#, php-format
+msgid "type/media/property"
 msgstr ""
 
 #, php-format
@@ -2472,7 +2592,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "layanan"
 
 #, php-format
 msgid "type/service/lists"
