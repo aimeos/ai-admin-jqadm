@@ -123,6 +123,7 @@ Aimeos.Media = {
 				this.$set(this.items[prefix + 'typeid'], idx, listtypeid);
 				this.$set(this.items['media.siteid'], idx, this.siteid);
 				this.$set(this.items['media.languageid'], idx, null);
+				this.$set(this.items['media.status'], idx, 1);
 			},
 
 
