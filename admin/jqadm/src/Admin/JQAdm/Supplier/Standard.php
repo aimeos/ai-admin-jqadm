@@ -492,7 +492,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		$domains = ['supplier/address'];
+		$domains = ['media', 'supplier/address'];
 
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/supplier/domains', $domains );
 	}
