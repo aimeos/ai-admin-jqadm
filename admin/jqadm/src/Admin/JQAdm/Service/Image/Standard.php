@@ -57,7 +57,7 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/service/image/standard/subparts';
-	private $subPartNames = [];
+	private $subPartNames = ['property'];
 
 
 	/**
