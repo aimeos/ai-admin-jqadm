@@ -2494,9 +2494,9 @@ msgstr "Media"
 msgid "type/media/lists"
 msgstr "Media lists"
 
-#, fuzzy, php-format
+#, php-format
 msgid "type/media/property"
-msgstr "Product properties"
+msgstr "Media properties"
 
 #, php-format
 msgid "type/plugin"
