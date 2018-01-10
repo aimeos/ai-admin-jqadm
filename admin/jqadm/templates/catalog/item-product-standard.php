@@ -68,7 +68,7 @@ $refItems = $this->get( 'productItems', [] );
 				<?= $this->partial(
 					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard.php' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
-						'group' => 'cp', 'action' => 'get', 'fragment' => 'product',
+						'group' => 'cp', 'action' => ( $this->param( 'id') ? 'get' : 'search' ), 'fragment' => 'product',
 						'sort' => $this->session( 'aimeos/admin/jqadm/catalogproduct/sort' ),
 						'data' => [
 							'catalog.lists.position' => $this->translate( 'admin', 'Position' ),
