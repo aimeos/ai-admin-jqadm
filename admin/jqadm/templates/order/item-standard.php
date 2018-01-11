@@ -279,7 +279,12 @@ $statusList = [
 											<span class="product-attr">
 												<?php foreach( $orderProduct->getAttributes() as $attrItem ) : ?>
 													<span class="attr-code"><?= $enc->html( $attrItem->getCode() ); ?></span>
-													<span class="attr-value"><?= $enc->html( $attrItem->getValue() ); ?></span>
+													<span class="attr-value">
+														<?php if( $attrItem->getQuantity() > 1 ) : ?>
+															<?= $enc->html( $attrItem->getQuantity() ); ?>×
+														<?php endif; ?>
+														<?= $enc->html( $attrItem->getValue() ); ?>
+													</span>
 												<?php endforeach; ?>
 											</span>
 											<span class="product-sku"><?= $enc->html( $orderProduct->getProductCode() ); ?></span>
