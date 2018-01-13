@@ -274,6 +274,45 @@ class Standard
 
 
 	/**
+	 * Adds the product variant attributes to the media item
+	 * Then, the images will only be shown if the customer selected the product variant
+	 *
+	 * @param \Aimeos\MShop\Media\Item\iface $item Media item with referenced attribute items
+	 * @param array $attrMap Associative list of attribute ID as key and list item as value
+	 * @param string $listTypeId Type ID for the media lists type
+	 */
+	protected function addMediaAttributes( \Aimeos\MShop\Media\Item\Iface $item, array $attrMap, $listTypeId )
+	{
+		$listMap = $rmIds = [];
+		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/lists' );
+
+		foreach( $item->getListItems( 'attribute', 'default', null, false ) as $listItem ) {
+			$listMap[ $listItem->getRefId() ] = $listItem;
+		}
+
+		foreach( $attrMap as $refId => $listItem )
+		{
+			if( !isset( $listMap[$refId] ) ) {
+				$rmIds[] = $listItem->getId();
+			} else {
+				continue;
+			}
+
+			$litem = $listManager->createItem();
+			$litem->setParentId( $item->getId() );
+			$litem->setDomain( 'attribute' );
+			$litem->setTypeId( $listTypeId );
+			$litem->setRefId( $refId );
+			$litem->setStatus( 1 );
+
+			$listManager->saveItem( $litem, false );
+		}
+
+		$listManager->deleteItems( array_keys( $rmIds ) );
+	}
+
+
+	/**
 	 * Deletes the removed list items and their referenced items
 	 *
 	 * @param array $listItems List of items implementing \Aimeos\MShop\Common\Item\Lists\Iface
@@ -408,23 +447,31 @@ class Standard
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param \Aimeos\MShop\Product\Item\Iface $product Product item object without referenced domain items
 	 * @param string[] $data Data array
 	 */
-	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $product, array $data )
 	{
 		$context = $this->getContext();
 
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 		$mediaManager = \Aimeos\MShop\Factory::createManager( $context, 'media' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'media/lists/type' );
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
+		$listTypeId = $listTypeManager->findItem( 'default', [], 'attribute' )->getId();
+		$product = $manager->getItem( $product->getId(), ['attribute', 'media'] );
 		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
-		$listItems = $manager->getItem( $item->getId(), array( 'media' ) )->getListItems( 'media', null, null, false );
+		$listItems = $product->getListItems( 'media', null, null, false );
+
+		$attrMap = [];
+		foreach( $product->getListItems( 'attribute', 'variant' ) as $listItem ) {
+			$attrMap[ $listItem->getRefId() ] = $listItem;
+		}
 
 		$mediaItem = $this->createItem();
-		$listItem = $this->createListItem( $item->getId() );
+		$listItem = $this->createListItem( $product->getId() );
 
 		$files = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'image/files', [] );
 
@@ -435,7 +482,7 @@ class Standard
 				$litem = clone $listItem;
 
 				if( ( $refId = $this->getValue( $data, 'product.lists.refid/' . $idx ) ) !== null ) {
-					$item = $mediaManager->getItem( $refId ); // copy existing item
+					$item = $mediaManager->getItem( $refId, ['attribute'] ); // copy existing item
 				} else {
 					$item = clone $mediaItem;
 				}
@@ -456,6 +503,7 @@ class Standard
 			$item->setLanguageId( $this->getValue( $data, 'media.languageid/' . $idx ) );
 
 			$item = $mediaManager->saveItem( $item );
+			$this->addMediaAttributes( $item, $attrMap, $listTypeId );
 
 
 			$conf = [];

@@ -86,13 +86,22 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/lists/type' );
+		$listManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/lists' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
-		$item = $manager->findItem( 'CNC' );
+		$item = $manager->findItem( 'CNE', ['attribute'] );
 		$item->setCode( 'jqadm-test-image' );
 		$item->setId( null );
 
 		$item = $manager->saveItem( $item );
+
+		foreach( $item->getListItems( 'attribute', 'variant' ) as $listItem )
+		{
+			$listItem->setId( null );
+			$listItem->setParentId( $item->getId() );
+
+			$listManager->saveItem( $listItem, false );
+		}
 
 
 		$param = array(
@@ -140,6 +149,17 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		\Aimeos\MShop\Factory::injectManager( $this->context, 'media', $mediaStub );
 
 		$mediaStub->expects( $this->once() )->method( 'saveItem' )
+			->will( $this->returnValue( $mediaStub->createItem() ) );
+
+
+		$mediaListStub = $this->getMockBuilder( '\\Aimeos\\MShop\\Media\\Manager\\Lists\\Standard' )
+			->setConstructorArgs( array( $this->context ) )
+			->setMethods( array( 'saveItem' ) )
+			->getMock();
+
+		\Aimeos\MShop\Factory::injectManager( $this->context, 'media/lists', $mediaListStub );
+
+		$mediaListStub->expects( $this->exactly( 2 ) )->method( 'saveItem' )
 			->will( $this->returnValue( $mediaStub->createItem() ) );
 
 
