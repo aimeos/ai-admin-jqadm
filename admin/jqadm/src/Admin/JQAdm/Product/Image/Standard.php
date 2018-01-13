@@ -286,7 +286,7 @@ class Standard
 		$listMap = $rmIds = [];
 		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/lists' );
 
-		foreach( $item->getListItems( 'attribute', 'default', null, false ) as $listItem ) {
+		foreach( $item->getListItems( 'attribute', 'variant', null, false ) as $listItem ) {
 			$listMap[ $listItem->getRefId() ] = $listItem;
 		}
 
@@ -460,7 +460,7 @@ class Standard
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'media/lists/type' );
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
-		$listTypeId = $listTypeManager->findItem( 'default', [], 'attribute' )->getId();
+		$listTypeId = $listTypeManager->findItem( 'variant', [], 'attribute' )->getId();
 		$product = $manager->getItem( $product->getId(), ['attribute', 'media'] );
 		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
 		$listItems = $product->getListItems( 'media', null, null, false );
