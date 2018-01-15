@@ -267,7 +267,6 @@ Aimeos.Dashboard.Order = {
 							d0 = t0.getDay(), d1 = t1.getDay();
 
 						if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d52), d52); }
-						if(first == 0) { weeks += 1; }
 
 						var w0 = d3.timeWeek.count(d3.timeYear(t0), t0) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
 						var w1 = d3.timeWeek.count(d3.timeYear(t1), t1) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
