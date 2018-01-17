@@ -265,7 +265,7 @@ class Standard
 
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'locale/language', $view->item->getId() );
+			$this->nextAction( $view, $view->param( 'next' ), 'locale/language', strtoupper( $view->item->getId() ) );
 			return;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
