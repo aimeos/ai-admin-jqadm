@@ -4,7 +4,7 @@
 	"keywords": ["aimeos", "extension", "JQuery admin interface"],
 	"homepage": "https://aimeos.org/",
 	"type": "aimeos-extension",
-	"license": "LGPL-3.0",
+	"license": "LGPL-3.0-or-later",
 	"support": {
 		"source": "https://github.com/aimeos/ai-admin-jqadm",
 		"issues": "https://github.com/aimeos/ai-admin-jqadm/issues",
