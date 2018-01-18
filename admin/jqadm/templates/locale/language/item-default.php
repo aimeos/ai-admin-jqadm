@@ -24,7 +24,7 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
 <form class="item item-locale form-horizontal" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.language.id' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/locale.language.id' ) ); ?>" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.language.id' ) ) ); ?>" value="<?= $enc->attr( strtoupper( $this->get( 'itemData/locale.language.id' ) ) ); ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ); ?>" value="get" />
 	<?= $this->csrf()->formfield(); ?>
 

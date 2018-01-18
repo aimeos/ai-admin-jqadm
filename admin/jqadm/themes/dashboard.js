@@ -205,19 +205,7 @@ Aimeos.Dashboard.Order = {
 					.attr("class", "day")
 					.attr("width", cellSize)
 					.attr("height", cellSize)
-					.attr("x", function(d) {
-						var d1 = new Date(d.getUTCFullYear(), 0, 1);
-						var d51 = new Date(d.getUTCFullYear(), 11, 24);
-						var d52 = new Date(firstdate.getUTCFullYear(), 11, 31);
-						var first = d3.timeWeek.count(d3.timeYear(d1), d1);
-						var weeks = d3.timeWeek.count(d3.timeYear(d52), d52);
-
-						if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d51), d51); }
-						if(first == 0) { weeks += 1; }
-
-						var result = d3.timeWeek.count(d3.timeYear(d), d) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (d.getUTCFullYear() - firstdate.getUTCFullYear()));
-						return result * cellWidth;
-					})
+					.attr("x", function(d) { return d3.timeWeek.count(firstdate, d) * cellWidth; })
 					.attr("y", function(d) { return d.getUTCDay() * cellWidth; })
 					.datum(d3.timeFormat("%Y-%m-%d"));
 
@@ -252,30 +240,21 @@ Aimeos.Dashboard.Order = {
 				.data(function() { return d3.timeMonths(firstdate, new Date()); })
 				.enter().append("path")
 					.attr("class", "path-month")
-					.attr("d", function(t0) {
+					.attr("d", function(m0) {
 
-						if(t0.getFullYear() === new Date().getFullYear() && t0.getMonth() === new Date().getMonth()) {
+						if(m0.getFullYear() === new Date().getFullYear() && m0.getMonth() === new Date().getMonth()) {
 							return;
 						}
 
-						var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
-							d1 = new Date(t0.getUTCFullYear(), 0, 1),
-							d51 = new Date(t0.getUTCFullYear(), 11, 24),
-							d52 = new Date(firstdate.getUTCFullYear(), 11, 31),
-							first = d3.timeWeek.count(d3.timeYear(d1), d1),
-							weeks = d3.timeWeek.count(d3.timeYear(d52), d52),
-							d0 = t0.getDay(), d1 = t1.getDay();
+						var m1 = new Date(m0.getFullYear(), m0.getMonth() + 1, 0);
+						var w0 = d3.timeWeek.count(firstdate, m0)
+						var w1 = d3.timeWeek.count(firstdate, m1)
 
-						if(weeks == 1) { weeks = d3.timeWeek.count(d3.timeYear(d52), d52); }
-
-						var w0 = d3.timeWeek.count(d3.timeYear(t0), t0) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
-						var w1 = d3.timeWeek.count(d3.timeYear(t1), t1) - d3.timeWeek.count(d3.timeYear(firstdate), firstdate) + (weeks * (t1.getUTCFullYear() - firstdate.getUTCFullYear()));
-
-						result = "M" + ((w0 + 1) * cellWidth - 1) + "," + d0 * cellWidth
-							+ "H" + (w0 * cellWidth - 1) + "V" + (7 * cellWidth - 1)
-							+ "H" + (w1 * cellWidth - 1) + "V" + ((d1 + 1) * cellWidth - 1)
+						result = "M" + ((w0 + 1) * cellWidth - 1) + "," + m0.getDay() * cellWidth
+							+ "H" + (w0 * cellWidth - 1) + "V" + (7 * cellWidth)
+							+ "H" + (w1 * cellWidth - 1) + "V" + ((m1.getDay() + 1) * cellWidth)
 							+ "H" + ((w1 + 1) * cellWidth - 1) + "V" + 0
-							+ "H" + ((w0 + 1) * cellWidth -1) + "Z";
+							+ "H" + ((w0 + 1) * cellWidth - 1) + "Z";
 
 						return result;
 					});
