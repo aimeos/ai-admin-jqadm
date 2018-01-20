@@ -41,6 +41,7 @@ return [
 				'type/text',
 				'type/text/lists',
 			],
+			'log',
 		],
 		'resource' => [
 			'site' => [
@@ -450,6 +451,15 @@ return [
 						'groups' => ['admin', 'super'],
 					],
 				],
+			],
+			'log' => [
+				/** admin/jqadm/resource/log/groups
+				 * List of user groups that are allowed to view the log messages
+				 *
+				 * @param array List of user group names
+				 * @since 2018.04
+				 */
+				'groups' => ['admin', 'super'],
 			],
 			'language' => [
 				/** admin/jqadm/resource/language/groups
