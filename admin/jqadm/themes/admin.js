@@ -858,6 +858,32 @@ Aimeos.Tabs = {
 
 
 
+Aimeos.Log = {
+
+	init : function() {
+
+		this.toggleItem();
+	},
+
+
+	toggleItem : function() {
+
+		$(".aimeos .list-log .list-items a.items-field").on("click", function(ev) {
+			var el = $(this);
+
+			if(el.hasClass("show")) {
+				el.removeClass("show");
+			} else {
+				el.addClass("show");
+			}
+
+			return false;
+		});
+	}
+}
+
+
+
 
 /**
  * Load JSON admin resource definition immediately
@@ -874,6 +900,7 @@ $(function() {
 	Aimeos.Filter.init();
 	Aimeos.Form.init();
 	Aimeos.List.init();
+	Aimeos.Log.init();
 	Aimeos.Msg.init();
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();

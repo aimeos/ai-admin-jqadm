@@ -216,6 +216,7 @@
 .aimeos .main-sidebar .plugin .icon:before { content: "\f1e6" }
 .aimeos .main-sidebar .type .icon:before { content: "\f02b" }
 .aimeos .main-sidebar .locale .icon:before { content: "\f0ac" }
+.aimeos .main-sidebar .log .icon:before { content: "\f187" }
 .aimeos .main-sidebar .language .icon:before { content: "\f1ab" }
 
 

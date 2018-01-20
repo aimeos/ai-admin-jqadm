@@ -46,11 +46,12 @@ $columnList = [
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
-<nav class="main-navbar">
+<nav class="main-navbar log">
 	<span class="navbar-brand">
 		<?= $enc->html( $this->translate( 'admin', 'Log' ) ); ?>
 		<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
 	</span>
+	<span class="placeholder">&nbsp;</span>
 </nav>
 
 
@@ -80,6 +81,10 @@ $columnList = [
 							['fields' => $fields, 'data' => $columnList]
 						);
 					?>
+					<button type="submit" class="btn act-search fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Search') ); ?>"
+						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
+					</button>
 				</th>
 			</tr>
 		</thead>
@@ -88,16 +93,16 @@ $columnList = [
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
 					<?php if( in_array( 'log.timestamp', $fields ) ) : ?>
-						<td class="log-timestamp"><a class="items-field" href="#" tabindex="1"><?= $enc->attr( $item->getTimestamp() ); ?></a></td>
+						<td class="log-timestamp"><?= $enc->attr( $item->getTimestamp() ); ?></td>
 					<?php endif; ?>
 					<?php if( in_array( 'log.facility', $fields ) ) : ?>
-						<td class="log-facility"><a class="items-field" href="#" tabindex="1"><?= $enc->html( $item->getFacility() ); ?></a></td>
+						<td class="log-facility"><?= $enc->html( $item->getFacility() ); ?></td>
 					<?php endif; ?>
 					<?php if( in_array( 'log.priority', $fields ) ) : ?>
-						<td class="log-priority"><a class="items-field" href="#" tabindex="1"><?= $enc->html( $item->getPriority() ); ?></a></td>
+						<td class="log-priority"><?= $enc->html( $item->getPriority() ); ?></td>
 					<?php endif; ?>
 					<?php if( in_array( 'log.request', $fields ) ) : ?>
-						<td class="log-request"><a class="items-field" href="#" tabindex="1"><?= $enc->html( $item->getRequest() ); ?></a></td>
+						<td class="log-request"><?= $enc->html( $item->getRequest() ); ?></td>
 					<?php endif; ?>
 					<?php if( in_array( 'log.message', $fields ) ) : ?>
 						<td class="log-message"><a class="items-field" href="#" tabindex="1"><?= $enc->html( $item->getMessage() ); ?></a></td>

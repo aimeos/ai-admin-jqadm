@@ -113,7 +113,7 @@
 }
 
 .aimeos .list-items a.items-field {
-	display: inline;
+	display: inline-block;
 	color: #333;
 	width: 100%;
 }
@@ -455,6 +455,21 @@
 	padding: 0;
 	opacity: 0;
 	left: 0;
+}
+
+
+.aimeos .main-navbar.log span.placeholder {
+	display: inline-block;
+	height: 35px;
+}
+
+.aimeos .list-log .list-items .items-field {
+	max-height: 2.5rem;
+	overflow: hidden;
+}
+
+.aimeos .list-log .list-items .items-field.show {
+	max-height: inherit;
 }
 
 
