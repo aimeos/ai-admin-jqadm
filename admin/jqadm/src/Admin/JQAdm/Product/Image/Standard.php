@@ -479,13 +479,19 @@ class Standard
 		{
 			if( !isset( $listItems[$listid] ) )
 			{
-				$litem = clone $listItem;
+				
+                // There are new media file at the form. Manage it
+                // Let's create a new one media item
+                $litem = clone $listItem;
+                $item = clone $mediaItem;
 
-				if( ( $refId = $this->getValue( $data, 'product.lists.refid/' . $idx ) ) !== null ) {
-					$item = $mediaManager->getItem( $refId, ['attribute'] ); // copy existing item
-				} else {
-					$item = clone $mediaItem;
-				}
+                if( ( $refId = $this->getValue( $data, 'product.lists.refid/' . $idx ) ) !== null ) {
+                    // There are existing $refId
+                    $existingMediaItem = $mediaManager->getItem( $refId ); // get existing item data
+                    $item->setUrl( $existingMediaItem->getUrl() );
+                    $item->setPreview( $existingMediaItem->getPreview() );
+                }
+
 			}
 			else
 			{
