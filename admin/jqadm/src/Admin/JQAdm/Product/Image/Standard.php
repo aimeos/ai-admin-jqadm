@@ -479,18 +479,18 @@ class Standard
 		{
 			if( !isset( $listItems[$listid] ) )
 			{
-				
-                // There are new media file at the form. Manage it
-                // Let's create a new one media item
-                $litem = clone $listItem;
-                $item = clone $mediaItem;
 
-                if( ( $refId = $this->getValue( $data, 'product.lists.refid/' . $idx ) ) !== null ) {
-                    // There are existing $refId
-                    $existingMediaItem = $mediaManager->getItem( $refId ); // get existing item data
-                    $item->setUrl( $existingMediaItem->getUrl() );
-                    $item->setPreview( $existingMediaItem->getPreview() );
-                }
+				// There are new media file at the form. Manage it
+				// Let's create a new one media item
+				$litem = clone $listItem;
+				$item = clone $mediaItem;
+
+				if( ( $refId = $this->getValue( $data, 'product.lists.refid/' . $idx ) ) !== null ) {
+				    // There are existing $refId
+				    $existingMediaItem = $mediaManager->getItem( $refId ); // get existing item data
+				    $item->setUrl( $existingMediaItem->getUrl() );
+				    $item->setPreview( $existingMediaItem->getPreview() );
+				}
 
 			}
 			else
