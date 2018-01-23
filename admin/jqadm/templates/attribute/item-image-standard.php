@@ -25,6 +25,8 @@ $keys = [
 		<div v-for="(id, idx) in items['attribute.lists.id']" class="group-item card">
 			<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'image', 'attribute.lists.id', '' ) ) ); ?>"
 				v-bind:value="items['attribute.lists.id'][idx]" />
+			<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'image', 'media.id', '' ) ) ); ?>"
+				v-bind:value="items['media.id'][idx]" />
 
 			<div v-bind:id="'item-image-group-item-' + idx" v-bind:class="getCss(idx)"
 				v-bind:data-target="'#item-image-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"

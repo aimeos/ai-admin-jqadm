@@ -479,19 +479,13 @@ class Standard
 		{
 			if( !isset( $listItems[$listid] ) )
 			{
-
-				// There are new media file at the form. Manage it
-				// Let's create a new one media item
 				$litem = clone $listItem;
-				$item = clone $mediaItem;
 
-				if( ( $refId = $this->getValue( $data, 'product.lists.refid/' . $idx ) ) !== null ) {
-					// There are existing $refId
-					$existingMediaItem = $mediaManager->getItem( $refId ); // get existing item data
-					$item->setUrl( $existingMediaItem->getUrl() );
-					$item->setPreview( $existingMediaItem->getPreview() );
+				if( ( $refId = $this->getValue( $data, 'media.id/' . $idx ) ) !== null ) {
+					$item = $mediaManager->getItem( $refId ); // get existing item data
+				} else {
+					$item = clone $mediaItem;
 				}
-
 			}
 			else
 			{
@@ -499,7 +493,9 @@ class Standard
 				$item = $litem->getRefItem();
 			}
 
-			if( ( $file = $this->getValue( $files, $idx ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
+			if( ( $file = $this->getValue( $files, $idx ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
+			{
+				$item = clone $mediaItem;
 				$cntl->add( $item, $file );
 			}
 
@@ -510,7 +506,6 @@ class Standard
 
 			$item = $mediaManager->saveItem( $item );
 			$this->addMediaAttributes( $item, $attrMap, $listTypeId );
-
 
 			$conf = [];
 

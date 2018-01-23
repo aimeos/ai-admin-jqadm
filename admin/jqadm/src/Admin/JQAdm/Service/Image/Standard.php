@@ -436,8 +436,8 @@ class Standard
 			{
 				$litem = clone $listItem;
 
-				if( ( $refId = $this->getValue( $data, 'service.lists.refid/' . $idx ) ) !== null ) {
-					$item = $mediaManager->getItem( $refId ); // copy existing item
+				if( ( $refId = $this->getValue( $data, 'media.id/' . $idx ) ) !== null ) {
+					$item = $mediaManager->getItem( $refId ); // get existing item data
 				} else {
 					$item = clone $mediaItem;
 				}
@@ -448,7 +448,9 @@ class Standard
 				$item = $litem->getRefItem();
 			}
 
-			if( ( $file = $this->getValue( $files, $idx ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
+			if( ( $file = $this->getValue( $files, $idx ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
+			{
+				$item = clone $mediaItem;
 				$cntl->add( $item, $file );
 			}
 
