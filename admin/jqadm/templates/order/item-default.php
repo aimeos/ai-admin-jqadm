@@ -381,23 +381,17 @@ $serviceAttrCodes = [
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 									<div class="col-sm-8">
 
-										<?php $languages = $this->get( 'pageLanguages', [] ); ?>
-										<?php if( count( $languages ) > 1 ) : ?>
-											<select class="form-control custom-select item-languageid" required="required" tabindex="1" data-field="languageid"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, 'order.base.address.languageid' ) ) ); ?>"
-												<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
-												<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
+										<select class="form-control custom-select item-languageid" required="required" tabindex="1" data-field="languageid"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, 'order.base.address.languageid' ) ) ); ?>"
+											<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
+											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
 
-												<?php foreach( $languages as $langId => $langItem ) : ?>
-													<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $this->get( 'itemData/address/' . $type . '/order.base.address.languageid' ), $langId ); ?> >
-														<?= $enc->html( $this->translate( 'client/language', $langId ) ); ?>
-													</option>
-												<?php endforeach; ?>
-											</select>
-										<?php else : ?>
-											<?php $language = ( ( $item = reset( $languages ) ) !== false ? $item->getId() : '' ); ?>
-											<input class="item-languageid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, 'order.base.address.languageid' ) ) ); ?>" value="<?= $enc->attr( $language ); ?>" />
-										<?php endif; ?>
+											<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
+												<option value="<?= $enc->attr( $langId ); ?>" <?= $selected( $this->get( 'itemData/address/' . $type . '/order.base.address.languageid' ), $langId ); ?> >
+													<?= $enc->html( $this->translate( 'client/language', $langId ) ); ?>
+												</option>
+											<?php endforeach; ?>
+										</select>
 									</div>
 								</div>
 								<div class="form-group row optional">
