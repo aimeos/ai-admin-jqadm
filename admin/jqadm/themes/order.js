@@ -241,8 +241,13 @@ Aimeos.Order = {
 		var self = this;
 		$(".aimeos .item-order .service-attr").on("click", ".act-add", function(ev) {
 
+			var id = $(ev.delegateTarget).data("id");
 			var node = Aimeos.addClone($(".prototype", ev.delegateTarget));
 			self.addServiceSuggest($(".service-attr-code", node), $(ev.delegateTarget));
+
+			$("input", node).each(function() {
+				$(this).attr("name", $(this).attr("name").replace("_id_", id));
+			});
 		});
 	},
 
