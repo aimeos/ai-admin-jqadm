@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 21:17+0100\n"
+"POT-Creation-Date: 2018-01-25 17:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -785,6 +785,9 @@ msgstr ""
 msgid "Insert new entry (Ctrl+I)"
 msgstr ""
 
+msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
+msgstr ""
+
 msgid "Internal article name, will be used on the web site if no product name for the language is available"
 msgstr ""
 
@@ -985,6 +988,9 @@ msgstr ""
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
+msgstr ""
+
+msgid "Log"
 msgstr ""
 
 msgid "Logs"
@@ -1906,6 +1912,9 @@ msgstr ""
 msgid "Three letter ISO currency code"
 msgstr ""
 
+msgid "Timestamp"
+msgstr ""
+
 msgid "Title"
 msgstr ""
 
@@ -2211,6 +2220,10 @@ msgstr "Languages"
 #, php-format
 msgid "locale/site"
 msgstr "Sites"
+
+#, php-format
+msgid "log"
+msgstr ""
 
 msgid "media"
 msgstr "Media"

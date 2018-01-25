@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 21:17+0100\n"
-"PO-Revision-Date: 2018-01-03 20:18+0000\n"
+"POT-Creation-Date: 2018-01-25 17:48+0100\n"
+"PO-Revision-Date: 2018-01-25 16:51+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -811,6 +811,11 @@ msgid "Insert new entry (Ctrl+I)"
 msgstr "Eintrag hinzufügen (Strg+I)"
 
 msgid ""
+"Internal article name, will be used on the web site and for searching only "
+"if no other product names in any language exist"
+msgstr "Interner Artikelname, wird nur auf der Webseite und für die Suche verwendet wenn kein Produktname für irgendeine Sprache vorhanden ist"
+
+msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
 msgstr "Interner Artikelname, wird auf der Webseite verwendet wenn kein Produktname für die gewählte Sprache vorhanden ist"
@@ -1028,6 +1033,9 @@ msgstr "Sprache im Gebiets: {0} ({1})"
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
 msgstr "Mandant: {0} ({1})"
+
+msgid "Log"
+msgstr "Protokoll"
 
 msgid "Logs"
 msgstr "Protokoll"
@@ -1985,6 +1993,9 @@ msgstr "Diese Kombination existiert bereits"
 msgid "Three letter ISO currency code"
 msgstr "Dreistelliger ISO Währungscode"
 
+msgid "Timestamp"
+msgstr "Zeitstempel"
+
 msgid "Title"
 msgstr "Titel"
 
@@ -2296,6 +2307,10 @@ msgstr "Sprachen"
 #, php-format
 msgid "locale/site"
 msgstr "Mandanten"
+
+#, php-format
+msgid "log"
+msgstr "Protokoll"
 
 msgid "media"
 msgstr "Medien"

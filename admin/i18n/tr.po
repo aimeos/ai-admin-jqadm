@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 21:17+0100\n"
-"PO-Revision-Date: 2018-01-03 20:17+0000\n"
+"POT-Creation-Date: 2018-01-25 17:48+0100\n"
+"PO-Revision-Date: 2018-01-25 16:48+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,7 @@ msgid "Admin JQAdm type is empty"
 msgstr "Yönetici JQAdm türü boş"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Gelişmiş"
 
 #, php-format
 msgid "Aimeos object not available"
@@ -615,13 +615,13 @@ msgid "E-Mail, e.g. me@example.com (required)"
 msgstr "E-Mail, örn. me@example.com (gerekli)"
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "E-Mail adresi (isteğe bağlı)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "Adrese ait e-mail adresi"
 
 msgid "EAN, SKU or article number (required)"
 msgstr "EAN, SKU veya ürün numarası (gerekli)"
@@ -741,7 +741,7 @@ msgid "Height"
 msgstr "Yükseklik"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Gizli nitelikler"
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr ""
@@ -809,6 +809,11 @@ msgid "Insert new entry (Ctrl+I)"
 msgstr "Yeni giriş ekle (Ctrl+I)"
 
 msgid ""
+"Internal article name, will be used on the web site and for searching only "
+"if no other product names in any language exist"
+msgstr ""
+
+msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
 msgstr "Dahili ürün adı, eğer dil için bir ürün adı mevcut değilse web sitesinde kullanılacaktır"
@@ -867,13 +872,13 @@ msgid "Invoice"
 msgstr "Fatura"
 
 msgid "Item deleted successfully"
-msgstr ""
+msgstr "Öğe başarıyla silindi"
 
 msgid "Item position within the same type"
 msgstr "Aynı tür içinde öğe konumu"
 
 msgid "Item saved successfully"
-msgstr ""
+msgstr "Öğe başarıyla kaydedildi"
 
 msgid "Job item details"
 msgstr "Görev öğe detayları"
@@ -1027,6 +1032,9 @@ msgstr "Yerel dil: {0} ({1})"
 msgid "Locale site: {0} ({1})"
 msgstr "Yerel site: {0} ({1})"
 
+msgid "Log"
+msgstr ""
+
 msgid "Logs"
 msgstr "Günlükler"
 
@@ -1043,10 +1051,10 @@ msgid "Media Lists Types"
 msgstr "Medya Liste Türleri"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "Medya Özellik Türü"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "Medya Özellik Türleri"
 
 msgid "Media Type"
 msgstr "Medya Türü"
@@ -1055,7 +1063,7 @@ msgid "Media Types"
 msgstr "Medya Türleri"
 
 msgid "Media properties"
-msgstr ""
+msgstr "Medya özellikleri"
 
 msgid "Media type"
 msgstr "Medya türü"
@@ -1098,10 +1106,10 @@ msgid "Modified"
 msgstr "Değiştirilmiş"
 
 msgid "More"
-msgstr ""
+msgstr "Daha fazla"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Bu girişi yukarı/aşağı taşı"
 
 msgid "Mr"
 msgstr "Bay"
@@ -1156,7 +1164,7 @@ msgid "No voucher"
 msgstr "Kupon yok"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "Medya öğesi için paylaşılmayan özellikler"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1613,13 +1621,13 @@ msgid "SKU"
 msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Haftasonuna göre satışlar"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Son 30 günün satışları"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Aylık satışlar"
 
 msgid "Salutation"
 msgstr "Selamlama"
@@ -1654,13 +1662,13 @@ msgid "Search schema {0} is  not registered"
 msgstr "Arama şeması {0} kayıtlı değil"
 
 msgid "Second level type for grouping items"
-msgstr ""
+msgstr "Öğeleri gruplamak için ikinci seviye türü"
 
 msgid "Select Item"
 msgstr "Öğe seç"
 
 msgid "Select file"
-msgstr ""
+msgstr "Dosya seç"
 
 msgid "Select languages to export"
 msgstr "Dış aktarmak için dilleri seçin"
@@ -1754,7 +1762,7 @@ msgid "Show entry"
 msgstr "Girişi göster"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "Gelişmiş verileri göster/gizle"
 
 msgid "Show/hide this entry"
 msgstr "Bu girişi göster/sakla"
@@ -1982,6 +1990,9 @@ msgstr "Bu kombinasyon zaten mevcut"
 
 msgid "Three letter ISO currency code"
 msgstr "Üç harfli ISO para birimi kodu"
+
+msgid "Timestamp"
+msgstr ""
 
 msgid "Title"
 msgstr "Başlık"
@@ -2295,6 +2306,10 @@ msgstr "Diller"
 msgid "locale/site"
 msgstr "Siteler"
 
+#, php-format
+msgid "log"
+msgstr ""
+
 msgid "media"
 msgstr "Medya"
 
@@ -2495,16 +2510,16 @@ msgid "stat:unfinished"
 msgstr "Tamamlanmadı"
 
 msgid "status:-1"
-msgstr ""
+msgstr "durum:-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "durum:-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "durum:0"
 
 msgid "status:1"
-msgstr ""
+msgstr "durum:1"
 
 msgid "status:archive"
 msgstr "Arşivlendi"
@@ -2567,7 +2582,7 @@ msgstr "Medya Listeleri"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "tür/medya/özellik"
 
 #, php-format
 msgid "type/plugin"

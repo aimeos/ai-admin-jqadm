@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 21:17+0100\n"
-"PO-Revision-Date: 2018-01-04 12:03+0000\n"
-"Last-Translator: Enrico Porceddu <porceddu_enrico@yahoo.com>\n"
+"POT-Creation-Date: 2018-01-25 17:48+0100\n"
+"PO-Revision-Date: 2018-01-25 16:48+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -811,6 +811,11 @@ msgid "Insert new entry (Ctrl+I)"
 msgstr "Inserisci nuovo oggetto (Ctrl+l)"
 
 msgid ""
+"Internal article name, will be used on the web site and for searching only "
+"if no other product names in any language exist"
+msgstr ""
+
+msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
 msgstr ""
@@ -1027,6 +1032,9 @@ msgstr ""
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
+msgstr ""
+
+msgid "Log"
 msgstr ""
 
 msgid "Logs"
@@ -1985,6 +1993,9 @@ msgstr ""
 msgid "Three letter ISO currency code"
 msgstr ""
 
+msgid "Timestamp"
+msgstr ""
+
 msgid "Title"
 msgstr "Titolo"
 
@@ -2296,6 +2307,10 @@ msgstr "Lingue"
 #, php-format
 msgid "locale/site"
 msgstr "Siti"
+
+#, php-format
+msgid "log"
+msgstr ""
 
 msgid "media"
 msgstr ""

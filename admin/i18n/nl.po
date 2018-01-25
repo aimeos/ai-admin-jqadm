@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 21:17+0100\n"
-"PO-Revision-Date: 2018-01-03 20:17+0000\n"
+"POT-Creation-Date: 2018-01-25 17:48+0100\n"
+"PO-Revision-Date: 2018-01-25 16:48+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -814,6 +814,11 @@ msgid "Insert new entry (Ctrl+I)"
 msgstr "Nieuwe toevoegen (Ctrl+I)"
 
 msgid ""
+"Internal article name, will be used on the web site and for searching only "
+"if no other product names in any language exist"
+msgstr ""
+
+msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
 msgstr ""
@@ -1031,6 +1036,9 @@ msgstr "Lokale taal: {0} ({1})"
 #, python-brace-format
 msgid "Locale site: {0} ({1})"
 msgstr "Lokale site: {0} ({1})"
+
+msgid "Log"
+msgstr ""
 
 msgid "Logs"
 msgstr "Logs"
@@ -1988,6 +1996,9 @@ msgstr "Deze combinatie bestaat alreeds"
 msgid "Three letter ISO currency code"
 msgstr ""
 
+msgid "Timestamp"
+msgstr ""
+
 msgid "Title"
 msgstr "Titel"
 
@@ -2299,6 +2310,10 @@ msgstr "Talen"
 #, php-format
 msgid "locale/site"
 msgstr "Sites"
+
+#, php-format
+msgid "log"
+msgstr ""
 
 msgid "media"
 msgstr "Media"
