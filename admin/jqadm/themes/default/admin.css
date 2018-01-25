@@ -113,7 +113,7 @@
 }
 
 .aimeos .list-items a.items-field {
-	display: inline-block;
+	display: inline;
 	color: #333;
 	width: 100%;
 }
