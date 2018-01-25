@@ -522,40 +522,43 @@ class Standard
 			}
 		}
 
-		foreach( $basket->getServices() as $type => $service )
+		foreach( $basket->getServices() as $type => $services )
 		{
-			$list = [];
-			$attrItems = $service->getAttributes();
-
-			if( isset( $data['service'][$type] ) )
+			foreach( $services as $serviceId => $service )
 			{
-				foreach( (array) $data['service'][$type] as $key => $pair )
+				$list = [];
+				$attrItems = $service->getAttributes();
+
+				if( isset( $data['service'][$type][$serviceId] ) )
 				{
-					foreach( $pair as $pos => $value ) {
-						$list[$pos][$key] = $value;
+					foreach( (array) $data['service'][$type][$serviceId] as $key => $pair )
+					{
+						foreach( $pair as $pos => $value ) {
+							$list[$pos][$key] = $value;
+						}
+					}
+
+					foreach( $list as $array )
+					{
+						if( isset( $attrItems[$array['order.base.service.attribute.id']] ) )
+						{
+							$attrItem = $attrItems[$array['order.base.service.attribute.id']];
+							unset( $attrItems[$array['order.base.service.attribute.id']] );
+						}
+						else
+						{
+							$attrItem = $attrManager->createItem();
+						}
+
+						$attrItem->fromArray( $array );
+						$attrItem->setParentId( $service->getId() );
+
+						$item = $attrManager->saveItem( $attrItem );
 					}
 				}
 
-				foreach( $list as $array )
-				{
-					if( isset( $attrItems[$array['order.base.service.attribute.id']] ) )
-					{
-						$attrItem = $attrItems[$array['order.base.service.attribute.id']];
-						unset( $attrItems[$array['order.base.service.attribute.id']] );
-					}
-					else
-					{
-						$attrItem = $attrManager->createItem();
-					}
-
-					$attrItem->fromArray( $array );
-					$attrItem->setParentId( $service->getId() );
-
-					$item = $attrManager->saveItem( $attrItem );
-				}
+				$attrManager->deleteItems( array_keys( $attrItems ) );
 			}
-
-			$attrManager->deleteItems( array_keys( $attrItems ) );
 		}
 
 		$manager->store( $basket );
