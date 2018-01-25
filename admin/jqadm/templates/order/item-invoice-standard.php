@@ -194,7 +194,7 @@ $statusList = [
 										name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ); ?>" disabled="disabled">
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
 										<?php foreach( $paymentStatusList as $code => $label ) : ?>
-											<option value="<= $code ?>"><?= $enc->html( $label ); ?></option>
+											<option value="<?= $code ?>"><?= $enc->html( $label ); ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>
@@ -221,7 +221,7 @@ $statusList = [
 										name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ); ?>" disabled="disabled">
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
 										<?php foreach( $statusList as $code => $label ) : ?>
-											<option value="<= $code ?>"><?= $enc->html( $label ); ?></option>
+											<option value="<?= $code ?>"><?= $enc->html( $label ); ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>
@@ -294,7 +294,7 @@ $statusList = [
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 								<?php foreach( $paymentStatusList as $code => $label ) : ?>
-									<option value="<= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), $code ); ?> >
+									<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), $code ); ?> >
 										<?= $enc->html( $label ); ?>
 									</option>
 								<?php endforeach; ?>
@@ -318,7 +318,7 @@ $statusList = [
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 								<?php foreach( $statusList as $code => $label ) : ?>
-									<option value="<= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), $code ); ?> >
+									<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), $code ); ?> >
 										<?= $enc->html( $label ); ?>
 									</option>
 								<?php endforeach; ?>
