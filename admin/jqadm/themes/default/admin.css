@@ -323,6 +323,10 @@
 	overflow-x: initial;
 }
 
+.aimeos .item-order span.form-control {
+	border-color: transparent;
+}
+
 .aimeos .item-order .item-customerid a.act-view:after {
 	font: normal normal normal 14px/1 FontAwesome;
 	content:"\f06e";
