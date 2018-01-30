@@ -305,7 +305,7 @@ Aimeos.Catalog = {
 				}
 
 				if(!result.errors) {
-					window.location = $(".aimeos .item-catalog").data("createurl").replace("_ID_", (parent ? parent.id : ''));
+					window.location = $(".aimeos .item-catalog").data("createurl").replace("_ID_", (parent && parent.id ? parent.id : ''));
 				}
 			});
 		});
