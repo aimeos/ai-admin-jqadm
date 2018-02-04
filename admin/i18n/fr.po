@@ -915,6 +915,9 @@ msgstr "Langue (obligatoire)"
 msgid "Language ID"
 msgstr ""
 
+msgid "Language of the entered text"
+msgstr "Langue du texte saisi"
+
 msgid "Languages"
 msgstr ""
 
