@@ -881,6 +881,9 @@ msgstr ""
 msgid "Language ID"
 msgstr ""
 
+msgid "Language of the entered text"
+msgstr ""
+
 msgid "Languages"
 msgstr ""
 

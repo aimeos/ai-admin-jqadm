@@ -65,7 +65,7 @@ $enc = $this->encoder();
 								</select>
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the image contains text or is language sepecific' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Language of the entered text' ) ); ?>
 							</div>
 						</div>
 					</div>
