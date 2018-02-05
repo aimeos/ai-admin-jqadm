@@ -538,6 +538,7 @@ abstract class Base
 	{
 		$params = $this->getClientParams();
 		$params['resource'] = $resource;
+		unset( $params['id'] );
 
 		if( $act ) {
 			$params['act'] = $act;

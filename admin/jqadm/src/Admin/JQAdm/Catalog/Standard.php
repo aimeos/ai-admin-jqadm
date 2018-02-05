@@ -340,27 +340,9 @@ class Standard
 
 		try
 		{
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
-			$view->item = $manager->getTree( null, $this->getDomains(), \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE );
-		}
-		catch( \Exception $e )
-		{
-			return $this->create();
-		}
-
-
-		try
-		{
-			$view->itemSubparts = $this->getSubClientNames();
-			$view->itemData = $this->toArray( $view->item );
+			$view->item = \Aimeos\MShop\Factory::createManager( $context, 'catalog' )->createItem();
 			$view->itemRootId = $this->getRootId();
 			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->get();
-			}
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{

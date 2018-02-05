@@ -112,7 +112,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getClientMock( 'getSubClients' );
 
-		$object->expects( $this->exactly( 2 ) )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->delete();
@@ -123,7 +123,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getClientMock( 'getSubClients' );
 
-		$object->expects( $this->exactly( 2 ) )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->delete();
@@ -247,15 +247,15 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
-		$this->assertContains( 'value="Root"', $result );
+		$this->assertContains( '<div class="tree-content">', $result );
 	}
 
 
 	public function testSearchException()
 	{
-		$object = $this->getClientMock( 'getSubClientNames' );
+		$object = $this->getClientMock( 'getRootId' );
 
-		$object->expects( $this->once() )->method( 'getSubClientNames' )
+		$object->expects( $this->once() )->method( 'getRootId' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->search();
@@ -264,9 +264,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearchMShopException()
 	{
-		$object = $this->getClientMock( 'getSubClientNames' );
+		$object = $this->getClientMock( 'getRootId' );
 
-		$object->expects( $this->once() )->method( 'getSubClientNames' )
+		$object->expects( $this->once() )->method( 'getRootId' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->search();
