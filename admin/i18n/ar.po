@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 17:48+0100\n"
-"PO-Revision-Date: 2018-01-25 16:48+0000\n"
+"POT-Creation-Date: 2018-02-04 16:19+0100\n"
+"PO-Revision-Date: 2018-02-04 20:38+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Arabic (http://www.transifex.com/aimeos/aimeos-core/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -425,7 +425,7 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr ""
+msgstr "الدولة"
 
 msgid "Country ID"
 msgstr ""
@@ -606,7 +606,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr ""
+msgstr "البريد الإلكتروني"
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -693,7 +693,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "الإسم الأول"
 
 msgid "First name (optional)"
 msgstr ""
@@ -907,12 +907,15 @@ msgid ""
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "اللغة"
 
 msgid "Language (required)"
 msgstr ""
 
 msgid "Language ID"
+msgstr ""
+
+msgid "Language of the entered text"
 msgstr ""
 
 msgid "Languages"
@@ -931,7 +934,7 @@ msgid "Last modified"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "اللقب"
 
 msgid "Last name (required)"
 msgstr ""
@@ -1118,7 +1121,7 @@ msgid "Mrs"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "الإسم"
 
 msgid "Name of the coupon provider class (required)"
 msgstr ""
@@ -1252,7 +1255,7 @@ msgid "Parameter"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "كلمة المرور"
 
 msgid "Password (required)"
 msgstr ""
@@ -1382,7 +1385,7 @@ msgid "Previous"
 msgstr ""
 
 msgid "Price"
-msgstr ""
+msgstr "السعر"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1655,7 +1658,7 @@ msgid "Schema {0} is  not registered"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "البحث"
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
@@ -1904,7 +1907,7 @@ msgid "Telefax"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "الهاتف"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -2001,7 +2004,7 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "المجموع"
 
 msgid "Two letter ISO country code"
 msgstr ""
