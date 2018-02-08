@@ -40,7 +40,7 @@ $enc = $this->encoder();
 		<span class="navbar-brand">
 			<?= $enc->html( $this->translate( 'admin', 'Plugin' ) ); ?>:
 			<?= $enc->html( $this->get( 'itemData/plugin.id' ) ); ?> -
-			<?= $enc->html( $this->get( 'itemData/plugin.label', $this->translate( 'admin', 'New' ) ) ); ?>
+			<?= $enc->html( $this->get( 'itemData/plugin.provider', $this->translate( 'admin', 'New' ) ) ); ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/plugin.siteid' ) ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
