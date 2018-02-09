@@ -19,7 +19,8 @@ $keys = ['stock.id', 'stock.siteid', 'stock.typeid', 'stock.stocklevel', 'stock.
 		data-items="<?= $enc->attr( json_encode( $this->get( 'stockData', [] ) ) ); ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-prefix="stock."
-		data-siteid="<?= $this->site()->siteid() ?>" >
+		data-siteid="<?= $this->site()->siteid() ?>"
+		data-numtypes="<?= count( $stockTypes ) ?>" >
 
 		<thead>
 			<tr>
@@ -44,12 +45,10 @@ $keys = ['stock.id', 'stock.siteid', 'stock.typeid', 'stock.stocklevel', 'stock.
 					</div>
 				</th>
 				<th class="actions">
-					<?php if( count( $stockTypes ) > 1 ) : ?>
-						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
-							v-on:click="addItem()">
-						</div>
-					<?php endif; ?>
+					<div v-if="(items['stock.id'] || []).length < numtypes" class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+						v-on:click="addItem()">
+					</div>
 				</th>
 			</tr>
 		</thead>
@@ -96,12 +95,10 @@ $keys = ['stock.id', 'stock.siteid', 'stock.typeid', 'stock.stocklevel', 'stock.
 					<input class="item-id" type="hidden" v-model="items['stock.id'][idx]"
 						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" />
 
-					<?php if( count( $stockTypes ) > 1 ) : ?>
-						<div v-if="!checkSite('stock.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
-							v-on:click.stop="removeItem(idx)">
-						</div>
-					<?php endif; ?>
+					<div v-if="!checkSite('stock.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+						v-on:click.stop="removeItem(idx)">
+					</div>
 				</td>
 			</tr>
 
