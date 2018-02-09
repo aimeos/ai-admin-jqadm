@@ -633,7 +633,8 @@ Aimeos.Product.Stock = {
 				'items': $(".item-stock .stock-list").data("items"),
 				'keys': $(".item-stock .stock-list").data("keys"),
 				'prefix': $(".item-stock .stock-list").data("prefix"),
-				'siteid': $(".item-stock .stock-list").data("siteid")
+				'siteid': $(".item-stock .stock-list").data("siteid"),
+				'numtypes': $(".item-stock .stock-list").data("numtypes")
 			},
 			methods: {
 				checkSite : function(key, idx) {
@@ -650,6 +651,7 @@ Aimeos.Product.Stock = {
 					}
 
 					this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
+					this.numtypes--;
 				},
 
 
@@ -657,6 +659,7 @@ Aimeos.Product.Stock = {
 					for(key in this.items) {
 						this.items[key].splice(idx, 1);
 					}
+					this.numtypes++;
 				}
 			}
 		});
