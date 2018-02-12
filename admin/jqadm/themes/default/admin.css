@@ -102,6 +102,11 @@
 	margin: auto;
 }
 
+.aimeos .list-items .dropdown-item .btn {
+	text-align: left;
+	color: #464a4c;
+}
+
 .aimeos .list-items th button {
 	border-color: transparent;
 	background-color: inherit;
