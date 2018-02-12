@@ -69,7 +69,8 @@ Aimeos.Coupon.Code = {
 
 		this.addItem();
 		this.closeItem();
-		this.removeItem();
+		this.askDelete();
+		this.confirmDelete();
 	},
 
 
@@ -93,12 +94,22 @@ Aimeos.Coupon.Code = {
 	},
 
 
-	removeItem : function() {
+	askDelete : function() {
+		var self = this;
 
-		$(".item-coupon .item-code").on("click", ".act-delete", function(ev) {
+		$(".item-coupon .item-code").on("click", ".act-delete", function(e) {
+			$("#confirm-delete").modal("show", $(this));
+			self.element = $(this);
+			return false;
+		});
+	},
 
-			var elem = $(this);
-			var row = elem.closest("tr");
+
+	confirmDelete : function() {
+		var self = this;
+
+		$("#confirm-delete").on("click", ".btn-danger", function(e) {
+			var row = self.element.closest("tr");
 
 			Aimeos.options.done(function(data) {
 
@@ -117,7 +128,7 @@ Aimeos.Coupon.Code = {
 				$.ajax({
 					dataType: "json",
 					method: "DELETE",
-					url: elem.attr("href"),
+					url: self.element.attr("href"),
 					data: params,
 				}).done(function() {
 					Aimeos.focusBefore(row).remove();
