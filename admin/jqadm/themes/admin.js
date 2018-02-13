@@ -830,7 +830,7 @@ Aimeos.Tabs = {
 		var hash = '';
 		var url = document.location.toString();
 
-		if(url.match('#')) {
+		if(url.match('/#[a-z0-9]/i')) {
 			hash = url.split('#')[1];
 			$('.nav-tabs a[href="#' + hash + '"]').tab('show');
 			$('.tab-content #' + hash).addClass('active show'); // workaround for Bootstrap/JQuery/Vue.js combination bug
