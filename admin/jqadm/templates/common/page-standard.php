@@ -257,8 +257,15 @@ switch( $this->param( 'act' ) )
 									<?php endif; ?>
 								</li>
 
-							<?php }; $siteFcn( $this->pageSiteTree ); ?>
+							<?php }; ?>
 
+							<?php foreach( $this->pageSiteList as $siteItem ) : ?>
+								<?php if( $siteItem->getId() === $this->pageSiteTree->getId() ) : ?>
+									<?php $siteFcn( $this->pageSiteTree ); ?>
+								<?php else : ?>
+									<?php $siteFcn( $siteItem ); ?>
+								<?php endif; ?>
+							<?php endforeach; ?>
 						</ul>
 					</li>
 				<?php endif; ?>

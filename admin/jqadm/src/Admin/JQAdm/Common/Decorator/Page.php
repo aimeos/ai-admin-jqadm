@@ -57,6 +57,18 @@ class Page extends Base
 		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
 		$view->pageSiteItem = $siteItem;
 
+		if( $view->access( ['super'] ) )
+		{
+			$search = $siteManager->createSearch();
+			$search->setSortations( [$search->sort( '+', 'locale.site.label')] );
+			$search->setConditions( $search->compare( '==', 'locale.site.level', 0 ) );
+			$view->pageSiteList = $siteManager->searchItems( $search );
+		}
+		else
+		{
+			$view->pageSiteList = [$view->pageSiteTree];
+		}
+
 		$this->getClient()->setView( $view );
 		return $this;
 	}
