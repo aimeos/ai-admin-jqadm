@@ -140,7 +140,7 @@ Aimeos.Dashboard = {
 
 			Aimeos.Dashboard.addLegend(selector, domain, colorScale);
 
-		}).done(function() {
+		}).always(function() {
 			$(selector).removeClass("loading");
 		});
 	}

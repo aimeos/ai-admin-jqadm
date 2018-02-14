@@ -7,33 +7,10 @@
 Aimeos.Dashboard.Sales = {
 
 	colors: ["#31A354", "#FF8E00", "#68D6AD", "#DD3737", "#E3E700"],
-	promise: null,
+	currencies: $(".aimeos .dashboard-order").data("currencies"),
 
 
 	init: function() {
-
-		this.promise = $.when(Aimeos.options).pipe(function(data) {
-
-			if( typeof data.meta == "undefined" ) {
-				throw 'No meta data in response';
-			}
-
-			var params = {}, param = {"filter": {">": {"locale.currency.status": 0}}};
-
-			if( data.meta.prefix ) {
-				params[data.meta.prefix] = param;
-			} else {
-				params = param;
-			}
-
-			return $.ajax({
-				method: "GET",
-				dataType: "json",
-				url: data.meta.resources['locale/currency'],
-				data: params
-			});
-		});
-
 
 		if( $(".order-salesday").length ) {
 			this.chartDay();
@@ -81,48 +58,40 @@ Aimeos.Dashboard.Sales = {
 
 
 		var currencies = [], result = {}, max = 0;
+		var criteria, currencyid, promises = {},
+			firstdate = new Date(new Date().getTime() - days * 86400 * 1000);
 
-		$.when(Aimeos.Dashboard.Sales.promise).pipe(function(data) {
+		for(var i=0; i<this.currencies.length; i++) {
 
-			if( typeof data.data == "undefined" ) {
-				throw 'No data in response';
-			}
+			currencyid = this.currencies[i];
+			criteria = {"&&": [
+				{">=": {"order.statuspayment": 5}},
+				{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
+				{"==": {"order.base.currencyid": currencyid}}
+			]};
 
-			var criteria, currencyid, promises = {},
-				firstdate = new Date(new Date().getTime() - days * 86400 * 1000);
+			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", 10000, "order.base.price", "sum");
+			currencies.push(currencyid);
+		}
 
-			for(var i=0; i<data.data.length; i++) {
+		jQuery.each(promises, function(currency, promise) {
+			promise.done(function(data) {
 
-				currencyid = data.data[i].id;
-				criteria = {"&&": [
-					{">=": {"order.statuspayment": 5}},
-					{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
-					{"==": {"order.base.currencyid": currencyid}}
-				]};
+				if(typeof data.data == "undefined") {
+					throw 'No data in response';
+				}
 
-				promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", 10000, "order.base.price", "sum");
-				currencies.push(currencyid);
-			}
+				for(var i=0; i<data.data.length; i++) {
+					max = Math.max(max, +data.data[i].attributes);
 
-			jQuery.each(promises, function(currency, promise) {
-				promise.done(function(data) {
-
-					if(typeof data.data == "undefined") {
-						throw 'No data in response';
-					}
-
-					for(var i=0; i<data.data.length; i++) {
-						max = Math.max(max, +data.data[i].attributes);
-
-						result[data.data[i].id] = result[data.data[i].id] || {};
-						result[data.data[i].id][currency] = +data.data[i].attributes;
-					}
-				});
+					result[data.data[i].id] = result[data.data[i].id] || {};
+					result[data.data[i].id][currency] = +data.data[i].attributes;
+				}
 			});
+		});
 
-			return $.when.apply($, Object.values(promises));
 
-		}).done(function() {
+		$.when.apply($, Object.values(promises)).done(function() {
 
 			var dateParser = d3.timeParse("%Y-%m-%d");
 			var numFmt = Intl.NumberFormat(lang);
@@ -193,47 +162,39 @@ Aimeos.Dashboard.Sales = {
 
 
 		var currencies = [], result = {}, max = 0;
+		var criteria, currencyid, promises ={};
 
-		$.when(Aimeos.Dashboard.Sales.promise).pipe(function(data) {
+		for(var i=0; i<this.currencies.length; i++) {
 
-			if( typeof data.data == "undefined" ) {
-				throw 'No data in response';
-			}
+			currencyid = this.currencies[i];
+			criteria = {"&&": [
+				{">=": {"order.statuspayment": 5}},
+				{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
+				{"==": {"order.base.currencyid": currencyid}}
+			]};
 
-			var criteria, currencyid, promises ={};
+			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", 10000, "order.base.price", "sum");
+			currencies.push(currencyid);
+		}
 
-			for(var i=0; i<data.data.length; i++) {
+		jQuery.each(promises, function(currency, promise) {
+			promise.done(function(data) {
 
-				currencyid = data.data[i].id;
-				criteria = {"&&": [
-					{">=": {"order.statuspayment": 5}},
-					{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
-					{"==": {"order.base.currencyid": currencyid}}
-				]};
+				if(typeof data.data == "undefined") {
+					throw 'No data in response';
+				}
 
-				promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", 10000, "order.base.price", "sum");
-				currencies.push(currencyid);
-			}
+				for(var i=0; i<data.data.length; i++) {
+					max = Math.max(max, +data.data[i].attributes);
 
-			jQuery.each(promises, function(currency, promise) {
-				promise.done(function(data) {
-
-					if(typeof data.data == "undefined") {
-						throw 'No data in response';
-					}
-
-					for(var i=0; i<data.data.length; i++) {
-						max = Math.max(max, +data.data[i].attributes);
-
-						result[data.data[i].id] = result[data.data[i].id] || {};
-						result[data.data[i].id][currency] = +data.data[i].attributes;
-					}
-				});
+					result[data.data[i].id] = result[data.data[i].id] || {};
+					result[data.data[i].id][currency] = +data.data[i].attributes;
+				}
 			});
+		});
 
-			return $.when.apply($, Object.values(promises));
 
-		}).done(function() {
+		$.when.apply($, Object.values(promises)).done(function() {
 
 			var lang = $(".aimeos").attr("lang") || "en";
 			var numFmt = Intl.NumberFormat(lang);
@@ -310,47 +271,39 @@ Aimeos.Dashboard.Sales = {
 
 
 		var currencies = [], result = {}, max = 0;
+		var criteria, currencyid, promises ={};
 
-		$.when(Aimeos.Dashboard.Sales.promise).pipe(function(data) {
+		for(var i=0; i<this.currencies.length; i++) {
 
-			if( typeof data.data == "undefined" ) {
-				throw 'No data in response';
-			}
+			currencyid = this.currencies[i];
+			criteria = {"&&": [
+				{">=": {"order.statuspayment": 5}},
+				{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
+				{"==": {"order.base.currencyid": currencyid}}
+			]};
 
-			var criteria, currencyid, promises ={};
+			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cwday", criteria, "-order.cdate", 10000, "order.base.price", "sum");
+			currencies.push(currencyid);
+		}
 
-			for(var i=0; i<data.data.length; i++) {
+		jQuery.each(promises, function(currency, promise) {
+			promise.done(function(data) {
 
-				currencyid = data.data[i].id;
-				criteria = {"&&": [
-					{">=": {"order.statuspayment": 5}},
-					{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
-					{"==": {"order.base.currencyid": currencyid}}
-				]};
+				if(typeof data.data == "undefined") {
+					throw 'No data in response';
+				}
 
-				promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cwday", criteria, "-order.cdate", 10000, "order.base.price", "sum");
-				currencies.push(currencyid);
-			}
+				for(var i=0; i<data.data.length; i++) {
+					max = Math.max(max, +data.data[i].attributes);
 
-			jQuery.each(promises, function(currency, promise) {
-				promise.done(function(data) {
-
-					if(typeof data.data == "undefined") {
-						throw 'No data in response';
-					}
-
-					for(var i=0; i<data.data.length; i++) {
-						max = Math.max(max, +data.data[i].attributes);
-
-						result[data.data[i].id] = result[data.data[i].id] || {};
-						result[data.data[i].id][currency] = +data.data[i].attributes;
-					}
-				});
+					result[data.data[i].id] = result[data.data[i].id] || {};
+					result[data.data[i].id][currency] = +data.data[i].attributes;
+				}
 			});
+		});
 
-			return $.when.apply($, Object.values(promises));
 
-		}).done(function() {
+		$.when.apply($, Object.values(promises)).done(function() {
 
 			var numFmt = Intl.NumberFormat(lang);
 

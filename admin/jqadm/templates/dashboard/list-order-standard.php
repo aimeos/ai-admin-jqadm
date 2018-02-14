@@ -6,8 +6,10 @@
  */
 
 $enc = $this->encoder();
+$currencies = array_keys( $this->get( 'orderCurrencyItems', [] ) );
+
 
 ?>
-<div class="dashboard-order row">
+<div class="dashboard-order row" data-currencies="<?= $enc->attr( json_encode( $currencies ) ) ?>">
 	<?= $this->get( 'orderBody' ); ?>
 </div>

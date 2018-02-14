@@ -366,8 +366,5 @@ Aimeos.Dashboard.Order = {
 
 
 $(function() {
-
-	$.when(Aimeos.Dashboard.Sales.promise).then(function() {
-		Aimeos.Dashboard.Order.init();
-	});
+	Aimeos.Dashboard.Order.init();
 });
