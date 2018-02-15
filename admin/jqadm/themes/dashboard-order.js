@@ -346,7 +346,7 @@ Aimeos.Dashboard.Order = {
 
 					var html = '<h1 class="head">' + curdate + '</h1><table class="values">';
 					statuslist.forEach(function(status) {
-						html += '<tr><th>' + translation[status] + "</th><td>" + (result[curdate][status] || 0) + '</td></tr>';
+						html += '<tr><th>' + translation[status] + "</th><td>" + (result[curdate] && result[curdate][status] ? result[curdate][status] : 0) + '</td></tr>';
 					});
 					html += '</table>';
 
