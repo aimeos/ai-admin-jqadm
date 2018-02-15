@@ -95,16 +95,19 @@ class Standard
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		return $this->render( $view );
@@ -147,16 +150,19 @@ class Standard
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		return $this->render( $view );
@@ -200,16 +206,19 @@ class Standard
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		$manager->rollback();
@@ -253,16 +262,19 @@ class Standard
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		return $this->render( $view );
@@ -300,16 +312,19 @@ class Standard
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'admin', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$error = array( 'locale-site-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		$manager->rollback();
@@ -357,11 +372,13 @@ class Standard
 		{
 			$error = array( 'locale-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'locale-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		/** admin/jqadm/locale/site/template-list

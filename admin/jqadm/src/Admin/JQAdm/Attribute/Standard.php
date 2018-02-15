@@ -138,11 +138,13 @@ class Standard
 		{
 			$error = array( 'attribute-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'attribute-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		return $this->render( $view );
@@ -186,11 +188,13 @@ class Standard
 		{
 			$error = array( 'attribute-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'attribute-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		return $this->render( $view );
@@ -232,11 +236,13 @@ class Standard
 		{
 			$error = array( 'attribute-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'attribute-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		$manager->rollback();
@@ -279,11 +285,13 @@ class Standard
 		{
 			$error = array( 'attribute-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'attribute-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		return $this->render( $view );
@@ -325,11 +333,13 @@ class Standard
 		{
 			$error = array( 'attribute-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'attribute-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		$manager->rollback();
@@ -370,11 +380,13 @@ class Standard
 		{
 			$error = array( 'attribute-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'attribute-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		/** admin/jqadm/attribute/template-list

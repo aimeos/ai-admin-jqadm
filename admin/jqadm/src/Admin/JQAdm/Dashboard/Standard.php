@@ -116,11 +116,13 @@ class Standard
 		{
 			$error = array( 'dashboard' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'dashboard' => $e->getMessage() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		/** admin/jqadm/dashboard/template-list
