@@ -183,7 +183,7 @@ $keys = [
 						<div class="col-sm-8">
 							<input class="form-control item-address3" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'supplier.address.address3', '' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or appartment (optional)' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ); ?>"
 								v-bind:readonly="checkSite('supplier.address.siteid', idx)"
 								v-model="items['supplier.address.address3'][idx]" />
 						</div>

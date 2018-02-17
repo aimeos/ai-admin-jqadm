@@ -293,12 +293,12 @@ $params = $this->get( 'pageParams', [] );
 						<div class="col-sm-8">
 							<input class="form-control item-address3" type="text" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address3' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or appartment (optional)' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/customer.address3' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s appartment can be found' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s apartment can be found' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">

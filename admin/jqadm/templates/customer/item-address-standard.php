@@ -183,12 +183,12 @@ $keys = [
 						<div class="col-sm-8">
 							<input class="form-control item-address3" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'address', 'customer.address.address3', '' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or appartment (optional)' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ); ?>"
 								v-bind:readonly="checkSite('customer.address.siteid', idx)"
 								v-model="items['customer.address.address3'][idx]" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s appartment can be found' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s apartment can be found' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row optional">

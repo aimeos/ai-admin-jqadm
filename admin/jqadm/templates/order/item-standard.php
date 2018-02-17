@@ -486,12 +486,12 @@ $statusList = [
 									<div class="col-sm-8">
 										<input class="form-control item-address3" type="text" tabindex="1" data-field="address3"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, 'order.base.address.address3' ) ) ); ?>"
-											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or appartment (optional)' ) ); ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ); ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/order.base.address.address3' ) ); ?>"
 											<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s appartment can be found' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s apartment can be found' ) ); ?>
 									</div>
 								</div>
 								<div class="form-group row optional">
