@@ -23,6 +23,7 @@ Aimeos.Product = {
 		Aimeos.Product.Product.init();
 		Aimeos.Product.Selection.init();
 		Aimeos.Product.Stock.init();
+		Aimeos.Product.Subscription.init();
 	}
 };
 
@@ -660,6 +661,48 @@ Aimeos.Product.Stock = {
 						this.items[key].splice(idx, 1);
 					}
 					this.numtypes++;
+				}
+			}
+		});
+	}
+};
+
+
+
+Aimeos.Product.Subscription = {
+
+	init : function()  {
+
+		this.vsubscription = new Vue({
+			'el': '.item-subscription .subscription-list',
+			'data': {
+				'items': $(".item-subscription .subscription-list").data("items"),
+				'keys': $(".item-subscription .subscription-list").data("keys"),
+				'siteid': $(".item-subscription .subscription-list").data("siteid")
+
+			},
+			methods: {
+				getAttributeValue: function(idx) {
+					return 'P' + (this.items['Y'][idx] || 0) + 'Y' + (this.items['M'][idx] || 0) + 'M'
+						+ (this.items['W'][idx] || 0) + 'W' + (this.items['D'][idx] || 0) + 'D';
+				},
+
+
+				addItem : function() {
+					var idx = (this.items['attribute.id'] || []).length;
+
+					for(var key in this.keys) {
+						key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+					}
+
+					this.$set(this.items['product.lists.siteid'], idx, this.siteid);
+				},
+
+
+				removeItem : function(idx) {
+					for(key in this.items) {
+						this.items[key].splice(idx, 1);
+					}
 				}
 			}
 		});

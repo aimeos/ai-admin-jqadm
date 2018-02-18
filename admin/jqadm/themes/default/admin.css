@@ -314,6 +314,13 @@
 }
 
 
+/** Subscription */
+
+.aimeos .item-subscription .interval-field {
+	width: 10%;
+}
+
+
 /** Order */
 
 .aimeos .list-order .list-header .actions .act-add {

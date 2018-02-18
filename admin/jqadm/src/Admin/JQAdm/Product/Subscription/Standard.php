@@ -264,6 +264,29 @@ class Standard
 
 
 	/**
+	 * Returns the referenced products for the given product ID
+	 *
+	 * @param string $prodid Unique product ID
+	 * @return array Associative list of product list IDs as keys and list items as values
+	 */
+	protected function getListItems( $prodid )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
+
+		$search = $manager->createSearch();
+		$expr = array(
+			$search->compare( '==', 'product.lists.parentid', $prodid ),
+			$search->compare( '==', 'product.lists.domain', 'attribute' ),
+			$search->compare( '==', 'product.lists.type.domain', 'attribute' ),
+			$search->compare( '==', 'product.lists.type.code', 'subscription' ),
+		);
+		$search->setConditions( $search->combine( '&&', $expr ) );
+
+		return $manager->searchItems( $search );
+	}
+
+
+	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -273,24 +296,22 @@ class Standard
 	{
 		$map = [];
 		$context = $this->getContext();
+		$attrIds = (array) $this->getValue( $data, 'attribute.id', [] );
 
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
 		$attrTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/type' );
 
-		$listItems = $item->getListItems( 'attribute', 'default', 'interval' );
-		$attrIds = (array) $this->getValue( $data, 'attribute.id', [] );
 
-
-		foreach( $listItems as $id => $listItem ) {
+		foreach( $this->getListItems( $item->getId() ) as $id => $listItem ) {
 			$map[$listItem->getRefId()] = $id;
 		}
 
-		foreach( $attrIds as $attrId )
+		foreach( $attrIds as $key => $attrId )
 		{
 			if( isset( $map[$attrId] ) ) {
-				unset( $map[$attrId] );
+				unset( $map[$attrId], $attrIds[$key] );
 			}
 		}
 
@@ -357,22 +378,30 @@ class Standard
 
 		foreach( $manager->searchItems( $search ) as $attrId => $attrItem )
 		{
-			if( isset( $map[$attrId] ) )
+			if( isset( $map[$attrId] ) && $copy !== true )
 			{
-				if( $copy !== true )
-				{
-					$list['product.lists.siteid'][$idx] = $map[$attrId]->getSiteId();
-					$list['product.lists.id'][$idx] = $map[$attrId]->getId();
-				}
-				else
-				{
-					$list['product.lists.siteid'][$idx] = $siteId;
-					$list['product.lists.id'][$idx] = '';
-				}
+				$data['product.lists.siteid'][$idx] = $map[$attrId]->getSiteId();
+				$data['product.lists.id'][$idx] = $map[$attrId]->getId();
+			}
+			else
+			{
+				$data['product.lists.siteid'][$idx] = $siteId;
+				$data['product.lists.id'][$idx] = '';
 			}
 
 			foreach( $attrItem->toArray( true ) as $key => $value ) {
 				$data[$key][$idx] = $value;
+			}
+
+			$matches = [];
+			$data['Y'][$idx] = $data['M'][$idx] = $data['W'][$idx] = $data['D'][$idx] = 0;
+
+			if( preg_match( '/^P([0-9]+)Y([0-9]+)M([0-9]+)W([0-9]+)D$/', $data['attribute.code'][$idx], $matches ) === 1 )
+			{
+				$data['Y'][$idx] = $matches[1];
+				$data['M'][$idx] = $matches[2];
+				$data['W'][$idx] = $matches[3];
+				$data['D'][$idx] = $matches[4];
 			}
 
 			$idx++;
