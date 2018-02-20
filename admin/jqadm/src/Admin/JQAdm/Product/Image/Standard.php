@@ -434,7 +434,7 @@ class Standard
 			{
 				$litem = clone $listItem;
 
-				if( ( $refId = $this->getValue( $data, 'product.lists.refid/' . $idx ) ) !== null ) {
+				if( ( $refId = $this->getValue( $data, 'product.lists.refid/' . $idx ) ) != null ) {
 					$item = $mediaManager->getItem( $refId ); // copy existing item
 				} else {
 					$item = clone $mediaItem;
