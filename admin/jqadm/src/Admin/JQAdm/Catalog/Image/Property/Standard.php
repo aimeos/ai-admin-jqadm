@@ -153,22 +153,12 @@ class Standard
 			}
 
 			$manager->commit();
-			return;
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'catalog-item-image-property' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'catalog-item-image-property' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
+			$manager->rollback();
+			throw $e;
 		}
-
-		$manager->rollback();
-
-		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
 
 

@@ -80,11 +80,13 @@ class Standard
 		{
 			$error = array( 'order-salesday' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'order-salesday' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		/** admin/jqadm/dashboard/order/salesday/template-item

@@ -82,11 +82,13 @@ class Standard
 		{
 			$error = array( 'supplier-product' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'supplier-product' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		return $this->render( $view );
@@ -115,11 +117,13 @@ class Standard
 		{
 			$error = array( 'supplier-product' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'supplier-product' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		return $this->render( $view );
@@ -155,11 +159,13 @@ class Standard
 		{
 			$error = array( 'supplier-product' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'supplier-product' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		return $this->render( $view );
@@ -195,11 +201,13 @@ class Standard
 		{
 			$error = array( 'supplier-item-image' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
 			$error = array( 'supplier-item-image' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
 		}
 
 		$manager->rollback();

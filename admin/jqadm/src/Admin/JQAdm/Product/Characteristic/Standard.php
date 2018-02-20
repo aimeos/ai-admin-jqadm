@@ -157,11 +157,30 @@ class Standard
 	{
 		$view = $this->getView();
 
-		$view->characteristicBody = '';
+		try
+		{
+			$view->characteristicBody = '';
 
-		foreach( $this->getSubClients() as $client ) {
-			$view->characteristicBody .= $client->save();
+			foreach( $this->getSubClients() as $client ) {
+				$view->characteristicBody .= $client->save();
+			}
+
+			return;
 		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$error = array( 'product-item-characteristic' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
+		}
+		catch( \Exception $e )
+		{
+			$error = array( 'product-item-characteristic' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
+		}
+
+		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
 
 

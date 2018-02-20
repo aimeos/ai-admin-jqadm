@@ -135,11 +135,30 @@ class Standard
 	{
 		$view = $this->getView();
 
-		$view->specialBody = '';
+		try
+		{
+			$view->specialBody = '';
 
-		foreach( $this->getSubClients() as $client ) {
-			$view->specialBody .= $client->save();
+			foreach( $this->getSubClients() as $client ) {
+				$view->specialBody .= $client->save();
+			}
+
+			return;
 		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$error = array( 'product-item-special' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
+		}
+		catch( \Exception $e )
+		{
+			$error = array( 'product-item-special' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$view->errors = $view->get( 'errors', [] ) + $error;
+			$this->logException( $e );
+		}
+
+		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
 
 

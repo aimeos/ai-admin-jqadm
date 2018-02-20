@@ -139,27 +139,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
-		$object->save();
-	}
-
-
-	public function testSaveMShopException()
-	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Characteristic\Property\Standard' )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
-
-		$object->setView( $this->view );
-
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\RuntimeException' );
 		$object->save();
 	}
 
