@@ -97,6 +97,46 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testSaveException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Related\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'getSubClients' ) )
+			->getMock();
+
+		$object->expects( $this->once() )->method( 'getSubClients' )
+			->will( $this->throwException( new \RuntimeException() ) );
+
+		$this->view = \TestHelperJqadm::getView();
+		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
+
+		$object->setView( $this->view );
+
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$object->save();
+	}
+
+
+	public function testSaveMShopException()
+	{
+		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Related\Standard' )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( array( 'getSubClients' ) )
+			->getMock();
+
+		$object->expects( $this->once() )->method( 'getSubClients' )
+			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
+
+		$this->view = \TestHelperJqadm::getView();
+		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
+
+		$object->setView( $this->view );
+
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$object->save();
+	}
+
+
 	public function testSearch()
 	{
 		$this->assertNull( $this->object->search() );

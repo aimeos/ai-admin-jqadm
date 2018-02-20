@@ -169,7 +169,7 @@ class Standard
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'product-item-characteristic' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'product-item-characteristic' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
