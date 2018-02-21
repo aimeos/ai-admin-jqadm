@@ -365,7 +365,7 @@ class Standard
 			$search->setSortations( [$search->sort( '+', 'service.typeid' ), $search->sort( '+', 'service.position' )] );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->searchItems( $search, [], $total );
+			$view->items = $manager->searchItems( $search, $this->getDomains(), $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemTypes = $this->getTypeItems();

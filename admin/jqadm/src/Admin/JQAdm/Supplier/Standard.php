@@ -351,7 +351,7 @@ class Standard
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'supplier' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
-			$view->items = $manager->searchItems( $search, [], $total );
+			$view->items = $manager->searchItems( $search, $this->getDomains(), $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->total = $total;
