@@ -56,8 +56,8 @@ $default = ['media.lists.type.domain', 'media.lists.type.status', 'media.lists.t
 $default = $this->config( 'admin/jqadm/type/media/lists/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/type/media/lists/fields', $default );
 
-$params = $this->get( 'pageParams', [] );
-$sortcode = $this->param( 'sort' );
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
 
 $typeList = [];
 foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
@@ -103,7 +103,7 @@ $columnList = [
 	);
 ?>
 
-<form class="list list-media-lists-type" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-media-lists-type" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

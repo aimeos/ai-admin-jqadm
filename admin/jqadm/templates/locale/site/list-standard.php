@@ -52,7 +52,8 @@ $default = ['locale.site.status', 'locale.site.code', 'locale.site.label', 'loca
 $default = $this->config( 'admin/jqadm/locale/site/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/locale/site/fields', $default );
 
-$params = $this->get( 'pageParams', [] );
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
 
 $columnList = [
 	'locale.site.id' => $this->translate( 'admin', 'ID' ),
@@ -93,7 +94,7 @@ $columnList = [
 	);
 ?>
 
-<form class="list list-locale-site" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-locale-site" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

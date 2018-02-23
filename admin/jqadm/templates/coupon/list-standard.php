@@ -52,8 +52,8 @@ $default = ['coupon.status', 'coupon.label', 'coupon.provider'];
 $default = $this->config( 'admin/jqadm/coupon/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/coupon/fields', $default );
 
-$params = $this->get( 'pageParams', [] );
-$sortcode = $this->param( 'sort' );
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
 
 $columnList = [
 	'coupon.id' => $this->translate( 'admin', 'ID' ),
@@ -96,7 +96,7 @@ $columnList = [
 	);
 ?>
 
-<form class="list list-product" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-product" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

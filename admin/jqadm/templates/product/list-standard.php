@@ -512,8 +512,8 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 $default = $this->config( 'admin/jqadm/product/fields', ['product.id', 'product.status', 'product.typeid', 'product.code', 'product.label'] );
 $fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
 
-$params = $this->get( 'pageParams', [] );
-$sortcode = $this->session( 'aimeos/admin/jqadm/product/sort' );
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
 
 $typeList = [];
 foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
@@ -563,7 +563,7 @@ $columnList = [
 	);
 ?>
 
-<form class="list list-product" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-product" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

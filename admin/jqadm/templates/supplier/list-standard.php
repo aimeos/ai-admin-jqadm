@@ -52,7 +52,8 @@ $default = ['supplier.status', 'supplier.code', 'supplier.label'];
 $default = $this->config( 'admin/jqadm/supplier/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/supplier/fields', $default );
 
-$params = $this->get( 'pageParams', [] );
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
 
 $columnList = [
 	'supplier.id' => $this->translate( 'admin', 'ID' ),
@@ -93,7 +94,7 @@ $columnList = [
 	);
 ?>
 
-<form class="list list-supplier" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-supplier" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

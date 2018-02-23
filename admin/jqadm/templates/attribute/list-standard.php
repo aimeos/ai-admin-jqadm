@@ -56,8 +56,8 @@ $default = ['attribute.status', 'attribute.typeid', 'attribute.code', 'attribute
 $default = $this->config( 'admin/jqadm/attribute/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/attribute/fields', $default );
 
-$params = $this->get( 'pageParams', [] );
-$sortcode = $this->param( 'sort' );
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
 
 $typeList = [];
 foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
@@ -105,7 +105,7 @@ $columnList = [
 	);
 ?>
 
-<form class="list list-attribute" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-attribute" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">
