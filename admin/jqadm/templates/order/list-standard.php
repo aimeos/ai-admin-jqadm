@@ -111,9 +111,10 @@ $expConfig = $this->config( 'admin/jqadm/url/export/config', [] );
 $default = $this->config( 'admin/jqadm/order/fields', ['order.id', 'order.ctime', 'order.statuspayment', 'order.base.address.lastname'] );
 $fields = $this->session( 'aimeos/admin/jqadm/order/fields', $default );
 
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
+
 $baseItems = $this->get( 'baseItems', [] );
-$params = $this->get( 'pageParams', [] );
-$sortcode = $this->param( 'sort' );
 
 
 $columnList = [
@@ -221,7 +222,7 @@ $statusList = [
 ?>
 
 <?php $searchParam = $params; unset( $searchParam['filter'] ); ?>
-<form class="list list-order" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-order" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

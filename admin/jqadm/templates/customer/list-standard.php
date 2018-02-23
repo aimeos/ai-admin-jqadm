@@ -52,7 +52,8 @@ $default = ['customer.code', 'customer.lastname', 'customer.postal', 'customer.c
 $default = $this->config( 'admin/jqadm/customer/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/customer/fields', $default );
 
-$params = $this->get( 'pageParams', [] );
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
 
 $langList = [];
 foreach( $this->get( 'pageLanguages', [] ) as $langId => $langItem ) {
@@ -117,7 +118,7 @@ $columnList = [
 	);
 ?>
 
-<form class="list list-customer" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-customer" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

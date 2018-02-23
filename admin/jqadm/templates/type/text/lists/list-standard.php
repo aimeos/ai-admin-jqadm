@@ -56,8 +56,8 @@ $default = ['text.lists.type.domain', 'text.lists.type.status', 'text.lists.type
 $default = $this->config( 'admin/jqadm/type/text/lists/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/type/text/lists/fields', $default );
 
-$params = $this->get( 'pageParams', [] );
-$sortcode = $this->param( 'sort' );
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
 
 $typeList = [];
 foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
@@ -103,7 +103,7 @@ $columnList = [
 	);
 ?>
 
-<form class="list list-text-lists-type" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-text-lists-type" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">

@@ -29,7 +29,8 @@ $config = $this->config( 'admin/jqadm/url/search/config', [] );
 
 $filter = $this->get( 'filter', [] );
 $params = $this->get( 'params', [] );
-unset( $params['filter'], $params['page'] );
+$params['page']['start'] = 0;
+unset( $params['filter'] );
 
 $enc = $this->encoder();
 

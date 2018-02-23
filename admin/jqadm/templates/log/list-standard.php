@@ -32,7 +32,8 @@ $default = ['log.timestamp', 'log.facility', 'log.priority', 'log.request', 'log
 $default = $this->config( 'admin/jqadm/log/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/log/fields', $default );
 
-$params = $this->get( 'pageParams', [] );
+$searchParams = $params = $this->get( 'pageParams', [] );
+$searchParams['page']['start'] = 0;
 
 $columnList = [
 	'log.timestamp' => $this->translate( 'admin', 'Timestamp' ),
@@ -62,7 +63,7 @@ $columnList = [
 	);
 ?>
 
-<form class="list list-log" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+<form class="list list-log" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">
