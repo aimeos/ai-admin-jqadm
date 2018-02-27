@@ -364,7 +364,7 @@ class Standard
 		$data = $map = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'attribute', 'subscription', 'interval' ) as $listItem ) {
+		foreach( $item->getListItems( 'attribute', 'subscription', 'interval', false ) as $listItem ) {
 			$map[$listItem->getRefId()] = $listItem;
 		}
 

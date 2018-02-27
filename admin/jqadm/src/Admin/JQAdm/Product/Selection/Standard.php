@@ -109,7 +109,7 @@ class Standard
 		$item = $this->getView()->item;
 
 		if( $item->getType() === 'select' ) {
-			$this->cleanupItems( $item->getListItems( 'product', 'default' ), [] );
+			$this->cleanupItems( $item->getListItems( 'product', 'default', null, false ), [] );
 		}
 	}
 
@@ -433,8 +433,8 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
 		$product = $manager->getItem( $item->getId(), array( 'product' ) );
-		$refItems = $product->getRefItems( 'product', null, 'default' );
-		$listItems = $product->getListItems( 'product', 'default' );
+		$refItems = $product->getRefItems( 'product', null, 'default', false );
+		$listItems = $product->getListItems( 'product', 'default', null, false );
 
 		$products = $this->getProductItems( array_keys( $data ), array_keys( $refItems ) );
 		$listItem = $this->createListItem( $item->getId() );
@@ -494,7 +494,7 @@ class Standard
 	{
 		$data = [];
 		$context = $this->getContext();
-		$variants = $item->getRefItems( 'product', null, 'default' );
+		$variants = $item->getRefItems( 'product', null, 'default', false );
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 
 		$search = $manager->createSearch();
@@ -503,7 +503,7 @@ class Standard
 
 		$products = $manager->searchItems( $search, array( 'attribute' ) );
 
-		foreach( $item->getListItems( 'product', 'default' ) as $listItem )
+		foreach( $item->getListItems( 'product', 'default', null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
@@ -522,7 +522,7 @@ class Standard
 
 			if( isset( $products[$refItem->getId()] ) )
 			{
-				$attributes = $products[$refItem->getId()]->getRefItems( 'attribute', null, 'variant' );
+				$attributes = $products[$refItem->getId()]->getRefItems( 'attribute', null, 'variant', false );
 
 				foreach( $attributes as $attrid => $attrItem )
 				{

@@ -113,7 +113,7 @@ class Standard
 	{
 		parent::delete();
 
-		$refIds = array_keys( $this->getView()->item->getRefItems( 'price' ) );
+		$refIds = array_keys( $this->getView()->item->getRefItems( 'price', null, null, false ) );
 		\Aimeos\MShop\Factory::createManager( $this->getContext(), 'price' )->deleteItems( $refIds );
 	}
 

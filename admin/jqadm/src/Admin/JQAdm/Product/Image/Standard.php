@@ -468,7 +468,7 @@ class Standard
 		$listItems = $product->getListItems( 'media', null, null, false );
 
 		$attrMap = [];
-		foreach( $product->getListItems( 'attribute', 'variant' ) as $listItem ) {
+		foreach( $product->getListItems( 'attribute', 'variant', null, false ) as $listItem ) {
 			$attrMap[ $listItem->getRefId() ] = $listItem;
 		}
 

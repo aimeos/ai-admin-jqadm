@@ -117,7 +117,7 @@ class Standard
 	{
 		parent::delete();
 
-		$refIds = array_keys( $this->getView()->item->getRefItems( 'text' ) );
+		$refIds = array_keys( $this->getView()->item->getRefItems( 'text', null, null, false ) );
 		\Aimeos\MShop\Factory::createManager( $this->getContext(), 'text' )->deleteItems( $refIds );
 	}
 
@@ -375,7 +375,7 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/lists' );
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/lists/type' );
 
-		$listItems = $manager->getItem( $id, array( 'text' ) )->getListItems( 'text', 'default' );
+		$listItems = $manager->getItem( $id, array( 'text' ) )->getListItems( 'text', 'default', null, false );
 		$langIds = (array) $this->getValue( $data, 'text.languageid', [] );
 
 
