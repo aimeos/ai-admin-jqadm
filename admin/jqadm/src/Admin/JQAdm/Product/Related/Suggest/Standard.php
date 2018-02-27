@@ -338,7 +338,7 @@ class Standard
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'product', 'suggestion' ) as $listItem )
+		foreach( $item->getListItems( 'product', 'suggestion', null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;

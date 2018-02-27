@@ -338,7 +338,7 @@ class Standard
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$data = [];
 
-		foreach( $item->getListItems( 'attribute', 'hidden' ) as $listItem )
+		foreach( $item->getListItems( 'attribute', 'hidden', null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;

@@ -344,7 +344,7 @@ class Standard
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'product', 'default' ) as $listItem )
+		foreach( $item->getListItems( 'product', 'default', null, false ) as $listItem )
 		{
 			$refItem = $listItem->getRefItem();
 			$data['product.label'][] = ( $refItem ? $refItem->getLabel() : '' );

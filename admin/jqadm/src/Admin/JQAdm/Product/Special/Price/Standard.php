@@ -351,7 +351,7 @@ class Standard
 	{
 		$data = [];
 
-		foreach( $item->getListItems( 'attribute', 'custom' ) as $listItem )
+		foreach( $item->getListItems( 'attribute', 'custom', null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) !== null && $refItem->getType() === 'price' ) {
 				$data['custom'] = 1;

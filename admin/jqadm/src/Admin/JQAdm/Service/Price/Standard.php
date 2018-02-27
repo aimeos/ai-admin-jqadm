@@ -113,7 +113,7 @@ class Standard
 	{
 		parent::delete();
 
-		$refIds = array_keys( $this->getView()->item->getRefItems( 'price' ) );
+		$refIds = array_keys( $this->getView()->item->getRefItems( 'price', null, null, false ) );
 		\Aimeos\MShop\Factory::createManager( $this->getContext(), 'price' )->deleteItems( $refIds );
 	}
 
@@ -422,7 +422,7 @@ class Standard
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'price' ) as $id => $listItem )
+		foreach( $item->getListItems( 'price', null, null, false ) as $id => $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
