@@ -582,7 +582,7 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Order\Item\Iface $item Order item object
+	 * @param \Aimeos\MShop\Order\Item\Base\Iface $item Order base item object
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
 	protected function toArray( \Aimeos\MShop\Order\Item\Base\Iface $item, $copy = false )
