@@ -203,6 +203,7 @@
 .aimeos .main-sidebar .expert .icon:before { content: "\f19d" }
 .aimeos .main-sidebar .dashboard .icon:before { content: "\f0e4" }
 .aimeos .main-sidebar .order .icon:before { content: "\f07a" }
+.aimeos .main-sidebar .subscription .icon:before { content: "\f073" }
 .aimeos .main-sidebar .customer .icon:before { content: "\f0c0" }
 .aimeos .main-sidebar .product .icon:before { content: "\f1b2" }
 .aimeos .main-sidebar .catalog .icon:before { content: "\f0e8" }
