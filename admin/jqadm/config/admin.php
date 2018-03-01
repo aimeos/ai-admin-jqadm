@@ -5,6 +5,7 @@ return [
 		'navbar' => [
 			'dashboard',
 			'order',
+			'subscription',
 			'customer',
 			'product',
 			'catalog',
@@ -86,6 +87,23 @@ return [
 				 * @since 2017.10
 				 */
 				'key' => 'O',
+			],
+			'subscription' => [
+				/** admin/jqadm/resource/subscription/groups
+				 * List of user groups that are allowed to access the subscription panel
+				 *
+				 * @param array List of user group names
+				 * @since 2018.04
+				 */
+				'groups' => ['admin', 'editor', 'super'],
+
+				/** admin/jqadm/resource/subscription/key
+				 * Shortcut key to switch to the subscription panel by using the keyboard
+				 *
+				 * @param string Single character in upper case
+				 * @since 2018.04
+				 */
+				'key' => 'R',
 			],
 			'customer' => [
 				/** admin/jqadm/resource/customer/groups
