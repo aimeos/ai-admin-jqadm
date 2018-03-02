@@ -33,6 +33,7 @@ $params = $this->get( 'pageParams', [] );
 			<?= $enc->html( $this->translate( 'admin', 'Subscription' ) ); ?>:
 			<?= $enc->html( $this->get( 'itemData/subscription.id' ) ); ?> -
 			<?= $enc->html( $this->get( 'itemData/subscription.datenext', $this->translate( 'admin', 'New' ) ) ); ?>
+			<?= $enc->html( $this->get( 'itemData/subscription.interval' ) ); ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/subscription.siteid' ) ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
@@ -110,7 +111,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Interval' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-interval" required="required" tabindex="1" autocomplete="off"
+							<input class="form-control item-interval" type="text" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.interval' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Interval (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/subscription.interval' ) ); ?>"
@@ -123,7 +124,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Next date' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-datenext" required="required" tabindex="1" autocomplete="off"
+							<input class="form-control item-datenext" type="date" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Next date (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/subscription.datenext' ) ); ?>"
@@ -136,7 +137,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-dateendend" required="required" tabindex="1" autocomplete="off"
+							<input class="form-control item-dateendend" type="date" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'End date (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/subscription.dateend' ) ); ?>"

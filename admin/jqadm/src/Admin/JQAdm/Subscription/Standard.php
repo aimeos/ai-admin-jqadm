@@ -343,7 +343,7 @@ class Standard
 
 		$manager->rollback();
 
-		return $this->get();
+		return $this->create();
 	}
 
 

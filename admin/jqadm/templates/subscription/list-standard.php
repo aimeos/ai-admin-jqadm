@@ -136,6 +136,7 @@ $columnList = [
 							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
+						'subscription.interval' => ['op' => '>=', 'type' => 'string'],
 						'subscription.datenext' => ['op' => '>=', 'type' => 'date'],
 						'subscription.dateend' => ['op' => '>=', 'type' => 'date'],
 						'subscription.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
