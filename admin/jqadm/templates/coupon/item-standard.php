@@ -148,6 +148,19 @@ $params = $this->get( 'pageParams', [] );
 						</div>
 					</div>
 					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-position" type="number" required="required" tabindex="1"
+								name="<?= $this->formparam( array( 'item', 'coupon.position' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Service position (required)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/coupon.position' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Order of the coupons applied to the basket' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-datestart" type="datetime-local" tabindex="1"

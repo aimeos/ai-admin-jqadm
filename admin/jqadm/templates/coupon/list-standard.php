@@ -62,6 +62,7 @@ $columnList = [
 	'coupon.label' => $this->translate( 'admin', 'Label' ),
 	'coupon.datestart' => $this->translate( 'admin', 'Start date' ),
 	'coupon.dateend' => $this->translate( 'admin', 'End date' ),
+	'coupon.position' => $this->translate( 'admin', 'Position' ),
 	'coupon.config' => $this->translate( 'admin', 'Config' ),
 	'coupon.ctime' => $this->translate( 'admin', 'Created' ),
 	'coupon.mtime' => $this->translate( 'admin', 'Modified' ),
@@ -140,6 +141,7 @@ $columnList = [
 						'coupon.label' => [],
 						'coupon.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+						'coupon.position' => ['op' => '>='],
 						'coupon.config' => ['op' => '~='],
 						'coupon.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
@@ -168,6 +170,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.dateend', $fields ) ) : ?>
 						<td class="coupon-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'coupon.position', $fields ) ) : ?>
+						<td class="coupon-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.config', $fields ) ) : ?>
 						<td class="coupon-config config-item">
