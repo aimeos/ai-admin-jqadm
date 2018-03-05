@@ -77,8 +77,10 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'subscription' );
-			$view->item = $manager->getItem( $id );
+			$baseManager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
 
+			$view->item = $manager->getItem( $id );
+			$view->itemBase = $baseManager->getItem( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemBody = '';
@@ -124,6 +126,15 @@ class Standard
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'subscription' )->createItem();
 			} else {
 				$data = $this->toArray( $view->item );
+			}
+
+			$baseManager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
+			$baseId = ( $view->item->getOrderBaseId() ?: $view->param( 'item/subscription.ordbaseid' ) );
+
+			if( $baseId ) {
+				$view->itemBase = $baseManager->getItem( $baseId, ['order/base/address', 'order/base/product'] );
+			} else {
+				$view->itemBase = $baseManager->createItem();
 			}
 
 			$data['subscription.siteid'] = $view->item->getSiteId();
@@ -268,8 +279,10 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'subscription' );
+			$baseManager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
 
 			$view->item = $manager->getItem( $id );
+			$view->itemBase = $baseManager->getItem( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = '';
