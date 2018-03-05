@@ -72,7 +72,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->copy();
 
-		$this->assertContains( '2010-01-01 00:00:00', $result );
+		$this->assertContains( '2010-01-01', $result );
 	}
 
 
@@ -136,7 +136,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->get();
 
-		$this->assertContains( '2010-01-01 00:00:00', $result );
+		$this->assertContains( '2010-01-01', $result );
 	}
 
 
@@ -173,17 +173,24 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'order/base/product' );
+		$items = $manager->searchItems( $manager->createSearch()->setSlice( 0, 1 ) );
+
+		if( ( $item = reset( $items ) ) === false ) {
+			throw new \Exception( 'No order product item found' );
+		}
+
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'subscription' );
 
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
 				'subscription.id' => '',
-				'subscription.ordbaseid' => '12',
-				'subscription.ordprodid' => '123',
+				'subscription.ordbaseid' => $item->getBaseId(),
+				'subscription.ordprodid' => $item->getId(),
 				'subscription.interval' => 'P100Y100M100W100D',
-				'subscription.datenext' => '2005-05-05 05:05:05',
-				'subscription.dateend' => '2006-06-06 06:06:06',
+				'subscription.datenext' => '2005-05-05',
+				'subscription.dateend' => '2006-06-06',
 				'subscription.status' => '1',
 			),
 		);
@@ -193,7 +200,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->save();
 
-		$manager->deleteItem( $this->getSubscriptionId( '2006-06-06 06:06:06' ) );
+		$manager->deleteItem( $this->getSubscriptionId( '2006-06-06' ) );
 	}
 
 
@@ -237,7 +244,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'filter' => array(
 				'key' => array( 0 => 'subscription.dateend' ),
 				'op' => array( 0 => '>=' ),
-				'val' => array( 0 => '2010-01-01 00:00:00' ),
+				'val' => array( 0 => '2010-01-01' ),
 			),
 			'sort' => array( 'subscription.datenext', '-subscription.id' ),
 		);
@@ -246,7 +253,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
-		$this->assertContains( '2010-01-01 00:00:00', $result );
+		$this->assertContains( '2010-01-01', $result );
 	}
 
 
@@ -320,7 +327,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function getSubscriptionId( $end = '2010-01-01 00:00:00' )
+	protected function getSubscriptionId( $end = '2010-01-01' )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'subscription' );
 		$search = $manager->createSearch()->setSlice( 0, 1 );
