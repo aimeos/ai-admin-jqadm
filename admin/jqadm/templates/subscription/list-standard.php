@@ -55,15 +55,51 @@ $fields = $this->session( 'aimeos/admin/jqadm/subscription/fields', $default );
 $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
 
+$baseItems = $this->get( 'baseItems', [] );
+
 $columnList = [
 	'subscription.id' => $this->translate( 'admin', 'ID' ),
 	'subscription.status' => $this->translate( 'admin', 'Status' ),
+	'subscription.interval' => $this->translate( 'admin', 'Interval' ),
 	'subscription.datenext' => $this->translate( 'admin', 'Next date' ),
 	'subscription.dateend' => $this->translate( 'admin', 'End date' ),
-	'subscription.interval' => $this->translate( 'admin', 'Interval' ),
 	'subscription.ctime' => $this->translate( 'admin', 'Created' ),
 	'subscription.mtime' => $this->translate( 'admin', 'Modified' ),
 	'subscription.editor' => $this->translate( 'admin', 'Editor' ),
+	'order.base.customerid' => $this->translate( 'admin', 'Customer ID' ),
+	'order.base.sitecode' => $this->translate( 'admin', 'Site' ),
+	'order.base.languageid' => $this->translate( 'admin', 'Language' ),
+	'order.base.currencyid' => $this->translate( 'admin', 'Currency' ),
+	'order.base.price' => $this->translate( 'admin', 'Price' ),
+	'order.base.costs' => $this->translate( 'admin', 'Costs' ),
+	'order.base.rebate' => $this->translate( 'admin', 'Rebate' ),
+	'order.base.taxvalue' => $this->translate( 'admin', 'Tax' ),
+	'order.base.taxflag' => $this->translate( 'admin', 'Incl. tax' ),
+	'order.base.status' => $this->translate( 'admin', 'Subscription' ),
+	'order.base.comment' => $this->translate( 'admin', 'Comment' ),
+	'order.base.address.salutation' => $this->translate( 'admin', 'Salutation' ),
+	'order.base.address.company' => $this->translate( 'admin', 'Company' ),
+	'order.base.address.vatid' => $this->translate( 'admin', 'VAT ID' ),
+	'order.base.address.title' => $this->translate( 'admin', 'Title' ),
+	'order.base.address.firstname' => $this->translate( 'admin', 'First name' ),
+	'order.base.address.lastname' => $this->translate( 'admin', 'Last name' ),
+	'order.base.address.address1' => $this->translate( 'admin', 'Street' ),
+	'order.base.address.address2' => $this->translate( 'admin', 'House number' ),
+	'order.base.address.address3' => $this->translate( 'admin', 'Floor' ),
+	'order.base.address.postal' => $this->translate( 'admin', 'Zip code' ),
+	'order.base.address.city' => $this->translate( 'admin', 'City' ),
+	'order.base.address.state' => $this->translate( 'admin', 'State' ),
+	'order.base.address.countryid' => $this->translate( 'admin', 'Country' ),
+	'order.base.address.languageid' => $this->translate( 'admin', 'Language' ),
+	'order.base.address.telephone' => $this->translate( 'admin', 'Telephone' ),
+	'order.base.address.telefax' => $this->translate( 'admin', 'Facsimile' ),
+	'order.base.address.email' => $this->translate( 'admin', 'E-Mail' ),
+	'order.base.address.website' => $this->translate( 'admin', 'Web site' ),
+];
+
+$statusList = [
+	0 => $this->translate( 'admin', 'no' ),
+	1 => $this->translate( 'admin', 'yes' ),
 ];
 
 
@@ -109,12 +145,6 @@ $columnList = [
 				?>
 
 				<th class="actions">
-					<a class="btn fa act-add" tabindex="1"
-						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
-					</a>
-
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard.php' ),
 							['fields' => $fields, 'data' => $columnList]
@@ -142,6 +172,37 @@ $columnList = [
 						'subscription.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'subscription.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'subscription.editor' => [],
+						'order.base.customerid' => ['op' => '=='],
+						'order.base.sitecode' => ['op' => '=='],
+						'order.base.languageid' => ['op' => '=='],
+						'order.base.currencyid' => ['op' => '=='],
+						'order.base.price' => ['op' => '==', 'type' => 'number'],
+						'order.base.costs' => ['op' => '==', 'type' => 'number'],
+						'order.base.rebate' => ['op' => '==', 'type' => 'number'],
+						'order.base.taxvalue' => ['op' => '==', 'type' => 'number'],
+						'order.base.taxflag' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
+						'order.base.status' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
+						'order.base.comment' => [],
+						'order.base.address.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
+							'company' => 'company', 'mr' => 'mr', 'mrs' => 'mrs', 'miss' => 'miss'
+						]],
+						'order.base.address.company' => [],
+						'order.base.address.vatid' => [],
+						'order.base.address.title' => [],
+						'order.base.address.firstname' => [],
+						'order.base.address.lastname' => [],
+						'order.base.address.address1' => [],
+						'order.base.address.address2' => [],
+						'order.base.address.address3' => [],
+						'order.base.address.postal' => [],
+						'order.base.address.city' => [],
+						'order.base.address.state' => [],
+						'order.base.address.countryid' => ['op' => '=='],
+						'order.base.address.languageid' => ['op' => '=='],
+						'order.base.address.telephone' => [],
+						'order.base.address.telefax' => [],
+						'order.base.address.email' => [],
+						'order.base.address.website' => [],
 					]
 				] );
 			?>
@@ -172,6 +233,103 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'subscription.editor', $fields ) ) : ?>
 						<td class="subscription-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
+					<?php endif; ?>
+
+					<?php $baseItem = ( isset( $baseItems[$item->getOrderBaseId()] ) ? $baseItems[$item->getOrderBaseId()] : null ); ?>
+
+					<?php if( in_array( 'order.base.customerid', $fields ) ) : ?>
+						<td class="order-base-customerid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getCustomerId() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.sitecode', $fields ) ) : ?>
+						<td class="order-base-sitecode"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getSiteCode() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.languageid', $fields ) ) : ?>
+						<td class="order-base-languageid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getLocale()->getLanguageId() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.currencyid', $fields ) ) : ?>
+						<td class="order-base-currencyid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getLocale()->getCurrencyId() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.price', $fields ) ) : ?>
+						<td class="order-base-price"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getPrice()->getValue() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.costs', $fields ) ) : ?>
+						<td class="order-base-costs"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getPrice()->getCosts() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.rebate', $fields ) ) : ?>
+						<td class="order-base-rebate"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getPrice()->getRebate() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.taxvalue', $fields ) ) : ?>
+						<td class="order-base-taxvalue"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getPrice()->getTaxValue() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.taxflag', $fields ) ) : ?>
+						<td class="order-base-taxflag"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $statusList[$baseItem->getPrice()->getTaxFlag()] ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.status', $fields ) ) : ?>
+						<td class="order-base-status"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $statusList[$baseItem->getStatus()] ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.comment', $fields ) ) : ?>
+						<td class="order-base-comment"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getComment() ) : ''; ?></a></td>
+					<?php endif; ?>
+
+					<?php $addrItem = null;
+						if( $baseItem && ( $addresses = $baseItem->getAddresses() ) && isset( $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT] ) ) {
+							$addrItem = $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT];
+						}
+					?>
+
+					<?php if( in_array( 'order.base.address.salutation', $fields ) ) : ?>
+						<td class="order-base-address-salutation"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getSalutation() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.company', $fields ) ) : ?>
+						<td class="order-base-address-company"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getCompany() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.vatid', $fields ) ) : ?>
+						<td class="order-base-address-vatid"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getVatID() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.title', $fields ) ) : ?>
+						<td class="order-base-address-title"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getTitle() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.firstname', $fields ) ) : ?>
+						<td class="order-base-address-firstname"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getFirstname() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.lastname', $fields ) ) : ?>
+						<td class="order-base-address-lastname"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getLastname() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.address1', $fields ) ) : ?>
+						<td class="order-base-address-address1"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getAddress1() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.address2', $fields ) ) : ?>
+						<td class="order-base-address-address2"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getAddress2() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.address3', $fields ) ) : ?>
+						<td class="order-base-address-address3"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getAddress3() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.postal', $fields ) ) : ?>
+						<td class="order-base-address-postal"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getPostal() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.city', $fields ) ) : ?>
+						<td class="order-base-address-city"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getCity() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.state', $fields ) ) : ?>
+						<td class="order-base-address-state"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getState() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.countryid', $fields ) ) : ?>
+						<td class="order-base-address-countryid"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getCountryId() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.languageid', $fields ) ) : ?>
+						<td class="order-base-address-languageid"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getLanguageId() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.telephone', $fields ) ) : ?>
+						<td class="order-base-address-telephone"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getTelephone() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.telefax', $fields ) ) : ?>
+						<td class="order-base-address-telefax"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getTelefax() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.email', $fields ) ) : ?>
+						<td class="order-base-address-email"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getEmail() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.address.website', $fields ) ) : ?>
+						<td class="order-base-address-website"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getWebsite() ) : ''; ?></a></td>
 					<?php endif; ?>
 
 					<td class="actions">

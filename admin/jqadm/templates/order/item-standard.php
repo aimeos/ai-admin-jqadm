@@ -43,6 +43,11 @@ $listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
+$newTarget = $this->config( 'admin/jqadm/url/create/target' );
+$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
+$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
+$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
+
 $basket = $this->item;
 
 $searchParams = $params = $this->get( 'pageParams', [] );
@@ -260,6 +265,16 @@ $statusList = [
 
 								<?php foreach( (array) $basket->getProducts() as $pos => $orderProduct ) : ?>
 									<tr class="list-item">
+										<td class="item-column column-subscription">
+											<?php $newParams = [
+													'item' => ['subscription.ordbaseid' => $basket->getId(), 'subscription.ordprodid' => $orderProduct->getId()],
+													'site' => $this->param( 'site' ),
+													'lang' => $this->param( 'lang' ),
+													'resource' => 'subscription'
+												];
+											?>
+											<a class="btn btn-subscription fa" href="<?= $this->url( $newTarget, $newCntl, $newAction, $newParams, [], $newConfig ) ?>"></a>
+										</td>
 										<td class="item-column column-status">
 											<select class="form-control custom-select product-status" required="required" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.status' ) ) ); ?>"

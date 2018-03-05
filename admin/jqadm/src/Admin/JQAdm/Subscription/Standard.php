@@ -360,7 +360,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'item' );
+			$params = $this->storeSearchParams( $view->param(), 'subscription' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'subscription' );
 
 			$search = $manager->createSearch();
@@ -368,6 +368,7 @@ class Standard
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
+			$view->baseItems = $this->getOrderBaseItems( $view->items );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->total = $total;
@@ -499,6 +500,29 @@ class Standard
 		 * @see admin/jqadm/subscription/decorators/global
 		 */
 		return $this->createSubClient( 'subscription/' . $type, $name );
+	}
+
+
+	/**
+	 * Returns the base order items (baskets) for the given subscription items
+	 *
+	 * @param \Aimeos\MShop\Subscription\Item\Iface[] $items List of subscription items
+	 * @param \Aimeos\MShop\Order\Item\Base\Iface[] List of order base items
+	 */
+	protected function getOrderBaseItems( array $items )
+	{
+		$baseIds = [];
+		foreach( $items as $item ) {
+			$baseIds[] = $item->getOrderBaseId();
+		}
+
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
+
+		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
+		$search->setSlice( 0, 0x7fffffff );
+
+		return $manager->searchItems( $search, ['order/base/address'] );
 	}
 
 

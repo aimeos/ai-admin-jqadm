@@ -83,6 +83,11 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
+				<input class="item-ordbaseid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.ordbaseid' ) ) ); ?>"
+					value="<?= $enc->attr( $this->param( 'subscription.ordbaseid', $this->get( 'itemData/subscription.ordbaseid' ) ) ); ?>" />
+				<input class="item-ordprodid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.ordprodid' ) ) ); ?>"
+					value="<?= $enc->attr( $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ); ?>" />
+
 				<div class="col-xl-6 content-block <?= $readonly ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
@@ -114,7 +119,7 @@ $params = $this->get( 'pageParams', [] );
 							<input class="form-control item-interval" type="text" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.interval' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Interval (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/subscription.interval' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/subscription.interval', 'P1Y0M0W0D' ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -134,7 +139,7 @@ $params = $this->get( 'pageParams', [] );
 							<?= $enc->html( $this->translate( 'admin', 'Next date the subscription is renewed' ) ); ?>
 						</div>
 					</div>
-					<div class="form-group row mandatory">
+					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-dateendend" type="date" required="required" tabindex="1"
