@@ -33,6 +33,11 @@ $delCntl = $this->config( 'admin/jqadm/url/delete/controller', 'Jqadm' );
 $delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
 $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 
+$expTarget = $this->config( 'admin/jqadm/url/export/target' );
+$expCntl = $this->config( 'admin/jqadm/url/export/controller', 'Jqadm' );
+$expAction = $this->config( 'admin/jqadm/url/export/action', 'export' );
+$expConfig = $this->config( 'admin/jqadm/url/export/config', [] );
+
 
 /** admin/jqadm/subscription/fields
  * List of subscription columns that should be displayed in the list view
@@ -145,6 +150,12 @@ $statusList = [
 				?>
 
 				<th class="actions">
+					<a class="btn fa act-download" tabindex="1"
+						href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params, [], $expConfig ) ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Download') ); ?>"
+						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>">
+					</a>
+
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard.php' ),
 							['fields' => $fields, 'data' => $columnList]
