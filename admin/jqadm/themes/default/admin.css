@@ -357,6 +357,10 @@
 	content: ")";
 }
 
+.aimeos .item-order .item-product-list .column-subscription .btn-subscription:before {
+	content:"\f073";
+}
+
 .aimeos .item-order .item-product-list .column-status {
     max-width: 10rem;
     min-width: 5rem;

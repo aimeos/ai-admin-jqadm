@@ -254,6 +254,7 @@ $statusList = [
 						<table class="item-product-list table table-striped">
 							<thead>
 								<tr>
+									<th class="item-column column-subscription"><?= $enc->html( $this->translate( 'admin', 'Renew' ) ); ?></th>
 									<th class="item-column column-status"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></th>
 									<th class="item-column column-desc"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></th>
 									<th class="item-column column-quantity"><?= $enc->html( $this->translate( 'admin', 'Quantity' ) ); ?></th>
