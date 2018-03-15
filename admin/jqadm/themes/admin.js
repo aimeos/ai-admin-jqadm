@@ -731,7 +731,6 @@ Aimeos.Nav = {
 
 				if(ev.altKey) {
 					if(key.match(/[a-z]/)) {
-						ev.preventDefault();
 						var link = $(".aimeos .sidebar-menu a[data-ctrlkey=" + key + "]").first();
 
 						if(link.length) {
@@ -757,7 +756,6 @@ Aimeos.Nav = {
 						}
 						return false;
 					case 'd':
-						ev.preventDefault();
 						var node = $(".aimeos .act-copy:visible").first();
 						if(node.attr("href")) {
 							window.location = node.attr('href');
@@ -766,7 +764,6 @@ Aimeos.Nav = {
 						}
 						return false;
 					case 's':
-						ev.preventDefault();
 						$(".aimeos form.item").first().submit();
 						return false;
 				}
