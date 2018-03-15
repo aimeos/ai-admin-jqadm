@@ -284,7 +284,7 @@ $statusList = [
 													<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 												</option>
 												<?php foreach( $statusList as $code => $label ) : ?>
-													<option value="<= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.status' ), $code ); ?> >
+													<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.status' ), $code ); ?> >
 														<?= $enc->html( $label ); ?>
 													</option>
 												<?php endforeach; ?>
