@@ -736,12 +736,10 @@ Aimeos.Nav = {
 						if(link.length) {
 							window.location = link.attr("href");
 						}
-						return false;
 					}
 				}
 				switch(key) {
 					case 'i':
-						ev.preventDefault();
 						var node = $(".aimeos :focus").closest(".card,.content-block").find(".act-add:visible").first();
 						if(node.length > 0) {
 							node.trigger("click");
@@ -753,16 +751,16 @@ Aimeos.Nav = {
 							window.location = node.attr('href');
 						} else {
 							node.trigger("click");
+							return false;
 						}
-						return false;
 					case 'd':
 						var node = $(".aimeos .act-copy:visible").first();
 						if(node.attr("href")) {
 							window.location = node.attr('href');
 						} else {
 							node.trigger("click");
+							return false;
 						}
-						return false;
 					case 's':
 						$(".aimeos form.item").first().submit();
 						return false;
