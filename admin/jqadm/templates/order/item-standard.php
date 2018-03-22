@@ -336,7 +336,7 @@ $statusList = [
 							<?php foreach( $basket->getCoupons() as $code => $product ) : ?>
 								<div class="form-group row">
 									<label class="col-sm-4"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
-									<div class="col-sm-8"><span class="item-coupon"><?= $enc->attr( $code ); ?><span></div>
+									<div class="col-sm-8"><span class="item-coupon"><?= $enc->attr( $code ); ?></span></div>
 								</div>
 							<?php endforeach; ?>
 						<?php else : ?>
