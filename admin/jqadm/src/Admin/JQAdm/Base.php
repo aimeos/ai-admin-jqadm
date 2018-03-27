@@ -591,6 +591,7 @@ abstract class Base
 
 		$view->response()->withStatus( 302 );
 		$view->response()->withHeader( 'Location', $url );
+		$view->response()->withHeader( 'Cache-Control', 'no-store' );
 
 		return $view;
 	}
