@@ -483,13 +483,22 @@
 	height: 35px;
 }
 
+.aimeos .list-log .list-items td {
+	vertical-align: top;
+}
+
 .aimeos .list-log .list-items .items-field {
+	display: inline-block;
 	max-height: 2.5rem;
 	overflow: hidden;
 }
 
 .aimeos .list-log .list-items .items-field.show {
 	max-height: inherit;
+}
+
+.aimeos .list-log .list-items .log-message {
+	text-align: left;
 }
 
 
