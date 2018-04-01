@@ -234,7 +234,7 @@ switch( $this->param( 'act' ) )
 
 			<ul class="sidebar-menu basic">
 
-				<?php if( count( $this->get( 'pageSiteList', [] ) ) > 1 && $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) ) : ?>
+				<?php if( ( count( $this->get( 'pageSiteList', [] ) ) > 1 || $this->pageSiteTree->getChildren() !== [] ) && $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) ) : ?>
 					<li class="site treeview">
 						<a href="#">
 							<i class="icon"></i>
