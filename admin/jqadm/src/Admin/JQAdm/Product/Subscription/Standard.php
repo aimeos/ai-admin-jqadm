@@ -266,29 +266,6 @@ class Standard
 
 
 	/**
-	 * Returns the referenced products for the given product ID
-	 *
-	 * @param string $prodid Unique product ID
-	 * @return array Associative list of product list IDs as keys and list items as values
-	 */
-	protected function getListItems( $prodid )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'product.lists.parentid', $prodid ),
-			$search->compare( '==', 'product.lists.domain', 'attribute' ),
-			$search->compare( '==', 'product.lists.type.domain', 'attribute' ),
-			$search->compare( '==', 'product.lists.type.code', 'subscription' ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -306,7 +283,7 @@ class Standard
 		$attrTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/type' );
 
 
-		foreach( $this->getListItems( $item->getId() ) as $id => $listItem ) {
+		foreach( $item->getListItems( 'attribute', 'config', 'interval', false ) as $id => $listItem ) {
 			$map[$listItem->getRefId()] = $id;
 		}
 
@@ -328,7 +305,7 @@ class Standard
 		$listItem = $manager->createItem();
 		$listItem->setDomain( 'attribute' );
 		$listItem->setParentId( $item->getId() );
-		$listItem->setTypeId( $typeManager->findItem( 'subscription', [], 'attribute' )->getId() );
+		$listItem->setTypeId( $typeManager->findItem( 'config', [], 'attribute' )->getId() );
 
 		foreach( $attrIds as $idx => $attrId )
 		{
@@ -364,7 +341,7 @@ class Standard
 		$data = $map = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'attribute', 'subscription', 'interval', false ) as $listItem ) {
+		foreach( $item->getListItems( 'attribute', 'config', 'interval', false ) as $listItem ) {
 			$map[$listItem->getRefId()] = $listItem;
 		}
 
