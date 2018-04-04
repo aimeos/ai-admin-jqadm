@@ -460,6 +460,7 @@
 	text-align: right;
 }
 
+
 .aimeos .item-order .item-total .total-subtotal,
 .aimeos .item-order .item-total .total-value {
 	background-color: #F8F8F8;
@@ -467,6 +468,47 @@
 
 .aimeos .item-order .item-total .total-value {
 	font-weight: bold;
+}
+
+.aimeos .item-subscription .item-product-list .column-desc {
+	text-align: left;
+}
+
+.aimeos .item-subscription .item-product-list .column-price,
+.aimeos .item-subscription .item-product-list .column-sum {
+	white-space: nowrap;
+	text-align: right;
+}
+
+.aimeos .item-subscription .item-product-list .product-name,
+.aimeos .item-subscription .item-product-list .product-attr,
+.aimeos .item-subscription .item-product-list .product-sku,
+.aimeos .item-subscription .item-product-list .product-status,
+.aimeos .item-subscription .item-product-list .product-quantity,
+.aimeos .item-subscription .item-product-list .product-price,
+.aimeos .item-subscription .item-product-list .product-costs,
+.aimeos .item-subscription .item-product-list .product-rebate {
+	display: block;
+}
+
+.aimeos .item-subscription .item-product-list .product-attr .attr-code:after {
+	content: ":";
+}
+
+.aimeos .item-subscription .item-product-list .product-attr .attr-value:not(:last-child):after {
+	content: ",";
+}
+
+.aimeos .item-subscription .item-product-list .product-costs:before {
+	content: "+ ";
+}
+
+.aimeos .item-subscription .item-product-list .product-rebate:before {
+	content: "(- ";
+}
+
+.aimeos .item-subscription .item-product-list .product-rebate:after {
+	content: ")";
 }
 
 
