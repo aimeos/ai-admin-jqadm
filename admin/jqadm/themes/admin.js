@@ -521,7 +521,7 @@ Aimeos.Form = {
 	checkFields : function() {
 
 		$(".aimeos .item-content .readonly").on("change", "input,select", function(ev) {
-			$(this).closest("div,td").addClass("has-danger");
+			$(this).addClass("is-invalid");
 		});
 
 
@@ -532,9 +532,9 @@ Aimeos.Form = {
 			}
 
 			if($(this).is(":invalid") === true) {
-				$(this).closest("div,td").removeClass("has-success").addClass("has-danger");
+				$(this).removeClass("is-valid").addClass("is-invalid");
 			} else {
-				$(this).closest("div,td").removeClass("has-danger").addClass("has-success");
+				$(this).removeClass("is-invalid").addClass("is-valid");
 			}
 		});
 	},
@@ -549,25 +549,25 @@ Aimeos.Form = {
 		$(".aimeos form").on("submit", function(ev) {
 			var nodes = [];
 
-			$(".card-header", this).removeClass("has-danger");
-			$(".item-navbar .nav-link", this).removeClass("has-danger");
+			$(".card-header", this).removeClass("is-invalid");
+			$(".item-navbar .nav-link", this).removeClass("is-invalid");
 
 			$(".item-content input,select", this).each(function(idx, element) {
 				var elem = $(element);
 
 				if(elem.closest(".prototype").length === 0 && elem.is(":invalid") === true) {
-					elem.parent().addClass("has-danger");
+					elem.addClass("is-invalid");
 					nodes.push(element);
 				} else {
-					elem.parent().removeClass("has-danger");
+					elem.removeClass("is-invalid");
 				}
 			});
 
 			$.each(nodes, function() {
-				$(".card-header", $(this).closest(".card")).addClass("has-danger");
+				$(".card-header", $(this).closest(".card")).addClass("is-invalid");
 
 				$(this).closest(".tab-pane").each(function() {
-					$(".item-navbar .nav-item." + $(this).attr("id") + " .nav-link").addClass("has-danger");
+					$(".item-navbar .nav-item." + $(this).attr("id") + " .nav-link").addClass("is-invalid");
 				});
 			});
 
@@ -642,7 +642,7 @@ Aimeos.Form = {
 	showErrors : function() {
 
 		$(".aimeos .error-list .error-item").each(function() {
-			$(".aimeos ." + $(this).data("key") + " .header").addClass("has-danger");
+			$(".aimeos ." + $(this).data("key") + " .header").addClass("is-invalid");
 		});
 	},
 

@@ -145,7 +145,7 @@ html {
 	background-color: #E0E0E0;
 }
 
-.nav-tabs .nav-link.has-danger {
+.nav-tabs .nav-link.is-invalid {
 	border-left: 0.2rem solid #E05040;
 }
 

@@ -39,7 +39,7 @@
 	padding: 0.25rem;
 }
 
-.aimeos .header.has-danger {
+.aimeos .header.is-invalid {
 	border-top: solid 3px #E05040;
 }
 
