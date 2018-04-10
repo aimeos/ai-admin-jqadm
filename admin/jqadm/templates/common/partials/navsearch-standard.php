@@ -60,7 +60,9 @@ $enc = $this->encoder();
 		</select>
 		<input type="text" class="form-control filter-value" name="<?= $this->formparam( ['filter', 'val', '0'] ); ?>"
 			 value="<?= $enc->attr( ( isset( $filter['val'][0] ) ? $filter['val'][0] : '' ) ); ?>" >
-		<button class="input-group-addon btn btn-primary fa fa-search"></button>
+		<div class="input-group-append">
+			<button class="btn btn-primary fa fa-search"></button>
+		</div>
 	</div>
 
 </form>
