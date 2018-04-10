@@ -16,26 +16,23 @@ html {
 
 /* Bootstrap bugfixes */
 
-.card-block:after,
-.card-header:after {
-	display: block;
-	content: "";
-	clear: both;
-}
-
-
+/* misaligned col-*-6 block in subpanels */
 .card-block.collapse.show,
 .tab-content > .row.active {
 	display: flex;
 }
 
-
-.input-group .form-control {
-	z-index: 1;
+/* different height of input and select */
+input, select.form-control:not([size]):not([multiple]) {
+	height: calc(2.25rem + 2px);
 }
 
-.custom-select {
-	height: auto;
+/* misaligned borders for action column */
+.table td, .table th {
+	border-top: none;
+}
+.table .btn {
+	border: none;
 }
 
 
@@ -180,28 +177,12 @@ html {
 	justify-content: inherit;
 }
 
-.form-control {
-	font-size: 100%;
-	padding: .5rem;
-}
-
-/*
-span.form-control {
-	border-color: transparent;
-}
-*/
-
 .btn, .dropdown-menu {
 	font-size: 100%;
 }
 
 .dropdown-item label {
 	margin: 0;
-}
-
-input[type=date], input[type=time], input[type=datetime-local], input[type=month],
-select.form-control:not([size]):not([multiple]) {
-	height: calc(2.05rem + 2px);
 }
 
 .aimeos {
