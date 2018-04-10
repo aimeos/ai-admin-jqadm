@@ -229,10 +229,6 @@
 	color: #292b2c;
 }
 
-.aimeos table.item-config td {
-	vertical-align: top;
-}
-
 .aimeos .config-map-table {
 	display: none;
 }
