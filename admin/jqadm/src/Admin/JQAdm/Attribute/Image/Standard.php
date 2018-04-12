@@ -57,6 +57,17 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/attribute/image/standard/subparts';
+
+	/** admin/jqadm/attribute/image/property/name
+	 * Name of the property subpart used by the JQAdm attribute image implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Attribute\Image\Property\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2018.04
+	 * @category Developer
+	 */
 	private $subPartNames = ['property'];
 
 

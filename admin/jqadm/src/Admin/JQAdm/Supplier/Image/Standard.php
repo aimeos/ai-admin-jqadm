@@ -57,6 +57,17 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartPath = 'admin/jqadm/supplier/image/standard/subparts';
+
+	/** admin/jqadm/supplier/image/property/name
+	 * Name of the property subpart used by the JQAdm supplier image implementation
+	 *
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Supplier\Image\Property\Myname".
+	 * The name is case-sensitive and you should avoid camel case names like "MyName".
+	 *
+	 * @param string Last part of the JQAdm class name
+	 * @since 2018.04
+	 * @category Developer
+	 */
 	private $subPartNames = ['property'];
 
 
