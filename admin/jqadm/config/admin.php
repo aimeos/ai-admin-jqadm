@@ -478,6 +478,14 @@ return [
 				 * @since 2018.04
 				 */
 				'groups' => ['admin', 'super'],
+
+				/** admin/jqadm/resource/log/key
+				 * Shortcut key to switch to the log panel by using the keyboard
+				 *
+				 * @param string Single character in upper case
+				 * @since 2018.04
+				 */
+				'key' => 'L',
 			],
 			'language' => [
 				/** admin/jqadm/resource/language/groups
