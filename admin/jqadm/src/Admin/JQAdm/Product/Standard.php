@@ -693,7 +693,7 @@ class Standard
 
 		$item = $manager->saveItem( $item );
 
-		return $manager->getItem( $item->getId() ); // product.type must be available;
+		return $manager->getItem( $item->getId(), $this->getDomains() ); // product.type and list/ref items must be available
 	}
 
 
