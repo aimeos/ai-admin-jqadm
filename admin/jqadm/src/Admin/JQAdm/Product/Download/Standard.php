@@ -314,16 +314,12 @@ class Standard
 
 		foreach( $rmListIds as $idx => $rmListId )
 		{
-			if( ( $item = $listItems[$rmListId]->getRefItem() ) !== null && $item->getType() === 'download' )
+			if( ( $item = $listItems[$rmListId]->getRefItem() ) !== null )
 			{
 				if( $item->getCode() != '' && $fs->has( $item->getCode() ) ) {
 					$fs->rm( $item->getCode() );
 				}
 				$rmItems[] = $item->getId();
-			}
-			else
-			{
-				unset( $rmListIds[$idx] );
 			}
 		}
 
@@ -371,59 +367,6 @@ class Standard
 		$item->setStatus( 1 );
 
 		return $item;
-	}
-
-
-	/**
-	 * Returns the attribute items for the given list items
-	 *
-	 * @param array $listItems List of list items with IDs as key and items implementing \Aimeos\MShop\Common\Item\List\Iface as values
-	 * @return array List of attribute items with ID as key and items implementing \Aimeos\MShop\Attribute\Item\Iface as values
-	 */
-	protected function getAttributeItems( array $listItems )
-	{
-		$refIds = [];
-
-		foreach( $listItems as $item ) {
-			$refIds[] = $item->getRefId();
-		}
-
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'attribute' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'attribute.id', $refIds ),
-			$search->compare( '==', 'attribute.domain', 'product' ),
-			$search->compare( '==', 'attribute.type.domain', 'product' ),
-			$search->compare( '==', 'attribute.type.code', 'download' ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-		$search->setSlice( 0, 0x7fffffff );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
-	 * Returns the referenced products for the given product ID
-	 *
-	 * @param string $prodid Unique product ID
-	 * @return array Associative list of bundle product IDs as keys and list items as values
-	 */
-	protected function getListItems( $prodid )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'product.lists.parentid', $prodid ),
-			$search->compare( '==', 'product.lists.domain', 'attribute' ),
-			$search->compare( '==', 'product.lists.type.domain', 'attribute' ),
-			$search->compare( '==', 'product.lists.type.code', 'hidden' ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-
-		return $manager->searchItems( $search );
 	}
 
 
@@ -479,7 +422,7 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
 		$listId = $this->getValue( $data, 'product.lists.id' );
-		$listItems = $this->getListItems( $item->getId() );
+		$listItems = $item->getListItems( 'attribute', 'hidden', 'download', false );
 
 		if( isset( $listItems[$listId] ) ) {
 			$litem = $listItems[$listId];
@@ -525,9 +468,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
 	{
-		$listItems = $this->getListItems( $item->getId() );
-		$attrItems = $this->getAttributeItems( $listItems );
-
+		$listItems = $item->getListItems( 'attribute', 'hidden', 'download', false );
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$data = [];
 
@@ -537,7 +478,7 @@ class Standard
 
 		foreach( $listItems as $listItem )
 		{
-			if( !isset( $attrItems[$listItem->getRefId()] ) ) {
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
@@ -551,11 +492,11 @@ class Standard
 				$data[$key] = $value;
 			}
 
-			foreach( $attrItems[$listItem->getRefId()]->toArray( true ) as $key => $value ) {
+			foreach( $refItem->toArray( true ) as $key => $value ) {
 				$data[$key] = $value;
 			}
 
-			$data['path'] = $attrItems[$listItem->getRefId()]->getCode();
+			$data['path'] = $refItem->getCode();
 
 			try
 			{
