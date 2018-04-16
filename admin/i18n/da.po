@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-04 16:19+0100\n"
-"PO-Revision-Date: 2018-02-04 15:19+0000\n"
+"POT-Creation-Date: 2018-04-08 18:06+0200\n"
+"PO-Revision-Date: 2018-04-08 16:16+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Danish (http://www.transifex.com/aimeos/aimeos-core/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,23 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
+msgstr ""
+
+#, php-format
+msgid ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
 msgstr ""
 
 #. / price format with value (%1$s) and currency (%2$s)
@@ -52,6 +69,9 @@ msgid ""
 "with a \"+\""
 msgstr ""
 
+msgid "Active"
+msgstr ""
+
 msgid "Actual current price"
 msgstr ""
 
@@ -73,6 +93,9 @@ msgstr ""
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
+msgstr ""
+
+msgid "Additional information where the customer's apartment can be found"
 msgstr ""
 
 msgid "Additional information where the customer's appartment can be found"
@@ -223,6 +246,9 @@ msgid "Available customer groups"
 msgstr ""
 
 msgid "Available customers"
+msgstr ""
+
+msgid "Available intervals in the front-end"
 msgstr ""
 
 msgid "Available language for the current site"
@@ -543,6 +569,12 @@ msgstr ""
 msgid "Date of the last payment status change"
 msgstr ""
 
+msgid "Date the subscription ends"
+msgstr ""
+
+msgid "Days"
+msgstr ""
+
 msgid "Default"
 msgstr ""
 
@@ -640,6 +672,9 @@ msgstr ""
 msgid "End date"
 msgstr ""
 
+msgid "End date (optional)"
+msgstr ""
+
 msgid "Error"
 msgstr ""
 
@@ -710,6 +745,9 @@ msgid "Floor / Appartment"
 msgstr ""
 
 msgid "Floor / Office"
+msgstr ""
+
+msgid "Floor and/or apartment (optional)"
 msgstr ""
 
 msgid "Floor and/or appartment (optional)"
@@ -836,6 +874,12 @@ msgstr ""
 msgid "Internal type name shown in the administration interface"
 msgstr ""
 
+msgid "Interval"
+msgstr ""
+
+msgid "Interval (required)"
+msgstr ""
+
 #, python-brace-format
 msgid "Invalid action \"{0}\""
 msgstr ""
@@ -898,6 +942,9 @@ msgid "Label"
 msgstr ""
 
 msgid "Label (required)"
+msgstr ""
+
+msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid ""
@@ -1107,6 +1154,9 @@ msgstr ""
 msgid "Modified"
 msgstr ""
 
+msgid "Months"
+msgstr ""
+
 msgid "More"
 msgstr ""
 
@@ -1140,6 +1190,15 @@ msgstr ""
 
 msgid "Next"
 msgstr "Næste"
+
+msgid "Next date"
+msgstr ""
+
+msgid "Next date (optional)"
+msgstr ""
+
+msgid "Next date the subscription is renewed"
+msgstr ""
 
 msgid "No error information available"
 msgstr ""
@@ -1585,6 +1644,9 @@ msgstr ""
 msgid "Remove filter"
 msgstr ""
 
+msgid "Renew"
+msgstr ""
+
 msgid "Replace file"
 msgstr ""
 
@@ -1837,6 +1899,11 @@ msgid "Sub-total"
 msgstr ""
 
 msgid "Subscription"
+msgstr ""
+
+msgid ""
+"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
+" for zero years, one month, two weeks and three days"
 msgstr ""
 
 msgid "Substracted rebate amount"
@@ -2177,6 +2244,9 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
+msgid "Weeks"
+msgstr ""
+
 msgid "Weight"
 msgstr ""
 
@@ -2187,6 +2257,9 @@ msgid "YYYY-MM-DD (optional)"
 msgstr ""
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
+msgstr ""
+
+msgid "Years"
 msgstr ""
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
@@ -2537,6 +2610,10 @@ msgstr ""
 
 #, php-format
 msgid "stock"
+msgstr ""
+
+#, php-format
+msgid "subscription"
 msgstr ""
 
 #, php-format

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-04 16:19+0100\n"
-"PO-Revision-Date: 2018-02-05 08:44+0000\n"
+"POT-Creation-Date: 2018-04-08 18:06+0200\n"
+"PO-Revision-Date: 2018-04-12 00:09+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,23 @@ msgid ""
 "%11$s\n"
 "%12$s"
 msgstr "%1$s\n%2$s%3$s\n%5$s%4$s\n%7$s%6$s\n%8$s%9$s\n%10$s\n%11$s\n%12$s"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #. / price format with value (%1$s) and currency (%2$s)
 #, php-format
@@ -53,6 +70,9 @@ msgid ""
 "with a \"+\""
 msgstr "Ayırma karakterleri olmaksızın telefon numarası (uluslararası), \"+\" ile başlayabilir"
 
+msgid "Active"
+msgstr "Etkin"
+
 msgid "Actual current price"
 msgstr "Güncel cari fiyat"
 
@@ -75,6 +95,9 @@ msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
 msgstr "Her bir ürün için ilave teslimat maliyetleri, örn; ağır bir öğe için 20$'lık bir maliyet, toplam 5 öğe için 100$ olacaktır"
+
+msgid "Additional information where the customer's apartment can be found"
+msgstr "Müşteri dairesinin bulunabileceği ilave bilgi"
 
 msgid "Additional information where the customer's appartment can be found"
 msgstr "Müşteri dairesinin bulunabileceği ilave bilgi"
@@ -225,6 +248,9 @@ msgstr "Mevcut müşteri grupları"
 
 msgid "Available customers"
 msgstr "Mevcut müşteriler"
+
+msgid "Available intervals in the front-end"
+msgstr "Front-end bölümündeki mevcut aralıklar"
 
 msgid "Available language for the current site"
 msgstr "Geçerli site için mevcut dil"
@@ -544,6 +570,12 @@ msgstr "En son teslimat durumu değişiklik tarihi"
 msgid "Date of the last payment status change"
 msgstr "En son ödeme durumu değişiklik tarihi"
 
+msgid "Date the subscription ends"
+msgstr "Aboneliğin sona erdiği tarih"
+
+msgid "Days"
+msgstr "Günler"
+
 msgid "Default"
 msgstr "Varsayılan"
 
@@ -641,6 +673,9 @@ msgstr "Email"
 msgid "End date"
 msgstr "Bitiş tarihi"
 
+msgid "End date (optional)"
+msgstr "Bitiş tarihi (opsiyonel)"
+
 msgid "Error"
 msgstr "Hata"
 
@@ -712,6 +747,9 @@ msgstr "Kat/Daire"
 
 msgid "Floor / Office"
 msgstr "Kat/Ofis"
+
+msgid "Floor and/or apartment (optional)"
+msgstr "Kat ve/veya daire (opsiyonel)"
 
 msgid "Floor and/or appartment (optional)"
 msgstr "Kat ve/veya daire (isteğe bağlı)"
@@ -837,6 +875,12 @@ msgstr "İç ad (gerekli)"
 msgid "Internal type name shown in the administration interface"
 msgstr "Yönetim arayüzünde gösterilen dahili tür adı"
 
+msgid "Interval"
+msgstr "Aralık"
+
+msgid "Interval (required)"
+msgstr "Aralık (gerekli)"
+
 #, python-brace-format
 msgid "Invalid action \"{0}\""
 msgstr "Geçersiz eylem \"{0}\""
@@ -900,6 +944,9 @@ msgstr "Etiket"
 
 msgid "Label (required)"
 msgstr "Etiket (gerekli)"
+
+msgid "Label describing the interval, will be used if no name is available"
+msgstr "Aralığı tanımlayan etiket, hiçbir isim mevcut değilse kullanılacaktır"
 
 msgid ""
 "Label will be used if empty but then there must be no name for all "
@@ -1108,6 +1155,9 @@ msgstr "Değiştirildi"
 msgid "Modified"
 msgstr "Değiştirilmiş"
 
+msgid "Months"
+msgstr "Aylar"
+
 msgid "More"
 msgstr "Daha fazla"
 
@@ -1141,6 +1191,15 @@ msgstr "Yeni"
 
 msgid "Next"
 msgstr "Sonraki"
+
+msgid "Next date"
+msgstr "Sonraki tarih"
+
+msgid "Next date (optional)"
+msgstr "Sonraki tarih (opsiyonel)"
+
+msgid "Next date the subscription is renewed"
+msgstr "Aboneliğin yenileneceği bir sonraki tarih"
 
 msgid "No error information available"
 msgstr "Hiçbir hata bilgisi mevcut değil"
@@ -1586,6 +1645,9 @@ msgstr "İlgili sipariş ID"
 msgid "Remove filter"
 msgstr "Filtreyi kaldır"
 
+msgid "Renew"
+msgstr "Yenile"
+
 msgid "Replace file"
 msgstr "Dosyayı değiştir"
 
@@ -1839,6 +1901,11 @@ msgstr "Ara-toplam"
 
 msgid "Subscription"
 msgstr "Abonelik"
+
+msgid ""
+"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
+" for zero years, one month, two weeks and three days"
+msgstr "Yıllık, aylık, haftalık ve günlük abonelik aralığı. Örneğin: sıfır yıl, bir ay, iki hafta ve üç gün için \"P0Y1M2W3D\""
 
 msgid "Substracted rebate amount"
 msgstr "Çıkarılmış indirim tutarı"
@@ -2178,6 +2245,9 @@ msgstr "Web sitesi, örn. www.example.com"
 msgid "Website"
 msgstr "Web sitesi"
 
+msgid "Weeks"
+msgstr "Haftalar"
+
 msgid "Weight"
 msgstr "Ağırlık"
 
@@ -2189,6 +2259,9 @@ msgstr "YYYY-MM-DD (isteğe bağlı)"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr "YYYY-AA-GG ss:dd:ss (isteğe bağlı)"
+
+msgid "Years"
+msgstr "Yıllar"
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "Bir veya daha fazla öğeyi sileceksiniz. Devam etmek istiyor musunuz?"
@@ -2539,6 +2612,10 @@ msgstr "İncelemede"
 #, php-format
 msgid "stock"
 msgstr "Stoklar"
+
+#, php-format
+msgid "subscription"
+msgstr "abonelik"
 
 #, php-format
 msgid "supplier"

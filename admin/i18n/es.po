@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-04 16:19+0100\n"
-"PO-Revision-Date: 2018-02-04 15:19+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2018-04-08 18:06+0200\n"
+"PO-Revision-Date: 2018-04-08 16:16+0000\n"
+"Last-Translator: Aldemar Hernández <napalm-beach@lycos.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,6 +32,23 @@ msgid ""
 "%11$s\n"
 "%12$s"
 msgstr ""
+
+#, php-format
+msgid ""
+"%1$s\n"
+"%2$s %3$s %4$s %5$s\n"
+"%6$s %7$s\n"
+"%8$s\n"
+"%9$s %10$s\n"
+"%11$s\n"
+"%12$s\n"
+"%13$s\n"
+"%14$s\n"
+"%15$s\n"
+"%16$s\n"
+"%17$s\n"
+"%18$s\n"
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #. / price format with value (%1$s) and currency (%2$s)
 #, php-format
@@ -56,6 +73,9 @@ msgid ""
 "with a \"+\""
 msgstr ""
 
+msgid "Active"
+msgstr ""
+
 msgid "Actual current price"
 msgstr "Precio actual real"
 
@@ -77,6 +97,9 @@ msgstr "Adicional"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
+msgstr ""
+
+msgid "Additional information where the customer's apartment can be found"
 msgstr ""
 
 msgid "Additional information where the customer's appartment can be found"
@@ -228,6 +251,9 @@ msgstr "Grupos de clientes disponibles"
 
 msgid "Available customers"
 msgstr "Clientes disponibles"
+
+msgid "Available intervals in the front-end"
+msgstr ""
 
 msgid "Available language for the current site"
 msgstr "Lenguaje disponible para el sitio actual"
@@ -547,6 +573,12 @@ msgstr ""
 msgid "Date of the last payment status change"
 msgstr ""
 
+msgid "Date the subscription ends"
+msgstr ""
+
+msgid "Days"
+msgstr ""
+
 msgid "Default"
 msgstr "Por defecto"
 
@@ -644,6 +676,9 @@ msgstr ""
 msgid "End date"
 msgstr "Fecha final"
 
+msgid "End date (optional)"
+msgstr ""
+
 msgid "Error"
 msgstr "Error"
 
@@ -714,6 +749,9 @@ msgid "Floor / Appartment"
 msgstr ""
 
 msgid "Floor / Office"
+msgstr ""
+
+msgid "Floor and/or apartment (optional)"
 msgstr ""
 
 msgid "Floor and/or appartment (optional)"
@@ -840,6 +878,12 @@ msgstr "Nombre interno (obligatorio)"
 msgid "Internal type name shown in the administration interface"
 msgstr ""
 
+msgid "Interval"
+msgstr ""
+
+msgid "Interval (required)"
+msgstr ""
+
 #, python-brace-format
 msgid "Invalid action \"{0}\""
 msgstr "Acción no válida \"{0}\""
@@ -903,6 +947,9 @@ msgstr "Etiqueta"
 
 msgid "Label (required)"
 msgstr "Etiqueta (obligatorio)"
+
+msgid "Label describing the interval, will be used if no name is available"
+msgstr ""
 
 msgid ""
 "Label will be used if empty but then there must be no name for all "
@@ -1111,6 +1158,9 @@ msgstr ""
 msgid "Modified"
 msgstr "Modificado"
 
+msgid "Months"
+msgstr ""
+
 msgid "More"
 msgstr ""
 
@@ -1144,6 +1194,15 @@ msgstr "Nuevo"
 
 msgid "Next"
 msgstr "Siguiente"
+
+msgid "Next date"
+msgstr ""
+
+msgid "Next date (optional)"
+msgstr ""
+
+msgid "Next date the subscription is renewed"
+msgstr ""
 
 msgid "No error information available"
 msgstr "No hay información del error disponible"
@@ -1589,6 +1648,9 @@ msgstr "ID del pedido"
 msgid "Remove filter"
 msgstr "Remover filtro"
 
+msgid "Renew"
+msgstr ""
+
 msgid "Replace file"
 msgstr "Reemplazar archivo"
 
@@ -1842,6 +1904,11 @@ msgstr "Subtotal"
 
 msgid "Subscription"
 msgstr "Suscripción"
+
+msgid ""
+"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
+" for zero years, one month, two weeks and three days"
+msgstr ""
 
 msgid "Substracted rebate amount"
 msgstr "Cantidad de devolución sustraída"
@@ -2181,6 +2248,9 @@ msgstr "Sitio web, ej. www.ejemplo.com"
 msgid "Website"
 msgstr "Sitio web"
 
+msgid "Weeks"
+msgstr ""
+
 msgid "Weight"
 msgstr "Peso"
 
@@ -2192,6 +2262,9 @@ msgstr "AAAA-MM-DD (opcional)"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr "AAAA-MM-DD hh:mm:ss (opcional)"
+
+msgid "Years"
+msgstr ""
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "Va a eliminar uno o más elementos. ¿Está seguro que desea continuar?"
@@ -2542,6 +2615,10 @@ msgstr "revisar"
 #, php-format
 msgid "stock"
 msgstr "Existencias"
+
+#, php-format
+msgid "subscription"
+msgstr ""
 
 #, php-format
 msgid "supplier"
