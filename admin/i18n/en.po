@@ -186,13 +186,11 @@ msgstr ""
 msgid "Attribute Lists Types"
 msgstr ""
 
-#, fuzzy
 msgid "Attribute Property Type"
-msgstr "Attribute properties"
+msgstr ""
 
-#, fuzzy
 msgid "Attribute Property Types"
-msgstr "Attribute properties"
+msgstr ""
 
 msgid "Attribute Type"
 msgstr ""
@@ -758,9 +756,8 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
-#, fuzzy
 msgid "Hidden attributes"
-msgstr "Attributes"
+msgstr ""
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr ""
@@ -1060,13 +1057,11 @@ msgstr ""
 msgid "Media Lists Types"
 msgstr ""
 
-#, fuzzy
 msgid "Media Property Type"
-msgstr "Product properties"
+msgstr ""
 
-#, fuzzy
 msgid "Media Property Types"
-msgstr "Product properties"
+msgstr ""
 
 msgid "Media Type"
 msgstr ""
@@ -1443,9 +1438,8 @@ msgstr ""
 msgid "Product Property Type"
 msgstr ""
 
-#, fuzzy
 msgid "Product Property Types"
-msgstr "Product properties"
+msgstr ""
 
 msgid "Product Type"
 msgstr ""
@@ -1672,9 +1666,8 @@ msgstr ""
 msgid "Select Item"
 msgstr ""
 
-#, fuzzy
 msgid "Select file"
-msgstr "Variants"
+msgstr ""
 
 msgid "Select languages to export"
 msgstr ""
@@ -2235,15 +2228,15 @@ msgstr "Company"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "By day"
 
-#, fuzzy, php-format
+#, php-format
 msgid "counthour"
 msgstr "By hour"
 
-#, fuzzy, php-format
+#, php-format
 msgid "countpaystatus"
-msgstr "By payment status"
+msgstr "Orders by payment status"
 
 #, php-format
 msgid "coupon"
@@ -2301,9 +2294,9 @@ msgstr "Languages"
 msgid "locale/site"
 msgstr "Sites"
 
-#, fuzzy, php-format
+#, php-format
 msgid "log"
-msgstr "Categories"
+msgstr "Log"
 
 msgid "media"
 msgstr "Media"
@@ -2334,13 +2327,11 @@ msgstr "Options"
 msgid "order"
 msgstr "Orders"
 
-#, fuzzy
 msgid "order:phone"
-msgstr "Orders"
+msgstr "Phone"
 
-#, fuzzy
 msgid "order:web"
-msgstr "Orders"
+msgstr "Web"
 
 msgid "pay:-1"
 msgstr "unfinished"
@@ -2392,11 +2383,11 @@ msgstr "unfinished"
 
 #, php-format
 msgid "paymentstatus"
-msgstr "By payment status"
+msgstr "Orders by payment status"
 
 #, php-format
 msgid "paymenttype"
-msgstr "By payment type"
+msgstr "Orders by payment type"
 
 #, php-format
 msgid "physical"
@@ -2424,7 +2415,7 @@ msgstr "Products"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "Sales by weekday"
 
 #, php-format
 msgid "selection"
@@ -2440,13 +2431,13 @@ msgstr "Delivery"
 msgid "service:payment"
 msgstr "Payment"
 
-#, fuzzy, php-format
+#, php-format
 msgid "servicedelivery"
-msgstr "Delivery"
+msgstr "Orders by delivery"
 
-#, fuzzy, php-format
+#, php-format
 msgid "servicepayment"
-msgstr "Payment"
+msgstr "Orders by payment"
 
 #, php-format
 msgid "special"
@@ -2506,21 +2497,17 @@ msgstr "returned"
 msgid "stat:unfinished"
 msgstr "unfinished"
 
-#, fuzzy
 msgid "status:-1"
-msgstr "unfinished"
+msgstr "review"
 
-#, fuzzy
 msgid "status:-2"
-msgstr "in progress"
+msgstr "archive"
 
-#, fuzzy
 msgid "status:0"
-msgstr "deleted"
+msgstr "disabled"
 
-#, fuzzy
 msgid "status:1"
-msgstr "pending"
+msgstr "enabled"
 
 msgid "status:archive"
 msgstr "archive"
@@ -2540,7 +2527,7 @@ msgstr "Stocks"
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Subscription"
 
 #, php-format
 msgid "supplier"
