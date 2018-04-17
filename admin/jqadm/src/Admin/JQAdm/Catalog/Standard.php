@@ -542,7 +542,7 @@ class Standard
 
 		if( $item->getId() == null )
 		{
-			$pid = ( isset( $data['catalog.parentid'] ) && $data['catalog.parentid'] != '0' ? $data['catalog.parentid'] : null );
+			$pid = ( isset( $data['catalog.parentid'] ) && $data['catalog.parentid'] != null ? $data['catalog.parentid'] : null );
 			return $manager->insertItem( $item, $pid );
 		}
 
