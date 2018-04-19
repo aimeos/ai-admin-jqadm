@@ -134,8 +134,8 @@ $params = $this->get( 'pageParams', [] );
 								value="<?= $enc->attr( $this->get( 'itemData/coupon.provider' ) ); ?>"
 								data-names="<?= implode( ',', $this->get( 'itemProviders', [] ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?> />
-							<div class="dropdown input-group-addon">
-								<a class="dropdown-add" id="decoratorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+							<div class="dropdown input-group-append">
+								<button class="btn btn-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="decoratorButton">
 									<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
 										<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ); ?>"><?= $enc->html( $name ); ?></a></li>
