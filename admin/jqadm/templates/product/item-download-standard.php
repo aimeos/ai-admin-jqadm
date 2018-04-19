@@ -17,14 +17,17 @@ $enc = $this->encoder();
 	<div class="col-lg-6 content-block <?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ); ?>">
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'File' ) ); ?></label>
-			<div class="col-sm-8">
+			<div class="input-group col-sm-8">
 				<input class="item-siteid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.siteid' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/product.lists.siteid' ) ); ?>" />
 				<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.id' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/product.lists.id' ) ); ?>" />
 				<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.id' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/attribute.id' ) ); ?>" />
-				<input class="fileupload" type="file" name="download[file]" tabindex="<?= $this->get( 'tabindex' ); ?>" />
+				<div class="custom-file">
+					<input class="custom-file-input" type="file" name="download[file]" tabindex="<?= $this->get( 'tabindex' ); ?>" />
+					<label class="custom-file-label"></label>
+				</div>
 			</div>
 		</div>
 		<div class="form-group row optional">
