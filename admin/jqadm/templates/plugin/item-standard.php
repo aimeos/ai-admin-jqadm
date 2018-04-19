@@ -155,8 +155,8 @@ $enc = $this->encoder();
 								value="<?= $enc->attr( $this->get( 'itemData/plugin.provider' ) ); ?>"
 								data-order="<?= implode( ',', $this->get( 'itemProviders/order', [] ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> />
-							<div class="dropdown input-group-addon">
-								<a class="dropdown-add" id="decoratorButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+							<div class="dropdown input-group-append">
+								<button class="btn btn-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="decoratorButton">
 									<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
 										<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ); ?>"><?= $enc->html( $name ); ?></a></li>

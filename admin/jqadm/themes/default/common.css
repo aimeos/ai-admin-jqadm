@@ -192,15 +192,6 @@
 	width: auto;
 }
 
-.aimeos .input-group-addon .dropdown-add {
-	margin: -0.5rem -0.75rem;
-	padding: 0.5rem 0.75rem;
-}
-
-.aimeos .input-group-addon .dropdown-add:after {
-	content: "+";
-}
-
 .aimeos input.fileupload {
 	padding: 0.25rem 0;
 	width: 100%;

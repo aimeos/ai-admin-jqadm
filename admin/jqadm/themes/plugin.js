@@ -41,7 +41,7 @@ Aimeos.Plugin = {
 
 	setupDecorator : function() {
 
-		$(".aimeos .item-plugin .item-provider").parent().on("click", ".input-group-addon .decorator-name", function(ev) {
+		$(".aimeos .item-plugin .item-provider").parent().on("click", ".dropdown .decorator-name", function(ev) {
 
 			var name = $(this).data("name");
 			var input = $("input.item-provider", ev.delegateTarget);
