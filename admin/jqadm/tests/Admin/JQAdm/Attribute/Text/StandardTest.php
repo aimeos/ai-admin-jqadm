@@ -118,7 +118,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 3, count( $item->getListItems() ) );
+		$this->assertEquals( 5, count( $item->getListItems() ) );
 
 		foreach( $item->getListItems( 'text' ) as $listItem )
 		{

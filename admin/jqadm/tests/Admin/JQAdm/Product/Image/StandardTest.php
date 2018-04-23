@@ -95,14 +95,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$item = $manager->saveItem( $item );
 
-		foreach( $item->getListItems( 'attribute', 'variant' ) as $listItem )
-		{
-			$listItem->setId( null );
-			$listItem->setParentId( $item->getId() );
-
-			$listManager->saveItem( $listItem, false );
-		}
-
 
 		$param = array(
 			'site' => 'unittest',
