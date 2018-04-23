@@ -204,7 +204,7 @@
 .aimeos .main-sidebar .dashboard .icon:before { content: "\f0e4" }
 .aimeos .main-sidebar .order .icon:before { content: "\f07a" }
 .aimeos .main-sidebar .subscription .icon:before { content: "\f073" }
-.aimeos .main-sidebar .customer .icon:before { content: "\f0c0" }
+.aimeos .main-sidebar .customer .icon:before { content: "\f007" }
 .aimeos .main-sidebar .product .icon:before { content: "\f1b2" }
 .aimeos .main-sidebar .catalog .icon:before { content: "\f0e8" }
 .aimeos .main-sidebar .attribute .icon:before { content: "\f02c" }
@@ -215,6 +215,7 @@
 .aimeos .main-sidebar .service .icon:before { content: "\f09d" }
 .aimeos .main-sidebar .service .icon:after { content: "\f0d1" }
 .aimeos .main-sidebar .plugin .icon:before { content: "\f1e6" }
+.aimeos .main-sidebar .group .icon:before { content: "\f0c0" }
 .aimeos .main-sidebar .type .icon:before { content: "\f02b" }
 .aimeos .main-sidebar .locale .icon:before { content: "\f0ac" }
 .aimeos .main-sidebar .log .icon:before { content: "\f187" }

@@ -14,6 +14,7 @@ return [
 			'supplier',
 			'service',
 			'plugin',
+			'group',
 			'locale' => [
 				'locale',
 				'locale/site',
@@ -238,6 +239,23 @@ return [
 				 *
 				 * @param string Single character in upper case
 				 * @since 2017.10
+				 */
+				'key' => 'N',
+			],
+			'group' => [
+				/** admin/jqadm/resource/group/groups
+				 * List of user groups that are allowed to access the group panel
+				 *
+				 * @param array List of user group names
+				 * @since 2017.10
+				 */
+				'groups' => ['admin', 'super'],
+
+				/** admin/jqadm/resource/group/key
+				 * Shortcut key to switch to the group panel by using the keyboard
+				 *
+				 * @param string Single character in upper case
+				 * @since 2018.07
 				 */
 				'key' => 'G',
 			],
