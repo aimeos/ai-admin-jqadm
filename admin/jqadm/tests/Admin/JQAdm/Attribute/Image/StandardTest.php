@@ -90,6 +90,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-image' );
 		$item->setId( null );
 
+		foreach( $item->getListItems() as $listItem ) {
+			$item->deleteRefItem( $listItem->getDomain(), $listItem->setId( null ) );
+		}
+
 		$item = $manager->saveItem( $item );
 
 

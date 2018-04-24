@@ -93,9 +93,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'price/type' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
 
-		$item = $manager->findItem( 'xs', ['price'], 'product', 'size' );
+		$item = $manager->findItem( 'xs', [], 'product', 'size' );
 		$item->setCode( 'jqadm-test-price' );
 		$item->setId( null );
+
+		foreach( $item->getListItems() as $listItem ) {
+			$item->deleteRefItem( $listItem->getDomain(), $listItem->setId( null ) );
+		}
 
 		$item = $manager->saveItem( $item );
 
@@ -126,7 +130,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 5, count( $item->getListItems() ) );
+		$this->assertEquals( 1, count( $item->getListItems() ) );
 
 		foreach( $item->getListItems( 'price' ) as $listItem )
 		{

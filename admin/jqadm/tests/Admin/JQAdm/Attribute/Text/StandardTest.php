@@ -90,9 +90,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
 
-		$item = $manager->findItem( 'white', ['text'], 'product', 'color' );
+		$item = $manager->findItem( 'white', [], 'product', 'color' );
 		$item->setCode( 'jqadm-test-save' );
 		$item->setId( null );
+
+		foreach( $item->getListItems() as $listItem ) {
+			$item->deleteRefItem( $listItem->getDomain(), $listItem->setId( null ) );
+		}
 
 		$item = $manager->saveItem( $item );
 
@@ -118,7 +122,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 5, count( $item->getListItems() ) );
+		$this->assertEquals( 3, count( $item->getListItems() ) );
 
 		foreach( $item->getListItems( 'text' ) as $listItem )
 		{
