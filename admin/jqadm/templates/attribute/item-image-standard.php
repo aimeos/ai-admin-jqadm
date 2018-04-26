@@ -10,7 +10,7 @@ $enc = $this->encoder();
 
 $keys = [
 	'attribute.lists.id', 'attribute.lists.siteid', 'attribute.lists.typeid', 'attribute.lists.datestart', 'attribute.lists.dateend',
-	'media.siteid', 'media.preview', 'media.label', 'media.status', 'media.typeid', 'media.languageid'
+	'media.id', 'media.siteid', 'media.preview', 'media.label', 'media.status', 'media.typeid', 'media.languageid'
 ];
 
 
