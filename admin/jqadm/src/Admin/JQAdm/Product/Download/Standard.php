@@ -113,33 +113,27 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context = $this->getContext(), 'product/lists' );
 		$search = $listManager->createSearch();
 
-		foreach( (array) $view->param( 'id' ) as $id )
+		$listItems = $view->item->getListItems( 'attribute', 'hidden', 'download', false );
+
+		foreach( $listItems as $listid => $listItem )
 		{
-			$listItems = $this->getListItems( $id );
-			$items = $this->getAttributeItems( $listItems );
+			$refId = $listItem->getRefId();
 
-			foreach( $listItems as $listid => $listItem )
-			{
-				$refId = $listItem->getRefId();
+			$expr = array(
+				$search->compare( '==', 'product.lists.refid', $refId ),
+				$search->compare( '==', 'product.lists.domain', 'attribute' ),
+				$search->compare( '==', 'product.lists.type.code', 'hidden' ),
+				$search->compare( '==', 'product.lists.type.domain', 'attribute' ),
+			);
+			$search->setConditions( $search->combine( '&&', $expr ) );
+			$result = $listManager->aggregate( $search, 'product.lists.refid' );
 
-				$expr = array(
-					$search->compare( '==', 'product.lists.refid', $refId ),
-					$search->compare( '==', 'product.lists.domain', 'attribute' ),
-					$search->compare( '==', 'product.lists.type.code', 'hidden' ),
-					$search->compare( '==', 'product.lists.type.domain', 'attribute' ),
-				);
-				$search->setConditions( $search->combine( '&&', $expr ) );
-				$result = $listManager->aggregate( $search, 'product.lists.refid' );
-
-				if( isset( $items[$refId] ) && $result[$refId] == 1 ) {
-					$listItem->setRefItem( $items[$refId] );
-				} else {
-					unset( $listItems[$id] );
-				}
+			if( isset( $result[$refId] ) && $result[$refId] > 1 ) {
+				unset( $listItems[$listid] );
 			}
-
-			$this->cleanupItems( $listItems, [] );
 		}
+
+		$this->cleanupItems( $listItems, [] );
 	}
 
 
