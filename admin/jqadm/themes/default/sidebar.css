@@ -82,7 +82,7 @@
 .aimeos .main-sidebar .separator .icon,
 .aimeos .sidebar-menu > li > span,
 .aimeos .sidebar-menu > li > a {
-	padding: 0.5rem 0.2rem;
+	padding: 0.5rem 0;
 	display: block;
 }
 
