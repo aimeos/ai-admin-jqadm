@@ -447,7 +447,7 @@ class Standard
 			{
 				$litem = clone $listItem;
 
-				if( ( $refId = $this->getValue( $data, 'media.id/' . $idx ) ) !== null ) {
+				if( ( $refId = $this->getValue( $data, 'media.id/' . $idx ) ) != null ) {
 					$item = $mediaManager->getItem( $refId ); // get existing item data
 				} else {
 					$item = clone $mediaItem;
@@ -576,7 +576,7 @@ class Standard
 		 * should be replaced by the name of the new class.
 		 *
 		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
+		 * @since 2017.07
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/supplier/image/template-item';
