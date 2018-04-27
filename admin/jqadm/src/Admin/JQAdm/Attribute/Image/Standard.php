@@ -98,8 +98,8 @@ class Standard
 		}
 
 		$view->imageData = $data;
-		$view->imageTypes = $this->getMediaTypes();
 		$view->imageListTypes = $this->getMediaListTypes();
+		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -116,7 +116,6 @@ class Standard
 	public function delete()
 	{
 		parent::delete();
-
 		$this->cleanupItems( $this->getView()->item->getListItems( 'media', null, null, false ), [] );
 	}
 
@@ -439,7 +438,7 @@ class Standard
 			{
 				$litem = clone $listItem;
 
-				if( ( $refId = $this->getValue( $data, 'media.id/' . $idx ) ) !== null ) {
+				if( ( $refId = $this->getValue( $data, 'media.id/' . $idx ) ) != null ) {
 					$item = $mediaManager->getItem( $refId ); // get existing item data
 				} else {
 					$item = clone $mediaItem;
@@ -533,6 +532,7 @@ class Standard
 				$data['config'][$idx]['val'][] = $val;
 			}
 
+
 			foreach( $refItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;
 			}
@@ -568,7 +568,7 @@ class Standard
 		 * should be replaced by the name of the new class.
 		 *
 		 * @param string Relative path to the template creating the HTML code
-		 * @since 2016.04
+		 * @since 2017.07
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/attribute/image/template-item';
