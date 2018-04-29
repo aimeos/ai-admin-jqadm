@@ -6,12 +6,11 @@
 
 /* Fixes */
 
-html {
-	overflow-y: scroll;
+html, body {
 	position: relative;
-	min-height: 100%;
+	overflow: auto;
+	height: 100%;
 }
-
 
 
 /* Bootstrap bugfixes */
