@@ -7,11 +7,13 @@
 /* Fixes */
 
 html {
-	overflow-y: scroll;
 	position: relative;
-	min-height: 100%;
 }
 
+html, body {
+	overflow: auto;
+	height: 100%;
+}
 
 
 /* Bootstrap bugfixes */
