@@ -9,11 +9,11 @@
 
 .aimeos .main-footer {
 	background-color: #F8F8F8;
-	position: absolute;
+	position: relative;
 	left: 3rem;
 	bottom: 0;
 	margin: 0 2.5%;
-	padding: 1rem 0.5rem;
+	padding: 0.25rem;
 	width: calc(95% - 3rem);
 	text-align: right;
 }

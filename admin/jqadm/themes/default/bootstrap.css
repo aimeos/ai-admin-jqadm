@@ -6,11 +6,8 @@
 
 /* Fixes */
 
-html {
-	position: relative;
-}
-
 html, body {
+	position: relative;
 	overflow: auto;
 	height: 100%;
 }
