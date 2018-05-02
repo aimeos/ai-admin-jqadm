@@ -273,6 +273,7 @@ class Standard
 				$view->itemBody .= $client->save();
 			}
 
+			$manager->saveItem( $view->item );
 			$manager->commit();
 
 			$this->nextAction( $view, $view->param( 'next' ), 'type/media', $view->item->getId(), 'save' );
