@@ -58,7 +58,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;name&quot;:&quot;wei\u00df&quot;', $result );
+		$this->assertContains( '&quot;text.type&quot;:&quot;name&quot;', $result );
 	}
 
 
@@ -82,32 +82,27 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;name&quot;:&quot;wei\u00df&quot;', $result );
+		$this->assertContains( '&quot;text.type&quot;:&quot;name&quot;', $result );
 	}
 
 
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute/lists/type' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'text/type' );
 
-		$item = $manager->findItem( 'white', [], 'product', 'color' );
-		$item->setCode( 'jqadm-test-save' );
-		$item->setId( null );
+		$listTypeId = $listTypeManager->findItem( 'default', [], 'text' )->getId();
+		$typeId = $typeManager->findItem( 'name', [], 'attribute' )->getId();
 
-		foreach( $item->getListItems() as $listItem ) {
-			$item->deleteRefItem( $listItem->getDomain(), $listItem->setId( null ) );
-		}
-
-		$item = $manager->saveItem( $item );
-
+		$item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
 			'text' => array(
-				'text.languageid' => array( 'de' ),
-				'name' => array( 'attribute.lists.id' => '', 'text.content' => 'test name' ),
-				'short' => array( 'attribute.lists.id' => '', 'text.content' => 'short desc' ),
-				'long' => array( 'attribute.lists.id' => '', 'text.content' => 'long desc' ),
+				array( 'text.content' => 'test name', 'text.languageid' => 'de', 'text.typeid' => $typeId, 'attribute.lists.typeid' => $listTypeId ),
+				array( 'text.content' => 'short desc', 'text.languageid' => 'de', 'text.typeid' => $typeId, 'attribute.lists.typeid' => $listTypeId ),
+				array( 'text.content' => 'long desc', 'text.languageid' => 'de', 'text.typeid' => $typeId, 'attribute.lists.typeid' => $listTypeId ),
 			),
 		);
 
@@ -117,17 +112,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$item = $manager->getItem( $item->getId(), array( 'text' ) );
-		$manager->deleteItem( $item->getId() );
-
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 3, count( $item->getListItems() ) );
+		$this->assertEquals( 3, count( $this->view->item->getListItems() ) );
 
-		foreach( $item->getListItems( 'text' ) as $listItem )
+		foreach( $this->view->item->getListItems( 'text' ) as $listItem )
 		{
 			$this->assertEquals( 'text', $listItem->getDomain() );
-			$this->assertEquals( 'default', $listItem->getType() );
 
 			$refItem = $listItem->getRefItem();
 			$this->assertEquals( 'de', $refItem->getLanguageId() );

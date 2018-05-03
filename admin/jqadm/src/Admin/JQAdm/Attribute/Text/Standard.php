@@ -58,8 +58,6 @@ class Standard
 	 */
 	private $subPartPath = 'admin/jqadm/attribute/text/standard/subparts';
 	private $subPartNames = [];
-	private $types;
-	private $typelist = array( 'name', 'short', 'long' );
 
 
 	/**
@@ -72,7 +70,6 @@ class Standard
 		$view = $this->addViewData( $this->getView() );
 
 		$view->textData = $this->toArray( $view->item, true );
-		$view->textTypes = $this->getTypes();
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -94,12 +91,13 @@ class Standard
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'text', [] );
 
-		foreach( $view->value( $data, 'langid', [] ) as $idx => $value ) {
-			$data['siteid'][$idx] = $siteid;
+		foreach( $data as $idx => $entry )
+		{
+			$data[$idx]['attribute.lists.siteid'] = $siteid;
+			$data[$idx]['text.siteid'] = $siteid;
 		}
 
 		$view->textData = $data;
-		$view->textTypes = $this->getTypes();
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -117,8 +115,11 @@ class Standard
 	{
 		parent::delete();
 
-		$refIds = array_keys( $this->getView()->item->getRefItems( 'text', null, null, false ) );
-		\Aimeos\MShop\Factory::createManager( $this->getContext(), 'text' )->deleteItems( $refIds );
+		$item = $this->getView()->item;
+
+		foreach( $item->getListItems( 'text', null, null, false ) as $listItem ) {
+			$item->deleteRefItem( 'text', $listItem, $listItem->getRefItem() );
+		}
 	}
 
 
@@ -132,7 +133,6 @@ class Standard
 		$view = $this->addViewData( $this->getView() );
 
 		$view->textData = $this->toArray( $view->item );
-		$view->textTypes = $this->getTypes();
 		$view->textBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -149,30 +149,21 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/lists' );
-		$textManager = \Aimeos\MShop\Factory::createManager( $context, 'text' );
-
-		$manager->begin();
-		$textManager->begin();
 
 		try
 		{
-			$this->fromArray( $view->item, $view->param( 'text', [] ) );
+			$view->item = $this->fromArray( $view->item, $view->param( 'text', [] ) );
 			$view->textBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
 				$view->textBody .= $client->save();
 			}
 
-			$textManager->commit();
-			$manager->commit();
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'attribute-item-text' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'attribute-item-text' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -182,9 +173,6 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
-
-		$textManager->rollback();
-		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -277,21 +265,6 @@ class Standard
 
 
 	/**
-	 * Adds the required data used in the stock template
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
-	 */
-	protected function addViewData( \Aimeos\MW\View\Iface $view )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'text/type' );
-		$view->textTypes = $manager->searchItems( $manager->createSearch() );
-
-		return $view;
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -303,58 +276,30 @@ class Standard
 
 
 	/**
-	 * Returns the ID for the given text type
+	 * Adds the required data used in the text template
 	 *
-	 * @param string $type Text type
-	 * @return integer Type ID for the given type
-	 * @throws \Aimeos\Admin\JQAdm\Exception If the given type is unknown
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
-	protected function getTypeId( $type )
+	protected function addViewData( \Aimeos\MW\View\Iface $view )
 	{
-		if( $this->types === null )
-		{
-			$this->types = [];
-			$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'text/type' );
+		$context = $this->getContext();
 
-			$search = $manager->createSearch();
-			$search->setConditions( $search->compare( '==', 'text.type.domain', 'attribute' ) );
+		$textTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/lists/type' );
 
-			foreach( $manager->searchItems( $search ) as $id => $typeItem ) {
-				$this->types[$typeItem->getCode()] = $id;
-			}
-		}
+		$search = $textTypeManager->createSearch( true );
+		$search->setConditions( $search->compare( '==', 'text.type.domain', 'attribute' ) );
+		$search->setSortations( array( $search->sort( '+', 'text.type.label' ) ) );
 
-		if( isset( $this->types[$type] ) ) {
-			return $this->types[$type];
-		}
+		$listSearch = $listTypeManager->createSearch( true );
+		$listSearch->setConditions( $listSearch->compare( '==', 'attribute.lists.type.domain', 'text' ) );
+		$listSearch->setSortations( array( $listSearch->sort( '+', 'attribute.lists.type.label' ) ) );
 
-		throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Unknown type "%1$s"', $type ) );
-	}
+		$view->textTypes = $textTypeManager->searchItems( $search );
+		$view->textListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
 
-
-	/**
-	 * Returns the text types that are managed by this subpart
-	 *
-	 * @return array List of text type codes
-	 */
-	protected function getTypes()
-	{
-		/** admin/jqadm/attribute/text/standard/types
-		 * List of text types that are managed by the attribute text subpart
-		 *
-		 * To extend or reduce the text types that can be managed by the attribute
-		 * text subpart, you can modify this configuration setting and add more
-		 * text types or remove existing ones.
-		 *
-		 * '''Note:''' You have to overwrite the corresponding template as well
-		 * to add or remove the corresponding input fields for the new text type
-		 * list.
-		 *
-		 * @param array List of text type codes
-		 * @since 2016.11
-		 * @category Developer
-		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/attribute/text/standard/types', $this->typelist );
+		return $view;
 	}
 
 
@@ -366,86 +311,54 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Attribute\Item\Iface $item, array $data )
 	{
-		$listIds = [];
-		$id = $item->getId();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
 		$textManager = \Aimeos\MShop\Factory::createManager( $context, 'text' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/lists' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/lists/type' );
 
-		$listItems = $manager->getItem( $id, array( 'text' ) )->getListItems( 'text', 'default', null, false );
-		$langIds = (array) $this->getValue( $data, 'text.languageid', [] );
+		$listItems = array_reverse( $item->getListItems( 'text', null, null, false ) );
 
 
-		$listItem = $listManager->createItem();
-		$listItem->setTypeId( $listTypeManager->findItem( 'default', [], 'text' )->getId() );
-		$listItem->setDomain( 'text' );
-		$listItem->setParentId( $id );
-		$listItem->setStatus( 1 );
-
-		$newItem = $textManager->createItem();
-		$newItem->setDomain( 'attribute' );
-		$newItem->setStatus( 1 );
-
-
-		foreach( $langIds as $idx => $langid )
+		foreach( $data as $idx => $entry )
 		{
-			foreach( $this->getTypes() as $type )
+			if( ( $listItem = array_pop( $listItems ) ) === null ) {
+				$listItem = $listManager->createItem();
+			}
+
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				$refItem = $textManager->createItem();
+			}
+
+			if( trim( $this->getValue( $entry, 'text.content', '' ) ) === '' ) {
+				continue;
+			}
+
+			$conf = [];
+
+			foreach( (array) $this->getValue( $entry, 'config/key' ) as $num => $key )
 			{
-				if( ( $content = trim( $this->getValue( $data, $type . '/text.content/' . $idx, '' ) ) ) === '' ) {
-					continue;
+				if( trim( $key ) !== '' && ( $val = $this->getValue( $entry, 'config/val/' . $num ) ) !== null ) {
+					$conf[$key] = trim( $val );
 				}
-
-				$listid = $this->getValue( $data, $type . '/product.lists.id/' . $idx );
-				$listIds[] = $listid;
-
-				if( !isset( $listItems[$listid] ) )
-				{
-					$textItem = clone $newItem;
-
-					$litem = $listItem;
-					$litem->setId( null );
-				}
-				else
-				{
-					$litem = $listItems[$listid];
-					$textItem = $litem->getRefItem();
-				}
-
-				$textItem->setContent( $content );
-				$textItem->setLabel( mb_strcut( $textItem->getContent(), 0, 255 ) );
-				$textItem->setTypeId( $this->getTypeId( $type ) );
-				$textItem->setLanguageId( $langid );
-
-				$textItem = $textManager->saveItem( $textItem );
-
-				$litem->setPosition( $idx );
-				$litem->setRefId( $textItem->getId() );
-
-				$listManager->saveItem( $litem, false );
 			}
+
+			$listItem->fromArray( $entry );
+			$listItem->setPosition( $idx );
+			$listItem->setConfig( $conf );
+
+			$refItem->fromArray( $entry );
+
+			$item->addRefItem( 'text', $listItem, $refItem );
+
+			unset( $listItems[$listItem->getId()] );
 		}
 
 
-		$rmIds = $allListIds = [];
-
-		foreach( $listItems as $id => $listItem )
-		{
-			if( $listItem->getRefItem() && in_array( $listItem->getRefItem()->getType(), $this->getTypes() ) ) {
-				$allListIds[] = $id;
-			}
+		foreach( $listItems as $listItem ) {
+			$item->deleteRefItem( 'text', $listItem, $listItem->getRefItem() );
 		}
 
-		$rmListIds = array_diff( $allListIds, $listIds );
-
-		foreach( $rmListIds as $id ) {
-			$rmIds[] = $listItems[$id]->getRefId();
-		}
-
-		$listManager->deleteItems( $rmListIds  );
-		$textManager->deleteItems( $rmIds  );
+		return $item;
 	}
 
 
@@ -458,29 +371,33 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Attribute\Item\Iface $item, $copy = false )
 	{
-		$data = $map = [];
+		$data = [];
+		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'text', 'default' ) as $listItem )
+		foreach( $item->getListItems( 'text' ) as $id => $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
-			$type = $refItem->getType();
+			$list = $listItem->toArray( true ) + $refItem->toArray( true );
 
-			if( in_array( $type, $this->getTypes() ) )
+			if( $copy === true )
 			{
-				$langid = $refItem->getLanguageId();
-
-				$map[$langid]['text.languageid'] = $langid;
-				$map[$langid]['text.siteid'] = $item->getSiteId();
-				$map[$langid]['text.content'][$type] = $refItem->getContent();
-				$map[$langid]['attribute.lists.id'][$type] = $listItem->getId();
+				$list['attribute.lists.siteid'] = $siteId;
+				$list['text.siteid'] = $siteId;
 			}
-		}
 
-		foreach( $map as $entry ) {
-			$data[] = $entry;
+			$list['attribute.lists.datestart'] = str_replace( ' ', 'T', $list['attribute.lists.datestart'] );
+			$list['attribute.lists.dateend'] = str_replace( ' ', 'T', $list['attribute.lists.dateend'] );
+
+			foreach( $list['attribute.lists.config'] as $key => $val )
+			{
+				$list['config']['key'][] = $key;
+				$list['config']['val'][] = $val;
+			}
+
+			$data[] = $list;
 		}
 
 		return $data;
