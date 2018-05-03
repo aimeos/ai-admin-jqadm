@@ -688,13 +688,16 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
 
-		$item = $manager->createItem();
+		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
+			$item = $manager->getItem( $data['product.id'], $this->getDomains() );
+		} else {
+			$item = $manager->createItem();
+		}
+
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 
-		$item = $manager->saveItem( $item );
-
-		return $manager->getItem( $item->getId(), $this->getDomains() ); // product.type and list/ref items must be available
+		return $manager->saveItem( $item );
 	}
 
 

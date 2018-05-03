@@ -562,23 +562,22 @@ class Standard
 		if( isset( $data['locale.site.id'] ) && $data['locale.site.id'] != '' )
 		{
 			$this->checkSite( $super, $data['locale.site.id'] );
-
 			$item = $manager->getItem( $data['locale.site.id'] );
-			$item->fromArray( $data );
-			$item->setConfig( $conf );
-			$item = $manager->saveItem( $item );
 		}
 		else
 		{
 			$this->checkSite( $super );
-
 			$item = $manager->createItem();
-			$item->fromArray( $data );
-			$item->setConfig( $conf );
-			$item = $manager->insertItem( $item );
 		}
 
-		return $item;
+		$item->fromArray( $data );
+		$item->setConfig( $conf );
+
+		if( $item->getId() == null ) {
+			return $manager->insertItem( $item );
+		}
+
+		return $manager->saveItem( $item );
 	}
 
 

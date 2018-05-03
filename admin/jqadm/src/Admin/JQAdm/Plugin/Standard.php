@@ -567,7 +567,12 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin' );
 
-		$item = $manager->createItem();
+		if( isset( $data['plugin.id'] ) && $data['plugin.id'] != '' ) {
+			$item = $manager->getItem( $data['plugin.id'] );
+		} else {
+			$item = $manager->createItem();
+		}
+
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 

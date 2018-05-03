@@ -566,22 +566,19 @@ class Standard
 	 */
 	protected function fromArray( array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer' );
-
 		$data['customer.label'] = $data['customer.firstname'] . ' ' . $data['customer.lastname'];
 		$data['customer.code'] = $data['customer.email'];
 
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer' );
+
 		if( isset( $data['customer.id'] ) && $data['customer.id'] != '' ) {
-			$item = $manager->getItem( $data['customer.id']);
+			$item = $manager->getItem( $data['customer.id'], $this->getDomains() );
 		} else {
 			$item = $manager->createItem();
 		}
 
 		$item->fromArray( $data );
-		$item = $manager->saveItem( $item );
-
-		$groupsIds = array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() );
-		$item = $manager->getItem( $item->getId(), ['customer/group'] )->setGroups( $groupsIds );
+		$item->setGroups( array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() ) );
 
 		return $manager->saveItem( $item );
 	}
@@ -600,9 +597,7 @@ class Standard
 		if( $copy === true )
 		{
 			$data['customer.siteid'] = $this->getContext()->getLocale()->getSiteId();
-			$data['customer.label'] = '';
 			$data['customer.email'] = '';
-			$data['customer.code'] = '';
 			$data['customer.id'] = '';
 		}
 

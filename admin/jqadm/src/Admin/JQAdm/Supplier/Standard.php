@@ -516,7 +516,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		$domains = ['media', 'supplier/address'];
+		$domains = ['media', 'supplier/address', 'text'];
 
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/supplier/domains', $domains );
 	}
@@ -545,7 +545,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'supplier' );
 
 		if( isset( $data['supplier.id'] ) && $data['supplier.id'] != '' ) {
-			$item = $manager->getItem( $data['supplier.id'] );
+			$item = $manager->getItem( $data['supplier.id'], $this->getDomains() );
 		} else {
 			$item = $manager->createItem();
 		}

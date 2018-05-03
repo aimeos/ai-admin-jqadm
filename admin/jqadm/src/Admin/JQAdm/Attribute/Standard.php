@@ -563,12 +563,15 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'attribute' );
 
-		$item = $manager->createItem();
+		if( isset( $data['attribute.id'] ) && $data['attribute.id'] != '' ) {
+			$item = $manager->getItem( $data['attribute.id'], $this->getDomains() );
+		} else {
+			$item = $manager->createItem();
+		}
+
 		$item->fromArray( $data );
 
-		$item = $manager->saveItem( $item );
-
-		return $manager->getItem( $item->getId() ); // attribute.type must be available;
+		return $manager->saveItem( $item );
 	}
 
 

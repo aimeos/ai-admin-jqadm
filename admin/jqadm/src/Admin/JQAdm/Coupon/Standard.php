@@ -553,7 +553,12 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon' );
 
-		$item = $manager->createItem();
+		if( isset( $data['coupon.id'] ) && $data['coupon.id'] != '' ) {
+			$item = $manager->getItem( $data['coupon.id'] );
+		} else {
+			$item = $manager->createItem();
+		}
+
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 

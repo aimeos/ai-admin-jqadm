@@ -625,7 +625,12 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service' );
 
-		$item = $manager->createItem();
+		if( isset( $data['service.id'] ) && $data['service.id'] != '' ) {
+			$item = $manager->getItem( $data['service.id'], $this->getDomains() );
+		} else {
+			$item = $manager->createItem();
+		}
+
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 
