@@ -12,6 +12,10 @@ html, body {
 	height: 100%;
 }
 
+textarea {
+	overflow-x: hidden;
+}
+
 
 /* Bootstrap bugfixes */
 

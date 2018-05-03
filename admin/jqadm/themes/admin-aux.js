@@ -432,20 +432,19 @@ Aimeos.Text = {
 			},
 
 
-			addItem : function(listKey) {
-				var entry = {
-					'text.siteid': this.siteid,
-					'text.languageid': '',
-					'text.content': {}
-				};
-				entry[listKey] = {};
+			addItem : function(prefix) {
 
-				for(type in this.types) {
-					entry['text.content'][type] = '';
-					entry[listKey][type] = '';
+				var idx = this.items.length;
+				this.$set(this.items, idx, {});
+
+				for(var key in this.keys) {
+					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.items.push(entry);
+				this.$set(this.items[idx], prefix + 'typeid', $('#item-text-group').data('listtypeid') || '');
+				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
+				this.$set(this.items[idx], 'text.siteid', this.siteid);
+				this.$set(this.items[idx], 'text.status', '1');
 			},
 
 
@@ -454,18 +453,60 @@ Aimeos.Text = {
 			},
 
 
+			addConfig : function(idx) {
+
+				if(!this.items[idx]['config']) {
+					this.$set(this.items[idx], 'config', {'key': [], 'val': []});
+				}
+
+				this.items[idx]['config']['key'].push('');
+				this.items[idx]['config']['val'].push('');
+			},
+
+
+			getConfig : function(idx) {
+
+				 if(this.items[idx]['config'] && this.items[idx]['config']['key']) {
+					 return this.items[idx]['config']['key'];
+				 }
+				 return [];
+			},
+
+
+			removeConfig : function(idx, pos) {
+				this.items[idx]['config']['key'].splice(pos, 1);
+				this.items[idx]['config']['val'].splice(pos, 1);
+			},
+
+
 			getCss : function(idx) {
-				return ( idx !== 0 && this.items[idx]['text.languageid'] ? 'collapsed' : 'show' );
+				return ( idx !== 0 && this.items[idx]['text.id'] ? 'collapsed' : 'show' );
 			},
 
 
 			getLabel : function(idx) {
 				var label = '';
+				var type = $('#item-text-group-data-' + idx + ' .item-typeid option[value="' + this.items[idx]['text.typeid'] + '"]').html();
 
-				label += (this.items[idx]['text.languageid'] ? this.items[idx]['text.languageid'] + ': ' : '');
-				label += (this.items[idx]['text.content']['name'] ? this.items[idx]['text.content']['name'] : '');
+				label += (this.items[idx]['text.languageid'] ? this.items[idx]['text.languageid'].toUpperCase() : '');
+				label += (type ? ' (' + type.trim() + ')' : (this.items[idx]['text.typename'] ? ' (' + this.items[idx]['text.typename'] + ')' : ''));
+
+				if(this.items[idx]['text.content']) {
+					var tmp = document.createElement("span");
+					tmp.innerHTML = this.items[idx]['text.content'];
+					label += ': ' + (tmp.textContent || tmp.innerText || "").substr(0, 40);
+				}
+
+				if(this.items[idx]['text.status'] < 1) {
+					label = '<s>' + label + '</s>';
+				}
 
 				return label;
+			},
+
+
+			toggle : function(idx) {
+				this.$set(this.advanced, idx, (!this.advanced[idx] ? true : false));
 			}
 		},
 		'mounted' : function() {
@@ -480,9 +521,10 @@ Aimeos.Text = {
 		this.vtext = new Vue({
 			'el': '.item-text',
 			'data': {
+				'advanced': [],
 				'items': $("#item-text-group").data("items"),
-				'siteid': $("#item-text-group").data("siteid"),
-				'types': $("#item-text-group").data("types")
+				'keys': $("#item-text-group").data("keys"),
+				'siteid': $("#item-text-group").data("siteid")
 			},
 			'mixins': [this.mixins]
 		});

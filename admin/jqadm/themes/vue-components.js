@@ -64,10 +64,17 @@ Vue.component('combo-box', {
 
 
 Vue.component('html-editor', {
-	template: '<textarea rows="10" class="form-control htmleditor" v-bind:name="name" v-bind:value="value" v-bind:placeholder="placeholder" v-bind:readonly="readonly" v-bind:tabindex="tabindex"></textarea>',
+	template: '<textarea rows="6" class="form-control htmleditor" v-bind:name="name" v-bind:value="value" v-bind:placeholder="placeholder" v-bind:readonly="readonly" v-bind:tabindex="tabindex"></textarea>',
 	props: ['name', 'value', 'placeholder', 'readonly', 'tabindex'],
 
 	mounted: function() {
-		$(this.$el).ckeditor({toolbar: Aimeos.editorcfg});
+		var vm = this;
+		var el = $(this.$el);
+
+		el.ckeditor({toolbar: Aimeos.editorcfg});
+
+		el.ckeditor().editor.on('change', function() {
+			vm.$emit('input', el.ckeditor().editor.getData());
+		});
 	}
 });
