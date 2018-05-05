@@ -53,10 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;price.currencyid&quot;:[&quot;EUR&quot;]', $result );
-		$this->assertContains( '&quot;price.value&quot;:[&quot;12.95&quot;]', $result );
-		$this->assertContains( '&quot;price.costs&quot;:[&quot;1.99&quot;]', $result );
-		$this->assertContains( '&quot;price.quantity&quot;:[1]', $result );
+		$this->assertContains( '&quot;price.type&quot;:&quot;default&quot;', $result );
 	}
 
 
@@ -80,43 +77,33 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;price.currencyid&quot;:[&quot;EUR&quot;]', $result );
-		$this->assertContains( '&quot;price.value&quot;:[&quot;12.95&quot;]', $result );
-		$this->assertContains( '&quot;price.costs&quot;:[&quot;1.99&quot;]', $result );
-		$this->assertContains( '&quot;price.quantity&quot;:[1]', $result );
+		$this->assertContains( '&quot;price.type&quot;:&quot;default&quot;', $result );
 	}
 
 
 	public function testSave()
 	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute/lists/type' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'price/type' );
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
 
-		$item = $manager->findItem( 'xs', [], 'product', 'size' );
-		$item->setCode( 'jqadm-test-price' );
-		$item->setId( null );
+		$listTypeId = $listTypeManager->findItem( 'default', [], 'price' )->getId();
+		$typeId = $typeManager->findItem( 'default', [], 'attribute' )->getId();
 
-		foreach( $item->getListItems() as $listItem ) {
-			$item->deleteRefItem( $listItem->getDomain(), $listItem->setId( null ) );
-		}
-
-		$item = $manager->saveItem( $item );
-
+		$item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
-			'price' => array(
-				'attribute.lists.id' => array( '' ),
-				'attribute.lists.typeid' => array( $listTypeManager->findItem( 'default', [], 'price' )->getId() ),
-				'price.typeid' => array( $typeManager->findItem( 'default', [], 'attribute' )->getId() ),
-				'price.currencyid' => array( 'EUR' ),
-				'price.quantity' => array( '2' ),
-				'price.value' => array( '10.00' ),
-				'price.costs' => array( '1.00' ),
-				'price.rebate' => array( '5.00' ),
-				'price.taxrate' => array( '20.00' ),
-			),
+			'price' => [[
+				'price.value' => '10.00',
+				'price.costs' => '1.00',
+				'price.rebate' => '5.00',
+				'price.taxrate' => '20.00',
+				'price.quantity' => '2',
+				'price.currencyid' => 'EUR',
+				'price.typeid' => $typeId,
+				'attribute.lists.typeid' => $listTypeId
+			]],
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
@@ -125,9 +112,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$item = $manager->getItem( $item->getId(), array( 'price' ) );
-		$manager->deleteItem( $item->getId() );
-
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
 		$this->assertEquals( 1, count( $item->getListItems() ) );
@@ -135,17 +119,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		foreach( $item->getListItems( 'price' ) as $listItem )
 		{
 			$this->assertEquals( 'price', $listItem->getDomain() );
-			$this->assertEquals( 'default', $listItem->getType() );
 
 			$refItem = $listItem->getRefItem();
-			$this->assertEquals( 'default', $refItem->getType() );
 			$this->assertEquals( 'EUR', $refItem->getCurrencyId() );
 			$this->assertEquals( '2', $refItem->getQuantity() );
 			$this->assertEquals( '10.00', $refItem->getValue() );
 			$this->assertEquals( '1.00', $refItem->getCosts() );
 			$this->assertEquals( '5.00', $refItem->getRebate() );
 			$this->assertEquals( '20.00', $refItem->getTaxRate() );
-			$this->assertNotEmpty( $refItem->getLabel() );
 		}
 	}
 

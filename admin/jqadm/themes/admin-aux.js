@@ -267,79 +267,77 @@ Aimeos.Price = {
 		'methods': {
 
 			checkSite : function(key, idx) {
-				return this.items[key][idx] != this.siteid;
+				return this.items[idx][key] != this.siteid;
 			},
 
 
 			addItem : function(prefix) {
 
-				var idx = (this.items[prefix + 'id'] || []).length;
-				var listtypeid = $('#item-price-group').data('listtypeid') || '';
-				var currencyid = $('#item-price-group').data('currencyid') || '';
+				var idx = this.items.length;
+				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
-				this.$set(this.items[prefix + 'typeid'], idx, listtypeid);
-				this.$set(this.items['price.currencyid'], idx, currencyid);
-				this.$set(this.items['price.siteid'], idx, this.siteid);
-				this.$set(this.items['price.quantity'], idx, '1');
-				this.$set(this.items['price.status'], idx, '1');
+				this.$set(this.items[idx], prefix + 'typeid', $('#item-price-group').data('listtypeid'));
+				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
+				this.$set(this.items[idx], 'price.siteid', this.siteid);
+				this.$set(this.items[idx], 'price.quantity', '1');
+				this.$set(this.items[idx], 'price.status', '1');
 			},
 
 
 			removeItem : function(idx) {
-
-				for(key in this.items) {
-					this.items[key].splice(idx, 1);
-				}
+				this.items.splice(idx, 1);
 			},
 
 
 			addConfig : function(idx) {
 
-				if(!this.items['config']) {
-					this.$set(this.items, 'config', {});
+				if(!this.items[idx]['config']) {
+					this.$set(this.items[idx], 'config', {'key': [], 'val': []});
 				}
 
-				if(!this.items['config'][idx]) {
-					this.$set(this.items['config'], idx, {'key': [], 'val': []});
-				}
-
-				this.items['config'][idx]['key'].push('');
+				this.items[idx]['config']['key'].push('');
+				this.items[idx]['config']['val'].push('');
 			},
 
 
 			getConfig : function(idx) {
 
-				 if(this.items['config'] && this.items['config'][idx] && this.items['config'][idx]['key']) {
-					 return this.items['config'][idx]['key'];
+				 if(this.items[idx]['config'] && this.items[idx]['config']['key']) {
+					 return this.items[idx]['config']['key'];
 				 }
 				 return [];
 			},
 
 
 			removeConfig : function(idx, pos) {
-				this.items['config'][idx]['key'].splice(pos, 1);
-				this.items['config'][idx]['val'].splice(pos, 1);
+				this.items[idx]['config']['key'].splice(pos, 1);
+				this.items[idx]['config']['val'].splice(pos, 1);
 			},
 
 
 			getCss : function(idx) {
-				return ( idx !== 0 && this.items['price.id'] && this.items['price.id'][idx] ? 'collapsed' : 'show' );
+				return ( idx !== 0 && this.items[idx]['price.id'] ? 'collapsed' : 'show' );
 			},
 
 
 			getLabel : function(idx) {
 				var label = '';
+				var type = $('#item-price-group-data-' + idx + ' .item-typeid option[value="' + this.items[idx]['price.typeid'] + '"]').html();
+				var currency = $('#item-price-group-data-' + idx + ' .item-currencyid').val();
 
-				label += (this.items['price.quantity'][idx] ? this.items['price.quantity'][idx] + ' ~ ' : '');
-				label += (this.items['price.value'][idx] ? this.items['price.value'][idx] : '');
-				label += (this.items['price.costs'][idx] ? ' + ' + this.items['price.costs'][idx] : '');
-				label += (this.items['price.currencyid'][idx] ? ' ' + this.items['price.currencyid'][idx] : '');
-				label += (this.items['price.typename'] && this.items['price.typename'][idx] ? ' (' + this.items['price.typename'][idx] + ')' : '');
+				label += (this.items[idx]['price.quantity'] ? this.items[idx]['price.quantity'] + ' ~ ' : '');
+				label += (this.items[idx]['price.value'] ? this.items[idx]['price.value'] : '');
+				label += (this.items[idx]['price.costs'] ? ' + ' + this.items[idx]['price.costs'] : '');
+				label += (currency ? ' ' + currency : (this.items[idx]['price.currencyid'] ? ' ' + this.items[idx]['price.currencyid'] : ''));
+				label += (type ? ' (' + type.trim() + ')' : (this.items[idx]['price.typename'] ? ' (' + this.items[idx]['price.typename'] + ')' : ''));
+
+				if(this.items[idx]['price.status'] < 1) {
+					label = '<s>' + label + '</s>';
+				}
 
 				return label;
 			},
@@ -441,7 +439,7 @@ Aimeos.Text = {
 					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[idx], prefix + 'typeid', $('#item-text-group').data('listtypeid') || '');
+				this.$set(this.items[idx], prefix + 'typeid', $('#item-text-group').data('listtypeid'));
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
 				this.$set(this.items[idx], 'text.siteid', this.siteid);
 				this.$set(this.items[idx], 'text.status', '1');

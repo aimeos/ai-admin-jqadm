@@ -91,8 +91,10 @@ class Standard
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'price', [] );
 
-		foreach( $view->value( $data, 'service.lists.id', [] ) as $idx => $value ) {
-			$data['service.lists.siteid'][$idx] = $siteid;
+		foreach( $data as $idx => $entry )
+		{
+			$data[$idx]['service.lists.siteid'] = $siteid;
+			$data[$idx]['price.siteid'] = $siteid;
 		}
 
 		$view->priceData = $data;
@@ -113,8 +115,11 @@ class Standard
 	{
 		parent::delete();
 
-		$refIds = array_keys( $this->getView()->item->getRefItems( 'price', null, null, false ) );
-		\Aimeos\MShop\Factory::createManager( $this->getContext(), 'price' )->deleteItems( $refIds );
+		$item = $this->getView()->item;
+
+		foreach( $item->getListItems( 'price', null, null, false ) as $listItem ) {
+			$item->deleteRefItem( 'price', $listItem, $listItem->getRefItem() );
+		}
 	}
 
 
@@ -144,30 +149,21 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'service/lists' );
-		$textManager = \Aimeos\MShop\Factory::createManager( $context, 'text' );
-
-		$manager->begin();
-		$textManager->begin();
 
 		try
 		{
-			$this->fromArray( $view->item, $view->param( 'price', [] ) );
+			$view->item = $this->fromArray( $view->item, $view->param( 'price', [] ) );
 			$view->priceBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
 				$view->priceBody .= $client->save();
 			}
 
-			$textManager->commit();
-			$manager->commit();
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'service-item-price' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'service-item-price' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -177,9 +173,6 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
-
-		$textManager->rollback();
-		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -291,31 +284,26 @@ class Standard
 	protected function addViewData( \Aimeos\MW\View\Iface $view )
 	{
 		$context = $this->getContext();
-		$priceTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'price/type' );
 
-		$search = $priceTypeManager->createSearch();
+		$priceTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'price/type' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'service/lists/type' );
+		$currencyManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
+
+		$search = $priceTypeManager->createSearch( true );
 		$search->setConditions( $search->compare( '==', 'price.type.domain', 'service' ) );
 		$search->setSortations( array( $search->sort( '+', 'price.type.label' ) ) );
-
-
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'service/lists/type' );
 
 		$listSearch = $listTypeManager->createSearch( true );
 		$listSearch->setConditions( $listSearch->compare( '==', 'service.lists.type.domain', 'price' ) );
 		$listSearch->setSortations( array( $listSearch->sort( '+', 'service.lists.type.label' ) ) );
 
-
-		$currencyManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
-		$currencyItems = $currencyManager->searchItems( $currencyManager->createSearch( true ) );
-
-		if( $currencyItems === [] ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
-		}
-
-
-		$view->priceCurrencies = $currencyItems;
 		$view->priceTypes = $priceTypeManager->searchItems( $search );
 		$view->priceListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
+		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true ) );
+
+		if( $view->priceCurrencies === [] ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
+		}
 
 		return $view;
 	}
@@ -331,83 +319,48 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'service' );
-		$priceManager = \Aimeos\MShop\Factory::createManager( $context, 'price' );
+		$textManager = \Aimeos\MShop\Factory::createManager( $context, 'price' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'service/lists' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'service/lists/type' );
 
-		$listIds = (array) $this->getValue( $data, 'service.lists.id', [] );
-		$listItems = $manager->getItem( $item->getId(), array( 'price' ) )->getListItems( 'price', null, null, false );
+		$listItems = array_reverse( $item->getListItems( 'price', null, null, false ) );
 
 
-		$listItem = $listManager->createItem();
-		$listItem->setParentId( $item->getId() );
-		$listItem->setDomain( 'price' );
-		$listItem->setStatus( 1 );
-
-		$newItem = $priceManager->createItem();
-		$newItem->setDomain( 'service' );
-
-
-		foreach( $listIds as $idx => $listid )
+		foreach( $data as $idx => $entry )
 		{
-			if( !isset( $listItems[$listid] ) )
-			{
-				$priceItem = clone $newItem;
-				$litem = clone $listItem;
-			}
-			else
-			{
-				$litem = $listItems[$listid];
-				$priceItem = $litem->getRefItem();
+			if( ( $listItem = array_pop( $listItems ) ) === null ) {
+				$listItem = $listManager->createItem();
 			}
 
-			$priceItem->setStatus( $this->getValue( $data, 'price.status/' . $idx ) );
-			$priceItem->setTypeId( $this->getValue( $data, 'price.typeid/' . $idx ) );
-			$priceItem->setCurrencyId( $this->getValue( $data, 'price.currencyid/' . $idx ) );
-			$priceItem->setQuantity( $this->getValue( $data, 'price.quantity/' . $idx, 1 ) );
-			$priceItem->setValue( $this->getValue( $data, 'price.value/' . $idx, '0.00' ) );
-			$priceItem->setCosts( $this->getValue( $data, 'price.costs/' . $idx, '0.00' ) );
-			$priceItem->setRebate( $this->getValue( $data, 'price.rebate/' . $idx, '0.00' ) );
-			$priceItem->setTaxRate( $this->getValue( $data, 'price.taxrate/' . $idx, '0.00' ) );
-
-			$label = $priceItem->getQuantity() . ' ~ ' . $priceItem->getValue() . ' ' . $priceItem->getCurrencyId();
-			$priceItem->setLabel( $item->getLabel() . ' :: ' . $label );
-
-			$priceItem = $priceManager->saveItem( $priceItem );
-
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				$refItem = $textManager->createItem();
+			}
 
 			$conf = [];
 
-			foreach( (array) $this->getValue( $data, 'config/' . $idx . '/key' ) as $num => $key )
+			foreach( (array) $this->getValue( $entry, 'config/key' ) as $num => $key )
 			{
-				$val = $this->getValue( $data, 'config/' . $idx . '/val/' . $num );
-
-				if( trim( $key ) !== '' && $val !== null ) {
+				if( trim( $key ) !== '' && ( $val = $this->getValue( $entry, 'config/val/' . $num ) ) !== null ) {
 					$conf[$key] = trim( $val );
 				}
 			}
 
-			$litem->setConfig( $conf );
-			$litem->setPosition( $idx );
-			$litem->setRefId( $priceItem->getId() );
-			$litem->setTypeId( $this->getValue( $data, 'service.lists.typeid/' . $idx ) );
-			$litem->setDateStart( $this->getValue( $data, 'service.lists.datestart/' . $idx ) );
-			$litem->setDateEnd( $this->getValue( $data, 'service.lists.dateend/' . $idx ) );
+			$listItem->fromArray( $entry );
+			$listItem->setPosition( $idx );
+			$listItem->setConfig( $conf );
 
-			$listManager->saveItem( $litem, false );
+			$refItem->fromArray( $entry );
+
+			$item->addRefItem( 'price', $listItem, $refItem );
+
+			unset( $listItems[$listItem->getId()] );
 		}
 
 
-		$rmIds = [];
-		$rmListIds = array_diff( array_keys( $listItems ), $listIds );
-
-		foreach( $rmListIds as $id ) {
-			$rmIds[] = $listItems[$id]->getRefId();
+		foreach( $listItems as $listItem ) {
+			$item->deleteRefItem( 'price', $listItem, $listItem->getRefItem() );
 		}
 
-		$listManager->deleteItems( $rmListIds  );
-		$priceManager->deleteItems( $rmIds  );
+		return $item;
 	}
 
 
@@ -420,45 +373,33 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Service\Item\Iface $item, $copy = false )
 	{
-		$idx = 0;
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'price', null, null, false ) as $id => $listItem )
+		foreach( $item->getListItems( 'price' ) as $id => $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
-			$list = $listItem->toArray( true );
+			$list = $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true )
 			{
 				$list['service.lists.siteid'] = $siteId;
-				$list['service.lists.id'] = '';
+				$list['text.siteid'] = $siteId;
 			}
 
 			$list['service.lists.datestart'] = str_replace( ' ', 'T', $list['service.lists.datestart'] );
 			$list['service.lists.dateend'] = str_replace( ' ', 'T', $list['service.lists.dateend'] );
 
-			foreach( $list as $key => $value ) {
-				$data[$key][] = $value;
-			}
-
-			$data['config'][$idx]['key'] = [];
-			$data['config'][$idx]['val'] = [];
-
 			foreach( $list['service.lists.config'] as $key => $val )
 			{
-				$data['config'][$idx]['key'][] = $key;
-				$data['config'][$idx]['val'][] = $val;
+				$list['config']['key'][] = $key;
+				$list['config']['val'][] = $val;
 			}
 
-			foreach( $refItem->toArray( true ) as $key => $value ) {
-				$data[$key][] = $value;
-			}
-
-			$idx++;
+			$data[] = $list;
 		}
 
 		return $data;
