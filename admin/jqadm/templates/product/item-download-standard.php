@@ -25,8 +25,8 @@ $enc = $this->encoder();
 				<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.id' ) ) ); ?>"
 					value="<?= $enc->attr( $this->get( 'downloadData/attribute.id' ) ); ?>" />
 				<div class="custom-file">
-					<input class="custom-file-input" type="file" name="download[file]" tabindex="<?= $this->get( 'tabindex' ); ?>" />
-					<label class="custom-file-label"></label>
+					<input id="download-file" class="custom-file-input fileupload" type="file" name="download[file]" tabindex="<?= $this->get( 'tabindex' ); ?>" />
+					<label for="download-file" class="custom-file-label"><?= $enc->html( $this->translate( 'admin', 'Choose file' ) ); ?></label>
 				</div>
 			</div>
 		</div>
@@ -81,19 +81,19 @@ $enc = $this->encoder();
 			<div class="form-group row">
 				<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Path' ) ); ?></label>
 				<div class="col-sm-8">
-					<p class="form-control-static item-file"><?= $enc->html( $this->get( 'downloadData/path' ) ); ?></p>
+					<p class="form-control-plaintext item-file"><?= $enc->html( $this->get( 'downloadData/path' ) ); ?></p>
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Size' ) ); ?></label>
 				<div class="col-sm-8">
-					<p class="form-control-static item-file"><?= $enc->html( number_format( $this->get( 'downloadData/size' ) / 1024, 0, '.', ' ' ) ); ?> KB</p>
+					<p class="form-control-plaintext item-file"><?= $enc->html( number_format( $this->get( 'downloadData/size' ) / 1024, 0, '.', ' ' ) ); ?> KB</p>
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Uploaded' ) ); ?></label>
 				<div class="col-sm-8">
-					<p class="form-control-static item-file"><?= $enc->html( date( 'Y-m-d H:i:s', $this->get( 'downloadData/time' ) ) ); ?></p>
+					<p class="form-control-plaintext item-file"><?= $enc->html( date( 'Y-m-d H:i:s', $this->get( 'downloadData/time' ) ) ); ?></p>
 				</div>
 			</div>
 		<?php endif; ?>

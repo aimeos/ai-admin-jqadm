@@ -277,6 +277,15 @@
 }
 
 
+/* Download */
+
+.aimeos .item-download .custom-file label {
+	font-weight: normal;
+	font-size: initial;
+	text-align: left;
+}
+
+
 /* Images */
 
 .aimeos .item-image .image-preview {
