@@ -46,6 +46,9 @@ $keys = [
 			<div v-bind:id="'item-text-group-data-' + idx" v-bind:class="getCss(idx)"
 				v-bind:aria-labelledby="'item-text-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
+				<input type="hidden" v-model="items[idx]['text.id']"
+					v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.id' ) ) ); ?>'.replace('idx', idx)" />
+
 				<div class="col-xl-6">
 
 					<div class="form-group row mandatory">

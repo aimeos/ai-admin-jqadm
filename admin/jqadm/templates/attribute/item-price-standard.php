@@ -48,6 +48,9 @@ $currencies = $this->get( 'priceCurrencies', [] );
 			<div v-bind:id="'item-price-group-data-' + idx" v-bind:class="getCss(idx)"
 				v-bind:aria-labelledby="'item-price-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
+				<input type="hidden" v-model="items[idx]['price.id']"
+					v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.id' ) ) ); ?>'.replace('idx', idx)" />
+
 				<div class="col-xl-6">
 
 					<div class="form-group row mandatory">
