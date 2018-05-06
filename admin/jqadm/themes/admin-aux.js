@@ -86,7 +86,7 @@ Aimeos.Address = {
 	init : function() {
 
 		this.vaddress = new Vue({
-			'el': '.item-address',
+			'el': '#item-address-group',
 			'data': {
 				'advanced': [],
 				'items': $("#item-address-group").data("items"),
@@ -247,7 +247,7 @@ Aimeos.Media = {
 	init : function() {
 
 		this.vmedia = new Vue({
-			'el': '.item-image',
+			'el': '#item-image-group',
 			'data': {
 				'advanced': [],
 				'items': $("#item-image-group").data("items"),
@@ -357,7 +357,7 @@ Aimeos.Price = {
 	init : function() {
 
 		this.vprice = new Vue({
-			'el': '.item-price',
+			'el': '#item-price-group',
 			'data': {
 				'advanced': [],
 				'items': $("#item-price-group").data("items"),
@@ -517,7 +517,7 @@ Aimeos.Text = {
 	init : function() {
 
 		this.vtext = new Vue({
-			'el': '.item-text',
+			'el': '#item-text-group',
 			'data': {
 				'advanced': [],
 				'items': $("#item-text-group").data("items"),

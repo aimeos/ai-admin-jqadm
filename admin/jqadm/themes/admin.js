@@ -826,7 +826,6 @@ Aimeos.Tabs = {
 		if(url.match(/#[a-z0-9]+/i)) {
 			hash = url.split('#')[1];
 			$('.nav-tabs a[href="#' + hash + '"]').tab('show');
-			$('.tab-content #' + hash).addClass('active show'); // workaround for Bootstrap/JQuery/Vue.js combination bug
 
 			$("form").each(function() {
 				$(this).attr("action", $(this).attr("action").split('#')[0] + '#' + hash);
