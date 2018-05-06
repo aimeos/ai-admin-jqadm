@@ -101,6 +101,7 @@ Aimeos.Product.Download = {
 		$(".item-download").on("change", ".fileupload", function(ev) {
 			$(this.files).each( function(idx, file) {
 				$("input.item-label", ev.delegateTarget).val(file.name);
+				$(".custom-file-label", ev.delegateTarget).html(file.name);
 			});
 		});
 	}
