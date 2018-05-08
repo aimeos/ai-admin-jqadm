@@ -286,12 +286,12 @@ $keys = [
 
 			</div>
 		</div>
-	</div>
 
-	<div class="card-tools-more">
-		<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-			title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
-			v-on:click="addItem('attribute.lists.')" >
+		<div class="card-tools-more">
+			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+				v-on:click="addItem('attribute.lists.')" >
+			</div>
 		</div>
 	</div>
 </div>
