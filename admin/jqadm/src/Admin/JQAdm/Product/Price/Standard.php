@@ -387,7 +387,7 @@ class Standard
 			if( $copy === true )
 			{
 				$list['product.lists.siteid'] = $siteId;
-				$list['text.siteid'] = $siteId;
+				$list['price.siteid'] = $siteId;
 			}
 
 			$list['product.lists.datestart'] = str_replace( ' ', 'T', $list['product.lists.datestart'] );
