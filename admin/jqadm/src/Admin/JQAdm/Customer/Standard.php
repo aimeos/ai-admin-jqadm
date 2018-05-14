@@ -90,7 +90,7 @@ class Standard
 	 * @since 2017.06
 	 * @category Developer
 	 */
-	private $subPartNames = ['address', 'order', 'product'];
+	private $subPartNames = ['address' => 'address', 'order' => 'order', 'product' => 'product'];
 
 
 	/**

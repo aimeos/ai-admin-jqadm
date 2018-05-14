@@ -90,7 +90,7 @@ class Standard
 	 * @since 2017.07
 	 * @category Developer
 	 */
-	private $subPartNames = ['image', 'text', 'product'];
+	private $subPartNames = ['image' => 'image', 'text' => 'text', 'product' => 'product'];
 
 
 	/**

@@ -79,7 +79,7 @@ class Standard
 	 * @since 2017.03
 	 * @category Developer
 	 */
-	private $subPartNames = array( 'config', 'custom' );
+	private $subPartNames = ['config' => 'config', 'custom' => 'custom'];
 
 
 	/**

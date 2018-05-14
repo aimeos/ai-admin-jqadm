@@ -79,7 +79,7 @@ class Standard
 	 * @since 2016.07
 	 * @category Developer
 	 */
-	private $subPartNames = array( 'job', 'order' );
+	private $subPartNames = ['job' => 'job', 'order' => 'order'];
 
 
 	/**

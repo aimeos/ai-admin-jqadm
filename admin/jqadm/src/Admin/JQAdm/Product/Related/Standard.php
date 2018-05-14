@@ -79,7 +79,7 @@ class Standard
 	 * @since 2017.07
 	 * @category Developer
 	 */
-	private $subPartNames = array( 'suggest', 'bought' );
+	private $subPartNames = ['suggest' => 'suggest', 'bought' => 'bought'];
 
 
 	/**

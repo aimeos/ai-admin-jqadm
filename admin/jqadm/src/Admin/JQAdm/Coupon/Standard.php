@@ -68,7 +68,7 @@ class Standard
 	 * @since 2017.07
 	 * @category Developer
 	 */
-	private $subPartNames = ['code'];
+	private $subPartNames = ['code' => 'code'];
 
 
 	/**

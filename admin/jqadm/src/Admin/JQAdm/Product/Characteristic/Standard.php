@@ -90,7 +90,7 @@ class Standard
 	 * @since 2016.04
 	 * @category Developer
 	 */
-	private $subPartNames = array( 'attribute', 'hidden', 'property' );
+	private $subPartNames = ['attribute' => 'attribute', 'hidden' => 'hidden', 'property' => 'property'];
 
 
 	/**

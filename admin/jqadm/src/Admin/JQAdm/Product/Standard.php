@@ -212,8 +212,10 @@ class Standard
 	 * @category Developer
 	 */
 	private $subPartNames = [
-		'selection', 'bundle', 'image', 'text', 'price', 'stock', 'category',
-		'characteristic', 'option', 'related', 'physical', 'download', 'subscription', 'special'
+		'selection' => 'selection', 'bundle' => 'bundle', 'image' => 'image', 'text' => 'text', 'price' => 'price',
+		'stock' => 'stock', 'category' => 'category', 'characteristic' => 'characteristic', 'option' => 'option',
+		'related' => 'related', 'physical' => 'physical', 'download' => 'download', 'subscription' => 'subscription',
+		'special' => 'special'
 	];
 
 
