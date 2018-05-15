@@ -71,7 +71,7 @@ Vue.component('html-editor', {
 		var vm = this;
 		var el = $(this.$el);
 
-		el.ckeditor({toolbar: Aimeos.editorcfg, autoParagraph: false});
+		el.ckeditor({toolbar: Aimeos.editorcfg, autoParagraph: false, entities: false});
 
 		el.ckeditor().editor.on('change', function() {
 			vm.$emit('input', el.ckeditor().editor.getData());
