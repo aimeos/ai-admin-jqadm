@@ -180,20 +180,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'service' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'service/type' );
 
-		$search = $typeManager->createSearch();
-		$search->setSlice( 0, 1 );
-		$typeItems = $typeManager->searchItems( $search );
-
-		if( ( $typeItem = reset( $typeItems ) ) === false ) {
-			throw new \RuntimeException( 'No service type item found' );
-		}
-
-
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
 				'service.id' => '',
-				'service.typeid' => $typeItem->getId(),
+				'service.typeid' => $typeManager->findItem( 'delivery', [], 'service' )->getId(),
 				'service.code' => 'test',
 				'service.provider' => 'Example',
 				'service.label' => 'test label',
