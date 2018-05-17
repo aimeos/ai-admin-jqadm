@@ -62,8 +62,10 @@ return [
 					'job' => 'job',
 					'order' => 'order',
 				],
-				'order' => [
-					'subparts' => [
+			],
+			'order' => [
+				'standard' => [
+						'subparts' => [
 						'latest' => 'latest',
 						'salesday' => 'salesday',
 						'salesmonth' => 'salesmonth',
