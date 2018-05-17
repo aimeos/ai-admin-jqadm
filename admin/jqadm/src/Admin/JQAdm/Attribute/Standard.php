@@ -498,7 +498,7 @@ class Standard
 	{
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'attribute/type' );
 
-		$search = $typeManager->createSearch();
+		$search = $typeManager->createSearch()->setSlice( 0, 0x7fffffff );
 		$search->setSortations( array( $search->sort( '+', 'attribute.type.label' ) ) );
 
 		return $typeManager->searchItems( $search );
