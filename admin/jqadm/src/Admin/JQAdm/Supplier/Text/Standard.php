@@ -296,11 +296,11 @@ class Standard
 		$textTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'supplier/lists/type' );
 
-		$search = $textTypeManager->createSearch( true );
+		$search = $textTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'text.type.domain', 'supplier' ) );
 		$search->setSortations( array( $search->sort( '+', 'text.type.label' ) ) );
 
-		$listSearch = $listTypeManager->createSearch( true );
+		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
 		$listSearch->setConditions( $listSearch->compare( '==', 'supplier.lists.type.domain', 'text' ) );
 		$listSearch->setSortations( array( $listSearch->sort( '+', 'supplier.lists.type.label' ) ) );
 

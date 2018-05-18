@@ -529,7 +529,7 @@ class Standard
 	{
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin/type' );
 
-		$search = $typeManager->createSearch();
+		$search = $typeManager->createSearch()->setSlice( 0, 0x7fffffff );
 		$search->setSortations( array( $search->sort( '+', 'plugin.type.label' ) ) );
 
 		return $typeManager->searchItems( $search );

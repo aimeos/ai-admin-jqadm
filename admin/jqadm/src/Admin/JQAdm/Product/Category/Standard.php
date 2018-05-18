@@ -345,7 +345,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
 		$expr = array(
 			$search->compare( '==', 'catalog.lists.refid', $prodid ),
 			$search->compare( '==', 'catalog.lists.domain', 'product' ),

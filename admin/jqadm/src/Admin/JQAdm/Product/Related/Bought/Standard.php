@@ -269,7 +269,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
 		$expr = array(
 			$search->compare( '==', 'product.lists.parentid', $prodid ),
 			$search->compare( '==', 'product.lists.domain', 'product' ),

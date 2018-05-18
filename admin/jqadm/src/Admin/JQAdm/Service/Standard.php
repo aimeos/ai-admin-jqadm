@@ -554,7 +554,7 @@ class Standard
 	{
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service/type' );
 
-		$search = $typeManager->createSearch();
+		$search = $typeManager->createSearch()->setSlice( 0, 0x7fffffff );
 		$search->setSortations( array( $search->sort( '+', 'service.type.label' ) ) );
 
 		return $typeManager->searchItems( $search );

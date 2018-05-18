@@ -314,7 +314,7 @@ class Standard
 		$list = [];
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists/type' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'catalog.lists.type.code' )] );
 

@@ -348,7 +348,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/type' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'media.type.domain', 'service' ) );
 		$search->setSortations( array( $search->sort( '+', 'media.type.label' ) ) );
 
@@ -365,7 +365,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service/lists/type' );
 
-		$search = $manager->createSearch( true );
+		$search = $manager->createSearch( true )->setSlice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'service.lists.type.domain', 'media' ) );
 		$search->setSortations( array( $search->sort( '+', 'service.lists.type.label' ) ) );
 
