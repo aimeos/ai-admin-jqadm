@@ -42,10 +42,9 @@ class Standard
 	 */
 	public function copy()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
 		$view->imageData = $this->toArray( $view->item, $view->get( 'imageData', [] ), true );
-		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -63,9 +62,9 @@ class Standard
 	 */
 	public function create()
 	{
-		$view = $this->getView();
-		$data = $view->param( 'image', [] );
+		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = $view->param( 'image', [] );
 
 		foreach( $view->value( $data, 'media.id', [] ) as $index => $x )
 		{
@@ -74,7 +73,6 @@ class Standard
 			}
 		}
 
-		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyData = $data;
 		$view->propertyBody = '';
 
@@ -93,10 +91,9 @@ class Standard
 	 */
 	public function get()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
 		$view->imageData = $this->toArray( $view->item, $view->get( 'imageData', [] ) );
-		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -224,11 +221,12 @@ class Standard
 
 
 	/**
-	 * Returns the available media property types
+	 * Adds the required data used in the service template
 	 *
-	 * @return array Associative list of property type IDs as keys and property type items as values
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
-	protected function getPropertyTypes()
+	protected function addViewData( \Aimeos\MW\View\Iface $view )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/property/type' );
 
@@ -236,7 +234,9 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'service' ) );
 		$search->setSlice( 0, 0x7fffffff );
 
-		return $manager->searchItems( $search );
+		$view->propertyTypes = $manager->searchItems( $search );
+
+		return $view;
 	}
 
 
