@@ -327,7 +327,7 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$textManager = \Aimeos\MShop\Factory::createManager( $context, 'price' );
+		$priceManager = \Aimeos\MShop\Factory::createManager( $context, 'price' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'service/lists' );
 
 		$listItems = array_reverse( $item->getListItems( 'price', null, null, false ) );
@@ -340,7 +340,7 @@ class Standard
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $textManager->createItem();
+				$refItem = $priceManager->createItem();
 			}
 
 			$conf = [];
