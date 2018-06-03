@@ -42,11 +42,9 @@ class Standard
 	 */
 	public function copy()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
 		$view->imageData = $this->toArray( $view->item, true );
-		$view->imageListTypes = $this->getMediaListTypes();
-		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -64,17 +62,15 @@ class Standard
 	 */
 	public function create()
 	{
-		$view = $this->getView();
-		$data = $view->param( 'image', [] );
+		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = $view->param( 'image', [] );
 
 		foreach( $view->value( $data, 'supplier.lists.id', [] ) as $idx => $value ) {
 			$data['supplier.lists.siteid'][$idx] = $siteid;
 		}
 
 		$view->imageData = $data;
-		$view->imageListTypes = $this->getMediaListTypes();
-		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -102,11 +98,9 @@ class Standard
 	 */
 	public function get()
 	{
-		$view = $this->getView();
+		$view = $this->addViewData( $this->getView() );
 
 		$view->imageData = $this->toArray( $view->item );
-		$view->imageListTypes = $this->getMediaListTypes();
-		$view->imageTypes = $this->getMediaTypes();
 		$view->imageBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -251,6 +245,34 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the supplier template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	protected function addViewData( \Aimeos\MW\View\Iface $view )
+	{
+		$context = $this->getContext();
+
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/type' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'supplier/lists/type' );
+
+		$search = $typeManager->createSearch()->setSlice( 0, 0x7fffffff );
+		$search->setConditions( $search->compare( '==', 'media.type.domain', 'supplier' ) );
+		$search->setSortations( array( $search->sort( '+', 'media.type.label' ) ) );
+
+		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
+		$listSearch->setConditions( $listSearch->compare( '==', 'supplier.lists.type.domain', 'media' ) );
+		$listSearch->setSortations( array( $listSearch->sort( '+', 'supplier.lists.type.label' ) ) );
+
+		$view->imageListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
+		$view->imageTypes = $typeManager->searchItems( $search );
+
+		return $view;
+	}
+
+
+	/**
 	 * Deletes the removed list items and their referenced items
 	 *
 	 * @param array $listItems List of items implementing \Aimeos\MShop\Common\Item\Lists\Iface
@@ -334,40 +356,6 @@ class Standard
 		$item->setStatus( 1 );
 
 		return $item;
-	}
-
-
-	/**
-	 * Returns the available media types
-	 *
-	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of media type ID as keys and items as values
-	 */
-	protected function getMediaTypes()
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/type' );
-
-		$search = $manager->createSearch( true )->setSlice( 0, 0x7fffffff );
-		$search->setConditions( $search->compare( '==', 'media.type.domain', 'supplier' ) );
-		$search->setSortations( array( $search->sort( '+', 'media.type.label' ) ) );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
-	 * Returns the available supplier list types for media references
-	 *
-	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of supplier list type ID as keys and items as values
-	 */
-	protected function getMediaListTypes()
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'supplier/lists/type' );
-
-		$search = $manager->createSearch( true )->setSlice( 0, 0x7fffffff );
-		$search->setConditions( $search->compare( '==', 'supplier.lists.type.domain', 'media' ) );
-		$search->setSortations( array( $search->sort( '+', 'supplier.lists.type.label' ) ) );
-
-		return $this->sortType( $manager->searchItems( $search ) );
 	}
 
 
