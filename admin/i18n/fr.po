@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Nicolas Lapointe (ComradeNixco) <nixcocpp@gmail.com>, 2018
 # nsendetzky, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-08 18:06+0200\n"
-"PO-Revision-Date: 2018-04-08 16:16+0000\n"
-"Last-Translator: Aimeos\n"
+"PO-Revision-Date: 2018-05-04 20:44+0000\n"
+"Last-Translator: Nicolas Lapointe (ComradeNixco) <nixcocpp@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -45,7 +46,7 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #. / price format with value (%1$s) and currency (%2$s)
 #, php-format
@@ -54,39 +55,39 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(International) numéro de télécopieur sans caractères de séparation, peu débuté par un \"+\""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(International) numéro de téléphone sans caractères de séparation, peu débuté par un \"+\""
 
 msgid "Active"
-msgstr ""
+msgstr "Actif"
 
 msgid "Actual current price"
 msgstr "Prix réel actuel"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "Prix actuel pour lequel les clients peuvent acheter le produit sur le site web"
 
 msgid "Add"
 msgstr "Ajouter"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Ajouter un filtre"
 
 msgid "Add new entry (Ctrl+A)"
-msgstr ""
+msgstr "Ajouter une nouvelle entrée (Ctrl+A)"
 
 msgid "Additional"
 msgstr "Complément"
@@ -94,22 +95,22 @@ msgstr "Complément"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Coût de livraison additionnel pour chaque item, par exemple: 20$ pour un object lourd fera un total de 100$ additionnel pour 5 de ceux-ci"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Informations additionnelles pouvant aider à trouver l'appartement du client"
 
 msgid "Additional information where the customer's appartment can be found"
-msgstr ""
+msgstr "Informations additionnelles pouvant aider à trouver l'appartement du client"
 
 msgid "Additional information where the supplier's office can be found"
-msgstr ""
+msgstr "Informations additionnelles pouvant aider à trouver le bureau du fournisseur"
 
 msgid "Additional information, e.g. flat number"
-msgstr ""
+msgstr "Information additionnelle, par exemple: le numéro de porte ou d'appartement"
 
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 msgid "Address 1"
 msgstr "Adresse 1"
@@ -124,24 +125,24 @@ msgid "Address ID"
 msgstr "Identifiant d'adresse"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Identifiant de l'adresse de la maison du client pour la livraison"
 
 msgid "Address identifier of the supplier's office"
-msgstr ""
+msgstr "Identifiant de l'adresse du bureau du fournisseur"
 
 msgid "Addresses"
 msgstr "Adresses"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Le type d'admin JQAdm est vide"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Avancé"
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Objet Aimeos introuvable"
 
 msgid "All"
 msgstr "Tout"
@@ -149,32 +150,32 @@ msgstr "Tout"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Tous les attributs qui défini de manière unique un article, par exemple: la largeur, la longueur et la couleur pour une paire de jeans"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Permettre un prix personnalisé"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Permettre aux clients de choisir eux-même le prix à payer"
 
 msgid ""
 "Article description shown by search engines, added to the head section of "
 "the product detail page"
-msgstr ""
+msgstr "Description de l'article montrée par les moteurs de recherches, ajouté à la section d'en-tête de la page de détails du produit"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Options de configuration spécifique à l'article, sera disponible en tant que paires clé/valeur dans les modèles"
 
 msgid "Associated attributes"
 msgstr "Caractéristiques associées"
 
 msgid "Associated customer groups"
-msgstr ""
+msgstr "Groupes de clients associés"
 
 msgid "Associated customers"
-msgstr ""
+msgstr "Clients associés"
 
 msgid "Associated media"
 msgstr "Média associé"
@@ -195,39 +196,39 @@ msgid "Attribute"
 msgstr "Caractéristique"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Type de listes de caractéristique"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Types de listes de caractéristique"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Type de propriété de caractéristique"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Types de propriété de caractéristique"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Type de caractéristique"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Types de caractéristique"
 
 msgid "Attribute name"
-msgstr ""
+msgstr "Nom de la caractéristique"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Position de la caractéristique (optionnel)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Propriétés de caractéristique qui ne sont pas partagées avec les autres attributs "
 
 msgid "Attribute type"
-msgstr ""
+msgstr "Type de caractéristique"
 
 #. : Attribute type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Attribute type: {0} ({1})"
-msgstr ""
+msgstr "Type de caractéristique: {0} ({1})"
 
 #. : Attribute item panel title with attribute label ({0}) and site code ({1)}
 #, python-brace-format
@@ -235,25 +236,25 @@ msgid "Attribute: {0} ({1})"
 msgstr "Caractéristique : {0} ({1})"
 
 msgid "Attributes"
-msgstr ""
+msgstr "Caractéristiques"
 
 msgid "Available attributes"
 msgstr "Caractéristiques disponibles"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Devise disponible pour le site actuel"
 
 msgid "Available customer groups"
-msgstr ""
+msgstr "Groupes de clients disponibles"
 
 msgid "Available customers"
-msgstr ""
+msgstr "Clients disponibles"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Intervalles disponibles pour le front-end"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "Langues disponibles pour le site actuel"
 
 msgid "Available media"
 msgstr "Média disponible"
@@ -289,40 +290,40 @@ msgid "Billing address"
 msgstr "Adresse de facturation"
 
 msgid "Birthday"
-msgstr ""
+msgstr "Date de naissance"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Date de naissance du client"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Vous avez trouvé un bug ou vous avez une suggestion?"
 
 msgid "Bundles"
-msgstr ""
+msgstr "Offre groupée"
 
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 msgid "Cache item details"
-msgstr ""
+msgstr "Détails d'item en cache"
 
 msgid "Cancel"
 msgstr "Annuler"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Annuler et retourner à la liste"
 
 msgid "Catalog"
 msgstr "Catalogue"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Type de listes de catalogue"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Types de listes de catalogue"
 
 msgid "Catalog Types"
-msgstr ""
+msgstr "Types de catalogues"
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #, python-brace-format
@@ -330,21 +331,21 @@ msgid "Catalog: {0} ({1})"
 msgstr "Catalogue : {0} ({1})"
 
 msgid "Categories"
-msgstr ""
+msgstr "Catégories"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Catégories pour lesquelles le produit peut-être trouvé par le l'utilisateur sur le site"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "Catégories pour lesquelles le produit sera visibles dans la section des promotions"
 
 msgid "Category name"
-msgstr ""
+msgstr "Nom de la catégorie"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "Options de configuration spécifique à la catégorie, sera disponible en tant que paires de clé/valeur dans les modèles"
 
 msgid "Characteristics"
 msgstr "Caractéristiques"
@@ -353,10 +354,10 @@ msgid "City"
 msgstr "Ville"
 
 msgid "City name (required)"
-msgstr ""
+msgstr "Nom de la ville (requis)"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Nom de la ville ou du village (requis)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
@@ -375,7 +376,7 @@ msgid "Class \"%1$s\" not found"
 msgstr "Classe \"%1$s\" non trouvée"
 
 msgid "Clear"
-msgstr ""
+msgstr "Effacé"
 
 msgid "Click to upload"
 msgstr "Cliquer pour envoyer"
@@ -387,47 +388,47 @@ msgid "Code"
 msgstr "Code"
 
 msgid "Code to uniquely identify the site"
-msgstr ""
+msgstr "Code servant à identifier de manière unique le site"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Code servant à identifier de manière unique le site, renommez ce champs peut être dangereux!"
 
 msgid "Codes"
-msgstr ""
+msgstr "Codes"
 
 msgid "Columns"
-msgstr ""
+msgstr "Colonnes"
 
 msgid "Comment"
 msgstr "Commentaire"
 
 msgid "Communication"
-msgstr ""
+msgstr "Communication"
 
 msgid "Company"
 msgstr "Entreprise"
 
 msgid "Company details"
-msgstr ""
+msgstr "Détails de l'entreprise"
 
 msgid "Company name"
-msgstr ""
+msgstr "Nom de la l'entreprise"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Nom de l'entreprise (optionnel)"
 
 msgid "Config"
-msgstr ""
+msgstr "Configuration"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Configurable"
 
 msgid "Configuration"
 msgstr "Configuration"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "Options de configuration, sera disponible en tant que paires de clé/valeur dans la liste d'items"
 
 msgid "Content"
 msgstr "Contenu"
@@ -436,7 +437,7 @@ msgid "Copy"
 msgstr "Copier"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Copier cette entrée"
 
 msgid "Costs"
 msgstr "Coûts"
@@ -448,19 +449,19 @@ msgid "Could not upload file. Please notify your administrator"
 msgstr "Impossible d'envoyer le fichier. Veuillez contacter votre administrateur"
 
 msgid "Count"
-msgstr ""
+msgstr "Quantité"
 
 msgid "Country"
 msgstr "Pays"
 
 msgid "Country ID"
-msgstr ""
+msgstr "Identifiant du pays"
 
 msgid "Country code"
-msgstr ""
+msgstr "Code du pays"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "Code du pays (requis)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
@@ -468,38 +469,38 @@ msgid ""
 msgstr ""
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "Code de l'état ou de la province (optionnel)"
 
 msgid "Country state, e.g. \"NY\""
-msgstr ""
+msgstr "État ou province, par exemple \"NY\""
 
 msgid "Coupon"
-msgstr ""
+msgstr "Coupon"
 
 msgid "Coupon code"
-msgstr ""
+msgstr "Code du coupon"
 
 #. : Coupon code item panel title with coupon code ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Coupon code: {0} ({1})"
-msgstr ""
+msgstr "Code du coupon: {0} ({1})"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Nom de la configuration du fournisseur ou du décorateur de coupon"
 
 #. : Coupon item panel title with coupon label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Coupon: {0} ({1})"
-msgstr ""
+msgstr "Coupon: {0} ({1})"
 
 msgid "Coupons"
-msgstr ""
+msgstr "Coupons"
 
 msgid "Created"
 msgstr "Créé"
 
 msgid "Currencies"
-msgstr ""
+msgstr "Devises"
 
 msgid "Currency"
 msgstr "Devise"
@@ -514,16 +515,16 @@ msgid "Customer"
 msgstr "Client"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "Identifiant du client"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Type des listes de clients"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Types des listes de clients"
 
 msgid "Customer Types"
-msgstr ""
+msgstr "Types de clients"
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -531,13 +532,13 @@ msgstr ""
 #. ({1)}
 #, python-brace-format
 msgid "Customer address: {0} ({1})"
-msgstr ""
+msgstr "Adresse du client: {0} ({1})"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "Commentaire du client (optionnel)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "Adresse courriel du client"
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -545,18 +546,18 @@ msgstr ""
 #. ({1)}
 #, python-brace-format
 msgid "Customer group: {0} ({1})"
-msgstr ""
+msgstr "Group de clients: {0} ({1})"
 
 msgid "Customer password"
-msgstr ""
+msgstr "Mot de passe du client"
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer: {0} ({1})"
-msgstr ""
+msgstr "Client: {0} ({1})"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Tableau de bord"
 
 msgid "Date"
 msgstr "Date"
@@ -565,19 +566,19 @@ msgid "Date back"
 msgstr "Date d'origine"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Date de la dernière modification à l'état de livraison"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Date de la dernière modification à l'état du paiement"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Date de la fin de l'abonnement"
 
 msgid "Days"
-msgstr ""
+msgstr "Jours"
 
 msgid "Default"
-msgstr ""
+msgstr "Défaut"
 
 msgid "Delete"
 msgstr "Supprimer"
@@ -586,7 +587,7 @@ msgid "Delete items?"
 msgstr "Supprimer les entrées ?"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Supprimer cette entrée"
 
 msgid "Delivery"
 msgstr "Livraison"
@@ -596,7 +597,7 @@ msgstr "Adresse de livraison"
 
 msgid ""
 "Delivery costs for the whole order or additional costs for payment options"
-msgstr ""
+msgstr "Coût de livraison pour l'ensemble de la commande ou coûts additionnels de la méthode de paiement"
 
 msgid "Delivery date"
 msgstr "Date de livraison"
@@ -605,22 +606,22 @@ msgid "Delivery status"
 msgstr "État de la livraison"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "Types de livraison"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "Nom descriptif de la devise"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "Nom descriptif de la langue"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "Nom descriptif du site"
 
 msgid "Details"
 msgstr "Détails"
 
 msgid "Display field is empty"
-msgstr "Le champ affichage est vide"
+msgstr "Le champ d'affichage est vide"
 
 msgid "Domain"
 msgstr "Domaine"
@@ -629,31 +630,31 @@ msgid "Domain (required)"
 msgstr "Domaine (obligatoire)"
 
 msgid "Download"
-msgstr ""
+msgstr "Téléchargement"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Télécharger ce fichier"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "Dupliquer l'entrée (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "Adresse électronique"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "Adresse électronique (obligatoire)"
 
 msgid "E-Mail, e.g. me@example.com (required)"
-msgstr ""
+msgstr "Adresse courriel, par exemple me@example.com (obligatoire) "
 
 msgid "E-mail"
-msgstr ""
+msgstr "Adresse électronique"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "Adresse électronique (optionnel)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "Adresse courriel appartenant à l'adresse"
 
 msgid "EAN, SKU or article number (required)"
 msgstr "EAN, SKU ou numéro d'article (obligatoire)"
@@ -662,37 +663,37 @@ msgid "Edit"
 msgstr "Modifier"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Modifier cette entrée"
 
 msgid "Editor"
 msgstr "Éditeur"
 
 msgid "Email"
-msgstr ""
+msgstr "Adresse courriel"
 
 msgid "End date"
 msgstr "Date de fin"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Date de fin (optionnel)"
 
 msgid "Error"
 msgstr "Erreur"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "Exclure taxe"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Ordre d’exécution des plugins"
 
 msgid "Expert"
-msgstr ""
+msgstr "Expert"
 
 msgid "Expert mode"
-msgstr ""
+msgstr "Mode expert"
 
 msgid "Expires"
-msgstr ""
+msgstr "Expire"
 
 msgid "Export"
 msgstr "Exporter"
@@ -704,167 +705,167 @@ msgid "Facility"
 msgstr "Site"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Télécopieur"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "Numéro de télécopieur (optionnel)"
 
 msgid "Facsimile number, e.g. +155512345"
-msgstr ""
+msgstr "Numéro de télécopieur, par exemple: +155512345"
 
 msgid "File"
-msgstr ""
+msgstr "Fichier"
 
 msgid "File URL"
-msgstr ""
+msgstr "URL du fichier"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtre"
 
 msgid "Find category"
-msgstr ""
+msgstr "Trouver une catégorie"
 
 msgid "First"
-msgstr ""
+msgstr "Premier"
 
 msgid "First name"
 msgstr "Prénom"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Prénom (optionnel)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "Prénom de la personne si utiliser dans une culture l'utilisant"
 
 msgid "Firstname"
 msgstr "Prénom"
 
 msgid "Floor"
-msgstr ""
+msgstr "Étage"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Étage / Appartement"
 
 msgid "Floor / Office"
-msgstr ""
+msgstr "Étage / Bureau"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "Étage et/ou appartement (optionnel)"
 
 msgid "Floor and/or appartment (optional)"
-msgstr ""
+msgstr "Étage et/ou appartement (optionnel)"
 
 msgid "Floor and/or office (optional)"
-msgstr ""
+msgstr "Étage et/ou bureau (optionnel)"
 
 msgid "Flush"
-msgstr ""
+msgstr "Vider"
 
 msgid "Flush cache?"
-msgstr ""
+msgstr "Vider la cache ?"
 
 msgid "Full name"
-msgstr ""
+msgstr "Nom complet"
 
 msgid "Full name (required)"
-msgstr ""
+msgstr "Nom complet (obligatoire)"
 
 msgid "Group"
-msgstr ""
+msgstr "Groupe"
 
 msgid "Group label (required)"
-msgstr ""
+msgstr "Étiquette du groupe (obligatoire)"
 
 msgid "Height"
-msgstr ""
+msgstr "Hauteur"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Caractéristiques cachées"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Caractéristiques cachées du produit qui sont enregistrées avec les produits commandés"
 
 msgid "Honorary title"
-msgstr ""
+msgstr "Titre honoraire"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Titre honoraire (optionnel)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Titre honoraire comme Dr., PhD., etc."
 
 msgid "House no"
-msgstr ""
+msgstr "N° de porte"
 
 msgid "House number"
-msgstr ""
+msgstr "Numéro de porte"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Numéro de porte (optionnel)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "Comment le client est adressé dans les courriels"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "Comment le fournisseur est adressé dans les courriels"
 
 msgid "ID"
 msgstr "Identifiant"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "Identifiant d'une facture en rapport, par exemple d'un changement ou d'un remboursement de facture"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "Code ISO de la devise (obligatoire)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "Code ISO de la devise (obligatoire)"
 
 msgid "Images"
-msgstr ""
+msgstr "Images"
 
 msgid ""
 "Images will only be shown for that language, useful if the image contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Les images ne seront montré que pour cette langue, utile si l'image contient du texte ou est spécifique à une langue"
 
 msgid "Import"
 msgstr "Importer"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Importer ou exporter des tâches"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "Taxe inclue"
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Insérer une nouvelle entrée"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Inséré une nouvelle entrée (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "Nom interne de l'article, sera seulement utilisé sur le site web et dans les recherches si aucun autres noms de produits existes peu importe la langue"
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "Nom interne de l'article, sera utilisé par le site web si aucun nom de produit pour la langue courante est disponible"
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Nom interne de la catégorie, sera utilisée surnle site web si aucun nom n'est disponible pour la langue"
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Nom interne de la catégorie, sera utilisée surnle site web si aucun nom n'est disponible pour la langue"
 
 msgid "Internal name"
 msgstr "Nom interne"
@@ -873,10 +874,10 @@ msgid "Internal name (required)"
 msgstr "Nom interne (obligatoire)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Nom interne du type affiché dans l'interface d'administration"
 
 msgid "Interval"
-msgstr ""
+msgstr "Intervalle"
 
 msgid "Interval (required)"
 msgstr ""
@@ -910,48 +911,48 @@ msgstr "Usine invalide \"%1$s\""
 
 #, python-brace-format
 msgid "Invalid value for configuration key \"{0}\""
-msgstr ""
+msgstr "Valeur invalide pour la clé de configuration \"{0}\""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Facture"
 
 msgid "Item deleted successfully"
-msgstr ""
+msgstr "Item supprimé avec succès"
 
 msgid "Item position within the same type"
 msgstr "Position d'entrée au sein du même type"
 
 msgid "Item saved successfully"
-msgstr ""
+msgstr "Item sauvegardé avec succès"
 
 msgid "Job item details"
 msgstr "Détails des tâches"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Tâches"
 
 msgid ""
 "Keywords for search engines, added to the head section of the category page"
-msgstr ""
+msgstr "Mots-clés pour les moteurs de recherche, ajouté à la section d'en-tête de la page de catégories"
 
 msgid ""
 "Keywords for search engines, added to the head section of the product detail"
 " page"
-msgstr ""
+msgstr "Mots-clés pour les moteurs de recherche, ajouté à la section d'en-tête de la page de détails de produit"
 
 msgid "Label"
 msgstr "Étiquette"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Étiquette (obligatoire)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "Étiquette décrivant l'intervalle, sera utilisée si aucun nom n'est disponible"
 
 msgid ""
 "Label will be used if empty but then there must be no name for all "
 "languages. Otherwise, items will not be shown when sorting by name"
-msgstr ""
+msgstr "L'étiquette sera utilisée si vide par contre le nom doit être vide pour toutes les langues. Autrement, les items ne seront pas affichés s'ils sont classés par nom"
 
 msgid "Language"
 msgstr "Langue"
@@ -960,22 +961,22 @@ msgid "Language (required)"
 msgstr "Langue (obligatoire)"
 
 msgid "Language ID"
-msgstr ""
+msgstr "Identifiant de la langue"
 
 msgid "Language of the entered text"
 msgstr "Langue du texte saisi"
 
 msgid "Languages"
-msgstr ""
+msgstr "Langues"
 
 msgid "Last"
-msgstr ""
+msgstr "Dernier"
 
 msgid "Last delivery status of the invoice"
-msgstr ""
+msgstr "Dernier état connu de la livraison de la facture"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "Dernier état connu de la livraison de la commande"
 
 msgid "Last modified"
 msgstr "Dernière modification"
@@ -984,30 +985,30 @@ msgid "Last name"
 msgstr "Nom"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "Nom (obligatoire)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "Nom de la personne si utiliser dans une culture l'utilisant"
 
 msgid "Last payment status of the invoice"
-msgstr ""
+msgstr "Dernier état de paiement de la facture"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "Dernier état de paiement de la commande"
 
 msgid "Lastname"
 msgstr "Nom"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Dernières commandes"
 
 msgid "Length"
 msgstr "Longueur"
 
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
 msgid "List ID"
 msgstr "Identifiant de liste"
@@ -1033,13 +1034,13 @@ msgstr "Date de modification de la liste"
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "Liste des articles qui devrait être vendu comme un produit, souvent à un prix réduit"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "Liste des produits souvent achetés ensemble"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Liste des produits suggérés"
 
 msgid "List position"
 msgstr "Position dans la liste"
@@ -1062,12 +1063,12 @@ msgstr "Emplacement"
 #. code ({1)}
 #, python-brace-format
 msgid "Locale currency: {0} ({1})"
-msgstr ""
+msgstr "Devise de l'emplacement: {0} ({1})"
 
 #. : Locale item panel title with site code ({1)}
 #, python-brace-format
 msgid "Locale item details ({1})"
-msgstr "Détails sur l'emplacement ({1})"
+msgstr "Détails sur l'item d'emplacement ({1})"
 
 #. : Locale language item panel title with language label ({0}) and language
 #. code ({1)}
@@ -1075,7 +1076,7 @@ msgstr "Détails sur l'emplacement ({1})"
 #. code ({1)}
 #, python-brace-format
 msgid "Locale language: {0} ({1})"
-msgstr ""
+msgstr "Langue de l'emplacement {0} ({1})"
 
 #. : Locale site item panel title with site label ({0}) and site code ({1)}
 #, python-brace-format
@@ -1083,37 +1084,37 @@ msgid "Locale site: {0} ({1})"
 msgstr "Emplacement : {0} ({1})"
 
 msgid "Log"
-msgstr ""
+msgstr "Jornal"
 
 msgid "Logs"
-msgstr ""
+msgstr "Journaux"
 
 msgid "Long description"
-msgstr ""
+msgstr "Description longue"
 
 msgid "Media"
 msgstr "Média"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "Type des listes de média"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "Types de listes de média"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "Type de propriété de média"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "Types de propriété de média"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Type de média"
 
 msgid "Media Types"
-msgstr ""
+msgstr "Types de média"
 
 msgid "Media properties"
-msgstr ""
+msgstr "Propriétés du média"
 
 msgid "Media type"
 msgstr "Type de média"
@@ -1132,10 +1133,10 @@ msgid "Message"
 msgstr "Message"
 
 msgid "Meta description"
-msgstr ""
+msgstr "Meta description"
 
 msgid "Meta keywords"
-msgstr ""
+msgstr "Mots-clés meta"
 
 msgid "Method"
 msgstr "Méthode"
@@ -1150,19 +1151,19 @@ msgid "Miss"
 msgstr "Mademoiselle"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Modifié"
 
 msgid "Modified"
-msgstr ""
+msgstr "Modifié"
 
 msgid "Months"
-msgstr ""
+msgstr "Mois"
 
 msgid "More"
-msgstr ""
+msgstr "Plus"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Déplacer cette entrée vers le haut ou vers le bas"
 
 msgid "Mr"
 msgstr "Mr"
@@ -1174,11 +1175,11 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Name of the coupon provider class (required)"
-msgstr ""
+msgstr "Nom de la classe du fournisseur de coupon (obligatoire)"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "Nom du fichier lorsque les clients télécharge celui-ci sur leur ordinateur"
 
 msgid "Name of the plugin provider class (required)"
 msgstr "Nom de la classe du fournisseur de module additionnel (obligatoire)"
@@ -1187,36 +1188,36 @@ msgid "Name of the service provider class (required)"
 msgstr "Nom de la classe du fournisseur de service (obligatoire)"
 
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 msgid "Next"
 msgstr "Suivant"
 
 msgid "Next date"
-msgstr ""
+msgstr "Prochaine date"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "Prochaine date (optionnel)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "Prochaine date de renouvellement de l'abonnement"
 
 msgid "No error information available"
 msgstr "Aucune information disponible sur l'erreur"
 
 #, php-format
 msgid "No file uploaded for %1$d. new image"
-msgstr ""
+msgstr "Pas de fichier téléversé pour %1$d. Nouvelle image"
 
 msgid "No items"
 msgstr "Pas d'entrées"
 
 msgid "No items found"
-msgstr ""
+msgstr "Aucunes entrées trouvées"
 
 #, php-format
 msgid "No items found for \"%1$s %2$s %3$s\""
-msgstr ""
+msgstr "Aucunes entrées trouvé pour \"%1$s%2$s%3$s\""
 
 #, php-format
 msgid "No view available"
@@ -1230,7 +1231,7 @@ msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "L'accès au client JQAdm \"%1$s\" non autorisé"
 
 msgid "Not implemented"
 msgstr "Indisponible"
@@ -2289,19 +2290,19 @@ msgstr "Adresse de facturation"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Caractéristiques"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "Lot"
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Catégories"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "Catégories"
 
 #, php-format
 msgid "characteristic"
@@ -2309,7 +2310,7 @@ msgstr "Caractéristiques"
 
 #, php-format
 msgid "code"
-msgstr ""
+msgstr "COdes"
 
 msgid "company"
 msgstr "Nom de la compagnie"
@@ -2336,7 +2337,7 @@ msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "Tableau de bord"
 
 #, php-format
 msgid "day"
@@ -2356,7 +2357,7 @@ msgstr ""
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "Images"
 
 #, php-format
 msgid "invoice"
@@ -2372,11 +2373,11 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "Devises"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "Langues"
 
 #, php-format
 msgid "locale/site"
@@ -2634,7 +2635,7 @@ msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "Caractéristiques"
 
 #, php-format
 msgid "type/attribute/lists"
