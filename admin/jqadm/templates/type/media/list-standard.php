@@ -70,6 +70,7 @@ $columnList = [
 	'media.type.status' => $this->translate( 'admin', 'Status' ),
 	'media.type.code' => $this->translate( 'admin', 'Code' ),
 	'media.type.label' => $this->translate( 'admin', 'Label' ),
+	'media.type.position' => $this->translate( 'admin', 'Position' ),
 	'media.type.ctime' => $this->translate( 'admin', 'Created' ),
 	'media.type.mtime' => $this->translate( 'admin', 'Modified' ),
 	'media.type.editor' => $this->translate( 'admin', 'Editor' ),
@@ -156,6 +157,7 @@ $columnList = [
 						]],
 						'media.type.code' => [],
 						'media.type.label' => [],
+						'media.type.position' => ['op' => '>=', 'type' => 'number'],
 						'media.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'media.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'media.type.editor' => [],
@@ -180,6 +182,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'media.type.label', $fields ) ) : ?>
 						<td class="media-type-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'media.type.position', $fields ) ) : ?>
+						<td class="media-type-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'media.type.ctime', $fields ) ) : ?>
 						<td class="media-type-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

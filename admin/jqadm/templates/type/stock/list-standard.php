@@ -70,6 +70,7 @@ $columnList = [
 	'stock.type.status' => $this->translate( 'admin', 'Status' ),
 	'stock.type.code' => $this->translate( 'admin', 'Code' ),
 	'stock.type.label' => $this->translate( 'admin', 'Label' ),
+	'stock.type.position' => $this->translate( 'admin', 'Position' ),
 	'stock.type.ctime' => $this->translate( 'admin', 'Created' ),
 	'stock.type.mtime' => $this->translate( 'admin', 'Modified' ),
 	'stock.type.editor' => $this->translate( 'admin', 'Editor' ),
@@ -148,6 +149,7 @@ $columnList = [
 						]],
 						'stock.type.code' => [],
 						'stock.type.label' => [],
+						'stock.type.position' => ['op' => '>=', 'type' => 'number'],
 						'stock.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'stock.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'stock.type.editor' => [],
@@ -172,6 +174,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'stock.type.label', $fields ) ) : ?>
 						<td class="stock-type-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'stock.type.position', $fields ) ) : ?>
+						<td class="stock-type-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'stock.type.ctime', $fields ) ) : ?>
 						<td class="stock-type-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

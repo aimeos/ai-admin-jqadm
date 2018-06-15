@@ -70,6 +70,7 @@ $columnList = [
 	'product.property.type.status' => $this->translate( 'admin', 'Status' ),
 	'product.property.type.code' => $this->translate( 'admin', 'Code' ),
 	'product.property.type.label' => $this->translate( 'admin', 'Label' ),
+	'product.property.type.position' => $this->translate( 'admin', 'Position' ),
 	'product.property.type.ctime' => $this->translate( 'admin', 'Created' ),
 	'product.property.type.mtime' => $this->translate( 'admin', 'Modified' ),
 	'product.property.type.editor' => $this->translate( 'admin', 'Editor' ),
@@ -148,6 +149,7 @@ $columnList = [
 						]],
 						'product.property.type.code' => [],
 						'product.property.type.label' => [],
+						'product.property.type.position' => ['op' => '>=', 'type' => 'number'],
 						'product.property.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'product.property.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'product.property.type.editor' => [],
@@ -172,6 +174,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'product.property.type.label', $fields ) ) : ?>
 						<td class="product-type-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.property.type.position', $fields ) ) : ?>
+						<td class="product-type-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'product.property.type.ctime', $fields ) ) : ?>
 						<td class="product-type-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

@@ -70,6 +70,7 @@ $columnList = [
 	'attribute.lists.type.status' => $this->translate( 'admin', 'Status' ),
 	'attribute.lists.type.code' => $this->translate( 'admin', 'Code' ),
 	'attribute.lists.type.label' => $this->translate( 'admin', 'Label' ),
+	'attribute.lists.type.position' => $this->translate( 'admin', 'Position' ),
 	'attribute.lists.type.ctime' => $this->translate( 'admin', 'Created' ),
 	'attribute.lists.type.mtime' => $this->translate( 'admin', 'Modified' ),
 	'attribute.lists.type.editor' => $this->translate( 'admin', 'Editor' ),
@@ -156,6 +157,7 @@ $columnList = [
 						]],
 						'attribute.lists.type.code' => [],
 						'attribute.lists.type.label' => [],
+						'attribute.lists.type.position' => ['op' => '>=', 'type' => 'number'],
 						'attribute.lists.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'attribute.lists.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'attribute.lists.type.editor' => [],
@@ -180,6 +182,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'attribute.lists.type.label', $fields ) ) : ?>
 						<td class="attribute-type-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'attribute.lists.type.position', $fields ) ) : ?>
+						<td class="attribute-type-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'attribute.lists.type.ctime', $fields ) ) : ?>
 						<td class="attribute-type-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

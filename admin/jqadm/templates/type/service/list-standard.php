@@ -70,6 +70,7 @@ $columnList = [
 	'service.type.status' => $this->translate( 'admin', 'Status' ),
 	'service.type.code' => $this->translate( 'admin', 'Code' ),
 	'service.type.label' => $this->translate( 'admin', 'Label' ),
+	'service.type.position' => $this->translate( 'admin', 'Position' ),
 	'service.type.ctime' => $this->translate( 'admin', 'Created' ),
 	'service.type.mtime' => $this->translate( 'admin', 'Modified' ),
 	'service.type.editor' => $this->translate( 'admin', 'Editor' ),
@@ -156,6 +157,7 @@ $columnList = [
 						]],
 						'service.type.code' => [],
 						'service.type.label' => [],
+						'service.type.position' => ['op' => '>=', 'type' => 'number'],
 						'service.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'service.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'service.type.editor' => [],
@@ -180,6 +182,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'service.type.label', $fields ) ) : ?>
 						<td class="service-type-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'service.type.position', $fields ) ) : ?>
+						<td class="service-type-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'service.type.ctime', $fields ) ) : ?>
 						<td class="service-type-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

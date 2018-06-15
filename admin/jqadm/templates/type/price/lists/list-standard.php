@@ -70,6 +70,7 @@ $columnList = [
 	'price.lists.type.status' => $this->translate( 'admin', 'Status' ),
 	'price.lists.type.code' => $this->translate( 'admin', 'Code' ),
 	'price.lists.type.label' => $this->translate( 'admin', 'Label' ),
+	'price.lists.type.position' => $this->translate( 'admin', 'Position' ),
 	'price.lists.type.ctime' => $this->translate( 'admin', 'Created' ),
 	'price.lists.type.mtime' => $this->translate( 'admin', 'Modified' ),
 	'price.lists.type.editor' => $this->translate( 'admin', 'Editor' ),
@@ -156,6 +157,7 @@ $columnList = [
 						]],
 						'price.lists.type.code' => [],
 						'price.lists.type.label' => [],
+						'price.lists.type.position' => ['op' => '>=', 'type' => 'number'],
 						'price.lists.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'price.lists.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'price.lists.type.editor' => [],
@@ -180,6 +182,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'price.lists.type.label', $fields ) ) : ?>
 						<td class="price-type-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'price.lists.type.position', $fields ) ) : ?>
+						<td class="price-type-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'price.lists.type.ctime', $fields ) ) : ?>
 						<td class="price-type-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

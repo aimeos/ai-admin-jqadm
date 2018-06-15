@@ -70,6 +70,7 @@ $columnList = [
 	'price.type.status' => $this->translate( 'admin', 'Status' ),
 	'price.type.code' => $this->translate( 'admin', 'Code' ),
 	'price.type.label' => $this->translate( 'admin', 'Label' ),
+	'price.type.position' => $this->translate( 'admin', 'Position' ),
 	'price.type.ctime' => $this->translate( 'admin', 'Created' ),
 	'price.type.mtime' => $this->translate( 'admin', 'Modified' ),
 	'price.type.editor' => $this->translate( 'admin', 'Editor' ),
@@ -180,6 +181,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'price.type.label', $fields ) ) : ?>
 						<td class="price-type-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'price.type.position', $fields ) ) : ?>
+						<td class="price-type-position"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPosition() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'price.type.ctime', $fields ) ) : ?>
 						<td class="price-type-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>

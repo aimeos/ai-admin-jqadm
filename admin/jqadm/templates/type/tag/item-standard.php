@@ -150,6 +150,19 @@ $params = $this->get( 'pageParams', [] );
 							<?= $enc->html( $this->translate( 'admin', 'Internal type name shown in the administration interface' ) ); ?>
 						</div>
 					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-position" type="number" step="1" tabindex="1"
+								name="<?= $this->formparam( array( 'item', 'tag.type.position' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/tag.type.position' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Type position (optional)' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/tag.type.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Order of the types in the frontend' ) ); ?>
+						</div>
+					</div>
 				</div>
 
 			</div>
