@@ -53,6 +53,7 @@ return [
 					'address' => 'address',
 					'order' => 'order',
 					'product' => 'product',
+					'property' => 'property',
 				],
 			],
 		],
