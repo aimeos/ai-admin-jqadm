@@ -92,8 +92,8 @@ $params = $this->get( 'pageParams', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
-								<?php foreach( ['customer', 'catalog', 'customer', 'media', 'price', 'product', 'service', 'supplier', 'text'] as $domain ) : ?>
-									<option value="<?= $enc->attr( $domain ); ?>" <?= $selected( $this->get( 'itemData/customer.property.type.domain', 'product' ), $domain ); ?> >
+								<?php foreach( ['customer'] as $domain ) : ?>
+									<option value="<?= $enc->attr( $domain ); ?>" <?= $selected( $this->get( 'itemData/customer.property.type.domain', 'customer' ), $domain ); ?> >
 										<?= $enc->html( $this->translate( 'admin', $domain ) ); ?>
 									</option>
 								<?php endforeach; ?>
