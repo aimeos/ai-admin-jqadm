@@ -25,6 +25,7 @@ return [
 		'type/attribute/property',
 		'type/catalog/lists',
 		'type/customer/lists',
+		'type/customer/property',
 		'type/media',
 		'type/media/lists',
 		'type/media/property',
