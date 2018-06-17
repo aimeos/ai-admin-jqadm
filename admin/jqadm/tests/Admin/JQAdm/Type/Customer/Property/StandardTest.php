@@ -76,13 +76,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/property/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'htmlcolor', [], 'customer' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'newsletter', [], 'customer' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->copy();
 
-		$this->assertContains( 'htmlcolor', $result );
+		$this->assertContains( 'newsletter', $result );
 	}
 
 
@@ -160,13 +160,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/property/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'htmlcolor', [], 'customer' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'newsletter', [], 'customer' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->get();
 
-		$this->assertContains( 'htmlcolor', $result );
+		$this->assertContains( 'newsletter', $result );
 	}
 
 
@@ -290,7 +290,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'filter' => array(
 				'key' => array( 0 => 'customer.property.type.code' ),
 				'op' => array( 0 => '==' ),
-				'val' => array( 0 => 'htmlcolor' ),
+				'val' => array( 0 => 'newsletter' ),
 			),
 			'sort' => array( '-customer.property.type.id' ),
 		);
@@ -299,7 +299,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
-		$this->assertContains( '>htmlcolor<', $result );
+		$this->assertContains( '>newsletter<', $result );
 	}
 
 
@@ -358,7 +358,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/property/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'htmlcolor', [], 'customer' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'newsletter', [], 'customer' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
