@@ -91,7 +91,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setId( null );
 
 		foreach( $item->getListItems() as $listItem ) {
-			$item->deleteRefItem( $listItem->getDomain(), $listItem->setId( null ) );
+			$item->deleteListItem( $listItem->getDomain(), $listItem->setId( null ) );
 		}
 
 		$item = $manager->saveItem( $item );
