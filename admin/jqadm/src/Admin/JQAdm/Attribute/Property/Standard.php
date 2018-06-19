@@ -112,7 +112,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/lists' );
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/property' );
 		$manager->begin();
 
 		try

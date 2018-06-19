@@ -91,10 +91,7 @@ class Standard
 		parent::delete();
 
 		$item = $this->getView()->item;
-
-		foreach( $item->getListItems( 'price', null, null, false ) as $listItem ) {
-			$item->deleteRefItem( 'price', $listItem, $listItem->getRefItem() );
-		}
+		$item->deleteListItems( $item->getListItems( 'price', null, null, false ) );
 	}
 
 
@@ -358,17 +355,12 @@ class Standard
 
 			$refItem->fromArray( $entry );
 
-			$item->addRefItem( 'price', $listItem, $refItem );
+			$item->addListItem( 'price', $listItem, $refItem );
 
 			unset( $listItems[$listItem->getId()] );
 		}
 
-
-		foreach( $listItems as $listItem ) {
-			$item->deleteRefItem( 'price', $listItem, $listItem->getRefItem() );
-		}
-
-		return $item;
+		return $item->deleteListItems( $listItems );
 	}
 
 
