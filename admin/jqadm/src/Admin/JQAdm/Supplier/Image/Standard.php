@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2018
+ * @copyright Aimeos (aimeos.org), 2017
  * @package Admin
  * @subpackage JQAdm
  */
@@ -30,7 +30,7 @@ class Standard
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
-	 * @since 2018.01
+	 * @since 2017.07
 	 * @category Developer
 	 */
 
@@ -64,10 +64,16 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = $view->param( 'image', [] );
 
-		foreach( $view->value( $data, 'supplier.lists.id', [] ) as $idx => $value ) {
-			$data['supplier.lists.siteid'][$idx] = $siteid;
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'image', [] ) );
+
+		foreach( $data as $idx => $entry )
+		{
+			$data[$idx]['media.siteid'] = $siteid;
+			$data[$idx]['media.url'] = $itemData[$idx]['media.url'];
+			$data[$idx]['media.preview'] = $itemData[$idx]['media.preview'];
+			$data[$idx]['supplier.lists.siteid'] = $siteid;
 		}
 
 		$view->imageData = $data;
@@ -87,7 +93,17 @@ class Standard
 	public function delete()
 	{
 		parent::delete();
-		$this->cleanupItems( $this->getView()->item->getListItems( 'media', null, null, false ), [] );
+
+		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $this->getContext() );
+
+		foreach( $this->getView()->item->getListItems( 'media', null, null, false ) as $listItem )
+		{
+			if( ( $refItem = $listItem->getRefItem() ) !== null ) {
+				$cntl->delete( $refItem );
+			}
+
+			$item->deleteListItem( 'media', $listItem, $refItem );
+		}
 	}
 
 
@@ -117,30 +133,21 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'supplier/lists' );
-		$mediaManager = \Aimeos\MShop\Factory::createManager( $context, 'media' );
-
-		$manager->begin();
-		$mediaManager->begin();
 
 		try
 		{
-			$this->fromArray( $view->item, $view->param( 'image', [] ) );
+			$view->item = $this->fromArray( $view->item, $view->param( 'image', [] ) );
 			$view->imageBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
 				$view->imageBody .= $client->save();
 			}
 
-			$mediaManager->commit();
-			$manager->commit();
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'supplier-item-image' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'supplier-item-image' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -150,9 +157,6 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
-
-		$mediaManager->rollback();
-		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -186,7 +190,7 @@ class Standard
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2018.04
+		 * @since 2017.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/supplier/image/decorators/global
@@ -210,7 +214,7 @@ class Standard
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2018.04
+		 * @since 2017.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/supplier/image/decorators/excludes
@@ -234,7 +238,7 @@ class Standard
 		 * "\Aimeos\Admin\JQAdm\Supplier\Decorator\Decorator2" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2018.04
+		 * @since 2017.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/supplier/image/decorators/excludes
@@ -269,93 +273,6 @@ class Standard
 		$view->imageTypes = $typeManager->searchItems( $search );
 
 		return $view;
-	}
-
-
-	/**
-	 * Deletes the removed list items and their referenced items
-	 *
-	 * @param array $listItems List of items implementing \Aimeos\MShop\Common\Item\Lists\Iface
-	 * @param array $listIds List of IDs of the still used list items
-	 */
-	protected function cleanupItems( array $listItems, array $listIds )
-	{
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'media' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'supplier/lists' );
-		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
-
-		$rmItems = [];
-		$rmListIds = array_diff( array_keys( $listItems ), $listIds );
-
-		foreach( $rmListIds as $rmListId )
-		{
-			if( ( $item = $listItems[$rmListId]->getRefItem() ) !== null ) {
-				$rmItems[$item->getId()] = $item;
-			}
-		}
-
-		$search = $listManager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'supplier.lists.refid', array_keys( $rmItems ) ),
-			$search->compare( '==', 'supplier.lists.domain', 'media' ),
-			$search->compare( '==', 'supplier.lists.type.code', 'default' ),
-			$search->compare( '==', 'supplier.lists.type.domain', 'media' ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-		$search->setSlice( 0, 0x7fffffff );
-
-		foreach( $listManager->aggregate( $search, 'supplier.lists.refid' ) as $key => $count )
-		{
-			if( $count > 1 ) {
-				unset( $rmItems[$key] );
-			} else {
-				$cntl->delete( $rmItems[$key] );
-			}
-		}
-
-		$listManager->deleteItems( $rmListIds  );
-		$manager->deleteItems( array_keys( $rmItems )  );
-	}
-
-
-	/**
-	 * Creates a new pre-filled item
-	 *
-	 * @return \Aimeos\MShop\Media\Item\Iface New media item object
-	 */
-	protected function createItem()
-	{
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'media' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'media/type' );
-
-		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'default', [], 'supplier' )->getId() );
-		$item->setDomain( 'supplier' );
-		$item->setStatus( 1 );
-
-		return $item;
-	}
-
-
-	/**
-	 * Creates a new pre-filled list item
-	 *
-	 * @param string $id Parent ID for the new list item
-	 * @return \Aimeos\MShop\Common\Item\Lists\Iface New list item object
-	 */
-	protected function createListItem( $id )
-	{
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'supplier/lists' );
-
-		$item = $manager->createItem();
-		$item->setDomain( 'media' );
-		$item->setParentId( $id );
-		$item->setStatus( 1 );
-
-		return $item;
 	}
 
 
@@ -396,7 +313,7 @@ class Standard
 		 * design.
 		 *
 		 * @param array List of sub-client names
-		 * @since 2018.04
+		 * @since 2017.07
 		 * @category Developer
 		 */
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/supplier/image/standard/subparts', [] );
@@ -413,73 +330,63 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'supplier' );
 		$mediaManager = \Aimeos\MShop\Factory::createManager( $context, 'media' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'supplier/lists' );
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
-		$listIds = (array) $this->getValue( $data, 'supplier.lists.id', [] );
-		$listItems = $manager->getItem( $item->getId(), array( 'media' ) )->getListItems( 'media', null, null, false );
+		$listItems = $item->getListItems( 'media', null, null, false );
+		$files = (array) $this->getView()->request()->getUploadedFiles();
 
-		$mediaItem = $this->createItem();
-		$listItem = $this->createListItem( $item->getId() );
-
-		$files = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'image/files', [] );
-
-		foreach( $listIds as $idx => $listid )
+		foreach( $data as $idx => $entry )
 		{
-			if( !isset( $listItems[$listid] ) )
-			{
-				$litem = clone $listItem;
+			if( ( $listItem = $item->getListItem( 'media', $entry['supplier.lists.type'], $entry['media.id'] ) ) === null ) {
+				$listItem = $listManager->createItem();
+			}
 
-				if( ( $refId = $this->getValue( $data, 'media.id/' . $idx ) ) != null ) {
-					$item = $mediaManager->getItem( $refId ); // get existing item data
-				} else {
-					$item = clone $mediaItem;
-				}
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				$refItem = $mediaManager->createItem();
+			}
+
+			if( ( $file = $this->getValue( $files, 'image/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
+			{
+				$refItem = $mediaManager->createItem();
+				$refItem->fromArray( $entry );
+				$cntl->add( $refItem, $file );
 			}
 			else
 			{
-				$litem = $listItems[$listid];
-				$item = $litem->getRefItem();
+				$refItem->fromArray( $entry );
 			}
-
-			if( ( $file = $this->getValue( $files, $idx ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
-			{
-				$item = clone $mediaItem;
-				$cntl->add( $item, $file );
-			}
-
-			$item->setLabel( $this->getValue( $data, 'media.label/' . $idx ) );
-			$item->setStatus( $this->getValue( $data, 'media.status/' . $idx ) );
-			$item->setTypeId( $this->getValue( $data, 'media.typeid/' . $idx ) );
-			$item->setLanguageId( $this->getValue( $data, 'media.languageid/' . $idx ) );
-
-			$item = $mediaManager->saveItem( $item );
-
 
 			$conf = [];
 
-			foreach( (array) $this->getValue( $data, 'config/' . $idx . '/key' ) as $num => $key )
+			foreach( (array) $this->getValue( $entry, 'config/key' ) as $num => $key )
 			{
-				$val = $this->getValue( $data, 'config/' . $idx . '/val/' . $num );
-
-				if( trim( $key ) !== '' && $val !== null ) {
+				if( trim( $key ) !== '' && ( $val = $this->getValue( $entry, 'config/val/' . $num ) ) !== null ) {
 					$conf[$key] = trim( $val );
 				}
 			}
 
-			$litem->setConfig( $conf );
-			$litem->setPosition( $idx );
-			$litem->setRefId( $item->getId() );
-			$litem->setTypeId( $this->getValue( $data, 'supplier.lists.typeid/' . $idx ) );
-			$litem->setDateStart( $this->getValue( $data, 'supplier.lists.datestart/' . $idx ) );
-			$litem->setDateEnd( $this->getValue( $data, 'supplier.lists.dateend/' . $idx ) );
+			$listItem->fromArray( $entry );
+			$listItem->setPosition( $idx );
+			$listItem->setConfig( $conf );
 
-			$listManager->saveItem( $litem, false );
+			$item->addListItem( 'media', $listItem, $refItem );
+
+			unset( $listItems[$listItem->getId()] );
 		}
 
-		$this->cleanupItems( $listItems, $listIds );
+
+		foreach( $listItems as $listItem )
+		{
+			if( ( $refItem = $listItem->getRefItem() ) !== null ) {
+				$cntl->delete( $refItem );
+			}
+
+			$item->deleteListItem( 'media', $listItem, $refItem );
+		}
+
+		return $item;
 	}
 
 
@@ -492,45 +399,33 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Supplier\Item\Iface $item, $copy = false )
 	{
-		$idx = 0;
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'media', null, null, false ) as $listItem )
+		foreach( $item->getListItems( 'media', null, null, false ) as $id => $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
-			$list = $listItem->toArray( true );
+			$list = $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true )
 			{
 				$list['supplier.lists.siteid'] = $siteId;
-				$list['supplier.lists.id'] = '';
+				$list['media.siteid'] = $siteId;
 			}
 
 			$list['supplier.lists.datestart'] = str_replace( ' ', 'T', $list['supplier.lists.datestart'] );
 			$list['supplier.lists.dateend'] = str_replace( ' ', 'T', $list['supplier.lists.dateend'] );
 
-			foreach( $list as $key => $value ) {
-				$data[$key][] = $value;
-			}
-
-			$data['config'][$idx]['key'] = [];
-			$data['config'][$idx]['val'] = [];
-
 			foreach( $list['supplier.lists.config'] as $key => $val )
 			{
-				$data['config'][$idx]['key'][] = $key;
-				$data['config'][$idx]['val'][] = $val;
+				$list['config']['key'][] = $key;
+				$list['config']['val'][] = $val;
 			}
 
-			foreach( $refItem->toArray( true ) as $key => $value ) {
-				$data[$key][] = $value;
-			}
-
-			$idx++;
+			$data[] = $list;
 		}
 
 		return $data;
