@@ -100,6 +100,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'media.typeid' => $typeId,
 				'media.languageid' => 'de',
 				'media.label' => 'test',
+				'attribute.lists.type' => 'default',
 				'attribute.lists.typeid' => $listTypeId
 			]],
 		);
@@ -110,7 +111,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$file = $this->getMockBuilder( '\Psr\Http\Message\UploadedFileInterface' )->getMock();
 		$request = $this->getMockBuilder( '\Psr\Http\Message\ServerRequestInterface' )->getMock();
 		$request->expects( $this->any() )->method( 'getUploadedFiles' )
-			->will( $this->returnValue( array( 'image' => array( 'files' => array( $file ) ) ) ) );
+			->will( $this->returnValue( ['image' => [0 => ['file' => $file] ] ] ) );
 
 		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
