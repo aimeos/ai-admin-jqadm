@@ -81,62 +81,42 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
-		$mediaManager = \Aimeos\MShop\Factory::createManager( $this->context, 'media' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'media/property/type' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog/lists' );
 
 		$item = $manager->findItem( 'cafe', ['media'] );
 		$item->setCode( 'jqadm-test-image-property' );
 		$item->setId( null );
 
-		$item = $manager->insertItem( $item );
-		$listItems = $item->getListItems( 'media' );
-
-		if( ( $listItem = reset( $listItems ) ) === false ) {
-			throw \Exception( 'No media list item found' );
-		}
-
-		if( ( $mediaItem = $listItem->getRefItem() ) === null ) {
-			throw \Exception( 'No media item found' );
-		}
-
-		$mediaItem->setId( null );
-		$mediaItem = $mediaManager->saveItem( $mediaItem );
-
-		$listItem->setId( null );
-		$listItem->setParentId( $item->getId() );
-		$listItem->setRefId( $mediaItem->getId() );
-		$listItem = $listManager->saveItem( $listItem, false );
-
-		$item = $manager->findItem( 'jqadm-test-image-property', ['media'] );
-
+		$this->view->item = $manager->insertItem( $item );
 
 		$param = array(
 			'site' => 'unittest',
 			'image' => array(
-				'property' => array(
-					0 => array(
-						'media.property.id' => array( '' ),
-						'media.property.typeid' => array( $typeManager->findItem( 'size', [], 'media' )->getId() ),
-					)
+				0 => array(
+					'property' => array(
+						0 => array(
+							'media.property.id' => '',
+							'media.property.typeid' => $typeManager->findItem( 'size', [], 'media' )->getId(),
+						),
+					),
 				),
 			),
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
+
 
 		$result = $this->object->save();
 
-		$item = $manager->getItem( $item->getId(), ['media'] );
-		$manager->deleteItem( $item->getId() );
+
+		$manager->deleteItem( $this->view->item->getId() );
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
 
-		$mediaItems = $item->getRefItems( 'media' );
-		$this->assertEquals( 3, count( $mediaItems ) );
+		$mediaItems = $this->view->item->getRefItems( 'media' );
+		$this->assertEquals( 2, count( $mediaItems ) );
 		$this->assertEquals( 1, count( reset( $mediaItems )->getPropertyItems() ) );
 	}
 
@@ -156,7 +136,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->setExpectedException( '\RuntimeException' );
+		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
 		$object->save();
 	}
 

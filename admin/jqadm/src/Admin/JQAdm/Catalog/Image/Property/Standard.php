@@ -64,12 +64,12 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = $view->param( 'image', [] );
+		$data = $view->get( 'imageData', [] );
 
-		foreach( $view->value( $data, 'media.id', [] ) as $index => $x )
+		foreach( $data as $index => $entry )
 		{
-			foreach( $view->value( $data, 'property', [] ) as $idx => $y ) {
-				$data['property'][$index]['catalog.lists.siteid'][$idx] = $siteid;
+			foreach( $view->value( $entry, 'property', [] ) as $idx => $y ) {
+				$data[$index]['property'][$idx]['catalog.lists.siteid'] = $siteid;
 			}
 		}
 
@@ -110,27 +110,30 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'media' );
-		$manager->begin();
 
 		try
 		{
-			$this->fromArray( $view->item, $view->param( 'image', [] ) );
+			$view->item = $this->fromArray( $view->item, $view->param( 'image', [] ) );
 			$view->propertyBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
 				$view->propertyBody .= $client->save();
 			}
 
-			$manager->commit();
+			return;
+		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$error = array( 'catalog-item-image-property' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
 		catch( \Exception $e )
 		{
-			$manager->rollback();
-			throw $e;
+			$error = array( 'catalog-item-image-property' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$view->errors = $view->get( 'errors', [] ) + $error;
 		}
+
+		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
 
 
@@ -292,43 +295,34 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Catalog\Item\Iface $item, array $data )
 	{
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
-		$propManager = \Aimeos\MShop\Factory::createManager( $context, 'media/property' );
-
-		$propItem = $propManager->createItem();
+		$propManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/property' );
 		$index = 0;
 
-		foreach( $manager->getItem( $item->getId(), ['media'] )->getRefItems( 'media', null, null, false ) as $refItem )
+		foreach( $item->getRefItems( 'media', null, null, false ) as $refItem )
 		{
 			$propItems = $refItem->getPropertyItems();
-			$propIds = (array) $this->getValue( $data, 'property/' . $index . '/media.property.id', [] );
 
-			foreach( $propIds as $idx => $propId )
+			foreach( (array) $this->getValue( $data, $index . '/property', [] ) as $idx => $entry )
 			{
-				if( isset( $propItems[$propId] ) ) {
-					unset( $propItems[$propId], $propIds[$idx] );
+				if( isset( $propItems[$entry['media.property.id']] ) )
+				{
+					$propItem = $propItems[$entry['media.property.id']];
+					unset( $propItems[$entry['media.property.id']] );
 				}
+				else
+				{
+					$propItem = $propManager->createItem();
+				}
+
+				$propItem->fromArray( $entry );
+				$refItem->addPropertyItem( $propItem );
 			}
 
-			$propManager->deleteItems( array_keys( $propItems ) );
-
-			$propItem->setParentId( $refItem->getId() );
-
-			foreach( $propIds as $idx => $propId )
-			{
-				$lang = $this->getValue( $data, 'property/' . $index . '/media.property.languageid/' . $idx, null );
-
-				$propItem->setLanguageId( ( $lang ? $lang : null ) );
-				$propItem->setTypeId( $this->getValue( $data, 'property/' . $index . '/media.property.typeid/' . $idx, null ) );
-				$propItem->setValue( $this->getValue( $data, 'property/' . $index . '/media.property.value/' . $idx, '' ) );
-
-				$propManager->saveItem( $propItem, false );
-			}
-
+			$refItem->deletePropertyItems( $propItems );
 			$index++;
 		}
+
+		return $item;
 	}
 
 
@@ -357,9 +351,7 @@ class Standard
 					$list['media.property.id'] = '';
 				}
 
-				foreach( $list as $key => $value ) {
-					$data['property'][$idx][$key][] = $value;
-				}
+				$data[$idx]['property'][] = $list;
 			}
 
 			$idx++;
