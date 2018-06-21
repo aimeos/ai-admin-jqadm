@@ -106,75 +106,75 @@ Aimeos.Media = {
 		'methods': {
 
 			checkSite : function(key, idx) {
-				return this.items[key][idx] != this.siteid;
+				return this.items[idx][key] != this.siteid;
 			},
 
 
 			addItem : function(prefix) {
 
-				var idx = (this.items[prefix + 'id'] || []).length;
+				if(!this.items[idx]) {
+					this.$set(this.items, idx, {});
+				}
+
+				var idx = this.items.length;
 				var listtypeid = $('#item-image-group').data('listtypeid') || '';
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
-				this.$set(this.items[prefix + 'typeid'], idx, listtypeid);
-				this.$set(this.items['media.siteid'], idx, this.siteid);
-				this.$set(this.items['media.languageid'], idx, null);
-				this.$set(this.items['media.status'], idx, 1);
+				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
+				this.$set(this.items[idx], prefix + 'typeid', listtypeid);
+				this.$set(this.items[idx], 'media.siteid', this.siteid);
+				this.$set(this.items[idx], 'media.languageid', null);
+				this.$set(this.items[idx], 'media.status', 1);
 			},
 
 
 			removeItem : function(idx) {
-
-				for(key in this.items) {
-					this.items[key].splice(idx, 1);
-				}
+				this.items.splice(idx, 1);
 			},
 
 
 			addConfig : function(idx) {
 
-				if(!this.items['config']) {
-					this.$set(this.items, 'config', {});
+				if(!this.items[idx]['config']) {
+					this.$set(this.items[idx], 'config', {'key': [], 'val': []});
 				}
 
-				if(!this.items['config'][idx]) {
-					this.$set(this.items['config'], idx, {'key': [], 'val': []});
-				}
-
-				this.items['config'][idx]['key'].push('');
+				this.items[idx]['config']['key'].push('');
+				this.items[idx]['config']['val'].push('');
 			},
 
 
 			getConfig : function(idx) {
 
-				 if(this.items['config'] && this.items['config'][idx] && this.items['config'][idx]['key']) {
-					 return this.items['config'][idx]['key'];
+				 if(this.items[idx]['config'] && this.items[idx]['config']['key']) {
+					 return this.items[idx]['config']['key'];
 				 }
 				 return [];
 			},
 
 
 			removeConfig : function(idx, pos) {
-				this.items['config'][idx]['key'].splice(pos, 1);
-				this.items['config'][idx]['val'].splice(pos, 1);
+				this.items[idx]['config']['key'].splice(pos, 1);
+				this.items[idx]['config']['val'].splice(pos, 1);
 			},
 
 
 			getCss : function(idx) {
-				return ( idx !== 0 && this.items['media.id'] && this.items['media.id'][idx] ? 'collapsed' : 'show' );
+				return ( idx !== 0 && this.items[idx] && this.items[idx]['media.id'] ? 'collapsed' : 'show' );
 			},
 
 
 			getLabel : function(idx) {
 				var label = '';
 
-				label += (this.items['media.languageid'][idx] ? this.items['media.languageid'][idx] + ': ' : '');
-				label += (this.items['media.label'][idx] ? this.items['media.label'][idx] : '');
-				label += (this.items['media.typename'] && this.items['media.typename'][idx] ? ' (' + this.items['media.typename'][idx] + ')' : '');
+				if(this.items[idx]) {
+					label += (this.items[idx]['media.languageid'] ? this.items[idx]['media.languageid'] + ': ' : '');
+					label += (this.items[idx]['media.label'] ? this.items[idx]['media.label'] : '');
+					label += (this.items[idx]['media.typename'] ? ' (' + this.items[idx]['media.typename'] + ')' : '');
+				}
 
 				return label;
 			},
@@ -195,35 +195,41 @@ Aimeos.Media = {
 			updateFile : function(idx, files) {
 
 				if(files.length > 0) {
-					this.$set(this.items['media.label'], idx, files[0].name);
+					this.$set(this.items[idx], 'media.label', files[0].name);
 				}
 			},
 
 
 			addPropertyItem : function(idx) {
 
-				if(!this.items['property']) {
-					this.$set(this.items, 'property', {});
+				if(!this.items[idx]) {
+					this.$set(this.items, idx, {});
 				}
 
-				if(!this.items['property'][idx]) {
-					this.$set(this.items['property'], idx, {});
+				if(!this.items[idx]['property']) {
+					this.$set(this.items[idx], 'property', []);
+				}
+
+				var len = this.items[idx]['property'].length;
+
+				if(!this.items[idx]['property'][len]) {
+					this.$set(this.items[idx]['property'], len, {});
 				}
 
 				var keys = ['media.property.id', 'media.property.languageid', 'media.property.typeid', 'media.property.value'];
 
 				for(key in keys) {
-					key = keys[key]; this.$set(this.items['property'][idx], key, (this.items['property'][idx][key] || []).concat(['']));
+					key = keys[key]; this.$set(this.items[idx]['property'][len], key, '');
 				}
 
-				this.$set(this.items['property'][idx], 'media.property.siteid', (this.items['property'][idx]['media.property.siteid'] || []).concat([this.siteid]));
+				this.$set(this.items[idx]['property'][len], 'media.property.siteid', this.siteid);
 			},
 
 
 			getPropertyData : function(idx) {
 
-				if(this.items['property'] && this.items['property'][idx] && this.items['property'][idx]['media.property.id']) {
-					return this.items['property'][idx]['media.property.id'];
+				if(this.items[idx] && this.items[idx]['property']) {
+					return this.items[idx]['property'];
 				}
 
 				return [];
@@ -231,10 +237,7 @@ Aimeos.Media = {
 
 
 			removePropertyItem : function(idx, propidx) {
-
-				for(key in this.items['property'][idx]) {
-					this.items['property'][idx][key].splice(propidx, 1);
-				}
+				this.items[idx]['property'].splice(propidx, 1);
 			}
 		},
 		'mounted' : function() {

@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;media.preview&quot;:[&quot;prod_97x93\/199_prod_97x93.jpg&quot;]', $result );
+		$this->assertContains( '&quot;media.preview&quot;:&quot;prod_97x93\/199_prod_97x93.jpg&quot;', $result );
 	}
 
 
@@ -77,34 +77,31 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;media.preview&quot;:[&quot;prod_97x93\/199_prod_97x93.jpg&quot;]', $result );
+		$this->assertContains( '&quot;media.preview&quot;:&quot;prod_97x93\/199_prod_97x93.jpg&quot;', $result );
 	}
 
 
 	public function testSave()
 	{
 		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute/lists/type' );
+		$listTypeId = $listTypeManager->findItem( 'default', [], 'media' )->getId();
+
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'media/type' );
+		$typeId = $typeManager->findItem( 'default', [], 'attribute' )->getId();
+
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
-
-		$item = $manager->findItem( 'xs', [], 'product', 'size' );
-		$item->setCode( 'jqadm-test-image' );
-		$item->setId( null );
-
-		foreach( $item->getListItems() as $listItem ) {
-			$item->deleteListItem( $listItem->getDomain(), $listItem->setId( null ) );
-		}
-
-		$item = $manager->saveItem( $item );
+		$this->view->item = $manager->createItem();
 
 
 		$param = array(
 			'site' => 'unittest',
-			'image' => array(
-				'attribute.lists.id' => array( '' ),
-				'attribute.lists.typeid' => array( $listTypeManager->findItem( 'default', [], 'media' )->getId() ),
-				'media.languageid' => array( 'de' ),
-				'media.label' => array( 'test' ),
-			),
+			'image' => [[
+				'media.id' => '',
+				'media.typeid' => $typeId,
+				'media.languageid' => 'de',
+				'media.label' => 'test',
+				'attribute.lists.typeid' => $listTypeId
+			]],
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
@@ -117,8 +114,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
-
-		$this->view->item = $item;
 
 
 		$name = 'AdminJQAdmAttributeImageSave';
@@ -134,29 +129,21 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$cntlStub->expects( $this->once() )->method( 'add' );
 
 
-		$mediaStub = $this->getMockBuilder( '\\Aimeos\\MShop\\Media\\Manager\\Standard' )
-			->setConstructorArgs( array( $this->context ) )
-			->setMethods( array( 'saveItem' ) )
-			->getMock();
-
-		\Aimeos\MShop\Factory::injectManager( $this->context, 'media', $mediaStub );
-
-		$mediaStub->expects( $this->once() )->method( 'saveItem' )
-			->will( $this->returnValue( $mediaStub->createItem() ) );
-
-
-		\Aimeos\MShop\Factory::setCache( true );
-
 		$result = $this->object->save();
 
-		\Aimeos\MShop\Factory::setCache( false );
-
-		$item = $manager->getItem( $item->getId(), array( 'media' ) );
-		$manager->deleteItem( $item->getId() );
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 1, count( $item->getListItems( 'media' ) ) );
+		$this->assertEquals( 1, count( $this->view->item->getListItems() ) );
+
+		foreach( $this->view->item->getListItems( 'media' ) as $listItem )
+		{
+			$this->assertEquals( 'media', $listItem->getDomain() );
+
+			$refItem = $listItem->getRefItem();
+			$this->assertEquals( 'de', $refItem->getLanguageId() );
+			$this->assertEquals( 'test', $refItem->getLabel() );
+		}
 	}
 
 
