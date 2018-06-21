@@ -66,9 +66,9 @@ class Standard
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->get( 'imageData', [] );
 
-		foreach( $data as $index => $entry ) {
+		foreach( $data as $index => $entry )
 		{
-			foreach( $view->value( $entry, 'property', [] ) as $idx => $y )
+			foreach( $view->value( $entry, 'property', [] ) as $idx => $y ) {
 				$data[$index]['property'][$idx]['attribute.lists.siteid'] = $siteid;
 			}
 		}
@@ -295,11 +295,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Attribute\Item\Iface $item, array $data )
 	{
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-		$propManager = \Aimeos\MShop\Factory::createManager( $context, 'media/property' );
-
+		$propManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/property' );
 		$index = 0;
 
 		foreach( $item->getRefItems( 'media', null, null, false ) as $refItem )

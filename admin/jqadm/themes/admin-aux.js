@@ -112,12 +112,12 @@ Aimeos.Media = {
 
 			addItem : function(prefix) {
 
+				var idx = this.items.length;
+				var listtypeid = $('#item-image-group').data('listtypeid') || '';
+
 				if(!this.items[idx]) {
 					this.$set(this.items, idx, {});
 				}
-
-				var idx = this.items.length;
-				var listtypeid = $('#item-image-group').data('listtypeid') || '';
 
 				for(var key in this.keys) {
 					key = this.keys[key]; this.$set(this.items[idx], key, '');
@@ -174,6 +174,10 @@ Aimeos.Media = {
 					label += (this.items[idx]['media.languageid'] ? this.items[idx]['media.languageid'] + ': ' : '');
 					label += (this.items[idx]['media.label'] ? this.items[idx]['media.label'] : '');
 					label += (this.items[idx]['media.typename'] ? ' (' + this.items[idx]['media.typename'] + ')' : '');
+				}
+
+				if(this.items[idx]['media.status'] < 1) {
+					label = '<s>' + label + '</s>';
 				}
 
 				return label;

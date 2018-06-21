@@ -304,6 +304,7 @@
 
 .aimeos .item-image .image-preview .fileupload {
 	height: calc(10rem - 4px);
+	width: calc(100% - 4px);
 	position: absolute;
 	overflow: hidden;
 	cursor: pointer;

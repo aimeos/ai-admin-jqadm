@@ -52,11 +52,15 @@ $keys = [
 				<div class="col-xl-6">
 
 					<div class="form-group row image-preview">
+						<input v-on:change="updateFile(idx, $event.target.files)"
+							class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'file' ) ) ); ?>'.replace( 'idx', idx )" />
 						<input class="item-preview" type="hidden"
 							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.preview' ) ) ); ?>'.replace( 'idx', idx )"
 							v-model="items[idx]['media.preview']" />
-						<input v-on:change="updateFile(idx, $event.target.files)"
-							class="fileupload" type="file" name="image[files][]" tabindex="<?= $this->get( 'tabindex' ); ?>" />
+						<input class="item-url" type="hidden"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.url' ) ) ); ?>'.replace( 'idx', idx )"
+							v-model="items[idx]['media.url']" />
 						<img v-if="items[idx]['media.preview']" class="item-preview"
 							v-bind:src="getUrl('<?= $this->content('') ?>', items[idx]['media.preview'])"
 							v-bind:alt="items[idx]['media.label']" />
@@ -75,7 +79,7 @@ $keys = [
 							<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.status' ) ) ); ?>'.replace( 'idx', idx )"
 								v-bind:readonly="checkSite('media.siteid', idx)"
-								v-model="items['media.status'][idx]" >
+								v-model="items[idx]['media.status']" >
 								<option value="1" v-bind:selected="items[idx]['media.status'] == 1" >
 									<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
 								</option>
@@ -119,7 +123,7 @@ $keys = [
 						</div>
 					<?php else : ?>
 						<input class="item-typeid" type="hidden"
-							name="<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.typeid' ) ) ); ?>'.replace( 'idx', idx )"
+							name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.typeid' ) ) ); ?>'.replace( 'idx', idx )"
 							value="<?= $enc->attr( key( $mediaTypes ) ); ?>" />
 					<?php endif; ?>
 
@@ -174,6 +178,8 @@ $keys = [
 				</div>
 
 				<div v-show="advanced[idx]" class="col-xl-6 content-block secondary">
+					<input type="hidden" v-model="items[idx]['attribute.lists.type']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'attribute.lists.type' ) ) ); ?>'.replace( 'idx', idx )" />
 					<?php $listTypes = $this->get( 'imageListTypes', [] ); ?>
 					<?php if( count( $listTypes ) > 1 ) : ?>
 						<div class="form-group row mandatory">
@@ -229,7 +235,7 @@ $keys = [
 					</div>
 				</div>
 
-				<div v-show="advanced[idx]" class="col-xl-6 content-block secondary" v-bind:class="items['attribute.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+				<div v-show="advanced[idx]" class="col-xl-6 content-block secondary" v-bind:class="checkSite('attribute.lists.siteid', idx) ? 'readonly' : ''">
 					<table class="item-config table table-striped">
 						<thead>
 							<tr>
@@ -255,9 +261,8 @@ $keys = [
 
 							<tr v-for="(key, pos) in getConfig(idx)" v-bind:key="pos">
 								<td>
-									<input is="auto-complete" v-once
+									<input is="auto-complete"
 										v-model="items[idx]['config']['key'][pos]"
-										v-bind:value="items[idx]['config']['key'][pos]"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'config', 'key', '' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('attribute.lists.siteid', idx)"
 										v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"

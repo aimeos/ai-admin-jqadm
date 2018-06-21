@@ -10,7 +10,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div v-show="advanced[idx]" class="item-image-property col-xl-12 content-block secondary" v-bind:class="items['attribute.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+<div v-show="advanced[idx]" class="item-image-property col-xl-12 content-block secondary">
 
 	<table class="table table-default" >
 
@@ -32,8 +32,7 @@ $enc = $this->encoder();
 		</thead>
 		<tbody>
 
-			<tr v-for="(propdata, propidx) in getPropertyData(idx)" v-bind:key="propidx"
-				v-bind:class="!checkSite('media.siteid', idx) ? 'readonly' : ''">
+			<tr v-for="(propdata, propidx) in getPropertyData(idx)" v-bind:key="propidx" v-bind:class="checkSite('media.siteid', idx) ? 'readonly' : ''">
 
 				<td class="property-type">
 					<input class="item-propertyid" type="hidden" v-bind:value="propdata['media.property.id']"

@@ -64,10 +64,16 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = $view->param( 'image', [] );
 
-		foreach( $view->value( $data, 'attribute.lists.id', [] ) as $idx => $value ) {
-			$data['attribute.lists.siteid'][$idx] = $siteid;
+		$itemData = $this->toArray( $view->item );
+		$data = array_replace_recursive( $itemData, $view->param( 'image', [] ) );
+
+		foreach( $data as $idx => $entry )
+		{
+			$data[$idx]['media.siteid'] = $siteid;
+			$data[$idx]['media.url'] = $itemData[$idx]['media.url'];
+			$data[$idx]['media.preview'] = $itemData[$idx]['media.preview'];
+			$data[$idx]['attribute.lists.siteid'] = $siteid;
 		}
 
 		$view->imageData = $data;
@@ -96,7 +102,7 @@ class Standard
 				$cntl->delete( $refItem );
 			}
 
-			$item->deleteRefItem( 'media', $listItem, $refItem );
+			$item->deleteListItem( 'media', $listItem, $refItem );
 		}
 	}
 
@@ -329,12 +335,11 @@ class Standard
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
-		$files = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'image/files', [] );
-
+		$files = (array) $this->getView()->request()->getUploadedFiles();
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = $item->getListItem( 'media', $entry['media.typeid'], $entry['media.id'] ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'media', $entry['attribute.lists.type'], $entry['media.id'] ) ) === null ) {
 				$listItem = $listManager->createItem();
 			}
 
@@ -342,10 +347,15 @@ class Standard
 				$refItem = $mediaManager->createItem();
 			}
 
-			if( ( $file = $this->getValue( $files, $idx ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
+			if( ( $file = $this->getValue( $files, 'image/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
 			{
 				$refItem = $mediaManager->createItem();
+				$refItem->fromArray( $entry );
 				$cntl->add( $refItem, $file );
+			}
+			else
+			{
+				$refItem->fromArray( $entry );
 			}
 
 			$conf = [];
@@ -360,8 +370,6 @@ class Standard
 			$listItem->fromArray( $entry );
 			$listItem->setPosition( $idx );
 			$listItem->setConfig( $conf );
-
-			$refItem->fromArray( $entry );
 
 			$item->addListItem( 'media', $listItem, $refItem );
 
