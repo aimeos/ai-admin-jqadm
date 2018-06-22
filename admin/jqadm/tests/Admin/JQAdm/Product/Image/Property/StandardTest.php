@@ -136,7 +136,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( '\RuntimeException' );
 		$object->save();
 	}
 

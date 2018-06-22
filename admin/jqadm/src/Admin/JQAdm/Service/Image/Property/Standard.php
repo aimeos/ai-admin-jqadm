@@ -111,29 +111,12 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$view->item = $this->fromArray( $view->item, $view->param( 'image', [] ) );
-			$view->propertyBody = '';
+		$view->item = $this->fromArray( $view->item, $view->param( 'image', [] ) );
+		$view->propertyBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->propertyBody .= $client->save();
-			}
-
-			return;
+		foreach( $this->getSubClients() as $client ) {
+			$view->propertyBody .= $client->save();
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'service-item-image-property' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'service-item-image-property' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-		}
-
-		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
 
 
