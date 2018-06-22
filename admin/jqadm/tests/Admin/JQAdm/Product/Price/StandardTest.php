@@ -95,6 +95,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'price' => [[
+				'price.id' => '',
 				'price.value' => '10.00',
 				'price.costs' => '1.00',
 				'price.rebate' => '5.00',
@@ -102,6 +103,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'price.quantity' => '2',
 				'price.currencyid' => 'EUR',
 				'price.typeid' => $typeId,
+				'product.lists.type' => 'default',
 				'product.lists.typeid' => $listTypeId
 			]],
 		);

@@ -89,20 +89,41 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute/lists/type' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/lists/type' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'text/type' );
 
 		$listTypeId = $listTypeManager->findItem( 'default', [], 'text' )->getId();
-		$typeId = $typeManager->findItem( 'name', [], 'attribute' )->getId();
+		$typeId = $typeManager->findItem( 'name', [], 'product' )->getId();
 
 		$item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
 			'text' => array(
-				array( 'text.content' => 'test name', 'text.languageid' => 'de', 'text.typeid' => $typeId, 'attribute.lists.typeid' => $listTypeId ),
-				array( 'text.content' => 'short desc', 'text.languageid' => 'de', 'text.typeid' => $typeId, 'attribute.lists.typeid' => $listTypeId ),
-				array( 'text.content' => 'long desc', 'text.languageid' => 'de', 'text.typeid' => $typeId, 'attribute.lists.typeid' => $listTypeId ),
+				array(
+					'text.id' => '',
+					'text.content' => 'test name',
+					'text.languageid' => 'de',
+					'text.typeid' => $typeId,
+					'product.lists.type' => 'default',
+					'product.lists.typeid' => $listTypeId
+				),
+				array(
+					'text.id' => '',
+					'text.content' => 'short desc',
+					'text.languageid' => 'de',
+					'text.typeid' => $typeId,
+					'product.lists.type' => 'default',
+					'product.lists.typeid' => $listTypeId
+				),
+				array(
+					'text.id' => '',
+					'text.content' => 'long desc',
+					'text.languageid' => 'de',
+					'text.typeid' => $typeId,
+					'product.lists.type' => 'default',
+					'product.lists.typeid' => $listTypeId
+				),
 			),
 		);
 

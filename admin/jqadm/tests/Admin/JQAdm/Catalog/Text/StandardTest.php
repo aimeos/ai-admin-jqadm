@@ -100,9 +100,30 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'text' => array(
-				array( 'text.content' => 'test name', 'text.languageid' => 'de', 'text.typeid' => $typeId, 'catalog.lists.typeid' => $listTypeId ),
-				array( 'text.content' => 'short desc', 'text.languageid' => 'de', 'text.typeid' => $typeId, 'catalog.lists.typeid' => $listTypeId ),
-				array( 'text.content' => 'long desc', 'text.languageid' => 'de', 'text.typeid' => $typeId, 'catalog.lists.typeid' => $listTypeId ),
+				array(
+					'text.id' => '',
+					'text.content' => 'test name',
+					'text.languageid' => 'de',
+					'text.typeid' => $typeId,
+					'catalog.lists.type' => 'default',
+					'catalog.lists.typeid' => $listTypeId
+				),
+				array(
+					'text.id' => '',
+					'text.content' => 'short desc',
+					'text.languageid' => 'de',
+					'text.typeid' => $typeId,
+					'catalog.lists.type' => 'default',
+					'catalog.lists.typeid' => $listTypeId
+				),
+				array(
+					'text.id' => '',
+					'text.content' => 'long desc',
+					'text.languageid' => 'de',
+					'text.typeid' => $typeId,
+					'catalog.lists.type' => 'default',
+					'catalog.lists.typeid' => $listTypeId
+				),
 			),
 		);
 
