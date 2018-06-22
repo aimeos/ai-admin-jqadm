@@ -303,7 +303,7 @@ $currencies = $this->get( 'priceCurrencies', [] );
 
 							<tr v-for="(key, pos) in getConfig(idx)" v-bind:key="pos">
 								<td>
-									<input is="auto-complete" v-once
+									<input is="auto-complete"
 										v-model="items[idx]['config']['key'][pos]"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'config', 'key', '' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('service.lists.siteid', idx)"
