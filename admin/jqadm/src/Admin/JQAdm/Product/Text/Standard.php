@@ -64,7 +64,7 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = $view->param( 'text', [] );
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'text', [] ) );
 
 		foreach( $data as $idx => $entry )
 		{
@@ -321,12 +321,16 @@ class Standard
 		$textManager = \Aimeos\MShop\Factory::createManager( $context, 'text' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
-		$listItems = array_reverse( $item->getListItems( 'text', null, null, false ) );
+		$listItems = $item->getListItems( 'text', null, null, false );
 
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = array_pop( $listItems ) ) === null ) {
+			if( trim( $this->getValue( $entry, 'text.content', '' ) ) === '' ) {
+				continue;
+			}
+
+			if( ( $listItem = $item->getListItem( 'text', $entry['product.lists.type'], $entry['text.id'] ) ) === null ) {
 				$listItem = $listManager->createItem();
 			}
 
@@ -334,10 +338,7 @@ class Standard
 				$refItem = $textManager->createItem();
 			}
 
-			if( trim( $this->getValue( $entry, 'text.content', '' ) ) === '' ) {
-				continue;
-			}
-
+			$refItem->fromArray( $entry );
 			$conf = [];
 
 			foreach( (array) $this->getValue( $entry, 'config/key' ) as $num => $key )
@@ -350,8 +351,6 @@ class Standard
 			$listItem->fromArray( $entry );
 			$listItem->setPosition( $idx );
 			$listItem->setConfig( $conf );
-
-			$refItem->fromArray( $entry );
 
 			$item->addListItem( 'text', $listItem, $refItem );
 
@@ -386,6 +385,7 @@ class Standard
 			{
 				$list['product.lists.siteid'] = $siteId;
 				$list['text.siteid'] = $siteId;
+				$list['text.id'] = null;
 			}
 
 			$list['product.lists.datestart'] = str_replace( ' ', 'T', $list['product.lists.datestart'] );

@@ -180,6 +180,9 @@ $keys = [
 
 				<div v-show="advanced[idx]" class="col-xl-6 content-block secondary">
 
+					<input type="hidden" v-model="items[idx]['attribute.lists.type']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'attribute.lists.type' ) ) ); ?>'.replace( 'idx', idx )" />
+
 					<?php $listTypes = $this->get( 'textListTypes', [] ); ?>
 					<?php if( count( $listTypes ) > 1 ) : ?>
 						<div class="form-group row mandatory">
@@ -262,7 +265,7 @@ $keys = [
 
 							<tr v-for="(key, pos) in getConfig(idx)" v-bind:key="pos">
 								<td>
-									<input is="auto-complete" v-once
+									<input is="auto-complete"
 										v-model="items[idx]['config']['key'][pos]"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'config', 'key', '' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('attribute.lists.siteid', idx)"
