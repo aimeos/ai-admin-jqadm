@@ -218,6 +218,9 @@ $currencies = $this->get( 'priceCurrencies', [] );
 
 				<div v-show="advanced[idx]" class="col-xl-6 content-block secondary">
 
+					<input type="hidden" v-model="items[idx]['product.lists.type']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'product.lists.type' ) ) ); ?>'.replace( 'idx', idx )" />
+
 					<?php $listTypes = $this->get( 'priceListTypes', [] ); ?>
 					<?php if( count( $listTypes ) > 1 ) : ?>
 						<div class="form-group row mandatory">
