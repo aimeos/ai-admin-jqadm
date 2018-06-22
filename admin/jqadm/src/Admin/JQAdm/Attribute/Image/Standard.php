@@ -94,9 +94,10 @@ class Standard
 	{
 		parent::delete();
 
+		$item = $this->getView()->item;
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $this->getContext() );
 
-		foreach( $this->getView()->item->getListItems( 'media', null, null, false ) as $listItem )
+		foreach( $item->getListItems( 'media', null, null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) !== null ) {
 				$cntl->delete( $refItem );
@@ -347,15 +348,10 @@ class Standard
 				$refItem = $mediaManager->createItem();
 			}
 
-			if( ( $file = $this->getValue( $files, 'image/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
-			{
-				$refItem = $mediaManager->createItem();
-				$refItem->fromArray( $entry );
+			$refItem->fromArray( $entry );
+
+			if( ( $file = $this->getValue( $files, 'image/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
 				$cntl->add( $refItem, $file );
-			}
-			else
-			{
-				$refItem->fromArray( $entry );
 			}
 
 			$conf = [];
@@ -414,6 +410,7 @@ class Standard
 			{
 				$list['attribute.lists.siteid'] = $siteId;
 				$list['media.siteid'] = $siteId;
+				$list['media.id'] = null;
 			}
 
 			$list['attribute.lists.datestart'] = str_replace( ' ', 'T', $list['attribute.lists.datestart'] );
