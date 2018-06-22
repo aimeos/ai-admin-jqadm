@@ -283,7 +283,7 @@ class Standard
 
 		foreach( $item->getRefItems( 'media', null, null, false ) as $refItem )
 		{
-			$propItems = $refItem->getPropertyItems();
+			$propItems = $refItem->getPropertyItems( null, false );
 
 			foreach( (array) $this->getValue( $data, $index . '/property', [] ) as $idx => $entry )
 			{
