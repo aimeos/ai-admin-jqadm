@@ -390,22 +390,19 @@ Aimeos.Property = {
 
 			addItem : function(prefix) {
 
-				var idx = (this.items[prefix + 'id'] || []).length;
+				var idx = this.items.length;
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
-				this.$set(this.items[prefix + 'languageid'], idx, null);
+				this.$set(this.items[], prefix + 'siteid', this.siteid);
+				this.$set(this.items[], prefix + 'languageid', null);
 			},
 
 
 			removeItem : function(idx) {
-
-				for(key in this.items) {
-					this.items[key].splice(idx, 1);
-				}
+				this.items.splice(idx, 1);
 			}
 		}
 	},

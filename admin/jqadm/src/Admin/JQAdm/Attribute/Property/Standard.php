@@ -64,8 +64,8 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-		$data = $view->param( 'property', [] );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'property', [] ) );
 
 		foreach( $view->value( $data, 'attribute.lists.id', [] ) as $idx => $value ) {
 			$data['attribute.lists.siteid'][$idx] = $siteid;
@@ -110,10 +110,6 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/property' );
-		$manager->begin();
 
 		try
 		{
@@ -124,12 +120,11 @@ class Standard
 				$view->propertyBody .= $client->save();
 			}
 
-			$manager->commit();
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'attribute-item-property' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'attribute-item-property' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -139,8 +134,6 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
-
-		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -233,6 +226,27 @@ class Standard
 
 
 	/**
+	 * Filter the list of property items and remove items with excluded types
+	 *
+	 * @param \Aimeos\MShop\Common\Item\Property\Iface[] $propItems List of property items
+	 * @return \Aimeos\MShop\Common\Item\Property\Iface[] Filtered list of property items
+	 */
+	protected function excludeItems( array $propItems )
+	{
+		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
+
+		foreach( $propItems as $key => $propItem )
+		{
+			if( in_array( $propItem->getType(), $excludes ) ) {
+				unset( $propItems[$key] );
+			}
+		}
+
+		return $propItems;
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -277,29 +291,6 @@ class Standard
 
 
 	/**
-	 * Returns the attribute properties for the given attribute ID
-	 *
-	 * @param string $prodid Unique attribute ID
-	 * @return array Associative list of property IDs as keys and property items as values
-	 */
-	protected function getProperties( $prodid )
-	{
-		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'attribute/property' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'attribute.property.parentid', $prodid ),
-			$search->compare( '!=', 'attribute.property.type.code', $excludes ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-		$search->setSlice( 0, 0x7fffffff );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Returns the available attribute property types
 	 *
 	 * @return array Associative list of property type IDs as keys and property type items as values
@@ -321,34 +312,25 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'attribute/property' );
 
-		$map = $this->getProperties( $item->getId() );
-		$ids = (array) $this->getValue( $data, 'attribute.property.id', [] );
+		$propItems = $this->excludeItems( $item->getPropertyItems( null, false ) );
 
-		$propItem = $manager->createItem();
-
-		foreach( $ids as $idx => $propertyId )
+		foreach( $data as $entry )
 		{
-			if( isset( $map[$propertyId] ) )
+			if( isset( $propItems[$entry['attribute.property.id']] ) )
 			{
-				$propItem = $map[$propertyId];
-				unset( $map[$propertyId] );
+				$propItem = $propItems[$entry['attribute.property.id']];
+				unset( $propItems[$entry['attribute.property.id']] );
 			}
 			else
 			{
-				$propItem->setId( null );
-				$propItem->setParentId( $item->getId() );
+				$propItem = $manager->createItem();
 			}
 
-			$lang = $this->getValue( $data, 'attribute.property.languageid/' . $idx, null );
-
-			$propItem->setLanguageId( ( $lang ? $lang : null ) );
-			$propItem->setTypeId( $this->getValue( $data, 'attribute.property.typeid/' . $idx, null ) );
-			$propItem->setValue( $this->getValue( $data, 'attribute.property.value/' . $idx, '' ) );
-
-			$manager->saveItem( $propItem, false );
+			$propItem->fromArray( $entry );
+			$item->addPropertyItem( $propItem );
 		}
 
-		$manager->deleteItems( array_keys( $map ) );
+		$item->deletePropertyItems( $propItems );
 	}
 
 
@@ -361,11 +343,16 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Attribute\Item\Iface $item, $copy = false )
 	{
+		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$data = [];
 
-		foreach( $this->getProperties( $item->getId() ) as $item )
+		foreach( $this->excludeItems( $item->getPropertyItems( null, false ) ) as $item )
 		{
+			if( in_array( $item->getType(), $excludes ) ) {
+				continue;
+			}
+
 			$list = $item->toArray( true );
 
 			if( $copy === true )
@@ -374,9 +361,7 @@ class Standard
 				$list['attribute.property.id'] = '';
 			}
 
-			foreach( $list as $key => $value ) {
-				$data[$key][] = $value;
-			}
+			$data[] = $list;
 		}
 
 		return $data;
