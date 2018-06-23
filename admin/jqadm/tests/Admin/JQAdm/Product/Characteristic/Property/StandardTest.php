@@ -81,46 +81,33 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-		$propManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/property' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/property/type' );
-
-		$item = $manager->findItem( 'CNC' );
-		$item->setCode( 'jqadm-test-property' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
-
-		$typeid = $typeManager->findItem( 'package-height', [], 'product' )->getId();
+		$this->view->item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
 			'characteristic' => array(
 				'property' => array(
-					'product.property.id' => array( '' ),
-					'product.property.typeid' => array( $typeid ),
-					'product.property.value' => array( '10.0' ),
+					array(
+						'product.property.id' => '',
+						'product.property.typeid' => 1,
+						'product.property.value' => '#100000',
+					)
 				),
 			),
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$search = $propManager->createSearch();
-		$search->setConditions( $search->compare( '==', 'product.property.parentid', $item->getId() ) );
-		$items = $propManager->searchItems( $search );
-
-		$manager->deleteItem( $item->getId() );
+		$items = $this->view->item->getPropertyItems( null, false );
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
 		$this->assertEquals( 1, count( $items ) );
 		$this->assertEquals( null, reset( $items )->getLanguageId() );
-		$this->assertEquals( '10.0', reset( $items )->getValue() );
+		$this->assertEquals( '#100000', reset( $items )->getValue() );
 	}
 
 

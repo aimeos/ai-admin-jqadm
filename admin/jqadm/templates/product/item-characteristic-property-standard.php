@@ -41,50 +41,53 @@ $keys = [
 
 		<tbody>
 
-			<tr v-for="(id, idx) in items['product.property.id']" v-bind:key="idx"
-				v-bind:class="items['product.property.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+			<tr v-for="(entry, idx) in items" v-bind:key="idx" v-bind:class="checkSite('property.property.siteid', idx) ? 'readonly' : ''">
 				<td class="property-type">
-					<input class="item-id" type="hidden" v-bind:value="items['product.property.id'][idx]"
-						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.id', '' ) ) ); ?>" />
+					<input class="item-id" type="hidden" v-bind:value="entry['property.property.id']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'idx', 'property.property.id' ) ) ); ?>'.replace('idx', idx)" />
+
 					<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.typeid', '' ) ) ); ?>"
-						v-bind:readonly="checkSite('product.property.siteid', idx)"
-						v-model="items['product.property.typeid'][idx]" >
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'idx', 'property.property.typeid' ) ) ); ?>'.replace('idx', idx)"
+						v-bind:readonly="checkSite('property.property.siteid', idx)"
+						v-model="items[idx]['property.property.typeid']" >
 
 						<?php foreach( $this->get( 'propertyTypes', [] ) as $id => $item ) : ?>
-							<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="items['product.property.typeid'][idx] == '<?= $enc->attr( $id ) ?>'" >
+							<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="entry['property.property.typeid'] == '<?= $enc->attr( $id ) ?>'" >
 								<?= $enc->html( $item->getLabel() ); ?>
 							</option>
 						<?php endforeach; ?>
 
 					</select>
 				</td>
+
 				<td class="property-language">
 					<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.languageid', '' ) ) ); ?>"
-						v-bind:readonly="checkSite('product.property.siteid', idx)"
-						v-model="items['product.property.languageid'][idx]" >
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'idx', 'property.property.languageid' ) ) ); ?>'.replace('idx', idx)"
+						v-bind:readonly="checkSite('property.property.siteid', idx)"
+						v-model="items[idx]['property.property.languageid']" >
 
 						<option v-bind:value="null">
 							<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
 						</option>
 
 						<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-							<option value="<?= $enc->attr( $langId ); ?>" v-bind:selected="items['product.property.languageid'][idx] == '<?= $enc->attr( $langId ) ?>'" >
+							<option value="<?= $enc->attr( $langId ); ?>" v-bind:selected="entry['property.property.languageid'] == '<?= $enc->attr( $langId ) ?>'" >
 								<?= $enc->html( $langItem->getLabel() ); ?>
 							</option>
 						<?php endforeach; ?>
 					</select>
 				</td>
+
 				<td class="property-value">
 					<input class="form-control item-value" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'product.property.value', '' ) ) ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'idx', 'property.property.value' ) ) ); ?>'.replace('idx', idx)"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
-						v-bind:readonly="checkSite('product.property.siteid', idx)"
-						v-model="items['product.property.value'][idx]" >
+						v-bind:readonly="checkSite('property.property.siteid', idx)"
+						v-model="items[idx]['property.property.value']" >
 				</td>
+
 				<td class="actions">
-					<div v-if="!checkSite('product.property.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+					<div v-if="!checkSite('property.property.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 						v-on:click.stop="removeItem(idx)">
 					</div>

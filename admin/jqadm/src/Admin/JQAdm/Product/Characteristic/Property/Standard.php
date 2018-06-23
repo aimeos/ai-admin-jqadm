@@ -62,8 +62,8 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-		$data = $view->param( 'characteristic/property', [] );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'characteristic/property', [] ) );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
 			$data['product.lists.siteid'][$idx] = $siteid;
@@ -108,26 +108,12 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$manager->begin();
+		$this->fromArray( $view->item, $view->param( 'characteristic/property', [] ) );
+		$view->propertyBody = '';
 
-		try
-		{
-			$this->fromArray( $view->item, $view->param( 'characteristic/property', [] ) );
-			$view->propertyBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->propertyBody .= $client->save();
-			}
-
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
+		foreach( $this->getSubClients() as $client ) {
+			$view->propertyBody .= $client->save();
 		}
 	}
 
@@ -219,6 +205,27 @@ class Standard
 
 
 	/**
+	 * Filter the list of property items and remove items with excluded types
+	 *
+	 * @param \Aimeos\MShop\Common\Item\Property\Iface[] $propItems List of property items
+	 * @return \Aimeos\MShop\Common\Item\Property\Iface[] Filtered list of property items
+	 */
+	protected function excludeItems( array $propItems )
+	{
+		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
+
+		foreach( $propItems as $key => $propItem )
+		{
+			if( in_array( $propItem->getType(), $excludes ) ) {
+				unset( $propItems[$key] );
+			}
+		}
+
+		return $propItems;
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -263,29 +270,6 @@ class Standard
 
 
 	/**
-	 * Returns the product properties for the given product ID
-	 *
-	 * @param string $prodid Unique product ID
-	 * @return array Associative list of property IDs as keys and property items as values
-	 */
-	protected function getProperties( $prodid )
-	{
-		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'product.property.parentid', $prodid ),
-			$search->compare( '!=', 'product.property.type.code', $excludes ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-		$search->setSlice( 0, 0x7fffffff );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Returns the available product property types
 	 *
 	 * @return array Associative list of property type IDs as keys and property type items as values
@@ -313,34 +297,25 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property' );
 
-		$map = $this->getProperties( $item->getId() );
-		$ids = (array) $this->getValue( $data, 'product.property.id', [] );
+		$propItems = $this->excludeItems( $item->getPropertyItems( null, false ) );
 
-		$propItem = $manager->createItem();
-
-		foreach( $ids as $idx => $propertyId )
+		foreach( $data as $entry )
 		{
-			if( isset( $map[$propertyId] ) )
+			if( isset( $propItems[$entry['product.property.id']] ) )
 			{
-				$propItem = $map[$propertyId];
-				unset( $map[$propertyId] );
+				$propItem = $propItems[$entry['product.property.id']];
+				unset( $propItems[$entry['product.property.id']] );
 			}
 			else
 			{
-				$propItem->setId( null );
-				$propItem->setParentId( $item->getId() );
+				$propItem = $manager->createItem();
 			}
 
-			$lang = $this->getValue( $data, 'product.property.languageid/' . $idx, null );
-
-			$propItem->setLanguageId( ( $lang ? $lang : null ) );
-			$propItem->setTypeId( $this->getValue( $data, 'product.property.typeid/' . $idx, null ) );
-			$propItem->setValue( $this->getValue( $data, 'product.property.value/' . $idx, '' ) );
-
-			$manager->saveItem( $propItem, false );
+			$propItem->fromArray( $entry );
+			$item->addPropertyItem( $propItem );
 		}
 
-		$manager->deleteItems( array_keys( $map ) );
+		$item->deletePropertyItems( $propItems );
 	}
 
 
@@ -356,7 +331,7 @@ class Standard
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$data = [];
 
-		foreach( $this->getProperties( $item->getId() ) as $item )
+		foreach( $this->excludeItems( $item->getPropertyItems( null, false ) ) as $item )
 		{
 			$list = $item->toArray( true );
 
@@ -366,9 +341,7 @@ class Standard
 				$list['product.property.id'] = '';
 			}
 
-			foreach( $list as $key => $value ) {
-				$data[$key][] = $value;
-			}
+			$data[] = $list;
 		}
 
 		return $data;
