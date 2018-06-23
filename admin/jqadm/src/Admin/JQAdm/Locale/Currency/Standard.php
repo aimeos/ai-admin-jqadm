@@ -86,7 +86,7 @@ class Standard
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' )->createItem();
 			} else {
-				$data = $this->toArray( $view->item );
+				$data = array_replace_recursive( $this->toArray( $view->item ), $data );
 			}
 
 			$view->itemSubparts = $this->getSubClientNames();
