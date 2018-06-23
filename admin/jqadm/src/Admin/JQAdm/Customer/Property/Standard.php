@@ -64,8 +64,8 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-		$data = $view->param( 'property', [] );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'property', [] ) );
 
 		foreach( $view->value( $data, 'customer.lists.id', [] ) as $idx => $value ) {
 			$data['customer.lists.siteid'][$idx] = $siteid;
@@ -110,10 +110,6 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
-		$manager->begin();
 
 		try
 		{
@@ -124,12 +120,11 @@ class Standard
 				$view->propertyBody .= $client->save();
 			}
 
-			$manager->commit();
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'customer-item-property' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'customer-item-property' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -139,8 +134,6 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
-
-		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -277,24 +270,6 @@ class Standard
 
 
 	/**
-	 * Returns the customer properties for the given customer ID
-	 *
-	 * @param string $parentId Unique customer ID
-	 * @return array Associative list of property IDs as keys and property items as values
-	 */
-	protected function getProperties( $parentId )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/property' );
-
-		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'customer.property.parentid', $parentId ) );
-		$search->setSlice( 0, 0x7fffffff );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Returns the available customer property types
 	 *
 	 * @return array Associative list of property type IDs as keys and property type items as values
@@ -316,34 +291,25 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/property' );
 
-		$map = $this->getProperties( $item->getId() );
-		$ids = (array) $this->getValue( $data, 'customer.property.id', [] );
+		$propItems = $item->getPropertyItems( null, false );
 
-		$propItem = $manager->createItem();
-
-		foreach( $ids as $idx => $propertyId )
+		foreach( $data as $entry )
 		{
-			if( isset( $map[$propertyId] ) )
+			if( isset( $propItems[$entry['customer.property.id']] ) )
 			{
-				$propItem = $map[$propertyId];
-				unset( $map[$propertyId] );
+				$propItem = $propItems[$entry['customer.property.id']];
+				unset( $propItems[$entry['customer.property.id']] );
 			}
 			else
 			{
-				$propItem->setId( null );
-				$propItem->setParentId( $item->getId() );
+				$propItem = $manager->createItem();
 			}
 
-			$lang = $this->getValue( $data, 'customer.property.languageid/' . $idx, null );
-
-			$propItem->setLanguageId( ( $lang ? $lang : null ) );
-			$propItem->setTypeId( $this->getValue( $data, 'customer.property.typeid/' . $idx, null ) );
-			$propItem->setValue( $this->getValue( $data, 'customer.property.value/' . $idx, '' ) );
-
-			$manager->saveItem( $propItem, false );
+			$propItem->fromArray( $entry );
+			$item->addPropertyItem( $propItem );
 		}
 
-		$manager->deleteItems( array_keys( $map ) );
+		$item->deletePropertyItems( $propItems );
 	}
 
 
@@ -359,7 +325,7 @@ class Standard
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$data = [];
 
-		foreach( $this->getProperties( $item->getId() ) as $item )
+		foreach( $item->getPropertyItems( null, false ) as $item )
 		{
 			$list = $item->toArray( true );
 
@@ -369,9 +335,7 @@ class Standard
 				$list['customer.property.id'] = '';
 			}
 
-			foreach( $list as $key => $value ) {
-				$data[$key][] = $value;
-			}
+			$data[] = $list;
 		}
 
 		return $data;

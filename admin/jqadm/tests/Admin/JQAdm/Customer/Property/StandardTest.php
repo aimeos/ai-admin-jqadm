@@ -81,44 +81,31 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
-		$propManager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/property' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/property/type' );
-
-		$item = $manager->findItem( 'UTC001', ['customer/property'] );
-		$item->setCode( 'jqadm-test-property' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
-
-		$typeid = $typeManager->findItem( 'newsletter', [], 'customer' )->getId();
+		$this->view->item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
 			'property' => array(
-				'customer.property.id' => array( '' ),
-				'customer.property.typeid' => array( $typeid ),
-				'customer.property.value' => array( 'yes' ),
+				array(
+					'customer.property.id' => '',
+					'customer.property.typeid' => 1,
+					'customer.property.value' => '#100000',
+				)
 			),
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$search = $propManager->createSearch();
-		$search->setConditions( $search->compare( '==', 'customer.property.parentid', $item->getId() ) );
-		$items = $propManager->searchItems( $search );
-
-		$manager->deleteItem( $item->getId() );
+		$items = $this->view->item->getPropertyItems( null, false );
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
 		$this->assertEquals( 1, count( $items ) );
 		$this->assertEquals( null, reset( $items )->getLanguageId() );
-		$this->assertEquals( 'yes', reset( $items )->getValue() );
+		$this->assertEquals( '#100000', reset( $items )->getValue() );
 	}
 
 
