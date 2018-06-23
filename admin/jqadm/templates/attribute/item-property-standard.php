@@ -44,7 +44,7 @@ $keys = [
 			<tr v-for="(entry, idx) in items" v-bind:key="idx" v-bind:class="checkSite('attribute.property.siteid', idx) ? 'readonly' : ''">
 				<td class="property-type">
 					<input class="item-id" type="hidden" v-bind:value="entry['attribute.property.id']"
-						name="<?= $enc->attr( $this->formparam( array( 'property', 'attribute.property.id', '' ) ) ); ?>" />
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'property', 'idx', 'attribute.property.id' ) ) ); ?>'.replace('idx', idx)" />
 
 					<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'property', 'idx', 'attribute.property.typeid' ) ) ); ?>'.replace('idx', idx)"

@@ -103,6 +103,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
+		$this->assertEquals( 1, count( $items ) );
 		$this->assertEquals( null, reset( $items )->getLanguageId() );
 		$this->assertEquals( '#100000', reset( $items )->getValue() );
 	}

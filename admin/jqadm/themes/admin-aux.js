@@ -384,20 +384,21 @@ Aimeos.Property = {
 		'methods': {
 
 			checkSite : function(key, idx) {
-				return this.items[key][idx] != this.siteid;
+				return this.items[idx][key] != this.siteid;
 			},
 
 
 			addItem : function(prefix) {
 
 				var idx = this.items.length;
+				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
 					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[], prefix + 'siteid', this.siteid);
-				this.$set(this.items[], prefix + 'languageid', null);
+				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
+				this.$set(this.items[idx], prefix + 'languageid', null);
 			},
 
 

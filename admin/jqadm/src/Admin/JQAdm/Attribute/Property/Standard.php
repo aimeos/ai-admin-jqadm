@@ -226,27 +226,6 @@ class Standard
 
 
 	/**
-	 * Filter the list of property items and remove items with excluded types
-	 *
-	 * @param \Aimeos\MShop\Common\Item\Property\Iface[] $propItems List of property items
-	 * @return \Aimeos\MShop\Common\Item\Property\Iface[] Filtered list of property items
-	 */
-	protected function excludeItems( array $propItems )
-	{
-		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
-
-		foreach( $propItems as $key => $propItem )
-		{
-			if( in_array( $propItem->getType(), $excludes ) ) {
-				unset( $propItems[$key] );
-			}
-		}
-
-		return $propItems;
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -312,7 +291,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'attribute/property' );
 
-		$propItems = $this->excludeItems( $item->getPropertyItems( null, false ) );
+		$propItems = $item->getPropertyItems( null, false );
 
 		foreach( $data as $entry )
 		{
@@ -343,16 +322,11 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Attribute\Item\Iface $item, $copy = false )
 	{
-		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$data = [];
 
-		foreach( $this->excludeItems( $item->getPropertyItems( null, false ) ) as $item )
+		foreach( $item->getPropertyItems( null, false ) as $item )
 		{
-			if( in_array( $item->getType(), $excludes ) ) {
-				continue;
-			}
-
 			$list = $item->toArray( true );
 
 			if( $copy === true )
