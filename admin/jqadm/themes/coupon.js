@@ -109,6 +109,11 @@ Aimeos.Coupon.Code = {
 		var self = this;
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
+
+			if(!self.element) {
+				return;
+			}
+
 			var row = self.element.closest("tr");
 
 			Aimeos.options.done(function(data) {
