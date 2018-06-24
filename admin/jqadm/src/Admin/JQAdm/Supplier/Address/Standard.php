@@ -63,11 +63,11 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-		$data = $view->param( 'address', [] );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'address', [] ) );
 
-		foreach( $view->value( $data, 'supplier.address.id', [] ) as $idx => $value ) {
-			$data['supplier.address.siteid'][$idx] = $siteid;
+		foreach( $data as $idx => $entry ) {
+			$data[$idx]['supplier.address.siteid'] = $siteid;
 		}
 
 		$view->addressData = $data;
@@ -107,10 +107,6 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'supplier/address' );
-		$manager->begin();
 
 		try
 		{
@@ -121,12 +117,11 @@ class Standard
 				$view->addressBody .= $client->save();
 			}
 
-			$manager->commit();
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'supplier-item-address' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'supplier-item-address' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -136,8 +131,6 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
-
-		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -230,24 +223,6 @@ class Standard
 
 
 	/**
-	 * Returns the supplier address for the given supplier ID
-	 *
-	 * @param string $supplierId Unique supplier ID
-	 * @return array Associative list of supplier address IDs as keys and supplier address items as values
-	 */
-	protected function getAddresses( $supplierId )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'supplier/address' );
-
-		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'supplier.address.parentid', $supplierId ) );
-		$search->setSlice( 0, 0x7fffffff );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -301,45 +276,25 @@ class Standard
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'supplier/address' );
 
-		$addresses = $this->getAddresses( $item->getId() );
-		$ids = (array) $this->getValue( $data, 'supplier.address.id', [] );
+		$addrItems = $item->getAddressItems();
 
-		foreach( $ids as $idx => $addrId )
+		foreach( $data as $entry )
 		{
-			if( isset( $addresses[$addrId] ) )
+			if( isset( $addrItems[$entry['supplier.address.id']] ) )
 			{
-				$addrItem = $addresses[$addrId];
-				unset( $addresses[$addrId] );
+				$addrItem = $addrItems[$entry['supplier.address.id']];
+				unset( $addrItems[$entry['supplier.address.id']] );
 			}
 			else
 			{
 				$addrItem = $manager->createItem();
-				$addrItem->setParentId( $item->getId() );
 			}
 
-			$addrItem->setSalutation( $this->getValue( $data, 'supplier.address.salutation/' . $idx, '' ) );
-			$addrItem->setCompany( $this->getValue( $data, 'supplier.address.company/' . $idx, '' ) );
-			$addrItem->setVatId( $this->getValue( $data, 'supplier.address.vatid/' . $idx, '' ) );
-			$addrItem->setTitle( $this->getValue( $data, 'supplier.address.title/' . $idx, '' ) );
-			$addrItem->setFirstname( $this->getValue( $data, 'supplier.address.firstname/' . $idx, '' ) );
-			$addrItem->setLastname( $this->getValue( $data, 'supplier.address.lastname/' . $idx, '' ) );
-			$addrItem->setAddress1( $this->getValue( $data, 'supplier.address.address1/' . $idx, '' ) );
-			$addrItem->setAddress2( $this->getValue( $data, 'supplier.address.address2/' . $idx, '' ) );
-			$addrItem->setAddress3( $this->getValue( $data, 'supplier.address.address3/' . $idx, '' ) );
-			$addrItem->setPostal( $this->getValue( $data, 'supplier.address.postal/' . $idx, '' ) );
-			$addrItem->setCity( $this->getValue( $data, 'supplier.address.city/' . $idx, '' ) );
-			$addrItem->setState( $this->getValue( $data, 'supplier.address.state/' . $idx, '' ) );
-			$addrItem->setLanguageId( $this->getValue( $data, 'supplier.address.languageid/' . $idx, '' ) );
-			$addrItem->setCountryId( $this->getValue( $data, 'supplier.address.countryid/' . $idx, '' ) );
-			$addrItem->setTelephone( $this->getValue( $data, 'supplier.address.telephone/' . $idx, '' ) );
-			$addrItem->setTelefax( $this->getValue( $data, 'supplier.address.telefax/' . $idx, '' ) );
-			$addrItem->setEmail( $this->getValue( $data, 'supplier.address.email/' . $idx, '' ) );
-			$addrItem->setWebsite( $this->getValue( $data, 'supplier.address.website/' . $idx, '' ) );
-
-			$manager->saveItem( $addrItem, false );
+			$addrItem->fromArray( $entry );
+			$item->addAddressItem( $addrItem );
 		}
 
-		$manager->deleteItems( array_keys( $addresses ) );
+		$item->deleteAddressItems( $addrItems );
 	}
 
 
@@ -365,9 +320,7 @@ class Standard
 				$list['supplier.address.id'] = '';
 			}
 
-			foreach( $list as $key => $value ) {
-				$data[$key][] = $value;
-			}
+			$data[] = $list;
 		}
 
 		return $data;

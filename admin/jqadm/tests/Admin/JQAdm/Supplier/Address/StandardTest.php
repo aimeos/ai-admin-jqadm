@@ -81,38 +81,30 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
-
-		$item = $manager->findItem( 'unitCode001' );
-		$item->setCode( 'jqadm-test' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
+		$this->view->item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
 			'address' => array(
-				'supplier.address.id' => array( '' ),
-				'supplier.address.email' => array( 'test@example.com' ),
-				'supplier.address.firstname' => array( 'test' ),
-				'supplier.address.lastname' => array( 'user' ),
+				array(
+					'supplier.address.id' => '',
+					'supplier.address.email' => 'test@example.com',
+					'supplier.address.firstname' => 'test',
+					'supplier.address.lastname' => 'user',
+				),
 			),
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$item = $manager->getItem( $item->getId(), array( 'supplier/address' ) );
-		$manager->deleteItem( $item->getId() );
-
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 1, count( $item->getAddressItems() ) );
+		$this->assertEquals( 1, count( $this->view->item->getAddressItems() ) );
 
-		foreach( $item->getAddressItems() as $addrItem )
+		foreach( $this->view->item->getAddressItems() as $addrItem )
 		{
 			$this->assertEquals( 'test@example.com', $addrItem->getEmail() );
 			$this->assertEquals( 'test', $addrItem->getFirstname() );
