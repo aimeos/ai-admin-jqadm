@@ -22,35 +22,38 @@ Aimeos.Address = {
 		'methods': {
 
 			checkSite : function(key, idx) {
-				return this.items[key][idx] != this.siteid;
+				return this.items[idx][key] != this.siteid;
 			},
 
 
 			addItem : function(prefix) {
 
-				var idx = (this.items[prefix + 'id'] || []).length;
+				var idx = this.items.length;
 
-				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+				if(!this.items[idx]) {
+					this.$set(this.items, idx, {});
 				}
 
-				this.$set(this.items[prefix + 'siteid'], idx, this.siteid);
+				for(var key in this.keys) {
+					key = this.keys[key]; this.$set(this.items, key, '');
+				}
+
+				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
 			},
 
 
 			duplicateItem : function(idx) {
 
+				var len = this.items.length;
+
 				for(key in this.items) {
-					this.items[key].push(this.items[key][idx]);
+					this.items[len][key] = this.items[idx][key];
 				}
 			},
 
 
 			removeItem : function(idx) {
-
-				for(key in this.items) {
-					this.items[key].splice(idx, 1);
-				}
+				this.items.splice(idx, 1);
 			},
 
 
@@ -60,18 +63,18 @@ Aimeos.Address = {
 
 
 			getCss : function(idx, prefix) {
-				return ( idx !== 0 && this.items[prefix + 'id'] && this.items[prefix + 'id'][idx] ? 'collapsed' : 'show' );
+				return ( idx !== 0 && this.items[idx] && this.items[idx][prefix + 'id'] ? 'collapsed' : 'show' );
 			},
 
 
 			getLabel : function(idx, prefix) {
 				var label = '', addr = '';
 
-				label += (this.items[prefix + 'firstname'][idx] ? this.items[prefix + 'firstname'][idx] + ' ' : '');
-				label += (this.items[prefix + 'lastname'][idx] ? this.items[prefix + 'lastname'][idx] : '');
+				label += (this.items[idx][prefix + 'firstname'] ? this.items[idx][prefix + 'firstname'] + ' ' : '');
+				label += (this.items[idx][prefix + 'lastname'] ? this.items[idx][prefix + 'lastname'] : '');
 
-				addr += (this.items[prefix + 'postal'][idx] ? ' ' + this.items[prefix + 'postal'][idx] : '');
-				addr += (this.items[prefix + 'city'][idx] ? ' ' + this.items[prefix + 'city'][idx] : '');
+				addr += (this.items[idx][prefix + 'postal'] ? ' ' + this.items[idx][prefix + 'postal'] : '');
+				addr += (this.items[idx][prefix + 'city'] ? ' ' + this.items[idx][prefix + 'city'] : '');
 
 				if(addr && label) {
 					return label + ' -' + addr;
