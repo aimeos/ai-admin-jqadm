@@ -65,8 +65,8 @@ class Standard
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'characteristic/property', [] ) );
 
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data['product.lists.siteid'][$idx] = $siteid;
+		foreach( $data as $idx => $entry ) {
+			$data[$idx]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->propertyTypes = $this->getPropertyTypes();
