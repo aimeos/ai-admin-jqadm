@@ -46,8 +46,12 @@ Aimeos.Address = {
 
 				var len = this.items.length;
 
-				for(key in this.items) {
-					this.items[len][key] = this.items[idx][key];
+				if(!this.items[len]) {
+					this.$set(this.items, len, {});
+				}
+
+				for(key in this.keys) {
+					key = this.keys[key]; this.items[len][key] = this.items[idx][key];
 				}
 			},
 
