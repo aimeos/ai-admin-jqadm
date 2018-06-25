@@ -38,7 +38,10 @@ class Standard
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'log' );
 			$manager = \Aimeos\MAdmin\Factory::createManager( $context, 'log' );
-			$search = $this->initCriteria( $manager->createSearch(), $params );
+
+			$search = $manager->createSearch();
+			$search->setSortations( [$search->sort( '-', 'log.timestamp')] );
+			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->total = $total;
