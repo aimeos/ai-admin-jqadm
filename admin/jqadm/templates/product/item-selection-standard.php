@@ -22,9 +22,9 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 			<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.lists.id', '' ) ) ); ?>"
 				value="<?= $enc->attr( $this->value( $map, 'product.lists.id' ) ); ?>" />
 
-			<div id="product-item-selection-group-item-<?= $enc->attr( $code ); ?>" class="header card-header collapsed" role="tab"
-				data-toggle="collapse" data-target="#product-item-selection-group-data-<?= $enc->attr( $code ); ?>"
-				aria-expanded="true" aria-controls="product-item-selection-group-data-<?= $enc->attr( $code ); ?>">
+			<div id="product-item-selection-group-item-<?= $enc->attr( str_replace( '.', '-', $code ) ); ?>" class="header card-header collapsed" role="tab"
+				data-toggle="collapse" data-target="#product-item-selection-group-data-<?= $enc->attr( str_replace( '.', '-', $code ) ); ?>"
+				aria-expanded="true" aria-controls="product-item-selection-group-data-<?= $enc->attr( str_replace( '.', '-', $code ) ); ?>">
 				<div class="card-tools-left">
 					<div class="btn btn-card-header act-show fa"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
@@ -51,7 +51,7 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 				</div>
 			</div>
 
-			<div id="product-item-selection-group-data-<?= $enc->attr( $code ); ?>" class="card-block collapse row">
+			<div id="product-item-selection-group-data-<?= $enc->attr( str_replace( '.', '-', $code ) ); ?>" class="card-block collapse row">
 				<div class="col-lg-6">
 					<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.id', '' ) ) ); ?>"
 						value="<?= $enc->attr( $this->value( $map, 'product.id' ) ); ?>" />
