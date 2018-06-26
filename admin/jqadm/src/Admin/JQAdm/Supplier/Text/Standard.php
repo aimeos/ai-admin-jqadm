@@ -357,7 +357,7 @@ class Standard
 			unset( $listItems[$listItem->getId()] );
 		}
 
-		return $item->deleteListItems( $listItems );
+		return $item->deleteListItems( $listItems, true );
 	}
 
 
