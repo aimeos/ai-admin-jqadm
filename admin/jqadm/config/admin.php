@@ -112,9 +112,9 @@ return [
 			'characteristic' => [
 				'standard' => [
 					'subparts' => [
+						'property' => 'property',
 						'attribute' => 'attribute',
 						'hidden' => 'hidden',
-						'property' => 'property',
 					],
 				],
 			],
