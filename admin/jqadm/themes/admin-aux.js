@@ -86,6 +86,10 @@ Aimeos.Address = {
 
 				return label + ' ' + addr;
 			}
+		},
+		'mounted' : function() {
+			var el = document.getElementById('item-address-group');
+			if(el) { Sortable.create(el, {handle: '.act-move'}); }
 		}
 	},
 
