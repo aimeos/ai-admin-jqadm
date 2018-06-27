@@ -91,7 +91,7 @@ class Standard
 		parent::delete();
 
 		$item = $this->getView()->item;
-		$item->deleteListItems( $item->getListItems( 'price', null, null, false ) );
+		$item->deleteListItems( $item->getListItems( 'price', null, null, false ), true );
 	}
 
 
