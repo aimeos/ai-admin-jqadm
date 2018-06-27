@@ -37,6 +37,12 @@ input[type='checkbox'], input[type='radio'] {
 	height: 1.25rem;
 }
 
+.dropdown-menu input[type='checkbox'],
+.dropdown-menu input[type='radio'] {
+	height: auto;
+	margin: 0;
+}
+
 /* misaligned borders for action column */
 .table td, .table th {
 	border-top: none;
@@ -189,6 +195,7 @@ input[type='checkbox'], input[type='radio'] {
 
 .btn, .dropdown-menu {
 	font-size: 100%;
+	z-index: 10000;
 }
 
 .dropdown-item label {
