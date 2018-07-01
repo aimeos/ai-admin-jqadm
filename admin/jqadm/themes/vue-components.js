@@ -6,15 +6,15 @@
 
 
 Vue.component('auto-complete', {
-	template: '<input type="text" class="form-control" v-bind:name="name" v-bind:value="value" v-bind:readonly="readonly" v-bind:tabindex="tabindex" />',
-	props: ['keys', 'name', 'value', 'readonly', 'tabindex'],
+	template: '<input type="text" class="form-control" v-bind:name="name" v-bind:value="value" v-bind:readonly="readonly" v-bind:required="required" v-bind:tabindex="tabindex" />',
+	props: ['keys', 'name', 'value', 'readonly', 'required', 'tabindex'],
 
 	mounted: function() {
 		var vm = this;
 
 		$(this.$el).autocomplete({
-			change: function(event) {
-				vm.$emit('input', $(event.currentTarget).val());
+			change: function(event, ui) {
+				vm.$emit('input', $(event.currentTarget).val(), ui.item);
 			},
 			source: vm.keys || [],
 			minLength: 0,

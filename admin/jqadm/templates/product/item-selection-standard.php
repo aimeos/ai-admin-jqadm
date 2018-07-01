@@ -12,9 +12,7 @@ $cntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/get/action', 'get' );
 $config = $this->config( 'admin/jqadm/url/get/config', [] );
 
-$keys = [
-	'product.lists.siteid', 'product.lists.id'
-];
+$keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'product.label', 'product.code', 'product.status'];
 
 
 ?>
@@ -37,12 +35,15 @@ $keys = [
 				<span class="item-label header-label" v-html="getLabel(idx)"></span>
 				&nbsp;
 				<div class="card-tools-right">
-					<a v-if="entry['product.id']" class="btn btn-card-header act-view fa" target="_blank"
+					<a v-if="entry['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:href="'<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => '_id_'] + $this->get( 'pageParams', [] ), [], $config ) ); ?>'.replace('_id_', entry['product.id'])"
 						title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
-					<div class="btn btn-card-header act-copy fa"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>">
+
+					<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>"
+						v-on:click.stop="copyItem(idx)">
 					</div>
+
 					<div v-if="!checkSite('product.lists.siteid', idx)"
 						class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
@@ -86,11 +87,15 @@ $keys = [
 					<div class="form-group row mandatory">
 						<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 						<div class="col-lg-8">
-							<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ); ?>'.replace('idx', idx)"
+							<input is="auto-complete"
+								v-model="items[idx]['product.code']"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
-								v-bind:readonly="checkSite('product.siteid', idx)"
-								v-model="items[idx]['product.code']" />
+								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ); ?>'.replace('idx', idx)"
+								v-bind:readonly="checkSite('product.lists.siteid', idx)"
+								v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
+								v-bind:keys="getArticles"
+								v-bind:required="'required'"
+								v-on:input="updateProductItem(idx, ...arguments)" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
@@ -137,10 +142,13 @@ $keys = [
 									<input class="item-attr-listid" type="hidden" v-model="items[idx]['attr'][attridx]['product.lists.id']"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.id'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
 
-									<input class="item-attr-listid" type="hidden" v-model="items[idx]['attr'][attridx]['product.lists.siteid']"
+									<input class="item-attr-siteid" type="hidden" v-model="items[idx]['attr'][attridx]['product.lists.siteid']"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.siteid'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
 
-									<input class="item-attr-label" type="hidden" v-model="items[idx]['attr'][attridx]['attribute.label]"
+									<input class="item-attr-type" type="hidden" v-model="items[idx]['attr'][attridx]['attribute.type']"
+										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.type'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
+
+									<input class="item-attr-label" type="hidden" v-model="items[idx]['attr'][attridx]['attribute.label']"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.label'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
 
 									<select is="combo-box" class="form-control custom-select item-attr-refid"
@@ -170,11 +178,12 @@ $keys = [
 
 			</div>
 		</div>
-	</div>
 
-	<div class="card-tools-more">
-		<div class="btn btn-primary btn-card-more act-add fa"
-			title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+		<div class="card-tools-more">
+			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+				v-on:click="addItem()" >
+			</div>
 		</div>
 	</div>
 </div>

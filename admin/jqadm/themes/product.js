@@ -124,7 +124,7 @@ Aimeos.Product.Selection = {
 			},
 
 
-			addItem : function(prefix) {
+			addItem : function() {
 
 				var idx = this.items.length;
 				this.$set(this.items, idx, {});
@@ -133,8 +133,40 @@ Aimeos.Product.Selection = {
 					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
+				this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
 				this.$set(this.items[idx], 'product.siteid', this.siteid);
+				this.$set(this.items[idx], 'product.status', 1);
+				this.$set(this.items[idx], 'product.id', '');
+				this.$set(this.items[idx], 'attr', []);
+			},
+
+
+			copyItem : function(idx) {
+
+				var len = this.items.length;
+				this.$set(this.items, len, {});
+
+				for(var key in this.items[idx]) {
+					this.$set(this.items[len], key, this.items[idx][key]);
+				}
+
+				this.$set(this.items[len], 'attr', []);
+				this.$set(this.items[len], 'product.id', '');
+				this.$set(this.items[len], 'product.code', this.items[idx]['product.code'] + '_copy');
+				this.$set(this.items[len], 'product.label', this.items[idx]['product.label'] + '_copy');
+				this.$set(this.items[len], 'product.lists.siteid', this.siteid);
+				this.$set(this.items[len], 'product.lists.id', '');
+
+				for(var attridx in this.items[idx]['attr']) {
+					this.$set(this.items[len]['attr'], attridx, {});
+
+					for(var key in this.items[idx]['attr'][attridx]) {
+						this.$set(this.items[len]['attr'][attridx], key, this.items[idx]['attr'][attridx][key]);
+					}
+
+					this.$set(this.items[len]['attr'][attridx], 'product.lists.siteid', this.siteid);
+					this.$set(this.items[len]['attr'][attridx], 'product.lists.id', '');
+				}
 			},
 
 
@@ -157,6 +189,54 @@ Aimeos.Product.Selection = {
 				}
 
 				return label;
+			},
+
+
+			getArticles : function(request, response) {
+
+				Aimeos.options.done(function(data) {
+
+					if(!data.meta.resources['product']) {
+						return;
+					}
+
+					var params = {}, param = {};
+
+					param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type.code': 'default'}}]};
+					param['fields'] = {'product': 'product.id,product.code,product.label'};
+					param['sort'] = 'product.code';
+
+					if( data.meta && data.meta.prefix ) {
+						params[data.meta.prefix] = param;
+					} else {
+						params = param;
+					}
+
+					$.ajax({
+						dataType: "json",
+						url: data.meta.resources['product'],
+						data: params,
+						success: function(result) {
+							var list = result.data || [];
+
+							response( list.map(function(obj) {
+								return {
+									id: obj.id || null,
+									code: obj.attributes['product.code'] || null,
+									label: obj.attributes['product.label'] || null
+								};
+							}));
+						}
+					});
+				});
+			},
+
+
+			updateProductItem : function(idx, ev, item) {
+
+				this.$set(this.items[idx], 'product.id', item.id);
+				this.$set(this.items[idx], 'product.code', item.code);
+				this.$set(this.items[idx], 'product.label', item.label);
 			},
 
 
@@ -197,7 +277,7 @@ Aimeos.Product.Selection = {
 				return function(request, response, element) {
 
 					var labelFcn = function(attr) {
-						return attr['attribute.label'];
+						return attr['attribute.label'] + ' (' + attr['attribute.type'] + ')';
 					}
 					Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', null, labelFcn);
 				}
@@ -205,7 +285,14 @@ Aimeos.Product.Selection = {
 
 
 			getAttributeLabel : function(idx, attridx) {
-				return this.items[idx]['attr'][attridx]['attribute.label'];
+
+				var label = this.items[idx]['attr'][attridx]['attribute.label'];
+
+				if(this.items[idx]['attr'][attridx]['attribute.type']) {
+					label += ' (' + this.items[idx]['attr'][attridx]['attribute.type'] + ')';
+				}
+
+				return label;
 			},
 
 
@@ -220,6 +307,7 @@ Aimeos.Product.Selection = {
 				this.$set(this.items[idx]['attr'][listidx], 'product.lists.siteid', this.siteid);
 				this.$set(this.items[idx]['attr'][listidx], 'product.lists.refid', ev.value);
 				this.$set(this.items[idx]['attr'][listidx], 'attribute.label', ev.label);
+				this.$set(this.items[idx]['attr'][listidx], 'attribute.type', '');
 			}
 		},
 		'mounted' : function() {

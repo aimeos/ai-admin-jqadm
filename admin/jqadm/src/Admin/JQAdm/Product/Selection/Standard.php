@@ -284,6 +284,28 @@ class Standard
 
 
 	/**
+	 * Returns the selection articles including attributes for the given product item
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item including reference product articles
+	 * @return \Aimeos\MShop\Product\Item\Iface[] Associative list of article items with IDs as keys and items as values
+	 */
+	protected function getArticleItems( \Aimeos\MShop\Product\Item\Iface $item )
+	{
+		if( ( $articles = $item->getRefItems( 'product', null, 'default', false ) ) !== [] )
+		{
+			$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
+
+			$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
+			$search->setConditions( $search->compare( '==', 'product.id', array_keys( $articles ) ) );
+
+			$articles = $manager->searchItems( $search, ['attribute'] );
+		}
+
+		return $articles;
+	}
+
+
+	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -302,6 +324,7 @@ class Standard
 		$listTypeId = $listTypeManager->findItem( 'default', [], 'product' )->getId();
 		$attrListTypeId = $listTypeManager->findItem( 'variant', [], 'attribute' )->getId();
 
+		$articles = $this->getArticleItems( $item );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 
 		foreach( $data as $idx => $entry )
@@ -310,7 +333,9 @@ class Standard
 				$listItem = $listManager->createItem();
 			}
 
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+			if( isset( $articles[$listItem->getRefId()] ) ) {
+				$refItem = $articles[$listItem->getRefId()];
+			} else {
 				$refItem = $manager->createItem();
 			}
 
@@ -329,7 +354,7 @@ class Standard
 			unset( $listItems[$listItem->getId()] );
 		}
 
-		return $item->deleteListItems( $listItems, true );
+		return $item->deleteListItems( $listItems );
 	}
 
 
@@ -385,17 +410,7 @@ class Standard
 		$data = [];
 		$context = $this->getContext();
 		$siteId = $context->getLocale()->getSiteId();
-
-
-		if( ( $articles = $item->getRefItems( 'product', null, 'default', false ) ) !== [] )
-		{
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
-
-			$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
-			$search->setConditions( $search->compare( '==', 'product.id', array_keys( $articles ) ) );
-
-			$articles = $manager->searchItems( $search, ['attribute'] );
-		}
+		$articles = $this->getArticleItems( $item );
 
 
 		foreach( $item->getListItems( 'product', 'default', null, false ) as $id => $listItem )
