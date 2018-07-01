@@ -83,13 +83,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-
-		$item = $manager->findItem( 'U:BUNDLE' );
-		$item->setCode( 'jqadm-test-bundle' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
+		$this->view->item = $manager->findItem( 'U:BUNDLE' );
 
 		$param = array(
 			'site' => 'unittest',
@@ -101,16 +95,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$item = $manager->getItem( $item->getId(), array( 'product' ) );
-		$manager->deleteItem( $item->getId() );
-
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 1, count( $item->getListItems( 'product' ) ) );
+		$this->assertEquals( 1, count( $this->view->item->getListItems( 'product' ) ) );
 	}
 
 
@@ -125,7 +115,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->findItem( 'U:BUNDLE' );
 
 		$object->setView( $this->view );
 
@@ -145,7 +135,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->findItem( 'U:BUNDLE' );
 
 		$object->setView( $this->view );
 

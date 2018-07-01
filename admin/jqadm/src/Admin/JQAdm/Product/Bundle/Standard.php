@@ -107,26 +107,24 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$manager->begin();
 
 		try
 		{
-			$this->fromArray( $view->item, $view->param( 'bundle', [] ) );
-			$view->bundleBody = '';
+			if( $view->item->getType() === 'bundle' )
+			{
+				$this->fromArray( $view->item, $view->param( 'bundle', [] ) );
+				$view->bundleBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->bundleBody .= $client->save();
+				foreach( $this->getSubClients() as $client ) {
+					$view->bundleBody .= $client->save();
+				}
 			}
 
-			$manager->commit();
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'product-item-bundle' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'product-item-bundle' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -136,8 +134,6 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
-
-		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -274,29 +270,6 @@ class Standard
 
 
 	/**
-	 * Returns the referenced products for the given product ID
-	 *
-	 * @param string $prodid Unique product ID
-	 * @return array Associative list of bundle product IDs as keys and list items as values
-	 */
-	protected function getListItems( $prodid )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'product.lists.parentid', $prodid ),
-			$search->compare( '==', 'product.lists.domain', 'product' ),
-			$search->compare( '==', 'product.lists.type.domain', 'product' ),
-			$search->compare( '==', 'product.lists.type.code', 'default' ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -304,41 +277,31 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		if( $item->getType() !== 'bundle' ) {
-			return;
-		}
+		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists/type' );
 
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
+		$listTypeId = $typeManager->findItem( 'default', [], 'product' )->getId();
+		$listItems = $item->getListItems( 'product', 'default', null, false );
 
-		$map = $this->getListItems( $item->getId() );
-		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
-
-
-		foreach( $listIds as $pos => $listid )
+		foreach( $this->getValue( $data, 'product.lists.id', [] ) as $idx => $id )
 		{
-			if( isset( $map[$listid] ) ) {
-				unset( $map[$listid], $listIds[$pos] );
+			if( !isset( $listItems[$id] ) ) {
+				$listItem = $listManager->createItem();
+			} else {
+				$listItem = $listItems[$id];
 			}
+
+			$listItem->setId( $id );
+			$listItem->setPosition( $idx );
+			$listItem->setTypeId( $listTypeId );
+			$listItem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $idx ) );
+
+			$item->addListItem( 'product', $listItem );
+
+			unset( $listItems[$listItem->getId()] );
 		}
 
-		$manager->deleteItems( array_keys( $map ) );
-
-
-		$litem = $manager->createItem();
-		$litem->setTypeId( $typeManager->findItem( 'default', [], 'product' )->getId() );
-		$litem->setParentId( $item->getId() );
-		$litem->setDomain( 'product' );
-
-		foreach( $listIds as $pos => $listid )
-		{
-			$litem->setId( null );
-			$litem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $pos ) );
-			$litem->setPosition( $pos );
-
-			$manager->saveItem( $litem, false );
-		}
+		return $item->deleteListItems( $listItems );
 	}
 
 
@@ -356,10 +319,11 @@ class Standard
 
 		foreach( $item->getListItems( 'product', 'default', null, false ) as $listItem )
 		{
-			$refItem = $listItem->getRefItem();
-			$data['product.label'][] = ( $refItem ? $refItem->getLabel() : '' );
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				continue;
+			}
 
-			$list = $listItem->toArray( true );
+			$list = $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true )
 			{
