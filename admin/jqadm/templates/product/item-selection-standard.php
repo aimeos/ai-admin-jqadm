@@ -12,57 +12,85 @@ $cntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/get/action', 'get' );
 $config = $this->config( 'admin/jqadm/url/get/config', [] );
 
+$keys = [
+	'product.lists.siteid', 'product.lists.id'
+];
+
 
 ?>
 <div id="selection" class="item-selection content-block tab-pane fade" role="tablist" aria-labelledby="selection">
+	<div id="item-selection-group" role="tablist" aria-multiselectable="true"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'selectionData', [] ) ) ); ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-siteid="<?= $this->site()->siteid() ?>" >
 
-	<?php foreach( (array) $this->get( 'selectionData', [] ) as $code => $map ) : ?>
+		<div v-for="(entry, idx) in items" class="group-item card">
 
-		<div class="group-item card <?= $this->site()->readonly( $this->value( $map, 'product.lists.siteid' ) ); ?>">
-			<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.lists.id', '' ) ) ); ?>"
-				value="<?= $enc->attr( $this->value( $map, 'product.lists.id' ) ); ?>" />
-
-			<div id="product-item-selection-group-item-<?= $enc->attr( str_replace( '.', '-', $code ) ); ?>" class="header card-header collapsed" role="tab"
-				data-toggle="collapse" data-target="#product-item-selection-group-data-<?= $enc->attr( str_replace( '.', '-', $code ) ); ?>"
-				aria-expanded="true" aria-controls="product-item-selection-group-data-<?= $enc->attr( str_replace( '.', '-', $code ) ); ?>">
+			<div v-bind:id="'item-selection-group-item-' + idx" v-bind:class="getCss(idx)"
+				v-bind:data-target="'#item-selection-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
+				v-bind:aria-controls="'item-selection-group-data-' + idx" aria-expanded="false">
 				<div class="card-tools-left">
-					<div class="btn btn-card-header act-show fa"
+					<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 					</div>
 				</div>
-				<span class="item-code header-label">
-					<?= $enc->html( $this->value( $map, 'product.id' ) ); ?> - <?= $enc->attr( $this->value( $map, 'product.label' ) ); ?>
-				</span>
+				<span class="item-label header-label" v-html="getLabel(idx)"></span>
 				&nbsp;
 				<div class="card-tools-right">
-					<?php if( $this->value( $map, 'product.id' ) ) : ?>
-						<a class="btn btn-card-header act-view fa" target="_blank"
-							href="<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => $this->value( $map, 'product.id' )] + $this->get( 'pageParams', [] ), [], $config ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
-					<?php endif; ?>
+					<a v-if="entry['product.id']" class="btn btn-card-header act-view fa" target="_blank"
+						v-bind:href="'<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => '_id_'] + $this->get( 'pageParams', [] ), [], $config ) ); ?>'.replace('_id_', entry['product.id'])"
+						title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
 					<div class="btn btn-card-header act-copy fa"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>">
 					</div>
-					<?php if( !$this->site()->readonly( $this->value( $map, 'product.lists.siteid' ) ) ) : ?>
-						<div class="btn btn-card-header act-delete fa"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-						</div>
-					<?php endif; ?>
+					<div v-if="!checkSite('product.lists.siteid', idx)"
+						class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+						v-on:click.stop="removeItem(idx)">
+					</div>
 				</div>
 			</div>
 
-			<div id="product-item-selection-group-data-<?= $enc->attr( str_replace( '.', '-', $code ) ); ?>" class="card-block collapse row">
-				<div class="col-lg-6">
-					<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.id', '' ) ) ); ?>"
-						value="<?= $enc->attr( $this->value( $map, 'product.id' ) ); ?>" />
+			<div v-bind:id="'item-selection-group-data-' + idx" v-bind:class="getCss(idx)"
+				v-bind:aria-labelledby="'item-selection-group-item-' + idx" role="tabpanel" class="card-block collapse row">
+
+				<input class="item-id" type="hidden" v-model="items[idx]['product.lists.id']"
+					v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'product.lists.id'] ) ); ?>'.replace('idx', idx)" />
+				<input class="item-listid" type="hidden" v-model="items[idx]['product.id']"
+					v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'product.id'] ) ); ?>'.replace('idx', idx)" />
+
+				<div class="col-xl-6">
+
+					<div class="form-group row mandatory">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
+						<div class="col-sm-8">
+							<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.status' ) ) ); ?>'.replace('idx', idx)"
+								v-bind:readonly="checkSite('product.siteid', idx)"
+								v-model="items[idx]['product.status']" >
+								<option value="1" v-bind:selected="items[idx]['product.status'] == 1" >
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+								</option>
+								<option value="0" v-bind:selected="items[idx]['product.status'] == 0" >
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+								</option>
+								<option value="-1" v-bind:selected="items[idx]['product.status'] == -1" >
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+								</option>
+								<option value="-2" v-bind:selected="items[idx]['product.status'] == -2" >
+									<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+								</option>
+							</select>
+						</div>
+					</div>
 					<div class="form-group row mandatory">
 						<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 						<div class="col-lg-8">
 							<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
+								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ); ?>'.replace('idx', idx)"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
-								value="<?= $enc->attr( $code ); ?>"
-								<?= $this->site()->readonly( $this->value( $map, 'product.lists.siteid' ) ); ?> />
+								v-bind:readonly="checkSite('product.siteid', idx)"
+								v-model="items[idx]['product.code']" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
@@ -72,17 +100,19 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 						<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 						<div class="col-lg-8">
 							<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
+								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.label' ) ) ); ?>'.replace('idx', idx)"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->value( $map, 'product.label' ) ); ?>"
-								<?= $this->site()->readonly( $this->value( $map, 'product.lists.siteid' ) ); ?> />
+								v-bind:readonly="checkSite('product.siteid', idx)"
+								v-model="items[idx]['product.label']" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
 						</div>
 					</div>
+
 				</div>
 				<div class="col-lg-6">
+
 					<table class="selection-item-attributes table table-default">
 						<thead>
 							<tr>
@@ -93,138 +123,51 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 									</div>
 								</th>
 								<th class="actions">
-									<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"></div>
+									<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+										v-on:click="addAttributeItem(idx)">
+									</div>
 								</th>
 							</tr>
 						</thead>
 						<tbody>
 
-							<?php foreach( (array) $this->value( $map, 'attr', [] ) as $attrid => $list ) : ?>
-								<tr>
-									<td>
-										<input class="item-attr-ref" type="hidden" value="<?= $enc->attr( $code ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" />
-										<input class="item-attr-label" type="hidden" value="<?= $enc->attr( $this->value( $list, 'label' ) ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" />
-										<select class="combobox item-attr-id" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>"
-											<?= $this->site()->readonly( $this->value( $list, 'siteid' ) ); ?> >
-											<option value="<?= $enc->attr( $attrid ); ?>" ><?= $enc->html( $this->value( $list, 'label' ) ); ?></option>
-										</select>
-									</td>
-									<td class="actions">
-										<?php if( !$this->site()->readonly( $this->value( $list, 'siteid' ) ) ) : ?>
-											<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-											</div>
-										<?php endif; ?>
-									</td>
-								</tr>
-							<?php endforeach; ?>
-
-							<tr class="prototype">
+							<tr v-for="(attr, attridx) in (entry['attr'] || [])">
 								<td>
-									<input class="item-attr-ref" type="hidden" disabled="disabled"
-										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" />
-									<input class="item-attr-label" type="hidden" disabled="disabled"
-										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" />
-									<select class="combobox-prototype item-attr-id" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-										name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">
+									<input class="item-attr-listid" type="hidden" v-model="items[idx]['attr'][attridx]['product.lists.id']"
+										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.id'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
+
+									<input class="item-attr-listid" type="hidden" v-model="items[idx]['attr'][attridx]['product.lists.siteid']"
+										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.siteid'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
+
+									<input class="item-attr-label" type="hidden" v-model="items[idx]['attr'][attridx]['attribute.label]"
+										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.label'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
+
+									<select is="combo-box" class="form-control custom-select item-attr-refid"
+										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)"
+										v-bind:readonly="checkSite('product.lists.siteid', idx, attridx)"
+										v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+										v-bind:label="getAttributeLabel(idx, attridx)"
+										v-bind:required="'required'"
+										v-bind:getfcn="getAttributeItems"
+										v-on:select="updateAttributeItem($event, idx, attridx)"
+										v-model="items[idx]['attr'][attridx]['product.lists.refid']" >
 									</select>
 								</td>
 								<td class="actions">
-									<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+									<div v-if="!checkSite('product.lists.siteid', idx, attridx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+										v-on:click.stop="removeAttributeItem(idx, attridx)">
 									</div>
 								</td>
 							</tr>
+
 						</tbody>
 					</table>
 				</div>
-			</div>
-		</div>
 
-	<?php endforeach; ?>
+				<?= $this->get( 'selectionBody' ); ?>
 
-	<div class="group-item card prototype">
-
-		<div id="item-selection-group-item-" class="header card-header" role="tab"
-			data-toggle="collapse" data-target="#item-selection-group-data-">
-			<div class="card-tools-left">
-				<div class="btn btn-card-header act-show fa"
-					title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
-				</div>
-			</div>
-			<span class="item-code header-label"></span>
-			&nbsp;
-			<div class="card-tools-right">
-				<div class="btn btn-card-header act-copy fa"
-					title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>"></div>
-				<div class="btn btn-card-header act-delete fa"
-					title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
-			</div>
-		</div>
-
-		<div id="item-selection-group-data-" class="card-block collapse show row">
-			<div class="col-lg-6">
-				<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.id', '' ) ) ); ?>" value="" />
-				<div class="form-group row mandatory">
-					<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
-					<div class="col-lg-8">
-						<input class="form-control item-code" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-							name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.code', '' ) ) ); ?>"
-							placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>">
-					</div>
-					<div class="col-sm-12 form-text text-muted help-text">
-						<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
-					</div>
-				</div>
-				<div class="form-group row mandatory">
-					<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
-					<div class="col-lg-8">
-						<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-							name="<?= $enc->attr( $this->formparam( array( 'selection', 'product.label', '' ) ) ); ?>"
-							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>">
-					</div>
-					<div class="col-sm-12 form-text text-muted help-text">
-						<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<table class="selection-item-attributes table table-default">
-					<thead>
-						<tr>
-							<th>
-								<span class="help"><?= $enc->html( $this->translate( 'admin', 'Variant attributes' ) ); ?></span>
-								<div class="form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'All attributes that uniquely define an article, e.g. width, length and color for jeans' ) ); ?>
-								</div>
-							</th>
-							<th class="actions">
-								<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
-								</div>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="prototype">
-							<td>
-								<input class="item-attr-ref" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'ref', '' ) ) ); ?>" value="" disabled="disabled" />
-								<input class="item-attr-label" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'label', '' ) ) ); ?>" value="" disabled="disabled" />
-								<select class="combobox-prototype item-attr-id" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-									name="<?= $enc->attr( $this->formparam( array( 'selection', 'attr', 'id', '' ) ) ); ?>">
-								</select>
-							</td>
-							<td class="actions">
-								<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
 			</div>
 		</div>
 	</div>
@@ -234,6 +177,4 @@ $config = $this->config( 'admin/jqadm/url/get/config', [] );
 			title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
 		</div>
 	</div>
-
-	<?= $this->get( 'selectionBody' ); ?>
 </div>

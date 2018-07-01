@@ -38,13 +38,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'selection' => array(
-				'product.id' => array( 0 => '' ),
-				'product.code' => array( 0 => 'testprod' ),
-				'product.label' => array( 0 => 'test product' ),
-				'attr' => array(
-					'id' => array( 0 => '123' ),
-					'label' => array( 0 => 'test attribute' ),
-					'ref' => array( 0 => 'testprod' ),
+				array(
+					'product.id' => '123',
+					'product.siteid' => '1',
+					'product.code' => 'testprod',
+					'product.label' => 'test product',
+					'attr' => array(
+						array(
+							'product.lists.id' => '456',
+							'product.lists.siteid' => '2',
+							'product.lists.refid' => '789',
+							'attribute.label' => 'test attribute',
+						)
+					)
 				)
 			),
 		);
@@ -59,8 +65,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertContains( 'item-selection', $result );
-		$this->assertContains( 'testprod', $result );
-		$this->assertContains( 'value="123"', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;testprod&quot;', $result );
+		$this->assertContains( '&quot;attribute.label&quot;:&quot;test attribute&quot;', $result );
 	}
 
 
@@ -68,17 +74,17 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'U:TEST', array( 'product' ) );
+		$this->view->item = $manager->findItem( 'U:TEST', ['product'] );
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'U:TESTSUB01', $result );
-		$this->assertContains( 'U:TESTSUB02', $result );
-		$this->assertContains( 'U:TESTSUB03', $result );
-		$this->assertContains( 'U:TESTSUB04', $result );
-		$this->assertContains( 'U:TESTSUB05', $result );
-		$this->assertContains( 'value="30"', $result );
-		$this->assertContains( 'value="32"', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB01&quot;', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB02&quot;', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB03&quot;', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB04&quot;', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB05&quot;', $result );
+		$this->assertContains( '&quot;attribute.label&quot;:&quot;30&quot;', $result );
+		$this->assertContains( '&quot;attribute.label&quot;:&quot;32&quot;', $result );
 	}
 
 
@@ -90,65 +96,64 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'U:TEST', $result );
-		$this->assertContains( 'value="U:TESTSUB01"', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB01&quot;', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB02&quot;', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB03&quot;', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB04&quot;', $result );
+		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB05&quot;', $result );
+		$this->assertContains( '&quot;attribute.label&quot;:&quot;30&quot;', $result );
+		$this->assertContains( '&quot;attribute.label&quot;:&quot;32&quot;', $result );
 	}
 
 
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-
-		$item = $manager->findItem( 'U:TEST' );
-		$item->setCode( 'jqadm-test-selection' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
-		$attrManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
-		$attrItem = $attrManager->findItem( 'xs', [], 'product', 'size' );
-
+		$this->view->item = $manager->findItem( 'U:TEST' );
 
 		$param = array(
 			'site' => 'unittest',
 			'selection' => array(
-				'product.lists.id' => array( 0 => '' ),
-				'product.id' => array( 0 => $item->getId() ),
-				'product.code' => array( 0 => 'testprod' ),
-				'product.label' => array( 0 => 'test product' ),
-				'attr' => array(
-					'id' => array( 0 => $attrItem->getId() ),
-					'label' => array( 0 => 'test attribute' ),
-					'ref' => array( 0 => 'testprod' ),
-				)
+				array(
+					'product.lists.id' => '',
+					'product.id' => '123',
+					'product.code' => 'testprod',
+					'product.label' => 'test product',
+					'product.status' => '1',
+					'attr' => array(
+						array(
+							'product.lists.id' => '456',
+							'product.lists.refid' => '789',
+							'attribute.label' => 'test attribute',
+						)
+					)
+				),
 			),
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
-
-		$item = $manager->getItem( $item->getId(), array( 'product' ) );
-		$variants = $item->getListItems( 'product', 'default' );
-
-		if( empty( $variants ) ) {
-			throw new \RuntimeException( 'No variant products available' );
-		}
-
-		$variant = $manager->getItem( reset( $variants )->getRefId(), array( 'attribute' ) );
-		$attributes = $variant->getListItems( 'attribute', 'variant' );
-
-		$manager->deleteItems( array( $item->getId(), $variant->getId() ) );
 
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
+
+		$variants = $this->view->item->getListItems( 'product' );
 		$this->assertEquals( 1, count( $variants ) );
+
+		$refItem = reset( $variants )->getRefItem();
+		$this->assertEquals( '123', reset( $variants )->getRefId() );
+		$this->assertEquals( '123', $refItem->getId() );
+		$this->assertEquals( 'testprod', $refItem->getCode() );
+		$this->assertEquals( 'test product', $refItem->getLabel() );
+		$this->assertEquals( 1, $refItem->getStatus() );
+
+		$attributes = $refItem->getListItems( 'attribute' );
 		$this->assertEquals( 1, count( $attributes ) );
-		$this->assertEquals( 'testprod', $variant->getCode() );
-		$this->assertEquals( $attrItem->getId(), reset( $attributes )->getRefId() );
+		$this->assertEquals( '456', reset( $attributes )->getId() );
+		$this->assertEquals( '789', reset( $attributes )->getRefId() );
 	}
 
 
@@ -163,7 +168,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->findItem( 'U:TEST' );
 
 		$object->setView( $this->view );
 
@@ -183,7 +188,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->findItem( 'U:TEST' );
 
 		$object->setView( $this->view );
 
