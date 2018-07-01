@@ -398,7 +398,7 @@ class Standard
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
-		foreach( $item->getListItems( 'media', null, null, false ) as $id => $listItem )
+		foreach( $item->getListItems( 'media', null, null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
@@ -409,6 +409,7 @@ class Standard
 			if( $copy === true )
 			{
 				$list['product.lists.siteid'] = $siteId;
+				$list['product.lists.id'] = '';
 				$list['media.siteid'] = $siteId;
 				$list['media.id'] = null;
 			}
