@@ -50,6 +50,9 @@ $keys = [
 					<input class="item-label" type="hidden" v-model="items['product.label'][idx]"
 						name="<?= $enc->attr( $this->formparam( array( 'related', 'suggest', 'product.label', '' ) ) ); ?>" />
 
+					<input class="item-code" type="hidden" v-model="items['product.code'][idx]"
+						name="<?= $enc->attr( $this->formparam( array( 'related', 'suggest', 'product.code', '' ) ) ); ?>" />
+
 					<select is="combo-box" class="form-control custom-select item-refid"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'related', 'suggest', 'product.lists.refid', '' ) ) ); ?>'"
 						v-bind:readonly="checkSite('product.lists.siteid', idx)"
