@@ -63,8 +63,8 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-		$data = $view->param( 'specialprice', [] );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'specialprice', [] ) );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
 			$data['product.lists.siteid'][$idx] = $siteid;
@@ -107,26 +107,12 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$manager->begin();
+		$this->fromArray( $view->item, $view->param( 'specialprice', [] ) );
+		$view->specialpriceBody = '';
 
-		try
-		{
-			$this->fromArray( $view->item, $view->param( 'specialprice', [] ) );
-			$view->specialpriceBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->specialpriceBody .= $client->save();
-			}
-
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
+		foreach( $this->getSubClients() as $client ) {
+			$view->specialpriceBody .= $client->save();
 		}
 	}
 
@@ -218,29 +204,6 @@ class Standard
 
 
 	/**
-	 * Returns the referenced products for the given product ID
-	 *
-	 * @param string $prodid Unique product ID
-	 * @return array Associative list of bundle product IDs as keys and list items as values
-	 */
-	protected function getListItems( $prodid )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'product.lists.parentid', $prodid ),
-			$search->compare( '==', 'product.lists.domain', 'attribute' ),
-			$search->compare( '==', 'product.lists.type.domain', 'attribute' ),
-			$search->compare( '==', 'product.lists.type.code', 'custom' ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -293,46 +256,30 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
-		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
+		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
 		$attrId = $attrManager->findItem( 'custom', [], 'product', 'price' )->getId();
-		$listItems = $this->getListItems( $item->getId() );
 
 		if( $this->getValue( $data, 'custom', 0 ) == 1 )
 		{
-			foreach( $listItems as $listItem )
-			{
-				if( $listItem->getDomain() === 'attribute'
-					&& $listItem->getType() === 'custom'
-					&& $listItem->getRefId() == $attrId
-				) {
-					return;
-				}
-			}
-
+			$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 			$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
+
 			$typeId = $typeManager->findItem( 'custom', [], 'attribute' )->getId();
 
-			$listItem = $listManager->createItem();
-			$listItem->setParentId( $item->getId() );
-			$listItem->setDomain( 'attribute' );
+			if( ( $listItem = $item->getListItem( 'attribute', 'custom', $attrId ) ) === null ) {
+				$listItem = $listManager->createItem();
+			}
+
 			$listItem->setTypeId( $typeId );
 			$listItem->setRefId( $attrId );
-			$listItem->setStatus( 1 );
 
-			$listManager->saveItem( $listItem, false );
+			$item->addListItem( 'attribute', $listItem );
 		}
 		else
 		{
-			foreach( $listItems as $listId => $listItem )
-			{
-				if( $listItem->getDomain() === 'attribute'
-					&& $listItem->getType() === 'custom'
-					&& $listItem->getRefId() == $attrId
-				) {
-					$listManager->deleteItem( $listId );
-				}
+			if( ( $listItem = $item->getListItem( 'attribute', 'custom', $attrId ) ) !== null ) {
+				$item->deleteListItem( 'attribute', $listItem );
 			}
 		}
 	}

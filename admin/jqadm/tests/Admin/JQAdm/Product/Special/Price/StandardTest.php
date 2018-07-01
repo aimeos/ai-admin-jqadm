@@ -81,45 +81,16 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-
-		$item = $manager->findItem( 'U:TESTP' );
-		$item->setCode( 'jqadm-test-special-price' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
+		$this->view->item = $manager->createItem();
 
 		$params = ['site' => 'unittest', 'specialprice' => ['custom' => '1']];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $params );
 		$this->view->addHelper( 'param', $helper );
 
-		$this->view->item = $item;
 		$this->object->save();
 
-		$actual = $manager->getItem( $item->getId(), ['attribute'] );
-		$manager->deleteItem( $item->getId() );
-
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNotEquals( [], $actual->getRefItems( 'attribute', 'price', 'custom' ) );
-	}
-
-
-	public function testSaveException()
-	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Special\Price\Standard' )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$view = \TestHelperJqadm::getView();
-		$view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
-
-		$object->setView( $view );
-
-		$this->setExpectedException( '\RuntimeException' );
-		$object->save();
+		$this->assertEquals( 1, count( $this->view->item->getListItems( 'attribute' ) ) );
 	}
 
 
