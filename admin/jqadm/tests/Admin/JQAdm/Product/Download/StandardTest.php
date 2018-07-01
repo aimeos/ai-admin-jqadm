@@ -93,25 +93,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-
-		$item = $manager->findItem( 'CNE' );
-		$item->setCode( 'jqadm-test-download' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
-
-		$param = array(
-			'site' => 'unittest',
-			'download' => array(
-				'product.lists.id' => '',
-				'product.lists.status' => '1',
-				'attribute.label' => 'test',
-			),
-		);
-
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
-		$this->view->addHelper( 'param', $helper );
+		$this->view->item = $manager->createItem();
 
 		$file = $this->getMockBuilder( '\Psr\Http\Message\UploadedFileInterface' )->getMock();
 		$file->expects( $this->any() )->method( 'getError' )->will( $this->returnValue( UPLOAD_ERR_OK ) );
@@ -120,34 +102,33 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$request->expects( $this->any() )->method( 'getUploadedFiles' )
 			->will( $this->returnValue( array( 'download' => array( 'file' => $file ) ) ) );
 
-		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request );
-		$this->view->addHelper( 'request', $helper );
-
-		$this->view->item = $item;
-
-
 		$this->object->expects( $this->once() )->method( 'storeFile' )
 			->will( $this->returnValue( 'test/file.ext' ) );
 
-		$attributeStub = $this->getMockBuilder( '\\Aimeos\\MShop\\Attribute\\Manager\\Standard' )
-			->setConstructorArgs( array( $this->context ) )
-			->setMethods( array( 'saveItem' ) )
-			->getMock();
-		$attributeStub->expects( $this->once() )->method( 'saveItem' );
-		\Aimeos\MShop\Factory::injectManager( $this->context, 'attribute', $attributeStub );
 
+		$param = array(
+			'site' => 'unittest',
+			'download' => array(
+				'product.lists.id' => '',
+				'attribute.label' => 'test',
+			),
+		);
 
-		\Aimeos\MShop\Factory::setCache( true );
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request );
+		$this->view->addHelper( 'request', $helper );
+
 		$result = $this->object->save();
-		\Aimeos\MShop\Factory::setCache( false );
 
-
-		$item = $manager->getItem( $item->getId(), array( 'attribute' ) );
-		$manager->deleteItem( $item->getId() );
+		$listItems = $this->view->item->getListItems( 'attribute' );
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 1, count( $item->getListItems( 'attribute', 'hidden' ) ) );
+		$this->assertEquals( 1, count( $listItems ) );
+		$this->assertEquals( 'test', reset( $listItems )->getRefItem()->getLabel() );
+		$this->assertEquals( 'test/file.ext', reset( $listItems )->getRefItem()->getCode() );
 	}
 
 

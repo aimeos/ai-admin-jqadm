@@ -63,7 +63,7 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-		$data = $view->param( 'download', [] );
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'download', [] ) );
 		$data['product.lists.siteid'] = $this->getContext()->getLocale()->getSiteId();
 
 		$view->downloadData = $data;
@@ -84,31 +84,19 @@ class Standard
 	{
 		parent::delete();
 
-		$view = $this->getView();
-		$listManager = \Aimeos\MShop\Factory::createManager( $context = $this->getContext(), 'product/lists' );
-		$search = $listManager->createSearch();
+		$item = $this->getView()->item;
+		$fs = $this->getContext()->getFilesystemManager()->get( 'fs-secure' );
 
-		$listItems = $view->item->getListItems( 'attribute', 'hidden', 'download', false );
-
-		foreach( $listItems as $listid => $listItem )
+		foreach( $item->getListItems( 'attribute', 'hidden', 'download', false ) as $listItem )
 		{
-			$refId = $listItem->getRefId();
+			$refItem = $listItem->getRefItem();
 
-			$expr = array(
-				$search->compare( '==', 'product.lists.refid', $refId ),
-				$search->compare( '==', 'product.lists.domain', 'attribute' ),
-				$search->compare( '==', 'product.lists.type.code', 'hidden' ),
-				$search->compare( '==', 'product.lists.type.domain', 'attribute' ),
-			);
-			$search->setConditions( $search->combine( '&&', $expr ) );
-			$result = $listManager->aggregate( $search, 'product.lists.refid' );
-
-			if( isset( $result[$refId] ) && $result[$refId] > 1 ) {
-				unset( $listItems[$listid] );
+			if( $refItem !== null && $refItem->getCode() != '' && $fs->has( $refItem->getCode() ) ) {
+				$fs->rm( $item->getCode() );
 			}
-		}
 
-		$this->cleanupItems( $listItems, [] );
+			$item->deleteListItem( 'attribute', $listItem, $refItem );
+		}
 	}
 
 
@@ -138,13 +126,6 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-
-		$manager->begin();
-		$attrManager->begin();
 
 		try
 		{
@@ -155,13 +136,11 @@ class Standard
 				$view->downloadBody .= $client->save();
 			}
 
-			$attrManager->commit();
-			$manager->commit();
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'product-item-download' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'product-item-download' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -171,9 +150,6 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
-
-		$attrManager->rollback();
-		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -266,80 +242,6 @@ class Standard
 
 
 	/**
-	 * Deletes the removed list items and their referenced items
-	 *
-	 * @param array $listItems List of items implementing \Aimeos\MShop\Common\Item\Lists\Iface
-	 * @param array $listIds List of IDs of the still used list items
-	 */
-	protected function cleanupItems( array $listItems, array $listIds )
-	{
-		$context = $this->getContext();
-		$fs = $context->getFilesystemManager()->get( 'fs-secure' );
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-
-		$rmItems = [];
-		$rmListIds = array_diff( array_keys( $listItems ), $listIds );
-
-		foreach( $rmListIds as $idx => $rmListId )
-		{
-			if( ( $item = $listItems[$rmListId]->getRefItem() ) !== null )
-			{
-				if( $item->getCode() != '' && $fs->has( $item->getCode() ) ) {
-					$fs->rm( $item->getCode() );
-				}
-				$rmItems[] = $item->getId();
-			}
-		}
-
-		$listManager->deleteItems( $rmListIds  );
-		$manager->deleteItems( $rmItems  );
-	}
-
-
-	/**
-	 * Creates a new pre-filled attribute item
-	 *
-	 * @return \Aimeos\MShop\Attribute\Item\Iface New attribute item object
-	 */
-	protected function createItem()
-	{
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/type' );
-
-		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'download', [], 'product' )->getId() );
-		$item->setDomain( 'product' );
-		$item->setStatus( 1 );
-
-		return $item;
-	}
-
-
-	/**
-	 * Creates a new pre-filled list item
-	 *
-	 * @param string $id Parent ID for the new list item
-	 * @return \Aimeos\MShop\Common\Item\Lists\Iface New list item object
-	 */
-	protected function createListItem( $id )
-	{
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
-
-		$item = $manager->createItem();
-		$item->setTypeId( $typeManager->findItem( 'hidden', [], 'attribute' )->getId() );
-		$item->setDomain( 'attribute' );
-		$item->setParentId( $id );
-		$item->setStatus( 1 );
-
-		return $item;
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -420,44 +322,49 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
+		$fs = $context->getFilesystemManager()->get( 'fs-secure' );
+
 		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
 		$listId = $this->getValue( $data, 'product.lists.id' );
 		$listItems = $item->getListItems( 'attribute', 'hidden', 'download', false );
 
-		if( isset( $listItems[$listId] ) ) {
-			$litem = $listItems[$listId];
-		} else {
-			$litem = $this->createListItem( $item->getId() );
-		}
-
-		if( ( $attrId = $this->getValue( $data, 'attribute.id' ) ) != '' ) {
-			$attrItem = $attrManager->getItem( $attrId );
-		} else {
-			$attrItem = $this->createItem();
-		}
-
-		if( ( $file = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'download/file' ) ) !== null
-			&& $file->getError() === UPLOAD_ERR_OK
-		) {
-			$path = ( $this->getValue( $data, 'overwrite' ) == 1 ? $attrItem->getCode() : null );
-			$attrItem->setCode( $this->storeFile( $file, $path ) );
-		}
-
-		if( ( $label = $this->getValue( $data, 'attribute.label' ) ) != '' )
+		if( $this->getValue( $data, 'attribute.label' ) != '' )
 		{
-			$attrItem->setLabel( $label );
-			$item = $attrManager->saveItem( $attrItem );
+			if( isset( $listItems[$listId] ) ) {
+				$listItem = $listItems[$listId]; unset( $listItems[$listId] );
+			} else {
+				$listItem = $listManager->createItem();
+			}
 
-			$litem->setPosition( 0 );
-			$litem->setRefId( $attrItem->getId() );
-			$litem->setStatus( $this->getValue( $data, 'product.lists.status' ) );
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+				$refItem = $attrManager->createItem();
+			}
 
-			$listManager->saveItem( $litem, false );
+			$listItem->fromArray( $data );
+			$refItem->fromArray( $data );
+
+			if( ( $file = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'download/file' ) ) !== null
+				&& $file->getError() === UPLOAD_ERR_OK
+			) {
+				$path = ( $this->getValue( $data, 'overwrite' ) == 1 ? $refItem->getCode() : null );
+				$refItem->setCode( $this->storeFile( $file, $path ) );
+			}
+
+			$item->addListItem( 'attribute', $listItem, $refItem );
 		}
 
-		$this->cleanupItems( $listItems, array( $listId ) );
+		foreach( $listItems as $listItem )
+		{
+			$refItem = $listItem->getRefItem();
+
+			if( $refItem !== null && ( $path = $refItem->getCode() ) != '' && $fs->has( $path ) ) {
+				$fs->rm( $path );
+			}
+
+			$item->deleteListItem( 'attribute', $listItem, $refItem );
+		}
 	}
 
 
@@ -470,21 +377,16 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
 	{
-		$listItems = $item->getListItems( 'attribute', 'hidden', 'download', false );
 		$siteId = $this->getContext()->getLocale()->getSiteId();
-		$data = [];
+		$data = ['product.lists.siteid' => $siteId];
 
-		if( $copy === true ) {
-			$data['product.lists.siteid'] = $siteId;
-		}
-
-		foreach( $listItems as $listItem )
+		foreach( $item->getListItems( 'attribute', 'hidden', 'download', false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
-			$list = $listItem->toArray( true );
+			$list = $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true ) {
 				$list['product.lists.id'] = '';
@@ -494,18 +396,12 @@ class Standard
 				$data[$key] = $value;
 			}
 
-			foreach( $refItem->toArray( true ) as $key => $value ) {
-				$data[$key] = $value;
-			}
-
-			$data['path'] = $refItem->getCode();
-
 			try
 			{
 				$fs = $this->getContext()->getFilesystemManager()->get( 'fs-secure' );
 
-				$data['time'] = $fs->time( $data['path'] );
-				$data['size'] = $fs->size( $data['path'] );
+				$data['time'] = $fs->time( $data['attribute.code'] );
+				$data['size'] = $fs->size( $data['attribute.code'] );
 			}
 			catch( \Exception $e ) { ; } // Show product even if file isn't available any more
 		}
