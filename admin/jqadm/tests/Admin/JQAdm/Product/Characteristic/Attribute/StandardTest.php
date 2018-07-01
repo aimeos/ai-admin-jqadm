@@ -81,37 +81,29 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-		$attrManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
-
-		$item = $manager->findItem( 'CNC' );
-		$item->setCode( 'jqadm-test-attribute' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
+		$this->view->item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
 			'characteristic' => array(
 				'attribute' => array(
 					'product.lists.id' => array( '' ),
-					'product.lists.refid' => array( $attrManager->findItem( 'xs', [], 'product', 'size' )->getId() ),
+					'product.lists.refid' => array( '123' ),
 				),
 			),
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$item = $manager->getItem( $item->getId(), array( 'attribute' ) );
-		$manager->deleteItem( $item->getId() );
+		$attributes = $this->view->item->getListItems( 'attribute' );
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 1, count( $item->getListItems( 'attribute' ) ) );
+		$this->assertEquals( 1, count( $attributes ) );
+		$this->assertEquals( '123', reset( $attributes )->getRefId() );
 	}
 
 

@@ -277,8 +277,10 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists/type' );
+		$context = $this->getContext();
+
+		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$listTypeId = $typeManager->findItem( 'default', [], 'product' )->getId();
 		$listItems = $item->getListItems( 'product', 'default', null, false );
