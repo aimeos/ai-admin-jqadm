@@ -81,56 +81,29 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-
-		$item = $manager->findItem( 'CNC' );
-		$item->setCode( 'jqadm-test-suggest' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
+		$this->view->item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
 			'related' => array(
 				'suggest' => array(
 					'product.lists.id' => array( '' ),
-					'product.lists.refid' => array( $manager->findItem( 'CNE' )->getId() ),
+					'product.lists.refid' => array( '123' ),
 				),
 			),
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$item = $manager->getItem( $item->getId(), array( 'product' ) );
-		$manager->deleteItem( $item->getId() );
+		$products = $this->view->item->getListItems( 'product' );
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 1, count( $item->getListItems( 'product' ) ) );
-	}
-
-
-	public function testSaveException()
-	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Related\Suggest\Standard' )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
-
-		$object->setView( $this->view );
-
-		$this->setExpectedException( '\RuntimeException' );
-		$object->save();
+		$this->assertEquals( 1, count( $products ) );
+		$this->assertEquals( '123', reset( $products )->getRefId() );
 	}
 
 

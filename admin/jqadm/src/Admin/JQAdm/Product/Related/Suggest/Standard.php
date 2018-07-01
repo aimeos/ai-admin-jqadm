@@ -105,26 +105,12 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$manager->begin();
+		$this->fromArray( $view->item, $view->param( 'related/suggest', [] ) );
+		$view->suggestBody = '';
 
-		try
-		{
-			$this->fromArray( $view->item, $view->param( 'related/suggest', [] ) );
-			$view->suggestBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->suggestBody .= $client->save();
-			}
-
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
+		foreach( $this->getSubClients() as $client ) {
+			$view->suggestBody .= $client->save();
 		}
 	}
 
@@ -260,29 +246,6 @@ class Standard
 
 
 	/**
-	 * Returns the referenced products for the given product ID
-	 *
-	 * @param string $prodid Unique product ID
-	 * @return array Associative list of suggested product IDs as keys and list items as values
-	 */
-	protected function getListItems( $prodid )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
-
-		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
-		$expr = array(
-			$search->compare( '==', 'product.lists.parentid', $prodid ),
-			$search->compare( '==', 'product.lists.domain', 'product' ),
-			$search->compare( '==', 'product.lists.type.domain', 'product' ),
-			$search->compare( '==', 'product.lists.type.code', 'suggestion' ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -291,36 +254,32 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
-		$map = $this->getListItems( $item->getId() );
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
+		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists/type' );
 
-		$litem = $manager->createItem();
-		$litem->setTypeId( $typeManager->findItem( 'suggestion', [], 'product' )->getId() );
-		$litem->setParentId( $item->getId() );
-		$litem->setDomain( 'product' );
+		$listTypeId = $typeManager->findItem( 'suggestion', [], 'product' )->getId();
+		$listItems = $item->getListItems( 'product', 'suggestion', null, false );
 
-		foreach( (array) $this->getValue( $data, 'product.lists.id', [] ) as $pos => $listid )
+		foreach( $this->getValue( $data, 'product.lists.id', [] ) as $idx => $id )
 		{
-			if( isset( $map[$listid] ) )
-			{
-				$listItem = $map[$listid];
-				unset( $map[$listid] );
-			}
-			else
-			{
-				$listItem = $litem;
-				$listItem->setId( null );
+			if( !isset( $listItems[$id] ) ) {
+				$listItem = $listManager->createItem();
+			} else {
+				$listItem = $listItems[$id];
 			}
 
-			$listItem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $pos ) );
-			$listItem->setPosition( $pos );
+			$listItem->setId( $id );
+			$listItem->setPosition( $idx );
+			$listItem->setTypeId( $listTypeId );
+			$listItem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $idx ) );
 
-			$manager->saveItem( $listItem, false );
+			$item->addListItem( 'product', $listItem );
+
+			unset( $listItems[$listItem->getId()] );
 		}
 
-		$manager->deleteItems( array_keys( $map ) );
+		return $item->deleteListItems( $listItems );
 	}
 
 
@@ -342,7 +301,7 @@ class Standard
 				continue;
 			}
 
-			$list = $listItem->toArray( true );
+			$list = $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true )
 			{
