@@ -81,57 +81,29 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-		$attrManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
-
-		$item = $manager->findItem( 'U:TESTP' );
-		$item->setCode( 'jqadm-test-custom' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
+		$this->view->item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
 			'option' => array(
 				'custom' => array(
 					'product.lists.id' => array( '' ),
-					'product.lists.refid' => array( $attrManager->findItem( 'custom', [], 'product', 'date' )->getId() ),
+					'product.lists.refid' => array( '123' ),
 				),
 			),
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$item = $manager->getItem( $item->getId(), array( 'attribute' ) );
-		$manager->deleteItem( $item->getId() );
+		$attributes = $this->view->item->getListItems( 'attribute' );
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
-		$this->assertEquals( 1, count( $item->getListItems( 'attribute' ) ) );
-	}
-
-
-	public function testSaveException()
-	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Option\Custom\Standard' )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
-
-		$object->setView( $this->view );
-
-		$this->setExpectedException( '\RuntimeException' );
-		$object->save();
+		$this->assertEquals( 1, count( $attributes ) );
+		$this->assertEquals( '123', reset( $attributes )->getRefId() );
 	}
 
 

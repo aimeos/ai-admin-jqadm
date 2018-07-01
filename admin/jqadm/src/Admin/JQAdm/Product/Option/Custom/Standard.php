@@ -105,26 +105,12 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$manager->begin();
+		$this->fromArray( $view->item, $view->param( 'option/custom', [] ) );
+		$view->customBody = '';
 
-		try
-		{
-			$this->fromArray( $view->item, $view->param( 'option/custom', [] ) );
-			$view->customBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->customBody .= $client->save();
-			}
-
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
+		foreach( $this->getSubClients() as $client ) {
+			$view->customBody .= $client->save();
 		}
 	}
 
@@ -260,29 +246,6 @@ class Standard
 
 
 	/**
-	 * Returns the referenced products for the given product ID
-	 *
-	 * @param string $prodid Unique product ID
-	 * @return array Associative list of product list IDs as keys and list items as values
-	 */
-	protected function getListItems( $prodid )
-	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
-
-		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
-		$expr = array(
-			$search->compare( '==', 'product.lists.parentid', $prodid ),
-			$search->compare( '==', 'product.lists.domain', 'attribute' ),
-			$search->compare( '==', 'product.lists.type.domain', 'attribute' ),
-			$search->compare( '==', 'product.lists.type.code', 'custom' ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-
-		return $manager->searchItems( $search );
-	}
-
-
-	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -291,35 +254,32 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
-		$map = $this->getListItems( $item->getId() );
-		$listIds = (array) $this->getValue( $data, 'product.lists.id', [] );
+		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists/type' );
 
-		foreach( $listIds as $pos => $listid )
+		$listTypeId = $typeManager->findItem( 'custom', [], 'attribute' )->getId();
+		$listItems = $item->getListItems( 'attribute', 'custom', null, false );
+
+		foreach( $this->getValue( $data, 'product.lists.id', [] ) as $idx => $id )
 		{
-			if( isset( $map[$listid] ) ) {
-				unset( $map[$listid], $listIds[$pos] );
+			if( !isset( $listItems[$id] ) ) {
+				$listItem = $listManager->createItem();
+			} else {
+				$listItem = $listItems[$id];
 			}
+
+			$listItem->setId( $id );
+			$listItem->setPosition( $idx );
+			$listItem->setTypeId( $listTypeId );
+			$listItem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $idx ) );
+
+			$item->addListItem( 'attribute', $listItem );
+
+			unset( $listItems[$listItem->getId()] );
 		}
 
-		$manager->deleteItems( array_keys( $map ) );
-
-
-		$litem = $manager->createItem();
-		$litem->setDomain( 'attribute' );
-		$litem->setParentId( $item->getId() );
-		$litem->setTypeId( $typeManager->findItem( 'custom', [], 'attribute' )->getId() );
-
-		foreach( $listIds as $pos => $listid )
-		{
-			$litem->setId( null );
-			$litem->setPosition( $pos );
-			$litem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $pos ) );
-
-			$manager->saveItem( $litem, false );
-		}
+		return $item->deleteListItems( $listItems );
 	}
 
 
@@ -341,7 +301,7 @@ class Standard
 				continue;
 			}
 
-			$list = $listItem->toArray( true );
+			$list = $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true )
 			{
