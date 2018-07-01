@@ -61,8 +61,8 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-		$data = $view->param( 'option/custom', [] );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'option/custom', [] ) );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
 			$data['product.lists.siteid'][$idx] = $siteid;
