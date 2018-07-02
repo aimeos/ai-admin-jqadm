@@ -265,13 +265,11 @@ class Standard
 			$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 			$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
-			$typeId = $typeManager->findItem( 'custom', [], 'attribute' )->getId();
-
-			if( ( $listItem = $item->getListItem( 'attribute', 'custom', $attrId ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'attribute', 'custom', $attrId, false ) ) === null ) {
 				$listItem = $listManager->createItem();
 			}
 
-			$listItem->setTypeId( $typeId );
+			$listItem->setTypeId( $typeManager->findItem( 'custom', [], 'attribute' )->getId() );
 			$listItem->setRefId( $attrId );
 
 			$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
