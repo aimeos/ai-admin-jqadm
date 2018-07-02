@@ -274,7 +274,7 @@ class Standard
 			$listItem->setTypeId( $typeId );
 			$listItem->setRefId( $attrId );
 
-			$item->addListItem( 'attribute', $listItem );
+			$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
 		}
 		else
 		{

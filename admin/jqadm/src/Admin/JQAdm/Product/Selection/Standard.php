@@ -386,7 +386,7 @@ class Standard
 			$litem->setTypeId( $attrListTypeId );
 			$litem->setPosition( $pos );
 
-			$refItem->addListItem( 'attribute', $litem );
+			$refItem->addListItem( 'attribute', $litem, $litem->getRefItem() );
 			unset( $litems[$litem->getId()] );
 		}
 

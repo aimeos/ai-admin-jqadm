@@ -274,7 +274,7 @@ class Standard
 			$listItem->setTypeId( $listTypeId );
 			$listItem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $idx ) );
 
-			$item->addListItem( 'attribute', $listItem );
+			$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
 
 			unset( $listItems[$listItem->getId()] );
 		}
