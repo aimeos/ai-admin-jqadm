@@ -45,13 +45,13 @@ $keys = [
 				v-bind:class="items['product.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
 				<td>
-					<input class="item-listid" type="variant" v-model="items['product.lists.id'][idx]"
+					<input class="item-listid" type="hidden" v-model="items['product.lists.id'][idx]"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'variant', 'product.lists.id', '' ) ) ); ?>" />
 
-					<input class="item-label" type="variant" v-model="items['attribute.label'][idx]"
+					<input class="item-label" type="hidden" v-model="items['attribute.label'][idx]"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'variant', 'attribute.label', '' ) ) ); ?>" />
 
-					<input class="item-type" type="variant" v-model="items['attribute.type'][idx]"
+					<input class="item-type" type="hidden" v-model="items['attribute.type'][idx]"
 						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'variant', 'attribute.type', '' ) ) ); ?>" />
 
 					<select is="combo-box" class="form-control custom-select item-refid"
