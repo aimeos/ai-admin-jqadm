@@ -312,10 +312,6 @@ class Standard
 			foreach( $list as $key => $value ) {
 				$data[$key][] = $value;
 			}
-
-			foreach( $refItem->toArray( true ) as $key => $value ) {
-				$data[$key][] = $value;
-			}
 		}
 
 		return $data;
