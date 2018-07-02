@@ -452,6 +452,17 @@ Aimeos.Product.Attribute = {
 
 	init : function() {
 
+		this.vvariant = new Vue({
+			'el': '.item-characteristic-variant .attribute-list',
+			'data': {
+				'items': $(".item-characteristic-variant .attribute-list").data("items"),
+				'keys': $(".item-characteristic-variant .attribute-list").data("keys"),
+				'prefix': $(".item-characteristic-variant .attribute-list").data("prefix"),
+				'siteid': $(".item-characteristic-variant .attribute-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+
 		this.vattribute = new Vue({
 			'el': '.item-characteristic-attribute .attribute-list',
 			'data': {

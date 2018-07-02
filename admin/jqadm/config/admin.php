@@ -113,6 +113,7 @@ return [
 				'standard' => [
 					'subparts' => [
 						'property' => 'property',
+						'variant' => 'variant',
 						'attribute' => 'attribute',
 						'hidden' => 'hidden',
 					],
