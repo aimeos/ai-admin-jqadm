@@ -63,8 +63,8 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-		$data = $view->param( 'physical', [] );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'physical', [] ) );
 
 		foreach( $view->value( $data, 'product.property.id', [] ) as $idx => $value ) {
 			$data['product.property.siteid'][$idx] = $siteid;
@@ -107,10 +107,6 @@ class Standard
 	public function save()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/property' );
-		$manager->begin();
 
 		try
 		{
@@ -121,12 +117,11 @@ class Standard
 				$view->physicalBody .= $client->save();
 			}
 
-			$manager->commit();
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'product-item-physical' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'product-item-physical' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -136,8 +131,6 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
-
-		$manager->rollback();
 
 		throw new \Aimeos\Admin\JQAdm\Exception();
 	}
@@ -274,33 +267,6 @@ class Standard
 
 
 	/**
-	 * Returns the list of property items for physical values
-	 *
-	 * @param string $prodid Unique product ID
-	 * @return array List of property types as keys and items implementing \Aimeos\MShop\Product\Property\Iface as values
-	 */
-	protected function getItems( $prodid )
-	{
-		$list = [];
-		$types = array( 'package-length', 'package-width', 'package-height', 'package-weight' );
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property' );
-
-		$search = $manager->createSearch();
-		$expr = array(
-			$search->compare( '==', 'product.property.parentid', $prodid ),
-			$search->compare( '==', 'product.property.type.code', $types ),
-		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
-
-		foreach( $manager->searchItems( $search ) as $item ) {
-			$list[$item->getType()] = $item;
-		}
-
-		return $list;
-	}
-
-
-	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -308,37 +274,31 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/property' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/property/type' );
-
-		$ids = [];
-		$items = $this->getItems( $item->getId() );
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property/type' );
 
 		foreach( $data as $type => $value )
 		{
-			$value = trim( $value );
+			$propItems = $item->getPropertyItems( $type, false );
 
-			if( $value == '' )
+			if( ( $value = trim( $value ) ) != '' )
 			{
-				if( isset( $items[$type] ) ) {
-					$ids[] = $items[$type]->getId();
+				if( ( $propItem = reset( $propItems ) ) === false ) {
+					$propItem = $manager->createItem();
 				}
-				continue;
-			}
 
-			if( !isset( $items[$type] ) )
+				$propItem->setTypeId( $typeManager->findItem( $type, [], 'product' )->getId() );
+				$propItem->setLanguageId( null );
+				$propItem->setValue( $value );
+
+				$item->addPropertyItem( $propItem );
+
+			}
+			else
 			{
-				$items[$type] = $manager->createItem();
-				$items[$type]->setParentId( $item->getId() );
-				$items[$type]->setTypeId( $typeManager->findItem( $type, [], 'product' )->getId() );
+				$item->deletePropertyItems( $propItems );
 			}
-
-			$items[$type]->setValue( $value );
-			$manager->saveItem( $items[$type], false );
 		}
-
-		$manager->deleteItems( $ids );
 	}
 
 
@@ -352,9 +312,10 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
 	{
 		$data = [];
+		$types = ['package-length', 'package-height', 'package-width', 'package-weight'];
 
-		foreach( $this->getItems( $item->getId() ) as $propItem ) {
-			$data[$propItem->getType()] = $propItem->getValue();
+		foreach( $item->getPropertyItems( $types, false ) as $item ) {
+			$data[$item->getType()] = $item->getValue();
 		}
 
 		return $data;

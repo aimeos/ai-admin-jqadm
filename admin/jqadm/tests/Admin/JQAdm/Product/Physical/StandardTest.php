@@ -49,7 +49,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'CNC' );
+		$this->view->item = $manager->findItem( 'CNC', ['product/property'] );
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
@@ -64,7 +64,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'CNC' );
+		$this->view->item = $manager->findItem( 'CNC', ['product/property'] );
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
@@ -78,13 +78,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-
-		$item = $manager->findItem( 'CNC' );
-		$item->setCode( 'jqadm-test-physical' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
+		$this->view->item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
@@ -96,14 +90,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $item->getId() );
-
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
+		$this->assertEquals( 2, count( $this->view->item->getPropertyItems() ) );
 	}
 
 
