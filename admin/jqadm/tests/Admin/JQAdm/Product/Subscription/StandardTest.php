@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;attribute.label&quot;:[&quot;Interval 1 year&quot;]', $result );
+		$this->assertContains( '&quot;attribute.label&quot;:&quot;Interval 1 year&quot;', $result );
 	}
 
 
@@ -65,44 +65,36 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;attribute.label&quot;:[&quot;Interval 1 year&quot;]', $result );
+		$this->assertContains( '&quot;attribute.label&quot;:&quot;Interval 1 year&quot;', $result );
 	}
 
 
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-
-		$item = $manager->findItem( 'CNC' );
-		$item->setCode( 'jqadm-test-subscription' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
-
+		$this->view->item = $manager->createItem();
 
 		$param = array(
 			'site' => 'unittest',
 			'subscription' => array(
-				'attribute.id' => [''],
-				'attribute.label' => ['1 day'],
-				'attribute.code' => ['P0Y0M0W1D'],
-				'product.lists.id' => [''],
+				array(
+					'attribute.id' => '',
+					'attribute.label' => '1 day',
+					'attribute.code' => 'P0Y0M0W1D',
+					'product.lists.id' => '',
+				)
 			),
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $item->getId() );
-
-		$attrManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
-		$attrManager->deleteItem( $attrManager->findItem( 'P0Y0M0W1D', [], 'product', 'interval' )->getId() );
-
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
+		$this->assertEquals( 1, count( $this->view->item->getListItems( 'attribute' ) ) );
+		$this->assertEquals( 1, count( $this->view->item->getRefItems( 'attribute' ) ) );
 	}
 
 

@@ -56,49 +56,51 @@ $keys = [
 			</tr>
 		</thead>
 		<tbody>
-			<tr v-for="(id, idx) in items['attribute.id']" v-bind:key="idx"
-				v-bind:class="items['product.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+			<tr v-for="(entry, idx) in items" v-bind:key="idx"
+				v-bind:class="entry['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
 				<td class="interval-check">
 					<input class="form-control item-id" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'attribute.id', 'idx' ) ) ); ?>'.replace( 'idx', idx )"
-						v-bind:checked="items['product.lists.id'][idx] != '' || items['attribute.id'][idx] == '' ? 'checked' : ''"
-						v-bind:value="items['attribute.id'][idx]" />
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'attribute.id' ) ) ); ?>'.replace( 'idx', idx )"
+						v-bind:checked="entry['product.lists.id'] != '' || entry['attribute.id'] == '' ? 'checked' : ''"
+						v-bind:value="entry['attribute.id']" />
 				</td>
 				<td class="interval-label mandatory">
 					<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'attribute.label', 'idx' ) ) ); ?>'.replace( 'idx', idx )"
-						v-bind:disabled="items['attribute.id'][idx] != ''"
-						v-model="items['attribute.label'][idx]" />
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'attribute.label' ) ) ); ?>'.replace( 'idx', idx )"
+						v-bind:disabled="entry['attribute.id'] != ''"
+						v-model="entry['attribute.label']" />
 				</td>
 				<td class="interval-field mandatory">
 					<input class="form-control field-year" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:disabled="items['attribute.id'][idx] != ''"
-						v-model="items['Y'][idx]" />
+						v-bind:disabled="entry['attribute.id'] != ''"
+						v-model="entry['Y']" />
 				</td>
 				<td class="interval-field mandatory">
 					<input class="form-control field-month" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:disabled="items['attribute.id'][idx] != ''"
-						v-model="items['M'][idx]" />
+						v-bind:disabled="entry['attribute.id'] != ''"
+						v-model="entry['M']" />
 				</td>
 				<td class="interval-field mandatory">
 					<input class="form-control field-week" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:disabled="items['attribute.id'][idx] != ''"
-						v-model="items['W'][idx]" />
+						v-bind:disabled="entry['attribute.id'] != ''"
+						v-model="entry['W']" />
 				</td>
 				<td class="interval-field mandatory">
 					<input class="form-control field-day" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:disabled="items['attribute.id'][idx] != ''"
-						v-model="items['D'][idx]" />
+						v-bind:disabled="entry['attribute.id'] != ''"
+						v-model="entry['D']" />
 				</td>
 				<td class="actions">
 					<input class="item-code" type="hidden"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'attribute.code', 'idx' ) ) ); ?>'.replace( 'idx', idx )"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'attribute.code' ) ) ); ?>'.replace( 'idx', idx )"
 						v-bind:value="getAttributeValue(idx)" />
+
 					<input class="item-listid" type="hidden"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'product.lists.id', 'idx' ) ) ); ?>'.replace( 'idx', idx )"
-						v-bind:value="items['product.lists.id'][idx]" />
-					<div v-if="items['attribute.id'][idx] == ''" v-on:click="removeItem(idx)"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'product.lists.id' ) ) ); ?>'.replace( 'idx', idx )"
+						v-bind:value="entry['product.lists.id']" />
+
+					<div v-if="entry['attribute.id'] == ''" v-on:click="removeItem(idx)"
 						class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 					</div>

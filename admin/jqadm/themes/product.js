@@ -757,20 +757,19 @@ Aimeos.Product.Subscription = {
 
 
 				addItem : function() {
-					var idx = (this.items['attribute.id'] || []).length;
+					var idx = this.items.length;
+					this.$set(this.items, idx, {});
 
 					for(var key in this.keys) {
-						key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+						key = this.keys[key]; this.$set(this.items[idx], key, '');
 					}
 
-					this.$set(this.items['product.lists.siteid'], idx, this.siteid);
+					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
 				},
 
 
 				removeItem : function(idx) {
-					for(key in this.items) {
-						this.items[key].splice(idx, 1);
-					}
+					this.items.splice(idx, 1);
 				}
 			}
 		});
