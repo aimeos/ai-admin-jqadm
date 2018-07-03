@@ -325,13 +325,16 @@ class Standard
 		$fs = $context->getFilesystemManager()->get( 'fs-secure' );
 
 		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/type' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
-		$listId = $this->getValue( $data, 'product.lists.id' );
 		$listItems = $item->getListItems( 'attribute', 'hidden', 'download', false );
 
 		if( $this->getValue( $data, 'attribute.label' ) != '' )
 		{
+			$listId = $this->getValue( $data, 'product.lists.id' );
+
 			if( isset( $listItems[$listId] ) ) {
 				$listItem = $listItems[$listId]; unset( $listItems[$listId] );
 			} else {
@@ -342,7 +345,10 @@ class Standard
 				$refItem = $attrManager->createItem();
 			}
 
+			$listItem->setTypeId( $listTypeManager->findItem( 'hidden', [], 'attribute' )->getId() );
 			$listItem->fromArray( $data );
+
+			$refItem->setTypeId( $typeManager->findItem( 'download', [], 'product' )->getId() );
 			$refItem->fromArray( $data );
 
 			if( ( $file = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'download/file' ) ) !== null
