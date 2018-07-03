@@ -236,7 +236,7 @@ class Standard
 				$view->itemBody .= $client->save();
 			}
 
-			$manager->saveItem( $view->item );
+			$manager->saveItem( clone $view->item );
 			$manager->commit();
 
 			$this->nextAction( $view, $view->param( 'next' ), 'type/product/lists', $view->item->getId(), 'save' );
