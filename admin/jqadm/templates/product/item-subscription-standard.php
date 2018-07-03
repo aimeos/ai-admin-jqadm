@@ -74,22 +74,22 @@ $keys = [
 				<td class="interval-field mandatory">
 					<input class="form-control field-year" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:disabled="entry['attribute.id'] != ''"
-						v-model="entry['Y']" />
+						v-model="items[idx]['Y']" />
 				</td>
 				<td class="interval-field mandatory">
 					<input class="form-control field-month" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:disabled="entry['attribute.id'] != ''"
-						v-model="entry['M']" />
+						v-model="items[idx]['M']" />
 				</td>
 				<td class="interval-field mandatory">
 					<input class="form-control field-week" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:disabled="entry['attribute.id'] != ''"
-						v-model="entry['W']" />
+						v-model="items[idx]['W']" />
 				</td>
 				<td class="interval-field mandatory">
 					<input class="form-control field-day" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:disabled="entry['attribute.id'] != ''"
-						v-model="entry['D']" />
+						v-model="items[idx]['D']" />
 				</td>
 				<td class="actions">
 					<input class="item-code" type="hidden"
@@ -98,7 +98,11 @@ $keys = [
 
 					<input class="item-listid" type="hidden"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'product.lists.id' ) ) ); ?>'.replace( 'idx', idx )"
-						v-bind:value="entry['product.lists.id']" />
+						v-bind:value="items[idx]['product.lists.id']" />
+
+					<input class="item-siteid" type="hidden"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'product.lists.siteid' ) ) ); ?>'.replace( 'idx', idx )"
+						v-bind:value="items[idx]['product.lists.siteid']" />
 
 					<div v-if="entry['attribute.id'] == ''" v-on:click="removeItem(idx)"
 						class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"

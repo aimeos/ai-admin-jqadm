@@ -308,11 +308,15 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = $item->getListItem( 'attribute', 'config', $entry['attribute.id'] ) ) === null ) {
+			if( !array_key_exists( 'attribute.id', $entry ) ) {
+				continue;
+			}
+
+			if( $entry['attribute.id'] == '' || ( $listItem = $item->getListItem( 'attribute', 'config', $entry['attribute.id'] ) ) === null ) {
 				$listItem = $listManager->createItem();
 			}
 
-			if( ( $refItem = $listItem->getRefItem() ) === null || $entry['attribute.id'] == '' )
+			if( $entry['attribute.id'] == '' || ( $refItem = $listItem->getRefItem() ) === null )
 			{
 				$refItem = $attrManager->createItem();
 				$refItem->setTypeId( $attrTypeId );
@@ -322,6 +326,9 @@ class Standard
 			}
 
 			$listItem->setPosition( $idx );
+			$listItem->setTypeId( $listTypeId );
+
+			unset( $listItems[$listItem->getId()] );
 
 			$item->addListItem( 'attribute', $listItem, $refItem );
 		}
@@ -350,11 +357,12 @@ class Standard
 		{
 			$list = $attrItem->toArray( true );
 
-			if( isset( $map[$attrId] ) ) {
-				$list += $map[$attrId]->toArray();
+			if( isset( $map[$attrId] ) && $copy !== true )
+			{
+				$list['product.lists.siteid'] = $map[$attrId]->getSiteId();
+				$list['product.lists.id'] = $map[$attrId]->getId();
 			}
-
-			if( $copy === true )
+			else
 			{
 				$list['product.lists.siteid'] = $siteId;
 				$list['product.lists.id'] = '';

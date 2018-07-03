@@ -762,8 +762,8 @@ Aimeos.Product.Subscription = {
 			},
 			methods: {
 				getAttributeValue: function(idx) {
-					return 'P' + (this.items['Y'][idx] || 0) + 'Y' + (this.items['M'][idx] || 0) + 'M'
-						+ (this.items['W'][idx] || 0) + 'W' + (this.items['D'][idx] || 0) + 'D';
+					return 'P' + (this.items[idx]['Y'] || 0) + 'Y' + (this.items[idx]['M'] || 0) + 'M'
+						+ (this.items[idx]['W'] || 0) + 'W' + (this.items[idx]['D'] || 0) + 'D';
 				},
 
 
