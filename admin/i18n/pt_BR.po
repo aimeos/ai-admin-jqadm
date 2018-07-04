@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 18:06+0200\n"
-"PO-Revision-Date: 2018-04-08 16:16+0000\n"
-"Last-Translator: Bruno Rodrigues <brunojti@gmail.com>\n"
+"POT-Creation-Date: 2018-07-03 21:45+0200\n"
+"PO-Revision-Date: 2018-07-03 20:42+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,6 +102,9 @@ msgstr ""
 msgid "Additional information where the customer's appartment can be found"
 msgstr ""
 
+msgid "Additional information where the supplier's apartment can be found"
+msgstr ""
+
 msgid "Additional information where the supplier's office can be found"
 msgstr ""
 
@@ -124,6 +127,9 @@ msgid "Address ID"
 msgstr "ID do endereço"
 
 msgid "Address identifier of the customer's house for delivery"
+msgstr ""
+
+msgid "Address identifier of the supplier's house for delivery"
 msgstr ""
 
 msgid "Address identifier of the supplier's office"
@@ -155,6 +161,9 @@ msgid "Allow custom price"
 msgstr ""
 
 msgid "Allow customers to choose themselves how much they want to pay"
+msgstr ""
+
+msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
 msgid ""
@@ -349,6 +358,9 @@ msgstr ""
 msgid "Characteristics"
 msgstr "Características"
 
+msgid "Choose file"
+msgstr ""
+
 msgid "City"
 msgstr "Cidade"
 
@@ -522,6 +534,12 @@ msgstr ""
 msgid "Customer Lists Types"
 msgstr ""
 
+msgid "Customer Property Type"
+msgstr ""
+
+msgid "Customer Property Types"
+msgstr ""
+
 msgid "Customer Types"
 msgstr ""
 
@@ -548,6 +566,9 @@ msgid "Customer group: {0} ({1})"
 msgstr "Grupo do cliente: {0} ({1})"
 
 msgid "Customer password"
+msgstr ""
+
+msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
@@ -606,6 +627,9 @@ msgstr "Status de entrega"
 
 msgid "Delivery types"
 msgstr "Tipos de entrega"
+
+msgid "Description of the text content if it's in a foreign language"
+msgstr ""
 
 msgid "Descritive name of the currency"
 msgstr ""
@@ -774,6 +798,9 @@ msgstr "Grupo"
 
 msgid "Group label (required)"
 msgstr "Etiqueta do grupo (obrigatório)"
+
+msgid "Group name describing for which members the group is for"
+msgstr ""
 
 msgid "Height"
 msgstr "Altura"
@@ -1270,6 +1297,9 @@ msgid "Order of the language/currency combinations"
 msgstr ""
 
 msgid "Order of the service options in the checkout process"
+msgstr ""
+
+msgid "Order of the types in the frontend"
 msgstr ""
 
 msgid "Order product ID"
@@ -1820,6 +1850,10 @@ msgid ""
 "office"
 msgstr ""
 
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr ""
+
 msgid "Show"
 msgstr "Mostrar"
 
@@ -2085,6 +2119,9 @@ msgstr "Código do país, ex. \"BR\" (obrigatório)"
 msgid "Type"
 msgstr "Tipo"
 
+msgid "Type position (optional)"
+msgstr ""
+
 msgid "Types"
 msgstr "Tipos"
 
@@ -2092,6 +2129,9 @@ msgid "Types for additional images like icons"
 msgstr ""
 
 msgid "Types for additional prices like per one lb/kg or per month"
+msgstr ""
+
+msgid "Types for additional texts like per one lb/kg or per month"
 msgstr ""
 
 msgid "URL of the customer web site"
@@ -2134,6 +2174,9 @@ msgid "Unique code to identify the service, usually self-invented"
 msgstr ""
 
 msgid "Unique customer e-mail address"
+msgstr ""
+
+msgid "Unique group code (required)"
 msgstr ""
 
 msgid "Unique service code (required)"
@@ -2193,6 +2236,9 @@ msgstr ""
 
 msgid "Variant attributes"
 msgstr "Atributos variáveis"
+
+msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
 
 msgid "Variants"
 msgstr "Variações"
@@ -2349,6 +2395,10 @@ msgstr ""
 #, php-format
 msgid "download"
 msgstr "Downloads"
+
+#, php-format
+msgid "group"
+msgstr ""
 
 #, php-format
 msgid "hour"
@@ -2650,6 +2700,10 @@ msgstr ""
 
 #, php-format
 msgid "type/customer/lists"
+msgstr ""
+
+#, php-format
+msgid "type/customer/property"
 msgstr ""
 
 #, php-format

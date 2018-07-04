@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 18:06+0200\n"
-"PO-Revision-Date: 2018-04-18 22:57+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>\n"
+"POT-Creation-Date: 2018-07-03 21:45+0200\n"
+"PO-Revision-Date: 2018-07-03 20:42+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,6 +102,9 @@ msgstr "Müşteri dairesinin bulunabileceği ilave bilgi"
 msgid "Additional information where the customer's appartment can be found"
 msgstr "Müşteri dairesinin bulunabileceği ilave bilgi"
 
+msgid "Additional information where the supplier's apartment can be found"
+msgstr ""
+
 msgid "Additional information where the supplier's office can be found"
 msgstr "Tedarikçi ofisinin bulunabileceği ilave bilgi"
 
@@ -125,6 +128,9 @@ msgstr "Adres ID"
 
 msgid "Address identifier of the customer's house for delivery"
 msgstr "Teslimat için müşterinin evinin adres tanımlayıcısı"
+
+msgid "Address identifier of the supplier's house for delivery"
+msgstr ""
 
 msgid "Address identifier of the supplier's office"
 msgstr "Tedarikçi ofisinin adres tanımlayıcısı"
@@ -156,6 +162,9 @@ msgstr "Özel fiyata izin ver"
 
 msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "Müşterilerin ne kadar ödeme yapmak istediklerini kendilerinin seçmesine izin ver"
+
+msgid "Alphanumeric string that can identify the group uniquely"
+msgstr ""
 
 msgid ""
 "Article description shown by search engines, added to the head section of "
@@ -349,6 +358,9 @@ msgstr "Kategoriye özel yapılandırma seçenekleri, şablonlarda anahtar/değe
 msgid "Characteristics"
 msgstr "Teknik özellikler"
 
+msgid "Choose file"
+msgstr ""
+
 msgid "City"
 msgstr "İlçe"
 
@@ -522,6 +534,12 @@ msgstr "Müşteri Liste Türü"
 msgid "Customer Lists Types"
 msgstr "Müşteri Liste Türleri"
 
+msgid "Customer Property Type"
+msgstr ""
+
+msgid "Customer Property Types"
+msgstr ""
+
 msgid "Customer Types"
 msgstr "Müşteri Türleri"
 
@@ -549,6 +567,9 @@ msgstr "Müşteri grubu: {0} ({1})"
 
 msgid "Customer password"
 msgstr "Müşteri şifresi"
+
+msgid "Customer properties that are not shared with other customers"
+msgstr ""
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
@@ -606,6 +627,9 @@ msgstr "Teslimat durumu"
 
 msgid "Delivery types"
 msgstr "Teslimat türleri"
+
+msgid "Description of the text content if it's in a foreign language"
+msgstr ""
 
 msgid "Descritive name of the currency"
 msgstr "Para biriminin tanımlayıcı adı"
@@ -774,6 +798,9 @@ msgstr "Grup"
 
 msgid "Group label (required)"
 msgstr "Grup etiketi (gerekli)"
+
+msgid "Group name describing for which members the group is for"
+msgstr ""
 
 msgid "Height"
 msgstr "Yükseklik"
@@ -1271,6 +1298,9 @@ msgstr "Dil/para birimi kombinasyonlarının sırası"
 
 msgid "Order of the service options in the checkout process"
 msgstr "Ödeme sürecindeki hizmet seçeneklerinin sırası"
+
+msgid "Order of the types in the frontend"
+msgstr ""
 
 msgid "Order product ID"
 msgstr "Sipariş ürün kimliği"
@@ -1820,6 +1850,10 @@ msgid ""
 "office"
 msgstr "Tedarikçi ofisinin bulunduğu ülkede kullanılıyorsa kısa eyalet kodu (Örn, NY)"
 
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr ""
+
 msgid "Show"
 msgstr "Göster"
 
@@ -2085,6 +2119,9 @@ msgstr "İki harfli ülke kodu, örn. \"TR\" (gerekli)"
 msgid "Type"
 msgstr "Tür"
 
+msgid "Type position (optional)"
+msgstr ""
+
 msgid "Types"
 msgstr "Türler"
 
@@ -2093,6 +2130,9 @@ msgstr "Simgeler gibi ek görüntüler için türler"
 
 msgid "Types for additional prices like per one lb/kg or per month"
 msgstr "Bir lb/kg başına veya her ay gibi ek fiyatlar için türler"
+
+msgid "Types for additional texts like per one lb/kg or per month"
+msgstr ""
 
 msgid "URL of the customer web site"
 msgstr "Müşteri web sitesinin URL'si"
@@ -2135,6 +2175,9 @@ msgstr "Hizmeti tanımlamak için benzersiz kod, genellikle kendi kendine oluşt
 
 msgid "Unique customer e-mail address"
 msgstr "Benzersiz müşteri e-posta adresi"
+
+msgid "Unique group code (required)"
+msgstr ""
 
 msgid "Unique service code (required)"
 msgstr "Benzersiz hizmet kodu (gerekli)"
@@ -2193,6 +2236,9 @@ msgstr "Katma değer vergisi tanımlayıcı (isteğe bağlı)"
 
 msgid "Variant attributes"
 msgstr "Değişken nitelikleri"
+
+msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
 
 msgid "Variants"
 msgstr "Değişkenler"
@@ -2349,6 +2395,10 @@ msgstr "Teslimat türüne göre"
 #, php-format
 msgid "download"
 msgstr "İndirmeler"
+
+#, php-format
+msgid "group"
+msgstr ""
 
 #, php-format
 msgid "hour"
@@ -2651,6 +2701,10 @@ msgstr "Katalog Listeleri"
 #, php-format
 msgid "type/customer/lists"
 msgstr "Müşteri Listeleri"
+
+#, php-format
+msgid "type/customer/property"
+msgstr ""
 
 #, php-format
 msgid "type/media"

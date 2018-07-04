@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 18:06+0200\n"
-"PO-Revision-Date: 2018-06-09 23:37+0000\n"
-"Last-Translator: Miro Sertić <miro.sertic0606@gmail.com>\n"
+"POT-Creation-Date: 2018-07-03 21:45+0200\n"
+"PO-Revision-Date: 2018-07-03 20:42+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Croatian (http://www.transifex.com/aimeos/aimeos-core/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,7 +86,7 @@ msgid "Add filter"
 msgstr "Dodaj filter"
 
 msgid "Add new entry (Ctrl+A)"
-msgstr ""
+msgstr "Dodaj novi zapis (Ctrl+A)"
 
 msgid "Additional"
 msgstr "Dodatno"
@@ -100,6 +100,9 @@ msgid "Additional information where the customer's apartment can be found"
 msgstr ""
 
 msgid "Additional information where the customer's appartment can be found"
+msgstr ""
+
+msgid "Additional information where the supplier's apartment can be found"
 msgstr ""
 
 msgid "Additional information where the supplier's office can be found"
@@ -124,6 +127,9 @@ msgid "Address ID"
 msgstr "ID adrese"
 
 msgid "Address identifier of the customer's house for delivery"
+msgstr ""
+
+msgid "Address identifier of the supplier's house for delivery"
 msgstr ""
 
 msgid "Address identifier of the supplier's office"
@@ -155,6 +161,9 @@ msgid "Allow custom price"
 msgstr ""
 
 msgid "Allow customers to choose themselves how much they want to pay"
+msgstr ""
+
+msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
 msgid ""
@@ -271,7 +280,7 @@ msgid "Available texts"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Nazad"
 
 msgid "Back in stock"
 msgstr ""
@@ -283,13 +292,13 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr ""
+msgstr "Košarica"
 
 msgid "Billing address"
 msgstr "Adresa za račun"
 
 msgid "Birthday"
-msgstr ""
+msgstr "Rođendan"
 
 msgid "Birthday of the customer"
 msgstr ""
@@ -307,7 +316,7 @@ msgid "Cache item details"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Poništi"
 
 msgid "Cancel and return to list"
 msgstr ""
@@ -349,8 +358,11 @@ msgstr ""
 msgid "Characteristics"
 msgstr ""
 
-msgid "City"
+msgid "Choose file"
 msgstr ""
+
+msgid "City"
+msgstr "Grad"
 
 msgid "City name (required)"
 msgstr ""
@@ -381,7 +393,7 @@ msgid "Click to upload"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 msgid "Code"
 msgstr ""
@@ -399,7 +411,7 @@ msgid "Columns"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "Komentar"
 
 msgid "Communication"
 msgstr ""
@@ -433,7 +445,7 @@ msgid "Content"
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopiraj"
 
 msgid "Copy this entry"
 msgstr ""
@@ -451,7 +463,7 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr ""
+msgstr "Država"
 
 msgid "Country ID"
 msgstr ""
@@ -496,25 +508,25 @@ msgid "Coupons"
 msgstr ""
 
 msgid "Created"
-msgstr ""
+msgstr "Kreirano"
 
 msgid "Currencies"
 msgstr "Valute"
 
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 msgid "Currency (required)"
-msgstr ""
+msgstr "Valuta (obavezno)"
 
 msgid "Custom"
 msgstr ""
 
 msgid "Customer"
-msgstr ""
+msgstr "Kupac"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "ID kupca"
 
 msgid "Customer Lists Type"
 msgstr ""
@@ -522,8 +534,14 @@ msgstr ""
 msgid "Customer Lists Types"
 msgstr ""
 
-msgid "Customer Types"
+msgid "Customer Property Type"
 msgstr ""
+
+msgid "Customer Property Types"
+msgstr ""
+
+msgid "Customer Types"
+msgstr "Vrste kupaca"
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -537,7 +555,7 @@ msgid "Customer comment (optional)"
 msgstr ""
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "E-mail adresa kupca"
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -550,16 +568,19 @@ msgstr ""
 msgid "Customer password"
 msgstr ""
 
+msgid "Customer properties that are not shared with other customers"
+msgstr ""
+
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Customer: {0} ({1})"
-msgstr ""
+msgstr "Kupac: {0} ({1})"
 
 msgid "Dashboard"
 msgstr "Kontrolna ploča"
 
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 msgid "Date back"
 msgstr ""
@@ -577,10 +598,10 @@ msgid "Days"
 msgstr ""
 
 msgid "Default"
-msgstr ""
+msgstr "Zadano"
 
 msgid "Delete"
-msgstr ""
+msgstr "Obriši"
 
 msgid "Delete items?"
 msgstr ""
@@ -605,6 +626,9 @@ msgid "Delivery status"
 msgstr ""
 
 msgid "Delivery types"
+msgstr "Vrste isporuke"
+
+msgid "Description of the text content if it's in a foreign language"
 msgstr ""
 
 msgid "Descritive name of the currency"
@@ -617,7 +641,7 @@ msgid "Descritive name of the site"
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "Detalji"
 
 msgid "Display field is empty"
 msgstr ""
@@ -638,7 +662,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -647,7 +671,7 @@ msgid "E-Mail, e.g. me@example.com (required)"
 msgstr ""
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "E-mail address (optional)"
 msgstr ""
@@ -659,7 +683,7 @@ msgid "EAN, SKU or article number (required)"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
 msgid "Edit this entry"
 msgstr ""
@@ -668,10 +692,10 @@ msgid "Editor"
 msgstr ""
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "End date"
-msgstr ""
+msgstr "Posljednji datum"
 
 msgid "End date (optional)"
 msgstr ""
@@ -683,7 +707,7 @@ msgid "Excl. tax"
 msgstr ""
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Redoslijed izvršavanja dodataka"
 
 msgid "Expert"
 msgstr ""
@@ -692,10 +716,10 @@ msgid "Expert mode"
 msgstr ""
 
 msgid "Expires"
-msgstr ""
+msgstr "Istječe"
 
 msgid "Export"
-msgstr ""
+msgstr "Izvoz"
 
 msgid "Export successful"
 msgstr ""
@@ -719,16 +743,16 @@ msgid "File URL"
 msgstr ""
 
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 msgid "Find category"
 msgstr ""
 
 msgid "First"
-msgstr ""
+msgstr "Prvo"
 
 msgid "First name"
-msgstr ""
+msgstr "Ime"
 
 msgid "First name (optional)"
 msgstr ""
@@ -770,13 +794,16 @@ msgid "Full name (required)"
 msgstr ""
 
 msgid "Group"
-msgstr ""
+msgstr "Grupa"
 
 msgid "Group label (required)"
 msgstr ""
 
-msgid "Height"
+msgid "Group name describing for which members the group is for"
 msgstr ""
+
+msgid "Height"
+msgstr "Visina"
 
 msgid "Hidden attributes"
 msgstr ""
@@ -809,7 +836,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr ""
@@ -913,7 +940,7 @@ msgid "Invalid value for configuration key \"{0}\""
 msgstr ""
 
 msgid "Invoice"
-msgstr ""
+msgstr "Račun"
 
 msgid "Item deleted successfully"
 msgstr ""
@@ -954,13 +981,13 @@ msgid ""
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Jezik"
 
 msgid "Language (required)"
 msgstr ""
 
 msgid "Language ID"
-msgstr ""
+msgstr "ID jezika"
 
 msgid "Language of the entered text"
 msgstr ""
@@ -969,7 +996,7 @@ msgid "Languages"
 msgstr "Jezici"
 
 msgid "Last"
-msgstr ""
+msgstr "Poslijednje"
 
 msgid "Last delivery status of the invoice"
 msgstr ""
@@ -978,13 +1005,13 @@ msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last modified"
-msgstr ""
+msgstr "Zadnje promijenjeno"
 
 msgid "Last name"
-msgstr ""
+msgstr "Prezime"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "Prezime (obavezno)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
@@ -998,10 +1025,10 @@ msgid "Last payment status of the order"
 msgstr ""
 
 msgid "Lastname"
-msgstr ""
+msgstr "Prezime"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "Posljednje narudžbe"
 
 msgid "Length"
 msgstr ""
@@ -1051,7 +1078,7 @@ msgid "List type"
 msgstr ""
 
 msgid "Loading"
-msgstr ""
+msgstr "Učitavanje"
 
 msgid "Locale"
 msgstr ""
@@ -1129,7 +1156,7 @@ msgid "Media: {0} ({1})"
 msgstr ""
 
 msgid "Message"
-msgstr ""
+msgstr "Poruka"
 
 msgid "Meta description"
 msgstr ""
@@ -1159,7 +1186,7 @@ msgid "Months"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Više"
 
 msgid "Move this entry up/down"
 msgstr ""
@@ -1171,7 +1198,7 @@ msgid "Mrs"
 msgstr "Gđa"
 
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 msgid "Name of the coupon provider class (required)"
 msgstr ""
@@ -1187,13 +1214,13 @@ msgid "Name of the service provider class (required)"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Novo"
 
 msgid "Next"
-msgstr ""
+msgstr "Slijedeće"
 
 msgid "Next date"
-msgstr ""
+msgstr "Slijedeći datum"
 
 msgid "Next date (optional)"
 msgstr ""
@@ -1212,11 +1239,11 @@ msgid "No items"
 msgstr ""
 
 msgid "No items found"
-msgstr ""
+msgstr "Nema traženih zapisa"
 
 #, php-format
 msgid "No items found for \"%1$s %2$s %3$s\""
-msgstr ""
+msgstr "Nema traženih zapisa za \"%1$s %2$s %3$s\""
 
 #, php-format
 msgid "No view available"
@@ -1272,6 +1299,9 @@ msgstr ""
 msgid "Order of the service options in the checkout process"
 msgstr ""
 
+msgid "Order of the types in the frontend"
+msgstr ""
+
 msgid "Order product ID"
 msgstr ""
 
@@ -1282,16 +1312,16 @@ msgid "Orders"
 msgstr "Narudžbe"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "Narudžbe po danu"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "Narudžbe po satu"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "Narudžbe po statusu plaćanja"
 
 msgid "Orders by weekday"
-msgstr ""
+msgstr "Narudžbe po tjednu"
 
 msgid "Overview"
 msgstr ""
@@ -1303,7 +1333,7 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Stranica %1$d od %2$d"
 
 msgid ""
 "Page description shown by search engines, added to the head section of the "
@@ -1314,13 +1344,13 @@ msgid "Parameter"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Lozinka"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "Lozinka (obavezno)"
 
 msgid "Path"
-msgstr ""
+msgstr "Putanja"
 
 msgid "Pay costs"
 msgstr ""
@@ -1338,7 +1368,7 @@ msgid "Pay rebate"
 msgstr ""
 
 msgid "Pay status"
-msgstr ""
+msgstr "Status plaćanja"
 
 msgid "Payment"
 msgstr "Plaćanje"
@@ -1347,13 +1377,13 @@ msgid "Payment date"
 msgstr ""
 
 msgid "Payment status"
-msgstr ""
+msgstr "Status plaćanja"
 
 msgid "Payment type"
 msgstr ""
 
 msgid "Payment types"
-msgstr ""
+msgstr "Načini plaćanja"
 
 #, php-format
 msgid "Permission denied"
@@ -1363,7 +1393,7 @@ msgid "Personal data"
 msgstr ""
 
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 msgid "Physical values"
 msgstr ""
@@ -1383,35 +1413,35 @@ msgid ""
 msgstr ""
 
 msgid "Plugin"
-msgstr ""
+msgstr "Dodatak"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Vrsta dodatka"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Vrste dodatka"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "Redoslijed dodatka (obavezno)"
 
 msgid "Plugin provider or plugin decorator configuration name"
 msgstr ""
 
 msgid "Plugin type"
-msgstr ""
+msgstr "Vrsta dodatka"
 
 #. : Plugin type item panel title with type label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Plugin type: {0} ({1})"
-msgstr ""
+msgstr "Vrsta dodatka: {0} ({1})"
 
 #. : Plugin item panel title with attribute label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Plugin: {0} ({1})"
-msgstr ""
+msgstr "Dodatak: {0} ({1})"
 
 msgid "Plugins"
-msgstr ""
+msgstr "Dodaci"
 
 msgid "Position"
 msgstr ""
@@ -1420,10 +1450,10 @@ msgid "Position (required)"
 msgstr ""
 
 msgid "Postal"
-msgstr ""
+msgstr "Pošta"
 
 msgid "Postal code"
-msgstr ""
+msgstr "Poštanski broj"
 
 msgid "Postal code for delivery if used in the area the customer is living"
 msgstr ""
@@ -1444,7 +1474,7 @@ msgid "Previous"
 msgstr ""
 
 msgid "Price"
-msgstr ""
+msgstr "Cijena"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1475,10 +1505,10 @@ msgid "Prices"
 msgstr "Cijene"
 
 msgid "Priority"
-msgstr ""
+msgstr "Prioritet"
 
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 msgid "Product ID"
 msgstr ""
@@ -1528,10 +1558,10 @@ msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr ""
 
 msgid "Product name"
-msgstr ""
+msgstr "Naziv proizvoda"
 
 msgid "Product price"
-msgstr ""
+msgstr "Cijena proizvoda"
 
 msgid "Product property type"
 msgstr ""
@@ -1581,7 +1611,7 @@ msgstr ""
 #. : Product item panel title with product label ({0}) and site code ({1)}
 #, python-brace-format
 msgid "Product: {0} ({1})"
-msgstr ""
+msgstr "Proizvod: {0} ({1})"
 
 msgid "Products"
 msgstr "Proizvodi"
@@ -1631,7 +1661,7 @@ msgid ""
 msgstr ""
 
 msgid "Ref-ID"
-msgstr ""
+msgstr "Ref-ID"
 
 msgid "Related ID"
 msgstr ""
@@ -1683,31 +1713,31 @@ msgid "Route or page ID (optional)"
 msgstr ""
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Prodaja po tjednu"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Prodaje u zadnjih 30 dana"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Prodaja po mjesecu"
 
 msgid "Salutation"
 msgstr ""
 
 msgid "Save"
-msgstr ""
+msgstr "Spremi"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Spremi i zatvori"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Spremi i kopiraj"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Spremi i novo"
 
 msgid "Save entry (Ctrl+S)"
 msgstr ""
@@ -1720,7 +1750,7 @@ msgid "Schema {0} is  not registered"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Traži"
 
 #, python-brace-format
 msgid "Search schema {0} is  not registered"
@@ -1820,6 +1850,10 @@ msgid ""
 "office"
 msgstr ""
 
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr ""
+
 msgid "Show"
 msgstr ""
 
@@ -1852,7 +1886,7 @@ msgid "Sites"
 msgstr "Stranice"
 
 msgid "Size"
-msgstr ""
+msgstr "Veličina"
 
 msgid "Sorry, adding orders manually is currently not implemented"
 msgstr ""
@@ -1861,7 +1895,7 @@ msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
 
 msgid "Source"
-msgstr ""
+msgstr "Izvor"
 
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr ""
@@ -1873,7 +1907,7 @@ msgid "State"
 msgstr ""
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Stock"
 msgstr ""
@@ -1888,7 +1922,7 @@ msgid "Stock level"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Ulica"
 
 msgid "Street (required)"
 msgstr ""
@@ -1900,7 +1934,7 @@ msgid "Sub-total"
 msgstr ""
 
 msgid "Subscription"
-msgstr ""
+msgstr "Pretplata"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
@@ -1914,10 +1948,10 @@ msgid "Suggested products"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "Sum"
 
 msgid "Supplier"
-msgstr ""
+msgstr "Dobavljač"
 
 #. : Supplier address item panel title with supplier name ({0}) and site code
 #. ({1)}
@@ -2085,6 +2119,9 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
+msgid "Type position (optional)"
+msgstr ""
+
 msgid "Types"
 msgstr ""
 
@@ -2092,6 +2129,9 @@ msgid "Types for additional images like icons"
 msgstr ""
 
 msgid "Types for additional prices like per one lb/kg or per month"
+msgstr ""
+
+msgid "Types for additional texts like per one lb/kg or per month"
 msgstr ""
 
 msgid "URL of the customer web site"
@@ -2134,6 +2174,9 @@ msgid "Unique code to identify the service, usually self-invented"
 msgstr ""
 
 msgid "Unique customer e-mail address"
+msgstr ""
+
+msgid "Unique group code (required)"
 msgstr ""
 
 msgid "Unique service code (required)"
@@ -2194,6 +2237,9 @@ msgstr ""
 msgid "Variant attributes"
 msgstr ""
 
+msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
+
 msgid "Variants"
 msgstr ""
 
@@ -2249,7 +2295,7 @@ msgid "Weeks"
 msgstr "Tjedni"
 
 msgid "Weight"
-msgstr ""
+msgstr "Težina"
 
 msgid "Width"
 msgstr "Širina"
@@ -2349,6 +2395,10 @@ msgstr ""
 #, php-format
 msgid "download"
 msgstr "Preuzimanje"
+
+#, php-format
+msgid "group"
+msgstr ""
 
 #, php-format
 msgid "hour"
@@ -2471,11 +2521,11 @@ msgstr "Ne završeno"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "Po statusu plaćanja"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "Po načinima plaćanja"
 
 #, php-format
 msgid "physical"
@@ -2483,7 +2533,7 @@ msgstr ""
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "Dodaci"
 
 #, php-format
 msgid "price"
@@ -2574,7 +2624,7 @@ msgid "stat:pending"
 msgstr "Na čekanju"
 
 msgid "stat:progress"
-msgstr ""
+msgstr "Napredak"
 
 msgid "stat:refused"
 msgstr "Odbijeno"
@@ -2615,7 +2665,7 @@ msgstr "Zalihe"
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Pretplate"
 
 #, php-format
 msgid "supplier"
@@ -2650,6 +2700,10 @@ msgstr ""
 
 #, php-format
 msgid "type/customer/lists"
+msgstr "Popisi kupaca"
+
+#, php-format
+msgid "type/customer/property"
 msgstr ""
 
 #, php-format
@@ -2666,7 +2720,7 @@ msgstr ""
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "Dodaci"
 
 #, php-format
 msgid "type/price"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 18:06+0200\n"
-"PO-Revision-Date: 2018-04-08 16:16+0000\n"
-"Last-Translator: Nóra Antal <nora1984antal@gmail.com>\n"
+"POT-Creation-Date: 2018-07-03 21:45+0200\n"
+"PO-Revision-Date: 2018-07-03 20:42+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,6 +103,9 @@ msgstr ""
 msgid "Additional information where the customer's appartment can be found"
 msgstr ""
 
+msgid "Additional information where the supplier's apartment can be found"
+msgstr ""
+
 msgid "Additional information where the supplier's office can be found"
 msgstr ""
 
@@ -125,6 +128,9 @@ msgid "Address ID"
 msgstr "Cím azonosító"
 
 msgid "Address identifier of the customer's house for delivery"
+msgstr ""
+
+msgid "Address identifier of the supplier's house for delivery"
 msgstr ""
 
 msgid "Address identifier of the supplier's office"
@@ -156,6 +162,9 @@ msgid "Allow custom price"
 msgstr ""
 
 msgid "Allow customers to choose themselves how much they want to pay"
+msgstr ""
+
+msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
 msgid ""
@@ -350,6 +359,9 @@ msgstr ""
 msgid "Characteristics"
 msgstr "Jellemzők"
 
+msgid "Choose file"
+msgstr ""
+
 msgid "City"
 msgstr "Város"
 
@@ -523,6 +535,12 @@ msgstr ""
 msgid "Customer Lists Types"
 msgstr ""
 
+msgid "Customer Property Type"
+msgstr ""
+
+msgid "Customer Property Types"
+msgstr ""
+
 msgid "Customer Types"
 msgstr ""
 
@@ -549,6 +567,9 @@ msgid "Customer group: {0} ({1})"
 msgstr "Vevő csoport:: {0} ({1})"
 
 msgid "Customer password"
+msgstr ""
+
+msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
@@ -607,6 +628,9 @@ msgstr "Szállítási státusz"
 
 msgid "Delivery types"
 msgstr "Szállítási típusok"
+
+msgid "Description of the text content if it's in a foreign language"
+msgstr ""
 
 msgid "Descritive name of the currency"
 msgstr ""
@@ -775,6 +799,9 @@ msgstr "Csoport"
 
 msgid "Group label (required)"
 msgstr "Csoport címke (kötelező)"
+
+msgid "Group name describing for which members the group is for"
+msgstr ""
 
 msgid "Height"
 msgstr "Magasság"
@@ -1271,6 +1298,9 @@ msgid "Order of the language/currency combinations"
 msgstr ""
 
 msgid "Order of the service options in the checkout process"
+msgstr ""
+
+msgid "Order of the types in the frontend"
 msgstr ""
 
 msgid "Order product ID"
@@ -1821,6 +1851,10 @@ msgid ""
 "office"
 msgstr ""
 
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr ""
+
 msgid "Show"
 msgstr "Mutat"
 
@@ -2086,6 +2120,9 @@ msgstr "Kétbetűs országkód, például \"US\" (kötelező)"
 msgid "Type"
 msgstr "Típus"
 
+msgid "Type position (optional)"
+msgstr ""
+
 msgid "Types"
 msgstr "Típusok"
 
@@ -2093,6 +2130,9 @@ msgid "Types for additional images like icons"
 msgstr ""
 
 msgid "Types for additional prices like per one lb/kg or per month"
+msgstr ""
+
+msgid "Types for additional texts like per one lb/kg or per month"
 msgstr ""
 
 msgid "URL of the customer web site"
@@ -2135,6 +2175,9 @@ msgid "Unique code to identify the service, usually self-invented"
 msgstr ""
 
 msgid "Unique customer e-mail address"
+msgstr ""
+
+msgid "Unique group code (required)"
 msgstr ""
 
 msgid "Unique service code (required)"
@@ -2194,6 +2237,9 @@ msgstr ""
 
 msgid "Variant attributes"
 msgstr "Jellemző változat"
+
+msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
 
 msgid "Variants"
 msgstr "Változatok"
@@ -2350,6 +2396,10 @@ msgstr ""
 #, php-format
 msgid "download"
 msgstr "Letöltések"
+
+#, php-format
+msgid "group"
+msgstr ""
 
 #, php-format
 msgid "hour"
@@ -2651,6 +2701,10 @@ msgstr ""
 
 #, php-format
 msgid "type/customer/lists"
+msgstr ""
+
+#, php-format
+msgid "type/customer/property"
 msgstr ""
 
 #, php-format

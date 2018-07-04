@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 18:06+0200\n"
-"PO-Revision-Date: 2018-04-08 16:46+0000\n"
+"POT-Creation-Date: 2018-07-03 21:45+0200\n"
+"PO-Revision-Date: 2018-07-04 07:44+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -104,6 +104,9 @@ msgstr "Zusatzinformationen wo die Kundenwohnung gefunden werden kann"
 msgid "Additional information where the customer's appartment can be found"
 msgstr "Zusatzinformationen wo die Kundenwohnung gefunden werden kann"
 
+msgid "Additional information where the supplier's apartment can be found"
+msgstr "Zusatzinformationen wo das Lieferantenbüro gefunden werden kann"
+
 msgid "Additional information where the supplier's office can be found"
 msgstr "Zusatzinformationen wo das Lieferantenbüro gefunden werden kann"
 
@@ -127,6 +130,9 @@ msgstr "ID der Addresse"
 
 msgid "Address identifier of the customer's house for delivery"
 msgstr "Hausnummer für die Produktlieferung"
+
+msgid "Address identifier of the supplier's house for delivery"
+msgstr "Hausnummer des Lieferantenbüros"
 
 msgid "Address identifier of the supplier's office"
 msgstr "Hausnummer des Lieferantenbüros"
@@ -158,6 +164,9 @@ msgstr "Selbstgewählter Preis"
 
 msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "Kunden können selbst entscheiden, wieviel sie bezahlen möchten"
+
+msgid "Alphanumeric string that can identify the group uniquely"
+msgstr "Zeichenkette, die die Gruppe eindeutig identifiziert"
 
 msgid ""
 "Article description shown by search engines, added to the head section of "
@@ -351,6 +360,9 @@ msgstr "Kategorien-spezifische Konfigurationsoptionen, sind in den Templates als
 msgid "Characteristics"
 msgstr "Merkmale"
 
+msgid "Choose file"
+msgstr "Datei auswählen"
+
 msgid "City"
 msgstr "Stadt"
 
@@ -524,6 +536,12 @@ msgstr "Kunden-Listentyp"
 msgid "Customer Lists Types"
 msgstr "Kunden-Listentypen"
 
+msgid "Customer Property Type"
+msgstr "Kunden-Eigenschaftstyp"
+
+msgid "Customer Property Types"
+msgstr "Kunden-Eigentschaftstypen"
+
 msgid "Customer Types"
 msgstr "Kundentypen"
 
@@ -551,6 +569,9 @@ msgstr "Kundengruppe: {0} ({1})"
 
 msgid "Customer password"
 msgstr "Kundenpasswort"
+
+msgid "Customer properties that are not shared with other customers"
+msgstr "Kundeneigenschaften, die nicht mit anderen Kunden geteilt werden"
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
@@ -608,6 +629,9 @@ msgstr "Lieferstatus"
 
 msgid "Delivery types"
 msgstr "Versandarten"
+
+msgid "Description of the text content if it's in a foreign language"
+msgstr "Beschreibung falls der Text in einer fremden Sprache ist"
 
 msgid "Descritive name of the currency"
 msgstr "Beschreibender Name der Währung"
@@ -776,6 +800,9 @@ msgstr "Gruppe"
 
 msgid "Group label (required)"
 msgstr "Interner Gruppenname (benötigt)"
+
+msgid "Group name describing for which members the group is for"
+msgstr "Aussagekräftiger Name der Gruppe"
 
 msgid "Height"
 msgstr "Höhe"
@@ -1273,6 +1300,9 @@ msgstr "Reihenfolge der Sprach-/Währungskombinationen"
 
 msgid "Order of the service options in the checkout process"
 msgstr "Reihenfolge der Dienste im Prozess zur Kasse"
+
+msgid "Order of the types in the frontend"
+msgstr "Reihenfolge der Typen im Frontend"
 
 msgid "Order product ID"
 msgstr "Bestell-ID des Produkts"
@@ -1822,6 +1852,10 @@ msgid ""
 "office"
 msgstr "Bundeslandkürzel (z.B. NRW) wenn diese Information im Land des Lieferanten genutzt wird"
 
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr "Bundeslandkürzel (z.B. NRW) wenn diese Information im Land des Kunden genutzt wird"
+
 msgid "Show"
 msgstr "Anzeigen"
 
@@ -2087,6 +2121,9 @@ msgstr "Zweistelliger Ländercode, z.B. \"DE\" (benötigt)"
 msgid "Type"
 msgstr "Typ"
 
+msgid "Type position (optional)"
+msgstr "Typenposition (optional)"
+
 msgid "Types"
 msgstr "Typen"
 
@@ -2095,6 +2132,9 @@ msgstr "Typen für zusätzliche Bilder wie Icons"
 
 msgid "Types for additional prices like per one lb/kg or per month"
 msgstr "Typen für zusätzliche Preise, z.B. für Preis pro kg oder pro Monat"
+
+msgid "Types for additional texts like per one lb/kg or per month"
+msgstr "Typen für zusätzliche Texte, z.B. pro kg oder pro Monat"
 
 msgid "URL of the customer web site"
 msgstr "URL der Kundenwebseite"
@@ -2137,6 +2177,9 @@ msgstr "Eindeutiger Schlüssel zur Identifizierung des Dienstes, normalerweise s
 
 msgid "Unique customer e-mail address"
 msgstr "Eindeutige E-Mail Adresse des Kunden"
+
+msgid "Unique group code (required)"
+msgstr "Eindeutiger Gruppenschlüssel (benötigt)"
 
 msgid "Unique service code (required)"
 msgstr "Eindeutiger Diensteschlüssel (benötigt)"
@@ -2195,6 +2238,9 @@ msgstr "Steuernummer (optional)"
 
 msgid "Variant attributes"
 msgstr "Variantenattribute"
+
+msgid "Variant product attributes that are stored with the ordered products"
+msgstr "Variantenattribute, die zusammen mit den bestellten Produkten gespeichert werden"
 
 msgid "Variants"
 msgstr "Varianten"
@@ -2351,6 +2397,10 @@ msgstr "Nach Versandart"
 #, php-format
 msgid "download"
 msgstr "Downloads"
+
+#, php-format
+msgid "group"
+msgstr "Gruppe"
 
 #, php-format
 msgid "hour"
@@ -2653,6 +2703,10 @@ msgstr "Kataloglisten"
 #, php-format
 msgid "type/customer/lists"
 msgstr "Kundenlisten"
+
+#, php-format
+msgid "type/customer/property"
+msgstr "Kundeneigenschaften"
 
 #, php-format
 msgid "type/media"

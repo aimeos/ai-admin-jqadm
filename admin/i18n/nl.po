@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 18:06+0200\n"
-"PO-Revision-Date: 2018-05-01 12:55+0000\n"
-"Last-Translator: CROB Support <support@crob.nl>\n"
+"POT-Creation-Date: 2018-07-03 21:45+0200\n"
+"PO-Revision-Date: 2018-07-03 20:42+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,6 +108,9 @@ msgstr "Aanvullende informatie waar het appartement van de klant gevonden kan wo
 msgid "Additional information where the customer's appartment can be found"
 msgstr "Extra informatie over de locatie van de klant zijn appartement."
 
+msgid "Additional information where the supplier's apartment can be found"
+msgstr ""
+
 msgid "Additional information where the supplier's office can be found"
 msgstr "Extra informatie over de locatie van het kantoor van de leverancier."
 
@@ -131,6 +134,9 @@ msgstr "Adres ID"
 
 msgid "Address identifier of the customer's house for delivery"
 msgstr "Adres identificator voor de woning van de klant voor levering "
+
+msgid "Address identifier of the supplier's house for delivery"
+msgstr ""
 
 msgid "Address identifier of the supplier's office"
 msgstr "Adres identificator voor kantoor van leverancier"
@@ -162,6 +168,9 @@ msgstr "Sta afwijkende prijs toe"
 
 msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "Geef klanten de mogelijkheid zelf een prijs te bepalen"
+
+msgid "Alphanumeric string that can identify the group uniquely"
+msgstr ""
 
 msgid ""
 "Article description shown by search engines, added to the head section of "
@@ -355,6 +364,9 @@ msgstr "Categoriespecifieke configuratieopties, zullen beschikbaar zijn als sleu
 msgid "Characteristics"
 msgstr "Karakteristieken"
 
+msgid "Choose file"
+msgstr ""
+
 msgid "City"
 msgstr "Stad"
 
@@ -528,6 +540,12 @@ msgstr ""
 msgid "Customer Lists Types"
 msgstr ""
 
+msgid "Customer Property Type"
+msgstr ""
+
+msgid "Customer Property Types"
+msgstr ""
+
 msgid "Customer Types"
 msgstr "Klant typen"
 
@@ -555,6 +573,9 @@ msgstr "Klant groep: {0} ({1})"
 
 msgid "Customer password"
 msgstr "Klant wachtwoord"
+
+msgid "Customer properties that are not shared with other customers"
+msgstr ""
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
@@ -612,6 +633,9 @@ msgstr "Bezorg status"
 
 msgid "Delivery types"
 msgstr "Leveringstypes"
+
+msgid "Description of the text content if it's in a foreign language"
+msgstr ""
 
 msgid "Descritive name of the currency"
 msgstr "Beschrijvende naam voor de valuta"
@@ -780,6 +804,9 @@ msgstr "Groep"
 
 msgid "Group label (required)"
 msgstr "Groep label (verplicht)"
+
+msgid "Group name describing for which members the group is for"
+msgstr ""
 
 msgid "Height"
 msgstr "Hoogte"
@@ -1277,6 +1304,9 @@ msgstr "Volgorde van de combinaties taal/valuta"
 
 msgid "Order of the service options in the checkout process"
 msgstr "Volgorde van de serviceopties in het checkout- of afrekenproces"
+
+msgid "Order of the types in the frontend"
+msgstr ""
 
 msgid "Order product ID"
 msgstr "Order product ID"
@@ -1826,6 +1856,10 @@ msgid ""
 "office"
 msgstr ""
 
+msgid ""
+"Short state code (e.g. NY) if used in the country the supplier is living"
+msgstr ""
+
 msgid "Show"
 msgstr "Toon"
 
@@ -2091,6 +2125,9 @@ msgstr "Twee letter landcode, bijv. \"NL\" (verplcht)"
 msgid "Type"
 msgstr "Type"
 
+msgid "Type position (optional)"
+msgstr ""
+
 msgid "Types"
 msgstr "Types"
 
@@ -2099,6 +2136,9 @@ msgstr "Types voor aanvullende afbeeldingen zoals icons"
 
 msgid "Types for additional prices like per one lb/kg or per month"
 msgstr "Types voor aanvullende prijzen zoals bijvoorbeeld per pond/kg of per maand"
+
+msgid "Types for additional texts like per one lb/kg or per month"
+msgstr ""
 
 msgid "URL of the customer web site"
 msgstr "URL van de website van de klant"
@@ -2141,6 +2181,9 @@ msgstr "Unieke code voor het identificeren van de service, meestal zelfbedacht"
 
 msgid "Unique customer e-mail address"
 msgstr "Uniek e-mailadres klant"
+
+msgid "Unique group code (required)"
+msgstr ""
 
 msgid "Unique service code (required)"
 msgstr "Unieke servicecode (vereist)"
@@ -2199,6 +2242,9 @@ msgstr "Belasting Toegevoegde Waarde indentificator (optioneel)"
 
 msgid "Variant attributes"
 msgstr "Variant attributen"
+
+msgid "Variant product attributes that are stored with the ordered products"
+msgstr ""
 
 msgid "Variants"
 msgstr "Variaties"
@@ -2355,6 +2401,10 @@ msgstr "Per aflevermethode"
 #, php-format
 msgid "download"
 msgstr "Downloads"
+
+#, php-format
+msgid "group"
+msgstr ""
 
 #, php-format
 msgid "hour"
@@ -2656,6 +2706,10 @@ msgstr ""
 
 #, php-format
 msgid "type/customer/lists"
+msgstr ""
+
+#, php-format
+msgid "type/customer/property"
 msgstr ""
 
 #, php-format
