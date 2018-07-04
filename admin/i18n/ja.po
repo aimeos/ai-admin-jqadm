@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-03 21:45+0200\n"
-"PO-Revision-Date: 2018-07-04 06:16+0000\n"
+"PO-Revision-Date: 2018-07-04 10:21+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -164,7 +164,7 @@ msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "顧客が支払う金額を自分で選ぶことを許可する"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "グループを一意に識別できる英数字の文字列"
 
 msgid ""
 "Article description shown by search engines, added to the head section of "
@@ -722,138 +722,138 @@ msgid "Export"
 msgstr "輸出"
 
 msgid "Export successful"
-msgstr ""
+msgstr "輸出成功"
 
 msgid "Facility"
-msgstr ""
+msgstr "施設"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "ファクシミリ"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "ファクシミリ番号（オプション）"
 
 msgid "Facsimile number, e.g. +155512345"
-msgstr ""
+msgstr "ファクシミリ番号 例 +155512345"
 
 msgid "File"
-msgstr ""
+msgstr "ファイル"
 
 msgid "File URL"
-msgstr ""
+msgstr "ファイルのURL"
 
 msgid "Filter"
-msgstr ""
+msgstr "フィルタ"
 
 msgid "Find category"
-msgstr ""
+msgstr "カテゴリを検索"
 
 msgid "First"
-msgstr ""
+msgstr "最初"
 
 msgid "First name"
-msgstr ""
+msgstr "ファーストネーム"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "ファーストネーム （オプション）"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "それが使われる文化において使われるならば人の名前"
 
 msgid "Firstname"
-msgstr ""
+msgstr "ファーストネーム "
 
 msgid "Floor"
-msgstr ""
+msgstr "階"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "階//アパート"
 
 msgid "Floor / Office"
-msgstr ""
+msgstr "階/事務所"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "階および/またはアパート（オプション）"
 
 msgid "Floor and/or appartment (optional)"
-msgstr ""
+msgstr "階および/またはアパート（オプション）"
 
 msgid "Floor and/or office (optional)"
-msgstr ""
+msgstr "階および/または事務所（オプション）"
 
 msgid "Flush"
-msgstr ""
+msgstr "フラッシュ"
 
 msgid "Flush cache?"
-msgstr ""
+msgstr "キャッシュをフラッシュしますか？"
 
 msgid "Full name"
-msgstr ""
+msgstr "氏名"
 
 msgid "Full name (required)"
-msgstr ""
+msgstr "氏名（必須）"
 
 msgid "Group"
-msgstr ""
+msgstr "グループ"
 
 msgid "Group label (required)"
-msgstr ""
+msgstr "グループラベル（必須）"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "グループが属するメンバーを記述するグループ名"
 
 msgid "Height"
-msgstr ""
+msgstr "高さ"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "非表示の属性"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "注文商品に格納されている非表示の商品属性"
 
 msgid "Honorary title"
-msgstr ""
+msgstr "名誉称号"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "名誉称号 (オプション)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Dr.、Ph.Dなどの名誉称号"
 
 msgid "House no"
-msgstr ""
+msgstr "家屋番号"
 
 msgid "House number"
-msgstr ""
+msgstr "家屋番号"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "家屋番号 (オプション)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "顧客は、どのように電子メールで宛てられますか"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "サプライヤが電子メールでどのように宛てられますか"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "関連請求書のID 例えば 変更または払い戻された請求書のID"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO通貨コード（必須）"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO言語コード（必須）"
 
 msgid "Images"
-msgstr ""
+msgstr "画像"
 
 msgid ""
 "Images will only be shown for that language, useful if the image contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "画像はその言語でのみ表示され、画像にテキストが含まれている場合や言語固有の場合に便利です"
 
 msgid "Import"
 msgstr ""
@@ -2406,7 +2406,7 @@ msgstr ""
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "画像"
 
 #, php-format
 msgid "invoice"
