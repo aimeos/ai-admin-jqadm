@@ -359,8 +359,8 @@ class Standard
 
 			if( isset( $map[$attrId] ) && $copy !== true )
 			{
-				$list['product.lists.siteid'] = $map[$attrId]->getSiteId();
-				$list['product.lists.id'] = $map[$attrId]->getId();
+				$list['product.lists.siteid'] = (string) $map[$attrId]->getSiteId();
+				$list['product.lists.id'] = (string) $map[$attrId]->getId();
 			}
 			else
 			{

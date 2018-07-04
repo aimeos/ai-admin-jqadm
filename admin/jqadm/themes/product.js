@@ -767,6 +767,11 @@ Aimeos.Product.Subscription = {
 				},
 
 
+				getReadOnly: function(idx) {
+					return this.items[idx]['attribute.id'] != '' && this.items[idx]['attribute.id'] != null;
+				},
+
+
 				addItem : function() {
 					var idx = this.items.length;
 					this.$set(this.items, idx, {});
