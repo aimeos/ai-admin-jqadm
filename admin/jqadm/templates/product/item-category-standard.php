@@ -55,6 +55,9 @@ $keys = [
 						<input class="item-listid" type="hidden" v-model="items['catalog.lists.id'][idx]"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
 
+						<input class="item-label" type="hidden" v-model="items['catalog.code'][idx]"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.code', '' ) ) ); ?>" />
+
 						<input class="item-label" type="hidden" v-model="items['catalog.label'][idx]"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" />
 
