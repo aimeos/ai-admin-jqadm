@@ -64,7 +64,7 @@ class Standard
 	{
 		$view = $this->getView();
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'selection', [] ) );
+		$data = $view->param( 'selection', [] );
 
 		foreach( $data as $idx => $entry )
 		{

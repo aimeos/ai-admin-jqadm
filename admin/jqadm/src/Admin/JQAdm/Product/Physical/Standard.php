@@ -64,7 +64,7 @@ class Standard
 	{
 		$view = $this->getView();
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'physical', [] ) );
+		$data = $view->param( 'physical', [] );
 
 		foreach( $view->value( $data, 'product.property.id', [] ) as $idx => $value ) {
 			$data['product.property.siteid'][$idx] = $siteid;

@@ -64,7 +64,7 @@ class Standard
 	{
 		$view = $this->getView();
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'address', [] ) );
+		$data = $view->param( 'address', [] );
 
 		foreach( $data as $idx => $entry ) {
 			$data[$idx]['customer.address.siteid'] = $siteid;
