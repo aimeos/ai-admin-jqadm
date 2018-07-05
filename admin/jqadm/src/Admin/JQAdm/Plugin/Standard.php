@@ -89,8 +89,6 @@ class Standard
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'plugin' )->createItem();
-			} else {
-				$data = array_replace_recursive( $this->toArray( $view->item ), $data );
 			}
 
 			$data['plugin.siteid'] = $view->item->getSiteId();

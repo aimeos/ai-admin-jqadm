@@ -62,7 +62,7 @@ class Standard
 	{
 		$view = $this->getView();
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'characteristic/hidden', [] ) );
+		$data = $view->param( 'characteristic/hidden', [] );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
 			$data['product.lists.siteid'][$idx] = $siteid;

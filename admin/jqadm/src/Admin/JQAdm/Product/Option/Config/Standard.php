@@ -62,7 +62,7 @@ class Standard
 	{
 		$view = $this->getView();
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'option/config', [] ) );
+		$data = $view->param( 'option/config', [] );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
 			$data['product.lists.siteid'][$idx] = $siteid;

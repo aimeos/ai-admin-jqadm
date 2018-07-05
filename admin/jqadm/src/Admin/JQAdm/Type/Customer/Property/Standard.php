@@ -85,8 +85,6 @@ class Standard
 
 			if( !isset( $view->item ) ) {
 				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'customer/property/type' )->createItem();
-			} else {
-				$data = array_replace_recursive( $this->toArray( $view->item ), $data );
 			}
 
 			$data['customer.property.type.siteid'] = $view->item->getSiteId();

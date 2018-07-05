@@ -63,8 +63,8 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'download', [] ) );
 		$data['product.lists.siteid'] = $this->getContext()->getLocale()->getSiteId();
+		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'download', [] ) );
 
 		$view->downloadData = $data;
 		$view->downloadBody = '';

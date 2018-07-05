@@ -64,7 +64,7 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'price', [] ) );
+		$data = $view->param( 'price', [] );
 
 		foreach( $data as $idx => $entry )
 		{
