@@ -54,7 +54,7 @@ $keys = [
 					<div class="form-group row image-preview">
 						<input v-on:change="updateFile(idx, $event.target.files)"
 							class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'file' ) ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="'image[idx][file]'.replace( 'idx', idx )" />
 						<input class="item-preview" type="hidden"
 							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.preview' ) ) ); ?>'.replace( 'idx', idx )"
 							v-model="items[idx]['media.preview']" />
@@ -123,7 +123,7 @@ $keys = [
 						</div>
 					<?php else : ?>
 						<input class="item-typeid" type="hidden"
-							name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.typeid' ) ) ); ?>'.replace( 'idx', idx )"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.typeid' ) ) ); ?>'.replace( 'idx', idx )"
 							value="<?= $enc->attr( key( $mediaTypes ) ); ?>" />
 					<?php endif; ?>
 
