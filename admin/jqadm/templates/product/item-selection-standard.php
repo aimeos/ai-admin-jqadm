@@ -36,7 +36,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 				&nbsp;
 				<div class="card-tools-right">
 					<a v-if="entry['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:href="'<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => '_id_'] + $this->get( 'pageParams', [] ), [], $config ) ); ?>'.replace('_id_', entry['product.id'])"
+						v-bind:href="'<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => '_ID_'] + $this->get( 'pageParams', [] ), [], $config ) ); ?>'.replace('_ID_', entry['product.id'])"
 						title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
 
 					<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
