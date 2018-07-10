@@ -56,7 +56,7 @@ $keys = [
 
 					<select is="combo-box" class="form-control custom-select item-refid"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'variant', 'product.lists.refid', '' ) ) ); ?>'"
-						v-bind:readonly="checkSite('product.lists.siteid', idx)"
+						v-bind:readonly="checkSite('product.lists.siteid', idx) || id != ''"
 						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 						v-bind:label="getLabel(idx)"
 						v-bind:required="'required'"

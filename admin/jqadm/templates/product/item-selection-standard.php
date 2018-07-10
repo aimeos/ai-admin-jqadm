@@ -91,7 +91,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								v-model="items[idx]['product.code']"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
 								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ); ?>'.replace('idx', idx)"
-								v-bind:readonly="checkSite('product.lists.siteid', idx)"
+								v-bind:readonly="checkSite('product.lists.siteid', idx) || entry['product.lists.id'] != ''"
 								v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
 								v-bind:keys="getArticles"
 								v-bind:required="'required'"
@@ -153,7 +153,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 
 									<select is="combo-box" class="form-control custom-select item-attr-refid"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)"
-										v-bind:readonly="checkSite('product.lists.siteid', idx, attridx)"
+										v-bind:readonly="checkSite('product.lists.siteid', idx, attridx) || attr['product.lists.id'] != ''"
 										v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 										v-bind:label="getAttributeLabel(idx, attridx)"
 										v-bind:required="'required'"

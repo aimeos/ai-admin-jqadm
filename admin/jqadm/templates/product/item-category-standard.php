@@ -63,7 +63,7 @@ $keys = [
 
 						<select is="combo-box" class="form-control custom-select item-id"
 							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>'"
-							v-bind:readonly="checkSite('catalog.lists.siteid', idx)"
+							v-bind:readonly="checkSite('catalog.lists.siteid', idx) || id != ''"
 							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
@@ -128,7 +128,7 @@ $keys = [
 
 						<select is="combo-box" class="form-control custom-select item-id"
 							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>'"
-							v-bind:readonly="checkSite('catalog.lists.siteid', idx)"
+							v-bind:readonly="checkSite('catalog.lists.siteid', idx) || id != ''"
 							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
