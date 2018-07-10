@@ -12,22 +12,26 @@ Vue.component('auto-complete', {
 	mounted: function() {
 		var vm = this;
 
-		$(this.$el).autocomplete({
-			change: function(event, ui) {
-				vm.$emit('input', $(event.currentTarget).val(), ui.item);
-			},
-			source: vm.keys || [],
-			minLength: 0,
-			delay: 0
-		});
+		if(!this.readonly) {
+			$(this.$el).autocomplete({
+				change: function(event, ui) {
+					vm.$emit('input', $(event.currentTarget).val(), ui.item);
+				},
+				source: vm.keys || [],
+				minLength: 0,
+				delay: 0
+			});
 
-		$(this.$el).on('focus', function(event) {
-			$(this).autocomplete("search", "");
-		});
+			$(this.$el).on('focus', function(event) {
+				$(this).autocomplete("search", "");
+			});
+		}
 	},
 
 	beforeDestroy: function() {
-		$(this.$el).off().autocomplete('destroy');
+		if(!this.readonly) {
+			$(this.$el).off().autocomplete('destroy');
+		}
 	}
 });
 
@@ -44,20 +48,26 @@ Vue.component('combo-box', {
 	mounted: function() {
 		var vm = this;
 
-		var box = $(this.$el).combobox({
-			getfcn: this.getfcn(),
-			select: function(event, ui) {
-				vm.$emit('select',  {index: vm.index, value: ui.item[0].value, label: ui.item[0].label});
-			}
-		});
+		if(!this.readonly) {
+			var box = $(this.$el).combobox({
+				getfcn: this.getfcn(),
+				select: function(event, ui) {
+					vm.$emit('select',  {index: vm.index, value: ui.item[0].value, label: ui.item[0].label});
+				}
+			});
+		}
 	},
 
 	beforeDestroy: function() {
-		$(this.$el).off().combobox('destroy');
+		if(!this.readonly) {
+			$(this.$el).off().combobox('destroy');
+		}
 	},
 
 	updated : function() {
-		$(this.$el).combobox('instance').input[0].value = this.label;
+		if(!this.readonly) {
+			$(this.$el).combobox('instance').input[0].value = this.label;
+		}
 	}
 });
 
