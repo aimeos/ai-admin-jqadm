@@ -118,6 +118,10 @@ input[type='checkbox'], input[type='radio'] {
 	border-left-color: #2070A0;
 }
 
+.table {
+	margin-bottom: 1rem;
+}
+
 .table-striped tbody tr:nth-of-type(odd) {
 	background-color: #FCFCFC;
 }
