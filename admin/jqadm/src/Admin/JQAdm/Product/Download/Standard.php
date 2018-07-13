@@ -327,8 +327,9 @@ class Standard
 		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/type' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
+		$attrItem = $attrManager->createItem( 'download', 'product' );
+		$listItem = $listManager->createItem( 'hidden', 'attribute' );
 		$listItems = $item->getListItems( 'attribute', 'hidden', 'download', false );
 
 		if( $this->getValue( $data, 'attribute.label' ) != '' )
@@ -336,19 +337,16 @@ class Standard
 			$listId = $this->getValue( $data, 'product.lists.id' );
 
 			if( isset( $listItems[$listId] ) ) {
-				$listItem = $listItems[$listId]; unset( $listItems[$listId] );
+				$litem = $listItems[$listId]; unset( $listItems[$listId] );
 			} else {
-				$listItem = $listManager->createItem();
+				$litem = clone $listItem;
 			}
 
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $attrManager->createItem();
+			if( ( $refItem = $litem->getRefItem() ) === null ) {
+				$refItem = clone $attrItem;
 			}
 
-			$listItem->setTypeId( $listTypeManager->findItem( 'hidden', [], 'attribute' )->getId() );
-			$listItem->fromArray( $data );
-
-			$refItem->setTypeId( $typeManager->findItem( 'download', [], 'product' )->getId() );
+			$litem->fromArray( $data );
 			$refItem->fromArray( $data );
 
 			if( ( $file = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'download/file' ) ) !== null
@@ -358,7 +356,7 @@ class Standard
 				$refItem->setCode( $this->storeFile( $file, $path ) );
 			}
 
-			$item->addListItem( 'attribute', $listItem, $refItem );
+			$item->addListItem( 'attribute', $litem, $refItem );
 		}
 
 		foreach( $listItems as $listItem )

@@ -314,44 +314,37 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
-
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/type' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
-
-		$typeId = $typeManager->findItem( 'default', [], 'product' )->getId();
-		$listTypeId = $listTypeManager->findItem( 'default', [], 'product' )->getId();
-		$attrListTypeId = $listTypeManager->findItem( 'variant', [], 'attribute' )->getId();
 
 		$articles = $this->getArticleItems( $item );
+		$prodItem = $manager->createItem( 'default' );
+		$listItem = $listManager->createItem( 'default', 'product' );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = $item->getListItem( 'product', 'default', $entry['product.id'] ) ) === null ) {
-				$listItem = $listManager->createItem();
+			if( ( $litem = $item->getListItem( 'product', 'default', $entry['product.id'] ) ) === null ) {
+				$litem = clone $listItem;
 			}
 
 			if( isset( $articles[$listItem->getRefId()] ) ) {
 				$refItem = $articles[$listItem->getRefId()];
 			} else {
-				$refItem = $manager->createItem();
+				$refItem = clone $prodItem;
 			}
 
-			$listItem->fromArray( $entry );
-			$listItem->setTypeId( $listTypeId );
-			$listItem->setPosition( $idx );
+			$litem->fromArray( $entry );
+			$litem->setPosition( $idx );
 
 			$refItem->fromArray( $entry );
-			$refItem->setTypeId( $typeId );
 
 			if( isset( $entry['attr'] ) ) {
-				$refItem = $this->fromArrayAttributes( $refItem, $entry['attr'], $attrListTypeId );
+				$refItem = $this->fromArrayAttributes( $refItem, $entry['attr'] );
 			}
 
-			$item->addListItem( 'product', $listItem, $refItem );
-			unset( $listItems[$listItem->getId()] );
+			$item->addListItem( 'product', $litem, $refItem );
+			unset( $listItems[$litem->getId()] );
 		}
 
 		return $item->deleteListItems( $listItems );
@@ -363,13 +356,13 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $refItem Article item object
 	 * @param array $entry Associative list of key/values for product attribute references
-	 * @param string $attrListTypeId Unique ID of the variant attribute list type
 	 * @return \Aimeos\MShop\Product\Item\Iface Updated artice item object
 	 */
-	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $entry, $attrListTypeId )
+	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $entry )
 	{
 		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
 
+		$listItem = $listManager->createItem( 'variant', 'attribute' );
 		$litems = $refItem->getListItems( 'attribute', 'variant', null, false );
 
 		foreach( $entry as $pos => $attr )
@@ -379,11 +372,10 @@ class Standard
 			}
 
 			if( ( $litem = $refItem->getListItem( 'attribute', 'variant', $attr['product.lists.refid'] ) ) === null ) {
-				$litem = $listManager->createItem();
+				$litem = clone $listItem;
 			}
 
 			$litem->fromArray( $attr );
-			$litem->setTypeId( $attrListTypeId );
 			$litem->setPosition( $pos );
 
 			$refItem->addListItem( 'attribute', $litem, $litem->getRefItem() );

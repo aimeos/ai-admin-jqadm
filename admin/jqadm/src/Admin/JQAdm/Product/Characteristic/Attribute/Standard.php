@@ -253,30 +253,24 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$context = $this->getContext();
+		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
 
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists/type' );
-
-		$listTypeId = $typeManager->findItem( 'default', [], 'attribute' )->getId();
+		$listItem = $listManager->createItem( 'default', 'attribute' );
 		$listItems = $item->getListItems( 'attribute', 'default', null, false );
 
 		foreach( $this->getValue( $data, 'product.lists.id', [] ) as $idx => $id )
 		{
-			if( !isset( $listItems[$id] ) ) {
-				$listItem = $listManager->createItem();
+			if( isset( $listItems[$id] ) ) {
+				$litem = $listItems[$id]; unset( $listItems[$id] );
 			} else {
-				$listItem = $listItems[$id];
+				$litem = clone $listItem;
 			}
 
-			$listItem->setId( $id );
-			$listItem->setPosition( $idx );
-			$listItem->setTypeId( $listTypeId );
-			$listItem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $idx ) );
+			$litem->setId( $id );
+			$litem->setPosition( $idx );
+			$litem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $idx ) );
 
-			$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
-
-			unset( $listItems[$listItem->getId()] );
+			$item->addListItem( 'attribute', $litem, $litem->getRefItem() );
 		}
 
 		return $item->deleteListItems( $listItems );
