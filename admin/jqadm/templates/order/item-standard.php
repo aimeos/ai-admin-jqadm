@@ -183,24 +183,6 @@ $statusList = [
 				<div class="row item-base">
 					<div class="col-xl-6 content-block <?= $this->site()->readonly( $basket->getSiteId() ); ?>">
 						<div class="form-group row mandatory">
-							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Subscription' ) ); ?></label>
-							<div class="col-sm-8">
-								<select class="form-control custom-select item-status" required="required" tabindex="1"
-									name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.status' ) ) ); ?>"
-									<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
-									<option value="">
-										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-									</option>
-									<option value="0" <?= $selected( $basket->getStatus(), 0 ); ?> >
-										<?= $enc->html( $this->translate( 'admin', 'no' ) ); ?>
-									</option>
-									<option value="1" <?= $selected( $basket->getStatus(), 1 ); ?> >
-										<?= $enc->html( $this->translate( 'admin', 'yes' ) ); ?>
-									</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control custom-select item-languageid" required="required" tabindex="1"
