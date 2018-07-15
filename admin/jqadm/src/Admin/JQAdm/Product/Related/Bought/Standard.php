@@ -261,7 +261,7 @@ class Standard
 		foreach( $this->getValue( $data, 'product.lists.id', [] ) as $idx => $id )
 		{
 			if( isset( $listItems[$id] ) ) {
-				$listItem = $listItems[$id]; unset( $listItems[$id] );
+				$litem = $listItems[$id]; unset( $listItems[$id] );
 			} else {
 				$litem = clone $listItem;
 			}
