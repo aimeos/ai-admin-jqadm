@@ -306,6 +306,15 @@ return [
 				 */
 				'groups' => ['admin', 'super'],
 			],
+			'property' => [
+				/** admin/jqadm/resource/type/customer/property/groups
+				 * List of user groups that are allowed to access the customer property type panel
+				 *
+				 * @param array List of user group names
+				 * @since 2018.07
+				 */
+				'groups' => ['admin', 'super'],
+			],
 		],
 		'media' => [
 			/** admin/jqadm/resource/type/media/groups
