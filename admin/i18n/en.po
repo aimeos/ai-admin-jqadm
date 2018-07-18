@@ -2309,7 +2309,7 @@ msgstr "Downloads"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "Groups"
 
 #, php-format
 msgid "hour"
@@ -2613,9 +2613,9 @@ msgstr "Catalog lists"
 msgid "type/customer/lists"
 msgstr "Customer lists"
 
-#, fuzzy, php-format
+#, php-format
 msgid "type/customer/property"
-msgstr "Media properties"
+msgstr "Customer properties"
 
 #, php-format
 msgid "type/media"
