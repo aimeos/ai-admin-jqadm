@@ -17,72 +17,12 @@ Aimeos.Product = {
 	init : function() {
 
 		Aimeos.Product.Attribute.init();
-		Aimeos.Product.Bundle.init();
 		Aimeos.Product.Category.init();
 		Aimeos.Product.Download.init();
 		Aimeos.Product.Product.init();
 		Aimeos.Product.Selection.init();
 		Aimeos.Product.Stock.init();
 		Aimeos.Product.Subscription.init();
-	}
-};
-
-
-
-Aimeos.Product.Bundle = {
-
-	init : function() {
-
-		this.addLine();
-		this.removeLine();
-		this.setupComponents();
-		this.showBundles();
-	},
-
-
-	addLine : function() {
-
-		$(".item-product .item-bundle").on("click", ".act-add", function(ev) {
-			Aimeos.addClone(
-				$(".prototype", ev.delegateTarget),
-				Aimeos.getOptionsProducts,
-				Aimeos.Product.Bundle.select);
-		});
-	},
-
-
-	removeLine : function() {
-
-		$(".item-product .item-bundle").on("click", ".act-delete", function() {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.closest("tr").find("input.item-label").val(node.val());
-	},
-
-
-	setupComponents : function() {
-
-		$(".item-product .item-bundle .combobox").combobox({
-			getfcn: Aimeos.getOptionsProducts,
-			select: Aimeos.Product.Bundle.select
-		});
-	},
-
-
-	showBundles : function() {
-
-		var tab = $(".item-navbar .bundle");
-		$(".item-basic .item-typeid option[selected]").data("code") === 'bundle' ? tab.show() : tab.hide();
-
-		$(".item-basic .item-typeid").on("change", function() {
-			$("option:selected", this).data("code") === 'bundle' ? tab.show() : tab.hide();
-		});
 	}
 };
 
@@ -697,6 +637,30 @@ Aimeos.Product.Product = {
 				'siteid': $(".item-related-bought .product-list").data("siteid")
 			},
 			'mixins': [this.mixins]
+		});
+
+		this.vbundle = new Vue({
+			'el': '.item-bundle .product-list',
+			'data': {
+				'items': $(".item-bundle .product-list").data("items"),
+				'keys': $(".item-bundle .product-list").data("keys"),
+				'prefix': $(".item-bundle .product-list").data("prefix"),
+				'siteid': $(".item-bundle .product-list").data("siteid")
+			},
+			'mixins': [this.mixins]
+		});
+
+		this.showBundles();
+	},
+
+
+	showBundles : function() {
+
+		var tab = $(".item-navbar .bundle");
+		$(".item-basic .item-typeid option[selected]").data("code") === 'bundle' ? tab.show() : tab.hide();
+
+		$(".item-basic .item-typeid").on("change", function() {
+			$("option:selected", this).data("code") === 'bundle' ? tab.show() : tab.hide();
 		});
 	}
 };
