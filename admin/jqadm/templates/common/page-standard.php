@@ -400,5 +400,6 @@ switch( $this->param( 'act' ) )
 	</footer>
 
 	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-standard.php' ) ); ?>
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/problem', 'common/partials/problem-standard.php' ) ); ?>
 
 </div>

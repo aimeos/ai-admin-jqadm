@@ -7,6 +7,10 @@
 
 /* Common styles */
 
+.aimeos .hidden {
+	display: none;
+}
+
 .aimeos .warning,
 .aimeos .warning input {
 	color: #ff4000;

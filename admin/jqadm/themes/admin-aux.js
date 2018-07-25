@@ -211,6 +211,11 @@ Aimeos.Media = {
 
 				if(files.length > 0) {
 					this.$set(this.items[idx], 'media.label', files[0].name);
+
+					if(files[0].size > $("#problem .upload_max_filesize").data("value")) {
+						$("#problem .upload_max_filesize").show();
+						$("#problem").modal("show");
+					}
 				}
 			},
 
