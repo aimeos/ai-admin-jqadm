@@ -576,6 +576,12 @@ Aimeos.Form = {
 
 				return false;
 			}
+
+			if($("input,select").length > $("#problem .max_input_vars").data("value")) {
+				$("#problem .max_input_vars").show();
+				$("#problem").modal("show");
+				return false;
+			}
 		});
 	},
 

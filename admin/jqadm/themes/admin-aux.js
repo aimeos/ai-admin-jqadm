@@ -210,12 +210,38 @@ Aimeos.Media = {
 			updateFile : function(idx, files) {
 
 				if(files.length > 0) {
-					this.$set(this.items[idx], 'media.label', files[0].name);
 
-					if(files[0].size > $("#problem .upload_max_filesize").data("value")) {
+					var cnt = sum = 0;
+					$( "input:file" ).each(function() {
+						for(var i=0; i<this.files.length; i++) {
+							sum += this.files[i].size;
+							cnt++;
+						}
+					});
+
+					if($("#problem .file_uploads").data("value") != 1) {
+						$("#problem .file_uploads").show();
+						$("#problem").modal("show");
+					}
+
+					if(sum > $("#problem .post_max_size").data("value")) {
 						$("#problem .upload_max_filesize").show();
 						$("#problem").modal("show");
 					}
+
+					if(cnt > $("#problem .max_file_uploads").data("value")) {
+						$("#problem .max_file_uploads").show();
+						$("#problem").modal("show");
+					}
+
+					for(var i=0; i<files.length; i++) {
+						if(files[i].size > $("#problem .upload_max_filesize").data("value")) {
+							$("#problem .upload_max_filesize").show();
+							$("#problem").modal("show");
+						}
+					}
+
+					this.$set(this.items[idx], 'media.label', files[0].name);
 				}
 			},
 
