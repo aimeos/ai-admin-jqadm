@@ -312,6 +312,10 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
 	{
+		if( $item->getType() !== 'bundle' ) {
+			return [];
+		}
+
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 
