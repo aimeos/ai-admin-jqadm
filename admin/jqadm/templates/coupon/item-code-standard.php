@@ -177,7 +177,7 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.code.count', $fields ) ) : ?>
 						<td class="coupon-count">
-							<input class="form-control coupon-code-count" type="number" min="0" step="1" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							<input class="form-control coupon-code-count" type="number" min="0" step="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.count', '' ) ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'codeData/coupon.code.count/' . $idx ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> disabled="disabled" />
