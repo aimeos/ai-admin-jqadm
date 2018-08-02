@@ -278,6 +278,19 @@ $params = $this->get( 'pageParams', [] );
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ); ?>
 						</div>
 					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-ctime" type="datetime-local" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
+								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/product.ctime' ) ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Since when the product is available, used for sorting in the front-end' ) ); ?>
+						</div>
+					</div>
 					<div class="form-group row optional warning">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL target' ) ); ?></label>
 						<div class="col-sm-8">
