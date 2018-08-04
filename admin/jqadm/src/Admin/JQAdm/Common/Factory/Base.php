@@ -48,8 +48,6 @@ class Base
 	protected static function addDecorators( \Aimeos\MShop\Context\Item\Iface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, $classprefix )
 	{
-		$iface = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface';
-
 		foreach( $decorators as $name )
 		{
 			if( ctype_alnum( $name ) === false )
@@ -66,9 +64,7 @@ class Base
 
 			$client = new $classname( $client, $context );
 
-			if( !( $client instanceof $iface ) ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" does not implement "%2$s"', $classname, $iface ) );
-			}
+			\Aimeos\MW\Common\Base::checkClass( '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface', $client );
 		}
 
 		return $client;
@@ -161,9 +157,7 @@ class Base
 
 		$client = new $classname( $context );
 
-		if( !( $client instanceof $interface ) ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" does not implement interface "%2$s"', $classname, $interface ) );
-		}
+		\Aimeos\MW\Common\Base::checkClass( $interface, $client );
 
 		return $client;
 	}

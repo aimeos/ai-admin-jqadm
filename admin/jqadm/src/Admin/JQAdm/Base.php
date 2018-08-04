@@ -222,8 +222,6 @@ abstract class Base
 	 */
 	protected function addDecorators( \Aimeos\Admin\JQAdm\Iface $client, array $decorators, $classprefix )
 	{
-		$iface = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface';
-
 		foreach( $decorators as $name )
 		{
 			if( ctype_alnum( $name ) === false )
@@ -240,9 +238,7 @@ abstract class Base
 
 			$client = new $classname( $client, $this->context );
 
-			if( !( $client instanceof $iface ) ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" does not implement "%2$s"', $classname, $iface ) );
-			}
+			\Aimeos\MW\Common\Base::checkClass( '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface', $client );
 		}
 
 		return $client;
@@ -312,7 +308,6 @@ abstract class Base
 		$subnames = str_replace( ' ', '\\', ucwords( str_replace( '/', ' ', $path ) ) );
 
 		$classname = '\\Aimeos\\Admin\\JQAdm\\' . $subnames . '\\' . $name;
-		$interface = '\\Aimeos\\Admin\\JQAdm\\Iface';
 
 		if( class_exists( $classname ) === false ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not available', $classname ) );
@@ -320,9 +315,7 @@ abstract class Base
 
 		$object = new $classname( $this->context );
 
-		if( ( $object instanceof $interface ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" does not implement interface "%2$s"', $classname, $interface ) );
-		}
+		\Aimeos\MW\Common\Base::checkClass( '\\Aimeos\\Admin\\JQAdm\\Iface', $object );
 
 		$object = $this->addClientDecorators( $object, $path );
 		$object->setAimeos( $this->aimeos );
