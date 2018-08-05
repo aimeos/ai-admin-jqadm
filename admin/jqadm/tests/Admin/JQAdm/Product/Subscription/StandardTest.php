@@ -49,11 +49,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'CNC' );
+		$this->view->item = $manager->findItem( 'CNE' );
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;attribute.label&quot;:&quot;Interval 1 year&quot;', $result );
+		$this->assertContains( '&quot;attribute.label&quot;:&quot;product\/interval\/P1Y0M0W0D&quot;', $result );
 	}
 
 
@@ -61,11 +61,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'CNC' );
+		$this->view->item = $manager->findItem( 'CNE' );
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;attribute.label&quot;:&quot;Interval 1 year&quot;', $result );
+		$this->assertContains( '&quot;attribute.label&quot;:&quot;product\/interval\/P1Y0M0W0D&quot;', $result );
 	}
 
 

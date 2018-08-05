@@ -62,7 +62,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'Test URL', $result );
+		$this->assertContains( 'product/download/testurl', $result );
 	}
 
 
@@ -86,7 +86,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'Test URL', $result );
+		$this->assertContains( 'product/download/testurl', $result );
 	}
 
 
