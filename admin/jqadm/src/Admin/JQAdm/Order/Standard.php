@@ -179,8 +179,9 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
+			$refs = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
 
-			$view->item = $manager->load( $id );
+			$view->item = $manager->getItem( $id, $refs );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = '';
