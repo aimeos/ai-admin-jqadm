@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 21:38+0200\n"
+"POT-Creation-Date: 2018-08-09 15:12+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -1211,6 +1211,9 @@ msgstr ""
 msgid "Non-shared properties for the media item"
 msgstr ""
 
+msgid "None"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr ""
@@ -1279,6 +1282,14 @@ msgid "Overview"
 msgstr ""
 
 msgid "Overwrite the existing file and customers bought it in the past can then download the new content too"
+msgstr ""
+
+#, php-format
+msgid "PHP setting \"%1$s\" is disabled"
+msgstr ""
+
+#, php-format
+msgid "PHP setting for \"%1$s\" is too low"
 msgstr ""
 
 #, php-format
@@ -1453,6 +1464,9 @@ msgstr ""
 msgid "Priority"
 msgstr ""
 
+msgid "Problem"
+msgstr ""
+
 msgid "Product"
 msgstr ""
 
@@ -1592,6 +1606,9 @@ msgid "Quantity"
 msgstr ""
 
 msgid "Quantity or empty if unlimited (optional)"
+msgstr ""
+
+msgid "Reason"
 msgstr ""
 
 msgid "Rebate"
@@ -1800,6 +1817,9 @@ msgid "Shown if the article reached a stock level of zero"
 msgstr ""
 
 msgid "Simple mode"
+msgstr ""
+
+msgid "Since when the product is available, used for sorting in the front-end"
 msgstr ""
 
 msgid "Site"
@@ -2457,6 +2477,15 @@ msgstr "Products"
 #, php-format
 msgid "property"
 msgstr "Properties"
+
+msgid "reason:-1"
+msgstr ""
+
+msgid "reason:0"
+msgstr ""
+
+msgid "reason:1"
+msgstr ""
 
 #, php-format
 msgid "related"
