@@ -180,6 +180,27 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 								<?= $enc->html( $this->translate( 'admin', 'Date the subscription ends' ) ); ?>
 							</div>
 						</div>
+						<div class="form-group row optional">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reason' ) ); ?></label>
+							<div class="col-sm-8">
+								<select class="form-control custom-select item-reason" required="required" tabindex="1"
+									name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.reason' ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ); ?> >
+									<option value="">
+										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+									</option>
+									<option value="1" <?= $selected( $this->get( 'itemData/subscription.reason' ), 1 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'reason:1' ) ); ?>
+									</option>
+									<option value="0" <?= $selected( $this->get( 'itemData/subscription.reason' ), 0 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'reason:0' ) ); ?>
+									</option>
+									<option value="-1" <?= $selected( $this->get( 'itemData/subscription.reason' ), -1 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'reason:-1' ) ); ?>
+									</option>
+								</select>
+							</div>
+						</div>
 					</div>
 
 					<div class="col-xl-6 content-block <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?>">

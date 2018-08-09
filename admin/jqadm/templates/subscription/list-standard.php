@@ -68,6 +68,7 @@ $columnList = [
 	'subscription.interval' => $this->translate( 'admin', 'Interval' ),
 	'subscription.datenext' => $this->translate( 'admin', 'Next date' ),
 	'subscription.dateend' => $this->translate( 'admin', 'End date' ),
+	'subscription.reason' => $this->translate( 'admin', 'Reason' ),
 	'subscription.ctime' => $this->translate( 'admin', 'Created' ),
 	'subscription.mtime' => $this->translate( 'admin', 'Modified' ),
 	'subscription.editor' => $this->translate( 'admin', 'Editor' ),
@@ -105,6 +106,12 @@ $columnList = [
 $statusList = [
 	0 => $this->translate( 'admin', 'no' ),
 	1 => $this->translate( 'admin', 'yes' ),
+];
+
+$reasonList = [
+	'-1' => $this->translate( 'mshop/code', 'reason:-1' ),
+	'0' => $this->translate( 'mshop/code', 'reason:0' ),
+	'1' => $this->translate( 'mshop/code', 'reason:1' ),
 ];
 
 
@@ -180,6 +187,7 @@ $statusList = [
 						'subscription.interval' => ['op' => '>=', 'type' => 'string'],
 						'subscription.datenext' => ['op' => '>=', 'type' => 'date'],
 						'subscription.dateend' => ['op' => '>=', 'type' => 'date'],
+						'subscription.reason' => ['op' => '==', 'type' => 'select', 'val' => $reasonList],
 						'subscription.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'subscription.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'subscription.editor' => [],
@@ -231,10 +239,13 @@ $statusList = [
 						<td class="subscription-interval"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getInterval() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'subscription.datenext', $fields ) ) : ?>
-						<td class="subscription-datenext"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getDateNext() ); ?></a></td>
+						<td class="subscription-datenext"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateNext() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'subscription.dateend', $fields ) ) : ?>
 						<td class="subscription-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'subscription.reason', $fields ) ) : ?>
+						<td class="subscription-reason"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $reasonList[$item->getReason()] ); ?></td>
 					<?php endif; ?>
 					<?php if( in_array( 'subscription.ctime', $fields ) ) : ?>
 						<td class="subscription-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
