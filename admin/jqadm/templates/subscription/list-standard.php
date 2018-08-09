@@ -110,9 +110,9 @@ $statusList = [
 
 $reasonList = [
 	null => '',
-	'-1' => $this->translate( 'mshop/code', 'reason:-1' ),
-	'0' => $this->translate( 'mshop/code', 'reason:0' ),
-	'1' => $this->translate( 'mshop/code', 'reason:1' ),
+	-1 => $this->translate( 'mshop/code', 'reason:-1' ),
+	0 => $this->translate( 'mshop/code', 'reason:0' ),
+	1 => $this->translate( 'mshop/code', 'reason:1' ),
 ];
 
 
