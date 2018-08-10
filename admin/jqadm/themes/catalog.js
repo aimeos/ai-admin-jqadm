@@ -69,7 +69,7 @@ Aimeos.Catalog = {
 
 	csrf : null,
 	element : null,
-	prefix: null,
+	prefix : null,
 
 
 	init : function() {
@@ -110,7 +110,7 @@ Aimeos.Catalog = {
 
 				return list;
 			},
-			dataUrl: function(node) {
+			"dataUrl": function(node) {
 
 				var params = {};
 
