@@ -22,19 +22,23 @@
  */
 Aimeos.options.done(function(result) {
 
-	var rootId = $(".aimeos .item-catalog").data("rootid");
-
-	if(!rootId || !result || !result.meta || !result.meta.resources || !result.meta.resources.catalog) {
+	if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog) {
 		return;
 	}
 
-	var params = {};
-
 	if(result.meta.prefix) {
 		Aimeos.Catalog.prefix = result.meta.prefix;
-		params[result.meta.prefix] = {id: rootId, include: "catalog"};
-	} else {
-		params = {id: rootId, include: "catalog"};
+	}
+
+	var params = {};
+	var rootId = $(".aimeos .item-catalog").data("rootid");
+
+	if(rootId) {
+		if(result.meta.prefix) {
+			params[result.meta.prefix] = {id: rootId, include: "catalog"};
+		} else {
+			params = {id: rootId, include: "catalog"};
+		}
 	}
 
 	$.ajax(result.meta.resources.catalog, {
