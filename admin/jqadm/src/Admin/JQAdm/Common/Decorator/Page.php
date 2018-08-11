@@ -51,10 +51,12 @@ class Page extends Base
 			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE;
 		}
 
+		$sitePath = $siteManager->getPath( $siteid );
+
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
 		$view->pageLangItems = $langManager->searchItems( $langManager->createSearch( true ) );
 		$view->pageSiteTree = $siteManager->getTree( $siteid, [], $level );
-		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
+		$view->pageSitePath = $sitePath;
 		$view->pageSiteItem = $siteItem;
 
 		if( $view->access( ['super'] ) )
@@ -62,7 +64,12 @@ class Page extends Base
 			$search = $siteManager->createSearch()->setSlice( 0, 1000 );
 			$search->setSortations( [$search->sort( '+', 'locale.site.label')] );
 			$search->setConditions( $search->compare( '==', 'locale.site.level', 0 ) );
+
 			$view->pageSiteList = $siteManager->searchItems( $search );
+
+			if( ( $rootItem = reset( $sitePath ) ) !== false ) {
+				$view->pageSiteTree = $siteManager->getTree( $rootItem->getId(), [], $level );
+			}
 		}
 		else
 		{
