@@ -225,7 +225,7 @@ Aimeos.Catalog = {
 
 		root = {
 			id: result.data.id,
-			name: result.data.attributes['catalog.label'],
+			name: result.data.attributes['catalog.label'] || '-none-',
 			children: []
 		};
 
