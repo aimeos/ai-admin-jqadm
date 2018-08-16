@@ -137,7 +137,6 @@ $columnList = [
 	'order.base.rebate' => $this->translate( 'admin', 'Rebate' ),
 	'order.base.taxvalue' => $this->translate( 'admin', 'Tax' ),
 	'order.base.taxflag' => $this->translate( 'admin', 'Incl. tax' ),
-	'order.base.status' => $this->translate( 'admin', 'Subscription' ),
 	'order.base.comment' => $this->translate( 'admin', 'Comment' ),
 	'order.base.address.salutation' => $this->translate( 'admin', 'Salutation' ),
 	'order.base.address.company' => $this->translate( 'admin', 'Company' ),
@@ -274,7 +273,6 @@ $statusList = [
 						'order.base.rebate' => ['op' => '==', 'type' => 'number'],
 						'order.base.taxvalue' => ['op' => '==', 'type' => 'number'],
 						'order.base.taxflag' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
-						'order.base.status' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
 						'order.base.comment' => [],
 						'order.base.address.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
 							'company' => 'company', 'mr' => 'mr', 'mrs' => 'mrs', 'miss' => 'miss'
@@ -367,9 +365,6 @@ $statusList = [
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.taxflag', $fields ) ) : ?>
 						<td class="order-base-taxflag"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $statusList[$baseItem->getPrice()->getTaxFlag()] ) : ''; ?></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'order.base.status', $fields ) ) : ?>
-						<td class="order-base-status"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $statusList[$baseItem->getStatus()] ) : ''; ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.comment', $fields ) ) : ?>
 						<td class="order-base-comment"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getComment() ) : ''; ?></a></td>
