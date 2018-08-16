@@ -438,7 +438,7 @@ $statusList = [
 
 					<?php $serviceItem = null;
 						if( $baseItem && ( $services = $baseItem->getServices() ) && isset( $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT] ) ) {
-							$serviceItem = $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT];
+							$serviceItem = reset( $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT] );
 						}
 					?>
 
