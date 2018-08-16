@@ -332,6 +332,16 @@
 	display: none;
 }
 
+.aimeos .list-order .line {
+	border-bottom: 1px solid #333;
+	white-space: nowrap;
+	display: block;
+}
+
+.aimeos .list-order .line:last-child {
+	border-bottom: none;
+}
+
 .aimeos .list-order .list-item .actions .act-copy {
 	visibility: hidden;
 }

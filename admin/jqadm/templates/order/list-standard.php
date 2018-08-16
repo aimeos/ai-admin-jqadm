@@ -156,11 +156,11 @@ $columnList = [
 	'order.base.address.telefax' => $this->translate( 'admin', 'Facsimile' ),
 	'order.base.address.email' => $this->translate( 'admin', 'E-Mail' ),
 	'order.base.address.website' => $this->translate( 'admin', 'Web site' ),
-	'order.base.service.code' => $this->translate( 'admin', 'Payment' ),
-	'order.base.service.name' => $this->translate( 'admin', 'Pay name' ),
-	'order.base.service.price' => $this->translate( 'admin', 'Pay price' ),
-	'order.base.service.costs' => $this->translate( 'admin', 'Pay costs' ),
-	'order.base.service.rebate' => $this->translate( 'admin', 'Pay rebate' ),
+	'order.base.service.code' => $this->translate( 'admin', 'Service' ),
+	'order.base.service.name' => $this->translate( 'admin', 'Service name' ),
+	'order.base.service.price' => $this->translate( 'admin', 'Service price' ),
+	'order.base.service.costs' => $this->translate( 'admin', 'Service costs' ),
+	'order.base.service.rebate' => $this->translate( 'admin', 'Service rebate' ),
 ];
 
 $paymentStatusList = [
@@ -431,26 +431,62 @@ $statusList = [
 						<td class="order-base-address-website"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getWebsite() ) : ''; ?></a></td>
 					<?php endif; ?>
 
-					<?php $serviceItem = null;
-						if( $baseItem && ( $services = $baseItem->getServices() ) && isset( $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT] ) ) {
-							$serviceItem = reset( $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT] );
-						}
-					?>
+					<?php $services = ( $baseItem ? $baseItem->getServices() : [] ); ?>
 
 					<?php if( in_array( 'order.base.service.code', $fields ) ) : ?>
-						<td class="order-base-service-code"><a class="items-field" href="<?= $url; ?>"><?= $serviceItem ? $enc->html( $serviceItem->getCode() ) : ''; ?></a></td>
+						<td class="order-base-service-code">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $services as $type => $list ) : ?>
+									<?php foreach( $list as $serviceItem ) : ?>
+										<span class="line"><?= $enc->html( $serviceItem->getCode() ); ?></span>
+									<?php endforeach; ?>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.service.name', $fields ) ) : ?>
-						<td class="order-base-service-name"><a class="items-field" href="<?= $url; ?>"><?= $serviceItem ? $enc->html( $serviceItem->getName() ) : ''; ?></a></td>
+						<td class="order-base-service-name">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $services as $type => $list ) : ?>
+									<?php foreach( $list as $serviceItem ) : ?>
+										<span class="line"><?= $enc->html( $serviceItem->getName() ); ?></span>
+									<?php endforeach; ?>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.service.price', $fields ) ) : ?>
-						<td class="order-base-service-price"><a class="items-field" href="<?= $url; ?>"><?= $serviceItem ? $enc->html( $serviceItem->getPrice()->getValue() ) : ''; ?></a></td>
+						<td class="order-base-service-price">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $services as $type => $list ) : ?>
+									<?php foreach( $list as $serviceItem ) : ?>
+										<span class="line"><?= $enc->html( $serviceItem->getPrice()->getValue() ); ?></span>
+									<?php endforeach; ?>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.service.costs', $fields ) ) : ?>
-						<td class="order-base-service-costs"><a class="items-field" href="<?= $url; ?>"><?= $serviceItem ? $enc->html( $serviceItem->getPrice()->getCosts() ) : ''; ?></a></td>
+						<td class="order-base-service-costs">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $services as $type => $list ) : ?>
+									<?php foreach( $list as $serviceItem ) : ?>
+										<span class="line"><?= $enc->html( $serviceItem->getPrice()->getCosts() ); ?></span>
+									<?php endforeach; ?>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.service.rebate', $fields ) ) : ?>
-						<td class="order-base-service-rebate"><a class="items-field" href="<?= $url; ?>"><?= $serviceItem ? $enc->html( $serviceItem->getPrice()->getRebate() ) : ''; ?></a></td>
+						<td class="order-base-service-rebate">
+							<a class="items-field" href="<?= $url; ?>">
+								<?php foreach( $services as $type => $list ) : ?>
+									<?php foreach( $list as $serviceItem ) : ?>
+										<span class="line"><?= $enc->html( $serviceItem->getPrice()->getRebate() ); ?></span>
+									<?php endforeach; ?>
+								<?php endforeach; ?>
+							</a>
+						</td>
 					<?php endif; ?>
 
 					<td class="actions">
