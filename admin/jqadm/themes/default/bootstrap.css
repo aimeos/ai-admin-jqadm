@@ -199,7 +199,7 @@ input[type='checkbox'], input[type='radio'] {
 
 .btn, .dropdown-menu {
 	font-size: 100%;
-	z-index: 10000;
+	z-index: 1040;
 }
 
 .dropdown-item label {

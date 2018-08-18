@@ -8,7 +8,7 @@
 /* JQuery UI styles */
 
 #ui-datepicker-div {
-	z-index: 2000 !important;
+	z-index: 1040 !important;
 }
 
 .ai-combobox {
