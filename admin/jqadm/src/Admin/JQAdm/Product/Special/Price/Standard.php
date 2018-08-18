@@ -284,7 +284,7 @@ class Standard
 			foreach( $item->getListItems( 'attribute' ) as $litem )
 			{
 				if( $litem->getTypeId() == $typeId && $litem->getRefId() == $attrId ) {
-					$item->deleteListItem( 'attribute', $listItem );
+					$item->deleteListItem( 'attribute', $litem );
 				}
 			}
 		}
