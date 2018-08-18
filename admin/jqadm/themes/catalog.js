@@ -22,7 +22,7 @@
  */
 Aimeos.options.done(function(result) {
 
-	if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog) {
+	if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog || $(".aimeos .item-catalog").length === 0) {
 		return;
 	}
 
