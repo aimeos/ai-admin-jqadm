@@ -27,6 +27,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'service' )->createItem();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Service\Text\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}

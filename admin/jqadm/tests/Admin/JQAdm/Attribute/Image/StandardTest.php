@@ -22,6 +22,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->context = \TestHelperJqadm::getContext();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Attribute\Image\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}

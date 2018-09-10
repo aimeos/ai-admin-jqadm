@@ -30,7 +30,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setMethods( array( 'storeFile' ) )
 			->getMock();
 
-		$this->view->pageSiteItem = $this->context->getLocale()->getSite();
+		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
 	}
