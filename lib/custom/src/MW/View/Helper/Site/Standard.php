@@ -19,7 +19,7 @@ namespace Aimeos\MW\View\Helper\Site;
  */
 class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 {
-	private $sitepath;
+	private $siteItem;
 
 
 	/**
@@ -30,7 +30,7 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	public function __construct( \Aimeos\MW\View\Iface $view )
 	{
 		parent::__construct( $view );
-		$this->sitepath = $view->pageSitePath;
+		$this->siteItem = $view->pageSiteItem;
 	}
 
 
@@ -52,9 +52,7 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 */
 	public function label()
 	{
-		if( ( $item = end( $this->sitepath ) ) !== false ) {
-			return $item->getLabel();
-		}
+		return $this->siteItem->getLabel();
 	}
 
 
@@ -66,8 +64,8 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 */
 	public function match( $siteid )
 	{
-		if( isset( $this->sitepath[$siteid] ) ) {
-			return $this->sitepath[$siteid]->getLabel();
+		if( $this->siteItem->getId() == $siteid ) {
+			return $this->siteItem->getLabel();
 		}
 	}
 
@@ -80,7 +78,7 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 */
 	public function readonly( $siteid )
 	{
-		if( ( $item = end( $this->sitepath ) ) !== false && $siteid != $item->getId() ) {
+		if( $this->siteItem->getId() != $siteid ) {
 			return 'readonly';
 		}
 	}
@@ -93,8 +91,6 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 */
 	public function siteid()
 	{
-		if( ( $item = end( $this->sitepath ) ) !== false ) {
-			return $item->getId();
-		}
+		return $this->siteItem->getId();
 	}
 }

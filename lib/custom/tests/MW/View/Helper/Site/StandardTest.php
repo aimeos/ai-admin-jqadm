@@ -17,10 +17,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	protected function setUp()
 	{
 		$view = new \Aimeos\MW\View\Standard();
-		$view->pageSitePath = [
-			1 => new TestSite( 1, 'label1' ),
-			3 => new TestSite( 3, 'label3' ),
-		];
+		$view->pageSiteItem = new TestSite( 1, 'label1' );
 
 		$this->object = new \Aimeos\MW\View\Helper\Site\Standard( $view );
 	}
@@ -40,7 +37,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testLabel()
 	{
-		$this->assertEquals( 'label3', $this->object->transform()->label() );
+		$this->assertEquals( 'label1', $this->object->transform()->label() );
 	}
 
 
@@ -52,13 +49,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testReadonly()
 	{
-		$this->assertEquals( 'readonly', $this->object->transform()->readonly( 1 ) );
+		$this->assertEquals( 'readonly', $this->object->transform()->readonly( 2 ) );
 	}
 
 
 	public function testSiteid()
 	{
-		$this->assertEquals( 3, $this->object->transform()->siteid() );
+		$this->assertEquals( 1, $this->object->transform()->siteid() );
 	}
 }
 
