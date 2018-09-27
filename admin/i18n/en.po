@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-09 15:12+0200\n"
+"POT-Creation-Date: 2018-09-27 08:31+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -1740,6 +1740,9 @@ msgstr ""
 msgid "Service attribute code"
 msgstr ""
 
+msgid "Service costs"
+msgstr ""
+
 msgid "Service fees"
 msgstr ""
 
@@ -1752,7 +1755,13 @@ msgstr ""
 msgid "Service position (required)"
 msgstr ""
 
+msgid "Service price"
+msgstr ""
+
 msgid "Service provider or service decorator configuration name"
+msgstr ""
+
+msgid "Service rebate"
 msgstr ""
 
 msgid "Service type"

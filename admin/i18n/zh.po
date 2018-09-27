@@ -5,12 +5,14 @@
 # Translators:
 # Bruce Liu <zcon.bruce@gmail.com>, 2016
 # manuel.fries <manuel.fries@gdatasoftware.com>, 2014
+# stevechen <steve.stevechen@gmail.com>, 2018
+# stevechen <steve.stevechen@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 21:45+0200\n"
-"PO-Revision-Date: 2018-07-03 20:42+0000\n"
+"POT-Creation-Date: 2018-09-27 08:31+0200\n"
+"PO-Revision-Date: 2018-09-27 06:36+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +31,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -55,11 +57,11 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
@@ -87,7 +89,7 @@ msgid "Add filter"
 msgstr "添加篩選"
 
 msgid "Add new entry (Ctrl+A)"
-msgstr ""
+msgstr "添加新紀錄（Ctrl+A）"
 
 msgid "Additional"
 msgstr "附加"
@@ -95,7 +97,7 @@ msgstr "附加"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "各個物品的附加運費，如：一個較重的物品需附加$20運費，則5個同樣的物品則需要共$100運費。"
 
 msgid "Additional information where the customer's apartment can be found"
 msgstr ""
@@ -144,7 +146,7 @@ msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "進階"
 
 #, php-format
 msgid "Aimeos object not available"
@@ -159,10 +161,10 @@ msgid ""
 msgstr ""
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "允許客制價格"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "允許客戶選擇期望的價格"
 
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
@@ -205,10 +207,10 @@ msgid "Attribute"
 msgstr "属性"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "屬性清單種類"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "屬性清單種類"
 
 msgid "Attribute Property Type"
 msgstr ""
@@ -217,16 +219,16 @@ msgid "Attribute Property Types"
 msgstr ""
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "屬性種類"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "屬性種類"
 
 msgid "Attribute name"
-msgstr ""
+msgstr "屬性名稱"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "屬性位置（可不填）"
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
@@ -251,7 +253,7 @@ msgid "Available attributes"
 msgstr "可用的属性"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "此站可用的幣別"
 
 msgid "Available customer groups"
 msgstr "可用的顧客組"
@@ -260,10 +262,10 @@ msgid "Available customers"
 msgstr "可用的顧客"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "前台可用的間隔"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "此站可用的語言"
 
 msgid "Available media"
 msgstr "可用的媒體"
@@ -302,10 +304,10 @@ msgid "Birthday"
 msgstr "生日"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "客戶生日"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "問題或建議？"
 
 msgid "Bundles"
 msgstr "組合包"
@@ -320,19 +322,19 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "取消並返回至清單"
 
 msgid "Catalog"
 msgstr "商品型錄"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "型錄列表種類"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "型錄列表種類"
 
 msgid "Catalog Types"
-msgstr ""
+msgstr "型錄種類"
 
 #. : Catalog item panel title with catalog label ({0}) and site code ({1)}
 #, python-brace-format
@@ -349,7 +351,7 @@ msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
 
 msgid "Category name"
-msgstr ""
+msgstr "型錄名稱"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
@@ -360,7 +362,7 @@ msgid "Characteristics"
 msgstr "特色"
 
 msgid "Choose file"
-msgstr ""
+msgstr "選擇檔案"
 
 msgid "City"
 msgstr "市"
@@ -369,7 +371,7 @@ msgid "City name (required)"
 msgstr "城市名 (必填)"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "城市或城鎮名稱（必填）"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
@@ -421,19 +423,19 @@ msgid "Company"
 msgstr "公司"
 
 msgid "Company details"
-msgstr ""
+msgstr "公司資料"
 
 msgid "Company name"
 msgstr "公司名稱"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "公司名（可不填）"
 
 msgid "Config"
-msgstr ""
+msgstr "配置"
 
 msgid "Configurable"
-msgstr ""
+msgstr "可配置"
 
 msgid "Configuration"
 msgstr "配置"
@@ -449,7 +451,7 @@ msgid "Copy"
 msgstr "複製"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "拷貝此紀錄"
 
 msgid "Costs"
 msgstr "成本"
@@ -467,13 +469,13 @@ msgid "Country"
 msgstr "國家"
 
 msgid "Country ID"
-msgstr ""
+msgstr "國家 ID"
 
 msgid "Country code"
 msgstr "國家代碼"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "國碼（必填）"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
@@ -481,7 +483,7 @@ msgid ""
 msgstr ""
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "州碼（可不填）"
 
 msgid "Country state, e.g. \"NY\""
 msgstr "國家州別，例如 \"NY\""
@@ -512,7 +514,7 @@ msgid "Created"
 msgstr "創建"
 
 msgid "Currencies"
-msgstr ""
+msgstr "幣別"
 
 msgid "Currency"
 msgstr "貨幣"
@@ -527,13 +529,13 @@ msgid "Customer"
 msgstr "顧客"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "客戶 ID"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "客戶清單種類"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "客戶清單種類"
 
 msgid "Customer Property Type"
 msgstr ""
@@ -542,7 +544,7 @@ msgid "Customer Property Types"
 msgstr ""
 
 msgid "Customer Types"
-msgstr ""
+msgstr "客戶種類"
 
 #. : Customer address item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -553,10 +555,10 @@ msgid "Customer address: {0} ({1})"
 msgstr "顧客地址： {0} ({1})"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "客戶備註（可不填）"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "客戶電子信箱"
 
 #. : Customer group item panel title with customer name ({0}) and site code
 #. ({1)}
@@ -567,7 +569,7 @@ msgid "Customer group: {0} ({1})"
 msgstr "顧客群組: {0} ({1})"
 
 msgid "Customer password"
-msgstr ""
+msgstr "客戶密碼"
 
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
@@ -587,16 +589,16 @@ msgid "Date back"
 msgstr "追溯到"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "最後運送狀態更改日期"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "最後付款狀態更改日期"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "訂閱結束日期"
 
 msgid "Days"
-msgstr ""
+msgstr "天數"
 
 msgid "Default"
 msgstr "預設"
@@ -608,7 +610,7 @@ msgid "Delete items?"
 msgstr "删除項目？"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "刪除此紀錄"
 
 msgid "Delivery"
 msgstr "運送"
@@ -618,7 +620,7 @@ msgstr "配送地址"
 
 msgid ""
 "Delivery costs for the whole order or additional costs for payment options"
-msgstr ""
+msgstr "訂單總運費或付費選項額外費用"
 
 msgid "Delivery date"
 msgstr "配送日期"
@@ -627,7 +629,7 @@ msgid "Delivery status"
 msgstr "配送狀態"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "配送方式"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr ""
@@ -657,25 +659,25 @@ msgid "Download"
 msgstr "下載"
 
 msgid "Download this file"
-msgstr ""
+msgstr "下載此檔案"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "複製此紀錄（Ctrl+D）"
 
 msgid "E-Mail"
 msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "電子信箱（必填）"
 
 msgid "E-Mail, e.g. me@example.com (required)"
 msgstr "E-Mail，例如 me@example.com (必填)"
 
 msgid "E-mail"
-msgstr ""
+msgstr "電子信箱"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "電子信箱（可不填）"
 
 msgid "E-mail address that belongs to the address"
 msgstr ""
@@ -687,28 +689,28 @@ msgid "Edit"
 msgstr "編輯"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "修改此紀錄"
 
 msgid "Editor"
 msgstr "編輯者"
 
 msgid "Email"
-msgstr ""
+msgstr "電子信箱"
 
 msgid "End date"
 msgstr "結束日期"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "結束日期（可不填）"
 
 msgid "Error"
 msgstr "錯誤"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "未稅"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "插件執行順序"
 
 msgid "Expert"
 msgstr ""
@@ -729,10 +731,10 @@ msgid "Facility"
 msgstr "設施"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "傳真"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "傳真號碼（可不填）"
 
 msgid "Facsimile number, e.g. +155512345"
 msgstr "傳真碼，例如+155512345"
@@ -756,7 +758,7 @@ msgid "First name"
 msgstr "名"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "名（可不填）"
 
 msgid "First name of the person if used in cultures where they are used"
 msgstr ""
@@ -765,7 +767,7 @@ msgid "Firstname"
 msgstr "名"
 
 msgid "Floor"
-msgstr ""
+msgstr "樓層"
 
 msgid "Floor / Appartment"
 msgstr ""
@@ -807,7 +809,7 @@ msgid "Height"
 msgstr "高度"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "隱藏屬性"
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr ""
@@ -816,7 +818,7 @@ msgid "Honorary title"
 msgstr "榮譽稱號"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "榮譽稱號（可不填）"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
@@ -828,7 +830,7 @@ msgid "House number"
 msgstr "門牌號碼"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "門牌號碼（可不填）"
 
 msgid "How the customer is addressed in e-mails"
 msgstr ""
@@ -843,10 +845,10 @@ msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr ""
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "ISO 幣別代碼（必填）"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "ISO 語言代碼（必填）"
 
 msgid "Images"
 msgstr "圖片"
@@ -863,16 +865,16 @@ msgid "Import/Export jobs"
 msgstr ""
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "含稅"
 
 msgid "Info"
-msgstr ""
+msgstr "資訊"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "插入新紀錄"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "插入新紀錄（Ctrl+l）"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
@@ -904,10 +906,10 @@ msgid "Internal type name shown in the administration interface"
 msgstr ""
 
 msgid "Interval"
-msgstr ""
+msgstr "間隔"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "間隔（必填）"
 
 #, python-brace-format
 msgid "Invalid action \"{0}\""
@@ -971,7 +973,7 @@ msgid "Label"
 msgstr "標籤"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "標籤（必填）"
 
 msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
@@ -988,13 +990,13 @@ msgid "Language (required)"
 msgstr "語言 (必填)"
 
 msgid "Language ID"
-msgstr ""
+msgstr "語言 ID"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "輸入文字的語言"
 
 msgid "Languages"
-msgstr ""
+msgstr "語言"
 
 msgid "Last"
 msgstr "最後一筆"
@@ -1003,7 +1005,7 @@ msgid "Last delivery status of the invoice"
 msgstr ""
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "訂單最後運送狀態"
 
 msgid "Last modified"
 msgstr "最後修改"
@@ -1064,10 +1066,10 @@ msgid ""
 msgstr ""
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "經常一同購買的商品清單"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "建議產品清單"
 
 msgid "List position"
 msgstr "列表位置"
@@ -1111,7 +1113,7 @@ msgid "Locale site: {0} ({1})"
 msgstr "區域分站：{0} ({1})"
 
 msgid "Log"
-msgstr ""
+msgstr "日誌"
 
 msgid "Logs"
 msgstr "Logs"
@@ -1123,10 +1125,10 @@ msgid "Media"
 msgstr "媒體"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "媒體清單類別"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "媒體清單類別"
 
 msgid "Media Property Type"
 msgstr ""
@@ -1135,10 +1137,10 @@ msgid "Media Property Types"
 msgstr ""
 
 msgid "Media Type"
-msgstr ""
+msgstr "媒體類別"
 
 msgid "Media Types"
-msgstr ""
+msgstr "媒體類別"
 
 msgid "Media properties"
 msgstr ""
@@ -1181,7 +1183,7 @@ msgid "Modifed"
 msgstr ""
 
 msgid "Modified"
-msgstr ""
+msgstr "修改"
 
 msgid "Months"
 msgstr ""
@@ -1256,6 +1258,9 @@ msgstr ""
 msgid "Non-shared properties for the media item"
 msgstr ""
 
+msgid "None"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr ""
@@ -1271,7 +1276,7 @@ msgid ""
 msgstr ""
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr ""
@@ -1295,7 +1300,7 @@ msgid "Order item details"
 msgstr "訂單項目明細"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "語言/幣別組合順序"
 
 msgid "Order of the service options in the checkout process"
 msgstr ""
@@ -1307,19 +1312,19 @@ msgid "Order product ID"
 msgstr "訂單商品ID"
 
 msgid "Order totals"
-msgstr ""
+msgstr "訂單總金額"
 
 msgid "Orders"
-msgstr ""
+msgstr "訂單"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "按日排序"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "按小時排序"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "按付費狀態排序"
 
 msgid "Orders by weekday"
 msgstr ""
@@ -1330,6 +1335,14 @@ msgstr "總覽"
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
+msgstr ""
+
+#, php-format
+msgid "PHP setting \"%1$s\" is disabled"
+msgstr ""
+
+#, php-format
+msgid "PHP setting for \"%1$s\" is too low"
 msgstr ""
 
 #, php-format
@@ -1391,10 +1404,10 @@ msgid "Permission denied"
 msgstr ""
 
 msgid "Personal data"
-msgstr ""
+msgstr "個人資料"
 
 msgid "Phone"
-msgstr ""
+msgstr "電話"
 
 msgid "Physical values"
 msgstr "實體數值"
@@ -1417,10 +1430,10 @@ msgid "Plugin"
 msgstr "插件"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "插件類別"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "插件類別"
 
 msgid "Plugin position (required)"
 msgstr ""
@@ -1442,7 +1455,7 @@ msgid "Plugin: {0} ({1})"
 msgstr "插件：{0} ({1})"
 
 msgid "Plugins"
-msgstr ""
+msgstr "插件"
 
 msgid "Position"
 msgstr "位置"
@@ -1451,7 +1464,7 @@ msgid "Position (required)"
 msgstr ""
 
 msgid "Postal"
-msgstr ""
+msgstr "郵遞區號"
 
 msgid "Postal code"
 msgstr "郵遞區號代碼"
@@ -1508,6 +1521,9 @@ msgstr "價格"
 msgid "Priority"
 msgstr "優先"
 
+msgid "Problem"
+msgstr ""
+
 msgid "Product"
 msgstr "商品"
 
@@ -1527,10 +1543,10 @@ msgid "Product Property Types"
 msgstr ""
 
 msgid "Product Type"
-msgstr ""
+msgstr "產品類別"
 
 msgid "Product Types"
-msgstr ""
+msgstr "產品類別"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
@@ -1639,7 +1655,7 @@ msgid "Provider/decorator class names (required)"
 msgstr ""
 
 msgid "Purchase"
-msgstr ""
+msgstr "購買"
 
 msgid "Purchase date"
 msgstr "購買日期"
@@ -1652,6 +1668,9 @@ msgstr "數量"
 
 msgid "Quantity or empty if unlimited (optional)"
 msgstr "數量(空白表示無限制)"
+
+msgid "Reason"
+msgstr ""
 
 msgid "Rebate"
 msgstr "折扣"
@@ -1695,7 +1714,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 msgid "Result"
 msgstr "結果"
@@ -1714,7 +1733,7 @@ msgid "Route or page ID (optional)"
 msgstr ""
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
 msgstr ""
@@ -1732,16 +1751,16 @@ msgid "Save"
 msgstr "保存"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "儲存並關閉"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "儲存並拷貝"
 
 msgid "Save & New"
 msgstr ""
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "儲存紀錄（Ctrl+S)"
 
 msgid "Saving"
 msgstr "保存中"
@@ -1764,7 +1783,7 @@ msgid "Select Item"
 msgstr "搜尋項目"
 
 msgid "Select file"
-msgstr ""
+msgstr "選擇檔案"
 
 msgid "Select languages to export"
 msgstr "選擇一個語言以匯出"
@@ -1776,18 +1795,21 @@ msgid "Service ID"
 msgstr "服務ID"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "服務清單類別"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "服務清單類別"
 
 msgid "Service Type"
-msgstr ""
+msgstr "服務類別"
 
 msgid "Service Types"
-msgstr ""
+msgstr "服務類別"
 
 msgid "Service attribute code"
+msgstr ""
+
+msgid "Service costs"
 msgstr ""
 
 msgid "Service fees"
@@ -1797,12 +1819,18 @@ msgid "Service item details"
 msgstr "服務項目明細"
 
 msgid "Service name"
-msgstr ""
+msgstr "服務名稱"
 
 msgid "Service position (required)"
 msgstr ""
 
+msgid "Service price"
+msgstr ""
+
 msgid "Service provider or service decorator configuration name"
+msgstr ""
+
+msgid "Service rebate"
 msgstr ""
 
 msgid "Service type"
@@ -1822,10 +1850,10 @@ msgid "Services"
 msgstr "服務"
 
 msgid "Ship date"
-msgstr ""
+msgstr "出貨日期"
 
 msgid "Ship status"
-msgstr ""
+msgstr "出貨狀態"
 
 msgid "Shipping"
 msgstr "運送"
@@ -1859,19 +1887,22 @@ msgid "Show"
 msgstr "顯示"
 
 msgid "Show entry"
-msgstr ""
+msgstr "顯示紀錄"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "顯示/隱藏進階數據"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "顯示/隱藏紀錄"
 
 msgid "Shown if the article reached a stock level of zero"
 msgstr ""
 
 msgid "Simple mode"
 msgstr "簡易模式"
+
+msgid "Since when the product is available, used for sorting in the front-end"
+msgstr ""
 
 msgid "Site"
 msgstr "分站"
@@ -1929,7 +1960,7 @@ msgid "Street (required)"
 msgstr "街 (必填)"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "街名（可不填）"
 
 msgid "Sub-total"
 msgstr "小計"
@@ -1971,7 +2002,7 @@ msgid "Supplier: {0} ({1})"
 msgstr "供應商：{0} ({1})"
 
 msgid "Suppliers"
-msgstr ""
+msgstr "供應商"
 
 msgid "Switching language ..."
 msgstr "轉換語言中..."
@@ -1997,7 +2028,7 @@ msgid "Tags"
 msgstr "標籤"
 
 msgid "Tax"
-msgstr ""
+msgstr "稅"
 
 msgid "Tax rate"
 msgstr "稅率"
@@ -2012,7 +2043,7 @@ msgid "Telephone"
 msgstr "電話"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "電話（可不填）"
 
 msgid "Telephone number, e.g. +155512345"
 msgstr "電話號碼，例如 +155512345"
@@ -2094,10 +2125,10 @@ msgid "This combination already exists"
 msgstr "這個組合已經存在"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "三碼 ISO 幣別碼"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "時間戳"
 
 msgid "Title"
 msgstr "標題"
@@ -2109,10 +2140,10 @@ msgid "Total"
 msgstr "合計"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "兩碼 ISO 國家碼"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "兩碼 ISO 語言碼"
 
 msgid "Two letter country code, e.g. \"US\" (required)"
 msgstr "兩個字元的國家代碼，例如: \"US\" (必填)"
@@ -2136,10 +2167,10 @@ msgid "Types for additional texts like per one lb/kg or per month"
 msgstr ""
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "客戶網站網址"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "供應商網站網址"
 
 msgid "URL segment"
 msgstr "URL片段"
@@ -2215,7 +2246,7 @@ msgid "Used by"
 msgstr "被使用於"
 
 msgid "User groups"
-msgstr ""
+msgstr "用戶群組"
 
 msgid "User name"
 msgstr "使用者名稱"
@@ -2224,7 +2255,7 @@ msgid "User name, e.g. e-mail address (required)"
 msgstr "使用者名稱，例如e-mail (必填)"
 
 msgid "Users"
-msgstr ""
+msgstr "用戶"
 
 msgid "VAT ID"
 msgstr ""
@@ -2293,7 +2324,7 @@ msgid "Website"
 msgstr "網站"
 
 msgid "Weeks"
-msgstr ""
+msgstr "週"
 
 msgid "Weight"
 msgstr "重量"
@@ -2308,7 +2339,7 @@ msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr "YYYY-MM-DD hh:mm:ss (選填)"
 
 msgid "Years"
-msgstr ""
+msgstr "年"
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "你將要刪除一個或多個項目, 確定嗎？"
@@ -2322,7 +2353,7 @@ msgid "Zip code"
 msgstr "Zip code"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "郵遞區號（可不填）"
 
 #, php-format
 msgid "address"
@@ -2399,7 +2430,7 @@ msgstr "下載"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "群組"
 
 #, php-format
 msgid "hour"
@@ -2415,7 +2446,7 @@ msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "最新"
 
 #, php-format
 msgid "locale"
@@ -2423,11 +2454,11 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "幣別"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "語言"
 
 #, php-format
 msgid "locale/site"
@@ -2435,7 +2466,7 @@ msgstr ""
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "日誌"
 
 msgid "media"
 msgstr "媒體"
@@ -2453,7 +2484,7 @@ msgid "new"
 msgstr "新"
 
 msgid "no"
-msgstr ""
+msgstr "不"
 
 msgid "not available any more"
 msgstr ""
@@ -2464,13 +2495,13 @@ msgstr "選項"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "訂單"
 
 msgid "order:phone"
-msgstr ""
+msgstr "訂單：電話"
 
 msgid "order:web"
-msgstr ""
+msgstr "訂單：網路"
 
 msgid "pay:-1"
 msgstr "尚未完成"
@@ -2534,7 +2565,7 @@ msgstr ""
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "插件"
 
 #, php-format
 msgid "price"
@@ -2546,6 +2577,15 @@ msgstr "商品"
 
 #, php-format
 msgid "property"
+msgstr ""
+
+msgid "reason:-1"
+msgstr ""
+
+msgid "reason:0"
+msgstr ""
+
+msgid "reason:1"
 msgstr ""
 
 #, php-format
@@ -2580,7 +2620,7 @@ msgstr ""
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "特別"
 
 msgid "stat:-1"
 msgstr "尚未完成"
@@ -2637,16 +2677,16 @@ msgid "stat:unfinished"
 msgstr "狀態：未完成"
 
 msgid "status:-1"
-msgstr ""
+msgstr "狀態：-1"
 
 msgid "status:-2"
-msgstr ""
+msgstr "狀態：-2"
 
 msgid "status:0"
-msgstr ""
+msgstr "狀態：0"
 
 msgid "status:1"
-msgstr ""
+msgstr "狀態：1"
 
 msgid "status:archive"
 msgstr "狀態：已封存"
@@ -2666,11 +2706,11 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "訂閱"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "供應商"
 
 msgid "tag"
 msgstr "標籤"
@@ -2681,7 +2721,7 @@ msgstr "文本"
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "類別"
 
 #, php-format
 msgid "type/attribute"
@@ -2713,7 +2753,7 @@ msgstr "媒體"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "媒體清單"
 
 #, php-format
 msgid "type/media/property"
@@ -2721,7 +2761,7 @@ msgstr ""
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "插件"
 
 #, php-format
 msgid "type/price"
@@ -2775,7 +2815,7 @@ msgid "weekday"
 msgstr ""
 
 msgid "yes"
-msgstr ""
+msgstr "是"
 
 msgid "yy-mm-dd"
 msgstr "yy-mm-dd"

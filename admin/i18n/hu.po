@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 21:45+0200\n"
-"PO-Revision-Date: 2018-07-03 20:42+0000\n"
+"POT-Creation-Date: 2018-09-27 08:31+0200\n"
+"PO-Revision-Date: 2018-09-27 06:36+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -1256,6 +1256,9 @@ msgstr ""
 msgid "Non-shared properties for the media item"
 msgstr ""
 
+msgid "None"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr ""
@@ -1330,6 +1333,14 @@ msgstr "Áttekintés"
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
+msgstr ""
+
+#, php-format
+msgid "PHP setting \"%1$s\" is disabled"
+msgstr ""
+
+#, php-format
+msgid "PHP setting for \"%1$s\" is too low"
 msgstr ""
 
 #, php-format
@@ -1508,6 +1519,9 @@ msgstr "Árak"
 msgid "Priority"
 msgstr "Prioritás"
 
+msgid "Problem"
+msgstr ""
+
 msgid "Product"
 msgstr "Termék"
 
@@ -1653,6 +1667,9 @@ msgstr "Mennyiség"
 msgid "Quantity or empty if unlimited (optional)"
 msgstr "Ha nincs korlátozva, mennyiség vagy üres,  (választható)"
 
+msgid "Reason"
+msgstr ""
+
 msgid "Rebate"
 msgstr "Engedmény"
 
@@ -1790,6 +1807,9 @@ msgstr ""
 msgid "Service attribute code"
 msgstr ""
 
+msgid "Service costs"
+msgstr ""
+
 msgid "Service fees"
 msgstr "Szolgáltatás díjai"
 
@@ -1802,7 +1822,13 @@ msgstr ""
 msgid "Service position (required)"
 msgstr ""
 
+msgid "Service price"
+msgstr ""
+
 msgid "Service provider or service decorator configuration name"
+msgstr ""
+
+msgid "Service rebate"
 msgstr ""
 
 msgid "Service type"
@@ -1872,6 +1898,9 @@ msgstr ""
 
 msgid "Simple mode"
 msgstr "Egyszerű mód"
+
+msgid "Since when the product is available, used for sorting in the front-end"
+msgstr ""
 
 msgid "Site"
 msgstr "Webhely"
@@ -2546,6 +2575,15 @@ msgstr "Termékek"
 
 #, php-format
 msgid "property"
+msgstr ""
+
+msgid "reason:-1"
+msgstr ""
+
+msgid "reason:0"
+msgstr ""
+
+msgid "reason:1"
 msgstr ""
 
 #, php-format

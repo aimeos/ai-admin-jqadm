@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 21:45+0200\n"
-"PO-Revision-Date: 2018-07-04 07:44+0000\n"
+"POT-Creation-Date: 2018-09-27 08:31+0200\n"
+"PO-Revision-Date: 2018-09-27 06:47+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1257,6 +1257,9 @@ msgstr "Kein Gutschein"
 msgid "Non-shared properties for the media item"
 msgstr "Eigenschaften von Medieneinträgen"
 
+msgid "None"
+msgstr "Keine"
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Zugriff auf den JQAdm Client \"%1$s\" verweigert"
@@ -1332,6 +1335,14 @@ msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
 msgstr "Existierende Datei überschreiben. Kunden, die das Produkt in der Vergangenheit kauften, können die neue Datei ebenfalls herunter laden"
+
+#, php-format
+msgid "PHP setting \"%1$s\" is disabled"
+msgstr "PHP Einstellung \"%1$s\" ist deaktiviert"
+
+#, php-format
+msgid "PHP setting for \"%1$s\" is too low"
+msgstr "PHP Einstellung für \"%1$s\" ist zu gering"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1509,6 +1520,9 @@ msgstr "Preise"
 msgid "Priority"
 msgstr "Priorität"
 
+msgid "Problem"
+msgstr "Problem"
+
 msgid "Product"
 msgstr "Produkt"
 
@@ -1654,6 +1668,9 @@ msgstr "Anzahl"
 msgid "Quantity or empty if unlimited (optional)"
 msgstr "Anzahl oder kein Eintrag für unbegrenzte Menge (optional)"
 
+msgid "Reason"
+msgstr "Grund"
+
 msgid "Rebate"
 msgstr "Rabatt"
 
@@ -1791,6 +1808,9 @@ msgstr "Diensttypen"
 msgid "Service attribute code"
 msgstr "Service-Attributschlüssel"
 
+msgid "Service costs"
+msgstr "Kosten für Versand und/oder Zahlung"
+
 msgid "Service fees"
 msgstr "Gebühren für Versand und/oder Zahlung"
 
@@ -1803,8 +1823,14 @@ msgstr "Dienstname"
 msgid "Service position (required)"
 msgstr "Dienstreihenfolge (benötigt)"
 
+msgid "Service price"
+msgstr "Dienstpreis"
+
 msgid "Service provider or service decorator configuration name"
 msgstr "Konfigurationsname für den Dienste-Provider oder Dienste-Dekorator"
+
+msgid "Service rebate"
+msgstr "Dienstrabatt"
 
 msgid "Service type"
 msgstr "Diensttyp"
@@ -1873,6 +1899,9 @@ msgstr "Wird angezeigt, wenn der Artikel einen Bestand von 0 erreicht"
 
 msgid "Simple mode"
 msgstr "Einfach-Modus"
+
+msgid "Since when the product is available, used for sorting in the front-end"
+msgstr "Seit wann das Produkt verfügbar ist, wird für die Sortierung im Frontend benutzt"
 
 msgid "Site"
 msgstr "Mandant"
@@ -2548,6 +2577,15 @@ msgstr "Produkte"
 #, php-format
 msgid "property"
 msgstr "Eigenschaften"
+
+msgid "reason:-1"
+msgstr "Zahlung fehlgeschlagen"
+
+msgid "reason:0"
+msgstr "Enddatum erreicht"
+
+msgid "reason:1"
+msgstr "Abbruch durch Kunde"
 
 #, php-format
 msgid "related"

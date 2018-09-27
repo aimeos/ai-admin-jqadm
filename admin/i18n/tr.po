@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-03 21:45+0200\n"
-"PO-Revision-Date: 2018-07-07 12:52+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>\n"
+"POT-Creation-Date: 2018-09-27 08:31+0200\n"
+"PO-Revision-Date: 2018-09-27 06:36+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1255,6 +1255,9 @@ msgstr "Kupon yok"
 msgid "Non-shared properties for the media item"
 msgstr "Medya öğesi için paylaşılmayan özellikler"
 
+msgid "None"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "JQAdm \"%1$s\" istemcisine erişime izin verilmedi"
@@ -1330,6 +1333,14 @@ msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
 msgstr "Varolan dosyanın üzerine yaz, böylece daha önce onu satın alan müşteriler daha sonra yeni içeriği de indirebilirler"
+
+#, php-format
+msgid "PHP setting \"%1$s\" is disabled"
+msgstr ""
+
+#, php-format
+msgid "PHP setting for \"%1$s\" is too low"
+msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1507,6 +1518,9 @@ msgstr "Fiyatlar"
 msgid "Priority"
 msgstr "Öncelik"
 
+msgid "Problem"
+msgstr ""
+
 msgid "Product"
 msgstr "Ürün"
 
@@ -1652,6 +1666,9 @@ msgstr "Miktar"
 msgid "Quantity or empty if unlimited (optional)"
 msgstr "Miktar veya sınırsızsa boş (isteğe bağlı)"
 
+msgid "Reason"
+msgstr ""
+
 msgid "Rebate"
 msgstr "İndirim"
 
@@ -1789,6 +1806,9 @@ msgstr "Hizmet Türleri"
 msgid "Service attribute code"
 msgstr "Hizmet nitelik kodu"
 
+msgid "Service costs"
+msgstr ""
+
 msgid "Service fees"
 msgstr "Hizmet ücretleri"
 
@@ -1801,8 +1821,14 @@ msgstr "Hizmet adı"
 msgid "Service position (required)"
 msgstr "Hizmet konumu (gerekli)"
 
+msgid "Service price"
+msgstr ""
+
 msgid "Service provider or service decorator configuration name"
 msgstr "Hizmet sağlayıcı veya hizmet dekoratörü yapılandırma adı"
+
+msgid "Service rebate"
+msgstr ""
 
 msgid "Service type"
 msgstr "Hizmet türü"
@@ -1871,6 +1897,9 @@ msgstr "Eğer ürünün stok seviyesi sıfıra ulaştıysa gösterilir"
 
 msgid "Simple mode"
 msgstr "Basit mod"
+
+msgid "Since when the product is available, used for sorting in the front-end"
+msgstr ""
 
 msgid "Site"
 msgstr "Site"
@@ -2546,6 +2575,15 @@ msgstr "Ürünler"
 #, php-format
 msgid "property"
 msgstr "Nitelik"
+
+msgid "reason:-1"
+msgstr ""
+
+msgid "reason:0"
+msgstr ""
+
+msgid "reason:1"
+msgstr ""
 
 #, php-format
 msgid "related"
