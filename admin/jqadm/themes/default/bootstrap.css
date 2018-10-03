@@ -193,7 +193,7 @@ input[type='checkbox'], input[type='radio'] {
 }
 
 .form-inline label {
-	webkit-justify-content: inherit;
+	-webkit-justify-content: inherit;
 	justify-content: inherit;
 }
 

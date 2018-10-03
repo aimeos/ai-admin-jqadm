@@ -60,9 +60,11 @@
 	content: "\f066";
 }
 
+/*
 .aimeos .tree-toolbar .btn.act-add:before {
-/*	content: "\f067";*/
+	content: "\f067";
 }
+*/
 
 .aimeos .tree-toolbar .btn.act-delete:before {
 	content: "\f068";
@@ -117,7 +119,7 @@
 }
 
 .aimeos .list-items a.items-field {
-	display: inline;
+	display: inline-block;
 	color: #333;
 	width: 100%;
 }
