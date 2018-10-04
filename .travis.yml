@@ -13,7 +13,7 @@ matrix:
   fast_finish: true
 
 before_script:
-  - git clone --depth=50 --branch=master git://github.com/aimeos/aimeos-core.git ../aimeos-core
+  - git clone --depth=50 --branch=2018.10 git://github.com/aimeos/aimeos-core.git ../aimeos-core
   - cd ../aimeos-core && mv ../ai-admin-jqadm ext/
   - composer self-update && composer update
   - mysql -e 'create database aimeos;'
