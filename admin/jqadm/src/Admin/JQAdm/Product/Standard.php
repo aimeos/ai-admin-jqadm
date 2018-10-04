@@ -526,10 +526,17 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
 
-		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
+		if( isset( $data['product.id'] ) && $data['product.id'] != '' )
+		{
 			$item = $manager->getItem( $data['product.id'], $this->getDomains() );
-		} else {
-			$item = $manager->createItem();
+		}
+		else
+		{
+			$typeId = $data['product.typeid'];
+			$typeItems = $this->getTypeItems();
+			$typeCode = ( isset( $typeItems[$typeId] ) ? $typeItems[$typeId]->getCode() : null );
+
+			$item = $manager->createItem( $typeCode, 'default' );
 		}
 
 		$item->fromArray( $data );
