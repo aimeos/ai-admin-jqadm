@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-27 08:31+0200\n"
-"PO-Revision-Date: 2018-09-27 06:36+0000\n"
-"Last-Translator: Aimeos\n"
+"PO-Revision-Date: 2018-10-02 00:12+0000\n"
+"Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1256,7 +1256,7 @@ msgid "Non-shared properties for the media item"
 msgstr "Medya öğesi için paylaşılmayan özellikler"
 
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1336,11 +1336,11 @@ msgstr "Varolan dosyanın üzerine yaz, böylece daha önce onu satın alan mü�
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "\"%1$s\" PHP ayarı devre dışı"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "\"%1$s\" için PHP ayarı çok düşük"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1519,7 +1519,7 @@ msgid "Priority"
 msgstr "Öncelik"
 
 msgid "Problem"
-msgstr ""
+msgstr "Problem"
 
 msgid "Product"
 msgstr "Ürün"
@@ -1667,7 +1667,7 @@ msgid "Quantity or empty if unlimited (optional)"
 msgstr "Miktar veya sınırsızsa boş (isteğe bağlı)"
 
 msgid "Reason"
-msgstr ""
+msgstr "Sebep"
 
 msgid "Rebate"
 msgstr "İndirim"
@@ -1807,7 +1807,7 @@ msgid "Service attribute code"
 msgstr "Hizmet nitelik kodu"
 
 msgid "Service costs"
-msgstr ""
+msgstr "Hizmet masrafları"
 
 msgid "Service fees"
 msgstr "Hizmet ücretleri"
@@ -1822,13 +1822,13 @@ msgid "Service position (required)"
 msgstr "Hizmet konumu (gerekli)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Hizmet fiyatı"
 
 msgid "Service provider or service decorator configuration name"
 msgstr "Hizmet sağlayıcı veya hizmet dekoratörü yapılandırma adı"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Hizmet indirimi"
 
 msgid "Service type"
 msgstr "Hizmet türü"
@@ -1899,7 +1899,7 @@ msgid "Simple mode"
 msgstr "Basit mod"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "Ürün ne zamandan beri mevcut: Ön panelde (front-end) sıralama için kullanılır"
 
 msgid "Site"
 msgstr "Site"
@@ -2577,13 +2577,13 @@ msgid "property"
 msgstr "Nitelik"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "Sebep:-1"
 
 msgid "reason:0"
-msgstr ""
+msgstr "Sebep:0"
 
 msgid "reason:1"
-msgstr ""
+msgstr "Sebep:1"
 
 #, php-format
 msgid "related"
