@@ -339,7 +339,7 @@ class Standard
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'subscription' );
 
 			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '-', 'subscription.id' )] );
+			$search->setSortations( [$search->sort( '-', 'subscription.ctime' )] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
@@ -497,7 +497,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
 		$search->setSlice( 0, 0x7fffffff );
 
-		return $manager->searchItems( $search, ['order/base/address'] );
+		return $manager->searchItems( $search, ['order/base/address', 'order/base/product'] );
 	}
 
 

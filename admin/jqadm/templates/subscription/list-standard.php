@@ -76,13 +76,19 @@ $columnList = [
 	'order.base.sitecode' => $this->translate( 'admin', 'Site' ),
 	'order.base.languageid' => $this->translate( 'admin', 'Language' ),
 	'order.base.currencyid' => $this->translate( 'admin', 'Currency' ),
-	'order.base.price' => $this->translate( 'admin', 'Price' ),
-	'order.base.costs' => $this->translate( 'admin', 'Costs' ),
-	'order.base.rebate' => $this->translate( 'admin', 'Rebate' ),
-	'order.base.taxvalue' => $this->translate( 'admin', 'Tax' ),
 	'order.base.taxflag' => $this->translate( 'admin', 'Incl. tax' ),
-	'order.base.status' => $this->translate( 'admin', 'Subscription' ),
 	'order.base.comment' => $this->translate( 'admin', 'Comment' ),
+	'order.base.product.type' => $this->translate( 'admin', 'Product type' ),
+	'order.base.product.stocktype' => $this->translate( 'admin', 'Stock type' ),
+	'order.base.product.suppliercode' => $this->translate( 'admin', 'Product supplier' ),
+	'order.base.product.prodcode' => $this->translate( 'admin', 'Product code' ),
+	'order.base.product.name' => $this->translate( 'admin', 'Product name' ),
+	'order.base.product.quantity' => $this->translate( 'admin', 'Product quantity' ),
+	'order.base.product.price' => $this->translate( 'admin', 'Product price' ),
+	'order.base.product.costs' => $this->translate( 'admin', 'Product costs' ),
+	'order.base.product.rebate' => $this->translate( 'admin', 'Product rebate' ),
+	'order.base.product.taxvalue' => $this->translate( 'admin', 'Product tax' ),
+	'order.base.product.status' => $this->translate( 'admin', 'Product status' ),
 	'order.base.address.salutation' => $this->translate( 'admin', 'Salutation' ),
 	'order.base.address.company' => $this->translate( 'admin', 'Company' ),
 	'order.base.address.vatid' => $this->translate( 'admin', 'VAT ID' ),
@@ -101,6 +107,18 @@ $columnList = [
 	'order.base.address.telefax' => $this->translate( 'admin', 'Facsimile' ),
 	'order.base.address.email' => $this->translate( 'admin', 'E-Mail' ),
 	'order.base.address.website' => $this->translate( 'admin', 'Web site' ),
+];
+
+$deliveryStatusList = [
+	'-1' => $this->translate( 'mshop/code', 'stat:-1' ),
+	'0' => $this->translate( 'mshop/code', 'stat:0' ),
+	'1' => $this->translate( 'mshop/code', 'stat:1' ),
+	'2' => $this->translate( 'mshop/code', 'stat:2' ),
+	'3' => $this->translate( 'mshop/code', 'stat:3' ),
+	'4' => $this->translate( 'mshop/code', 'stat:4' ),
+	'5' => $this->translate( 'mshop/code', 'stat:5' ),
+	'6' => $this->translate( 'mshop/code', 'stat:6' ),
+	'7' => $this->translate( 'mshop/code', 'stat:7' ),
 ];
 
 $statusList = [
@@ -196,13 +214,19 @@ $reasonList = [
 						'order.base.sitecode' => ['op' => '=='],
 						'order.base.languageid' => ['op' => '=='],
 						'order.base.currencyid' => ['op' => '=='],
-						'order.base.price' => ['op' => '==', 'type' => 'number'],
-						'order.base.costs' => ['op' => '==', 'type' => 'number'],
-						'order.base.rebate' => ['op' => '==', 'type' => 'number'],
-						'order.base.taxvalue' => ['op' => '==', 'type' => 'number'],
 						'order.base.taxflag' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
-						'order.base.status' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
 						'order.base.comment' => [],
+						'order.base.product.type' => [],
+						'order.base.product.stocktype' => [],
+						'order.base.product.suppliercode' => [],
+						'order.base.product.prodcode' => [],
+						'order.base.product.name' => [],
+						'order.base.product.quantity' => ['op' => '==', 'type' => 'number'],
+						'order.base.product.price' => ['op' => '==', 'type' => 'number'],
+						'order.base.product.costs' => ['op' => '==', 'type' => 'number'],
+						'order.base.product.rebate' => ['op' => '==', 'type' => 'number'],
+						'order.base.product.taxvalue' => ['op' => '==', 'type' => 'number'],
+						'order.base.product.status' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
 						'order.base.address.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
 							'company' => 'company', 'mr' => 'mr', 'mrs' => 'mrs', 'miss' => 'miss'
 						]],
@@ -272,26 +296,55 @@ $reasonList = [
 					<?php if( in_array( 'order.base.currencyid', $fields ) ) : ?>
 						<td class="order-base-currencyid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getLocale()->getCurrencyId() ) : ''; ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'order.base.price', $fields ) ) : ?>
-						<td class="order-base-price"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getPrice()->getValue() ) : ''; ?></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'order.base.costs', $fields ) ) : ?>
-						<td class="order-base-costs"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getPrice()->getCosts() ) : ''; ?></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'order.base.rebate', $fields ) ) : ?>
-						<td class="order-base-rebate"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getPrice()->getRebate() ) : ''; ?></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'order.base.taxvalue', $fields ) ) : ?>
-						<td class="order-base-taxvalue"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getPrice()->getTaxValue() ) : ''; ?></a></td>
-					<?php endif; ?>
 					<?php if( in_array( 'order.base.taxflag', $fields ) ) : ?>
 						<td class="order-base-taxflag"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $statusList[$baseItem->getPrice()->getTaxFlag()] ) : ''; ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'order.base.status', $fields ) ) : ?>
-						<td class="order-base-status"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $statusList[$baseItem->getStatus()] ) : ''; ?></a></td>
-					<?php endif; ?>
 					<?php if( in_array( 'order.base.comment', $fields ) ) : ?>
 						<td class="order-base-comment"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getComment() ) : ''; ?></a></td>
+					<?php endif; ?>
+
+					<?php $prodItem = null;
+						if( $baseItem ) {
+							foreach( $baseItem->getProducts() as $product ) {
+								if( $product->getId() == $item->getOrderProductId() ) {
+									$prodItem = $product;
+								}
+							}
+						}
+					?>
+
+					<?php if( in_array( 'order.base.product.type', $fields ) ) : ?>
+						<td class="order-base-product-type"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getType() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.stocktype', $fields ) ) : ?>
+						<td class="order-base-product-stocktype"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getStockType() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.suppliercode', $fields ) ) : ?>
+						<td class="order-base-product-suppliercode"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getSupplierCode() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.prodcode', $fields ) ) : ?>
+						<td class="order-base-product-prodcode"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getProductCode() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.name', $fields ) ) : ?>
+						<td class="order-base-product-name"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getName() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.quantity', $fields ) ) : ?>
+						<td class="order-base-product-quantity"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getQuantity() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.price', $fields ) ) : ?>
+						<td class="order-base-product-price"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getValue() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.costs', $fields ) ) : ?>
+						<td class="order-base-product-costs"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getCosts() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.rebate', $fields ) ) : ?>
+						<td class="order-base-product-rebate"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getRebate() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.taxvalue', $fields ) ) : ?>
+						<td class="order-base-product-taxvalue"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getTaxValue() ) : ''; ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.base.product.status', $fields ) ) : ?>
+						<td class="order-base-product-status"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $deliveryStatusList[$prodItem->getStatus()] ) : ''; ?></a></td>
 					<?php endif; ?>
 
 					<?php $addrItem = null;
