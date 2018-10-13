@@ -322,6 +322,10 @@
 
 /** Subscription */
 
+.aimeos .item-subscription span.form-control {
+    border-color: transparent;
+}
+
 .aimeos .item-subscription .interval-field {
 	width: 10%;
 }

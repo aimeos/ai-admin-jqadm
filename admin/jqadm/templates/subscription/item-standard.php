@@ -227,6 +227,17 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 							</div>
 						</div>
 						<div class="form-group row">
+							<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Order ID' ) ); ?></label>
+							<div class="col-8">
+								<span class="form-control item-orderid">
+									<a class="act-view" target="_blank"
+										href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $basket->getId()], [], $getConfig ) ); ?>">
+										<?= $enc->attr( $basket->getId() ); ?>
+									</a>
+								</span>
+							</div>
+						</div>
+						<div class="form-group row">
 							<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 							<div class="col-8">
 								<span class="form-control item-currencyid"><?= $enc->html( $basket->getLocale()->getCurrencyId() ); ?></span>
