@@ -232,6 +232,7 @@ class Standard
 		try
 		{
 			$view->item = $this->fromArray( $view->param( 'item', [] ) );
+			$manager->saveItem( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -526,23 +527,17 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
 
-		if( isset( $data['product.id'] ) && $data['product.id'] != '' )
-		{
+		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
 			$item = $manager->getItem( $data['product.id'], $this->getDomains() );
-		}
-		else
-		{
-			$typeId = $data['product.typeid'];
-			$typeItems = $this->getTypeItems();
-			$typeCode = ( isset( $typeItems[$typeId] ) ? $typeItems[$typeId]->getCode() : null );
-
-			$item = $manager->createItem( $typeCode, 'default' );
+		} else {
+			$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/type' );
+			$item = $manager->createItem( $typeManager->getItem( $data['product.typeid'] )->getCode(), 'product' );
 		}
 
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 
-		return $manager->saveItem( $item );
+		return $item;
 	}
 
 

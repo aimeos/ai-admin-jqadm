@@ -233,6 +233,7 @@ class Standard
 		try
 		{
 			$view->item = $this->fromArray( $view->param( 'item', [] ) );
+			$manager->saveItem( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -507,7 +508,7 @@ class Standard
 			return $manager->insertItem( $item, $data['catalog.parentid'] ?: null );
 		}
 
-		return $manager->saveItem( $item );
+		return $item;
 	}
 
 

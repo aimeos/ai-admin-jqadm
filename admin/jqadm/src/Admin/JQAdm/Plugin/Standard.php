@@ -239,6 +239,7 @@ class Standard
 		try
 		{
 			$view->item = $this->fromArray( $view->param( 'item', [] ) );
+			$manager->saveItem( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -562,15 +563,16 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin' );
 
 		if( isset( $data['plugin.id'] ) && $data['plugin.id'] != '' ) {
-			$item = $manager->getItem( $data['plugin.id'] );
+			$item = $manager->getItem( $data['plugin.id'], $this->getDomains() );
 		} else {
-			$item = $manager->createItem();
+			$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin/type' );
+			$item = $manager->createItem( $typeManager->getItem( $data['plugin.typeid'] )->getCode(), 'plugin' );
 		}
 
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 
-		return $manager->saveItem( $item );
+		return $item;
 	}
 
 

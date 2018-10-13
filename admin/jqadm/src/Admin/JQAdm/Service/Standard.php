@@ -240,6 +240,7 @@ class Standard
 		try
 		{
 			$view->item = $this->fromArray( $view->param( 'item', [] ) );
+			$manager->saveItem( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -590,13 +591,14 @@ class Standard
 		if( isset( $data['service.id'] ) && $data['service.id'] != '' ) {
 			$item = $manager->getItem( $data['service.id'], $this->getDomains() );
 		} else {
-			$item = $manager->createItem();
+			$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service/type' );
+			$item = $manager->createItem( $typeManager->getItem( $data['service.typeid'] )->getCode(), 'service' );
 		}
 
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 
-		return $manager->saveItem( $item );
+		return $item;
 	}
 
 

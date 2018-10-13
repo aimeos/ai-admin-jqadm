@@ -236,6 +236,7 @@ class Standard
 		try
 		{
 			$view->item = $this->fromArray( $view->param( 'item', [] ) );
+			$manager->saveItem( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -545,7 +546,7 @@ class Standard
 		$item->fromArray( $data );
 		$item->setConfig( $conf );
 
-		return $manager->saveItem( $item );
+		return $item;
 	}
 
 
