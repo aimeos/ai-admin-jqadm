@@ -407,8 +407,8 @@ $refItems = $this->get( 'productItems', [] );
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'productTotal' ),
-			'group' => 'cp', ( $this->param( 'id') ? 'get' : 'search' ), 'fragment' => 'product',
-			'page' =>$this->session( 'aimeos/admin/jqadm/catalogproduct/page', [] )]
+			'group' => 'cp', 'action' => ( $this->param( 'id') ? 'get' : 'search' ), 'fragment' => 'product',
+			'page' => $this->session( 'aimeos/admin/jqadm/catalogproduct/page', [] )]
 		);
 	?>
 
