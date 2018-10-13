@@ -232,6 +232,7 @@ class Standard
 		try
 		{
 			$view->item = $this->fromArray( $view->param( 'item', [] ) );
+			$manager->saveItem( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -542,7 +543,7 @@ class Standard
 		$item->fromArray( $data );
 		$item->setGroups( array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() ) );
 
-		return $manager->saveItem( $item );
+		return $item;
 	}
 
 

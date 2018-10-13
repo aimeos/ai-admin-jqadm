@@ -258,6 +258,7 @@ class Standard
 		try
 		{
 			$view->item = $this->fromArray( $view->param( 'item', [] ), $view->access( 'super' ) );
+			$manager->saveItem( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
@@ -571,7 +572,7 @@ class Standard
 			return $manager->insertItem( $item );
 		}
 
-		return $manager->saveItem( $item );
+		return $item;
 	}
 
 

@@ -180,20 +180,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/type' );
 
-		$search = $typeManager->createSearch();
-		$search->setSlice( 0, 1 );
-		$typeItems = $typeManager->searchItems( $search );
-
-		if( ( $typeItem = reset( $typeItems ) ) === false ) {
-			throw new \RuntimeException( 'No product type item found' );
-		}
-
+		$typeId = $typeManager->findItem( 'default', [], 'product' )->getId();
 
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
 				'product.id' => '',
-				'product.typeid' => $typeItem->getId(),
+				'product.typeid' => $typeId,
 				'product.code' => 'test',
 				'product.label' => 'test label',
 				'product.datestart' => null,

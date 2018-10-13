@@ -225,13 +225,14 @@ class Standard
 		try
 		{
 			$view->item = $this->fromArray( $view->param( 'item', [] ) );
+			$manager->store( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
 				$view->itemBody .= $client->save();
 			}
 
-			$manager->saveItem( clone $view->item );
+			$manager->store( clone $view->item );
 			$manager->commit();
 
 			$this->nextAction( $view, $view->param( 'next' ), 'order', $view->item->getId(), 'save' );
@@ -557,8 +558,6 @@ class Standard
 				$attrManager->deleteItems( array_keys( $attrItems ) );
 			}
 		}
-
-		$manager->store( $basket );
 
 		return $basket;
 	}
