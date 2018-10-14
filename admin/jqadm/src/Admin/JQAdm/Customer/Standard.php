@@ -231,8 +231,8 @@ class Standard
 
 		try
 		{
-			$view->item = $this->fromArray( $view->param( 'item', [] ) );
-			$manager->saveItem( $view->item );
+			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$view->item = $item->getId() ? $item : $manager->saveItem( $item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {

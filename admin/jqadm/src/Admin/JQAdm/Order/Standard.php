@@ -224,8 +224,8 @@ class Standard
 
 		try
 		{
-			$view->item = $this->fromArray( $view->param( 'item', [] ) );
-			$manager->store( $view->item );
+			$item = $this->fromArray( $view->param( 'item', [] ) );
+			$view->item = $item->getId() ? $item : $manager->store( clone $item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
