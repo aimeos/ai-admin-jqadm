@@ -201,9 +201,8 @@ class Standard
 
 		$baseManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
 
-		$baseSearch = $manager->createSearch();
+		$baseSearch = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
 		$baseSearch->setConditions( $baseSearch->compare( '==', 'order.base.id', $baseIds ) );
-		$baseSearch->setSlice( 0, 0x7fffffff );
 
 		$basketItems = $baseManager->searchItems( $baseSearch, ['order/base/address', 'order/base/service'] );
 

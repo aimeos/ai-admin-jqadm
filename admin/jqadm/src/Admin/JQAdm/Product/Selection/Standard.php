@@ -295,7 +295,7 @@ class Standard
 		{
 			$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
 
-			$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
+			$search = $manager->createSearch()->setSlice( 0, count( $articles ) );
 			$search->setConditions( $search->compare( '==', 'product.id', array_keys( $articles ) ) );
 
 			$articles = $manager->searchItems( $search, ['attribute'] );

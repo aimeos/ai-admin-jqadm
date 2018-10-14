@@ -432,9 +432,8 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
-		$search->setSlice( 0, 0x7fffffff );
 
 		return $manager->searchItems( $search, ['order/base/address', 'order/base/service'] );
 	}

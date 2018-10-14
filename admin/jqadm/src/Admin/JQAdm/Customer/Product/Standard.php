@@ -342,9 +342,8 @@ class Standard
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch()->setSlice( 0, count( $list ) );
 		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
-		$search->setSlice( 0, 0x7fffffff );
 
 		return $manager->searchItems( $search );
 	}
@@ -407,9 +406,8 @@ class Standard
 
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'customer/lists' );
 
-		$search = $listManager->createSearch();
+		$search = $listManager->createSearch()->setSlice( 0, count( $listIds ) );
 		$search->setConditions( $search->compare( '==', 'customer.lists.id', $listIds ) );
-		$search->setSlice( 0, 0x7fffffff );
 
 		$listItems = $listManager->searchItems( $search );
 

@@ -307,9 +307,8 @@ class Standard
 		$invoiceIds = $this->getValue( $data, 'order.id', [] );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch()->setSlice( 0, count( $invoiceIds ) );
 		$search->setConditions( $search->compare( '==', 'order.id', $invoiceIds ) );
-		$search->setSlice( 0, 0x7fffffff );
 
 		$items = $manager->searchItems( $search );
 

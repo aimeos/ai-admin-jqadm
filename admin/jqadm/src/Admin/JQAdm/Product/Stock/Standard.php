@@ -91,7 +91,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock' );
 
 		$code = $this->getView()->item->getCode();
-		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
+		$search = $manager->createSearch()->setSlice( 0, count( $code ) );
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $code ) );
 
 		$manager->deleteItems( array_keys( $manager->searchItems( $search ) ) );
