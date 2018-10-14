@@ -257,8 +257,8 @@ class Standard
 
 		try
 		{
-			$view->item = $this->fromArray( $view->param( 'item', [] ), $view->access( 'super' ) );
-			$manager->saveItem( $view->item );
+			$item = $this->fromArray( $view->param( 'item', [] ), $view->access( 'super' ) );
+			$view->item = $item->getId() ? $item : $manager->saveItem( $item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
