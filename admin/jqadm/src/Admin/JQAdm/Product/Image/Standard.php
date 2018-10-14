@@ -250,6 +250,35 @@ class Standard
 
 
 	/**
+	 * Adds the product variant attributes to the media item
+	 * Then, the images will only be shown if the customer selected the product variant
+	 *
+	 * @param \Aimeos\MShop\Media\Item\Iface $mediaItem Media item, maybe with referenced attribute items
+	 * @param \Aimeos\MShop\Common\Item\Lists\Iface[] $attrListItems Product list items referencing variant attributes
+	 * @return \Aimeos\MShop\Media\Item\Iface Modified media item
+	 */
+	protected function addMediaAttributes( \Aimeos\MShop\Media\Item\Iface $mediaItem, array $attrListItems )
+	{
+		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/lists' );
+		$listItems = $mediaItem->getListItems( 'attribute', 'variant', null, false );
+
+		foreach( $attrListItems as $listItem )
+		{
+			if( ( $litem = $mediaItem->getListItem( 'attribute', 'variant', $listItem->getRefId() ) ) !== null )
+			{
+				unset( $listItems[$litem->getId()] );
+				continue;
+			}
+
+			$litem = $listManager->createItem( 'variant', 'attribute' )->setRefId( $listItem->getRefId() );
+			$mediaItem->addListItem( 'attribute', $litem );
+		}
+
+		return $mediaItem->deleteListItems( $listItems );
+	}
+
+
+	/**
 	 * Adds the required data used in the product template
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object
@@ -367,6 +396,8 @@ class Standard
 			$listItem->setPosition( $idx );
 			$listItem->setConfig( $conf );
 
+			$attrListItems = $refItem->getListItems( 'attribute', 'variant', null, false );
+			$refItem = $this->addMediaAttributes( $refItem, $attrListItems );
 			$item->addListItem( 'media', $listItem, $refItem );
 
 			unset( $listItems[$listItem->getId()] );
