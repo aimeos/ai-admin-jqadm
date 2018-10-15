@@ -326,18 +326,23 @@ class Standard
 
 		$priceManager = \Aimeos\MShop\Factory::createManager( $context, 'price' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$priceTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'price/type' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$listItems = $item->getListItems( 'price', null, null, false );
 
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = $item->getListItem( 'price', $entry['product.lists.type'], $entry['price.id'] ) ) === null ) {
-				$listItem = $listManager->createItem();
+			$type = $priceTypeManager->getItem( $entry['price.typeid'] )->getCode();
+			$listType = $listTypeManager->getItem( $entry['product.lists.typeid'] )->getCode();
+
+			if( ( $listItem = $item->getListItem( 'price', $listType, $entry['price.id'] ) ) === null ) {
+				$listItem = $listManager->createItem( $listType, 'price' );
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $priceManager->createItem();
+				$refItem = $priceManager->createItem( $type, 'product' );
 			}
 
 			$refItem->fromArray( $entry );

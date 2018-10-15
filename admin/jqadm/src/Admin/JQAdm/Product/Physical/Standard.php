@@ -284,10 +284,9 @@ class Standard
 			if( ( $value = trim( $value ) ) != '' )
 			{
 				if( ( $propItem = reset( $propItems ) ) === false ) {
-					$propItem = $manager->createItem();
+					$propItem = $manager->createItem( $type, 'product' );
 				}
 
-				$propItem->setTypeId( $typeManager->findItem( $type, [], 'product' )->getId() );
 				$propItem->setLanguageId( null );
 				$propItem->setValue( $value );
 

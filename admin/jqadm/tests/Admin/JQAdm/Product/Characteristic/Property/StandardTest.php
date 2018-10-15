@@ -82,6 +82,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product/property/type' );
 		$this->view->item = $manager->createItem();
 
 		$param = array(
@@ -90,7 +91,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'property' => array(
 					array(
 						'product.property.id' => '',
-						'product.property.typeid' => 1,
+						'product.property.typeid' => $typeManager->findItem( 'package-height' )->getId(),
 						'product.property.value' => '#100000',
 					)
 				),

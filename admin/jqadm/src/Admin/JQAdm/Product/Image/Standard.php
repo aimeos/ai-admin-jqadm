@@ -362,6 +362,8 @@ class Standard
 
 		$mediaManager = \Aimeos\MShop\Factory::createManager( $context, 'media' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$mediaTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'media/type' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
@@ -369,12 +371,15 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = $item->getListItem( 'media', $entry['product.lists.type'], $entry['media.id'] ) ) === null ) {
-				$listItem = $listManager->createItem();
+			$type = $mediaTypeManager->getItem( $entry['media.typeid'] )->getCode();
+			$listType = $listTypeManager->getItem( $entry['product.lists.typeid'] )->getCode();
+
+			if( ( $listItem = $item->getListItem( 'media', $listType, $entry['media.id'] ) ) === null ) {
+				$listItem = $listManager->createItem( $listType, 'media' );
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $mediaManager->createItem();
+				$refItem = $mediaManager->createItem( $type, 'product' );
 			}
 
 			$refItem->fromArray( $entry );
@@ -396,7 +401,7 @@ class Standard
 			$listItem->setPosition( $idx );
 			$listItem->setConfig( $conf );
 
-			$attrListItems = $refItem->getListItems( 'attribute', 'variant', null, false );
+			$attrListItems = $item->getListItems( 'attribute', 'variant', null, false );
 			$refItem = $this->addMediaAttributes( $refItem, $attrListItems );
 			$item->addListItem( 'media', $listItem, $refItem );
 
