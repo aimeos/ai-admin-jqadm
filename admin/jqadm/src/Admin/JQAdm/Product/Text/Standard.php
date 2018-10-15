@@ -320,6 +320,8 @@ class Standard
 
 		$textManager = \Aimeos\MShop\Factory::createManager( $context, 'text' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$textTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
+		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$listItems = $item->getListItems( 'text', null, null, false );
 
@@ -330,12 +332,15 @@ class Standard
 				continue;
 			}
 
-			if( ( $listItem = $item->getListItem( 'text', $entry['product.lists.type'], $entry['text.id'] ) ) === null ) {
-				$listItem = $listManager->createItem();
+			$type = $textTypeManager->getItem( $entry['text.typeid'] )->getCode();
+			$listType = $listTypeManager->getItem( $entry['product.lists.typeid'] )->getCode();
+
+			if( ( $listItem = $item->getListItem( 'text', $listType, $entry['text.id'] ) ) === null ) {
+				$listItem = $listManager->createItem( $listType, 'text' );
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $textManager->createItem();
+				$refItem = $textManager->createItem( $type, 'product' );
 			}
 
 			$refItem->fromArray( $entry );

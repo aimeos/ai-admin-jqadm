@@ -297,13 +297,9 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-		$attrTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/type' );
+		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
-		$attrTypeId = $attrTypeManager->findItem( 'interval', [], 'product' )->getId();
-		$listTypeId = $typeManager->findItem( 'config', [], 'attribute' )->getId();
 		$listItems = $item->getListItems( 'attribute', 'config', 'interval', false );
 
 		foreach( $data as $idx => $entry )
@@ -313,24 +309,18 @@ class Standard
 			}
 
 			if( $entry['attribute.id'] == '' || ( $listItem = $item->getListItem( 'attribute', 'config', $entry['attribute.id'] ) ) === null ) {
-				$listItem = $listManager->createItem();
+				$listItem = $listManager->createItem( 'config', 'attribute' );
 			}
 
 			if( $entry['attribute.id'] == '' || ( $refItem = $listItem->getRefItem() ) === null )
 			{
-				$refItem = $attrManager->createItem();
-				$refItem->setTypeId( $attrTypeId );
-				$refItem->setStatus( 1 );
-
+				$refItem = $attrManager->createItem( 'interval', 'product' )->setStatus( 1 );
 				$refItem->fromArray( $entry );
 			}
 
-			$listItem->setPosition( $idx );
-			$listItem->setTypeId( $listTypeId );
-
 			unset( $listItems[$listItem->getId()] );
 
-			$item->addListItem( 'attribute', $listItem, $refItem );
+			$item->addListItem( 'attribute', $listItem->setPosition( $idx ), $refItem );
 		}
 
 		$item->deleteListItems( $listItems );

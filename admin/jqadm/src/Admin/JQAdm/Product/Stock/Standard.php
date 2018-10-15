@@ -315,6 +315,7 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock' );
+		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock/type' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );
@@ -322,23 +323,29 @@ class Standard
 
 		$list = (array) $this->getValue( $data, 'stock.id', [] );
 
-		$manager->deleteItems( array_diff( array_keys( $stockItems ), $list ) );
-
 		foreach( $list as $idx => $id )
 		{
-			if( !isset( $stockItems[$id] ) ) {
-				$stockItem = $manager->createItem();
-			} else {
+			$typeId = $this->getValue( $data, 'stock.typeid/' . $idx );
+
+			if( isset( $stockItems[$id] ) && $stockItems[$id]->getTypeId() == $typeId )
+			{
 				$stockItem = $stockItems[$id];
+				unset( $stockItems[$id] );
+			}
+			else
+			{
+				$type = $typeManager->getItem( $typeId )->getCode();
+				$stockItem = $manager->createItem( $type, 'product' );
 			}
 
 			$stockItem->setProductCode( $item->getCode() );
-			$stockItem->setTypeId( $this->getValue( $data, 'stock.typeid/' . $idx ) );
 			$stockItem->setStocklevel( $this->getValue( $data, 'stock.stocklevel/' . $idx ) );
 			$stockItem->setDateBack( $this->getValue( $data, 'stock.dateback/' . $idx ) );
 
 			$manager->saveItem( $stockItem, false );
 		}
+
+		$manager->deleteItems( array_keys( $stockItems ) );
 	}
 
 

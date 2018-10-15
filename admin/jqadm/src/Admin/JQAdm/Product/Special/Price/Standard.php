@@ -262,30 +262,21 @@ class Standard
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$attrId = $attrManager->findItem( 'custom', [], 'product', 'price' )->getId();
-		$typeId = $typeManager->findItem( 'custom', [], 'attribute' )->getId();
 
 		if( $this->getValue( $data, 'custom', 0 ) == 1 )
 		{
-			foreach( $item->getListItems( 'attribute' ) as $litem )
+			if( $item->getListItem( 'attribute', 'custom', $attrId ) === null )
 			{
-				if( $litem->getTypeId() == $typeId && $litem->getRefId() == $attrId ) {
-					return;
-				}
+				$listItem = $listManager->createItem( 'custom', 'attribute' );
+				$listItem->setRefId( $attrId );
+
+				$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
 			}
-
-			$listItem = $listManager->createItem();
-			$listItem->setTypeId( $typeId );
-			$listItem->setRefId( $attrId );
-
-			$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
 		}
 		else
 		{
-			foreach( $item->getListItems( 'attribute' ) as $litem )
-			{
-				if( $litem->getTypeId() == $typeId && $litem->getRefId() == $attrId ) {
-					$item->deleteListItem( 'attribute', $litem );
-				}
+			if( ( $litem = $item->getListItem( 'attribute', 'custom', $attrId ) ) !== null ) {
+				$item->deleteListItem( 'attribute', $litem );
 			}
 		}
 	}

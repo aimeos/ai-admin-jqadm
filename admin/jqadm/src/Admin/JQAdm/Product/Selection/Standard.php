@@ -318,7 +318,7 @@ class Standard
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
 		$articles = $this->getArticleItems( $item );
-		$prodItem = $manager->createItem( 'default' );
+		$prodItem = $manager->createItem( 'default', 'product' );
 		$listItem = $listManager->createItem( 'default', 'product' );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 
