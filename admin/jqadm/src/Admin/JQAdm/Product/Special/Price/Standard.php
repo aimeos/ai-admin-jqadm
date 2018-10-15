@@ -275,11 +275,8 @@ class Standard
 		}
 		else
 		{
-			foreach( $item->getListItems( 'attribute' ) as $litem )
-			{
-				if( $litem->getTypeId() == $typeId && $litem->getRefId() == $attrId ) {
-					$item->deleteListItem( 'attribute', $litem );
-				}
+			if( ( $litem = $item->getListItem( 'attribute', 'custom', $attrId ) ) !== null ) {
+				$item->deleteListItem( 'attribute', $litem );
 			}
 		}
 	}
