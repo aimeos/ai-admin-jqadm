@@ -34,18 +34,18 @@ $enc = $this->encoder();
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 			<div class="col-sm-8">
 				<select class="form-control custom-select item-status" tabindex="<?= $this->get( 'tabindex' ); ?>"
-					name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.status' ) ) ); ?>"
-					<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ); ?> >
-					<option value="1" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), 1 ); ?> >
+					name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.status' ) ) ); ?>"
+					<?= $this->site()->readonly( $this->get( 'downloadData/attribute.siteid', $this->pageSiteItem->getId() ) ); ?> >
+					<option value="1" <?= $selected( $this->get( 'downloadData/attribute.status', 1 ), 1 ); ?> >
 						<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
 					</option>
-					<option value="0" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), 0 ); ?> >
+					<option value="0" <?= $selected( $this->get( 'downloadData/attribute.status', 1 ), 0 ); ?> >
 						<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
 					</option>
-					<option value="-1" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), -1 ); ?> >
+					<option value="-1" <?= $selected( $this->get( 'downloadData/attribute.status', 1 ), -1 ); ?> >
 						<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
 					</option>
-					<option value="-2" <?= $selected( $this->get( 'downloadData/product.lists.status', 1 ), -2 ); ?> >
+					<option value="-2" <?= $selected( $this->get( 'downloadData/attribute.status', 1 ), -2 ); ?> >
 						<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
 					</option>
 				</select>
