@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:31+0200\n"
-"PO-Revision-Date: 2018-09-27 06:36+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2018-10-14 09:41+0200\n"
+"PO-Revision-Date: 2018-10-14 07:41+0000\n"
+"Last-Translator: Nóra Antal <nora1984antal@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1294,6 +1294,9 @@ msgstr ""
 msgid "Order"
 msgstr "Rendelés"
 
+msgid "Order ID"
+msgstr "Rendelés azonosító"
+
 msgid "Order item details"
 msgstr "Rendelési tétel részletek"
 
@@ -1595,8 +1598,14 @@ msgstr "Mennyiség"
 msgid "Product rebate"
 msgstr "Engedmény"
 
+msgid "Product status"
+msgstr ""
+
 msgid "Product stock"
 msgstr "Készlet"
+
+msgid "Product supplier"
+msgstr ""
 
 msgid "Product supplier (optional)"
 msgstr "Termék szállító (választható)"
@@ -1605,6 +1614,9 @@ msgstr "Termék szállító (választható)"
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
 msgstr "Termék címke: {0} ({1})"
+
+msgid "Product tax"
+msgstr ""
 
 msgid "Product tax rate"
 msgstr "Termék adókulcs"
@@ -1950,6 +1962,9 @@ msgstr ""
 
 msgid "Stock level"
 msgstr "Készlet szint"
+
+msgid "Stock type"
+msgstr ""
 
 msgid "Street"
 msgstr "Utca"

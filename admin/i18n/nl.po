@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:31+0200\n"
-"PO-Revision-Date: 2018-09-27 06:36+0000\n"
+"POT-Creation-Date: 2018-10-14 09:41+0200\n"
+"PO-Revision-Date: 2018-10-14 07:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -1299,6 +1299,9 @@ msgstr "Optionele productcomponenten die door de klant kunnen worden gekozen bij
 msgid "Order"
 msgstr "Aankoop"
 
+msgid "Order ID"
+msgstr "Aankoop ID"
+
 msgid "Order item details"
 msgstr "Aankoop item details"
 
@@ -1600,8 +1603,14 @@ msgstr "Product aantal"
 msgid "Product rebate"
 msgstr "Product korting"
 
+msgid "Product status"
+msgstr ""
+
 msgid "Product stock"
 msgstr "Product voorraad"
+
+msgid "Product supplier"
+msgstr ""
 
 msgid "Product supplier (optional)"
 msgstr "Product leverancier (optioneel)"
@@ -1610,6 +1619,9 @@ msgstr "Product leverancier (optioneel)"
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
 msgstr "Product tag: {0} ({1})"
+
+msgid "Product tax"
+msgstr ""
 
 msgid "Product tax rate"
 msgstr "Product BTW"
@@ -1955,6 +1967,9 @@ msgstr "Voorraadtypes"
 
 msgid "Stock level"
 msgstr "Voorraad niveau"
+
+msgid "Stock type"
+msgstr ""
 
 msgid "Street"
 msgstr "Straat"

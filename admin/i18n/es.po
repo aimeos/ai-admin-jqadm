@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:31+0200\n"
-"PO-Revision-Date: 2018-09-27 06:36+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2018-10-14 09:41+0200\n"
+"PO-Revision-Date: 2018-10-14 07:41+0000\n"
+"Last-Translator: Daniel Vega <danielvega131990@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1297,6 +1297,9 @@ msgstr ""
 msgid "Order"
 msgstr "Pedido"
 
+msgid "Order ID"
+msgstr "ID del pedido"
+
 msgid "Order item details"
 msgstr "Detalles del pedido"
 
@@ -1598,8 +1601,14 @@ msgstr "Cantidad del producto"
 msgid "Product rebate"
 msgstr "Devolución del producto"
 
+msgid "Product status"
+msgstr ""
+
 msgid "Product stock"
 msgstr "Existencias del producto"
+
+msgid "Product supplier"
+msgstr ""
 
 msgid "Product supplier (optional)"
 msgstr "Proveedor del producto (opcional)"
@@ -1608,6 +1617,9 @@ msgstr "Proveedor del producto (opcional)"
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
 msgstr "Etiqueta del producto: {0} ({1})"
+
+msgid "Product tax"
+msgstr ""
 
 msgid "Product tax rate"
 msgstr "Tasa impositiva del producto"
@@ -1953,6 +1965,9 @@ msgstr "Tipos de existencias"
 
 msgid "Stock level"
 msgstr "Nivel de existencias"
+
+msgid "Stock type"
+msgstr ""
 
 msgid "Street"
 msgstr "Calle"

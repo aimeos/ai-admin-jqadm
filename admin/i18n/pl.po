@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:31+0200\n"
-"PO-Revision-Date: 2018-09-27 06:36+0000\n"
+"POT-Creation-Date: 2018-10-14 09:41+0200\n"
+"PO-Revision-Date: 2018-10-14 07:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -1294,6 +1294,9 @@ msgstr ""
 msgid "Order"
 msgstr "Zamówienie"
 
+msgid "Order ID"
+msgstr "ID zamówienia"
+
 msgid "Order item details"
 msgstr "Szczegóły poszczególnych pozycji zamówienia"
 
@@ -1595,8 +1598,14 @@ msgstr "Ilość produktu"
 msgid "Product rebate"
 msgstr "Rabat produktu"
 
+msgid "Product status"
+msgstr ""
+
 msgid "Product stock"
 msgstr "Produkt w magazynie"
+
+msgid "Product supplier"
+msgstr ""
 
 msgid "Product supplier (optional)"
 msgstr "Dostawca produktu (opcjonalnie)"
@@ -1605,6 +1614,9 @@ msgstr "Dostawca produktu (opcjonalnie)"
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
 msgstr "Tag produktu: {0} ({1})"
+
+msgid "Product tax"
+msgstr ""
 
 msgid "Product tax rate"
 msgstr "Stawka podatkowa produktu"
@@ -1950,6 +1962,9 @@ msgstr ""
 
 msgid "Stock level"
 msgstr "Stan w magazynie"
+
+msgid "Stock type"
+msgstr ""
 
 msgid "Street"
 msgstr "Ulica"
