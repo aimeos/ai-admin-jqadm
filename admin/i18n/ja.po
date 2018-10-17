@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:31+0200\n"
-"PO-Revision-Date: 2018-09-27 06:36+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2018-10-14 09:41+0200\n"
+"PO-Revision-Date: 2018-10-14 07:41+0000\n"
+"Last-Translator: Darshan Sampat <darshan@usindia.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1294,6 +1294,9 @@ msgstr "商品と共に顧客が選択できるオプションの商品コンポ
 msgid "Order"
 msgstr "注文"
 
+msgid "Order ID"
+msgstr "注文ID"
+
 msgid "Order item details"
 msgstr "注文項目の詳細"
 
@@ -1595,8 +1598,14 @@ msgstr "商品数量"
 msgid "Product rebate"
 msgstr "商品リベート"
 
+msgid "Product status"
+msgstr ""
+
 msgid "Product stock"
 msgstr "商品在庫"
+
+msgid "Product supplier"
+msgstr ""
 
 msgid "Product supplier (optional)"
 msgstr "商品サプライヤー (オプション)"
@@ -1605,6 +1614,9 @@ msgstr "商品サプライヤー (オプション)"
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
 msgstr "商品タグ：{0}（{1}）"
+
+msgid "Product tax"
+msgstr ""
 
 msgid "Product tax rate"
 msgstr "商品税率"
@@ -1950,6 +1962,9 @@ msgstr "在庫タイプ"
 
 msgid "Stock level"
 msgstr "在庫量"
+
+msgid "Stock type"
+msgstr ""
 
 msgid "Street"
 msgstr "道"

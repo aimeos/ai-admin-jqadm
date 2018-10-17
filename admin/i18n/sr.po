@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Goran Rados <gorangravi@gmail.com>, 2018
 # Mario Domonji <mario.mk.gromovi@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:31+0200\n"
-"PO-Revision-Date: 2018-09-27 06:36+0000\n"
+"POT-Creation-Date: 2018-10-14 09:41+0200\n"
+"PO-Revision-Date: 2018-10-14 07:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Serbian (http://www.transifex.com/aimeos/aimeos-core/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -83,7 +84,7 @@ msgid "Add"
 msgstr "Dodaj"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Dodaj filter"
 
 msgid "Add new entry (Ctrl+A)"
 msgstr ""
@@ -112,7 +113,7 @@ msgid "Additional information, e.g. flat number"
 msgstr ""
 
 msgid "Address"
-msgstr ""
+msgstr "Adresa"
 
 msgid "Address 1"
 msgstr "Adresa 1"
@@ -140,14 +141,14 @@ msgstr "Adrese"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Admin JQAdm tip je prazan"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Napredno"
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Aimeos objekat nije dostupan"
 
 msgid "All"
 msgstr "Sve"
@@ -158,7 +159,7 @@ msgid ""
 msgstr ""
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Dozvoli prilagodjene cene"
 
 msgid "Allow customers to choose themselves how much they want to pay"
 msgstr ""
@@ -365,10 +366,10 @@ msgid "City"
 msgstr "Grad"
 
 msgid "City name (required)"
-msgstr ""
+msgstr "Grad (obavezno)"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Grad (obavezno)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
@@ -387,7 +388,7 @@ msgid "Class \"%1$s\" not found"
 msgstr "Klasa \"%1$s\" nije pronadjena"
 
 msgid "Clear"
-msgstr ""
+msgstr "Očisti"
 
 msgid "Click to upload"
 msgstr "Klik za upload"
@@ -408,7 +409,7 @@ msgid "Codes"
 msgstr "Kodovi"
 
 msgid "Columns"
-msgstr ""
+msgstr "Kolone"
 
 msgid "Comment"
 msgstr "Komentar"
@@ -1293,6 +1294,9 @@ msgstr ""
 msgid "Order"
 msgstr "Porudžbina"
 
+msgid "Order ID"
+msgstr "ID porudzbine"
+
 msgid "Order item details"
 msgstr "Detalji stavke porudžbine"
 
@@ -1594,8 +1598,14 @@ msgstr "Količina proizvoda"
 msgid "Product rebate"
 msgstr "Rabat proizvoda"
 
+msgid "Product status"
+msgstr ""
+
 msgid "Product stock"
 msgstr "Stanje proizvoda"
+
+msgid "Product supplier"
+msgstr ""
 
 msgid "Product supplier (optional)"
 msgstr "Dobavljač proizvoda (opcionalno)"
@@ -1604,6 +1614,9 @@ msgstr "Dobavljač proizvoda (opcionalno)"
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
 msgstr "Tag proizvoda: {0} ({1})"
+
+msgid "Product tax"
+msgstr ""
 
 msgid "Product tax rate"
 msgstr "Iznos poreza proizvoda"
@@ -1949,6 +1962,9 @@ msgstr ""
 
 msgid "Stock level"
 msgstr "Stanje zaliha"
+
+msgid "Stock type"
+msgstr ""
 
 msgid "Street"
 msgstr "Ulica"

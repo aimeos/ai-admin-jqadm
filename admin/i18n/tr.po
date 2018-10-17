@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:31+0200\n"
-"PO-Revision-Date: 2018-10-02 00:12+0000\n"
+"POT-Creation-Date: 2018-10-14 09:41+0200\n"
+"PO-Revision-Date: 2018-10-16 02:30+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -1293,6 +1293,9 @@ msgstr "Müşteri tarafından ürünle birlikte seçilebilen isteğe bağlı ür
 msgid "Order"
 msgstr "Sipariş"
 
+msgid "Order ID"
+msgstr "Sipariş ID"
+
 msgid "Order item details"
 msgstr "Sipariş öğe detayları"
 
@@ -1594,8 +1597,14 @@ msgstr "Ürün miktarı"
 msgid "Product rebate"
 msgstr "Ürün indirimi"
 
+msgid "Product status"
+msgstr "Ürün durumu"
+
 msgid "Product stock"
 msgstr "Ürün stoğu"
+
+msgid "Product supplier"
+msgstr "Ürün tedarikçisi"
 
 msgid "Product supplier (optional)"
 msgstr "Ürün tedarikçisi (isteğe bağlı)"
@@ -1604,6 +1613,9 @@ msgstr "Ürün tedarikçisi (isteğe bağlı)"
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
 msgstr "Ürün etiketi: {0} ({1})"
+
+msgid "Product tax"
+msgstr "Ürün vergisi"
 
 msgid "Product tax rate"
 msgstr "Ürün vergi oranı"
@@ -1949,6 +1961,9 @@ msgstr "Stok Türleri"
 
 msgid "Stock level"
 msgstr "Stok seviyesi"
+
+msgid "Stock type"
+msgstr "Stok türü"
 
 msgid "Street"
 msgstr "Sokak"

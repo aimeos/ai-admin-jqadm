@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 08:31+0200\n"
-"PO-Revision-Date: 2018-10-02 14:15+0000\n"
-"Last-Translator: stevechen <steve.stevechen@gmail.com>\n"
+"POT-Creation-Date: 2018-10-14 09:41+0200\n"
+"PO-Revision-Date: 2018-10-14 07:41+0000\n"
+"Last-Translator: Bruce Liu <zcon.bruce@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1296,6 +1296,9 @@ msgstr ""
 msgid "Order"
 msgstr "訂單"
 
+msgid "Order ID"
+msgstr "訂單編號"
+
 msgid "Order item details"
 msgstr "訂單項目明細"
 
@@ -1597,8 +1600,14 @@ msgstr "商品數量"
 msgid "Product rebate"
 msgstr "商品折扣"
 
+msgid "Product status"
+msgstr ""
+
 msgid "Product stock"
 msgstr "商品存貨"
+
+msgid "Product supplier"
+msgstr ""
 
 msgid "Product supplier (optional)"
 msgstr "商品供應商(選填)"
@@ -1607,6 +1616,9 @@ msgstr "商品供應商(選填)"
 #, python-brace-format
 msgid "Product tag: {0} ({1})"
 msgstr "商品tag：{0} ({1})"
+
+msgid "Product tax"
+msgstr ""
 
 msgid "Product tax rate"
 msgstr "商品稅率"
@@ -1952,6 +1964,9 @@ msgstr ""
 
 msgid "Stock level"
 msgstr "庫存量"
+
+msgid "Stock type"
+msgstr ""
 
 msgid "Street"
 msgstr "街"
