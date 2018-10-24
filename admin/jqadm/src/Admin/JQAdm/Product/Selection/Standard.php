@@ -328,8 +328,8 @@ class Standard
 				$litem = clone $listItem;
 			}
 
-			if( isset( $articles[$listItem->getRefId()] ) ) {
-				$refItem = $articles[$listItem->getRefId()];
+			if( isset( $articles[$litem->getRefId()] ) ) {
+				$refItem = $articles[$litem->getRefId()];
 			} else {
 				$refItem = clone $prodItem;
 			}
