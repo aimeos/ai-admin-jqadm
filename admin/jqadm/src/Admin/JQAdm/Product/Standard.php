@@ -283,7 +283,10 @@ class Standard
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'product' );
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
-			$search = $this->initCriteria( $manager->createSearch(), $params );
+
+			$search = $manager->createSearch();
+			$search->setSortations( [$search->sort( '+', 'product.id')] );
+			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, $this->getDomains(), $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );

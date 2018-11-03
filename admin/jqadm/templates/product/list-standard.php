@@ -572,7 +572,7 @@ $columnList = [
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard.php' ),
 						['fields' => $fields, 'params' => $params, 'data' => $columnList,
-						'sort' => $this->session( 'aimeos/admin/jqadm/product/sort' )]
+						'sort' => $this->session( 'aimeos/admin/jqadm/product/sort', 'product.id' )]
 					);
 				?>
 
