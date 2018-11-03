@@ -31,9 +31,9 @@ $pgroup = function( array $params, $group )
 };
 
 $fragment = (array) $this->get( 'fragment', [] );
-$params = $this->get( 'pageParams', [] );
-$total = $this->get( 'total', 0 );
+$total = min( $this->get( 'total', 0 ), 10000 );
 $pOffset = $pLimit = $this->get( 'page', [] );
+$params = $this->get( 'pageParams', [] );
 $group = $this->get( 'group' );
 
 $offset = max( $this->get( 'page/offset', 0 ), 0 );
