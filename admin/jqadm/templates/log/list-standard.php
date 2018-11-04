@@ -73,7 +73,7 @@ $columnList = [
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard.php' ),
 						['fields' => $fields, 'params' => $params, 'data' => $columnList,
-						'sort' => $this->session( 'aimeos/admin/jqadm/log/sort', 'log.timestamp' )]
+						'sort' => $this->session( 'aimeos/admin/jqadm/log/sort', '-log.timestamp' )]
 					);
 				?>
 
