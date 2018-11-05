@@ -291,17 +291,7 @@ class Standard
 	 */
 	protected function getArticleItems( \Aimeos\MShop\Product\Item\Iface $item )
 	{
-		if( ( $articles = $item->getRefItems( 'product', null, 'default', false ) ) !== [] )
-		{
-			$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
-
-			$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
-			$search->setConditions( $search->compare( '==', 'product.id', array_keys( $articles ) ) );
-
-			$articles = $manager->searchItems( $search, ['attribute'] );
-		}
-
-		return $articles;
+		return $item->getRefItems( 'product', null, 'default', false );
 	}
 
 
@@ -402,7 +392,7 @@ class Standard
 		$data = [];
 		$context = $this->getContext();
 		$siteId = $context->getLocale()->getSiteId();
-		$articles = $this->getArticleItems( $item );
+		$articles = $item->getRefItems( 'product', null, 'default', false );
 
 
 		foreach( $item->getListItems( 'product', 'default', null, false ) as $id => $listItem )

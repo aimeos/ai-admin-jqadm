@@ -75,7 +75,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'U:TEST', ['product'] );
+		$this->view->item = $manager->findItem( 'U:TEST', ['attribute', 'product'] );
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
@@ -92,7 +92,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testGet()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
-		$this->view->item = $manager->findItem( 'U:TEST', ['product'] );
+		$this->view->item = $manager->findItem( 'U:TEST', ['attribute', 'product'] );
 
 		$result = $this->object->get();
 
