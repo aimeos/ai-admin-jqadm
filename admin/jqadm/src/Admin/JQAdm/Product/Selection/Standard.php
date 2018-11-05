@@ -284,28 +284,6 @@ class Standard
 
 
 	/**
-	 * Returns the selection articles including attributes for the given product item
-	 *
-	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item including reference product articles
-	 * @return \Aimeos\MShop\Product\Item\Iface[] Associative list of article items with IDs as keys and items as values
-	 */
-	protected function getArticleItems( \Aimeos\MShop\Product\Item\Iface $item )
-	{
-		if( ( $articles = $item->getRefItems( 'product', null, 'default', false ) ) !== [] )
-		{
-			$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
-
-			$search = $manager->createSearch()->setSlice( 0, count( $articles ) );
-			$search->setConditions( $search->compare( '==', 'product.id', array_keys( $articles ) ) );
-
-			$articles = $manager->searchItems( $search, ['attribute'] );
-		}
-
-		return $articles;
-	}
-
-
-	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -317,9 +295,9 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
-		$articles = $this->getArticleItems( $item );
 		$prodItem = $manager->createItem( 'default', 'product' );
 		$listItem = $listManager->createItem( 'default', 'product' );
+		$articles = $item->getRefItems( 'product', null, 'default', false );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 
 		foreach( $data as $idx => $entry )
