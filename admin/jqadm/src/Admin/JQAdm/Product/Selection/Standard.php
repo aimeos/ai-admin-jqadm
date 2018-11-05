@@ -380,7 +380,7 @@ class Standard
 		$data = [];
 		$context = $this->getContext();
 		$siteId = $context->getLocale()->getSiteId();
-		$articles = $this->getArticleItems( $item );
+		$articles = $item->getRefItems( 'product', null, 'default', false );
 
 
 		foreach( $item->getListItems( 'product', 'default', null, false ) as $id => $listItem )
