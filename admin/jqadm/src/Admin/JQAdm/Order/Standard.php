@@ -524,7 +524,7 @@ class Standard
 			foreach( $services as $serviceId => $service )
 			{
 				$list = [];
-				$attrItems = $service->getAttributes();
+				$attrItems = $service->getAttributeItems();
 
 				if( isset( $data['service'][$type][$serviceId] ) )
 				{
@@ -602,7 +602,7 @@ class Standard
 				{
 					$serviceId = $serviceItem->getServiceId();
 
-					foreach( $serviceItem->getAttributes() as $attrItem )
+					foreach( $serviceItem->getAttributeItems() as $attrItem )
 					{
 						foreach( $attrItem->toArray( true ) as $key => $value ) {
 							$data['service'][$type][$serviceId][$key][] = $value;

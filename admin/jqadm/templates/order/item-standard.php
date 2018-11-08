@@ -276,7 +276,7 @@ $statusList = [
 											<td class="item-column column-desc">
 												<span class="product-name"><?= $enc->html( $orderProduct->getName() ); ?></span>
 												<span class="product-attr">
-													<?php foreach( $orderProduct->getAttributes() as $attrItem ) : ?>
+													<?php foreach( $orderProduct->getAttributeItems() as $attrItem ) : ?>
 														<span class="attr-code"><?= $enc->html( $attrItem->getCode() ); ?></span>
 														<span class="attr-value">
 															<?php if( $attrItem->getQuantity() > 1 ) : ?>
