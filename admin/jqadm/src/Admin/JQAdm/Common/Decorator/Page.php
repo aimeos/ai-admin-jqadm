@@ -41,6 +41,9 @@ class Page extends Base
 
 		try {
 			$siteid = $customerManager->getItem( $context->getUserId() )->getSiteId();
+			if(is_null($siteid)) {
+				$siteid = $siteItem->getSiteId();
+			}
 		} catch( \Exception $e ) {
 			$siteid = $siteItem->getSiteId();
 		}
