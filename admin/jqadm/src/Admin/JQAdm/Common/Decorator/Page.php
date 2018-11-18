@@ -40,7 +40,7 @@ class Page extends Base
 		$siteItem = $siteManager->findItem( $view->param( 'site', 'default' ) );
 
 		try {
-			$siteid = $customerManager->getItem( $context->getUserId() )->getSiteId();
+			$siteid = $customerManager->getItem( $context->getUserId() )->getSiteId() ?: $siteItem->getSiteId();
 		} catch( \Exception $e ) {
 			$siteid = $siteItem->getSiteId();
 		}
