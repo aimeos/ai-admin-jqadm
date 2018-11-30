@@ -337,7 +337,7 @@ class Standard
 			$type = $priceTypeManager->getItem( $entry['price.typeid'] )->getCode();
 			$listType = $listTypeManager->getItem( $entry['product.lists.typeid'] )->getCode();
 
-			if( ( $listItem = $item->getListItem( 'price', $listType, $entry['price.id'] ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'price', $listType, $entry['price.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem( $listType, 'price' );
 			}
 

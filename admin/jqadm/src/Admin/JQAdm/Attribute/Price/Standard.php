@@ -332,7 +332,7 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = $item->getListItem( 'price', $entry['attribute.lists.type'], $entry['price.id'] ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'price', $entry['attribute.lists.type'], $entry['price.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem();
 			}
 

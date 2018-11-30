@@ -330,7 +330,7 @@ class Standard
 				continue;
 			}
 
-			if( ( $listItem = $item->getListItem( 'text', $entry['catalog.lists.type'], $entry['text.id'] ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'text', $entry['catalog.lists.type'], $entry['text.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem();
 			}
 

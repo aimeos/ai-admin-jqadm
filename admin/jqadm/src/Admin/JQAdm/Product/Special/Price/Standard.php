@@ -265,7 +265,7 @@ class Standard
 
 		if( $this->getValue( $data, 'custom', 0 ) == 1 )
 		{
-			if( $item->getListItem( 'attribute', 'custom', $attrId ) === null )
+			if( $item->getListItem( 'attribute', 'custom', $attrId, false ) === null )
 			{
 				$listItem = $listManager->createItem( 'custom', 'attribute' );
 				$listItem->setRefId( $attrId );
@@ -275,7 +275,7 @@ class Standard
 		}
 		else
 		{
-			if( ( $litem = $item->getListItem( 'attribute', 'custom', $attrId ) ) !== null ) {
+			if( ( $litem = $item->getListItem( 'attribute', 'custom', $attrId, false ) ) !== null ) {
 				$item->deleteListItem( 'attribute', $litem );
 			}
 		}

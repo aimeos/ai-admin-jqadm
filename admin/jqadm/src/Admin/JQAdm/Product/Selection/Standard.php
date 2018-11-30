@@ -314,7 +314,7 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $litem = $item->getListItem( 'product', 'default', $entry['product.id'] ) ) === null ) {
+			if( ( $litem = $item->getListItem( 'product', 'default', $entry['product.id'], false ) ) === null ) {
 				$litem = clone $listItem;
 			}
 
@@ -361,7 +361,7 @@ class Standard
 				continue;
 			}
 
-			if( ( $litem = $refItem->getListItem( 'attribute', 'variant', $attr['product.lists.refid'] ) ) === null ) {
+			if( ( $litem = $refItem->getListItem( 'attribute', 'variant', $attr['product.lists.refid'], false ) ) === null ) {
 				$litem = clone $listItem;
 			}
 

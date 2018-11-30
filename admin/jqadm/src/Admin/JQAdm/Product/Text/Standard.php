@@ -335,7 +335,7 @@ class Standard
 			$type = $textTypeManager->getItem( $entry['text.typeid'] )->getCode();
 			$listType = $listTypeManager->getItem( $entry['product.lists.typeid'] )->getCode();
 
-			if( ( $listItem = $item->getListItem( 'text', $listType, $entry['text.id'] ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'text', $listType, $entry['text.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem( $listType, 'text' );
 			}
 
