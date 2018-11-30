@@ -278,6 +278,42 @@ class Standard
 
 
 	/**
+	 * Removes the media reference and the media item if not shared
+	 *
+	 * @param \Aimeos\MShop\Service\Item\Iface $item Service item including media reference
+	 * @param array $listItems Media list items to be removed
+	 * @return \Aimeos\MShop\Service\Item\Iface Modified service item
+	 */
+	protected function deleteMediaItems( \Aimeos\MShop\Service\Item\Iface $item, array $listItems )
+	{
+		$context = $this->getContext();
+		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
+		$manager = \Aimeos\MShop\Factory::createManager( $context, 'service' );
+		$search = $manager->createSearch();
+
+		foreach( $listItems as $listItem )
+		{
+			$expr = [
+				$search->compare( 'service.lists.domain', 'media' ),
+				$search->compare( 'service.lists.type.code', $listItem->getType() ),
+				$search->compare( 'service.lists.refid', $listItem->getRefId() ),
+			];
+			$search->setConditions( $search->combine( '&&', $expr ) );
+			$items = $manager->searchItems( $search );
+			$refItem = null;
+
+			if( count( $items ) === 1 && ( $refItem = $listItem->getRefItem() ) !== null ) {
+				$cntl->delete( $refItem );
+			}
+
+			$item->deleteListItem( 'media', $listItem, $refItem );
+		}
+
+		return $item;
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -372,17 +408,7 @@ class Standard
 			unset( $listItems[$listItem->getId()] );
 		}
 
-
-		foreach( $listItems as $listItem )
-		{
-			if( ( $refItem = $listItem->getRefItem() ) !== null ) {
-				$cntl->delete( $refItem );
-			}
-
-			$item->deleteListItem( 'media', $listItem, $refItem );
-		}
-
-		return $item;
+		return $this->deleteMediaItems( $item, $listItems );
 	}
 
 
