@@ -308,7 +308,7 @@ class Standard
 				continue;
 			}
 
-			if( $entry['attribute.id'] == '' || ( $listItem = $item->getListItem( 'attribute', 'config', $entry['attribute.id'] ) ) === null ) {
+			if( $entry['attribute.id'] == '' || ( $listItem = $item->getListItem( 'attribute', 'config', $entry['attribute.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem( 'config', 'attribute' );
 			}
 

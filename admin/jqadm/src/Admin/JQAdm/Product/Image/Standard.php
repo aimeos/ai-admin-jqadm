@@ -264,7 +264,7 @@ class Standard
 
 		foreach( $attrListItems as $listItem )
 		{
-			if( ( $litem = $mediaItem->getListItem( 'attribute', 'variant', $listItem->getRefId() ) ) !== null )
+			if( ( $litem = $mediaItem->getListItem( 'attribute', 'variant', $listItem->getRefId(), false ) ) !== null )
 			{
 				unset( $listItems[$litem->getId()] );
 				continue;
@@ -406,7 +406,7 @@ class Standard
 			$type = $mediaTypeManager->getItem( $entry['media.typeid'] )->getCode();
 			$listType = $listTypeManager->getItem( $entry['product.lists.typeid'] )->getCode();
 
-			if( ( $listItem = $item->getListItem( 'media', $listType, $entry['media.id'] ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'media', $listType, $entry['media.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem( $listType, 'media' );
 			}
 
