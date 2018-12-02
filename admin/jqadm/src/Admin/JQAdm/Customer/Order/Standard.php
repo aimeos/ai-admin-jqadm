@@ -315,7 +315,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/customer/order/template-item';
-		$default = 'customer/item-order-standard.php';
+		$default = 'customer/item-order-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

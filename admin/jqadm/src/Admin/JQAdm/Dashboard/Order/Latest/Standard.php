@@ -86,7 +86,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/latest/template-item';
-		$default = 'dashboard/item-order-latest-standard.php';
+		$default = 'dashboard/item-order-latest-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

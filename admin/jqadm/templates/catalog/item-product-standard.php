@@ -55,7 +55,7 @@ $refItems = $this->get( 'productItems', [] );
 <div id="product" class="item-product content-block tab-pane fade" role="tabpanel" aria-labelledby="product">
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'productTotal' ),
 			'group' => 'cp', 'action' => ( $this->param( 'id') ? 'get' : 'search' ), 'fragment' => 'product',
 			'page' => $this->session( 'aimeos/admin/jqadm/catalogproduct/page', [] )]
@@ -66,7 +66,7 @@ $refItems = $this->get( 'productItems', [] );
 		<thead class="list-header">
 			<tr>
 				<?= $this->partial(
-					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard.php' ), [
+					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
 						'group' => 'cp', 'action' => ( $this->param( 'id') ? 'get' : 'search' ), 'fragment' => 'product',
 						'sort' => $this->session( 'aimeos/admin/jqadm/catalogproduct/sort' ),
@@ -89,7 +89,7 @@ $refItems = $this->get( 'productItems', [] );
 					</a>
 
 					<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard.php' ), [
+						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ), [
 							'fields' => $fields, 'group' => 'cp', 'tabindex' => $this->get( 'tabindex' ),
 							'data' => [
 								'catalog.lists.position' => $this->translate( 'admin', 'Position' ),
@@ -107,7 +107,7 @@ $refItems = $this->get( 'productItems', [] );
 		</thead>
 		<tbody>
 			<?= $this->partial(
-				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard.php' ), [
+				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'fields' => $fields, 'group' => 'cp', 'tabindex' => $this->get( 'tabindex' ),
 					'filter' => $this->session( 'aimeos/admin/jqadm/catalogproduct/filter', [] ),
 					'data' => [
@@ -405,7 +405,7 @@ $refItems = $this->get( 'productItems', [] );
 	<?php endif; ?>
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'productTotal' ),
 			'group' => 'cp', 'action' => ( $this->param( 'id') ? 'get' : 'search' ), 'fragment' => 'product',
 			'page' => $this->session( 'aimeos/admin/jqadm/catalogproduct/page', [] )]

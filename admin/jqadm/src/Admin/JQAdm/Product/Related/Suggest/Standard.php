@@ -340,7 +340,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/related/suggest/template-item';
-		$default = 'product/item-related-suggest-standard.php';
+		$default = 'product/item-related-suggest-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

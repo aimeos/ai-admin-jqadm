@@ -70,7 +70,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/template-list';
-		$default = 'dashboard/list-order-standard.php';
+		$default = 'dashboard/list-order-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

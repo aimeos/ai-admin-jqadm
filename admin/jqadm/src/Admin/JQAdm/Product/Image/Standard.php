@@ -516,7 +516,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/image/template-item';
-		$default = 'product/item-image-standard.php';
+		$default = 'product/item-image-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

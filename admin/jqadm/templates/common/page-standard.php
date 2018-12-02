@@ -386,8 +386,8 @@ switch( $this->param( 'act' ) )
 
 	<main class="main-content">
 
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-standard.php' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'common/partials/info-standard.php' ), array( 'info' => $infoMsgs ) ); ?>
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-standard' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'common/partials/info-standard' ), array( 'info' => $infoMsgs ) ); ?>
 
 		<?= $this->block()->get( 'jqadm_content' ); ?>
 
@@ -399,7 +399,7 @@ switch( $this->param( 'act' ) )
 		</a>
 	</footer>
 
-	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-standard.php' ) ); ?>
-	<?= $this->partial( $this->config( 'admin/jqadm/partial/problem', 'common/partials/problem-standard.php' ) ); ?>
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-standard' ) ); ?>
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/problem', 'common/partials/problem-standard' ) ); ?>
 
 </div>

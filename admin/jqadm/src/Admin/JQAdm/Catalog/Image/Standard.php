@@ -484,7 +484,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/catalog/image/template-item';
-		$default = 'catalog/item-image-standard.php';
+		$default = 'catalog/item-image-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

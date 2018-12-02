@@ -324,7 +324,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/type/attribute/template-list';
-		$default = 'type/attribute/list-standard.php';
+		$default = 'type/attribute/list-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -531,7 +531,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/type/attribute/template-item';
-		$default = 'type/attribute/item-standard.php';
+		$default = 'type/attribute/item-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

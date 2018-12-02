@@ -36,7 +36,7 @@ $params = $this->get( 'pageParams', [] );
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/supplier.siteid' ) ) ); ?>)</span>
 		</span>
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard.php' ), ['params' => $params] ); ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
 		</div>
 	</nav>
 
@@ -141,7 +141,7 @@ $params = $this->get( 'pageParams', [] );
 		</div>
 
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard.php' ), ['params' => $params] ); ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
 		</div>
 	</div>
 </form>
@@ -149,4 +149,4 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->stop(); ?>
 
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard.php' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>

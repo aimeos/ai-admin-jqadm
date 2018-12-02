@@ -401,7 +401,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/order/invoice/template-item';
-		$default = 'order/item-invoice-standard.php';
+		$default = 'order/item-invoice-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

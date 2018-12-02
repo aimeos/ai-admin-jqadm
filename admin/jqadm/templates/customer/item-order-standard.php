@@ -139,7 +139,7 @@ $deliveryStatusList = [
 <div id="order" class="item-order content-block tab-pane fade" role="tabpanel" aria-labelledby="order">
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'orderTotal' ),
 			'group' => 'uo', 'action' => 'get', 'fragment' => 'order',
 			'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]
@@ -150,7 +150,7 @@ $deliveryStatusList = [
 		<thead class="list-header">
 			<tr>
 				<?= $this->partial(
-					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard.php' ), [
+					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
 						'data' => $columns, 'group' => 'uo', 'action' => 'get', 'fragment' => 'order',
 						'sort' => $this->session( 'aimeos/admin/jqadm/customerorder/sort' ),
@@ -165,7 +165,7 @@ $deliveryStatusList = [
 					</a -->
 
 					<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard.php' ), [
+						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ), [
 							'data' => $columns, 'fields' => $fields, 'group' => 'uo', 'tabindex' => $this->get( 'tabindex' ),
 						] );
 					?>
@@ -174,7 +174,7 @@ $deliveryStatusList = [
 		</thead>
 		<tbody>
 			<?= $this->partial(
-				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard.php' ), [
+				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'fields' => $fields, 'group' => 'uo', 'tabindex' => $this->get( 'tabindex' ),
 					'filter' => $this->session( 'aimeos/admin/jqadm/customerorder/filter', [] ),
 					'data' => [
@@ -275,7 +275,7 @@ $deliveryStatusList = [
 	<?php endif; ?>
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'orderTotal' ),
 			'group' => 'uo', 'action' => 'get', 'fragment' => 'order',
 			'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]

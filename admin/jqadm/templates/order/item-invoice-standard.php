@@ -75,7 +75,7 @@ $statusList = [
 <div id="invoice" class="item-invoice content-block tab-pane fade" role="tabpanel" aria-labelledby="invoice">
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'invoiceTotal' ),
 			'group' => 'oi', 'action' => 'get', 'fragment' => 'invoice',
 			'page' => $this->session( 'aimeos/admin/jqadm/orderinvoice/page', [] )]
@@ -86,7 +86,7 @@ $statusList = [
 		<thead class="list-header">
 			<tr>
 				<?= $this->partial(
-					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard.php' ), [
+					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
 						'group' => 'oi', 'action' => 'get', 'fragment' => 'invoice',
 						'sort' => $this->session( 'aimeos/admin/jqadm/product/sort' ),
@@ -112,7 +112,7 @@ $statusList = [
 					</a>
 
 					<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard.php' ), [
+						$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ), [
 							'fields' => $fields, 'group' => 'oi', 'tabindex' => $this->get( 'tabindex' ),
 							'data' => [
 								'order.id' => $this->translate( 'admin', 'Invoice' ),
@@ -133,7 +133,7 @@ $statusList = [
 		</thead>
 		<tbody>
 			<?= $this->partial(
-				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard.php' ), [
+				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'filter' => $this->session( 'aimeos/admin/jqadm/orderinvoice/filter', [] ),
 					'fields' => $fields, 'group' => 'oi', 'tabindex' => $this->get( 'tabindex' ),
 					'data' => [
@@ -359,7 +359,7 @@ $statusList = [
 	<?php endif; ?>
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'invoiceTotal' ),
 			'group' => 'oi', 'action' => 'get', 'fragment' => 'invoice',
 			'page' =>$this->session( 'aimeos/admin/jqadm/orderinvoice/page', [] )]

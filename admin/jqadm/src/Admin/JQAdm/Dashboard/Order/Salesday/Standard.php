@@ -84,7 +84,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/salesday/template-item';
-		$default = 'dashboard/item-order-salesday-standard.php';
+		$default = 'dashboard/item-order-salesday-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

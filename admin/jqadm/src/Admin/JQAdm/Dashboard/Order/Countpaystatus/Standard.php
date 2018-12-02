@@ -86,7 +86,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/countpaystatus/template-item';
-		$default = 'dashboard/item-order-countpaystatus-standard.php';
+		$default = 'dashboard/item-order-countpaystatus-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

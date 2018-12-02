@@ -349,7 +349,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/physical/template-item';
-		$default = 'product/item-physical-standard.php';
+		$default = 'product/item-physical-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

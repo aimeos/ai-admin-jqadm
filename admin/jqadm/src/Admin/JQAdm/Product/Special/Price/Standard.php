@@ -332,7 +332,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/special/price/template-item';
-		$default = 'product/item-special-price-standard.php';
+		$default = 'product/item-special-price-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

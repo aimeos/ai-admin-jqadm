@@ -134,7 +134,7 @@ $reasonList = [
 	</span>
 
 	<?= $this->partial(
-		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard.php' ), [
+		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ), [
 			'filter' => $this->session( 'aimeos/admin/jqadm/subscription/filter', [] ),
 			'filterAttributes' => $this->get( 'filterAttributes', [] ),
 			'filterOperators' => $this->get( 'filterOperators', [] ),
@@ -145,7 +145,7 @@ $reasonList = [
 
 
 <?= $this->partial(
-		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/subscription/page', [] )]
 	);
@@ -159,7 +159,7 @@ $reasonList = [
 			<tr>
 
 				<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard.php' ),
+						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
 						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/subscription/sort' )]
 					);
 				?>
@@ -172,7 +172,7 @@ $reasonList = [
 					</a>
 
 					<?= $this->partial(
-							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard.php' ),
+							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ),
 							['fields' => $fields, 'data' => $columnList]
 						);
 					?>
@@ -182,7 +182,7 @@ $reasonList = [
 		<tbody>
 
 			<?= $this->partial(
-				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard.php' ), [
+				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/subscription/filter', [] ),
 					'data' => [
 						'subscription.id' => ['op' => '=='],
@@ -365,7 +365,7 @@ $reasonList = [
 </form>
 
 <?= $this->partial(
-		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 		['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
 		'page' => $this->session( 'aimeos/admin/jqadm/subscription/page', [] )]
 	);
@@ -373,4 +373,4 @@ $reasonList = [
 
 <?php $this->block()->stop(); ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard.php' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>

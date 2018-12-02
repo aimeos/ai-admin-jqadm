@@ -51,7 +51,7 @@ $columnList = [
 <div id="code" class="item-code content-block tab-pane fade" role="tabpanel" aria-labelledby="code">
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'codeTotal' ),
 			'group' => 'vc', 'action' => 'get', 'fragment' => 'code',
 			'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]
@@ -62,7 +62,7 @@ $columnList = [
 		<thead class="list-header">
 			<tr>
 				<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard.php' ),
+						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
 						['fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
 						'data' => $columnList, 'group' => 'vc', 'action' => 'get', 'fragment' => 'code',
 						'sort' => $this->session( 'aimeos/admin/jqadm/couponcode/sort' )]
@@ -94,7 +94,7 @@ $columnList = [
 					</div>
 
 					<?= $this->partial(
-							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard.php' ),
+							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ),
 							['fields' => $fields, 'group' => 'vc', 'data' => $columnList, 'tabindex' => $this->get( 'tabindex' )]
 						);
 					?>
@@ -103,7 +103,7 @@ $columnList = [
 		</thead>
 		<tbody>
 			<?= $this->partial(
-				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard.php' ), [
+				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'filter' => $this->session( 'aimeos/admin/jqadm/couponcode/filter', [] ),
 					'fields' => $fields, 'group' => 'vc', 'tabindex' => $this->get( 'tabindex' ),
 					'data' => [
@@ -243,7 +243,7 @@ $columnList = [
 	<?php endif; ?>
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard.php' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'codeTotal' ),
 			'group' => 'vc', 'action' => 'get', 'fragment' => 'code',
 			'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]

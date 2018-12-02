@@ -747,7 +747,7 @@ $statusList = [
 			</div>
 
 			<div class="item-actions">
-				<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard.php' ), ['params' => $params] ); ?>
+				<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
 			</div>
 		</div>
 	</form>
@@ -757,4 +757,4 @@ $statusList = [
 <?php $this->block()->stop(); ?>
 
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard.php' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>
