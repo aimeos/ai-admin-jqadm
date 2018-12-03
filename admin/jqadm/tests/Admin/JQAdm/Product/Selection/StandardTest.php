@@ -160,7 +160,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSaveException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Selection\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Selection\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'fromArray' ) )
 			->getMock();
@@ -173,14 +173,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->save();
 	}
 
 
 	public function testSaveMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Selection\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Selection\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'fromArray' ) )
 			->getMock();
@@ -193,14 +193,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->save();
 	}
 
 
 	public function testGetSubClient()
 	{
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 }

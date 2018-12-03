@@ -45,6 +45,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testGetSubClient()
 	{
 		$result = $this->object->getSubClient( 'countpaystatus' );
-		$this->assertInstanceOf( '\Aimeos\Admin\JQAdm\Iface', $result );
+		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );
 	}
 }

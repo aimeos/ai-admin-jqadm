@@ -19,13 +19,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	protected function setUp()
 	{
 		$this->view = \TestHelperJqadm::getView();
-		$request = $this->getMockBuilder( '\Psr\Http\Message\ServerRequestInterface' )->getMock();
+		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
 		$this->context = \TestHelperJqadm::getContext();
 
-		$this->object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Download\Standard' )
+		$this->object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Download\Standard::class )
 			->setConstructorArgs( array( $this->context ) )
 			->setMethods( array( 'storeFile' ) )
 			->getMock();
@@ -95,10 +95,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 		$this->view->item = $manager->createItem();
 
-		$file = $this->getMockBuilder( '\Psr\Http\Message\UploadedFileInterface' )->getMock();
+		$file = $this->getMockBuilder( \Psr\Http\Message\UploadedFileInterface::class )->getMock();
 		$file->expects( $this->any() )->method( 'getError' )->will( $this->returnValue( UPLOAD_ERR_OK ) );
 
-		$request = $this->getMockBuilder( '\Psr\Http\Message\ServerRequestInterface' )->getMock();
+		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$request->expects( $this->any() )->method( 'getUploadedFiles' )
 			->will( $this->returnValue( array( 'download' => array( 'file' => $file ) ) ) );
 
@@ -134,7 +134,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSaveException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Download\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Download\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'fromArray' ) )
 			->getMock();
@@ -147,14 +147,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->save();
 	}
 
 
 	public function testSaveMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Download\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Download\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'fromArray' ) )
 			->getMock();
@@ -167,7 +167,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->save();
 	}
 
@@ -180,7 +180,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 }

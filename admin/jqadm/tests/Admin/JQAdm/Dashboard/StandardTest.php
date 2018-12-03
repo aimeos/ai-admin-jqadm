@@ -19,7 +19,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	protected function setUp()
 	{
 		$this->view = \TestHelperJqadm::getView();
-		$request = $this->getMockBuilder( '\Psr\Http\Message\ServerRequestInterface' )->getMock();
+		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
@@ -70,13 +70,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testGetSubClient()
 	{
 		$result = $this->object->getSubClient( 'order' );
-		$this->assertInstanceOf( '\Aimeos\Admin\JQAdm\Iface', $result );
+		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );
 	}
 
 
 	public function getClientMock( $method )
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( [$method] )
 			->getMock();
@@ -90,7 +90,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getViewNoRender()
 	{
-		return $this->getMockBuilder( '\Aimeos\MW\View\Standard' )
+		return $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();

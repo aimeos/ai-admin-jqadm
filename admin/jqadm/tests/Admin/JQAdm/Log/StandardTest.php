@@ -73,21 +73,21 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientInvalid()
 	{
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( '$unknown$' );
 	}
 
 
 	public function testGetSubClientUnknown()
 	{
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 
 
 	public function getClientMock( $method )
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Log\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Log\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( [$method] )
 			->getMock();
@@ -101,7 +101,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getViewNoRender()
 	{
-		$view = $this->getMockBuilder( '\Aimeos\MW\View\Standard' )
+		$view = $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();

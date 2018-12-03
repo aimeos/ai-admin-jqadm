@@ -57,7 +57,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 		$result = \Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client,
 			[], array( 'Cache' ), '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\' );
 
-		$this->assertInstanceOf( '\Aimeos\Admin\JQAdm\Iface', $result );
+		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );
 	}
 
 

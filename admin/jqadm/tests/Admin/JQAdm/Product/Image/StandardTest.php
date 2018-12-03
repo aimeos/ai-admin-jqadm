@@ -109,8 +109,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
-		$file = $this->getMockBuilder( '\Psr\Http\Message\UploadedFileInterface' )->getMock();
-		$request = $this->getMockBuilder( '\Psr\Http\Message\ServerRequestInterface' )->getMock();
+		$file = $this->getMockBuilder( \Psr\Http\Message\UploadedFileInterface::class )->getMock();
+		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$request->expects( $this->any() )->method( 'getUploadedFiles' )
 			->will( $this->returnValue( ['image' => [0 => ['file' => $file] ] ] ) );
 
@@ -156,7 +156,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->expects( $this->once() )->method( 'fromArray' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->save();
 	}
 
@@ -168,7 +168,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->expects( $this->once() )->method( 'fromArray' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->save();
 	}
 
@@ -181,14 +181,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 
 
 	public function getClientMock( $method )
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Product\Image\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Image\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( [$method] )
 			->getMock();

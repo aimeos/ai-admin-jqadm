@@ -44,7 +44,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearchException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -60,7 +60,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearchMShopException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -76,14 +76,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->setExpectedException( '\Aimeos\Admin\JQAdm\Exception' );
+		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 
 
 	protected function getViewNoRender()
 	{
-		return $this->getMockBuilder( '\Aimeos\MW\View\Standard' )
+		return $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();

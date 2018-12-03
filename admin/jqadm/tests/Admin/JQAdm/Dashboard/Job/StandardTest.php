@@ -55,7 +55,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDeleteException()
 	{
-		$mock = $this->getMockBuilder( '\Aimeos\MW\Filesystem\Manager\Standard' )
+		$mock = $this->getMockBuilder( \Aimeos\MW\Filesystem\Manager\Standard::class )
 			->disableOriginalConstructor()
 			->setMethods( ['get'] )
 			->getMock();
@@ -71,7 +71,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDeleteMAdminException()
 	{
-		$mock = $this->getMockBuilder( '\Aimeos\MW\Filesystem\Manager\Standard' )
+		$mock = $this->getMockBuilder( \Aimeos\MW\Filesystem\Manager\Standard::class )
 			->disableOriginalConstructor()
 			->setMethods( ['get'] )
 			->getMock();
@@ -115,7 +115,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetException()
 	{
-		$mock = $this->getMockBuilder( '\Aimeos\MW\Filesystem\Manager\Standard' )
+		$mock = $this->getMockBuilder( \Aimeos\MW\Filesystem\Manager\Standard::class )
 			->disableOriginalConstructor()
 			->setMethods( ['get'] )
 			->getMock();
@@ -131,7 +131,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetMAdminException()
 	{
-		$mock = $this->getMockBuilder( '\Aimeos\MW\Filesystem\Manager\Standard' )
+		$mock = $this->getMockBuilder( \Aimeos\MW\Filesystem\Manager\Standard::class )
 			->disableOriginalConstructor()
 			->setMethods( ['get'] )
 			->getMock();
@@ -156,7 +156,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearchException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Job\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Job\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -172,7 +172,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearchMAdminException()
 	{
-		$object = $this->getMockBuilder( '\Aimeos\Admin\JQAdm\Dashboard\Job\Standard' )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Job\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'getSubClients' ) )
 			->getMock();
@@ -188,7 +188,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getViewNoRender()
 	{
-		$view = $this->getMockBuilder( '\Aimeos\MW\View\Standard' )
+		$view = $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();
