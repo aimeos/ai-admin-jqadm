@@ -294,9 +294,9 @@ class Standard
 		foreach( $listItems as $listItem )
 		{
 			$expr = [
-				$search->compare( 'attribute.lists.domain', 'media' ),
-				$search->compare( 'attribute.lists.type.code', $listItem->getType() ),
-				$search->compare( 'attribute.lists.refid', $listItem->getRefId() ),
+				$search->compare( '==', 'attribute.lists.domain', 'media' ),
+				$search->compare( '==', 'attribute.lists.type.code', $listItem->getType() ),
+				$search->compare( '==', 'attribute.lists.refid', $listItem->getRefId() ),
 			];
 			$search->setConditions( $search->combine( '&&', $expr ) );
 			$items = $manager->searchItems( $search );
