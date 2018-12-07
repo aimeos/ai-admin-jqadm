@@ -146,6 +146,16 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			$this->assertEquals( 'de', $refItem->getLanguageId() );
 			$this->assertEquals( 'test', $refItem->getLabel() );
 		}
+
+
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['site' => 'unittest', 'image' => []] );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->save();
+
+		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertNull( $result );
+		$this->assertEquals( 0, count( $this->view->item->getListItems() ) );
 	}
 
 
