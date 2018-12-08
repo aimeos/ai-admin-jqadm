@@ -236,7 +236,7 @@ class Standard
 			$manager->saveItem( clone $view->item );
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'locale/language', strtoupper( $view->item->getId() ), 'save' );
+			$this->nextAction( $view, $view->param( 'next' ), 'locale/language', $view->item->getId(), 'save' );
 			return;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
