@@ -144,7 +144,7 @@ $columnList = [
 			?>
 
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => strtoupper( $id )] + $params, [], $getConfig ) ); ?>
+				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr>
 					<?php if( in_array( 'locale.language.id', $fields ) ) : ?>
 						<td class="locale-language-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
@@ -170,11 +170,11 @@ $columnList = [
 
 					<td class="actions">
 						<a class="btn act-copy fa" tabindex="1"
-							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => strtoupper( $id )] + $params, [], $copyConfig ) ); ?>"
+							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
 						<a class="btn act-delete fa" tabindex="1"
-							href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => strtoupper( $id )] + $params, [], $delConfig ) ); ?>"
+							href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 					</td>
