@@ -386,7 +386,9 @@ class Standard
 
 			$refItem->fromArray( $entry );
 
-			if( ( $file = $this->getValue( $files, 'image/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
+			if( ( $file = $this->getValue( $files, 'image/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
+			{
+				$refItem->getId() ?: $refItem->setUrl( '' )->setPreview( '' ); // keep copied image
 				$cntl->add( $refItem, $file );
 			}
 
