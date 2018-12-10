@@ -201,9 +201,6 @@ $statusList = [
 									</select>
 								</div>
 							</div>
-						</div>
-
-						<div class="col-xl-6 content-block <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?>">
 							<div class="form-group row">
 								<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></label>
 								<div class="col-8">
@@ -211,6 +208,21 @@ $statusList = [
 								</div>
 								<div class="col-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Site the order was placed at' ) ); ?>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-6 content-block <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?>">
+							<div class="form-group row">
+								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer' ) ); ?></label>
+								<div class="col-8">
+									<select class="combobox item-customer" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.customerid' ) ) ); ?>"
+										<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
+										<option value="<?= $enc->attr( $this->get( 'itemData/order.base.customerid' ) ); ?>" >
+											<?= $enc->html( $this->get( 'itemData/customer.code' ) ); ?>
+										</option>
+									</select>
 								</div>
 							</div>
 							<div class="form-group row">

@@ -573,6 +573,16 @@ class Standard
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$data = $item->toArray( true );
 
+		if( $item->getCustomerId() != '' )
+		{
+			$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer' );
+
+			try {
+				$data += $manager->getItem( $item->getCustomerId() )->toArray();
+			} catch( \Exception $e ) {};
+		}
+
+
 		if( $copy === true )
 		{
 			$data['order.base.siteid'] = $siteId;

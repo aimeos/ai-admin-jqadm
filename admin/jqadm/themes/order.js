@@ -221,8 +221,25 @@ Aimeos.Order = {
 		this.createShortAddress();
 		this.toggleAddressForm();
 		this.updateShortAddress();
+		this.setupCustomer();
 
 		Aimeos.Order.Invoice.init();
+	},
+
+
+	selectCustomer: function(ev, ui) {
+
+		var node = $(ev.delegateTarget);
+		node.closest("form-group").find("select.item-customerid").val(node.val());
+	},
+
+
+	setupCustomer : function() {
+
+		$(".item-order .item-customer.combobox").combobox({
+			getfcn: Aimeos.getOptionsCustomers,
+			select: Aimeos.Order.selectCustomer
+		});
 	},
 
 
