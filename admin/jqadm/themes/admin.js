@@ -179,6 +179,11 @@ Aimeos = {
 	},
 
 
+	getOptionsCustomers : function(request, response, element, criteria, labelFcn) {
+		Aimeos.getOptions(request, response, element, 'customer', 'customer.code', 'customer.code', criteria, labelFcn);
+	},
+
+
 	getOptionsCurrencies : function(request, response, element, criteria, labelFcn) {
 		Aimeos.getOptions(request, response, element, 'locale/currency', 'locale.currency.id', '-locale.currency.status,locale.currency.id', criteria, labelFcn);
 	},

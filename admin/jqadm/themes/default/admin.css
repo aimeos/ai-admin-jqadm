@@ -355,13 +355,13 @@
 	overflow-x: initial;
 }
 
-.aimeos .item-order span.form-control {
+.aimeos .item-order span.form-control:not(.ai-combobox) {
 	border-color: transparent;
 }
 
 .aimeos .item-order .item-customerid a.act-view:after {
 	font: normal normal normal 14px/1 FontAwesome;
-	content:"\f06e";
+	content: " \f06e";
 }
 
 .aimeos .item-order .item-product-list th.item-column,
