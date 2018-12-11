@@ -6,6 +6,7 @@
 # Boyd Lamers <boyd.lamers@webits.nl>, 2015
 # Bram Verhaegh <bram@beech.it>, 2015
 # CROB Support <support@crob.nl>, 2018
+# Kevin Peters <kevin@popkorn.be>, 2018
 # Klaas Runia <info@sennik.nl>, 2015
 # Maikel Slot <maikelslot@msdesigns.nl>, 2017
 # Maurice Lourens <mlourens@gmail.com>, 2015,2017
@@ -15,8 +16,8 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-14 09:41+0200\n"
-"PO-Revision-Date: 2018-10-14 07:41+0000\n"
-"Last-Translator: Aimeos\n"
+"PO-Revision-Date: 2018-12-04 10:17+0000\n"
+"Last-Translator: Kevin Peters <kevin@popkorn.be>\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,7 +70,7 @@ msgstr "%s/%s/%s.%s"
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Internationaal) facsimile nummer zonder scheidingstekens, kan beginnen met een \"+\""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
@@ -109,7 +110,7 @@ msgid "Additional information where the customer's appartment can be found"
 msgstr "Extra informatie over de locatie van de klant zijn appartement."
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Aanvullende informatie waar het appartement van de leverancier gevonden kan worden"
 
 msgid "Additional information where the supplier's office can be found"
 msgstr "Extra informatie over de locatie van het kantoor van de leverancier."
@@ -136,7 +137,7 @@ msgid "Address identifier of the customer's house for delivery"
 msgstr "Adres identificator voor de woning van de klant voor levering "
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Adres identificator voor de woning van de leverancier voor levering "
 
 msgid "Address identifier of the supplier's office"
 msgstr "Adres identificator voor kantoor van leverancier"
@@ -170,17 +171,17 @@ msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "Geef klanten de mogelijkheid zelf een prijs te bepalen"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Alfanumerieke string dat de groep uniek kan identificeren"
 
 msgid ""
 "Article description shown by search engines, added to the head section of "
 "the product detail page"
-msgstr ""
+msgstr "Pagina-omschrijving, getoond door zoekmachines, toegevoegd aan de head sectie van de productdetailpagina"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Artikelspecifieke configuratieopties, zullen beschikbaar zijn als sleutel/warde set in de sjablonen."
 
 msgid "Associated attributes"
 msgstr "Gekoppelde kenmerken"
@@ -213,13 +214,13 @@ msgid "Attribute Lists Type"
 msgstr "Kenmerk Lijst Type"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Kenmerk Lijst Type"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Kenmerk Property Type"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Kenmerk Property Types"
 
 msgid "Attribute Type"
 msgstr "Kenmerk Type"
@@ -234,7 +235,7 @@ msgid "Attribute position (optional)"
 msgstr "Kenmerk positie (optioneel)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Kenmerk eigenschappen die niet gedeeld worden met andere kenmerken"
 
 msgid "Attribute type"
 msgstr "Type kenmerk"
@@ -265,7 +266,7 @@ msgid "Available customers"
 msgstr "Beschikbare klanten"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Beschikbare intervallen in de front-end"
 
 msgid "Available language for the current site"
 msgstr "Beschikbare talen voor de huidige site"
@@ -365,7 +366,7 @@ msgid "Characteristics"
 msgstr "Karakteristieken"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Kies bestand"
 
 msgid "City"
 msgstr "Stad"
@@ -483,10 +484,10 @@ msgstr "Landcode (vereist)"
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "Land specifieke belastingswaarde om de inbegrepen belastingen (B2C) te calculeren en tonen, of om de belastingen toe te voegen indien nodig (B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "Land staat code (optioneel)"
 
 msgid "Country state, e.g. \"NY\""
 msgstr "Staat, bijv. \"NY\""
@@ -503,7 +504,7 @@ msgid "Coupon code: {0} ({1})"
 msgstr "Coupon code: {0} ({1})"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Waardebon provider of waardebon decorator configuratie naam"
 
 #. : Coupon item panel title with coupon label ({0}) and site code ({1)}
 #, python-brace-format
@@ -526,7 +527,7 @@ msgid "Currency (required)"
 msgstr "Valuta (verplicht)"
 
 msgid "Custom"
-msgstr ""
+msgstr "Aangepast"
 
 msgid "Customer"
 msgstr "Klant"
@@ -535,16 +536,16 @@ msgid "Customer ID"
 msgstr "Klant ID"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Klant Lijst type"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Klant lijst types"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Klant eigenschap type"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Klant eigenschap types"
 
 msgid "Customer Types"
 msgstr "Klant typen"
@@ -575,7 +576,7 @@ msgid "Customer password"
 msgstr "Klant wachtwoord"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Klant eigenschappen dat niet gedeeld worden met andere klanten"
 
 #. : Customer item panel title with customer label ({0}) and site code ({1)}
 #, python-brace-format
@@ -623,7 +624,7 @@ msgstr "Bezorg adres"
 
 msgid ""
 "Delivery costs for the whole order or additional costs for payment options"
-msgstr ""
+msgstr "Leveringskosten voor de totale order of extra kosten voor betalingsopties"
 
 msgid "Delivery date"
 msgstr "Bezorg datum"
@@ -635,7 +636,7 @@ msgid "Delivery types"
 msgstr "Leveringstypes"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Omschrijving van de tekst indien een andere taal"
 
 msgid "Descritive name of the currency"
 msgstr "Beschrijvende naam voor de valuta"
@@ -806,7 +807,7 @@ msgid "Group label (required)"
 msgstr "Groep label (verplicht)"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Groep naam dat beschrijft voor welke leden de groep is"
 
 msgid "Height"
 msgstr "Hoogte"
@@ -892,12 +893,12 @@ msgstr "Interne artikelbenaming, zal op de website worden gebruikt wanneer er ge
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Interne attribuut naam, zal gebruikt op de website worden indien er geen naam voor de gekozen taal aanwezig is"
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Interne categorie naam, zal gebruikt op de website worden indien er geen naam voor de gekozen taal aanwezig is"
 
 msgid "Internal name"
 msgstr "Interne naam"
@@ -906,7 +907,7 @@ msgid "Internal name (required)"
 msgstr "Interne naam (verplicht)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Interne type naam getoond in de administratie interface"
 
 msgid "Interval"
 msgstr "Interval"
@@ -984,7 +985,7 @@ msgstr "Label dat de interval omschrijft, zal worden gebruikt wanneer er geen na
 msgid ""
 "Label will be used if empty but then there must be no name for all "
 "languages. Otherwise, items will not be shown when sorting by name"
-msgstr ""
+msgstr "Label zal gebruikt worden wanneer het veld leeg is maar dan mag er geen naam voor alle talen aanwezig zijn. Anders zullen items niet getoond worden bij sorteren op naam."
 
 msgid "Language"
 msgstr "Taal"
@@ -1022,7 +1023,7 @@ msgstr "Achternaam (verplicht)"
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "Achternaam van de persoon of volledige naam in culturen waar geen voornaam gebruikelijk is."
 
 msgid "Last payment status of the invoice"
 msgstr "Meest recente status van betaling van de factuur"
@@ -1066,7 +1067,7 @@ msgstr "Lijst aanpassings-datum"
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "Lijst van artikels dat verkocht zouden worden als één product, meestal onder een verlaagde prijs"
 
 msgid "List of products often bought together"
 msgstr "Lijst van producten die vaak samen gekocht worden"
@@ -1262,7 +1263,7 @@ msgid "Non-shared properties for the media item"
 msgstr "Niet-gedeelde eigenschappen voor het media-item"
 
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1286,7 +1287,7 @@ msgstr "Officiële BTW registratienummer om te bepalen of er BTW berekend moet w
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "Een provider en nul of meer decorator klassenamen, gescheiden door komma"
 
 msgid "Option"
 msgstr "Optie"
@@ -1312,7 +1313,7 @@ msgid "Order of the service options in the checkout process"
 msgstr "Volgorde van de serviceopties in het checkout- of afrekenproces"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "Orde van de types in de frontend"
 
 msgid "Order product ID"
 msgstr "Order product ID"
@@ -1345,11 +1346,11 @@ msgstr "Overschrijf het bestaande bestand en klanten die dit artikel in het verl
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "PHP setting \"%1$s\" is niet actief"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "PHP setting voor \"%1$s\" is te laag"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1379,10 +1380,10 @@ msgid "Pay date"
 msgstr "Betaaldatum"
 
 msgid "Pay name"
-msgstr ""
+msgstr "Betaal naam"
 
 msgid "Pay price"
-msgstr ""
+msgstr "Betaal prijs"
 
 msgid "Pay rebate"
 msgstr "Betalingskorting"
@@ -1445,7 +1446,7 @@ msgid "Plugin position (required)"
 msgstr "Plugin positie (verplicht)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "Plugin provider of plugin decorator configuratie naam"
 
 msgid "Plugin type"
 msgstr "Plugin type"
@@ -1470,19 +1471,19 @@ msgid "Position (required)"
 msgstr "Positie (verplicht)"
 
 msgid "Postal"
-msgstr ""
+msgstr "Post"
 
 msgid "Postal code"
 msgstr "Postcode"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "Post code van levering indien gebruikt in de zone waar de klant woont"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "Post code van levering indien gebruikt in de zone waar de leverancier woont"
 
 msgid "Postal code for delivery if used in the area the supplier's office"
-msgstr ""
+msgstr "Post code van levering indien gebruikt in de zone waar het kantoor van de levering zich bevind"
 
 msgid "Preview"
 msgstr "Voorbeeld weergave"
@@ -1497,16 +1498,16 @@ msgid "Price"
 msgstr "Prijs"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "Prijs Lijst Type"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "Prijs Lijst Types"
 
 msgid "Price Type"
-msgstr ""
+msgstr "Prijs Type"
 
 msgid "Price Types"
-msgstr ""
+msgstr "Prijs Types"
 
 msgid "Price type"
 msgstr "Prijs type"
@@ -1528,7 +1529,7 @@ msgid "Priority"
 msgstr "Prioriteit"
 
 msgid "Problem"
-msgstr ""
+msgstr "Probleem"
 
 msgid "Product"
 msgstr "Product"
@@ -1537,30 +1538,30 @@ msgid "Product ID"
 msgstr "Product ID"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "Product Lijst Type"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "Product Lijst Types"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "Product Eigenschap Type"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "Product Eigenschap Types"
 
 msgid "Product Type"
-msgstr ""
+msgstr "Product Type"
 
 msgid "Product Types"
-msgstr ""
+msgstr "Product Types"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "Product eigenschappen opgeslagen in de mand waar klanten hun eigen text of waarden kunnen ingeven"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "Product eigenschapen dat ook gebruikt worden door andere producten"
 
 msgid "Product characteristics that are not shared with other products"
 msgstr "Productkarakteristieken die niet gedeeld worden met andere producten"
@@ -1604,13 +1605,13 @@ msgid "Product rebate"
 msgstr "Product korting"
 
 msgid "Product status"
-msgstr ""
+msgstr "Product status"
 
 msgid "Product stock"
 msgstr "Product voorraad"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "Product leverancier"
 
 msgid "Product supplier (optional)"
 msgstr "Product leverancier (optioneel)"
@@ -1621,7 +1622,7 @@ msgid "Product tag: {0} ({1})"
 msgstr "Product tag: {0} ({1})"
 
 msgid "Product tax"
-msgstr ""
+msgstr "Product btw"
 
 msgid "Product tax rate"
 msgstr "Product BTW"
@@ -1667,10 +1668,10 @@ msgid "Provider"
 msgstr "Aanbieder"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "Provider/decorator klassenaam (verplicht)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Aankoop"
 
 msgid "Purchase date"
 msgstr "Aankoop datum"
@@ -1685,7 +1686,7 @@ msgid "Quantity or empty if unlimited (optional)"
 msgstr "Aantal of laat leeg voor onbeperkt (optioneel)"
 
 msgid "Reason"
-msgstr ""
+msgstr "Reden"
 
 msgid "Rebate"
 msgstr "Korting"
@@ -1699,7 +1700,7 @@ msgid "Ref-ID"
 msgstr "Ref-ID"
 
 msgid "Related ID"
-msgstr ""
+msgstr "Gerelateerde ID"
 
 msgid "Related order"
 msgstr "Gerelateerde order"
@@ -1737,12 +1738,12 @@ msgstr "Resultaat"
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "Route naam of pagina ID van de categorie pagina als deze categorie moet getoond worden op een andere pagina"
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "Route naam of pagina ID van de product pagina als dit product moet getoond worden op een andere pagina"
 
 msgid "Route or page ID (optional)"
 msgstr "Route of pagina ID (optioneel)"
@@ -1792,7 +1793,7 @@ msgid "Search schema {0} is  not registered"
 msgstr "Zoek schema {0} is niet geregistreerd"
 
 msgid "Second level type for grouping items"
-msgstr ""
+msgstr "Tweede niveau type voor groeperings items"
 
 msgid "Select Item"
 msgstr "Selecteer item"

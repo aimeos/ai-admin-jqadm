@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Bruno Faria <email@brunofaria.pt>, 2018
 # Tadeu Pagliarini <tadeu_up@hotmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-14 09:41+0200\n"
-"PO-Revision-Date: 2018-10-14 07:41+0000\n"
-"Last-Translator: Tadeu Pagliarini <tadeu_up@hotmail.com>\n"
+"PO-Revision-Date: 2018-12-02 18:54+0000\n"
+"Last-Translator: Bruno Faria <email@brunofaria.pt>\n"
 "Language-Team: Portuguese (http://www.transifex.com/aimeos/aimeos-core/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,7 +72,7 @@ msgid ""
 msgstr ""
 
 msgid "Active"
-msgstr ""
+msgstr "Ativo"
 
 msgid "Actual current price"
 msgstr "Preço atual"
@@ -86,7 +87,7 @@ msgid "Add filter"
 msgstr "Adicionar filtro"
 
 msgid "Add new entry (Ctrl+A)"
-msgstr ""
+msgstr "Adicionar nova entrada (Ctrl + A)"
 
 msgid "Additional"
 msgstr "Adicional"
@@ -143,7 +144,7 @@ msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "Avançado"
 
 #, php-format
 msgid "Aimeos object not available"
@@ -216,16 +217,16 @@ msgid "Attribute Property Types"
 msgstr ""
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Tipo de Atributo"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Tipos de Atributos"
 
 msgid "Attribute name"
-msgstr ""
+msgstr "Nome do Atributo"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Posição de Atributo (opcional)"
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
@@ -304,7 +305,7 @@ msgid "Birthday of the customer"
 msgstr ""
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Erro ou sugestão?"
 
 msgid "Bundles"
 msgstr "Pacotes"
@@ -348,7 +349,7 @@ msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
 
 msgid "Category name"
-msgstr ""
+msgstr "Nome da Categoria"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
@@ -359,7 +360,7 @@ msgid "Characteristics"
 msgstr "Características"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Escolher ficheiro"
 
 msgid "City"
 msgstr "Cidade"
@@ -414,25 +415,25 @@ msgid "Comment"
 msgstr "Comentário"
 
 msgid "Communication"
-msgstr ""
+msgstr "Comunicação"
 
 msgid "Company"
 msgstr "Empresa"
 
 msgid "Company details"
-msgstr ""
+msgstr "Detalhes da empresa"
 
 msgid "Company name"
 msgstr "Nome da empresa"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Nome da empresa (opcional)"
 
 msgid "Config"
-msgstr ""
+msgstr "Configuração"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Configurável"
 
 msgid "Configuration"
 msgstr "Configuração"
@@ -448,7 +449,7 @@ msgid "Copy"
 msgstr "Copiar"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Copiar esta entrada"
 
 msgid "Costs"
 msgstr "Custo"
@@ -466,13 +467,13 @@ msgid "Country"
 msgstr "País"
 
 msgid "Country ID"
-msgstr ""
+msgstr "ID do país"
 
 msgid "Country code"
 msgstr "Código do país"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "Código do país (Obrigatório)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
@@ -511,7 +512,7 @@ msgid "Created"
 msgstr "Criado"
 
 msgid "Currencies"
-msgstr ""
+msgstr "Moeda"
 
 msgid "Currency"
 msgstr "Moeda"
@@ -526,7 +527,7 @@ msgid "Customer"
 msgstr "Cliente"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "ID de Cliente"
 
 msgid "Customer Lists Type"
 msgstr ""
@@ -566,7 +567,7 @@ msgid "Customer group: {0} ({1})"
 msgstr "Grupo de clientes: {0} ({1})"
 
 msgid "Customer password"
-msgstr ""
+msgstr "Password do Cliente"
 
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
@@ -595,7 +596,7 @@ msgid "Date the subscription ends"
 msgstr ""
 
 msgid "Days"
-msgstr ""
+msgstr "Dias"
 
 msgid "Default"
 msgstr "Padrão"
@@ -607,7 +608,7 @@ msgid "Delete items?"
 msgstr "Remover itens?"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Apagar esta entrada"
 
 msgid "Delivery"
 msgstr "Entrega"
@@ -656,7 +657,7 @@ msgid "Download"
 msgstr "Baixar"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Descarregar este arquivo"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
@@ -665,16 +666,16 @@ msgid "E-Mail"
 msgstr "E-mail"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "Endereço de email (obrigatório)"
 
 msgid "E-Mail, e.g. me@example.com (required)"
 msgstr "E-mail, ex. me@example.com (obrigatório)"
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "Endereço de email (opcional)"
 
 msgid "E-mail address that belongs to the address"
 msgstr ""
@@ -686,13 +687,13 @@ msgid "Edit"
 msgstr "Editar"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Editar esta entrada"
 
 msgid "Editor"
 msgstr "Editor"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "End date"
 msgstr "Data final"
@@ -746,7 +747,7 @@ msgid "Filter"
 msgstr "Filtro"
 
 msgid "Find category"
-msgstr ""
+msgstr "Encontrar categoria "
 
 msgid "First"
 msgstr "Primeiro"
@@ -755,7 +756,7 @@ msgid "First name"
 msgstr "Nome"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Nome (opcional)"
 
 msgid "First name of the person if used in cultures where they are used"
 msgstr ""
@@ -806,7 +807,7 @@ msgid "Height"
 msgstr "Altura"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "Atributos escondidos"
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr ""
@@ -865,13 +866,13 @@ msgid "Incl. tax"
 msgstr ""
 
 msgid "Info"
-msgstr ""
+msgstr "Informação"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "Inserir nova entrada"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "Inserir nova entrada (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
@@ -949,7 +950,7 @@ msgid "Item position within the same type"
 msgstr "Posição do item do mesmo tipo"
 
 msgid "Item saved successfully"
-msgstr ""
+msgstr "Item guardado com sucesso"
 
 msgid "Job item details"
 msgstr "Detalhes do item da tarefa"
@@ -970,7 +971,7 @@ msgid "Label"
 msgstr "Rótulo"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Rótulo (Obrigatório)"
 
 msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
@@ -987,13 +988,13 @@ msgid "Language (required)"
 msgstr "Idioma (obrigatório)"
 
 msgid "Language ID"
-msgstr ""
+msgstr "ID do Idioma"
 
 msgid "Language of the entered text"
 msgstr ""
 
 msgid "Languages"
-msgstr ""
+msgstr "Idiomas"
 
 msgid "Last"
 msgstr "Último"
@@ -1066,7 +1067,7 @@ msgid "List of products often bought together"
 msgstr ""
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "Lista de produtos sugeridos"
 
 msgid "List position"
 msgstr "Posição da lista"
@@ -1110,7 +1111,7 @@ msgid "Locale site: {0} ({1})"
 msgstr "Localização do site: {0} ({1})"
 
 msgid "Log"
-msgstr ""
+msgstr "Registo"
 
 msgid "Logs"
 msgstr "Registros"
@@ -1186,7 +1187,7 @@ msgid "Months"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Mais"
 
 msgid "Move this entry up/down"
 msgstr ""
@@ -1214,16 +1215,16 @@ msgid "Name of the service provider class (required)"
 msgstr "Nome da classe provedora de serviço (obrigatório)"
 
 msgid "New"
-msgstr ""
+msgstr "Novo"
 
 msgid "Next"
 msgstr "Próximo"
 
 msgid "Next date"
-msgstr ""
+msgstr "Próxima data"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "Próxima data (Opcional)"
 
 msgid "Next date the subscription is renewed"
 msgstr ""
@@ -1239,7 +1240,7 @@ msgid "No items"
 msgstr "Sem itens"
 
 msgid "No items found"
-msgstr ""
+msgstr "Não foram encontrados itens"
 
 #, php-format
 msgid "No items found for \"%1$s %2$s %3$s\""
@@ -1256,7 +1257,7 @@ msgid "Non-shared properties for the media item"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1273,7 +1274,7 @@ msgid ""
 msgstr ""
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr ""
@@ -1315,7 +1316,7 @@ msgid "Order totals"
 msgstr ""
 
 msgid "Orders"
-msgstr ""
+msgstr "Pedidos"
 
 msgid "Orders by day"
 msgstr "Pedidos por data"
@@ -1370,7 +1371,7 @@ msgid "Pay costs"
 msgstr ""
 
 msgid "Pay date"
-msgstr ""
+msgstr "Data de pagamento"
 
 msgid "Pay name"
 msgstr ""
@@ -1407,7 +1408,7 @@ msgid "Personal data"
 msgstr ""
 
 msgid "Phone"
-msgstr ""
+msgstr "Contacto"
 
 msgid "Physical values"
 msgstr "Valores físicos"
@@ -1522,7 +1523,7 @@ msgid "Priority"
 msgstr "Prioridade"
 
 msgid "Problem"
-msgstr ""
+msgstr "Problema"
 
 msgid "Product"
 msgstr "Produto"
@@ -1705,7 +1706,7 @@ msgid "Remove filter"
 msgstr "Remover filtro"
 
 msgid "Renew"
-msgstr ""
+msgstr "Renovar"
 
 msgid "Replace file"
 msgstr "Substituir arquivo"
@@ -1723,7 +1724,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Limpar"
 
 msgid "Result"
 msgstr "Resultado"
@@ -1742,7 +1743,7 @@ msgid "Route or page ID (optional)"
 msgstr ""
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
 msgstr ""
@@ -1760,16 +1761,16 @@ msgid "Save"
 msgstr "Salvar"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Guardar & Fechar"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Guardar & Copiar"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Guardar & Novo"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "Guardar entrada (Ctrl+S)"
 
 msgid "Saving"
 msgstr "Salvando"
@@ -1792,7 +1793,7 @@ msgid "Select Item"
 msgstr "Item selecionado"
 
 msgid "Select file"
-msgstr ""
+msgstr "Selecionar ficheiro"
 
 msgid "Select languages to export"
 msgstr "Selecione idiomas para exportar"
@@ -1896,7 +1897,7 @@ msgid "Show"
 msgstr "Mostrar"
 
 msgid "Show entry"
-msgstr ""
+msgstr "Mostrar entradas"
 
 msgid "Show/hide advanced data"
 msgstr ""
@@ -1924,7 +1925,7 @@ msgid "Site the order was placed at"
 msgstr ""
 
 msgid "Sites"
-msgstr ""
+msgstr "Sites"
 
 msgid "Size"
 msgstr "Tamanho"
@@ -1978,7 +1979,7 @@ msgid "Sub-total"
 msgstr "Sub-total"
 
 msgid "Subscription"
-msgstr ""
+msgstr "Subscrição"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
@@ -2040,7 +2041,7 @@ msgid "Tags"
 msgstr "Tags"
 
 msgid "Tax"
-msgstr ""
+msgstr "Taxa"
 
 msgid "Tax rate"
 msgstr "Taxa de imposto"
@@ -2422,7 +2423,7 @@ msgstr ""
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "Clientes"
 
 #, php-format
 msgid "dashboard"
@@ -2442,7 +2443,7 @@ msgstr "Downloads"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "grupo"
 
 #, php-format
 msgid "hour"
@@ -2454,7 +2455,7 @@ msgstr "Imagens"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "Faturas"
 
 #, php-format
 msgid "latest"
@@ -2466,15 +2467,15 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "Moedas"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "Idiomas"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "Sites"
 
 #, php-format
 msgid "log"
@@ -2496,7 +2497,7 @@ msgid "new"
 msgstr "novo"
 
 msgid "no"
-msgstr ""
+msgstr "não"
 
 msgid "not available any more"
 msgstr ""
@@ -2507,7 +2508,7 @@ msgstr "Opções"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "Pedidos"
 
 msgid "order:phone"
 msgstr ""
@@ -2632,7 +2633,7 @@ msgstr ""
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "Especial"
 
 msgid "stat:-1"
 msgstr "não-concluído"
@@ -2733,7 +2734,7 @@ msgstr "Textos"
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "tipo"
 
 #, php-format
 msgid "type/attribute"
@@ -2820,14 +2821,14 @@ msgid "type/text/lists"
 msgstr ""
 
 msgid "unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #, php-format
 msgid "weekday"
 msgstr ""
 
 msgid "yes"
-msgstr ""
+msgstr "sim"
 
 msgid "yy-mm-dd"
 msgstr "yy-mm-dd"
