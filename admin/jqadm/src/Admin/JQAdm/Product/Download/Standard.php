@@ -92,7 +92,7 @@ class Standard
 			$refItem = $listItem->getRefItem();
 
 			if( $refItem !== null && $refItem->getCode() != '' && $fs->has( $refItem->getCode() ) ) {
-				$fs->rm( $item->getCode() );
+				$fs->rm( $refItem->getCode() );
 			}
 
 			$item->deleteListItem( 'attribute', $listItem, $refItem );
