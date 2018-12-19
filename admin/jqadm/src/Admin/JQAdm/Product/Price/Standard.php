@@ -326,8 +326,6 @@ class Standard
 
 		$priceManager = \Aimeos\MShop\Factory::createManager( $context, 'price' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$priceTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'price/type' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$listItems = $item->getListItems( 'price', null, null, false );
 

@@ -279,7 +279,6 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$propManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/property' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/property/type' );
 		$index = 0;
 
 		foreach( $item->getRefItems( 'media', null, null, false ) as $refItem )

@@ -394,8 +394,6 @@ class Standard
 
 		$mediaManager = \Aimeos\MShop\Factory::createManager( $context, 'media' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$mediaTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'media/type' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );

@@ -315,7 +315,6 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock/type' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );

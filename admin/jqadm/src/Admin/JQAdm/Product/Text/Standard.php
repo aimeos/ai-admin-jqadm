@@ -320,8 +320,6 @@ class Standard
 
 		$textManager = \Aimeos\MShop\Factory::createManager( $context, 'text' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$textTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
 
 		$listItems = $item->getListItems( 'text', null, null, false );
 
