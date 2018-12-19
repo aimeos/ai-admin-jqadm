@@ -9,8 +9,8 @@
 $enc = $this->encoder();
 
 $keys = [
-	'service.lists.siteid', 'service.lists.typeid', 'service.lists.datestart', 'service.lists.dateend', 'config',
-	'price.siteid', 'price.typeid', 'price.currencyid', 'price.status', 'price.quantity', 'price.taxrate', 'price.value', 'price.rebate', 'price.costs'
+	'service.lists.siteid', 'service.lists.type', 'service.lists.datestart', 'service.lists.dateend', 'config',
+	'price.siteid', 'price.type', 'price.currencyid', 'price.status', 'price.quantity', 'price.taxrate', 'price.value', 'price.rebate', 'price.costs'
 ];
 
 $currencies = $this->get( 'priceCurrencies', [] );
@@ -20,7 +20,7 @@ $currencies = $this->get( 'priceCurrencies', [] );
 <div id="price" class="item-price content-block tab-pane fade" role="tablist" aria-labelledby="price">
 	<div id="item-price-group" role="tablist" aria-multiselectable="true"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'priceData', [] ) ) ); ?>"
-		data-listtypeid="<?= key( $this->get( 'priceListTypes', [] ) ) ?>"
+		data-listtype="<?= key( $this->get( 'priceListTypes', [] ) ) ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
@@ -165,16 +165,16 @@ $currencies = $this->get( 'priceCurrencies', [] );
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.typeid' ) ) ); ?>'.replace('idx', idx)"
+								<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.type' ) ) ); ?>'.replace('idx', idx)"
 									v-bind:readonly="checkSite('price.siteid', idx)"
-									v-model="items[idx]['price.typeid']" >
+									v-model="items[idx]['price.type']" >
 									<option value="">
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
 
-									<?php foreach( (array) $priceTypes as $typeId => $typeItem ) : ?>
-										<option value="<?= $enc->attr( $typeId ); ?>" v-bind:selected="items[idx]['price.typeid'] == '<?= $enc->attr( $typeId ) ?>'" >
+									<?php foreach( (array) $priceTypes as $typeItem ) : ?>
+										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="items[idx]['price.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
@@ -185,8 +185,8 @@ $currencies = $this->get( 'priceCurrencies', [] );
 							</div>
 						</div>
 					<?php else : ?>
-						<input class="item-typeid" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.typeid' ) ) ); ?>'.replace('idx', idx)"
+						<input class="item-type" type="hidden"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.type' ) ) ); ?>'.replace('idx', idx)"
 							value="<?= $enc->attr( key( $priceTypes ) ); ?>" />
 					<?php endif; ?>
 
@@ -226,13 +226,13 @@ $currencies = $this->get( 'priceCurrencies', [] );
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select listitem-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.typeid' ) ) ); ?>'.replace('idx', idx)"
+								<select class="form-control custom-select listitem-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.type' ) ) ); ?>'.replace('idx', idx)"
 									v-bind:readonly="checkSite('service.lists.siteid', idx)"
-									v-model="items[idx]['service.lists.typeid']" >
+									v-model="items[idx]['service.lists.type']" >
 
-									<?php foreach( $this->get( 'priceListTypes', [] ) as $id => $typeItem ) : ?>
-										<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="entry['service.lists.typeid'] == '<?= $enc->attr( $id ) ?>'" >
+									<?php foreach( $this->get( 'priceListTypes', [] ) as $typeItem ) : ?>
+										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="entry['service.lists.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
@@ -243,10 +243,10 @@ $currencies = $this->get( 'priceCurrencies', [] );
 							</div>
 						</div>
 					<?php else : ?>
-						<input class="listitem-typeid" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.typeid' ) ) ); ?>'.replace('idx', idx)"
+						<input class="listitem-type" type="hidden"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.type' ) ) ); ?>'.replace('idx', idx)"
 							value="<?= $enc->attr( key( $listTypes ) ); ?>"
-							v-model="items[idx]['service.lists.typeid']" />
+							v-model="items[idx]['service.lists.type']" />
 					<?php endif; ?>
 
 					<div class="form-group row optional">

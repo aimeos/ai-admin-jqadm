@@ -30,12 +30,12 @@ Aimeos.Service = {
 		var delegate = $(".aimeos .item-service .item-basic");
 
 		if(delegate.length > 0 ) {
-			var type = $(".item-typeid option:selected", delegate).data("code");
+			var type = $(".item-type option:selected", delegate).val();
 			Aimeos.Config.setup('service/config', $("input.item-provider", delegate).val(), delegate, type);
 		}
 
 		delegate.on("change input blur", "input.item-provider", function(ev) {
-			var type = $(".item-typeid option:selected", delegate).data("code");
+			var type = $(".item-type option:selected", delegate).val();
 			Aimeos.Config.setup('service/config', $(ev.currentTarget).val(), ev.delegateTarget, type);
 		});
 	},
@@ -60,7 +60,7 @@ Aimeos.Service = {
 
 		var input = $(".aimeos .item-service").on("focus", ".item-provider", function(ev) {
 
-			var type = $(".item-typeid option:selected", ev.delegateTarget).data("code");
+			var type = $(".item-type option:selected", ev.delegateTarget).val();
 
 			if(type) {
 				$(this).autocomplete({

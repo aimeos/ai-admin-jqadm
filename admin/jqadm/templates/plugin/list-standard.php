@@ -56,14 +56,14 @@ $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
 
 $typeList = [];
-foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
-	$typeList[$id] = $typeItem->getCode();
+foreach( $this->get( 'itemTypes', [] ) as $typeItem ) {
+	$typeList[$typeItem->getCode()] = $typeItem->getCode();
 }
 
 $columnList = [
 	'plugin.id' => $this->translate( 'admin', 'ID' ),
 	'plugin.status' => $this->translate( 'admin', 'Status' ),
-	'plugin.typeid' => $this->translate( 'admin', 'Type' ),
+	'plugin.type' => $this->translate( 'admin', 'Type' ),
 	'plugin.position' => $this->translate( 'admin', 'Position' ),
 	'plugin.label' => $this->translate( 'admin', 'Label' ),
 	'plugin.provider' => $this->translate( 'admin', 'Provider' ),
@@ -141,7 +141,7 @@ $columnList = [
 							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
-						'plugin.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
+						'plugin.type' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
 						'plugin.position' => ['op' => '>=', 'type' => 'number'],
 						'plugin.label' => [],
 						'plugin.provider' => [],
@@ -162,7 +162,7 @@ $columnList = [
 					<?php if( in_array( 'plugin.status', $fields ) ) : ?>
 						<td class="plugin-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'plugin.typeid', $fields ) ) : ?>
+					<?php if( in_array( 'plugin.type', $fields ) ) : ?>
 						<td class="plugin-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'plugin.position', $fields ) ) : ?>

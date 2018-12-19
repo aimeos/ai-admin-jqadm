@@ -82,7 +82,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'service' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'media/property/type' );
 
 		$item = $manager->findItem( 'unitcode', ['media'] );
 		$item->setCode( 'jqadm-test-image-property' );
@@ -97,7 +96,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 					'property' => array(
 						0 => array(
 							'media.property.id' => '',
-							'media.property.typeid' => $typeManager->findItem( 'size', [], 'media' )->getId(),
+							'media.property.type' => 'size',
 						),
 					),
 				),

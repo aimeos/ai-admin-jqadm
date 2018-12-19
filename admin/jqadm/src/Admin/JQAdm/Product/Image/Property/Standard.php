@@ -295,8 +295,7 @@ class Standard
 				}
 				else
 				{
-					$typeCode = $typeManager->getItem( $entry['media.property.typeid'] )->getCode();
-					$propItem = $propManager->createItem( $typeCode, 'media' );
+					$propItem = $propManager->createItem( $entry['media.property.type'], 'media' );
 				}
 
 				$propItem->fromArray( $entry );

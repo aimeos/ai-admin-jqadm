@@ -403,15 +403,14 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$type = $mediaTypeManager->getItem( $entry['media.typeid'] )->getCode();
-			$listType = $listTypeManager->getItem( $entry['product.lists.typeid'] )->getCode();
+			$listType = $entry['product.lists.type'];
 
 			if( ( $listItem = $item->getListItem( 'media', $listType, $entry['media.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem( $listType, 'media' );
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $mediaManager->createItem( $type, 'product' );
+				$refItem = $mediaManager->createItem( $entry['media.type'], 'product' );
 			}
 
 			$refItem->fromArray( $entry );

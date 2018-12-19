@@ -43,7 +43,7 @@ $delConfig = $this->config( 'admin/jsonadm/url/config', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = ['customer.lists.position', 'customer.lists.status', 'customer.lists.typeid', 'customer.lists.config', 'customer.lists.refid'];
+$default = ['customer.lists.position', 'customer.lists.status', 'customer.lists.type', 'customer.lists.config', 'customer.lists.refid'];
 $default = $this->config( 'admin/jqadm/customer/product/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/customerproduct/fields', $default );
 
@@ -73,7 +73,7 @@ $refItems = $this->get( 'productItems', [] );
 						'data' => [
 							'customer.lists.position' => $this->translate( 'admin', 'Position' ),
 							'customer.lists.status' => $this->translate( 'admin', 'Status' ),
-							'customer.lists.typeid' => $this->translate( 'admin', 'Type' ),
+							'customer.lists.type' => $this->translate( 'admin', 'Type' ),
 							'customer.lists.config' => $this->translate( 'admin', 'Config' ),
 							'customer.lists.datestart' => $this->translate( 'admin', 'Start date' ),
 							'customer.lists.dateend' => $this->translate( 'admin', 'End date' ),
@@ -94,7 +94,7 @@ $refItems = $this->get( 'productItems', [] );
 							'data' => [
 								'customer.lists.position' => $this->translate( 'admin', 'Position' ),
 								'customer.lists.status' => $this->translate( 'admin', 'Status' ),
-								'customer.lists.typeid' => $this->translate( 'admin', 'Type' ),
+								'customer.lists.type' => $this->translate( 'admin', 'Type' ),
 								'customer.lists.config' => $this->translate( 'admin', 'Config' ),
 								'customer.lists.datestart' => $this->translate( 'admin', 'Start date' ),
 								'customer.lists.dateend' => $this->translate( 'admin', 'End date' ),
@@ -118,7 +118,7 @@ $refItems = $this->get( 'productItems', [] );
 							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
-						'customer.lists.typeid' => ['op' => '==', 'type' => 'select', 'val' => $this->get( 'productListTypes', [])],
+						'customer.lists.type' => ['op' => '==', 'type' => 'select', 'val' => $this->get( 'productListTypes', [])],
 						'customer.lists.config' => ['op' => '~='],
 						'customer.lists.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'customer.lists.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
@@ -171,8 +171,8 @@ $refItems = $this->get( 'productItems', [] );
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-										name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.typeid', '' ) ) ); ?>" >
+									<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
+										name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.type', '' ) ) ); ?>" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 										</option>
@@ -290,17 +290,17 @@ $refItems = $this->get( 'productItems', [] );
 							</select>
 						</td>
 					<?php endif; ?>
-					<?php if( in_array( 'customer.lists.typeid', $fields ) ) : ?>
-						<td class="customer-lists-typeid">
-							<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.typeid', '' ) ) ); ?>"
+					<?php if( in_array( 'customer.lists.type', $fields ) ) : ?>
+						<td class="customer-lists-type">
+							<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.type', '' ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" >
 								<option value="">
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
 								<?php foreach( $this->get( 'productListTypes', [] ) as $id => $type ) : ?>
-									<option value="<?= $enc->attr( $id ); ?>" <?= $selected( $this->get( 'productData/customer.lists.typeid/' . $idx ), $id ); ?> >
+									<option value="<?= $enc->attr( $id ); ?>" <?= $selected( $this->get( 'productData/customer.lists.type/' . $idx ), $id ); ?> >
 										<?= $enc->html( $type ); ?>
 									</option>
 								<?php endforeach; ?>

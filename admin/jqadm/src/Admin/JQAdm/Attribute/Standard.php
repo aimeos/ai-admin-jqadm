@@ -518,8 +518,7 @@ class Standard
 		if( isset( $data['attribute.id'] ) && $data['attribute.id'] != '' ) {
 			$item = $manager->getItem( $data['attribute.id'], $this->getDomains() );
 		} else {
-			$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'attribute/type' );
-			$item = $manager->createItem( $typeManager->getItem( $data['attribute.typeid'] )->getCode(), $data['attribute.domain'] );
+			$item = $manager->createItem( $data['attribute.type'], $data['attribute.domain'] );
 		}
 
 		$item->fromArray( $data );

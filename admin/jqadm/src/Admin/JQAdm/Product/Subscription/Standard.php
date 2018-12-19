@@ -233,8 +233,8 @@ class Standard
 
 		$search = $manager->createSearch();
 		$expr = [
-			$search->compare( '==', 'attribute.type.code', 'interval' ),
-			$search->compare( '==', 'attribute.type.domain', 'product' ),
+			$search->compare( '==', 'attribute.type', 'interval' ),
+			$search->compare( '==', 'attribute.domain', 'product' ),
 		];
 		$search->setConditions( $search->combine( '&&', $expr ) );
 		$search->setSortations( [$search->sort( '+', 'attribute.code' )] );

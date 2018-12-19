@@ -124,7 +124,7 @@ Aimeos.Media = {
 			addItem : function(prefix) {
 
 				var idx = this.items.length;
-				var listtypeid = $('#item-image-group').data('listtypeid') || '';
+				var listtype = $('#item-image-group').data('listtype') || '';
 
 				if(!this.items[idx]) {
 					this.$set(this.items, idx, {});
@@ -135,7 +135,7 @@ Aimeos.Media = {
 				}
 
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
-				this.$set(this.items[idx], prefix + 'typeid', listtypeid);
+				this.$set(this.items[idx], prefix + 'type', listtype);
 				this.$set(this.items[idx], 'media.siteid', this.siteid);
 				this.$set(this.items[idx], 'media.languageid', null);
 				this.$set(this.items[idx], 'media.status', 1);
@@ -262,7 +262,7 @@ Aimeos.Media = {
 					this.$set(this.items[idx]['property'], len, {});
 				}
 
-				var keys = ['media.property.id', 'media.property.languageid', 'media.property.typeid', 'media.property.value'];
+				var keys = ['media.property.id', 'media.property.languageid', 'media.property.type', 'media.property.value'];
 
 				for(key in keys) {
 					key = keys[key]; this.$set(this.items[idx]['property'][len], key, '');
@@ -329,7 +329,7 @@ Aimeos.Price = {
 					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[idx], prefix + 'typeid', $('#item-price-group').data('listtypeid'));
+				this.$set(this.items[idx], prefix + 'type', $('#item-price-group').data('listtype'));
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
 				this.$set(this.items[idx], 'price.siteid', this.siteid);
 				this.$set(this.items[idx], 'price.quantity', '1');
@@ -375,7 +375,7 @@ Aimeos.Price = {
 
 			getLabel : function(idx) {
 				var label = '';
-				var type = $('#item-price-group-data-' + idx + ' .item-typeid option[value="' + this.items[idx]['price.typeid'] + '"]').html();
+				var type = $('#item-price-group-data-' + idx + ' .item-type option[value="' + this.items[idx]['price.type'] + '"]').html();
 				var currency = $('#item-price-group-data-' + idx + ' .item-currencyid').val();
 
 				label += (this.items[idx]['price.quantity'] ? this.items[idx]['price.quantity'] + ' ~ ' : '');
@@ -486,7 +486,7 @@ Aimeos.Text = {
 					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[idx], prefix + 'typeid', $('#item-text-group').data('listtypeid'));
+				this.$set(this.items[idx], prefix + 'type', $('#item-text-group').data('listtype'));
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
 				this.$set(this.items[idx], 'text.siteid', this.siteid);
 				this.$set(this.items[idx], 'text.status', '1');
@@ -531,7 +531,7 @@ Aimeos.Text = {
 
 			getLabel : function(idx) {
 				var label = '';
-				var type = $('#item-text-group-data-' + idx + ' .item-typeid option[value="' + this.items[idx]['text.typeid'] + '"]').html();
+				var type = $('#item-text-group-data-' + idx + ' .item-type option[value="' + this.items[idx]['text.type'] + '"]').html();
 
 				label += (this.items[idx]['text.languageid'] ? this.items[idx]['text.languageid'].toUpperCase() : '');
 				label += (type ? ' (' + type.trim() + ')' : (this.items[idx]['text.typename'] ? ' (' + this.items[idx]['text.typename'] + ')' : ''));

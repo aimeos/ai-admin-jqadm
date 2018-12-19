@@ -52,7 +52,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = ['attribute.status', 'attribute.typeid', 'attribute.code', 'attribute.label'];
+$default = ['attribute.status', 'attribute.type', 'attribute.code', 'attribute.label'];
 $default = $this->config( 'admin/jqadm/attribute/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/attribute/fields', $default );
 
@@ -60,15 +60,15 @@ $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
 
 $typeList = [];
-foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
-	$typeList[$id] = $typeItem->getCode();
+foreach( $this->get( 'itemTypes', [] ) as $typeItem ) {
+	$typeList[$typeItem->getCode()] = $typeItem->getCode();
 }
 
 $columnList = [
 	'attribute.id' => $this->translate( 'admin', 'ID' ),
 	'attribute.domain' => $this->translate( 'admin', 'Domain' ),
 	'attribute.status' => $this->translate( 'admin', 'Status' ),
-	'attribute.typeid' => $this->translate( 'admin', 'Type' ),
+	'attribute.type' => $this->translate( 'admin', 'Type' ),
 	'attribute.code' => $this->translate( 'admin', 'Code' ),
 	'attribute.label' => $this->translate( 'admin', 'Label' ),
 	'attribute.position' => $this->translate( 'admin', 'Position' ),
@@ -151,7 +151,7 @@ $columnList = [
 							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
-						'attribute.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
+						'attribute.type' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
 						'attribute.code' => [],
 						'attribute.label' => [],
 						'attribute.position' => ['op' => '=='],
@@ -174,7 +174,7 @@ $columnList = [
 					<?php if( in_array( 'attribute.status', $fields ) ) : ?>
 						<td class="attribute-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'attribute.typeid', $fields ) ) : ?>
+					<?php if( in_array( 'attribute.type', $fields ) ) : ?>
 						<td class="attribute-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'attribute.code', $fields ) ) : ?>

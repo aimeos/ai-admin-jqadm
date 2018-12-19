@@ -292,7 +292,7 @@ class Standard
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'plugin' );
 
 			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '+', 'plugin.typeid' ), $search->sort( '+', 'plugin.position' )] );
+			$search->setSortations( [$search->sort( '+', 'plugin.type' ), $search->sort( '+', 'plugin.position' )] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
@@ -565,8 +565,7 @@ class Standard
 		if( isset( $data['plugin.id'] ) && $data['plugin.id'] != '' ) {
 			$item = $manager->getItem( $data['plugin.id'], $this->getDomains() );
 		} else {
-			$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin/type' );
-			$item = $manager->createItem( $typeManager->getItem( $data['plugin.typeid'] )->getCode(), 'plugin' );
+			$item = $manager->createItem( $data['plugin.type'], 'plugin' );
 		}
 
 		$item->fromArray( $data );

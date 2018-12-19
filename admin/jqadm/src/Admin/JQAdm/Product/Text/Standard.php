@@ -332,15 +332,14 @@ class Standard
 				continue;
 			}
 
-			$type = $textTypeManager->getItem( $entry['text.typeid'] )->getCode();
-			$listType = $listTypeManager->getItem( $entry['product.lists.typeid'] )->getCode();
+			$listType = $entry['product.lists.type'];
 
 			if( ( $listItem = $item->getListItem( 'text', $listType, $entry['text.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem( $listType, 'text' );
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $textManager->createItem( $type, 'product' );
+				$refItem = $textManager->createItem( $entry['text.type'], 'product' );
 			}
 
 			$refItem->fromArray( $entry );

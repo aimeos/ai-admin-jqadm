@@ -170,22 +170,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'plugin' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'plugin/type' );
-
-		$search = $typeManager->createSearch();
-		$search->setSlice( 0, 1 );
-		$typeItems = $typeManager->searchItems( $search );
-
-		if( ( $typeItem = reset( $typeItems ) ) === false ) {
-			throw new \RuntimeException( 'No plugin type item found' );
-		}
-
 
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
 				'plugin.id' => '',
-				'plugin.typeid' => $typeItem->getId(),
+				'plugin.type' =>'order',
 				'plugin.provider' => 'Example',
 				'plugin.label' => 'test label',
 				'plugin.position' => '2',

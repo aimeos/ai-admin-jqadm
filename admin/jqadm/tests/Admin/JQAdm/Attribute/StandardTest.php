@@ -178,16 +178,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute/type' );
-
-		$typeId = $typeManager->findItem( 'color', [], 'product' )->getId();
 
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
 				'attribute.id' => '',
 				'attribute.domain' => 'product',
-				'attribute.typeid' => $typeId,
+				'attribute.type' => 'color',
 				'attribute.code' => 'test',
 				'attribute.label' => 'test label',
 				'attribute.position' => 1,

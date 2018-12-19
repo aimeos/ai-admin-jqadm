@@ -9,8 +9,8 @@
 $enc = $this->encoder();
 
 $keys = [
-	'supplier.lists.id', 'supplier.lists.siteid', 'supplier.lists.typeid', 'supplier.lists.datestart', 'supplier.lists.dateend',
-	'media.id', 'media.siteid', 'media.preview', 'media.label', 'media.status', 'media.typeid', 'media.languageid'
+	'supplier.lists.id', 'supplier.lists.siteid', 'supplier.lists.type', 'supplier.lists.datestart', 'supplier.lists.dateend',
+	'media.id', 'media.siteid', 'media.preview', 'media.label', 'media.status', 'media.type', 'media.languageid'
 ];
 
 
@@ -18,7 +18,7 @@ $keys = [
 <div id="image" class="item-image content-block tab-pane fade" role="tablist" aria-labelledby="image">
 	<div id="item-image-group" role="tablist" aria-multiselectable="true"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'imageData', [] ) ) ); ?>"
-		data-listtypeid="<?= key( $this->get( 'imageListTypes', [] ) ) ?>"
+		data-listtype="<?= key( $this->get( 'imageListTypes', [] ) ) ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
@@ -100,18 +100,18 @@ $keys = [
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.typeid' ) ) ); ?>'.replace( 'idx', idx )"
+								<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.type' ) ) ); ?>'.replace( 'idx', idx )"
 									data-default="<?= $enc->attr( key( $mediaTypes ) ) ?>"
 									v-bind:readonly="checkSite('media.siteid', idx)"
-									v-model="items[idx]['media.typeid']" >
+									v-model="items[idx]['media.type']" >
 
 									<option value="" disabled >
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
 
-									<?php foreach( (array) $mediaTypes as $typeId => $typeItem ) : ?>
-										<option value="<?= $enc->attr( $typeId ); ?>" v-bind:selected="items[idx]['media.typeid'] == '<?= $enc->attr( $typeId ) ?>'" >
+									<?php foreach( (array) $mediaTypes as $typeItem ) : ?>
+										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="items[idx]['media.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
@@ -122,8 +122,8 @@ $keys = [
 							</div>
 						</div>
 					<?php else : ?>
-						<input class="item-typeid" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.typeid' ) ) ); ?>'.replace( 'idx', idx )"
+						<input class="item-type" type="hidden"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.type' ) ) ); ?>'.replace( 'idx', idx )"
 							value="<?= $enc->attr( key( $mediaTypes ) ); ?>" />
 					<?php endif; ?>
 
@@ -185,13 +185,13 @@ $keys = [
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select listitem-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'supplier.lists.typeid' ) ) ); ?>'.replace( 'idx', idx )"
+								<select class="form-control custom-select listitem-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'supplier.lists.type' ) ) ); ?>'.replace( 'idx', idx )"
 									v-bind:readonly="checkSite('supplier.lists.siteid', idx)"
-									v-model="items[idx]['supplier.lists.typeid']" >
+									v-model="items[idx]['supplier.lists.type']" >
 
-									<?php foreach( $this->get( 'imageListTypes', [] ) as $id => $typeItem ) : ?>
-										<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="items[idx]['supplier.lists.typeid'] == '<?= $enc->attr( $id ) ?>'" >
+									<?php foreach( $this->get( 'imageListTypes', [] ) as $typeItem ) : ?>
+										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="items[idx]['supplier.lists.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
@@ -202,10 +202,10 @@ $keys = [
 							</div>
 						</div>
 					<?php else : ?>
-						<input class="listitem-typeid" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'supplier.lists.typeid' ) ) ); ?>'.replace( 'idx', idx )"
+						<input class="listitem-type" type="hidden"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'supplier.lists.type' ) ) ); ?>'.replace( 'idx', idx )"
 							value="<?= $enc->attr( key( $listTypes ) ); ?>"
-							v-model="items[idx]['supplier.lists.typeid']" />
+							v-model="items[idx]['supplier.lists.type']" />
 					<?php endif; ?>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>

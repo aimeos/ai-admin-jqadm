@@ -349,7 +349,6 @@ class Standard
 		$expr = array(
 			$search->compare( '==', 'catalog.lists.refid', $prodid ),
 			$search->compare( '==', 'catalog.lists.domain', 'product' ),
-			$search->compare( '==', 'catalog.lists.type.domain', 'product' ),
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
@@ -413,7 +412,7 @@ class Standard
 			$litem->setDomain( 'product' );
 			$litem->setRefId( $item->getId() );
 			$litem->setParentId( $this->getValue( $data, 'catalog.id/' . $idx ) );
-			$litem->setTypeId( $this->getValue( $data, 'catalog.lists.typeid/' . $idx ) );
+			$litem->setType( $this->getValue( $data, 'catalog.lists.type/' . $idx ) );
 
 			$manager->saveItem( $litem, false );
 		}

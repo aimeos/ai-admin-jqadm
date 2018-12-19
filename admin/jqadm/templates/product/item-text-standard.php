@@ -9,8 +9,8 @@
 $enc = $this->encoder();
 
 $keys = [
-	'product.lists.siteid', 'product.lists.typeid', 'product.lists.datestart', 'product.lists.dateend', 'config',
-	'text.siteid', 'text.typeid', 'text.languageid', 'text.content', 'text.status'
+	'product.lists.siteid', 'product.lists.type', 'product.lists.datestart', 'product.lists.dateend', 'config',
+	'text.siteid', 'text.type', 'text.languageid', 'text.content', 'text.status'
 ];
 
 
@@ -18,7 +18,7 @@ $keys = [
 <div id="text" class="item-text content-block tab-pane fade" role="tablist" aria-labelledby="text">
 	<div id="item-text-group" role="tablist" aria-multiselectable="true"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'textData', [] ) ) ); ?>"
-		data-listtypeid="<?= key( $this->get( 'textListTypes', [] ) ) ?>"
+		data-listtype="<?= key( $this->get( 'textListTypes', [] ) ) ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
@@ -126,17 +126,17 @@ $keys = [
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.typeid' ) ) ); ?>'.replace('idx', idx)"
+								<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.type' ) ) ); ?>'.replace('idx', idx)"
 									v-bind:readonly="checkSite('text.siteid', idx)"
-									v-model="items[idx]['text.typeid']" >
+									v-model="items[idx]['text.type']" >
 
 									<option value="" disable >
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
 
-									<?php foreach( (array) $textTypes as $typeId => $typeItem ) : ?>
-										<option value="<?= $enc->attr( $typeId ); ?>" v-bind:selected="entry['text.typeid'] == '<?= $enc->attr( $typeId ) ?>'" >
+									<?php foreach( (array) $textTypes as $typeItem ) : ?>
+										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="entry['text.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
@@ -147,8 +147,8 @@ $keys = [
 							</div>
 						</div>
 					<?php else : ?>
-						<input class="item-typeid" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.typeid' ) ) ); ?>'.replace('idx', idx)"
+						<input class="item-type" type="hidden"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.type' ) ) ); ?>'.replace('idx', idx)"
 							value="<?= $enc->attr( key( $textTypes ) ); ?>" />
 					<?php endif; ?>
 
@@ -188,13 +188,13 @@ $keys = [
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select listitem-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'product.lists.typeid' ) ) ); ?>'.replace('idx', idx)"
+								<select class="form-control custom-select listitem-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'product.lists.type' ) ) ); ?>'.replace('idx', idx)"
 									v-bind:readonly="checkSite('product.lists.siteid', idx)"
-									v-model="items[idx]['product.lists.typeid']" >
+									v-model="items[idx]['product.lists.type']" >
 
-									<?php foreach( $this->get( 'textListTypes', [] ) as $id => $typeItem ) : ?>
-										<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="entry['product.lists.typeid'] == '<?= $enc->attr( $id ) ?>'" >
+									<?php foreach( $this->get( 'textListTypes', [] ) as $typeItem ) : ?>
+										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="entry['product.lists.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
@@ -205,10 +205,10 @@ $keys = [
 							</div>
 						</div>
 					<?php else : ?>
-						<input class="listitem-typeid" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'product.lists.typeid' ) ) ); ?>'.replace('idx', idx)"
+						<input class="listitem-type" type="hidden"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'product.lists.type' ) ) ); ?>'.replace('idx', idx)"
 							value="<?= $enc->attr( key( $listTypes ) ); ?>"
-							v-model="items[idx]['product.lists.typeid']" />
+							v-model="items[idx]['product.lists.type']" />
 					<?php endif; ?>
 
 					<div class="form-group row optional">

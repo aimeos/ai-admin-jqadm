@@ -85,12 +85,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute/lists/type' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'price/type' );
-
-		$listTypeId = $listTypeManager->findItem( 'default', [], 'price' )->getId();
-		$typeId = $typeManager->findItem( 'default', [], 'attribute' )->getId();
-
 		$item = $manager->createItem();
 
 		$param = array(
@@ -103,9 +97,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'price.taxrate' => '20.00',
 				'price.quantity' => '2',
 				'price.currencyid' => 'EUR',
-				'price.typeid' => $typeId,
+				'price.type' => 'default',
 				'attribute.lists.type' => 'default',
-				'attribute.lists.typeid' => $listTypeId
 			]],
 		);
 

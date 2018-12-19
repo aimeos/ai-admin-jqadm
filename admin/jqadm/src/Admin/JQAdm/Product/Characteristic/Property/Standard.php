@@ -309,8 +309,7 @@ class Standard
 			}
 			else
 			{
-				$typeCode = $typeManager->getItem( $entry['product.property.typeid'] )->getCode();
-				$propItem = $manager->createItem( $typeCode, 'product' );
+				$propItem = $manager->createItem( $entry['product.property.type'], 'product' );
 			}
 
 			$propItem->fromArray( $entry );

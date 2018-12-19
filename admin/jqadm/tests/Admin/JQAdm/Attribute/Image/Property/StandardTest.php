@@ -97,7 +97,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 					'property' => array(
 						0 => array(
 							'media.property.id' => '',
-							'media.property.typeid' => $typeManager->findItem( 'size', [], 'media' )->getId(),
+							'media.property.type' => 'size',
 						),
 					),
 				),

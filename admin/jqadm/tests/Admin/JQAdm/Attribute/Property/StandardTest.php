@@ -89,7 +89,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'property' => array(
 				array(
 					'attribute.property.id' => '',
-					'attribute.property.typeid' => 1,
+					'attribute.property.type' => 'default',
 					'attribute.property.value' => '#100000',
 				)
 			),

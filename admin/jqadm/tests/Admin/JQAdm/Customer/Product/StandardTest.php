@@ -167,9 +167,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer/lists/type' );
-
-		$typeId = $typeManager->findItem( 'favorite', [], 'product' )->getId();
 
 		$item = $manager->findItem( 'UTC001' );
 		$item->setCode( 'jqadm-test-save' );
@@ -184,7 +181,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'customer.lists.id' => [0 => ''],
 				'customer.lists.status' => [0 => 1],
 				'customer.lists.refid' => [0 => 'test'],
-				'customer.lists.typeid' => [0 => $typeId],
+				'customer.lists.type' => [0 => 'favorite'],
 				'customer.lists.datestart' => [0 => '2000-01-01 00:00:00'],
 				'customer.lists.dateend' => [0 => '2100-01-01 00:00:00'],
 				'config' => [0 => ['key' => [0 => 'test'], 'val' => [0 => 'value']]],

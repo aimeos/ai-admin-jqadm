@@ -210,16 +210,15 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-typeid" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.typeid' ) ) ); ?>"
+							<select class="form-control custom-select item-type" required="required" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.type' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
 								<option value="">
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
-								<?php foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) : ?>
-									<option value="<?= $enc->attr( $id ); ?>" data-code="<?= $enc->attr( $typeItem->getCode() ); ?>"
-										<?= $selected( $this->get( 'itemData/product.typeid' ), $id ); ?> >
+								<?php foreach( $this->get( 'itemTypes', [] ) as $typeItem ) : ?>
+									<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" <?= $selected( $this->get( 'itemData/product.type' ), $typeItem->getCode() ); ?> >
 										<?= $enc->html( $typeItem->getLabel() ); ?>
 									</option>
 								<?php endforeach; ?>

@@ -84,12 +84,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute/lists/type' );
-		$listTypeId = $listTypeManager->findItem( 'default', [], 'media' )->getId();
-
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'media/type' );
-		$typeId = $typeManager->findItem( 'default', [], 'attribute' )->getId();
-
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
 		$this->view->item = $manager->createItem();
 
@@ -98,11 +92,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'image' => [[
 				'media.id' => '',
-				'media.typeid' => $typeId,
+				'media.type' => 'default',
 				'media.languageid' => 'de',
 				'media.label' => 'test',
 				'attribute.lists.type' => 'default',
-				'attribute.lists.typeid' => $listTypeId
 			]],
 		);
 

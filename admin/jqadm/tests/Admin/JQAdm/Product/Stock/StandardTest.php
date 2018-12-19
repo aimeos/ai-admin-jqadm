@@ -76,7 +76,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 		$stockManager = \Aimeos\MShop\Factory::createManager( $this->context, 'stock' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'stock/type' );
 
 		$item = $manager->findItem( 'CNC' );
 		$item->setCode( 'jqadm-test-stock' );
@@ -89,7 +88,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'stock' => array(
 				'stock.id' => array( '' ),
-				'stock.typeid' => array( $typeManager->findItem( 'default' )->getId() ),
+				'stock.type' => array( 'default' ),
 				'stock.dateback' => array( '2000-01-01 00:00:00' ),
 				'stock.stocklevel' => array( '-1' ),
 			),

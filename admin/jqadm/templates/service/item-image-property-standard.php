@@ -37,13 +37,13 @@ $enc = $this->encoder();
 				<td class="property-type">
 					<input class="item-propertyid" type="hidden" v-bind:value="propdata['media.property.id']"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'property', 'propidx', 'media.property.id' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )" />
-					<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'property', 'propidx', 'media.property.typeid' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
+					<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'property', 'propidx', 'media.property.type' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
 						v-bind:readonly="checkSite('media.siteid', idx)"
-						v-model="items[idx]['property'][propidx]['media.property.typeid']" >
+						v-model="items[idx]['property'][propidx]['media.property.type']" >
 
 						<?php foreach( $this->get( 'propertyTypes', [] ) as $id => $item ) : ?>
-							<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="items[idx]['property'][propidx]['media.property.typeid'] == '<?= $enc->attr( $id ) ?>'" >
+							<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="items[idx]['property'][propidx]['media.property.type'] == '<?= $enc->attr( $id ) ?>'" >
 								<?= $enc->html( $item->getLabel() ); ?>
 							</option>
 						<?php endforeach; ?>

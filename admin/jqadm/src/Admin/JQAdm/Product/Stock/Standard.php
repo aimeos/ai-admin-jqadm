@@ -325,16 +325,15 @@ class Standard
 
 		foreach( $list as $idx => $id )
 		{
-			$typeId = $this->getValue( $data, 'stock.typeid/' . $idx );
+			$type = $this->getValue( $data, 'stock.type/' . $idx );
 
-			if( isset( $stockItems[$id] ) && $stockItems[$id]->getTypeId() == $typeId )
+			if( isset( $stockItems[$id] ) && $stockItems[$id]->getType() == $type )
 			{
 				$stockItem = $stockItems[$id];
 				unset( $stockItems[$id] );
 			}
 			else
 			{
-				$type = $typeManager->getItem( $typeId )->getCode();
 				$stockItem = $manager->createItem( $type, 'product' );
 			}
 
@@ -365,7 +364,7 @@ class Standard
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );
-		$search->setSortations( array( $search->sort( '+', 'stock.type.code' ) ) );
+		$search->setSortations( array( $search->sort( '+', 'stock.type' ) ) );
 
 		foreach( $manager->searchItems( $search ) as $stockItem )
 		{

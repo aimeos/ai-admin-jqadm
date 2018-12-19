@@ -431,8 +431,8 @@ class Standard
 				$litem->setStatus( $this->getValue( $data, 'customer.lists.status/' . $idx ) );
 			}
 
-			if( isset( $data['customer.lists.typeid'][$idx] ) ) {
-				$litem->setTypeId( $this->getValue( $data, 'customer.lists.typeid/' . $idx ) );
+			if( isset( $data['customer.lists.type'][$idx] ) ) {
+				$litem->setType( $this->getValue( $data, 'customer.lists.type/' . $idx ) );
 			}
 
 			if( isset( $data['customer.lists.position'][$idx] ) ) {

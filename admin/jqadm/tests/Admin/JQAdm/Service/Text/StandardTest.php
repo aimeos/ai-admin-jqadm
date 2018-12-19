@@ -90,12 +90,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'service' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'service/lists/type' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'text/type' );
-
-		$listTypeId = $listTypeManager->findItem( 'default', [], 'text' )->getId();
-		$typeId = $typeManager->findItem( 'name', [], 'service' )->getId();
-
 		$item = $manager->createItem();
 
 		$param = array(
@@ -105,25 +99,22 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 					'text.id' => '',
 					'text.content' => 'test name',
 					'text.languageid' => 'de',
-					'text.typeid' => $typeId,
+					'text.type' => 'name',
 					'service.lists.type' => 'default',
-					'service.lists.typeid' => $listTypeId
 				),
 				array(
 					'text.id' => '',
 					'text.content' => 'short desc',
 					'text.languageid' => 'de',
-					'text.typeid' => $typeId,
+					'text.type' => 'name',
 					'service.lists.type' => 'default',
-					'service.lists.typeid' => $listTypeId
 				),
 				array(
 					'text.id' => '',
 					'text.content' => 'long desc',
 					'text.languageid' => 'de',
-					'text.typeid' => $typeId,
+					'text.type' => 'name',
 					'service.lists.type' => 'default',
-					'service.lists.typeid' => $listTypeId
 				),
 			),
 		);

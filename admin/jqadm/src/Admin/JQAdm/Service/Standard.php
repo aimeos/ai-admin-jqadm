@@ -293,7 +293,7 @@ class Standard
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'service' );
 
 			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '+', 'service.typeid' ), $search->sort( '+', 'service.position' )] );
+			$search->setSortations( [$search->sort( '+', 'service.type' ), $search->sort( '+', 'service.position' )] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, $this->getDomains(), $total );
@@ -591,8 +591,7 @@ class Standard
 		if( isset( $data['service.id'] ) && $data['service.id'] != '' ) {
 			$item = $manager->getItem( $data['service.id'], $this->getDomains() );
 		} else {
-			$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service/type' );
-			$item = $manager->createItem( $typeManager->getItem( $data['service.typeid'] )->getCode(), 'service' );
+			$item = $manager->createItem( $data['service.type'], 'service' );
 		}
 
 		$item->fromArray( $data );

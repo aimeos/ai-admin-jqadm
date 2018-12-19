@@ -533,8 +533,7 @@ class Standard
 		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
 			$item = $manager->getItem( $data['product.id'], $this->getDomains() );
 		} else {
-			$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/type' );
-			$item = $manager->createItem( $typeManager->getItem( $data['product.typeid'] )->getCode(), 'product' );
+			$item = $manager->createItem( $data['product.type'], 'product' );
 		}
 
 		$item->fromArray( $data );

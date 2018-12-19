@@ -295,7 +295,7 @@ class Standard
 		{
 			$expr = [
 				$search->compare( '==', 'service.lists.domain', 'media' ),
-				$search->compare( '==', 'service.lists.type.code', $listItem->getType() ),
+				$search->compare( '==', 'service.lists.type', $listItem->getType() ),
 				$search->compare( '==', 'service.lists.refid', $listItem->getRefId() ),
 			];
 			$search->setConditions( $search->combine( '&&', $expr ) );

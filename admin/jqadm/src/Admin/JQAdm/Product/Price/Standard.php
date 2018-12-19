@@ -334,15 +334,14 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$type = $priceTypeManager->getItem( $entry['price.typeid'] )->getCode();
-			$listType = $listTypeManager->getItem( $entry['product.lists.typeid'] )->getCode();
+			$listType = $entry['product.lists.type'];
 
 			if( ( $listItem = $item->getListItem( 'price', $listType, $entry['price.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem( $listType, 'price' );
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $priceManager->createItem( $type, 'product' );
+				$refItem = $priceManager->createItem( $entry['price.type'], 'product' );
 			}
 
 			$refItem->fromArray( $entry );

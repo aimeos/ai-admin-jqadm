@@ -266,7 +266,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'media.type.domain', 'attribute' ) );
 		$search->setSortations( array( $search->sort( '+', 'media.type.label' ) ) );
 
-		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
+		$listSearch = $listTypeManager->createSearch()->setSlice( 0, 0x7fffffff );
 		$listSearch->setConditions( $listSearch->compare( '==', 'attribute.lists.type.domain', 'media' ) );
 		$listSearch->setSortations( array( $listSearch->sort( '+', 'attribute.lists.type.label' ) ) );
 
@@ -295,7 +295,7 @@ class Standard
 		{
 			$expr = [
 				$search->compare( '==', 'attribute.lists.domain', 'media' ),
-				$search->compare( '==', 'attribute.lists.type.code', $listItem->getType() ),
+				$search->compare( '==', 'attribute.lists.type', $listItem->getType() ),
 				$search->compare( '==', 'attribute.lists.refid', $listItem->getRefId() ),
 			];
 			$search->setConditions( $search->combine( '&&', $expr ) );

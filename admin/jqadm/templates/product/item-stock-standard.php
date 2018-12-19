@@ -9,7 +9,7 @@
 $enc = $this->encoder();
 $stockTypes = $this->get( 'stockTypes', [] );
 
-$keys = ['stock.id', 'stock.siteid', 'stock.typeid', 'stock.stocklevel', 'stock.dateback'];
+$keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.dateback'];
 
 
 ?>
@@ -57,25 +57,25 @@ $keys = ['stock.id', 'stock.siteid', 'stock.typeid', 'stock.stocklevel', 'stock.
 			<tr v-for="(id, idx) in items['stock.id']" v-bind:key="idx" class="stock-row">
 				<?php if( count( $stockTypes ) > 1 ) : ?>
 					<td class="stock-type mandatory">
-						<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>"
+						<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.type', '' ) ) ); ?>"
 							v-bind:readonly="checkSite('stock.siteid', idx)"
-							v-model="items['stock.typeid'][idx]" >
+							v-model="items['stock.type'][idx]" >
 
 							<option value="" disable>
 								<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 							</option>
 
-							<?php foreach( $stockTypes as $typeId => $typeItem ) : ?>
-								<option value="<?= $enc->attr( $typeId ); ?>" v-bind:selected="items['stock.typeid'][idx] == '<?= $enc->attr( $typeId ) ?>'">
+							<?php foreach( $stockTypes as $typeItem ) : ?>
+								<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="items['stock.type'][idx] == '<?= $enc->attr( $typeItem->getCode() ) ?>'">
 									<?= $enc->html( $typeItem->getLabel() ) ?>
 								</option>
 							<?php endforeach; ?>
 						</select>
 					</td>
 				<?php else : ?>
-					<input class="item-typeid" type="hidden"
-						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.typeid', '' ) ) ); ?>"
+					<input class="item-type" type="hidden"
+						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.type', '' ) ) ); ?>"
 						value="<?= $enc->attr( key( $stockTypes ) ); ?>" />
 				<?php endif; ?>
 				<td class="stock-stocklevel optional">

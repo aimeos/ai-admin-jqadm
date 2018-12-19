@@ -509,21 +509,21 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2016.04
  * @category Developer
  */
-$default = $this->config( 'admin/jqadm/product/fields', ['product.id', 'product.status', 'product.typeid', 'product.code', 'product.label'] );
+$default = $this->config( 'admin/jqadm/product/fields', ['product.id', 'product.status', 'product.type', 'product.code', 'product.label'] );
 $fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
 
 $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
 
 $typeList = [];
-foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
-	$typeList[$id] = $typeItem->getCode();
+foreach( $this->get( 'itemTypes', [] ) as $typeItem ) {
+	$typeList[$typeItem->getCode()] = $typeItem->getCode();
 }
 
 $columnList = [
 	'product.id' => $this->translate( 'admin', 'ID' ),
 	'product.status' => $this->translate( 'admin', 'Status' ),
-	'product.typeid' => $this->translate( 'admin', 'Type' ),
+	'product.type' => $this->translate( 'admin', 'Type' ),
 	'product.code' => $this->translate( 'admin', 'Code' ),
 	'product.label' => $this->translate( 'admin', 'Label' ),
 	'product.datestart' => $this->translate( 'admin', 'Start date' ),
@@ -604,7 +604,7 @@ $columnList = [
 							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
-						'product.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
+						'product.type' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
 						'product.code' => [],
 						'product.label' => [],
 						'product.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
@@ -626,7 +626,7 @@ $columnList = [
 					<?php if( in_array( 'product.status', $fields ) ) : ?>
 						<td class="product-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'product.typeid', $fields ) ) : ?>
+					<?php if( in_array( 'product.type', $fields ) ) : ?>
 						<td class="product-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'product.code', $fields ) ) : ?>

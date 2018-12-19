@@ -9,7 +9,7 @@
 $enc = $this->encoder();
 
 $keys = [
-	'catalog.lists.id', 'catalog.lists.siteid', 'catalog.lists.typeid', 'catalog.lists.refid',
+	'catalog.lists.id', 'catalog.lists.siteid', 'catalog.lists.type', 'catalog.lists.refid',
 	'catalog.label', 'catalog.code', 'catalog.id'
 ];
 
@@ -21,7 +21,7 @@ $keys = [
 
 		<table class="category-list table table-default"
 			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
-			data-listtypeid="<?= $this->get( 'categoryListTypes/default' ) ?>"
+			data-listtype="<?= $this->get( 'categoryListTypes/default' ) ?>"
 			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 			data-prefix="catalog.lists."
 			data-siteid="<?= $this->site()->siteid() ?>" >
@@ -45,12 +45,12 @@ $keys = [
 
 			<tbody>
 
-				<tr v-for="(id, idx) in items['catalog.lists.id']" v-if="items['catalog.lists.typeid'][idx] == listtypeid" v-bind:key="idx"
+				<tr v-for="(id, idx) in items['catalog.lists.id']" v-if="items['catalog.lists.type'][idx] == listtype" v-bind:key="idx"
 					v-bind:class="items['catalog.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
 					<td>
-						<input class="item-listtypeid" type="hidden" v-model="items['catalog.lists.typeid'][idx]"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>" />
+						<input class="item-listtype" type="hidden" v-model="items['catalog.lists.type'][idx]"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.type', '' ) ) ); ?>" />
 
 						<input class="item-listid" type="hidden" v-model="items['catalog.lists.id'][idx]"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
@@ -89,7 +89,7 @@ $keys = [
 
 		<table class="category-list table table-default"
 			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
-			data-listtypeid="<?= $this->get( 'categoryListTypes/promotion' ) ?>"
+			data-listtype="<?= $this->get( 'categoryListTypes/promotion' ) ?>"
 			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 			data-prefix="catalog.lists."
 			data-siteid="<?= $this->site()->siteid() ?>" >
@@ -113,12 +113,12 @@ $keys = [
 
 			<tbody>
 
-				<tr v-for="(id, idx) in items['catalog.lists.id']" v-if="items['catalog.lists.typeid'][idx] == listtypeid" v-bind:key="idx"
+				<tr v-for="(id, idx) in items['catalog.lists.id']" v-if="items['catalog.lists.type'][idx] == listtype" v-bind:key="idx"
 					v-bind:class="items['catalog.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
 					<td>
-						<input class="item-listtypeid" type="hidden" v-model="items['catalog.lists.typeid'][idx]"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.typeid', '' ) ) ); ?>" />
+						<input class="item-listtype" type="hidden" v-model="items['catalog.lists.type'][idx]"
+							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.type', '' ) ) ); ?>" />
 
 						<input class="item-listid" type="hidden" v-model="items['catalog.lists.id'][idx]"
 							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />

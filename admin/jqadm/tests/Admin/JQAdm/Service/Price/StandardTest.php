@@ -84,13 +84,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'service/lists/type' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'price/type' );
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'service' );
-
-		$listTypeId = $listTypeManager->findItem( 'default', [], 'price' )->getId();
-		$typeId = $typeManager->findItem( 'default', [], 'service' )->getId();
-
 		$item = $manager->createItem();
 
 		$param = array(
@@ -103,9 +97,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'price.rebate' => '5',
 				'price.costs' => '1',
 				'price.quantity' => '2',
-				'price.typeid' => $typeId,
+				'price.type' => 'default',
 				'service.lists.type' => 'default',
-				'service.lists.typeid' => $listTypeId
 			]],
 		);
 

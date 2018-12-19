@@ -48,7 +48,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = ['service.status', 'service.typeid', 'service.label', 'service.provider'];
+$default = ['service.status', 'service.type', 'service.label', 'service.provider'];
 $default = $this->config( 'admin/jqadm/service/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/service/fields', $default );
 
@@ -56,14 +56,14 @@ $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
 
 $typeList = [];
-foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
-	$typeList[$id] = $typeItem->getCode();
+foreach( $this->get( 'itemTypes', [] ) as $typeItem ) {
+	$typeList[$typeItem->getCode()] = $typeItem->getCode();
 }
 
 $columnList = [
 	'service.id' => $this->translate( 'admin', 'ID' ),
 	'service.status' => $this->translate( 'admin', 'Status' ),
-	'service.typeid' => $this->translate( 'admin', 'Type' ),
+	'service.type' => $this->translate( 'admin', 'Type' ),
 	'service.position' => $this->translate( 'admin', 'Position' ),
 	'service.code' => $this->translate( 'admin', 'Code' ),
 	'service.label' => $this->translate( 'admin', 'Label' ),
@@ -144,7 +144,7 @@ $columnList = [
 							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
-						'service.typeid' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
+						'service.type' => ['op' => '==', 'type' => 'select', 'val' => $typeList],
 						'service.position' => ['op' => '>=', 'type' => 'number'],
 						'service.code' => [],
 						'service.label' => [],
@@ -168,7 +168,7 @@ $columnList = [
 					<?php if( in_array( 'service.status', $fields ) ) : ?>
 						<td class="service-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'service.typeid', $fields ) ) : ?>
+					<?php if( in_array( 'service.type', $fields ) ) : ?>
 						<td class="service-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'service.position', $fields ) ) : ?>

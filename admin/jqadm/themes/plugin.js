@@ -58,7 +58,7 @@ Aimeos.Plugin = {
 
 		var input = $(".aimeos .item-plugin").on("focus", ".item-provider", function(ev) {
 
-			var type = $(".item-typeid option:selected", ev.delegateTarget).data("code");
+			var type = $(".item-type option:selected", ev.delegateTarget).val();
 
 			$(this).autocomplete({
 				source: $(this).data(type).split(","),

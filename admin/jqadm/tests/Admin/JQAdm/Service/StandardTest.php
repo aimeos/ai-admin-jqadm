@@ -178,13 +178,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'service' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'service/type' );
 
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
 				'service.id' => '',
-				'service.typeid' => $typeManager->findItem( 'delivery', [], 'service' )->getId(),
+				'service.type' => 'delivery',
 				'service.code' => 'test',
 				'service.provider' => 'Example',
 				'service.label' => 'test label',

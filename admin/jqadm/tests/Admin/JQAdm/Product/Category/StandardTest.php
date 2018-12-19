@@ -86,7 +86,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog/lists/type' );
 		$productManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
 		$item = $manager->findItem( 'root' );
@@ -96,13 +95,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager->insertItem( $item );
 
 
-		$typeid = $typeManager->findItem( 'default', [], 'product' )->getId();
-
 		$param = array(
 			'site' => 'unittest',
 			'category' => array(
 				'catalog.lists.id' => array( '' ),
-				'catalog.lists.typeid' => array( $typeid ),
+				'catalog.lists.type' => array( 'default' ),
 				'catalog.id' => array( $item->getId() ),
 			),
 		);
@@ -125,7 +122,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSavePromotion()
 	{
 		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog/lists/type' );
 		$productManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
 
 		$item = $manager->findItem( 'root' );
@@ -135,12 +131,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager->insertItem( $item );
 
 
-		$typeid = $typeManager->findItem( 'promotion', [], 'product' )->getId();
-
 		$param = array(
 			'category' => array(
 				'catalog.lists.id' => array( '' ),
-				'catalog.lists.typeid' => array( $typeid ),
+				'catalog.lists.type' => array( 'promotion' ),
 				'catalog.id' => array( $item->getId() ),
 			),
 		);
@@ -158,7 +152,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
 		$this->assertEquals( 1, count( $listItems ) );
-		$this->assertEquals( $typeid, reset( $listItems )->getTypeId() );
 	}
 
 

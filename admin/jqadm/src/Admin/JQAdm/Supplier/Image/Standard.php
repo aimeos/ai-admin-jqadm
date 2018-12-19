@@ -295,7 +295,7 @@ class Standard
 		{
 			$expr = [
 				$search->compare( '==', 'supplier.lists.domain', 'media' ),
-				$search->compare( '==', 'supplier.lists.type.code', $listItem->getType() ),
+				$search->compare( '==', 'supplier.lists.type', $listItem->getType() ),
 				$search->compare( '==', 'supplier.lists.refid', $listItem->getRefId() ),
 			];
 			$search->setConditions( $search->combine( '&&', $expr ) );

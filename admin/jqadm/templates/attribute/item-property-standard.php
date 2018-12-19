@@ -9,7 +9,7 @@
 $enc = $this->encoder();
 
 $keys = [
-	'attribute.property.id', 'attribute.property.siteid', 'attribute.property.typeid',
+	'attribute.property.id', 'attribute.property.siteid', 'attribute.property.type',
 	'attribute.property.languageid', 'attribute.property.value'
 ];
 
@@ -46,13 +46,13 @@ $keys = [
 					<input class="item-id" type="hidden" v-bind:value="entry['attribute.property.id']"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'property', 'idx', 'attribute.property.id' ) ) ); ?>'.replace('idx', idx)" />
 
-					<select class="form-control custom-select item-typeid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'property', 'idx', 'attribute.property.typeid' ) ) ); ?>'.replace('idx', idx)"
+					<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'property', 'idx', 'attribute.property.type' ) ) ); ?>'.replace('idx', idx)"
 						v-bind:readonly="checkSite('attribute.property.siteid', idx)"
-						v-model="items[idx]['attribute.property.typeid']" >
+						v-model="items[idx]['attribute.property.type']" >
 
 						<?php foreach( $this->get( 'propertyTypes', [] ) as $id => $item ) : ?>
-							<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="entry['attribute.property.typeid'] == '<?= $enc->attr( $id ) ?>'" >
+							<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="entry['attribute.property.type'] == '<?= $enc->attr( $id ) ?>'" >
 								<?= $enc->html( $item->getLabel() ); ?>
 							</option>
 						<?php endforeach; ?>

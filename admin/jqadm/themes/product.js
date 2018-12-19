@@ -316,10 +316,10 @@ Aimeos.Product.Selection = {
 	showSelection : function() {
 
 		var tab = $(".item-navbar .selection");
-		$(".item-basic .item-typeid option[selected]").data("code") === 'select' ? tab.show() : tab.hide();
+		$(".item-basic .item-type option[selected]").val() === 'select' ? tab.show() : tab.hide();
 
-		$(".item-basic .item-typeid").on("change", function() {
-			$("option:selected", this).data("code") === 'select' ? tab.show() : tab.hide();
+		$(".item-basic .item-type").on("change", function() {
+			$("option:selected", this).val() === 'select' ? tab.show() : tab.hide();
 		});
 	},
 };
@@ -471,7 +471,7 @@ Aimeos.Product.Category = {
 				}
 
 				this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
-				this.$set(this.items[this.prefix + 'typeid'], idx, this.listtypeid);
+				this.$set(this.items[this.prefix + 'type'], idx, this.listtype);
 			},
 
 
@@ -510,7 +510,7 @@ Aimeos.Product.Category = {
 			update : function(ev) {
 				this.$set(this.items[this.prefix + 'id'], ev.index, '');
 				this.$set(this.items[this.prefix + 'siteid'], ev.index, this.siteid);
-				this.$set(this.items[this.prefix + 'typeid'], ev.index, this.listtypeid);
+				this.$set(this.items[this.prefix + 'type'], ev.index, this.listtype);
 				this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
 				this.$set(this.items['catalog.label'], ev.index, ev.label);
 				this.$set(this.items['catalog.id'], ev.index, ev.value);
@@ -527,7 +527,7 @@ Aimeos.Product.Category = {
 			'data': {
 				'items': $(".item-category .catalog-default .category-list").data("items"),
 				'keys': $(".item-category .catalog-default .category-list").data("keys"),
-				'listtypeid': $(".item-category .catalog-default .category-list").data("listtypeid"),
+				'listtype': $(".item-category .catalog-default .category-list").data("listtype"),
 				'prefix': $(".item-category .catalog-default .category-list").data("prefix"),
 				'siteid': $(".item-category .catalog-default .category-list").data("siteid")
 			},
@@ -540,7 +540,7 @@ Aimeos.Product.Category = {
 			'data': {
 				'items': $(".item-category .catalog-promotion .category-list").data("items"),
 				'keys': $(".item-category .catalog-promotion .category-list").data("keys"),
-				'listtypeid': $(".item-category .catalog-promotion .category-list").data("listtypeid"),
+				'listtype': $(".item-category .catalog-promotion .category-list").data("listtype"),
 				'prefix': $(".item-category .catalog-promotion .category-list").data("prefix"),
 				'siteid': $(".item-category .catalog-promotion .category-list").data("siteid")
 			},
@@ -657,10 +657,10 @@ Aimeos.Product.Product = {
 	showBundles : function() {
 
 		var tab = $(".item-navbar .bundle");
-		$(".item-basic .item-typeid option[selected]").data("code") === 'bundle' ? tab.show() : tab.hide();
+		$(".item-basic .item-type option[selected]").val() === 'bundle' ? tab.show() : tab.hide();
 
-		$(".item-basic .item-typeid").on("change", function() {
-			$("option:selected", this).data("code") === 'bundle' ? tab.show() : tab.hide();
+		$(".item-basic .item-type").on("change", function() {
+			$("option:selected", this).val() === 'bundle' ? tab.show() : tab.hide();
 		});
 	}
 };

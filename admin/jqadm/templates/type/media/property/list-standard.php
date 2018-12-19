@@ -60,8 +60,8 @@ $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
 
 $typeList = [];
-foreach( $this->get( 'itemTypes', [] ) as $id => $typeItem ) {
-	$typeList[$id] = $typeItem->getCode();
+foreach( $this->get( 'itemTypes', [] ) as $typeItem ) {
+	$typeList[$typeItem->getCode()] = $typeItem->getCode();
 }
 
 $columnList = [
