@@ -270,7 +270,7 @@ class Standard
 				continue;
 			}
 
-			$litem = $listManager->createItem( 'variant', 'attribute' )->setRefId( $listItem->getRefId() );
+			$litem = $listManager->createItem()->setType( 'variant' )->setRefId( $listItem->getRefId() );
 			$mediaItem->addListItem( 'attribute', $litem );
 		}
 
@@ -404,11 +404,11 @@ class Standard
 			$listType = $entry['product.lists.type'];
 
 			if( ( $listItem = $item->getListItem( 'media', $listType, $entry['media.id'], false ) ) === null ) {
-				$listItem = $listManager->createItem( $listType, 'media' );
+				$listItem = $listManager->createItem();
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $mediaManager->createItem( $entry['media.type'], 'product' );
+				$refItem = $mediaManager->createItem();
 			}
 
 			$refItem->fromArray( $entry );

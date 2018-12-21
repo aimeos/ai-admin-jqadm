@@ -294,7 +294,7 @@ class Standard
 				}
 				else
 				{
-					$propItem = $propManager->createItem( $entry['media.property.type'], 'media' );
+					$propItem = $propManager->createItem();
 				}
 
 				$propItem->fromArray( $entry );

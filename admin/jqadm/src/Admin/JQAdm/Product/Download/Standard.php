@@ -328,8 +328,8 @@ class Standard
 		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/type' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
-		$attrItem = $attrManager->createItem( 'download', 'product' );
-		$listItem = $listManager->createItem( 'hidden', 'attribute' );
+		$attrItem = $attrManager->createItem()->setType( 'download' );
+		$listItem = $listManager->createItem()->setType( 'hidden' );
 		$listItems = $item->getListItems( 'attribute', 'hidden', 'download', false );
 
 		if( $this->getValue( $data, 'attribute.label' ) != '' )

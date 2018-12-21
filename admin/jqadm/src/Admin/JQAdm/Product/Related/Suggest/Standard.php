@@ -255,7 +255,7 @@ class Standard
 	{
 		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
 
-		$listItem = $listManager->createItem( 'suggestion', 'product' );
+		$listItem = $listManager->createItem()->setType( 'suggestion' );
 		$listItems = $item->getListItems( 'product', 'suggestion', null, false );
 
 		foreach( $this->getValue( $data, 'product.lists.id', [] ) as $idx => $id )

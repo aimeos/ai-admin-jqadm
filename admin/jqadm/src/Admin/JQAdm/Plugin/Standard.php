@@ -565,7 +565,7 @@ class Standard
 		if( isset( $data['plugin.id'] ) && $data['plugin.id'] != '' ) {
 			$item = $manager->getItem( $data['plugin.id'], $this->getDomains() );
 		} else {
-			$item = $manager->createItem( $data['plugin.type'], 'plugin' );
+			$item = $manager->createItem();
 		}
 
 		$item->fromArray( $data );

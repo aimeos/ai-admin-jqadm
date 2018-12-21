@@ -335,11 +335,11 @@ class Standard
 			$listType = $entry['product.lists.type'];
 
 			if( ( $listItem = $item->getListItem( 'price', $listType, $entry['price.id'], false ) ) === null ) {
-				$listItem = $listManager->createItem( $listType, 'price' );
+				$listItem = $listManager->createItem();
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $priceManager->createItem( $entry['price.type'], 'product' );
+				$refItem = $priceManager->createItem();
 			}
 
 			$refItem->fromArray( $entry );

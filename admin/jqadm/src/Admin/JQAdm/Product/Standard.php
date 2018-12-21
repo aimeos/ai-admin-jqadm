@@ -533,7 +533,7 @@ class Standard
 		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
 			$item = $manager->getItem( $data['product.id'], $this->getDomains() );
 		} else {
-			$item = $manager->createItem( $data['product.type'], 'product' );
+			$item = $manager->createItem();
 		}
 
 		$item->fromArray( $data );

@@ -309,12 +309,12 @@ class Standard
 			}
 
 			if( $entry['attribute.id'] == '' || ( $listItem = $item->getListItem( 'attribute', 'config', $entry['attribute.id'], false ) ) === null ) {
-				$listItem = $listManager->createItem( 'config', 'attribute' );
+				$listItem = $listManager->createItem()->setType( 'config' );
 			}
 
 			if( $entry['attribute.id'] == '' || ( $refItem = $listItem->getRefItem() ) === null )
 			{
-				$refItem = $attrManager->createItem( 'interval', 'product' )->setStatus( 1 );
+				$refItem = $attrManager->createItem()->setType( 'interval' );
 				$refItem->fromArray( $entry );
 			}
 

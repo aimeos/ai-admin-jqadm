@@ -333,11 +333,11 @@ class Standard
 			$listType = $entry['product.lists.type'];
 
 			if( ( $listItem = $item->getListItem( 'text', $listType, $entry['text.id'], false ) ) === null ) {
-				$listItem = $listManager->createItem( $listType, 'text' );
+				$listItem = $listManager->createItem();
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $textManager->createItem( $entry['text.type'], 'product' );
+				$refItem = $textManager->createItem();
 			}
 
 			$refItem->fromArray( $entry );

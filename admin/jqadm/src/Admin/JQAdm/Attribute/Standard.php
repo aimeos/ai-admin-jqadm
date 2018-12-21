@@ -518,7 +518,7 @@ class Standard
 		if( isset( $data['attribute.id'] ) && $data['attribute.id'] != '' ) {
 			$item = $manager->getItem( $data['attribute.id'], $this->getDomains() );
 		} else {
-			$item = $manager->createItem( $data['attribute.type'], $data['attribute.domain'] );
+			$item = $manager->createItem();
 		}
 
 		$item->fromArray( $data );

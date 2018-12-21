@@ -267,9 +267,7 @@ class Standard
 		{
 			if( $item->getListItem( 'attribute', 'custom', $attrId, false ) === null )
 			{
-				$listItem = $listManager->createItem( 'custom', 'attribute' );
-				$listItem->setRefId( $attrId );
-
+				$listItem = $listManager->createItem()->setType( 'custom' )->setRefId( $attrId );
 				$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
 			}
 		}

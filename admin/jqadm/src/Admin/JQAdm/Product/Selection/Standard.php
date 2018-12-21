@@ -295,8 +295,8 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
 		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
 
-		$prodItem = $manager->createItem( 'default', 'product' );
-		$listItem = $listManager->createItem( 'default', 'product' );
+		$prodItem = $manager->createItem()->setType( 'default' );
+		$listItem = $listManager->createItem()->setType( 'default' );
 		$articles = $item->getRefItems( 'product', null, 'default', false );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 
@@ -340,7 +340,7 @@ class Standard
 	{
 		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
 
-		$listItem = $listManager->createItem( 'variant', 'attribute' );
+		$listItem = $listManager->createItem()->setType( 'variant' );
 		$litems = $refItem->getListItems( 'attribute', 'variant', null, false );
 
 		foreach( $entry as $pos => $attr )

@@ -307,7 +307,7 @@ class Standard
 			}
 			else
 			{
-				$propItem = $manager->createItem( $entry['product.property.type'], 'product' );
+				$propItem = $manager->createItem();
 			}
 
 			$propItem->fromArray( $entry );

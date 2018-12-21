@@ -591,7 +591,7 @@ class Standard
 		if( isset( $data['service.id'] ) && $data['service.id'] != '' ) {
 			$item = $manager->getItem( $data['service.id'], $this->getDomains() );
 		} else {
-			$item = $manager->createItem( $data['service.type'], 'service' );
+			$item = $manager->createItem();
 		}
 
 		$item->fromArray( $data );

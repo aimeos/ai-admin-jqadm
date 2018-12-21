@@ -333,7 +333,7 @@ class Standard
 			}
 			else
 			{
-				$stockItem = $manager->createItem( $type, 'product' );
+				$stockItem = $manager->createItem()->setType( $type );
 			}
 
 			$stockItem->setProductCode( $item->getCode() );
