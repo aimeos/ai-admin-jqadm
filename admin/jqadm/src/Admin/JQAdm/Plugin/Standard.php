@@ -563,7 +563,7 @@ class Standard
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin' );
 
 		if( isset( $data['plugin.id'] ) && $data['plugin.id'] != '' ) {
-			$item = $manager->getItem( $data['plugin.id'], $this->getDomains() );
+			$item = $manager->getItem( $data['plugin.id'] );
 		} else {
 			$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin/type' );
 			$item = $manager->createItem( $typeManager->getItem( $data['plugin.typeid'] )->getCode(), 'plugin' );
