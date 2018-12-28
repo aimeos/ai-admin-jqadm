@@ -229,7 +229,7 @@ class Standard
 	 */
 	protected function getIntervalItems()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'attribute' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute' );
 
 		$search = $manager->createSearch();
 		$expr = [
@@ -297,8 +297,8 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
+		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
 		$listItems = $item->getListItems( 'attribute', 'config', 'interval', false );
 

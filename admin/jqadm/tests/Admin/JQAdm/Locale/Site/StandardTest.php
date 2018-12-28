@@ -67,7 +67,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/site' );
+		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
 
 		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'unittest' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
@@ -131,7 +131,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/site' );
+		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
 
 		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'unittest' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
@@ -176,7 +176,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/site' );
+		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
 
 		$param = array(
 			'site' => 'unittest',
@@ -314,7 +314,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/site' );
+		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
 
 		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'unittest' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );

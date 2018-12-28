@@ -259,8 +259,8 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/type' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists/type' );
+		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'media/type' );
+		$listTypeManager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
 
 		$search = $typeManager->createSearch()->setSlice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'media.type.domain', 'catalog' ) );
@@ -288,7 +288,7 @@ class Standard
 	{
 		$context = $this->getContext();
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
+		$manager = \Aimeos\MShop::create( $context, 'catalog' );
 		$search = $manager->createSearch();
 
 		foreach( $listItems as $listItem )
@@ -367,8 +367,8 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$mediaManager = \Aimeos\MShop\Factory::createManager( $context, 'media' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'catalog/lists' );
+		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
+		$listManager = \Aimeos\MShop::create( $context, 'catalog/lists' );
 		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );

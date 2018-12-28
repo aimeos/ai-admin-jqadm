@@ -55,7 +55,7 @@ class IndexTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$view = \TestHelperJqadm::getView();
-		$view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->findItem( 'CNC' );
+		$view->item = \Aimeos\MShop::create( $this->context, 'product' )->findItem( 'CNC' );
 
 		$this->mock->expects( $this->once() )->method( 'save' )->will( $this->returnValue( 'test' ) );
 		$this->object->setView( $view );

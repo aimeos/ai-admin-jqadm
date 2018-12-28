@@ -21,10 +21,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
 
-		$langManager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/language' );
+		$langManager = \Aimeos\MShop::create( $this->context, 'locale/language' );
 
 		$this->view->pageLanguages = $langManager->searchItems( $langManager->createSearch() );
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->createItem();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Supplier\Text\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
@@ -41,7 +41,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
 		$this->view->item = $manager->findItem( 'unitCode001', ['text'] );
 		$result = $this->object->copy();
@@ -65,7 +65,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
 		$this->view->item = $manager->createItem();
 		$result = $this->object->delete();
@@ -77,7 +77,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
 		$this->view->item = $manager->findItem( 'unitCode001', ['text'] );
 		$result = $this->object->get();
@@ -89,7 +89,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 		$item = $manager->createItem();
 
 		$param = array(
@@ -150,7 +150,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->createItem();
 
 		$object->setView( $this->view );
 
@@ -170,7 +170,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->createItem();
 
 		$object->setView( $this->view );
 

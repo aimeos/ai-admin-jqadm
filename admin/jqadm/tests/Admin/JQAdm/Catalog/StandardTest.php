@@ -40,7 +40,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
 		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'cafe' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
@@ -132,7 +132,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
 		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'cafe' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
@@ -198,7 +198,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->save();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 		$item = $manager->findItem( 'jqadm catalog test' );
 		$manager->deleteItem( $item->getId() );
 
@@ -315,7 +315,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
 		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'cafe' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );

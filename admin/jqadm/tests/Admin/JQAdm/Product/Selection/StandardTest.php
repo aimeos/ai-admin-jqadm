@@ -59,7 +59,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
@@ -73,7 +73,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
 		$this->view->item = $manager->findItem( 'U:TEST', ['attribute', 'product'] );
 		$result = $this->object->copy();
@@ -91,7 +91,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 		$this->view->item = $manager->findItem( 'U:TEST', ['attribute', 'product'] );
 
 		$result = $this->object->get();
@@ -109,7 +109,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 		$this->view->item = $manager->findItem( 'U:TEST' );
 
 		$param = array(
@@ -169,7 +169,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->findItem( 'U:TEST' );
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->findItem( 'U:TEST' );
 
 		$object->setView( $this->view );
 
@@ -189,7 +189,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->findItem( 'U:TEST' );
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->findItem( 'U:TEST' );
 
 		$object->setView( $this->view );
 

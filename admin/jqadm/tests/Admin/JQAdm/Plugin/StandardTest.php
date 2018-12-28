@@ -169,7 +169,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'plugin' );
+		$manager = \Aimeos\MShop::create( $this->context, 'plugin' );
 
 		$param = array(
 			'site' => 'unittest',
@@ -318,7 +318,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getItem( $label = 'Shipping-Plugin' )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'plugin' );
+		$manager = \Aimeos\MShop::create( $this->context, 'plugin' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'plugin.label', $label ) );

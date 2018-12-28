@@ -88,7 +88,7 @@ class Standard
 	{
 		parent::delete();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 
 		$code = $this->getView()->item->getCode();
 		$search = $manager->createSearch();
@@ -126,7 +126,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'stock' );
+		$manager = \Aimeos\MShop::create( $context, 'stock' );
 		$manager->begin();
 
 		try
@@ -254,7 +254,7 @@ class Standard
 	 */
 	protected function addViewData( \Aimeos\MW\View\Iface $view )
 	{
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock/type' );
+		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'stock/type' );
 
 		$view->stockTypes = $typeManager->searchItems( $typeManager->createSearch() );
 
@@ -314,7 +314,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'stock' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );
@@ -359,7 +359,7 @@ class Standard
 		$data = [];
 		$context = $this->getContext();
 		$siteId = $context->getLocale()->getSiteId();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'stock' );
+		$manager = \Aimeos\MShop::create( $context, 'stock' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );

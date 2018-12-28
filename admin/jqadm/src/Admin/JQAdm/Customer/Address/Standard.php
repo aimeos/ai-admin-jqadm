@@ -274,7 +274,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Customer\Item\Iface $item, array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/address' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/address' );
 
 		$addrItems = $item->getAddressItems();
 

@@ -39,7 +39,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
+			$manager = \Aimeos\MShop::create( $context, 'order/base' );
 			$view->item = $manager->load( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -84,7 +84,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'order/base' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'order/base' )->createItem();
 			}
 
 			$data['order.siteid'] = $view->item->getSiteId();
@@ -178,7 +178,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
+			$manager = \Aimeos\MShop::create( $context, 'order/base' );
 			$refs = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
 
 			$view->item = $manager->getItem( $id, $refs );
@@ -219,7 +219,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
+		$manager = \Aimeos\MShop::create( $context, 'order/base' );
 		$manager->begin();
 
 		try
@@ -275,7 +275,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'order' );
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'order' );
+			$manager = \Aimeos\MShop::create( $context, 'order' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
@@ -430,7 +430,7 @@ class Standard
 			$baseIds[] = $item->getBaseId();
 		}
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 
 		$search = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
@@ -491,8 +491,8 @@ class Standard
 	 */
 	protected function fromArray( array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
-		$attrManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base/service/attribute' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
+		$attrManager = \Aimeos\MShop::create( $this->getContext(), 'order/base/service/attribute' );
 
 		if( isset( $data['order.base.id'] ) ) {
 			$basket = $manager->load( $data['order.base.id'] );
@@ -575,7 +575,7 @@ class Standard
 
 		if( $item->getCustomerId() != '' )
 		{
-			$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
 
 			try {
 				$data += $manager->getItem( $item->getCustomerId() )->toArray();

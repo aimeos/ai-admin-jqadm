@@ -41,7 +41,7 @@ class Standard
 
 			$this->checkSite( $view->access( 'super' ), $id );
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
+			$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -94,7 +94,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'locale/site' )->createItem();
 			}
 
 			$view->itemSubparts = $this->getSubClientNames();
@@ -140,7 +140,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
+		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$manager->begin();
 
 		try
@@ -206,7 +206,7 @@ class Standard
 
 			$this->checkSite( $view->access( 'super' ), $id );
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
+			$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -252,7 +252,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
+		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$manager->begin();
 
 		try
@@ -310,7 +310,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'locale/site' );
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
+			$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			if( $view->access( 'super' ) === false )
@@ -481,7 +481,7 @@ class Standard
 	protected function getUserSiteId()
 	{
 		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+		$manager = \Aimeos\MShop::create( $context, 'customer' );
 
 		return $manager->getItem( $context->getUserId() )->getSiteId();
 	}
@@ -552,7 +552,7 @@ class Standard
 			}
 		}
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'locale/site' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 
 		if( isset( $data['locale.site.id'] ) && $data['locale.site.id'] != '' )
 		{

@@ -39,7 +39,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
+			$manager = \Aimeos\MShop::create( $context, 'catalog' );
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -85,7 +85,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'catalog' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'catalog' )->createItem();
 			}
 
 			$data['catalog.siteid'] = $view->item->getSiteId();
@@ -129,7 +129,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
+		$manager = \Aimeos\MShop::create( $context, 'catalog' );
 		$manager->begin();
 
 		try
@@ -186,7 +186,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
+			$manager = \Aimeos\MShop::create( $context, 'catalog' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -227,7 +227,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog' );
+		$manager = \Aimeos\MShop::create( $context, 'catalog' );
 		$manager->begin();
 
 		try
@@ -281,7 +281,7 @@ class Standard
 
 		try
 		{
-			$view->item = \Aimeos\MShop\Factory::createManager( $context, 'catalog' )->createItem();
+			$view->item = \Aimeos\MShop::create( $context, 'catalog' )->createItem();
 			$view->itemRootId = $this->getRootId();
 			$view->itemBody = '';
 		}
@@ -419,7 +419,7 @@ class Standard
 	 */
 	protected function getRootId()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 
 		try {
 			return $manager->getTree( null, [], \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE )->getId();
@@ -493,7 +493,7 @@ class Standard
 			}
 		}
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 
 		if( isset( $data['catalog.id'] ) && $data['catalog.id'] != '' ) {
 			$item = $manager->getItem( $data['catalog.id'], $this->getDomains() );

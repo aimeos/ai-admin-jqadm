@@ -36,7 +36,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$manager = \Aimeos\MAdmin\Factory::createManager( $this->context, 'job' );
+		$manager = \Aimeos\MAdmin::create( $this->context, 'job' );
 		$item = $manager->createItem();
 		$item->setLabel( 'jobdeletetest.csv' );
 		$item->setResult( ['file' => 'jobdeletetest.csv'] );
@@ -98,7 +98,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			throw new \Exception( 'Cannot create test file' );
 		}
 
-		$manager = \Aimeos\MAdmin\Factory::createManager( $this->context, 'job' );
+		$manager = \Aimeos\MAdmin::create( $this->context, 'job' );
 		$item = $manager->createItem();
 		$item->setLabel( 'jobtest.csv' );
 		$item->setResult( ['file' => 'jobtest.csv'] );

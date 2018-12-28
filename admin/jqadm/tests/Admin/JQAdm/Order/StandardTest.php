@@ -190,7 +190,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->context, 'order/base' );
 		$this->view->item = $manager->createItem();
 
 		$param = array(
@@ -339,7 +339,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getOrderBaseItem( $comment = 'This is another comment.' )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->context, 'order/base' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'order.base.comment', $comment ) );

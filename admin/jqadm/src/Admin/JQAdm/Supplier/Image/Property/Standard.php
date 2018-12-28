@@ -214,7 +214,7 @@ class Standard
 	 */
 	protected function addViewData( \Aimeos\MW\View\Iface $view )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/property/type' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'media/property/type' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'supplier' ) );
@@ -278,7 +278,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Supplier\Item\Iface $item, array $data )
 	{
-		$propManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media/property' );
+		$propManager = \Aimeos\MShop::create( $this->getContext(), 'media/property' );
 		$index = 0;
 
 		foreach( $item->getRefItems( 'media', null, null, false ) as $refItem )

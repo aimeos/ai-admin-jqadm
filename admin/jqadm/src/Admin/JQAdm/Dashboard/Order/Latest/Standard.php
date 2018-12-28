@@ -185,7 +185,7 @@ class Standard
 	 */
 	protected function addOrders( \Aimeos\MW\View\Iface $view )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
@@ -199,7 +199,7 @@ class Standard
 		}
 
 
-		$baseManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
+		$baseManager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 
 		$baseSearch = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
 		$baseSearch->setConditions( $baseSearch->compare( '==', 'order.base.id', $baseIds ) );

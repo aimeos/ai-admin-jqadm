@@ -36,7 +36,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
+		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
 		$this->view->item = $manager->findItem( 'UTC001' );
 
 		$result = $this->object->copy();
@@ -48,7 +48,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
+		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
 		$this->view->item = $manager->findItem( 'UTC001' );
 
 		$result = $this->object->create();
@@ -60,7 +60,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
+		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
 		$this->view->item = $manager->findItem( 'UTC001' );
 
 		$result = $this->object->get();
@@ -104,7 +104,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'customer' );
+		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
 		$this->view->item = $manager->findItem( 'UTC001' );
 
 		$result = $this->object->save();

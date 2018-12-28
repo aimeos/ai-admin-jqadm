@@ -253,7 +253,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
+		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
 
 		$listItem = $listManager->createItem()->setType( 'variant' );
 		$listItems = $item->getListItems( 'attribute', 'variant', null, false );

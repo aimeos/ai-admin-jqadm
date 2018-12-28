@@ -277,7 +277,7 @@ class Standard
 	protected function getPropertyTypes()
 	{
 		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property/type' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/property/type' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '!=', 'product.property.type.code', $excludes ) );
@@ -295,7 +295,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/property' );
 		$propItems = $this->excludeItems( $item->getPropertyItems( null, false ) );
 
 		foreach( $data as $entry )

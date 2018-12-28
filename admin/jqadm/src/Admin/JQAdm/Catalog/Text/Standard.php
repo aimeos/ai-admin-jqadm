@@ -290,8 +290,8 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$textTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'catalog/lists/type' );
+		$textTypeManager = \Aimeos\MShop::create( $context, 'text/type' );
+		$listTypeManager = \Aimeos\MShop::create( $context, 'catalog/lists/type' );
 
 		$search = $textTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'text.type.domain', 'catalog' ) );
@@ -318,8 +318,8 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$textManager = \Aimeos\MShop\Factory::createManager( $context, 'text' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'catalog/lists' );
+		$textManager = \Aimeos\MShop::create( $context, 'text' );
+		$listManager = \Aimeos\MShop::create( $context, 'catalog/lists' );
 
 		$listItems = $item->getListItems( 'text', null, null, false );
 

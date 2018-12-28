@@ -43,7 +43,7 @@ class Standard
 		$view = $this->getView();
 		$view->orderBody = '';
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'locale/currency' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 		$view->orderCurrencyItems = $manager->searchItems( $manager->createSearch( true ) );
 
 		foreach( $this->getSubClients() as $client ) {

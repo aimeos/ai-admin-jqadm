@@ -93,7 +93,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $context, 'catalog/lists' );
 
 		$search = $manager->createSearch();
 		$expr = array(
@@ -148,7 +148,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$manager = \Aimeos\MShop::create( $context, 'product/lists' );
 		$manager->begin();
 
 		try
@@ -326,7 +326,7 @@ class Standard
 			$ids[] = $listItem->getParentId();
 		}
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'catalog.id', $ids ) );
@@ -343,7 +343,7 @@ class Standard
 	 */
 	protected function getListItems( $prodid )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 
 		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
 		$expr = array(
@@ -364,7 +364,7 @@ class Standard
 	protected function getListTypes()
 	{
 		$list = [];
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists/type' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
@@ -386,7 +386,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 		$listIds = (array) $this->getValue( $data, 'catalog.lists.id', [] );
 		$listItems = $map = $this->getListItems( $item->getId() );
 

@@ -155,7 +155,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $context, 'catalog/lists' );
 
 		$manager->begin();
 
@@ -287,7 +287,7 @@ class Standard
 	 */
 	protected function getListItems( \Aimeos\MShop\Catalog\Item\Iface $item, array $params = [], &$total )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '+', 'catalog.lists.position' )] );
@@ -312,7 +312,7 @@ class Standard
 	protected function getListTypes()
 	{
 		$list = [];
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'catalog/lists/type' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
 
 		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
@@ -340,7 +340,7 @@ class Standard
 			$list[] = $listItem->getRefId();
 		}
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
 		$search = $manager->createSearch()->setSlice( 0, count( $list ) );
 		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
@@ -404,7 +404,7 @@ class Standard
 		$context = $this->getContext();
 		$listIds = $this->getValue( $data, 'catalog.lists.id', [] );
 
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'catalog/lists' );
+		$listManager = \Aimeos\MShop::create( $context, 'catalog/lists' );
 
 		$search = $listManager->createSearch()->setSlice( 0, count( $listIds ) );
 		$search->setConditions( $search->compare( '==', 'catalog.lists.id', $listIds ) );

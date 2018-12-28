@@ -33,9 +33,9 @@ class Page extends Base
 		$view->pageParams = $this->getClientParams();
 		$context = $this->getContext();
 
-		$siteManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/site' );
-		$langManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/language' );
-		$customerManager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+		$siteManager = \Aimeos\MShop::create( $context, 'locale/site' );
+		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
+		$customerManager = \Aimeos\MShop::create( $context, 'customer' );
 
 		$siteItem = $siteManager->findItem( $view->param( 'site', 'default' ) );
 

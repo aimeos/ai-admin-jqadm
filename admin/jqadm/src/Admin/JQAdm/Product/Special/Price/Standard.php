@@ -257,9 +257,9 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists/type' );
+		$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
+		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
+		$typeManager = \Aimeos\MShop::create( $context, 'product/lists/type' );
 
 		$attrId = $attrManager->findItem( 'custom', [], 'product', 'price' )->getId();
 

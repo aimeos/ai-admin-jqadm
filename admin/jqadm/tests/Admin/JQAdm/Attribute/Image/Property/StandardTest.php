@@ -36,7 +36,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
@@ -48,7 +48,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
 		$this->view->item = $manager->findItem( 'xs', ['media'], 'product', 'size' );
 		$result = $this->object->copy();
@@ -69,7 +69,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
 		$this->view->item = $manager->findItem( 'xs', ['media'], 'product', 'size' );
 		$result = $this->object->get();
@@ -81,8 +81,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->context, 'media/property/type' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
+		$typeManager = \Aimeos\MShop::create( $this->context, 'media/property/type' );
 
 		$item = $manager->findItem( 'xs', ['media'], 'product', 'size' );
 		$item->setCode( 'jqadm-test-image-property' );
@@ -133,7 +133,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'attribute' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'attribute' )->createItem();
 
 		$object->setView( $this->view );
 

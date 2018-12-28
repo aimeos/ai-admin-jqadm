@@ -39,7 +39,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
+			$manager = \Aimeos\MShop::create( $context, 'locale/currency' );
 			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -84,7 +84,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'locale/currency' )->createItem();
 			}
 
 			$view->itemSubparts = $this->getSubClientNames();
@@ -124,7 +124,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
+		$manager = \Aimeos\MShop::create( $context, 'locale/currency' );
 		$manager->begin();
 
 		try
@@ -180,7 +180,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
+			$manager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -220,7 +220,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
+		$manager = \Aimeos\MShop::create( $context, 'locale/currency' );
 		$manager->begin();
 
 		try
@@ -276,7 +276,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'locale/currency' );
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
+			$manager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'locale.currency.status'), $search->sort( '+', 'locale.currency.id')] );
@@ -470,7 +470,7 @@ class Standard
 	 */
 	protected function fromArray( array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'locale/currency' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 
 		if( isset( $data['locale.currency.id'] ) && $data['locale.currency.id'] != '' ) {
 			$item = $manager->getItem( $data['locale.currency.id'] );

@@ -292,8 +292,8 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'product' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$manager = \Aimeos\MShop::create( $context, 'product' );
+		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
 		$prodItem = $manager->createItem()->setType( 'default' );
 		$listItem = $listManager->createItem()->setType( 'default' );
@@ -338,7 +338,7 @@ class Standard
 	 */
 	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $entry )
 	{
-		$listManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/lists' );
+		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
 
 		$listItem = $listManager->createItem()->setType( 'variant' );
 		$litems = $refItem->getListItems( 'attribute', 'variant', null, false );

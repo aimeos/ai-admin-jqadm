@@ -175,7 +175,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'coupon' );
+		$manager = \Aimeos\MShop::create( $this->context, 'coupon' );
 
 		$param = array(
 			'site' => 'unittest',
@@ -340,7 +340,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getCoupon( $label = 'Unit test example' )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'coupon' );
+		$manager = \Aimeos\MShop::create( $this->context, 'coupon' );
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'coupon.label', $label ) );

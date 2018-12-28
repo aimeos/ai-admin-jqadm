@@ -169,7 +169,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale' );
+		$manager = \Aimeos\MShop::create( $this->context, 'locale' );
 
 		$param = array(
 			'site' => 'unittest',
@@ -314,7 +314,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getItem( $langid = null, $currid = null )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale' );
+		$manager = \Aimeos\MShop::create( $this->context, 'locale' );
 
 		$search = $manager->createSearch();
 		$search->setSlice( 0, 1 );

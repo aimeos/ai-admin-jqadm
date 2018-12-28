@@ -39,7 +39,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+			$manager = \Aimeos\MShop::create( $context, 'customer' );
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -85,7 +85,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'customer' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'customer' )->createItem();
 			}
 
 			$data['customer.siteid'] = $view->item->getSiteId();
@@ -128,7 +128,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+		$manager = \Aimeos\MShop::create( $context, 'customer' );
 		$manager->begin();
 
 		try
@@ -185,7 +185,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+			$manager = \Aimeos\MShop::create( $context, 'customer' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -226,7 +226,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+		$manager = \Aimeos\MShop::create( $context, 'customer' );
 		$manager->begin();
 
 		try
@@ -282,7 +282,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'customer' );
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
+			$manager = \Aimeos\MShop::create( $context, 'customer' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			$view->items = $manager->searchItems( $search, $this->getDomains(), $total );
@@ -455,7 +455,7 @@ class Standard
 		$isSuper = $this->getView()->access( ['super'] );
 		$isAdmin = $this->getView()->access( ['admin'] );
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '+', 'customer.group.label' )] );
 
@@ -532,7 +532,7 @@ class Standard
 		$data['customer.label'] = $data['customer.firstname'] . ' ' . $data['customer.lastname'];
 		$data['customer.code'] = $data['customer.email'];
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
 
 		if( isset( $data['customer.id'] ) && $data['customer.id'] != '' ) {
 			$item = $manager->getItem( $data['customer.id'], $this->getDomains() );

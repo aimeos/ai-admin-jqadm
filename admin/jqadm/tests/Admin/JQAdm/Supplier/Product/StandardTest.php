@@ -36,7 +36,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 		$this->view->item = $manager->findItem( 'unitCode001' );
 
 		$result = $this->object->copy();
@@ -79,7 +79,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 		$this->view->item = $manager->findItem( 'unitCode001' );
 
 		$result = $this->object->create();
@@ -122,7 +122,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 		$this->view->item = $manager->findItem( 'unitCode001' );
 
 		$result = $this->object->get();
@@ -166,7 +166,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
 		$item = $manager->findItem( 'unitCode001' );
 		$item->setCode( 'jqadm-test-save' );
@@ -263,7 +263,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'supplier' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 		$view->item = $manager->findItem( 'unitCode001' );
 
 		return $view;

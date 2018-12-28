@@ -39,8 +39,8 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'subscription' );
-			$baseManager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
+			$manager = \Aimeos\MShop::create( $context, 'subscription' );
+			$baseManager = \Aimeos\MShop::create( $context, 'order/base' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemBase = $baseManager->getItem( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
@@ -86,10 +86,10 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'subscription' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'subscription' )->createItem();
 			}
 
-			$baseManager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
+			$baseManager = \Aimeos\MShop::create( $context, 'order/base' );
 			$baseId = ( $view->item->getOrderBaseId() ?: $view->param( 'item/subscription.ordbaseid' ) );
 
 			if( $baseId ) {
@@ -137,7 +137,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'subscription' );
+		$manager = \Aimeos\MShop::create( $context, 'subscription' );
 		$manager->begin();
 
 		try
@@ -239,8 +239,8 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'subscription' );
-			$baseManager = \Aimeos\MShop\Factory::createManager( $context, 'order/base' );
+			$manager = \Aimeos\MShop::create( $context, 'subscription' );
+			$baseManager = \Aimeos\MShop::create( $context, 'order/base' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemBase = $baseManager->getItem( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
@@ -281,7 +281,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'subscription' );
+		$manager = \Aimeos\MShop::create( $context, 'subscription' );
 		$manager->begin();
 
 		try
@@ -337,7 +337,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'subscription' );
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'subscription' );
+			$manager = \Aimeos\MShop::create( $context, 'subscription' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'subscription.ctime' )] );
@@ -492,7 +492,7 @@ class Standard
 			$baseIds[] = $item->getOrderBaseId();
 		}
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 
 		$search = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
@@ -553,7 +553,7 @@ class Standard
 	 */
 	protected function fromArray( array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'subscription' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
 
 		if( isset( $data['subscription.id'] ) && $data['subscription.id'] != '' ) {
 			$item = $manager->getItem( $data['subscription.id'] );

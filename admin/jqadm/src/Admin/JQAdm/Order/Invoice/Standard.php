@@ -105,7 +105,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'order' );
+		$manager = \Aimeos\MShop::create( $context, 'order' );
 		$manager->begin();
 
 		try
@@ -280,7 +280,7 @@ class Standard
 	 */
 	protected function getOrderItems( \Aimeos\MShop\Order\Item\Base\Iface $order, array $params, &$total )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '-', 'order.ctime' )] );
@@ -305,7 +305,7 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Order\Item\Base\Iface $order, array $data )
 	{
 		$invoiceIds = $this->getValue( $data, 'order.id', [] );
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'order' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
 		$search = $manager->createSearch()->setSlice( 0, count( $invoiceIds ) );
 		$search->setConditions( $search->compare( '==', 'order.id', $invoiceIds ) );

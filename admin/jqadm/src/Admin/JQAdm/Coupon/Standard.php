@@ -39,7 +39,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'coupon' );
+			$manager = \Aimeos\MShop::create( $context, 'coupon' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemData = $this->toArray( $view->item, true );
@@ -87,7 +87,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'coupon' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'coupon' )->createItem();
 			}
 
 			$data['coupon.siteid'] = $view->item->getSiteId();
@@ -131,7 +131,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'coupon' );
+		$manager = \Aimeos\MShop::create( $context, 'coupon' );
 		$manager->begin();
 
 		try
@@ -187,7 +187,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'coupon' );
+			$manager = \Aimeos\MShop::create( $context, 'coupon' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemData = $this->toArray( $view->item );
@@ -230,7 +230,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'coupon' );
+		$manager = \Aimeos\MShop::create( $context, 'coupon' );
 		$manager->begin();
 
 		try
@@ -286,7 +286,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'coupon' );
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'coupon' );
+			$manager = \Aimeos\MShop::create( $context, 'coupon' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
@@ -432,7 +432,7 @@ class Standard
 	 */
 	public function getConfigAttributes( \Aimeos\MShop\Coupon\Item\Iface $item )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
 
 		try {
 			return $manager->getProvider( $item, '' )->getConfigBE();
@@ -535,7 +535,7 @@ class Standard
 			}
 		}
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
 
 		if( isset( $data['coupon.id'] ) && $data['coupon.id'] != '' ) {
 			$item = $manager->getItem( $data['coupon.id'] );

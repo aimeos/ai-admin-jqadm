@@ -39,7 +39,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'plugin' );
+			$manager = \Aimeos\MShop::create( $context, 'plugin' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemData = $this->toArray( $view->item, true );
@@ -88,7 +88,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'plugin' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'plugin' )->createItem();
 			}
 
 			$data['plugin.siteid'] = $view->item->getSiteId();
@@ -133,7 +133,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'plugin' );
+		$manager = \Aimeos\MShop::create( $context, 'plugin' );
 		$manager->begin();
 
 		try
@@ -189,7 +189,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'plugin' );
+			$manager = \Aimeos\MShop::create( $context, 'plugin' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemData = $this->toArray( $view->item );
@@ -233,7 +233,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'plugin' );
+		$manager = \Aimeos\MShop::create( $context, 'plugin' );
 		$manager->begin();
 
 		try
@@ -289,7 +289,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'plugin' );
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'plugin' );
+			$manager = \Aimeos\MShop::create( $context, 'plugin' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '+', 'plugin.type' ), $search->sort( '+', 'plugin.position' )] );
@@ -439,7 +439,7 @@ class Standard
 	 */
 	public function getConfigAttributes( \Aimeos\MShop\Plugin\Item\Iface $item )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'plugin' );
 
 		try {
 			return $manager->getProvider( $item, $item->getType() )->getConfigBE();
@@ -526,7 +526,7 @@ class Standard
 	 */
 	protected function getTypeItems()
 	{
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin/type' );
+		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'plugin/type' );
 
 		$search = $typeManager->createSearch()->setSlice( 0, 0x7fffffff );
 		$search->setSortations( array( $search->sort( '+', 'plugin.type.label' ) ) );
@@ -560,7 +560,7 @@ class Standard
 			}
 		}
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'plugin' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'plugin' );
 
 		if( isset( $data['plugin.id'] ) && $data['plugin.id'] != '' ) {
 			$item = $manager->getItem( $data['plugin.id'] );

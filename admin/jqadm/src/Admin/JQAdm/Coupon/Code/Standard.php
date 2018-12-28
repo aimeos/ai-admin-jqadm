@@ -105,7 +105,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'coupon/code' );
+		$manager = \Aimeos\MShop::create( $context, 'coupon/code' );
 		$manager->begin();
 
 		try
@@ -269,7 +269,7 @@ class Standard
 	 */
 	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], &$total )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
 
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '+', 'coupon.code.code' )] );
@@ -337,7 +337,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Coupon\Item\Iface $item, array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'coupon/code' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
 
 		foreach( $this->getValue( $data, 'coupon.code.id', [] ) as $idx => $id )
 		{

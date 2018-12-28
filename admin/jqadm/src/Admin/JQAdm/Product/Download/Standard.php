@@ -324,9 +324,9 @@ class Standard
 		$context = $this->getContext();
 		$fs = $context->getFilesystemManager()->get( 'fs-secure' );
 
-		$attrManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/type' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'product/lists' );
+		$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
+		$typeManager = \Aimeos\MShop::create( $context, 'attribute/type' );
+		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
 		$attrItem = $attrManager->createItem()->setType( 'download' );
 		$listItem = $listManager->createItem()->setType( 'hidden' );

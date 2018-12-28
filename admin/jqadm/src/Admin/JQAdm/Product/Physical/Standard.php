@@ -274,8 +274,8 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property' );
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'product/property/type' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/property' );
+		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'product/property/type' );
 
 		foreach( $data as $type => $value )
 		{

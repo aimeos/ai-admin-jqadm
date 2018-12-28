@@ -276,7 +276,7 @@ class Standard
 	 */
 	protected function getPropertyTypes()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/property/type' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/property/type' );
 		return $manager->searchItems( $manager->createSearch()->setSlice( 0, 0x7fffffff ) );
 	}
 
@@ -289,7 +289,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Customer\Item\Iface $item, array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/property' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/property' );
 
 		$propItems = $item->getPropertyItems( null, false );
 

@@ -39,7 +39,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'service' );
+			$manager = \Aimeos\MShop::create( $context, 'service' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemData = $this->toArray( $view->item, true );
@@ -88,7 +88,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'service' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'service' )->createItem();
 			}
 
 			$data['service.siteid'] = $view->item->getSiteId();
@@ -133,7 +133,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'service' );
+		$manager = \Aimeos\MShop::create( $context, 'service' );
 		$manager->begin();
 
 		try
@@ -190,7 +190,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'service' );
+			$manager = \Aimeos\MShop::create( $context, 'service' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemData = $this->toArray( $view->item );
@@ -234,7 +234,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'service' );
+		$manager = \Aimeos\MShop::create( $context, 'service' );
 		$manager->begin();
 
 		try
@@ -290,7 +290,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'service' );
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'service' );
+			$manager = \Aimeos\MShop::create( $context, 'service' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '+', 'service.type' ), $search->sort( '+', 'service.position' )] );
@@ -440,7 +440,7 @@ class Standard
 	 */
 	public function getConfigAttributes( \Aimeos\MShop\Service\Item\Iface $item )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'service' );
 
 		try {
 			return $manager->getProvider( $item, $item->getType() )->getConfigBE();
@@ -552,7 +552,7 @@ class Standard
 	 */
 	protected function getTypeItems()
 	{
-		$typeManager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service/type' );
+		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'service/type' );
 
 		$search = $typeManager->createSearch()->setSlice( 0, 0x7fffffff );
 		$search->setSortations( array( $search->sort( '+', 'service.type.label' ) ) );
@@ -586,7 +586,7 @@ class Standard
 			}
 		}
 
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'service' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'service' );
 
 		if( isset( $data['service.id'] ) && $data['service.id'] != '' ) {
 			$item = $manager->getItem( $data['service.id'], $this->getDomains() );

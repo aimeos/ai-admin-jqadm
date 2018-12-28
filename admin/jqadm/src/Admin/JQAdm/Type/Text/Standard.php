@@ -39,7 +39,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
+			$manager = \Aimeos\MShop::create( $context, 'text/type' );
 			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -84,7 +84,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop\Factory::createManager( $context, 'text/type' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'text/type' )->createItem();
 			}
 
 			$data['text.type.siteid'] = $view->item->getSiteId();
@@ -126,7 +126,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
+		$manager = \Aimeos\MShop::create( $context, 'text/type' );
 		$manager->begin();
 
 		try
@@ -182,7 +182,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
+			$manager = \Aimeos\MShop::create( $context, 'text/type' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -222,7 +222,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
+		$manager = \Aimeos\MShop::create( $context, 'text/type' );
 		$manager->begin();
 
 		try
@@ -278,7 +278,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'type/text' );
-			$manager = \Aimeos\MShop\Factory::createManager( $context, 'text/type' );
+			$manager = \Aimeos\MShop::create( $context, 'text/type' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
@@ -467,7 +467,7 @@ class Standard
 	 */
 	protected function fromArray( array $data )
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'text/type' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'text/type' );
 
 		if( isset( $data['text.type.id'] ) && $data['text.type.id'] != '' ) {
 			$item = $manager->getItem( $data['text.type.id'] );

@@ -29,7 +29,7 @@ class Index extends Base
 		$result = $this->getClient()->delete();
 
 		$ids = (array) $this->getView()->param( 'id' );
-		\Aimeos\MShop\Factory::createManager( $this->getContext(), 'index' )->deleteItems( $ids );
+		\Aimeos\MShop::create( $this->getContext(), 'index' )->deleteItems( $ids );
 
 		return $result;
 	}
@@ -46,7 +46,7 @@ class Index extends Base
 		$item = $this->getView()->item;
 
 		if( $item->getId() !== null ) {
-			\Aimeos\MShop\Factory::createManager( $this->getContext(), 'index' )->saveItem( $item );
+			\Aimeos\MShop::create( $this->getContext(), 'index' )->saveItem( $item );
 		}
 
 		return $result;

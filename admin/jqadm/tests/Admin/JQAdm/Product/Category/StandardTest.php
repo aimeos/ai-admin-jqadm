@@ -36,7 +36,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
@@ -48,7 +48,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
 		$this->view->item = $manager->findItem( 'CNC' );
 		$result = $this->object->copy();
@@ -71,7 +71,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
 		$this->view->item = $manager->findItem( 'CNC' );
 		$result = $this->object->get();
@@ -85,8 +85,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
-		$productManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
+		$productManager = \Aimeos\MShop::create( $this->context, 'product' );
 
 		$item = $manager->findItem( 'root' );
 		$item->setCode( 'jqadm-test-root' );
@@ -121,8 +121,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSavePromotion()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'catalog' );
-		$productManager = \Aimeos\MShop\Factory::createManager( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
+		$productManager = \Aimeos\MShop::create( $this->context, 'product' );
 
 		$item = $manager->findItem( 'root' );
 		$item->setCode( 'jqadm-test-root' );
@@ -166,7 +166,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
 
 		$object->setView( $this->view );
 
@@ -186,7 +186,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop\Factory::createManager( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
 
 		$object->setView( $this->view );
 

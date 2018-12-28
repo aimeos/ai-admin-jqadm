@@ -167,7 +167,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop\Factory::createManager( $this->context, 'locale/language' );
+		$manager = \Aimeos\MShop::create( $this->context, 'locale/language' );
 
 		$param = array(
 			'item' => array(

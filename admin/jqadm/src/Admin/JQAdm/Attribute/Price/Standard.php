@@ -290,9 +290,9 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$priceTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'price/type' );
-		$listTypeManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/lists/type' );
-		$currencyManager = \Aimeos\MShop\Factory::createManager( $context, 'locale/currency' );
+		$priceTypeManager = \Aimeos\MShop::create( $context, 'price/type' );
+		$listTypeManager = \Aimeos\MShop::create( $context, 'attribute/lists/type' );
+		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
 		$search = $priceTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'price.type.domain', 'attribute' ) );
@@ -324,8 +324,8 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$priceManager = \Aimeos\MShop\Factory::createManager( $context, 'price' );
-		$listManager = \Aimeos\MShop\Factory::createManager( $context, 'attribute/lists' );
+		$priceManager = \Aimeos\MShop::create( $context, 'price' );
+		$listManager = \Aimeos\MShop::create( $context, 'attribute/lists' );
 
 		$listItems = $item->getListItems( 'price', null, null, false );
 
