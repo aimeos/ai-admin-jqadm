@@ -95,7 +95,7 @@ class Standard
 		parent::delete();
 
 		$item = $this->getView()->item;
-		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $this->getContext() );
+		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $this->getContext() );
 
 		foreach( $item->getListItems( 'media', null, null, false ) as $listItem )
 		{
@@ -287,7 +287,7 @@ class Standard
 	protected function deleteMediaItems( \Aimeos\MShop\Service\Item\Iface $item, array $listItems )
 	{
 		$context = $this->getContext();
-		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
+		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 		$manager = \Aimeos\MShop::create( $context, 'service' );
 		$search = $manager->createSearch();
 
@@ -369,7 +369,7 @@ class Standard
 
 		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
 		$listManager = \Aimeos\MShop::create( $context, 'service/lists' );
-		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
+		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
 		$files = (array) $this->getView()->request()->getUploadedFiles();
