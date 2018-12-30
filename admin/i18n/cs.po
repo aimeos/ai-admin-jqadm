@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-14 09:41+0200\n"
-"PO-Revision-Date: 2018-10-14 07:41+0000\n"
+"POT-Creation-Date: 2018-12-30 13:52+0100\n"
+"PO-Revision-Date: 2018-12-30 12:58+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,6 @@ msgid ""
 "%18$s\n"
 msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
-#. / price format with value (%1$s) and currency (%2$s)
 #, php-format
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
@@ -84,15 +83,6 @@ msgstr ""
 msgid "Add"
 msgstr "Přidat"
 
-msgid "Add filter"
-msgstr "Přidat filtr"
-
-msgid "Add new entry (Ctrl+A)"
-msgstr ""
-
-msgid "Additional"
-msgstr "Další"
-
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
@@ -101,20 +91,8 @@ msgstr ""
 msgid "Additional information where the customer's apartment can be found"
 msgstr ""
 
-msgid "Additional information where the customer's appartment can be found"
-msgstr ""
-
 msgid "Additional information where the supplier's apartment can be found"
 msgstr ""
-
-msgid "Additional information where the supplier's office can be found"
-msgstr ""
-
-msgid "Additional information, e.g. flat number"
-msgstr "Další informace, např. číslo bytu"
-
-msgid "Address"
-msgstr "Adresa"
 
 msgid "Address 1"
 msgstr "Adresa 1"
@@ -125,20 +103,11 @@ msgstr "Adresa 2"
 msgid "Address 3"
 msgstr "Adresa 3"
 
-msgid "Address ID"
-msgstr "Adresa ID"
-
 msgid "Address identifier of the customer's house for delivery"
 msgstr ""
 
 msgid "Address identifier of the supplier's house for delivery"
 msgstr ""
-
-msgid "Address identifier of the supplier's office"
-msgstr ""
-
-msgid "Addresses"
-msgstr "Adresy"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
@@ -169,38 +138,9 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
 msgid ""
-"Article description shown by search engines, added to the head section of "
-"the product detail page"
-msgstr ""
-
-msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
 msgstr ""
-
-msgid "Associated attributes"
-msgstr "Přidružené atributy"
-
-msgid "Associated customer groups"
-msgstr "Přidružené skupiny zákazníků"
-
-msgid "Associated customers"
-msgstr "Přidružení zákazníci"
-
-msgid "Associated media"
-msgstr "přidružená média"
-
-msgid "Associated prices"
-msgstr "přidružené ceny"
-
-msgid "Associated products"
-msgstr "Přidružené produkty"
-
-msgid "Associated tags"
-msgstr "Přidružené tagy - štítky"
-
-msgid "Associated texts"
-msgstr "Přidružené texty"
 
 msgid "Attribute"
 msgstr "Atribut"
@@ -223,42 +163,17 @@ msgstr ""
 msgid "Attribute Types"
 msgstr ""
 
-msgid "Attribute name"
-msgstr ""
-
 msgid "Attribute position (optional)"
 msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
 
-msgid "Attribute type"
-msgstr "Typ atributu"
-
-#. : Attribute type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Attribute type: {0} ({1})"
-msgstr "Ttyp atributu: {0} ({1})"
-
-#. : Attribute item panel title with attribute label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Attribute: {0} ({1})"
-msgstr "Attribut: {0} ({1})"
-
 msgid "Attributes"
 msgstr "Atributy"
 
-msgid "Available attributes"
-msgstr "Dostupné atributy"
-
 msgid "Available currency for the current site"
 msgstr ""
-
-msgid "Available customer groups"
-msgstr "Dostupné skupiny zákazníků"
-
-msgid "Available customers"
-msgstr "Dostupní zákazníci"
 
 msgid "Available intervals in the front-end"
 msgstr ""
@@ -266,29 +181,8 @@ msgstr ""
 msgid "Available language for the current site"
 msgstr ""
 
-msgid "Available media"
-msgstr "dostupná média"
-
-msgid "Available prices"
-msgstr "Dostupné ceny"
-
-msgid "Available products"
-msgstr "Dostupné produkty"
-
-msgid "Available tags"
-msgstr "Dostupné tagy - štítky"
-
-msgid "Available texts"
-msgstr "Dostupné texty"
-
-msgid "Back"
-msgstr "Zpět"
-
 msgid "Back in stock"
 msgstr "zpět do obchodu"
-
-msgid "Base ID"
-msgstr "Základní ID"
 
 msgid "Basic"
 msgstr "Základní"
@@ -308,15 +202,6 @@ msgstr ""
 msgid "Bug or suggestion?"
 msgstr ""
 
-msgid "Bundles"
-msgstr ""
-
-msgid "Cache"
-msgstr "Cache"
-
-msgid "Cache item details"
-msgstr "Údaje o předmětu z cache"
-
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -332,24 +217,10 @@ msgstr ""
 msgid "Catalog Lists Types"
 msgstr ""
 
-msgid "Catalog Types"
-msgstr ""
-
-#. : Catalog item panel title with catalog label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Catalog: {0} ({1})"
-msgstr "Katalog: {0} ({1})"
-
-msgid "Categories"
-msgstr "Kategorie"
-
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
-
-msgid "Category name"
 msgstr ""
 
 msgid ""
@@ -357,28 +228,14 @@ msgid ""
 "pairs in the templates"
 msgstr ""
 
-msgid "Characteristics"
-msgstr "Vlastnosti"
-
 msgid "Choose file"
 msgstr ""
 
 msgid "City"
 msgstr "Město"
 
-msgid "City name (required)"
-msgstr "Název města (povinné)"
-
 msgid "City or town name (required)"
 msgstr ""
-
-#, php-format
-msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr "Třída \"%1$s\" neimplementuje \"%2$s\""
-
-#, php-format
-msgid "Class \"%1$s\" does not implement interface \"%2$s\""
-msgstr "Třída \"%1$s\" neimplementuje rozhraní \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -388,26 +245,14 @@ msgstr "Třída \"%1$s\" není k dispozici"
 msgid "Class \"%1$s\" not found"
 msgstr "Třída \"%1$s\" nenalezena"
 
-msgid "Clear"
-msgstr "Vymazat"
-
-msgid "Click to upload"
-msgstr "Klikni pro upload"
-
 msgid "Close"
 msgstr "Zavřít"
 
 msgid "Code"
 msgstr "Kód"
 
-msgid "Code to uniquely identify the site"
-msgstr ""
-
 msgid "Code to uniquely identify the site, renaming is dangerous!"
 msgstr ""
-
-msgid "Codes"
-msgstr "Kódy"
 
 msgid "Columns"
 msgstr "Sloupce"
@@ -424,9 +269,6 @@ msgstr "Společnost"
 msgid "Company details"
 msgstr ""
 
-msgid "Company name"
-msgstr "Název společnosti"
-
 msgid "Company name (optional)"
 msgstr ""
 
@@ -436,15 +278,9 @@ msgstr ""
 msgid "Configurable"
 msgstr ""
 
-msgid "Configuration"
-msgstr "Konfigurace"
-
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
-
-msgid "Content"
-msgstr "Obsah"
 
 msgid "Copy"
 msgstr "Kopírovat"
@@ -455,12 +291,6 @@ msgstr ""
 msgid "Costs"
 msgstr "Náklady"
 
-msgid "Costs per item"
-msgstr "Náklady za položku"
-
-msgid "Could not upload file. Please notify your administrator"
-msgstr "Nepodařilo se uploadnout soubor. Prosím, informuje svého správce."
-
 msgid "Count"
 msgstr "Počítadlo"
 
@@ -469,9 +299,6 @@ msgstr "Země"
 
 msgid "Country ID"
 msgstr "ID země"
-
-msgid "Country code"
-msgstr "Kód země"
 
 msgid "Country code (required)"
 msgstr "Kód země (povinný)"
@@ -484,30 +311,11 @@ msgstr "Specifická daňová sazba ke kalkulaci a k zobrazení daně (pro B2C) n
 msgid "Country state code (optional)"
 msgstr ""
 
-msgid "Country state, e.g. \"NY\""
-msgstr "Stát, země, oblast, př. \"NY\""
-
 msgid "Coupon"
 msgstr "Kupón"
 
-msgid "Coupon code"
-msgstr "Kód kupónu"
-
-#. : Coupon code item panel title with coupon code ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Coupon code: {0} ({1})"
-msgstr "Kód kupónu: {0} ({1})"
-
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
-
-#. : Coupon item panel title with coupon label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Coupon: {0} ({1})"
-msgstr "Kupón: {0} ({1})"
-
-msgid "Coupons"
-msgstr "Kupóny"
 
 msgid "Created"
 msgstr "Vytvořeno"
@@ -517,9 +325,6 @@ msgstr "Měny"
 
 msgid "Currency"
 msgstr "Měna"
-
-msgid "Currency (required)"
-msgstr "Měna (povinné)"
 
 msgid "Custom"
 msgstr "Vlastní"
@@ -542,30 +347,11 @@ msgstr ""
 msgid "Customer Property Types"
 msgstr ""
 
-msgid "Customer Types"
-msgstr "Typy zákazníků"
-
-#. : Customer address item panel title with customer name ({0}) and site code
-#. ({1)}
-#. : Customer address item panel title with customer name ({0}) and site code
-#. ({1)}
-#, python-brace-format
-msgid "Customer address: {0} ({1})"
-msgstr "Adresa zákazníka: {0} ({1})"
-
 msgid "Customer comment (optional)"
 msgstr "Komentář zákazníka (volitelný)"
 
 msgid "Customer e-mail address"
 msgstr "Email zákazníka"
-
-#. : Customer group item panel title with customer name ({0}) and site code
-#. ({1)}
-#. : Customer group item panel title with customer name ({0}) and site code
-#. ({1)}
-#, python-brace-format
-msgid "Customer group: {0} ({1})"
-msgstr "Skupina zákazníka: {0} ({1})"
 
 msgid "Customer password"
 msgstr "Heslo zákazníka"
@@ -573,19 +359,8 @@ msgstr "Heslo zákazníka"
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
-#. : Customer item panel title with customer label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Customer: {0} ({1})"
-msgstr "Zákazník: {0} ({1})"
-
 msgid "Dashboard"
 msgstr "Dashboard"
-
-msgid "Date"
-msgstr "Datum"
-
-msgid "Date back"
-msgstr "Datum návratu"
 
 msgid "Date of the last delivery status change"
 msgstr ""
@@ -617,13 +392,6 @@ msgstr "Doručení"
 msgid "Delivery address"
 msgstr ""
 
-msgid ""
-"Delivery costs for the whole order or additional costs for payment options"
-msgstr ""
-
-msgid "Delivery date"
-msgstr ""
-
 msgid "Delivery status"
 msgstr ""
 
@@ -642,16 +410,7 @@ msgstr ""
 msgid "Descritive name of the site"
 msgstr ""
 
-msgid "Details"
-msgstr ""
-
-msgid "Display field is empty"
-msgstr ""
-
 msgid "Domain"
-msgstr ""
-
-msgid "Domain (required)"
 msgstr ""
 
 msgid "Download"
@@ -667,9 +426,6 @@ msgid "E-Mail"
 msgstr ""
 
 msgid "E-Mail address (required)"
-msgstr ""
-
-msgid "E-Mail, e.g. me@example.com (required)"
 msgstr ""
 
 msgid "E-mail"
@@ -711,21 +467,6 @@ msgstr ""
 msgid "Execution order of the plugins"
 msgstr ""
 
-msgid "Expert"
-msgstr ""
-
-msgid "Expert mode"
-msgstr ""
-
-msgid "Expires"
-msgstr ""
-
-msgid "Export"
-msgstr ""
-
-msgid "Export successful"
-msgstr ""
-
 msgid "Facility"
 msgstr ""
 
@@ -735,16 +476,7 @@ msgstr ""
 msgid "Facsimile number (optional)"
 msgstr ""
 
-msgid "Facsimile number, e.g. +155512345"
-msgstr ""
-
 msgid "File"
-msgstr ""
-
-msgid "File URL"
-msgstr ""
-
-msgid "Filter"
 msgstr ""
 
 msgid "Find category"
@@ -762,43 +494,16 @@ msgstr ""
 msgid "First name of the person if used in cultures where they are used"
 msgstr ""
 
-msgid "Firstname"
-msgstr ""
-
 msgid "Floor"
 msgstr ""
 
 msgid "Floor / Appartment"
 msgstr ""
 
-msgid "Floor / Office"
-msgstr ""
-
 msgid "Floor and/or apartment (optional)"
 msgstr ""
 
-msgid "Floor and/or appartment (optional)"
-msgstr ""
-
-msgid "Floor and/or office (optional)"
-msgstr ""
-
-msgid "Flush"
-msgstr ""
-
-msgid "Flush cache?"
-msgstr ""
-
-msgid "Full name"
-msgstr ""
-
-msgid "Full name (required)"
-msgstr ""
-
 msgid "Group"
-msgstr ""
-
-msgid "Group label (required)"
 msgstr ""
 
 msgid "Group name describing for which members the group is for"
@@ -813,16 +518,10 @@ msgstr ""
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr ""
 
-msgid "Honorary title"
-msgstr ""
-
 msgid "Honorary title (optional)"
 msgstr ""
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
-
-msgid "House no"
 msgstr ""
 
 msgid "House number"
@@ -849,11 +548,8 @@ msgstr ""
 msgid "ISO language code (required)"
 msgstr ""
 
-msgid "Images"
-msgstr ""
-
 msgid ""
-"Images will only be shown for that language, useful if the image contains "
+"Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
 msgstr ""
 
@@ -895,9 +591,6 @@ msgid ""
 "language is available"
 msgstr ""
 
-msgid "Internal name"
-msgstr ""
-
 msgid "Internal name (required)"
 msgstr ""
 
@@ -908,10 +601,6 @@ msgid "Interval"
 msgstr ""
 
 msgid "Interval (required)"
-msgstr ""
-
-#, python-brace-format
-msgid "Invalid action \"{0}\""
 msgstr ""
 
 #, php-format
@@ -926,9 +615,6 @@ msgstr "Neplatné znaky ve jménu zákazníka \"%1$s\""
 msgid "Invalid class name \"%1$s\""
 msgstr "Chybné jméno třídy \"%1$s\""
 
-msgid "Invalid data"
-msgstr ""
-
 #, php-format
 msgid "Invalid domain \"%1$s\""
 msgstr "Neplatná doména \"%1$s\""
@@ -937,35 +623,13 @@ msgstr "Neplatná doména \"%1$s\""
 msgid "Invalid factory \"%1$s\""
 msgstr "Neplatná továrna \"%1$s\""
 
-#, python-brace-format
-msgid "Invalid value for configuration key \"{0}\""
-msgstr ""
-
 msgid "Invoice"
 msgstr ""
 
 msgid "Item deleted successfully"
 msgstr ""
 
-msgid "Item position within the same type"
-msgstr ""
-
 msgid "Item saved successfully"
-msgstr ""
-
-msgid "Job item details"
-msgstr ""
-
-msgid "Jobs"
-msgstr ""
-
-msgid ""
-"Keywords for search engines, added to the head section of the category page"
-msgstr ""
-
-msgid ""
-"Keywords for search engines, added to the head section of the product detail"
-" page"
 msgstr ""
 
 msgid "Label"
@@ -977,15 +641,7 @@ msgstr ""
 msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
-msgid ""
-"Label will be used if empty but then there must be no name for all "
-"languages. Otherwise, items will not be shown when sorting by name"
-msgstr ""
-
 msgid "Language"
-msgstr ""
-
-msgid "Language (required)"
 msgstr ""
 
 msgid "Language ID"
@@ -1000,13 +656,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-msgid "Last delivery status of the invoice"
-msgstr ""
-
 msgid "Last delivery status of the order"
-msgstr ""
-
-msgid "Last modified"
 msgstr ""
 
 msgid "Last name"
@@ -1020,13 +670,7 @@ msgid ""
 "used"
 msgstr ""
 
-msgid "Last payment status of the invoice"
-msgstr ""
-
 msgid "Last payment status of the order"
-msgstr ""
-
-msgid "Lastname"
 msgstr ""
 
 msgid "Latest orders"
@@ -1034,30 +678,6 @@ msgstr ""
 
 msgid "Length"
 msgstr "Délka"
-
-msgid "List"
-msgstr ""
-
-msgid "List ID"
-msgstr ""
-
-msgid "List Status"
-msgstr ""
-
-msgid "List creation time"
-msgstr ""
-
-msgid "List editor"
-msgstr ""
-
-msgid "List end date"
-msgstr ""
-
-msgid "List item details"
-msgstr ""
-
-msgid "List modification time"
-msgstr ""
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
@@ -1070,57 +690,13 @@ msgstr ""
 msgid "List of suggested products"
 msgstr ""
 
-msgid "List position"
-msgstr ""
-
-msgid "List start date"
-msgstr ""
-
 msgid "List type"
-msgstr ""
-
-msgid "Loading"
 msgstr ""
 
 msgid "Locale"
 msgstr ""
 
-#. : Locale currency item panel title with currency label ({0}) and currency
-#. code ({1)}
-#. : Locale currency item panel title with currency label ({0}) and currency
-#. code ({1)}
-#, python-brace-format
-msgid "Locale currency: {0} ({1})"
-msgstr ""
-
-#. : Locale item panel title with site code ({1)}
-#, python-brace-format
-msgid "Locale item details ({1})"
-msgstr ""
-
-#. : Locale language item panel title with language label ({0}) and language
-#. code ({1)}
-#. : Locale language item panel title with language label ({0}) and language
-#. code ({1)}
-#, python-brace-format
-msgid "Locale language: {0} ({1})"
-msgstr ""
-
-#. : Locale site item panel title with site label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Locale site: {0} ({1})"
-msgstr ""
-
 msgid "Log"
-msgstr ""
-
-msgid "Logs"
-msgstr ""
-
-msgid "Long description"
-msgstr ""
-
-msgid "Media"
 msgstr ""
 
 msgid "Media Lists Type"
@@ -1144,39 +720,11 @@ msgstr ""
 msgid "Media properties"
 msgstr ""
 
-msgid "Media type"
-msgstr ""
-
-#. : Media type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Media type: {0} ({1})"
-msgstr ""
-
-#. : Media item panel title with media label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Media: {0} ({1})"
-msgstr ""
-
 msgid "Message"
-msgstr ""
-
-msgid "Meta description"
-msgstr ""
-
-msgid "Meta keywords"
-msgstr ""
-
-msgid "Method"
-msgstr ""
-
-msgid "Mimetype"
 msgstr ""
 
 msgid "Minimum quantity"
 msgstr ""
-
-msgid "Miss"
-msgstr "Slečna"
 
 msgid "Modifed"
 msgstr ""
@@ -1190,29 +738,11 @@ msgstr ""
 msgid "More"
 msgstr ""
 
-msgid "Move this entry up/down"
-msgstr ""
-
-msgid "Mr"
-msgstr "Pan"
-
-msgid "Mrs"
-msgstr "Paní"
-
 msgid "Name"
-msgstr ""
-
-msgid "Name of the coupon provider class (required)"
 msgstr ""
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
-
-msgid "Name of the plugin provider class (required)"
-msgstr ""
-
-msgid "Name of the service provider class (required)"
 msgstr ""
 
 msgid "New"
@@ -1230,21 +760,7 @@ msgstr ""
 msgid "Next date the subscription is renewed"
 msgstr ""
 
-msgid "No error information available"
-msgstr ""
-
-#, php-format
-msgid "No file uploaded for %1$d. new image"
-msgstr ""
-
-msgid "No items"
-msgstr ""
-
 msgid "No items found"
-msgstr ""
-
-#, php-format
-msgid "No items found for \"%1$s %2$s %3$s\""
 msgstr ""
 
 #, php-format
@@ -1262,12 +778,6 @@ msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
-
-msgid "Not implemented"
-msgstr ""
-
-msgid "Notice"
 msgstr ""
 
 msgid ""
@@ -1298,9 +808,6 @@ msgstr ""
 msgid "Order ID"
 msgstr "ID objednávky"
 
-msgid "Order item details"
-msgstr ""
-
 msgid "Order of the language/currency combinations"
 msgstr ""
 
@@ -1310,13 +817,7 @@ msgstr ""
 msgid "Order of the types in the frontend"
 msgstr ""
 
-msgid "Order product ID"
-msgstr ""
-
 msgid "Order totals"
-msgstr ""
-
-msgid "Orders"
 msgstr ""
 
 msgid "Orders by day"
@@ -1326,12 +827,6 @@ msgid "Orders by hour"
 msgstr ""
 
 msgid "Orders by payment status"
-msgstr ""
-
-msgid "Orders by weekday"
-msgstr ""
-
-msgid "Overview"
 msgstr ""
 
 msgid ""
@@ -1351,14 +846,6 @@ msgstr ""
 msgid "Page %1$d of %2$d"
 msgstr ""
 
-msgid ""
-"Page description shown by search engines, added to the head section of the "
-"category page"
-msgstr ""
-
-msgid "Parameter"
-msgstr ""
-
 msgid "Password"
 msgstr ""
 
@@ -1368,19 +855,7 @@ msgstr ""
 msgid "Path"
 msgstr ""
 
-msgid "Pay costs"
-msgstr ""
-
 msgid "Pay date"
-msgstr ""
-
-msgid "Pay name"
-msgstr ""
-
-msgid "Pay price"
-msgstr ""
-
-msgid "Pay rebate"
 msgstr ""
 
 msgid "Pay status"
@@ -1389,13 +864,7 @@ msgstr ""
 msgid "Payment"
 msgstr "Platba"
 
-msgid "Payment date"
-msgstr ""
-
 msgid "Payment status"
-msgstr ""
-
-msgid "Payment type"
 msgstr ""
 
 msgid "Payment types"
@@ -1408,25 +877,8 @@ msgstr ""
 msgid "Personal data"
 msgstr ""
 
-msgid "Phone"
-msgstr ""
-
-msgid "Physical values"
-msgstr ""
-
-msgid "Please recheck your data"
-msgstr ""
-
-msgid "Please save the coupon first before you can add codes"
-msgstr ""
-
 msgid "Please select"
 msgstr "Vyberte prosím"
-
-msgid ""
-"Please select an item on the right side and add it via drag and drop to this"
-" list."
-msgstr ""
 
 msgid "Plugin"
 msgstr ""
@@ -1443,22 +895,6 @@ msgstr ""
 msgid "Plugin provider or plugin decorator configuration name"
 msgstr ""
 
-msgid "Plugin type"
-msgstr ""
-
-#. : Plugin type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Plugin type: {0} ({1})"
-msgstr ""
-
-#. : Plugin item panel title with attribute label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Plugin: {0} ({1})"
-msgstr ""
-
-msgid "Plugins"
-msgstr ""
-
 msgid "Position"
 msgstr ""
 
@@ -1468,22 +904,10 @@ msgstr ""
 msgid "Postal"
 msgstr ""
 
-msgid "Postal code"
-msgstr ""
-
 msgid "Postal code for delivery if used in the area the customer is living"
 msgstr ""
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
-
-msgid "Postal code for delivery if used in the area the supplier's office"
-msgstr ""
-
-msgid "Preview"
-msgstr ""
-
-msgid "Preview URL"
 msgstr ""
 
 msgid "Previous"
@@ -1502,22 +926,6 @@ msgid "Price Type"
 msgstr ""
 
 msgid "Price Types"
-msgstr ""
-
-msgid "Price type"
-msgstr ""
-
-#. : Price type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Price type: {0} ({1})"
-msgstr ""
-
-#. : Price item panel title with price label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Price: {0} ({1})"
-msgstr ""
-
-msgid "Prices"
 msgstr ""
 
 msgid "Priority"
@@ -1561,84 +969,16 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
-msgid "Product code"
-msgstr ""
-
-msgid "Product costs"
-msgstr ""
-
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr ""
 
-msgid "Product item details"
-msgstr ""
-
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
-
-msgid "Product name"
-msgstr ""
-
-msgid "Product price"
-msgstr ""
-
-msgid "Product property type"
-msgstr ""
-
-#. : Product property.type item panel title with type label ({0}) and site
-#. code ({1)}
-#. : Product property type item panel title with type label ({0}) and site
-#. code ({1)}
-#, python-brace-format
-msgid "Product property type: {0} ({1})"
-msgstr ""
-
-msgid "Product quantity"
-msgstr ""
-
-msgid "Product rebate"
-msgstr ""
-
-msgid "Product status"
-msgstr ""
-
-msgid "Product stock"
-msgstr ""
-
-msgid "Product supplier"
-msgstr ""
-
-msgid "Product supplier (optional)"
-msgstr ""
-
-#. : Product tag item panel title with product label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Product tag: {0} ({1})"
-msgstr ""
-
-msgid "Product tax"
-msgstr ""
-
-msgid "Product tax rate"
-msgstr ""
-
-msgid "Product type"
-msgstr ""
-
-#. : Product type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Product type: {0} ({1})"
 msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr ""
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
-
-#. : Product item panel title with product label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Product: {0} ({1})"
 msgstr ""
 
 msgid "Products"
@@ -1653,9 +993,6 @@ msgstr ""
 msgid "Properties"
 msgstr ""
 
-msgid "Property"
-msgstr ""
-
 msgid "Property value (required)"
 msgstr ""
 
@@ -1668,16 +1005,7 @@ msgstr ""
 msgid "Purchase"
 msgstr ""
 
-msgid "Purchase date"
-msgstr ""
-
-msgid "Purchased"
-msgstr ""
-
 msgid "Quantity"
-msgstr ""
-
-msgid "Quantity or empty if unlimited (optional)"
 msgstr ""
 
 msgid "Reason"
@@ -1691,19 +1019,10 @@ msgid ""
 " cross price"
 msgstr ""
 
-msgid "Ref-ID"
-msgstr ""
-
 msgid "Related ID"
 msgstr ""
 
 msgid "Related order"
-msgstr ""
-
-msgid "Related order ID"
-msgstr ""
-
-msgid "Remove filter"
 msgstr ""
 
 msgid "Renew"
@@ -1725,9 +1044,6 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
-
-msgid "Result"
 msgstr ""
 
 msgid ""
@@ -1773,36 +1089,16 @@ msgstr ""
 msgid "Save entry (Ctrl+S)"
 msgstr ""
 
-msgid "Saving"
-msgstr ""
-
-#, python-brace-format
-msgid "Schema {0} is  not registered"
-msgstr ""
-
 msgid "Search"
-msgstr ""
-
-#, python-brace-format
-msgid "Search schema {0} is  not registered"
 msgstr ""
 
 msgid "Second level type for grouping items"
 msgstr ""
 
-msgid "Select Item"
-msgstr ""
-
 msgid "Select file"
 msgstr ""
 
-msgid "Select languages to export"
-msgstr ""
-
 msgid "Service"
-msgstr ""
-
-msgid "Service ID"
 msgstr ""
 
 msgid "Service Lists Type"
@@ -1823,12 +1119,6 @@ msgstr ""
 msgid "Service costs"
 msgstr ""
 
-msgid "Service fees"
-msgstr ""
-
-msgid "Service item details"
-msgstr ""
-
 msgid "Service name"
 msgstr ""
 
@@ -1844,22 +1134,6 @@ msgstr ""
 msgid "Service rebate"
 msgstr ""
 
-msgid "Service type"
-msgstr ""
-
-#. : Service type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Service type: {0} ({1})"
-msgstr ""
-
-#. : Service item panel title with service label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Service: {0} ({1})"
-msgstr ""
-
-msgid "Services"
-msgstr ""
-
 msgid "Ship date"
 msgstr ""
 
@@ -1872,22 +1146,11 @@ msgstr "Doprava"
 msgid "Shipping costs per item"
 msgstr ""
 
-msgid "Shipping or payment costs"
-msgstr ""
-
 msgid "Shipping/Payment costs"
-msgstr ""
-
-msgid "Short description"
 msgstr ""
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
-
-msgid ""
-"Short state code (e.g. NY) if used in the country the supplier has his "
-"office"
 msgstr ""
 
 msgid ""
@@ -1909,9 +1172,6 @@ msgstr ""
 msgid "Shown if the article reached a stock level of zero"
 msgstr ""
 
-msgid "Simple mode"
-msgstr ""
-
 msgid "Since when the product is available, used for sorting in the front-end"
 msgstr ""
 
@@ -1931,13 +1191,7 @@ msgstr ""
 msgid "Size"
 msgstr "Velikost"
 
-msgid "Sorry, adding orders manually is currently not implemented"
-msgstr ""
-
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
-
-msgid "Source"
 msgstr ""
 
 msgid "Source of the invoice, e.g. by web or phone"
@@ -1952,9 +1206,6 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-msgid "Stock"
-msgstr ""
-
 msgid "Stock Type"
 msgstr ""
 
@@ -1964,13 +1215,7 @@ msgstr ""
 msgid "Stock level"
 msgstr ""
 
-msgid "Stock type"
-msgstr ""
-
 msgid "Street"
-msgstr ""
-
-msgid "Street (required)"
 msgstr ""
 
 msgid "Street name (optional)"
@@ -1999,29 +1244,7 @@ msgstr "Součet"
 msgid "Supplier"
 msgstr ""
 
-#. : Supplier address item panel title with supplier name ({0}) and site code
-#. ({1)}
-#. : Supplier address item panel title with supplier name ({0}) and site code
-#. ({1)}
-#, python-brace-format
-msgid "Supplier address: {0} ({1})"
-msgstr ""
-
 msgid "Supplier name or company"
-msgstr ""
-
-#. : Supplier item panel title with supplier label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Supplier: {0} ({1})"
-msgstr ""
-
-msgid "Suppliers"
-msgstr ""
-
-msgid "Switching language ..."
-msgstr ""
-
-msgid "Switching site ..."
 msgstr ""
 
 msgid "Tag Type"
@@ -2030,39 +1253,16 @@ msgstr ""
 msgid "Tag Types"
 msgstr ""
 
-msgid "Tag value (required)"
-msgstr ""
-
-#. : Tag item panel title with tag label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Tag: {0} ({1})"
-msgstr ""
-
-msgid "Tags"
-msgstr ""
-
 msgid "Tax"
 msgstr ""
 
-msgid "Tax rate"
-msgstr ""
-
 msgid "Tax rate in %"
-msgstr ""
-
-msgid "Telefax"
 msgstr ""
 
 msgid "Telephone"
 msgstr ""
 
 msgid "Telephone number (optional)"
-msgstr ""
-
-msgid "Telephone number, e.g. +155512345"
-msgstr ""
-
-msgid "Text"
 msgstr ""
 
 msgid "Text Lists Type"
@@ -2077,22 +1277,6 @@ msgstr ""
 msgid "Text Types"
 msgstr ""
 
-msgid "Text type"
-msgstr ""
-
-#. : Text type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Text type: {0} ({1})"
-msgstr ""
-
-#. : Text item panel title with text label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Text: {0} ({1})"
-msgstr ""
-
-msgid "Texts"
-msgstr ""
-
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
@@ -2103,39 +1287,19 @@ msgid ""
 "or seasonal articles"
 msgstr ""
 
-msgid "The article name as used in URLs, e.g. for non-latin languages"
-msgstr ""
-
-msgid "The category name as used in URLs, e.g. for non-latin languages"
-msgstr ""
-
-msgid ""
-"The file with the exported texts will be available within a few minutes. It "
-"can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
-msgstr ""
-
-msgid "The image title is used for the title tag of the image on the web site"
-msgstr ""
-
 msgid "The item is only shown on the web site after that date and time"
 msgstr ""
 
 msgid "The item is only shown on the web site until that date and time"
 msgstr ""
 
+msgid "The media title is used for the title tag of the media on the web site"
+msgstr ""
+
 msgid "The option is only shown on the web site after that date and time"
 msgstr ""
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
-
-msgid ""
-"The texts of your uploaded file will be imported within a few minutes. You "
-"can check the status of the import in the \"Job\" panel of the \"Overview\" "
-"tab"
-msgstr ""
-
-msgid "This combination already exists"
 msgstr ""
 
 msgid "Three letter ISO currency code"
@@ -2159,16 +1323,10 @@ msgstr ""
 msgid "Two letter ISO language code"
 msgstr ""
 
-msgid "Two letter country code, e.g. \"US\" (required)"
-msgstr ""
-
 msgid "Type"
 msgstr ""
 
 msgid "Type position (optional)"
-msgstr ""
-
-msgid "Types"
 msgstr ""
 
 msgid "Types for additional images like icons"
@@ -2184,9 +1342,6 @@ msgid "URL of the customer web site"
 msgstr ""
 
 msgid "URL of the supplier web site"
-msgstr ""
-
-msgid "URL segment"
 msgstr ""
 
 msgid "URL target"
@@ -2243,32 +1398,10 @@ msgstr ""
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr ""
 
-#, php-format
-msgid "Unknown type \"%1$s\""
-msgstr ""
-
-msgid "Upload failed"
-msgstr ""
-
-msgid "Upload successful"
-msgstr ""
-
 msgid "Uploaded"
 msgstr ""
 
-msgid "Used by"
-msgstr ""
-
 msgid "User groups"
-msgstr ""
-
-msgid "User name"
-msgstr ""
-
-msgid "User name, e.g. e-mail address (required)"
-msgstr ""
-
-msgid "Users"
 msgstr ""
 
 msgid "VAT ID"
@@ -2286,43 +1419,14 @@ msgstr ""
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr ""
 
-msgid "Variants"
-msgstr "Varianty"
-
-msgid "Vat ID"
-msgstr "DIČ"
-
-msgid "Vat ID, e.g. \"GB999999999\""
-msgstr "DIČ např. CZ999999999"
-
-msgid "Verification date"
-msgstr "Datum ověření"
-
 msgid "View details"
 msgstr ""
 
 msgid "Voucher"
 msgstr ""
 
-msgid "Vouchers"
-msgstr ""
-
-msgid "Warehouse"
-msgstr "Sklad"
-
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
-
-#. : Product warehouse item panel title with warehouse label ({0}) and site
-#. code ({1)}
-#. : Product warehouse item panel title with warehouse label ({0}) and site
-#. code ({1)}
-#, python-brace-format
-msgid "Warehouse: {0} ({1})"
-msgstr "Sklad: {0} ({1})"
-
-msgid "Web"
 msgstr ""
 
 msgid "Web site"
@@ -2330,12 +1434,6 @@ msgstr "Webová stránka"
 
 msgid "Web site URL (optional)"
 msgstr ""
-
-msgid "Web site, e.g. www.example.com"
-msgstr "Website, např. www.example.com"
-
-msgid "Website"
-msgstr "Website"
 
 msgid "Weeks"
 msgstr ""
@@ -2346,9 +1444,6 @@ msgstr "Váha"
 msgid "Width"
 msgstr "Šířka"
 
-msgid "YYYY-MM-DD (optional)"
-msgstr ""
-
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr "RRRR-MM-DD hh:mm:ss (volitelné)"
 
@@ -2357,11 +1452,6 @@ msgstr ""
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "Chystáte se odstranit jednu nebo více položek. Chcete opravdu pokračovat?"
-
-msgid ""
-"You are going to flush the complete cache for the current site. Would you "
-"like to proceed?"
-msgstr "Chystáte se vyprázdnit kompletní cache tohoto webu. Chcete opravdu pokračovat?"
 
 msgid "Zip code"
 msgstr "PSČ"
@@ -2482,6 +1572,7 @@ msgstr ""
 msgid "log"
 msgstr ""
 
+#, php-format
 msgid "media"
 msgstr ""
 
@@ -2541,30 +1632,6 @@ msgstr "autorizováno"
 msgid "pay:6"
 msgstr "obdrženo"
 
-msgid "pay:authorized"
-msgstr "pay:authorized"
-
-msgid "pay:canceled"
-msgstr "pay:canceled"
-
-msgid "pay:deleted"
-msgstr "stat:deleted"
-
-msgid "pay:pending"
-msgstr "stat:pending"
-
-msgid "pay:received"
-msgstr "pay:received"
-
-msgid "pay:refund"
-msgstr "pay:refund"
-
-msgid "pay:refused"
-msgstr "pay:refused"
-
-msgid "pay:unfinished"
-msgstr "stat:unfinished"
-
 #, php-format
 msgid "paymentstatus"
 msgstr ""
@@ -2591,7 +1658,7 @@ msgstr ""
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "Vlastnosti"
 
 msgid "reason:-1"
 msgstr ""
@@ -2600,7 +1667,7 @@ msgid "reason:0"
 msgstr ""
 
 msgid "reason:1"
-msgstr ""
+msgstr "zrušeno"
 
 #, php-format
 msgid "related"
@@ -2617,12 +1684,6 @@ msgstr "Varianty"
 #, php-format
 msgid "service"
 msgstr "Služby"
-
-msgid "service:delivery"
-msgstr "Doručení"
-
-msgid "service:payment"
-msgstr "Platba"
 
 #, php-format
 msgid "servicedelivery"
@@ -2663,56 +1724,17 @@ msgstr "odmítnuto"
 msgid "stat:7"
 msgstr "vráceno"
 
-msgid "stat:deleted"
-msgstr "stat:deleted"
-
-msgid "stat:delivered"
-msgstr "stat:delivered"
-
-msgid "stat:dispatched"
-msgstr "stat:dispatched"
-
-msgid "stat:lost"
-msgstr "stat:lost"
-
-msgid "stat:pending"
-msgstr "stat:pending"
-
-msgid "stat:progress"
-msgstr "stat:progress"
-
-msgid "stat:refused"
-msgstr "pay:refused"
-
-msgid "stat:returned"
-msgstr "stat:returned"
-
-msgid "stat:unfinished"
-msgstr "stat:unfinished"
-
 msgid "status:-1"
-msgstr ""
-
-msgid "status:-2"
-msgstr ""
-
-msgid "status:0"
-msgstr ""
-
-msgid "status:1"
-msgstr ""
-
-msgid "status:archive"
 msgstr "status:archive"
 
-msgid "status:disabled"
+msgid "status:-2"
+msgstr "status:review"
+
+msgid "status:0"
 msgstr "status:disabled"
 
-msgid "status:enabled"
+msgid "status:1"
 msgstr "status:enabled"
-
-msgid "status:review"
-msgstr "status:review"
 
 #, php-format
 msgid "stock"
@@ -2821,15 +1843,5 @@ msgstr ""
 msgid "type/text/lists"
 msgstr ""
 
-msgid "unknown"
-msgstr ""
-
-#, php-format
-msgid "weekday"
-msgstr ""
-
 msgid "yes"
 msgstr ""
-
-msgid "yy-mm-dd"
-msgstr "rr-mm-dd"
