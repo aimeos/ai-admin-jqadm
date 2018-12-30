@@ -23,14 +23,14 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClient()
 	{
-		$client = \Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::createClient( $this->context );
+		$client = \Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::create( $this->context );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
 
 	public function testCreateClientName()
 	{
-		$client = \Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::createClient( $this->context, 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::create( $this->context, 'Standard' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
@@ -38,21 +38,21 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	public function testCreateClientNameEmpty()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::createClient( $this->context, '' );
+		\Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::create( $this->context, '' );
 	}
 
 
 	public function testCreateClientNameInvalid()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::createClient( $this->context, '%type/service/lists' );
+		\Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::create( $this->context, '%type/service/lists' );
 	}
 
 
 	public function testCreateClientNameNotFound()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::createClient( $this->context, 'test' );
+		\Aimeos\Admin\JQAdm\Type\Service\Lists\Factory::create( $this->context, 'test' );
 	}
 
 }

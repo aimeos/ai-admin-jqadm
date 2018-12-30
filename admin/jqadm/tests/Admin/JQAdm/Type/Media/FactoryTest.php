@@ -23,14 +23,14 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClient()
 	{
-		$client = \Aimeos\Admin\JQAdm\Type\Media\Factory::createClient( $this->context );
+		$client = \Aimeos\Admin\JQAdm\Type\Media\Factory::create( $this->context );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
 
 	public function testCreateClientName()
 	{
-		$client = \Aimeos\Admin\JQAdm\Type\Media\Factory::createClient( $this->context, 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Type\Media\Factory::create( $this->context, 'Standard' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
@@ -38,21 +38,21 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	public function testCreateClientNameEmpty()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Type\Media\Factory::createClient( $this->context, '' );
+		\Aimeos\Admin\JQAdm\Type\Media\Factory::create( $this->context, '' );
 	}
 
 
 	public function testCreateClientNameInvalid()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Type\Media\Factory::createClient( $this->context, '%type/media' );
+		\Aimeos\Admin\JQAdm\Type\Media\Factory::create( $this->context, '%type/media' );
 	}
 
 
 	public function testCreateClientNameNotFound()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Type\Media\Factory::createClient( $this->context, 'test' );
+		\Aimeos\Admin\JQAdm\Type\Media\Factory::create( $this->context, 'test' );
 	}
 
 }

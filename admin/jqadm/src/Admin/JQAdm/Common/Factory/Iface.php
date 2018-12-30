@@ -26,5 +26,5 @@ interface Iface
 	 * @param string $name Admin name (from configuration or "Standard" if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface New client object
 	 */
-	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, $name = null );
+	public static function create( \Aimeos\MShop\Context\Item\Iface $context, $name = null );
 }

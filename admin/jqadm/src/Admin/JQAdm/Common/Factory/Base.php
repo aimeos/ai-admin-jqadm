@@ -24,7 +24,7 @@ class Base
 
 	/**
 	 * Injects a client object.
-	 * The object is returned via createClient() if an instance of the class
+	 * The object is returned via create() if an instance of the class
 	 * with the name name is requested.
 	 *
 	 * @param string $classname Full name of the class for which the object should be returned
@@ -145,7 +145,7 @@ class Base
 	 * @return \Aimeos\Admin\JQAdm\\Iface Admin object
 	 * @throws \Aimeos\Admin\JQAdm\Exception If client couldn't be found or doesn't implement the interface
 	 */
-	protected static function createClientBase( \Aimeos\MShop\Context\Item\Iface $context, $classname, $interface )
+	protected static function createAdmin( \Aimeos\MShop\Context\Item\Iface $context, $classname, $interface )
 	{
 		if( isset( self::$objects[$classname] ) ) {
 			return self::$objects[$classname];

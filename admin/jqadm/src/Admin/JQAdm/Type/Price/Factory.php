@@ -29,7 +29,7 @@ class Factory
 	 * @return \Aimeos\Admin\JQAdm\Iface Filter part implementing \Aimeos\Admin\JQAdm\Iface
 	 * @throws \Aimeos\Admin\JQAdm\Exception If requested client implementation couldn't be found or initialisation fails
 	 */
-	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, $name = null )
+	public static function create( \Aimeos\MShop\Context\Item\Iface $context, $name = null )
 	{
 		/** admin/jqadm/type/price/name
 		 * Class name of the used account favorite client implementation
@@ -77,7 +77,7 @@ class Factory
 		$iface = '\\Aimeos\\Admin\\JQAdm\\Iface';
 		$classname = '\\Aimeos\\Admin\\JQAdm\\Type\\Price\\' . $name;
 
-		$client = self::createClientBase( $context, $classname, $iface );
+		$client = self::createAdmin( $context, $classname, $iface );
 
 		return self::addClientDecorators( $context, $client, 'type/price' );
 	}

@@ -29,8 +29,8 @@ class Factory extends \Aimeos\Admin\JQAdm
 	 * @return \Aimeos\Admin\JQAdm\Iface admin client implementing \Aimeos\Admin\JQAdm\Iface
 	 * @throws \Aimeos\Admin\JQAdm\Exception If requested client implementation couldn't be found or initialisation fails
 	 */
-	public static function createClient( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\Bootstrap $aimeos, $type, $name = null )
+	public static function create( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\Bootstrap $aimeos, $type, $name = null )
 	{
-		return self::create( $context, $aimeos, $type, $name );
+		return parent::create( $context, $aimeos, $type, $name );
 	}
 }

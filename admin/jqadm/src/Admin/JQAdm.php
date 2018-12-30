@@ -60,7 +60,7 @@ class JQAdm
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not available', $factory ) );
 		}
 
-		$client = @call_user_func_array( array( $factory, 'createClient' ), array( $context, $name ) );
+		$client = @call_user_func_array( array( $factory, 'create' ), array( $context, $name ) );
 
 		if( $client === false ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid factory "%1$s"', $factory ) );

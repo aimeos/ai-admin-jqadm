@@ -26,7 +26,7 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	public function testCreateClient()
 	{
 		$this->context->getConfig()->set( 'admin/jqadm/resources', ['product'] );
-		$client = \Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->aimeos, 'product' );
+		$client = \Aimeos\Admin\JQAdm\Factory::create( $this->context, $this->aimeos, 'product' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
@@ -34,7 +34,7 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	public function testCreateClientName()
 	{
 		$this->context->getConfig()->set( 'admin/jqadm/resources', ['product'] );
-		$client = \Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->aimeos, 'product', 'Standard' );
+		$client = \Aimeos\Admin\JQAdm\Factory::create( $this->context, $this->aimeos, 'product', 'Standard' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
@@ -42,7 +42,7 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	public function testCreateSubClient()
 	{
 		$this->context->getConfig()->set( 'admin/jqadm/resources', ['locale/site'] );
-		$client = \Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->aimeos, 'locale/site' );
+		$client = \Aimeos\Admin\JQAdm\Factory::create( $this->context, $this->aimeos, 'locale/site' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
 
@@ -50,21 +50,21 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	public function testCreateClientNameEmpty()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->aimeos, '' );
+		\Aimeos\Admin\JQAdm\Factory::create( $this->context, $this->aimeos, '' );
 	}
 
 
 	public function testCreateClientNameInvalid()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->aimeos, '%product' );
+		\Aimeos\Admin\JQAdm\Factory::create( $this->context, $this->aimeos, '%product' );
 	}
 
 
 	public function testCreateClientNameNotFound()
 	{
 		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
-		\Aimeos\Admin\JQAdm\Factory::createClient( $this->context, $this->aimeos, 'unknown' );
+		\Aimeos\Admin\JQAdm\Factory::create( $this->context, $this->aimeos, 'unknown' );
 	}
 
 }
