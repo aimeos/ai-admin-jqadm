@@ -118,7 +118,7 @@ $keys = [
 								</select>
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Types for additional medias like icons' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Types for additional images like icons' ) ); ?>
 							</div>
 						</div>
 					<?php else : ?>

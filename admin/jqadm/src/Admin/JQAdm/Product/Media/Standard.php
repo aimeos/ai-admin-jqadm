@@ -251,7 +251,7 @@ class Standard
 
 	/**
 	 * Adds the product variant attributes to the media item
-	 * Then, the medias will only be shown if the customer selected the product variant
+	 * Then, the images will only be shown if the customer selected the product variant
 	 *
 	 * @param \Aimeos\MShop\Media\Item\Iface $mediaItem Media item, maybe with referenced attribute items
 	 * @param \Aimeos\MShop\Common\Item\Lists\Iface[] $attrListItems Product list items referencing variant attributes
