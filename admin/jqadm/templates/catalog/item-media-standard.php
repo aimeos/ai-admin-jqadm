@@ -161,7 +161,7 @@ $keys = [
 							</select>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Medias will only be shown for that language, useful if the media contains text or is language sepecific' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the media contains text or is language sepecific' ) ); ?>
 						</div>
 					</div>
 
