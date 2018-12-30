@@ -287,23 +287,23 @@
 }
 
 
-/* Images */
+/* Medias */
 
-.aimeos .item-image .image-preview {
+.aimeos .item-media .media-preview {
 	border: 2px dashed #B0B0B0;
 	border-radius: .25rem;
 	height: 10rem;
 }
 
-.aimeos .item-image .image-preview p,
-.aimeos .item-image .image-preview img {
+.aimeos .item-media .media-preview p,
+.aimeos .item-media .media-preview img {
 	max-height: calc(10rem - 4px);
 	max-width: 100%;
 	display: block;
 	margin: auto;
 }
 
-.aimeos .item-image .image-preview .fileupload {
+.aimeos .item-media .media-preview .fileupload {
 	height: calc(10rem - 4px);
 	width: calc(100% - 4px);
 	position: absolute;

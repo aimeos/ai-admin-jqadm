@@ -10,7 +10,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div v-show="advanced[idx]" class="item-image-property col-xl-12 content-block secondary">
+<div v-show="advanced[idx]" class="item-media-property col-xl-12 content-block secondary">
 
 	<table class="table table-default" >
 
@@ -36,9 +36,9 @@ $enc = $this->encoder();
 
 				<td class="property-type">
 					<input class="item-propertyid" type="hidden" v-bind:value="propdata['media.property.id']"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'property', 'propidx', 'media.property.id' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )" />
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'property', 'propidx', 'media.property.id' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )" />
 					<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'property', 'propidx', 'media.property.type' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'property', 'propidx', 'media.property.type' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
 						v-bind:readonly="checkSite('media.siteid', idx)"
 						v-model="items[idx]['property'][propidx]['media.property.type']" >
 
@@ -52,7 +52,7 @@ $enc = $this->encoder();
 				</td>
 				<td class="property-language">
 					<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'property', 'propidx', 'media.property.languageid' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'property', 'propidx', 'media.property.languageid' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
 						v-bind:readonly="checkSite('media.siteid', idx)"
 						v-model="items[idx]['property'][propidx]['media.property.languageid']" >
 
@@ -69,7 +69,7 @@ $enc = $this->encoder();
 				</td>
 				<td class="property-value">
 					<input class="form-control item-value" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'property', 'propidx', 'media.property.value' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'property', 'propidx', 'media.property.value' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
 						v-bind:readonly="checkSite('media.siteid', idx)"
 						v-model="items[idx]['property'][propidx]['media.property.value']" >

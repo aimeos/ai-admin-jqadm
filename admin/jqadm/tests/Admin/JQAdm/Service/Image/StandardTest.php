@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Service\Image;
+namespace Aimeos\Admin\JQAdm\Service\Media;
 
 
 class StandardTest extends \PHPUnit\Framework\TestCase
@@ -21,7 +21,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
 
-		$this->object = new \Aimeos\Admin\JQAdm\Service\Image\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Service\Media\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
@@ -41,7 +41,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
 
-		$this->assertContains( 'item-image', $result );
+		$this->assertContains( 'item-media', $result );
 		$this->assertNull( $this->view->get( 'errors' ) );
 	}
 
@@ -90,7 +90,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$param = array(
 			'site' => 'unittest',
-			'image' => [[
+			'media' => [[
 				'media.id' => '',
 				'media.type' => 'default',
 				'media.languageid' => 'de',
@@ -105,13 +105,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$file = $this->getMockBuilder( \Psr\Http\Message\UploadedFileInterface::class )->getMock();
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$request->expects( $this->any() )->method( 'getUploadedFiles' )
-			->will( $this->returnValue( ['image' => [0 => ['file' => $file] ] ] ) );
+			->will( $this->returnValue( ['media' => [0 => ['file' => $file] ] ] ) );
 
 		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
 
-		$name = 'AdminJQAdmServiceImageSave';
+		$name = 'AdminJQAdmServiceMediaSave';
 		$this->context->getConfig()->set( 'controller/common/media/name', $name );
 
 		$cntlStub = $this->getMockBuilder( '\\Aimeos\\Controller\\Common\\Media\\Standard' )
@@ -141,7 +141,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		}
 
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['site' => 'unittest', 'image' => []] );
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['site' => 'unittest', 'media' => []] );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->save();
@@ -191,7 +191,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function getClientMock( $method )
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Service\Image\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Service\Media\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( [$method] )
 			->getMock();

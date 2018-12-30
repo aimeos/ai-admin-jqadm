@@ -8,13 +8,13 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Catalog\Image;
+namespace Aimeos\Admin\JQAdm\Catalog\Media;
 
-sprintf( 'image' ); // for translation
+sprintf( 'media' ); // for translation
 
 
 /**
- * Default implementation of catalog image JQAdm client.
+ * Default implementation of catalog media JQAdm client.
  *
  * @package Admin
  * @subpackage JQAdm
@@ -23,10 +23,10 @@ class Standard
 	extends \Aimeos\Admin\JQAdm\Common\Admin\Factory\Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
-	/** admin/jqadm/catalog/image/name
-	 * Name of the image subpart used by the JQAdm catalog implementation
+	/** admin/jqadm/catalog/media/name
+	 * Name of the media subpart used by the JQAdm catalog implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Catalog\Image\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Catalog\Media\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
@@ -44,11 +44,11 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
-		$view->imageData = $this->toArray( $view->item, true );
-		$view->imageBody = '';
+		$view->mediaData = $this->toArray( $view->item, true );
+		$view->mediaBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
-			$view->imageBody .= $client->copy();
+			$view->mediaBody .= $client->copy();
 		}
 
 		return $this->render( $view );
@@ -66,7 +66,7 @@ class Standard
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 
 		$itemData = $this->toArray( $view->item );
-		$data = array_replace_recursive( $itemData, $view->param( 'image', [] ) );
+		$data = array_replace_recursive( $itemData, $view->param( 'media', [] ) );
 
 		foreach( $data as $idx => $entry )
 		{
@@ -76,11 +76,11 @@ class Standard
 			$data[$idx]['catalog.lists.siteid'] = $siteid;
 		}
 
-		$view->imageData = $data;
-		$view->imageBody = '';
+		$view->mediaData = $data;
+		$view->mediaBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
-			$view->imageBody .= $client->create();
+			$view->mediaBody .= $client->create();
 		}
 
 		return $this->render( $view );
@@ -117,11 +117,11 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
-		$view->imageData = $this->toArray( $view->item );
-		$view->imageBody = '';
+		$view->mediaData = $this->toArray( $view->item );
+		$view->mediaBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
-			$view->imageBody .= $client->get();
+			$view->mediaBody .= $client->get();
 		}
 
 		return $this->render( $view );
@@ -137,24 +137,24 @@ class Standard
 
 		try
 		{
-			$view->item = $this->fromArray( $view->item, $view->param( 'image', [] ) );
-			$view->imageBody = '';
+			$view->item = $this->fromArray( $view->item, $view->param( 'media', [] ) );
+			$view->mediaBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
-				$view->imageBody .= $client->save();
+				$view->mediaBody .= $client->save();
 			}
 
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'catalog-item-image' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'catalog-item-media' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'catalog-item-image' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'catalog-item-media' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -172,7 +172,7 @@ class Standard
 	 */
 	public function getSubClient( $type, $name = null )
 	{
-		/** admin/jqadm/catalog/image/decorators/excludes
+		/** admin/jqadm/catalog/media/decorators/excludes
 		 * Excludes decorators added by the "common" option from the catalog JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -184,7 +184,7 @@ class Standard
 		 * "admin/jqadm/common/decorators/default" before they are wrapped
 		 * around the JQAdm client.
 		 *
-		 *  admin/jqadm/catalog/image/decorators/excludes = array( 'decorator1' )
+		 *  admin/jqadm/catalog/media/decorators/excludes = array( 'decorator1' )
 		 *
 		 * This would remove the decorator named "decorator1" from the list of
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
@@ -194,11 +194,11 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/catalog/image/decorators/global
-		 * @see admin/jqadm/catalog/image/decorators/local
+		 * @see admin/jqadm/catalog/media/decorators/global
+		 * @see admin/jqadm/catalog/media/decorators/local
 		 */
 
-		/** admin/jqadm/catalog/image/decorators/global
+		/** admin/jqadm/catalog/media/decorators/global
 		 * Adds a list of globally available decorators only to the catalog JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -209,7 +209,7 @@ class Standard
 		 * This option allows you to wrap global decorators
 		 * ("\Aimeos\Admin\JQAdm\Common\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/catalog/image/decorators/global = array( 'decorator1' )
+		 *  admin/jqadm/catalog/media/decorators/global = array( 'decorator1' )
 		 *
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
@@ -218,11 +218,11 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/catalog/image/decorators/excludes
-		 * @see admin/jqadm/catalog/image/decorators/local
+		 * @see admin/jqadm/catalog/media/decorators/excludes
+		 * @see admin/jqadm/catalog/media/decorators/local
 		 */
 
-		/** admin/jqadm/catalog/image/decorators/local
+		/** admin/jqadm/catalog/media/decorators/local
 		 * Adds a list of local decorators only to the catalog JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -233,7 +233,7 @@ class Standard
 		 * This option allows you to wrap local decorators
 		 * ("\Aimeos\Admin\JQAdm\Catalog\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/catalog/image/decorators/local = array( 'decorator2' )
+		 *  admin/jqadm/catalog/media/decorators/local = array( 'decorator2' )
 		 *
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Catalog\Decorator\Decorator2" only to the JQAdm client.
@@ -242,10 +242,10 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/catalog/image/decorators/excludes
-		 * @see admin/jqadm/catalog/image/decorators/global
+		 * @see admin/jqadm/catalog/media/decorators/excludes
+		 * @see admin/jqadm/catalog/media/decorators/global
 		 */
-		return $this->createSubClient( 'catalog/image/' . $type, $name );
+		return $this->createSubClient( 'catalog/media/' . $type, $name );
 	}
 
 
@@ -270,8 +270,8 @@ class Standard
 		$listSearch->setConditions( $listSearch->compare( '==', 'catalog.lists.type.domain', 'media' ) );
 		$listSearch->setSortations( array( $listSearch->sort( '+', 'catalog.lists.type.label' ) ) );
 
-		$view->imageListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
-		$view->imageTypes = $typeManager->searchItems( $search );
+		$view->mediaListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
+		$view->mediaTypes = $typeManager->searchItems( $search );
 
 		return $view;
 	}
@@ -320,8 +320,8 @@ class Standard
 	 */
 	protected function getSubClientNames()
 	{
-		/** admin/jqadm/catalog/image/standard/subparts
-		 * List of JQAdm sub-clients rendered within the catalog image section
+		/** admin/jqadm/catalog/media/standard/subparts
+		 * List of JQAdm sub-clients rendered within the catalog media section
 		 *
 		 * The output of the frontend is composed of the code generated by the JQAdm
 		 * clients. Each JQAdm client can consist of serveral (or none) sub-clients
@@ -353,7 +353,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/catalog/image/standard/subparts', [] );
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/catalog/media/standard/subparts', [] );
 	}
 
 
@@ -386,9 +386,9 @@ class Standard
 
 			$refItem->fromArray( $entry );
 
-			if( ( $file = $this->getValue( $files, 'image/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
+			if( ( $file = $this->getValue( $files, 'media/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
 			{
-				$refItem->getId() ?: $refItem->setUrl( '' )->setPreview( '' ); // keep copied image
+				$refItem->getId() ?: $refItem->setUrl( '' )->setPreview( '' ); // keep copied media
 				$cntl->add( $refItem, $file );
 			}
 
@@ -466,8 +466,8 @@ class Standard
 	 */
 	protected function render( \Aimeos\MW\View\Iface $view )
 	{
-		/** admin/jqadm/catalog/image/template-item
-		 * Relative path to the HTML body template of the image subpart for catalogs.
+		/** admin/jqadm/catalog/media/template-item
+		 * Relative path to the HTML body template of the media subpart for catalogs.
 		 *
 		 * The template file contains the HTML code and processing instructions
 		 * to generate the result shown in the body of the frontend. The
@@ -485,8 +485,8 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		$tplconf = 'admin/jqadm/catalog/image/template-item';
-		$default = 'catalog/item-image-standard';
+		$tplconf = 'admin/jqadm/catalog/media/template-item';
+		$default = 'catalog/item-media-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

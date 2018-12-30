@@ -8,13 +8,13 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Attribute\Image\Property;
+namespace Aimeos\Admin\JQAdm\Attribute\Media\Property;
 
 sprintf( 'property' ); // for translation
 
 
 /**
- * Default implementation of attribute image JQAdm client.
+ * Default implementation of attribute media JQAdm client.
  *
  * @package Admin
  * @subpackage JQAdm
@@ -23,10 +23,10 @@ class Standard
 	extends \Aimeos\Admin\JQAdm\Common\Admin\Factory\Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
-	/** admin/jqadm/attribute/image/property/name
-	 * Name of the property subpart used by the JQAdm attribute image implementation
+	/** admin/jqadm/attribute/media/property/name
+	 * Name of the property subpart used by the JQAdm attribute media implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Attribute\Image\Property\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Attribute\Media\Property\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
@@ -44,7 +44,7 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
-		$view->imageData = $this->toArray( $view->item, $view->get( 'imageData', [] ), true );
+		$view->mediaData = $this->toArray( $view->item, $view->get( 'mediaData', [] ), true );
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -64,7 +64,7 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = $view->get( 'imageData', [] );
+		$data = $view->get( 'mediaData', [] );
 
 		foreach( $data as $index => $entry )
 		{
@@ -93,7 +93,7 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
-		$view->imageData = $this->toArray( $view->item, $view->get( 'imageData', [] ) );
+		$view->mediaData = $this->toArray( $view->item, $view->get( 'mediaData', [] ) );
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -111,7 +111,7 @@ class Standard
 	{
 		$view = $this->getView();
 
-		$view->item = $this->fromArray( $view->item, $view->param( 'image', [] ) );
+		$view->item = $this->fromArray( $view->item, $view->param( 'media', [] ) );
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -129,7 +129,7 @@ class Standard
 	 */
 	public function getSubClient( $type, $name = null )
 	{
-		/** admin/jqadm/attribute/image/property/decorators/excludes
+		/** admin/jqadm/attribute/media/property/decorators/excludes
 		 * Excludes decorators added by the "common" option from the attribute JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -141,7 +141,7 @@ class Standard
 		 * "admin/jqadm/common/decorators/default" before they are wrapped
 		 * around the JQAdm client.
 		 *
-		 *  admin/jqadm/attribute/image/property/decorators/excludes = array( 'decorator1' )
+		 *  admin/jqadm/attribute/media/property/decorators/excludes = array( 'decorator1' )
 		 *
 		 * This would remove the decorator named "decorator1" from the list of
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
@@ -151,11 +151,11 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/attribute/image/property/decorators/global
-		 * @see admin/jqadm/attribute/image/property/decorators/local
+		 * @see admin/jqadm/attribute/media/property/decorators/global
+		 * @see admin/jqadm/attribute/media/property/decorators/local
 		 */
 
-		/** admin/jqadm/attribute/image/property/decorators/global
+		/** admin/jqadm/attribute/media/property/decorators/global
 		 * Adds a list of globally available decorators only to the attribute JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -166,7 +166,7 @@ class Standard
 		 * This option allows you to wrap global decorators
 		 * ("\Aimeos\Admin\JQAdm\Common\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/attribute/image/property/decorators/global = array( 'decorator1' )
+		 *  admin/jqadm/attribute/media/property/decorators/global = array( 'decorator1' )
 		 *
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
@@ -175,11 +175,11 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/attribute/image/property/decorators/excludes
-		 * @see admin/jqadm/attribute/image/property/decorators/local
+		 * @see admin/jqadm/attribute/media/property/decorators/excludes
+		 * @see admin/jqadm/attribute/media/property/decorators/local
 		 */
 
-		/** admin/jqadm/attribute/image/property/decorators/local
+		/** admin/jqadm/attribute/media/property/decorators/local
 		 * Adds a list of local decorators only to the attribute JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -190,7 +190,7 @@ class Standard
 		 * This option allows you to wrap local decorators
 		 * ("\Aimeos\Admin\JQAdm\Attribute\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/attribute/image/property/decorators/local = array( 'decorator2' )
+		 *  admin/jqadm/attribute/media/property/decorators/local = array( 'decorator2' )
 		 *
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Attribute\Decorator\Decorator2" only to the JQAdm client.
@@ -199,10 +199,10 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/attribute/image/property/decorators/excludes
-		 * @see admin/jqadm/attribute/image/property/decorators/global
+		 * @see admin/jqadm/attribute/media/property/decorators/excludes
+		 * @see admin/jqadm/attribute/media/property/decorators/global
 		 */
-		return $this->createSubClient( 'attribute/image/property/' . $type, $name );
+		return $this->createSubClient( 'attribute/media/property/' . $type, $name );
 	}
 
 
@@ -233,8 +233,8 @@ class Standard
 	 */
 	protected function getSubClientNames()
 	{
-		/** admin/jqadm/attribute/image/property/standard/subparts
-		 * List of JQAdm sub-clients rendered within the attribute image property section
+		/** admin/jqadm/attribute/media/property/standard/subparts
+		 * List of JQAdm sub-clients rendered within the attribute media property section
 		 *
 		 * The output of the frontend is composed of the code generated by the JQAdm
 		 * clients. Each JQAdm client can consist of serveral (or none) sub-clients
@@ -266,7 +266,7 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/attribute/image/property/standard/subparts', [] );
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/attribute/media/property/standard/subparts', [] );
 	}
 
 
@@ -352,8 +352,8 @@ class Standard
 	 */
 	protected function render( \Aimeos\MW\View\Iface $view )
 	{
-		/** admin/jqadm/attribute/image/property/template-item
-		 * Relative path to the HTML body template of the image subpart for attributes.
+		/** admin/jqadm/attribute/media/property/template-item
+		 * Relative path to the HTML body template of the media subpart for attributes.
 		 *
 		 * The template file contains the HTML code and processing instructions
 		 * to generate the result shown in the body of the frontend. The
@@ -371,8 +371,8 @@ class Standard
 		 * @since 2016.04
 		 * @category Developer
 		 */
-		$tplconf = 'admin/jqadm/attribute/image/property/template-item';
-		$default = 'attribute/item-image-property-standard';
+		$tplconf = 'admin/jqadm/attribute/media/property/template-item';
+		$default = 'attribute/item-media-property-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

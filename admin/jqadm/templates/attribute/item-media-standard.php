@@ -9,24 +9,24 @@
 $enc = $this->encoder();
 
 $keys = [
-	'service.lists.id', 'service.lists.siteid', 'service.lists.type', 'service.lists.datestart', 'service.lists.dateend',
+	'attribute.lists.id', 'attribute.lists.siteid', 'attribute.lists.type', 'attribute.lists.datestart', 'attribute.lists.dateend',
 	'media.id', 'media.siteid', 'media.preview', 'media.label', 'media.status', 'media.type', 'media.languageid'
 ];
 
 
 ?>
-<div id="image" class="item-image content-block tab-pane fade" role="tablist" aria-labelledby="image">
-	<div id="item-image-group" role="tablist" aria-multiselectable="true"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'imageData', [] ) ) ); ?>"
-		data-listtype="<?= key( $this->get( 'imageListTypes', [] ) ) ?>"
+<div id="media" class="item-media content-block tab-pane fade" role="tablist" aria-labelledby="media">
+	<div id="item-media-group" role="tablist" aria-multiselectable="true"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'mediaData', [] ) ) ); ?>"
+		data-listtype="<?= key( $this->get( 'mediaListTypes', [] ) ) ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<div v-for="(entry, idx) in items" class="group-item card">
 
-			<div v-bind:id="'item-image-group-item-' + idx" v-bind:class="getCss(idx)"
-				v-bind:data-target="'#item-image-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
-				v-bind:aria-controls="'item-image-group-data-' + idx" aria-expanded="false">
+			<div v-bind:id="'item-media-group-item-' + idx" v-bind:class="getCss(idx)"
+				v-bind:data-target="'#item-media-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
+				v-bind:aria-controls="'item-media-group-data-' + idx" aria-expanded="false">
 				<div class="card-tools-left">
 					<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
@@ -35,7 +35,7 @@ $keys = [
 				<span class="item-label header-label" v-html="getLabel(idx)"></span>
 				&nbsp;
 				<div class="card-tools-right">
-					<div v-if="!checkSite('service.lists.siteid', idx)"
+					<div v-if="!checkSite('attribute.lists.siteid', idx)"
 						class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
 						v-on:click.stop="removeItem(idx)">
@@ -43,23 +43,23 @@ $keys = [
 				</div>
 			</div>
 
-			<div v-bind:id="'item-image-group-data-' + idx" v-bind:class="getCss(idx)"
-				v-bind:aria-labelledby="'item-image-group-item-' + idx" role="tabpanel" class="card-block collapse row">
+			<div v-bind:id="'item-media-group-data-' + idx" v-bind:class="getCss(idx)"
+				v-bind:aria-labelledby="'item-media-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 				<input type="hidden" v-model="items[idx]['media.id']"
-					v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.id' ) ) ); ?>'.replace( 'idx', idx )" />
+					v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.id' ) ) ); ?>'.replace( 'idx', idx )" />
 
 				<div class="col-xl-6">
 
-					<div class="form-group row image-preview">
+					<div class="form-group row media-preview">
 						<input v-on:change="updateFile(idx, $event.target.files)"
 							class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							v-bind:name="'image[idx][file]'.replace( 'idx', idx )" />
+							v-bind:name="'media[idx][file]'.replace( 'idx', idx )" />
 						<input class="item-preview" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.preview' ) ) ); ?>'.replace( 'idx', idx )"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.preview' ) ) ); ?>'.replace( 'idx', idx )"
 							v-model="items[idx]['media.preview']" />
 						<input class="item-url" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.url' ) ) ); ?>'.replace( 'idx', idx )"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.url' ) ) ); ?>'.replace( 'idx', idx )"
 							v-model="items[idx]['media.url']" />
 						<img v-if="items[idx]['media.preview']" class="item-preview"
 							v-bind:src="getUrl('<?= $this->content('') ?>', items[idx]['media.preview'])"
@@ -77,7 +77,7 @@ $keys = [
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
 							<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.status' ) ) ); ?>'.replace( 'idx', idx )"
+								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.status' ) ) ); ?>'.replace( 'idx', idx )"
 								v-bind:readonly="checkSite('media.siteid', idx)"
 								v-model="items[idx]['media.status']" >
 								<option value="1" v-bind:selected="items[idx]['media.status'] == 1" >
@@ -95,13 +95,13 @@ $keys = [
 							</select>
 						</div>
 					</div>
-					<?php $mediaTypes = $this->get( 'imageTypes', [] ); ?>
+					<?php $mediaTypes = $this->get( 'mediaTypes', [] ); ?>
 					<?php if( count( $mediaTypes ) > 1 ) : ?>
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.type' ) ) ); ?>'.replace( 'idx', idx )"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.type' ) ) ); ?>'.replace( 'idx', idx )"
 									data-default="<?= $enc->attr( key( $mediaTypes ) ) ?>"
 									v-bind:readonly="checkSite('media.siteid', idx)"
 									v-model="items[idx]['media.type']" >
@@ -118,12 +118,12 @@ $keys = [
 								</select>
 							</div>
 							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Types for additional images like icons' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Types for additional medias like icons' ) ); ?>
 							</div>
 						</div>
 					<?php else : ?>
 						<input class="item-type" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.type' ) ) ); ?>'.replace( 'idx', idx )"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.type' ) ) ); ?>'.replace( 'idx', idx )"
 							value="<?= $enc->attr( key( $mediaTypes ) ); ?>" />
 					<?php endif; ?>
 
@@ -131,13 +131,13 @@ $keys = [
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.label' ) ) ); ?>'.replace( 'idx', idx )"
+								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.label' ) ) ); ?>'.replace( 'idx', idx )"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Title' ) ); ?>"
 								v-bind:readonly="checkSite('media.siteid', idx)"
 								v-model="items[idx]['media.label']" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'The image title is used for the title tag of the image on the web site' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'The media title is used for the title tag of the media on the web site' ) ); ?>
 						</div>
 					</div>
 
@@ -145,7 +145,7 @@ $keys = [
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 						<div class="col-sm-8">
 							<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'media.languageid' ) ) ); ?>'.replace( 'idx', idx )"
+								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.languageid' ) ) ); ?>'.replace( 'idx', idx )"
 								v-bind:readonly="checkSite('media.siteid', idx)"
 								v-model="items[idx]['media.languageid']" >
 
@@ -161,7 +161,7 @@ $keys = [
 							</select>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Images will only be shown for that language, useful if the image contains text or is language sepecific' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Medias will only be shown for that language, useful if the media contains text or is language sepecific' ) ); ?>
 						</div>
 					</div>
 
@@ -178,20 +178,20 @@ $keys = [
 				</div>
 
 				<div v-show="advanced[idx]" class="col-xl-6 content-block secondary">
-					<input type="hidden" v-model="items[idx]['service.lists.type']"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'service.lists.type' ) ) ); ?>'.replace( 'idx', idx )" />
-					<?php $listTypes = $this->get( 'imageListTypes', [] ); ?>
+					<input type="hidden" v-model="items[idx]['attribute.lists.type']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'attribute.lists.type' ) ) ); ?>'.replace( 'idx', idx )" />
+					<?php $listTypes = $this->get( 'mediaListTypes', [] ); ?>
 					<?php if( count( $listTypes ) > 1 ) : ?>
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 							<div class="col-sm-8">
 								<select class="form-control custom-select listitem-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'service.lists.type' ) ) ); ?>'.replace( 'idx', idx )"
-									v-bind:readonly="checkSite('service.lists.siteid', idx)"
-									v-model="items[idx]['service.lists.type']" >
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'attribute.lists.type' ) ) ); ?>'.replace( 'idx', idx )"
+									v-bind:readonly="checkSite('attribute.lists.siteid', idx)"
+									v-model="items[idx]['attribute.lists.type']" >
 
-									<?php foreach( $this->get( 'imageListTypes', [] ) as $typeItem ) : ?>
-										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="items[idx]['service.lists.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
+									<?php foreach( $this->get( 'mediaListTypes', [] ) as $typeItem ) : ?>
+										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="items[idx]['attribute.lists.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
 											<?= $enc->html( $typeItem->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
@@ -203,18 +203,18 @@ $keys = [
 						</div>
 					<?php else : ?>
 						<input class="listitem-type" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'service.lists.type' ) ) ); ?>'.replace( 'idx', idx )"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'attribute.lists.type' ) ) ); ?>'.replace( 'idx', idx )"
 							value="<?= $enc->attr( key( $listTypes ) ); ?>"
-							v-model="items[idx]['service.lists.type']" />
+							v-model="items[idx]['attribute.lists.type']" />
 					<?php endif; ?>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'service.lists.datestart' ) ) ); ?>'.replace( 'idx', idx )"
+								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'attribute.lists.datestart' ) ) ); ?>'.replace( 'idx', idx )"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								v-bind:readonly="checkSite('service.lists.siteid', idx)"
-								v-model="items[idx]['service.lists.datestart']" />
+								v-bind:readonly="checkSite('attribute.lists.siteid', idx)"
+								v-model="items[idx]['attribute.lists.datestart']" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ); ?>
@@ -224,10 +224,10 @@ $keys = [
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'service.lists.dateend' ) ) ); ?>'.replace( 'idx', idx )"
+								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'attribute.lists.dateend' ) ) ); ?>'.replace( 'idx', idx )"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								v-bind:readonly="checkSite('service.lists.siteid', idx)"
-								v-model="items[idx]['service.lists.dateend']" />
+								v-bind:readonly="checkSite('attribute.lists.siteid', idx)"
+								v-model="items[idx]['attribute.lists.dateend']" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ); ?>
@@ -235,7 +235,7 @@ $keys = [
 					</div>
 				</div>
 
-				<div v-show="advanced[idx]" class="col-xl-6 content-block secondary" v-bind:class="checkSite('service.lists.siteid', idx) ? 'readonly' : ''">
+				<div v-show="advanced[idx]" class="col-xl-6 content-block secondary" v-bind:class="checkSite('attribute.lists.siteid', idx) ? 'readonly' : ''">
 					<table class="item-config table table-striped">
 						<thead>
 							<tr>
@@ -251,7 +251,7 @@ $keys = [
 								<th class="actions">
 									<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
-										v-bind:readonly="checkSite('service.lists.siteid', idx)"
+										v-bind:readonly="checkSite('attribute.lists.siteid', idx)"
 										v-on:click="addConfig(idx)" >
 									</div>
 								</th>
@@ -263,19 +263,19 @@ $keys = [
 								<td>
 									<input is="auto-complete"
 										v-model="items[idx]['config']['key'][pos]"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'config', 'key', '' ) ) ); ?>'.replace('idx', idx)"
-										v-bind:readonly="checkSite('service.lists.siteid', idx)"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'config', 'key', '' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:readonly="checkSite('attribute.lists.siteid', idx)"
 										v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:keys="[]" />
 								</td>
 								<td>
 									<input type="text" class="form-control" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'image', 'idx', 'config', 'val', '' ) ) ); ?>'.replace('idx', idx)"
-										v-bind:readonly="checkSite('service.lists.siteid', idx)"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'config', 'val', '' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:readonly="checkSite('attribute.lists.siteid', idx)"
 										v-model="items[idx]['config']['val'][pos]" />
 								</td>
 								<td class="actions">
-									<div v-if="!checkSite('service.lists.siteid', idx)" v-on:click="removeConfig(idx, pos)"
+									<div v-if="!checkSite('attribute.lists.siteid', idx)" v-on:click="removeConfig(idx, pos)"
 										class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
 									</div>
@@ -286,7 +286,7 @@ $keys = [
 					</table>
 				</div>
 
-				<?= $this->get( 'imageBody' ); ?>
+				<?= $this->get( 'mediaBody' ); ?>
 
 			</div>
 		</div>
@@ -294,7 +294,7 @@ $keys = [
 		<div class="card-tools-more">
 			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
-				v-on:click="addItem('service.lists.')" >
+				v-on:click="addItem('attribute.lists.')" >
 			</div>
 		</div>
 	</div>

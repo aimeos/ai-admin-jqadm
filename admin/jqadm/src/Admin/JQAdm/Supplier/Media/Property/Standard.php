@@ -8,13 +8,13 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Product\Image\Property;
+namespace Aimeos\Admin\JQAdm\Supplier\Media\Property;
 
 sprintf( 'property' ); // for translation
 
 
 /**
- * Default implementation of product image JQAdm client.
+ * Default implementation of supplier media JQAdm client.
  *
  * @package Admin
  * @subpackage JQAdm
@@ -23,10 +23,10 @@ class Standard
 	extends \Aimeos\Admin\JQAdm\Common\Admin\Factory\Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
-	/** admin/jqadm/product/image/property/name
-	 * Name of the property subpart used by the JQAdm product image implementation
+	/** admin/jqadm/supplier/media/property/name
+	 * Name of the property subpart used by the JQAdm supplier media implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Image\Property\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Supplier\Media\Property\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
@@ -44,7 +44,7 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
-		$view->imageData = $this->toArray( $view->item, $view->get( 'imageData', [] ), true );
+		$view->mediaData = $this->toArray( $view->item, $view->get( 'mediaData', [] ), true );
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -64,12 +64,12 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
-		$data = $view->get( 'imageData', [] );
+		$data = $view->get( 'mediaData', [] );
 
 		foreach( $data as $index => $entry )
 		{
 			foreach( $view->value( $entry, 'property', [] ) as $idx => $y ) {
-				$data[$index]['property'][$idx]['product.lists.siteid'] = $siteid;
+				$data[$index]['property'][$idx]['supplier.lists.siteid'] = $siteid;
 			}
 		}
 
@@ -93,7 +93,7 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
-		$view->imageData = $this->toArray( $view->item, $view->get( 'imageData', [] ) );
+		$view->mediaData = $this->toArray( $view->item, $view->get( 'mediaData', [] ) );
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -111,7 +111,7 @@ class Standard
 	{
 		$view = $this->getView();
 
-		$view->item = $this->fromArray( $view->item, $view->param( 'image', [] ) );
+		$view->item = $this->fromArray( $view->item, $view->param( 'media', [] ) );
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -129,8 +129,8 @@ class Standard
 	 */
 	public function getSubClient( $type, $name = null )
 	{
-		/** admin/jqadm/product/image/property/decorators/excludes
-		 * Excludes decorators added by the "common" option from the product JQAdm client
+		/** admin/jqadm/supplier/media/property/decorators/excludes
+		 * Excludes decorators added by the "common" option from the supplier JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
 		 * (e.g. log what is currently done), executing the methods of the underlying
@@ -141,7 +141,7 @@ class Standard
 		 * "admin/jqadm/common/decorators/default" before they are wrapped
 		 * around the JQAdm client.
 		 *
-		 *  admin/jqadm/product/image/property/decorators/excludes = array( 'decorator1' )
+		 *  admin/jqadm/supplier/media/property/decorators/excludes = array( 'decorator1' )
 		 *
 		 * This would remove the decorator named "decorator1" from the list of
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
@@ -151,12 +151,12 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/product/image/property/decorators/global
-		 * @see admin/jqadm/product/image/property/decorators/local
+		 * @see admin/jqadm/supplier/media/property/decorators/global
+		 * @see admin/jqadm/supplier/media/property/decorators/local
 		 */
 
-		/** admin/jqadm/product/image/property/decorators/global
-		 * Adds a list of globally available decorators only to the product JQAdm client
+		/** admin/jqadm/supplier/media/property/decorators/global
+		 * Adds a list of globally available decorators only to the supplier JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
 		 * (e.g. log what is currently done), executing the methods of the underlying
@@ -166,7 +166,7 @@ class Standard
 		 * This option allows you to wrap global decorators
 		 * ("\Aimeos\Admin\JQAdm\Common\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/product/image/property/decorators/global = array( 'decorator1' )
+		 *  admin/jqadm/supplier/media/property/decorators/global = array( 'decorator1' )
 		 *
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
@@ -175,12 +175,12 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/product/image/property/decorators/excludes
-		 * @see admin/jqadm/product/image/property/decorators/local
+		 * @see admin/jqadm/supplier/media/property/decorators/excludes
+		 * @see admin/jqadm/supplier/media/property/decorators/local
 		 */
 
-		/** admin/jqadm/product/image/property/decorators/local
-		 * Adds a list of local decorators only to the product JQAdm client
+		/** admin/jqadm/supplier/media/property/decorators/local
+		 * Adds a list of local decorators only to the supplier JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
 		 * (e.g. log what is currently done), executing the methods of the underlying
@@ -188,26 +188,26 @@ class Standard
 		 * modify what is returned to the caller.
 		 *
 		 * This option allows you to wrap local decorators
-		 * ("\Aimeos\Admin\JQAdm\Product\Decorator\*") around the JQAdm client.
+		 * ("\Aimeos\Admin\JQAdm\Supplier\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/product/image/property/decorators/local = array( 'decorator2' )
+		 *  admin/jqadm/supplier/media/property/decorators/local = array( 'decorator2' )
 		 *
 		 * This would add the decorator named "decorator2" defined by
-		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
+		 * "\Aimeos\Admin\JQAdm\Supplier\Decorator\Decorator2" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
 		 * @since 2018.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/product/image/property/decorators/excludes
-		 * @see admin/jqadm/product/image/property/decorators/global
+		 * @see admin/jqadm/supplier/media/property/decorators/excludes
+		 * @see admin/jqadm/supplier/media/property/decorators/global
 		 */
-		return $this->createSubClient( 'product/image/property/' . $type, $name );
+		return $this->createSubClient( 'supplier/media/property/' . $type, $name );
 	}
 
 
 	/**
-	 * Adds the required data used in the product template
+	 * Adds the required data used in the supplier template
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object
 	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
@@ -217,7 +217,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'media/property/type' );
 
 		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'product' ) );
+		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'supplier' ) );
 		$search->setSlice( 0, 0x7fffffff );
 
 		$view->propertyTypes = $manager->searchItems( $search );
@@ -233,8 +233,8 @@ class Standard
 	 */
 	protected function getSubClientNames()
 	{
-		/** admin/jqadm/product/image/property/standard/subparts
-		 * List of JQAdm sub-clients rendered within the product image property section
+		/** admin/jqadm/supplier/media/property/standard/subparts
+		 * List of JQAdm sub-clients rendered within the supplier media property section
 		 *
 		 * The output of the frontend is composed of the code generated by the JQAdm
 		 * clients. Each JQAdm client can consist of serveral (or none) sub-clients
@@ -266,17 +266,17 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/image/property/standard/subparts', [] );
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/supplier/media/property/standard/subparts', [] );
 	}
 
 
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param \Aimeos\MShop\Supplier\Item\Iface $item Supplier item object without referenced domain items
 	 * @param string[] $data Data array
 	 */
-	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
+	protected function fromArray( \Aimeos\MShop\Supplier\Item\Iface $item, array $data )
 	{
 		$propManager = \Aimeos\MShop::create( $this->getContext(), 'media/property' );
 		$index = 0;
@@ -312,12 +312,12 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
+	 * @param \Aimeos\MShop\Supplier\Item\Iface $item Supplier item object including referenced domain items
 	 * @param array $data Associative list of media data
 	 * @param boolean $copy True if items should be copied, false if not
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, array $data, $copy = false )
+	protected function toArray( \Aimeos\MShop\Supplier\Item\Iface $item, array $data, $copy = false )
 	{
 		$idx = 0;
 		$siteId = $this->getContext()->getLocale()->getSiteId();
@@ -352,8 +352,8 @@ class Standard
 	 */
 	protected function render( \Aimeos\MW\View\Iface $view )
 	{
-		/** admin/jqadm/product/image/property/template-item
-		 * Relative path to the HTML body template of the image subpart for products.
+		/** admin/jqadm/supplier/media/property/template-item
+		 * Relative path to the HTML body template of the media subpart for suppliers.
 		 *
 		 * The template file contains the HTML code and processing instructions
 		 * to generate the result shown in the body of the frontend. The
@@ -371,8 +371,8 @@ class Standard
 		 * @since 2016.04
 		 * @category Developer
 		 */
-		$tplconf = 'admin/jqadm/product/image/property/template-item';
-		$default = 'product/item-image-property-standard';
+		$tplconf = 'admin/jqadm/supplier/media/property/template-item';
+		$default = 'supplier/item-media-property-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

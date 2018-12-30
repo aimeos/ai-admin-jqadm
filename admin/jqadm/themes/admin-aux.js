@@ -124,7 +124,7 @@ Aimeos.Media = {
 			addItem : function(prefix) {
 
 				var idx = this.items.length;
-				var listtype = $('#item-image-group').data('listtype') || '';
+				var listtype = $('#item-media-group').data('listtype') || '';
 
 				if(!this.items[idx]) {
 					this.$set(this.items, idx, {});
@@ -287,7 +287,7 @@ Aimeos.Media = {
 			}
 		},
 		'mounted' : function() {
-			var el = document.getElementById('item-image-group');
+			var el = document.getElementById('item-media-group');
 			if(el) { Sortable.create(el, {handle: '.act-move'}); }
 		}
 	},
@@ -296,12 +296,12 @@ Aimeos.Media = {
 	init : function() {
 
 		this.vmedia = new Vue({
-			'el': '#item-image-group',
+			'el': '#item-media-group',
 			'data': {
 				'advanced': [],
-				'items': $("#item-image-group").data("items"),
-				'keys': $("#item-image-group").data("keys"),
-				'siteid': $("#item-image-group").data("siteid")
+				'items': $("#item-media-group").data("items"),
+				'keys': $("#item-media-group").data("keys"),
+				'siteid': $("#item-media-group").data("siteid")
 			},
 			'mixins': [this.mixins]
 		});

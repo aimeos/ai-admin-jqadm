@@ -5,13 +5,13 @@ return [
 		'attribute' => [
 			'standard' => [
 				'subparts' => [
-					'image' => 'image',
+					'media' => 'media',
 					'text' => 'text',
 					'price' => 'price',
 					'property' => 'property',
 				],
 			],
-			'image' => [
+			'media' => [
 				'standard' => [
 					'subparts' => [
 						'property' => 'property',
@@ -22,12 +22,12 @@ return [
 		'catalog' => [
 			'standard' => [
 				'subparts' => [
-					'image' => 'image',
+					'media' => 'media',
 					'text' => 'text',
 					'price' => 'product',
 				],
 			],
-			'image' => [
+			'media' => [
 				'standard' => [
 					'subparts' => [
 						'property' => 'property',
@@ -95,7 +95,7 @@ return [
 				'subparts' => [
 					'selection' => 'selection',
 					'bundle' => 'bundle',
-					'image' => 'image',
+					'media' => 'media',
 					'text' => 'text',
 					'price' => 'price',
 					'stock' => 'stock',
@@ -119,7 +119,7 @@ return [
 					],
 				],
 			],
-			'image' => [
+			'media' => [
 				'standard' => [
 					'subparts' => [
 						'property' => 'property'
@@ -159,12 +159,12 @@ return [
 		'service' => [
 			'standard' => [
 				'subparts' => [
-					'image' => 'image',
+					'media' => 'media',
 					'text' => 'text',
 					'price' => 'price',
 				],
 			],
-			'image' => [
+			'media' => [
 				'standard' => [
 					'subparts' => [
 						'property' => 'property',
@@ -176,12 +176,12 @@ return [
 			'standard' => [
 				'subparts' => [
 					'address' => 'address',
-					'image' => 'image',
+					'media' => 'media',
 					'text' => 'text',
 					'product' => 'product',
 				],
 			],
-			'image' => [
+			'media' => [
 				'standard' => [
 					'subparts' => [
 						'property' => 'property',

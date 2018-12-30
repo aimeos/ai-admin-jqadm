@@ -174,13 +174,13 @@ class Standard
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'catalog-item-image' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'catalog-item-media' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'catalog-item-image' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'catalog-item-media' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}

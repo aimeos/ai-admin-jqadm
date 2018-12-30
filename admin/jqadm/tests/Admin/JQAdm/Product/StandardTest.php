@@ -281,7 +281,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$result = $this->object->getSubClient( 'image' );
+		$result = $this->object->getSubClient( 'media' );
 		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );
 	}
 
@@ -302,19 +302,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientDecorators()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/product/image/decorators/global', array( 'Cache' ) );
+		$this->context->getConfig()->set( 'admin/jqadm/product/media/decorators/global', array( 'Cache' ) );
 
-		$result = $this->object->getSubClient( 'image' );
+		$result = $this->object->getSubClient( 'media' );
 		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );
 	}
 
 
 	public function testGetSubClientDecoratorInvalid()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/product/image/decorators/global', array( 'Invalid' ) );
+		$this->context->getConfig()->set( 'admin/jqadm/product/media/decorators/global', array( 'Invalid' ) );
 
 		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
-		$this->object->getSubClient( 'image' );
+		$this->object->getSubClient( 'media' );
 	}
 
 

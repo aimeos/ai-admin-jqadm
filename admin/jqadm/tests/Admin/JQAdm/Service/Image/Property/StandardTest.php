@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Service\Image\Property;
+namespace Aimeos\Admin\JQAdm\Service\Media\Property;
 
 
 class StandardTest extends \PHPUnit\Framework\TestCase
@@ -21,7 +21,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
 
-		$this->object = new \Aimeos\Admin\JQAdm\Service\Image\Property\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Service\Media\Property\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
@@ -54,7 +54,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'item-image-property', $result );
+		$this->assertContains( 'item-media-property', $result );
 	}
 
 
@@ -75,7 +75,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( 'item-image-property', $result );
+		$this->assertContains( 'item-media-property', $result );
 	}
 
 
@@ -84,14 +84,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
 
 		$item = $manager->findItem( 'unitcode', ['media'] );
-		$item->setCode( 'jqadm-test-image-property' );
+		$item->setCode( 'jqadm-test-media-property' );
 		$item->setId( null );
 
 		$this->view->item = $manager->saveItem( $item );
 
 		$param = array(
 			'site' => 'unittest',
-			'image' => array(
+			'media' => array(
 				0 => array(
 					'property' => array(
 						0 => array(
@@ -123,7 +123,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSaveException()
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Service\Image\Property\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Service\Media\Property\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( array( 'fromArray' ) )
 			->getMock();

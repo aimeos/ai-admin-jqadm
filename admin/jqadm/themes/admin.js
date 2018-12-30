@@ -13,7 +13,7 @@ Aimeos = {
 		{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
 		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
 		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
-		{ name: 'insert', items: [ 'Image', 'SpecialChar' ] },
+		{ name: 'insert', items: [ 'Media', 'SpecialChar' ] },
 		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Blockquote' ] },
 		{ name: 'styles', items: [ 'Format' ] },
 		{ name: 'document', items: [ 'Source' ] },

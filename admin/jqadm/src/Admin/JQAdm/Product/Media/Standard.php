@@ -8,13 +8,13 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Service\Image;
+namespace Aimeos\Admin\JQAdm\Product\Media;
 
-sprintf( 'image' ); // for translation
+sprintf( 'media' ); // for translation
 
 
 /**
- * Default implementation of service image JQAdm client.
+ * Default implementation of product media JQAdm client.
  *
  * @package Admin
  * @subpackage JQAdm
@@ -23,10 +23,10 @@ class Standard
 	extends \Aimeos\Admin\JQAdm\Common\Admin\Factory\Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
-	/** admin/jqadm/service/image/name
-	 * Name of the image subpart used by the JQAdm service implementation
+	/** admin/jqadm/product/media/name
+	 * Name of the media subpart used by the JQAdm product implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Service\Image\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Media\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
@@ -44,11 +44,11 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
-		$view->imageData = $this->toArray( $view->item, true );
-		$view->imageBody = '';
+		$view->mediaData = $this->toArray( $view->item, true );
+		$view->mediaBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
-			$view->imageBody .= $client->copy();
+			$view->mediaBody .= $client->copy();
 		}
 
 		return $this->render( $view );
@@ -66,21 +66,21 @@ class Standard
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 
 		$itemData = $this->toArray( $view->item );
-		$data = array_replace_recursive( $itemData, $view->param( 'image', [] ) );
+		$data = array_replace_recursive( $itemData, $view->param( 'media', [] ) );
 
 		foreach( $data as $idx => $entry )
 		{
 			$data[$idx]['media.siteid'] = $siteid;
 			$data[$idx]['media.url'] = $itemData[$idx]['media.url'];
 			$data[$idx]['media.preview'] = $itemData[$idx]['media.preview'];
-			$data[$idx]['service.lists.siteid'] = $siteid;
+			$data[$idx]['product.lists.siteid'] = $siteid;
 		}
 
-		$view->imageData = $data;
-		$view->imageBody = '';
+		$view->mediaData = $data;
+		$view->mediaBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
-			$view->imageBody .= $client->create();
+			$view->mediaBody .= $client->create();
 		}
 
 		return $this->render( $view );
@@ -117,11 +117,11 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
-		$view->imageData = $this->toArray( $view->item );
-		$view->imageBody = '';
+		$view->mediaData = $this->toArray( $view->item );
+		$view->mediaBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
-			$view->imageBody .= $client->get();
+			$view->mediaBody .= $client->get();
 		}
 
 		return $this->render( $view );
@@ -137,24 +137,24 @@ class Standard
 
 		try
 		{
-			$view->item = $this->fromArray( $view->item, $view->param( 'image', [] ) );
-			$view->imageBody = '';
+			$view->item = $this->fromArray( $view->item, $view->param( 'media', [] ) );
+			$view->mediaBody = '';
 
 			foreach( $this->getSubClients() as $client ) {
-				$view->imageBody .= $client->save();
+				$view->mediaBody .= $client->save();
 			}
 
 			return;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'service-item-image' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
+			$error = array( 'product-item-media' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'service-item-image' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'product-item-media' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -172,8 +172,8 @@ class Standard
 	 */
 	public function getSubClient( $type, $name = null )
 	{
-		/** admin/jqadm/service/image/decorators/excludes
-		 * Excludes decorators added by the "common" option from the service JQAdm client
+		/** admin/jqadm/product/media/decorators/excludes
+		 * Excludes decorators added by the "common" option from the product JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
 		 * (e.g. log what is currently done), executing the methods of the underlying
@@ -184,7 +184,7 @@ class Standard
 		 * "admin/jqadm/common/decorators/default" before they are wrapped
 		 * around the JQAdm client.
 		 *
-		 *  admin/jqadm/service/image/decorators/excludes = array( 'decorator1' )
+		 *  admin/jqadm/product/media/decorators/excludes = array( 'decorator1' )
 		 *
 		 * This would remove the decorator named "decorator1" from the list of
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
@@ -194,12 +194,12 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/service/image/decorators/global
-		 * @see admin/jqadm/service/image/decorators/local
+		 * @see admin/jqadm/product/media/decorators/global
+		 * @see admin/jqadm/product/media/decorators/local
 		 */
 
-		/** admin/jqadm/service/image/decorators/global
-		 * Adds a list of globally available decorators only to the service JQAdm client
+		/** admin/jqadm/product/media/decorators/global
+		 * Adds a list of globally available decorators only to the product JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
 		 * (e.g. log what is currently done), executing the methods of the underlying
@@ -209,7 +209,7 @@ class Standard
 		 * This option allows you to wrap global decorators
 		 * ("\Aimeos\Admin\JQAdm\Common\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/service/image/decorators/global = array( 'decorator1' )
+		 *  admin/jqadm/product/media/decorators/global = array( 'decorator1' )
 		 *
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
@@ -218,12 +218,12 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/service/image/decorators/excludes
-		 * @see admin/jqadm/service/image/decorators/local
+		 * @see admin/jqadm/product/media/decorators/excludes
+		 * @see admin/jqadm/product/media/decorators/local
 		 */
 
-		/** admin/jqadm/service/image/decorators/local
-		 * Adds a list of local decorators only to the service JQAdm client
+		/** admin/jqadm/product/media/decorators/local
+		 * Adds a list of local decorators only to the product JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
 		 * (e.g. log what is currently done), executing the methods of the underlying
@@ -231,26 +231,55 @@ class Standard
 		 * modify what is returned to the caller.
 		 *
 		 * This option allows you to wrap local decorators
-		 * ("\Aimeos\Admin\JQAdm\Service\Decorator\*") around the JQAdm client.
+		 * ("\Aimeos\Admin\JQAdm\Product\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/service/image/decorators/local = array( 'decorator2' )
+		 *  admin/jqadm/product/media/decorators/local = array( 'decorator2' )
 		 *
 		 * This would add the decorator named "decorator2" defined by
-		 * "\Aimeos\Admin\JQAdm\Service\Decorator\Decorator2" only to the JQAdm client.
+		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.07
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/service/image/decorators/excludes
-		 * @see admin/jqadm/service/image/decorators/global
+		 * @see admin/jqadm/product/media/decorators/excludes
+		 * @see admin/jqadm/product/media/decorators/global
 		 */
-		return $this->createSubClient( 'service/image/' . $type, $name );
+		return $this->createSubClient( 'product/media/' . $type, $name );
 	}
 
 
 	/**
-	 * Adds the required data used in the service template
+	 * Adds the product variant attributes to the media item
+	 * Then, the medias will only be shown if the customer selected the product variant
+	 *
+	 * @param \Aimeos\MShop\Media\Item\Iface $mediaItem Media item, maybe with referenced attribute items
+	 * @param \Aimeos\MShop\Common\Item\Lists\Iface[] $attrListItems Product list items referencing variant attributes
+	 * @return \Aimeos\MShop\Media\Item\Iface Modified media item
+	 */
+	protected function addMediaAttributes( \Aimeos\MShop\Media\Item\Iface $mediaItem, array $attrListItems )
+	{
+		$listManager = \Aimeos\MShop::create( $this->getContext(), 'media/lists' );
+		$listItems = $mediaItem->getListItems( 'attribute', 'variant', null, false );
+
+		foreach( $attrListItems as $listItem )
+		{
+			if( ( $litem = $mediaItem->getListItem( 'attribute', 'variant', $listItem->getRefId(), false ) ) !== null )
+			{
+				unset( $listItems[$litem->getId()] );
+				continue;
+			}
+
+			$litem = $listManager->createItem()->setType( 'variant' )->setRefId( $listItem->getRefId() );
+			$mediaItem->addListItem( 'attribute', $litem );
+		}
+
+		return $mediaItem->deleteListItems( $listItems );
+	}
+
+
+	/**
+	 * Adds the required data used in the product template
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object
 	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
@@ -260,18 +289,18 @@ class Standard
 		$context = $this->getContext();
 
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'media/type' );
-		$listTypeManager = \Aimeos\MShop::create( $this->getContext(), 'service/lists/type' );
+		$listTypeManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists/type' );
 
 		$search = $typeManager->createSearch()->setSlice( 0, 0x7fffffff );
-		$search->setConditions( $search->compare( '==', 'media.type.domain', 'service' ) );
+		$search->setConditions( $search->compare( '==', 'media.type.domain', 'product' ) );
 		$search->setSortations( array( $search->sort( '+', 'media.type.label' ) ) );
 
 		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
-		$listSearch->setConditions( $listSearch->compare( '==', 'service.lists.type.domain', 'media' ) );
-		$listSearch->setSortations( array( $listSearch->sort( '+', 'service.lists.type.label' ) ) );
+		$listSearch->setConditions( $listSearch->compare( '==', 'product.lists.type.domain', 'media' ) );
+		$listSearch->setSortations( array( $listSearch->sort( '+', 'product.lists.type.label' ) ) );
 
-		$view->imageListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
-		$view->imageTypes = $typeManager->searchItems( $search );
+		$view->mediaListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
+		$view->mediaTypes = $typeManager->searchItems( $search );
 
 		return $view;
 	}
@@ -280,25 +309,21 @@ class Standard
 	/**
 	 * Removes the media reference and the media item if not shared
 	 *
-	 * @param \Aimeos\MShop\Service\Item\Iface $item Service item including media reference
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item including media reference
 	 * @param array $listItems Media list items to be removed
-	 * @return \Aimeos\MShop\Service\Item\Iface Modified service item
+	 * @return \Aimeos\MShop\Product\Item\Iface Modified product item
 	 */
-	protected function deleteMediaItems( \Aimeos\MShop\Service\Item\Iface $item, array $listItems )
+	protected function deleteMediaItems( \Aimeos\MShop\Product\Item\Iface $item, array $listItems )
 	{
 		$context = $this->getContext();
 		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
-		$manager = \Aimeos\MShop::create( $context, 'service' );
+		$manager = \Aimeos\MShop::create( $context, 'product' );
 		$search = $manager->createSearch();
 
 		foreach( $listItems as $listItem )
 		{
-			$expr = [
-				$search->compare( '==', 'service.lists.domain', 'media' ),
-				$search->compare( '==', 'service.lists.type', $listItem->getType() ),
-				$search->compare( '==', 'service.lists.refid', $listItem->getRefId() ),
-			];
-			$search->setConditions( $search->combine( '&&', $expr ) );
+			$func = $search->createFunction( 'product:has', ['media', $listItem->getType(), $listItem->getRefId()] );
+			$search->setConditions( $search->compare( '!=', $func, null ) );
 			$items = $manager->searchItems( $search );
 			$refItem = null;
 
@@ -320,8 +345,8 @@ class Standard
 	 */
 	protected function getSubClientNames()
 	{
-		/** admin/jqadm/service/image/standard/subparts
-		 * List of JQAdm sub-clients rendered within the service image section
+		/** admin/jqadm/product/media/standard/subparts
+		 * List of JQAdm sub-clients rendered within the product media section
 		 *
 		 * The output of the frontend is composed of the code generated by the JQAdm
 		 * clients. Each JQAdm client can consist of serveral (or none) sub-clients
@@ -353,22 +378,22 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/service/image/standard/subparts', [] );
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/media/standard/subparts', [] );
 	}
 
 
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MShop\Service\Item\Iface $item Service item object without referenced domain items
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
 	 * @param string[] $data Data array
 	 */
-	protected function fromArray( \Aimeos\MShop\Service\Item\Iface $item, array $data )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$context = $this->getContext();
 
 		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
-		$listManager = \Aimeos\MShop::create( $context, 'service/lists' );
+		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
@@ -376,7 +401,9 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = $item->getListItem( 'media', $entry['service.lists.type'], $entry['media.id'], false ) ) === null ) {
+			$listType = $entry['product.lists.type'];
+
+			if( ( $listItem = $item->getListItem( 'media', $listType, $entry['media.id'], false ) ) === null ) {
 				$listItem = $listManager->createItem();
 			}
 
@@ -386,9 +413,9 @@ class Standard
 
 			$refItem->fromArray( $entry );
 
-			if( ( $file = $this->getValue( $files, 'image/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
+			if( ( $file = $this->getValue( $files, 'media/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
 			{
-				$refItem->getId() ?: $refItem->setUrl( '' )->setPreview( '' ); // keep copied image
+				$refItem->getId() ?: $refItem->setUrl( '' )->setPreview( '' ); // keep copied media
 				$cntl->add( $refItem, $file );
 			}
 
@@ -405,6 +432,8 @@ class Standard
 			$listItem->setPosition( $idx );
 			$listItem->setConfig( $conf );
 
+			$attrListItems = $item->getListItems( 'attribute', 'variant', null, false );
+			$refItem = $this->addMediaAttributes( $refItem, $attrListItems );
 			$item->addListItem( 'media', $listItem, $refItem );
 
 			unset( $listItems[$listItem->getId()] );
@@ -417,11 +446,11 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Service\Item\Iface $item Service item object including referenced domain items
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
 	 * @param boolean $copy True if items should be copied, false if not
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Service\Item\Iface $item, $copy = false )
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
 	{
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
@@ -436,16 +465,16 @@ class Standard
 
 			if( $copy === true )
 			{
-				$list['service.lists.siteid'] = $siteId;
-				$list['service.lists.id'] = '';
+				$list['product.lists.siteid'] = $siteId;
+				$list['product.lists.id'] = '';
 				$list['media.siteid'] = $siteId;
 				$list['media.id'] = null;
 			}
 
-			$list['service.lists.datestart'] = str_replace( ' ', 'T', $list['service.lists.datestart'] );
-			$list['service.lists.dateend'] = str_replace( ' ', 'T', $list['service.lists.dateend'] );
+			$list['product.lists.datestart'] = str_replace( ' ', 'T', $list['product.lists.datestart'] );
+			$list['product.lists.dateend'] = str_replace( ' ', 'T', $list['product.lists.dateend'] );
 
-			foreach( $list['service.lists.config'] as $key => $val )
+			foreach( $list['product.lists.config'] as $key => $val )
 			{
 				$list['config']['key'][] = $key;
 				$list['config']['val'][] = $val;
@@ -466,8 +495,8 @@ class Standard
 	 */
 	protected function render( \Aimeos\MW\View\Iface $view )
 	{
-		/** admin/jqadm/service/image/template-item
-		 * Relative path to the HTML body template of the image subpart for services.
+		/** admin/jqadm/product/media/template-item
+		 * Relative path to the HTML body template of the media subpart for products.
 		 *
 		 * The template file contains the HTML code and processing instructions
 		 * to generate the result shown in the body of the frontend. The
@@ -485,8 +514,8 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		$tplconf = 'admin/jqadm/service/image/template-item';
-		$default = 'service/item-image-standard';
+		$tplconf = 'admin/jqadm/product/media/template-item';
+		$default = 'product/item-media-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
