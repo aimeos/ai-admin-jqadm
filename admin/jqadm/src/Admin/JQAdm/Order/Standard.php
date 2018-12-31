@@ -512,8 +512,8 @@ class Standard
 		foreach( $basket->getAddresses() as $type => $address )
 		{
 			if( isset( $data['address'][$type] ) ) {
-				$address->fromArray( (array) $data['address'][$type] );
-				$basket->setAddress( $address, $type );
+				$list = (array) $data['address'][$type];
+				$basket->setAddress( $address->fromArray( $list ), $type );
 			} else {
 				$basket->deleteAddress( $type );
 			}
