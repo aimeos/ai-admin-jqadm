@@ -45,6 +45,10 @@
 	color: #808080;
 }
 
+.aimeos .main-navbar .navbar-secondary:before {
+	content: " ";
+}
+
 .aimeos .main-navbar .input-group {
 	width: inherit;
 }
