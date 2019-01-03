@@ -318,8 +318,8 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'catalog.lists.type.code' )] );
 
-		foreach( $manager->searchItems( $search ) as $id => $item ) {
-			$list[$id] = $item->getCode();
+		foreach( $manager->searchItems( $search ) as $item ) {
+			$list[$item->getCode()] = $item->getCode();
 		}
 
 		return $list;

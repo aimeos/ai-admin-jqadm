@@ -175,8 +175,8 @@ $refItems = $this->get( 'productItems', [] );
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 										</option>
 
-										<?php foreach( $this->get( 'productListTypes', [] ) as $id => $type ) : ?>
-											<option value="<?= $enc->attr( $id ); ?>"><?= $enc->html( $type ); ?></option>
+										<?php foreach( $this->get( 'productListTypes', [] ) as $type ) : ?>
+											<option value="<?= $enc->attr( $type ); ?>"><?= $enc->html( $type ); ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>
@@ -297,8 +297,8 @@ $refItems = $this->get( 'productItems', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
-								<?php foreach( $this->get( 'productListTypes', [] ) as $id => $type ) : ?>
-									<option value="<?= $enc->attr( $id ); ?>" <?= $selected( $this->get( 'productData/catalog.lists.type/' . $idx ), $id ); ?> >
+								<?php foreach( $this->get( 'productListTypes', [] ) as $type ) : ?>
+									<option value="<?= $enc->attr( $type ); ?>" <?= $selected( $this->get( 'productData/catalog.lists.type/' . $idx ), $type ); ?> >
 										<?= $enc->html( $type ); ?>
 									</option>
 								<?php endforeach; ?>
