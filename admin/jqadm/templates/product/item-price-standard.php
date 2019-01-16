@@ -173,9 +173,9 @@ $currencies = $this->get( 'priceCurrencies', [] );
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
 
-									<?php foreach( (array) $priceTypes as $typeItem ) : ?>
-										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="items[idx]['price.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
-											<?= $enc->html( $typeItem->getLabel() ); ?>
+									<?php foreach( (array) $priceTypes as $type => $item ) : ?>
+										<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="items[idx]['price.type'] == '<?= $enc->attr( $type ) ?>'" >
+											<?= $enc->html( $item->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>
@@ -231,9 +231,9 @@ $currencies = $this->get( 'priceCurrencies', [] );
 									v-bind:readonly="checkSite('product.lists.siteid', idx)"
 									v-model="items[idx]['product.lists.type']" >
 
-									<?php foreach( $this->get( 'priceListTypes', [] ) as $typeItem ) : ?>
-										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="entry['product.lists.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
-											<?= $enc->html( $typeItem->getLabel() ); ?>
+									<?php foreach( $this->get( 'priceListTypes', [] ) as $type => $item ) : ?>
+										<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="entry['product.lists.type'] == '<?= $enc->attr( $type ) ?>'" >
+											<?= $enc->html( $item->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>

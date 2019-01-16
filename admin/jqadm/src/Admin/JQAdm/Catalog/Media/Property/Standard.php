@@ -216,11 +216,11 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'media/property/type' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'catalog' ) );
-		$search->setSlice( 0, 0x7fffffff );
+		$search->setSortations( [$search->sort( '+', 'media.property.type.position')] );
 
-		$view->propertyTypes = $manager->searchItems( $search );
+		$view->propertyTypes = $this->map( $manager->searchItems( $search ) );
 
 		return $view;
 	}

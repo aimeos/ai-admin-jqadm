@@ -134,9 +134,9 @@ $params = $this->get( 'pageParams', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
-								<?php foreach( $this->get( 'itemTypes', [] ) as $typeItem ) : ?>
-									<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" <?= $selected( $this->get( 'itemData/attribute.type' ), $typeItem->getCode() ); ?> >
-										<?= $enc->html( $typeItem->getLabel() ); ?>
+								<?php foreach( $this->get( 'itemTypes', [] ) as $type => $item ) : ?>
+									<option value="<?= $enc->attr( $type ); ?>" <?= $selected( $this->get( 'itemData/attribute.type' ), $type ); ?> >
+										<?= $enc->html( $item->getLabel() ); ?>
 									</option>
 								<?php endforeach; ?>
 							</select>

@@ -296,14 +296,14 @@ class Standard
 
 		$search = $priceTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'price.type.domain', 'product' ) );
-		$search->setSortations( array( $search->sort( '+', 'price.type.label' ) ) );
+		$search->setSortations( array( $search->sort( '+', 'price.type.position' ) ) );
 
 		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
 		$listSearch->setConditions( $listSearch->compare( '==', 'product.lists.type.domain', 'price' ) );
-		$listSearch->setSortations( array( $listSearch->sort( '+', 'product.lists.type.label' ) ) );
+		$listSearch->setSortations( array( $listSearch->sort( '+', 'product.lists.type.position' ) ) );
 
-		$view->priceTypes = $priceTypeManager->searchItems( $search );
-		$view->priceListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
+		$view->priceTypes = $this->map( $priceTypeManager->searchItems( $search ) );
+		$view->priceListTypes = $this->map( $listTypeManager->searchItems( $listSearch ) );
 		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true )->setSlice( 0, 0x7fffffff ) );
 
 		if( $view->priceCurrencies === [] ) {

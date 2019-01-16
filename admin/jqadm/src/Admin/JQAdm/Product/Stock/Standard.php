@@ -256,7 +256,11 @@ class Standard
 	{
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'stock/type' );
 
-		$view->stockTypes = $typeManager->searchItems( $typeManager->createSearch() );
+		$search = $typeManager->createSearch( true )->setSlice( 10000 );
+		$search->setConditions( $search->compare( '==', 'stock.type.domain', 'product' ) );
+		$search->setSortations( [$search->sort( '+', 'stock.type.position' )] );
+
+		$view->stockTypes = $this->map( $typeManager->searchItems( $search ) );
 
 		return $view;
 	}
