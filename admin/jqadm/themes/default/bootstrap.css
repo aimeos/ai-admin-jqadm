@@ -51,6 +51,12 @@ input[type='checkbox'], input[type='radio'] {
 	border: none;
 }
 
+/* unconditional .media class fix */
+.nav-item .media {
+	display: list-item;
+	align-items: normal;
+}
+
 
 /* Bootstrap improvments */
 
