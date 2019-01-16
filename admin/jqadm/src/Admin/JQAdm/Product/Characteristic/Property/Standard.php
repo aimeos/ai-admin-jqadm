@@ -279,11 +279,11 @@ class Standard
 		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/property/type' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '!=', 'product.property.type.code', $excludes ) );
-		$search->setSlice( 0, 0x7fffffff );
+		$search->setSortations( [$search->sort( '+', 'product.property.type.position')] );
 
-		return $manager->searchItems( $search );
+		return $this->map( $manager->searchItems( $search ) );
 	}
 
 

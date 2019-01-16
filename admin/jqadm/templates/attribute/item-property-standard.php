@@ -51,8 +51,8 @@ $keys = [
 						v-bind:readonly="checkSite('attribute.property.siteid', idx)"
 						v-model="items[idx]['attribute.property.type']" >
 
-						<?php foreach( $this->get( 'propertyTypes', [] ) as $id => $item ) : ?>
-							<option value="<?= $enc->attr( $id ); ?>" v-bind:selected="entry['attribute.property.type'] == '<?= $enc->attr( $id ) ?>'" >
+						<?php foreach( $this->get( 'propertyTypes', [] ) as $type => $item ) : ?>
+							<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="entry['attribute.property.type'] == '<?= $enc->attr( $type ) ?>'" >
 								<?= $enc->html( $item->getLabel() ); ?>
 							</option>
 						<?php endforeach; ?>

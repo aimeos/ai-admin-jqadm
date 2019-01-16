@@ -293,16 +293,16 @@ class Standard
 		$textTypeManager = \Aimeos\MShop::create( $context, 'text/type' );
 		$listTypeManager = \Aimeos\MShop::create( $context, 'catalog/lists/type' );
 
-		$search = $textTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
+		$search = $textTypeManager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'text.type.domain', 'catalog' ) );
-		$search->setSortations( array( $search->sort( '+', 'text.type.label' ) ) );
+		$search->setSortations( [$search->sort( '+', 'text.type.position' )] );
 
-		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
+		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 10000 );
 		$listSearch->setConditions( $listSearch->compare( '==', 'catalog.lists.type.domain', 'text' ) );
-		$listSearch->setSortations( array( $listSearch->sort( '+', 'catalog.lists.type.label' ) ) );
+		$listSearch->setSortations( [$listSearch->sort( '+', 'catalog.lists.type.position' )] );
 
-		$view->textTypes = $textTypeManager->searchItems( $search );
-		$view->textListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
+		$view->textTypes = $this->map( $textTypeManager->searchItems( $search ) );
+		$view->textListTypes = $this->map( $listTypeManager->searchItems( $listSearch ) );
 
 		return $view;
 	}

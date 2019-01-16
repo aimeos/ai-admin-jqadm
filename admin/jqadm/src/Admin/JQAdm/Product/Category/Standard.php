@@ -359,22 +359,17 @@ class Standard
 	/**
 	 * Returns the available catalog list types
 	 *
-	 * @return array Associative list of catalog list type codes as keys and list type IDs as values
+	 * @return array Associative list of catalog list type codes as keys and list type items as values
 	 */
 	protected function getListTypes()
 	{
-		$list = [];
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
-		$search->setSlice( 0, 0x7fffffff );
+		$search->setSortations( [$search->sort( '+', 'catalog.lists.type.position' )] );
 
-		foreach( $manager->searchItems( $search ) as $item ) {
-			$list[$item->getCode()] = $item->getId();
-		}
-
-		return $list;
+		return $this->map( $manager->searchItems( $search ) );
 	}
 
 

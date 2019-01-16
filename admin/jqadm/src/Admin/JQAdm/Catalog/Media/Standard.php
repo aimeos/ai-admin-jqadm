@@ -262,16 +262,16 @@ class Standard
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'media/type' );
 		$listTypeManager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
 
-		$search = $typeManager->createSearch()->setSlice( 0, 0x7fffffff );
+		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'media.type.domain', 'catalog' ) );
-		$search->setSortations( array( $search->sort( '+', 'media.type.label' ) ) );
+		$search->setSortations( [$search->sort( '+', 'media.type.position' )] );
 
-		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
+		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 10000 );
 		$listSearch->setConditions( $listSearch->compare( '==', 'catalog.lists.type.domain', 'media' ) );
-		$listSearch->setSortations( array( $listSearch->sort( '+', 'catalog.lists.type.label' ) ) );
+		$listSearch->setSortations( [$listSearch->sort( '+', 'catalog.lists.type.position' )] );
 
-		$view->mediaListTypes = $this->sortType( $listTypeManager->searchItems( $listSearch ) );
-		$view->mediaTypes = $typeManager->searchItems( $search );
+		$view->mediaListTypes = $this->map( $listTypeManager->searchItems( $listSearch ) );
+		$view->mediaTypes = $this->map( $typeManager->searchItems( $search ) );
 
 		return $view;
 	}

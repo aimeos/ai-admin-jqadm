@@ -533,6 +533,24 @@ abstract class Base
 
 
 	/**
+	 * Returns a map of code/item pairs
+	 *
+	 * @param \Aimeos\MShop\Common\Item\Type\Iface[] $items Associative list of type items
+	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of codes as keys and items as values
+	 */
+	protected function map( array $items )
+	{
+		$list = [];
+
+		foreach( $items as $item ) {
+			$list[$item->getCode()] = $item;
+		}
+
+		return $list;
+	}
+
+
+	/**
 	 * Adds a redirect to the response for the next action
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object
@@ -587,27 +605,6 @@ abstract class Base
 		$view->response()->withHeader( 'Cache-Control', 'no-store' );
 
 		return $view;
-	}
-
-
-	/**
-	 * Sorts the type item with code "default" first
-	 *
-	 * @param \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of type IDs as keys and items as values
-	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Sorted associative list of type IDs as keys and items as values
-	 */
-	protected function sortType( array $items )
-	{
-		foreach( $items as $id => $item )
-		{
-			if( $item instanceof \Aimeos\MShop\Common\Item\Type\Iface && $item->getCode() === 'default' )
-			{
-				unset( $items[$id] );
-				return [$id => $item] + $items;
-			}
-		}
-
-		return $items;
 	}
 
 

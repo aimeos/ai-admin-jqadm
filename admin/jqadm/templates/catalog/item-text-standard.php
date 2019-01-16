@@ -135,9 +135,9 @@ $keys = [
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
 
-									<?php foreach( (array) $textTypes as $typeItem ) : ?>
-										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="entry['text.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
-											<?= $enc->html( $typeItem->getLabel() ); ?>
+									<?php foreach( (array) $textTypes as $type => $item ) : ?>
+										<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="entry['text.type'] == '<?= $enc->attr( $type ) ?>'" >
+											<?= $enc->html( $item->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>
@@ -193,9 +193,9 @@ $keys = [
 									v-bind:readonly="checkSite('catalog.lists.siteid', idx)"
 									v-model="items[idx]['catalog.lists.type']" >
 
-									<?php foreach( $this->get( 'textListTypes', [] ) as $typeItem ) : ?>
-										<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="entry['catalog.lists.type'] == '<?= $enc->attr( $typeItem->getCode() ) ?>'" >
-											<?= $enc->html( $typeItem->getLabel() ); ?>
+									<?php foreach( $this->get( 'textListTypes', [] ) as $type => $item ) : ?>
+										<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="entry['catalog.lists.type'] == '<?= $enc->attr( $type ) ?>'" >
+											<?= $enc->html( $item->getLabel() ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>

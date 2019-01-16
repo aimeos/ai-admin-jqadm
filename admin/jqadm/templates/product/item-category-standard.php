@@ -21,8 +21,8 @@ $keys = [
 
 		<table class="category-list table table-default"
 			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
-			data-listtype="<?= $this->get( 'categoryListTypes/default' ) ?>"
 			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+			data-listtype="default"
 			data-prefix="catalog.lists."
 			data-siteid="<?= $this->site()->siteid() ?>" >
 
@@ -89,8 +89,8 @@ $keys = [
 
 		<table class="category-list table table-default"
 			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
-			data-listtype="<?= $this->get( 'categoryListTypes/promotion' ) ?>"
 			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+			data-listtype="promotion"
 			data-prefix="catalog.lists."
 			data-siteid="<?= $this->site()->siteid() ?>" >
 

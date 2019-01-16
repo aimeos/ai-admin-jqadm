@@ -66,9 +66,9 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 								<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 							</option>
 
-							<?php foreach( $stockTypes as $typeItem ) : ?>
-								<option value="<?= $enc->attr( $typeItem->getCode() ); ?>" v-bind:selected="items['stock.type'][idx] == '<?= $enc->attr( $typeItem->getCode() ) ?>'">
-									<?= $enc->html( $typeItem->getLabel() ) ?>
+							<?php foreach( $stockTypes as $type => $item ) : ?>
+								<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="items['stock.type'][idx] == '<?= $enc->attr( $type ) ?>'">
+									<?= $enc->html( $item->getLabel() ) ?>
 								</option>
 							<?php endforeach; ?>
 						</select>

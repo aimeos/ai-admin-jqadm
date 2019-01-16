@@ -501,10 +501,10 @@ class Standard
 	{
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'product/type' );
 
-		$search = $typeManager->createSearch();
-		$search->setSortations( array( $search->sort( '+', 'product.type.label' ) ) );
+		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setSortations( [$search->sort( '+', 'product.type.position' )] );
 
-		return $typeManager->searchItems( $search );
+		return $this->map( $typeManager->searchItems( $search ) );
 	}
 
 

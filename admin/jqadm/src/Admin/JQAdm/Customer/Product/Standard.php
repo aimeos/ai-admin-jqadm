@@ -311,18 +311,13 @@ class Standard
 	 */
 	protected function getListTypes()
 	{
-		$list = [];
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/lists/type' );
 
-		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'customer.lists.type.domain', 'product' ) );
-		$search->setSortations( [$search->sort( '+', 'customer.lists.type.code' )] );
+		$search->setSortations( [$search->sort( '+', 'customer.lists.type.position' )] );
 
-		foreach( $manager->searchItems( $search ) as $id => $item ) {
-			$list[$id] = $item->getCode();
-		}
-
-		return $list;
+		return $this->map( $manager->searchItems( $search ) );
 	}
 
 

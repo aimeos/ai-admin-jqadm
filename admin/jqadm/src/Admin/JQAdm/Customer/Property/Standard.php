@@ -277,7 +277,11 @@ class Standard
 	protected function getPropertyTypes()
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/property/type' );
-		return $manager->searchItems( $manager->createSearch()->setSlice( 0, 0x7fffffff ) );
+
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setSortations( [$search->sort( '+', 'customer.property.type.position')] );
+
+		return $manager->searchItems( $search );
 	}
 
 
