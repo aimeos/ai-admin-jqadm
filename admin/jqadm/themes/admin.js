@@ -252,21 +252,18 @@ Aimeos.Config = {
 			}).done(function(result) {
 
 				$(result.data).each(function(idx, entry) {
-					var cfgkey = $("table.item-config input.config-key[value='" + entry.id + "']", target);
+					var cfgkey = $("table.item-config input.config-key", target);
+					var exists = false;
 
-					if(cfgkey.length > 0) {
-						var el = $("table.item-config .config-item.prototype .config-type-" + entry.attributes.type, target).clone();
+					cfgkey.each(function() {
+						if($(this).val() === entry.id) {
+							exists = true;
+						}
+					})
+
+					if(exists) {
 						var row = cfgkey.closest(".config-item");
-						var old = $(".config-type", row);
-
-						$("> [disabled='disabled']", el).prop("disabled", false);
-						$("> input", el).val(old.val());
-						el.prop("disabled", false);
-						el.val(old.val());
-						old.remove();
-
 						$(".help-text", row).html(entry.attributes.label);
-						$(".config-row-value", row).append(el);
 					} else {
 						var row = Aimeos.addClone($("table.item-config .config-item.prototype", target));
 
