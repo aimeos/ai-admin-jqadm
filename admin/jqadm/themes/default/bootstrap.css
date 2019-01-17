@@ -52,7 +52,7 @@ input[type='checkbox'], input[type='radio'] {
 }
 
 /* unconditional .media class fix */
-.nav-item .media {
+.nav-item.media {
 	display: list-item;
 	align-items: normal;
 }
