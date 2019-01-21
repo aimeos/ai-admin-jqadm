@@ -589,18 +589,21 @@ class Standard
 			$data['order.base.id'] = '';
 		}
 
-		foreach( $item->getAddresses() as $type => $addrItem )
+		foreach( $item->getAddresses() as $type => $addresses )
 		{
-			$list = $addrItem->toArray( true );
-
-			foreach( $list as $key => $value ) {
-				$data['address'][$type][$key] = $value;
-			}
-
-			if( $copy === true )
+			foreach( $addresses as $pos => $addrItem )
 			{
-				$data['address'][$type]['order.base.address.siteid'] = $siteId;
-				$data['address'][$type]['order.base.address.id'] = '';
+				$list = $addrItem->toArray( true );
+
+				foreach( $list as $key => $value ) {
+					$data['address'][$type][$pos][$key] = $value;
+				}
+
+				if( $copy === true )
+				{
+					$data['address'][$type][$pos]['order.base.address.siteid'] = $siteId;
+					$data['address'][$type][$pos]['order.base.address.id'] = '';
+				}
 			}
 		}
 

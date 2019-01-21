@@ -19,13 +19,11 @@ $name = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
 {
 	if( isset( $orders[$item->getBaseId()] ) )
 	{
-		$addresses = $orders[$item->getBaseId()]->getAddresses();
+		$type = \Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT;
 
-		if( !isset( $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT] ) ) {
+		if( ( $address = current( $orders[$item->getBaseId()]->getAddress( $type ) ) ) === false ) {
 			return;
 		}
-
-		$address = $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT];
 
 		if( $address->getSalutation() !== \Aimeos\MShop\Common\Item\Address\Base::SALUTATION_COMPANY ) {
 			return $address->getFirstName() . ' ' . $address->getLastName();

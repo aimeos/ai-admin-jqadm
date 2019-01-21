@@ -12,17 +12,8 @@ $selected = function( $key, $code ) {
 
 $sortItems = function( array $items )
 {
-	$result = [];
-
-	if( isset( $items['payment'] ) ) {
-		$result['payment'] = $items['payment']; unset( $items['payment'] );
-	}
-
-	if( isset( $items['delivery'] ) ) {
-		$result['delivery'] = $items['delivery']; unset( $items['delivery'] );
-	}
-
-	return $result + $items;
+	krsort( $items );
+	return $items;
 };
 
 
@@ -307,26 +298,28 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 				</div>
 
 				<div class="row">
-					<?php foreach( $sortItems( $basket->getAddresses() ) as $type => $addr ) : $code = 'address:' . $type; ?>
+					<?php foreach( $sortItems( $basket->getAddresses() ) as $type => $list ) : $code = 'address:' . $type; ?>
 
 						<div class="col-xl-6 content-block item-address">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
 
-							<div class="address-short">
-								<span class="address-text">
-									<?php
-										$salutations = array(
-											\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MR,
-											\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MRS,
-											\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MISS,
-										);
+							<?php foreach( $list as $addr ) : ?>
 
-										echo preg_replace( "/\n+/m", "<br/>", trim( $enc->html( sprintf(
-											/// Address format with company (%1$s), salutation (%2$s), title (%3$s), first name (%4$s), last name (%5$s),
-											/// address part one (%6$s, e.g street), address part two (%7$s, e.g house number), address part three (%8$s, e.g additional information),
-											/// postal/zip code (%9$s), city (%10$s), state (%11$s), country (%12$s), language (%13$s),
-											/// e-mail (%14$s), phone (%15$s), facsimile/telefax (%16$s), web site (%17$s), vatid (%18$s)
-											$this->translate( 'client', '%1$s
+								<div class="address-short">
+									<span class="address-text">
+										<?php
+											$salutations = array(
+												\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MR,
+												\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MRS,
+												\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MISS,
+											);
+
+											echo preg_replace( "/\n+/m", "<br/>", trim( $enc->html( sprintf(
+												/// Address format with company (%1$s), salutation (%2$s), title (%3$s), first name (%4$s), last name (%5$s),
+												/// address part one (%6$s, e.g street), address part two (%7$s, e.g house number), address part three (%8$s, e.g additional information),
+												/// postal/zip code (%9$s), city (%10$s), state (%11$s), country (%12$s), language (%13$s),
+												/// e-mail (%14$s), phone (%15$s), facsimile/telefax (%16$s), web site (%17$s), vatid (%18$s)
+												$this->translate( 'client', '%1$s
 %2$s %3$s %4$s %5$s
 %6$s %7$s
 %8$s
@@ -340,29 +333,32 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 %17$s
 %18$s
 '
-											),
-											$addr->getCompany(),
-											( in_array( $addr->getSalutation(), $salutations ) ? $this->translate( 'mshop/code', $addr->getSalutation() ) : '' ),
-											$addr->getTitle(),
-											$addr->getFirstName(),
-											$addr->getLastName(),
-											$addr->getAddress1(),
-											$addr->getAddress2(),
-											$addr->getAddress3(),
-											$addr->getPostal(),
-											$addr->getCity(),
-											$addr->getState(),
-											$this->translate( 'country', $addr->getCountryId() ),
-											$this->translate( 'language', $addr->getLanguageId() ),
-											$addr->getEmail(),
-											$addr->getTelephone(),
-											$addr->getTelefax(),
-											$addr->getWebsite(),
-											$addr->getVatID()
-										) ) ) );
-									?>
-								</span>
-							</div>
+												),
+												$addr->getCompany(),
+												( in_array( $addr->getSalutation(), $salutations ) ? $this->translate( 'mshop/code', $addr->getSalutation() ) : '' ),
+												$addr->getTitle(),
+												$addr->getFirstName(),
+												$addr->getLastName(),
+												$addr->getAddress1(),
+												$addr->getAddress2(),
+												$addr->getAddress3(),
+												$addr->getPostal(),
+												$addr->getCity(),
+												$addr->getState(),
+												$this->translate( 'country', $addr->getCountryId() ),
+												$this->translate( 'language', $addr->getLanguageId() ),
+												$addr->getEmail(),
+												$addr->getTelephone(),
+												$addr->getTelefax(),
+												$addr->getWebsite(),
+												$addr->getVatID()
+											) ) ) );
+										?>
+									</span>
+								</div>
+
+							<?php endforeach; ?>
+						</div>
 
 					<?php endforeach; ?>
 				</div>
