@@ -286,23 +286,11 @@ class Standard
 	 */
 	protected function deleteMediaItems( \Aimeos\MShop\Attribute\Item\Iface $item, array $listItems )
 	{
-		$context = $this->getContext();
-		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $context );
-		$manager = \Aimeos\MShop\Factory::createManager( $context, 'attribute' );
-		$search = $manager->createSearch();
+		$cntl = \Aimeos\Controller\Common\Media\Factory::createController( $this->getContext() );
 
 		foreach( $listItems as $listItem )
 		{
-			$expr = [
-				$search->compare( '==', 'attribute.lists.domain', 'media' ),
-				$search->compare( '==', 'attribute.lists.type.code', $listItem->getType() ),
-				$search->compare( '==', 'attribute.lists.refid', $listItem->getRefId() ),
-			];
-			$search->setConditions( $search->combine( '&&', $expr ) );
-			$items = $manager->searchItems( $search );
-			$refItem = null;
-
-			if( count( $items ) === 1 && ( $refItem = $listItem->getRefItem() ) !== null ) {
+			if( ( $refItem = $listItem->getRefItem() ) !== null && $this->isShared( $refItem ) === false ) {
 				$cntl->delete( $refItem );
 			}
 
@@ -310,6 +298,24 @@ class Standard
 		}
 
 		return $item;
+	}
+
+
+	/**
+	 * Returns if a media file is referenced more than once
+	 *
+	 * @param \Aimeos\MShop\Media\Item\Iface $mediaItem Media item with file URL
+	 * @return boolean True if URL is shared between media items, false if not
+	 * @todo This doesn't work for ElasticSearch because we can't search for URLs in ES documents
+	 */
+	protected function isShared( \Aimeos\MShop\Media\Item\Iface $mediaItem )
+	{
+		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'media' );
+
+		$search = $manager->createSearch()->setSlice( 0, 2 );
+		$search->setConditions( $search->compare( '==', 'media.url', $mediaItem->getUrl() ) );
+
+		return count( $manager->searchItems( $search ) ) !== 1 ? true : false;
 	}
 
 
@@ -388,7 +394,9 @@ class Standard
 
 			if( ( $file = $this->getValue( $files, 'image/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
 			{
-				$refItem->getId() ?: $refItem->setUrl( '' )->setPreview( '' ); // keep copied image
+				if( $refItem->getId() == null || $this->isShared( $refItem ) ) {
+					$refItem = $refItem->setUrl( '' )->setPreview( '' ); // keep copied and shared image
+				}
 				$cntl->add( $refItem, $file );
 			}
 
