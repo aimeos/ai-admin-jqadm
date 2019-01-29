@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Doryan R <doryan16238@gmail.com>, 2019
 # Helmi Trabelsi <trabelsihelmi@gmail.com>, 2018
 # Nicolas Lapointe (ComradeNixco) <nixcocpp@gmail.com>, 2018
 # nsendetzky, 2014
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-30 13:52+0100\n"
-"PO-Revision-Date: 2018-12-30 12:58+0000\n"
-"Last-Translator: Six byNine <wwinx@hotmail.com>\n"
+"PO-Revision-Date: 2019-01-26 12:59+0000\n"
+"Last-Translator: Doryan R <doryan16238@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,7 +94,7 @@ msgid "Additional information where the customer's apartment can be found"
 msgstr "Informations additionnelles pouvant aider à trouver l'appartement du client"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Informations complémentaires où se trouve l'appartement du fournisseur"
 
 msgid "Address 1"
 msgstr "Adresse 1"
@@ -108,7 +109,7 @@ msgid "Address identifier of the customer's house for delivery"
 msgstr "Identifiant de l'adresse de la maison du client pour la livraison"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Identifiant de l'adresse du domicile du fournisseur pour la livraison"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
@@ -136,7 +137,7 @@ msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "Permettre aux clients de choisir eux-même le prix à payer"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Chaîne alphanumérique pouvant identifier le groupe de manière unique"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -307,7 +308,7 @@ msgstr "Code du pays (requis)"
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "Taux de taxe spécifique au pays pour calculer et afficher la taxe incluse (B2C) ou ajouter la taxe si nécessaire (B2B)"
 
 msgid "Country state code (optional)"
 msgstr "Code de l'état ou de la province (optionnel)"
@@ -343,10 +344,10 @@ msgid "Customer Lists Types"
 msgstr "Types des listes de clients"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Type de propriété du client"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Types de propriété du client"
 
 msgid "Customer comment (optional)"
 msgstr "Commentaire du client (optionnel)"
@@ -358,7 +359,7 @@ msgid "Customer password"
 msgstr "Mot de passe du client"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Propriétés du client qui ne sont pas partagées avec d'autres clients"
 
 msgid "Dashboard"
 msgstr "Tableau de bord"
@@ -400,7 +401,7 @@ msgid "Delivery types"
 msgstr "Types de livraison"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Description du contenu du texte s'il est dans une langue étrangère"
 
 msgid "Descritive name of the currency"
 msgstr "Nom descriptif de la devise"
@@ -508,7 +509,7 @@ msgid "Group"
 msgstr "Groupe"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Nom du groupe décrivant les membres pour lesquels le groupe est destiné"
 
 msgid "Height"
 msgstr "Hauteur"
@@ -552,7 +553,7 @@ msgstr "Code ISO de la devise (obligatoire)"
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Les images ne seront montrées que pour cette langue, utile si le support contient du texte ou si la langue est spécifique"
 
 msgid "Import"
 msgstr "Importer"
@@ -775,7 +776,7 @@ msgid "Non-shared properties for the media item"
 msgstr "Propriétés non-partagées pour l'item média"
 
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -789,11 +790,11 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "Numéro d'identification TVA officiel pour déterminer si la taxe doit être facturée dans les factures"
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "Un fournisseur et zéro ou plusieurs noms de classe de décorateur séparés par des virgules"
 
 msgid "Option"
 msgstr "Attribut produit"
@@ -801,7 +802,7 @@ msgstr "Attribut produit"
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "Composants de produits optionnels pouvant être choisis par le client avec le produit"
 
 msgid "Order"
 msgstr "Commande"
@@ -816,7 +817,7 @@ msgid "Order of the service options in the checkout process"
 msgstr "Ordre du service lors du processus de clôture de la commande"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "Ordre des types dans le frontend"
 
 msgid "Order totals"
 msgstr "Ordre totaux"
@@ -833,15 +834,15 @@ msgstr "Commande (par statut du paiement)"
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "Remplacez le fichier existant et les clients l'ont acheté dans le passé peuvent également télécharger le nouveau contenu."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "Le paramètre PHP \"%1$s\" est désactivé"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "Le paramètre PHP pour \"%1$s\" est trop bas"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -894,7 +895,7 @@ msgid "Plugin position (required)"
 msgstr "Position du module complémentaire (requis)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "Fournisseur de plugin ou nom de configuration du décorateur de plugin"
 
 msgid "Position"
 msgstr "Position"
@@ -933,7 +934,7 @@ msgid "Priority"
 msgstr "Priorité"
 
 msgid "Problem"
-msgstr ""
+msgstr "Problème"
 
 msgid "Product"
 msgstr "Produit"
@@ -942,16 +943,16 @@ msgid "Product ID"
 msgstr "Identifiant du produit"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "Type de listes de produits"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "Types de listes de produits"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "Type de propriété du produit"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "Types de propriété du produit"
 
 msgid "Product Type"
 msgstr "Type de produit"
@@ -1001,7 +1002,7 @@ msgid "Provider"
 msgstr "Fournisseur"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "Noms de classe de fournisseur / décorateur (obligatoire)"
 
 msgid "Purchase"
 msgstr "Achat"
@@ -1010,7 +1011,7 @@ msgid "Quantity"
 msgstr "Quantité"
 
 msgid "Reason"
-msgstr ""
+msgstr "Raison"
 
 msgid "Rebate"
 msgstr "Remise"
@@ -1018,7 +1019,7 @@ msgstr "Remise"
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "Réduction par rapport au prix d'origine, utilisée pour calculer le rabais en% et le prix croisé"
 
 msgid "Related ID"
 msgstr "ID lié"
@@ -1103,10 +1104,10 @@ msgid "Service"
 msgstr "Service"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "Type de listes de services"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "Types de listes de services"
 
 msgid "Service Type"
 msgstr "Type de service"
@@ -1118,7 +1119,7 @@ msgid "Service attribute code"
 msgstr "Code attribut du service"
 
 msgid "Service costs"
-msgstr ""
+msgstr "Frais de service"
 
 msgid "Service name"
 msgstr "Nom du service"
@@ -1127,13 +1128,13 @@ msgid "Service position (required)"
 msgstr "Position du service (requis)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Prix du service"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "Nom de configuration du fournisseur de services ou du décorateur de services"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Remise de service"
 
 msgid "Ship date"
 msgstr "Date d'envoi"
@@ -1156,7 +1157,7 @@ msgstr "Code de l'état ou de la région (par ex. NY) si utilisé dans le pays o
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "Code d’état abrégé (par exemple, NY) s’il est utilisé dans le pays de résidence du fournisseur"
 
 msgid "Show"
 msgstr "Voir"
@@ -1174,7 +1175,7 @@ msgid "Shown if the article reached a stock level of zero"
 msgstr "S'affiche si le niveau de stock de l'article atteint le niveau zéro"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "Depuis quand le produit est disponible, utilisé pour le tri dans le front-end"
 
 msgid "Site"
 msgstr "Site"
@@ -1249,10 +1250,10 @@ msgid "Supplier name or company"
 msgstr "Nom du fournisseur ou de la société"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "Type de mot-clé"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "Types de mot-clé"
 
 msgid "Tax"
 msgstr "Taxe"
@@ -1267,10 +1268,10 @@ msgid "Telephone number (optional)"
 msgstr "Numéro de téléphone (optionnel)"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "Type de liste de texte"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "Types de listes de textes"
 
 msgid "Text Type"
 msgstr "Type texte"
@@ -1295,7 +1296,7 @@ msgid "The item is only shown on the web site until that date and time"
 msgstr "L'item sera affiché sur le site uniquement jusqu'à cette date et heure"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "Le titre du média est utilisé pour les mot-clé de titre du média sur le site Web."
 
 msgid "The option is only shown on the web site after that date and time"
 msgstr "Cette option sera affichée sur le site uniquement après cette date et heure"
@@ -1328,7 +1329,7 @@ msgid "Type"
 msgstr "Type"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Tapez la position (optionnel)"
 
 msgid "Types for additional images like icons"
 msgstr "Types pour des images supplémentaires (par ex. des icônes, etc.)"
@@ -1337,7 +1338,7 @@ msgid "Types for additional prices like per one lb/kg or per month"
 msgstr "Types pour des prix supplémentaires, par exemple au mois ou au kilo"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Types pour les textes supplémentaires comme par lb / kg ou par mois"
 
 msgid "URL of the customer web site"
 msgstr "URL du site du client"
@@ -1379,7 +1380,7 @@ msgid "Unique customer e-mail address"
 msgstr "Adresse e-mail unique du client"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "Code de groupe unique (obligatoire)"
 
 msgid "Unique service code (required)"
 msgstr "Code unique du service (requis)"
@@ -1412,13 +1413,13 @@ msgid "Value"
 msgstr "Valeur"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "Identifiant taxe sur la valeur ajoutée (facultatif)"
 
 msgid "Variant attributes"
 msgstr "Attributs de la variante"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Attributs de produits variantes stockés avec les produits commandés"
 
 msgid "View details"
 msgstr "Voir détails"
@@ -1535,7 +1536,7 @@ msgstr "Téléchargements"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "Groupes"
 
 #, php-format
 msgid "hour"
@@ -1604,10 +1605,10 @@ msgid "order"
 msgstr "Commandes"
 
 msgid "order:phone"
-msgstr ""
+msgstr "téléphone"
 
 msgid "order:web"
-msgstr ""
+msgstr "web"
 
 msgid "pay:-1"
 msgstr "en cours"
@@ -1662,10 +1663,10 @@ msgid "property"
 msgstr "Propriétés"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "échoué"
 
 msgid "reason:0"
-msgstr ""
+msgstr "terminé"
 
 msgid "reason:1"
 msgstr "annulé"
@@ -1688,7 +1689,7 @@ msgstr "Services"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "Par type de livraison"
 
 #, php-format
 msgid "servicepayment"
@@ -1770,7 +1771,7 @@ msgstr "Listes d'attributs"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "Propriétés d'attribut"
 
 #, php-format
 msgid "type/catalog/lists"
@@ -1782,7 +1783,7 @@ msgstr "Listes de clients"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "Propriétés du client"
 
 #, php-format
 msgid "type/media"
@@ -1794,7 +1795,7 @@ msgstr "Listes de médias"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "Propriétés du média"
 
 #, php-format
 msgid "type/plugin"

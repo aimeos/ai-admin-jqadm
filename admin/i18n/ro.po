@@ -3,22 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Nóra Antal <nora1984antal@gmail.com>, 2016
-# Péter Kozma <kopegrafika@gmail.com>, 2016
-# Szikinger György <gyorgyszikinger@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-30 13:52+0100\n"
-"PO-Revision-Date: 2019-01-08 12:31+0000\n"
-"Last-Translator: Szikinger György <gyorgyszikinger@gmail.com>\n"
-"Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Romanian (http://www.transifex.com/aimeos/aimeos-core/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #, php-format
 msgid ""
@@ -47,11 +44,11 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
+msgstr ""
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr "%1$s %2$s"
+msgstr ""
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
@@ -72,16 +69,16 @@ msgid ""
 msgstr ""
 
 msgid "Active"
-msgstr "Aktív"
+msgstr ""
 
 msgid "Actual current price"
-msgstr "Jelenlegi ár"
+msgstr ""
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
 
 msgid "Add"
-msgstr "Hozzáadás"
+msgstr ""
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -95,13 +92,13 @@ msgid "Additional information where the supplier's apartment can be found"
 msgstr ""
 
 msgid "Address 1"
-msgstr "Cím 1"
+msgstr ""
 
 msgid "Address 2"
-msgstr "Cím 2"
+msgstr ""
 
 msgid "Address 3"
-msgstr "Cím 3"
+msgstr ""
 
 msgid "Address identifier of the customer's house for delivery"
 msgstr ""
@@ -114,14 +111,14 @@ msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr "Haladó beállítások"
+msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
 msgstr ""
 
 msgid "All"
-msgstr "Mind"
+msgstr ""
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
@@ -143,7 +140,7 @@ msgid ""
 msgstr ""
 
 msgid "Attribute"
-msgstr "Jellemző"
+msgstr ""
 
 msgid "Attribute Lists Type"
 msgstr ""
@@ -170,7 +167,7 @@ msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
 
 msgid "Attributes"
-msgstr "Jellemzők"
+msgstr ""
 
 msgid "Available currency for the current site"
 msgstr ""
@@ -182,34 +179,34 @@ msgid "Available language for the current site"
 msgstr ""
 
 msgid "Back in stock"
-msgstr "Újra lesz készleten"
+msgstr ""
 
 msgid "Basic"
-msgstr "Alapvető adatok"
+msgstr ""
 
 msgid "Basket"
-msgstr "Kosár"
+msgstr ""
 
 msgid "Billing address"
-msgstr "Számlázási cím"
+msgstr ""
 
 msgid "Birthday"
-msgstr "Születésnap"
+msgstr ""
 
 msgid "Birthday of the customer"
 msgstr ""
 
 msgid "Bug or suggestion?"
-msgstr "Hiba vagy javaslat?"
+msgstr ""
 
 msgid "Cancel"
-msgstr "Mégse"
+msgstr ""
 
 msgid "Cancel and return to list"
 msgstr ""
 
 msgid "Catalog"
-msgstr "Katalógus"
+msgstr ""
 
 msgid "Catalog Lists Type"
 msgstr ""
@@ -232,39 +229,39 @@ msgid "Choose file"
 msgstr ""
 
 msgid "City"
-msgstr "Város"
+msgstr ""
 
 msgid "City or town name (required)"
 msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr "A következő osztály nem elérhető: \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr "A következő osztály nem található: \"%1$s\""
+msgstr ""
 
 msgid "Close"
-msgstr "Bezár"
+msgstr ""
 
 msgid "Code"
-msgstr "Kód"
+msgstr ""
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
 msgstr ""
 
 msgid "Columns"
-msgstr "Oszlopok"
+msgstr ""
 
 msgid "Comment"
-msgstr "Megjegyzés"
+msgstr ""
 
 msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr "Cég"
+msgstr ""
 
 msgid "Company details"
 msgstr ""
@@ -283,19 +280,19 @@ msgid ""
 msgstr ""
 
 msgid "Copy"
-msgstr "Másolás"
+msgstr ""
 
 msgid "Copy this entry"
 msgstr ""
 
 msgid "Costs"
-msgstr "Kiadások"
+msgstr ""
 
 msgid "Count"
-msgstr "Számítás"
+msgstr ""
 
 msgid "Country"
-msgstr "Ország"
+msgstr ""
 
 msgid "Country ID"
 msgstr ""
@@ -312,28 +309,28 @@ msgid "Country state code (optional)"
 msgstr ""
 
 msgid "Coupon"
-msgstr "Kupon"
+msgstr ""
 
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
 
 msgid "Created"
-msgstr "Létrehozva"
+msgstr ""
 
 msgid "Currencies"
 msgstr ""
 
 msgid "Currency"
-msgstr "Pénznem"
+msgstr ""
 
 msgid "Custom"
 msgstr ""
 
 msgid "Customer"
-msgstr "Vevő"
+msgstr ""
 
 msgid "Customer ID"
-msgstr "Vásárló azonosító"
+msgstr ""
 
 msgid "Customer Lists Type"
 msgstr ""
@@ -348,7 +345,7 @@ msgid "Customer Property Types"
 msgstr ""
 
 msgid "Customer comment (optional)"
-msgstr "Vásárlói megjegyzés (opcionális)"
+msgstr ""
 
 msgid "Customer e-mail address"
 msgstr ""
@@ -360,7 +357,7 @@ msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
 msgid "Dashboard"
-msgstr "Vezérlőpult"
+msgstr ""
 
 msgid "Date of the last delivery status change"
 msgstr ""
@@ -372,31 +369,31 @@ msgid "Date the subscription ends"
 msgstr ""
 
 msgid "Days"
-msgstr "Napok"
+msgstr ""
 
 msgid "Default"
-msgstr "Alapértelmezett"
+msgstr ""
 
 msgid "Delete"
-msgstr "Törlés"
+msgstr ""
 
 msgid "Delete items?"
-msgstr "Törli az elemeket?"
+msgstr ""
 
 msgid "Delete this entry"
 msgstr ""
 
 msgid "Delivery"
-msgstr "Szállítás"
+msgstr ""
 
 msgid "Delivery address"
-msgstr "Szállítási cím"
+msgstr ""
 
 msgid "Delivery status"
-msgstr "Szállítási státusz"
+msgstr ""
 
 msgid "Delivery types"
-msgstr "Szállítási típusok"
+msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr ""
@@ -411,10 +408,10 @@ msgid "Descritive name of the site"
 msgstr ""
 
 msgid "Domain"
-msgstr "Domain"
+msgstr ""
 
 msgid "Download"
-msgstr "Letöltés"
+msgstr ""
 
 msgid "Download this file"
 msgstr ""
@@ -423,7 +420,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr "E-mail"
+msgstr ""
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -438,28 +435,28 @@ msgid "E-mail address that belongs to the address"
 msgstr ""
 
 msgid "EAN, SKU or article number (required)"
-msgstr "EAN, SKU vagy cikkszám (kötelező)"
+msgstr ""
 
 msgid "Edit"
-msgstr "Szerkesztés"
+msgstr ""
 
 msgid "Edit this entry"
 msgstr ""
 
 msgid "Editor"
-msgstr "Szerkesztő"
+msgstr ""
 
 msgid "Email"
 msgstr ""
 
 msgid "End date"
-msgstr "Befejezés dátuma"
+msgstr ""
 
 msgid "End date (optional)"
 msgstr ""
 
 msgid "Error"
-msgstr "Hiba"
+msgstr ""
 
 msgid "Excl. tax"
 msgstr ""
@@ -468,7 +465,7 @@ msgid "Execution order of the plugins"
 msgstr ""
 
 msgid "Facility"
-msgstr "Létesítmény"
+msgstr ""
 
 msgid "Facsimile"
 msgstr ""
@@ -477,16 +474,16 @@ msgid "Facsimile number (optional)"
 msgstr ""
 
 msgid "File"
-msgstr "Fájl"
+msgstr ""
 
 msgid "Find category"
 msgstr ""
 
 msgid "First"
-msgstr "Első"
+msgstr ""
 
 msgid "First name"
-msgstr "Keresztnév"
+msgstr ""
 
 msgid "First name (optional)"
 msgstr ""
@@ -504,16 +501,16 @@ msgid "Floor and/or apartment (optional)"
 msgstr ""
 
 msgid "Group"
-msgstr "Csoport"
+msgstr ""
 
 msgid "Group name describing for which members the group is for"
 msgstr ""
 
 msgid "Height"
-msgstr "Magasság"
+msgstr ""
 
 msgid "Hidden attributes"
-msgstr "Rejtett tulajdonságok"
+msgstr ""
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr ""
@@ -525,7 +522,7 @@ msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
 
 msgid "House number"
-msgstr "Házszám"
+msgstr ""
 
 msgid "House number (optional)"
 msgstr ""
@@ -537,7 +534,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr ""
 
 msgid "ID"
-msgstr "Azonosító"
+msgstr ""
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr ""
@@ -554,7 +551,7 @@ msgid ""
 msgstr ""
 
 msgid "Import"
-msgstr "Import"
+msgstr ""
 
 msgid "Import/Export jobs"
 msgstr ""
@@ -592,7 +589,7 @@ msgid ""
 msgstr ""
 
 msgid "Internal name (required)"
-msgstr "Belső név (kötelező)"
+msgstr ""
 
 msgid "Internal type name shown in the administration interface"
 msgstr ""
@@ -605,26 +602,26 @@ msgstr ""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr "Érvénytelen karakter a következő osztály nevében: \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr "Érvénytelen karakter az ügyfél nevében: \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr "Érvénytelen osztálynév: \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr "Érvénytelen domain: \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr "Érvénytelen gyártó: \"%1$s\""
+msgstr ""
 
 msgid "Invoice"
-msgstr "Számla"
+msgstr ""
 
 msgid "Item deleted successfully"
 msgstr ""
@@ -633,7 +630,7 @@ msgid "Item saved successfully"
 msgstr ""
 
 msgid "Label"
-msgstr "Címke"
+msgstr ""
 
 msgid "Label (required)"
 msgstr ""
@@ -642,7 +639,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr "Nyelv"
+msgstr ""
 
 msgid "Language ID"
 msgstr ""
@@ -654,16 +651,16 @@ msgid "Languages"
 msgstr ""
 
 msgid "Last"
-msgstr "Utolsó"
+msgstr ""
 
 msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr "Vezetéknév"
+msgstr ""
 
 msgid "Last name (required)"
-msgstr "Vezetéknév (kötelező)"
+msgstr ""
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
@@ -674,10 +671,10 @@ msgid "Last payment status of the order"
 msgstr ""
 
 msgid "Latest orders"
-msgstr "Legújabb megrendelések"
+msgstr ""
 
 msgid "Length"
-msgstr "Hossz"
+msgstr ""
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
@@ -691,7 +688,7 @@ msgid "List of suggested products"
 msgstr ""
 
 msgid "List type"
-msgstr "Lista típusa"
+msgstr ""
 
 msgid "Locale"
 msgstr ""
@@ -721,10 +718,10 @@ msgid "Media properties"
 msgstr ""
 
 msgid "Message"
-msgstr "Üzenet"
+msgstr ""
 
 msgid "Minimum quantity"
-msgstr "Minimális mennyiség"
+msgstr ""
 
 msgid "Modifed"
 msgstr ""
@@ -733,13 +730,13 @@ msgid "Modified"
 msgstr ""
 
 msgid "Months"
-msgstr "Hónapok"
+msgstr ""
 
 msgid "More"
 msgstr ""
 
 msgid "Name"
-msgstr "Név"
+msgstr ""
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -749,7 +746,7 @@ msgid "New"
 msgstr ""
 
 msgid "Next"
-msgstr "Következő"
+msgstr ""
 
 msgid "Next date"
 msgstr ""
@@ -761,14 +758,14 @@ msgid "Next date the subscription is renewed"
 msgstr ""
 
 msgid "No items found"
-msgstr "Nincs találat"
+msgstr ""
 
 #, php-format
 msgid "No view available"
 msgstr ""
 
 msgid "No voucher"
-msgstr "Nincs utalvány"
+msgstr ""
 
 msgid "Non-shared properties for the media item"
 msgstr ""
@@ -795,7 +792,7 @@ msgid ""
 msgstr ""
 
 msgid "Option"
-msgstr "Választási lehetőség"
+msgstr ""
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
@@ -803,10 +800,10 @@ msgid ""
 msgstr ""
 
 msgid "Order"
-msgstr "Rendelés"
+msgstr ""
 
 msgid "Order ID"
-msgstr "Rendelés azonosító"
+msgstr ""
 
 msgid "Order of the language/currency combinations"
 msgstr ""
@@ -818,16 +815,16 @@ msgid "Order of the types in the frontend"
 msgstr ""
 
 msgid "Order totals"
-msgstr "Rendelési összegek"
+msgstr ""
 
 msgid "Orders by day"
-msgstr "Rendelések nap szerint"
+msgstr ""
 
 msgid "Orders by hour"
-msgstr "Rendelések óra szerint"
+msgstr ""
 
 msgid "Orders by payment status"
-msgstr "Rendelések fizetési státusz szerint"
+msgstr ""
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
@@ -844,44 +841,44 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr "Oldal %1$d / %2$d"
+msgstr ""
 
 msgid "Password"
-msgstr "Jelszó"
+msgstr ""
 
 msgid "Password (required)"
-msgstr "Jelszó (kötelező)"
+msgstr ""
 
 msgid "Path"
-msgstr "Útvonal"
+msgstr ""
 
 msgid "Pay date"
 msgstr ""
 
 msgid "Pay status"
-msgstr "Fizetési státusz"
+msgstr ""
 
 msgid "Payment"
-msgstr "Fizetés"
+msgstr ""
 
 msgid "Payment status"
-msgstr "Fizetési státusz"
+msgstr ""
 
 msgid "Payment types"
-msgstr "Fizetési típusok"
+msgstr ""
 
 #, php-format
 msgid "Permission denied"
 msgstr ""
 
 msgid "Personal data"
-msgstr "Személyes adatok"
+msgstr ""
 
 msgid "Please select"
-msgstr "Válasszon"
+msgstr ""
 
 msgid "Plugin"
-msgstr "Plugin"
+msgstr ""
 
 msgid "Plugin Type"
 msgstr ""
@@ -896,13 +893,13 @@ msgid "Plugin provider or plugin decorator configuration name"
 msgstr ""
 
 msgid "Position"
-msgstr "Pozíció"
+msgstr ""
 
 msgid "Position (required)"
 msgstr ""
 
 msgid "Postal"
-msgstr "Irányítószám"
+msgstr ""
 
 msgid "Postal code for delivery if used in the area the customer is living"
 msgstr ""
@@ -911,10 +908,10 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr ""
 
 msgid "Previous"
-msgstr "Előző"
+msgstr ""
 
 msgid "Price"
-msgstr "Ár"
+msgstr ""
 
 msgid "Price Lists Type"
 msgstr ""
@@ -929,16 +926,16 @@ msgid "Price Types"
 msgstr ""
 
 msgid "Priority"
-msgstr "Prioritás"
+msgstr ""
 
 msgid "Problem"
 msgstr ""
 
 msgid "Product"
-msgstr "Termék"
+msgstr ""
 
 msgid "Product ID"
-msgstr "Termék azonosító"
+msgstr ""
 
 msgid "Product Lists Type"
 msgstr ""
@@ -970,34 +967,34 @@ msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr "Termék magasság, például 20.0 (cm, inch stb.)"
+msgstr ""
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr "Termék hossz, például 30.0 (cm, inch stb.)"
+msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr "Termék súly, például 1,25 (kg, dkg stb.)"
+msgstr ""
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr "Termék szélessége, például 17.5 (cm, inch stb.)"
+msgstr ""
 
 msgid "Products"
-msgstr "Termékek"
+msgstr ""
 
 msgid "Products bought together"
-msgstr "Együtt vásárolt termékek"
+msgstr ""
 
 msgid "Promotion"
-msgstr "Promóció"
+msgstr ""
 
 msgid "Properties"
-msgstr "Tulajdonságok"
+msgstr ""
 
 msgid "Property value (required)"
-msgstr "Tulajdonság érték (kötelező)"
+msgstr ""
 
 msgid "Provider"
-msgstr "Ellátó"
+msgstr ""
 
 msgid "Provider/decorator class names (required)"
 msgstr ""
@@ -1006,13 +1003,13 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr "Mennyiség"
+msgstr ""
 
 msgid "Reason"
 msgstr ""
 
 msgid "Rebate"
-msgstr "Engedmény"
+msgstr ""
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
@@ -1029,10 +1026,10 @@ msgid "Renew"
 msgstr ""
 
 msgid "Replace file"
-msgstr "Fájl csere"
+msgstr ""
 
 msgid "Request"
-msgstr "Kérés"
+msgstr ""
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
@@ -1063,19 +1060,19 @@ msgid "SKU"
 msgstr ""
 
 msgid "Sales by weekday"
-msgstr "Értékesítések hétköznap"
+msgstr ""
 
 msgid "Sales of the last 30 days"
-msgstr "Értékesítések az elmúlt 30 nap szerint"
+msgstr ""
 
 msgid "Sales per month"
-msgstr "Értékesítések hónap szerint"
+msgstr ""
 
 msgid "Salutation"
-msgstr "Üdvözlés"
+msgstr ""
 
 msgid "Save"
-msgstr "Mentés"
+msgstr ""
 
 msgid "Save & Close"
 msgstr ""
@@ -1090,7 +1087,7 @@ msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
-msgstr "Keresés"
+msgstr ""
 
 msgid "Second level type for grouping items"
 msgstr ""
@@ -1099,7 +1096,7 @@ msgid "Select file"
 msgstr ""
 
 msgid "Service"
-msgstr "Szolgáltatás"
+msgstr ""
 
 msgid "Service Lists Type"
 msgstr ""
@@ -1141,10 +1138,10 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr "Szállítás"
+msgstr ""
 
 msgid "Shipping costs per item"
-msgstr "Tételenkénti szállítási költség"
+msgstr ""
 
 msgid "Shipping/Payment costs"
 msgstr ""
@@ -1158,7 +1155,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr "Mutat"
+msgstr ""
 
 msgid "Show entry"
 msgstr ""
@@ -1176,7 +1173,7 @@ msgid "Since when the product is available, used for sorting in the front-end"
 msgstr ""
 
 msgid "Site"
-msgstr "Webhely"
+msgstr ""
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
@@ -1189,7 +1186,7 @@ msgid "Sites"
 msgstr ""
 
 msgid "Size"
-msgstr "Méret"
+msgstr ""
 
 msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
@@ -1198,34 +1195,34 @@ msgid "Source of the invoice, e.g. by web or phone"
 msgstr ""
 
 msgid "Start date"
-msgstr "Kezdő dátum"
+msgstr ""
 
 msgid "State"
-msgstr "Állam"
+msgstr ""
 
 msgid "Status"
-msgstr "Státusz"
+msgstr ""
 
 msgid "Stock Type"
-msgstr "Készlet típus"
+msgstr ""
 
 msgid "Stock Types"
-msgstr "Készlet típusok"
+msgstr ""
 
 msgid "Stock level"
-msgstr "Készlet szint"
+msgstr ""
 
 msgid "Street"
-msgstr "Utca"
+msgstr ""
 
 msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr "Részösszeg"
+msgstr ""
 
 msgid "Subscription"
-msgstr "Előfizetés"
+msgstr ""
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
@@ -1233,16 +1230,16 @@ msgid ""
 msgstr ""
 
 msgid "Substracted rebate amount"
-msgstr "Levont engedmény összege"
+msgstr ""
 
 msgid "Suggested products"
-msgstr "Javasolt termékek"
+msgstr ""
 
 msgid "Sum"
-msgstr "Összeg"
+msgstr ""
 
 msgid "Supplier"
-msgstr "Szállító"
+msgstr ""
 
 msgid "Supplier name or company"
 msgstr ""
@@ -1257,10 +1254,10 @@ msgid "Tax"
 msgstr ""
 
 msgid "Tax rate in %"
-msgstr "Adókulcs %-ban"
+msgstr ""
 
 msgid "Telephone"
-msgstr "Telefon"
+msgstr ""
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1309,13 +1306,13 @@ msgid "Timestamp"
 msgstr ""
 
 msgid "Title"
-msgstr "Cím"
+msgstr ""
 
 msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
-msgstr "Végösszeg"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr ""
@@ -1324,7 +1321,7 @@ msgid "Two letter ISO language code"
 msgstr ""
 
 msgid "Type"
-msgstr "Típus"
+msgstr ""
 
 msgid "Type position (optional)"
 msgstr ""
@@ -1345,11 +1342,11 @@ msgid "URL of the supplier web site"
 msgstr ""
 
 msgid "URL target"
-msgstr "Cél URL"
+msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr "Nem lehet, meghívni a \"%1$s\" eljárást"
+msgstr ""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1369,7 +1366,7 @@ msgid "Unique category code, either from external system or self-invented"
 msgstr ""
 
 msgid "Unique code (required)"
-msgstr "Egyedi kód (kötelező)"
+msgstr ""
 
 msgid "Unique code to identify the service, usually self-invented"
 msgstr ""
@@ -1399,7 +1396,7 @@ msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\",
 msgstr ""
 
 msgid "Uploaded"
-msgstr "Feltöltött"
+msgstr ""
 
 msgid "User groups"
 msgstr ""
@@ -1408,13 +1405,13 @@ msgid "VAT ID"
 msgstr ""
 
 msgid "Value"
-msgstr "Érték"
+msgstr ""
 
 msgid "Value added tax identifier (optional)"
 msgstr ""
 
 msgid "Variant attributes"
-msgstr "Jellemző változat"
+msgstr ""
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr ""
@@ -1430,83 +1427,83 @@ msgid ""
 msgstr ""
 
 msgid "Web site"
-msgstr "Weboldal"
+msgstr ""
 
 msgid "Web site URL (optional)"
 msgstr ""
 
 msgid "Weeks"
-msgstr "Hetek"
+msgstr ""
 
 msgid "Weight"
-msgstr "Súly"
+msgstr ""
 
 msgid "Width"
-msgstr "Szélesség"
+msgstr ""
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr "ÉÉÉÉ-HH-NN hh:mm:ss (választható)"
+msgstr ""
 
 msgid "Years"
-msgstr "Évek"
+msgstr ""
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Egy vagy több elemet akar törölni. Szeretné folytatni?"
+msgstr ""
 
 msgid "Zip code"
-msgstr "Irányítószám"
+msgstr ""
 
 msgid "Zip code (optional)"
 msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "Címek"
+msgstr ""
 
 msgid "address:delivery"
-msgstr "Szállítási cím"
+msgstr ""
 
 msgid "address:payment"
-msgstr "Számlázási cím"
+msgstr ""
 
 #, php-format
 msgid "attribute"
-msgstr "Jellemzők"
+msgstr ""
 
 #, php-format
 msgid "bundle"
-msgstr "Csomagok"
+msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr "Kategóriák"
+msgstr ""
 
 #, php-format
 msgid "category"
-msgstr "Kategóriák"
+msgstr ""
 
 #, php-format
 msgid "characteristic"
-msgstr "Jellemzők"
+msgstr ""
 
 #, php-format
 msgid "code"
-msgstr "Kódok"
+msgstr ""
 
 msgid "company"
-msgstr "Cég"
+msgstr ""
 
 #, php-format
 msgid "countday"
-msgstr "Rendelések nap szerint"
+msgstr ""
 
 #, php-format
 msgid "counthour"
-msgstr "Rendelések óra szerint"
+msgstr ""
 
 #, php-format
 msgid "countpaystatus"
-msgstr "Rendelések fizetési státusz szerint"
+msgstr ""
 
 #, php-format
 msgid "coupon"
@@ -1514,11 +1511,11 @@ msgstr ""
 
 #, php-format
 msgid "customer"
-msgstr "Vásárlók"
+msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr "Vezérlőpult"
+msgstr ""
 
 #, php-format
 msgid "day"
@@ -1530,11 +1527,11 @@ msgstr ""
 
 #, php-format
 msgid "download"
-msgstr "Letöltések"
+msgstr ""
 
 #, php-format
 msgid "group"
-msgstr "Csoportok"
+msgstr ""
 
 #, php-format
 msgid "hour"
@@ -1542,11 +1539,11 @@ msgstr ""
 
 #, php-format
 msgid "image"
-msgstr "Képek"
+msgstr ""
 
 #, php-format
 msgid "invoice"
-msgstr "Számlák"
+msgstr ""
 
 #, php-format
 msgid "latest"
@@ -1570,23 +1567,23 @@ msgstr ""
 
 #, php-format
 msgid "log"
-msgstr "Naplók"
+msgstr ""
 
 #, php-format
 msgid "media"
-msgstr "Média"
+msgstr ""
 
 msgid "miss"
-msgstr "Kisasszony"
+msgstr ""
 
 msgid "mr"
-msgstr "Úr"
+msgstr ""
 
 msgid "mrs"
-msgstr "Asszony"
+msgstr ""
 
 msgid "new"
-msgstr "Új"
+msgstr ""
 
 msgid "no"
 msgstr ""
@@ -1596,11 +1593,11 @@ msgstr ""
 
 #, php-format
 msgid "option"
-msgstr "Opciók"
+msgstr ""
 
 #, php-format
 msgid "order"
-msgstr "Rendelések"
+msgstr ""
 
 msgid "order:phone"
 msgstr ""
@@ -1609,28 +1606,28 @@ msgid "order:web"
 msgstr ""
 
 msgid "pay:-1"
-msgstr "befejezetlen"
+msgstr ""
 
 msgid "pay:0"
-msgstr "törölve"
+msgstr ""
 
 msgid "pay:1"
-msgstr "visszavonva"
+msgstr ""
 
 msgid "pay:2"
-msgstr "visszautasítva"
+msgstr ""
 
 msgid "pay:3"
-msgstr "visszatérítve"
+msgstr ""
 
 msgid "pay:4"
-msgstr "elintézetlen"
+msgstr ""
 
 msgid "pay:5"
-msgstr "jóváhagyva"
+msgstr ""
 
 msgid "pay:6"
-msgstr "elfogadva"
+msgstr ""
 
 #, php-format
 msgid "paymentstatus"
@@ -1642,7 +1639,7 @@ msgstr ""
 
 #, php-format
 msgid "physical"
-msgstr "Fizikai"
+msgstr ""
 
 #, php-format
 msgid "plugin"
@@ -1650,15 +1647,15 @@ msgstr ""
 
 #, php-format
 msgid "price"
-msgstr "Árak"
+msgstr ""
 
 #, php-format
 msgid "product"
-msgstr "Termékek"
+msgstr ""
 
 #, php-format
 msgid "property"
-msgstr "Tulajdonságok"
+msgstr ""
 
 msgid "reason:-1"
 msgstr ""
@@ -1667,23 +1664,23 @@ msgid "reason:0"
 msgstr ""
 
 msgid "reason:1"
-msgstr "visszavonva"
+msgstr ""
 
 #, php-format
 msgid "related"
-msgstr "Termékek"
+msgstr ""
 
 #, php-format
 msgid "salesweekday"
-msgstr "Értékesítések hétköznap"
+msgstr ""
 
 #, php-format
 msgid "selection"
-msgstr "Változatok"
+msgstr ""
 
 #, php-format
 msgid "service"
-msgstr "Szolgáltatások"
+msgstr ""
 
 #, php-format
 msgid "servicedelivery"
@@ -1695,73 +1692,73 @@ msgstr ""
 
 #, php-format
 msgid "special"
-msgstr "Speciális"
+msgstr ""
 
 msgid "stat:-1"
-msgstr "befejezetlen"
+msgstr ""
 
 msgid "stat:0"
-msgstr "törölve"
+msgstr ""
 
 msgid "stat:1"
-msgstr "elintézetlen"
+msgstr ""
 
 msgid "stat:2"
-msgstr "folyamatban"
+msgstr ""
 
 msgid "stat:3"
-msgstr "feladott"
+msgstr ""
 
 msgid "stat:4"
-msgstr "kézbesített"
+msgstr ""
 
 msgid "stat:5"
-msgstr "Elvesztett"
+msgstr ""
 
 msgid "stat:6"
-msgstr "visszautasítva"
+msgstr ""
 
 msgid "stat:7"
-msgstr "visszaküldött"
+msgstr ""
 
 msgid "status:-1"
-msgstr "állapot:archív"
+msgstr ""
 
 msgid "status:-2"
-msgstr "állapot:felülvizsgálat alatt"
+msgstr ""
 
 msgid "status:0"
-msgstr "állapot:letiltva"
+msgstr ""
 
 msgid "status:1"
-msgstr "állapot:engedélyezett"
+msgstr ""
 
 #, php-format
 msgid "stock"
-msgstr "Készletek"
+msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr "Előfizetések"
+msgstr ""
 
 #, php-format
 msgid "supplier"
-msgstr "Szállítók"
+msgstr ""
 
 msgid "tag"
-msgstr "Címkék"
+msgstr ""
 
 #, php-format
 msgid "text"
-msgstr "Szövegek"
+msgstr ""
 
 #, php-format
 msgid "type"
-msgstr "Típus"
+msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr "Jellemzők"
+msgstr ""
 
 #, php-format
 msgid "type/attribute/lists"
@@ -1785,7 +1782,7 @@ msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr "Média"
+msgstr ""
 
 #, php-format
 msgid "type/media/lists"
@@ -1801,7 +1798,7 @@ msgstr ""
 
 #, php-format
 msgid "type/price"
-msgstr "Árak"
+msgstr ""
 
 #, php-format
 msgid "type/price/lists"
@@ -1809,7 +1806,7 @@ msgstr ""
 
 #, php-format
 msgid "type/product"
-msgstr "Termékek"
+msgstr ""
 
 #, php-format
 msgid "type/product/lists"
@@ -1821,7 +1818,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr "Szolgáltatások"
+msgstr ""
 
 #, php-format
 msgid "type/service/lists"
@@ -1829,15 +1826,15 @@ msgstr ""
 
 #, php-format
 msgid "type/stock"
-msgstr "Készletek"
+msgstr ""
 
 #, php-format
 msgid "type/tag"
-msgstr "Címkék"
+msgstr ""
 
 #, php-format
 msgid "type/text"
-msgstr "Szövegek"
+msgstr ""
 
 #, php-format
 msgid "type/text/lists"

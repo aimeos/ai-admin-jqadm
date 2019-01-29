@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-30 13:52+0100\n"
-"PO-Revision-Date: 2018-12-30 12:58+0000\n"
+"PO-Revision-Date: 2018-12-30 21:41+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -549,7 +549,7 @@ msgstr "ISO dil kodu (gerekli)"
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Resimler sadece bu dil için gösterilir, eğer medya metin içeriyorsa veya dile özelse kullanışlıdır"
 
 msgid "Import"
 msgstr "İçe aktar"
@@ -1292,7 +1292,7 @@ msgid "The item is only shown on the web site until that date and time"
 msgstr "Öğe, web sitesinde sadece o tarih ve saate kadar gösterilir"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "Medya başlığı sitedeki medyanın başlık etiketi için kullanılır"
 
 msgid "The option is only shown on the web site after that date and time"
 msgstr "Seçenek, web sitesinde sadece o tarih ve saatten sonra gösterilir"
@@ -1532,7 +1532,7 @@ msgstr "İndirmeler"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "Gruplar"
 
 #, php-format
 msgid "hour"
@@ -1601,10 +1601,10 @@ msgid "order"
 msgstr "Siparişler"
 
 msgid "order:phone"
-msgstr ""
+msgstr "Telefon"
 
 msgid "order:web"
-msgstr ""
+msgstr "web"
 
 msgid "pay:-1"
 msgstr "Tamamlanmadı"
@@ -1659,10 +1659,10 @@ msgid "property"
 msgstr "Özellikler"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "Başarısız"
 
 msgid "reason:0"
-msgstr ""
+msgstr "Sona erdi"
 
 msgid "reason:1"
 msgstr "İptal edildi"
@@ -1673,7 +1673,7 @@ msgstr "Ürünler"
 
 #, php-format
 msgid "salesweekday"
-msgstr "Haftasonuna göre satışlar"
+msgstr "İş gününe göre satışlar"
 
 #, php-format
 msgid "selection"
@@ -1685,7 +1685,7 @@ msgstr "Hizmetler"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "Teslimat türlerine göre"
 
 #, php-format
 msgid "servicepayment"
@@ -1767,7 +1767,7 @@ msgstr "Nitelik Listeleri"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "Nitelik özellikleri"
 
 #, php-format
 msgid "type/catalog/lists"
@@ -1779,7 +1779,7 @@ msgstr "Müşteri Listeleri"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "Müşteri özellikleri"
 
 #, php-format
 msgid "type/media"
@@ -1791,7 +1791,7 @@ msgstr "Medya Listeleri"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "Medya Özellikleri"
 
 #, php-format
 msgid "type/plugin"
