@@ -60,10 +60,12 @@ $enc = $this->encoder();
 <?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 	<?php if( in_array( $key, $fields ) ) : ?>
 		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ); ?>">
-			<a class="<?= $sortclass( $sortcode, $key ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-				href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, $key )] + $params, $fragment, $config ) ); ?>">
-				<?= $enc->html( $name ); ?>
-			</a>
+			<?php if( $name !== null ) : ?>
+				<a class="<?= $sortclass( $sortcode, $key ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+					href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, $key )] + $params, $fragment, $config ) ); ?>">
+					<?= $enc->html( $name ); ?>
+				</a>
+			<?php endif; ?>
 		</th>
 	<?php endif; ?>
 <?php endforeach; ?>

@@ -35,26 +35,28 @@ $enc = $this->encoder();
 	<?php foreach( $this->get( 'data', [] ) as $key => $list ) : $idx++ ?>
 		<?php if( in_array( $key, $fields ) ) : ?>
 			<td class="<?= str_replace( '.', '-', $key ); ?>">
-				<input type="hidden" value="<?= $enc->attr( $key ); ?>"
-					name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'key', $idx] ) ) ); ?>" />
-				<input type="hidden" value="<?= $enc->attr( $this->value( $list, 'op', '=~' ) ); ?>"
-					name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ); ?>" />
+				<?php if( $list !== null ) : ?>
+					<input type="hidden" value="<?= $enc->attr( $key ); ?>"
+						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'key', $idx] ) ) ); ?>" />
+					<input type="hidden" value="<?= $enc->attr( $this->value( $list, 'op', '=~' ) ); ?>"
+						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ); ?>" />
 
-				<?php if( ( $type = $this->value( $list, 'type', 'text' ) ) === 'select' ) : ?>
-					<select class="form-control custom-select" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>">
-						<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?></option>
+					<?php if( ( $type = $this->value( $list, 'type', 'text' ) ) === 'select' ) : ?>
+						<select class="form-control custom-select" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>">
+							<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?></option>
 
-						<?php foreach( (array) $this->value( $list, 'val', [] ) as $val => $name ) : ?>
-							<option value="<?= $enc->attr( $val ); ?>" <?= $selected( $this->value( $filter, 'val/' . $idx ), $val ); ?> >
-								<?= $enc->html( $name ); ?>
-							</option>
-						<?php endforeach; ?>
-					</select>
-				<?php else : ?>
-					<input class="form-control" type="<?= $enc->attr( $type ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>"
-						value="<?= $enc->attr( $this->value( $filter, 'val/' . $idx ) ); ?>" />
+							<?php foreach( (array) $this->value( $list, 'val', [] ) as $val => $name ) : ?>
+								<option value="<?= $enc->attr( $val ); ?>" <?= $selected( $this->value( $filter, 'val/' . $idx ), $val ); ?> >
+									<?= $enc->html( $name ); ?>
+								</option>
+							<?php endforeach; ?>
+						</select>
+					<?php else : ?>
+						<input class="form-control" type="<?= $enc->attr( $type ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>"
+							value="<?= $enc->attr( $this->value( $filter, 'val/' . $idx ) ); ?>" />
+					<?php endif; ?>
 				<?php endif; ?>
 			</td>
 		<?php endif; ?>

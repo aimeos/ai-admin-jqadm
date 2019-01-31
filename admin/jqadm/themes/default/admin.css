@@ -118,6 +118,15 @@
 	box-shadow: 0 0 0 2px rgba(2,117,216,.25);
 }
 
+.aimeos .list-items tr:not(.list-search) td.image {
+	height: 5em;
+}
+
+.aimeos .list-items img.image {
+	max-height: 5em;
+	max-width: 5em;
+}
+
 .aimeos .list-items a.items-field {
 	display: inline;
 	color: #333;

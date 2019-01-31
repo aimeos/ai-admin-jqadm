@@ -509,7 +509,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
  * @since 2016.04
  * @category Developer
  */
-$default = $this->config( 'admin/jqadm/product/fields', ['product.id', 'product.status', 'product.type', 'product.code', 'product.label'] );
+$default = $this->config( 'admin/jqadm/product/fields', ['image', 'product.id', 'product.status', 'product.type', 'product.code', 'product.label'] );
 $fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
 
 $searchParams = $params = $this->get( 'pageParams', [] );
@@ -521,6 +521,7 @@ foreach( $this->get( 'itemTypes', [] ) as $typeItem ) {
 }
 
 $columnList = [
+	'image' => null,
 	'product.id' => $this->translate( 'admin', 'ID' ),
 	'product.status' => $this->translate( 'admin', 'Status' ),
 	'product.type' => $this->translate( 'admin', 'Type' ),
@@ -597,6 +598,7 @@ $columnList = [
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/product/filter', [] ),
 					'data' => [
+						'image' => null,
 						'product.id' => ['op' => '=='],
 						'product.status' => ['op' => '==', 'type' => 'select', 'val' => [
 							'1' => $this->translate( 'mshop/code', 'status:1' ),
