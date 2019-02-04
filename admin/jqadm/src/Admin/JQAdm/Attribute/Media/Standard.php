@@ -293,12 +293,8 @@ class Standard
 
 		foreach( $listItems as $listItem )
 		{
-			$expr = [
-				$search->compare( '==', 'attribute.lists.domain', 'media' ),
-				$search->compare( '==', 'attribute.lists.type', $listItem->getType() ),
-				$search->compare( '==', 'attribute.lists.refid', $listItem->getRefId() ),
-			];
-			$search->setConditions( $search->combine( '&&', $expr ) );
+			$func = $search->createFunction( 'attribute:has', ['media', $listItem->getType(), $listItem->getRefId()] );
+			$search->setConditions( $search->compare( '!=', $func, null ) );
 			$items = $manager->searchItems( $search );
 			$refItem = null;
 
