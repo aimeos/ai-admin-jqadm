@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 23:29+0200\n"
-"PO-Revision-Date: 2018-06-15 16:25+0000\n"
+"PO-Revision-Date: 2018-12-19 12:08+0000\n"
 "Last-Translator: Miro Sertić <miro.sertic0606@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/aimeos/aimeos-core/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -25,25 +25,25 @@ msgid "<"
 msgstr "prije"
 
 msgid "<="
-msgstr ""
+msgstr "prije (uključeno)"
 
 msgid "=="
-msgstr ""
+msgstr "jednako"
 
 msgid "=~"
-msgstr ""
+msgstr "počinje sa"
 
 msgid ">"
-msgstr ""
+msgstr "poslije"
 
 msgid ">="
-msgstr ""
+msgstr "poslije (uključeno)"
 
 msgid "Search"
 msgstr "Traži"
 
 msgid "~="
-msgstr ""
+msgstr "sadrži"
 
 msgid "address:delivery"
 msgstr "Adresa za isporuku"

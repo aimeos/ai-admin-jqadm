@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-14 09:41+0200\n"
-"PO-Revision-Date: 2018-10-14 07:41+0000\n"
+"POT-Creation-Date: 2018-12-30 13:52+0100\n"
+"PO-Revision-Date: 2018-12-30 12:58+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,6 @@ msgid ""
 "%18$s\n"
 msgstr "%1$s%2$s%3$s%4$s%5$s%6$s%7$s%8$s%9$s%10$s%11$s%12$s%13$s%14$s%15$s%16$s%17$s%18$s\n"
 
-#. / price format with value (%1$s) and currency (%2$s)
 #, php-format
 msgid "%1$s %2$s"
 msgstr "%1$s%2$s"
@@ -83,15 +82,6 @@ msgstr "顧客がウェブサイト上で記事を購入することができる
 msgid "Add"
 msgstr "追加"
 
-msgid "Add filter"
-msgstr "フィルタを追加する"
-
-msgid "Add new entry (Ctrl+A)"
-msgstr "新しいエントリを追加 (Ctrl+A)"
-
-msgid "Additional"
-msgstr "追加"
-
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
@@ -100,20 +90,8 @@ msgstr "各商品の追加送料\n例えば 1つの重いアイテムのため�
 msgid "Additional information where the customer's apartment can be found"
 msgstr "顧客のアパートを見つけることができる追加情報"
 
-msgid "Additional information where the customer's appartment can be found"
-msgstr "顧客のアパートを見つけることができる追加情報"
-
 msgid "Additional information where the supplier's apartment can be found"
 msgstr "供給者のアパートを見つけることができる追加情報"
-
-msgid "Additional information where the supplier's office can be found"
-msgstr "サプライヤーの事務所を見つけることができる追加情報"
-
-msgid "Additional information, e.g. flat number"
-msgstr "追加情報　例：フラット番号"
-
-msgid "Address"
-msgstr "住所"
 
 msgid "Address 1"
 msgstr "住所 1"
@@ -124,20 +102,11 @@ msgstr "住所 2"
 msgid "Address 3"
 msgstr "住所 3"
 
-msgid "Address ID"
-msgstr "住所 ID"
-
 msgid "Address identifier of the customer's house for delivery"
 msgstr "配達のための顧客の家の住所識別子"
 
 msgid "Address identifier of the supplier's house for delivery"
 msgstr "配達のための供給者の家の住所識別子"
-
-msgid "Address identifier of the supplier's office"
-msgstr "サプライヤの事務所の住所識別子"
-
-msgid "Addresses"
-msgstr "住所"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
@@ -168,38 +137,9 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "グループを一意に識別できる英数字の文字列"
 
 msgid ""
-"Article description shown by search engines, added to the head section of "
-"the product detail page"
-msgstr "検索エンジンで表示される商品説明は商品詳細ページの頭の部分に追加"
-
-msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
 msgstr "記事固有の設定オプションは、テンプレートのキーと値のペアとして利用できます"
-
-msgid "Associated attributes"
-msgstr "関連付けられた属性"
-
-msgid "Associated customer groups"
-msgstr "関連顧客グループ"
-
-msgid "Associated customers"
-msgstr "関連顧客"
-
-msgid "Associated media"
-msgstr "関連メディア"
-
-msgid "Associated prices"
-msgstr "関連価格"
-
-msgid "Associated products"
-msgstr "関連価格"
-
-msgid "Associated tags"
-msgstr "関連タグ"
-
-msgid "Associated texts"
-msgstr "関連テキスト"
 
 msgid "Attribute"
 msgstr "属性"
@@ -222,42 +162,17 @@ msgstr "属性タイプ"
 msgid "Attribute Types"
 msgstr "属性タイプ"
 
-msgid "Attribute name"
-msgstr "属性名"
-
 msgid "Attribute position (optional)"
 msgstr "属性の位置（オプション）"
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr "他の属性と共有されない属性プロパティ"
 
-msgid "Attribute type"
-msgstr "属性タイプ"
-
-#. : Attribute type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Attribute type: {0} ({1})"
-msgstr "属性タイプ: {0} ({1})"
-
-#. : Attribute item panel title with attribute label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Attribute: {0} ({1})"
-msgstr "属性: {0} ({1})"
-
 msgid "Attributes"
 msgstr "属性"
 
-msgid "Available attributes"
-msgstr "利用可能な属性"
-
 msgid "Available currency for the current site"
 msgstr "現在のサイトで利用可能な通貨"
-
-msgid "Available customer groups"
-msgstr "利用可能な顧客グループ"
-
-msgid "Available customers"
-msgstr "利用可能な顧客"
 
 msgid "Available intervals in the front-end"
 msgstr "フロントエンドで使用可能な間隔"
@@ -265,29 +180,8 @@ msgstr "フロントエンドで使用可能な間隔"
 msgid "Available language for the current site"
 msgstr "現在のサイトで利用可能な言語"
 
-msgid "Available media"
-msgstr "利用可能なメディア"
-
-msgid "Available prices"
-msgstr "利用可能な価格"
-
-msgid "Available products"
-msgstr "利用可能な商品"
-
-msgid "Available tags"
-msgstr "利用可能なタグ"
-
-msgid "Available texts"
-msgstr "利用可能なテキスト"
-
-msgid "Back"
-msgstr "戻り"
-
 msgid "Back in stock"
 msgstr "再入荷"
-
-msgid "Base ID"
-msgstr "ベースID"
 
 msgid "Basic"
 msgstr "基本的な"
@@ -307,15 +201,6 @@ msgstr "顧客の誕生日"
 msgid "Bug or suggestion?"
 msgstr "バグや提案?"
 
-msgid "Bundles"
-msgstr "バンドル"
-
-msgid "Cache"
-msgstr "キャッシュ"
-
-msgid "Cache item details"
-msgstr "項目の詳細をキャッシュする"
-
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -331,33 +216,16 @@ msgstr "カタログリストタイプ"
 msgid "Catalog Lists Types"
 msgstr "カタログリストタイプ"
 
-msgid "Catalog Types"
-msgstr "カタログタイプ"
-
-#. : Catalog item panel title with catalog label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Catalog: {0} ({1})"
-msgstr "カタログ: {0} ({1})"
-
-msgid "Categories"
-msgstr "カテゴリ"
-
 msgid "Categories the product can be found in by the user on the web site"
 msgstr "商品がウェブサイト上のユーザによって見つけられるカテゴリ"
 
 msgid "Categories the product will be shown for in the promotional section"
 msgstr "プロモーションセクションに商品が表示されるカテゴリ"
 
-msgid "Category name"
-msgstr "カテゴリ名"
-
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
 msgstr "カテゴリ固有の設定オプションは、テンプレートのキーと値のペアとして使用できます"
-
-msgid "Characteristics"
-msgstr "特性"
 
 msgid "Choose file"
 msgstr "ファイルを選ぶ"
@@ -365,19 +233,8 @@ msgstr "ファイルを選ぶ"
 msgid "City"
 msgstr "都市"
 
-msgid "City name (required)"
-msgstr "都市名（必須）"
-
 msgid "City or town name (required)"
 msgstr "市または町の名前（必須）"
-
-#, php-format
-msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr "クラス「%1$s」は、「%2$s」を実行しません"
-
-#, php-format
-msgid "Class \"%1$s\" does not implement interface \"%2$s\""
-msgstr "クラス \"%1$s\"はインターフェイス \"%2$s\"を実行しません"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -387,26 +244,14 @@ msgstr "\"%1$s\"クラスは利用できません"
 msgid "Class \"%1$s\" not found"
 msgstr "クラス \"%1$s\"が見つかりません"
 
-msgid "Clear"
-msgstr "クリア"
-
-msgid "Click to upload"
-msgstr "クリックしてアップロードする"
-
 msgid "Close"
 msgstr "閉じる"
 
 msgid "Code"
 msgstr "コード"
 
-msgid "Code to uniquely identify the site"
-msgstr "サイトを一意に識別するコード"
-
 msgid "Code to uniquely identify the site, renaming is dangerous!"
 msgstr "サイトを一意に識別するためのコード、改名は危険です！"
-
-msgid "Codes"
-msgstr "コード"
 
 msgid "Columns"
 msgstr "列"
@@ -423,9 +268,6 @@ msgstr "会社"
 msgid "Company details"
 msgstr "会社の詳細"
 
-msgid "Company name"
-msgstr "会社名"
-
 msgid "Company name (optional)"
 msgstr "会社名（オプション）"
 
@@ -435,15 +277,9 @@ msgstr "設定"
 msgid "Configurable"
 msgstr "設定可能な"
 
-msgid "Configuration"
-msgstr "設定"
-
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr "設定オプションは、リスト項目のキー/値のペアとして使用できます"
-
-msgid "Content"
-msgstr "内容"
 
 msgid "Copy"
 msgstr "コピー"
@@ -454,12 +290,6 @@ msgstr "このエントリをコピーする"
 msgid "Costs"
 msgstr "費用"
 
-msgid "Costs per item"
-msgstr "1項目あたりの費用"
-
-msgid "Could not upload file. Please notify your administrator"
-msgstr "ファイルをアップロードできませんでした。 管理者に通知してください"
-
 msgid "Count"
 msgstr "カウント"
 
@@ -468,9 +298,6 @@ msgstr "国"
 
 msgid "Country ID"
 msgstr "国ID"
-
-msgid "Country code"
-msgstr "国コード"
 
 msgid "Country code (required)"
 msgstr "国コード（必須）"
@@ -483,30 +310,11 @@ msgstr "税金（B2C）を計算して表示するか、必要に応じて税金
 msgid "Country state code (optional)"
 msgstr "国の州のコード（オプション）"
 
-msgid "Country state, e.g. \"NY\""
-msgstr "国の州 \"NY\""
-
 msgid "Coupon"
 msgstr "クーポン"
 
-msgid "Coupon code"
-msgstr "クーポンコード"
-
-#. : Coupon code item panel title with coupon code ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Coupon code: {0} ({1})"
-msgstr "クーポンコード：{0}（{1}）"
-
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr "クーポンプロバイダまたはクーポンデコレータのコンフィグレーション名"
-
-#. : Coupon item panel title with coupon label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Coupon: {0} ({1})"
-msgstr "クーポン：{0}（{1}）"
-
-msgid "Coupons"
-msgstr "クーポン"
 
 msgid "Created"
 msgstr "作成した"
@@ -516,9 +324,6 @@ msgstr "通貨"
 
 msgid "Currency"
 msgstr "通貨"
-
-msgid "Currency (required)"
-msgstr "通貨（必須）"
 
 msgid "Custom"
 msgstr "関税"
@@ -541,30 +346,11 @@ msgstr "顧客プロパティタイプ"
 msgid "Customer Property Types"
 msgstr "顧客プロパティタイプ"
 
-msgid "Customer Types"
-msgstr "顧客タイプ"
-
-#. : Customer address item panel title with customer name ({0}) and site code
-#. ({1)}
-#. : Customer address item panel title with customer name ({0}) and site code
-#. ({1)}
-#, python-brace-format
-msgid "Customer address: {0} ({1})"
-msgstr "顧客の住所：{0}（{1}）"
-
 msgid "Customer comment (optional)"
 msgstr "顧客コメント（オプション）"
 
 msgid "Customer e-mail address"
 msgstr "顧客の電子メールアドレス"
-
-#. : Customer group item panel title with customer name ({0}) and site code
-#. ({1)}
-#. : Customer group item panel title with customer name ({0}) and site code
-#. ({1)}
-#, python-brace-format
-msgid "Customer group: {0} ({1})"
-msgstr "顧客グループ：{0}（{1}）"
 
 msgid "Customer password"
 msgstr "顧客のパスワード"
@@ -572,19 +358,8 @@ msgstr "顧客のパスワード"
 msgid "Customer properties that are not shared with other customers"
 msgstr "他の顧客と共有されていない顧客のプロパティ"
 
-#. : Customer item panel title with customer label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Customer: {0} ({1})"
-msgstr "顧客：{0}（{1}）"
-
 msgid "Dashboard"
 msgstr "ダッシュボード"
-
-msgid "Date"
-msgstr "日付"
-
-msgid "Date back"
-msgstr "戻る日付"
 
 msgid "Date of the last delivery status change"
 msgstr "最後の配達日のステータス変化"
@@ -616,13 +391,6 @@ msgstr "配達"
 msgid "Delivery address"
 msgstr "配達先"
 
-msgid ""
-"Delivery costs for the whole order or additional costs for payment options"
-msgstr "注文全体の配達コストまたは 支払いオプションの追加費用"
-
-msgid "Delivery date"
-msgstr "配達日"
-
 msgid "Delivery status"
 msgstr "配達状況"
 
@@ -641,17 +409,8 @@ msgstr "言語の記述名"
 msgid "Descritive name of the site"
 msgstr "サイトの記述名"
 
-msgid "Details"
-msgstr "詳細"
-
-msgid "Display field is empty"
-msgstr "表示フィールドが空です"
-
 msgid "Domain"
 msgstr "ドメイン"
-
-msgid "Domain (required)"
-msgstr "ドメイン（必須）"
 
 msgid "Download"
 msgstr "ダウンロード"
@@ -667,9 +426,6 @@ msgstr "電子メイル"
 
 msgid "E-Mail address (required)"
 msgstr "電子メールアドレス（必須）"
-
-msgid "E-Mail, e.g. me@example.com (required)"
-msgstr "電子メール、例えば。 me@example.com（必須）"
 
 msgid "E-mail"
 msgstr "電子メイル"
@@ -710,21 +466,6 @@ msgstr "税金を除く"
 msgid "Execution order of the plugins"
 msgstr "プラグインの実行順序"
 
-msgid "Expert"
-msgstr "エキスパート"
-
-msgid "Expert mode"
-msgstr "エキスパートモード"
-
-msgid "Expires"
-msgstr "失効"
-
-msgid "Export"
-msgstr "輸出"
-
-msgid "Export successful"
-msgstr "輸出成功"
-
 msgid "Facility"
 msgstr "施設"
 
@@ -734,17 +475,8 @@ msgstr "ファクシミリ"
 msgid "Facsimile number (optional)"
 msgstr "ファクシミリ番号（オプション）"
 
-msgid "Facsimile number, e.g. +155512345"
-msgstr "ファクシミリ番号 例 +155512345"
-
 msgid "File"
 msgstr "ファイル"
-
-msgid "File URL"
-msgstr "ファイルのURL"
-
-msgid "Filter"
-msgstr "フィルタ"
 
 msgid "Find category"
 msgstr "カテゴリを検索"
@@ -761,44 +493,17 @@ msgstr "ファーストネーム （オプション）"
 msgid "First name of the person if used in cultures where they are used"
 msgstr "それが使われる文化において使われるならば人の名前"
 
-msgid "Firstname"
-msgstr "ファーストネーム "
-
 msgid "Floor"
 msgstr "階"
 
 msgid "Floor / Appartment"
 msgstr "階//アパート"
 
-msgid "Floor / Office"
-msgstr "階/事務所"
-
 msgid "Floor and/or apartment (optional)"
 msgstr "階および/またはアパート（オプション）"
 
-msgid "Floor and/or appartment (optional)"
-msgstr "階および/またはアパート（オプション）"
-
-msgid "Floor and/or office (optional)"
-msgstr "階および/または事務所（オプション）"
-
-msgid "Flush"
-msgstr "フラッシュ"
-
-msgid "Flush cache?"
-msgstr "キャッシュをフラッシュしますか？"
-
-msgid "Full name"
-msgstr "氏名"
-
-msgid "Full name (required)"
-msgstr "氏名（必須）"
-
 msgid "Group"
 msgstr "グループ"
-
-msgid "Group label (required)"
-msgstr "グループラベル（必須）"
 
 msgid "Group name describing for which members the group is for"
 msgstr "グループが属するメンバーを記述するグループ名"
@@ -812,17 +517,11 @@ msgstr "非表示の属性"
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr "注文商品に格納されている非表示の商品属性"
 
-msgid "Honorary title"
-msgstr "名誉称号"
-
 msgid "Honorary title (optional)"
 msgstr "名誉称号 (オプション)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr "Dr.、Ph.Dなどの名誉称号"
-
-msgid "House no"
-msgstr "家屋番号"
 
 msgid "House number"
 msgstr "家屋番号"
@@ -848,13 +547,10 @@ msgstr "ISO通貨コード（必須）"
 msgid "ISO language code (required)"
 msgstr "ISO言語コード（必須）"
 
-msgid "Images"
-msgstr "画像"
-
 msgid ""
-"Images will only be shown for that language, useful if the image contains "
+"Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr "画像はその言語でのみ表示され、画像にテキストが含まれている場合や言語固有の場合に便利です"
+msgstr ""
 
 msgid "Import"
 msgstr "輸入"
@@ -894,9 +590,6 @@ msgid ""
 "language is available"
 msgstr "言語の名前がない場合、内部カテゴリ名がウェブサイトで使用されます"
 
-msgid "Internal name"
-msgstr "内部名"
-
 msgid "Internal name (required)"
 msgstr "内部名（必須）"
 
@@ -908,10 +601,6 @@ msgstr "間隔"
 
 msgid "Interval (required)"
 msgstr "間隔（必須）"
-
-#, python-brace-format
-msgid "Invalid action \"{0}\""
-msgstr "無効な行動 \"{0}\""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
@@ -925,9 +614,6 @@ msgstr "クライアント名 \"1%1$s\"に無効な文字があります"
 msgid "Invalid class name \"%1$s\""
 msgstr "無効なクラス名 \"%1$s\""
 
-msgid "Invalid data"
-msgstr "無効なデータ"
-
 #, php-format
 msgid "Invalid domain \"%1$s\""
 msgstr "無効なドメイン \"%1$s\""
@@ -936,36 +622,14 @@ msgstr "無効なドメイン \"%1$s\""
 msgid "Invalid factory \"%1$s\""
 msgstr "無効なファクトリ \"%1$s\""
 
-#, python-brace-format
-msgid "Invalid value for configuration key \"{0}\""
-msgstr "構成キー \"{0}\"の値が無効です"
-
 msgid "Invoice"
 msgstr "請求書"
 
 msgid "Item deleted successfully"
 msgstr "項目が正常に削除された"
 
-msgid "Item position within the same type"
-msgstr "同じタイプ内の項目の位置"
-
 msgid "Item saved successfully"
 msgstr "項目が正常に保存された"
-
-msgid "Job item details"
-msgstr "ジョブアイテムの詳細"
-
-msgid "Jobs"
-msgstr "ジョブ"
-
-msgid ""
-"Keywords for search engines, added to the head section of the category page"
-msgstr "検索エンジンのためのキーワードは、カテゴリページの先頭に追加されます"
-
-msgid ""
-"Keywords for search engines, added to the head section of the product detail"
-" page"
-msgstr "検索エンジンのためのキーワードは、商品詳細ページの先頭に追加されます"
 
 msgid "Label"
 msgstr "ラベル"
@@ -976,16 +640,8 @@ msgstr "ラベル（必須）"
 msgid "Label describing the interval, will be used if no name is available"
 msgstr "名前がない場合、間隔を記述するラベルが使用されます"
 
-msgid ""
-"Label will be used if empty but then there must be no name for all "
-"languages. Otherwise, items will not be shown when sorting by name"
-msgstr "空の場合はラベルが使用されますが、すべての言語に名前が付いていない必要があります。そうでなければ、名前で並べ替えると項目は表示されません"
-
 msgid "Language"
 msgstr "言語"
-
-msgid "Language (required)"
-msgstr "言語（必須）"
 
 msgid "Language ID"
 msgstr "言語ID"
@@ -999,14 +655,8 @@ msgstr "言語"
 msgid "Last"
 msgstr "最終"
 
-msgid "Last delivery status of the invoice"
-msgstr "請求書の最終配達ステータス"
-
 msgid "Last delivery status of the order"
 msgstr "注文の最終配達ステータス"
-
-msgid "Last modified"
-msgstr "最終更新日"
 
 msgid "Last name"
 msgstr "名字"
@@ -1019,44 +669,14 @@ msgid ""
 "used"
 msgstr "ファーストネームを使用しない文化の場合は、その人の名字または氏名を使用してください"
 
-msgid "Last payment status of the invoice"
-msgstr "請求書の最終支払いステータス"
-
 msgid "Last payment status of the order"
 msgstr "注文の最終支払いステータス"
-
-msgid "Lastname"
-msgstr "名字"
 
 msgid "Latest orders"
 msgstr "最新の注文"
 
 msgid "Length"
 msgstr "長さ"
-
-msgid "List"
-msgstr "リスト"
-
-msgid "List ID"
-msgstr "リストID"
-
-msgid "List Status"
-msgstr "リストの状態"
-
-msgid "List creation time"
-msgstr "リスト作成時間"
-
-msgid "List editor"
-msgstr "リスト 編集者"
-
-msgid "List end date"
-msgstr "リスト終了日"
-
-msgid "List item details"
-msgstr "リスト項目の詳細"
-
-msgid "List modification time"
-msgstr "リスト修正時間"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
@@ -1069,58 +689,14 @@ msgstr "一緒に購入されることが多い商品のリスト"
 msgid "List of suggested products"
 msgstr "推奨商品のリスト"
 
-msgid "List position"
-msgstr "リストの位置"
-
-msgid "List start date"
-msgstr "リスト開始日"
-
 msgid "List type"
 msgstr "リストタイプ"
-
-msgid "Loading"
-msgstr "ローディング"
 
 msgid "Locale"
 msgstr "ロケール"
 
-#. : Locale currency item panel title with currency label ({0}) and currency
-#. code ({1)}
-#. : Locale currency item panel title with currency label ({0}) and currency
-#. code ({1)}
-#, python-brace-format
-msgid "Locale currency: {0} ({1})"
-msgstr "ロケール通貨：{0}（{1}）"
-
-#. : Locale item panel title with site code ({1)}
-#, python-brace-format
-msgid "Locale item details ({1})"
-msgstr "ロケール項目の詳細（{1}）"
-
-#. : Locale language item panel title with language label ({0}) and language
-#. code ({1)}
-#. : Locale language item panel title with language label ({0}) and language
-#. code ({1)}
-#, python-brace-format
-msgid "Locale language: {0} ({1})"
-msgstr "ロケール言語：{0}（{1}）"
-
-#. : Locale site item panel title with site label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Locale site: {0} ({1})"
-msgstr "ロケールサイト：{0}（{1}）"
-
 msgid "Log"
 msgstr "ログ"
-
-msgid "Logs"
-msgstr "ログ"
-
-msgid "Long description"
-msgstr "長い説明"
-
-msgid "Media"
-msgstr "メディア"
 
 msgid "Media Lists Type"
 msgstr "メディアリストタイプ"
@@ -1143,39 +719,11 @@ msgstr "メディアタイプ"
 msgid "Media properties"
 msgstr "メディアプロパティ"
 
-msgid "Media type"
-msgstr "メディアタイプ"
-
-#. : Media type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Media type: {0} ({1})"
-msgstr "メディアタイプ：{0}（{1}）"
-
-#. : Media item panel title with media label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Media: {0} ({1})"
-msgstr "メディア: {0} ({1})"
-
 msgid "Message"
 msgstr "メッセージ"
 
-msgid "Meta description"
-msgstr "メタ記述"
-
-msgid "Meta keywords"
-msgstr "メタキーワード"
-
-msgid "Method"
-msgstr "方法"
-
-msgid "Mimetype"
-msgstr "Mimeタイプ"
-
 msgid "Minimum quantity"
 msgstr "最小数量"
-
-msgid "Miss"
-msgstr "ミス"
 
 msgid "Modifed"
 msgstr "変更された"
@@ -1189,30 +737,12 @@ msgstr "月"
 msgid "More"
 msgstr "モア"
 
-msgid "Move this entry up/down"
-msgstr "このエントリを上下に移動する"
-
-msgid "Mr"
-msgstr "ミスタ"
-
-msgid "Mrs"
-msgstr "ミセス"
-
 msgid "Name"
 msgstr "名前"
-
-msgid "Name of the coupon provider class (required)"
-msgstr "クーポン・プロバイダー・クラスの名前（必須）"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr "顧客がファイルをコンピュータに保存したときにダウンロードしたファイルの名前"
-
-msgid "Name of the plugin provider class (required)"
-msgstr "プラグインプロバイダクラスの名前（必須）"
-
-msgid "Name of the service provider class (required)"
-msgstr "サービスプロバイダクラスの名前（必須）"
 
 msgid "New"
 msgstr "新しい"
@@ -1229,22 +759,8 @@ msgstr "次の日付（オプション）"
 msgid "Next date the subscription is renewed"
 msgstr "次回のサブスクリプションは更新されます"
 
-msgid "No error information available"
-msgstr "エラー情報はありません"
-
-#, php-format
-msgid "No file uploaded for %1$d. new image"
-msgstr "%1$dのファイルはアップロードされていません。 新しいイメージ"
-
-msgid "No items"
-msgstr "項目はありません"
-
 msgid "No items found"
 msgstr "項目は見つかりませんでした"
-
-#, php-format
-msgid "No items found for \"%1$s %2$s %3$s\""
-msgstr "\"%1$s\" \"%2$s\" \"%3$s\"のアイテムは見つかりませんでした"
 
 #, php-format
 msgid "No view available"
@@ -1262,12 +778,6 @@ msgstr ""
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "JQAdm \"%1$s\"クライアントにアクセスできません"
-
-msgid "Not implemented"
-msgstr "実行されていない"
-
-msgid "Notice"
-msgstr "通知"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -1297,9 +807,6 @@ msgstr "注文"
 msgid "Order ID"
 msgstr "注文ID"
 
-msgid "Order item details"
-msgstr "注文項目の詳細"
-
 msgid "Order of the language/currency combinations"
 msgstr "言語/通貨の組み合わせの順序"
 
@@ -1309,14 +816,8 @@ msgstr "チェックアウトプロセスにおけるサービスオプション
 msgid "Order of the types in the frontend"
 msgstr "フロントエンドのタイプの順序"
 
-msgid "Order product ID"
-msgstr "商品IDを注文する"
-
 msgid "Order totals"
 msgstr "注文総額"
-
-msgid "Orders"
-msgstr "注文"
 
 msgid "Orders by day"
 msgstr "1日の注文"
@@ -1326,12 +827,6 @@ msgstr "時間別注文"
 
 msgid "Orders by payment status"
 msgstr "支払いステータス別の注文"
-
-msgid "Orders by weekday"
-msgstr "平日の注文"
-
-msgid "Overview"
-msgstr "概要"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
@@ -1350,14 +845,6 @@ msgstr ""
 msgid "Page %1$d of %2$d"
 msgstr "%2$d のページ%1$d"
 
-msgid ""
-"Page description shown by search engines, added to the head section of the "
-"category page"
-msgstr "カテゴリページの先頭に追加された検索エンジンによって表示されるページの説明"
-
-msgid "Parameter"
-msgstr "パラメータ"
-
 msgid "Password"
 msgstr "パスワード"
 
@@ -1367,20 +854,8 @@ msgstr "パスワードが (必要 )"
 msgid "Path"
 msgstr "パス"
 
-msgid "Pay costs"
-msgstr "支払コスト"
-
 msgid "Pay date"
 msgstr "支払日"
-
-msgid "Pay name"
-msgstr "支払の名前"
-
-msgid "Pay price"
-msgstr "支払価格"
-
-msgid "Pay rebate"
-msgstr "支払リベート"
 
 msgid "Pay status"
 msgstr "支払い状況"
@@ -1388,14 +863,8 @@ msgstr "支払い状況"
 msgid "Payment"
 msgstr "支払い"
 
-msgid "Payment date"
-msgstr "支払期日"
-
 msgid "Payment status"
 msgstr "支払い状況"
-
-msgid "Payment type"
-msgstr "支払いのタイプ"
 
 msgid "Payment types"
 msgstr "支払いのタイプ"
@@ -1407,25 +876,8 @@ msgstr "許可は拒まれます"
 msgid "Personal data"
 msgstr "個人データ"
 
-msgid "Phone"
-msgstr "電話"
-
-msgid "Physical values"
-msgstr "物理的な値"
-
-msgid "Please recheck your data"
-msgstr "あなたのデータを再チェックしてください"
-
-msgid "Please save the coupon first before you can add codes"
-msgstr "コードを追加する前にまずクーポンを保存してください"
-
 msgid "Please select"
 msgstr "選んでください"
-
-msgid ""
-"Please select an item on the right side and add it via drag and drop to this"
-" list."
-msgstr "右側の項目を選択し、このリストにドラッグ＆ドロップで追加してください。"
 
 msgid "Plugin"
 msgstr "プラグイン"
@@ -1442,22 +894,6 @@ msgstr "プラグインの位置（必須）"
 msgid "Plugin provider or plugin decorator configuration name"
 msgstr "プラグインプロバイダまたはプラグインデコレータの設定名"
 
-msgid "Plugin type"
-msgstr "プラグインのタイプ"
-
-#. : Plugin type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Plugin type: {0} ({1})"
-msgstr "プラグインのタイプ：{0}（{1}）"
-
-#. : Plugin item panel title with attribute label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Plugin: {0} ({1})"
-msgstr "プラグイン：{0}（{1}）"
-
-msgid "Plugins"
-msgstr "プラグイン"
-
 msgid "Position"
 msgstr "位置"
 
@@ -1467,23 +903,11 @@ msgstr "位置（必須）"
 msgid "Postal"
 msgstr "郵便"
 
-msgid "Postal code"
-msgstr "郵便番号"
-
 msgid "Postal code for delivery if used in the area the customer is living"
 msgstr "顧客が住んでいる地域の場合は配達の郵便番号使用されます"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "サプライヤーが住んでいる地域の場合は配達の郵便番号使用されます"
-
-msgid "Postal code for delivery if used in the area the supplier's office"
-msgstr "サプライヤーのオフィス地域のの場合は配達の郵便番号使用されます"
-
-msgid "Preview"
-msgstr "プレビュー"
-
-msgid "Preview URL"
-msgstr "プレビュー　URL"
 
 msgid "Previous"
 msgstr "前"
@@ -1502,22 +926,6 @@ msgstr "価格タイプ"
 
 msgid "Price Types"
 msgstr "価格タイプ"
-
-msgid "Price type"
-msgstr "価格タイプ"
-
-#. : Price type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Price type: {0} ({1})"
-msgstr "価格タイプ：{0}（{1}）"
-
-#. : Price item panel title with price label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Price: {0} ({1})"
-msgstr "価格：{0}（{1}）"
-
-msgid "Prices"
-msgstr "価格"
 
 msgid "Priority"
 msgstr "優先"
@@ -1560,85 +968,17 @@ msgstr "他の商品でも使用されている商品属性"
 msgid "Product characteristics that are not shared with other products"
 msgstr "他の商品と共有されていない商品特性"
 
-msgid "Product code"
-msgstr "商品コード"
-
-msgid "Product costs"
-msgstr "商品費用"
-
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr "商品の高さ 20.0（ヤード、インチなど）"
 
-msgid "Product item details"
-msgstr "商品項目の詳細"
-
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr "商品の長さ。 30.0（ヤード、インチなど）"
-
-msgid "Product name"
-msgstr "商品名"
-
-msgid "Product price"
-msgstr "商品価格"
-
-msgid "Product property type"
-msgstr "商品プロパティタイプ"
-
-#. : Product property.type item panel title with type label ({0}) and site
-#. code ({1)}
-#. : Product property type item panel title with type label ({0}) and site
-#. code ({1)}
-#, python-brace-format
-msgid "Product property type: {0} ({1})"
-msgstr "商品プロパティタイプ: {0} ({1})"
-
-msgid "Product quantity"
-msgstr "商品数量"
-
-msgid "Product rebate"
-msgstr "商品リベート"
-
-msgid "Product status"
-msgstr ""
-
-msgid "Product stock"
-msgstr "商品在庫"
-
-msgid "Product supplier"
-msgstr ""
-
-msgid "Product supplier (optional)"
-msgstr "商品サプライヤー (オプション)"
-
-#. : Product tag item panel title with product label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Product tag: {0} ({1})"
-msgstr "商品タグ：{0}（{1}）"
-
-msgid "Product tax"
-msgstr ""
-
-msgid "Product tax rate"
-msgstr "商品税率"
-
-msgid "Product type"
-msgstr "商品タイプ"
-
-#. : Product type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Product type: {0} ({1})"
-msgstr "商品タイプタイプ: {0} ({1})"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr "商品重量 1.25（ポンド、オンスなど）"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
 msgstr "商品の幅、 17.5（ヤード、インチなど）"
-
-#. : Product item panel title with product label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Product: {0} ({1})"
-msgstr "商品：{0}（{1}）"
 
 msgid "Products"
 msgstr "商品"
@@ -1650,9 +990,6 @@ msgid "Promotion"
 msgstr "広報宣伝"
 
 msgid "Properties"
-msgstr "プロパティ"
-
-msgid "Property"
 msgstr "プロパティ"
 
 msgid "Property value (required)"
@@ -1667,17 +1004,8 @@ msgstr "プロバイダ/デコレータクラス名（必須）"
 msgid "Purchase"
 msgstr "購入"
 
-msgid "Purchase date"
-msgstr "購入日"
-
-msgid "Purchased"
-msgstr "購入した"
-
 msgid "Quantity"
 msgstr "数量"
-
-msgid "Quantity or empty if unlimited (optional)"
-msgstr "数量または無制限の場合は空（オプション）"
 
 msgid "Reason"
 msgstr ""
@@ -1690,20 +1018,11 @@ msgid ""
 " cross price"
 msgstr "リベートを％で計算するために使用された元の価格からの減額とクロス価格"
 
-msgid "Ref-ID"
-msgstr "参照ID"
-
 msgid "Related ID"
 msgstr "関連ID"
 
 msgid "Related order"
 msgstr "関連注文"
-
-msgid "Related order ID"
-msgstr "関連注文 ID"
-
-msgid "Remove filter"
-msgstr "フィルタを削除"
 
 msgid "Renew"
 msgstr "更新"
@@ -1725,9 +1044,6 @@ msgstr "ブロック料金設定に必要な商品数量。 $ 5.00で1件、$ 45
 
 msgid "Reset"
 msgstr "リセット"
-
-msgid "Result"
-msgstr "結果"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1772,37 +1088,17 @@ msgstr "保存＆新規"
 msgid "Save entry (Ctrl+S)"
 msgstr "エントリを保存する（Ctrl + S）"
 
-msgid "Saving"
-msgstr "保存する"
-
-#, python-brace-format
-msgid "Schema {0} is  not registered"
-msgstr "スキーマ{0}は登録されていません"
-
 msgid "Search"
 msgstr "検索"
-
-#, python-brace-format
-msgid "Search schema {0} is  not registered"
-msgstr "検索スキーマ{0}は登録されていません"
 
 msgid "Second level type for grouping items"
 msgstr "アイテムをグループ化するための第2レベルのタイプ"
 
-msgid "Select Item"
-msgstr "項目を選択"
-
 msgid "Select file"
 msgstr "ファイルを選ぶ"
 
-msgid "Select languages to export"
-msgstr "エクスポートする言語を選択する"
-
 msgid "Service"
 msgstr "サービス"
-
-msgid "Service ID"
-msgstr "サービス ID"
 
 msgid "Service Lists Type"
 msgstr "サービスリストタイプ"
@@ -1822,12 +1118,6 @@ msgstr "サービス属性コード"
 msgid "Service costs"
 msgstr ""
 
-msgid "Service fees"
-msgstr "サービス料"
-
-msgid "Service item details"
-msgstr "サービス明細の詳細"
-
 msgid "Service name"
 msgstr "サービス名"
 
@@ -1843,22 +1133,6 @@ msgstr "サービスプロバイダまたはサービスデコレータの設定
 msgid "Service rebate"
 msgstr ""
 
-msgid "Service type"
-msgstr "サービスタイプ"
-
-#. : Service type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Service type: {0} ({1})"
-msgstr "サービスタイプ　: {0} ({1})"
-
-#. : Service item panel title with service label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Service: {0} ({1})"
-msgstr "サービス：{0}（{1}）"
-
-msgid "Services"
-msgstr "サービス"
-
 msgid "Ship date"
 msgstr "出荷日"
 
@@ -1871,23 +1145,12 @@ msgstr "出荷"
 msgid "Shipping costs per item"
 msgstr "商品1個あたりの送料"
 
-msgid "Shipping or payment costs"
-msgstr "送料または支払い費用"
-
 msgid "Shipping/Payment costs"
 msgstr "送料/支払い費用"
-
-msgid "Short description"
-msgstr "簡単な説明"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr "顧客が住んでいる国で使用されている場合の短い州のコード（NYなど）"
-
-msgid ""
-"Short state code (e.g. NY) if used in the country the supplier has his "
-"office"
-msgstr "サプライヤが所在する国で使用されている場合は短い州コード（NYなど）"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
@@ -1908,9 +1171,6 @@ msgstr "このエントリの表示/非表示"
 msgid "Shown if the article reached a stock level of zero"
 msgstr "商品がゼロの在庫レベルに達した場合に表示されます。"
 
-msgid "Simple mode"
-msgstr "シンプルモード"
-
 msgid "Since when the product is available, used for sorting in the front-end"
 msgstr ""
 
@@ -1930,14 +1190,8 @@ msgstr "サイト"
 msgid "Size"
 msgstr "サイズ"
 
-msgid "Sorry, adding orders manually is currently not implemented"
-msgstr "手動で注文を追加することは現在実行されていません"
-
 msgid "Sorting of the attributes within the same attribute type"
 msgstr "同じ属性タイプ内の属性のソート"
-
-msgid "Source"
-msgstr "ソース"
 
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "請求書の送信元。 例　ウェブまたは電話で"
@@ -1951,9 +1205,6 @@ msgstr "州"
 msgid "Status"
 msgstr "状態"
 
-msgid "Stock"
-msgstr "在庫"
-
 msgid "Stock Type"
 msgstr "在庫タイプ"
 
@@ -1963,14 +1214,8 @@ msgstr "在庫タイプ"
 msgid "Stock level"
 msgstr "在庫量"
 
-msgid "Stock type"
-msgstr ""
-
 msgid "Street"
 msgstr "道"
-
-msgid "Street (required)"
-msgstr "道（必須）"
 
 msgid "Street name (optional)"
 msgstr "道名（オプション）"
@@ -1998,30 +1243,8 @@ msgstr "合計"
 msgid "Supplier"
 msgstr "サプライヤー"
 
-#. : Supplier address item panel title with supplier name ({0}) and site code
-#. ({1)}
-#. : Supplier address item panel title with supplier name ({0}) and site code
-#. ({1)}
-#, python-brace-format
-msgid "Supplier address: {0} ({1})"
-msgstr "サプライヤ住所：{0}（{1}）"
-
 msgid "Supplier name or company"
 msgstr "サプライヤーの名前または会社"
-
-#. : Supplier item panel title with supplier label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Supplier: {0} ({1})"
-msgstr "サプライヤー：{0}（{1}）"
-
-msgid "Suppliers"
-msgstr "サプライヤー"
-
-msgid "Switching language ..."
-msgstr "言語の切り替える..."
-
-msgid "Switching site ..."
-msgstr "サイトを切り替える..."
 
 msgid "Tag Type"
 msgstr "タグタイプ"
@@ -2029,40 +1252,17 @@ msgstr "タグタイプ"
 msgid "Tag Types"
 msgstr "タグタイプ"
 
-msgid "Tag value (required)"
-msgstr "タグ値（必須）"
-
-#. : Tag item panel title with tag label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Tag: {0} ({1})"
-msgstr "タグ：{0}（{1}）"
-
-msgid "Tags"
-msgstr "タグ"
-
 msgid "Tax"
 msgstr "税金"
 
-msgid "Tax rate"
-msgstr "税率"
-
 msgid "Tax rate in %"
 msgstr "税率　％"
-
-msgid "Telefax"
-msgstr "テレファックス"
 
 msgid "Telephone"
 msgstr "電話"
 
 msgid "Telephone number (optional)"
 msgstr "電話番号（オプション）"
-
-msgid "Telephone number, e.g. +155512345"
-msgstr "電話番号　例： +155512345"
-
-msgid "Text"
-msgstr "テキスト"
 
 msgid "Text Lists Type"
 msgstr "テキストリストタイプ"
@@ -2076,22 +1276,6 @@ msgstr "テキストタイプ"
 msgid "Text Types"
 msgstr "テキストタイプ"
 
-msgid "Text type"
-msgstr "テキストタイプ"
-
-#. : Text type item panel title with type label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Text type: {0} ({1})"
-msgstr "テキストタイプ: {0} ({1})"
-
-#. : Text item panel title with text label ({0}) and site code ({1)}
-#, python-brace-format
-msgid "Text: {0} ({1})"
-msgstr "テキスト: {0} ({1})"
-
-msgid "Texts"
-msgstr "テキスト"
-
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
@@ -2102,40 +1286,20 @@ msgid ""
 "or seasonal articles"
 msgstr "品物はその日時までのウェブサイトにのみ表示され、有用な記事や季節の品物"
 
-msgid "The article name as used in URLs, e.g. for non-latin languages"
-msgstr "URLで使用される項目名 例： 非ラテン語"
-
-msgid "The category name as used in URLs, e.g. for non-latin languages"
-msgstr "URLで使用されるカテゴリ名 例： 非ラテン語"
-
-msgid ""
-"The file with the exported texts will be available within a few minutes. It "
-"can then be downloaded from the \"Job\" panel of the \"Overview\" tab."
-msgstr "エクスポートされたテキストを含むファイルは、数分で利用可能になります。 「概要」タブの「ジョブ」パネルからダウンロードできます。"
-
-msgid "The image title is used for the title tag of the image on the web site"
-msgstr "画像タイトルは、ウェブサイト上の画像のタイトルタグに使用される"
-
 msgid "The item is only shown on the web site after that date and time"
 msgstr "項目はその日時以降にウェブサイトにのみ表示されます"
 
 msgid "The item is only shown on the web site until that date and time"
 msgstr "項目はその日時までウェブサイトにのみ表示されます"
 
+msgid "The media title is used for the title tag of the media on the web site"
+msgstr ""
+
 msgid "The option is only shown on the web site after that date and time"
 msgstr "このオプションは、その日時以降にウェブサイトにのみ表示されます"
 
 msgid "The option is only shown on the web site until that date and time"
 msgstr "このオプションは、その日時までウェブサイトにのみ表示されます"
-
-msgid ""
-"The texts of your uploaded file will be imported within a few minutes. You "
-"can check the status of the import in the \"Job\" panel of the \"Overview\" "
-"tab"
-msgstr "アップロードしたファイルのテキストは数分以内にインポートされます。 [概要]タブの[ジョブ]パネルでインポートのステータスを確認できます"
-
-msgid "This combination already exists"
-msgstr "この組み合わせは既に存在します"
 
 msgid "Three letter ISO currency code"
 msgstr "3文字のISO通貨コード"
@@ -2158,17 +1322,11 @@ msgstr "2文字のISO国コード"
 msgid "Two letter ISO language code"
 msgstr "2文字のISO言語コード"
 
-msgid "Two letter country code, e.g. \"US\" (required)"
-msgstr "2文字の国コード 例： \"US\"（必須）"
-
 msgid "Type"
 msgstr "タイプ"
 
 msgid "Type position (optional)"
 msgstr "タイプの位置（オプション）"
-
-msgid "Types"
-msgstr "タイプ"
 
 msgid "Types for additional images like icons"
 msgstr "アイコンのような追加画像のタイプ"
@@ -2184,9 +1342,6 @@ msgstr "顧客のWebサイトのURL"
 
 msgid "URL of the supplier web site"
 msgstr "サプライヤのWebサイトのURL"
-
-msgid "URL segment"
-msgstr "URLセグメント"
 
 msgid "URL target"
 msgstr "URLターゲット"
@@ -2242,33 +1397,11 @@ msgstr "一意のタイプコード（必須）"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "一意のタイプコード。 \"緑\"、 \"青\"、 \"赤\"などの属性の \"色\""
 
-#, php-format
-msgid "Unknown type \"%1$s\""
-msgstr "不明なタイプ \"%1$s\""
-
-msgid "Upload failed"
-msgstr "アップロードに失敗しました"
-
-msgid "Upload successful"
-msgstr "アップロードに成功しました"
-
 msgid "Uploaded"
 msgstr "アップロードされた"
 
-msgid "Used by"
-msgstr "〜によって使用"
-
 msgid "User groups"
 msgstr "ユーザーグループ"
-
-msgid "User name"
-msgstr "ユーザー名"
-
-msgid "User name, e.g. e-mail address (required)"
-msgstr "ユーザー名、例： 電子メールアドレス（必須）"
-
-msgid "Users"
-msgstr "ユーザー"
 
 msgid "VAT ID"
 msgstr "VAT ID"
@@ -2285,56 +1418,21 @@ msgstr "バリアント属性"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "注文商品に格納されているバリアント商品属性"
 
-msgid "Variants"
-msgstr "バリアント"
-
-msgid "Vat ID"
-msgstr "VAT ID"
-
-msgid "Vat ID, e.g. \"GB999999999\""
-msgstr "VAT ID 例： \"GB999999999\""
-
-msgid "Verification date"
-msgstr "確認日"
-
 msgid "View details"
 msgstr "詳細を見る"
 
 msgid "Voucher"
 msgstr "バウチャー"
 
-msgid "Vouchers"
-msgstr "バウチャー"
-
-msgid "Warehouse"
-msgstr "倉庫"
-
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
 msgstr "品物が複数の場所で利用可能な場合は、倉庫またはローカルストア"
-
-#. : Product warehouse item panel title with warehouse label ({0}) and site
-#. code ({1)}
-#. : Product warehouse item panel title with warehouse label ({0}) and site
-#. code ({1)}
-#, python-brace-format
-msgid "Warehouse: {0} ({1})"
-msgstr "倉庫：{0}（{1}）"
-
-msgid "Web"
-msgstr "ウェブ"
 
 msgid "Web site"
 msgstr "ウェブサイト"
 
 msgid "Web site URL (optional)"
 msgstr "ウェブサイトのURL（オプション）"
-
-msgid "Web site, e.g. www.example.com"
-msgstr "Web site, e.g. www.example.com"
-
-msgid "Website"
-msgstr "ウェブサイト"
 
 msgid "Weeks"
 msgstr "週"
@@ -2345,9 +1443,6 @@ msgstr "重量"
 msgid "Width"
 msgstr "幅"
 
-msgid "YYYY-MM-DD (optional)"
-msgstr "YYYY-MM-DD（オプション）"
-
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr "YYYY-MM-DD hh：mm：ss（オプション）"
 
@@ -2356,11 +1451,6 @@ msgstr "年"
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "1つまたは複数の項目を削除します。 続行しますか？"
-
-msgid ""
-"You are going to flush the complete cache for the current site. Would you "
-"like to proceed?"
-msgstr "現在のサイトの完全なキャッシュをフラッシュします。 続行しますか？"
 
 msgid "Zip code"
 msgstr "郵便番号"
@@ -2407,15 +1497,15 @@ msgstr "会社"
 
 #, php-format
 msgid "countday"
-msgstr "カウント日"
+msgstr "1日の注文"
 
 #, php-format
 msgid "counthour"
-msgstr "カウント 時間"
+msgstr "時間別注文"
 
 #, php-format
 msgid "countpaystatus"
-msgstr "カウント賃金ステータス"
+msgstr "支払いステータス別の注文"
 
 #, php-format
 msgid "coupon"
@@ -2443,7 +1533,7 @@ msgstr "ダウンロード"
 
 #, php-format
 msgid "group"
-msgstr "グループ"
+msgstr ""
 
 #, php-format
 msgid "hour"
@@ -2481,6 +1571,7 @@ msgstr "サイト"
 msgid "log"
 msgstr "ログ"
 
+#, php-format
 msgid "media"
 msgstr "メディア"
 
@@ -2511,10 +1602,10 @@ msgid "order"
 msgstr "注文"
 
 msgid "order:phone"
-msgstr "注文：電話"
+msgstr ""
 
 msgid "order:web"
-msgstr "注文：ウェブ"
+msgstr ""
 
 msgid "pay:-1"
 msgstr "未完成"
@@ -2539,30 +1630,6 @@ msgstr "承認"
 
 msgid "pay:6"
 msgstr "受け取る"
-
-msgid "pay:authorized"
-msgstr "承認"
-
-msgid "pay:canceled"
-msgstr "キャンセル"
-
-msgid "pay:deleted"
-msgstr "削除"
-
-msgid "pay:pending"
-msgstr "保留中"
-
-msgid "pay:received"
-msgstr "受け取る"
-
-msgid "pay:refund"
-msgstr "払い戻し"
-
-msgid "pay:refused"
-msgstr "拒否"
-
-msgid "pay:unfinished"
-msgstr "未完成"
 
 #, php-format
 msgid "paymentstatus"
@@ -2599,7 +1666,7 @@ msgid "reason:0"
 msgstr ""
 
 msgid "reason:1"
-msgstr ""
+msgstr "キャンセル"
 
 #, php-format
 msgid "related"
@@ -2607,7 +1674,7 @@ msgstr "商品"
 
 #, php-format
 msgid "salesweekday"
-msgstr "販売週日"
+msgstr "平日の売上"
 
 #, php-format
 msgid "selection"
@@ -2617,19 +1684,13 @@ msgstr "バリアント"
 msgid "service"
 msgstr "サービス"
 
-msgid "service:delivery"
-msgstr "配達"
-
-msgid "service:payment"
-msgstr "支払い"
-
 #, php-format
 msgid "servicedelivery"
-msgstr "サービス提供"
+msgstr ""
 
 #, php-format
 msgid "servicepayment"
-msgstr "サービス支払い"
+msgstr "支払いタイプ"
 
 #, php-format
 msgid "special"
@@ -2662,56 +1723,17 @@ msgstr "拒否"
 msgid "stat:7"
 msgstr "戻り"
 
-msgid "stat:deleted"
-msgstr "削除"
-
-msgid "stat:delivered"
-msgstr "配達"
-
-msgid "stat:dispatched"
-msgstr "派遣"
-
-msgid "stat:lost"
-msgstr "失った"
-
-msgid "stat:pending"
-msgstr "保留中"
-
-msgid "stat:progress"
-msgstr "進行"
-
-msgid "stat:refused"
-msgstr "拒否"
-
-msgid "stat:returned"
-msgstr "戻り"
-
-msgid "stat:unfinished"
-msgstr "未完成"
-
 msgid "status:-1"
-msgstr "ステータス：-1"
-
-msgid "status:-2"
-msgstr "ステータス：-2"
-
-msgid "status:0"
-msgstr "ステータス：0"
-
-msgid "status:1"
-msgstr "ステータス：1"
-
-msgid "status:archive"
 msgstr "アーカイブ"
 
-msgid "status:disabled"
+msgid "status:-2"
+msgstr "レビュー"
+
+msgid "status:0"
 msgstr "無効"
 
-msgid "status:enabled"
+msgid "status:1"
 msgstr "有効"
-
-msgid "status:review"
-msgstr "レビュー"
 
 #, php-format
 msgid "stock"
@@ -2746,7 +1768,7 @@ msgstr "属性リスト"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr "タイプ/属性/プロパティ"
+msgstr ""
 
 #, php-format
 msgid "type/catalog/lists"
@@ -2758,7 +1780,7 @@ msgstr "顧客リスト"
 
 #, php-format
 msgid "type/customer/property"
-msgstr "タイプ/顧客/財産"
+msgstr ""
 
 #, php-format
 msgid "type/media"
@@ -2770,7 +1792,7 @@ msgstr "メディアリスト"
 
 #, php-format
 msgid "type/media/property"
-msgstr "タイプ/メディア/プロパティ"
+msgstr ""
 
 #, php-format
 msgid "type/plugin"
@@ -2820,15 +1842,5 @@ msgstr "テキスト"
 msgid "type/text/lists"
 msgstr "テキストリスト"
 
-msgid "unknown"
-msgstr "不明"
-
-#, php-format
-msgid "weekday"
-msgstr "平日"
-
 msgid "yes"
 msgstr "はい"
-
-msgid "yy-mm-dd"
-msgstr "yy-mm-dd"
