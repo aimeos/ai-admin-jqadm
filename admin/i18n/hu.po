@@ -5,14 +5,14 @@
 # Translators:
 # Nóra Antal <nora1984antal@gmail.com>, 2016
 # Péter Kozma <kopegrafika@gmail.com>, 2016
-# Szikinger György <gyorgyszikinger@gmail.com>, 2019
+# György Szikinger <gyorgyszikinger@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-30 13:52+0100\n"
 "PO-Revision-Date: 2019-01-08 12:31+0000\n"
-"Last-Translator: Szikinger György <gyorgyszikinger@gmail.com>\n"
+"Last-Translator: György Szikinger <gyorgyszikinger@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-30 13:52+0100\n"
-"PO-Revision-Date: 2019-01-26 12:59+0000\n"
+"PO-Revision-Date: 2019-02-03 10:20+0000\n"
 "Last-Translator: Doryan R <doryan16238@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -329,7 +329,7 @@ msgid "Currency"
 msgstr "Devise"
 
 msgid "Custom"
-msgstr "Personnalisé(e)"
+msgstr "Personnalisé"
 
 msgid "Customer"
 msgstr "Client"
@@ -823,13 +823,13 @@ msgid "Order totals"
 msgstr "Ordre totaux"
 
 msgid "Orders by day"
-msgstr "Commandes (par jour)"
+msgstr "Commandes par jour"
 
 msgid "Orders by hour"
-msgstr "Commandes (par heure)"
+msgstr "Commandes par heure"
 
 msgid "Orders by payment status"
-msgstr "Commande (par statut du paiement)"
+msgstr "Commandes par statut de paiement"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
@@ -907,7 +907,7 @@ msgid "Postal"
 msgstr "Postal"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr "Code postal pour la livraison (si utilisé dans la zone du client)"
+msgstr "Code postal de livraison si utilisé dans la région où vit le client"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Code postal pour la livraison si utilisé dans la zone de résidence du fournisseur"
@@ -981,7 +981,7 @@ msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr "Poids du produit, par ex. 1.25 (kg, g, mg, etc.)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr "Largeur du produit, par ex. 1.75 (m, cm, mm, etc.)"
+msgstr "Largeur du produit, par exemple 17,5 (en cour, pouce, etc.)"
 
 msgid "Products"
 msgstr "Produits"
