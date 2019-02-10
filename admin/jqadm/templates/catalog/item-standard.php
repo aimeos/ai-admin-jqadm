@@ -112,7 +112,6 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 		</div>
 
 		<?php if( isset( $this->itemData ) ) : ?>
-
 			<div class="col-lg-9 catalog-content">
 				<div class="row">
 

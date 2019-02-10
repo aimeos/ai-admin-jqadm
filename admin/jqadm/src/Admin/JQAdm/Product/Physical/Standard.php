@@ -291,7 +291,6 @@ class Standard
 				$propItem->setValue( $value );
 
 				$item->addPropertyItem( $propItem );
-
 			}
 			else
 			{

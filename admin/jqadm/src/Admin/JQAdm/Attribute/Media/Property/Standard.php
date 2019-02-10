@@ -324,7 +324,7 @@ class Standard
 
 		foreach( $item->getRefItems( 'media', null, null, false ) as $mediaItem )
 		{
-			foreach( $mediaItem->getPropertyItems( null, false )  as $propItem )
+			foreach( $mediaItem->getPropertyItems( null, false ) as $propItem )
 			{
 				$list = $propItem->toArray( true );
 

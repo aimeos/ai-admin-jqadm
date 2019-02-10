@@ -225,7 +225,7 @@ class Standard
 	 * @param integer $total Value/result parameter that will contain the item total afterwards
 	 * @return \Aimeos\MShop\Order\Item\Iface[] Order items of the customer
 	 */
-	protected function getOrderItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [], &$total )
+	protected function getOrderItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [], &$total = null )
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 

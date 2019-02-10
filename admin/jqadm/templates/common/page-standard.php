@@ -273,7 +273,6 @@ switch( $this->param( 'act' ) )
 				<?php foreach( array_splice( $navlist, 0, $navlimit ) as $nav => $navitem ) : ?>
 					<?php if( is_array( $navitem ) ) : ?>
 						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $nav . '/groups', [] ) ) ) : ?>
-
 							<li class="treeview <?= $enc->attr( $nav ) ?> <?= strncmp( $this->param( 'resource' ), $nav, strlen( $nav ) ) ? '' : 'active' ?>">
 								<span>
 									<i class="icon"></i>
@@ -321,7 +320,6 @@ switch( $this->param( 'act' ) )
 				<?php foreach( $navlist as $nav => $navitem ) : ?>
 					<?php if( is_array( $navitem ) ) : ?>
 						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $nav . '/groups', [] ) ) ) : ?>
-
 							<li class="treeview <?= $enc->attr( $nav ) ?> <?= strncmp( $this->param( 'resource' ), $nav, strlen( $nav ) ) ? '' : 'active' ?>">
 								<span>
 									<i class="icon"></i>
@@ -346,7 +344,6 @@ switch( $this->param( 'act' ) )
 						<?php endif; ?>
 					<?php else : ?>
 						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $navitem . '/groups', [] ) ) ) : ?>
-
 							<?php $key = $this->config( 'admin/jqadm/resource/' . $navitem . '/key' ); ?>
 							<li class="<?= $enc->attr( $navitem ); ?> <?= $this->param( 'resource', $navfirst ) === $navitem ? 'active' : '' ?>">
 								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $navitem ) + $params, [], $config ) ); ?>"

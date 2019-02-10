@@ -304,7 +304,6 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
 
 							<?php foreach( $list as $addr ) : ?>
-
 								<div class="address-short">
 									<span class="address-text">
 										<?php

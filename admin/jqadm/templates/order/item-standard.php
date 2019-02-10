@@ -351,7 +351,6 @@ $statusList = [
 								<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
 
 								<?php foreach( $addresses as $pos => $addrItem ) : ?>
-
 									<div class="address-short">
 										<?php
 											/// short order address with company (%1$s), first name (%2$s), last name (%3$s), street (%4$s), house number (%5$s),

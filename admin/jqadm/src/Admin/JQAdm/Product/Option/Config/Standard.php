@@ -271,8 +271,6 @@ class Standard
 			$litem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $idx ) );
 
 			$item->addListItem( 'attribute', $litem, $litem->getRefItem() );
-
-
 		}
 
 		return $item->deleteListItems( $listItems );

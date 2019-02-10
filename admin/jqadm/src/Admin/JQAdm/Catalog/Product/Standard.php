@@ -285,7 +285,7 @@ class Standard
 	 * @param integer $total Value/result parameter that will contain the item total afterwards
 	 * @return \Aimeos\MShop\Common\Item\List\Iface[] Catalog list items referencing the products
 	 */
-	protected function getListItems( \Aimeos\MShop\Catalog\Item\Iface $item, array $params = [], &$total )
+	protected function getListItems( \Aimeos\MShop\Catalog\Item\Iface $item, array $params = [], &$total = null )
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 

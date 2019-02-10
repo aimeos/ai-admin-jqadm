@@ -23,7 +23,6 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 		$config->set( 'admin/jqadm/common/decorators/default', [] );
 		$config->set( 'admin/jqadm/product/decorators/global', [] );
 		$config->set( 'admin/jqadm/product/decorators/local', [] );
-
 	}
 
 
