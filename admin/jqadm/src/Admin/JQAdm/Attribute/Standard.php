@@ -521,7 +521,7 @@ class Standard
 			$item = $manager->createItem();
 		}
 
-		$item->fromArray( $data );
+		$item->fromArray( $data, true );
 
 		return $item;
 	}

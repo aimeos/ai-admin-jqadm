@@ -500,7 +500,7 @@ class Standard
 			$basket = $manager->createItem();
 		}
 
-		$basket->fromArray( $data );
+		$basket->fromArray( $data, true );
 
 		foreach( $basket->getProducts() as $pos => $product )
 		{
@@ -513,7 +513,7 @@ class Standard
 		{
 			if( isset( $data['address'][$type] ) ) {
 				$list = (array) $data['address'][$type];
-				$basket->setAddress( $address->fromArray( $list ), $type );
+				$basket->setAddress( $address->fromArray( $list, true ), $type );
 			} else {
 				$basket->deleteAddress( $type );
 			}
@@ -547,7 +547,7 @@ class Standard
 							$attrItem = $attrManager->createItem();
 						}
 
-						$attrItem->fromArray( $array );
+						$attrItem->fromArray( $array, true );
 						$attrItem->setParentId( $service->getId() );
 
 						$item = $attrManager->saveItem( $attrItem );

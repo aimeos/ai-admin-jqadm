@@ -540,7 +540,7 @@ class Standard
 			$item = $manager->createItem();
 		}
 
-		$item->fromArray( $data );
+		$item->fromArray( $data, true );
 		$item->setGroups( array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() ) );
 
 		return $item;

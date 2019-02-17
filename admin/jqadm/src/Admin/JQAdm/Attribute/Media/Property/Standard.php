@@ -297,7 +297,7 @@ class Standard
 					$propItem = $propManager->createItem();
 				}
 
-				$propItem->fromArray( $entry );
+				$propItem->fromArray( $entry, true );
 				$refItem->addPropertyItem( $propItem );
 			}
 

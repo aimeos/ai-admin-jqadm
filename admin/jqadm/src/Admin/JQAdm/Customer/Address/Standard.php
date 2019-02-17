@@ -290,7 +290,7 @@ class Standard
 				$addrItem = $manager->createItem();
 			}
 
-			$addrItem->fromArray( $entry );
+			$addrItem->fromArray( $entry, true );
 			$item->addAddressItem( $addrItem );
 		}
 

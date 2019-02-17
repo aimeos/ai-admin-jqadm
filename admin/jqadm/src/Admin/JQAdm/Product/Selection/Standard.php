@@ -312,10 +312,10 @@ class Standard
 				$refItem = clone $prodItem;
 			}
 
-			$litem->fromArray( $entry );
+			$litem->fromArray( $entry, true );
 			$litem->setPosition( $idx );
 
-			$refItem->fromArray( $entry );
+			$refItem->fromArray( $entry, true );
 
 			if( isset( $entry['attr'] ) ) {
 				$refItem = $this->fromArrayAttributes( $refItem, $entry['attr'] );
@@ -353,7 +353,7 @@ class Standard
 				$litem = clone $listItem;
 			}
 
-			$litem->fromArray( $attr );
+			$litem->fromArray( $attr, true );
 			$litem->setPosition( $pos );
 
 			$refItem->addListItem( 'attribute', $litem, $litem->getRefItem() );

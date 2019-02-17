@@ -346,8 +346,8 @@ class Standard
 				$refItem = clone $attrItem;
 			}
 
-			$litem->fromArray( $data );
-			$refItem->fromArray( $data );
+			$litem->fromArray( $data, true );
+			$refItem->fromArray( $data, true );
 
 			if( ( $file = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'download/file' ) ) !== null
 				&& $file->getError() === UPLOAD_ERR_OK

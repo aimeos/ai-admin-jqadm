@@ -309,7 +309,7 @@ class Standard
 				$propItem = $manager->createItem();
 			}
 
-			$propItem->fromArray( $entry );
+			$propItem->fromArray( $entry, true );
 			$item->addPropertyItem( $propItem );
 		}
 

@@ -315,7 +315,7 @@ class Standard
 			if( $entry['attribute.id'] == '' || ( $refItem = $listItem->getRefItem() ) === null )
 			{
 				$refItem = $attrManager->createItem()->setType( 'interval' );
-				$refItem->fromArray( $entry );
+				$refItem->fromArray( $entry, true );
 			}
 
 			unset( $listItems[$listItem->getId()] );

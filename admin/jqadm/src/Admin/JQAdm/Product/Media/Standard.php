@@ -411,7 +411,7 @@ class Standard
 				$refItem = $mediaManager->createItem();
 			}
 
-			$refItem->fromArray( $entry );
+			$refItem->fromArray( $entry, true );
 
 			if( ( $file = $this->getValue( $files, 'media/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
 			{
@@ -428,7 +428,7 @@ class Standard
 				}
 			}
 
-			$listItem->fromArray( $entry );
+			$listItem->fromArray( $entry, true );
 			$listItem->setPosition( $idx );
 			$listItem->setConfig( $conf );
 
