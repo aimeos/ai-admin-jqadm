@@ -513,7 +513,7 @@ class Standard
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
-	 * @param string[] Data array
+	 * @param array $data Data array
 	 * @return \Aimeos\MShop\Coupon\Item\Iface New coupon item object
 	 */
 	protected function fromArray( array $data )
