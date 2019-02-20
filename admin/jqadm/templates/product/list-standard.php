@@ -622,6 +622,9 @@ $columnList = [
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
+					<?php if( in_array( 'image', $fields ) ) : $mediaItem = current( $item->getRefItems( 'media', 'default', 'default' ) ); ?>
+						<td class="image"><a class="items-field" href="<?= $url; ?>" tabindex="1"><img class="image" src="<?= $mediaItem ? $enc->attr( $this->content( $mediaItem->getPreview() ) ) : '' ?>" /></a></td>
+					<?php endif; ?>
 					<?php if( in_array( 'product.id', $fields ) ) : ?>
 						<td class="product-id"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
