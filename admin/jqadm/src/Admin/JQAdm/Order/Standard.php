@@ -436,7 +436,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
 		$search->setSlice( 0, 0x7fffffff );
 
-		return $manager->searchItems( $search, ['order/base/address', 'order/base/service'] );
+		return $manager->searchItems( $search, ['order/base/address', 'order/base/coupon', 'order/base/service'] );
 	}
 
 

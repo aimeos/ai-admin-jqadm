@@ -156,6 +156,7 @@ $columnList = [
 	'order.base.address.telefax' => $this->translate( 'admin', 'Facsimile' ),
 	'order.base.address.email' => $this->translate( 'admin', 'E-Mail' ),
 	'order.base.address.website' => $this->translate( 'admin', 'Web site' ),
+	'order.base.coupon.code' => $this->translate( 'admin', 'Coupon' ),
 	'order.base.service.code' => $this->translate( 'admin', 'Service' ),
 	'order.base.service.name' => $this->translate( 'admin', 'Service name' ),
 	'order.base.service.price' => $this->translate( 'admin', 'Service price' ),
@@ -294,6 +295,7 @@ $statusList = [
 						'order.base.address.telefax' => [],
 						'order.base.address.email' => [],
 						'order.base.address.website' => [],
+						'order.base.coupon.code' => ['op' => '=~'],
 						'order.base.service.code' => [],
 						'order.base.service.name' => [],
 						'order.base.service.price' => ['op' => '==', 'type' => 'number'],
@@ -429,6 +431,16 @@ $statusList = [
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.address.website', $fields ) ) : ?>
 						<td class="order-base-address-website"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getWebsite() ) : ''; ?></a></td>
+					<?php endif; ?>
+
+					<?php $coupons = ( $baseItem ? $baseItem->getCoupons() : [] ); ?>
+
+					<?php if( in_array( 'order.base.coupon.code', $fields ) ) : ?>
+						<td class="order-base-coupon-code"><a class="items-field" href="<?= $url; ?>">
+							<?php foreach( $coupons as $code => $orderProducts ) : ?>
+								<?= $enc->html( $code ) ?><br/>
+							<?php endforeach ?>
+						</a></td>
 					<?php endif; ?>
 
 					<?php $services = ( $baseItem ? $baseItem->getServices() : [] ); ?>
