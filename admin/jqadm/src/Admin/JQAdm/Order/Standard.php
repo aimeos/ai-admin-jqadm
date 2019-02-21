@@ -435,7 +435,7 @@ class Standard
 		$search = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
 
-		return $manager->searchItems( $search, ['order/base/address', 'order/base/service'] );
+		return $manager->searchItems( $search, ['order/base/address', 'order/base/coupon', 'order/base/service'] );
 	}
 
 
