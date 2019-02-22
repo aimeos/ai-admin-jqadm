@@ -285,7 +285,8 @@ $statusList = [
 															<?php if( $attrItem->getQuantity() > 1 ) : ?>
 																<?= $enc->html( $attrItem->getQuantity() ); ?>×
 															<?php endif; ?>
-															<?= $enc->html( $attrItem->getValue() ); ?>
+															<?php $value = $attrItem->getValue(); ?>
+															<?= $enc->html( is_array( $value ) ? join( ', ', $value ) : $value ); ?>
 														</span>
 													<?php endforeach; ?>
 												</span>
