@@ -118,7 +118,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setMethods( array( 'add' ) )
 			->getMock();
 
-		\Aimeos\Controller\Common\Media\Factory::injectController( '\\Aimeos\\Controller\\Common\\Media\\' . $name, $cntlStub );
+		\Aimeos\Controller\Common\Media\Factory::inject( '\\Aimeos\\Controller\\Common\\Media\\' . $name, $cntlStub );
 
 		$cntlStub->expects( $this->once() )->method( 'add' );
 
