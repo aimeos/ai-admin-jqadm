@@ -539,7 +539,7 @@ Aimeos.Text = {
 				if(this.items[idx]['text.content']) {
 					var tmp = document.createElement("span");
 					tmp.innerHTML = this.items[idx]['text.content'];
-					label += ': ' + (tmp.textContent || tmp.innerText || "").substr(0, 40);
+					label += ': ' + (tmp.innerText || tmp.textContent || "").substr(0, 40);
 				}
 
 				if(this.items[idx]['text.status'] < 1) {
