@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 13:52+0100\n"
-"PO-Revision-Date: 2018-12-30 12:58+0000\n"
+"POT-Creation-Date: 2019-04-02 15:11+0200\n"
+"PO-Revision-Date: 2019-04-02 13:26+0000\n"
 "Last-Translator: Tadeu Pagliarini <tadeu_up@hotmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/aimeos/aimeos-core/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgstr "Avançado"
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Objeto da Aimeos indisponível"
 
 msgid "All"
 msgstr "Tudo"
@@ -777,7 +777,7 @@ msgstr "Nenhum"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "Acesso ao cliente JQAdm \"%1$s\" não permitido"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -1549,7 +1549,7 @@ msgstr "Faturas"
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Último"
 
 #, php-format
 msgid "locale"
@@ -1741,11 +1741,11 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Subscrições"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Fornecedores"
 
 msgid "tag"
 msgstr "Tags"

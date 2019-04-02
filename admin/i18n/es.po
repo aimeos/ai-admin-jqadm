@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Aldemar Hernández <napalm-beach@lycos.com>, 2016
+# Álvaro Santos <alvaro_sm_8@hotmail.com>, 2019
 # Daniel Cortés <skrd@hotmail.es>, 2018
 # Daniel Vega <danielvega131990@gmail.com>, 2015
 # Juan Ramos <juancagb.17@gmail.com>, 2017
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 13:52+0100\n"
-"PO-Revision-Date: 2018-12-30 12:58+0000\n"
-"Last-Translator: Aldemar Hernández <napalm-beach@lycos.com>\n"
+"POT-Creation-Date: 2019-04-02 15:11+0200\n"
+"PO-Revision-Date: 2019-04-02 13:26+0000\n"
+"Last-Translator: Daniel Vega <danielvega131990@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,7 +81,7 @@ msgid "Actual current price"
 msgstr "Precio actual real"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "Precio actual por el que los clientes pueden comprar el artículo en el sitio web"
 
 msgid "Add"
 msgstr "Añadir"
@@ -88,13 +89,13 @@ msgstr "Añadir"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Costes de envío adicionales por artículo, ej. 20$ por un artículo pesado serán 100$ por cinco artículos en total"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Información adicional con la que se puede hallar el domicilio del cliente"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Información adicional con la que se puede hallar el domicilio del proveedor"
 
 msgid "Address 1"
 msgstr "Dirección 1"
@@ -106,17 +107,17 @@ msgid "Address 3"
 msgstr "Dirección 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Identificador de la dirección de envío del cliente"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Identificador de la dirección de envío del proveedor"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #, php-format
 msgid "Aimeos object not available"
@@ -128,7 +129,7 @@ msgstr "Todo"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Todos los atributos que definen de forma única a un artículo, ej: peso, talla y color de los vaqueros"
 
 msgid "Allow custom price"
 msgstr "Permitir precio personalizado"
@@ -137,12 +138,12 @@ msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "Permitir a los clientes escoger por ellos mismos la cantidad que desean pagar"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Cadena de caracteres alfanumérica que puede identificar el grupo de forma única"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Opciones específicas de la configuración del artículo, estarán disponibles como par clave/valor en las plantillas"
 
 msgid "Attribute"
 msgstr "Atributo"

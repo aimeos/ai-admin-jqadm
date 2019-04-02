@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 13:52+0100\n"
-"PO-Revision-Date: 2018-12-30 12:58+0000\n"
+"POT-Creation-Date: 2019-04-02 15:11+0200\n"
+"PO-Revision-Date: 2019-04-02 13:26+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Norwegian (http://www.transifex.com/aimeos/aimeos-core/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -261,7 +261,7 @@ msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr ""
+msgstr "Company"
 
 msgid "Company details"
 msgstr ""
@@ -1491,7 +1491,7 @@ msgid "code"
 msgstr ""
 
 msgid "company"
-msgstr ""
+msgstr "Company"
 
 #, php-format
 msgid "countday"
@@ -1574,13 +1574,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr ""
+msgstr "Miss"
 
 msgid "mr"
-msgstr ""
+msgstr "Mr"
 
 msgid "mrs"
-msgstr ""
+msgstr "Mrs"
 
 msgid "new"
 msgstr ""
@@ -1606,28 +1606,28 @@ msgid "order:web"
 msgstr ""
 
 msgid "pay:-1"
-msgstr ""
+msgstr "unfinished"
 
 msgid "pay:0"
-msgstr ""
+msgstr "deleted"
 
 msgid "pay:1"
-msgstr ""
+msgstr "cancelled"
 
 msgid "pay:2"
-msgstr ""
+msgstr "refused"
 
 msgid "pay:3"
-msgstr ""
+msgstr "refunded"
 
 msgid "pay:4"
-msgstr ""
+msgstr "pending"
 
 msgid "pay:5"
-msgstr ""
+msgstr "authorized"
 
 msgid "pay:6"
-msgstr ""
+msgstr "received"
 
 #, php-format
 msgid "paymentstatus"
@@ -1664,7 +1664,7 @@ msgid "reason:0"
 msgstr ""
 
 msgid "reason:1"
-msgstr ""
+msgstr "cancelled"
 
 #, php-format
 msgid "related"
@@ -1695,43 +1695,43 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr ""
+msgstr "unfinished"
 
 msgid "stat:0"
-msgstr ""
+msgstr "deleted"
 
 msgid "stat:1"
-msgstr ""
+msgstr "pending"
 
 msgid "stat:2"
-msgstr ""
+msgstr "in progress"
 
 msgid "stat:3"
-msgstr ""
+msgstr "dispatched"
 
 msgid "stat:4"
-msgstr ""
+msgstr "delivered"
 
 msgid "stat:5"
-msgstr ""
+msgstr "lost"
 
 msgid "stat:6"
-msgstr ""
+msgstr "refused"
 
 msgid "stat:7"
-msgstr ""
+msgstr "returned"
 
 msgid "status:-1"
-msgstr ""
+msgstr "Archived"
 
 msgid "status:-2"
-msgstr ""
+msgstr "Review"
 
 msgid "status:0"
-msgstr ""
+msgstr "Disabled"
 
 msgid "status:1"
-msgstr ""
+msgstr "Enabled"
 
 #, php-format
 msgid "stock"

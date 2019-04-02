@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 13:52+0100\n"
-"PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2019-04-02 15:11+0200\n"
+"PO-Revision-Date: 2019-04-02 13:26+0000\n"
+"Last-Translator: Robert Patan <robert@bytepath.ro>\n"
 "Language-Team: Romanian (http://www.transifex.com/aimeos/aimeos-core/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,11 +44,11 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr ""
+msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
@@ -167,7 +167,7 @@ msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
 
 msgid "Attributes"
-msgstr ""
+msgstr "Atribute"
 
 msgid "Available currency for the current site"
 msgstr ""
@@ -185,13 +185,13 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr ""
+msgstr "Cos de cumparaturi"
 
 msgid "Billing address"
-msgstr ""
+msgstr "Adresa de facturare"
 
 msgid "Birthday"
-msgstr ""
+msgstr "Zi de nastere"
 
 msgid "Birthday of the customer"
 msgstr ""
@@ -229,7 +229,7 @@ msgid "Choose file"
 msgstr ""
 
 msgid "City"
-msgstr ""
+msgstr "Oras"
 
 msgid "City or town name (required)"
 msgstr ""
@@ -243,7 +243,7 @@ msgid "Class \"%1$s\" not found"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "Inchide"
 
 msgid "Code"
 msgstr ""
@@ -261,7 +261,7 @@ msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr ""
+msgstr "Companie"
 
 msgid "Company details"
 msgstr ""
@@ -292,7 +292,7 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr ""
+msgstr "Tara"
 
 msgid "Country ID"
 msgstr ""
@@ -384,10 +384,10 @@ msgid "Delete this entry"
 msgstr ""
 
 msgid "Delivery"
-msgstr ""
+msgstr "LIvrare"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "Adresa de livrare"
 
 msgid "Delivery status"
 msgstr ""
@@ -450,7 +450,7 @@ msgid "Email"
 msgstr ""
 
 msgid "End date"
-msgstr ""
+msgstr "Data sfarsit"
 
 msgid "End date (optional)"
 msgstr ""
@@ -483,7 +483,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "Prenume"
 
 msgid "First name (optional)"
 msgstr ""
@@ -639,7 +639,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Limba"
 
 msgid "Language ID"
 msgstr ""
@@ -657,7 +657,7 @@ msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "Nume"
 
 msgid "Last name (required)"
 msgstr ""
@@ -736,7 +736,7 @@ msgid "More"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Nume"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -746,7 +746,7 @@ msgid "New"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Urmatorul"
 
 msgid "Next date"
 msgstr ""
@@ -803,7 +803,7 @@ msgid "Order"
 msgstr ""
 
 msgid "Order ID"
-msgstr ""
+msgstr "ID comanda"
 
 msgid "Order of the language/currency combinations"
 msgstr ""
@@ -841,10 +841,10 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Pagina %1$d din %2$d"
 
 msgid "Password"
-msgstr ""
+msgstr "Parola"
 
 msgid "Password (required)"
 msgstr ""
@@ -859,10 +859,10 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr ""
+msgstr "Plata"
 
 msgid "Payment status"
-msgstr ""
+msgstr "Status plata"
 
 msgid "Payment types"
 msgstr ""
@@ -875,7 +875,7 @@ msgid "Personal data"
 msgstr ""
 
 msgid "Please select"
-msgstr ""
+msgstr "Alegeti"
 
 msgid "Plugin"
 msgstr ""
@@ -908,10 +908,10 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgid "Price"
-msgstr ""
+msgstr "Pret"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -932,7 +932,7 @@ msgid "Problem"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Produst"
 
 msgid "Product ID"
 msgstr ""
@@ -988,7 +988,7 @@ msgid "Promotion"
 msgstr ""
 
 msgid "Properties"
-msgstr ""
+msgstr "Atribute"
 
 msgid "Property value (required)"
 msgstr ""
@@ -1003,7 +1003,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Cantitate"
 
 msgid "Reason"
 msgstr ""
@@ -1069,7 +1069,7 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr ""
+msgstr "Salutare"
 
 msgid "Save"
 msgstr ""
@@ -1087,7 +1087,7 @@ msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Cauta"
 
 msgid "Second level type for grouping items"
 msgstr ""
@@ -1138,7 +1138,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr ""
+msgstr "Livrare"
 
 msgid "Shipping costs per item"
 msgstr ""
@@ -1155,7 +1155,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "Arata"
 
 msgid "Show entry"
 msgstr ""
@@ -1198,7 +1198,7 @@ msgid "Start date"
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Judet"
 
 msgid "Status"
 msgstr ""
@@ -1213,13 +1213,13 @@ msgid "Stock level"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Street"
 
 msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr ""
+msgstr "Subtotal"
 
 msgid "Subscription"
 msgstr ""
@@ -1233,10 +1233,10 @@ msgid "Substracted rebate amount"
 msgstr ""
 
 msgid "Suggested products"
-msgstr ""
+msgstr "Produse recomandate"
 
 msgid "Sum"
-msgstr ""
+msgstr "Suma"
 
 msgid "Supplier"
 msgstr ""
@@ -1257,7 +1257,7 @@ msgid "Tax rate in %"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "Telefon"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1312,7 +1312,7 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Two letter ISO country code"
 msgstr ""
@@ -1427,7 +1427,7 @@ msgid ""
 msgstr ""
 
 msgid "Web site"
-msgstr ""
+msgstr "website"
 
 msgid "Web site URL (optional)"
 msgstr ""
@@ -1458,17 +1458,17 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "Adrese"
 
 msgid "address:delivery"
-msgstr ""
+msgstr "Adresa de livrare"
 
 msgid "address:payment"
-msgstr ""
+msgstr "Adresa de facturare"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Atribute"
 
 #, php-format
 msgid "bundle"
@@ -1476,22 +1476,22 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Categorii"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "Categorii"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "Specificatii"
 
 #, php-format
 msgid "code"
 msgstr ""
 
 msgid "company"
-msgstr ""
+msgstr "Companie"
 
 #, php-format
 msgid "countday"
@@ -1527,7 +1527,7 @@ msgstr ""
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "Descarcari"
 
 #, php-format
 msgid "group"
@@ -1547,7 +1547,7 @@ msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Cele mai noi"
 
 #, php-format
 msgid "locale"
@@ -1593,7 +1593,7 @@ msgstr ""
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "Optiuni"
 
 #, php-format
 msgid "order"
@@ -1655,7 +1655,7 @@ msgstr ""
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "Atribute"
 
 msgid "reason:-1"
 msgstr ""
@@ -1680,7 +1680,7 @@ msgstr ""
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "Servicii"
 
 #, php-format
 msgid "servicedelivery"
@@ -1743,7 +1743,7 @@ msgstr ""
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Furnizori"
 
 msgid "tag"
 msgstr ""
@@ -1758,7 +1758,7 @@ msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "Atribute"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -1818,7 +1818,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Servicii"
 
 #, php-format
 msgid "type/service/lists"
