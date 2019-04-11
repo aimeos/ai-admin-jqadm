@@ -495,9 +495,9 @@ class Standard
 		$attrManager = \Aimeos\MShop::create( $this->getContext(), 'order/base/service/attribute' );
 
 		if( isset( $data['order.base.id'] ) ) {
-			$basket = $manager->load( $data['order.base.id'] );
+			$basket = $manager->load( $data['order.base.id'] )->off();
 		} else {
-			$basket = $manager->createItem();
+			$basket = $manager->createItem()->off();
 		}
 
 		$basket->fromArray( $data, true );
@@ -509,13 +509,16 @@ class Standard
 			}
 		}
 
-		foreach( $basket->getAddresses() as $type => $address )
+		foreach( $basket->getAddresses() as $type => $addresses )
 		{
-			if( isset( $data['address'][$type] ) ) {
-				$list = (array) $data['address'][$type];
-				$basket->setAddress( $address->fromArray( $list, true ), $type );
-			} else {
-				$basket->deleteAddress( $type );
+			foreach( $addresses as $pos => $address )
+			{
+				if( isset( $data['address'][$type][$pos] ) ) {
+					$list = (array) $data['address'][$type][$pos];
+					$basket->addAddress( $address->fromArray( $list, true ), $type, $pos );
+				} else {
+					$basket->deleteAddress( $type, $pos );
+				}
 			}
 		}
 
