@@ -89,7 +89,7 @@ return [
 		],
 		'product' => [
 			'decorators' => [
-				'global' => ['Index', 'Cache'],
+				'global' => ['Cache'],
 			],
 			'standard' => [
 				'subparts' => [

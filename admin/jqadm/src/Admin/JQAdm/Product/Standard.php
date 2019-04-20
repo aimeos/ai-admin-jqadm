@@ -39,7 +39,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'product' );
+			$manager = \Aimeos\MShop::create( $context, 'index' );
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -85,7 +85,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $context, 'product' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'index' )->createItem();
 			}
 
 			$data['product.siteid'] = $view->item->getSiteId();
@@ -128,7 +128,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'product' );
+		$manager = \Aimeos\MShop::create( $context, 'index' );
 		$manager->begin();
 
 		try
@@ -185,7 +185,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'product' );
+			$manager = \Aimeos\MShop::create( $context, 'index' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -226,7 +226,7 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'product' );
+		$manager = \Aimeos\MShop::create( $context, 'index' );
 		$manager->begin();
 
 		try
@@ -282,7 +282,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'product' );
-			$manager = \Aimeos\MShop::create( $context, 'product' );
+			$manager = \Aimeos\MShop::create( $context, 'index' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '+', 'product.id')] );
@@ -528,7 +528,7 @@ class Standard
 			}
 		}
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'index' );
 
 		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
 			$item = $manager->getItem( $data['product.id'], $this->getDomains() );

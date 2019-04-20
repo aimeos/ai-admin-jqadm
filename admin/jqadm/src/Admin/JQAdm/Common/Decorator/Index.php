@@ -16,39 +16,8 @@ namespace Aimeos\Admin\JQAdm\Common\Decorator;
  *
  * @package Admin
  * @subpackage JQAdm
+ * @deprecated 2020.01 Done in product object
  */
 class Index extends Base
 {
-	/**
-	 * Updates the index after deleting the item
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
-	 */
-	public function delete()
-	{
-		$result = $this->getClient()->delete();
-
-		$ids = (array) $this->getView()->param( 'id' );
-		\Aimeos\MShop::create( $this->getContext(), 'index' )->deleteItems( $ids );
-
-		return $result;
-	}
-
-
-	/**
-	 * Rebuilds the index after saving the item
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
-	 */
-	public function save()
-	{
-		$result = $this->getClient()->save();
-		$item = $this->getView()->item;
-
-		if( $item->getId() !== null ) {
-			\Aimeos\MShop::create( $this->getContext(), 'index' )->saveItem( $item );
-		}
-
-		return $result;
-	}
 }
