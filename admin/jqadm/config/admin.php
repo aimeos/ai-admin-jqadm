@@ -34,6 +34,11 @@ return [
 					],
 				],
 			],
+			'product' => [
+				'decorators' => [
+					'global' => ['Index'],
+				],
+			],
 		],
 		'common' => [
 			'decorators' => [

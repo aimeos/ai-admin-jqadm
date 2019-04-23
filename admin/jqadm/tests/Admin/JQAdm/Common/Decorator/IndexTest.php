@@ -20,9 +20,9 @@ class IndexTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->context = \TestHelperJqadm::getContext();
 
-		$this->mock = $this->getMockBuilder( 'Aimeos\Admin\JQAdm\Product\Standard' )
-			->setMethods( array( 'delete', 'save' ) )
+		$this->mock = $this->getMockBuilder( 'Aimeos\Admin\JQAdm\Catalog\Product\Standard' )
 			->disableOriginalConstructor()
+			->setMethods( ['save'] )
 			->getMock();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Index( $this->mock, $this->context );
@@ -37,25 +37,12 @@ class IndexTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testDelete()
-	{
-		$view = \TestHelperJqadm::getView();
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, array( 'id' => -1 ) );
-		$view->addHelper( 'param', $helper );
-
-		$this->mock->expects( $this->once() )->method( 'delete' )->will( $this->returnValue( 'test' ) );
-		$this->object->setView( $view );
-
-		$result = $this->object->delete();
-
-		$this->assertEquals( 'test', $result );
-	}
-
-
 	public function testSave()
 	{
 		$view = \TestHelperJqadm::getView();
-		$view->item = \Aimeos\MShop::create( $this->context, 'product' )->findItem( 'CNC' );
+		$params = ['product' => ['catalog.lists.refid' => [-1]]];
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $params );
+		$view->addHelper( 'param', $helper );
 
 		$this->mock->expects( $this->once() )->method( 'save' )->will( $this->returnValue( 'test' ) );
 		$this->object->setView( $view );
