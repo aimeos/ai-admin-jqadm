@@ -229,18 +229,18 @@ $statusList = [
 									</select>
 								</div>
 							</div>
-						</div>
-						<div class="form-group row optional">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Customer reference' ) ); ?></label>
-							<div class="col-sm-8">
-								<input class="form-control item-customerref" type="text" tabindex="1"
-									name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.customerref' ) ) ); ?>"
-									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Customer reference (optional)' ) ); ?>"
-									value="<?= $enc->attr( $this->get( 'itemData/order.base.customerref' ) ); ?>"
-									<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
-							</div>
-							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Customer e-mail address' ) ); ?>
+							<div class="form-group row optional">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Customer reference' ) ); ?></label>
+								<div class="col-sm-8">
+									<input class="form-control item-customerref" type="text" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.customerref' ) ) ); ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Customer reference (optional)' ) ); ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/order.base.customerref' ) ); ?>"
+										<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Order number entered by the customer' ) ); ?>
+								</div>
 							</div>
 						</div>
 					</div>
