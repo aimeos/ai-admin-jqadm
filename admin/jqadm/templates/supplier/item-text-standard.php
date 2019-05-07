@@ -103,6 +103,9 @@ $keys = [
 									<option value="" disable >
 										<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
+									<option v-bind:value="null">
+										<?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?>
+									</option>
 
 									<?php foreach( $languages as $langId => $langItem ) : ?>
 										<option value="<?= $enc->attr( $langId ); ?>" v-bind:selected="entry['text.languageid'] == '<?= $enc->attr( $langId ) ?>'" >
