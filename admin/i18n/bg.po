@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Bistra Kumanova <b.kumanova@creato.bg>, 2015
-# Plamen Petkov <mcplamen@gmail.com>, 2016
+# Plamen Petkov <mcplamen@gmail.com>, 2016,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-02 15:11+0200\n"
-"PO-Revision-Date: 2019-04-02 13:26+0000\n"
-"Last-Translator: Bistra Kumanova <b.kumanova@creato.bg>\n"
+"PO-Revision-Date: 2019-05-05 20:04+0000\n"
+"Last-Translator: Plamen Petkov <mcplamen@gmail.com>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -54,30 +54,30 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Международен) номер без знак за отделяне, може да ща започне с  \"+\""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "Международните телефонни номера без знак за отделяне, могат да започнат с \"+\""
 
 msgid "Active"
-msgstr ""
+msgstr "Активен"
 
 msgid "Actual current price"
 msgstr "Крайна текуща цена"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "Актуалната цена на продукта за купувачи на сайта"
 
 msgid "Add"
 msgstr "Добави"
@@ -85,13 +85,13 @@ msgstr "Добави"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Допълнителни цени за доставка, например $20 за един тежък артикул ще бъде  $100 за 5 артикула общо"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Допълнителна информация къде жилището на клиента може да се намира"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Допълнителна информация къде жилището на доставчика може да се намира"
 
 msgid "Address 1"
 msgstr "Адрес 1"
@@ -103,21 +103,21 @@ msgid "Address 3"
 msgstr "Адрес 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Номер на жилището на клиента за доставка"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Номер на жилището на доставчика за доставка"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Админ JQAdm тип е празен"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Напреднал"
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Aimeos object не е намерен"
 
 msgid "All"
 msgstr "Всички"
@@ -125,13 +125,13 @@ msgstr "Всички"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Всички атрибути които уникално определят артикул, например ширина, дължина и цвят на джински"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Позволи персонална цена"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Позволи на купувачите да изберат сами как искат да платят"
 
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
@@ -196,10 +196,10 @@ msgid "Birthday"
 msgstr "Рожден ден"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Рожден ден на клиента"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Грешка или предложение?"
 
 msgid "Cancel"
 msgstr "Отмяна"
@@ -228,13 +228,13 @@ msgid ""
 msgstr ""
 
 msgid "Choose file"
-msgstr ""
+msgstr "Изберете файл"
 
 msgid "City"
 msgstr "Град"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Град (задължителен)"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -266,10 +266,10 @@ msgid "Company"
 msgstr "Компания"
 
 msgid "Company details"
-msgstr ""
+msgstr "Данни за компанията"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Компания (опция)"
 
 msgid "Config"
 msgstr ""
@@ -320,7 +320,7 @@ msgid "Created"
 msgstr "Създадено"
 
 msgid "Currencies"
-msgstr ""
+msgstr "Валути"
 
 msgid "Currency"
 msgstr "Валута"
@@ -362,16 +362,16 @@ msgid "Dashboard"
 msgstr ""
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Датата на статуса на последната доставка е променена"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Датата на статуса на последното плащане е променена"
 
 msgid "Date the subscription ends"
 msgstr ""
 
 msgid "Days"
-msgstr ""
+msgstr "Дни"
 
 msgid "Default"
 msgstr "По подразбиране"
@@ -416,7 +416,7 @@ msgid "Download"
 msgstr "Изтегли"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Изтеглете този файл"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
@@ -425,16 +425,16 @@ msgid "E-Mail"
 msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "Е-Маил (Задължителен)"
 
 msgid "E-mail"
-msgstr ""
+msgstr "Е-Маил"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "Е-Маил (Опция)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "Е-Маил който принадлежи към адреса"
 
 msgid "EAN, SKU or article number (required)"
 msgstr "EAN, SKU или номер на артикул (задължително)"
@@ -443,19 +443,19 @@ msgid "Edit"
 msgstr "Промени"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "Промени този запис"
 
 msgid "Editor"
 msgstr "Редактор"
 
 msgid "Email"
-msgstr ""
+msgstr "Е-Маил "
 
 msgid "End date"
 msgstr "Крайна дата"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Крайна дата (Опция)"
 
 msgid "Error"
 msgstr "Грешка"
@@ -494,13 +494,13 @@ msgid "First name of the person if used in cultures where they are used"
 msgstr ""
 
 msgid "Floor"
-msgstr ""
+msgstr "Етаж"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Етаж / Апартамент"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "Етаж и/или апартамент (опция)"
 
 msgid "Group"
 msgstr "Група"
@@ -527,7 +527,7 @@ msgid "House number"
 msgstr "Номер на жилище"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Номер на жилище (опция)"
 
 msgid "How the customer is addressed in e-mails"
 msgstr ""
@@ -1549,7 +1549,7 @@ msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Последни"
 
 #, php-format
 msgid "locale"
@@ -1557,7 +1557,7 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "Валути"
 
 #, php-format
 msgid "locale/language"
@@ -1741,11 +1741,11 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Абонаменти"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Доставчици"
 
 msgid "tag"
 msgstr "Тагове"
