@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Service\Media;
+namespace Aimeos\Admin\JQAdm\Attribute\Media;
 
 
 class StandardTest extends \PHPUnit\Framework\TestCase
@@ -21,7 +21,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
 
-		$this->object = new \Aimeos\Admin\JQAdm\Service\Media\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Attribute\Media\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
@@ -36,7 +36,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'service' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
@@ -48,19 +48,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'service' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
-		$this->view->item = $manager->findItem( 'unitcode', ['media'] );
+		$this->view->item = $manager->findItem( 'xs', ['media'], 'product', 'size' );
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;media.preview&quot;:&quot;path\/to\/service.png&quot;', $result );
+		$this->assertContains( '&quot;media.preview&quot;:&quot;prod_97x93\/199_prod_97x93.jpg&quot;', $result );
 	}
 
 
 	public function testDelete()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'service' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
 		$this->view->item = $manager->createItem();
 		$result = $this->object->delete();
@@ -72,19 +72,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'service' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
-		$this->view->item = $manager->findItem( 'unitcode', ['media'] );
+		$this->view->item = $manager->findItem( 'xs', ['media'], 'product', 'size' );
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;media.preview&quot;:&quot;path\/to\/service.png&quot;', $result );
+		$this->assertContains( '&quot;media.preview&quot;:&quot;prod_97x93\/199_prod_97x93.jpg&quot;', $result );
 	}
 
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'service' );
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 		$this->view->item = $manager->createItem();
 
 
@@ -95,7 +95,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'media.type' => 'default',
 				'media.languageid' => 'de',
 				'media.label' => 'test',
-				'service.lists.type' => 'default',
+				'attribute.lists.type' => 'default',
 			]],
 		);
 
@@ -111,7 +111,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view ->addHelper( 'request', $helper );
 
 
-		$name = 'AdminJQAdmServiceMediaSave';
+		$name = 'AdminJQAdmAttributeMediaSave';
 		$this->context->getConfig()->set( 'controller/common/media/name', $name );
 
 		$cntlStub = $this->getMockBuilder( '\\Aimeos\\Controller\\Common\\Media\\Standard' )
@@ -121,7 +121,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		\Aimeos\Controller\Common\Media\Factory::inject( '\\Aimeos\\Controller\\Common\\Media\\' . $name, $cntlStub );
 
-		$cntlStub->expects( $this->once() )->method( 'add' );
+		$cntlStub->expects( $this->once() )->method( 'add' )->will( $this->returnArgument( 0 ) );
 
 
 		$result = $this->object->save();
@@ -191,13 +191,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function getClientMock( $method )
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Service\Media\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Attribute\Media\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( [$method] )
 			->getMock();
 
 		$view = \TestHelperJqadm::getView();
-		$view->item = \Aimeos\MShop::create( $this->context, 'service' )->createItem();
+		$view->item = \Aimeos\MShop::create( $this->context, 'attribute' )->createItem();
 
 		$object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$object->setView( $view );

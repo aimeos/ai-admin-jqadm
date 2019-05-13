@@ -2,11 +2,11 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2018
+ * @copyright Aimeos (aimeos.org), 2017-2018
  */
 
 
-namespace Aimeos\Admin\JQAdm\Product\Media;
+namespace Aimeos\Admin\JQAdm\Supplier\Media;
 
 
 class StandardTest extends \PHPUnit\Framework\TestCase
@@ -21,7 +21,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
 
-		$this->object = new \Aimeos\Admin\JQAdm\Product\Media\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Supplier\Media\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
@@ -36,7 +36,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
@@ -48,19 +48,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
-		$this->view->item = $manager->findItem( 'CNC', ['media'] );
+		$this->view->item = $manager->findItem( 'unitCode001', ['media'] );
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;media.preview&quot;:&quot;prod_114x95\/194_prod_114x95.jpg&quot;', $result );
+		$this->assertContains( '&quot;media.preview&quot;:&quot;path\/to\/supplier.jpg&quot;', $result );
 	}
 
 
 	public function testDelete()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
 		$this->view->item = $manager->createItem();
 		$result = $this->object->delete();
@@ -72,19 +72,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
-		$this->view->item = $manager->findItem( 'CNC', ['media'] );
+		$this->view->item = $manager->findItem( 'unitCode001', ['media'] );
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;media.preview&quot;:&quot;prod_114x95\/194_prod_114x95.jpg&quot;', $result );
+		$this->assertContains( '&quot;media.preview&quot;:&quot;path\/to\/supplier.jpg&quot;', $result );
 	}
 
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 		$this->view->item = $manager->createItem();
 
 		$param = array(
@@ -94,7 +94,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'media.type' => 'default',
 				'media.languageid' => 'de',
 				'media.label' => 'test',
-				'product.lists.type' => 'default',
+				'supplier.lists.type' => 'default',
 			]],
 		);
 
@@ -110,7 +110,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view ->addHelper( 'request', $helper );
 
 
-		$name = 'AdminJQAdmProductMediaSave';
+		$name = 'AdminJQAdmSupplierMediaSave';
 		$this->context->getConfig()->set( 'controller/common/media/name', $name );
 
 		$cntlStub = $this->getMockBuilder( '\\Aimeos\\Controller\\Common\\Media\\Standard' )
@@ -120,7 +120,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		\Aimeos\Controller\Common\Media\Factory::inject( '\\Aimeos\\Controller\\Common\\Media\\' . $name, $cntlStub );
 
-		$cntlStub->expects( $this->once() )->method( 'add' );
+		$cntlStub->expects( $this->once() )->method( 'add' )->will( $this->returnArgument( 0 ) );
 
 
 		$result = $this->object->save();
@@ -190,13 +190,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function getClientMock( $method )
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Media\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Supplier\Media\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
 			->setMethods( [$method] )
 			->getMock();
 
 		$view = \TestHelperJqadm::getView();
-		$view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
+		$view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->createItem();
 
 		$object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$object->setView( $view );

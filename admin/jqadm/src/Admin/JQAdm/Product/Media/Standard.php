@@ -412,11 +412,12 @@ class Standard
 			}
 
 			$refItem->fromArray( $entry, true );
+			$file = $this->getValue( $files, 'media/' . $idx . '/file' );
 
-			if( ( $file = $this->getValue( $files, 'media/' . $idx . '/file' ) ) !== null && $file->getError() !== UPLOAD_ERR_NO_FILE )
-			{
-				$refItem->getId() ?: $refItem->setUrl( '' )->setPreview( '' ); // keep copied media
-				$cntl->add( $refItem, $file );
+			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
+				$refItem = $cntl->add( $refItem, $file );
+			} elseif ( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
+				$refItem = $cntl->copy( $refItem );
 			}
 
 			$conf = [];
