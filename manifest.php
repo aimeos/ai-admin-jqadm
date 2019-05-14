@@ -6,7 +6,7 @@ return array(
 		'aimeos-core',
 	),
 	'config' => array(
-		'admin/jqadm/config',
+		'config',
 	),
 	'include' => array(
 		'admin/jqadm/src',
