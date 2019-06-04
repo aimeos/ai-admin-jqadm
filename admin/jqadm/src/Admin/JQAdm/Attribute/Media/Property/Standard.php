@@ -217,7 +217,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'media/property/type' );
 
 		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'attribute' ) );
+		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
 		$search->setSortations( [$search->sort( '+', 'media.property.type.position' )] );
 
 		$view->propertyTypes = $this->map( $manager->searchItems( $search ) );
@@ -301,7 +301,14 @@ class Standard
 				$refItem->addPropertyItem( $propItem );
 			}
 
-			$refItem->deletePropertyItems( $propItems );
+			foreach( $propItems as $propItem )
+			{
+				// Don't delete preview image URLs
+				if( !ctype_digit( $propItem->getType() ) ) {
+					$refItem->deletePropertyItem( $propItem );
+				}
+			}
+
 			$index++;
 		}
 
