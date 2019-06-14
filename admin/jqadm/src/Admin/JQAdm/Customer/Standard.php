@@ -529,9 +529,6 @@ class Standard
 	 */
 	protected function fromArray( array $data )
 	{
-		$data['customer.label'] = $data['customer.firstname'] . ' ' . $data['customer.lastname'];
-		$data['customer.code'] = $data['customer.email'];
-
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
 
 		if( isset( $data['customer.id'] ) && $data['customer.id'] != '' ) {
@@ -540,10 +537,13 @@ class Standard
 			$item = $manager->createItem();
 		}
 
-		$item->fromArray( $data, true );
-		$item->setGroups( array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() ) );
+		$label = ( $item->getFirstname() ? $item->getFirstname() . ' ' : '' ) . $item->getLastname();
+		$label .= ( $item->getCompany() ? '(' . $item->getCompany() . ')' : '' );
 
-		return $item;
+		return $item->fromArray( $data, true )
+			->setGroups( array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() ) )
+			->setCode( $item->getCode() ?: $item->getEmail() )
+			->setLabel( $label );
 	}
 
 
