@@ -394,6 +394,47 @@ Aimeos.Price = {
 
 			toggle : function(idx) {
 				this.$set(this.advanced, idx, (!this.advanced[idx] ? true : false));
+			},
+
+
+			addPropertyItem : function(idx) {
+
+				if(!this.items[idx]) {
+					this.$set(this.items, idx, {});
+				}
+
+				if(!this.items[idx]['property']) {
+					this.$set(this.items[idx], 'property', []);
+				}
+
+				var len = this.items[idx]['property'].length;
+
+				if(!this.items[idx]['property'][len]) {
+					this.$set(this.items[idx]['property'], len, {});
+				}
+
+				var keys = ['price.property.id', 'price.property.languageid', 'price.property.type', 'price.property.value'];
+
+				for(key in keys) {
+					key = keys[key]; this.$set(this.items[idx]['property'][len], key, '');
+				}
+
+				this.$set(this.items[idx]['property'][len], 'price.property.siteid', this.siteid);
+			},
+
+
+			getPropertyData : function(idx) {
+
+				if(this.items[idx] && this.items[idx]['property']) {
+					return this.items[idx]['property'];
+				}
+
+				return [];
+			},
+
+
+			removePropertyItem : function(idx, propidx) {
+				this.items[idx]['property'].splice(propidx, 1);
 			}
 		},
 		'mounted' : function() {
