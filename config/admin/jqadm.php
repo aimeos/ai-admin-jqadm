@@ -17,6 +17,13 @@ return [
 				],
 			],
 		],
+		'price' => [
+			'standard' => [
+				'subparts' => [
+					'property' => 'property',
+				],
+			],
+		],
 	],
 	'catalog' => [
 		'standard' => [
@@ -138,6 +145,13 @@ return [
 				],
 			],
 		],
+		'price' => [
+			'standard' => [
+				'subparts' => [
+					'property' => 'property',
+				],
+			],
+		],
 		'related' => [
 			'standard' => [
 				'subparts' => [
@@ -169,6 +183,13 @@ return [
 			],
 		],
 		'media' => [
+			'standard' => [
+				'subparts' => [
+					'property' => 'property',
+				],
+			],
+		],
+		'price' => [
 			'standard' => [
 				'subparts' => [
 					'property' => 'property',
