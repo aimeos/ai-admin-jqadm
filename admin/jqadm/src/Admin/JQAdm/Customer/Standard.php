@@ -537,12 +537,13 @@ class Standard
 			$item = $manager->createItem();
 		}
 
-		$label = ( $item->getFirstname() ? $item->getFirstname() . ' ' : '' ) . $item->getLastname();
-		$label .= ( $item->getCompany() ? '(' . $item->getCompany() . ')' : '' );
+		$addr = $item->getPaymentAddress();
+		$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
+		$label .= ( $addr->getCompany() ? '(' . $addr->getCompany() . ')' : '' );
 
 		return $item->fromArray( $data, true )
 			->setGroups( array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() ) )
-			->setCode( $item->getCode() ?: $item->getEmail() )
+			->setCode( $item->getCode() ?: $addr->getEmail() )
 			->setLabel( $label );
 	}
 
