@@ -31,19 +31,19 @@ $keys = [
 				v-bind:aria-controls="'item-address-group-data-' + idx" aria-expanded="false">
 				<div class="card-tools-left">
 					<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
+						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 					</div>
 				</div>
 				<span class="item-label header-label">{{ getLabel(idx, 'supplier.address.') }}</span>
 				&nbsp;
 				<div class="card-tools-right">
 					<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)' ) ); ?>"
 						v-on:click.stop="duplicateItem(idx)">
 					</div>
 					<div v-if="!checkSite('supplier.address.siteid', idx)"
 						class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 						v-on:click="removeItem(idx)">
 					</div>
 				</div>
@@ -337,7 +337,7 @@ $keys = [
 
 		<div class="card-tools-more">
 			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 				v-on:click="addItem('supplier.address.')" >
 			</div>
 		</div>

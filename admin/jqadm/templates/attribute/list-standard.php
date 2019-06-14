@@ -120,7 +120,7 @@ $columnList = [
 				<th class="actions">
 					<a class="btn fa act-add" tabindex="1"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
 
@@ -199,12 +199,12 @@ $columnList = [
 					<td class="actions">
 						<a class="btn act-copy fa" tabindex="1"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
 						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 							<a class="btn act-delete fa" tabindex="1"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'attribute', 'id' => $id] + $params, [], $delConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 						<?php endif; ?>
 					</td>

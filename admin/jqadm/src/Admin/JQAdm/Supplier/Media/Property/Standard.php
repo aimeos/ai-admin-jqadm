@@ -218,7 +218,7 @@ class Standard
 
 		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
-		$search->setSortations( [$search->sort( '+', 'media.property.type.position')] );
+		$search->setSortations( [$search->sort( '+', 'media.property.type.position' )] );
 
 		$view->propertyTypes = $this->map( $manager->searchItems( $search ) );
 

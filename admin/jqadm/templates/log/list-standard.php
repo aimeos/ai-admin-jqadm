@@ -84,7 +84,7 @@ $columnList = [
 						);
 					?>
 					<button type="submit" class="btn act-search fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Search') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
 					</button>
 				</th>

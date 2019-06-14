@@ -46,12 +46,12 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 										<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 											<a class="btn act-delete fa" tabindex="1"
 												href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $delConfig ) ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 												aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 										<?php endif; ?>
 										<a class="btn act-download fa" tabindex="1"
 											href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $getConfig ) ); ?>"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Download this file') ); ?>"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Download this file' ) ); ?>"
 											aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>"></a>
 									</td>
 								</tr>

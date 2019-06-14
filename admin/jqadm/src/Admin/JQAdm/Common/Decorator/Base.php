@@ -68,7 +68,7 @@ abstract class Base
 	 * Creates a new resource
 	 *
 	 * @return string|null admin output to display or null for redirecting to the list
-	*/
+	 */
 	public function create()
 	{
 		return $this->client->create();
@@ -79,7 +79,7 @@ abstract class Base
 	 * Deletes a resource
 	 *
 	 * @return string|null admin output to display or null for redirecting to the list
-	*/
+	 */
 	public function delete()
 	{
 		return $this->client->delete();
@@ -101,7 +101,7 @@ abstract class Base
 	 * Returns a single resource
 	 *
 	 * @return string|null admin output to display or null for redirecting to the list
-	*/
+	 */
 	public function get()
 	{
 		return $this->client->get();
@@ -123,7 +123,7 @@ abstract class Base
 	 * Saves the data
 	 *
 	 * @return string|null admin output to display or null for redirecting to the list
-	*/
+	 */
 	public function save()
 	{
 		return $this->client->save();
@@ -134,7 +134,7 @@ abstract class Base
 	 * Returns a list of resource according to the conditions
 	 *
 	 * @return string admin output to display
-	*/
+	 */
 	public function search()
 	{
 		return $this->client->search();

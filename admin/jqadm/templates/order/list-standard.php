@@ -237,7 +237,7 @@ $statusList = [
 				<th class="actions">
 					<a class="btn fa act-download" tabindex="1"
 						href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params, [], $expConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Download') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>">
 					</a>
 
@@ -500,7 +500,7 @@ $statusList = [
 					<td class="actions">
 						<a class="btn act-copy fa"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $item->getBaseId()] + $params, [], $copyConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
 					</td>
 				</tr>

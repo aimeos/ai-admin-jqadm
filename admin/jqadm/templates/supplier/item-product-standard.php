@@ -84,7 +84,7 @@ $refItems = $this->get( 'productItems', [] );
 
 				<th class="actions">
 					<a class="btn fa act-add" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
 
@@ -220,7 +220,7 @@ $refItems = $this->get( 'productItems', [] );
 										</th>
 										<th class="actions">
 											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>">
 											</div>
 										</th>
 									</tr>
@@ -237,7 +237,7 @@ $refItems = $this->get( 'productItems', [] );
 										</td>
 										<td class="actions">
 											<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 											</div>
 										</td>
 									</tr>
@@ -248,7 +248,7 @@ $refItems = $this->get( 'productItems', [] );
 				</td>
 				<td class="actions">
 					<a class="btn fa act-close" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Close') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>">
 					</a>
 				</td>
@@ -319,7 +319,7 @@ $refItems = $this->get( 'productItems', [] );
 									<tr class="config-map-row prototype-map">
 										<td class="config-map-actions">
 											<div class="btn act-delete fa" tabindex="1"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 											</div>
 										</td>
 										<td class="config-map-row-key">
@@ -332,12 +332,12 @@ $refItems = $this->get( 'productItems', [] );
 									<tr class="config-map-actions">
 										<td class="config-map-action-add">
 											<div class="btn act-add fa" tabindex="1"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry') ); ?>">
+												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry' ) ); ?>">
 											</div>
 										</td>
 										<td class="config-map-action-update" colspan="2">
 											<div class="btn btn-primary act-update" tabindex="1">
-												<?= $enc->attr( $this->translate( 'admin', 'OK') ); ?>
+												<?= $enc->attr( $this->translate( 'admin', 'OK' ) ); ?>
 											</div>
 										</td>
 									</tr>
@@ -372,7 +372,7 @@ $refItems = $this->get( 'productItems', [] );
 							<?php if( $refItem ) : ?>
 								<a class="btn act-view fa item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
 									href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'product', 'id' => $refId] + $params, [], $getConfig ) ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Show entry') ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Show entry' ) ); ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show' ) ); ?>">
 									<?= $enc->html( $refId ); ?> - <?= $enc->html( $refItem->getLabel() . ' (' . $refItem->getCode() . ')' ); ?>
 								</a>
@@ -388,11 +388,11 @@ $refItems = $this->get( 'productItems', [] );
 
 						<?php if( !$this->site()->readonly( $siteId ) ) : ?>
 							<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
 							<a class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'supplier/lists', 'id' => $listId] + $params, [], $delConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 						<?php endif; ?>
 					</td>

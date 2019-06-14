@@ -25,14 +25,14 @@ $enc = $this->encoder();
 
 ?>
 <a class="btn btn-secondary act-cancel"
-	title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
+	title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list' ) ); ?>"
 	href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $params, [], $listConfig ) ); ?>">
 	<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
 </a>
 
 <div class="btn-group">
 	<button type="submit" class="btn btn-primary act-save"
-		title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)') ); ?>">
+		title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ); ?>">
 		<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 	</button>
 	<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"

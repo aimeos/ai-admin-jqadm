@@ -167,7 +167,7 @@ $reasonList = [
 				<th class="actions">
 					<a class="btn fa act-download" tabindex="1"
 						href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params, [], $expConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Download') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>">
 					</a>
 
@@ -345,12 +345,12 @@ $reasonList = [
 					<td class="actions">
 						<a class="btn act-copy fa" tabindex="1"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry') ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
 						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 							<a class="btn act-delete fa" tabindex="1"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'subscription', 'id' => $id] + $params, [], $delConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
 						<?php endif; ?>
 					</td>

@@ -279,7 +279,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
 			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '-', 'locale.currency.status'), $search->sort( '+', 'locale.currency.id')] );
+			$search->setSortations( [$search->sort( '-', 'locale.currency.status' ), $search->sort( '+', 'locale.currency.id' )] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );

@@ -59,7 +59,7 @@ $params = $this->get( 'pageParams', [] );
 
 				<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx+1; ?>">
+						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
 							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 						</a>
 					</li>
@@ -191,7 +191,7 @@ $params = $this->get( 'pageParams', [] );
 								<th class="actions">
 									<?php if( !$this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ) : ?>
 										<div class="btn act-add fa" tabindex="1"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+											title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>">
 										</div>
 									<?php endif; ?>
 								</th>
@@ -218,7 +218,7 @@ $params = $this->get( 'pageParams', [] );
 									<td class="actions">
 										<?php if( !$this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ) : ?>
 											<div class="btn act-delete fa" tabindex="1"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 											</div>
 										<?php endif; ?>
 									</td>
@@ -241,7 +241,7 @@ $params = $this->get( 'pageParams', [] );
 											<tr class="config-map-row prototype-map">
 												<td class="config-map-actions">
 													<div class="btn act-delete fa" tabindex="1"
-														title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+														title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 													</div>
 												</td>
 												<td class="config-map-row-key">
@@ -254,12 +254,12 @@ $params = $this->get( 'pageParams', [] );
 											<tr class="config-map-actions">
 												<td class="config-map-action-add">
 													<div class="btn act-add fa" tabindex="1"
-														title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry') ); ?>">
+														title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry' ) ); ?>">
 													</div>
 												</td>
 												<td class="config-map-action-update" colspan="2">
 													<div class="btn btn-primary act-update" tabindex="1">
-														<?= $enc->attr( $this->translate( 'admin', 'OK') ); ?>
+														<?= $enc->attr( $this->translate( 'admin', 'OK' ) ); ?>
 													</div>
 												</td>
 											</tr>
@@ -297,7 +297,7 @@ $params = $this->get( 'pageParams', [] );
 								</td>
 								<td class="actions">
 									<div class="btn act-delete fa" tabindex="1"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 									</div>
 								</td>
 							</tr>

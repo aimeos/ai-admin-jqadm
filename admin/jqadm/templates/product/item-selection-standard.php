@@ -29,7 +29,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 				v-bind:aria-controls="'item-selection-group-data-' + idx" aria-expanded="false">
 				<div class="card-tools-left">
 					<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
+						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 					</div>
 				</div>
 				<span class="item-label header-label" v-html="getLabel(idx)"></span>
@@ -37,16 +37,16 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 				<div class="card-tools-right">
 					<a v-if="entry['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:href="'<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => '_ID_'] + $this->get( 'pageParams', [] ), [], $config ) ); ?>'.replace('_ID_', entry['product.id'])"
-						title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
+						title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ); ?>"></a>
 
 					<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)' ) ); ?>"
 						v-on:click.stop="copyItem(idx)">
 					</div>
 
 					<div v-if="!checkSite('product.lists.siteid', idx)"
 						class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 						v-on:click.stop="removeItem(idx)">
 					</div>
 				</div>
@@ -129,7 +129,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								</th>
 								<th class="actions">
 									<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 										v-on:click="addAttributeItem(idx)">
 									</div>
 								</th>
@@ -164,7 +164,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								</td>
 								<td class="actions">
 									<div v-if="!checkSite('product.lists.siteid', idx, attridx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 										v-on:click.stop="removeAttributeItem(idx, attridx)">
 									</div>
 								</td>
@@ -181,7 +181,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 
 		<div class="card-tools-more">
 			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 				v-on:click="addItem()" >
 			</div>
 		</div>

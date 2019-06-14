@@ -29,7 +29,7 @@ $keys = [
 				v-bind:aria-controls="'item-text-group-data-' + idx" aria-expanded="false">
 				<div class="card-tools-left">
 					<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
+						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 					</div>
 				</div>
 				<span class="item-label header-label" v-html="getLabel(idx)"></span>
@@ -37,7 +37,7 @@ $keys = [
 				<div class="card-tools-right">
 					<div v-if="!checkSite('catalog.lists.siteid', idx)"
 						class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 						v-on:click.stop="removeItem(idx)">
 					</div>
 				</div>
@@ -175,7 +175,7 @@ $keys = [
 				<div v-on:click="toggle(idx)" class="col-xl-12 advanced" v-bind:class="{ 'collapsed': !advanced[idx] }">
 					<div class="card-tools-left">
 						<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data') ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data' ) ); ?>">
 						</div>
 					</div>
 					<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
@@ -257,7 +257,7 @@ $keys = [
 								</th>
 								<th class="actions">
 									<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 										v-bind:readonly="checkSite('catalog.lists.siteid', idx)"
 										v-on:click="addConfig(idx)" >
 									</div>
@@ -284,7 +284,7 @@ $keys = [
 								<td class="actions">
 									<div v-if="!checkSite('catalog.lists.siteid', idx)" v-on:click="removeConfig(idx, pos)"
 										class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 									</div>
 								</td>
 							</tr>
@@ -300,7 +300,7 @@ $keys = [
 
 		<div class="card-tools-more">
 			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 				v-on:click="addItem('catalog.lists.')" >
 			</div>
 		</div>
