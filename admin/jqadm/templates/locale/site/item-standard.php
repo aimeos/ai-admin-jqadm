@@ -52,7 +52,7 @@ $params = $this->get( 'pageParams', [] );
 
 				<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx+1; ?>">
+						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
 							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 						</a>
 					</li>
@@ -144,7 +144,7 @@ $params = $this->get( 'pageParams', [] );
 								</th>
 								<th class="actions">
 									<div class="btn act-add fa" tabindex="1"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>">
 									</div>
 								</th>
 							</tr>
@@ -165,7 +165,7 @@ $params = $this->get( 'pageParams', [] );
 									</td>
 									<td class="actions">
 										<div class="btn act-delete fa" tabindex="1"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 										</div>
 									</td>
 								</tr>
@@ -182,7 +182,7 @@ $params = $this->get( 'pageParams', [] );
 								</td>
 								<td class="actions">
 									<div class="btn act-delete fa" tabindex="1"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 									</div>
 								</td>
 							</tr>

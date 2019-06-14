@@ -74,12 +74,12 @@ $columnList = [
 						<button class="btn act-menu fa" type="button" id="menuButton"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'More' ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'More') ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'More' ) ); ?>">
 						</button>
 						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="menuButton">
 							<li class="dropdown-item">
 								<a class="btn act-add fa label" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 									<?= $enc->html( $this->translate( 'admin', 'Add' ) ); ?>
 								</a>
@@ -159,7 +159,7 @@ $columnList = [
 					<input type="hidden" name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.id', '' ) ) ); ?>" disabled="disabled" />
 
 					<a class="btn fa act-close" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Close') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>">
 					</a>
 				</td>
@@ -225,11 +225,11 @@ $columnList = [
 							name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.id', '' ) ) ); ?>" />
 
 						<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
 						<a class="btn fa act-delete" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							href="<?= $this->url( $jsonTarget, $jsonCntl, $jsonAction, ['resource' => 'coupon/code', 'id' => $id], [], $jsonConfig ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete') ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 						</a>
 					</td>

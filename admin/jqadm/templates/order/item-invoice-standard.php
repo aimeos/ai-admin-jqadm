@@ -107,7 +107,7 @@ $statusList = [
 
 				<th class="actions">
 					<a class="btn fa act-add" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
 
@@ -244,7 +244,7 @@ $statusList = [
 				</td>
 				<td class="actions">
 					<a class="btn fa act-close" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Close') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>">
 					</a>
 				</td>
@@ -345,7 +345,7 @@ $statusList = [
 					<td class="actions">
 						<?php if( !$this->site()->readonly( $siteId ) ) : ?>
 							<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry') ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
 						<?php endif; ?>
 					</td>

@@ -31,7 +31,7 @@ $keys = [
 				</th>
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 						v-on:click="addItem()">
 					</div>
 				</th>
@@ -67,7 +67,7 @@ $keys = [
 				</td>
 				<td class="actions">
 					<div v-if="!checkSite('product.lists.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 						v-on:click.stop="removeItem(idx)">
 				</td>
 			</tr>

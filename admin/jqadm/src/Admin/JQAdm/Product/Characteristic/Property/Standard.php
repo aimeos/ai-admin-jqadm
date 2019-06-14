@@ -281,7 +281,7 @@ class Standard
 
 		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '!=', 'product.property.type.code', $excludes ) );
-		$search->setSortations( [$search->sort( '+', 'product.property.type.position')] );
+		$search->setSortations( [$search->sort( '+', 'product.property.type.position' )] );
 
 		return $this->map( $manager->searchItems( $search ) );
 	}

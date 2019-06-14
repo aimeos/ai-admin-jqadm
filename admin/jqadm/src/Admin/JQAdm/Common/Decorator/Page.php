@@ -62,7 +62,7 @@ class Page extends Base
 		if( $view->access( ['super'] ) )
 		{
 			$search = $siteManager->createSearch()->setSlice( 0, 1000 );
-			$search->setSortations( [$search->sort( '+', 'locale.site.label')] );
+			$search->setSortations( [$search->sort( '+', 'locale.site.label' )] );
 			$search->setConditions( $search->compare( '==', 'locale.site.level', 0 ) );
 
 			$view->pageSiteList = $siteManager->searchItems( $search );

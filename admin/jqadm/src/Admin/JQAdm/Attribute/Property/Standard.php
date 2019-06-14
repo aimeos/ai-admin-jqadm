@@ -279,7 +279,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute/property/type' );
 
 		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setSortations( [$search->sort( '+', 'attribute.property.type.position')] );
+		$search->setSortations( [$search->sort( '+', 'attribute.property.type.position' )] );
 
 		return $manager->searchItems( $search );
 	}

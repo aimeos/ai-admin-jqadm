@@ -160,7 +160,7 @@ $deliveryStatusList = [
 				<th class="actions">
 					<!-- a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'order'] + $params, [], $newConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a -->
 
@@ -263,7 +263,7 @@ $deliveryStatusList = [
 					<td class="actions">
 						<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
 							href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'View details') ); ?>"></a>
+							title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ); ?>"></a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

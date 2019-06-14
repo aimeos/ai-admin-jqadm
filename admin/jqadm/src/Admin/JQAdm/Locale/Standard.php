@@ -432,7 +432,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 
 		$search = $manager->createSearch( true );
-		$search->setSortations( [$search->sort( '+', 'locale.currency.id')] );
+		$search->setSortations( [$search->sort( '+', 'locale.currency.id' )] );
 		$search->setSlice( 0, 250 );
 
 		return $manager->searchItems( $search );
@@ -449,7 +449,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/language' );
 
 		$search = $manager->createSearch( true );
-		$search->setSortations( [$search->sort( '+', 'locale.language.id')] );
+		$search->setSortations( [$search->sort( '+', 'locale.language.id' )] );
 		$search->setSlice( 0, 250 );
 
 		return $manager->searchItems( $search );

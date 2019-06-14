@@ -40,7 +40,7 @@ class Standard
 			$manager = \Aimeos\MAdmin::create( $context, 'log' );
 
 			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '-', 'log.timestamp')] );
+			$search->setSortations( [$search->sort( '-', 'log.timestamp' )] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );

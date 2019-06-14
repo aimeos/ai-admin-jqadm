@@ -110,14 +110,14 @@ $statusList = [
 			</span>
 			<div class="item-actions">
 				<a class="btn btn-secondary act-cancel"
-					title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list') ); ?>"
+					title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list' ) ); ?>"
 					href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $searchParams, [], $listConfig ) ); ?>">
 					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
 				</a>
 
 				<div class="btn-group">
 					<button type="submit" class="btn btn-primary act-save"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)') ); ?>">
+						title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ); ?>">
 						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 					</button>
 					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
@@ -144,7 +144,7 @@ $statusList = [
 
 					<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $type => $subpart ) : ?>
 						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$type+1; ?>">
+							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$type + 1; ?>">
 								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 							</a>
 						</li>
@@ -590,7 +590,7 @@ $statusList = [
 												<input class="form-control item-website" type="url" tabindex="1" data-field="website"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.website' ) ) ); ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ); ?>"
-													value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.website') ); ?>"
+													value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.website' ) ); ?>"
 													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
@@ -647,7 +647,7 @@ $statusList = [
 										</div>
 									</div>
 
-									<table class="service-attr table table-striped" data-id="<?= $enc->attr($serviceId ) ?>"
+									<table class="service-attr table table-striped" data-id="<?= $enc->attr( $serviceId ) ?>"
 										data-codes="<?= $enc->attr( isset( $serviceAttrCodes[$type] ) ? implode( ',', $serviceAttrCodes[$type] ) : '' ); ?>">
 										<thead>
 											<tr>
@@ -663,7 +663,7 @@ $statusList = [
 												<th class="actions">
 													<?php if( !$this->site()->readonly( $basket->getLocale()->getSiteId() ) ) : ?>
 														<div class="btn act-add fa" tabindex="1"
-															title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+															title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>">
 														</div>
 													<?php endif; ?>
 												</th>
@@ -702,7 +702,7 @@ $statusList = [
 													<td class="actions">
 														<?php if( !$this->site()->readonly( $basket->getLocale()->getSiteId() ) ) : ?>
 															<div class="btn act-delete fa" tabindex="1"
-																title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+																title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 															</div>
 														<?php endif; ?>
 													</td>
@@ -731,7 +731,7 @@ $statusList = [
 												<td class="actions">
 													<?php if( !$this->site()->readonly( $basket->getLocale()->getSiteId() ) ) : ?>
 														<div class="btn act-delete fa" tabindex="1"
-															title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>">
+															title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 														</div>
 													<?php endif; ?>
 												</td>
