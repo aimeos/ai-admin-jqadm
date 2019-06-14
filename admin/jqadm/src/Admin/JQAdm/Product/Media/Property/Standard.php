@@ -69,7 +69,7 @@ class Standard
 		foreach( $data as $index => $entry )
 		{
 			foreach( $view->value( $entry, 'property', [] ) as $idx => $y ) {
-				$data[$index]['property'][$idx]['product.lists.siteid'] = $siteid;
+				$data[$index]['property'][$idx]['media.property.siteid'] = $siteid;
 			}
 		}
 
