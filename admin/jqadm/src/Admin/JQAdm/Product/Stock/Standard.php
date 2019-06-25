@@ -341,7 +341,7 @@ class Standard
 			}
 
 			$stockItem->setProductCode( $item->getCode() );
-			$stockItem->setStocklevel( $this->getValue( $data, 'stock.stocklevel/' . $idx ) );
+			$stockItem->setStockLevel( $this->getValue( $data, 'stock.stocklevel/' . $idx ) );
 			$stockItem->setDateBack( $this->getValue( $data, 'stock.dateback/' . $idx ) );
 
 			$manager->saveItem( $stockItem, false );
