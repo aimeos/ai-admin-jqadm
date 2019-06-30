@@ -62,7 +62,10 @@ Aimeos.options.done(function(result) {
 		var id = $(".aimeos .item-catalog #item-id").val() || $(".aimeos .item-catalog #item-parentid").val();
 		var node = root.tree("getNodeById", id);
 
-		root.tree("selectNode", node);
+		if(!root.tree("getSelectedNode")) {
+			root.tree("selectNode", node);
+		}
+
 		root.tree("openNode", node);
 	});
 });
