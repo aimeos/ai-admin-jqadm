@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-02 15:11+0200\n"
-"PO-Revision-Date: 2019-04-30 19:36+0000\n"
-"Last-Translator: Вячеслав Васильев <uverst@gmail.com>\n"
+"POT-Creation-Date: 2019-07-01 19:09+0200\n"
+"PO-Revision-Date: 2019-07-01 17:12+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -361,6 +361,12 @@ msgstr "Пароль Клиента"
 msgid "Customer properties that are not shared with other customers"
 msgstr "Свойства клиента, которые не передаются другим клиентам"
 
+msgid "Customer reference"
+msgstr ""
+
+msgid "Customer reference (optional)"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Панель"
 
@@ -399,6 +405,9 @@ msgstr "Статус доставки"
 
 msgid "Delivery types"
 msgstr "Типы Доставки"
+
+msgid "Delivery within"
+msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Описание текстового контента, если он на иностранном языке"
@@ -775,6 +784,9 @@ msgstr "Нет купона"
 msgid "Non-shared properties for the media item"
 msgstr "Не разделяемые свойства для элемента мультимедиа"
 
+msgid "Non-shared properties for the price item"
+msgstr ""
+
 msgid "None"
 msgstr "Нет"
 
@@ -809,6 +821,9 @@ msgstr "Заказ"
 
 msgid "Order ID"
 msgstr "ID Заказа"
+
+msgid "Order number entered by the customer"
+msgstr ""
 
 msgid "Order of the language/currency combinations"
 msgstr "Порядок языковых/валютных комбинаций"
@@ -929,6 +944,9 @@ msgstr "Тип Цены"
 
 msgid "Price Types"
 msgstr "Типы Цен"
+
+msgid "Price properties"
+msgstr ""
 
 msgid "Priority"
 msgstr "Приоритет"
@@ -1307,6 +1325,9 @@ msgstr "Опция отображается только на веб-сайте 
 msgid "Three letter ISO currency code"
 msgstr "Трехбуквенный код валюты ISO"
 
+msgid "Time frame (optional)"
+msgstr ""
+
 msgid "Timestamp"
 msgstr "Отметка"
 
@@ -1405,6 +1426,9 @@ msgstr "Загружено"
 
 msgid "User groups"
 msgstr "Группы пользователей"
+
+msgid "Usual time frame for the delivery of the product"
+msgstr ""
 
 msgid "VAT ID"
 msgstr "ID НДС"

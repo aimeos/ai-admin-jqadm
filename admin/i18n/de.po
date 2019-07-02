@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aimeos, 2015-2018
+# Aimeos, 2015-2019
 # Cris <cristoph@berane.eu>, 2018
 # Michael Spahn <michael@spahn.me>, 2014
 # nsendetzky, 2014
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-02 15:11+0200\n"
-"PO-Revision-Date: 2019-04-02 13:26+0000\n"
+"POT-Creation-Date: 2019-07-01 19:09+0200\n"
+"PO-Revision-Date: 2019-07-01 17:23+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -360,6 +360,12 @@ msgstr "Kundenpasswort"
 msgid "Customer properties that are not shared with other customers"
 msgstr "Kundeneigenschaften, die nicht mit anderen Kunden geteilt werden"
 
+msgid "Customer reference"
+msgstr "Kundenreferenz"
+
+msgid "Customer reference (optional)"
+msgstr "Kundenreferenz (optional)"
+
 msgid "Dashboard"
 msgstr "Übersicht"
 
@@ -398,6 +404,9 @@ msgstr "Lieferstatus"
 
 msgid "Delivery types"
 msgstr "Versandarten"
+
+msgid "Delivery within"
+msgstr "Versand in"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Beschreibung falls der Text in einer fremden Sprache ist"
@@ -774,6 +783,9 @@ msgstr "Kein Gutschein"
 msgid "Non-shared properties for the media item"
 msgstr "Eigenschaften von Medieneinträgen"
 
+msgid "Non-shared properties for the price item"
+msgstr "Eigenschaften von Preiseinträgen"
+
 msgid "None"
 msgstr "Keine"
 
@@ -808,6 +820,9 @@ msgstr "Bestellung"
 
 msgid "Order ID"
 msgstr "Bestellnummer"
+
+msgid "Order number entered by the customer"
+msgstr "Vom Kunden vergebene Bestellnummer"
 
 msgid "Order of the language/currency combinations"
 msgstr "Reihenfolge der Sprach-/Währungskombinationen"
@@ -928,6 +943,9 @@ msgstr "Preistyp"
 
 msgid "Price Types"
 msgstr "Preistypen"
+
+msgid "Price properties"
+msgstr "Preiseigenschaften"
 
 msgid "Priority"
 msgstr "Priorität"
@@ -1306,6 +1324,9 @@ msgstr "Diese Option wird auf der Webseite bis zu dem Datum und der Uhrzeit ange
 msgid "Three letter ISO currency code"
 msgstr "Dreistelliger ISO Währungscode"
 
+msgid "Time frame (optional)"
+msgstr "Zeitraum (optional)"
+
 msgid "Timestamp"
 msgstr "Zeitstempel"
 
@@ -1404,6 +1425,9 @@ msgstr "Hochgeladen"
 
 msgid "User groups"
 msgstr "Kundengruppen"
+
+msgid "Usual time frame for the delivery of the product"
+msgstr "Gewöhnlicher Zeitraum für die Lieferung des Produkts"
 
 msgid "VAT ID"
 msgstr "USt-ID"

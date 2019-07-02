@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-02 15:11+0200\n"
-"PO-Revision-Date: 2019-04-02 17:44+0000\n"
+"POT-Creation-Date: 2019-07-01 19:09+0200\n"
+"PO-Revision-Date: 2019-07-02 00:05+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -357,6 +357,12 @@ msgstr "Müşteri şifresi"
 msgid "Customer properties that are not shared with other customers"
 msgstr "Diğer müşterilerle paylaşılmayan müşteri özellikleri"
 
+msgid "Customer reference"
+msgstr "Müşteri referansı"
+
+msgid "Customer reference (optional)"
+msgstr "Müşteri referansı (isteğe bağlı)"
+
 msgid "Dashboard"
 msgstr "Gösterge Paneli"
 
@@ -395,6 +401,9 @@ msgstr "Teslimat durumu"
 
 msgid "Delivery types"
 msgstr "Teslimat türleri"
+
+msgid "Delivery within"
+msgstr "Teslimat"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Eğer yabancı bir dilde ise metin içeriğinin açıklaması "
@@ -771,6 +780,9 @@ msgstr "Kupon yok"
 msgid "Non-shared properties for the media item"
 msgstr "Medya öğesi için paylaşılmayan özellikler"
 
+msgid "Non-shared properties for the price item"
+msgstr "Fiyat öğesi için paylaşılmayan mülkler"
+
 msgid "None"
 msgstr "Hiçbiri"
 
@@ -805,6 +817,9 @@ msgstr "Sipariş"
 
 msgid "Order ID"
 msgstr "Sipariş ID"
+
+msgid "Order number entered by the customer"
+msgstr "Müşteri tarafından girilen sipariş numarası"
 
 msgid "Order of the language/currency combinations"
 msgstr "Dil/para birimi kombinasyonlarının sırası"
@@ -925,6 +940,9 @@ msgstr "Fiyat Türü"
 
 msgid "Price Types"
 msgstr "Fiyat Türleri"
+
+msgid "Price properties"
+msgstr "Fiyat özellikleri"
 
 msgid "Priority"
 msgstr "Öncelik"
@@ -1303,6 +1321,9 @@ msgstr "Seçenek, web sitesinde sadece o tarih ve saate kadar gösterilir"
 msgid "Three letter ISO currency code"
 msgstr "Üç harfli ISO para birimi kodu"
 
+msgid "Time frame (optional)"
+msgstr "Zaman aralığı (isteğe bağlı)"
+
 msgid "Timestamp"
 msgstr "Zaman Damgası"
 
@@ -1401,6 +1422,9 @@ msgstr "Yüklendi"
 
 msgid "User groups"
 msgstr "Kullanıcı grupları"
+
+msgid "Usual time frame for the delivery of the product"
+msgstr "Ürünün teslimatı için normal zaman aralığı"
 
 msgid "VAT ID"
 msgstr "Vergi Dairesi/Numarası"

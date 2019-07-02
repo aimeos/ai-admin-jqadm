@@ -9,15 +9,15 @@
 # Kevin Peters <kevin@popkorn.be>, 2018
 # Klaas Runia <info@sennik.nl>, 2015
 # Maikel Slot <maikelslot@msdesigns.nl>, 2017
-# Maurice Lourens <mlourens@gmail.com>, 2015,2017
+# Maurice Lourens <mlourens@gmail.com>, 2015,2017,2019
 # Sten Pelzer <pelzersten@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-02 15:11+0200\n"
-"PO-Revision-Date: 2019-04-02 13:26+0000\n"
-"Last-Translator: Klaas Runia <info@sennik.nl>\n"
+"POT-Creation-Date: 2019-07-01 19:09+0200\n"
+"PO-Revision-Date: 2019-07-01 17:12+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -364,6 +364,12 @@ msgstr "Klant wachtwoord"
 msgid "Customer properties that are not shared with other customers"
 msgstr "Klant eigenschappen dat niet gedeeld worden met andere klanten"
 
+msgid "Customer reference"
+msgstr ""
+
+msgid "Customer reference (optional)"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -402,6 +408,9 @@ msgstr "Bezorg status"
 
 msgid "Delivery types"
 msgstr "Leveringstypes"
+
+msgid "Delivery within"
+msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Omschrijving van de tekst indien een andere taal"
@@ -778,6 +787,9 @@ msgstr "Geen coupon"
 msgid "Non-shared properties for the media item"
 msgstr "Niet-gedeelde eigenschappen voor het media-item"
 
+msgid "Non-shared properties for the price item"
+msgstr ""
+
 msgid "None"
 msgstr "Geen"
 
@@ -812,6 +824,9 @@ msgstr "Aankoop"
 
 msgid "Order ID"
 msgstr "Aankoop ID"
+
+msgid "Order number entered by the customer"
+msgstr ""
 
 msgid "Order of the language/currency combinations"
 msgstr "Volgorde van de combinaties taal/valuta"
@@ -932,6 +947,9 @@ msgstr "Prijs Type"
 
 msgid "Price Types"
 msgstr "Prijs Types"
+
+msgid "Price properties"
+msgstr ""
 
 msgid "Priority"
 msgstr "Prioriteit"
@@ -1308,6 +1326,9 @@ msgid "The option is only shown on the web site until that date and time"
 msgstr "De optie wordt enkel op de website getoond tot die datum en tijd"
 
 msgid "Three letter ISO currency code"
+msgstr "3 Letter ISO code voor valuta"
+
+msgid "Time frame (optional)"
 msgstr ""
 
 msgid "Timestamp"
@@ -1383,7 +1404,7 @@ msgid "Unique customer e-mail address"
 msgstr "Uniek e-mailadres klant"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "Unieke groepscode (vereist)"
 
 msgid "Unique service code (required)"
 msgstr "Unieke servicecode (vereist)"
@@ -1408,6 +1429,9 @@ msgstr "Geupload"
 
 msgid "User groups"
 msgstr "Gebruikersgroepen"
+
+msgid "Usual time frame for the delivery of the product"
+msgstr ""
 
 msgid "VAT ID"
 msgstr "BTW ID"
@@ -1539,7 +1563,7 @@ msgstr "Downloads"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "Groepen"
 
 #, php-format
 msgid "hour"
@@ -1608,10 +1632,10 @@ msgid "order"
 msgstr "Orders"
 
 msgid "order:phone"
-msgstr ""
+msgstr "Telefoon"
 
 msgid "order:web"
-msgstr ""
+msgstr "Website"
 
 msgid "pay:-1"
 msgstr "niet gereed"
@@ -1666,10 +1690,10 @@ msgid "property"
 msgstr "Eigenschappen"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "Mislukt"
 
 msgid "reason:0"
-msgstr ""
+msgstr "Beëindigd "
 
 msgid "reason:1"
 msgstr "geannuleerd"
@@ -1700,7 +1724,7 @@ msgstr ""
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "Speciaal"
 
 msgid "stat:-1"
 msgstr "niet gereed"
@@ -1782,11 +1806,11 @@ msgstr ""
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "Klantenlijst"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "Klant Eigenschappen"
 
 #, php-format
 msgid "type/media"
@@ -1794,11 +1818,11 @@ msgstr "Media"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "Lijst van Media"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "Media Eigenschappen"
 
 #, php-format
 msgid "type/plugin"
@@ -1830,7 +1854,7 @@ msgstr "Services"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "Lijst van Services"
 
 #, php-format
 msgid "type/stock"
@@ -1846,7 +1870,7 @@ msgstr "Teksten"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "Lijst van Texten"
 
 msgid "yes"
 msgstr "ja"

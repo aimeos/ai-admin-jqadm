@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-02 15:11+0200\n"
-"PO-Revision-Date: 2019-04-02 13:26+0000\n"
+"POT-Creation-Date: 2019-07-01 19:09+0200\n"
+"PO-Revision-Date: 2019-07-01 17:12+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -358,6 +358,12 @@ msgstr ""
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
+msgid "Customer reference"
+msgstr ""
+
+msgid "Customer reference (optional)"
+msgstr ""
+
 msgid "Dashboard"
 msgstr ""
 
@@ -395,6 +401,9 @@ msgid "Delivery status"
 msgstr "Status dostawy"
 
 msgid "Delivery types"
+msgstr ""
+
+msgid "Delivery within"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -772,6 +781,9 @@ msgstr ""
 msgid "Non-shared properties for the media item"
 msgstr ""
 
+msgid "Non-shared properties for the price item"
+msgstr ""
+
 msgid "None"
 msgstr ""
 
@@ -806,6 +818,9 @@ msgstr "Zamówienie"
 
 msgid "Order ID"
 msgstr "ID zamówienia"
+
+msgid "Order number entered by the customer"
+msgstr ""
 
 msgid "Order of the language/currency combinations"
 msgstr ""
@@ -925,6 +940,9 @@ msgid "Price Type"
 msgstr ""
 
 msgid "Price Types"
+msgstr ""
+
+msgid "Price properties"
 msgstr ""
 
 msgid "Priority"
@@ -1304,6 +1322,9 @@ msgstr ""
 msgid "Three letter ISO currency code"
 msgstr ""
 
+msgid "Time frame (optional)"
+msgstr ""
+
 msgid "Timestamp"
 msgstr ""
 
@@ -1401,6 +1422,9 @@ msgid "Uploaded"
 msgstr ""
 
 msgid "User groups"
+msgstr ""
+
+msgid "Usual time frame for the delivery of the product"
 msgstr ""
 
 msgid "VAT ID"
