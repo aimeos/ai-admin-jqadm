@@ -89,7 +89,7 @@ class Standard
 			}
 
 			$data['catalog.siteid'] = $view->item->getSiteId();
-			$data['catalog.parentid'] = $view->item->getParentId() ?: $view->param( 'item/catalog.parentid' );
+			$data['catalog.parentid'] = $view->item->getParentId() ?: $view->param( 'parentid', $view->param( 'item/catalog.parentid' ) );
 
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemRootId = $this->getRootId();
@@ -243,7 +243,10 @@ class Standard
 			$manager->saveItem( clone $view->item );
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'catalog', $view->item->getId(), 'save' );
+			$action = $view->param( 'next' );
+			$id = ( $action === 'create' ? $view->item->getParentId() : $view->item->getId() );
+
+			$this->nextAction( $view, $action, 'catalog', $id, 'save' );
 			return;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
