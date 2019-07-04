@@ -561,6 +561,7 @@ abstract class Base
 				$url = $view->url( $target, $cntl, $action, $params, [], $conf );
 				break;
 			case 'create':
+				$params['parentid'] = $id;
 				$target = $view->config( 'admin/jqadm/url/create/target' );
 				$cntl = $view->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
 				$action = $view->config( 'admin/jqadm/url/create/action', 'create' );
