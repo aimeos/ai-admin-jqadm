@@ -9,7 +9,7 @@
 $enc = $this->encoder();
 $stockTypes = $this->get( 'stockTypes', [] );
 
-$keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.dateback'];
+$keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.dateback', 'stock.timeframe'];
 
 
 ?>
