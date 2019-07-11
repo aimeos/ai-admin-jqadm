@@ -171,7 +171,7 @@ $params = $this->get( 'pageParams', [] );
 								</tr>
 							<?php endforeach; ?>
 
-							<tr class="prototype">
+							<tr class="config-item prototype">
 								<td>
 									<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" />

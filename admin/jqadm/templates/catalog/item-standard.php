@@ -269,7 +269,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 											</tr>
 										<?php endforeach; ?>
 
-										<tr class="prototype">
+										<tr class="config-item prototype">
 											<td>
 												<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" />
