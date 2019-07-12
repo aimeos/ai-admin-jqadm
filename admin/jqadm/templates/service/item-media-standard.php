@@ -55,9 +55,6 @@ $keys = [
 						<input v-on:change="updateFile(idx, $event.target.files)"
 							class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							v-bind:name="'media[idx][file]'.replace( 'idx', idx )" />
-						<input class="item-preview" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.preview' ) ) ); ?>'.replace( 'idx', idx )"
-							v-model="items[idx]['media.preview']" />
 						<input class="item-url" type="hidden"
 							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.url' ) ) ); ?>'.replace( 'idx', idx )"
 							v-model="items[idx]['media.url']" />
