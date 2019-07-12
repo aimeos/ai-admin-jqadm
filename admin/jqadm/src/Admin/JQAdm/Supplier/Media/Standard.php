@@ -95,16 +95,7 @@ class Standard
 		parent::delete();
 
 		$item = $this->getView()->item;
-		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $this->getContext() );
-
-		foreach( $item->getListItems( 'media', null, null, false ) as $listItem )
-		{
-			if( ( $refItem = $listItem->getRefItem() ) !== null ) {
-				$cntl->delete( $refItem );
-			}
-
-			$item->deleteListItem( 'media', $listItem, $refItem );
-		}
+		$this->deleteMediaItems( $item, $item->getListItems( 'media', null, null, false ) );
 	}
 
 
