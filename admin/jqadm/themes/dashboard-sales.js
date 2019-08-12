@@ -39,7 +39,7 @@ Aimeos.Dashboard.Sales = {
 			enddate = new Date(new Date().getTime() + 86400 * 1000);
 
 		var lang = $(".aimeos").attr("lang") || "en",
-			dateFmt = new Intl.DateTimeFormat(lang, {month: "numeric", day: "numeric"});
+			dateFmt = new Intl.DateTimeFormat(lang.replace('_', '-'), {month: "numeric", day: "numeric"});
 
 		var xScaleDays = d3.scaleTime().rangeRound([0, width]).domain([startdate, enddate]);
 		var xAxis = d3.axisBottom().scale(xScaleDays).ticks(width/days/2).tickFormat(function(d) { return dateFmt.format(d); });
@@ -94,7 +94,7 @@ Aimeos.Dashboard.Sales = {
 		$.when.apply($, Object.values(promises)).done(function() {
 
 			var dateParser = d3.timeParse("%Y-%m-%d");
-			var numFmt = Intl.NumberFormat(lang);
+			var numFmt = Intl.NumberFormat(lang.replace('_', '-'));
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, width/days]).padding(0.15).paddingInner(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
@@ -124,7 +124,7 @@ Aimeos.Dashboard.Sales = {
 					.attr("height", function(d) { return height - yScale(d[1]); })
 					.attr("fill", function(d) { return colorScale(d[0]); })
 					.append("title").text(function(d) {
-						return new Intl.NumberFormat(lang, {style: 'currency', currency: d[0]}).format(d[1]);
+						return new Intl.NumberFormat(lang.replace('_', '-'), {style: 'currency', currency: d[0]}).format(d[1]);
 					});
 
 		}).always(function() {
@@ -197,7 +197,7 @@ Aimeos.Dashboard.Sales = {
 		$.when.apply($, Object.values(promises)).done(function() {
 
 			var lang = $(".aimeos").attr("lang") || "en";
-			var numFmt = Intl.NumberFormat(lang);
+			var numFmt = Intl.NumberFormat(lang.replace('_', '-'));
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleMonths.bandwidth()]).padding(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
@@ -227,7 +227,7 @@ Aimeos.Dashboard.Sales = {
 					.attr("height", function(d) { return height - yScale(d[1]); })
 					.attr("fill", function(d) { return colorScale(d[0]); })
 					.append("title").text(function(d) {
-						return new Intl.NumberFormat(lang, {style: 'currency', currency: d[0]}).format(d[1]);
+						return new Intl.NumberFormat(lang.replace('_', '-'), {style: 'currency', currency: d[0]}).format(d[1]);
 					});
 
 		}).always(function() {
@@ -245,7 +245,7 @@ Aimeos.Dashboard.Sales = {
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
 
 		var lang = $(".aimeos").attr("lang") || "en",
-			dateFmt = new Intl.DateTimeFormat(lang, {weekday: "short"});
+			dateFmt = new Intl.DateTimeFormat(lang.replace('_', '-'), {weekday: "short"});
 
 		var weekdays = [],
 			firstdate = new Date(new Date().getTime() - 365 * 86400 * 1000);
@@ -305,7 +305,7 @@ Aimeos.Dashboard.Sales = {
 
 		$.when.apply($, Object.values(promises)).done(function() {
 
-			var numFmt = Intl.NumberFormat(lang);
+			var numFmt = Intl.NumberFormat(lang.replace('_', '-'));
 
 			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleWdays.bandwidth()]).padding(0.05);
 			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
@@ -335,7 +335,7 @@ Aimeos.Dashboard.Sales = {
 					.attr("height", function(d) { return height - yScale(d[1]); })
 					.attr("fill", function(d) { return colorScale(d[0]); })
 					.append("title").text(function(d) {
-						return new Intl.NumberFormat(lang, {style: 'currency', currency: d[0]}).format(d[1]);
+						return new Intl.NumberFormat(lang.replace('_', '-'), {style: 'currency', currency: d[0]}).format(d[1]);
 					});
 
 		}).always(function() {
