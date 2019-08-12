@@ -71,8 +71,8 @@ class Standard
 		foreach( $data as $idx => $entry )
 		{
 			$data[$idx]['media.siteid'] = $siteid;
-			$data[$idx]['media.url'] = $itemData[$idx]['media.url'];
-			$data[$idx]['media.preview'] = $itemData[$idx]['media.preview'];
+			$data[$idx]['media.url'] = $entry['media.url'];
+			$data[$idx]['media.preview'] = isset( $entry['media.preview'] ) ? $entry['media.preview'] : null;
 			$data[$idx]['product.lists.siteid'] = $siteid;
 		}
 
