@@ -45,7 +45,7 @@ Aimeos.Dashboard.Order = {
 			}
 
 			var lang = $(".aimeos").attr("lang") || "en";
-			var numFmt = new Intl.NumberFormat(lang);
+			var numFmt = new Intl.NumberFormat(lang.replace('_', '-'));
 
 			var entries = {};
 			data.data.forEach(function(d) { entries[d.id] = +d.attributes; });
@@ -191,7 +191,7 @@ Aimeos.Dashboard.Order = {
 			var yAxis = d3.axisLeft().scale(yScale).ticks(7).tickFormat(function(d) { return numFmt.format(d); });
 
 			var lang = $(".aimeos").attr("lang") || "en";
-			var numFmt = new Intl.NumberFormat(lang);
+			var numFmt = new Intl.NumberFormat(lang.replace('_', '-'));
 
 			svg.append("g")
 				.attr("class", "y axis left")
@@ -235,7 +235,7 @@ Aimeos.Dashboard.Order = {
 			dateRange = d3.utcDay.range(firstdate, new Date());
 
 		var lang = $(".aimeos").attr("lang") || "en",
-			dateFmt = new Intl.DateTimeFormat(lang, {month: "numeric", day: "numeric"});
+			dateFmt = new Intl.DateTimeFormat(lang.replace('_', '-'), {month: "numeric", day: "numeric"});
 
 
 		var colorScale = d3.scaleOrdinal().domain(statuslist).range(statusrange);
@@ -290,7 +290,7 @@ Aimeos.Dashboard.Order = {
 		$.when.apply($, Object.values(promises)).done(function() {
 
 			var dateParser = d3.timeParse("%Y-%m-%d");
-			var numFmt = Intl.NumberFormat(lang);
+			var numFmt = Intl.NumberFormat(lang.replace('_', '-'));
 
 			var stack = d3.stack().keys(statuslist).value(function(d, key) { return d[1][key] || 0; });
 			var max = d3.max(Object.entries(result), function(d) { return d3.sum(Object.values(d[1])); });
