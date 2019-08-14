@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-02 00:05+0000\n"
+"PO-Revision-Date: 2019-07-27 02:39+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -296,7 +296,7 @@ msgid "Country"
 msgstr "Ülke"
 
 msgid "Country ID"
-msgstr "Ülke ID'si"
+msgstr "Ülke kimlik numarası"
 
 msgid "Country code (required)"
 msgstr "Ülke kodu (gerekli)"
@@ -331,7 +331,7 @@ msgid "Customer"
 msgstr "Müşteri"
 
 msgid "Customer ID"
-msgstr "Müşteri ID'si"
+msgstr "Müşteri Kimlik Numarası"
 
 msgid "Customer Lists Type"
 msgstr "Müşteri Liste Türü"
@@ -358,10 +358,10 @@ msgid "Customer properties that are not shared with other customers"
 msgstr "Diğer müşterilerle paylaşılmayan müşteri özellikleri"
 
 msgid "Customer reference"
-msgstr "Müşteri referansı"
+msgstr "Müşteri referans numarası"
 
 msgid "Customer reference (optional)"
-msgstr "Müşteri referansı (isteğe bağlı)"
+msgstr "Müşteri referans numarası (isteğe bağlı)"
 
 msgid "Dashboard"
 msgstr "Gösterge Paneli"
@@ -544,10 +544,10 @@ msgid "How the supplier is addressed in e-mails"
 msgstr "E-maillerde tedarikçiye nasıl hitap edilir"
 
 msgid "ID"
-msgstr "Kimlik"
+msgstr "Kimlik numarası"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr "İlgili bir faturanın ID'si, örn; değiştirilmiş veya iade edilmiş bir faturanın"
+msgstr "İlgili bir faturanın kimlik numarası, örn; değiştirilmiş veya iade edilmiş bir faturanın"
 
 msgid "ISO currency code (required)"
 msgstr "ISO para birimi kodu (gerekli)"
@@ -652,7 +652,7 @@ msgid "Language"
 msgstr "Dil"
 
 msgid "Language ID"
-msgstr "Dil ID'si"
+msgstr "Dil kimlik numarası"
 
 msgid "Language of the entered text"
 msgstr "Girilen metnin dili"
@@ -816,7 +816,7 @@ msgid "Order"
 msgstr "Sipariş"
 
 msgid "Order ID"
-msgstr "Sipariş ID"
+msgstr "Sipariş kimlik numarası"
 
 msgid "Order number entered by the customer"
 msgstr "Müşteri tarafından girilen sipariş numarası"
@@ -954,7 +954,7 @@ msgid "Product"
 msgstr "Ürün"
 
 msgid "Product ID"
-msgstr "Ürün ID"
+msgstr "Ürün kimlik numarası"
 
 msgid "Product Lists Type"
 msgstr "Ürün Liste Türleri"
@@ -1036,7 +1036,7 @@ msgid ""
 msgstr "Orijinal fiyattan yapılan iskonto, indirim yüzdesini ve çapraz fiyatı hesaplamak için kullanılır"
 
 msgid "Related ID"
-msgstr "İlgili ID"
+msgstr "İlgili kimlik numarası"
 
 msgid "Related order"
 msgstr "İlgili sipariş"
@@ -1073,7 +1073,7 @@ msgid ""
 msgstr "Eğer bu ürünün farklı bir sayfada gösterilmesi gerekiyorsa ürün detay sayfasının rota adı veya sayfa kimliği"
 
 msgid "Route or page ID (optional)"
-msgstr "Rota veya sayfa ID'si (isteğe bağlı)"
+msgstr "Rota veya sayfa kimlik numarası (isteğe bağlı)"
 
 msgid "SKU"
 msgstr "SKU"
@@ -1238,7 +1238,7 @@ msgid "Street name (optional)"
 msgstr "Sokak adı (isteğe bağlı)"
 
 msgid "Sub-total"
-msgstr "Ara-toplam"
+msgstr "Ara Toplam"
 
 msgid "Subscription"
 msgstr "Abonelik"

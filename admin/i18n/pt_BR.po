@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Bruno Rodrigues <brunojti@gmail.com>, 2016
+# Jefferson Cardoso <jefferson.mcardoso@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-01 17:12+0000\n"
-"Last-Translator: Aimeos\n"
+"PO-Revision-Date: 2019-08-11 18:52+0000\n"
+"Last-Translator: Jefferson Cardoso <jefferson.mcardoso@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -233,7 +234,7 @@ msgid "City"
 msgstr "Cidade"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Nome da cidade (obrigatório)"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -259,16 +260,16 @@ msgid "Comment"
 msgstr "Comentário"
 
 msgid "Communication"
-msgstr ""
+msgstr "Comunicação"
 
 msgid "Company"
 msgstr "Empresa"
 
 msgid "Company details"
-msgstr ""
+msgstr "Detalhes da empresa"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Nome da empresa"
 
 msgid "Config"
 msgstr ""
@@ -310,7 +311,7 @@ msgid "Country state code (optional)"
 msgstr ""
 
 msgid "Coupon"
-msgstr "Cupon"
+msgstr "Cupom"
 
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
@@ -319,7 +320,7 @@ msgid "Created"
 msgstr "Criado"
 
 msgid "Currencies"
-msgstr ""
+msgstr "Moedas"
 
 msgid "Currency"
 msgstr "Moeda"
@@ -463,7 +464,7 @@ msgid "End date"
 msgstr "Data final"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Data final (opcional)"
 
 msgid "Error"
 msgstr "Erro"
@@ -502,13 +503,13 @@ msgid "First name of the person if used in cultures where they are used"
 msgstr ""
 
 msgid "Floor"
-msgstr ""
+msgstr "Andar"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Andar / Apartamento"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "Andar e/ou apartamento (opcional)"
 
 msgid "Group"
 msgstr "Grupo"
@@ -634,16 +635,16 @@ msgid "Invoice"
 msgstr "Fatura"
 
 msgid "Item deleted successfully"
-msgstr ""
+msgstr "Item removido com sucesso"
 
 msgid "Item saved successfully"
-msgstr ""
+msgstr "Item salvo com sucesso"
 
 msgid "Label"
 msgstr "Rótulo"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "Rótulo (obrigatório)"
 
 msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
@@ -658,7 +659,7 @@ msgid "Language of the entered text"
 msgstr ""
 
 msgid "Languages"
-msgstr ""
+msgstr "Idiomas"
 
 msgid "Last"
 msgstr "Último"
@@ -753,22 +754,22 @@ msgid ""
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Novo"
 
 msgid "Next"
 msgstr "Próximo"
 
 msgid "Next date"
-msgstr ""
+msgstr "Próxima data"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "Próxima data (opcional)"
 
 msgid "Next date the subscription is renewed"
 msgstr ""
 
 msgid "No items found"
-msgstr ""
+msgstr "Nenhum item encontrado"
 
 #, php-format
 msgid "No view available"
@@ -784,7 +785,7 @@ msgid "Non-shared properties for the price item"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -831,7 +832,7 @@ msgid "Order of the types in the frontend"
 msgstr ""
 
 msgid "Order totals"
-msgstr ""
+msgstr "Total de pedidos"
 
 msgid "Orders by day"
 msgstr "Pedidos por dia"
@@ -897,10 +898,10 @@ msgid "Plugin"
 msgstr "Plugin"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Tipo de plugin"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Tipos de plugin"
 
 msgid "Plugin position (required)"
 msgstr ""
@@ -1025,7 +1026,7 @@ msgid "Quantity"
 msgstr "Quantidade"
 
 msgid "Reason"
-msgstr ""
+msgstr "Motivo"
 
 msgid "Rebate"
 msgstr "Desconto"
@@ -1580,11 +1581,11 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "Moedas"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "Idiomas"
 
 #, php-format
 msgid "locale/site"
