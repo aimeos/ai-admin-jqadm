@@ -147,7 +147,7 @@
 }
 
 .dashboard .order-countday .day {
-	fill: #f8f8f8;
+	fill: #fbfbfb;
 }
 
 .dashboard .order-countday .day:hover {
@@ -160,7 +160,7 @@
 	stroke-width: 1px;
 }
 
-.dashboard .order-countday .q0 { fill: #f8f8f8; }
+.dashboard .order-countday .q0 { fill: #fbfbfb; }
 .dashboard .order-countday .q1 { fill: #ebf4ff; }
 .dashboard .order-countday .q2 { fill: #deebf7; }
 .dashboard .order-countday .q3 { fill: #c6dbef; }
