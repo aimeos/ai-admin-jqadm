@@ -261,7 +261,15 @@ class Standard
 		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 		$typeManager = \Aimeos\MShop::create( $context, 'product/lists/type' );
 
-		$attrId = $attrManager->findItem( 'custom', [], 'product', 'price' )->getId();
+		try
+		{
+			$attrId = $attrManager->findItem( 'custom', [], 'product', 'price' )->getId();
+		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$attrItem = $attrManager->createItem()->setDomain( 'product' )->setType( 'price' )->setCode( 'custom' );
+			$attrId = $attrManager->saveItem( $attrItem )->getId();
+		}
 
 		if( $this->getValue( $data, 'custom', 0 ) == 1 )
 		{
