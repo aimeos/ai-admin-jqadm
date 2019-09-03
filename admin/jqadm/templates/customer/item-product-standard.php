@@ -57,7 +57,7 @@ $refItems = $this->get( 'productItems', [] );
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'productTotal' ),
-			'group' => 'up', 'action' => 'get', 'fragment' => 'product',
+			'group' => 'up', 'action' => ( $this->param( 'id' ) ? 'get' : 'search' ), 'fragment' => 'product',
 			'page' => $this->session( 'aimeos/admin/jqadm/customerproduct/page', [] )]
 		);
 	?>
