@@ -152,8 +152,8 @@ $deliveryStatusList = [
 				<?= $this->partial(
 					$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ), [
 						'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
-						'data' => $columns, 'group' => 'uo', 'action' => 'get', 'fragment' => 'order',
-						'sort' => $this->session( 'aimeos/admin/jqadm/customerorder/sort' ),
+						'data' => $columns, 'group' => 'uo', 'action' => ( $this->param( 'id' ) ? 'get' : 'search' ),
+						'fragment' => 'order', 'sort' => $this->session( 'aimeos/admin/jqadm/customerorder/sort' ),
 					] );
 				?>
 
