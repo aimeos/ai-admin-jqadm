@@ -24,7 +24,7 @@ $keys = [
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
-		<draggable v-model="items" group="media" handle=".act-move" @start="drag=true" @end="drag=false">
+		<draggable v-model="items" group="address" handle=".act-move" @start="drag=true" @end="drag=false">
 			<div v-for="(entry, idx) in items" v-bind:key="idx" class="group-item card">
 
 				<div v-bind:id="'item-address-group-item-' + idx" v-bind:class="getCss(idx, 'supplier.address.')"
