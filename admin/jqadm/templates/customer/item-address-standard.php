@@ -38,7 +38,8 @@ $keys = [
 					<span class="item-label header-label">{{ getLabel(idx, 'customer.address.') }}</span>
 					&nbsp;
 					<div class="card-tools-right">
-						<div class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<div v-if="!checkSite('customer.address.siteid', idx)"
+							class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
 						</div>
 						<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"

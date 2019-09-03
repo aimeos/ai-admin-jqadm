@@ -36,7 +36,8 @@ $keys = [
 					<span class="item-label header-label" v-html="getLabel(idx)"></span>
 					&nbsp;
 					<div class="card-tools-right">
-						<div class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<div v-if="!checkSite('attribute.lists.siteid', idx)"
+							class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
 						</div>
 						<div v-if="!checkSite('attribute.lists.siteid', idx)"
