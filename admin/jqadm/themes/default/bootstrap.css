@@ -25,12 +25,6 @@ textarea {
 	display: flex;
 }
 
-/* different height of input and select */
-input:not([type='checkbox']):not([type='radio']),
-select.form-control:not([size]):not([multiple]) {
-	height: calc(2.25rem + 2px);
-}
-
 /* checkbox styling */
 input[type='checkbox'], input[type='radio'] {
 	margin: calc(0.5rem + 1px) 0;
@@ -41,14 +35,6 @@ input[type='checkbox'], input[type='radio'] {
 .dropdown-menu input[type='radio'] {
 	height: auto;
 	margin: 0;
-}
-
-/* misaligned borders for action column */
-.table td, .table th {
-	border-top: none;
-}
-.table .btn {
-	border: none;
 }
 
 /* unconditional .media class fix */
