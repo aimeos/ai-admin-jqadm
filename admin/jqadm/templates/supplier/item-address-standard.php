@@ -129,7 +129,7 @@ $keys = [
 								<?= $enc->html( $this->translate( 'admin', 'Honorary titles like Dr., Ph.D, etc.' ) ); ?>
 							</div>
 						</div>
-						<div class="form-group row mandatory">
+						<div class="form-group row optional">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Last name' ) ); ?></label>
 							<div class="col-sm-8">
 								<input class="form-control item-lastname" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"

@@ -501,7 +501,8 @@ $statusList = [
 						<a class="btn act-copy fa"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $item->getBaseId()] + $params, [], $copyConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
+						</a>
 					</td>
 				</tr>
 			<?php endforeach; ?>

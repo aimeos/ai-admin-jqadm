@@ -40,6 +40,7 @@ $enc = $this->encoder();
 			</div>
 			<div class="modal-body">
 				<p><?= $enc->html( $this->translate( 'admin', 'You are going to delete one or more items. Would you like to proceed?' ) ); ?></p>
+				<ul class="items"></ul>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger" data-dismiss="modal"><?= $enc->html( $this->translate( 'admin', 'Delete' ) ); ?></button>

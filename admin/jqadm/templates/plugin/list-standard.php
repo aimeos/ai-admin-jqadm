@@ -199,12 +199,15 @@ $columnList = [
 						<a class="btn act-copy fa" tabindex="1"
 							href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>"></a>
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
+						</a>
 						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 							<a class="btn act-delete fa" tabindex="1"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'plugin', 'id' => $id] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"
+								data-label="<?= $enc->attr( $item->getLabel() ) ?>">
+							</a>
 						<?php endif; ?>
 					</td>
 				</tr>

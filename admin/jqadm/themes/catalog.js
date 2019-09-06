@@ -263,8 +263,14 @@ Aimeos.Catalog = {
 
 		$(".aimeos .item-catalog").on("click", ".tree-toolbar .act-delete", function(ev) {
 
-			$("#confirm-delete").modal("show", $(this));
 			self.element = $(".tree-content", ev.delegateTarget).tree("getSelectedNode");
+
+			var dialog = $("#confirm-delete");
+			var item = $('<li>').append(self.element.name);
+
+			$(".modal-body ul.items", dialog).append(item);
+			dialog.modal("show", $(this));
+
 			return false;
 		});
 	},

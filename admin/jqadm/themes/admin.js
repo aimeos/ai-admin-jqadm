@@ -695,7 +695,11 @@ Aimeos.List = {
 		var self = this;
 
 		$(".aimeos form.list .list-items").on("click", ".act-delete", function(e) {
-			$("#confirm-delete").modal("show", $(this));
+			var dialog = $("#confirm-delete");
+			var item = $('<li>').append($(e.target).data('label'));
+
+			$(".modal-body ul.items", dialog).append(item);
+			dialog.modal("show", $(this));
 			self.element = $(this);
 			return false;
 		});
