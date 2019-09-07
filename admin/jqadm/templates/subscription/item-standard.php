@@ -50,7 +50,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 			<?= $enc->html( $this->translate( 'admin', 'Subscription' ) ); ?>:
 			<?= $enc->html( $this->get( 'itemData/subscription.id' ) ); ?> -
 			<?= $enc->html( $this->get( 'itemData/subscription.datenext', $this->translate( 'admin', 'New' ) ) ); ?>
-			<?= $enc->html( $this->get( 'itemData/subscription.interval' ) ); ?>
+			<?= $enc->html( ' ' . $this->get( 'itemData/subscription.interval' ) ); ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/subscription.siteid' ) ) ); ?>)</span>
 		</span>
 		<div class="item-actions">

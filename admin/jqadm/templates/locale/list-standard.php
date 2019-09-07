@@ -185,7 +185,7 @@ $columnList = [
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'locale', 'id' => $id] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"
-								data-label="<?= $enc->attr( $item->getLabel() ) ?>">
+								data-label="<?= $enc->attr( $item->getLanguageId() . ' - ' . $item->getCurrencyId() ) ?>">
 							</a>
 						<?php endif; ?>
 					</td>
