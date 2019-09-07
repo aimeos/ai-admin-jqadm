@@ -143,7 +143,7 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
-					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/type/price/filter', [] ),
+					'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/type/price/filter', [] ),
 					'data' => [
 						'select' => ['type' => 'checkbox'],
 						'price.type.id' => ['op' => '=='],

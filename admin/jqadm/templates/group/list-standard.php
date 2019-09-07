@@ -132,7 +132,7 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
-					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/group/filter', [] ),
+					'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/group/filter', [] ),
 					'data' => [
 						'select' => ['type' => 'checkbox'],
 						'customer.group.id' => ['op' => '=='],

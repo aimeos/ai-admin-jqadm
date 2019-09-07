@@ -132,7 +132,7 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
-					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/locale/language/filter', [] ),
+					'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/locale/language/filter', [] ),
 					'data' => [
 						'select' => ['type' => 'checkbox'],
 						'locale.language.id' => ['op' => '=='],

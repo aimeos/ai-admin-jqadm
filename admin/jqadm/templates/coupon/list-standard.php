@@ -112,7 +112,7 @@ $columnList = [
 
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
-						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/coupon/sort' )]
+						['fields' => array_merge( $fields, ['select'] ), 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/coupon/sort' )]
 					);
 				?>
 
