@@ -112,7 +112,7 @@ $columnList = [
 
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
-						['fields' => array_merge( $fields, ['select'] ), 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/coupon/sort' )]
+						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/coupon/sort' )]
 					);
 				?>
 
@@ -135,7 +135,7 @@ $columnList = [
 
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
-					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/coupon/filter', [] ),
+					'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/coupon/filter', [] ),
 					'data' => [
 						'select' => ['type' => 'checkbox'],
 						'coupon.id' => ['op' => '=='],

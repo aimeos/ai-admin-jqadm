@@ -750,11 +750,11 @@ Aimeos.List = {
 
 				if(link) {
 					window.location = self.element.attr("href");
+				} else {
+					var form = self.element.parents("form.list");
+					form.attr('action', self.element.data('url'));
+					form.submit();
 				}
-
-				var form = self.element.parents("form.list");
-				form.attr('action', self.element.data('url'));
-				form.submit();
 			}
 
 			return false;
