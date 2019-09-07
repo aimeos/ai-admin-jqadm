@@ -84,18 +84,6 @@ class Standard
 
 
 	/**
-	 * Deletes a resource
-	 */
-	public function delete()
-	{
-		parent::delete();
-
-		$item = $this->getView()->item;
-		$item->deleteListItems( $item->getListItems( 'product', 'default', null, false ) );
-	}
-
-
-	/**
 	 * Returns a single resource
 	 *
 	 * @return string HTML output
