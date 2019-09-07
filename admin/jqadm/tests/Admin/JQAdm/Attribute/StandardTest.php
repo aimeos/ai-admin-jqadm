@@ -104,16 +104,27 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->assertNotNull( $this->object->delete() );
+		$this->assertNull( $this->getClientMock( 'getSubClients' )->delete() );
+	}
+
+
+	public function testDeleteJqadmException()
+	{
+		$object = $this->getClientMock( ['getSubClients', 'search'] );
+
+		$object->expects( $this->once() )->method( 'search' );
+
+		$object->delete();
 	}
 
 
 	public function testDeleteException()
 	{
-		$object = $this->getClientMock( 'getSubClients' );
+		$object = $this->getClientMock( ['getSubClients', 'search'] );
 
-		$object->expects( $this->exactly( 2 ) )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
+		$object->expects( $this->once() )->method( 'search' );
 
 		$object->delete();
 	}
@@ -121,10 +132,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDeleteMShopException()
 	{
-		$object = $this->getClientMock( 'getSubClients' );
+		$object = $this->getClientMock( ['getSubClients', 'search'] );
 
-		$object->expects( $this->exactly( 2 ) )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
+		$object->expects( $this->once() )->method( 'search' );
 
 		$object->delete();
 	}
@@ -297,11 +309,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function getClientMock( $method )
+	public function getClientMock( $methods )
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Attribute\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( [$method] )
+			->setMethods( (array) $methods )
 			->getMock();
 
 		$object->setAimeos( \TestHelperJqadm::getAimeos() );

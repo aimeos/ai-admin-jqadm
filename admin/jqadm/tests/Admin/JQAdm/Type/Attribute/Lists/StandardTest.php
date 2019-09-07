@@ -120,21 +120,27 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->assertNotNull( $this->object->delete() );
+		$this->assertNull( $this->getClientMock( 'getSubClients' )->delete() );
+	}
+
+
+	public function testDeleteJqadmException()
+	{
+		$object = $this->getClientMock( ['getSubClients', 'search'] );
+
+		$object->expects( $this->once() )->method( 'search' );
+
+		$object->delete();
 	}
 
 
 	public function testDeleteException()
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Attribute\Lists\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients', 'search' ) )
-			->getMock();
+		$object = $this->getClientMock( ['getSubClients', 'search'] );
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
+		$object->expects( $this->once() )->method( 'search' );
 
 		$object->delete();
 	}
@@ -142,15 +148,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDeleteMShopException()
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Attribute\Lists\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients', 'search' ) )
-			->getMock();
+		$object = $this->getClientMock( ['getSubClients', 'search'] );
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
+		$object->expects( $this->once() )->method( 'search' );
 
 		$object->delete();
 	}
@@ -346,6 +348,20 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
+	}
+
+
+	public function getClientMock( $methods )
+	{
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Attribute\Lists\Standard::class )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( (array) $methods )
+			->getMock();
+
+		$object->setAimeos( \TestHelperJqadm::getAimeos() );
+		$object->setView( $this->getViewNoRender() );
+
+		return $object;
 	}
 
 

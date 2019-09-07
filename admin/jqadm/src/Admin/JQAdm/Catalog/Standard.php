@@ -134,18 +134,26 @@ class Standard
 
 		try
 		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
+			if( ( $ids = $view->param( 'id' ) ) === null ) {
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$view->item = $manager->getItem( $id, $this->getDomains() );
+			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
+			$search->setConditions( $search->compare( '==', 'catalog.id', $ids ) );
+			$items = $manager->searchItems( $search, $this->getDomains() );
 
-			foreach( $this->getSubClients() as $client ) {
-				$client->delete();
+			foreach( $items as $item )
+			{
+				$view->item = $item;
+
+				foreach( $this->getSubClients() as $client ) {
+					$client->delete();
+				}
+
+				$manager->saveItem( $view->item );
 			}
 
-			$manager->saveItem( $view->item );
-			$manager->deleteItem( $id );
+			$manager->deleteItems( array_keys( $items ) );
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'catalog', null, 'delete' );
@@ -287,6 +295,10 @@ class Standard
 			$view->item = \Aimeos\MShop::create( $context, 'catalog' )->createItem();
 			$view->itemRootId = $this->getRootId();
 			$view->itemBody = '';
+
+			foreach( $this->getSubClients() as $client ) {
+				$view->itemBody .= $client->search();
+			}
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{

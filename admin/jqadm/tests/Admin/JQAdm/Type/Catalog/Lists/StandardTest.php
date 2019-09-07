@@ -349,6 +349,20 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function getClientMock( $methods )
+	{
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Catalog\Lists\Standard::class )
+			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
+			->setMethods( (array) $methods )
+			->getMock();
+
+		$object->setAimeos( \TestHelperJqadm::getAimeos() );
+		$object->setView( $this->getViewNoRender() );
+
+		return $object;
+	}
+
+
 	protected function getViewNoRender()
 	{
 		$view = $this->getMockBuilder( \Aimeos\MW\View\Standard::class )

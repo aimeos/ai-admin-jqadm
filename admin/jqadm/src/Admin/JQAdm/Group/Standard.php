@@ -131,17 +131,26 @@ class Standard
 
 		try
 		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
+			if( ( $ids = $view->param( 'id' ) ) === null ) {
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$view->item = $manager->getItem( $id );
+			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
+			$search->setConditions( $search->compare( '==', 'customer.group.id', $ids ) );
+			$items = $manager->searchItems( $search );
 
-			foreach( $this->getSubClients() as $client ) {
-				$client->delete();
+			foreach( $items as $item )
+			{
+				$view->item = $item;
+
+				foreach( $this->getSubClients() as $client ) {
+					$client->delete();
+				}
+
+				$manager->saveItem( $view->item );
 			}
 
-			$manager->deleteItem( $id );
+			$manager->deleteItems( array_keys( $items ) );
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'group', null, 'delete' );

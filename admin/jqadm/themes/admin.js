@@ -687,21 +687,55 @@ Aimeos.List = {
 	init : function() {
 
 		this.askDelete();
+		this.askSelected();
+		this.cancelDelete();
 		this.confirmDelete();
+		this.select();
 	},
 
 
 	askDelete : function() {
 		var self = this;
 
-		$(".aimeos form.list .list-items").on("click", ".act-delete", function(e) {
+		$(".aimeos form.list .list-items").on("click", ".actions .act-delete", function(e) {
+
 			var dialog = $("#confirm-delete");
-			var item = $('<li>').append($(e.target).data('label'));
+			var item = $('<li>').append($(this).parents(".list-item").data('label'));
 
 			$(".modal-body ul.items", dialog).append(item);
-			dialog.modal("show", $(this));
 			self.element = $(this);
+			dialog.modal("show");
+
 			return false;
+		});
+	},
+
+
+	askSelected : function() {
+		var self = this;
+
+		$(".aimeos form.list").on("click", ".list-header .select .act-delete", function(e) {
+
+			var dialog = $("#confirm-delete");
+			var list = $(".modal-body ul.items", dialog);
+
+			$(".list-item input[type='checkbox']:checked", e.delegateTarget).each(function() {
+				list.append($('<li>').append($(this).parents(".list-item").data('label')));
+			});
+
+			self.element = $(this);
+			dialog.modal("show");
+			return false;
+		});
+	},
+
+
+	cancelDelete : function() {
+		var self = this;
+
+		$("#confirm-delete").on("click", "button.close, .btn-secondary", function(e) {
+			$(".modal-body ul.items li", $(e.delegateTarget)).remove();
+			self.element = null;
 		});
 	},
 
@@ -710,8 +744,31 @@ Aimeos.List = {
 		var self = this;
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
+
 			if(self.element) {
-				window.location = self.element.attr("href");
+				var link = self.element.attr("href");
+
+				if(link) {
+					window.location = self.element.attr("href");
+				}
+
+				var form = self.element.parents("form.list");
+				form.attr('action', self.element.data('url'));
+				form.submit();
+			}
+
+			return false;
+		});
+	},
+
+
+	select : function() {
+
+		$(".aimeos form.list").on("click", ".list-search input[type='checkbox']", function(e) {
+			if($(e.target).prop('checked')) {
+				$(".list-item .select input[type='checkbox']", e.delegateTarget).prop('checked', true);
+			} else {
+				$(".list-item .select input[type='checkbox']", e.delegateTarget).prop('checked', false);
 			}
 		});
 	}

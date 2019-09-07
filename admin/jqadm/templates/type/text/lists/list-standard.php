@@ -110,6 +110,14 @@ $columnList = [
 	<table class="list-items table table-hover table-striped">
 		<thead class="list-header">
 			<tr>
+				<th class="select">
+					<button class="btn act-delete fa" tabindex="1" type="submit"
+						data-url="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, array_diff_key( $params, ['id' => ''] ), [], $delConfig ) ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+					</button>
+				</th>
+
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
 						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/type/text/lists/sort' )]
@@ -137,6 +145,7 @@ $columnList = [
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/type/text/lists/filter', [] ),
 					'data' => [
+						'select' => ['type' => 'checkbox'],
 						'text.lists.type.id' => ['op' => '=='],
 						'text.lists.type.domain' => ['op' => '==', 'type' => 'select', 'val' => [
 							'attribute' => $this->translate( 'admin', 'attribute' ),
@@ -167,7 +176,8 @@ $columnList = [
 
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
-				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
+				<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
+					<td class="select"><input class="form-control" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
 					<?php if( in_array( 'text.lists.type.id', $fields ) ) : ?>
 						<td class="text-type-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
@@ -206,8 +216,7 @@ $columnList = [
 							<a class="btn act-delete fa" tabindex="1"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"
-								data-label="<?= $enc->attr( $item->getLabel() ) ?>">
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 							</a>
 						<?php endif; ?>
 					</td>
