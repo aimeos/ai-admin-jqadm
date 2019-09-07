@@ -238,7 +238,7 @@ return [
 			 * @param array List of user group names
 			 * @since 2017.10
 			 */
-			'groups' => ['admin', 'super'],
+			'groups' => ['super'],
 		],
 		'currency' => [
 			/** admin/jqadm/resource/locale/currency/groups
@@ -247,7 +247,7 @@ return [
 			 * @param array List of user group names
 			 * @since 2017.10
 			 */
-			'groups' => ['admin', 'super'],
+			'groups' => ['super'],
 		],
 	],
 	'type' => [

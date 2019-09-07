@@ -100,13 +100,15 @@ $columnList = [
 	<table class="list-items table table-hover table-striped">
 		<thead class="list-header">
 			<tr>
-				<th class="select">
-					<button class="btn act-delete fa" tabindex="1" type="submit"
-						data-url="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, array_diff_key( $params, ['id' => ''] ), [], $delConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
-					</button>
-				</th>
+			<?php if( $this->access( 'super' ) ) : ?>
+					<th class="select">
+						<button class="btn act-delete fa" tabindex="1" type="submit"
+							data-url="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, array_diff_key( $params, ['id' => ''] ), [], $delConfig ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+						</button>
+					</th>
+				<?php endif; ?>
 
 				<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
@@ -132,10 +134,10 @@ $columnList = [
 			</tr>
 		</thead>
 		<tbody>
-
 			<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
-					'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/locale/site/filter', [] ),
+					'fields' => $this->access( 'super' ) ? array_merge( $fields, ['select'] ) : $fields,
+					'filter' => $this->session( 'aimeos/admin/jqadm/locale/site/filter', [] ),
 					'data' => [
 						'select' => ['type' => 'checkbox'],
 						'locale.site.id' => ['op' => '=='],
@@ -158,7 +160,9 @@ $columnList = [
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr class="list-item" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
-					<td class="select"><input class="form-control" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+					<?php if( $this->access( 'super' ) ) : ?>
+						<td class="select"><input class="form-control" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+					<?php endif; ?>
 					<?php if( in_array( 'locale.site.id', $fields ) ) : ?>
 						<td class="locale-site-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
