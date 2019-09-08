@@ -53,7 +53,7 @@ $expConfig = $this->config( 'admin/jqadm/url/export/config', [] );
  * @since 2018.04
  * @category Developer
  */
-$default = ['subscription.status', 'subscription.datenext', 'subscription.dateend', 'subscription.interval'];
+$default = ['subscription.id', 'subscription.status', 'subscription.datenext', 'subscription.dateend', 'subscription.interval'];
 $default = $this->config( 'admin/jqadm/subscription/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/subscription/fields', $default );
 
