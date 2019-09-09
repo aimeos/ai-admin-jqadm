@@ -188,9 +188,9 @@ class Standard
 			$manager = \Aimeos\MShop\Factory::createManager( $context, 'customer' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
+			$view->itemGroups = $this->getGroupItems( $view->item );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
-			$view->itemGroups = $this->getGroupItems();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -447,13 +447,17 @@ class Standard
 	/**
 	 * Returns the available group items
 	 *
+	 * @param \Aimeos\MShop\Customer\Item\Iface|null $item Customer item that should be updated
 	 * @return \Aimeos\MShop\Customer\Item\Group\Iface[] Associative list of group IDs as keys and group items as values
 	 */
-	protected function getGroupItems()
+	protected function getGroupItems( \Aimeos\MShop\Customer\Item\Iface $item = null )
 	{
 		$list = [];
+		$context = $this->getContext();
+
 		$isSuper = $this->getView()->access( ['super'] );
 		$isAdmin = $this->getView()->access( ['admin'] );
+		$isEditor = $this->getView()->access( ['editor'] );
 
 		$manager = \Aimeos\MShop\Factory::createManager( $this->getContext(), 'customer/group' );
 		$search = $manager->createSearch();
@@ -461,11 +465,17 @@ class Standard
 
 		foreach( $manager->searchItems( $search ) as $groupId => $groupItem )
 		{
-			if( !$isSuper && in_array( $groupItem->getCode(), ['super'] ) ) {
+			if( !$isSuper && $groupItem->getCode() === 'super' ) {
 				continue;
 			}
 
-			if( !$isSuper && !$isAdmin && in_array( $groupItem->getCode(), ['super', 'admin', 'editor'] ) ) {
+			if( !$isSuper && !$isAdmin && $groupItem->getCode() === 'admin' ) {
+				continue;
+			}
+
+			if( !$isSuper && !$isAdmin && $groupItem->getCode() === 'editor'
+				&& ( !$isEditor || $item === null || (string) $context->getUserId() !== (string) $item->getId() )
+			) {
 				continue;
 			}
 
@@ -541,7 +551,7 @@ class Standard
 		}
 
 		$item->fromArray( $data );
-		$item->setGroups( array_intersect( array_keys( $this->getGroupItems() ), $item->getGroups() ) );
+		$item->setGroups( array_intersect( array_keys( $this->getGroupItems( $item ) ), $item->getGroups() ) );
 
 		return $item;
 	}
