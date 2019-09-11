@@ -333,26 +333,25 @@ Aimeos.Product.Attribute = {
 	mixins: {
 		methods: {
 			checkSite : function(key, idx) {
-				return this.items[key][idx] != this.siteid;
+				return this.items[idx][key] != this.siteid;
 			},
 
 
 			addItem : function() {
 
-				var idx = (this.items[this.prefix + 'id'] || []).length;
+				var idx = (this.items || []).length;
+				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
+				this.$set(this.items[idx], this.prefix + 'siteid', this.siteid);
 			},
 
 
 			removeItem : function(idx) {
-				for(key in this.items) {
-					this.items[key].splice(idx, 1);
-				}
+				this.items.splice(idx, 1);
 			},
 
 
@@ -370,10 +369,10 @@ Aimeos.Product.Attribute = {
 
 			getLabel : function(idx) {
 
-				var label = this.items['attribute.label'][idx];
+				var label = this.items[idx]['attribute.label'];
 
-				if(this.items['attribute.type'][idx]) {
-					label += ' (' + this.items['attribute.type'][idx] + ')';
+				if(this.items[idx]['attribute.type']) {
+					label += ' (' + this.items[idx]['attribute.type'] + ')';
 				}
 
 				return label;
@@ -381,10 +380,12 @@ Aimeos.Product.Attribute = {
 
 
 			update : function(ev) {
-				this.$set(this.items[this.prefix + 'id'], ev.index, '');
-				this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
-				this.$set(this.items['attribute.label'], ev.index, ev.label);
-				this.$set(this.items['attribute.type'], ev.index, '');
+
+				this.$set(this.items[ev.index], this.prefix + 'id', '');
+				this.$set(this.items[ev.index], this.prefix + 'siteid', this.siteid);
+				this.$set(this.items[ev.index], this.prefix + 'refid', ev.value);
+				this.$set(this.items[ev.index], 'attribute.label', ev.label);
+				this.$set(this.items[ev.index], 'attribute.type', '');
 			}
 		}
 	},

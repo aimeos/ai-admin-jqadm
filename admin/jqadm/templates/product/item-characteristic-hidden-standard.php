@@ -40,39 +40,45 @@ $keys = [
 			</tr>
 		</thead>
 
-		<tbody>
-			<tr v-for="(id, idx) in items['product.lists.id']" v-bind:key="idx"
-				v-bind:class="items['product.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+		<tbody is="draggable" v-model="items" group="characteristic-hidden" handle=".act-move" tag="tbody">
 
+			<tr v-for="(item, idx) in items" v-bind:key="idx"
+				v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 				<td>
-					<input class="item-listid" type="hidden" v-model="items['product.lists.id'][idx]"
-						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'hidden', 'product.lists.id', '' ) ) ); ?>" />
+					<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'hidden', 'idx', 'product.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
 
-					<input class="item-label" type="hidden" v-model="items['attribute.label'][idx]"
-						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'hidden', 'attribute.label', '' ) ) ); ?>" />
+					<input class="item-label" type="hidden" v-model="item['attribute.label']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'hidden', 'idx', 'attribute.label'] ) ); ?>'.replace( 'idx', idx )" />
 
-					<input class="item-type" type="hidden" v-model="items['attribute.type'][idx]"
-						name="<?= $enc->attr( $this->formparam( array( 'characteristic', 'hidden', 'attribute.type', '' ) ) ); ?>" />
+					<input class="item-type" type="hidden" v-model="item['attribute.type']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'hidden', 'idx', 'attribute.type'] ) ); ?>'.replace( 'idx', idx )" />
 
 					<select is="combo-box" class="form-control custom-select item-refid"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'hidden', 'product.lists.refid', '' ) ) ); ?>'"
-						v-bind:readonly="checkSite('product.lists.siteid', idx) || id != ''"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'hidden', 'idx', 'product.lists.refid'] ) ); ?>'.replace( 'idx', idx )"
+						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 						v-bind:label="getLabel(idx)"
 						v-bind:required="'required'"
 						v-bind:getfcn="getItems"
 						v-bind:index="idx"
 						v-on:select="update"
-						v-model="items['product.lists.refid'][idx]" >
+						v-model="item['product.lists.refid']" >
 					</select>
 				</td>
 				<td class="actions">
-					<div v-if="!checkSite('product.lists.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+					<div v-if="!checkSite('product.lists.siteid', idx)"
+						class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
+					</div>
+					<div v-if="!checkSite('product.lists.siteid', idx)"
+						class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 						v-on:click.stop="removeItem(idx)">
+					</div>
 				</td>
-
 			</tr>
+
 		</tbody>
 
 	</table>
