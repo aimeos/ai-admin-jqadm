@@ -57,10 +57,10 @@ Aimeos.Product.Selection = {
 			checkSite : function(key, idx, attridx) {
 
 				if(attridx) {
-					return this.items[idx]['attr'][attridx][key] != this.siteid;
+					return this.items[idx]['attr'][attridx][key] && this.items[idx]['attr'][attridx][key] != this.siteid;
 				}
 
-				return this.items[idx][key] != this.siteid;
+				return this.items[idx][key] && this.items[idx][key] != this.siteid;
 			},
 
 
@@ -333,7 +333,7 @@ Aimeos.Product.Attribute = {
 	mixins: {
 		methods: {
 			checkSite : function(key, idx) {
-				return this.items[idx][key] != this.siteid;
+				return this.items[idx][key] && this.items[idx][key] != this.siteid;
 			},
 
 
@@ -460,7 +460,7 @@ Aimeos.Product.Category = {
 	mixins : {
 		methods: {
 			checkSite : function(key, idx) {
-				return this.items[key][idx] != this.siteid;
+				return this.items[idx][key] && this.items[key][idx] != this.siteid;
 			},
 
 
@@ -557,7 +557,7 @@ Aimeos.Product.Product = {
 	mixins : {
 		methods: {
 			checkSite : function(key, idx) {
-				return this.items[idx][key] != this.siteid;
+				return this.items[idx][key] && this.items[idx][key] != this.siteid;
 			},
 
 
@@ -683,7 +683,7 @@ Aimeos.Product.Stock = {
 			},
 			methods: {
 				checkSite : function(key, idx) {
-					return this.items[key][idx] != this.siteid;
+					return this.items[idx][key] && this.items[key][idx] != this.siteid;
 				},
 
 
