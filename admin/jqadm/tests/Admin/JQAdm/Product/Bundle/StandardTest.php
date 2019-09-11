@@ -88,10 +88,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$param = array(
 			'site' => 'unittest',
-			'bundle' => array(
-				'product.lists.id' => array( '' ),
-				'product.lists.refid' => array( $manager->findItem( 'CNE' )->getId() ),
-			),
+			'bundle' => [[
+					'product.lists.id' => '',
+					'product.lists.refid' => $manager->findItem( 'CNE' )->getId(),
+				]
+			]
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );

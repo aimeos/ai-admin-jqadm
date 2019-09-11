@@ -86,12 +86,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$param = array(
 			'site' => 'unittest',
-			'related' => array(
-				'suggest' => array(
-					'product.lists.id' => array( '' ),
-					'product.lists.refid' => array( '123' ),
-				),
-			),
+			'related' => [
+				'suggest' => [[
+					'product.lists.id' => '',
+					'product.lists.refid' => '123',
+				]]
+			]
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
