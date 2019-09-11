@@ -38,37 +38,42 @@ $keys = [
 			</tr>
 		</thead>
 
-		<tbody>
+		<tbody is="draggable" v-model="items" group="related" handle=".act-move" tag="tbody">
 
-			<tr v-for="(id, idx) in items['product.lists.id']" v-bind:key="idx"
-				v-bind:class="items['product.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
-
+			<tr v-for="(item, idx) in items" v-bind:key="idx"
+				v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 				<td>
-					<input class="item-listid" type="hidden" v-model="items['product.lists.id'][idx]"
-						name="<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.lists.id', '' ) ) ); ?>" />
+					<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'bought', 'idx', 'product.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
 
-					<input class="item-label" type="hidden" v-model="items['product.label'][idx]"
-						name="<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.label', '' ) ) ); ?>" />
+					<input class="item-label" type="hidden" v-model="item['product.label']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'bought', 'idx', 'product.label'] ) ); ?>'.replace( 'idx', idx )" />
 
-					<input class="item-code" type="hidden" v-model="items['product.code'][idx]"
-						name="<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.code', '' ) ) ); ?>" />
+					<input class="item-code" type="hidden" v-model="item['product.code']"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'bought', 'idx', 'product.code'] ) ); ?>'.replace( 'idx', idx )" />
 
 					<select is="combo-box" class="form-control custom-select item-refid"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'related', 'bought', 'product.lists.refid', '' ) ) ); ?>'"
-						v-bind:readonly="checkSite('product.lists.siteid', idx) || id != ''"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'bought', 'idx', 'product.lists.refid'] ) ); ?>'.replace( 'idx', idx )"
+						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 						v-bind:label="getLabel(idx)"
 						v-bind:required="'required'"
 						v-bind:getfcn="getItems"
 						v-bind:index="idx"
 						v-on:select="update"
-						v-model="items['product.lists.refid'][idx]" >
+						v-model="item['product.lists.refid']" >
 					</select>
 				</td>
 				<td class="actions">
-					<div v-if="!checkSite('product.lists.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+					<div v-if="!checkSite('product.lists.siteid', idx)"
+						class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
+					</div>
+					<div v-if="!checkSite('product.lists.siteid', idx)"
+						class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 						v-on:click.stop="removeItem(idx)">
+					</div>
 				</td>
 			</tr>
 

@@ -35,7 +35,8 @@
 	content: ":";
 }
 
-.aimeos .card.sortable-ghost {
+.aimeos .card.sortable-ghost,
+.aimeos tr.sortable-ghost {
     opacity: 0;
 }
 

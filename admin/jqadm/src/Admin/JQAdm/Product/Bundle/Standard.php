@@ -282,18 +282,15 @@ class Standard
 		$listItem = $listManager->createItem()->setType( 'default' );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 
-		foreach( $this->getValue( $data, 'product.lists.id', [] ) as $idx => $id )
+		foreach( $data as $idx => $entry )
 		{
-			if( isset( $listItems[$id] ) ) {
-				$litem = $listItems[$id];
+			if( isset( $listItems[$entry['product.lists.id']] ) ) {
+				$litem = $listItems[$entry['product.lists.id']];
 			} else {
 				$litem = clone $listItem;
 			}
 
-			$litem->setId( $id );
-			$litem->setPosition( $idx );
-			$litem->setRefId( $this->getValue( $data, 'product.lists.refid/' . $idx ) );
-
+			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );
 			$item->addListItem( 'product', $litem, $litem->getRefItem() );
 
 			unset( $listItems[$litem->getId()] );
@@ -333,9 +330,7 @@ class Standard
 				$list['product.lists.id'] = '';
 			}
 
-			foreach( $list as $key => $value ) {
-				$data[$key][] = $value;
-			}
+			$data[] = $list;
 		}
 
 		return $data;
