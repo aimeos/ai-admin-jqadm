@@ -35,6 +35,10 @@
 	content: ":";
 }
 
+.aimeos .sortable-ghost {
+    opacity: 0;
+}
+
 .aimeos .card {
 	margin-bottom: 0.5rem;
 }

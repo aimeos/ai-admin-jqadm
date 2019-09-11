@@ -24,7 +24,7 @@ $keys = [
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
-		<draggable v-model="items" group="address" handle=".act-move" @start="drag=true" @end="drag=false">
+		<div is="draggable" v-model="items" group="address" handle=".act-move">
 			<div v-for="(entry, idx) in items" v-bind:key="idx" class="group-item card">
 
 				<div v-bind:id="'item-address-group-item-' + idx" v-bind:class="getCss(idx, 'supplier.address.')"
@@ -339,14 +339,13 @@ $keys = [
 
 				</div>
 			</div>
+		</div>
 
-			<div slot="footer" class="card-tools-more">
-				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-					v-on:click="addItem('supplier.address.')" >
-				</div>
+		<div class="card-tools-more">
+			<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+				title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
+				v-on:click="addItem('supplier.address.')" >
 			</div>
-		</draggable>
-
+		</div>
 	</div>
 </div>
