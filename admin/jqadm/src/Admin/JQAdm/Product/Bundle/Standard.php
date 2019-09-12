@@ -67,7 +67,7 @@ class Standard
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data['product.lists.siteid'][$idx] = $siteid;
+			$data[$idx]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->bundleData = $data;

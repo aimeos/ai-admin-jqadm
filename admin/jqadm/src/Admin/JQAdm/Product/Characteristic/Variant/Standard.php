@@ -65,7 +65,7 @@ class Standard
 		$data = $view->param( 'characteristic/variant', [] );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data['product.lists.siteid'][$idx] = $siteid;
+			$data[$idx]['product.lists.siteid'] = $siteid;
 		}
 
 		$view->variantData = $data;

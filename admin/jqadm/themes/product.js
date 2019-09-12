@@ -460,7 +460,7 @@ Aimeos.Product.Category = {
 	mixins : {
 		methods: {
 			checkSite : function(key, idx) {
-				return this.items[idx][key] && this.items[key][idx] != this.siteid;
+				return this.items[key][idx] && this.items[key][idx] != this.siteid;
 			},
 
 
@@ -683,7 +683,7 @@ Aimeos.Product.Stock = {
 			},
 			methods: {
 				checkSite : function(key, idx) {
-					return this.items[idx][key] && this.items[key][idx] != this.siteid;
+					return this.items[key][idx] && this.items[key][idx] != this.siteid;
 				},
 
 
