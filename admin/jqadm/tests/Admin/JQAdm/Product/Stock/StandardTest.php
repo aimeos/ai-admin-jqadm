@@ -54,8 +54,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;stock.stocklevel&quot;:[1200]', $result );
-		$this->assertContains( '&quot;stock.dateback&quot;:[&quot;2015-05-01T00:00:00&quot;]', $result );
+		$this->assertContains( '&quot;stock.stocklevel&quot;:1200', $result );
+		$this->assertContains( '&quot;stock.dateback&quot;:&quot;2015-05-01T00:00:00&quot;', $result );
 	}
 
 
@@ -67,8 +67,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;stock.stocklevel&quot;:[1200]', $result );
-		$this->assertContains( '&quot;stock.dateback&quot;:[&quot;2015-05-01T00:00:00&quot;]', $result );
+		$this->assertContains( '&quot;stock.stocklevel&quot;:1200', $result );
+		$this->assertContains( '&quot;stock.dateback&quot;:&quot;2015-05-01T00:00:00&quot;', $result );
 	}
 
 
@@ -86,12 +86,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$param = array(
 			'site' => 'unittest',
-			'stock' => array(
-				'stock.id' => array( '' ),
-				'stock.type' => array( 'default' ),
-				'stock.dateback' => array( '2000-01-01 00:00:00' ),
-				'stock.stocklevel' => array( '-1' ),
-			),
+			'stock' => [[
+				'stock.id' => '',
+				'stock.type' => 'default',
+				'stock.dateback' => '2000-01-01 00:00:00',
+				'stock.stocklevel' => '-1',
+			]]
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );

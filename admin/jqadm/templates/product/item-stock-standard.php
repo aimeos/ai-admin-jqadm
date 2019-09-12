@@ -18,20 +18,19 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 	<table class="stock-list table table-default"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'stockData', [] ) ) ); ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
-		data-prefix="stock."
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-numtypes="<?= count( $stockTypes ) ?>" >
 
 		<thead>
 			<tr>
-				<?php if( count( $stockTypes ) > 1 ) : ?>
-					<th class="stock-type">
+				<th class="stock-type">
+					<?php if( count( $stockTypes ) > 1 ) : ?>
 						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></span>
 						<div class="form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Warehouse or local store if your articles are available at several locations' ) ); ?>
 						</div>
-					</th>
-				<?php endif; ?>
+					<?php endif; ?>
+				</th>
 				<th class="stock-stocklevel">
 					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ); ?></span>
 					<div class="form-text text-muted help-text">
@@ -51,7 +50,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 					</div>
 				</th>
 				<th class="actions">
-					<div v-if="(items['stock.id'] || []).length < numtypes" class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+					<div v-if="(items || []).length < numtypes" class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 						v-on:click="addItem()">
 					</div>
@@ -60,55 +59,57 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 		</thead>
 		<tbody>
 
-			<tr v-for="(id, idx) in items['stock.id']" v-bind:key="idx" class="stock-row">
-				<?php if( count( $stockTypes ) > 1 ) : ?>
-					<td class="stock-type mandatory">
-						<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.type', '' ) ) ); ?>"
-							v-bind:readonly="checkSite('stock.siteid', idx)"
-							v-model="items['stock.type'][idx]" >
+			<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row">
+				<td class="stock-type mandatory">
+					<?php if( count( $stockTypes ) > 1 ) : ?>
+						<select required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							v-bind:class="'form-control custom-select item-type ' + (item['css'] || '')"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
+							v-bind:readonly="checkSite(idx)"
+							v-model="item['stock.type']"
+							v-on:change="checkType()">
 
 							<option value="" disable>
 								<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 							</option>
 
 							<?php foreach( $stockTypes as $type => $item ) : ?>
-								<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="items['stock.type'][idx] == '<?= $enc->attr( $type ) ?>'">
+								<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="item['stock.type'] == '<?= $enc->attr( $type ) ?>'">
 									<?= $enc->html( $item->getLabel() ) ?>
 								</option>
 							<?php endforeach; ?>
 						</select>
-					</td>
-				<?php else : ?>
-					<input class="item-type" type="hidden"
-						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.type', '' ) ) ); ?>"
-						value="<?= $enc->attr( key( $stockTypes ) ); ?>" />
-				<?php endif; ?>
+					<?php else : ?>
+						<input class="item-type" type="hidden"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
+							value="<?= $enc->attr( key( $stockTypes ) ); ?>" />
+					<?php endif; ?>
+				</td>
 				<td class="stock-stocklevel optional">
 					<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.stocklevel', '' ) ) ); ?>"
-						v-bind:readonly="checkSite('stock.siteid', idx)"
-						v-model="items['stock.stocklevel'][idx]" />
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.stocklevel'] ) ); ?>'.replace( 'idx', idx )"
+						v-bind:readonly="checkSite(idx)"
+						v-model="item['stock.stocklevel']" />
 				</td>
 				<td class="stock-databack optional">
 					<input class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.dateback', '' ) ) ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.dateback'] ) ); ?>'.replace( 'idx', idx )"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-						v-bind:readonly="checkSite('stock.siteid', idx)"
-						v-model="items['stock.dateback'][idx]" />
+						v-bind:readonly="checkSite(idx)"
+						v-model="item['stock.dateback']" />
 				</td>
 				<td class="stock-timeframe optional">
 					<input class="form-control item-timeframe" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.timeframe', '' ) ) ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.timeframe'] ) ); ?>'.replace( 'idx', idx )"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'Time frame (optional)' ) ); ?>"
-						v-bind:readonly="checkSite('stock.siteid', idx)"
-						v-model="items['stock.timeframe'][idx]" />
+						v-bind:readonly="checkSite(idx)"
+						v-model="item['stock.timeframe']" />
 				</td>
 				<td class="actions">
-					<input class="item-id" type="hidden" v-model="items['stock.id'][idx]"
-						name="<?= $enc->attr( $this->formparam( array( 'stock', 'stock.id', '' ) ) ); ?>" />
+					<input class="item-id" type="hidden" v-model="item['stock.id']"
+					v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.id'] ) ); ?>'.replace( 'idx', idx )" />
 
-					<div v-if="!checkSite('stock.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+					<div v-if="!checkSite(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 						v-on:click.stop="removeItem(idx)">
 					</div>

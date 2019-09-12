@@ -67,7 +67,7 @@ class Standard
 		$data = $view->param( 'stock', [] );
 
 		foreach( $view->value( $data, 'stock.id', [] ) as $idx => $value ) {
-			$data['stock.siteid'][$idx] = $siteid;
+			$data[$idx]['stock.siteid'] = $siteid;
 		}
 
 		$view->stockData = $data;
@@ -322,33 +322,32 @@ class Standard
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );
-		$stockItems = $manager->searchitems( $search );
+		$stocks = $manager->searchitems( $search );
+		$stockItems = [];
 
-		$list = (array) $this->getValue( $data, 'stock.id', [] );
-
-		foreach( $list as $idx => $id )
+		foreach( $data as $entry )
 		{
-			$type = $this->getValue( $data, 'stock.type/' . $idx );
+			$id = $this->getValue( $entry, 'stock.id' );
+			$type = $this->getValue( $entry, 'stock.type' );
 
-			if( isset( $stockItems[$id] ) && $stockItems[$id]->getType() == $type )
+			if( isset( $stocks[$id] ) )
 			{
-				$stockItem = $stockItems[$id];
-				unset( $stockItems[$id] );
+				$stockItem = $stocks[$id];
+				unset( $stocks[$id] );
 			}
 			else
 			{
-				$stockItem = $manager->createItem()->setType( $type );
+				$stockItem = $manager->createItem();
 			}
 
-			$stockItem->setProductCode( $item->getCode() );
-			$stockItem->setStockLevel( $this->getValue( $data, 'stock.stocklevel/' . $idx ) );
-			$stockItem->setTimeFrame( $this->getValue( $data, 'stock.timeframe/' . $idx ) );
-			$stockItem->setDateBack( $this->getValue( $data, 'stock.dateback/' . $idx ) );
-
-			$manager->saveItem( $stockItem, false );
+			$stockItems[] = $stockItem->setProductCode( $item->getCode() )->setType( $type )
+				->setStockLevel( $this->getValue( $entry, 'stock.stocklevel' ) )
+				->setTimeFrame( $this->getValue( $entry, 'stock.timeframe' ) )
+				->setDateBack( $this->getValue( $entry, 'stock.dateback' ) );
 		}
 
-		$manager->deleteItems( array_keys( $stockItems ) );
+		$manager->deleteItems( array_keys( $stocks ) );
+		$manager->saveItems( $stockItems, false );
 	}
 
 
@@ -382,9 +381,7 @@ class Standard
 
 			$list['stock.dateback'] = str_replace( ' ', 'T', $list['stock.dateback'] );
 
-			foreach( $list as $key => $value ) {
-				$data[$key][] = $value;
-			}
+			$data[] = $list;
 		}
 
 		return $data;
