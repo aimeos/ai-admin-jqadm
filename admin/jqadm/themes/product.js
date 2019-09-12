@@ -116,7 +116,7 @@ Aimeos.Product.Selection = {
 
 
 			getCss : function(idx) {
-				return ( idx !== 0 && this.items[idx]['product.id'] ? 'collapsed' : 'show' );
+				return ( idx !== 0 && this.items[idx]['product.id'] && this.items[idx]['attr'].length ? 'collapsed' : 'show' );
 			},
 
 
@@ -142,7 +142,7 @@ Aimeos.Product.Selection = {
 
 					var params = {}, param = {};
 
-					param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type.code': 'default'}}]};
+					param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type': 'default'}}]};
 					param['fields'] = {'product': 'product.id,product.code,product.label'};
 					param['sort'] = 'product.code';
 
@@ -174,9 +174,11 @@ Aimeos.Product.Selection = {
 
 			updateProductItem : function(idx, ev, item) {
 
-				this.$set(this.items[idx], 'product.id', item.id);
-				this.$set(this.items[idx], 'product.code', item.code);
-				this.$set(this.items[idx], 'product.label', item.label);
+				if(item) {
+					this.$set(this.items[idx], 'product.id', item.id);
+					this.$set(this.items[idx], 'product.code', item.code);
+					this.$set(this.items[idx], 'product.label', item.label);
+				}
 			},
 
 
