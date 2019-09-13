@@ -142,7 +142,7 @@ Aimeos.Product.Selection = {
 
 					var params = {}, param = {};
 
-					param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type.code': 'default'}}]};
+					param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type': 'default'}}]};
 					param['fields'] = {'product': 'product.id,product.code,product.label'};
 					param['sort'] = 'product.code';
 
