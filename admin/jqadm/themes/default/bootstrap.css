@@ -173,6 +173,10 @@ input[type='checkbox'], input[type='radio'] {
 	border-top: 3px solid rgba(0, 0, 0, 0.125);
 }
 
+td.is-invalid .form-control {
+	border-color: #dc3545;
+}
+
 .form-group.row .form-control-label {
 	padding: 0.5rem 15px;
 	font-size: 90%;

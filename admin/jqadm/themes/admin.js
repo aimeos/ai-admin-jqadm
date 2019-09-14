@@ -573,6 +573,10 @@ Aimeos.Form = {
 				}
 			});
 
+			$(".item-content td.is-invalid", this).each(function(idx, element) {
+				nodes.push(element);
+			});
+
 			$.each(nodes, function() {
 				$(".card-header", $(this).closest(".card")).addClass("is-invalid");
 

@@ -60,10 +60,9 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 		<tbody>
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row">
-				<td class="stock-type mandatory">
+				<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
 					<?php if( count( $stockTypes ) > 1 ) : ?>
-						<select required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							v-bind:class="'form-control custom-select item-type ' + (item['css'] || '')"
+						<select required="required" class="form-control custom-select item-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
 							v-bind:readonly="checkSite(idx)"
 							v-model="item['stock.type']"
