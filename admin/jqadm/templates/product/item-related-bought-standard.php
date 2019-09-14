@@ -42,7 +42,7 @@ $keys = [
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx"
 				v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
-				<td>
+				<td v-bind:class="(item['css'] || '')">
 					<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'bought', 'idx', 'product.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
 
@@ -61,7 +61,7 @@ $keys = [
 						v-bind:getfcn="getItems"
 						v-bind:index="idx"
 						v-on:select="update"
-						v-model="item['product.lists.refid']" >
+						v-model="item['product.lists.refid']">
 					</select>
 				</td>
 				<td class="actions">

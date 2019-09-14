@@ -612,6 +612,18 @@ Aimeos.Product.Product = {
 				this.$set(this.items[ev.index], this.prefix + 'refid', ev.value);
 				this.$set(this.items[ev.index], 'product.label', ev.label);
 				this.$set(this.items[ev.index], 'product.code', '');
+
+				var ids = [];
+
+				for(idx in this.items) {
+					this.items[idx]['css'] = '';
+
+					if(ids.indexOf(this.items[idx]['product.lists.refid']) !== -1) {
+						this.items[idx]['css'] = 'is-invalid';
+					}
+
+					ids.push(this.items[idx]['product.lists.refid']);
+				}
 			}
 		}
 	},
