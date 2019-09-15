@@ -54,9 +54,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Internet&quot;.*\]/', $result );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Kaffee&quot;.*\]/', $result );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Neu&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
 	}
 
 
@@ -77,9 +77,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Internet&quot;.*\]/', $result );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Kaffee&quot;.*\]/', $result );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:\[.*&quot;Neu&quot;.*\]/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
+		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
 	}
 
 
@@ -97,11 +97,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$param = array(
 			'site' => 'unittest',
-			'category' => array(
-				'catalog.lists.id' => array( '' ),
-				'catalog.lists.type' => array( 'default' ),
-				'catalog.id' => array( $item->getId() ),
-			),
+			'category' => [[
+				'catalog.lists.id' => '',
+				'catalog.lists.type' => 'default',
+				'catalog.id' => $item->getId(),
+			]]
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
@@ -132,11 +132,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$param = array(
-			'category' => array(
-				'catalog.lists.id' => array( '' ),
-				'catalog.lists.type' => array( 'promotion' ),
-				'catalog.id' => array( $item->getId() ),
-			),
+			'category' => [[
+				'catalog.lists.id' => '',
+				'catalog.lists.type' => 'promotion',
+				'catalog.id' => $item->getId(),
+			]]
 		);
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
