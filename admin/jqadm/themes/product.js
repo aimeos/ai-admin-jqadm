@@ -473,27 +473,27 @@ Aimeos.Product.Category = {
 
 	mixins : {
 		methods: {
-			checkSite : function(key, idx) {
-				return this.items[key][idx] && this.items[key][idx] != this.siteid;
+			checkSite : function(idx) {
+				return this.items[idx]['catalog.lists.siteid'] && this.items[idx]['catalog.lists.siteid'] != this.siteid;
 			},
 
 
 			addItem : function() {
-				var idx = (this.items[this.prefix + 'id'] || []).length;
+
+				var idx = (this.items || []).length;
+				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items, key, (this.items[key] || []).concat(['']));
+					key = this.keys[key]; this.$set(this.items[idx], key, '');
 				}
 
-				this.$set(this.items[this.prefix + 'siteid'], idx, this.siteid);
-				this.$set(this.items[this.prefix + 'type'], idx, this.listtype);
+				this.$set(this.items[idx], 'catalog.lists.siteid', this.siteid);
+				this.$set(this.items[idx], 'catalog.lists.type', this.listtype);
 			},
 
 
 			removeItem : function(idx) {
-				for(key in this.items) {
-					this.items[key].splice(idx, 1);
-				}
+				this.items.splice(idx, 1);
 			},
 
 
@@ -512,10 +512,10 @@ Aimeos.Product.Category = {
 
 			getLabel : function(idx) {
 
-				var label = this.items['catalog.label'][idx];
+				var label = this.items[idx]['catalog.label'];
 
-				if(this.items['catalog.code'][idx]) {
-					 label += ' (' + this.items['catalog.code'][idx] + ')';
+				if(this.items[idx]['catalog.code']) {
+					 label += ' (' + this.items[idx]['catalog.code'] + ')';
 				}
 
 				return label;
@@ -523,13 +523,31 @@ Aimeos.Product.Category = {
 
 
 			update : function(ev) {
-				this.$set(this.items[this.prefix + 'id'], ev.index, '');
-				this.$set(this.items[this.prefix + 'siteid'], ev.index, this.siteid);
-				this.$set(this.items[this.prefix + 'type'], ev.index, this.listtype);
-				this.$set(this.items[this.prefix + 'refid'], ev.index, ev.value);
-				this.$set(this.items['catalog.label'], ev.index, ev.label);
-				this.$set(this.items['catalog.id'], ev.index, ev.value);
-				this.$set(this.items['catalog.code'], ev.index, '');
+
+				this.$set(this.items[ev.index], 'catalog.lists.id', '');
+				this.$set(this.items[ev.index], 'catalog.lists.type', this.listtype);
+				this.$set(this.items[ev.index], 'catalog.lists.siteid', this.siteid);
+				this.$set(this.items[ev.index], 'catalog.lists.refid', '');
+				this.$set(this.items[ev.index], 'catalog.label', ev.label);
+				this.$set(this.items[ev.index], 'catalog.id', ev.value);
+				this.$set(this.items[ev.index], 'catalog.code', '');
+
+				var ids = [];
+
+				for(idx in this.items) {
+
+					if(this.items[idx]['catalog.lists.type'] != this.listtype) {
+						continue;
+					}
+
+					this.items[idx]['css'] = '';
+
+					if(ids.indexOf(this.items[idx]['catalog.id']) !== -1) {
+						this.items[idx]['css'] = 'is-invalid';
+					}
+
+					ids.push(this.items[idx]['catalog.id']);
+				}
 			}
 		}
 	},
@@ -543,7 +561,6 @@ Aimeos.Product.Category = {
 				'items': $(".item-category .catalog-default .category-list").data("items"),
 				'keys': $(".item-category .catalog-default .category-list").data("keys"),
 				'listtype': $(".item-category .catalog-default .category-list").data("listtype"),
-				'prefix': $(".item-category .catalog-default .category-list").data("prefix"),
 				'siteid': $(".item-category .catalog-default .category-list").data("siteid")
 			},
 			'mixins': [this.mixins]
@@ -556,7 +573,6 @@ Aimeos.Product.Category = {
 				'items': $(".item-category .catalog-promotion .category-list").data("items"),
 				'keys': $(".item-category .catalog-promotion .category-list").data("keys"),
 				'listtype': $(".item-category .catalog-promotion .category-list").data("listtype"),
-				'prefix': $(".item-category .catalog-promotion .category-list").data("prefix"),
 				'siteid': $(".item-category .catalog-promotion .category-list").data("siteid")
 			},
 			'mixins': [this.mixins]

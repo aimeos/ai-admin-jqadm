@@ -22,9 +22,8 @@ $keys = [
 		<table class="category-list table table-default"
 			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
 			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
-			data-listtype="default"
-			data-prefix="catalog.lists."
-			data-siteid="<?= $this->site()->siteid() ?>" >
+			data-siteid="<?= $this->site()->siteid() ?>"
+			data-listtype="default">
 
 			<thead>
 				<tr>
@@ -45,38 +44,38 @@ $keys = [
 
 			<tbody>
 
-				<tr v-for="(id, idx) in items['catalog.lists.id']" v-if="items['catalog.lists.type'][idx] == listtype" v-bind:key="idx"
-					v-bind:class="items['catalog.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+				<tr v-for="(item, idx) in items" v-if="item['catalog.lists.type'] == listtype" v-bind:key="idx"
+					v-bind:class="checkSite(idx) ? 'readonly' : ''">
+					<td v-bind:class="item['css'] || ''">
+						<input class="item-listtype" type="hidden" v-model="item['catalog.lists.type']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.lists.type'] ) ); ?>'.replace( 'idx', idx )" />
 
-					<td>
-						<input class="item-listtype" type="hidden" v-model="items['catalog.lists.type'][idx]"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.type', '' ) ) ); ?>" />
+						<input class="item-listid" type="hidden" v-model="item['catalog.lists.id']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
 
-						<input class="item-listid" type="hidden" v-model="items['catalog.lists.id'][idx]"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
+						<input class="item-label" type="hidden" v-model="item['catalog.code']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.code'] ) ); ?>'.replace( 'idx', idx )" />
 
-						<input class="item-label" type="hidden" v-model="items['catalog.code'][idx]"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.code', '' ) ) ); ?>" />
-
-						<input class="item-label" type="hidden" v-model="items['catalog.label'][idx]"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" />
+						<input class="item-label" type="hidden" v-model="item['catalog.label']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.label'] ) ); ?>'.replace( 'idx', idx )" />
 
 						<select is="combo-box" class="form-control custom-select item-id"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>'"
-							v-bind:readonly="checkSite('catalog.lists.siteid', idx) || id != ''"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.id'] ) ); ?>'.replace( 'idx', idx )"
+							v-bind:readonly="checkSite(idx) || item['catalog.lists.id'] != ''"
 							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
 							v-bind:getfcn="getItems"
 							v-bind:index="idx"
 							v-on:select="update"
-							v-model="items['catalog.id'][idx]" >
+							v-model="item['catalog.id']" >
 						</select>
 					</td>
 					<td class="actions">
-						<div v-if="!checkSite('catalog.lists.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<div v-if="!checkSite(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 							v-on:click.stop="removeItem(idx)">
+						</div>
 					</td>
 				</tr>
 
@@ -90,9 +89,8 @@ $keys = [
 		<table class="category-list table table-default"
 			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
 			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
-			data-listtype="promotion"
-			data-prefix="catalog.lists."
-			data-siteid="<?= $this->site()->siteid() ?>" >
+			data-siteid="<?= $this->site()->siteid() ?>"
+			data-listtype="promotion">
 
 			<thead>
 				<tr>
@@ -113,35 +111,38 @@ $keys = [
 
 			<tbody>
 
-				<tr v-for="(id, idx) in items['catalog.lists.id']" v-if="items['catalog.lists.type'][idx] == listtype" v-bind:key="idx"
-					v-bind:class="items['catalog.lists.siteid'][idx] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+			<tr v-for="(item, idx) in items" v-if="item['catalog.lists.type'] == listtype" v-bind:key="idx"
+					v-bind:class="checkSite(idx) ? 'readonly' : ''">
+					<td v-bind:class="item['css'] || ''">
+						<input class="item-listtype" type="hidden" v-model="item['catalog.lists.type']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.type'] ) ); ?>'.replace( 'idx', idx )" />
 
-					<td>
-						<input class="item-listtype" type="hidden" v-model="items['catalog.lists.type'][idx]"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.type', '' ) ) ); ?>" />
+						<input class="item-listid" type="hidden" v-model="item['catalog.lists.id']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
 
-						<input class="item-listid" type="hidden" v-model="items['catalog.lists.id'][idx]"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.lists.id', '' ) ) ); ?>" />
+						<input class="item-label" type="hidden" v-model="item['catalog.code']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.code'] ) ); ?>'.replace( 'idx', idx )" />
 
-						<input class="item-label" type="hidden" v-model="items['catalog.label'][idx]"
-							name="<?= $enc->attr( $this->formparam( array( 'category', 'catalog.label', '' ) ) ); ?>" />
+						<input class="item-label" type="hidden" v-model="item['catalog.label']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.label'] ) ); ?>'.replace( 'idx', idx )" />
 
 						<select is="combo-box" class="form-control custom-select item-id"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'category', 'catalog.id', '' ) ) ); ?>'"
-							v-bind:readonly="checkSite('catalog.lists.siteid', idx) || id != ''"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.id'] ) ); ?>'.replace( 'idx', idx )"
+							v-bind:readonly="checkSite(idx) || item['catalog.lists.id'] != ''"
 							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
 							v-bind:getfcn="getItems"
 							v-bind:index="idx"
 							v-on:select="update"
-							v-model="items['catalog.id'][idx]" >
+							v-model="item['catalog.id']" >
 						</select>
 					</td>
 					<td class="actions">
-						<div v-if="!checkSite('catalog.lists.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<div v-if="!checkSite(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 							v-on:click.stop="removeItem(idx)">
+						</div>
 					</td>
 				</tr>
 

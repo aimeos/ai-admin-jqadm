@@ -382,35 +382,25 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
-		$listIds = (array) $this->getValue( $data, 'catalog.lists.id', [] );
-		$listItems = $map = $this->getListItems( $item->getId() );
+		$listItems = $this->getListItems( $item->getId() );
+		$list = [];
 
-
-		foreach( $listIds as $idx => $listid )
+		foreach( $data as $idx => $entry )
 		{
-			if( isset( $map[$listid] ) ) {
-				unset( $map[$listid] );
-			}
-		}
-
-		$manager->deleteItems( array_keys( $map ) );
-
-
-		foreach( $listIds as $idx => $listid )
-		{
-			if( isset( $listItems[$listid] ) ) {
-				$litem = $listItems[$listid];
+			if( isset( $listItems[$entry['catalog.lists.id']] ) ) {
+				$litem = $listItems[$entry['catalog.lists.id']];
 			} else {
 				$litem = $manager->createItem();
 			}
 
-			$litem->setDomain( 'product' );
-			$litem->setRefId( $item->getId() );
-			$litem->setParentId( $this->getValue( $data, 'catalog.id/' . $idx ) );
-			$litem->setType( $this->getValue( $data, 'catalog.lists.type/' . $idx ) );
+			$list[] = $litem->setParentId( $this->getValue( $entry, 'catalog.id' ) )->setDomain( 'product' )
+				->setType( $this->getValue( $entry, 'catalog.lists.type' ) )->setRefId( $item->getId() );
 
-			$manager->saveItem( $litem, false );
+			unset( $listItems[$litem->getId()] );
 		}
+
+		$manager->deleteItems( array_keys( $listItems ) );
+		$manager->saveItems( $list );
 	}
 
 
@@ -436,7 +426,7 @@ class Standard
 				continue;
 			}
 
-			$list = $listItem->toArray( true );
+			$list = $listItem->toArray( true ) + $catItems[$catId]->toArray( true );
 
 			if( $copy === true )
 			{
@@ -444,13 +434,7 @@ class Standard
 				$list['catalog.lists.id'] = '';
 			}
 
-			foreach( $list as $key => $value ) {
-				$data[$key][] = $value;
-			}
-
-			foreach( $catItems[$catId]->toArray( true ) as $key => $value ) {
-				$data[$key][] = $value;
-			}
+			$data[] = $list;
 		}
 
 		return $data;
