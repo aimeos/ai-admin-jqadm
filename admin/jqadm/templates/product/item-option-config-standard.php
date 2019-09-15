@@ -44,7 +44,7 @@ $keys = [
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx"
 				v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
-				<td>
+				<td v-bind:class="item['css'] || ''">
 					<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['option', 'config', 'idx', 'product.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
 
