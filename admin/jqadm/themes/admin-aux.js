@@ -26,7 +26,7 @@ Aimeos.Address = {
 			},
 
 
-			addItem : function(prefix) {
+			addItem : function(prefix, data) {
 
 				var idx = this.items.length;
 
@@ -35,7 +35,7 @@ Aimeos.Address = {
 				}
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items, key, '');
+					key = this.keys[key]; this.$set(this.items, key, data && data[key] || '');
 				}
 
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
@@ -121,21 +121,17 @@ Aimeos.Media = {
 			},
 
 
-			addItem : function(prefix) {
+			addItem : function(prefix, data) {
 
 				var idx = this.items.length;
-				var listtype = $('#item-media-group').data('listtype') || '';
-
-				if(!this.items[idx]) {
-					this.$set(this.items, idx, {});
-				}
+				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, '');
+					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 				}
 
+				this.$set(this.items[idx], prefix + 'type', data && data[prefix + 'type'] || $('#item-media-group').data('listtype'));
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
-				this.$set(this.items[idx], prefix + 'type', listtype);
 				this.$set(this.items[idx], 'media.siteid', this.siteid);
 				this.$set(this.items[idx], 'media.languageid', null);
 				this.$set(this.items[idx], 'media.status', 1);
@@ -320,16 +316,16 @@ Aimeos.Price = {
 			},
 
 
-			addItem : function(prefix) {
+			addItem : function(prefix, data) {
 
 				var idx = this.items.length;
 				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, '');
+					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 				}
 
-				this.$set(this.items[idx], prefix + 'type', $('#item-price-group').data('listtype'));
+				this.$set(this.items[idx], prefix + 'type', data && data[prefix + 'type'] || $('#item-price-group').data('listtype'));
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
 				this.$set(this.items[idx], 'price.siteid', this.siteid);
 				this.$set(this.items[idx], 'price.quantity', '1');
@@ -534,16 +530,16 @@ Aimeos.Text = {
 			},
 
 
-			addItem : function(prefix) {
+			addItem : function(prefix, data) {
 
 				var idx = this.items.length;
 				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, '');
+					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 				}
 
-				this.$set(this.items[idx], prefix + 'type', $('#item-text-group').data('listtype'));
+				this.$set(this.items[idx], prefix + 'type', data && data[prefix + 'type'] || $('#item-text-group').data('listtype'));
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
 				this.$set(this.items[idx], 'text.siteid', this.siteid);
 				this.$set(this.items[idx], 'text.status', '1');

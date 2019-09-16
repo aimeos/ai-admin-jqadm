@@ -64,13 +64,13 @@ Aimeos.Product.Selection = {
 			},
 
 
-			addItem : function() {
+			addItem : function(data) {
 
 				var idx = this.items.length;
 				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, '');
+					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 				}
 
 				this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
@@ -339,13 +339,13 @@ Aimeos.Product.Attribute = {
 			},
 
 
-			addItem : function() {
+			addItem : function(data) {
 
 				var idx = (this.items || []).length;
 				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, '');
+					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 				}
 
 				this.$set(this.items[idx], this.prefix + 'siteid', this.siteid);
@@ -478,13 +478,13 @@ Aimeos.Product.Category = {
 			},
 
 
-			addItem : function() {
+			addItem : function(data) {
 
 				var idx = (this.items || []).length;
 				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, '');
+					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 				}
 
 				this.$set(this.items[idx], 'catalog.lists.siteid', this.siteid);
@@ -591,13 +591,13 @@ Aimeos.Product.Product = {
 			},
 
 
-			addItem : function() {
+			addItem : function(data) {
 
 				var idx = (this.items || []).length;
 				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, '');
+					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 				}
 
 				this.$set(this.items[idx], this.prefix + 'siteid', this.siteid);
@@ -743,13 +743,13 @@ Aimeos.Product.Stock = {
 				},
 
 
-				addItem : function() {
+				addItem : function(data) {
 
 					var idx = (this.items || []).length;
 					this.$set(this.items, idx, {});
 
 					for(var key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, '');
+						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 					}
 
 					this.$set(this.items[idx], 'stock.siteid', this.siteid);
@@ -790,12 +790,12 @@ Aimeos.Product.Subscription = {
 				},
 
 
-				addItem : function() {
+				addItem : function(data) {
 					var idx = this.items.length;
 					this.$set(this.items, idx, {});
 
 					for(var key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, '');
+						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 					}
 
 					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
