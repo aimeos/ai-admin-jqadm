@@ -20,7 +20,8 @@ $keys = [
 	<table class="property-list table table-default"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'propertyData', [] ) ) ); ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
-		data-siteid="<?= $this->site()->siteid() ?>" >
+		data-siteid="<?= $this->site()->siteid() ?>"
+		data-domain="product" >
 
 		<thead>
 			<tr>

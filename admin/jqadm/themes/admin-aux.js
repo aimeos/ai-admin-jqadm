@@ -466,22 +466,37 @@ Aimeos.Property = {
 	mixins : {
 		'methods': {
 
+			/**
+			 * @param {string} key
+			 * @param {int} idx
+			 * @deprecated 2020.01 Key will be removed, set "domain" instead
+			 */
 			checkSite : function(key, idx) {
-				return this.items[idx][key] != this.siteid;
+				return this.items[idx][key || this.domain + '.property.siteid'] != this.siteid;
 			},
 
 
-			addItem : function(prefix) {
+			/**
+			 * @param {string} prefix
+			 * @param {object} data
+			 * @deprecated 2020.01 Prefix will be removed, set "domain" instead
+			 */
+			addItem : function(prefix, data) {
 
 				var idx = this.items.length;
 				this.$set(this.items, idx, {});
 
 				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, '');
+					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 				}
 
-				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
-				this.$set(this.items[idx], prefix + 'languageid', null);
+				if(this.domain) {
+					this.$set(this.items[idx], this.domain  + '.property.siteid', this.siteid);
+					this.$set(this.items[idx], this.domain  + '.property.languageid', null);
+				} else {
+					this.$set(this.items[idx], prefix + 'siteid', this.siteid);
+					this.$set(this.items[idx], prefix + 'languageid', null);
+				}
 			},
 
 
@@ -499,7 +514,8 @@ Aimeos.Property = {
 			'data': {
 				'items': $(".property-list").data("items"),
 				'keys': $(".property-list").data("keys"),
-				'siteid': $(".property-list").data("siteid")
+				'siteid': $(".property-list").data("siteid"),
+				'domain': $(".property-list").data("domain")
 			},
 			'mixins': [this.mixins]
 		});
