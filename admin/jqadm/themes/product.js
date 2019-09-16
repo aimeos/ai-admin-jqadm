@@ -263,7 +263,7 @@ Aimeos.Product.Selection = {
 
 		this.showSelection();
 
-		this.vselection = new Vue({
+		this.selection = new Vue({
 			'el': '#item-selection-group',
 			'data': {
 				'items': $("#item-selection-group").data("items"),
@@ -407,7 +407,7 @@ Aimeos.Product.Attribute = {
 
 	init : function() {
 
-		this.vvariant = new Vue({
+		this.variant = new Vue({
 			'el': '.item-characteristic-variant .attribute-list',
 			'data': {
 				'items': $(".item-characteristic-variant .attribute-list").data("items"),
@@ -418,7 +418,7 @@ Aimeos.Product.Attribute = {
 			'mixins': [this.mixins]
 		});
 
-		this.vattribute = new Vue({
+		this.attribute = new Vue({
 			'el': '.item-characteristic-attribute .attribute-list',
 			'data': {
 				'items': $(".item-characteristic-attribute .attribute-list").data("items"),
@@ -430,7 +430,7 @@ Aimeos.Product.Attribute = {
 		});
 
 
-		this.vhidden = new Vue({
+		this.hidden = new Vue({
 			'el': '.item-characteristic-hidden .attribute-list',
 			'data': {
 				'items': $(".item-characteristic-hidden .attribute-list").data("items"),
@@ -442,7 +442,7 @@ Aimeos.Product.Attribute = {
 		});
 
 
-		this.vconfig = new Vue({
+		this.config = new Vue({
 			'el': '.item-option-config .attribute-list',
 			'data': {
 				'items': $(".item-option-config .attribute-list").data("items"),
@@ -454,7 +454,7 @@ Aimeos.Product.Attribute = {
 		});
 
 
-		this.vcustom = new Vue({
+		this.custom = new Vue({
 			'el': '.item-option-custom .attribute-list',
 			'data': {
 				'items': $(".item-option-custom .attribute-list").data("items"),
@@ -555,7 +555,7 @@ Aimeos.Product.Category = {
 
 	init : function() {
 
-		this.vdefault = new Vue({
+		this.default = new Vue({
 			'el': '.item-category .catalog-default .category-list',
 			'data': {
 				'items': $(".item-category .catalog-default .category-list").data("items"),
@@ -567,7 +567,7 @@ Aimeos.Product.Category = {
 		});
 
 
-		this.vpromotion = new Vue({
+		this.promotion = new Vue({
 			'el': '.item-category .catalog-promotion .category-list',
 			'data': {
 				'items': $(".item-category .catalog-promotion .category-list").data("items"),
@@ -659,7 +659,7 @@ Aimeos.Product.Product = {
 
 	init : function()  {
 
-		this.vsuggest = new Vue({
+		this.suggest = new Vue({
 			'el': '.item-related-suggest .product-list',
 			'data': {
 				'items': $(".item-related-suggest .product-list").data("items"),
@@ -671,7 +671,7 @@ Aimeos.Product.Product = {
 		});
 
 
-		this.vbought = new Vue({
+		this.bought = new Vue({
 			'el': '.item-related-bought .product-list',
 			'data': {
 				'items': $(".item-related-bought .product-list").data("items"),
@@ -682,7 +682,7 @@ Aimeos.Product.Product = {
 			'mixins': [this.mixins]
 		});
 
-		this.vbundle = new Vue({
+		this.bundle = new Vue({
 			'el': '.item-bundle .product-list',
 			'data': {
 				'items': $(".item-bundle .product-list").data("items"),
@@ -714,7 +714,7 @@ Aimeos.Product.Stock = {
 
 	init : function()  {
 
-		this.vstock = new Vue({
+		this.stock = new Vue({
 			'el': '.item-stock .stock-list',
 			'data': {
 				'items': $(".item-stock .stock-list").data("items"),
@@ -770,7 +770,7 @@ Aimeos.Product.Subscription = {
 
 	init : function()  {
 
-		this.vsubscription = new Vue({
+		this.subscription = new Vue({
 			'el': '.item-subscription .subscription-list',
 			'data': {
 				'items': $(".item-subscription .subscription-list").data("items"),

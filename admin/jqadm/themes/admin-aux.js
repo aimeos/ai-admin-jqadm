@@ -96,7 +96,7 @@ Aimeos.Address = {
 
 	init : function() {
 
-		this.vaddress = new Vue({
+		this.address = new Vue({
 			'el': '#item-address-group',
 			'data': {
 				'advanced': [],
@@ -295,7 +295,7 @@ Aimeos.Media = {
 
 	init : function() {
 
-		this.vmedia = new Vue({
+		this.media = new Vue({
 			'el': '#item-media-group',
 			'data': {
 				'advanced': [],
@@ -446,7 +446,7 @@ Aimeos.Price = {
 
 	init : function() {
 
-		this.vprice = new Vue({
+		this.price = new Vue({
 			'el': '#item-price-group',
 			'data': {
 				'advanced': [],
@@ -494,7 +494,7 @@ Aimeos.Property = {
 
 	init : function() {
 
-		this.vproperty = new Vue({
+		this.property = new Vue({
 			'el': '.property-list',
 			'data': {
 				'items': $(".property-list").data("items"),
@@ -604,7 +604,7 @@ Aimeos.Text = {
 
 	init : function() {
 
-		this.vtext = new Vue({
+		this.text = new Vue({
 			'el': '#item-text-group',
 			'data': {
 				'advanced': [],
