@@ -173,6 +173,10 @@ input[type='checkbox'], input[type='radio'] {
 	border-top: 3px solid rgba(0, 0, 0, 0.125);
 }
 
+.table td, .table th {
+	border-top: none;
+}
+
 td.is-invalid .form-control {
 	border-color: #dc3545;
 }

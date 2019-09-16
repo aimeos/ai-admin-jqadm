@@ -566,8 +566,10 @@ Aimeos.Form = {
 				var elem = $(element);
 
 				if(elem.closest(".prototype").length === 0 && elem.is(":invalid") === true) {
-					elem.addClass("is-invalid");
-					nodes.push(element);
+					if(!elem.hasClass('.form-control')) {
+						elem = elem.closest('.form-control');
+					}
+					nodes.push(elem.addClass("is-invalid"));
 				} else {
 					elem.removeClass("is-invalid");
 				}
