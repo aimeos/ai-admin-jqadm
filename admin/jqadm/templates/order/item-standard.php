@@ -208,7 +208,7 @@ $statusList = [
 								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ); ?></label>
 								<div class="col-8">
 									<span class="form-control item-customerid">
-										<?php if( $basket->getCustomerId() ) : ?>
+										<?php if( $basket->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
 											<a class="act-view" target="_blank"
 												href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId()], [], $getConfig ) ); ?>">
 												<?= $enc->attr( $basket->getCustomerId() ); ?>
@@ -217,18 +217,20 @@ $statusList = [
 									</span>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer' ) ); ?></label>
-								<div class="col-8">
-									<select class="combobox item-customer" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.customerid' ) ) ); ?>"
-										<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
-										<option value="<?= $enc->attr( $this->get( 'itemData/order.base.customerid' ) ); ?>" >
-											<?= $enc->html( $this->get( 'itemData/customer.code' ) ); ?>
-										</option>
-									</select>
+							<?php if( $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer' ) ); ?></label>
+									<div class="col-8">
+										<select class="combobox item-customer" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.customerid' ) ) ); ?>"
+											<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
+											<option value="<?= $enc->attr( $this->get( 'itemData/order.base.customerid' ) ); ?>" >
+												<?= $enc->html( $this->get( 'itemData/customer.code' ) ); ?>
+											</option>
+										</select>
+									</div>
 								</div>
-							</div>
+							<?php endif ?>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Customer reference' ) ); ?></label>
 								<div class="col-sm-8">
