@@ -26,6 +26,12 @@ $keys = [
 		<thead>
 			<tr>
 				<th>
+					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></span>
+					<div class="form-text text-muted help-text">
+						<?= $enc->html( $this->translate( 'admin', 'Attribute type that limits the list of available attributes' ) ); ?>
+					</div>
+				</th>
+				<th>
 					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Attributes' ) ); ?></span>
 					<div class="form-text text-muted help-text">
 						<?= $enc->html( $this->translate( 'admin', 'Product attributes that are used by other products too' ) ); ?>
@@ -45,6 +51,19 @@ $keys = [
 			<tr v-for="(item, idx) in items" v-bind:key="idx"
 				v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 				<td v-bind:class="item['css'] || ''">
+					<select is="combo-box" class="form-control custom-select item-type"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'attribute.type'] ) ); ?>'.replace( 'idx', idx )"
+						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
+						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+						v-bind:label="item['attribute.type']"
+						v-bind:required="'required'"
+						v-bind:getfcn="getTypeItems"
+						v-bind:index="idx"
+						v-on:select="updateType"
+						v-model="item['attribute.type']" >
+					</select>
+				</td>
+				<td v-bind:class="item['css'] || ''">
 					<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
 
@@ -58,7 +77,7 @@ $keys = [
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.refid'] ) ); ?>'.replace( 'idx', idx )"
 						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
-						v-bind:label="getLabel(idx)"
+						v-bind:label="item['attribute.label']"
 						v-bind:required="'required'"
 						v-bind:getfcn="getItems"
 						v-bind:index="idx"

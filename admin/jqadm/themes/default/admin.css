@@ -247,6 +247,14 @@
 	width: 2%;
 }
 
+.aimeos .attribute-list th:not(.actions) {
+	width: 40%;
+}
+
+.aimeos .attribute-list th.actions {
+	width: 20%;
+}
+
 
 /* Bundles */
 

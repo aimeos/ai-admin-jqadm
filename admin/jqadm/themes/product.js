@@ -357,18 +357,23 @@ Aimeos.Product.Attribute = {
 			},
 
 
-			getItems : function() {
+			getItems : function(idx) {
+
+				var self = this;
 
 				return function(request, response, element) {
 
-					var labelFcn = function(attr) {
-						return attr['attribute.label'] + ' (' + attr['attribute.type'] + ')';
-					}
-					Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', null, labelFcn);
-				}
+					var type = self.items[idx] && self.items[idx]['attribute.type'] || null;
+					var criteria = type ? {'==': {'attribute.type': type}} : {};
+
+					Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', criteria);
+				};
 			},
 
 
+			/**
+			 * @deprecated 2020.01 Use item['attribute.label'] instead
+			 */
 			getLabel : function(idx) {
 
 				var label = this.items[idx]['attribute.label'];
@@ -381,13 +386,20 @@ Aimeos.Product.Attribute = {
 			},
 
 
+			getTypeItems : function() {
+
+				return function(request, response, element) {
+					Aimeos.getOptions(request, response, element, 'attribute/type', 'attribute.type.code', 'attribute.type.code');
+				};
+			},
+
+
 			update : function(ev) {
 
 				this.$set(this.items[ev.index], this.prefix + 'id', '');
 				this.$set(this.items[ev.index], this.prefix + 'siteid', this.siteid);
 				this.$set(this.items[ev.index], this.prefix + 'refid', ev.value);
 				this.$set(this.items[ev.index], 'attribute.label', ev.label);
-				this.$set(this.items[ev.index], 'attribute.type', '');
 
 				var ids = [];
 
@@ -400,6 +412,16 @@ Aimeos.Product.Attribute = {
 
 					ids.push(this.items[idx]['product.lists.refid']);
 				}
+			},
+
+
+			updateType : function(ev) {
+
+				this.$set(this.items[ev.index], this.prefix + 'id', '');
+				this.$set(this.items[ev.index], this.prefix + 'refid', '');
+				this.$set(this.items[ev.index], this.prefix + 'siteid', this.siteid);
+				this.$set(this.items[ev.index], 'attribute.type', ev.label);
+				this.$set(this.items[ev.index], 'attribute.label', '');
 			}
 		}
 	},

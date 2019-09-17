@@ -50,7 +50,7 @@ Vue.component('combo-box', {
 
 		if(!this.readonly) {
 			var box = $(this.$el).combobox({
-				getfcn: this.getfcn(),
+				getfcn: this.getfcn(vm.index),
 				select: function(event, ui) {
 					vm.$emit('select',  {index: vm.index, value: ui.item[0].value, label: ui.item[0].label});
 				}
