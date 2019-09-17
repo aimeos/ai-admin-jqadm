@@ -86,10 +86,6 @@ Aimeos.Address = {
 
 				return label + ' ' + addr;
 			}
-		},
-		'mounted' : function() {
-			var el = document.getElementById('item-address-group');
-			if(el) { Sortable.create(el, {handle: '.act-move'}); }
 		}
 	},
 
@@ -281,10 +277,6 @@ Aimeos.Media = {
 			removePropertyItem : function(idx, propidx) {
 				this.items[idx]['property'].splice(propidx, 1);
 			}
-		},
-		'mounted' : function() {
-			var el = document.getElementById('item-media-group');
-			if(el) { Sortable.create(el, {handle: '.act-move'}); }
 		}
 	},
 
@@ -432,10 +424,6 @@ Aimeos.Price = {
 			removePropertyItem : function(idx, propidx) {
 				this.items[idx]['property'].splice(propidx, 1);
 			}
-		},
-		'mounted' : function() {
-			var el = document.getElementById('item-price-group');
-			if(el) { Sortable.create(el, {handle: '.act-move'}); }
 		}
 	},
 
@@ -606,10 +594,6 @@ Aimeos.Text = {
 			toggle : function(idx) {
 				this.$set(this.advanced, idx, (!this.advanced[idx] ? true : false));
 			}
-		},
-		'mounted' : function() {
-			var el = document.getElementById('item-text-group');
-			if(el) { Sortable.create(el, {handle: '.act-move'}); }
 		}
 	},
 
