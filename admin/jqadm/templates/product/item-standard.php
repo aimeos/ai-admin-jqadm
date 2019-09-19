@@ -225,6 +225,26 @@ $params = $this->get( 'pageParams', [] );
 							</select>
 						</div>
 					</div>
+					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Data set' ) ); ?></label>
+						<div class="col-sm-8">
+							<select class="form-control custom-select item-set" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dataset' ) ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
+								<option value=""></option>
+
+								<?php foreach( $this->config( 'admin/jqadm/dataset/product', [] ) as $name => $config ) : ?>
+									<option value="<?= $enc->attr( $name ); ?>" <?= $selected( $this->get( 'itemData/product.dataset' ), $name ); ?>
+										data-config="<?= $enc->attr( json_encode( $config ) ) ?>" >
+										<?= $enc->html( $name ); ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Depending on the selected data set, the list of shown fields for the product will be different' ) ); ?>
+						</div>
+					</div>
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 						<div class="col-sm-8">
