@@ -46,15 +46,9 @@ input[type='checkbox'], input[type='radio'] {
 
 /* Bootstrap improvments */
 
-.dropdown-item {
-	padding: 0;
+.dropdown {
+	display: inline-block;
 }
-
-.dropdown-item a {
-	display: block !important;
-	padding: 3px 1.5rem;
-}
-
 
 
 /* Aimeos Bootstrap theme */

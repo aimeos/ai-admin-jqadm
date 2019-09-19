@@ -597,6 +597,62 @@ Aimeos.Text = {
 
 			toggle : function(idx) {
 				this.$set(this.advanced, idx, (!this.advanced[idx] ? true : false));
+			},
+
+
+			translate : function(idx, langid) {
+
+				if(!this.$options.translate) {
+					alert('No translation service configured');
+				}
+
+				if(!this.$options.translate['url']) {
+					alert('No translation URL for DeepL configured');
+				}
+
+				if(!this.$options.translate['key']) {
+					alert('No translation credentions for DeepL configured');
+				}
+
+				var self = this;
+				var data = {
+					'auth_key': this.$options.translate['key'],
+					'text' : this.items[idx]['text.content'],
+					'target_lang' : langid.toUpperCase()
+				};
+
+				if(this.items[idx]['text.languageid']) {
+					data['source_lang'] = this.items[idx]['text.languageid'].toUpperCase();
+				}
+
+
+				$.getJSON(this.$options.translate['url'] + '/translate', data).done(function(data) {
+
+					var item = {
+						'text.content': data['translations'] && data['translations'][0] && data['translations'][0]['text'] || '',
+						'text.type': self.items[idx]['text.type'],
+						'text.languageid': langid.toLowerCase()
+					};
+
+					item[(self.prefix || self.domain + '.lists.') + 'siteid'] = self.siteid;
+					self.addItem(null, item);
+
+				}).fail(function(jqxhr, status, error) {
+					var msg = '';
+
+					switch(jqxhr.status) {
+						case 200: break;
+						case 400: msg = 'Bad request: ' + error; break;
+						case 403: msg = 'Invalid DeepL API token'; break;
+						case 413: msg = 'The text size exceeds the limit'; break;
+						case 429: msg = 'Too many requests. Please wait and resend your request.'; break;
+						case 456: msg = 'Quota exceeded. The character limit has been reached.'; break;
+						case 503: msg = 'Resource currently unavailable. Try again later.'; break;
+						default: msg = 'Unexpected response code: ' + jqxhr.status;
+					}
+
+					alert(msg);
+				});
 			}
 		}
 	},
@@ -606,6 +662,7 @@ Aimeos.Text = {
 
 		this.text = new Vue({
 			'el': '#item-text-group',
+			'translate': $("#item-text-group").data("translate"),
 			'data': {
 				'advanced': [],
 				'items': $("#item-text-group").data("items"),

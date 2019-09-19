@@ -119,13 +119,16 @@
 	content: "\f0c7";
 }
 
-.aimeos .btn.act-view.fa:before {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: "\f06e";
-}
-
 .aimeos .btn.act-show.fa:before {
 	content: "\f078";
+}
+
+.aimeos .btn.act-translate.fa:before {
+	content: "\f1ab";
+}
+
+.aimeos .btn.act-view.fa:before {
+	content: "\f06e";
 }
 
 .aimeos .item-refid.btn.act-view.fa {

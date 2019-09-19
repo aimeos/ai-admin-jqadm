@@ -37,6 +37,23 @@ $keys = [
 						<span class="item-label header-label" v-html="getLabel(idx)"></span>
 						&nbsp;
 						<div class="card-tools-right">
+							<div v-if="!checkSite('service.lists.siteid', idx)" class="dropdown">
+								<button class="btn btn-card-header act-translate fa dropdown-toggle" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Translate text' ) ); ?>">
+								</button>
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'DE')">Deutsch</a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'EN')">English</a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'ES')">Español</a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'FR')">Français</a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'IT')">Italiano</a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'NL')">Nederlands</a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'PL')">Polski</a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'PT')">Português</a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'RU')">русский язык</a>
+								</div>
+							</div>
 							<div v-if="!checkSite('service.lists.siteid', idx)"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
