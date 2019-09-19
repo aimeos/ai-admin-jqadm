@@ -74,17 +74,49 @@ Vue.component('combo-box', {
 
 
 Vue.component('html-editor', {
-	template: '<textarea rows="6" class="form-control htmleditor" v-bind:name="name" v-bind:value="value" v-bind:placeholder="placeholder" v-bind:readonly="readonly" v-bind:tabindex="tabindex"></textarea>',
-	props: ['name', 'value', 'placeholder', 'readonly', 'tabindex'],
+	template: '<textarea rows="6" class="form-control htmleditor" v-bind:id="id" v-bind:name="name" v-bind:value="value" v-bind:placeholder="placeholder" v-bind:readonly="readonly" v-bind:tabindex="tabindex"></textarea>',
+	props: ['id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
+
+	computed: {
+		instance: function() {
+			return CKEDITOR.instances[this.id];
+		}
+	},
+
+	methods: {
+		change: function() {
+			this.$emit('input', this.instance.getData());
+		},
+
+		create: function() {
+			CKEDITOR.replace(this.id, {toolbar: Aimeos.editorcfg, autoParagraph: false, entities: false});
+			this.instance.setData(this.value);
+			this.instance.on('change', this.change);
+		},
+
+		destroy: function() {
+			try {
+				if(this.instance) {
+					this.instance.destroy();
+				}
+			} catch (e) {}
+		},
+
+		update: function(val) {
+			if(this.instance && val != this.instance.getData()) {
+				this.destroy(); this.create();
+				this.instance.setData(val, { internal: false });
+			}
+		}
+	},
 
 	mounted: function() {
-		var vm = this;
-		var el = $(this.$el);
+		this.create();
+	},
 
-		el.ckeditor({toolbar: Aimeos.editorcfg, autoParagraph: false, entities: false});
-
-		el.ckeditor().editor.on('change', function() {
-			vm.$emit('input', el.ckeditor().editor.getData());
-		});
+	watch: {
+		value: function(val) {
+			this.update(val);
+		}
 	}
 });
