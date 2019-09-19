@@ -38,7 +38,7 @@ Aimeos.Address = {
 					key = this.keys[key]; this.$set(this.items, key, data && data[key] || '');
 				}
 
-				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
+				this.$set(this.items[idx], (prefix || this.domain + '.address.') + 'siteid', this.siteid);
 			},
 
 
@@ -98,7 +98,8 @@ Aimeos.Address = {
 				'advanced': [],
 				'items': $("#item-address-group").data("items"),
 				'keys': $("#item-address-group").data("keys"),
-				'siteid': $("#item-address-group").data("siteid")
+				'siteid': $("#item-address-group").data("siteid"),
+				'domain': $("#item-address-group").data("domain")
 			},
 			'mixins': [this.mixins]
 		});
@@ -126,6 +127,7 @@ Aimeos.Media = {
 					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 				}
 
+				var prefix = prefix || this.domain + '.lists.';
 				this.$set(this.items[idx], prefix + 'type', data && data[prefix + 'type'] || $('#item-media-group').data('listtype'));
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
 				this.$set(this.items[idx], 'media.siteid', this.siteid);
@@ -289,7 +291,8 @@ Aimeos.Media = {
 				'advanced': [],
 				'items': $("#item-media-group").data("items"),
 				'keys': $("#item-media-group").data("keys"),
-				'siteid': $("#item-media-group").data("siteid")
+				'siteid': $("#item-media-group").data("siteid"),
+				'domain': $("#item-media-group").data("domain")
 			},
 			'mixins': [this.mixins]
 		});
@@ -436,7 +439,8 @@ Aimeos.Price = {
 				'advanced': [],
 				'items': $("#item-price-group").data("items"),
 				'keys': $("#item-price-group").data("keys"),
-				'siteid': $("#item-price-group").data("siteid")
+				'siteid': $("#item-price-group").data("siteid"),
+				'domain': $("#item-price-group").data("domain")
 			},
 			'mixins': [this.mixins]
 		});
@@ -606,7 +610,8 @@ Aimeos.Text = {
 				'advanced': [],
 				'items': $("#item-text-group").data("items"),
 				'keys': $("#item-text-group").data("keys"),
-				'siteid': $("#item-text-group").data("siteid")
+				'siteid': $("#item-text-group").data("siteid"),
+				'domain': $("#item-text-group").data("domain")
 			},
 			'mixins': [this.mixins]
 		});

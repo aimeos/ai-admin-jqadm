@@ -22,7 +22,8 @@ $currencies = $this->get( 'priceCurrencies', [] );
 		data-items="<?= $enc->attr( json_encode( $this->get( 'priceData', [] ) ) ); ?>"
 		data-listtype="<?= key( $this->get( 'priceListTypes', [] ) ) ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
-		data-siteid="<?= $this->site()->siteid() ?>" >
+		data-siteid="<?= $this->site()->siteid() ?>"
+		data-domain="product" >
 
 		<div class="group-list">
 			<div is="draggable" v-model="items" group="price" handle=".act-move">

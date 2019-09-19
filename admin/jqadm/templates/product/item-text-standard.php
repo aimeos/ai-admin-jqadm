@@ -20,7 +20,8 @@ $keys = [
 		data-items="<?= $enc->attr( json_encode( $this->get( 'textData', [] ) ) ); ?>"
 		data-listtype="<?= key( $this->get( 'textListTypes', [] ) ) ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
-		data-siteid="<?= $this->site()->siteid() ?>" >
+		data-siteid="<?= $this->site()->siteid() ?>"
+		data-domain="product" >
 
 		<div class="group-list">
 			<div is="draggable" v-model="items" group="text" handle=".act-move">
