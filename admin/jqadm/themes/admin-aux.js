@@ -604,14 +604,17 @@ Aimeos.Text = {
 
 				if(!this.$options.translate) {
 					alert('No translation service configured');
+					return;
 				}
 
 				if(!this.$options.translate['url']) {
 					alert('No translation URL for DeepL configured');
+					return;
 				}
 
 				if(!this.$options.translate['key']) {
-					alert('No translation credentions for DeepL configured');
+					alert('No translation credentials for DeepL configured');
+					return;
 				}
 
 				var self = this;
