@@ -9,29 +9,40 @@ Vue.component('auto-complete', {
 	template: '<input type="text" class="form-control" v-bind:name="name" v-bind:value="value" v-bind:readonly="readonly" v-bind:required="required" v-bind:tabindex="tabindex" />',
 	props: ['keys', 'name', 'value', 'readonly', 'required', 'tabindex'],
 
-	mounted: function() {
-		var vm = this;
-
-		if(!this.readonly) {
-			$(this.$el).autocomplete({
-				change: function(event, ui) {
-					vm.$emit('input', $(event.currentTarget).val(), ui.item);
-				},
+	methods: {
+		create: function() {
+			this.instance = $(this.$el).autocomplete({
 				source: vm.keys || [],
+				change: select,
 				minLength: 0,
 				delay: 0
 			});
 
-			$(this.$el).on('focus', function(event) {
-				$(this).autocomplete("search", "");
+			this.instance.on('focus', function() {
+				this.instance.autocomplete("search", "");
 			});
+		},
+
+		destroy: function() {
+			if(this.instance) {
+				this.instance.off().autocomplete('destroy');
+				this.instance = null;
+			}
+		},
+
+		select: function(ev, ui) {
+			this.$emit('input', $(ev.currentTarget).val(), ui.item);
+		}
+	},
+
+	mounted: function() {
+		if(!this.readonly) {
+			this.create();
 		}
 	},
 
 	beforeDestroy: function() {
-		if(!this.readonly) {
-			$(this.$el).off().autocomplete('destroy');
-		}
+		this.destroy();
 	}
 });
 
@@ -45,28 +56,45 @@ Vue.component('combo-box', {
 	',
 	props: ['index', 'name', 'value', 'label', 'readonly', 'tabindex', 'getfcn'],
 
-	mounted: function() {
-		var vm = this;
+	beforeDestroy: function() {
+		this.destroy();
+	},
 
-		if(!this.readonly) {
-			var box = $(this.$el).combobox({
-				getfcn: this.getfcn(vm.index),
-				select: function(event, ui) {
-					vm.$emit('select',  {index: vm.index, value: ui.item[0].value, label: ui.item[0].label});
-				}
+	methods: {
+		create: function() {
+			this.instance = $(this.$el).combobox({
+				getfcn: this.getfcn(this.index),
+				select: this.select
 			});
+			return this.instance;
+		},
+
+		destroy: function() {
+			if(this.instance) {
+				this.instance.off().combobox('destroy');
+				this.instance = null;
+			}
+			return this;
+		},
+
+		select: function(ev, ui) {
+			this.$emit('select',  {index: this.index, value: ui.item[0].value, label: ui.item[0].label});
 		}
 	},
 
-	beforeDestroy: function() {
+	mounted: function() {
 		if(!this.readonly) {
-			$(this.$el).off().combobox('destroy');
+			this.create();
 		}
 	},
 
 	updated : function() {
-		if(!this.readonly) {
-			$(this.$el).combobox('instance').input[0].value = this.label;
+		if(this.readonly && this.instance) {
+			return this.destroy();
+		}
+
+		if(!this.readonly && !this.instance) {
+			this.create().combobox('instance').input[0].value = this.label;
 		}
 	}
 });
@@ -74,8 +102,15 @@ Vue.component('combo-box', {
 
 
 Vue.component('html-editor', {
-	template: '<textarea rows="6" class="form-control htmleditor" v-bind:id="id" v-bind:name="name" v-bind:value="value" v-bind:placeholder="placeholder" v-bind:readonly="readonly" v-bind:tabindex="tabindex"></textarea>',
+	template: '\
+		<textarea rows="6" class="form-control htmleditor" v-bind:id="id" v-bind:name="name" v-bind:value="value"\
+			v-bind:placeholder="placeholder" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
+		</textarea>',
 	props: ['id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
+
+	beforeDestroy: function() {
+		this.instance.destroy();
+	},
 
 	computed: {
 		instance: function() {
