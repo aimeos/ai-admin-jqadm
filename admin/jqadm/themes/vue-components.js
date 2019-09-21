@@ -109,49 +109,43 @@ Vue.component('html-editor', {
 	props: ['id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
 
 	beforeDestroy: function() {
-		this.instance.destroy();
+		if(this.instance) {
+			this.instance.destroy();
+			this.instance = null;
+		}
 	},
 
-	computed: {
-		instance: function() {
-			return CKEDITOR.instances[this.id];
-		}
+	data: function() {
+		return {
+			instance: null,
+			text: null
+		};
 	},
 
 	methods: {
 		change: function() {
-			this.$emit('input', this.instance.getData());
+			this.text = this.instance.getData();
+			this.$emit('input', this.text);
 		},
-
-		create: function() {
-			CKEDITOR.replace(this.id, {toolbar: Aimeos.editorcfg, autoParagraph: false, entities: false});
-			this.instance.setData(this.value);
-			this.instance.on('change', this.change);
-		},
-
-		destroy: function() {
-			try {
-				if(this.instance) {
-					this.instance.destroy();
-				}
-			} catch (e) {}
-		},
-
-		update: function(val) {
-			if(this.instance && val != this.instance.getData()) {
-				this.destroy(); this.create();
-				this.instance.setData(val, { internal: false });
-			}
-		}
 	},
 
 	mounted: function() {
-		this.create();
+		this.instance = CKEDITOR.replace(this.id, {
+			toolbar: Aimeos.editorcfg,
+			extraPlugins: 'divarea',
+			initialData: this.value,
+			readOnly: this.readonly,
+			autoParagraph: false,
+			entities: false
+		});
+		this.instance.on('change', this.change);
 	},
 
 	watch: {
-		value: function(val) {
-			this.update(val);
+		value: function(val, oldval) {
+			if(val !== oldval && val !== this.text ) {
+				this.instance.setData(val);
+			}
 		}
 	}
 });

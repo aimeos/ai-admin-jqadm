@@ -77,12 +77,14 @@ $keys = [
 
 							<div class="form-group row mandatory">
 								<div class="col-sm-12">
-									<textarea is="html-editor" class="form-control item-content" required="required" v-once
-										v-model="items[idx]['text.content']"
+									<textarea is="html-editor" class="form-control item-content" required="required"
+										v-bind:key="idx"
+										v-bind:id="'cke-' + idx"
 										v-bind:value="items[idx]['text.content']"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.content' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('text.siteid', idx)"
 										v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
+										v-model="items[idx]['text.content']"
 									></textarea>
 								</div>
 							</div>

@@ -13,11 +13,9 @@ Aimeos = {
 		{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
 		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
 		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
-		{ name: 'insert', items: [ 'Media', 'SpecialChar' ] },
-		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Blockquote' ] },
-		{ name: 'styles', items: [ 'Format' ] },
-		{ name: 'document', items: [ 'Source' ] },
-		{ name: 'tools', items: [ 'Maximize' ] }
+		{ name: 'insert', items: [ 'SpecialChar' ] },
+		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
+		{ name: 'document', items: [ 'Source' ] }
 	],
 
 
