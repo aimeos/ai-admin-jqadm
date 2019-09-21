@@ -12,7 +12,7 @@ Vue.component('auto-complete', {
 	methods: {
 		create: function() {
 			this.instance = $(this.$el).autocomplete({
-				source: vm.keys || [],
+				source: this.keys || [],
 				change: select,
 				minLength: 0,
 				delay: 0
