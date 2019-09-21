@@ -65,7 +65,7 @@ $keys = [
 					</select>
 				</td>
 				<td class="actions">
-					<div v-if="!checkSite('product.lists.siteid', idx)"
+					<div v-if="!checkSite('product.lists.siteid', idx) && item['product.lists.id'] != ''"
 						class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
 					</div>

@@ -46,7 +46,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								v-on:click.stop="copyItem(idx)">
 							</div>
 
-							<div v-if="!checkSite('product.lists.siteid', idx)"
+							<div v-if="!checkSite('product.lists.siteid', idx) && item['product.lists.id'] != ''"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
 							</div>
