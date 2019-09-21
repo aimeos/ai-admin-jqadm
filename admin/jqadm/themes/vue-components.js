@@ -155,3 +155,58 @@ Vue.component('html-editor', {
 		}
 	}
 });
+
+
+
+Vue.component('taxrates', {
+	template: '\
+		<div> \
+			<input type="hidden" v-bind:name="name" v-bind:value="payload"> \
+			<table> \
+				<tr v-for="(val, type) in taxrates" v-bind:key="type"> \
+					<td class="input-group"> \
+						<input class="form-control item-taxrate" required="required" step="0.01" type="number" v-bind:placeholder="placeholder" \
+							v-bind:readonly="readonly" v-bind:tabindex="tabindex" v-bind:value="val" v-on:input="update(type, $event.target.value)" /> \
+						<div v-if="type" class="input-group-append"><span class="input-group-text">{{ type.toUpperCase() }}</span></div> \
+					</td> \
+					<td class="actions"> \
+						<div v-if="!readonly && !type" class="dropdown"> \
+							<button class="btn act-add fa dropdown-toggle" v-bind:tabindex="tabindex" \
+								type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> \
+							</button> \
+							<div class="dropdown-menu dropdown-menu-right"> \
+								<a v-for="(rate, code) in types" class="dropdown-item" href="#" v-on:click="add(code, rate)">{{ code.toUpperCase() }}</a> \
+							</div> \
+						</div> \
+						<div v-else class="btn act-delete fa" v-on:click="remove(type)"></div> \
+					</td> \
+				</tr> \
+			</table> \
+		</div> \
+	',
+	props: ['name', 'placeholder', 'precision', 'readonly', 'tabindex', 'taxrates', 'types'],
+
+	computed: {
+		payload: function() {
+			return JSON.stringify(this.taxrates);
+		}
+	},
+
+	created: function() {
+		delete this.types[''];
+	},
+
+	methods: {
+		add: function(type, val) {
+			this.$set(this.taxrates, type, val);
+		},
+
+		remove: function(type) {
+			this.$delete(this.taxrates, type);
+		},
+
+		update: function(type, val) {
+			this.$set(this.taxrates, type, val);
+		}
+	}
+});

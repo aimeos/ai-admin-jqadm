@@ -10,7 +10,7 @@ $enc = $this->encoder();
 
 $keys = [
 	'attribute.lists.siteid', 'attribute.lists.type', 'attribute.lists.datestart', 'attribute.lists.dateend', 'config',
-	'price.siteid', 'price.type', 'price.currencyid', 'price.status', 'price.quantity', 'price.taxrate', 'price.value', 'price.rebate', 'price.costs'
+	'price.siteid', 'price.type', 'price.currencyid', 'price.status', 'price.quantity', 'price.taxrates', 'price.value', 'price.rebate', 'price.costs'
 ];
 
 $currencies = $this->get( 'priceCurrencies', [] );
@@ -62,11 +62,14 @@ $currencies = $this->get( 'priceCurrencies', [] );
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ); ?></label>
 								<div class="col-sm-8">
-									<input class="form-control item-taxrate" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.taxrate' ) ) ); ?>'.replace('idx', idx)"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>"
+									<div is="taxrates" v-bind:key="idx"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.taxrates' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:types="JSON.parse('<?= $enc->attr( json_encode( $this->config( 'admin/tax', [] ) ) ) ?>')"
+										v-bind:placeholder="'<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>'"
+										v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:readonly="checkSite('price.siteid', idx)"
-										v-model="items[idx]['price.taxrate']" />
+										v-bind:taxrates="items[idx]['price.taxrates']"
+									></div>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)' ) ); ?>
