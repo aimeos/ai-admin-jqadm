@@ -323,6 +323,7 @@ Aimeos.Price = {
 				this.$set(this.items[idx], prefix + 'type', data && data[prefix + 'type'] || $('#item-price-group').data('listtype'));
 				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
 				this.$set(this.items[idx], 'price.siteid', this.siteid);
+				this.$set(this.items[idx], 'price.taxrates', {'': ''});
 				this.$set(this.items[idx], 'price.quantity', '1');
 				this.$set(this.items[idx], 'price.status', '1');
 			},
