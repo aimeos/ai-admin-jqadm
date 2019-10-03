@@ -132,11 +132,11 @@ class Standard
 			$msg = ['sitecode' => $context->getLocale()->getSite()->getCode()];
 
 			if( isset( $params['filter'] ) ) {
-				$msg['filter'] = $this->getCriteriaConditions( $params['filter'] );
+				$msg['filter'] = $this->getCriteriaConditions( (array) $params['filter'] );
 			}
 
 			if( isset( $params['sort'] ) ) {
-				$msg['sort'] = $this->getCriteriaSortations( $params['sort'] );
+				$msg['sort'] = $this->getCriteriaSortations( (array) $params['sort'] );
 			}
 
 			$mq = $context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( 'order-export' );
