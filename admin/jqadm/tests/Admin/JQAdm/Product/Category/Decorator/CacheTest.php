@@ -47,7 +47,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
 		$view = \TestHelperJqadm::getView();
 		$tags = array( 'catalog', 'catalog-1', 'catalog-2' );
 
-		$param = ['site' => 'unittest', 'category' => ['catalog.id' => ['1', '2']]];
+		$param = ['site' => 'unittest', 'category' => [0 => ['catalog.id' => '1'], 1 => ['catalog.id' => '2']]];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

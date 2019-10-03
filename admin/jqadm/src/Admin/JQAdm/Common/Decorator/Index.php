@@ -16,6 +16,7 @@ namespace Aimeos\Admin\JQAdm\Common\Decorator;
  *
  * @package Admin
  * @subpackage JQAdm
+ * @deprecated 2020.01 Not required any more
  */
 class Index extends Base
 {

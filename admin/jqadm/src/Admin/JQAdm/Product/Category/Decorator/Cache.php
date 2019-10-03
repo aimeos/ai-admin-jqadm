@@ -27,13 +27,13 @@ class Cache extends \Aimeos\Admin\JQAdm\Common\Decorator\Base
 	public function save()
 	{
 		$result = $this->getClient()->save();
-		$ids = array( 'catalog' );
+		$tags = ['catalog'];
 
-		foreach( $this->getView()->param( 'category/catalog.id', [] ) as $id ) {
-			$ids[] = 'catalog-' . $id;
+		foreach( $this->getView()->param( 'category', [] ) as $entry ) {
+			$tags[] = 'catalog-' . $entry['catalog.id'];
 		}
 
-		$this->getContext()->getCache()->deleteByTags( $ids );
+		$this->getContext()->getCache()->deleteByTags( $tags );
 
 		return $result;
 	}
