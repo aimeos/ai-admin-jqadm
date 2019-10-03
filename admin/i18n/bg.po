@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-01 17:12+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:06+0000\n"
+"Last-Translator: Bistra Kumanova <b.kumanova@creato.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,6 +166,9 @@ msgid "Attribute position (optional)"
 msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
+msgstr ""
+
+msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
@@ -367,6 +370,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr "Датата на статуса на последната доставка е променена"
 
@@ -404,6 +410,11 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
+msgstr ""
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -746,6 +757,9 @@ msgstr ""
 msgid "More"
 msgstr ""
 
+msgid "Move this entry up/down"
+msgstr ""
+
 msgid "Name"
 msgstr "Име"
 
@@ -986,11 +1000,41 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
+msgid "Product code"
+msgstr "Код на продукта"
+
+msgid "Product costs"
+msgstr "Разходи за продукта"
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr "Височина на продукта, например 20.0 (в см, инчове, и т.н.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr "Дължина на продукта, например 30.0 (в см, инчове, и т.н.)"
+
+msgid "Product name"
+msgstr "Име на продукта"
+
+msgid "Product price"
+msgstr "Цена на продукта"
+
+msgid "Product quantity"
+msgstr "Количество на продукта"
+
+msgid "Product rebate"
+msgstr "Отстъпка"
+
+msgid "Product status"
+msgstr ""
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
+msgstr "Тип на продукта"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr "Тегло на продукта, например 1.25 (в грам, кг, и т.н.)"
@@ -1232,6 +1276,9 @@ msgstr ""
 msgid "Stock level"
 msgstr "Стокови нива"
 
+msgid "Stock type"
+msgstr ""
+
 msgid "Street"
 msgstr "Улица"
 
@@ -1336,6 +1383,9 @@ msgstr ""
 
 msgid "Total"
 msgstr "Общо"
+
+msgid "Translate text"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr ""

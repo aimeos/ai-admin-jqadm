@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-01 17:12+0000\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:05+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -167,6 +167,9 @@ msgid "Attribute position (optional)"
 msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
+msgstr ""
+
+msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
@@ -368,6 +371,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Dashboard"
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr ""
 
@@ -405,6 +411,11 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
+msgstr ""
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -747,6 +758,9 @@ msgstr ""
 msgid "More"
 msgstr ""
 
+msgid "Move this entry up/down"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -987,10 +1001,40 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
+msgid "Product code"
+msgstr ""
+
+msgid "Product costs"
+msgstr ""
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr ""
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Product quantity"
+msgstr ""
+
+msgid "Product rebate"
+msgstr ""
+
+msgid "Product status"
+msgstr ""
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
 msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
@@ -1233,6 +1277,9 @@ msgstr ""
 msgid "Stock level"
 msgstr ""
 
+msgid "Stock type"
+msgstr ""
+
 msgid "Street"
 msgstr ""
 
@@ -1336,6 +1383,9 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
+msgstr ""
+
+msgid "Translate text"
 msgstr ""
 
 msgid "Two letter ISO country code"

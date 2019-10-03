@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-01 17:12+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:06+0000\n"
+"Last-Translator: Bruce Liu <zcon.bruce@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,6 +168,9 @@ msgid "Attribute position (optional)"
 msgstr "屬性位置（可不填）"
 
 msgid "Attribute properties that are not shared with other attributes"
+msgstr ""
+
+msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
@@ -369,6 +372,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr "最後運送狀態更改日期"
 
@@ -406,6 +412,11 @@ msgid "Delivery types"
 msgstr "配送方式"
 
 msgid "Delivery within"
+msgstr ""
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -748,6 +759,9 @@ msgstr ""
 msgid "More"
 msgstr "更多"
 
+msgid "Move this entry up/down"
+msgstr ""
+
 msgid "Name"
 msgstr "姓名"
 
@@ -988,11 +1002,41 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
+msgid "Product code"
+msgstr "商品代碼"
+
+msgid "Product costs"
+msgstr "商品成本"
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr "商品高度"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr "商品長度"
+
+msgid "Product name"
+msgstr "商品名稱"
+
+msgid "Product price"
+msgstr "商品價格"
+
+msgid "Product quantity"
+msgstr "商品數量"
+
+msgid "Product rebate"
+msgstr "商品折扣"
+
+msgid "Product status"
+msgstr ""
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
+msgstr "商品類型"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr "商品重量"
@@ -1234,6 +1278,9 @@ msgstr ""
 msgid "Stock level"
 msgstr "庫存量"
 
+msgid "Stock type"
+msgstr ""
+
 msgid "Street"
 msgstr "街"
 
@@ -1338,6 +1385,9 @@ msgstr ""
 
 msgid "Total"
 msgstr "合計"
+
+msgid "Translate text"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr "兩碼 ISO 國家碼"

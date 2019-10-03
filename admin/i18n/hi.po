@@ -1,20 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi (http://www.transifex.com/aimeos/aimeos-core/language/hi/)\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, php-format
@@ -58,14 +58,10 @@ msgstr ""
 msgid "%s/%s/%s.%s"
 msgstr ""
 
-msgid ""
-"(International) facsimilie number without separation characters, can start "
-"with a \"+\""
+msgid "(International) facsimilie number without separation characters, can start with a \"+\""
 msgstr ""
 
-msgid ""
-"(International) telephone number without separation characters, can start "
-"with a \"+\""
+msgid "(International) telephone number without separation characters, can start with a \"+\""
 msgstr ""
 
 msgid "Active"
@@ -80,9 +76,7 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-msgid ""
-"Additional delivery costs for each item, e.g. $20 for one heavy item will be"
-" $100 for five items it total"
+msgid "Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total"
 msgstr ""
 
 msgid "Additional information where the customer's apartment can be found"
@@ -120,9 +114,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid ""
-"All attributes that uniquely define an article, e.g. width, length and color"
-" for jeans"
+msgid "All attributes that uniquely define an article, e.g. width, length and color for jeans"
 msgstr ""
 
 msgid "Allow custom price"
@@ -134,9 +126,7 @@ msgstr ""
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
-msgid ""
-"Article specific configuration options, will be available as key/value pairs"
-" in the templates"
+msgid "Article specific configuration options, will be available as key/value pairs in the templates"
 msgstr ""
 
 msgid "Attribute"
@@ -164,6 +154,9 @@ msgid "Attribute position (optional)"
 msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
+msgstr ""
+
+msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
@@ -220,9 +213,7 @@ msgstr ""
 msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
 
-msgid ""
-"Category specific configuration options, will be available as key/value "
-"pairs in the templates"
+msgid "Category specific configuration options, will be available as key/value pairs in the templates"
 msgstr ""
 
 msgid "Choose file"
@@ -275,8 +266,7 @@ msgstr ""
 msgid "Configurable"
 msgstr ""
 
-msgid ""
-"Configuration options, will be available as key/value pairs in the list item"
+msgid "Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
 
 msgid "Copy"
@@ -300,9 +290,7 @@ msgstr ""
 msgid "Country code (required)"
 msgstr ""
 
-msgid ""
-"Country specific tax rate to calculate and display the included tax (B2C) or"
-" add the tax if required (B2B)"
+msgid "Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)"
 msgstr ""
 
 msgid "Country state code (optional)"
@@ -365,6 +353,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr ""
 
@@ -402,6 +393,9 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
+msgstr ""
+
+msgid "Depending on the selected data set, the list of shown fields for the product will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -554,9 +548,7 @@ msgstr ""
 msgid "ISO language code (required)"
 msgstr ""
 
-msgid ""
-"Images will only be shown for that language, useful if the media contains "
-"text or is language sepecific"
+msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
 msgstr ""
 
 msgid "Import"
@@ -577,24 +569,16 @@ msgstr ""
 msgid "Insert new entry (Ctrl+I)"
 msgstr ""
 
-msgid ""
-"Internal article name, will be used on the web site and for searching only "
-"if no other product names in any language exist"
+msgid "Internal article name, will be used on the web site and for searching only if no other product names in any language exist"
 msgstr ""
 
-msgid ""
-"Internal article name, will be used on the web site if no product name for "
-"the language is available"
+msgid "Internal article name, will be used on the web site if no product name for the language is available"
 msgstr ""
 
-msgid ""
-"Internal attribute name, will be used on the web site if no name for the "
-"language is available"
+msgid "Internal attribute name, will be used on the web site if no name for the language is available"
 msgstr ""
 
-msgid ""
-"Internal category name, will be used on the web site if no name for the "
-"language is available"
+msgid "Internal category name, will be used on the web site if no name for the language is available"
 msgstr ""
 
 msgid "Internal name (required)"
@@ -671,9 +655,7 @@ msgstr ""
 msgid "Last name (required)"
 msgstr ""
 
-msgid ""
-"Last name of the person or full name in cultures where no first names are "
-"used"
+msgid "Last name of the person or full name in cultures where no first names are used"
 msgstr ""
 
 msgid "Last payment status of the order"
@@ -685,9 +667,7 @@ msgstr ""
 msgid "Length"
 msgstr ""
 
-msgid ""
-"List of articles that should be sold as one product, often at a reduced "
-"price"
+msgid "List of articles that should be sold as one product, often at a reduced price"
 msgstr ""
 
 msgid "List of products often bought together"
@@ -744,11 +724,13 @@ msgstr ""
 msgid "More"
 msgstr ""
 
+msgid "Move this entry up/down"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
-msgid ""
-"Name of the downloaded file when customers saves the file on their computers"
+msgid "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
 
 msgid "New"
@@ -789,8 +771,7 @@ msgstr ""
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr ""
 
-msgid ""
-"Number of articles currently in stock, leave empty for an unlimited quantity"
+msgid "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr ""
 
 msgid "OK"
@@ -799,16 +780,13 @@ msgstr ""
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr ""
 
-msgid ""
-"One provider and zero or more decorator class names separated by commas"
+msgid "One provider and zero or more decorator class names separated by commas"
 msgstr ""
 
 msgid "Option"
 msgstr ""
 
-msgid ""
-"Optional product components that can be chosen by the customer together with"
-" the product"
+msgid "Optional product components that can be chosen by the customer together with the product"
 msgstr ""
 
 msgid "Order"
@@ -841,9 +819,7 @@ msgstr ""
 msgid "Orders by payment status"
 msgstr ""
 
-msgid ""
-"Overwrite the existing file and customers bought it in the past can then "
-"download the new content too"
+msgid "Overwrite the existing file and customers bought it in the past can then download the new content too"
 msgstr ""
 
 #, php-format
@@ -973,9 +949,7 @@ msgstr ""
 msgid "Product Types"
 msgstr ""
 
-msgid ""
-"Product attributes stored in the basket where customers can enter their own "
-"texts or values"
+msgid "Product attributes stored in the basket where customers can enter their own texts or values"
 msgstr ""
 
 msgid "Product attributes that are used by other products too"
@@ -984,10 +958,40 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
+msgid "Product code"
+msgstr ""
+
+msgid "Product costs"
+msgstr ""
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr ""
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Product quantity"
+msgstr ""
+
+msgid "Product rebate"
+msgstr ""
+
+msgid "Product status"
+msgstr ""
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
 msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
@@ -1029,9 +1033,7 @@ msgstr ""
 msgid "Rebate"
 msgstr ""
 
-msgid ""
-"Reduction from the original price, used to calculate the rebate in % and the"
-" cross price"
+msgid "Reduction from the original price, used to calculate the rebate in % and the cross price"
 msgstr ""
 
 msgid "Related ID"
@@ -1053,22 +1055,16 @@ msgstr ""
 msgid "Required parameter \"%1$s\" is missing"
 msgstr ""
 
-msgid ""
-"Required quantity of articles for block pricing, e.g. one article for $5.00,"
-" ten articles for $45.00"
+msgid "Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00"
 msgstr ""
 
 msgid "Reset"
 msgstr ""
 
-msgid ""
-"Route name or page ID of the category page if this category should shown on "
-"a different page"
+msgid "Route name or page ID of the category page if this category should shown on a different page"
 msgstr ""
 
-msgid ""
-"Route name or page ID of the product detail page if this product should "
-"shown on a different page"
+msgid "Route name or page ID of the product detail page if this product should shown on a different page"
 msgstr ""
 
 msgid "Route or page ID (optional)"
@@ -1164,12 +1160,10 @@ msgstr ""
 msgid "Shipping/Payment costs"
 msgstr ""
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the customer is living"
+msgid "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr ""
 
-msgid ""
-"Short state code (e.g. NY) if used in the country the supplier is living"
+msgid "Short state code (e.g. NY) if used in the country the supplier is living"
 msgstr ""
 
 msgid "Show"
@@ -1193,8 +1187,7 @@ msgstr ""
 msgid "Site"
 msgstr ""
 
-msgid ""
-"Site specific configuration options, will be available as key/value pairs"
+msgid "Site specific configuration options, will be available as key/value pairs"
 msgstr ""
 
 msgid "Site the order was placed at"
@@ -1230,6 +1223,9 @@ msgstr ""
 msgid "Stock level"
 msgstr ""
 
+msgid "Stock type"
+msgstr ""
+
 msgid "Street"
 msgstr ""
 
@@ -1242,9 +1238,7 @@ msgstr ""
 msgid "Subscription"
 msgstr ""
 
-msgid ""
-"Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
-" for zero years, one month, two weeks and three days"
+msgid "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\" for zero years, one month, two weeks and three days"
 msgstr ""
 
 msgid "Substracted rebate amount"
@@ -1292,14 +1286,10 @@ msgstr ""
 msgid "Text Types"
 msgstr ""
 
-msgid ""
-"The article is only shown on the web site after that date and time, useful "
-"or seasonal articles"
+msgid "The article is only shown on the web site after that date and time, useful or seasonal articles"
 msgstr ""
 
-msgid ""
-"The article is only shown on the web site until that date and time, useful "
-"or seasonal articles"
+msgid "The article is only shown on the web site until that date and time, useful or seasonal articles"
 msgstr ""
 
 msgid "The item is only shown on the web site after that date and time"
@@ -1333,6 +1323,9 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
+msgstr ""
+
+msgid "Translate text"
 msgstr ""
 
 msgid "Two letter ISO country code"
@@ -1369,9 +1362,7 @@ msgstr ""
 msgid "Unable to call method \"%1$s\""
 msgstr ""
 
-msgid ""
-"Unique article code related to stock levels, e.g. from the ERP system, an "
-"EAN/GTIN number or self invented"
+msgid "Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented"
 msgstr ""
 
 msgid "Unique attribute code (required)"
@@ -1446,8 +1437,7 @@ msgstr ""
 msgid "Voucher"
 msgstr ""
 
-msgid ""
-"Warehouse or local store if your articles are available at several locations"
+msgid "Warehouse or local store if your articles are available at several locations"
 msgstr ""
 
 msgid "Web site"

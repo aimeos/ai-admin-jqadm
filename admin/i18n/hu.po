@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-01 17:12+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:06+0000\n"
+"Last-Translator: Péter Kozma <kopegrafika@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,6 +167,9 @@ msgid "Attribute position (optional)"
 msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
+msgstr ""
+
+msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
@@ -368,6 +371,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Vezérlőpult"
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr ""
 
@@ -405,6 +411,11 @@ msgid "Delivery types"
 msgstr "Szállítási típusok"
 
 msgid "Delivery within"
+msgstr ""
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -747,6 +758,9 @@ msgstr "Hónapok"
 msgid "More"
 msgstr ""
 
+msgid "Move this entry up/down"
+msgstr ""
+
 msgid "Name"
 msgstr "Név"
 
@@ -987,11 +1001,41 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
+msgid "Product code"
+msgstr "Termék kód"
+
+msgid "Product costs"
+msgstr "Termék árak"
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr "Termék magasság, például 20.0 (cm, inch stb.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr "Termék hossz, például 30.0 (cm, inch stb.)"
+
+msgid "Product name"
+msgstr "Termék név"
+
+msgid "Product price"
+msgstr "Termék ár"
+
+msgid "Product quantity"
+msgstr "Mennyiség"
+
+msgid "Product rebate"
+msgstr "Engedmény"
+
+msgid "Product status"
+msgstr ""
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
+msgstr "Termék típus"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr "Termék súly, például 1,25 (kg, dkg stb.)"
@@ -1233,6 +1277,9 @@ msgstr "Készlet típusok"
 msgid "Stock level"
 msgstr "Készlet szint"
 
+msgid "Stock type"
+msgstr ""
+
 msgid "Street"
 msgstr "Utca"
 
@@ -1337,6 +1384,9 @@ msgstr ""
 
 msgid "Total"
 msgstr "Végösszeg"
+
+msgid "Translate text"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr ""

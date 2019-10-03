@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-01 17:12+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:06+0000\n"
+"Last-Translator: Miro Sertić <miro.sertic0606@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/aimeos/aimeos-core/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -165,6 +165,9 @@ msgid "Attribute position (optional)"
 msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
+msgstr ""
+
+msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
@@ -366,6 +369,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Kontrolna ploča"
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr ""
 
@@ -403,6 +409,11 @@ msgid "Delivery types"
 msgstr "Vrste isporuke"
 
 msgid "Delivery within"
+msgstr ""
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -745,6 +756,9 @@ msgstr "Mjeseci"
 msgid "More"
 msgstr "Više"
 
+msgid "Move this entry up/down"
+msgstr ""
+
 msgid "Name"
 msgstr "Naziv"
 
@@ -985,10 +999,40 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
+msgid "Product code"
+msgstr ""
+
+msgid "Product costs"
+msgstr ""
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr ""
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product name"
+msgstr "Naziv proizvoda"
+
+msgid "Product price"
+msgstr "Cijena proizvoda"
+
+msgid "Product quantity"
+msgstr "Količina proizvoda"
+
+msgid "Product rebate"
+msgstr ""
+
+msgid "Product status"
+msgstr "Status proizvoda"
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
 msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
@@ -1231,6 +1275,9 @@ msgstr "Vrste zaliha"
 msgid "Stock level"
 msgstr "Nivo zalihe"
 
+msgid "Stock type"
+msgstr "Vrsta zalihe"
+
 msgid "Street"
 msgstr "Ulica"
 
@@ -1335,6 +1382,9 @@ msgstr ""
 
 msgid "Total"
 msgstr "Ukupno"
+
+msgid "Translate text"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr ""

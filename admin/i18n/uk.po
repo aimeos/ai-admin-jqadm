@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-01 17:12+0000\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:05+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
@@ -166,6 +166,9 @@ msgstr ""
 msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
 
+msgid "Attribute type that limits the list of available attributes"
+msgstr ""
+
 msgid "Attributes"
 msgstr ""
 
@@ -185,10 +188,10 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr ""
+msgstr "Корзина"
 
 msgid "Billing address"
-msgstr ""
+msgstr "Платіжна адреса"
 
 msgid "Birthday"
 msgstr ""
@@ -229,21 +232,21 @@ msgid "Choose file"
 msgstr ""
 
 msgid "City"
-msgstr ""
+msgstr "Масто"
 
 msgid "City or town name (required)"
 msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr ""
+msgstr "Клас \"%1$s\" не доступний"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr ""
+msgstr "Клас \"%1$s\" не знайдено"
 
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 msgid "Code"
 msgstr ""
@@ -292,7 +295,7 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr ""
+msgstr "Країна"
 
 msgid "Country ID"
 msgstr ""
@@ -365,6 +368,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr ""
 
@@ -390,10 +396,10 @@ msgid "Delete this entry"
 msgstr ""
 
 msgid "Delivery"
-msgstr ""
+msgstr "Доставка"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "Адреса доставки"
 
 msgid "Delivery status"
 msgstr ""
@@ -402,6 +408,11 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
+msgstr ""
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -429,7 +440,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr ""
+msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -492,7 +503,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "Ім'я"
 
 msgid "First name (optional)"
 msgstr ""
@@ -611,19 +622,19 @@ msgstr ""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "Недопустимі символы в назві класу \"%1$s\""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "Недопустимі символы в імені кліента \"%1$s\""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "Невірна назва класу \"%1$s\""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "Невірний домен \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
@@ -648,7 +659,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Мова"
 
 msgid "Language ID"
 msgstr ""
@@ -666,7 +677,7 @@ msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "Прізвище"
 
 msgid "Last name (required)"
 msgstr ""
@@ -683,7 +694,7 @@ msgid "Latest orders"
 msgstr ""
 
 msgid "Length"
-msgstr ""
+msgstr "Довжина"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
@@ -744,8 +755,11 @@ msgstr ""
 msgid "More"
 msgstr ""
 
-msgid "Name"
+msgid "Move this entry up/down"
 msgstr ""
+
+msgid "Name"
+msgstr "Назва"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -755,7 +769,7 @@ msgid "New"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Далі"
 
 msgid "Next date"
 msgstr ""
@@ -771,7 +785,7 @@ msgstr ""
 
 #, php-format
 msgid "No view available"
-msgstr ""
+msgstr "Немає доступних режимів виводу"
 
 msgid "No voucher"
 msgstr ""
@@ -804,7 +818,7 @@ msgid ""
 msgstr ""
 
 msgid "Option"
-msgstr ""
+msgstr "Параметр"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
@@ -815,7 +829,7 @@ msgid "Order"
 msgstr ""
 
 msgid "Order ID"
-msgstr ""
+msgstr "ID замовлення"
 
 msgid "Order number entered by the customer"
 msgstr ""
@@ -856,7 +870,7 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Сторінка %1$d з %2$d"
 
 msgid "Password"
 msgstr ""
@@ -874,10 +888,10 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr ""
+msgstr "Оплата"
 
 msgid "Payment status"
-msgstr ""
+msgstr "Статус оплати"
 
 msgid "Payment types"
 msgstr ""
@@ -890,7 +904,7 @@ msgid "Personal data"
 msgstr ""
 
 msgid "Please select"
-msgstr ""
+msgstr "Будь ласка оберіть"
 
 msgid "Plugin"
 msgstr ""
@@ -923,10 +937,10 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Назад"
 
 msgid "Price"
-msgstr ""
+msgstr "Ціна"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -984,10 +998,40 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
+msgid "Product code"
+msgstr ""
+
+msgid "Product costs"
+msgstr ""
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr ""
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Product quantity"
+msgstr ""
+
+msgid "Product rebate"
+msgstr ""
+
+msgid "Product status"
+msgstr ""
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
 msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
@@ -1021,7 +1065,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Кількість"
 
 msgid "Reason"
 msgstr ""
@@ -1087,7 +1131,7 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr ""
+msgstr "Вітання"
 
 msgid "Save"
 msgstr ""
@@ -1105,7 +1149,7 @@ msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 msgid "Second level type for grouping items"
 msgstr ""
@@ -1156,7 +1200,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr ""
+msgstr "Доставка"
 
 msgid "Shipping costs per item"
 msgstr ""
@@ -1173,7 +1217,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "Показати"
 
 msgid "Show entry"
 msgstr ""
@@ -1204,7 +1248,7 @@ msgid "Sites"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
@@ -1216,7 +1260,7 @@ msgid "Start date"
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Область"
 
 msgid "Status"
 msgstr ""
@@ -1230,14 +1274,17 @@ msgstr ""
 msgid "Stock level"
 msgstr ""
 
-msgid "Street"
+msgid "Stock type"
 msgstr ""
+
+msgid "Street"
+msgstr "Вулиця"
 
 msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr ""
+msgstr "Проміжна сумма"
 
 msgid "Subscription"
 msgstr ""
@@ -1251,10 +1298,10 @@ msgid "Substracted rebate amount"
 msgstr ""
 
 msgid "Suggested products"
-msgstr ""
+msgstr "Рекомендуємі товари"
 
 msgid "Sum"
-msgstr ""
+msgstr "Сумма"
 
 msgid "Supplier"
 msgstr ""
@@ -1275,7 +1322,7 @@ msgid "Tax rate in %"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "Телефон"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1333,6 +1380,9 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
+msgstr "Всього"
+
+msgid "Translate text"
 msgstr ""
 
 msgid "Two letter ISO country code"
@@ -1367,7 +1417,7 @@ msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "Неможливо викликати метод \"%1$s\""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1451,7 +1501,7 @@ msgid ""
 msgstr ""
 
 msgid "Web site"
-msgstr ""
+msgstr "Сайт"
 
 msgid "Web site URL (optional)"
 msgstr ""
@@ -1463,7 +1513,7 @@ msgid "Weight"
 msgstr ""
 
 msgid "Width"
-msgstr ""
+msgstr "Ширина"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr ""
@@ -1482,13 +1532,13 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "Адреси"
 
 msgid "address:delivery"
-msgstr ""
+msgstr "Адреса доставки"
 
 msgid "address:payment"
-msgstr ""
+msgstr "Платіжна адреса"
 
 #, php-format
 msgid "attribute"
@@ -1508,7 +1558,7 @@ msgstr ""
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "Характеристики"
 
 #, php-format
 msgid "code"
@@ -1551,7 +1601,7 @@ msgstr ""
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "Зкачувані матеріали"
 
 #, php-format
 msgid "group"
@@ -1617,7 +1667,7 @@ msgstr ""
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "Параметри"
 
 #, php-format
 msgid "order"
@@ -1704,7 +1754,7 @@ msgstr ""
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "Послуги"
 
 #, php-format
 msgid "servicedelivery"
@@ -1842,7 +1892,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Послуги"
 
 #, php-format
 msgid "type/service/lists"

@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Ismail Ashour <dr.ashoor@gmail.com>, 2016
+# Mohamed Hassan <hassan.mohamed.sf@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-01 17:12+0000\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:05+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Arabic (http://www.transifex.com/aimeos/aimeos-core/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -70,13 +71,13 @@ msgid ""
 msgstr ""
 
 msgid "Active"
-msgstr ""
+msgstr "مفعل"
 
 msgid "Actual current price"
 msgstr "السعر الفعلي الحالي"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "السعر الفعلي الذي سيدفعه العملاء مقابل الشراء من المتجر"
 
 msgid "Add"
 msgstr "إضافة"
@@ -84,13 +85,13 @@ msgstr "إضافة"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "تكاليف الشحن الاضافية لكل صنف، على سبيل المثال 20$ لصنف ثقيل الوزن ستكون 100$ لإجمالي عدد خمسة من هذا الصنف."
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "معلومات اضافية لإيجاد عنوان العميل"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "معلومات اضافية لإيجاد عنوان المورد"
 
 msgid "Address 1"
 msgstr "العنوان 1"
@@ -102,21 +103,21 @@ msgid "Address 3"
 msgstr "العنوان 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "توضيح لعنوان منزل العميل عند التوصيل"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "توضيح لعنوان منزل المورد عند التوصيل"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "متقدم"
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "عنصر ايميوس غير متوفر"
 
 msgid "All"
 msgstr "الكل"
@@ -124,13 +125,13 @@ msgstr "الكل"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "كل الخصائص التي تميز المنتج مثل العرض، الطول، اللون لبنطلون جينز على سبيل المثال"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "اتاحة السعر المخصص"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "اتاحة العملاء للاختيار بنفسهم كم يريدون ان يدفعون"
 
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
@@ -141,13 +142,13 @@ msgid ""
 msgstr ""
 
 msgid "Attribute"
-msgstr ""
+msgstr "خاصية"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "نوع قوائم الخصائص"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "انواع قوائم الخصائص"
 
 msgid "Attribute Property Type"
 msgstr ""
@@ -165,6 +166,9 @@ msgid "Attribute position (optional)"
 msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
+msgstr ""
+
+msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
@@ -189,7 +193,7 @@ msgid "Basket"
 msgstr ""
 
 msgid "Billing address"
-msgstr ""
+msgstr "عنوان الدفع"
 
 msgid "Birthday"
 msgstr "تاريخ الميلاد"
@@ -366,6 +370,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr ""
 
@@ -391,10 +398,10 @@ msgid "Delete this entry"
 msgstr ""
 
 msgid "Delivery"
-msgstr ""
+msgstr "التوصيل"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "عنوان التوصيل"
 
 msgid "Delivery status"
 msgstr ""
@@ -403,6 +410,11 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
+msgstr ""
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -745,6 +757,9 @@ msgstr ""
 msgid "More"
 msgstr ""
 
+msgid "Move this entry up/down"
+msgstr ""
+
 msgid "Name"
 msgstr "الإسم"
 
@@ -875,7 +890,7 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr ""
+msgstr "الدفع"
 
 msgid "Payment status"
 msgstr ""
@@ -985,10 +1000,40 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
+msgid "Product code"
+msgstr ""
+
+msgid "Product costs"
+msgstr ""
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr ""
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Product quantity"
+msgstr ""
+
+msgid "Product rebate"
+msgstr ""
+
+msgid "Product status"
+msgstr ""
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
 msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
@@ -1231,6 +1276,9 @@ msgstr ""
 msgid "Stock level"
 msgstr ""
 
+msgid "Stock type"
+msgstr ""
+
 msgid "Street"
 msgstr ""
 
@@ -1335,6 +1383,9 @@ msgstr ""
 
 msgid "Total"
 msgstr "المجموع"
+
+msgid "Translate text"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr ""
@@ -1486,10 +1537,10 @@ msgid "address"
 msgstr "العناوين"
 
 msgid "address:delivery"
-msgstr ""
+msgstr "عنوان التوصيل"
 
 msgid "address:payment"
-msgstr ""
+msgstr "عنوان الدفع"
 
 #, php-format
 msgid "attribute"

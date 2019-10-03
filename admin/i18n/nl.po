@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-01 17:12+0000\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:06+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -173,6 +173,9 @@ msgstr "Kenmerk positie (optioneel)"
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr "Kenmerk eigenschappen die niet gedeeld worden met andere kenmerken"
+
+msgid "Attribute type that limits the list of available attributes"
+msgstr ""
 
 msgid "Attributes"
 msgstr "Kenmerken"
@@ -373,6 +376,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Dashboard"
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr "Datum van de laatste wijziging in de status van levering"
 
@@ -410,6 +416,11 @@ msgid "Delivery types"
 msgstr "Leveringstypes"
 
 msgid "Delivery within"
+msgstr ""
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -752,6 +763,9 @@ msgstr "Maanden"
 msgid "More"
 msgstr "Meer"
 
+msgid "Move this entry up/down"
+msgstr "Verplaats deze invoer naar boven/beneden"
+
 msgid "Name"
 msgstr "Naam"
 
@@ -992,11 +1006,41 @@ msgstr "Product eigenschapen dat ook gebruikt worden door andere producten"
 msgid "Product characteristics that are not shared with other products"
 msgstr "Productkarakteristieken die niet gedeeld worden met andere producten"
 
+msgid "Product code"
+msgstr "Product code"
+
+msgid "Product costs"
+msgstr "Product kosten"
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr "Product hoogte, bijv. 20.0 (in meters, inch, etc.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr "Product lengte, bijv. 30.0 (in meters, inch, etc.)"
+
+msgid "Product name"
+msgstr "Product naam"
+
+msgid "Product price"
+msgstr "Product prijs"
+
+msgid "Product quantity"
+msgstr "Product aantal"
+
+msgid "Product rebate"
+msgstr "Product korting"
+
+msgid "Product status"
+msgstr "Product status"
+
+msgid "Product supplier"
+msgstr "Product leverancier"
+
+msgid "Product tax"
+msgstr "Product btw"
+
+msgid "Product type"
+msgstr "Product type"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr "Product gewicht, bijv. 1.25 (in Kilo, gram, etc)"
@@ -1238,6 +1282,9 @@ msgstr "Voorraadtypes"
 msgid "Stock level"
 msgstr "Voorraad niveau"
 
+msgid "Stock type"
+msgstr ""
+
 msgid "Street"
 msgstr "Straat"
 
@@ -1342,6 +1389,9 @@ msgstr ""
 
 msgid "Total"
 msgstr "Totaal"
+
+msgid "Translate text"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr "Tweeletterige ISO-landcode"

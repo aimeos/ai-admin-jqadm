@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-07-27 02:39+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:06+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,6 +166,9 @@ msgstr "Nitelik pozisyonu (isteğe bağlı)"
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr "Diğer niteliklerle paylaşılmayan nitelik özellikleri"
+
+msgid "Attribute type that limits the list of available attributes"
+msgstr ""
 
 msgid "Attributes"
 msgstr "Nitelikler"
@@ -366,6 +369,9 @@ msgstr "Müşteri referans numarası (isteğe bağlı)"
 msgid "Dashboard"
 msgstr "Gösterge Paneli"
 
+msgid "Data set"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr "En son teslimat durumu değişiklik tarihi"
 
@@ -404,6 +410,11 @@ msgstr "Teslimat türleri"
 
 msgid "Delivery within"
 msgstr "Teslimat"
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
+msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Eğer yabancı bir dilde ise metin içeriğinin açıklaması "
@@ -745,6 +756,9 @@ msgstr "Aylar"
 msgid "More"
 msgstr "Daha fazla"
 
+msgid "Move this entry up/down"
+msgstr "Bu girişi yukarı/aşağı taşı"
+
 msgid "Name"
 msgstr "İsim"
 
@@ -985,11 +999,41 @@ msgstr "Diğer ürünler tarafından da kullanılan ürün nitelikleri"
 msgid "Product characteristics that are not shared with other products"
 msgstr "Diğer ürünlerle paylaşılmayan ürün özellikleri"
 
+msgid "Product code"
+msgstr "Ürün kodu"
+
+msgid "Product costs"
+msgstr "Ürün maliyetleri"
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr "Ürün yüksekliği, örn: 20.0 (yard, inç, vb.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr "Ürün uzunluğu, örn: 30.0 (yard, inç, vb.)"
+
+msgid "Product name"
+msgstr "Ürün adı"
+
+msgid "Product price"
+msgstr "Ürün fiyatı"
+
+msgid "Product quantity"
+msgstr "Ürün miktarı"
+
+msgid "Product rebate"
+msgstr "Ürün indirimi"
+
+msgid "Product status"
+msgstr "Ürün durumu"
+
+msgid "Product supplier"
+msgstr "Ürün tedarikçisi"
+
+msgid "Product tax"
+msgstr "Ürün vergisi"
+
+msgid "Product type"
+msgstr "Ürün türü"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr "Ürün ağırlığı, örn: 1.25 (pound, ons, vb.)"
@@ -1231,6 +1275,9 @@ msgstr "Stok Türleri"
 msgid "Stock level"
 msgstr "Stok seviyesi"
 
+msgid "Stock type"
+msgstr "Stok türü"
+
 msgid "Street"
 msgstr "Sokak"
 
@@ -1335,6 +1382,9 @@ msgstr "Açılır menüyü aç/kapat"
 
 msgid "Total"
 msgstr "Toplam"
+
+msgid "Translate text"
+msgstr ""
 
 msgid "Two letter ISO country code"
 msgstr "İki harfli ülke ISO kodu"

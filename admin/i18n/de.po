@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 19:09+0200\n"
-"PO-Revision-Date: 2019-09-16 15:09+0000\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
+"PO-Revision-Date: 2019-10-03 08:11+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -169,6 +169,9 @@ msgstr "Attributposition (optional)"
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr "Attributeeigenschaften, die nicht mit anderen Attriubten geteilt werden"
+
+msgid "Attribute type that limits the list of available attributes"
+msgstr "Attributetyp um die Liste der verfügbaren Attribute einzuschränken"
 
 msgid "Attributes"
 msgstr "Attribute"
@@ -369,6 +372,9 @@ msgstr "Kundenreferenz (optional)"
 msgid "Dashboard"
 msgstr "Übersicht"
 
+msgid "Data set"
+msgstr "Datensatz"
+
 msgid "Date of the last delivery status change"
 msgstr "Datum der letzten Änderung des Lieferstatus"
 
@@ -407,6 +413,11 @@ msgstr "Versandarten"
 
 msgid "Delivery within"
 msgstr "Versand in"
+
+msgid ""
+"Depending on the selected data set, the list of shown fields for the product"
+" will be different"
+msgstr "Basierend auf dem ausgewählten Datensatz werden andere Felder für das Produkt angezeigt"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Beschreibung falls der Text in einer fremden Sprache ist"
@@ -748,6 +759,9 @@ msgstr "Monate"
 msgid "More"
 msgstr "Mehr"
 
+msgid "Move this entry up/down"
+msgstr "Eintrag nach oben/unten verschieben"
+
 msgid "Name"
 msgstr "Name"
 
@@ -988,11 +1002,41 @@ msgstr "Produktattribute, die auch von anderen Produkten verwendet werden"
 msgid "Product characteristics that are not shared with other products"
 msgstr "Produkteigenschaften, die nicht mit anderen Produkten geteilt werden"
 
+msgid "Product code"
+msgstr "Produktschlüssel"
+
+msgid "Product costs"
+msgstr "Produktkosten"
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr "Produkthöhe, z.B. 20.0 (in m, cm, etc.)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr "Produktlänge, z.B. 30.0 (in m, cm, etc.)"
+
+msgid "Product name"
+msgstr "Produktname"
+
+msgid "Product price"
+msgstr "Productpreis"
+
+msgid "Product quantity"
+msgstr "Produktanzahl"
+
+msgid "Product rebate"
+msgstr "Produktrabatt"
+
+msgid "Product status"
+msgstr "Produktstatus"
+
+msgid "Product supplier"
+msgstr "Produktlieferant"
+
+msgid "Product tax"
+msgstr "Produktsteuer"
+
+msgid "Product type"
+msgstr "Produkttyp"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr "Produktgewicht, z.B. 1.25 (in kg, g, etc.)"
@@ -1234,6 +1278,9 @@ msgstr "Warenlager"
 msgid "Stock level"
 msgstr "Lagerbestand"
 
+msgid "Stock type"
+msgstr "Warenlager"
+
 msgid "Street"
 msgstr "Straße"
 
@@ -1338,6 +1385,9 @@ msgstr "Menü anzeigen/ausblenden"
 
 msgid "Total"
 msgstr "Gesamtsumme"
+
+msgid "Translate text"
+msgstr "Text übersetzen"
 
 msgid "Two letter ISO country code"
 msgstr "Zweistelliger ISO Ländercode"

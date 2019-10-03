@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-02 15:11+0200\n"
+"POT-Creation-Date: 2019-10-03 10:01+0200\n"
 "PO-Revision-Date: 2017-01-03 11:21+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/aimeos/aimeos-core/language/pt_PT/)\n"
@@ -154,6 +154,9 @@ msgid "Attribute position (optional)"
 msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
+msgstr ""
+
+msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
@@ -341,7 +344,16 @@ msgstr ""
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
+msgid "Customer reference"
+msgstr ""
+
+msgid "Customer reference (optional)"
+msgstr ""
+
 msgid "Dashboard"
+msgstr ""
+
+msgid "Data set"
 msgstr ""
 
 msgid "Date of the last delivery status change"
@@ -378,6 +390,12 @@ msgid "Delivery status"
 msgstr ""
 
 msgid "Delivery types"
+msgstr ""
+
+msgid "Delivery within"
+msgstr ""
+
+msgid "Depending on the selected data set, the list of shown fields for the product will be different"
 msgstr ""
 
 msgid "Description of the text content if it's in a foreign language"
@@ -706,6 +724,9 @@ msgstr ""
 msgid "More"
 msgstr ""
 
+msgid "Move this entry up/down"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -740,6 +761,9 @@ msgstr ""
 msgid "Non-shared properties for the media item"
 msgstr ""
 
+msgid "Non-shared properties for the price item"
+msgstr ""
+
 msgid "None"
 msgstr ""
 
@@ -769,6 +793,9 @@ msgid "Order"
 msgstr ""
 
 msgid "Order ID"
+msgstr ""
+
+msgid "Order number entered by the customer"
 msgstr ""
 
 msgid "Order of the language/currency combinations"
@@ -889,6 +916,9 @@ msgstr ""
 msgid "Price Types"
 msgstr ""
 
+msgid "Price properties"
+msgstr ""
+
 msgid "Priority"
 msgstr ""
 
@@ -928,10 +958,40 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
+msgid "Product code"
+msgstr ""
+
+msgid "Product costs"
+msgstr ""
+
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr ""
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Product quantity"
+msgstr ""
+
+msgid "Product rebate"
+msgstr ""
+
+msgid "Product status"
+msgstr ""
+
+msgid "Product supplier"
+msgstr ""
+
+msgid "Product tax"
+msgstr ""
+
+msgid "Product type"
 msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
@@ -1163,6 +1223,9 @@ msgstr ""
 msgid "Stock level"
 msgstr ""
 
+msgid "Stock type"
+msgstr ""
+
 msgid "Street"
 msgstr ""
 
@@ -1247,6 +1310,9 @@ msgstr ""
 msgid "Three letter ISO currency code"
 msgstr ""
 
+msgid "Time frame (optional)"
+msgstr ""
+
 msgid "Timestamp"
 msgstr ""
 
@@ -1257,6 +1323,9 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
+msgstr ""
+
+msgid "Translate text"
 msgstr ""
 
 msgid "Two letter ISO country code"
@@ -1342,6 +1411,9 @@ msgid "Uploaded"
 msgstr ""
 
 msgid "User groups"
+msgstr ""
+
+msgid "Usual time frame for the delivery of the product"
 msgstr ""
 
 msgid "VAT ID"
