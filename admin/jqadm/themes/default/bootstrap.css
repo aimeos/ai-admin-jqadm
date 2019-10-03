@@ -28,7 +28,7 @@ textarea {
 /* checkbox styling */
 input[type='checkbox'], input[type='radio'] {
 	margin: calc(0.5rem + 1px) 0;
-	height: 1.25rem;
+	height: 1rem;
 }
 
 .dropdown-menu input[type='checkbox'],

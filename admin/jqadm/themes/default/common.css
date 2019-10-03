@@ -127,13 +127,14 @@
 	content: "\f1ab";
 }
 
-.aimeos .btn.act-view.fa:before {
-	content: "\f06e";
-}
-
 .aimeos .item-refid.btn.act-view.fa {
 	font-family: inherit;
 	color: inherit;
+}
+
+.aimeos .btn.act-view.fa:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f06e";
 }
 
 .aimeos .card-tools-left {

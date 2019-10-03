@@ -60,11 +60,9 @@
 	content: "\f066";
 }
 
-/*
 .aimeos .tree-toolbar .btn.act-add:before {
 	content: "\f067";
 }
-*/
 
 .aimeos .tree-toolbar .btn.act-delete:before {
 	content: "\f068";
@@ -134,12 +132,12 @@
 
 .aimeos .list-items .sort-asc:after {
 	font: normal normal normal 14px/1 FontAwesome;
-	content:"\f176";
+	content:" \f176";
 }
 
 .aimeos .list-items .sort-desc:after {
 	font: normal normal normal 14px/1 FontAwesome;
-	content:"\f175";
+	content:" \f175";
 }
 
 .aimeos .list-items .status-1:before {
