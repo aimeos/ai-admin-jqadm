@@ -13,10 +13,28 @@ $keys = [
 	'text.siteid', 'text.type', 'text.languageid', 'text.content', 'text.status'
 ];
 
+/** admin/jqadm/api/translate
+ * Configuration for realtime online translation service
+ *
+ * Contains the required settings for configuring the online translation service.
+ * Currently, only DeepL is supported and a paid DeepL API account is required to
+ * use the service. The necessary settings for DeepL are:
+ *
+ *  [
+ *    'url' => 'https://api.deepl.com/v2',
+ *    'key' => '<your-DeepL-API-key>',
+ *  ]
+ *
+ * @param array Associative list of key/value pairs
+ * @category Developer
+ * @category User
+ * @since 2019.10
+ */
 
 ?>
 <div id="text" class="item-text content-block tab-pane fade" role="tablist" aria-labelledby="text">
 	<div id="item-text-group" role="tablist" aria-multiselectable="true"
+		data-translate="<?= $enc->attr( json_encode( $this->config( 'admin/jqadm/api/translate', [] ) ) ) ?>"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'textData', [] ) ) ); ?>"
 		data-listtype="<?= key( $this->get( 'textListTypes', [] ) ) ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"

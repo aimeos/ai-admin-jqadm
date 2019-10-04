@@ -17,11 +17,12 @@ $keys = [
 ?>
 <div id="text" class="item-text content-block tab-pane fade" role="tablist" aria-labelledby="text">
 	<div id="item-text-group" role="tablist" aria-multiselectable="true"
-		data-translate="<?= $enc->attr( json_encode( $this->config( 'admin/jqadm/api/translate' ) ) ) ?>"
+		data-translate="<?= $enc->attr( json_encode( $this->config( 'admin/jqadm/api/translate', [] ) ) ) ?>"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'textData', [] ) ) ); ?>"
 		data-listtype="<?= key( $this->get( 'textListTypes', [] ) ) ?>"
 		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
-		data-siteid="<?= $this->site()->siteid() ?>" >
+		data-siteid="<?= $this->site()->siteid() ?>"
+		data-domain="supplier" >
 
 		<div class="group-list">
 			<div is="draggable" v-model="items" group="price" handle=".act-move">
