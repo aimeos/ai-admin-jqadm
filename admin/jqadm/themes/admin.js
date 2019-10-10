@@ -750,14 +750,12 @@ Aimeos.List = {
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
 
 			if(self.element) {
-				var link = self.element.attr("href");
-
-				if(link) {
-					window.location = self.element.attr("href");
-				} else {
+				if(self.element.data("multi")) {
 					var form = self.element.parents("form.list");
-					form.attr('action', self.element.data('url'));
+					form.attr('action', self.element.attr('href'));
 					form.submit();
+				} else {
+					window.location = self.element.attr("href");
 				}
 			}
 
