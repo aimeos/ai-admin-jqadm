@@ -102,11 +102,11 @@ $columnList = [
 		<thead class="list-header">
 			<tr>
 				<th class="select">
-					<button class="btn act-delete fa" tabindex="1" type="submit"
-						data-url="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, array_diff_key( $params, ['id' => ''] ), [], $delConfig ) ); ?>"
+					<a class="btn act-delete fa" tabindex="1" data-multi="1"
+						href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, array_diff_key( $params, ['id' => ''] ), [], $delConfig ) ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
-					</button>
+					</a>
 				</th>
 
 				<?= $this->partial(
