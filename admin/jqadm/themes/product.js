@@ -636,7 +636,8 @@ Aimeos.Product.Selection = {
 
 
 				getCss : function(idx) {
-					return ( idx !== 0 && this.items[idx]['product.id'] && this.items[idx]['attr'].length ? 'collapsed' : 'show' );
+					return ( idx !== 0 && this.items[idx]['product.id'] &&
+						this.items[idx]['attr'] && this.items[idx]['attr'].length ? 'collapsed' : 'show' );
 				},
 
 
