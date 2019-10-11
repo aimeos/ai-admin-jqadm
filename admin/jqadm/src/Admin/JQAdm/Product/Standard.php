@@ -247,7 +247,8 @@ class Standard
 				$view->itemBody .= $client->save();
 			}
 
-			$manager->saveItem( clone $view->item );
+			$item = $manager->saveItem( clone $view->item );
+			$manager->rebuildIndex( [$item->getId() => $item] );
 			$manager->commit();
 
 			$this->nextAction( $view, $view->param( 'next' ), 'product', $view->item->getId(), 'save' );
