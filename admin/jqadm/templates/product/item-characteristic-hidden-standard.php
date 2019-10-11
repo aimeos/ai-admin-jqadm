@@ -18,8 +18,8 @@ $keys = [
 <div class="col-xl-6 content-block item-characteristic-hidden">
 
 	<table class="attribute-list table table-default"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'hiddenData', [] ), JSON_HEX_AMP ) ); ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
+		data-items="<?= $enc->attr( $this->get( 'hiddenData', [] ) ); ?>"
+		data-keys="<?= $enc->attr( $keys ) ?>"
 		data-prefix="product.lists."
 		data-siteid="<?= $this->site()->siteid() ?>" >
 

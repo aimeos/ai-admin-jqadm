@@ -19,9 +19,9 @@ $currencies = $this->get( 'priceCurrencies', [] );
 ?>
 <div id="price" class="item-price content-block tab-pane fade" role="tablist" aria-labelledby="price">
 	<div id="item-price-group" role="tablist" aria-multiselectable="true"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'priceData', [] ), JSON_HEX_AMP ) ); ?>"
+		data-items="<?= $enc->attr( $this->get( 'priceData', [] ) ); ?>"
 		data-listtype="<?= key( $this->get( 'priceListTypes', [] ) ) ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys ), JSON_HEX_AMP ) ?>"
+		data-keys="<?= $enc->attr( $keys ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<div class="group-list">
@@ -64,8 +64,8 @@ $currencies = $this->get( 'priceCurrencies', [] );
 								<div class="col-sm-8">
 									<div is="taxrates" v-bind:key="idx"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.taxrates' ) ) ); ?>'.replace('idx', idx)"
-										v-bind:types="JSON.parse('<?= $enc->attr( json_encode( $this->config( 'admin/tax', [] ), JSON_HEX_AMP ) ) ?>')"
 										v-bind:placeholder="'<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>'"
+										v-bind:types="JSON.parse('<?= $enc->attr($this->config( 'admin/tax', [] ) ) ?>')"
 										v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:readonly="checkSite('price.siteid', idx)"
 										v-bind:taxrates="items[idx]['price.taxrates']"

@@ -30,7 +30,7 @@ $trans = array(
 		</span>
 	</div>
 	<div id="order-countpaystatus-data" class="card-block collapse show content loading" role="tabpanel"
-		aria-labelledby="order-countpaystatus-head" data-translation="<?= $enc->attr( json_encode( $trans, JSON_HEX_AMP ) ); ?>">
+		aria-labelledby="order-countpaystatus-head" data-translation="<?= $enc->attr( $trans ); ?>">
 	</div>
 </div>
 <?= $this->get( 'orderpaymentstatusBody' ); ?>

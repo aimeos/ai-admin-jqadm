@@ -320,7 +320,7 @@ $params = $this->get( 'pageParams', [] );
 
 								<?php foreach( $this->config( 'admin/jqadm/dataset/product', [] ) as $name => $config ) : ?>
 									<option value="<?= $enc->attr( $name ); ?>" <?= $selected( $this->get( 'itemData/product.dataset' ), $name ); ?>
-										data-config="<?= $enc->attr( json_encode( $config, JSON_HEX_AMP ) ) ?>" >
+										data-config="<?= $enc->attr( $config ) ?>" >
 										<?= $enc->html( $name ); ?>
 									</option>
 								<?php endforeach; ?>
@@ -411,7 +411,7 @@ $params = $this->get( 'pageParams', [] );
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>">
-							<table class="item-config table table-striped" data-keys="<?= $enc->attr( json_encode( $cfgSuggest, JSON_HEX_AMP ) ); ?>">
+							<table class="item-config table table-striped" data-keys="<?= $enc->attr( $cfgSuggest ); ?>">
 						<thead>
 							<tr>
 								<th>

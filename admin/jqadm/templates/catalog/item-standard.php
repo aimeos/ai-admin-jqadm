@@ -221,7 +221,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 							</div><!--
 
 							--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ); ?>">
-								<table class="item-config table table-striped" data-keys="<?= $enc->attr( json_encode( $cfgSuggest, JSON_HEX_AMP ) ); ?>">
+								<table class="item-config table table-striped" data-keys="<?= $enc->attr( $cfgSuggest ); ?>">
 									<thead>
 										<tr>
 											<th>

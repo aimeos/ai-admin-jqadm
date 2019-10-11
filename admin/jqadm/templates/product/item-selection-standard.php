@@ -18,8 +18,8 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 ?>
 <div id="selection" class="item-selection content-block tab-pane fade" role="tablist" aria-labelledby="selection">
 	<div id="item-selection-group" role="tablist" aria-multiselectable="true"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'selectionData', [] ), JSON_HEX_AMP ) ); ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
+		data-items="<?= $enc->attr( $this->get( 'selectionData', [] ) ); ?>"
+		data-keys="<?= $enc->attr( $keys ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<div class="group-list">

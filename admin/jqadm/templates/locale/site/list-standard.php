@@ -180,7 +180,7 @@ $columnList = [
 							<a class="items-field" href="<?= $url; ?>">
 								<?php foreach( $item->getConfig() as $key => $value ) : ?>
 									<span class="config-key"><?= $enc->html( $key ); ?></span>
-									<span class="config-value"><?= $enc->html( !is_scalar( $value ) ? json_encode( $value, JSON_HEX_AMP ) : $value ); ?></span>
+									<span class="config-value"><?= $enc->html( $value ); ?></span>
 									<br/>
 								<?php endforeach; ?>
 							</a>

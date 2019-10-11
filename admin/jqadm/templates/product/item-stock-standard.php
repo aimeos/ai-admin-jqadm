@@ -16,8 +16,8 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 <div id="stock" class="item-stock content-block tab-pane fade" role="tabpanel" aria-labelledby="stock">
 
 	<table class="stock-list table table-default"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'stockData', [] ), JSON_HEX_AMP ) ); ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
+		data-items="<?= $enc->attr( $this->get( 'stockData', [] ) ); ?>"
+		data-keys="<?= $enc->attr( $keys ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-numtypes="<?= count( $stockTypes ) ?>" >
 
