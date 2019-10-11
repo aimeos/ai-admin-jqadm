@@ -312,7 +312,7 @@ $refItems = $this->get( 'productItems', [] );
 							<div class="config-type config-type-map">
 								<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'product', 'supplier.lists.config', '' ) ) ); ?>"
-									value="<?= $enc->attr( json_encode( $this->get( 'productData/supplier.lists.config/' . $idx ) ) ); ?>"
+									value="<?= $enc->attr( json_encode( $this->get( 'productData/supplier.lists.config/' . $idx ), JSON_HEX_AMP ) ); ?>"
 									<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 
 								<table class="table table-striped config-map-table">

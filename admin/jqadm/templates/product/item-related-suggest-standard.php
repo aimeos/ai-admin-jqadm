@@ -16,8 +16,8 @@ $keys = [
 <div class="col-xl-6 content-block item-related-suggest">
 
 	<table class="product-list table table-default"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'suggestData', [] ) ) ); ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'suggestData', [] ), JSON_HEX_AMP ) ); ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 		data-prefix="product.lists."
 		data-siteid="<?= $this->site()->siteid() ?>" >
 

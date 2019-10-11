@@ -17,8 +17,8 @@ $keys = [
 <div id="subscription" class="item-subscription tab-pane fade" role="tablist" aria-labelledby="subscription">
 
 	<table class="subscription-list table table-default col-xl-12 content-block"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'subscriptionData', [] ) ) ); ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'subscriptionData', [] ), JSON_HEX_AMP ) ); ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<thead>

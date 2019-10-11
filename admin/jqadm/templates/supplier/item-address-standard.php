@@ -20,8 +20,8 @@ $keys = [
 ?>
 <div id="address" class="item-address content-block tab-pane fade" role="tabpanel" aria-labelledby="address">
 	<div id="item-address-group" role="tablist" aria-multiselectable="true"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'addressData', [] ) ) ); ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'addressData', [] ), JSON_HEX_AMP ) ); ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<div class="group-list">

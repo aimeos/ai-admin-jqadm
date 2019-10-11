@@ -18,8 +18,8 @@ $keys = [
 <div class="col-xl-6 content-block item-characteristic-attribute">
 
 	<table class="attribute-list table table-default"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'attributeData', [] ) ) ); ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'attributeData', [] ), JSON_HEX_AMP ) ); ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 		data-prefix="product.lists."
 		data-siteid="<?= $this->site()->siteid() ?>" >
 

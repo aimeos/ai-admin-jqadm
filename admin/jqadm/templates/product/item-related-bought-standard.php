@@ -16,8 +16,8 @@ $keys = [
 <div class="col-xl-6 content-block item-related-bought">
 
 	<table class="product-list table table-default"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'boughtData', [] ) ) ); ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'boughtData', [] ), JSON_HEX_AMP ) ); ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 		data-prefix="product.lists."
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
