@@ -17,9 +17,9 @@ $keys = [
 ?>
 <div id="media" class="item-media content-block tab-pane fade" role="tablist" aria-labelledby="media">
 	<div id="item-media-group" role="tablist" aria-multiselectable="true"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'mediaData', [] ) ) ); ?>"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'mediaData', [] ), JSON_HEX_AMP ) ); ?>"
 		data-listtype="<?= key( $this->get( 'mediaListTypes', [] ) ) ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="product" >
 

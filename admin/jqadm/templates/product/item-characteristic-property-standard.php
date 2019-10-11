@@ -18,8 +18,8 @@ $keys = [
 <div class="col-xl-12 content-block item-characteristic-property">
 
 	<table class="property-list table table-default"
-		data-items="<?= $enc->attr( json_encode( $this->get( 'propertyData', [] ) ) ); ?>"
-		data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+		data-items="<?= $enc->attr( json_encode( $this->get( 'propertyData', [] ), JSON_HEX_AMP ) ); ?>"
+		data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="product" >
 

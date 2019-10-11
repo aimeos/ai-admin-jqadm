@@ -20,8 +20,8 @@ $keys = [
 	<div class="col-xl-6 content-block catalog-default">
 
 		<table class="category-list table table-default"
-			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
-			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ), JSON_HEX_AMP ) ); ?>"
+			data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 			data-siteid="<?= $this->site()->siteid() ?>"
 			data-listtype="default">
 
@@ -87,8 +87,8 @@ $keys = [
 	<div class="col-xl-6 content-block catalog-promotion">
 
 		<table class="category-list table table-default"
-			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ) ) ); ?>"
-			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+			data-items="<?= $enc->attr( json_encode( $this->get( 'categoryData', [] ), JSON_HEX_AMP ) ); ?>"
+			data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 			data-siteid="<?= $this->site()->siteid() ?>"
 			data-listtype="promotion">
 

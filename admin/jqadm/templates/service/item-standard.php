@@ -259,7 +259,7 @@ $enc = $this->encoder();
 										<?php $cfgval = $this->get( 'itemData/config/val/' . $idx ); ?>
 										<input type="text" class="config-value form-control config-type" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>"
-											value="<?= $enc->attr( !is_scalar( $cfgval ) ? json_encode( $cfgval ) : $cfgval ); ?>"
+											value="<?= $enc->attr( !is_scalar( $cfgval ) ? json_encode( $cfgval, JSON_HEX_AMP ) : $cfgval ); ?>"
 											<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?> />
 									</td>
 									<td class="actions">

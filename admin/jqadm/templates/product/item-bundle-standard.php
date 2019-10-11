@@ -18,8 +18,8 @@ $keys = [
 	<div class="col-xl-6 content-block product-default">
 
 		<table class="product-list table table-default"
-			data-items="<?= $enc->attr( json_encode( $this->get( 'bundleData', [] ) ) ); ?>"
-			data-keys="<?= $enc->attr( json_encode( $keys ) ) ?>"
+			data-items="<?= $enc->attr( json_encode( $this->get( 'bundleData', [] ), JSON_HEX_AMP ) ); ?>"
+			data-keys="<?= $enc->attr( json_encode( $keys, JSON_HEX_AMP ) ) ?>"
 			data-prefix="product.lists."
 			data-siteid="<?= $this->site()->siteid() ?>" >
 
