@@ -217,7 +217,7 @@
 }
 
 .aimeos .help {
-	text-decoration: underline dotted;
+	text-decoration: underline solid;
 	cursor: help;
 }
 
