@@ -186,6 +186,24 @@ td.is-invalid .form-control {
 	margin-bottom: 0;
 }
 
+.form-control,
+.custom-file-label {
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #bbb;
+}
+
+.form-control:focus,
+.form-control.is-valid:focus,
+.form-control.is-invalid:focus {
+	border-width: 1.5px;
+	box-shadow: none;
+}
+
+.form-control:disabled, .form-control[readonly] {
+	background-color: #f8f8f8;
+}
+
 .form-inline label {
 	-webkit-justify-content: inherit;
 	justify-content: inherit;
