@@ -316,7 +316,9 @@ $params = $this->get( 'pageParams', [] );
 							<select class="form-control custom-select item-set" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dataset' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
-								<option value=""></option>
+								<option value="">
+									<?= $enc->html( $this->translate( 'admin', 'None' ) ); ?>
+								</option>
 
 								<?php foreach( $this->config( 'admin/jqadm/dataset/product', [] ) as $name => $config ) : ?>
 									<option value="<?= $enc->attr( $name ); ?>" <?= $selected( $this->get( 'itemData/product.dataset' ), $name ); ?>

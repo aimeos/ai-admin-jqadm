@@ -52,6 +52,10 @@ $keys = [
 						v-bind:readonly="checkSite('product.property.siteid', idx)"
 						v-model="items[idx]['product.property.type']" >
 
+						<option value="" disabled="disabled">
+							<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+						</option>
+
 						<?php foreach( $this->get( 'propertyTypes', [] ) as $type => $item ) : ?>
 							<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="entry['product.property.type'] == '<?= $enc->attr( $type ) ?>'" >
 								<?= $enc->html( $item->getLabel() ); ?>

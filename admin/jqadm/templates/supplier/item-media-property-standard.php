@@ -42,6 +42,10 @@ $enc = $this->encoder();
 						v-bind:readonly="checkSite('media.siteid', idx)"
 						v-model="items[idx]['property'][propidx]['media.property.type']" >
 
+						<option value="" disabled="disabled">
+							<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+						</option>
+
 						<?php foreach( $this->get( 'propertyTypes', [] ) as $type => $item ) : ?>
 							<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="items[idx]['property'][propidx]['media.property.type'] == '<?= $enc->attr( $type ) ?>'" >
 								<?= $enc->html( $item->getLabel() ); ?>
