@@ -11,15 +11,16 @@ Vue.component('auto-complete', {
 
 	methods: {
 		create: function() {
-			this.instance = $(this.$el).autocomplete({
+			var instance = $(this.$el).autocomplete({
 				source: this.keys || [],
-				change: select,
+				change: this.select,
 				minLength: 0,
 				delay: 0
 			});
 
+			this.instance = instance;
 			this.instance.on('focus', function() {
-				this.instance.autocomplete("search", "");
+				instance.autocomplete("search", "");
 			});
 		},
 
