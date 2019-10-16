@@ -382,10 +382,10 @@ class Standard
 
 			$conf = [];
 
-			foreach( (array) $this->getValue( $entry, 'config/key' ) as $num => $key )
+			foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
 			{
-				if( trim( $key ) !== '' && ( $val = $this->getValue( $entry, 'config/val/' . $num ) ) !== null ) {
-					$conf[$key] = trim( $val );
+				if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
+					$conf[$key] = trim( $entry['val'] ?? '' );
 				}
 			}
 
@@ -433,10 +433,8 @@ class Standard
 			$list['catalog.lists.datestart'] = str_replace( ' ', 'T', $list['catalog.lists.datestart'] );
 			$list['catalog.lists.dateend'] = str_replace( ' ', 'T', $list['catalog.lists.dateend'] );
 
-			foreach( $list['catalog.lists.config'] as $key => $val )
-			{
-				$list['config']['key'][] = $key;
-				$list['config']['val'][] = $val;
+			foreach( $listItem->getConfig() as $key => $value ) {
+				$list['config'][] = ['key' => $key, 'val' => $value];
 			}
 
 			$data[] = $list;

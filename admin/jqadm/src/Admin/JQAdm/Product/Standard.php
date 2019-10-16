@@ -247,8 +247,7 @@ class Standard
 				$view->itemBody .= $client->save();
 			}
 
-			$item = $manager->saveItem( clone $view->item );
-			$manager->rebuildIndex( [$item->getId() => $item] );
+			$manager->saveItem( clone $view->item );
 			$manager->commit();
 
 			$this->nextAction( $view, $view->param( 'next' ), 'product', $view->item->getId(), 'save' );
@@ -527,13 +526,10 @@ class Standard
 	{
 		$conf = [];
 
-		if( isset( $data['config']['key'] ) )
+		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
 		{
-			foreach( (array) $data['config']['key'] as $idx => $key )
-			{
-				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) ) {
-					$conf[$key] = $data['config']['val'][$idx];
-				}
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
+				$conf[$key] = trim( $entry['val'] ?? '' );
 			}
 		}
 
@@ -570,10 +566,8 @@ class Standard
 			$data['product.id'] = '';
 		}
 
-		foreach( $item->getConfig() as $key => $value )
-		{
-			$data['config']['key'][] = $key;
-			$data['config']['val'][] = $value;
+		foreach( $item->getConfig() as $key => $value ) {
+			$data['config'][] = ['key' => $key, 'val' => $value];
 		}
 
 		return $data;

@@ -498,13 +498,10 @@ class Standard
 	{
 		$conf = [];
 
-		if( isset( $data['config']['key'] ) )
+		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
 		{
-			foreach( (array) $data['config']['key'] as $idx => $key )
-			{
-				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) ) {
-					$conf[$key] = $data['config']['val'][$idx];
-				}
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
+				$conf[$key] = trim( $entry['val'] ?? '' );
 			}
 		}
 
@@ -545,10 +542,8 @@ class Standard
 			$data['catalog.code'] = $data['catalog.code'] . '_copy';
 		}
 
-		foreach( $item->getConfig() as $key => $value )
-		{
-			$data['config']['key'][] = $key;
-			$data['config']['val'][] = $value;
+		foreach( $item->getConfig() as $key => $value ) {
+			$data['config'][] = ['key' => $key, 'val' => $value];
 		}
 
 		return $data;

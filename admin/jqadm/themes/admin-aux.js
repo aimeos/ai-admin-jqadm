@@ -7,6 +7,8 @@
 
 $(function() {
 
+	new Vue({'el': '.config-table'});
+
 	Aimeos.Address.init();
 	Aimeos.Media.init();
 	Aimeos.Price.init();
@@ -141,29 +143,12 @@ Aimeos.Media = {
 			},
 
 
-			addConfig : function(idx) {
-
-				if(!this.items[idx]['config']) {
-					this.$set(this.items[idx], 'config', {'key': [], 'val': []});
-				}
-
-				this.items[idx]['config']['key'].push('');
-				this.items[idx]['config']['val'].push('');
-			},
-
-
 			getConfig : function(idx) {
 
 				 if(this.items[idx]['config'] && this.items[idx]['config']['key']) {
 					 return this.items[idx]['config']['key'];
 				 }
 				 return [];
-			},
-
-
-			removeConfig : function(idx, pos) {
-				this.items[idx]['config']['key'].splice(pos, 1);
-				this.items[idx]['config']['val'].splice(pos, 1);
 			},
 
 
@@ -334,29 +319,12 @@ Aimeos.Price = {
 			},
 
 
-			addConfig : function(idx) {
-
-				if(!this.items[idx]['config']) {
-					this.$set(this.items[idx], 'config', {'key': [], 'val': []});
-				}
-
-				this.items[idx]['config']['key'].push('');
-				this.items[idx]['config']['val'].push('');
-			},
-
-
 			getConfig : function(idx) {
 
 				 if(this.items[idx]['config'] && this.items[idx]['config']['key']) {
 					 return this.items[idx]['config']['key'];
 				 }
 				 return [];
-			},
-
-
-			removeConfig : function(idx, pos) {
-				this.items[idx]['config']['key'].splice(pos, 1);
-				this.items[idx]['config']['val'].splice(pos, 1);
 			},
 
 
@@ -544,29 +512,12 @@ Aimeos.Text = {
 			},
 
 
-			addConfig : function(idx) {
-
-				if(!this.items[idx]['config']) {
-					this.$set(this.items[idx], 'config', {'key': [], 'val': []});
-				}
-
-				this.items[idx]['config']['key'].push('');
-				this.items[idx]['config']['val'].push('');
-			},
-
-
 			getConfig : function(idx) {
 
 				 if(this.items[idx]['config'] && this.items[idx]['config']['key']) {
 					 return this.items[idx]['config']['key'];
 				 }
 				 return [];
-			},
-
-
-			removeConfig : function(idx, pos) {
-				this.items[idx]['config']['key'].splice(pos, 1);
-				this.items[idx]['config']['val'].splice(pos, 1);
 			},
 
 

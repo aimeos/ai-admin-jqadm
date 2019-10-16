@@ -198,10 +198,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'catalog.label' => 'test label',
 				'catalog.datestart' => null,
 				'catalog.dateend' => null,
-				'config' => array(
-					'key' => array( 0 => 'test key' ),
-					'val' => array( 0 => 'test value' ),
-				),
+				'config' => [[
+					'key' => 'test',
+					'val' => 'value',
+				]],
 			),
 		);
 
@@ -214,7 +214,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item = $manager->findItem( 'jqadm catalog test' );
 		$manager->deleteItem( $item->getId() );
 
-		$this->assertEquals( ['test key' => 'test value'], $item->getConfig() );
+		$this->assertEquals( ['test' => 'value'], $item->getConfig() );
 	}
 
 

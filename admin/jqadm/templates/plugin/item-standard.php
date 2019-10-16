@@ -183,7 +183,7 @@ $enc = $this->encoder();
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?>">
-					<table class="item-config table table-striped">
+					<table class="item-config-ext table table-striped">
 						<thead>
 							<tr>
 								<th class="config-row-key">

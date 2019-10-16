@@ -102,6 +102,31 @@ Vue.component('combo-box', {
 
 
 
+Vue.component('config-table', {
+	props: {
+		'items': {type: Array, required: true},
+		'readonly': {type: Boolean, default: true}
+	},
+
+	data: function() {
+		return {
+			'list': this.items
+		};
+	},
+
+	methods: {
+		add : function() {
+			this.$set(this.list, this.list.length, {key: '', val: ''});
+		},
+
+		remove : function(idx) {
+			this.list.splice(idx, 1);
+		}
+	}
+});
+
+
+
 Vue.component('html-editor', {
 	template: '\
 		<textarea rows="6" class="form-control htmleditor" v-bind:id="id" v-bind:name="name" v-bind:value="value"\
@@ -166,7 +191,7 @@ Vue.component('taxrates', {
 					</td> \
 					<td class="actions"> \
 						<div v-if="!readonly && !type" class="dropdown"> \
-							<button class="btn act-add fa dropdown-toggle" v-bind:tabindex="tabindex" \
+							<button class="btn act-add fa" v-bind:tabindex="tabindex" \
 								type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> \
 							</button> \
 							<div class="dropdown-menu dropdown-menu-right"> \

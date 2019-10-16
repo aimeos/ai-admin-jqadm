@@ -5,6 +5,18 @@
  * @copyright Aimeos (aimeos.org), 2017-2018
  */
 
+
+/** admin/jqadm/locale/site/item/config/suggest
+ * List of suggested configuration keys in locale site item panel
+ *
+ * Locale site items can store arbitrary key value pairs. This setting gives editors
+ * a hint which config keys are available and are used in the templates.
+ *
+ * @param string List of suggested config keys
+ * @since 2017.10
+ * @category Developer
+ */
+
 $selected = function( $key, $code ) {
 	return ( $key == $code ? 'selected="selected"' : '' );
 };
@@ -129,65 +141,46 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block">
-					<table class="item-config table table-striped">
-						<thead>
-							<tr>
-								<th>
-									<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
-									<div class="form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'Site specific configuration options, will be available as key/value pairs' ) ); ?>
-									</div>
-								</th>
-								<th>
-									<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
-								</th>
-								<th class="actions">
-									<div class="btn act-add fa" tabindex="1"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>">
-									</div>
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							<?php foreach( (array) $this->get( 'itemData/config/key', [] ) as $idx => $key ) : ?>
-								<tr class="config-item">
-									<td>
-										<input type="text" class="config-key form-control" tabindex="1"
-											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ); ?>" />
+				--><div class="col-xl-6 content-block config-table">
+					<config-table inline-template v-bind:readonly="false"
+						v-bind:items="<?= $enc->attr( json_encode( $this->get( 'itemData/config', [] ) ) ) ?>"
+						<table class="item-config table table-striped">
+							<thead>
+								<tr>
+									<th class="config-row-key">
+										<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
+										<div class="form-text text-muted help-text">
+											<?= $enc->html( $this->translate( 'admin', 'Site specific configuration options, will be available as key/value pairs' ) ); ?>
+										</div>
+									</th>
+									<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?></th>
+									<th class="actions">
+										<div v-if="!readonly" class="btn act-add fa" tabindex="1" v-on:click="add()"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"></div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="(entry, idx) in list" v-bind:key="idx" class="config-item">
+									<td class="config-row-key">
+										<input is="auto-complete" class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly"
+											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_idx_', 'key' ) ) ); ?>'.replace('_idx_', idx)"
+											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>')"
+											v-bind:value="entry.key" />
 									</td>
-									<td>
-										<input type="text" class="config-value form-control" tabindex="1"
-											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/config/val/' . $idx ) ); ?>" />
+									<td class="config-row-value">
+										<input class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly"
+											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_idx_', 'val' ) ) ); ?>'.replace('_idx_', idx)"
+											v-bind:value="entry.val" />
 									</td>
 									<td class="actions">
-										<div class="btn act-delete fa" tabindex="1"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
-										</div>
+										<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(idx)"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
 									</td>
 								</tr>
-							<?php endforeach; ?>
-
-							<tr class="config-item prototype">
-								<td>
-									<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ); ?>" />
-								</td>
-								<td>
-									<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
-								</td>
-								<td class="actions">
-									<div class="btn act-delete fa" tabindex="1"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+							</tbody>
+						</table>
+					</config-table>
 				</div>
 
 			</div>

@@ -197,10 +197,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'locale.site.status' => '1',
 				'locale.site.code' => 'jqadm@test',
 				'locale.site.label' => 'jqadm test',
-				'config' => [
-					'key' => [0 => 'test'],
-					'val' => [0 => 'value'],
-				],
+				'config' => [[
+					'key' => 'test',
+					'val' => 'value',
+				]],
 			),
 		);
 

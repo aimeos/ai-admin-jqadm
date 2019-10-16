@@ -6,12 +6,17 @@
  */
 
 
-$enc = $this->encoder();
+/** admin/jqadm/product/item/text/config/suggest
+ * List of suggested configuration keys in product text panel
+ *
+ * Item references can store arbitrary key value pairs. This setting gives
+ * editors a hint which config keys are available and are used in the templates.
+ *
+ * @param string List of suggested config keys
+ * @since 2020.01
+ * @category Developer
+ */
 
-$keys = [
-	'product.lists.siteid', 'product.lists.type', 'product.lists.datestart', 'product.lists.dateend', 'config',
-	'text.siteid', 'text.type', 'text.languageid', 'text.content', 'text.status'
-];
 
 /** admin/jqadm/api/translate
  * Configuration for realtime online translation service
@@ -30,6 +35,15 @@ $keys = [
  * @category User
  * @since 2019.10
  */
+
+
+$enc = $this->encoder();
+
+$keys = [
+	'product.lists.siteid', 'product.lists.type', 'product.lists.datestart', 'product.lists.dateend', 'config',
+	'text.siteid', 'text.type', 'text.languageid', 'text.content', 'text.status'
+];
+
 
 ?>
 <div id="text" class="item-text content-block tab-pane fade" role="tablist" aria-labelledby="text">
@@ -287,54 +301,44 @@ $keys = [
 						</div>
 
 						<div v-show="advanced[idx]" class="col-xl-6 content-block secondary" v-bind:class="checkSite('product.lists.siteid', idx) ? 'readonly' : ''">
-							<table class="item-config table table-striped">
-								<thead>
-									<tr>
-										<th>
-											<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
-											<div class="form-text text-muted help-text">
-												<?= $enc->html( $this->translate( 'admin', 'Configuration options, will be available as key/value pairs in the list item' ) ); ?>
-											</div>
-										</th>
-										<th>
-											<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
-										</th>
-										<th class="actions">
-											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-												v-bind:readonly="checkSite('product.lists.siteid', idx)"
-												v-on:click="addConfig(idx)" >
-											</div>
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-
-									<tr v-for="(key, pos) in getConfig(idx)" v-bind:key="pos">
-										<td>
-											<input is="auto-complete"
-												v-model="items[idx]['config']['key'][pos]"
-												v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'config', 'key', '' ) ) ); ?>'.replace('idx', idx)"
-												v-bind:readonly="checkSite('product.lists.siteid', idx)"
-												v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
-												v-bind:keys="[]" />
-										</td>
-										<td>
-											<input type="text" class="form-control" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'config', 'val', '' ) ) ); ?>'.replace('idx', idx)"
-												v-bind:readonly="checkSite('product.lists.siteid', idx)"
-												v-model="items[idx]['config']['val'][pos]" />
-										</td>
-										<td class="actions">
-											<div v-if="!checkSite('product.lists.siteid', idx)" v-on:click="removeConfig(idx, pos)"
-												class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
-											</div>
-										</td>
-									</tr>
-
-								</tbody>
-							</table>
+							<config-table inline-template v-bind:items="getConfig(idx)" v-bind:readonly="checkSite('product.lists.siteid', idx)">
+								<table class="item-config table table-striped">
+									<thead>
+										<tr>
+											<th class="config-row-key">
+												<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
+												<div class="form-text text-muted help-text">
+													<?= $enc->html( $this->translate( 'admin', 'Configuration options, will be available as key/value pairs in the list item' ) ); ?>
+												</div>
+											</th>
+											<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?></th>
+											<th class="actions">
+												<div v-if="!readonly" class="btn act-add fa" tabindex="1" v-on:click="add()"
+													title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"></div>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr v-for="(entry, idx) in list" v-bind:key="idx" class="config-item">
+											<td class="config-row-key">
+												<input is="auto-complete" class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly"
+													v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_idx_', 'key' ) ) ); ?>'.replace('_idx_', idx)"
+													v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/text/config/suggest', [] ) ) ?>')"
+													v-bind:value="entry.key" />
+											</td>
+											<td class="config-row-value">
+												<input class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly"
+													v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_idx_', 'val' ) ) ); ?>'.replace('_idx_', idx)"
+													v-bind:value="entry.val" />
+											</td>
+											<td class="actions">
+												<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(idx)"
+													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</config-table>
 						</div>
 
 						<?= $this->get( 'textBody' ); ?>

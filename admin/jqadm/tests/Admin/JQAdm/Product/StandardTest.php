@@ -189,8 +189,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'product' );
-
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
@@ -200,10 +198,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'product.label' => 'test label',
 				'product.datestart' => null,
 				'product.dateend' => null,
-				'config' => array(
-					'key' => array( 0 => 'test key' ),
-					'val' => array( 0 => 'test value' ),
-				),
+				'config' => [[
+					'key' => 'test',
+					'val' => 'value',
+				]],
 			),
 		);
 
@@ -212,7 +210,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->save();
 
-		$manager->deleteItem( $manager->findItem( 'test' )->getId() );
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+		$item = $manager->findItem( 'test' );
+		$manager->deleteItem( $item->getId() );
+
+		$this->assertEquals( ['test' => 'value'], $item->getConfig() );
 	}
 
 

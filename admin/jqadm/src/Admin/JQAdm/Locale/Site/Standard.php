@@ -550,13 +550,10 @@ class Standard
 	{
 		$conf = [];
 
-		if( isset( $data['config']['key'] ) )
+		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
 		{
-			foreach( (array) $data['config']['key'] as $idx => $key )
-			{
-				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) ) {
-					$conf[$key] = $data['config']['val'][$idx];
-				}
+			if( trim( $entry['key'] ?? '' ) !== '' ) {
+				$conf[$entry['key']] = $entry['val'] ?? null ;
 			}
 		}
 
@@ -601,10 +598,8 @@ class Standard
 			$data['locale.site.id'] = '';
 		}
 
-		foreach( $item->getConfig() as $key => $value )
-		{
-			$data['config']['key'][] = $key;
-			$data['config']['val'][] = $value;
+		foreach( $item->getConfig() as $key => $value ) {
+			$data['config'][] = ['key' => $key, 'val' => $value];
 		}
 
 		return $data;
