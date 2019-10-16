@@ -413,10 +413,10 @@ class Standard
 
 			$conf = [];
 
-			foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
+			foreach( (array) $this->getValue( $entry, 'config', [] ) as $cfg )
 			{
-				if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
-					$conf[$key] = trim( $entry['val'] ?? '' );
+				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
+					$conf[$key] = trim( $cfg['val'] ?? '' );
 				}
 			}
 

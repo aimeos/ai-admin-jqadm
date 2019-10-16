@@ -104,6 +104,7 @@ Vue.component('combo-box', {
 
 Vue.component('config-table', {
 	props: {
+		'idx': {required: false, default: ''},
 		'items': {type: Array, required: true},
 		'readonly': {type: Boolean, default: true}
 	},

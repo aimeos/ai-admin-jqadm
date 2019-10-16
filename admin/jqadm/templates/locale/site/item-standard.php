@@ -142,8 +142,7 @@ $params = $this->get( 'pageParams', [] );
 				</div><!--
 
 				--><div class="col-xl-6 content-block config-table">
-					<config-table inline-template v-bind:readonly="false"
-						v-bind:items="<?= $enc->attr( json_encode( $this->get( 'itemData/config', [] ) ) ) ?>"
+					<config-table inline-template v-bind:readonly="false" v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'itemData/config', [] ) ) ?>')">
 						<table class="item-config table table-striped">
 							<thead>
 								<tr>
@@ -163,7 +162,7 @@ $params = $this->get( 'pageParams', [] );
 							<tbody>
 								<tr v-for="(entry, idx) in list" v-bind:key="idx" class="config-item">
 									<td class="config-row-key">
-										<input is="auto-complete" class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly"
+										<input is="auto-complete" class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly" required
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_idx_', 'key' ) ) ); ?>'.replace('_idx_', idx)"
 											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>')"
 											v-bind:value="entry.key" />

@@ -144,11 +144,7 @@ Aimeos.Media = {
 
 
 			getConfig : function(idx) {
-
-				 if(this.items[idx]['config'] && this.items[idx]['config']['key']) {
-					 return this.items[idx]['config']['key'];
-				 }
-				 return [];
+				 return this.items[idx]['config'] || [];
 			},
 
 
@@ -320,11 +316,7 @@ Aimeos.Price = {
 
 
 			getConfig : function(idx) {
-
-				 if(this.items[idx]['config'] && this.items[idx]['config']['key']) {
-					 return this.items[idx]['config']['key'];
-				 }
-				 return [];
+				return this.items[idx]['config'] || [];
 			},
 
 
@@ -513,11 +505,7 @@ Aimeos.Text = {
 
 
 			getConfig : function(idx) {
-
-				 if(this.items[idx]['config'] && this.items[idx]['config']['key']) {
-					 return this.items[idx]['config']['key'];
-				 }
-				 return [];
+				return this.items[idx]['config'] || [];
 			},
 
 

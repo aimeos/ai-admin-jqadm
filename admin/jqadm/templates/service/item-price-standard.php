@@ -299,7 +299,7 @@ $currencies = $this->get( 'priceCurrencies', [] );
 						</div>
 
 						<div v-show="advanced[idx]" class="col-xl-6 content-block secondary" v-bind:class="checkSite('service.lists.siteid', idx) ? 'readonly' : ''">
-						<config-table inline-template v-bind:items="getConfig(idx)" v-bind:readonly="checkSite('service.lists.siteid', idx)">
+						<config-table inline-template v-bind:idx="idx" v-bind:items="getConfig(idx)" v-bind:readonly="checkSite('service.lists.siteid', idx)">
 								<table class="item-config table table-striped">
 									<thead>
 										<tr>
@@ -319,14 +319,14 @@ $currencies = $this->get( 'priceCurrencies', [] );
 									<tbody>
 										<tr v-for="(entry, idx) in list" v-bind:key="idx" class="config-item">
 											<td class="config-row-key">
-												<input is="auto-complete" class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly"
-													v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_idx_', 'key' ) ) ); ?>'.replace('_idx_', idx)"
+												<input is="auto-complete" class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly" required
+													v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', 'key'] ) ); ?>'.replace('_idx_', idx).replace('_pos_', pos)"
 													v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/service/item/text/config/suggest', [] ) ) ?>')"
 													v-bind:value="entry.key" />
 											</td>
 											<td class="config-row-value">
 												<input class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly"
-													v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_idx_', 'val' ) ) ); ?>'.replace('_idx_', idx)"
+													v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', 'val'] ) ); ?>'.replace('_idx_', idx).replace('_pos_', pos)"
 													v-bind:value="entry.val" />
 											</td>
 											<td class="actions">
