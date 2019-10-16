@@ -400,6 +400,10 @@ class Standard
 			$list['product.lists.datestart'] = str_replace( ' ', 'T', $list['product.lists.datestart'] );
 			$list['product.lists.dateend'] = str_replace( ' ', 'T', $list['product.lists.dateend'] );
 
+			if( empty( $refItem->getTaxRates() ) ) {
+				$list['price.taxrates'] = ['' => ''];
+			}
+
 			foreach( $list['product.lists.config'] as $key => $val )
 			{
 				$list['config']['key'][] = $key;

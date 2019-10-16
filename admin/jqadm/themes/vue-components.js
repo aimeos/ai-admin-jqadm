@@ -158,7 +158,7 @@ Vue.component('taxrates', {
 		<div> \
 			<input type="hidden" v-bind:name="name" v-bind:value="payload"> \
 			<table> \
-				<tr v-for="(val, type) in (!Array.isArray(taxrates) ? taxrates : {\'\': \'\'})" v-bind:key="type"> \
+				<tr v-for="(val, type) in taxrates" v-bind:key="type"> \
 					<td class="input-group"> \
 						<input class="form-control item-taxrate" required="required" step="0.01" type="number" v-bind:placeholder="placeholder" \
 							v-bind:readonly="readonly" v-bind:tabindex="tabindex" v-bind:value="val" v-on:input="update(type, $event.target.value)" /> \

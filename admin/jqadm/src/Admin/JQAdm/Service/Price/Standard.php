@@ -398,6 +398,10 @@ class Standard
 			$list['service.lists.datestart'] = str_replace( ' ', 'T', $list['service.lists.datestart'] );
 			$list['service.lists.dateend'] = str_replace( ' ', 'T', $list['service.lists.dateend'] );
 
+			if( empty( $refItem->getTaxRates() ) ) {
+				$list['price.taxrates'] = ['' => ''];
+			}
+
 			foreach( $list['service.lists.config'] as $key => $val )
 			{
 				$list['config']['key'][] = $key;
