@@ -433,20 +433,20 @@ $params = $this->get( 'pageParams', [] );
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="(entry, idx) in list" v-bind:key="idx" class="config-item">
+								<tr v-for="(entry, pos) in list" v-bind:key="pos" class="config-item">
 									<td class="config-row-key">
 										<input is="auto-complete" class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly" required
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_idx_', 'key' ) ) ); ?>'.replace('_idx_', idx)"
-											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] ) ) ?>')"
+											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'key' ) ) ); ?>'.replace('_pos_', pos)"
+											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>')"
 											v-bind:value="entry.key" />
 									</td>
 									<td class="config-row-value">
 										<input class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_idx_', 'val' ) ) ); ?>'.replace('_idx_', idx)"
+											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'val' ) ) ); ?>'.replace('_pos_', pos)"
 											v-bind:value="entry.val" />
 									</td>
 									<td class="actions">
-										<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(idx)"
+										<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(pos)"
 											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
 									</td>
 								</tr>

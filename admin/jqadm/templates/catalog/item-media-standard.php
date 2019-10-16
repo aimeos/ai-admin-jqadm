@@ -269,7 +269,7 @@ $keys = [
 										</tr>
 									</thead>
 									<tbody>
-										<tr v-for="(entry, idx) in list" v-bind:key="idx" class="config-item">
+										<tr v-for="(entry, pos) in list" v-bind:key="pos" class="config-item">
 											<td class="config-row-key">
 												<input is="auto-complete" class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly" required
 													v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'config', '_pos_', 'key'] ) ); ?>'.replace('_idx_', idx).replace('_pos_', pos)"
@@ -282,7 +282,7 @@ $keys = [
 													v-bind:value="entry.val" />
 											</td>
 											<td class="actions">
-												<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(idx)"
+												<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(pos)"
 													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
 											</td>
 										</tr>
