@@ -56,6 +56,10 @@
 	vertical-align: middle;
 }
 
+.aimeos .btn.fa {
+	font-size: 90%;
+}
+
 .aimeos .btn.act-reset.fa:before {
 	content: "\f00d";
 }
