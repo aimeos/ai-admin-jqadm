@@ -30,7 +30,7 @@ $enc = $this->encoder();
 					</th>
 					<th class="actions">
 						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>" v-on:click="add()"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>">
 						</div>
 					</th>
 				</tr>
@@ -69,7 +69,7 @@ $enc = $this->encoder();
 					</td>
 					<td class="actions">
 						<div v-if="!readonly" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>" v-on:click.stop="remove(propidx)">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>" v-on:click.stop="remove(propidx)">
 						</div>
 					</td>
 				</tr>
