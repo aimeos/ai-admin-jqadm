@@ -204,6 +204,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-cl
 
 
 $params = $this->get( 'pageParams', [] );
+$types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'product.type.label' )->toArray();
 
 
 ?>
@@ -296,11 +297,14 @@ $params = $this->get( 'pageParams', [] );
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 						<div class="col-sm-8">
 							<select is="select-component" class="form-control custom-select item-type" required v-bind:tabindex="'1'"
-								v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'product.type.label' )->toArray() ) ?>')"
+								v-bind:items="JSON.parse('<?= $enc->attr( $types ) ?>')"
 								v-bind:readonly="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' ? true : false"
 								v-bind:name="'<?= $enc->attr( $this->formparam( ['item', 'product.type'] ) ); ?>'"
 								v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 								v-bind:value="'<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>'" >
+								<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
+									<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
+								</option>
 							</select>
 						</div>
 					</div>
