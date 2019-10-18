@@ -253,6 +253,11 @@
 	width: 20%;
 }
 
+.aimeos .property-type,
+.aimeos .property-language {
+	width: 25%;
+}
+
 
 /* Bundles */
 
@@ -332,6 +337,20 @@
 
 .aimeos .item-navbar .nav-item.selection {
 	display: none;
+}
+
+
+/** Stock */
+
+.aimeos .item-stock .stock-type,
+.aimeos .item-stock .stock-stocklevel,
+.aimeos .item-stock .stock-dateback,
+.aimeos .item-stock .stock-timeframe {
+	width: 25%;
+}
+
+.aimeos .item-stock .stock-stocklevel input {
+	text-align: right;
 }
 
 
