@@ -155,7 +155,7 @@ $keys = [
 									<div class="col-sm-8">
 										<select is="select-component" class="form-control custom-select item-type"
 											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $languages, 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
-											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', 'idx', 'text.languageid'] ) ); ?>'.replace('idx', idx)"
+											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', 'idx', 'text.languageid'] ) ); ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 											v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 											v-bind:readonly="checkSite('text.siteid', idx)"
