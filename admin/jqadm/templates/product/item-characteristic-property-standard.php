@@ -47,45 +47,30 @@ $keys = [
 					<input class="item-id" type="hidden" v-bind:value="entry['product.property.id']"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'idx', 'product.property.id' ) ) ); ?>'.replace('idx', idx)" />
 
-					<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'idx', 'product.property.type' ) ) ); ?>'.replace('idx', idx)"
+					<select is="select-component" class="form-control custom-select item-type" required
+						v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'propertyTypes', [] ), 'product.property.type.code', 'product.property.type.label' )->toArray() ) ?>')"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', 'idx', 'product.property.type'] ) ); ?>'.replace('idx', idx)"
+						v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 						v-bind:readonly="checkSite('product.property.siteid', idx)"
-						v-model="items[idx]['product.property.type']" >
-
-						<option value="" disabled="disabled">
-							<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-						</option>
-
-						<?php foreach( $this->get( 'propertyTypes', [] ) as $type => $item ) : ?>
-							<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="entry['product.property.type'] == '<?= $enc->attr( $type ) ?>'" >
-								<?= $enc->html( $item->getLabel() ); ?>
-							</option>
-						<?php endforeach; ?>
-
+						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+						v-bind:value="entry['product.property.type']" >
 					</select>
 				</td>
 
 				<td class="property-language">
-					<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'idx', 'product.property.languageid' ) ) ); ?>'.replace('idx', idx)"
+					<select is="select-component" class="form-control custom-select item-type"
+						v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', 'idx', 'product.property.languageid'] ) ); ?>'.replace('idx', idx)"
+						v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 						v-bind:readonly="checkSite('product.property.siteid', idx)"
-						v-model="items[idx]['product.property.languageid']" >
-
-						<option v-bind:value="null">
-							<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
-						</option>
-
-						<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-							<option value="<?= $enc->attr( $langId ); ?>" v-bind:selected="entry['product.property.languageid'] == '<?= $enc->attr( $langId ) ?>'" >
-								<?= $enc->html( $langItem->getLabel() ); ?>
-							</option>
-						<?php endforeach; ?>
+						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+						v-bind:value="entry['product.property.languageid']" >
 					</select>
 				</td>
 
 				<td class="property-value">
 					<input class="form-control item-value" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'idx', 'product.property.value' ) ) ); ?>'.replace('idx', idx)"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', 'idx', 'product.property.value'] ) ); ?>'.replace('idx', idx)"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
 						v-bind:readonly="checkSite('product.property.siteid', idx)"
 						v-model="items[idx]['product.property.value']" >

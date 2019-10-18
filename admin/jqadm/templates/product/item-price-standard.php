@@ -159,20 +159,13 @@ $currencies = $this->get( 'priceCurrencies', [] );
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 									<div class="col-sm-8">
-										<select class="form-control custom-select item-currencyid" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.currencyid' ) ) ); ?>'.replace('idx', idx)"
+										<select is="select-component" class="form-control custom-select item-type" required
+											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $currencies, 'locale.currency.code', 'locale.currency.label' )->toArray() ) ?>')"
+											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.currencyid'] ) ); ?>'.replace('idx', idx)"
+											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+											v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 											v-bind:readonly="checkSite('price.siteid', idx)"
-											v-model="items[idx]['price.currencyid']" >
-											<option value="" disabled>
-												<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
-											</option>
-
-											<?php foreach( $currencies as $currencyId => $currencyItem ) : ?>
-												<option value="<?= $enc->attr( $currencyItem->getCode() ); ?>" v-bind:selected="items[idx]['price.currencyid'] == '<?= $enc->attr( $currencyId ) ?>'" >
-													<?= $enc->html( $currencyItem->getCode() ); ?>
-												</option>
-											<?php endforeach; ?>
-
+											v-bind:value="entry['price.currencyid']" >
 										</select>
 									</div>
 								</div>
@@ -187,19 +180,13 @@ $currencies = $this->get( 'priceCurrencies', [] );
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.type' ) ) ); ?>'.replace('idx', idx)"
+										<select is="select-component" class="form-control custom-select item-type" required
+											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $priceTypes, 'price.type.code', 'price.type.label' )->toArray() ) ?>')"
+											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.type'] ) ); ?>'.replace('idx', idx)"
+											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+											v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 											v-bind:readonly="checkSite('price.siteid', idx)"
-											v-model="items[idx]['price.type']" >
-											<option value="">
-												<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
-											</option>
-
-											<?php foreach( (array) $priceTypes as $type => $item ) : ?>
-												<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="items[idx]['price.type'] == '<?= $enc->attr( $type ) ?>'" >
-													<?= $enc->html( $item->getLabel() ); ?>
-												</option>
-											<?php endforeach; ?>
+											v-bind:value="entry['price.type'] || 'default'" >
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
@@ -248,16 +235,13 @@ $currencies = $this->get( 'priceCurrencies', [] );
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select class="form-control custom-select listitem-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'product.lists.type' ) ) ); ?>'.replace('idx', idx)"
+										<select is="select-component" class="form-control custom-select listitem-type" required
+											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $listTypes, 'product.lists.type.code', 'product.lists.type.label' )->toArray() ) ?>')"
+											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'product.lists.type'] ) ); ?>'.replace('idx', idx)"
+											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 											v-bind:readonly="checkSite('product.lists.siteid', idx)"
-											v-model="items[idx]['product.lists.type']" >
-
-											<?php foreach( $this->get( 'priceListTypes', [] ) as $type => $item ) : ?>
-												<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="entry['product.lists.type'] == '<?= $enc->attr( $type ) ?>'" >
-													<?= $enc->html( $item->getLabel() ); ?>
-												</option>
-											<?php endforeach; ?>
+											v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+											v-bind:value="entry['product.lists.type'] || 'default'" >
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">

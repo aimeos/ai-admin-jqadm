@@ -978,4 +978,6 @@ $(function() {
 	Aimeos.Msg.init();
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();
+
+	new Vue({el: '.vue-block'});
 });

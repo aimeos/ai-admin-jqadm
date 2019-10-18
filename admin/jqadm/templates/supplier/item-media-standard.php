@@ -115,21 +115,13 @@ $keys = [
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.type' ) ) ); ?>'.replace( 'idx', idx )"
-											data-default="<?= $enc->attr( key( $mediaTypes ) ) ?>"
+										<select is="select-component" class="form-control custom-select item-type" required
+											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $mediaTypes, 'media.type.code', 'media.type.label' )->toArray() ) ?>')"
+											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', 'idx', 'media.type'] ) ); ?>'.replace('idx', idx)"
+											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+											v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 											v-bind:readonly="checkSite('media.siteid', idx)"
-											v-model="items[idx]['media.type']" >
-
-											<option value="" disabled >
-												<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
-											</option>
-
-											<?php foreach( (array) $mediaTypes as $type => $item ) : ?>
-												<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="items[idx]['media.type'] == '<?= $enc->attr( $type ) ?>'" >
-													<?= $enc->html( $item->getLabel() ); ?>
-												</option>
-											<?php endforeach; ?>
+											v-bind:value="entry['media.type'] || 'default'" >
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
@@ -159,20 +151,13 @@ $keys = [
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'media.languageid' ) ) ); ?>'.replace( 'idx', idx )"
+									<select is="select-component" class="form-control custom-select item-type"
+										v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
+										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', 'idx', 'media.languageid'] ) ); ?>'.replace('idx', idx)"
+										v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
+										v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 										v-bind:readonly="checkSite('media.siteid', idx)"
-										v-model="items[idx]['media.languageid']" >
-
-										<option v-bind:value="null">
-											<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
-										</option>
-
-										<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-											<option value="<?= $enc->attr( $langId ); ?>" v-bind:selected="items[idx]['media.languageid'] == '<?= $enc->attr( $langId ) ?>'" >
-												<?= $enc->html( $langItem->getLabel() ); ?>
-											</option>
-										<?php endforeach; ?>
+										v-bind:value="entry['media.languageid']" >
 									</select>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -200,16 +185,13 @@ $keys = [
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select class="form-control custom-select listitem-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'supplier.lists.type' ) ) ); ?>'.replace( 'idx', idx )"
+										<select is="select-component" class="form-control custom-select listitem-type" required
+											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $listTypes, 'product.lists.type.code', 'product.lists.type.label' )->toArray() ) ?>')"
+											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', 'idx', 'supplier.lists.type'] ) ); ?>'.replace('idx', idx)"
+											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 											v-bind:readonly="checkSite('supplier.lists.siteid', idx)"
-											v-model="items[idx]['supplier.lists.type']" >
-
-											<?php foreach( $this->get( 'mediaListTypes', [] ) as $type => $item ) : ?>
-												<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="items[idx]['supplier.lists.type'] == '<?= $enc->attr( $type ) ?>'" >
-													<?= $enc->html( $item->getLabel() ); ?>
-												</option>
-											<?php endforeach; ?>
+											v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+											v-bind:value="entry['supplier.lists.type'] || 'default'" >
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">

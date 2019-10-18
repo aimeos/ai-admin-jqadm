@@ -37,7 +37,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 						<?= $enc->html( $this->translate( 'admin', 'Number of articles currently in stock, leave empty for an unlimited quantity' ) ); ?>
 					</div>
 				</th>
-				<th class="stock-databack">
+				<th class="stock-dateback">
 					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Back in stock' ) ); ?></span>
 					<div class="form-text text-muted help-text">
 						<?= $enc->html( $this->translate( 'admin', 'Shown if the article reached a stock level of zero' ) ); ?>
@@ -62,21 +62,13 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 			<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row">
 				<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
 					<?php if( count( $stockTypes ) > 1 ) : ?>
-						<select required="required" class="form-control custom-select item-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<select is="select-component" class="form-control custom-select item-type" required
+							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $stockTypes, 'stock.type.code', 'stock.type.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
+							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:readonly="checkSite(idx)"
-							v-model="item['stock.type']"
-							v-on:change="checkType()">
-
-							<option value="" disable>
-								<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-							</option>
-
-							<?php foreach( $stockTypes as $type => $item ) : ?>
-								<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="item['stock.type'] == '<?= $enc->attr( $type ) ?>'">
-									<?= $enc->html( $item->getLabel() ) ?>
-								</option>
-							<?php endforeach; ?>
+							v-bind:value="item['stock.type']" >
 						</select>
 					<?php else : ?>
 						<input class="item-type" type="hidden"
@@ -90,7 +82,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 						v-bind:readonly="checkSite(idx)"
 						v-model="item['stock.stocklevel']" />
 				</td>
-				<td class="stock-databack optional">
+				<td class="stock-dateback optional">
 					<input class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.dateback'] ) ); ?>'.replace( 'idx', idx )"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"

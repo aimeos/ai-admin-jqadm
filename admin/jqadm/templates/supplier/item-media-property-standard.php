@@ -37,38 +37,24 @@ $enc = $this->encoder();
 				<td class="property-type">
 					<input class="item-propertyid" type="hidden" v-bind:value="propdata['media.property.id']"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'property', 'propidx', 'media.property.id' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )" />
-					<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'property', 'propidx', 'media.property.type' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
+
+					<select is="select-component" class="form-control custom-select item-type" required
+						v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'propertyTypes', [] ), 'media.property.type.code', 'media.property.type.label' )->toArray() ) ?>')"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['media', 'idx', 'property', 'propidx', 'media.property.type'] ) ); ?>'.replace('idx', idx).replace('propidx', propidx)"
+						v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 						v-bind:readonly="checkSite('media.siteid', idx)"
-						v-model="items[idx]['property'][propidx]['media.property.type']" >
-
-						<option value="" disabled="disabled">
-							<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-						</option>
-
-						<?php foreach( $this->get( 'propertyTypes', [] ) as $type => $item ) : ?>
-							<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="items[idx]['property'][propidx]['media.property.type'] == '<?= $enc->attr( $type ) ?>'" >
-								<?= $enc->html( $item->getLabel() ); ?>
-							</option>
-						<?php endforeach; ?>
-
+						v-bind:value="propdata['media.property.type']" >
 					</select>
 				</td>
 				<td class="property-language">
-					<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'property', 'propidx', 'media.property.languageid' ) ) ); ?>'.replace( 'idx', idx ).replace( 'propidx', propidx )"
+					<select is="select-component" class="form-control custom-select item-type"
+						v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
+						v-bind:name="'<?= $enc->attr( $this->formparam( ['media', 'idx', 'property', 'propidx', 'media.property.languageid'] ) ); ?>'.replace('idx', idx).replace('propidx', propidx)"
+						v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
+						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 						v-bind:readonly="checkSite('media.siteid', idx)"
-						v-model="items[idx]['property'][propidx]['media.property.languageid']" >
-
-						<option v-bind:value="null">
-							<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
-						</option>
-
-						<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-							<option value="<?= $enc->attr( $langId ); ?>" v-bind:selected="items[idx]['property'][propidx]['media.property.languageid'] == '<?= $enc->attr( $langId ) ?>'" >
-								<?= $enc->html( $langItem->getLabel() ); ?>
-							</option>
-						<?php endforeach; ?>
+						v-bind:value="propdata['media.property.languageid']" >
 					</select>
 				</td>
 				<td class="property-value">
