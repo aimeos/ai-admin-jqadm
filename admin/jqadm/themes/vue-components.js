@@ -179,6 +179,42 @@ Vue.component('html-editor', {
 
 
 
+Vue.component('property-table', {
+	props: {
+		'domain': {type: String, required: true},
+		'index': {type: Number, default: 0},
+		'items': {type: Array, required: true},
+		'readonly': {type: Boolean, default: true},
+		'siteid': {type: String, required: true}
+	},
+
+	data: function() {
+		return {
+			'list': this.items
+		};
+	},
+
+	methods: {
+		add: function() {
+			let entry = {};
+
+			entry[this.domain + '.property.id'] = null;
+			entry[this.domain + '.property.languageid'] = null;
+			entry[this.domain + '.property.siteid'] = this.siteid;
+			entry[this.domain + '.property.type'] = null;
+			entry[this.domain + '.property.value'] = null;
+
+			this.$set(this.list, this.list.length, entry);
+		},
+
+		remove: function(idx) {
+			this.list.splice(idx, 1);
+		}
+	}
+});
+
+
+
 Vue.component('taxrates', {
 	template: '\
 		<div> \

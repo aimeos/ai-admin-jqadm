@@ -8,11 +8,11 @@
 $(function() {
 
 	new Vue({'el': '.config-table'});
+	new Vue({'el': '.property-table'});
 
 	Aimeos.Address.init();
 	Aimeos.Media.init();
 	Aimeos.Price.init();
-	Aimeos.Property.init();
 	Aimeos.Text.init();
 });
 
@@ -221,32 +221,6 @@ Aimeos.Media = {
 			},
 
 
-			addPropertyItem : function(idx) {
-
-				if(!this.items[idx]) {
-					this.$set(this.items, idx, {});
-				}
-
-				if(!this.items[idx]['property']) {
-					this.$set(this.items[idx], 'property', []);
-				}
-
-				var len = this.items[idx]['property'].length;
-
-				if(!this.items[idx]['property'][len]) {
-					this.$set(this.items[idx]['property'], len, {});
-				}
-
-				var keys = ['media.property.id', 'media.property.languageid', 'media.property.type', 'media.property.value'];
-
-				for(key in keys) {
-					key = keys[key]; this.$set(this.items[idx]['property'][len], key, '');
-				}
-
-				this.$set(this.items[idx]['property'][len], 'media.property.siteid', this.siteid);
-			},
-
-
 			getPropertyData : function(idx) {
 
 				if(this.items[idx] && this.items[idx]['property']) {
@@ -254,11 +228,6 @@ Aimeos.Media = {
 				}
 
 				return [];
-			},
-
-
-			removePropertyItem : function(idx, propidx) {
-				this.items[idx]['property'].splice(propidx, 1);
 			}
 		}
 	},
@@ -349,32 +318,6 @@ Aimeos.Price = {
 			},
 
 
-			addPropertyItem : function(idx) {
-
-				if(!this.items[idx]) {
-					this.$set(this.items, idx, {});
-				}
-
-				if(!this.items[idx]['property']) {
-					this.$set(this.items[idx], 'property', []);
-				}
-
-				var len = this.items[idx]['property'].length;
-
-				if(!this.items[idx]['property'][len]) {
-					this.$set(this.items[idx]['property'], len, {});
-				}
-
-				var keys = ['price.property.id', 'price.property.languageid', 'price.property.type', 'price.property.value'];
-
-				for(key in keys) {
-					key = keys[key]; this.$set(this.items[idx]['property'][len], key, '');
-				}
-
-				this.$set(this.items[idx]['property'][len], 'price.property.siteid', this.siteid);
-			},
-
-
 			getPropertyData : function(idx) {
 
 				if(this.items[idx] && this.items[idx]['property']) {
@@ -382,11 +325,6 @@ Aimeos.Price = {
 				}
 
 				return [];
-			},
-
-
-			removePropertyItem : function(idx, propidx) {
-				this.items[idx]['property'].splice(propidx, 1);
 			}
 		}
 	},
@@ -402,69 +340,6 @@ Aimeos.Price = {
 				'keys': $("#item-price-group").data("keys"),
 				'siteid': $("#item-price-group").data("siteid"),
 				'domain': $("#item-price-group").data("domain")
-			},
-			'mixins': [this.mixins]
-		});
-	}
-};
-
-
-
-Aimeos.Property = {
-
-	mixins : {
-		'methods': {
-
-			/**
-			 * @param {string} key
-			 * @param {int} idx
-			 * @deprecated 2020.01 Key will be removed, set "domain" instead
-			 */
-			checkSite : function(key, idx) {
-				return this.items[idx][key || this.domain + '.property.siteid'] != this.siteid;
-			},
-
-
-			/**
-			 * @param {string} prefix
-			 * @param {object} data
-			 * @deprecated 2020.01 Prefix will be removed, set "domain" instead
-			 */
-			addItem : function(prefix, data) {
-
-				var idx = this.items.length;
-				this.$set(this.items, idx, {});
-
-				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
-				}
-
-				if(this.domain) {
-					this.$set(this.items[idx], this.domain  + '.property.siteid', this.siteid);
-					this.$set(this.items[idx], this.domain  + '.property.languageid', null);
-				} else {
-					this.$set(this.items[idx], prefix + 'siteid', this.siteid);
-					this.$set(this.items[idx], prefix + 'languageid', null);
-				}
-			},
-
-
-			removeItem : function(idx) {
-				this.items.splice(idx, 1);
-			}
-		}
-	},
-
-
-	init : function() {
-
-		this.property = new Vue({
-			'el': '.property-list',
-			'data': {
-				'items': $(".property-list").data("items"),
-				'keys': $(".property-list").data("keys"),
-				'siteid': $(".property-list").data("siteid"),
-				'domain': $(".property-list").data("domain")
 			},
 			'mixins': [this.mixins]
 		});

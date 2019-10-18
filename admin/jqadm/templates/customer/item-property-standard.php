@@ -8,98 +8,75 @@
 
 $enc = $this->encoder();
 
-$keys = [
-	'customer.property.id', 'customer.property.siteid', 'customer.property.type',
-	'customer.property.languageid', 'customer.property.value'
-];
-
 
 ?>
-<div id="property" class="item-property tab-pane fade" role="tabpanel" aria-labelledby="property">
+<div class="col-xl-12 content-block property-table">
 
-	<table class="property-list table table-default"
-		data-items="<?= $enc->attr( $this->get( 'propertyData', [] ) ); ?>"
-		data-keys="<?= $enc->attr( $keys ) ?>"
-		data-siteid="<?= $this->site()->siteid() ?>" >
+	<property-table inline-template
+		v-bind:readonly="'<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?>' ? true : false"
+		v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>')"
+		v-bind:siteid="'<?= $this->site()->siteid() ?>'"
+		v-bind:domain="'customer'" >
 
-		<thead>
-			<tr>
-				<th colspan="3">
-					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Properties' ) ); ?></span>
-					<div class="form-text text-muted help-text">
-						<?= $enc->html( $this->translate( 'admin', 'Customer properties that are not shared with other customers' ) ); ?>
-					</div>
-				</th>
-				<th class="actions">
-					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-						v-on:click="addItem('customer.property.')">
-					</div>
-				</th>
-			</tr>
-		</thead>
+		<table class="item-characteristic-property table table-default">
+			<thead>
+				<tr>
+					<th colspan="3">
+						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Properties' ) ); ?></span>
+						<div class="form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Product characteristics that are not shared with other customers' ) ); ?>
+						</div>
+					</th>
+					<th class="actions">
+						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>" v-on:click="add()"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>">
+						</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(propdata, propidx) in list" v-bind:key="propidx" v-bind:class="readonly ? 'readonly' : ''">
+					<td class="property-type">
+						<input class="item-id" type="hidden" v-bind:value="propdata['customer.property.id']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_idx_', 'customer.property.id'] ) ); ?>'.replace('_idx_', propidx)" />
 
-		<tbody>
+						<select is="select-component" class="form-control custom-select item-type" required
+							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'propertyTypes', [] ), 'customer.property.type.code', 'customer.property.type.label' )->toArray() ) ?>')"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_idx_', 'customer.property.type'] ) ); ?>'.replace('_idx_', propidx)"
+							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+							v-bind:readonly="readonly"
+							v-bind:value="propdata['customer.property.type']" >
+						</select>
+					</td>
+					<td class="property-language">
+						<select is="select-component" class="form-control custom-select item-type"
+							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_idx_', 'customer.property.languageid'] ) ); ?>'.replace('_idx_', propidx)"
+							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
+							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+							v-bind:readonly="readonly"
+							v-bind:value="propdata['customer.property.languageid']" >
+						</select>
+					</td>
+					<td class="property-value">
+						<input class="form-control item-value" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_idx_', 'customer.property.value'] ) ); ?>'.replace('_idx_', propidx)"
+							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
+							v-bind:readonly="readonly"
+							v-model="propdata['customer.property.value']" >
+					</td>
+					<td class="actions">
+						<div v-if="!readonly" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>" v-on:click.stop="remove(propidx)">
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 
-			<tr v-for="(entry, idx) in items" v-bind:key="idx" v-bind:class="checkSite('customer.property.siteid', idx) ? 'readonly' : ''">
-				<td class="property-type">
-					<input class="item-id" type="hidden" v-bind:value="entry['customer.property.id']"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'property', 'idx', 'customer.property.id' ) ) ); ?>'.replace('idx', idx)" />
-
-					<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'property', 'idx', 'customer.property.type' ) ) ); ?>'.replace('idx', idx)"
-						v-bind:readonly="checkSite('customer.property.siteid', idx)"
-						v-model="items[idx]['customer.property.type']" >
-
-						<option value="" disabled="disabled">
-							<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-						</option>
-
-						<?php foreach( $this->get( 'propertyTypes', [] ) as $type => $item ) : ?>
-							<option value="<?= $enc->attr( $type ); ?>" v-bind:selected="entry['customer.property.type'] == '<?= $enc->attr( $type ) ?>'" >
-								<?= $enc->html( $item->getLabel() ); ?>
-							</option>
-						<?php endforeach; ?>
-
-					</select>
-				</td>
-
-				<td class="property-language">
-					<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'property', 'idx', 'customer.property.languageid' ) ) ); ?>'.replace('idx', idx)"
-						v-bind:readonly="checkSite('customer.property.siteid', idx)"
-						v-model="items[idx]['customer.property.languageid']" >
-
-						<option v-bind:value="null">
-							<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>
-						</option>
-
-						<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-							<option value="<?= $enc->attr( $langId ); ?>" v-bind:selected="entry['customer.property.languageid'] == '<?= $enc->attr( $langId ) ?>'" >
-								<?= $enc->html( $langItem->getLabel() ); ?>
-							</option>
-						<?php endforeach; ?>
-					</select>
-				</td>
-
-				<td class="property-value">
-					<input class="form-control item-value" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'property', 'idx', 'customer.property.value' ) ) ); ?>'.replace('idx', idx)"
-						placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
-						v-bind:readonly="checkSite('customer.property.siteid', idx)"
-						v-model="items[idx]['customer.property.value']" >
-				</td>
-
-				<td class="actions">
-					<div v-if="!checkSite('customer.property.siteid', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-						v-on:click.stop="removeItem(idx)">
-					</div>
-				</td>
-			</tr>
-
-		</tbody>
-	</table>
+	</property-table>
 
 	<?= $this->get( 'propertyBody' ); ?>
+
 </div>

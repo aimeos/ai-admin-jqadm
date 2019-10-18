@@ -29,8 +29,6 @@ Aimeos.Product = {
 
 		this.characteristic = {
 
-			property : Aimeos.Property.property,
-
 			attribute : new Vue({
 				'el': '.item-characteristic-attribute .attribute-list',
 				'data': {
