@@ -391,6 +391,7 @@ class Standard
 
 			$list['catalog.lists.datestart'] = str_replace( ' ', 'T', $list['catalog.lists.datestart'] );
 			$list['catalog.lists.dateend'] = str_replace( ' ', 'T', $list['catalog.lists.dateend'] );
+			$list['config'] = [];
 
 			foreach( $listItem->getConfig() as $key => $value ) {
 				$list['config'][] = ['key' => $key, 'val' => $value];

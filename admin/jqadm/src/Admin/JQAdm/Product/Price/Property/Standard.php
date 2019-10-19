@@ -324,6 +324,8 @@ class Standard
 
 		foreach( $item->getRefItems( 'price', null, null, false ) as $priceItem )
 		{
+			$data[$idx]['property'] = [];
+
 			foreach( $priceItem->getPropertyItems( null, false ) as $propItem )
 			{
 				$list = $propItem->toArray( true );

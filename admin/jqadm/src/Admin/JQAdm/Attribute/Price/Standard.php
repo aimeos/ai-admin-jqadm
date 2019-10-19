@@ -397,13 +397,14 @@ class Standard
 
 			$list['attribute.lists.datestart'] = str_replace( ' ', 'T', $list['attribute.lists.datestart'] );
 			$list['attribute.lists.dateend'] = str_replace( ' ', 'T', $list['attribute.lists.dateend'] );
-
-			if( empty( $refItem->getTaxRates() ) ) {
-				$list['price.taxrates'] = ['' => ''];
-			}
+			$list['config'] = [];
 
 			foreach( $listItem->getConfig() as $key => $value ) {
 				$list['config'][] = ['key' => $key, 'val' => $value];
+			}
+
+			if( empty( $refItem->getTaxRates() ) ) {
+				$list['price.taxrates'] = ['' => ''];
 			}
 
 			$data[] = $list;

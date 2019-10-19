@@ -397,13 +397,14 @@ class Standard
 
 			$list['service.lists.datestart'] = str_replace( ' ', 'T', $list['service.lists.datestart'] );
 			$list['service.lists.dateend'] = str_replace( ' ', 'T', $list['service.lists.dateend'] );
-
-			if( empty( $refItem->getTaxRates() ) ) {
-				$list['price.taxrates'] = ['' => ''];
-			}
+			$list['config'] = [];
 
 			foreach( $listItem->getConfig() as $key => $value ) {
 				$list['config'][] = ['key' => $key, 'val' => $value];
+			}
+
+			if( empty( $refItem->getTaxRates() ) ) {
+				$list['price.taxrates'] = ['' => ''];
 			}
 
 			$data[] = $list;

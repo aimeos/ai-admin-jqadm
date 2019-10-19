@@ -331,6 +331,8 @@ class Standard
 
 		foreach( $item->getRefItems( 'media', null, null, false ) as $mediaItem )
 		{
+			$data[$idx]['property'] = [];
+
 			foreach( $mediaItem->getPropertyItems( null, false ) as $propItem )
 			{
 				$list = $propItem->toArray( true );
