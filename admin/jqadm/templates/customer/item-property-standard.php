@@ -40,23 +40,21 @@ $enc = $this->encoder();
 						<input class="item-id" type="hidden" v-bind:value="propdata['customer.property.id']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_idx_', 'customer.property.id'] ) ); ?>'.replace('_idx_', propidx)" />
 
-						<select is="select-component" class="form-control custom-select item-type" required
+						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'propertyTypes', [] ), 'customer.property.type.code', 'customer.property.type.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_idx_', 'customer.property.type'] ) ); ?>'.replace('_idx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:readonly="readonly"
-							v-bind:value="propdata['customer.property.type']" >
+							v-model="propdata['customer.property.type']" >
 						</select>
 					</td>
 					<td class="property-language">
-						<select is="select-component" class="form-control custom-select item-type"
+						<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_idx_', 'customer.property.languageid'] ) ); ?>'.replace('_idx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:readonly="readonly"
-							v-bind:value="propdata['customer.property.languageid']" >
+							v-model="propdata['customer.property.languageid']" >
 						</select>
 					</td>
 					<td class="property-value">

@@ -41,23 +41,21 @@ $enc = $this->encoder();
 						<input class="item-propertyid" type="hidden" v-bind:value="propdata['media.property.id']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'property', '_propidx_', 'media.property.id'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)" />
 
-						<select is="select-component" class="form-control custom-select item-type" required
+						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'propertyTypes', [] ), 'media.property.type.code', 'media.property.type.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'property', '_propidx_', 'media.property.type'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:readonly="readonly"
-							v-bind:value="propdata['media.property.type']" >
+							v-model="propdata['media.property.type']" >
 						</select>
 					</td>
 					<td class="property-language">
-						<select is="select-component" class="form-control custom-select item-type"
+						<select is="select-component" class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'property', '_propidx_', 'media.property.languageid'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:readonly="readonly"
-							v-bind:value="propdata['media.property.languageid']" >
+							v-model="propdata['media.property.languageid']" >
 						</select>
 					</td>
 					<td class="property-value">

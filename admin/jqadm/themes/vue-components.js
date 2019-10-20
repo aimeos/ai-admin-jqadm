@@ -272,32 +272,17 @@ Vue.component('taxrates', {
 
 Vue.component('select-component', {
 	template: '\
-		<select v-bind:name="name" v-bind:readonly="readonly" v-bind:tabindex="tabindex"> \
+		<select v-on:change="$emit(\'input\', $event.target.value)"> \
 			<option v-bind:value="null">{{ text }}</option> \
-			<option v-for="(label, type) in map" v-bind:key="type" v-bind:value="type" v-bind:selected="type === value"> \
+			<option v-if="value && !items[value]" v-bind:value="value">{{ value }}</option> \
+			<option v-for="(label, type) in items" v-bind:key="type" v-bind:value="type" v-bind:selected="type === value"> \
 				{{ label || type }} \
 			</option> \
 		</select> \
 	',
 	props: {
-		'force': {type: Boolean, required: false, default: true},
 		'items': {type: Object, required: true},
-		'name': {type: String, required: true},
-		'readonly': {type: Boolean, required: false, default: true},
-		'tabindex': {type: String, required: false, default: '1'},
 		'text': {type: String, required: false, default: ''},
 		'value': {required: true}
-	},
-
-	data: function() {
-		return {
-			map: this.items
-		};
-	},
-
-	mounted: function() {
-		if(this.value && !this.map[this.value]) {
-			this.$set(this.map, this.value, this.value);
-		}
 	}
 });

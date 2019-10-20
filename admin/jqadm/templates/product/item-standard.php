@@ -268,7 +268,9 @@ $types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'produc
 
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 content-block vue-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>">
+				<div class="col-xl-6 content-block vue-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>"
+					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
+
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
@@ -297,11 +299,11 @@ $types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'produc
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 						<div class="col-sm-8">
 							<select is="select-component" class="form-control custom-select item-type" required v-bind:tabindex="'1'"
-								v-bind:items="JSON.parse('<?= $enc->attr( $types ) ?>')"
 								v-bind:readonly="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' ? true : false"
 								v-bind:name="'<?= $enc->attr( $this->formparam( ['item', 'product.type'] ) ); ?>'"
 								v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-								v-bind:value="'<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>'" >
+								v-bind:items="JSON.parse('<?= $enc->attr( $types ) ?>')"
+								v-model="data['product.type']" >
 								<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
 									<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
 								</option>

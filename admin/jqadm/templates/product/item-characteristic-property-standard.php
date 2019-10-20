@@ -40,23 +40,21 @@ $enc = $this->encoder();
 						<input class="item-id" type="hidden" v-bind:value="propdata['product.property.id']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.id'] ) ); ?>'.replace('_idx_', propidx)" />
 
-						<select is="select-component" class="form-control custom-select item-type" required
+						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'propertyTypes', [] ), 'product.property.type.code', 'product.property.type.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.type'] ) ); ?>'.replace('_idx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:readonly="readonly"
-							v-bind:value="propdata['product.property.type']" >
+							v-model="propdata['product.property.type']" >
 						</select>
 					</td>
 					<td class="property-language">
-						<select is="select-component" class="form-control custom-select item-type"
+						<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.languageid'] ) ); ?>'.replace('_idx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 							v-bind:readonly="readonly"
-							v-bind:value="propdata['product.property.languageid']" >
+							v-model="propdata['product.property.languageid']" >
 						</select>
 					</td>
 					<td class="property-value">

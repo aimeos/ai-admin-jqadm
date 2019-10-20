@@ -7,6 +7,18 @@
 
 $(function() {
 
+	$('.vue-block').each(function() {
+		new Vue({
+			el: this,
+			data: {data: null},
+			beforeMount: function() {
+				if(this.$el.dataset && this.$el.dataset.data) {
+					this.data = JSON.parse(this.$el.dataset.data);
+				}
+			}
+		});
+	});
+
 	new Vue({'el': '.config-table'});
 	new Vue({'el': '.property-table'});
 
