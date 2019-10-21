@@ -129,8 +129,7 @@ $keys = [
 								</div>
 							</div>
 
-							<?php $languages = $this->get( 'pageLangItems', [] ); ?>
-							<?php if( count( $languages ) > 1 ) : ?>
+							<?php if( ( $languages = $this->get( 'pageLangItems', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 									<div class="col-sm-8">
@@ -152,8 +151,7 @@ $keys = [
 									value="<?= $enc->attr( key( $languages ) ); ?>" />
 							<?php endif; ?>
 
-							<?php $textTypes = $this->get( 'textTypes', [] ); ?>
-							<?php if( count( $textTypes ) > 1 ) : ?>
+							<?php if( ( $textTypes = $this->get( 'textTypes', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
@@ -203,11 +201,7 @@ $keys = [
 
 						<div v-show="advanced[idx]" class="col-xl-6 content-block secondary">
 
-							<input type="hidden" v-model="items[idx]['attribute.lists.type']"
-								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'attribute.lists.type' ) ) ); ?>'.replace( 'idx', idx )" />
-
-							<?php $listTypes = $this->get( 'textListTypes', [] ); ?>
-							<?php if( count( $listTypes ) > 1 ) : ?>
+							<?php if( ( $listTypes = $this->get( 'textListTypes', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
@@ -226,8 +220,7 @@ $keys = [
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'attribute.lists.type' ) ) ); ?>'.replace('idx', idx)"
-									value="<?= $enc->attr( key( $listTypes ) ); ?>"
-									v-model="items[idx]['attribute.lists.type']" />
+									value="<?= $enc->attr( key( $listTypes ) ); ?>" />
 							<?php endif; ?>
 
 							<div class="form-group row optional">

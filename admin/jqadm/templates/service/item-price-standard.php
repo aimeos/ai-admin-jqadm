@@ -25,8 +25,6 @@ $keys = [
 	'price.siteid', 'price.type', 'price.currencyid', 'price.status', 'price.quantity', 'price.taxrates', 'price.value', 'price.rebate', 'price.costs'
 ];
 
-$currencies = $this->get( 'priceCurrencies', [] );
-
 
 ?>
 <div id="price" class="item-price content-block tab-pane fade" role="tablist" aria-labelledby="price">
@@ -154,7 +152,7 @@ $currencies = $this->get( 'priceCurrencies', [] );
 								</div>
 							</div>
 
-							<?php if( count( $currencies ) > 1 ) : ?>
+							<?php if( ( $currencies = $this->get( 'priceCurrencies', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 									<div class="col-sm-8">
@@ -170,11 +168,10 @@ $currencies = $this->get( 'priceCurrencies', [] );
 							<?php else : ?>
 								<input class="item-currencyid" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.currencyid' ) ) ); ?>'.replace('idx', idx)"
-									value="<?= $enc->attr( key( $currencies ) ); ?>" />
+									value="<?= $enc->attr( key( $currencies ) ) ?>" />
 							<?php endif; ?>
 
-							<?php $priceTypes = $this->get( 'priceTypes', [] ); ?>
-							<?php if( count( $priceTypes ) > 1 ) : ?>
+							<?php if( ( $priceTypes = $this->get( 'priceTypes', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
@@ -193,7 +190,7 @@ $currencies = $this->get( 'priceCurrencies', [] );
 							<?php else : ?>
 								<input class="item-type" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.type' ) ) ); ?>'.replace('idx', idx)"
-									value="<?= $enc->attr( key( $priceTypes ) ); ?>" />
+									value="<?= $enc->attr( key( $priceTypes ) ) ?>" />
 							<?php endif; ?>
 
 							<div class="form-group row mandatory">
@@ -224,11 +221,7 @@ $currencies = $this->get( 'priceCurrencies', [] );
 
 						<div v-show="advanced[idx]" class="col-xl-6 content-block secondary">
 
-							<input type="hidden" v-model="items[idx]['service.lists.type']"
-								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.type' ) ) ); ?>'.replace( 'idx', idx )" />
-
-							<?php $listTypes = $this->get( 'priceListTypes', [] ); ?>
-							<?php if( count( $listTypes ) > 1 ) : ?>
+							<?php if( ( $listTypes = $this->get( 'priceListTypes', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
@@ -247,8 +240,7 @@ $currencies = $this->get( 'priceCurrencies', [] );
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.type' ) ) ); ?>'.replace('idx', idx)"
-									value="<?= $enc->attr( key( $listTypes ) ); ?>"
-									v-model="items[idx]['service.lists.type']" />
+									value="<?= $enc->attr( key( $listTypes ) ) ?>" />
 							<?php endif; ?>
 
 							<div class="form-group row optional">

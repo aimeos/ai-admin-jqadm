@@ -61,7 +61,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row">
 				<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
-					<?php if( count( $stockTypes ) > 1 ) : ?>
+					<?php if( $stockTypes !== [] ) : ?>
 						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $stockTypes, 'stock.type.code', 'stock.type.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
@@ -72,7 +72,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 					<?php else : ?>
 						<input class="item-type" type="hidden"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
-							value="<?= $enc->attr( key( $stockTypes ) ); ?>" />
+							value="<?= $enc->attr( key( $stockTypes ) ) ?>" />
 					<?php endif; ?>
 				</td>
 				<td class="stock-stocklevel optional">

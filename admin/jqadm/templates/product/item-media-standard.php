@@ -111,8 +111,7 @@ $keys = [
 									</select>
 								</div>
 							</div>
-							<?php $mediaTypes = $this->get( 'mediaTypes', [] ); ?>
-							<?php if( count( $mediaTypes ) > 1 ) : ?>
+							<?php if( ( $mediaTypes = $this->get( 'mediaTypes', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
@@ -177,10 +176,7 @@ $keys = [
 						</div>
 
 						<div v-show="advanced[idx]" class="col-xl-6 content-block secondary">
-							<input type="hidden" v-model="items[idx]['product.lists.type']"
-								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'product.lists.type' ) ) ); ?>'.replace( 'idx', idx )" />
-							<?php $listTypes = $this->get( 'mediaListTypes', [] ); ?>
-							<?php if( count( $listTypes ) > 1 ) : ?>
+							<?php if( ( $listTypes = $this->get( 'mediaListTypes', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
@@ -199,8 +195,7 @@ $keys = [
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'media', 'idx', 'product.lists.type' ) ) ); ?>'.replace( 'idx', idx )"
-									value="<?= $enc->attr( key( $listTypes ) ); ?>"
-									v-model="items[idx]['product.lists.type']" />
+									value="<?= $enc->attr( key( $listTypes ) ); ?>" />
 							<?php endif; ?>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
