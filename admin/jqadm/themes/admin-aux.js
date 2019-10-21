@@ -247,95 +247,81 @@ Aimeos.Media = {
 
 Aimeos.Price = {
 
-	mixins : {
-		'methods': {
-
-			checkSite : function(key, idx) {
-				return this.items[idx][key] != this.siteid;
-			},
-
-
-			addItem : function(prefix, data) {
-
-				var idx = this.items.length;
-				this.$set(this.items, idx, {});
-
-				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
-				}
-
-				this.$set(this.items[idx], prefix + 'type', data && data[prefix + 'type'] || $('#item-price-group').data('listtype'));
-				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
-				this.$set(this.items[idx], 'price.siteid', this.siteid);
-				this.$set(this.items[idx], 'price.taxrates', {'': ''});
-				this.$set(this.items[idx], 'price.quantity', '1');
-				this.$set(this.items[idx], 'price.status', '1');
-			},
-
-
-			removeItem : function(idx) {
-				this.items.splice(idx, 1);
-			},
-
-
-			getConfig : function(idx) {
-				return this.items[idx]['config'] || [];
-			},
-
-
-			getCss : function(idx) {
-				return ( idx !== 0 && this.items[idx]['price.id'] ? 'collapsed' : 'show' );
-			},
-
-
-			getLabel : function(idx) {
-				var label = '';
-				var type = $('#item-price-group-data-' + idx + ' .item-type option[value="' + this.items[idx]['price.type'] + '"]').html();
-				var currency = $('#item-price-group-data-' + idx + ' .item-currencyid').val();
-
-				label += (this.items[idx]['price.quantity'] ? this.items[idx]['price.quantity'] + ' ~ ' : '');
-				label += (this.items[idx]['price.value'] ? this.items[idx]['price.value'] : '');
-				label += (this.items[idx]['price.costs'] ? ' + ' + this.items[idx]['price.costs'] : '');
-				label += (currency ? ' ' + currency : (this.items[idx]['price.currencyid'] ? ' ' + this.items[idx]['price.currencyid'] : ''));
-				label += (type ? ' (' + type.trim() + ')' : (this.items[idx]['price.type'] ? ' (' + this.items[idx]['price.type'] + ')' : ''));
-
-				if(this.items[idx]['price.status'] < 1) {
-					label = '<s>' + label + '</s>';
-				}
-
-				return label;
-			},
-
-
-			toggle : function(idx) {
-				this.$set(this.advanced, idx, (!this.advanced[idx] ? true : false));
-			},
-
-
-			getPropertyData : function(idx) {
-
-				if(this.items[idx] && this.items[idx]['property']) {
-					return this.items[idx]['property'];
-				}
-
-				return [];
-			}
-		}
-	},
-
-
 	init : function() {
 
 		this.price = new Vue({
-			'el': '#item-price-group',
-			'data': {
-				'advanced': [],
-				'items': $("#item-price-group").data("items"),
-				'keys': $("#item-price-group").data("keys"),
-				'siteid': $("#item-price-group").data("siteid"),
-				'domain': $("#item-price-group").data("domain")
+			el: '#item-price-group',
+			data: {
+				items: [],
+				siteid: null,
+				domain: null
 			},
-			'mixins': [this.mixins]
+			mounted: function() {
+				this.items = JSON.parse(this.$el.dataset.items);
+				this.siteid = this.$el.dataset.siteid;
+				this.domain = this.$el.dataset.domain;
+
+				if(this.items[0]) {
+					this.$set(this.items[0], '_show', true);
+				}
+			},
+			methods: {
+				add: function() {
+					let entry = {};
+
+					entry[this.domain + '.lists.id'] = null;
+					entry[this.domain + '.lists.type'] = 'default';
+					entry[this.domain + '.lists.siteid'] = this.siteid;
+					entry[this.domain + '.lists.datestart'] = null;
+					entry[this.domain + '.lists.dateend'] = null;
+
+					entry['price.id'] = null;
+					entry['price.label'] = null;
+					entry['price.type'] = 'default';
+					entry['price.siteid'] = this.siteid;
+					entry['price.taxrates'] = {'': ''};
+					entry['price.currencyid'] = null;
+					entry['price.rebate'] = '0.00';
+					entry['price.costs'] = '0.00';
+					entry['price.value'] = null;
+					entry['price.quantity'] = 1;
+					entry['price.status'] = 1;
+
+					entry['property'] = [];
+					entry['config'] = [];
+					entry['_show'] = true;
+					entry['_nosort'] = true;
+
+					this.items.push(entry);
+				},
+
+
+				label: function(idx) {
+					var label = '';
+
+					label += (this.items[idx]['price.quantity'] ? this.items[idx]['price.quantity'] + ' ~ ' : '');
+					label += (this.items[idx]['price.value'] ? this.items[idx]['price.value'] : '');
+					label += (this.items[idx]['price.costs'] ? ' + ' + this.items[idx]['price.costs'] : '');
+					label += (this.items[idx]['price.currencyid'] ? ' ' + this.items[idx]['price.currencyid'] : '');
+					label += (this.items[idx]['price.type'] ? ' (' + this.items[idx]['price.type'] + ')' : '');
+
+					if(this.items[idx]['price.status'] < 1) {
+						label = '<s>' + label + '</s>';
+					}
+
+					return label;
+				},
+
+
+				remove: function(idx) {
+					this.items.splice(idx, 1);
+				},
+
+
+				toggle: function(what, idx) {
+					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				}
+			}
 		});
 	}
 };

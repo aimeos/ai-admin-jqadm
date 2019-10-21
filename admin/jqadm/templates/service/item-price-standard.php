@@ -20,51 +20,46 @@
 
 $enc = $this->encoder();
 
-$keys = [
-	'service.lists.siteid', 'service.lists.type', 'service.lists.datestart', 'service.lists.dateend', 'config',
-	'price.siteid', 'price.type', 'price.currencyid', 'price.status', 'price.quantity', 'price.taxrates', 'price.value', 'price.rebate', 'price.costs'
-];
-
 
 ?>
 <div id="price" class="item-price content-block tab-pane fade" role="tablist" aria-labelledby="price">
-	<div id="item-price-group" role="tablist" aria-multiselectable="true"
+
+	<div id="item-price-group"
 		data-items="<?= $enc->attr( $this->get( 'priceData', [] ) ); ?>"
-		data-listtype="<?= key( $this->get( 'priceListTypes', [] ) ) ?>"
-		data-keys="<?= $enc->attr( $keys ) ?>"
-		data-siteid="<?= $this->site()->siteid() ?>" >
+		data-siteid="<?= $this->site()->siteid() ?>"
+		data-domain="service" >
 
-		<div class="group-list">
+		<div class="group-list" role="tablist" aria-multiselectable="true">
 			<div is="draggable" v-model="items" group="price" handle=".act-move">
-				<div v-for="(entry, idx) in items" v-bind:key="idx" class="group-item card">
+				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
-					<div v-bind:id="'item-price-group-item-' + idx" v-bind:class="getCss(idx)"
+					<div v-bind:id="'item-price-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
 						v-bind:data-target="'#item-price-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
-						v-bind:aria-controls="'item-price-group-data-' + idx" aria-expanded="false">
+						v-bind:aria-controls="'item-price-group-data-' + idx" aria-expanded="false" v-on:click.stop="toggle('_show', idx)">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 							</div>
 						</div>
-						<span class="item-label header-label" v-html="getLabel(idx)"></span>
+						<span class="item-label header-label" v-html="label(idx)"></span>
 						&nbsp;
 						<div class="card-tools-right">
-							<div v-if="!checkSite('service.lists.siteid', idx)"
+							<div v-if="!item['service.lists.siteid'] != siteid && !item['_nosort']"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
 							</div>
-							<div v-if="!checkSite('service.lists.siteid', idx)"
+							<div v-if="!item['service.lists.siteid'] != siteid"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-								v-on:click.stop="removeItem(idx)">
+								v-on:click.stop="remove(idx)">
 							</div>
 						</div>
 					</div>
 
-					<div v-bind:id="'item-price-group-data-' + idx" v-bind:class="getCss(idx)"
+					<div v-bind:id="'item-price-group-data-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
 						v-bind:aria-labelledby="'item-price-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
-						<input type="hidden" v-model="items[idx]['price.id']"
+						<input type="hidden" v-model="item['price.id']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.id' ) ) ); ?>'.replace('idx', idx)" />
 
 						<div class="col-xl-6">
@@ -77,8 +72,8 @@ $keys = [
 										v-bind:types="JSON.parse('<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>')"
 										v-bind:placeholder="'<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>'"
 										v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:readonly="checkSite('price.siteid', idx)"
-										v-bind:taxrates="items[idx]['price.taxrates']"
+										v-bind:readonly="item['price.siteid'] != siteid"
+										v-bind:taxrates="item['price.taxrates']"
 									></div>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -91,8 +86,8 @@ $keys = [
 									<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.value' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual current price' ) ); ?>"
-										v-bind:readonly="checkSite('price.siteid', idx)"
-										v-model="items[idx]['price.value']" />
+										v-bind:readonly="item['price.siteid'] != siteid"
+										v-model="item['price.value']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Actual price customers can buy the article for on the web site' ) ); ?>
@@ -104,21 +99,21 @@ $keys = [
 									<input class="form-control item-rebate" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.rebate' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Substracted rebate amount' ) ); ?>"
-										v-bind:readonly="checkSite('price.siteid', idx)"
-										v-model="items[idx]['price.rebate']" />
+										v-bind:readonly="item['price.siteid'] != siteid"
+										v-model="item['price.rebate']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Reduction from the original price, used to calculate the rebate in % and the cross price' ) ); ?>
 								</div>
 							</div>
 							<div class="form-group row optional">
-								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping/Payment costs' ) ); ?></label>
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping costs per item' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-costs" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.costs' ) ) ); ?>'.replace('idx', idx)"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping/Payment costs' ) ); ?>"
-										v-bind:readonly="checkSite('price.siteid', idx)"
-										v-model="items[idx]['price.costs']" />
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping costs per item' ) ); ?>"
+										v-bind:readonly="item['price.siteid'] != siteid"
+										v-model="item['price.costs']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total' ) ); ?>
@@ -134,18 +129,19 @@ $keys = [
 								<div class="col-sm-8">
 									<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.status' ) ) ); ?>'.replace('idx', idx)"
-										v-bind:readonly="checkSite('price.siteid', idx)"
-										v-model="items[idx]['price.status']" >
-										<option value="1" v-bind:selected="items[idx]['price.status'] == 1" >
+										v-bind:readonly="item['price.siteid'] != siteid"
+										v-model="item['price.status']" >
+										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
+										<option value="1" v-bind:selected="item['price.status'] == 1" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
 										</option>
-										<option value="0" v-bind:selected="items[idx]['price.status'] == 0" >
+										<option value="0" v-bind:selected="item['price.status'] == 0" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
 										</option>
-										<option value="-1" v-bind:selected="items[idx]['price.status'] == -1" >
+										<option value="-1" v-bind:selected="item['price.status'] == -1" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
 										</option>
-										<option value="-2" v-bind:selected="items[idx]['price.status'] == -2" >
+										<option value="-2" v-bind:selected="item['price.status'] == -2" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
 										</option>
 									</select>
@@ -160,8 +156,8 @@ $keys = [
 											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $currencies, 'locale.currency.code', 'locale.currency.label' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.currencyid'] ) ); ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-											v-bind:readonly="checkSite('price.siteid', idx)"
-											v-model="entry['price.currencyid']" >
+											v-bind:readonly="item['price.siteid'] != siteid"
+											v-model="item['price.currencyid']" >
 										</select>
 									</div>
 								</div>
@@ -179,8 +175,8 @@ $keys = [
 											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $priceTypes, 'price.type.code', 'price.type.label' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.type'] ) ); ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-											v-bind:readonly="checkSite('price.siteid', idx)"
-											v-bind:model="entry['price.type']" >
+											v-bind:readonly="item['price.siteid'] != siteid"
+											v-model="item['price.type']" >
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
@@ -199,8 +195,8 @@ $keys = [
 									<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.quantity' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Minimum quantity' ) ); ?>"
-										v-bind:readonly="checkSite('price.siteid', idx)"
-										v-model="items[idx]['price.quantity']" />
+										v-bind:readonly="item['price.siteid'] != siteid"
+										v-model="item['price.quantity']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00' ) ); ?>
@@ -210,7 +206,7 @@ $keys = [
 						</div>
 
 
-						<div v-on:click="toggle(idx)" class="col-xl-12 advanced" v-bind:class="{ 'collapsed': !advanced[idx] }">
+						<div v-on:click="toggle('_ext', idx)" class="col-xl-12 advanced" v-bind:class="{'collapsed': !item['_ext']}">
 							<div class="card-tools-left">
 								<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data' ) ); ?>">
@@ -219,7 +215,7 @@ $keys = [
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
 						</div>
 
-						<div v-show="advanced[idx]" class="col-xl-6 content-block secondary">
+						<div v-show="item['_ext']" class="col-xl-6 content-block secondary">
 
 							<?php if( ( $listTypes = $this->get( 'priceListTypes', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
@@ -229,8 +225,8 @@ $keys = [
 											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $listTypes, 'service.lists.type.code', 'service.lists.type.label' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'service.lists.type'] ) ); ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-											v-bind:readonly="checkSite('service.lists.siteid', idx)"
-											v-model="entry['service.lists.type']" >
+											v-bind:readonly="item['service.lists.siteid'] != siteid"
+											v-model="item['service.lists.type']" >
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
@@ -249,8 +245,8 @@ $keys = [
 									<input class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.datestart' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-										v-bind:readonly="checkSite('service.lists.siteid', idx)"
-										v-model="items[idx]['service.lists.datestart']" />
+										v-bind:readonly="item['service.lists.siteid'] != siteid"
+										v-model="item['service.lists.datestart']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ); ?>
@@ -262,8 +258,8 @@ $keys = [
 									<input class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.dateend' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-										v-bind:readonly="checkSite('service.lists.siteid', idx)"
-										v-model="items[idx]['service.lists.dateend']" />
+										v-bind:readonly="item['service.lists.siteid'] != siteid"
+										v-model="item['service.lists.dateend']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ); ?>
@@ -271,10 +267,10 @@ $keys = [
 							</div>
 						</div>
 
-						<div v-show="advanced[idx]" class="col-xl-6 content-block secondary" v-bind:class="checkSite('service.lists.siteid', idx) ? 'readonly' : ''">
+						<div v-show="item['_ext']" class="col-xl-6 content-block secondary" v-bind:class="{readonly: item['service.lists.siteid'] != siteid}">
 							<config-table inline-template
-								v-bind:index="idx" v-bind:readonly="entry['service.lists.siteid'] != siteid"
-								v-bind:items="entry['config']" v-on:update:config="entry['config'] = $event">
+								v-bind:index="idx" v-bind:readonly="item['service.lists.siteid'] != siteid"
+								v-bind:items="item['config']" v-on:update:config="item['config'] = $event">
 
 								<table class="item-config table table-striped">
 									<thead>
@@ -297,7 +293,7 @@ $keys = [
 											<td class="config-row-key">
 												<input is="auto-complete" required class="form-control" v-bind:readonly="readonly" tabindex="<?= $this->get( 'tabindex' ); ?>"
 													v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', 'key'] ) ); ?>'.replace('_idx_', index).replace('_pos_', pos)"
-													v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/service/item/text/config/suggest', [] ) ) ?>')"
+													v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/service/item/price/config/suggest', [] ) ) ?>')"
 													v-model="entry.key" />
 											</td>
 											<td class="config-row-value">
@@ -324,7 +320,7 @@ $keys = [
 			<div slot="footer" class="card-tools-more">
 				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-					v-on:click="addItem('service.lists.')" >
+					v-on:click="add()" >
 				</div>
 			</div>
 		</div>

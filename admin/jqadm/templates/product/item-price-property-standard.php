@@ -10,11 +10,11 @@ $enc = $this->encoder();
 
 
 ?>
-<div v-show="advanced[idx]" class="col-xl-12 content-block secondary">
+<div v-show="item['_ext']" class="col-xl-12 content-block secondary">
 
 	<property-table inline-template
 		v-bind:index="idx" v-bind:domain="'price'" v-bind:siteid="'<?= $this->site()->siteid() ?>'"
-		v-bind:items="entry['property']" v-on:update:property="entry['property'] = $event">
+		v-bind:items="item['property']" v-on:update:property="item['property'] = $event">
 
 		<table class="item-price-property table table-default" >
 			<thead>
@@ -47,7 +47,7 @@ $enc = $this->encoder();
 						</select>
 					</td>
 					<td class="property-language">
-						<select is="select-component" required class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
+						<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'property', '_propidx_', 'price.property.languageid'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
@@ -56,7 +56,7 @@ $enc = $this->encoder();
 						</select>
 					</td>
 					<td class="property-value">
-						<input class="form-control item-value" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<input class="form-control item-value" required tabindex="<?= $this->get( 'tabindex' ); ?>"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'property', '_propidx_', 'price.property.value'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
 							v-bind:readonly="readonly(propidx)"
