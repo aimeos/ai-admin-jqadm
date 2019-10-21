@@ -45,7 +45,7 @@ $keys = [
 						v-bind:aria-controls="'item-text-group-data-' + idx" aria-expanded="false">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
+								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 							</div>
 						</div>
 						<span class="item-label header-label" v-html="getLabel(idx)"></span>
@@ -74,7 +74,7 @@ $keys = [
 							</div>
 							<div v-if="!checkSite('service.lists.siteid', idx)"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								v-on:click.stop="removeItem(idx)">
 							</div>
 						</div>
@@ -193,7 +193,7 @@ $keys = [
 						<div v-on:click="toggle(idx)" class="col-xl-12 advanced" v-bind:class="{ 'collapsed': !advanced[idx] }">
 							<div class="card-tools-left">
 								<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data') ); ?>">
+									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data' ) ); ?>">
 								</div>
 							</div>
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
@@ -268,7 +268,7 @@ $keys = [
 											<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?></th>
 											<th class="actions">
 												<div v-if="!readonly" class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>" v-on:click="add()"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"></div>
+													title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"></div>
 											</th>
 										</tr>
 									</thead>
@@ -287,7 +287,7 @@ $keys = [
 											</td>
 											<td class="actions">
 												<div v-if="!readonly" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>" v-on:click="remove(pos)"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
+													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"></div>
 											</td>
 										</tr>
 									</tbody>
@@ -303,7 +303,7 @@ $keys = [
 
 			<div slot="footer" class="card-tools-more">
 				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 					v-on:click="addItem('service.lists.')" >
 				</div>
 			</div>
