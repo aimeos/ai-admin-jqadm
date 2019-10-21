@@ -19,8 +19,6 @@ $(function() {
 		});
 	});
 
-	new Vue({'el': '.property-table'});
-
 	Aimeos.Address.init();
 	Aimeos.Media.init();
 	Aimeos.Price.init();

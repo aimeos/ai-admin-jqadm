@@ -10,13 +10,12 @@ $enc = $this->encoder();
 
 
 ?>
-<div class="col-xl-12 content-block property-table">
+<div class="col-xl-12 content-block vue-block"
+	data-data="<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>">
 
 	<property-table inline-template
-		v-bind:readonly="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' ? true : false"
-		v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>')"
-		v-bind:siteid="'<?= $this->site()->siteid() ?>'"
-		v-bind:domain="'product'" >
+		v-bind:domain="'product'" v-bind:siteid="'<?= $this->site()->siteid() ?>'"
+		v-bind:items="data" v-on:update:property="data = $event">
 
 		<table class="item-characteristic-property table table-default">
 			<thead>
@@ -35,16 +34,16 @@ $enc = $this->encoder();
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="(propdata, propidx) in list" v-bind:key="propidx" v-bind:class="readonly ? 'readonly' : ''">
+				<tr v-for="(propdata, propidx) in items" v-bind:key="propidx" v-bind:class="{readonly: readonly(propidx)}">
 					<td class="property-type">
-						<input class="item-id" type="hidden" v-bind:value="propdata['product.property.id']"
+						<input class="item-id" type="hidden" v-model="propdata['product.property.id']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.id'] ) ); ?>'.replace('_idx_', propidx)" />
 
 						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'propertyTypes', [] ), 'product.property.type.code', 'product.property.type.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.type'] ) ); ?>'.replace('_idx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-							v-bind:readonly="readonly"
+							v-bind:readonly="readonly(propidx)"
 							v-model="propdata['product.property.type']" >
 						</select>
 					</td>
@@ -53,7 +52,7 @@ $enc = $this->encoder();
 							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.languageid'] ) ); ?>'.replace('_idx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
-							v-bind:readonly="readonly"
+							v-bind:readonly="readonly(propidx)"
 							v-model="propdata['product.property.languageid']" >
 						</select>
 					</td>
@@ -61,11 +60,11 @@ $enc = $this->encoder();
 						<input class="form-control item-value" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.value'] ) ); ?>'.replace('_idx_', propidx)"
 							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ); ?>"
-							v-bind:readonly="readonly"
+							v-bind:readonly="readonly(propidx)"
 							v-model="propdata['product.property.value']" >
 					</td>
 					<td class="actions">
-						<div v-if="!readonly" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<div v-if="!readonly(propidx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>" v-on:click.stop="remove(propidx)">
 						</div>
 					</td>

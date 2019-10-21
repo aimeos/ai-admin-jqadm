@@ -182,14 +182,7 @@ Vue.component('property-table', {
 		'domain': {type: String, required: true},
 		'index': {type: Number, default: 0},
 		'items': {type: Array, required: true},
-		'readonly': {type: Boolean, default: true},
 		'siteid': {type: String, required: true}
-	},
-
-	data: function() {
-		return {
-			'list': this.items
-		};
 	},
 
 	methods: {
@@ -202,11 +195,19 @@ Vue.component('property-table', {
 			entry[this.domain + '.property.type'] = null;
 			entry[this.domain + '.property.value'] = null;
 
-			this.$set(this.list, this.list.length, entry);
+			let list = this.items;
+			list.push(entry);
+			this.$emit('update:property', list);
+		},
+
+		readonly: function(idx) {
+			return this.items[idx][this.domain + '.property.siteid'] != this.siteid;
 		},
 
 		remove: function(idx) {
-			this.list.splice(idx, 1);
+			let list = this.items;
+			list.splice(idx, 1);
+			this.$emit('update:property', list);
 		}
 	}
 });
