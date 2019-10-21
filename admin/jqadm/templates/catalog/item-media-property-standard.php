@@ -10,11 +10,11 @@ $enc = $this->encoder();
 
 
 ?>
-<div v-show="advanced[idx]" class="col-xl-12 content-block secondary">
+<div v-show="item['_ext']" class="col-xl-12 content-block secondary">
 
 	<property-table inline-template
 		v-bind:index="idx" v-bind:domain="'media'" v-bind:siteid="'<?= $this->site()->siteid() ?>'"
-		v-bind:items="entry['property']" v-on:update:property="entry['property'] = $event">
+		v-bind:items="item['property']" v-on:update:property="item['property'] = $event">
 
 		<table class="item-media-property table table-default" >
 			<thead>

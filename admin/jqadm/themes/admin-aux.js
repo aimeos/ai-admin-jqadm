@@ -121,79 +121,57 @@ Aimeos.Address = {
 
 Aimeos.Media = {
 
-	mixins : {
-		'methods': {
+	init : function() {
 
-			checkSite : function(key, idx) {
-				return this.items[idx][key] != this.siteid;
+		this.media = new Vue({
+			el: '#item-media-group',
+			data: {
+				items: [],
+				siteid: null,
+				domain: null
 			},
+			mounted: function() {
+				this.items = JSON.parse(this.$el.dataset.items);
+				this.siteid = this.$el.dataset.siteid;
+				this.domain = this.$el.dataset.domain;
 
-
-			addItem : function(prefix, data) {
-
-				var idx = this.items.length;
-				this.$set(this.items, idx, {});
-
-				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+				if(this.items[0]) {
+					this.$set(this.items[0], '_show', true);
 				}
-
-				var prefix = prefix || this.domain + '.lists.';
-				this.$set(this.items[idx], prefix + 'type', data && data[prefix + 'type'] || $('#item-media-group').data('listtype'));
-				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
-				this.$set(this.items[idx], 'media.siteid', this.siteid);
-				this.$set(this.items[idx], 'media.languageid', null);
-				this.$set(this.items[idx], 'media.status', 1);
 			},
+			methods: {
+				add: function() {
+					let entry = {};
+
+					entry[this.domain + '.lists.id'] = null;
+					entry[this.domain + '.lists.type'] = 'default';
+					entry[this.domain + '.lists.siteid'] = this.siteid;
+					entry[this.domain + '.lists.datestart'] = null;
+					entry[this.domain + '.lists.dateend'] = null;
+
+					entry['media.id'] = null;
+					entry['media.label'] = null;
+					entry['media.type'] = 'default';
+					entry['media.siteid'] = this.siteid;
+					entry['media.languageid'] = null;
+					entry['media.preview'] = null;
+					entry['media.url'] = null;
+					entry['media.status'] = 1;
+
+					entry['property'] = [];
+					entry['config'] = [];
+					entry['_show'] = true;
+					entry['_nosort'] = true;
+
+					this.items.push(entry);
+				},
 
 
-			removeItem : function(idx) {
-				this.items.splice(idx, 1);
-			},
+				files: function(idx, files) {
 
-
-			getConfig : function(idx) {
-				 return this.items[idx]['config'] || [];
-			},
-
-
-			getCss : function(idx) {
-				return ( idx !== 0 && this.items[idx] && this.items[idx]['media.id'] ? 'collapsed' : 'show' );
-			},
-
-
-			getLabel : function(idx) {
-				var label = '';
-
-				if(this.items[idx]) {
-					label += (this.items[idx]['media.languageid'] ? this.items[idx]['media.languageid'] + ': ' : '');
-					label += (this.items[idx]['media.label'] ? this.items[idx]['media.label'] : '');
-					label += (this.items[idx]['media.type'] ? ' (' + this.items[idx]['media.type'] + ')' : '');
-				}
-
-				if(this.items[idx]['media.status'] < 1) {
-					label = '<s>' + label + '</s>';
-				}
-
-				return label;
-			},
-
-
-			getUrl : function(prefix, url) {
-
-				var str = url.substr(0, 4);
-				return (str === 'http' || str === 'data' ? url : prefix + url);
-			},
-
-
-			toggle : function(idx) {
-				this.$set(this.advanced, idx, (!this.advanced[idx] ? true : false));
-			},
-
-
-			updateFile : function(idx, files) {
-
-				if(files.length > 0) {
+					if(!files.length) {
+						return;
+					}
 
 					var cnt = sum = 0;
 					$( "input:file" ).each(function() {
@@ -226,34 +204,41 @@ Aimeos.Media = {
 					}
 
 					this.$set(this.items[idx], 'media.label', files[0].name);
+				},
+
+
+				label: function(idx) {
+					var label = '';
+
+					if(this.items[idx]) {
+						label += (this.items[idx]['media.languageid'] ? this.items[idx]['media.languageid'] + ': ' : '');
+						label += (this.items[idx]['media.label'] ? this.items[idx]['media.label'] : '');
+						label += (this.items[idx]['media.type'] ? ' (' + this.items[idx]['media.type'] + ')' : '');
+					}
+
+					if(this.items[idx]['media.status'] < 1) {
+						label = '<s>' + label + '</s>';
+					}
+
+					return label;
+				},
+
+
+				remove: function(idx) {
+					this.items.splice(idx, 1);
+				},
+
+
+				toggle: function(what, idx) {
+					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				},
+
+				url: function(prefix, url) {
+
+					var str = url.substr(0, 4);
+					return (str === 'http' || str === 'data' ? url : prefix + url);
 				}
-			},
-
-
-			getPropertyData : function(idx) {
-
-				if(this.items[idx] && this.items[idx]['property']) {
-					return this.items[idx]['property'];
-				}
-
-				return [];
 			}
-		}
-	},
-
-
-	init : function() {
-
-		this.media = new Vue({
-			'el': '#item-media-group',
-			'data': {
-				'advanced': [],
-				'items': $("#item-media-group").data("items"),
-				'keys': $("#item-media-group").data("keys"),
-				'siteid': $("#item-media-group").data("siteid"),
-				'domain': $("#item-media-group").data("domain")
-			},
-			'mixins': [this.mixins]
 		});
 	}
 };
