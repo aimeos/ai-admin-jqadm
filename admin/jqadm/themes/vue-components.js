@@ -104,24 +104,22 @@ Vue.component('combo-box', {
 
 Vue.component('config-table', {
 	props: {
-		'idx': {required: false, default: ''},
+		'index': {required: false, default: ''},
 		'items': {type: Array, required: true},
 		'readonly': {type: Boolean, default: true}
 	},
 
-	data: function() {
-		return {
-			'list': this.items
-		};
-	},
-
 	methods: {
 		add : function() {
-			this.$set(this.list, this.list.length, {key: '', val: ''});
+			let list = this.items;
+			list.push({key: '', val: ''});
+			this.$emit('update:config', list);
 		},
 
-		remove : function(idx) {
-			this.list.splice(idx, 1);
+		remove: function(idx) {
+			let list = this.items;
+			list.splice(idx, 1);
+			this.$emit('update:config', list);
 		}
 	}
 });

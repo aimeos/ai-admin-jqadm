@@ -141,8 +141,12 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block config-table">
-					<config-table inline-template v-bind:readonly="false" v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'itemData/config', [] ) ) ?>')">
+				--><div class="col-xl-6 content-block vue-block"
+					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
+
+					<config-table inline-template v-bind:readonly="false"
+						v-bind:items="data['config']" v-on:change="data['config'] = $event">
+
 						<table class="item-config table table-striped">
 							<thead>
 								<tr>
@@ -160,17 +164,17 @@ $params = $this->get( 'pageParams', [] );
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="(entry, pos) in list" v-bind:key="pos" class="config-item">
+								<tr v-for="(entry, pos) in items" v-bind:key="pos" class="config-item">
 									<td class="config-row-key">
-										<input is="auto-complete" class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly" required
+										<input is="auto-complete" required class="form-control" v-bind:readonly="readonly" tabindex="1"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'key' ) ) ); ?>'.replace('_pos_', pos)"
 											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>')"
-											v-bind:value="entry.key" />
+											v-model="entry.key" />
 									</td>
 									<td class="config-row-value">
-										<input class="form-control" v-bind:tabindex="1" v-bind:readonly="readonly"
+										<input class="form-control" v-bind:readonly="readonly" tabindex="1"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'val' ) ) ); ?>'.replace('_pos_', pos)"
-											v-bind:value="entry.val" />
+											v-model="entry.val" />
 									</td>
 									<td class="actions">
 										<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(pos)"

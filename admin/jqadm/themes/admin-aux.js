@@ -19,7 +19,6 @@ $(function() {
 		});
 	});
 
-	new Vue({'el': '.config-table'});
 	new Vue({'el': '.property-table'});
 
 	Aimeos.Address.init();
