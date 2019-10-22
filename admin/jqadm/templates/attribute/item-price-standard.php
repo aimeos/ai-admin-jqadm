@@ -35,7 +35,7 @@ $enc = $this->encoder();
 
 					<div v-bind:id="'item-price-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
 						v-bind:data-target="'#item-price-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
-						v-bind:aria-controls="'item-price-group-data-' + idx" aria-expanded="false" v-on:click.stop="toggle('_show', idx)">
+						v-bind:aria-controls="'item-price-group-data-' + idx" aria-expanded="false" v-on:click.self.stop="toggle('_show', idx)">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
@@ -44,11 +44,11 @@ $enc = $this->encoder();
 						<span class="item-label header-label" v-html="label(idx)"></span>
 						&nbsp;
 						<div class="card-tools-right">
-							<div v-if="!item['attribute.lists.siteid'] != siteid && !item['_nosort']"
+							<div v-if="item['attribute.lists.siteid'] == siteid && !item['_nosort']"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
 							</div>
-							<div v-if="!item['attribute.lists.siteid'] != siteid"
+							<div v-if="item['attribute.lists.siteid'] == siteid"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								v-on:click.stop="remove(idx)">
