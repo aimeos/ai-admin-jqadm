@@ -39,71 +39,65 @@
 
 $enc = $this->encoder();
 
-$keys = [
-	'product.lists.siteid', 'product.lists.type', 'product.lists.datestart', 'product.lists.dateend', 'config',
-	'text.siteid', 'text.type', 'text.languageid', 'text.content', 'text.status'
-];
-
 
 ?>
 <div id="text" class="item-text content-block tab-pane fade" role="tablist" aria-labelledby="text">
-	<div id="item-text-group" role="tablist" aria-multiselectable="true"
+
+	<div id="item-text-group"
 		data-translate="<?= $enc->attr( $this->config( 'admin/jqadm/api/translate', [] ) ) ?>"
 		data-items="<?= $enc->attr( $this->get( 'textData', [] ) ); ?>"
-		data-listtype="<?= key( $this->get( 'textListTypes', [] ) ) ?>"
-		data-keys="<?= $enc->attr( $keys ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
 		data-domain="product" >
 
-		<div class="group-list">
+		<div class="group-list" role="tablist" aria-multiselectable="true">
 			<div is="draggable" v-model="items" group="text" handle=".act-move">
-				<div v-for="(entry, idx) in items" v-bind:key="idx" class="group-item card">
+				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
-					<div v-bind:id="'item-text-group-item-' + idx" v-bind:class="getCss(idx)"
+					<div v-bind:id="'item-text-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
 						v-bind:data-target="'#item-text-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
-						v-bind:aria-controls="'item-text-group-data-' + idx" aria-expanded="false">
+						v-bind:aria-controls="'item-text-group-data-' + idx" aria-expanded="false" v-on:click.self.stop="toggle('_show', idx)">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 							</div>
 						</div>
-						<span class="item-label header-label" v-html="getLabel(idx)"></span>
+						<span class="item-label header-label" v-html="label(idx)"></span>
 						&nbsp;
 						<div class="card-tools-right">
-							<div v-if="!checkSite('product.lists.siteid', idx)" class="dropdown">
-								<button class="btn btn-card-header act-translate fa dropdown-toggle" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+							<div class="dropdown">
+								<a v-bind:id="'translate-menu-' + idx" class="btn btn-card-header act-translate fa dropdown-toggle" href="#"
+									tabindex="<?= $this->get( 'tabindex' ); ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Translate text' ) ); ?>">
-								</button>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'DE')">Deutsch</a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'EN')">English</a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'ES')">Español</a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'FR')">Français</a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'IT')">Italiano</a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'NL')">Nederlands</a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'PL')">Polski</a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'PT')">Português</a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'RU')">русский язык</a>
+ 								</a>
+								<div class="dropdown-menu dropdown-menu-right" v-bind:aria-labelledby="'translate-menu-' + idx">
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'DE')"><?= $enc->html( $this->translate( 'language', 'de' ) ); ?></a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'EN')"><?= $enc->html( $this->translate( 'language', 'en' ) ); ?></a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'ES')"><?= $enc->html( $this->translate( 'language', 'es' ) ); ?></a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'FR')"><?= $enc->html( $this->translate( 'language', 'fr' ) ); ?></a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'IT')"><?= $enc->html( $this->translate( 'language', 'it' ) ); ?></a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'NL')"><?= $enc->html( $this->translate( 'language', 'nl' ) ); ?></a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'PL')"><?= $enc->html( $this->translate( 'language', 'pl' ) ); ?></a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'PT')"><?= $enc->html( $this->translate( 'language', 'pt' ) ); ?></a>
+									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'RU')"><?= $enc->html( $this->translate( 'language', 'ru' ) ); ?></a>
 								</div>
 							</div>
-							<div v-if="!checkSite('product.lists.siteid', idx)"
+							<div v-if="item['product.lists.siteid'] == siteid && !item['_nosort']"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
 							</div>
-							<div v-if="!checkSite('product.lists.siteid', idx)"
+							<div v-if="item['product.lists.siteid'] == siteid"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-								v-on:click.stop="removeItem(idx)">
+								v-on:click.stop="remove(idx)">
 							</div>
 						</div>
 					</div>
 
-					<div v-bind:id="'item-text-group-data-' + idx" v-bind:class="getCss(idx)"
+					<div v-bind:id="'item-text-group-data-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
 						v-bind:aria-labelledby="'item-text-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
-						<input type="hidden" v-model="items[idx]['text.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.id' ) ) ); ?>'.replace('idx', idx)" />
+						<input type="hidden" v-model="item['text.id']"
+							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'text.id' ) ) ); ?>'.replace('_idx_', idx)" />
 
 						<div class="col-xl-6">
 
@@ -112,11 +106,11 @@ $keys = [
 									<textarea is="html-editor" class="form-control item-content" required="required"
 										v-bind:key="idx"
 										v-bind:id="'cke-' + idx"
-										v-bind:value="items[idx]['text.content']"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.content' ) ) ); ?>'.replace('idx', idx)"
-										v-bind:readonly="checkSite('text.siteid', idx)"
+										v-bind:value="item['text.content']"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ); ?>'.replace('_idx_', idx)"
+										v-bind:readonly="item['text.siteid'] != siteid"
 										v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-model="items[idx]['text.content']"
+										v-model="item['text.content']"
 									></textarea>
 								</div>
 							</div>
@@ -129,19 +123,20 @@ $keys = [
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 								<div class="col-sm-8">
 									<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.status' ) ) ); ?>'.replace('idx', idx)"
-										v-bind:readonly="checkSite('text.siteid', idx)"
-										v-model="items[idx]['text.status']" >
-										<option value="1" v-bind:selected="entry['text.status'] == 1" >
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'text.status' ) ) ); ?>'.replace('_idx_', idx)"
+										v-bind:readonly="item['text.siteid'] != siteid"
+										v-model="item['text.status']" >
+										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
+										<option value="1" v-bind:selected="item['text.status'] == 1" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
 										</option>
-										<option value="0" v-bind:selected="entry['text.status'] == 0" >
+										<option value="0" v-bind:selected="item['text.status'] == 0" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
 										</option>
-										<option value="-1" v-bind:selected="entry['text.status'] == -1" >
+										<option value="-1" v-bind:selected="item['text.status'] == -1" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
 										</option>
-										<option value="-2" v-bind:selected="entry['text.status'] == -2" >
+										<option value="-2" v-bind:selected="item['text.status'] == -2" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
 										</option>
 									</select>
@@ -154,10 +149,10 @@ $keys = [
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $languages, 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
-											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', 'idx', 'text.languageid'] ) ); ?>'.replace('idx', idx)"
+											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', '_idx_', 'text.languageid'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-											v-bind:readonly="checkSite('text.siteid', idx)"
-											v-model="entry['text.languageid']" >
+											v-bind:readonly="item['text.siteid'] != siteid"
+											v-model="item['text.languageid']" >
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
@@ -166,7 +161,7 @@ $keys = [
 								</div>
 							<?php else : ?>
 								<input class="text-langid" type="hidden"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.languageid' ) ) ); ?>'.replace('idx', idx)"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'text.languageid' ) ) ); ?>'.replace('_idx_', idx)"
 									value="<?= $enc->attr( key( $languages ) ) ?>" />
 							<?php endif; ?>
 
@@ -176,10 +171,10 @@ $keys = [
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $textTypes, 'text.type.code', 'text.type.label' )->toArray() ) ?>')"
-											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', 'idx', 'text.type'] ) ); ?>'.replace('idx', idx)"
+											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', '_idx_', 'text.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-											v-bind:readonly="checkSite('text.siteid', idx)"
-											v-model="entry['text.type']" >
+											v-bind:readonly="item['text.siteid'] != siteid"
+											v-model="item['text.type']" >
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
@@ -188,7 +183,7 @@ $keys = [
 								</div>
 							<?php else : ?>
 								<input class="item-type" type="hidden"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.type' ) ) ); ?>'.replace('idx', idx)"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'text.type' ) ) ); ?>'.replace('_idx_', idx)"
 									value="<?= $enc->attr( key( $textTypes ) ) ?>" />
 							<?php endif; ?>
 
@@ -196,10 +191,10 @@ $keys = [
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-label" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'text.label' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'text.label' ) ) ); ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label' ) ); ?>"
-										v-bind:readonly="checkSite('text.siteid', idx)"
-										v-model="items[idx]['text.label']" />
+										v-bind:readonly="item['text.siteid'] != siteid"
+										v-model="item['text.label']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Description of the text content if it\'s in a foreign language' ) ); ?>
@@ -209,7 +204,7 @@ $keys = [
 						</div>
 
 
-						<div v-on:click="toggle(idx)" class="col-xl-12 advanced" v-bind:class="{ 'collapsed': !advanced[idx] }">
+						<div v-on:click="toggle('_ext', idx)" class="col-xl-12 advanced" v-bind:class="{'collapsed': !item['_ext']}">
 							<div class="card-tools-left">
 								<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data' ) ); ?>">
@@ -218,7 +213,7 @@ $keys = [
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
 						</div>
 
-						<div v-show="advanced[idx]" class="col-xl-6 content-block secondary">
+						<div v-show="item['_ext']" class="col-xl-6 content-block secondary">
 
 							<?php if( ( $listTypes = $this->get( 'textListTypes', [] ) ) !== [] ) : ?>
 								<div class="form-group row mandatory">
@@ -226,10 +221,10 @@ $keys = [
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $listTypes, 'product.lists.type.code', 'product.lists.type.label' )->toArray() ) ?>')"
-											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', 'idx', 'product.lists.type'] ) ); ?>'.replace('idx', idx)"
+											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', '_idx_', 'product.lists.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-											v-bind:readonly="checkSite('product.lists.siteid', idx)"
-											v-model="entry['product.lists.type']" >
+											v-bind:readonly="item['product.lists.siteid'] != siteid"
+											v-model="item['product.lists.type']" >
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
@@ -238,7 +233,7 @@ $keys = [
 								</div>
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'product.lists.type' ) ) ); ?>'.replace('idx', idx)"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'product.lists.type' ) ) ); ?>'.replace('_idx_', idx)"
 									value="<?= $enc->attr( key( $listTypes ) ) ?>" />
 							<?php endif; ?>
 
@@ -246,10 +241,10 @@ $keys = [
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'product.lists.datestart' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'product.lists.datestart' ) ) ); ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-										v-bind:readonly="checkSite('product.lists.siteid', idx)"
-										v-model="items[idx]['product.lists.datestart']" />
+										v-bind:readonly="item['product.lists.siteid'] != siteid"
+										v-model="item['product.lists.datestart']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ); ?>
@@ -259,10 +254,10 @@ $keys = [
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', 'idx', 'product.lists.dateend' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'product.lists.dateend' ) ) ); ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-										v-bind:readonly="checkSite('product.lists.siteid', idx)"
-										v-model="items[idx]['product.lists.dateend']" />
+										v-bind:readonly="item['product.lists.siteid'] != siteid"
+										v-model="item['product.lists.dateend']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ); ?>
@@ -270,10 +265,10 @@ $keys = [
 							</div>
 						</div>
 
-						<div v-show="advanced[idx]" class="col-xl-6 content-block secondary" v-bind:class="checkSite('product.lists.siteid', idx) ? 'readonly' : ''">
+						<div v-show="item['_ext']" class="col-xl-6 content-block secondary" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
 							<config-table inline-template
-								v-bind:readonly="entry['product.lists.siteid'] != siteid" v-bind:index="idx"
-								v-bind:items="entry['config']" v-on:update:config="entry['config'] = $event">
+								v-bind:readonly="item['product.lists.siteid'] != siteid" v-bind:index="idx"
+								v-bind:items="item['config']" v-on:update:config="item['config'] = $event">
 
 								<table class="item-config table table-striped">
 									<thead>
@@ -323,7 +318,7 @@ $keys = [
 			<div slot="footer" class="card-tools-more">
 				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-					v-on:click="addItem('product.lists.')" >
+					v-on:click="add()" >
 				</div>
 			</div>
 		</div>

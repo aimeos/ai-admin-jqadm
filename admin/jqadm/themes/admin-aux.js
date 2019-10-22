@@ -330,145 +330,137 @@ Aimeos.Price = {
 
 Aimeos.Text = {
 
-	mixins : {
-		'methods': {
-
-			checkSite : function(key, idx) {
-				return this.items[idx][key] != this.siteid;
-			},
-
-
-			addItem : function(prefix, data) {
-
-				var idx = this.items.length;
-				this.$set(this.items, idx, {});
-
-				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
-				}
-
-				this.$set(this.items[idx], prefix + 'type', data && data[prefix + 'type'] || $('#item-text-group').data('listtype'));
-				this.$set(this.items[idx], prefix + 'siteid', this.siteid);
-				this.$set(this.items[idx], 'text.siteid', this.siteid);
-				this.$set(this.items[idx], 'text.status', '1');
-			},
-
-
-			removeItem : function(idx) {
-				this.items.splice(idx, 1);
-			},
-
-
-			getConfig : function(idx) {
-				return this.items[idx]['config'] || [];
-			},
-
-
-			getCss : function(idx) {
-				return ( idx !== 0 && this.items[idx]['text.id'] ? 'collapsed' : 'show' );
-			},
-
-
-			getLabel : function(idx) {
-				var label = '';
-				var type = $('#item-text-group-data-' + idx + ' .item-type option[value="' + this.items[idx]['text.type'] + '"]').html();
-
-				label += (this.items[idx]['text.languageid'] ? this.items[idx]['text.languageid'].toUpperCase() : '');
-				label += (type ? ' (' + type.trim() + ')' : (this.items[idx]['text.type'] ? ' (' + this.items[idx]['text.type'] + ')' : ''));
-
-				if(this.items[idx]['text.content']) {
-					var tmp = document.createElement("span");
-					tmp.innerHTML = this.items[idx]['text.content'];
-					label += ': ' + (tmp.innerText || tmp.textContent || "").substr(0, 40);
-				}
-
-				if(this.items[idx]['text.status'] < 1) {
-					label = '<s>' + label + '</s>';
-				}
-
-				return label;
-			},
-
-
-			toggle : function(idx) {
-				this.$set(this.advanced, idx, (!this.advanced[idx] ? true : false));
-			},
-
-
-			translate : function(idx, langid) {
-
-				if(!this.$options.translate) {
-					alert('No translation service configured');
-					return;
-				}
-
-				if(!this.$options.translate['url']) {
-					alert('No translation URL for DeepL configured');
-					return;
-				}
-
-				if(!this.$options.translate['key']) {
-					alert('No translation credentials for DeepL configured');
-					return;
-				}
-
-				var self = this;
-				var data = {
-					'auth_key': this.$options.translate['key'],
-					'text' : this.items[idx]['text.content'],
-					'target_lang' : langid.toUpperCase()
-				};
-
-				if(this.items[idx]['text.languageid']) {
-					data['source_lang'] = this.items[idx]['text.languageid'].toUpperCase();
-				}
-
-
-				$.getJSON(this.$options.translate['url'] + '/translate', data).done(function(data) {
-
-					var item = {
-						'text.content': data['translations'] && data['translations'][0] && data['translations'][0]['text'] || '',
-						'text.type': self.items[idx]['text.type'],
-						'text.languageid': langid.toLowerCase()
-					};
-
-					item[(self.prefix || self.domain + '.lists.') + 'siteid'] = self.siteid;
-					self.addItem(null, item);
-
-				}).fail(function(jqxhr, status, error) {
-					var msg = '';
-
-					switch(jqxhr.status) {
-						case 200: break;
-						case 400: msg = 'Bad request: ' + error; break;
-						case 403: msg = 'Invalid DeepL API token'; break;
-						case 413: msg = 'The text size exceeds the limit'; break;
-						case 429: msg = 'Too many requests. Please wait and resend your request.'; break;
-						case 456: msg = 'Quota exceeded. The character limit has been reached.'; break;
-						case 503: msg = 'Resource currently unavailable. Try again later.'; break;
-						default: msg = 'Unexpected response code: ' + jqxhr.status;
-					}
-
-					alert(msg);
-				});
-			}
-		}
-	},
-
-
 	init : function() {
 
 		this.text = new Vue({
-			'el': '#item-text-group',
-			'translate': $("#item-text-group").data("translate"),
-			'data': {
-				'advanced': [],
-				'items': $("#item-text-group").data("items"),
-				'keys': $("#item-text-group").data("keys"),
-				'siteid': $("#item-text-group").data("siteid"),
-				'domain': $("#item-text-group").data("domain")
+			el: '#item-text-group',
+			data: {
+				items: [],
+				siteid: null,
+				domain: null
 			},
-			'mixins': [this.mixins]
+			mounted: function() {
+				this.items = JSON.parse(this.$el.dataset.items);
+				this.siteid = this.$el.dataset.siteid;
+				this.domain = this.$el.dataset.domain;
+
+				if(this.items[0]) {
+					this.$set(this.items[0], '_show', true);
+				}
+			},
+			methods: {
+				add: function(data) {
+					let entry = {};
+
+					entry[this.domain + '.lists.id'] = null;
+					entry[this.domain + '.lists.type'] = 'default';
+					entry[this.domain + '.lists.siteid'] = this.siteid;
+					entry[this.domain + '.lists.datestart'] = null;
+					entry[this.domain + '.lists.dateend'] = null;
+
+					entry['text.id'] = null;
+					entry['text.type'] = null;
+					entry['text.languageid'] = null;
+					entry['text.siteid'] = this.siteid;
+					entry['text.content'] = '';
+					entry['text.label'] = '';
+					entry['text.status'] = 1;
+
+					entry['property'] = [];
+					entry['config'] = [];
+					entry['_show'] = true;
+					entry['_nosort'] = true;
+
+					this.items.push(Object.assign(entry, data));
+				},
+
+
+				label: function(idx) {
+					var label = '';
+
+					label += (this.items[idx]['text.languageid'] ? this.items[idx]['text.languageid'].toUpperCase() : '');
+					label += (this.items[idx]['text.type'] ? ' (' + this.items[idx]['text.type'] + ')' : '');
+
+					if(this.items[idx]['text.label']) {
+						label += ': ' + this.items[idx]['text.label'].substr(0, 40);
+					} else if(this.items[idx]['text.content']) {
+						var tmp = document.createElement("span");
+						tmp.innerHTML = this.items[idx]['text.content'];
+						label += ': ' + (tmp.innerText || tmp.textContent || "").substr(0, 40);
+					}
+
+					if(this.items[idx]['text.status'] < 1) {
+						label = '<s>' + label + '</s>';
+					}
+
+					return label;
+				},
+
+
+				remove: function(idx) {
+					this.items.splice(idx, 1);
+				},
+
+
+				toggle: function(what, idx) {
+					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				},
+
+
+				translate : function(idx, langid) {
+
+					if(!this.$el.dataset.translate) {
+						alert('No translation service configured');
+						return;
+					}
+
+					config = JSON.parse(this.$el.dataset.translate);
+
+					if(!config['url']) {
+						alert('No translation URL for DeepL configured');
+						return;
+					}
+
+					if(!config['key']) {
+						alert('No translation credentials for DeepL configured');
+						return;
+					}
+
+					var self = this;
+					var data = {
+						'auth_key': config['key'],
+						'text' : this.items[idx]['text.content'],
+						'target_lang' : langid.toUpperCase()
+					};
+
+					if(this.items[idx]['text.languageid']) {
+						data['source_lang'] = this.items[idx]['text.languageid'].toUpperCase();
+					}
+
+
+					$.getJSON(config['url'] + '/translate', data).done(function(data) {
+						self.add({
+							'text.content': data['translations'] && data['translations'][0] && data['translations'][0]['text'] || '',
+							'text.languageid': langid.toLowerCase()
+						});
+					}).fail(function(jqxhr, status, error) {
+						var msg = '';
+
+						switch(jqxhr.status) {
+							case 200: break;
+							case 400: msg = 'Bad request: ' + error; break;
+							case 403: msg = 'Invalid DeepL API token'; break;
+							case 413: msg = 'The text size exceeds the limit'; break;
+							case 429: msg = 'Too many requests. Please wait and resend your request.'; break;
+							case 456: msg = 'Quota exceeded. The character limit has been reached.'; break;
+							case 503: msg = 'Resource currently unavailable. Try again later.'; break;
+							default: msg = 'Unexpected response code: ' + jqxhr.status;
+						}
+
+						alert(msg);
+					});
+				}
+			}
 		});
 	}
 };
