@@ -7,18 +7,6 @@
 
 $(function() {
 
-	$('.vue-block').each(function() {
-		new Vue({
-			el: this,
-			data: {data: null},
-			beforeMount: function() {
-				if(this.$el.dataset && this.$el.dataset.data) {
-					this.data = JSON.parse(this.$el.dataset.data);
-				}
-			}
-		});
-	});
-
 	Aimeos.Address.init();
 	Aimeos.Media.init();
 	Aimeos.Price.init();

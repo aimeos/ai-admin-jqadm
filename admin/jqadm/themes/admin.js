@@ -979,5 +979,15 @@ $(function() {
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();
 
-	new Vue({el: '.vue-block'});
+	$('.vue-block').each(function() {
+		new Vue({
+			el: this,
+			data: {data: null},
+			beforeMount: function() {
+				if(this.$el.dataset && this.$el.dataset.data) {
+					this.data = JSON.parse(this.$el.dataset.data);
+				}
+			}
+		});
+	});
 });
