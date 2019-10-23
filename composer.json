@@ -1,7 +1,7 @@
 {
 	"name": "aimeos/ai-admin-jqadm",
-	"description": "Aimeos ai-admin-jqadm extension",
-	"keywords": ["aimeos", "extension", "JQuery admin interface"],
+	"description": "Aimeos Vue.js+Bootstrap admin interface",
+	"keywords": ["aimeos", "extension", "admin", "Vue.js", "Bootstrap"],
 	"homepage": "https://aimeos.org/",
 	"type": "aimeos-extension",
 	"license": "LGPL-3.0-or-later",
