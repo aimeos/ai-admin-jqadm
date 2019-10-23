@@ -297,7 +297,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'product' );
 
 			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '+', 'product.id')] );
+			$search->setSortations( [$search->sort( '+', 'product.id' )] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, array_diff( $this->getDomains(), ['product'] ), $total );

@@ -553,7 +553,7 @@ class Standard
 		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
 		{
 			if( trim( $entry['key'] ?? '' ) !== '' ) {
-				$conf[$entry['key']] = $entry['val'] ?? null ;
+				$conf[$entry['key']] = $entry['val'] ?? null;
 			}
 		}
 

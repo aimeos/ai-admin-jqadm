@@ -214,7 +214,7 @@ switch( $this->param( 'act' ) )
 
 									<?php foreach( $navitem as $subresource ) : ?>
 										<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
-											<li class="<?= str_replace( '/', '-', $subresource); ?>">
+											<li class="<?= str_replace( '/', '-', $subresource ); ?>">
 												<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
 													<span class="name"><?= $enc->html( $this->translate( 'admin', $subresource ) ); ?></span>
 												</a>

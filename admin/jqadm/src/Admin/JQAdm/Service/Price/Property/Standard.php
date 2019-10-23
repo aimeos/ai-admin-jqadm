@@ -218,7 +218,7 @@ class Standard
 
 		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'price.property.type.domain', 'price' ) );
-		$search->setSortations( [$search->sort( '+', 'price.property.type.position')] );
+		$search->setSortations( [$search->sort( '+', 'price.property.type.position' )] );
 
 		$view->propertyTypes = $this->map( $manager->searchItems( $search ) );
 

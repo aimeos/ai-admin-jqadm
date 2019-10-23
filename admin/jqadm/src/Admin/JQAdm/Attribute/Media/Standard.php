@@ -376,7 +376,7 @@ class Standard
 
 			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
 				$refItem = $cntl->add( $refItem, $file );
-			} elseif ( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
+			} elseif( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
 				$refItem = $cntl->copy( $refItem );
 			}
 
