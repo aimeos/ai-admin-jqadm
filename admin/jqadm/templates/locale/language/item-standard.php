@@ -52,7 +52,7 @@ $params = $this->get( 'pageParams', [] );
 
 				<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx+1; ?>">
+						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
 							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 						</a>
 					</li>

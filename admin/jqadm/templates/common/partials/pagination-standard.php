@@ -42,7 +42,7 @@ $limit = max( $this->get( 'page/limit', 25 ), 1 );
 $first = ( $offset > 0 ? 0 : null );
 $prev = ( $offset - $limit >= 0 ? $offset - $limit : null );
 $next = ( $offset + $limit < $total ? $offset + $limit : null );
-$last = ( floor(($total - 1) / $limit) * $limit > $offset ? floor(($total - 1) / $limit) * $limit : null );
+$last = ( floor( ( $total - 1 ) / $limit ) * $limit > $offset ? floor( ( $total - 1 ) / $limit ) * $limit : null );
 
 $pageCurrent = floor( $offset / $limit ) + 1;
 $pageTotal = ( $total != 0 ? ceil( $total / $limit ) : 1 );

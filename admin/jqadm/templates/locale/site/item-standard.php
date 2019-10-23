@@ -159,7 +159,7 @@ $params = $this->get( 'pageParams', [] );
 									<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?></th>
 									<th class="actions">
 										<div v-if="!readonly" class="btn act-add fa" tabindex="1" v-on:click="add()"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"></div>
+											title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"></div>
 									</th>
 								</tr>
 							</thead>
@@ -178,7 +178,7 @@ $params = $this->get( 'pageParams', [] );
 									</td>
 									<td class="actions">
 										<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(pos)"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
+											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"></div>
 									</td>
 								</tr>
 							</tbody>

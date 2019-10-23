@@ -288,7 +288,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'locale/language' );
 
 			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '-', 'locale.language.status'), $search->sort( '+', 'locale.language.id')] );
+			$search->setSortations( [$search->sort( '-', 'locale.language.status' ), $search->sort( '+', 'locale.language.id' )] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );

@@ -240,7 +240,7 @@ $types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'produc
 
 				<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx+1; ?>">
+						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
 							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 						</a>
 					</li>
@@ -431,7 +431,7 @@ $types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'produc
 									<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?></th>
 									<th class="actions">
 										<div v-if="!readonly" class="btn act-add fa" tabindex="1" v-on:click="add()"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"></div>
+											title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"></div>
 									</th>
 								</tr>
 							</thead>
@@ -450,7 +450,7 @@ $types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'produc
 									</td>
 									<td class="actions">
 										<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(pos)"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry') ); ?>"></div>
+											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"></div>
 									</td>
 								</tr>
 							</tbody>
