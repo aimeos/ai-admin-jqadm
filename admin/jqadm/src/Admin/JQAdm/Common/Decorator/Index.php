@@ -40,7 +40,7 @@ class Index extends Base
 			$search->setConditions( $search->compare( '==', 'product.id', $prodIds ) );
 
 			$items = $manager->searchItems( $search, $domains );
-			\Aimeos\MShop::create( $context, 'index' )->rebuildIndex( $items );
+			\Aimeos\MShop::create( $context, 'index' )->rebuild( $items );
 		}
 
 		return $result;

@@ -252,7 +252,7 @@ class Standard
 			$item = $manager->saveItem( clone $view->item );
 			$manager->commit();
 
-			\Aimeos\MShop::create( $context, 'index' )->rebuildIndex( [$item->getId() => $item] );
+			\Aimeos\MShop::create( $context, 'index' )->rebuild( [$item->getId() => $item] );
 
 			$this->nextAction( $view, $view->param( 'next' ), 'product', $view->item->getId(), 'save' );
 			return;
