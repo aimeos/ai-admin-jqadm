@@ -337,18 +337,31 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Coupon\Item\Iface $item, array $data )
 	{
+		if( ( $ids = $this->getValue( $data, 'coupon.code.id', [] ) ) === [] ) {
+			return;
+		}
+
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
 
-		foreach( $this->getValue( $data, 'coupon.code.id', [] ) as $idx => $id )
+		$search = $manager->createSearch()->setSlice( 0, count( $ids ) );
+		$search->setConditions( $search->compare( '==', 'coupon.code.id', $ids ) );
+		$items = $manager->searchItems( $search );
+
+		foreach( $ids as $idx => $id )
 		{
-			$citem = $manager->createItem();
+			if( !isset( $items[$id] ) ) {
+				$citem = $manager->createItem();
+			} else {
+				$citem = $items[$id];
+			}
 
 			$citem->setId( $id );
 			$citem->setParentId( $item->getId() );
-			$citem->setCode( $this->getValue( $data, 'coupon.code.code/' . $idx ) );
-			$citem->setCount( $this->getValue( $data, 'coupon.code.count/' . $idx ) );
-			$citem->setDateStart( $this->getValue( $data, 'coupon.code.datestart/' . $idx ) );
-			$citem->setDateEnd( $this->getValue( $data, 'coupon.code.dateend/' . $idx ) );
+			$citem->setCode( $this->getValue( $data, 'coupon.code.code/' . $idx, $citem->getCode() ) );
+			$citem->setCount( $this->getValue( $data, 'coupon.code.count/' . $idx, $citem->getCount() ) );
+			$citem->setDateStart( $this->getValue( $data, 'coupon.code.datestart/' . $idx, $citem->getDateStart() ) );
+			$citem->setDateEnd( $this->getValue( $data, 'coupon.code.dateend/' . $idx, $citem->getDateEnd() ) );
+			$citem->setRef( $this->getValue( $data, 'coupon.code.ref/' . $idx, $citem->getRef() ) );
 
 			$manager->saveItem( $citem, false );
 		}

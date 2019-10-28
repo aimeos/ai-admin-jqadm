@@ -107,6 +107,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'coupon.code.count' => ['10'],
 				'coupon.code.datestart' => ['2000-01-01T00:00:00'],
 				'coupon.code.dateend' => ['2010-01-01T00:00'],
+				'coupon.code.ref' => ['123'],
 			),
 		);
 
