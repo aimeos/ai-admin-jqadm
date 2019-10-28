@@ -40,11 +40,6 @@ return [
 				],
 			],
 		],
-		'product' => [
-			'decorators' => [
-				'global' => ['Index'],
-			],
-		],
 	],
 	'common' => [
 		'decorators' => [
@@ -99,9 +94,6 @@ return [
 		],
 	],
 	'product' => [
-		'decorators' => [
-			'global' => ['Cache'],
-		],
 		'standard' => [
 			'subparts' => [
 				'selection' => 'selection',
@@ -167,11 +159,6 @@ return [
 					'price' => 'price',
 				],
 			],
-		],
-	],
-	'product/category' => [
-		'decorators' => [
-			'local' => ['Cache'],
 		],
 	],
 	'service' => [

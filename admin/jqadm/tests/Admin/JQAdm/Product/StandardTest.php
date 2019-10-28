@@ -316,7 +316,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientDecorators()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/product/media/decorators/global', array( 'Cache' ) );
+		$this->context->getConfig()->set( 'admin/jqadm/product/media/decorators/global', array( 'Page' ) );
 
 		$result = $this->object->getSubClient( 'media' );
 		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );

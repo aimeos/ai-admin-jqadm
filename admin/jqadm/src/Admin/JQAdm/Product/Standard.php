@@ -125,6 +125,7 @@ class Standard
 	 */
 	public function delete()
 	{
+		$tags = ['product'];
 		$view = $this->getView();
 		$context = $this->getContext();
 
@@ -141,7 +142,7 @@ class Standard
 			$search->setConditions( $search->compare( '==', 'product.id', $ids ) );
 			$items = $manager->searchItems( $search, $this->getDomains() );
 
-			foreach( $items as $item )
+			foreach( $items as $id => $item )
 			{
 				$view->item = $item;
 
@@ -150,12 +151,14 @@ class Standard
 				}
 
 				$manager->saveItem( $view->item );
+				$tags[] = 'product-' . $id;
 			}
 
 			$manager->deleteItems( array_keys( $items ) );
 			$manager->commit();
 
 			\Aimeos\MShop::create( $context, 'index' )->deleteItems( array_keys( $items ) );
+			$context->getCache()->deleteByTags( $tags );
 
 			$this->nextAction( $view, 'search', 'product', null, 'delete' );
 			return;
@@ -253,6 +256,8 @@ class Standard
 			$manager->commit();
 
 			\Aimeos\MShop::create( $context, 'index' )->rebuild( [$item->getId() => $item] );
+			$context->getCache()->deleteByTags( ['product', 'product-' . $item->getId()] );
+
 
 			$this->nextAction( $view, $view->param( 'next' ), 'product', $view->item->getId(), 'save' );
 			return;
