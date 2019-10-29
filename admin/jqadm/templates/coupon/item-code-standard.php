@@ -41,6 +41,7 @@ $columnList = [
 	'coupon.code.count' => $this->translate( 'admin', 'Count' ),
 	'coupon.code.datestart' => $this->translate( 'admin', 'Start date' ),
 	'coupon.code.dateend' => $this->translate( 'admin', 'End date' ),
+	'coupon.code.ref' => $this->translate( 'admin', 'Reference' ),
 	'coupon.code.ctime' => $this->translate( 'admin', 'Created' ),
 	'coupon.code.mtime' => $this->translate( 'admin', 'Modified' ),
 	'coupon.code.editor' => $this->translate( 'admin', 'Editor' ),
@@ -111,6 +112,7 @@ $columnList = [
 						'coupon.code.count' => ['op' => '=='],
 						'coupon.code.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.code.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+						'coupon.code.ref' => [],
 						'coupon.code.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.code.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'coupon.code.editor' => [],
@@ -155,7 +157,7 @@ $columnList = [
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reference' ) ); ?></label>
 								<div class="col-sm-8">
-									<input class="form-control coupon-code-ref" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<input class="form-control coupon-code-ref" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.ref', '' ) ) ); ?>" disabled="disabled" />
 								</div>
 							</div>
@@ -208,9 +210,9 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'coupon.code.ref', $fields ) ) : ?>
 						<td class="coupon-ref">
-							<input class="form-control coupon-code-ref" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							<input class="form-control coupon-code-ref" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.ref', '' ) ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'codeData/coupon.code.ref/' . $idx ) ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'codeData/coupon.code.ref/' . $idx ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
