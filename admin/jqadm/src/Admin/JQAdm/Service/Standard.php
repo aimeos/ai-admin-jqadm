@@ -476,9 +476,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		$domains = array( 'media', 'price', 'text' );
-
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/service/domains', $domains );
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/service/domains', [] );
 	}
 
 

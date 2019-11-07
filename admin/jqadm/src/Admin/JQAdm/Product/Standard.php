@@ -459,9 +459,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		$domains = array( 'attribute', 'media', 'price', 'product', 'product/property', 'text' );
-
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/domains', $domains );
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/domains', [] );
 	}
 
 

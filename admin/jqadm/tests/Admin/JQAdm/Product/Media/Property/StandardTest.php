@@ -83,7 +83,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$item = $manager->findItem( 'CNC', ['media'] );
+		$item = $manager->findItem( 'CNC', ['media', 'media/property'] );
 		$item->setCode( 'jqadm-test-media-property' );
 		$item->setId( null );
 

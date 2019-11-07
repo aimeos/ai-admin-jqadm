@@ -2,6 +2,14 @@
 
 return [
 	'attribute' => [
+		'domains' => [
+			'attribute/property' => 'attribute/property',
+			'media' => 'media',
+			'media/property' => 'media/property',
+			'price' => 'price',
+			'price/property' => 'price/property',
+			'text' => 'text',
+		],
 		'standard' => [
 			'subparts' => [
 				'media' => 'media',
@@ -26,6 +34,11 @@ return [
 		],
 	],
 	'catalog' => [
+		'domains' => [
+			'media' => 'media',
+			'media/property' => 'media/property',
+			'text' => 'text',
+		],
 		'standard' => [
 			'subparts' => [
 				'media' => 'media',
@@ -54,6 +67,11 @@ return [
 		],
 	],
 	'customer' => [
+		'domains' => [
+			'customer/address' => 'customer/address',
+			'customer/group' => 'customer/group',
+			'customer/property' => 'customer/property',
+		],
 		'standard' => [
 			'subparts' => [
 				'address' => 'address',
@@ -94,6 +112,16 @@ return [
 		],
 	],
 	'product' => [
+		'domains' => [
+			'attribute' => 'attribute',
+			'media' => 'media',
+			'media/property' => 'media/property',
+			'price' => 'price',
+			'price/property' => 'price/property',
+			'product' => 'product',
+			'product/property' => 'product/property',
+			'text' => 'text',
+		],
 		'standard' => [
 			'subparts' => [
 				'selection' => 'selection',
@@ -162,6 +190,13 @@ return [
 		],
 	],
 	'service' => [
+		'domains' => [
+			'media' => 'media',
+			'media/property' => 'media/property',
+			'price' => 'price',
+			'price/property' => 'price/property',
+			'text' => 'text'
+		],
 		'standard' => [
 			'subparts' => [
 				'media' => 'media',
@@ -185,6 +220,11 @@ return [
 		],
 	],
 	'supplier' => [
+		'domains' => [
+			'media' => 'media',
+			'supplier/address' => 'supplier/address',
+			'text' => 'text',
+		],
 		'standard' => [
 			'subparts' => [
 				'address' => 'address',
