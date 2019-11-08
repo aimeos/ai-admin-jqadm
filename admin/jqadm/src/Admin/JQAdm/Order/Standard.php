@@ -557,7 +557,7 @@ class Standard
 					}
 				}
 
-				$attrManager->deleteItems( array_keys( $attrItems ) );
+				$attrManager->deleteItems( $attrItems );
 			}
 		}
 

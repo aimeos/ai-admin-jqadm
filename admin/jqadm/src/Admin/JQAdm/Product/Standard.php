@@ -145,19 +145,17 @@ class Standard
 			foreach( $items as $id => $item )
 			{
 				$view->item = $item;
+				$tags[] = 'product-' . $id;
 
 				foreach( $this->getSubClients() as $client ) {
 					$client->delete();
 				}
-
-				$manager->saveItem( $view->item );
-				$tags[] = 'product-' . $id;
 			}
 
-			$manager->deleteItems( array_keys( $items ) );
+			$manager->deleteItems( $items );
 			$manager->commit();
 
-			\Aimeos\MShop::create( $context, 'index' )->deleteItems( array_keys( $items ) );
+			\Aimeos\MShop::create( $context, 'index' )->deleteItems( $items );
 			$context->getCache()->deleteByTags( $tags );
 
 			$this->nextAction( $view, 'search', 'product', null, 'delete' );

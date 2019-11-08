@@ -94,7 +94,7 @@ class Standard
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $code ) );
 
-		$manager->deleteItems( array_keys( $manager->searchItems( $search ) ) );
+		$manager->deleteItems( $manager->searchItems( $search ) );
 	}
 
 
@@ -346,7 +346,7 @@ class Standard
 				->setDateBack( $this->getValue( $entry, 'stock.dateback' ) );
 		}
 
-		$manager->deleteItems( array_keys( $stocks ) );
+		$manager->deleteItems( $stocks );
 		$manager->saveItems( $stockItems, false );
 	}
 

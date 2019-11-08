@@ -144,11 +144,9 @@ class Standard
 				foreach( $this->getSubClients() as $client ) {
 					$client->delete();
 				}
-
-				$manager->saveItem( $view->item );
 			}
 
-			$manager->deleteItems( array_keys( $items ) );
+			$manager->deleteItems( $items );
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'locale/language', null, 'delete' );
