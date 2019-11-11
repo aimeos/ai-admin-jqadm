@@ -254,8 +254,6 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
-
-		$listItem = $listManager->createItem()->setType( 'default' );
 		$listItems = $item->getListItems( 'attribute', 'default', null, false );
 
 		foreach( $data as $idx => $entry )
@@ -263,7 +261,7 @@ class Standard
 			if( isset( $listItems[$entry['product.lists.id']] ) ) {
 				$litem = $listItems[$entry['product.lists.id']];
 			} else {
-				$litem = clone $listItem;
+				$litem = $listManager->createItem()->setType( 'default' );
 			}
 
 			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );

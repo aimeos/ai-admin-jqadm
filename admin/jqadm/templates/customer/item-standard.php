@@ -23,7 +23,7 @@ $params = $this->get( 'pageParams', [] );
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
-<form class="item item-customer form-horizontal" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
+<form class="item item-customer form-horizontal" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>" autocomplete="off">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.id' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/customer.id' ) ); ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ); ?>" value="get" />
 	<?= $this->csrf()->formfield(); ?>
@@ -123,7 +123,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Password' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-password" type="password" required="required" tabindex="1" autocomplete="off"
+							<input class="form-control item-password" type="password" required="required" tabindex="1" autocomplete="new-password"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Password (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/customer.password' ) ); ?>"

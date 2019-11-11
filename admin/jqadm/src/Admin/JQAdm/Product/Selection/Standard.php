@@ -283,21 +283,19 @@ class Standard
 		$manager = \Aimeos\MShop::create( $context, 'product' );
 		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
-		$prodItem = $manager->createItem()->setType( 'default' );
-		$listItem = $listManager->createItem()->setType( 'default' );
 		$articles = $item->getRefItems( 'product', null, 'default', false );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 
 		foreach( $data as $idx => $entry )
 		{
 			if( ( $litem = $item->getListItem( 'product', 'default', $entry['product.id'], false ) ) === null ) {
-				$litem = clone $listItem;
+				$litem = $listManager->createItem()->setType( 'default' );
 			}
 
 			if( isset( $articles[$litem->getRefId()] ) ) {
 				$refItem = $articles[$litem->getRefId()];
 			} else {
-				$refItem = clone $prodItem;
+				$refItem = $manager->createItem()->setType( 'default' );
 			}
 
 			$litem->fromArray( $entry, true );
@@ -327,8 +325,6 @@ class Standard
 	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $entry )
 	{
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
-
-		$listItem = $listManager->createItem()->setType( 'variant' );
 		$litems = $refItem->getListItems( 'attribute', 'variant', null, false );
 
 		foreach( $entry as $pos => $attr )
@@ -338,7 +334,7 @@ class Standard
 			}
 
 			if( ( $litem = $refItem->getListItem( 'attribute', 'variant', $attr['product.lists.refid'], false ) ) === null ) {
-				$litem = clone $listItem;
+				$litem = $listManager->createItem()->setType( 'variant' );
 			}
 
 			$litem->fromArray( $attr, true );
