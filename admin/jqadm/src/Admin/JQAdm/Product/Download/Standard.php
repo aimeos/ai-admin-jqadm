@@ -324,12 +324,8 @@ class Standard
 		$context = $this->getContext();
 		$fs = $context->getFilesystemManager()->get( 'fs-secure' );
 
+		$prodManager = \Aimeos\MShop::create( $context, 'product' );
 		$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
-		$typeManager = \Aimeos\MShop::create( $context, 'attribute/type' );
-		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
-
-		$attrItem = $attrManager->createItem()->setType( 'download' );
-		$listItem = $listManager->createItem()->setType( 'hidden' );
 		$listItems = $item->getListItems( 'attribute', 'hidden', 'download', false );
 
 		if( $this->getValue( $data, 'attribute.label' ) != '' )
@@ -339,11 +335,11 @@ class Standard
 			if( isset( $listItems[$listId] ) ) {
 				$litem = $listItems[$listId]; unset( $listItems[$listId] );
 			} else {
-				$litem = clone $listItem;
+				$litem = $prodManager->createListsItem()->setType( 'hidden' );
 			}
 
 			if( ( $refItem = $litem->getRefItem() ) === null ) {
-				$refItem = clone $attrItem;
+				$refItem = $attrManager->createItem()->setType( 'download' );
 			}
 
 			$litem->fromArray( $data, true );

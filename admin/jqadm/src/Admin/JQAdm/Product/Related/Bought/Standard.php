@@ -254,8 +254,6 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
-
-		$listItem = $listManager->createItem()->setType( 'bought-together' );
 		$listItems = $item->getListItems( 'product', 'bought-together', null, false );
 
 		foreach( $data as $idx => $entry )
@@ -263,7 +261,7 @@ class Standard
 			if( isset( $listItems[$entry['product.lists.id']] ) ) {
 				$litem = $listItems[$entry['product.lists.id']];
 			} else {
-				$litem = clone $listItem;
+				$litem = $listManager->createItem()->setType( 'bought-together' );
 			}
 
 			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );
