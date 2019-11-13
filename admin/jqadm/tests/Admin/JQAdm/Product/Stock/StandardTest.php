@@ -96,17 +96,25 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item;
+		$this->view->item = $item->setCode( 'jqadm-test-stock-2' );
 
 		$result = $this->object->save();
 
 		$search = $stockManager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', 'jqadm-test-stock' ) );
-		$stockManager->deleteItems( array_keys( $stockManager->searchItems( $search ) ) );
+		$count = count( $stockManager->searchItems( $search ) );
+
+		$search = $stockManager->createSearch();
+		$search->setConditions( $search->compare( '==', 'stock.productcode', 'jqadm-test-stock-2' ) );
+		$stocks = $stockManager->searchItems( $search );
+
+		$stockManager->deleteItems( array_keys( $stocks ) );
 		$manager->deleteItem( $item->getId() );
 
 		$this->assertNull( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
+		$this->assertEquals( 0, $count );
+		$this->assertEquals( 1, count( $stocks ) );
 	}
 
 
