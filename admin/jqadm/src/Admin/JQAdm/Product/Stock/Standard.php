@@ -318,32 +318,40 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
+		$ids = $stocks = $stockItems = [];
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 
-		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );
-		$stocks = $manager->searchitems( $search );
-		$stockItems = [];
+		foreach( $data as $entry )
+		{
+			if( ( $id = $this->getValue( $entry, 'stock.id' ) ) !== null ) {
+				$ids[] = $id;
+			}
+		}
+
+		if( !empty( $ids ) )
+		{
+			$search = $manager->createSearch();
+			$search->setConditions( $search->compare( '==', 'stock.id', $ids ) );
+			$stocks = $manager->searchitems( $search );
+		}
 
 		foreach( $data as $entry )
 		{
 			$id = $this->getValue( $entry, 'stock.id' );
-			$type = $this->getValue( $entry, 'stock.type' );
 
-			if( isset( $stocks[$id] ) )
-			{
-				$stockItem = $stocks[$id];
-				unset( $stocks[$id] );
-			}
-			else
-			{
+			if( !isset( $stocks[$id] ) ) {
 				$stockItem = $manager->createItem();
+			} else {
+				$stockItem = $stocks[$id];
 			}
 
-			$stockItems[] = $stockItem->setProductCode( $item->getCode() )->setType( $type )
+			$stockItems[] = $stockItem->setProductCode( $item->getCode() )
+				->setType( $this->getValue( $entry, 'stock.type', 'default' ) )
 				->setStockLevel( $this->getValue( $entry, 'stock.stocklevel' ) )
 				->setTimeFrame( $this->getValue( $entry, 'stock.timeframe' ) )
 				->setDateBack( $this->getValue( $entry, 'stock.dateback' ) );
+
+			unset( $stocks[$id] );
 		}
 
 		$manager->deleteItems( $stocks );
