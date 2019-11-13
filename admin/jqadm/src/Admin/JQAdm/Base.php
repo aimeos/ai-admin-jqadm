@@ -655,12 +655,11 @@ abstract class Base
 	 */
 	private function initCriteriaConditions( \Aimeos\MW\Criteria\Iface $criteria, array $params )
 	{
-		$expr = [
-			$criteria->toConditions( $this->getCriteriaConditions( $params ) ),
-			$criteria->getConditions(),
-		];
+		if( ( $cond = $criteria->toConditions( $this->getCriteriaConditions( $params ) ) ) !== null ) {
+			return $criteria->setConditions( $criteria->combine( '&&', [$cond, $criteria->getConditions()] ) );
+		}
 
-		return $criteria->setConditions( $criteria->combine( '&&', $expr ) );
+		return $criteria;
 	}
 
 
