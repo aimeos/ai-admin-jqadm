@@ -281,7 +281,7 @@ class Standard
 		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'attribute.property.type.position' )] );
 
-		return $manager->searchItems( $search );
+		return $this->map( $manager->searchItems( $search ) );
 	}
 
 
