@@ -24,4 +24,4 @@ script:
   - vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup coverageext checkext
 
 after_success:
-  - php vendor/bin/coveralls -c ext/ai-admin-jqadm/.coveralls.yml
+  - php vendor/bin/php-coveralls -r ext/ai-admin-jqadm -c ext/ai-admin-jqadm/.coveralls.yml

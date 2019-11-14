@@ -1,3 +1,2 @@
-src_dir: ext/ai-admin-jqadm
 json_path: ext/ai-admin-jqadm/coveralls.json
 coverage_clover: ext/ai-admin-jqadm/admin/jqadm/tests/coverage.xml
