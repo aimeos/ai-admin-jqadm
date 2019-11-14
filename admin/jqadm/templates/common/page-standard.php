@@ -90,7 +90,6 @@ $jsonConfig = $this->config( 'admin/jsonadm/url/options/config', [] );
  *
  * You can add, remove or reorder the links in the navigation bar by
  * setting a new list of client resource names.
-
  * In the configuration files of extensions, you should only add entries using
  * one of these lines:
  *

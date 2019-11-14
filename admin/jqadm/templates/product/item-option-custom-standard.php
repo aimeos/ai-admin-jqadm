@@ -38,7 +38,7 @@ $keys = [
 				</th>
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)') ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 						v-on:click="addItem('product.lists.')">
 				</th>
 			</tr>
