@@ -553,10 +553,11 @@ class Standard
 
 		$addr = $item->getPaymentAddress();
 		$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
-		$label .= ( $addr->getCompany() ? '(' . $addr->getCompany() . ')' : '' );
+		$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
+		$groupIds = $this->getValue( $data, 'customer.groups', [] );
 
 		return $item->fromArray( $data, true )
-			->setGroups( array_intersect( array_keys( $this->getGroupItems( $item ) ), $item->getGroups() ) )
+			->setGroups( array_intersect( array_keys( $this->getGroupItems( $item ) ), $groupIds ) )
 			->setCode( $item->getCode() ?: $addr->getEmail() )
 			->setLabel( $label );
 	}
