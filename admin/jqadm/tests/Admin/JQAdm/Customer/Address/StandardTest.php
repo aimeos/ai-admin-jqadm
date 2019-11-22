@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertContains( 'item-address', $result );
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 	}
 
 
@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'UTC001', array( 'customer/address' ) );
 		$result = $this->object->copy();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( 'Example company', $result );
 	}
 
@@ -62,8 +62,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->delete();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 	}
 
 
@@ -74,7 +74,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'UTC001', array( 'customer/address' ) );
 		$result = $this->object->get();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( 'Example company', $result );
 	}
 
@@ -101,8 +101,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $this->view->item->getAddressItems() ) );
 
 		foreach( $this->view->item->getAddressItems() as $addrItem )
@@ -156,7 +156,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearch()
 	{
-		$this->assertNull( $this->object->search() );
+		$this->assertEmpty( $this->object->search() );
 	}
 
 

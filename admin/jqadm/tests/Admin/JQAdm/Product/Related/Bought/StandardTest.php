@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertContains( 'Products bought together', $result );
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 	}
 
 
@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'CNC' );
 		$result = $this->object->copy();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( 'Products bought together', $result );
 	}
 
@@ -62,8 +62,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->delete();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 	}
 
 
@@ -74,7 +74,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'CNC' );
 		$result = $this->object->get();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( 'Products bought together', $result );
 	}
 
@@ -101,8 +101,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$products = $this->view->item->getListItems( 'product' );
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $products ) );
 		$this->assertEquals( '123', reset( $products )->getRefId() );
 	}
@@ -110,7 +110,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearch()
 	{
-		$this->assertNull( $this->object->search() );
+		$this->assertEmpty( $this->object->search() );
 	}
 
 

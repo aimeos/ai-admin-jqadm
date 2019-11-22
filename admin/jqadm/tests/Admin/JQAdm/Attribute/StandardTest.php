@@ -104,7 +104,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->assertNull( $this->getClientMock( 'getSubClients' )->delete() );
+		$this->assertEmpty( $this->getClientMock( 'getSubClients' )->delete() );
 	}
 
 

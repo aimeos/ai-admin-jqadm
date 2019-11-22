@@ -102,7 +102,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->assertNull( $this->object->delete() );
+		$this->assertEmpty( $this->object->delete() );
 	}
 
 

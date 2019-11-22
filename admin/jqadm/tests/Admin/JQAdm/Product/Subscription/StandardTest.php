@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertContains( 'item-subscription', $result );
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 	}
 
 
@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'CNE' );
 		$result = $this->object->copy();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;attribute.label&quot;:&quot;product\/interval\/P1Y0M0W0D&quot;', $result );
 	}
 
@@ -65,7 +65,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'CNE' );
 		$result = $this->object->get();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;attribute.label&quot;:&quot;product\/interval\/P1Y0M0W0D&quot;', $result );
 	}
 
@@ -92,8 +92,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $this->view->item->getListItems( 'attribute' ) ) );
 		$this->assertEquals( 1, count( $this->view->item->getRefItems( 'attribute' ) ) );
 	}

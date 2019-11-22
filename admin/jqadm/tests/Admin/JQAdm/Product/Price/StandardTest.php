@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertContains( 'item-price', $result );
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 	}
 
 
@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'CNC', array( 'price' ) );
 		$result = $this->object->copy();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;price.type&quot;:&quot;default&quot;', $result );
 	}
 
@@ -65,8 +65,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->createItem();
 		$result = $this->object->delete();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 	}
 
 
@@ -77,7 +77,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'CNC', array( 'price' ) );
 		$result = $this->object->get();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;price.type&quot;:&quot;default&quot;', $result );
 	}
 
@@ -108,8 +108,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $item->getListItems() ) );
 
 		foreach( $item->getListItems( 'price' ) as $listItem )
@@ -169,7 +169,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearch()
 	{
-		$this->assertNull( $this->object->search() );
+		$this->assertEmpty( $this->object->search() );
 	}
 
 

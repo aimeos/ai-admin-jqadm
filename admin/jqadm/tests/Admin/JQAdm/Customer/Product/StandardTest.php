@@ -197,8 +197,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item = $manager->getItem( $item->getId(), ['product'] );
 		$manager->deleteItem( $item->getId() );
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $item->getListItems() ) );
 
 		foreach( $item->getListItems( 'product' ) as $listItem )

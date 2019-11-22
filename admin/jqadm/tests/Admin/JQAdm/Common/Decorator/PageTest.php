@@ -38,7 +38,7 @@ class PageTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->setView( $view );
 
-		$this->assertNull( $view->get( 'pageUser' ) );
+		$this->assertEmpty( $view->get( 'pageUser' ) );
 		$this->assertInternalType( 'array', $view->pageParams );
 		$this->assertInternalType( 'array', $view->pageI18nList );
 		$this->assertInternalType( 'array', $view->pageLangItems );

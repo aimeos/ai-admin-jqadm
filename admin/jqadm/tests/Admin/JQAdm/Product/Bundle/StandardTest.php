@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertContains( 'item-bundle', $result );
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 	}
 
 
@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'U:BUNDLE', array( 'product' ) );
 		$result = $this->object->copy();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( 'Cafe Noire Cappuccino', $result );
 		$this->assertContains( 'Cafe Noire Expresso', $result );
 	}
@@ -63,8 +63,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->delete();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 	}
 
 
@@ -75,7 +75,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'U:BUNDLE', array( 'product' ) );
 		$result = $this->object->get();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( 'Cafe Noire Cappuccino', $result );
 		$this->assertContains( 'Cafe Noire Expresso', $result );
 	}
@@ -100,8 +100,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $this->view->item->getListItems( 'product' ) ) );
 	}
 
@@ -148,7 +148,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearch()
 	{
-		$this->assertNull( $this->object->search() );
+		$this->assertEmpty( $this->object->search() );
 	}
 
 

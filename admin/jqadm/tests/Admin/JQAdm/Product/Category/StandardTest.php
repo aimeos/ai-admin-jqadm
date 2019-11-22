@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertContains( 'item-category', $result );
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 	}
 
 
@@ -53,7 +53,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'CNC' );
 		$result = $this->object->copy();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
 		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
 		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
@@ -64,8 +64,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->delete();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 	}
 
 
@@ -76,7 +76,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'CNC' );
 		$result = $this->object->get();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
 		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
 		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
@@ -113,8 +113,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item = $manager->getItem( $item->getId(), array( 'product' ) );
 		$manager->deleteItem( $item->getId() );
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $item->getListItems( 'product' ) ) );
 	}
 
@@ -149,8 +149,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$listItems = $item->getListItems( 'product' );
 		$manager->deleteItem( $item->getId() );
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $listItems ) );
 	}
 
@@ -197,7 +197,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSearch()
 	{
-		$this->assertNull( $this->object->search() );
+		$this->assertEmpty( $this->object->search() );
 	}
 
 

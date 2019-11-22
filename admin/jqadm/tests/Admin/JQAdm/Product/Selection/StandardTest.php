@@ -64,7 +64,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->createItem();
 		$result = $this->object->create();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( 'item-selection', $result );
 		$this->assertContains( '&quot;product.code&quot;:&quot;testprod&quot;', $result );
 		$this->assertContains( '&quot;attribute.label&quot;:&quot;test attribute&quot;', $result );
@@ -78,7 +78,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->findItem( 'U:TEST', ['attribute', 'product'] );
 		$result = $this->object->copy();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB01&quot;', $result );
 		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB02&quot;', $result );
 		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB03&quot;', $result );
@@ -96,7 +96,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->get();
 
-		$this->assertNull( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB01&quot;', $result );
 		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB02&quot;', $result );
 		$this->assertContains( '&quot;product.code&quot;:&quot;U:TESTSUB03&quot;', $result );
@@ -138,8 +138,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->save();
 
 
-		$this->assertNull( $this->view->get( 'errors' ) );
-		$this->assertNull( $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertEmpty( $result );
 
 		$variants = $this->view->item->getListItems( 'product' );
 		$this->assertEquals( 1, count( $variants ) );

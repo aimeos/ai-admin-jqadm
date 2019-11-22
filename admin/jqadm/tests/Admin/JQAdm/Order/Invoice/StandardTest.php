@@ -124,7 +124,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager->deleteItem( $item->getId() );
 
-		$this->assertNull( $result );
+		$this->assertEmpty( $result );
 	}
 
 
