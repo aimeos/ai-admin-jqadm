@@ -20,6 +20,7 @@
 	border: 1px solid #e5e5e5;
 	border-top: none;
 	height: 280px;
+	overflow-y: auto;
 }
 
 .dashboard .card-block.collapse.show {
@@ -63,7 +64,16 @@
 }
 
 
-/* job styles */
+/* Settings styles */
+
+.dashboard .dashboard-setting .content {
+	max-height: 280px;
+	height: auto;
+	overflow-y: auto;
+}
+
+
+/* Job styles */
 
 .dashboard .dashboard-job .content {
 	height: auto;
