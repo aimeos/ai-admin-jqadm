@@ -2,17 +2,17 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2018
+ * @copyright Aimeos (aimeos.org), 2019
  * @package Admin
  * @subpackage JQAdm
  */
 
 
-namespace Aimeos\Admin\JQAdm\Dashboard\Job;
+namespace Aimeos\Admin\JQAdm\Dashboard\Setting;
 
 
 /**
- * Default implementation of dashboard job JQAdm client.
+ * Default implementation of dashboard settings JQAdm client.
  *
  * @package Admin
  * @subpackage JQAdm
@@ -21,103 +21,16 @@ class Standard
 	extends \Aimeos\Admin\JQAdm\Common\Admin\Factory\Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
-	/** admin/jqadm/dashboard/job/name
-	 * Name of the job subpart used by the JQAdm dashboard implementation
+	/** admin/jqadm/dashboard/setting/name
+	 * Name of the setting subpart used by the JQAdm dashboard implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Job\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Setting\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
-	 * @since 2017.08
+	 * @since 2020.01
 	 * @category Developer
 	 */
-
-
-	/**
-	 * Deletes a resource
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
-	 */
-	public function delete()
-	{
-		$view = $this->getView();
-		$context = $this->getContext();
-
-		try
-		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
-			}
-
-			$fs = $context->getFileSystemManager()->get( 'fs-admin' );
-			$manager = \Aimeos\MAdmin::create( $context, 'job' );
-			$item = $manager->getItem( $id );
-			$result = $item->getResult();
-
-			if( isset( $result['file'] ) && $fs->has( $result['file'] ) ) {
-				$fs->rm( $result['file'] );
-			}
-
-			$manager->deleteItem( $id );
-		}
-		catch( \Aimeos\MAdmin\Exception $e )
-		{
-			$error = array( 'job-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'job-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-
-		return $this->search();
-	}
-
-
-	/**
-	 * Returns a single resource
-	 *
-	 * @return string|null admin output to display or null for redirecting to the list
-	 */
-	public function get()
-	{
-		$view = $this->getView();
-		$context = $this->getContext();
-
-		try
-		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
-			}
-
-			$fs = $context->getFileSystemManager()->get( 'fs-admin' );
-			$item = \Aimeos\MAdmin::create( $context, 'job' )->getItem( $id );
-			$result = $item->getResult();
-
-			if( isset( $result['file'] ) && $fs->has( $result['file'] ) )
-			{
-				$stream = $view->response()->createStream( $fs->reads( $result['file'] ) );
-				$view->response()->withHeader( 'Content-Disposition', 'attachment; filename="' . $result['file'] . '"' );
-				$view->response()->withHeader( 'Content-Type', 'text/csv' );
-				$view->response()->withBody( $stream );
-			}
-		}
-		catch( \Aimeos\MAdmin\Exception $e )
-		{
-			$error = array( 'job-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'job-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-	}
 
 
 	/**
@@ -128,40 +41,9 @@ class Standard
 	public function search()
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		try
-		{
-			$manager = \Aimeos\MAdmin::create( $context, 'job' );
-
-			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '-', 'job.ctime' ), $search->sort( '-', 'job.id' )] );
-			$total = 0;
-
-			$view->jobBody = '';
-			$view->jobItems = $manager->searchItems( $search, [], $total );
-			$view->jobTotal = $total;
-
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->jobBody .= $client->search();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'product-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'product-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-
-		/** admin/jqadm/dashboard/job/template-list
-		 * Relative path to the HTML body template of the job subpart for the dashboard.
+		/** admin/jqadm/dashboard/setting/template-list
+		 * Relative path to the HTML body template of the setting subpart for the dashboard.
 		 *
 		 * The template file contains the HTML code and processing instructions
 		 * to generate the result shown in the body of the frontend. The
@@ -176,11 +58,11 @@ class Standard
 		 * should be replaced by the name of the new class.
 		 *
 		 * @param string Relative path to the template creating the HTML code
-		 * @since 2017.08
+		 * @since 2020.01
 		 * @category Developer
 		 */
-		$tplconf = 'admin/jqadm/dashboard/job/template-list';
-		$default = 'dashboard/list-job-standard';
+		$tplconf = 'admin/jqadm/dashboard/setting/template-list';
+		$default = 'dashboard/list-setting-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -195,7 +77,7 @@ class Standard
 	 */
 	public function getSubClient( $type, $name = null )
 	{
-		/** admin/jqadm/dashboard/job/decorators/excludes
+		/** admin/jqadm/dashboard/setting/decorators/excludes
 		 * Excludes decorators added by the "common" option from the dashboard JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -207,21 +89,21 @@ class Standard
 		 * "admin/jqadm/common/decorators/default" before they are wrapped
 		 * around the JQAdm client.
 		 *
-		 *  admin/jqadm/dashboard/job/decorators/excludes = array( 'decorator1' )
+		 *  admin/jqadm/dashboard/setting/decorators/excludes = array( 'decorator1' )
 		 *
 		 * This would remove the decorator named "decorator1" from the list of
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2017.08
+		 * @since 2020.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/dashboard/job/decorators/global
-		 * @see admin/jqadm/dashboard/job/decorators/local
+		 * @see admin/jqadm/dashboard/setting/decorators/global
+		 * @see admin/jqadm/dashboard/setting/decorators/local
 		 */
 
-		/** admin/jqadm/dashboard/job/decorators/global
+		/** admin/jqadm/dashboard/setting/decorators/global
 		 * Adds a list of globally available decorators only to the dashboard JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -232,20 +114,20 @@ class Standard
 		 * This option allows you to wrap global decorators
 		 * ("\Aimeos\Admin\JQAdm\Common\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/dashboard/job/decorators/global = array( 'decorator1' )
+		 *  admin/jqadm/dashboard/setting/decorators/global = array( 'decorator1' )
 		 *
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2017.08
+		 * @since 2020.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/dashboard/job/decorators/excludes
-		 * @see admin/jqadm/dashboard/job/decorators/local
+		 * @see admin/jqadm/dashboard/setting/decorators/excludes
+		 * @see admin/jqadm/dashboard/setting/decorators/local
 		 */
 
-		/** admin/jqadm/dashboard/job/decorators/local
+		/** admin/jqadm/dashboard/setting/decorators/local
 		 * Adds a list of local decorators only to the dashboard JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -256,19 +138,19 @@ class Standard
 		 * This option allows you to wrap local decorators
 		 * ("\Aimeos\Admin\JQAdm\Dashboard\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/dashboard/job/decorators/local = array( 'decorator2' )
+		 *  admin/jqadm/dashboard/setting/decorators/local = array( 'decorator2' )
 		 *
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Dashboard\Decorator\Decorator2" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2017.08
+		 * @since 2020.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/dashboard/job/decorators/excludes
-		 * @see admin/jqadm/dashboard/job/decorators/global
+		 * @see admin/jqadm/dashboard/setting/decorators/excludes
+		 * @see admin/jqadm/dashboard/setting/decorators/global
 		 */
-		return $this->createSubClient( 'dashboard/job/' . $type, $name );
+		return $this->createSubClient( 'dashboard/setting/' . $type, $name );
 	}
 
 
@@ -279,8 +161,8 @@ class Standard
 	 */
 	protected function getSubClientNames()
 	{
-		/** admin/jqadm/dashboard/job/standard/subparts
-		 * List of JQAdm sub-clients rendered within the dashboard job section
+		/** admin/jqadm/dashboard/setting/standard/subparts
+		 * List of JQAdm sub-clients rendered within the dashboard setting section
 		 *
 		 * The output of the frontend is composed of the code generated by the JQAdm
 		 * clients. Each JQAdm client can consist of serveral (or none) sub-clients
@@ -290,13 +172,13 @@ class Standard
 		 * the output that is placed inside the container of its parent.
 		 *
 		 * At first, always the JQAdm code generated by the parent is printed, then
-		 * the JQAdm code of its sub-clients. The job of the JQAdm sub-clients
-		 * determines the job of the output of these sub-clients inside the parent
+		 * the JQAdm code of its sub-clients. The setting of the JQAdm sub-clients
+		 * determines the setting of the output of these sub-clients inside the parent
 		 * container. If the configured list of clients is
 		 *
 		 *  array( "subclient1", "subclient2" )
 		 *
-		 * you can easily change the job of the output by reordering the subparts:
+		 * you can easily change the setting of the output by reordering the subparts:
 		 *
 		 *  admin/jqadm/<clients>/subparts = array( "subclient1", "subclient2" )
 		 *
@@ -309,9 +191,9 @@ class Standard
 		 * design.
 		 *
 		 * @param array List of sub-client names
-		 * @since 2017.08
+		 * @since 2020.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/dashboard/job/standard/subparts', [] );
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/dashboard/setting/standard/subparts', [] );
 	}
 }

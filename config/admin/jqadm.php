@@ -84,6 +84,7 @@ return [
 	'dashboard' => [
 		'standard' => [
 			'subparts' => [
+				'setting' => 'setting',
 				'job' => 'job',
 				'order' => 'order',
 			],
