@@ -54,7 +54,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;stock.stocklevel&quot;:&quot;1200&quot;', $result );
+		$this->assertContains( '&quot;stock.stocklevel&quot;:1200', $result );
 		$this->assertContains( '&quot;stock.dateback&quot;:&quot;2015-05-01T00:00:00&quot;', $result );
 	}
 
@@ -67,7 +67,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;stock.stocklevel&quot;:&quot;1200&quot;', $result );
+		$this->assertContains( '&quot;stock.stocklevel&quot;:1200', $result );
 		$this->assertContains( '&quot;stock.dateback&quot;:&quot;2015-05-01T00:00:00&quot;', $result );
 	}
 
