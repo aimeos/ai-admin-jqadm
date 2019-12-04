@@ -349,7 +349,7 @@ $refItems = $this->get( 'productItems', [] );
 						<td class="customer-lists-datestart">
 							<input class="form-control item-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.datestart', '' ) ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'productData/customer.lists.datestart/' . $idx ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'productData/customer.lists.datestart/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
@@ -357,7 +357,7 @@ $refItems = $this->get( 'productItems', [] );
 						<td class="customer-lists-dateend">
 							<input class="form-control item-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'customer.lists.dateend', '' ) ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'productData/customer.lists.dateend/' . $idx ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'productData/customer.lists.dateend/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
