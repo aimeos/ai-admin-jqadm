@@ -27,7 +27,7 @@ class Standard
 	 * @param string|null $datetime ISO date and time
 	 * @return string Formatted date
 	 */
-	public function transform( string $datetime = null ) : string
+	public function transform( $datetime )
 	{
 		if( $datetime ) {
 			return str_replace( ' ', 'T', substr( $datetime, 0, 16 ) );
