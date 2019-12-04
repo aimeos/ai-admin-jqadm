@@ -196,7 +196,7 @@ $columnList = [
 						<td class="coupon-datestart">
 							<input class="form-control coupon-code-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.datestart', '' ) ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'codeData/coupon.code.datestart/' . $idx ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'codeData/coupon.code.datestart/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
@@ -204,7 +204,7 @@ $columnList = [
 						<td class="coupon-dateend">
 							<input class="form-control coupon-code-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.dateend', '' ) ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'codeData/coupon.code.dateend/' . $idx ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'codeData/coupon.code.dateend/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>

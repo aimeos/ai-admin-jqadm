@@ -281,7 +281,7 @@ $statusList = [
 						<td class="order-datepayment">
 							<input class="form-control order-datepayment" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'invoiceData/order.datepayment/' . $idx ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'invoiceData/order.datepayment/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>
@@ -305,7 +305,7 @@ $statusList = [
 						<td class="order-datedelivery">
 							<input class="form-control order-datedelivery" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datedelivery', '' ) ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'invoiceData/order.datedelivery/' . $idx ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'invoiceData/order.datedelivery/' . $idx ) ) ); ?>"
 								<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
 						</td>
 					<?php endif; ?>

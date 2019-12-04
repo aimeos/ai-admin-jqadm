@@ -364,7 +364,7 @@ $types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'produc
 							<input class="form-control item-datestart" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/product.datestart' ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.datestart' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -377,7 +377,7 @@ $types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'produc
 							<input class="form-control item-dateend" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/product.dateend' ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.dateend' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -390,7 +390,7 @@ $types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'produc
 							<input class="form-control item-ctime" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/product.ctime' ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.ctime' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">

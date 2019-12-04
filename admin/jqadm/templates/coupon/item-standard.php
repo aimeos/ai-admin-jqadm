@@ -153,7 +153,7 @@ $params = $this->get( 'pageParams', [] );
 							<input class="form-control item-datestart" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/coupon.datestart' ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.datestart' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -166,7 +166,7 @@ $params = $this->get( 'pageParams', [] );
 							<input class="form-control item-dateend" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								value="<?= $enc->attr( str_replace( ' ', 'T', $this->get( 'itemData/coupon.dateend' ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.dateend' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
