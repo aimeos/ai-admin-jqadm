@@ -19,7 +19,7 @@ namespace Aimeos\MW\View\Helper\Datetime;
  */
 class Standard
 	extends \Aimeos\MW\View\Helper\Base
-	implements \Aimeos\MW\View\Helper\Date\Iface
+	implements \Aimeos\MW\View\Helper\Datetime\Iface
 {
 	/**
 	 * Returns the formatted date and time.
