@@ -356,11 +356,7 @@ $reasonList = [
 						<td class="order-base-product-status"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $deliveryStatusList[$prodItem->getStatus()] ) : ''; ?></a></td>
 					<?php endif; ?>
 
-					<?php $addrItem = null;
-						if( $baseItem && ( $addresses = $baseItem->getAddresses() ) && isset( $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT] ) ) {
-							$addrItem = $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT];
-						}
-					?>
+					<?php $addrItem = $baseItem ? current( $baseItem->getAddress( \Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT ) ) : null; ?>
 
 					<?php if( in_array( 'order.base.address.salutation', $fields ) ) : ?>
 						<td class="order-base-address-salutation"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getSalutation() ) : ''; ?></a></td>
