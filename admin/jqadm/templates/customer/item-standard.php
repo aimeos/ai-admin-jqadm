@@ -145,7 +145,7 @@ $params = $this->get( 'pageParams', [] );
 
 								<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>
 									<option value="<?= $enc->attr( $groupId ); ?>" <?= $selected( in_array( $groupId, $this->get( 'itemData/customer.groups', [] ) ), true ); ?> >
-										<?= $enc->html( $groupItem->getLabel() ); ?>
+										<?= $enc->html( $groupItem->getLabel() . ' (' . $groupItem->getCode() . ')' ); ?>
 									</option>
 								<?php endforeach; ?>
 							</select>
