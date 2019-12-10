@@ -69,9 +69,11 @@ $columnList = [
 	'subscription.datenext' => $this->translate( 'admin', 'Next date' ),
 	'subscription.dateend' => $this->translate( 'admin', 'End date' ),
 	'subscription.reason' => $this->translate( 'admin', 'Reason' ),
+	'subscription.period' => $this->translate( 'admin', 'Periods' ),
 	'subscription.ctime' => $this->translate( 'admin', 'Created' ),
 	'subscription.mtime' => $this->translate( 'admin', 'Modified' ),
 	'subscription.editor' => $this->translate( 'admin', 'Editor' ),
+	'order.base.id' => $this->translate( 'admin', 'Order ID' ),
 	'order.base.customerid' => $this->translate( 'admin', 'Customer ID' ),
 	'order.base.sitecode' => $this->translate( 'admin', 'Site' ),
 	'order.base.languageid' => $this->translate( 'admin', 'Language' ),
@@ -215,9 +217,11 @@ $reasonList = [
 						'subscription.datenext' => ['op' => '>=', 'type' => 'date'],
 						'subscription.dateend' => ['op' => '>=', 'type' => 'date'],
 						'subscription.reason' => ['op' => '==', 'type' => 'select', 'val' => $reasonList],
+						'subscription.period' => ['op' => '==', 'type' => 'string'],
 						'subscription.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'subscription.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
 						'subscription.editor' => [],
+						'order.base.id' => ['op' => '=='],
 						'order.base.customerid' => ['op' => '=='],
 						'order.base.sitecode' => ['op' => '=='],
 						'order.base.languageid' => ['op' => '=='],
@@ -281,6 +285,9 @@ $reasonList = [
 					<?php if( in_array( 'subscription.reason', $fields ) ) : ?>
 						<td class="subscription-reason"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $reasonList[$item->getReason()] ); ?></td>
 					<?php endif; ?>
+					<?php if( in_array( 'subscription.period', $fields ) ) : ?>
+						<td class="subscription-period"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPeriod() ); ?></td>
+					<?php endif; ?>
 					<?php if( in_array( 'subscription.ctime', $fields ) ) : ?>
 						<td class="subscription-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
 					<?php endif; ?>
@@ -293,6 +300,9 @@ $reasonList = [
 
 					<?php $baseItem = ( isset( $baseItems[$item->getOrderBaseId()] ) ? $baseItems[$item->getOrderBaseId()] : null ); ?>
 
+					<?php if( in_array( 'order.base.id', $fields ) ) : ?>
+						<td class="order-base-id"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getId() ) : ''; ?></a></td>
+					<?php endif; ?>
 					<?php if( in_array( 'order.base.customerid', $fields ) ) : ?>
 						<td class="order-base-customerid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getCustomerId() ) : ''; ?></a></td>
 					<?php endif; ?>
