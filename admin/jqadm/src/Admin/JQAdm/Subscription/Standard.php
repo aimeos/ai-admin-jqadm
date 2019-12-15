@@ -197,7 +197,7 @@ class Standard
 		try
 		{
 			$params = $this->storeSearchParams( $view->param(), 'subscription' );
-			$msg = ['sitecode' => $context->getLocale()->getSite()->getCode()];
+			$msg = ['sitecode' => $context->getLocale()->getSiteItem()->getCode()];
 
 			if( isset( $params['filter'] ) ) {
 				$msg['filter'] = $this->getCriteriaConditions( $params['filter'] );
