@@ -38,12 +38,18 @@ class Page extends Base
 		$customerManager = \Aimeos\MShop::create( $context, 'customer' );
 
 		$siteItem = $siteManager->findItem( $view->param( 'site', 'default' ) );
+		$id = $siteItem->getId();
 
-		try {
-			$siteid = $customerManager->getItem( $context->getUserId() )->getSiteId() ?: $siteItem->getSiteId();
-		} catch( \Exception $e ) {
-			$siteid = $siteItem->getSiteId();
+		try
+		{
+			if( ( $siteid = $customerManager->getItem( $context->getUserId() )->getSiteId() ) !== null )
+			{
+				$search = $siteManager->createSearch()->setSlice( 0, 1 );
+				$search->setConditions( $search->compare( '==', 'locale.site.siteid', $siteid ) );
+				$id = current( array_keys( $siteManager->searchItems( $search ) ) ) ?: $siteItem->getId();
+			}
 		}
+		catch( \Exception $e ) { ; }
 
 		if( $view->access( ['admin', 'super'] ) ) {
 			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_TREE;
@@ -51,11 +57,11 @@ class Page extends Base
 			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE;
 		}
 
-		$sitePath = $siteManager->getPath( $siteid );
+		$sitePath = $siteManager->getPath( $id );
 
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
 		$view->pageLangItems = $langManager->searchItems( $langManager->createSearch( true ) );
-		$view->pageSiteTree = $siteManager->getTree( $siteid, [], $level );
+		$view->pageSiteTree = $siteManager->getTree( $id, [], $level );
 		$view->pageSitePath = $sitePath;
 		$view->pageSiteItem = $siteItem;
 
