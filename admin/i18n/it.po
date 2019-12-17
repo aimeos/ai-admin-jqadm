@@ -6,13 +6,14 @@
 # alessandro massarelli <alessandro@openmantra.net>, 2015
 # Enrico Porceddu <porceddu_enrico@yahoo.com>, 2018
 # Matteo Schiona <ms@kiboko.it>, 2017
+# R M <roberto@proprionoi.it>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-03 10:01+0200\n"
-"PO-Revision-Date: 2019-10-03 08:06+0000\n"
-"Last-Translator: Enrico Porceddu <porceddu_enrico@yahoo.com>\n"
+"PO-Revision-Date: 2019-12-13 09:48+0000\n"
+"Last-Translator: R M <roberto@proprionoi.it>\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +73,7 @@ msgid ""
 msgstr "(internazionale) numeri di telefono senza caratteri separativi possono iniziare con un \"+\""
 
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 msgid "Actual current price"
 msgstr "Prezzo corrente"
@@ -86,13 +87,13 @@ msgstr "Aggiungi"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Costi di spedizione aggiuntivi per ogni prodotto, es. $20 per ogni prodotto pesante avranno un totale di $100 per 5 prodotti"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Informazioni aggiuntive per trovare l'alloggio del cliente"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Informazioni aggiuntive per trovare l'alloggio del fornitore"
 
 msgid "Address 1"
 msgstr "Indirizzo 1"
@@ -104,10 +105,10 @@ msgid "Address 3"
 msgstr "Indirizzo 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Identificativo dell'indirizzo della casa del cliente per la consegna "
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Identificativo dell'indirizzo della casa del fornitore per la consegna "
 
 #, php-format
 msgid "Admin JQAdm type is empty"
@@ -126,7 +127,7 @@ msgstr "Tutti"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Tutti gli attributi che identificano in modo univoco un articolo, es larghezza, lunghezza e colore per un paio di jeans"
 
 msgid "Allow custom price"
 msgstr "Consenti prezzo personalizzato"
@@ -135,27 +136,27 @@ msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "Consenti ai clienti di scegliere quanto vogliono pagare"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Stringa alfanumerica che può identificare un gruppo in modo univoco"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Opzioni di configurazione specifiche di un articolo saranno disponibili come coppia di chiave/valore nei templates"
 
 msgid "Attribute"
 msgstr "Attributi"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Liste di tipo di attributi"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Liste di tipi di attributi"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Tipo di proprietà dell'attributo"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Tipi di proprietà dell'attributo"
 
 msgid "Attribute Type"
 msgstr "Tipo di attributo"
@@ -167,10 +168,10 @@ msgid "Attribute position (optional)"
 msgstr "Posizione attributo (opzionale)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Proprietà di un attributo che non sono condivise con altri attributi"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Tipo di attributo che limita la lista di attributi disponibili"
 
 msgid "Attributes"
 msgstr "Attributi"
@@ -179,7 +180,7 @@ msgid "Available currency for the current site"
 msgstr "Valuta disponibile per questo sito"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Intervalli disponibili nel front-end"
 
 msgid "Available language for the current site"
 msgstr "Lingua disponibile per questo sito"
@@ -200,7 +201,7 @@ msgid "Birthday"
 msgstr "Data di nascita"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Compleanno del cliente"
 
 msgid "Bug or suggestion?"
 msgstr "Bug o suggerimento?"
@@ -209,19 +210,19 @@ msgid "Cancel"
 msgstr "Cancella"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Cancella e ritorna alla lista"
 
 msgid "Catalog"
 msgstr "Catalogo"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Tipo di cataloghi"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Tipi di cataloghi"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Le categorie del prodotto possono essere trovate dall'utente sul sito web"
 
 msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
@@ -246,7 +247,7 @@ msgstr "Classe \"%1$s\" non disponibile"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr ""
+msgstr "Classe \" 1 %1$s\" non trovata"
 
 msgid "Close"
 msgstr "Chiudi"
@@ -411,7 +412,7 @@ msgid "Delivery types"
 msgstr "Tipo spedizion"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Consegna entro"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -625,23 +626,23 @@ msgstr ""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "Carattere non valido nel nome della classe \" 1 %1$s \""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "Carattere non valido nel nome del client \"%1$s\""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "Il nome della classe \" 1 %1$s \" non è valido"
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "Dominio \" 1 %1$s \" non valido"
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "Fattore \" 1 %1$s \" non valido"
 
 msgid "Invoice"
 msgstr "Fattura"
@@ -804,7 +805,7 @@ msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "Accesso al client \" 1 %1$s \" JQAdm non consentito "
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -1420,7 +1421,7 @@ msgstr "Target URL"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "Impossibile chiamare il metodo \" 1 %1$s \""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1816,11 +1817,11 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Iscrizioni"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Fornitori"
 
 msgid "tag"
 msgstr "Tags"
