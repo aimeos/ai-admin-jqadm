@@ -118,7 +118,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->save();
 
-		$manager->deleteItem( $manager->findItem( 'jqadm test code' )->getId() );
+		$manager->deleteItem( $manager->findItem( 'JQADM TEST CODE' )->getId() );
 	}
 
 
