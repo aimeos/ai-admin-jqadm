@@ -20,7 +20,7 @@ sprintf( 'type/price/lists' ); // for translation
  * @subpackage JQAdm
  */
 class Standard
-	extends \Aimeos\Admin\JQAdm\Common\Admin\Factory\Base
+	extends \Aimeos\Admin\JQAdm\Type\Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
 	/**
@@ -30,42 +30,7 @@ class Standard
 	 */
 	public function copy()
 	{
-		$view = $this->getView();
-		$context = $this->getContext();
-
-		try
-		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
-			}
-
-			$manager = \Aimeos\MShop::create( $context, 'price/lists/type' );
-			$view->item = $manager->getItem( $id );
-
-			$view->itemData = $this->toArray( $view->item, true );
-			$view->itemSubparts = $this->getSubClientNames();
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->copy();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-
-		return $this->render( $view );
+		return $this->copyBase( 'price/lists' );
 	}
 
 
@@ -76,43 +41,7 @@ class Standard
 	 */
 	public function create()
 	{
-		$view = $this->getView();
-		$context = $this->getContext();
-
-		try
-		{
-			$data = $view->param( 'item', [] );
-
-			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $context, 'price/lists/type' )->createItem();
-			}
-
-			$data['price.lists.type.siteid'] = $view->item->getSiteId();
-
-			$view->itemSubparts = $this->getSubClientNames();
-			$view->itemData = $data;
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->create();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-
-		return $this->render( $view );
+		return $this->createBase( 'price/lists' );
 	}
 
 
@@ -123,53 +52,7 @@ class Standard
 	 */
 	public function delete()
 	{
-		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop::create( $context, 'price/lists/type' );
-		$manager->begin();
-
-		try
-		{
-			if( ( $ids = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
-			}
-
-			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'price.lists.type.id', $ids ) );
-			$items = $manager->searchItems( $search );
-
-			foreach( $items as $item )
-			{
-				$view->item = $item;
-
-				foreach( $this->getSubClients() as $client ) {
-					$client->delete();
-				}
-			}
-
-			$manager->deleteItems( $items );
-			$manager->commit();
-
-			$this->nextAction( $view, 'search', 'type/price/lists', null, 'delete' );
-			return;
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-
-		$manager->rollback();
-
-		return $this->search();
+		return $this->deleteBase( 'price/lists' );
 	}
 
 
@@ -180,42 +63,7 @@ class Standard
 	 */
 	public function get()
 	{
-		$view = $this->getView();
-		$context = $this->getContext();
-
-		try
-		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
-			}
-
-			$manager = \Aimeos\MShop::create( $context, 'price/lists/type' );
-
-			$view->item = $manager->getItem( $id );
-			$view->itemSubparts = $this->getSubClientNames();
-			$view->itemData = $this->toArray( $view->item );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->get();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-
-		return $this->render( $view );
+		return $this->getBase( 'price/lists' );
 	}
 
 
@@ -226,48 +74,7 @@ class Standard
 	 */
 	public function save()
 	{
-		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MShop::create( $context, 'price/lists/type' );
-		$manager->begin();
-
-		try
-		{
-			$item = $this->fromArray( $view->param( 'item', [] ) );
-			$view->item = $item->getId() ? $item : $manager->saveItem( $item );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->save();
-			}
-
-			$manager->saveItem( clone $view->item );
-			$manager->commit();
-
-			$this->nextAction( $view, $view->param( 'next' ), 'type/price/lists', $view->item->getId(), 'save' );
-			return;
-		}
-		catch( \Aimeos\Admin\JQAdm\Exception $e )
-		{
-			// fall through to create
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-
-		$manager->rollback();
-
-		return $this->create();
+		return $this->saveBase( 'price/lists' );
 	}
 
 
@@ -278,38 +85,7 @@ class Standard
 	 */
 	public function search()
 	{
-		$view = $this->getView();
-		$context = $this->getContext();
-
-		try
-		{
-			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'type/price/lists' );
-			$manager = \Aimeos\MShop::create( $context, 'price/lists/type' );
-			$search = $this->initCriteria( $manager->createSearch(), $params );
-
-			$view->items = $manager->searchItems( $search, [], $total );
-			$view->filterAttributes = $manager->getSearchAttributes( true );
-			$view->filterOperators = $search->getOperators();
-			$view->total = $total;
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->search();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'type-price-lists-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
+		$view = $this->searchBase( 'price/lists' );
 
 		/** admin/jqadm/type/price/lists/template-list
 		 * Relative path to the HTML body template for the list type list.
@@ -428,7 +204,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/type/price/lists/standard/subparts
 		 * List of JQAdm sub-clients rendered within the list type section
@@ -467,56 +243,13 @@ class Standard
 	}
 
 
-
-	/**
-	 * Creates new and updates existing items using the data array
-	 *
-	 * @param array $data Data array
-	 * @return \Aimeos\MShop\Common\Item\Type\Iface New list type item object
-	 */
-	protected function fromArray( array $data )
-	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'price/lists/type' );
-
-		if( isset( $data['price.lists.type.id'] ) && $data['price.lists.type.id'] != '' ) {
-			$item = $manager->getItem( $data['price.lists.type.id'] );
-		} else {
-			$item = $manager->createItem();
-		}
-
-		$item->fromArray( $data, true );
-
-		return $item;
-	}
-
-
-	/**
-	 * Constructs the data array for the view from the given item
-	 *
-	 * @param \Aimeos\MShop\Common\Item\Type\Iface $item Type item object
-	 * @return string[] Multi-dimensional associative list of item data
-	 */
-	protected function toArray( \Aimeos\MShop\Common\Item\Type\Iface $item, $copy = false )
-	{
-		$data = $item->toArray( true );
-
-		if( $copy === true )
-		{
-			$data['price.lists.type.code'] = $data['price.lists.type.code'] . '_copy';
-			$data['price.lists.type.id'] = '';
-		}
-
-		return $data;
-	}
-
-
 	/**
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
 	 * @return string HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/type/price/lists/template-item
 		 * Relative path to the HTML body template for the list type item.

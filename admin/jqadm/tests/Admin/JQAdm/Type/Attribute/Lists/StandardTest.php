@@ -120,14 +120,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->assertEmpty( $this->getClientMock( 'getSubClients' )->delete() );
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['type' => 'unittest', 'id' => -1] );
+		$this->view->addHelper( 'param', $helper );
+
+		$this->assertNull( $this->object->delete() );
 	}
 
 
-	public function testDeleteJqadmException()
+	public function testDeleteMShopException()
 	{
 		$object = $this->getClientMock( ['getSubClients', 'search'] );
 
+		$object->expects( $this->once() )->method( 'getSubClients' )
+			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 		$object->expects( $this->once() )->method( 'search' );
 
 		$object->delete();
@@ -140,18 +145,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
-		$object->expects( $this->once() )->method( 'search' );
-
-		$object->delete();
-	}
-
-
-	public function testDeleteMShopException()
-	{
-		$object = $this->getClientMock( ['getSubClients', 'search'] );
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 		$object->expects( $this->once() )->method( 'search' );
 
 		$object->delete();

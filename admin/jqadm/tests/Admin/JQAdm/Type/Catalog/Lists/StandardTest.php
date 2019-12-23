@@ -120,7 +120,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->assertNotNull( $this->object->delete() );
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['type' => 'unittest', 'id' => -1] );
+		$this->view->addHelper( 'param', $helper );
+
+		$this->assertNull( $this->object->delete() );
 	}
 
 
