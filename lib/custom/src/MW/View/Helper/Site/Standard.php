@@ -39,7 +39,7 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 *
 	 * @return Aimeos\MW\View\Helper\Site\Iface Site view helper
 	 */
-	public function transform()
+	public function transform() : \Aimeos\MW\View\Helper\Site\Iface
 	{
 		return $this;
 	}
@@ -50,7 +50,7 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 *
 	 * @return string|null Label of the site item or null if not available
 	 */
-	public function label()
+	public function label() : ?string
 	{
 		return $this->siteItem->getLabel();
 	}
@@ -59,28 +59,32 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	/**
 	 * Returns the label of the matching site
 	 *
-	 * @param string $siteid ID of a site item
+	 * @param string|null $siteid ID of a site item
 	 * @return string|null Label of the site item or null if not found
 	 */
-	public function match( $siteid )
+	public function match( string $siteid = null ) : ?string
 	{
 		if( $this->siteItem->getId() == $siteid ) {
 			return $this->siteItem->getLabel();
 		}
+
+		return null;
 	}
 
 
 	/**
 	 * Returns "readonly" if the item is inherited from another site
 	 *
-	 * @param string $siteid ID of a site item
+	 * @param string|null $siteid ID of a site item
 	 * @return string|null "readonly" if item is from a parent site, null if not
 	 */
-	public function readonly( $siteid )
+	public function readonly( string $siteid = null ) : ?string
 	{
 		if( $this->siteItem->getId() != $siteid ) {
 			return 'readonly';
 		}
+
+		return null;
 	}
 
 
@@ -89,7 +93,7 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 *
 	 * @return string|null Site ID or null if not available
 	 */
-	public function siteid()
+	public function siteid() : ?string
 	{
 		return $this->siteItem->getId();
 	}
