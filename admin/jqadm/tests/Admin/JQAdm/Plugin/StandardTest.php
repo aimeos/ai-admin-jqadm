@@ -286,7 +286,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function getClientMock( $methods, $real = true  )
+	public function getClientMock( $methods, $real = true )
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Plugin\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )

@@ -302,7 +302,7 @@ class Standard
 	{
 		$fs = $this->getContext()->getFilesystemManager()->get( 'fs-secure' );
 
-		if( $path == null )
+		if( $path === null )
 		{
 			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 			$hash = md5( $file->getClientFilename() . microtime( true ) );

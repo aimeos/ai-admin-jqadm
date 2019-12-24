@@ -303,8 +303,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setMethods( array( 'render' ) )
 			->getMock();
 
-		$manager = \Aimeos\MShop::create( $this->context, 'product' );
-
 		$param = ['site' => 'unittest', 'id' => $real ? $this->getItem()->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
