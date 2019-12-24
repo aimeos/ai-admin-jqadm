@@ -26,9 +26,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -76,9 +76,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -128,7 +128,7 @@ class Standard
 	 *
 	 * @return string|null HTML output
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -159,7 +159,7 @@ class Standard
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'service', null, 'delete' );
-			return;
+			return null;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
@@ -183,9 +183,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -233,9 +233,9 @@ class Standard
 	/**
 	 * Saves the data
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -257,7 +257,7 @@ class Standard
 			$manager->commit();
 
 			$this->nextAction( $view, $view->param( 'next' ), 'service', $view->item->getId(), 'save' );
-			return;
+			return null;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
 		{
@@ -285,9 +285,9 @@ class Standard
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -359,7 +359,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/service/decorators/excludes
 		 * Excludes decorators added by the "common" option from the service JQAdm client
@@ -444,7 +444,7 @@ class Standard
 	 * @param \Aimeos\MShop\Service\Item\Iface $item Service item incl. provider/decorator property
 	 * @return \Aimeos\MW\Common\Critera\Attribute\Iface[] List of configuration attributes
 	 */
-	public function getConfigAttributes( \Aimeos\MShop\Service\Item\Iface $item )
+	public function getConfigAttributes( \Aimeos\MShop\Service\Item\Iface $item ) : array
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'service' );
 
@@ -461,7 +461,7 @@ class Standard
 	 *
 	 * @return string[] List of domain names
 	 */
-	protected function getDomains()
+	protected function getDomains() : array
 	{
 		/** admin/jqadm/service/domains
 		 * List of domain items that should be fetched along with the service
@@ -483,7 +483,7 @@ class Standard
 	 *
 	 * @return string[] List of decorator class names
 	 */
-	protected function getDecoratorNames()
+	protected function getDecoratorNames() : array
 	{
 		$ds = DIRECTORY_SEPARATOR;
 		return $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Decorator' );
@@ -495,7 +495,7 @@ class Standard
 	 *
 	 * @return string[] List of provider class names
 	 */
-	protected function getProviderNames()
+	protected function getProviderNames() : array
 	{
 		$ds = DIRECTORY_SEPARATOR;
 		return [
@@ -510,7 +510,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/service/standard/subparts
 		 * List of JQAdm sub-clients rendered within the service section
@@ -554,7 +554,7 @@ class Standard
 	 *
 	 * @return array List of item implementing \Aimeos\MShop\Common\Type\Iface
 	 */
-	protected function getTypeItems()
+	protected function getTypeItems() : array
 	{
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'service/type' );
 
@@ -571,7 +571,7 @@ class Standard
 	 * @param array $data Data array
 	 * @return \Aimeos\MShop\Service\Item\Iface New service item object
 	 */
-	protected function fromArray( array $data )
+	protected function fromArray( array $data ) : \Aimeos\MShop\Service\Item\Iface
 	{
 		$conf = [];
 
@@ -611,7 +611,7 @@ class Standard
 	 * @param \Aimeos\MShop\Service\Item\Iface $item Service item object
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Service\Item\Iface $item, $copy = false )
+	protected function toArray( \Aimeos\MShop\Service\Item\Iface $item, bool $copy = false ) : array
 	{
 		$config = $item->getConfig();
 		$data = $item->toArray( true );
@@ -640,9 +640,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/service/template-item
 		 * Relative path to the HTML body template for the service item.

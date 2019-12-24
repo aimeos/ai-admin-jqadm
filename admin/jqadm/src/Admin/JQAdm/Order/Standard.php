@@ -26,9 +26,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -72,9 +72,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -121,7 +121,7 @@ class Standard
 	 *
 	 * @return string Admin output to display
 	 */
-	public function export()
+	public function export() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -165,9 +165,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -212,9 +212,9 @@ class Standard
 	/**
 	 * Saves the data
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -236,7 +236,7 @@ class Standard
 			$manager->commit();
 
 			$this->nextAction( $view, $view->param( 'next' ), 'order', $view->item->getId(), 'save' );
-			return;
+			return null;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
 		{
@@ -264,9 +264,9 @@ class Standard
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -338,7 +338,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/order/decorators/excludes
 		 * Excludes decorators added by the "common" option from the order JQAdm client
@@ -423,7 +423,7 @@ class Standard
 	 * @param \Aimeos\MShop\Order\Item\Iface[] $orderItems List of order items
 	 * @param \Aimeos\MShop\Order\Item\Base\Iface[] List of order base items
 	 */
-	protected function getOrderBaseItems( array $orderItems )
+	protected function getOrderBaseItems( array $orderItems ) : array
 	{
 		$baseIds = [];
 		foreach( $orderItems as $item ) {
@@ -444,7 +444,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/order/standard/subparts
 		 * List of JQAdm sub-clients rendered within the order section
@@ -487,9 +487,9 @@ class Standard
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param array $data Data array
-	 * @return \Aimeos\MShop\Order\Item\Iface New order item object
+	 * @return \Aimeos\MShop\Order\Item\Base\Iface New order item object
 	 */
-	protected function fromArray( array $data )
+	protected function fromArray( array $data ) : \Aimeos\MShop\Order\Item\Base\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 		$attrManager = \Aimeos\MShop::create( $this->getContext(), 'order/base/service/attribute' );
@@ -571,7 +571,7 @@ class Standard
 	 * @param \Aimeos\MShop\Order\Item\Base\Iface $item Order base item object
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Order\Item\Base\Iface $item, $copy = false )
+	protected function toArray( \Aimeos\MShop\Order\Item\Base\Iface $item, bool $copy = false ) : array
 	{
 		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$data = $item->toArray( true );
@@ -640,9 +640,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/order/template-item
 		 * Relative path to the HTML body template for the order item.

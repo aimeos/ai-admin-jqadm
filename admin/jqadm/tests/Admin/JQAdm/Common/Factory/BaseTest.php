@@ -54,7 +54,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 		$client = \Aimeos\Admin\JQAdm\Product\Factory::create( $this->context, 'Standard' );
 
 		$result = \Aimeos\Admin\JQAdm\Common\Factory\TestAbstract::addDecoratorsPublic( $this->context, $client,
-			[], array( 'Cache' ), '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\' );
+			['Page'], '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\' );
 
 		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );
 	}
@@ -120,19 +120,19 @@ class TestAbstract
 	extends \Aimeos\Admin\JQAdm\Common\Factory\Base
 {
 	public static function addDecoratorsPublic( \Aimeos\MShop\Context\Item\Iface $context,
-		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, $classprefix )
+		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		return self::addDecorators( $context, $client, $decorators, $classprefix );
 	}
 
 	public static function addClientDecoratorsPublic( \Aimeos\MShop\Context\Item\Iface $context,
-		\Aimeos\Admin\JQAdm\Iface $client, $path )
+		\Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		return self::addClientDecorators( $context, $client, $path );
 	}
 
 	public static function createAdminPublic( \Aimeos\MShop\Context\Item\Iface $context,
-		$classname, $interface )
+		string $classname, string $interface ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		return self::createAdmin( $context, $classname, $interface );
 	}

@@ -26,9 +26,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -72,9 +72,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -119,7 +119,7 @@ class Standard
 	 *
 	 * @return string|null HTML output
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -150,7 +150,7 @@ class Standard
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'locale/language', null, 'delete' );
-			return;
+			return null;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
@@ -174,9 +174,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -220,9 +220,9 @@ class Standard
 	/**
 	 * Saves the data
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -244,7 +244,7 @@ class Standard
 			$manager->commit();
 
 			$this->nextAction( $view, $view->param( 'next' ), 'locale/language', $view->item->getId(), 'save' );
-			return;
+			return null;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
 		{
@@ -272,9 +272,9 @@ class Standard
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -345,7 +345,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/locale/language/decorators/excludes
 		 * Excludes decorators added by the "common" option from the locale JQAdm client
@@ -429,7 +429,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/locale/language/standard/subparts
 		 * List of JQAdm sub-clients rendered within the locale section
@@ -473,9 +473,9 @@ class Standard
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param array $data Data array
-	 * @return \Aimeos\MShop\Locale\Item\Iface New locale item object
+	 * @return \Aimeos\MShop\Locale\Item\Language\Iface New locale langauge item object
 	 */
-	protected function fromArray( array $data )
+	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Language\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/language' );
 
@@ -494,10 +494,10 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Locale\Item\Iface $item Locale item object
+	 * @param \Aimeos\MShop\Locale\Item\Iface $item Locale langauge item object
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Locale\Item\Language\Iface $item, $copy = false )
+	protected function toArray( \Aimeos\MShop\Locale\Item\Language\Iface $item, bool $copy = false ) : array
 	{
 		$data = $item->toArray( true );
 
@@ -515,9 +515,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/locale/language/template-item
 		 * Relative path to the HTML body template for the locale item.

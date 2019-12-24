@@ -38,9 +38,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		$view = $this->getView();
 
@@ -73,9 +73,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		$view = $this->getView();
 
@@ -108,9 +108,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 
@@ -149,8 +149,10 @@ class Standard
 
 	/**
 	 * Saves the data
+	 *
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -170,7 +172,7 @@ class Standard
 			}
 
 			$manager->commit();
-			return;
+			return null;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
@@ -198,7 +200,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/catalog/product/decorators/excludes
 		 * Excludes decorators added by the "common" option from the catalog JQAdm client
@@ -349,7 +351,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/catalog/product/standard/subparts
 		 * List of JQAdm sub-clients rendered within the catalog product section
@@ -393,8 +395,9 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Catalog\Item\Iface $item Catalog item object without referenced domain items
 	 * @param array $data Data array
+	 * @return \Aimeos\MShop\Catalog\Item\Iface Modified catalog item
 	 */
-	protected function fromArray( \Aimeos\MShop\Catalog\Item\Iface $item, array $data )
+	protected function fromArray( \Aimeos\MShop\Catalog\Item\Iface $item, array $data ) : \Aimeos\MShop\Catalog\Item\Iface
 	{
 		$context = $this->getContext();
 		$listIds = $this->getValue( $data, 'catalog.lists.id', [] );
@@ -465,6 +468,8 @@ class Standard
 
 			$listManager->saveItem( $litem, false );
 		}
+
+		return $item;
 	}
 
 
@@ -493,9 +498,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/catalog/product/template-item
 		 * Relative path to the HTML body template of the product subpart for catalogs.

@@ -26,9 +26,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -80,9 +80,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -135,7 +135,7 @@ class Standard
 	 *
 	 * @return string|null HTML output
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -167,7 +167,7 @@ class Standard
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'locale/site', null, 'delete' );
-			return;
+			return null;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
 		{
@@ -197,9 +197,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -251,9 +251,9 @@ class Standard
 	/**
 	 * Saves the data
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -275,7 +275,7 @@ class Standard
 			$manager->commit();
 
 			$this->nextAction( $view, $view->param( 'next' ), 'locale/site', $view->item->getId(), 'save' );
-			return;
+			return null;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
 		{
@@ -305,9 +305,9 @@ class Standard
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -383,7 +383,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/locale/site/decorators/excludes
 		 * Excludes decorators added by the "common" option from the locale JQAdm client
@@ -465,11 +465,11 @@ class Standard
 	/**
 	 * Checks if the user is allowed to access the site item
 	 *
-	 * @param boolean $super True if user is a super user
+	 * @param bool $super True if user is a super user
 	 * @param string $id ID of the site to access
 	 * @throws \Aimeos\Admin\JQAdm\Exception If user isn't allowed to access the site
 	 */
-	protected function checkSite( $super, $id = null )
+	protected function checkSite( bool $super, string $id = null )
 	{
 		if( $super === true || (string) $this->getUserSiteId() === (string) $id ) {
 			return;
@@ -484,7 +484,7 @@ class Standard
 	 *
 	 * @return string|null Site ID of the current user
 	 */
-	protected function getUserSiteId()
+	protected function getUserSiteId() : ?string
 	{
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
@@ -498,7 +498,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/locale/site/standard/subparts
 		 * List of JQAdm sub-clients rendered within the locale section
@@ -541,10 +541,10 @@ class Standard
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param array $data Data array
-	 * @param boolean $super If current user is a super user
-	 * @return \Aimeos\MShop\Locale\Item\Iface New locale item object
+	 * @param bool $super If current user is a super user
+	 * @return \Aimeos\MShop\Locale\Item\Site\Iface New locale site item object
 	 */
-	protected function fromArray( array $data, $super )
+	protected function fromArray( array $data, bool $super ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
 		$conf = [];
 
@@ -582,10 +582,10 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Locale\Item\Iface $item Locale item object
+	 * @param \Aimeos\MShop\Locale\Item\Site\Iface $item Locale site item object
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Locale\Item\Site\Iface $item, $copy = false )
+	protected function toArray( \Aimeos\MShop\Locale\Item\Site\Iface $item, bool $copy = false ) : array
 	{
 		$data = $item->toArray( true );
 		$data['config'] = [];
@@ -607,9 +607,9 @@ class Standard
 	/**
 	 * Returns the rendered template including the view data
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/locale/site/template-item
 		 * Relative path to the HTML body template for the locale item.

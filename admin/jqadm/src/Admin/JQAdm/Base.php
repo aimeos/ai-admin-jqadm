@@ -46,7 +46,7 @@ abstract class Base
 	 * @param array $param List of method parameter
 	 * @throws \Aimeos\Admin\JQAdm\Exception If method call failed
 	 */
-	public function __call( $name, array $param )
+	public function __call( string $name, array $param )
 	{
 		throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Unable to call method "%1$s"', $name ) );
 	}
@@ -57,7 +57,7 @@ abstract class Base
 	 *
 	 * @return \Aimeos\Bootstrap The Aimeos bootstrap object
 	 */
-	public function getAimeos()
+	public function getAimeos() : \Aimeos\Bootstrap
 	{
 		if( !isset( $this->aimeos ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Aimeos object not available' ) );
@@ -73,7 +73,7 @@ abstract class Base
 	 * @param \Aimeos\Bootstrap $aimeos The Aimeos bootstrap object
 	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
 	 */
-	public function setAimeos( \Aimeos\Bootstrap $aimeos )
+	public function setAimeos( \Aimeos\Bootstrap $aimeos ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		$this->aimeos = $aimeos;
 		return $this;
@@ -85,7 +85,7 @@ abstract class Base
 	 *
 	 * @return \Aimeos\MW\View\Iface The view object which generates the admin output
 	 */
-	public function getView()
+	public function getView() : \Aimeos\MW\View\Iface
 	{
 		if( !isset( $this->view ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'No view available' ) );
@@ -101,7 +101,7 @@ abstract class Base
 	 * @param \Aimeos\MW\View\Iface $view The view object which generates the admin output
 	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
 	 */
-	public function setView( \Aimeos\MW\View\Iface $view )
+	public function setView( \Aimeos\MW\View\Iface $view ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		$this->view = $view;
 		return $this;
@@ -111,104 +111,120 @@ abstract class Base
 	/**
 	 * Copies a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		foreach( $this->getSubClients() as $client ) {
 			$client->copy();
 		}
+
+		return null;
 	}
 
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		foreach( $this->getSubClients() as $client ) {
 			$client->create();
 		}
+
+		return null;
 	}
 
 
 	/**
 	 * Deletes a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		foreach( $this->getSubClients() as $client ) {
 			$client->delete();
 		}
+
+		return null;
 	}
 
 
 	/**
 	 * Exports a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display
 	 */
-	public function export()
+	public function export() : ?string
 	{
 		foreach( $this->getSubClients() as $client ) {
 			$client->export();
 		}
+
+		return null;
 	}
 
 
 	/**
 	 * Returns a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		foreach( $this->getSubClients() as $client ) {
 			$client->get();
 		}
+
+		return null;
 	}
 
 
 	/**
 	 * Imports a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display
 	 */
-	public function import()
+	public function import() : ?string
 	{
 		foreach( $this->getSubClients() as $client ) {
 			$client->import();
 		}
+
+		return null;
 	}
 
 
 	/**
 	 * Saves the data
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		foreach( $this->getSubClients() as $client ) {
 			$client->save();
 		}
+
+		return null;
 	}
 
 
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string admin output to display
+	 * @return string|null Output to display
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		foreach( $this->getSubClients() as $client ) {
 			$client->search();
 		}
+
+		return null;
 	}
 
 
@@ -220,7 +236,7 @@ abstract class Base
 	 * @param string $classprefix Decorator class prefix, e.g. "\Aimeos\Admin\JQAdm\Catalog\Decorator\"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 */
-	protected function addDecorators( \Aimeos\Admin\JQAdm\Iface $client, array $decorators, $classprefix )
+	protected function addDecorators( \Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		foreach( $decorators as $name )
 		{
@@ -252,7 +268,7 @@ abstract class Base
 	 * @param string $path Admin string in lower case, e.g. "catalog/detail/basic"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 */
-	protected function addClientDecorators( \Aimeos\Admin\JQAdm\Iface $client, $path )
+	protected function addClientDecorators( \Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		if( !is_string( $path ) || $path === '' ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid domain "%1$s"', $path ) );
@@ -293,7 +309,7 @@ abstract class Base
 	 * @param string|null $name Name of the implementation, will be from configuration (or Default) if null
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-part object
 	 */
-	protected function createSubClient( $path, $name )
+	protected function createSubClient( string $path, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		$path = strtolower( $path );
 
@@ -354,7 +370,7 @@ abstract class Base
 	 * @param array $names List of parameter names
 	 * @return array Associative list of parameters names as key and their values
 	 */
-	protected function getClientParams( $names = array( 'id', 'resource', 'site', 'lang' ) )
+	protected function getClientParams( $names = ['id', 'resource', 'site', 'lang'] ) : array
 	{
 		$list = [];
 
@@ -374,7 +390,7 @@ abstract class Base
 	 *
 	 * @return \Aimeos\MShop\Context\Item\Iface Context object
 	 */
-	protected function getContext()
+	protected function getContext() : \Aimeos\MShop\Context\Item\Iface
 	{
 		return $this->context;
 	}
@@ -385,7 +401,7 @@ abstract class Base
 	 *
 	 * @return array List of admin client names
 	 */
-	abstract protected function getSubClientNames();
+	abstract protected function getSubClientNames() : array;
 
 
 	/**
@@ -395,7 +411,7 @@ abstract class Base
 	 * @param string[] $excludes List of file names to execlude
 	 * @return string[] List of available class names
 	 */
-	protected function getClassNames( $relpath, array $excludes = ['Base.php', 'Iface.php', 'Example.php', 'None.php'] )
+	protected function getClassNames( string $relpath, array $excludes = ['Base.php', 'Iface.php', 'Example.php', 'None.php'] ) : array
 	{
 		$list = [];
 
@@ -425,7 +441,7 @@ abstract class Base
 	 * @param array $params List of criteria data with condition, sorting and paging
 	 * @return array Multi-dimensional associative list of criteria conditions
 	 */
-	protected function getCriteriaConditions( array $params )
+	protected function getCriteriaConditions( array $params ) : array
 	{
 		$expr = [];
 
@@ -455,7 +471,7 @@ abstract class Base
 	 * @param array $params List of criteria data with condition, sorting and paging
 	 * @return array Associative list of criteria sortations
 	 */
-	protected function getCriteriaSortations( array $params )
+	protected function getCriteriaSortations( array $params ) : array
 	{
 		$sortation = [];
 
@@ -477,7 +493,7 @@ abstract class Base
 	 *
 	 * @return array List of sub-clients implementing \Aimeos\Admin\JQAdm\Iface ordered in the same way as the names
 	 */
-	protected function getSubClients()
+	protected function getSubClients() : array
 	{
 		if( !isset( $this->subclients ) )
 		{
@@ -499,7 +515,7 @@ abstract class Base
 	 * @param array $params List of criteria data with condition, sorting and paging
 	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
-	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params )
+	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
 	{
 		if( isset( $params['filter'] ) ) {
 			$criteria = $this->initCriteriaConditions( $criteria, (array) $params['filter'] );
@@ -538,7 +554,7 @@ abstract class Base
 	 * @param \Aimeos\MShop\Common\Item\Type\Iface[] $items Associative list of type items
 	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of codes as keys and items as values
 	 */
-	protected function map( array $items )
+	protected function map( array $items ) : array
 	{
 		$list = [];
 
@@ -554,12 +570,14 @@ abstract class Base
 	 * Adds a redirect to the response for the next action
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @param string $action Next action
+	 * @param string|null $action Next action
 	 * @param string $resource Resource name
-	 * @param string $id ID of the next resource item
+	 * @param string|null $id ID of the next resource item
+	 * @param string|null $act Current action name
 	 * @return \Aimeos\MW\View\Iface Modified view object
 	 */
-	protected function nextAction( \Aimeos\MW\View\Iface $view, $action, $resource, $id = null, $act = null )
+	protected function nextAction( \Aimeos\MW\View\Iface $view, string $action = null, string $resource,
+		string $id = null, string $act = null ) : \Aimeos\MW\View\Iface
 	{
 		$params = $this->getClientParams();
 		$params['resource'] = $resource;
@@ -616,7 +634,7 @@ abstract class Base
 	 * @param string $name Name of the panel/subpanel
 	 * @return array Associative list of parameters for searching items
 	 */
-	protected function storeSearchParams( array $params, $name )
+	protected function storeSearchParams( array $params, string $name ) : array
 	{
 		$key = 'aimeos/admin/jqadm/' . $name;
 		$session = $this->getContext()->getSession();
@@ -653,7 +671,7 @@ abstract class Base
 	 * @param array $params List of criteria data with condition, sorting and paging
 	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
-	private function initCriteriaConditions( \Aimeos\MW\Criteria\Iface $criteria, array $params )
+	private function initCriteriaConditions( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
 	{
 		if( ( $cond = $criteria->toConditions( $this->getCriteriaConditions( $params ) ) ) !== null ) {
 			return $criteria->setConditions( $criteria->combine( '&&', [$cond, $criteria->getConditions()] ) );
@@ -670,7 +688,7 @@ abstract class Base
 	 * @param array $params List of criteria data with condition, sorting and paging
 	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
-	private function initCriteriaSlice( \Aimeos\MW\Criteria\Iface $criteria, array $params )
+	private function initCriteriaSlice( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
 	{
 		$start = ( isset( $params['offset'] ) ? $params['offset'] : 0 );
 		$size = ( isset( $params['limit'] ) ? $params['limit'] : 25 );
@@ -686,7 +704,7 @@ abstract class Base
 	 * @param array $params List of criteria data with condition, sorting and paging
 	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
 	 */
-	private function initCriteriaSortations( \Aimeos\MW\Criteria\Iface $criteria, array $params )
+	private function initCriteriaSortations( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
 	{
 		return $criteria->setSortations( $criteria->toSortations( $this->getCriteriaSortations( $params ) ) );
 	}

@@ -92,7 +92,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-root' );
 		$item->setId( null );
 
-		$manager->insertItem( $item );
+		$item = $manager->insertItem( $item );
 
 
 		$param = array(
@@ -106,7 +106,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $productManager->createItem();
+		$this->view->item = $productManager->createItem()->setId( -1 );
 
 		$result = $this->object->save();
 
@@ -128,7 +128,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-root' );
 		$item->setId( null );
 
-		$manager->insertItem( $item );
+		$item = $manager->insertItem( $item );
 
 
 		$param = array(
@@ -141,7 +141,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $productManager->createItem();
+		$this->view->item = $productManager->createItem()->setId( -1 );
 
 		$result = $this->object->save();
 

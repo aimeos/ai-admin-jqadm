@@ -38,9 +38,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		$view = $this->addViewData( $this->getView() );
 
@@ -58,9 +58,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		$view = $this->addViewData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
@@ -83,8 +83,10 @@ class Standard
 
 	/**
 	 * Deletes a resource
+	 *
+	 * @return string|null HTML output
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		parent::delete();
 
@@ -95,15 +97,17 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $code ) );
 
 		$manager->deleteItems( $manager->searchItems( $search ) );
+
+		return null;
 	}
 
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->addViewData( $this->getView() );
 
@@ -120,8 +124,10 @@ class Standard
 
 	/**
 	 * Saves the data
+	 *
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -139,7 +145,7 @@ class Standard
 			}
 
 			$manager->commit();
-			return;
+			return null;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
@@ -167,7 +173,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/product/stock/decorators/excludes
 		 * Excludes decorators added by the "common" option from the product JQAdm client
@@ -252,7 +258,7 @@ class Standard
 	 * @param \Aimeos\MW\View\Iface $view View object
 	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
-	protected function addViewData( \Aimeos\MW\View\Iface $view )
+	protected function addViewData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'stock/type' );
 
@@ -271,7 +277,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/product/stock/standard/subparts
 		 * List of JQAdm sub-clients rendered within the product stock section
@@ -315,8 +321,9 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
 	 * @param array $data Data array
+	 * @return \Aimeos\MShop\Product\Item\Iface Modified product item
 	 */
-	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$ids = $stocks = $stockItems = [];
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
@@ -356,6 +363,8 @@ class Standard
 
 		$manager->deleteItems( $stocks );
 		$manager->saveItems( $stockItems, false );
+
+		return $item;
 	}
 
 
@@ -363,10 +372,10 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
-	 * @param boolean $copy True if items should be copied, false if not
+	 * @param bool $copy True if items should be copied, false if not
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = [];
 		$context = $this->getContext();
@@ -400,9 +409,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/product/stock/template-item
 		 * Relative path to the HTML body template of the stock subpart for products.

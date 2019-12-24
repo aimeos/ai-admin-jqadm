@@ -26,9 +26,9 @@ class Standard
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -97,7 +97,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/log/decorators/excludes
 		 * Excludes decorators added by the "common" option from the log JQAdm client
@@ -181,7 +181,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/log/standard/subparts
 		 * List of JQAdm sub-clients rendered within the log section
@@ -224,9 +224,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/log/template-item
 		 * Relative path to the HTML body template for the log item.

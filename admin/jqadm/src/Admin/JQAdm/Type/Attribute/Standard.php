@@ -26,9 +26,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		return $this->copyBase( 'attribute' );
 	}
@@ -37,9 +37,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		return $this->createBase( 'attribute' );
 	}
@@ -50,7 +50,7 @@ class Standard
 	 *
 	 * @return string|null HTML output
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		return $this->deleteBase( 'attribute' );
 	}
@@ -59,9 +59,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		return $this->getBase( 'attribute' );
 	}
@@ -70,9 +70,9 @@ class Standard
 	/**
 	 * Saves the data
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		return $this->saveBase( 'attribute' );
 	}
@@ -81,9 +81,9 @@ class Standard
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->searchBase( 'attribute' );
 
@@ -120,7 +120,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/type/attribute/decorators/excludes
 		 * Excludes decorators added by the "common" option from the type JQAdm client
@@ -247,7 +247,7 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
 	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{

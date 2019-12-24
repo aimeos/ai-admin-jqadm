@@ -38,9 +38,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		$view = $this->getView();
 
@@ -58,9 +58,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		$view = $this->getView();
 		$siteid = $this->getContext()->getLocale()->getSiteId();
@@ -86,9 +86,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 
@@ -105,8 +105,10 @@ class Standard
 
 	/**
 	 * Saves the data
+	 *
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 
@@ -122,7 +124,7 @@ class Standard
 				}
 			}
 
-			return;
+			return null;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
@@ -148,7 +150,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/product/selection/decorators/excludes
 		 * Excludes decorators added by the "common" option from the product JQAdm client
@@ -232,7 +234,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/product/selection/standard/subparts
 		 * List of JQAdm sub-clients rendered within the product selection section
@@ -276,8 +278,9 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
 	 * @param array $data Data array
+	 * @return \Aimeos\MShop\Product\Item\Iface Modified product item
 	 */
-	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop::create( $context, 'product' );
@@ -352,10 +355,10 @@ class Standard
 	 * Constructs the data array for the view from the given item
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
-	 * @param boolean $copy True if items should be copied
+	 * @param bool $copy True if items should be copied
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		if( $item->getType() !== 'select' ) {
 			return [];
@@ -406,9 +409,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/product/selection/template-item
 		 * Relative path to the HTML body template of the selection subpart for products.

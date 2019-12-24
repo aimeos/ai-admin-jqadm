@@ -33,7 +33,7 @@ abstract class Base
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
 	abstract protected function render( \Aimeos\MW\View\Iface $view ) : string;
 
@@ -42,7 +42,7 @@ abstract class Base
 	 * Copies a resource
 	 *
 	 * @param string $path Path name like "attribute/lists" without "/type" postfix
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
 	protected function copyBase( string $path ) : string
 	{
@@ -89,7 +89,7 @@ abstract class Base
 	 * Creates a new resource
 	 *
 	 * @param string $path Path name like "attribute/lists" without "/type" postfix
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
 	public function createBase( string $path ) : string
 	{
@@ -195,7 +195,7 @@ abstract class Base
 	 * Returns a single resource
 	 *
 	 * @param string $path Path name like "attribute/lists" without "/type" postfix
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
 	public function getBase( string $path ) : string
 	{
@@ -242,7 +242,7 @@ abstract class Base
 	 * Saves the data
 	 *
 	 * @param string $path Path name like "attribute/lists" without "/type" postfix
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
 	public function saveBase( string $path ) : ?string
 	{

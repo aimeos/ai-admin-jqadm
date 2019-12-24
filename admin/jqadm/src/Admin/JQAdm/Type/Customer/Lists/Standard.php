@@ -26,9 +26,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		return $this->copyBase( 'customer/lists' );
 	}
@@ -37,9 +37,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		return $this->createBase( 'customer/lists' );
 	}
@@ -50,7 +50,7 @@ class Standard
 	 *
 	 * @return string|null HTML output
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		return $this->deleteBase( 'customer/lists' );
 	}
@@ -59,9 +59,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		return $this->getBase( 'customer/lists' );
 	}
@@ -70,9 +70,9 @@ class Standard
 	/**
 	 * Saves the data
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		return $this->saveBase( 'customer/lists' );
 	}
@@ -81,9 +81,9 @@ class Standard
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->searchBase( 'customer/lists' );
 
@@ -116,11 +116,11 @@ class Standard
 	/**
 	 * Returns the sub-client given by its name.
 	 *
-	 * @param string $liststype Name of the client liststype
+	 * @param string $type Name of the client liststype
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $liststype, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/type/customer/lists/decorators/excludes
 		 * Excludes decorators added by the "common" option from the list type JQAdm client
@@ -195,7 +195,7 @@ class Standard
 		 * @see admin/jqadm/type/customer/lists/decorators/excludes
 		 * @see admin/jqadm/type/customer/lists/decorators/global
 		 */
-		return $this->createSubClient( 'type/customer/lists' . $liststype, $name );
+		return $this->createSubClient( 'type/customer/lists' . $type, $name );
 	}
 
 
@@ -247,7 +247,7 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
 	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{

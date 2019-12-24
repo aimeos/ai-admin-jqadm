@@ -36,9 +36,9 @@ class Standard
 	/**
 	 * Deletes a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display or null for none
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -80,9 +80,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display or null for none
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -117,15 +117,17 @@ class Standard
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
+
+		return null;
 	}
 
 
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string admin output to display
+	 * @return string Output to display
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -193,7 +195,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/dashboard/job/decorators/excludes
 		 * Excludes decorators added by the "common" option from the dashboard JQAdm client
@@ -277,7 +279,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/dashboard/job/standard/subparts
 		 * List of JQAdm sub-clients rendered within the dashboard job section

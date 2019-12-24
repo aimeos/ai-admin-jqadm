@@ -26,9 +26,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		return $this->copyBase( 'attribute/property' );
 	}
@@ -37,9 +37,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		return $this->createBase( 'attribute/property' );
 	}
@@ -50,7 +50,7 @@ class Standard
 	 *
 	 * @return string|null HTML output
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		return $this->deleteBase( 'attribute/property' );
 	}
@@ -59,9 +59,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		return $this->getBase( 'attribute/property' );
 	}
@@ -70,9 +70,9 @@ class Standard
 	/**
 	 * Saves the data
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		return $this->saveBase( 'attribute/property' );
 	}
@@ -81,9 +81,9 @@ class Standard
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->searchBase( 'attribute/property' );
 
@@ -116,11 +116,11 @@ class Standard
 	/**
 	 * Returns the sub-client given by its name.
 	 *
-	 * @param string $propertytype Name of the client propertytype
+	 * @param string $type Name of the client propertytype
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $propertytype, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/type/attribute/property/decorators/excludes
 		 * Excludes decorators added by the "common" option from the list type JQAdm client
@@ -195,7 +195,7 @@ class Standard
 		 * @see admin/jqadm/type/attribute/property/decorators/excludes
 		 * @see admin/jqadm/type/attribute/property/decorators/global
 		 */
-		return $this->createSubClient( 'type/attribute/property' . $propertytype, $name );
+		return $this->createSubClient( 'type/attribute/property' . $type, $name );
 	}
 
 
@@ -247,7 +247,7 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
 	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{

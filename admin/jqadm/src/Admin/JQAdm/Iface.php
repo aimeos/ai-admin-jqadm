@@ -26,14 +26,14 @@ interface Iface
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null );
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface;
 
 	/**
 	 * Returns the view object that will generate the admin output.
 	 *
 	 * @return \Aimeos\MW\View\Iface $view The view object which generates the admin output
 	 */
-	public function getView();
+	public function getView() : \Aimeos\MW\View\Iface;
 
 	/**
 	 * Sets the view object that will generate the admin output.
@@ -46,42 +46,56 @@ interface Iface
 	/**
 	 * Copies a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string Output to display
 	 */
-	public function copy();
+	public function copy() : ?string;
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string Output to display
 	 */
-	public function create();
+	public function create() : ?string;
 
 	/**
 	 * Deletes a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display or null for none
 	 */
-	public function delete();
+	public function delete() : ?string;
+
+	/**
+	 * Exports a resource
+	 *
+	 * @return string Output to display or null for none
+	 */
+	public function export() : ?string;
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string Output to display
 	 */
-	public function get();
+	public function get() : ?string;
+
+	/**
+	 * Imports a resource
+	 *
+	 * @return string|null Output to display or null for none
+	 */
+	public function import() : ?string;
 
 	/**
 	 * Saves the data
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null Output to display or null for none
 	 */
-	public function save();
+	public function save() : ?string;
 
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string admin output to display
+	 * @return string Output to display
 	 */
-	public function search();
+	public function search() : ?string;
 }

@@ -26,9 +26,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -73,9 +73,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -123,7 +123,7 @@ class Standard
 	 *
 	 * @return string|null HTML output
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		$tags = ['product'];
 		$view = $this->getView();
@@ -159,7 +159,7 @@ class Standard
 			$context->getCache()->deleteByTags( $tags );
 
 			$this->nextAction( $view, 'search', 'product', null, 'delete' );
-			return;
+			return null;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
@@ -183,9 +183,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -230,9 +230,9 @@ class Standard
 	/**
 	 * Saves the data
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -258,7 +258,7 @@ class Standard
 
 
 			$this->nextAction( $view, $view->param( 'next' ), 'product', $view->item->getId(), 'save' );
-			return;
+			return null;
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
 		{
@@ -286,9 +286,9 @@ class Standard
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -360,7 +360,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/product/decorators/excludes
 		 * Excludes decorators added by the "common" option from the product JQAdm client
@@ -444,7 +444,7 @@ class Standard
 	 *
 	 * @return string[] List of domain names
 	 */
-	protected function getDomains()
+	protected function getDomains() : array
 	{
 		/** admin/jqadm/product/domains
 		 * List of domain items that should be fetched along with the product
@@ -466,7 +466,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/product/standard/subparts
 		 * List of JQAdm sub-clients rendered within the product section
@@ -510,7 +510,7 @@ class Standard
 	 *
 	 * @return array List of item implementing \Aimeos\MShop\Common\Type\Iface
 	 */
-	protected function getTypeItems()
+	protected function getTypeItems() : array
 	{
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'product/type' );
 
@@ -527,7 +527,7 @@ class Standard
 	 * @param array $data Data array
 	 * @return \Aimeos\MShop\Product\Item\Iface New product item object
 	 */
-	protected function fromArray( array $data )
+	protected function fromArray( array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$conf = [];
 
@@ -559,7 +559,7 @@ class Standard
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, $copy = false )
+	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = $item->toArray( true );
 		$data['config'] = [];
@@ -583,9 +583,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/product/template-item
 		 * Relative path to the HTML body template for the product item.

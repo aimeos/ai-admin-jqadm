@@ -30,7 +30,7 @@ class Base
 	 * @param string $classname Full name of the class for which the object should be returned
 	 * @param \Aimeos\Admin\JQAdm\Iface|null $client ExtJS client object
 	 */
-	public static function injectClient( $classname, \Aimeos\Admin\JQAdm\Iface $client = null )
+	public static function injectClient( string $classname, \Aimeos\Admin\JQAdm\Iface $client = null )
 	{
 		self::$objects[$classname] = $client;
 	}
@@ -46,7 +46,7 @@ class Base
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 */
 	protected static function addDecorators( \Aimeos\MShop\Context\Item\Iface $context,
-		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, $classprefix )
+		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		foreach( $decorators as $name )
 		{
@@ -80,7 +80,7 @@ class Base
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 */
 	protected static function addClientDecorators( \Aimeos\MShop\Context\Item\Iface $context,
-		\Aimeos\Admin\JQAdm\Iface $client, $path )
+		\Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		if( !is_string( $path ) || $path === '' ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid domain "%1$s"', $path ) );
@@ -145,7 +145,8 @@ class Base
 	 * @return \Aimeos\Admin\JQAdm\\Iface Admin object
 	 * @throws \Aimeos\Admin\JQAdm\Exception If client couldn't be found or doesn't implement the interface
 	 */
-	protected static function createAdmin( \Aimeos\MShop\Context\Item\Iface $context, $classname, $interface )
+	protected static function createAdmin( \Aimeos\MShop\Context\Item\Iface $context,
+		string $classname, string $interface ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		if( isset( self::$objects[$classname] ) ) {
 			return self::$objects[$classname];

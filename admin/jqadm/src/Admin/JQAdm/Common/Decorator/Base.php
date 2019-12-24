@@ -30,8 +30,7 @@ abstract class Base
 	 * @param \Aimeos\Admin\JQAdm\Iface $client Admin object
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context object with required objects
 	 */
-	public function __construct( \Aimeos\Admin\JQAdm\Iface $client,
-		\Aimeos\MShop\Context\Item\Iface $context )
+	public function __construct( \Aimeos\Admin\JQAdm\Iface $client, \Aimeos\MShop\Context\Item\Iface $context )
 	{
 		parent::__construct( $context );
 
@@ -47,7 +46,7 @@ abstract class Base
 	 * @return mixed Returns the value of the called method
 	 * @throws \Aimeos\Admin\JQAdm\Exception If method call failed
 	 */
-	public function __call( $name, array $param )
+	public function __call( string $name, array $param )
 	{
 		return @call_user_func_array( array( $this->client, $name ), $param );
 	}
@@ -56,9 +55,9 @@ abstract class Base
 	/**
 	 * Copies a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		return $this->client->copy();
 	}
@@ -67,9 +66,9 @@ abstract class Base
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		return $this->client->create();
 	}
@@ -78,9 +77,9 @@ abstract class Base
 	/**
 	 * Deletes a resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null HTML output
 	 */
-	public function delete()
+	public function delete() : ?string
 	{
 		return $this->client->delete();
 	}
@@ -89,9 +88,9 @@ abstract class Base
 	/**
 	 * Exports a resource
 	 *
-	 * @return string Admin output to display
+	 * @return string|null HTML output
 	 */
-	public function export()
+	public function export() : ?string
 	{
 		return $this->client->export();
 	}
@@ -100,9 +99,9 @@ abstract class Base
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		return $this->client->get();
 	}
@@ -111,9 +110,9 @@ abstract class Base
 	/**
 	 * Imports a resource
 	 *
-	 * @return string Admin output to display
+	 * @return string|null HTML output
 	 */
-	public function import()
+	public function import() : ?string
 	{
 		return $this->client->import();
 	}
@@ -122,9 +121,9 @@ abstract class Base
 	/**
 	 * Saves the data
 	 *
-	 * @return string|null admin output to display or null for redirecting to the list
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		return $this->client->save();
 	}
@@ -133,9 +132,9 @@ abstract class Base
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string admin output to display
+	 * @return string|null HTML output
 	 */
-	public function search()
+	public function search() : ?string
 	{
 		return $this->client->search();
 	}
@@ -148,7 +147,7 @@ abstract class Base
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		return $this->client->getSubClient( $type, $name );
 	}
@@ -159,7 +158,7 @@ abstract class Base
 	 *
 	 * @return \Aimeos\MW\View\Iface $view The view object which generates the admin output
 	 */
-	public function getView()
+	public function getView() : \Aimeos\MW\View\Iface
 	{
 		return $this->client->getView();
 	}
@@ -171,7 +170,7 @@ abstract class Base
 	 * @param \Aimeos\MW\View\Iface $view The view object which generates the admin output
 	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
 	 */
-	public function setView( \Aimeos\MW\View\Iface $view )
+	public function setView( \Aimeos\MW\View\Iface $view ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		parent::setView( $view );
 
@@ -185,7 +184,7 @@ abstract class Base
 	 *
 	 * @return \Aimeos\Bootstrap The Aimeos bootstrap object
 	 */
-	public function getAimeos()
+	public function getAimeos() : \Aimeos\Bootstrap
 	{
 		return $this->client->getAimeos();
 	}
@@ -197,7 +196,7 @@ abstract class Base
 	 * @param \Aimeos\Bootstrap $aimeos The Aimeos bootstrap object
 	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
 	 */
-	public function setAimeos( \Aimeos\Bootstrap $aimeos )
+	public function setAimeos( \Aimeos\Bootstrap $aimeos ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		parent::setAimeos( $aimeos );
 
@@ -211,7 +210,7 @@ abstract class Base
 	 *
 	 * @return \Aimeos\Admin\JQAdm\Iface admin client
 	 */
-	protected function getClient()
+	protected function getClient() : \Aimeos\Admin\JQAdm\Iface
 	{
 		return $this->client;
 	}
@@ -222,7 +221,7 @@ abstract class Base
 	 *
 	 * @return array List of admin client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		return [];
 	}

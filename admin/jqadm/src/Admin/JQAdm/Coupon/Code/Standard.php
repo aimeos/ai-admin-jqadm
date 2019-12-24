@@ -38,9 +38,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		return $this->render( $this->getView() );
 	}
@@ -49,9 +49,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		return $this->render( $this->getView() );
 	}
@@ -60,9 +60,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 
@@ -99,8 +99,10 @@ class Standard
 
 	/**
 	 * Saves the data
+	 *
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -120,7 +122,7 @@ class Standard
 			}
 
 			$manager->commit();
-			return;
+			return null;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
@@ -148,7 +150,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/coupon/code/decorators/excludes
 		 * Excludes decorators added by the "common" option from the coupon JQAdm client
@@ -264,10 +266,10 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
 	 * @param array $params Associative list of GET/POST parameters
-	 * @param integer $total Value/result parameter that will contain the item total afterwards
+	 * @param int $total Value/result parameter that will contain the item total afterwards
 	 * @return \Aimeos\MShop\Coupon\Item\Code\Iface[] Coupon code items associated to the coupon item
 	 */
-	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], &$total = null )
+	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], int &$total = null ) : array
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
 
@@ -290,7 +292,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/coupon/code/standard/subparts
 		 * List of JQAdm sub-clients rendered within the coupon code section
@@ -334,11 +336,12 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
 	 * @param array $data Data array
+	 * @return \Aimeos\MShop\Coupon\Item\Iface Modified coupon item
 	 */
-	protected function fromArray( \Aimeos\MShop\Coupon\Item\Iface $item, array $data )
+	protected function fromArray( \Aimeos\MShop\Coupon\Item\Iface $item, array $data ) : \Aimeos\MShop\Coupon\Item\Iface
 	{
 		if( ( $ids = $this->getValue( $data, 'coupon.code.id', [] ) ) === [] ) {
-			return;
+			return $item;
 		}
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
@@ -365,6 +368,8 @@ class Standard
 
 			$manager->saveItem( $citem, false );
 		}
+
+		return $item;
 	}
 
 
@@ -421,9 +426,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/coupon/code/template-item
 		 * Relative path to the HTML body template of the code subpart for coupons.

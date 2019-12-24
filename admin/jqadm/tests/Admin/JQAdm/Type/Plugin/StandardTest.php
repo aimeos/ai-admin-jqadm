@@ -120,10 +120,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['type' => 'unittest', 'id' => -1] );
-		$this->view->addHelper( 'param', $helper );
-
-		$this->assertNull( $this->object->delete() );
+		$this->assertNull( $this->getClientMock( ['nextAction'], false )->delete() );
 	}
 
 
@@ -344,7 +341,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function getClientMock( $methods )
+	public function getClientMock( $methods, $real = true  )
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Plugin\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
@@ -352,24 +349,27 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->getMock();
 
 		$object->setAimeos( \TestHelperJqadm::getAimeos() );
-		$object->setView( $this->getViewNoRender() );
+		$object->setView( $this->getViewNoRender( $real ) );
 
 		return $object;
 	}
 
 
-	protected function getViewNoRender()
+	protected function getViewNoRender( $real = true )
 	{
 		$view = $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->setMethods( array( 'render', 'config' ) )
+			->setMethods( array( 'render' ) )
 			->getMock();
 
 		$manager = \Aimeos\MShop::create( $this->context, 'plugin/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'order', [], 'plugin' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( 'order', [], 'plugin' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
+
+		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $this->context->getConfig() );
+		$view->addHelper( 'config', $helper );
 
 		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, [] );
 		$view->addHelper( 'access', $helper );

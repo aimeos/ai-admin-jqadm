@@ -38,9 +38,9 @@ class Standard
 	/**
 	 * Copies a resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function copy()
+	public function copy() : ?string
 	{
 		return $this->get();
 	}
@@ -49,9 +49,9 @@ class Standard
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function create()
+	public function create() : ?string
 	{
 		return $this->get();
 	}
@@ -60,9 +60,9 @@ class Standard
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	public function get()
+	public function get() : ?string
 	{
 		$view = $this->getView();
 
@@ -99,8 +99,10 @@ class Standard
 
 	/**
 	 * Saves the data
+	 *
+	 * @return string|null HTML output
 	 */
-	public function save()
+	public function save() : ?string
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
@@ -119,7 +121,7 @@ class Standard
 			}
 
 			$manager->commit();
-			return;
+			return null;
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
@@ -147,7 +149,7 @@ class Standard
 	 * @param string|null $name Name of the sub-client (Default if null)
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
 	 */
-	public function getSubClient( $type, $name = null )
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/order/invoice/decorators/excludes
 		 * Excludes decorators added by the "common" option from the order JQAdm client
@@ -231,7 +233,7 @@ class Standard
 	 *
 	 * @return array List of JQAdm client names
 	 */
-	protected function getSubClientNames()
+	protected function getSubClientNames() : array
 	{
 		/** admin/jqadm/order/invoice/standard/subparts
 		 * List of JQAdm sub-clients rendered within the order invoice section
@@ -278,7 +280,7 @@ class Standard
 	 * @param integer $total Value/result parameter that will contain the item total afterwards
 	 * @return \Aimeos\MShop\Order\Item\Iface[] Associative list of order IDs as keys and items as values
 	 */
-	protected function getOrderItems( \Aimeos\MShop\Order\Item\Base\Iface $order, array $params, &$total )
+	protected function getOrderItems( \Aimeos\MShop\Order\Item\Base\Iface $order, array $params, &$total ) : array
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
@@ -358,7 +360,7 @@ class Standard
 	 * @param \Aimeos\MShop\Order\Item\Iface[] $invoices List of invoices belonging to the order
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( array $invoices )
+	protected function toArray( array $invoices ) : array
 	{
 		$data = [];
 
@@ -377,9 +379,9 @@ class Standard
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string HTML output
+	 * @return string|null HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view )
+	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
 		/** admin/jqadm/order/invoice/template-item
 		 * Relative path to the HTML body template of the invoice subpart for orders.

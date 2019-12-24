@@ -86,8 +86,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->mock->expects( $this->once() )->method( 'getSubClient' )->will( $this->returnValue( 'test' ) );
-
-		$this->assertEquals( 'test', $this->object->getSubClient( 'unknown' ) );
+		$this->mock->expects( $this->once() )->method( 'getSubClient' )->will( $this->returnSelf() );
+		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $this->object->getSubClient( 'unknown' ) );
 	}
 }

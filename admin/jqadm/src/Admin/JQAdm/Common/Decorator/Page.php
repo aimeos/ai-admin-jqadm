@@ -25,7 +25,7 @@ class Page extends Base
 	 * @param \Aimeos\MW\View\Iface $view The view object which generates the admin output
 	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
 	 */
-	public function setView( \Aimeos\MW\View\Iface $view )
+	public function setView( \Aimeos\MW\View\Iface $view ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		parent::setView( $view );
 

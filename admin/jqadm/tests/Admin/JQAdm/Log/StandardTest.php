@@ -103,12 +103,15 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$view = $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->setMethods( array( 'render', 'config' ) )
+			->setMethods( array( 'render' ) )
 			->getMock();
 
-		$param = ['site' => 'unittest'];
+		$param = ['site' => 'unittest', 'id' => -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
+
+		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $this->context->getConfig() );
+		$view->addHelper( 'config', $helper );
 
 		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, [] );
 		$view->addHelper( 'access', $helper );

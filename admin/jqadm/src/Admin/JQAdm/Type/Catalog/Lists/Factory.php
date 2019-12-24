@@ -29,7 +29,7 @@ class Factory
 	 * @return \Aimeos\Admin\JQAdm\Iface Filter part implementing \Aimeos\Admin\JQAdm\Iface
 	 * @throws \Aimeos\Admin\JQAdm\Exception If requested client implementation couldn't be found or initialisation fails
 	 */
-	public static function create( \Aimeos\MShop\Context\Item\Iface $context, $name = null )
+	public static function create( \Aimeos\MShop\Context\Item\Iface $context, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/type/catalog/lists/name
 		 * Class name of the used account favorite client implementation
@@ -68,14 +68,12 @@ class Factory
 			$name = $context->getConfig()->get( 'admin/jqadm/type/catalog/lists/name', 'Standard' );
 		}
 
-		if( ctype_alnum( $name ) === false )
-		{
-			$classname = is_string( $name ) ? '\\Aimeos\\Admin\\JQAdm\\Type\\Catalog\\Lists\\' . $name : '<not a string>';
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid characters in class name "%1$s"', $classname ) );
-		}
-
 		$iface = '\\Aimeos\\Admin\\JQAdm\\Iface';
 		$classname = '\\Aimeos\\Admin\\JQAdm\\Type\\Catalog\\Lists\\' . $name;
+
+		if( ctype_alnum( $name ) === false ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid characters in class name "%1$s"', $classname ) );
+		}
 
 		$client = self::createAdmin( $context, $classname, $iface );
 
