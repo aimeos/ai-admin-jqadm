@@ -22,14 +22,6 @@ abstract class Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
 	/**
-	 * Returns the list of sub-client names configured for the client.
-	 *
-	 * @return array List of JQAdm client names
-	 */
-	abstract protected function getSubClientNames() : array;
-
-
-	/**
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
