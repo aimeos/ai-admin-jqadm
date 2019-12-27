@@ -355,7 +355,7 @@ class Standard
 			$stockItems[] = $stockItem->setProductCode( $item->getCode() )
 				->setType( $this->getValue( $entry, 'stock.type', 'default' ) )
 				->setStockLevel( $this->getValue( $entry, 'stock.stocklevel' ) )
-				->setTimeFrame( $this->getValue( $entry, 'stock.timeframe' ) )
+				->setTimeFrame( $this->getValue( $entry, 'stock.timeframe', '' ) )
 				->setDateBack( $this->getValue( $entry, 'stock.dateback' ) );
 
 			unset( $stocks[$id] );
