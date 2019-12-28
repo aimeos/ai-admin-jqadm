@@ -746,35 +746,37 @@ $statusList = [
 						<?php endforeach; ?>
 					</div>
 
-					<div class="row item-summary">
-						<div class="col-xl-6 content-block"></div>
+					<?php if( $this->site()->siteid() == $basket->getSiteId() ) : ?>
+						<div class="row item-summary">
+							<div class="col-xl-6 content-block"></div>
 
-						<div class="col-xl-6 content-block item-total">
-							<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Order totals' ) ); ?></h2>
-							<div class="form-group row total-subtotal">
-								<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Sub-total' ) ); ?></div>
-								<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() ), $currency ) ); ?></div>
-							</div>
-							<div class="form-group row total-shipping">
-								<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Shipping' ) ); ?></div>
-								<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
-							</div>
-							<div class="form-group row total-value">
-								<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Total' ) ); ?></div>
-								<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
-							</div>
-							<div class="form-group row total-tax">
-								<div class="col-6 name">
-									<?php if( $basket->getPrice()->getTaxFlag() ) : ?>
-										<?= $enc->html( $this->translate( 'admin', 'Incl. tax' ) ); ?>
-									<?php else : ?>
-										<?= $enc->html( $this->translate( 'admin', 'Excl. tax' ) ); ?>
-									<?php endif; ?>
+							<div class="col-xl-6 content-block item-total">
+								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Order totals' ) ); ?></h2>
+								<div class="form-group row total-subtotal">
+									<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Sub-total' ) ); ?></div>
+									<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() ), $currency ) ); ?></div>
 								</div>
-								<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getTaxValue() ), $currency ) ); ?></div>
+								<div class="form-group row total-shipping">
+									<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Shipping' ) ); ?></div>
+									<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
+								</div>
+								<div class="form-group row total-value">
+									<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Total' ) ); ?></div>
+									<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
+								</div>
+								<div class="form-group row total-tax">
+									<div class="col-6 name">
+										<?php if( $basket->getPrice()->getTaxFlag() ) : ?>
+											<?= $enc->html( $this->translate( 'admin', 'Incl. tax' ) ); ?>
+										<?php else : ?>
+											<?= $enc->html( $this->translate( 'admin', 'Excl. tax' ) ); ?>
+										<?php endif; ?>
+									</div>
+									<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getTaxValue() ), $currency ) ); ?></div>
+								</div>
 							</div>
 						</div>
-					</div>
+					<?php endif ?>
 
 				</div>
 
