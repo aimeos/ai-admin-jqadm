@@ -42,8 +42,9 @@ class Page extends Base
 
 		try
 		{
-			if( ( $siteid = $customerManager->getItem( $context->getUserId() )->getSiteId() ) !== null )
-			{
+			if( ( $custid = $context->getUserId() ) !== null
+				&& ( $siteid = $customerManager->getItem( $custid )->getSiteId() ) !== null
+			) {
 				$search = $siteManager->createSearch()->setSlice( 0, 1 );
 				$search->setConditions( $search->compare( '==', 'locale.site.siteid', $siteid ) );
 				$id = current( array_keys( $siteManager->searchItems( $search ) ) ) ?: $siteItem->getId();
