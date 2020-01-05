@@ -15,7 +15,7 @@ class PageTest extends \PHPUnit\Framework\TestCase
 	private $object;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->context = \TestHelperJqadm::getContext();
 
@@ -26,7 +26,7 @@ class PageTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		unset( $this->object, $this->context );
 	}
@@ -39,9 +39,9 @@ class PageTest extends \PHPUnit\Framework\TestCase
 		$this->object->setView( $view );
 
 		$this->assertEmpty( $view->get( 'pageUser' ) );
-		$this->assertInternalType( 'array', $view->pageParams );
-		$this->assertInternalType( 'array', $view->pageI18nList );
-		$this->assertInternalType( 'array', $view->pageLangItems );
+		$this->assertIsArray( $view->pageParams );
+		$this->assertIsArray( $view->pageI18nList );
+		$this->assertIsArray( $view->pageLangItems );
 		$this->assertInstanceOf( \Aimeos\MShop\Locale\Item\Site\Iface::class, $view->pageSiteTree );
 		$this->assertInstanceOf( \Aimeos\MShop\Locale\Item\Site\Iface::class, $view->pageSiteItem );
 	}

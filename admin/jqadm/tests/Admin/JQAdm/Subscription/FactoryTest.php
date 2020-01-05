@@ -14,7 +14,7 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 	private $context;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->context = \TestHelperJqadm::getContext();
 		$this->context->setView( \TestHelperJqadm::getView() );
@@ -37,21 +37,21 @@ class FactoryTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClientNameEmpty()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Subscription\Factory::create( $this->context, '' );
 	}
 
 
 	public function testCreateClientNameInvalid()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Subscription\Factory::create( $this->context, '%subscription' );
 	}
 
 
 	public function testCreateClientNameNotFound()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Subscription\Factory::create( $this->context, 'test' );
 	}
 

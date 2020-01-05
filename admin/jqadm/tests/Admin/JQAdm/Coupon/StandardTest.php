@@ -16,7 +16,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	private $view;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->view = \TestHelperJqadm::getView();
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
@@ -32,7 +32,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		unset( $this->object, $this->view, $this->context );
 	}
@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->create();
 
-		$this->assertContains( 'item-coupon', $result );
+		$this->assertStringContainsString( 'item-coupon', $result );
 	}
 
 
@@ -76,7 +76,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->copy();
 
-		$this->assertContains( 'Unit test example', $result );
+		$this->assertStringContainsString( 'Unit test example', $result );
 	}
 
 
@@ -140,7 +140,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->get();
 
-		$this->assertContains( 'Unit test example', $result );
+		$this->assertStringContainsString( 'Unit test example', $result );
 	}
 
 
@@ -170,7 +170,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = new \Aimeos\Admin\JQAdm\Coupon\Standard( $this->context, [] );
 
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->getView();
 	}
 
@@ -197,9 +197,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
-		$this->object->save();
+		$result = $this->object->save();
 
 		$manager->deleteItem( $this->getCoupon( 'jqadm test label' )->getId() );
+
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertNull( $result );
 	}
 
 
@@ -252,7 +255,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
-		$this->assertContains( '>Unit test example<', $result );
+		$this->assertStringContainsString( '>Unit test example<', $result );
 	}
 
 
@@ -287,14 +290,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientInvalid()
 	{
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( '$unknown$' );
 	}
 
 
 	public function testGetSubClientUnknown()
 	{
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 
@@ -303,7 +306,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->context->getConfig()->set( 'admin/jqadm/coupon/code/decorators/global', array( 'Invalid' ) );
 
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'code' );
 	}
 

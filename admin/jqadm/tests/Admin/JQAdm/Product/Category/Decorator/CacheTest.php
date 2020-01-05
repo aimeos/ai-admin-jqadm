@@ -17,7 +17,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
 	private $cache;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->cache = $this->getMockBuilder( 'Aimeos\MW\Cache\None' )
 			->setMethods( array( 'deleteByTags' ) )
@@ -36,7 +36,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		unset( $this->object, $this->mock, $this->context, $this->cache );
 	}

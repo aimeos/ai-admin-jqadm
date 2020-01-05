@@ -16,7 +16,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	private $view;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
@@ -28,7 +28,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		unset( $this->object, $this->view, $this->context );
 	}
@@ -36,7 +36,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$this->object->create();
+		$result = $this->object->create();
+
+		$this->assertStringContainsString( 'plugin', $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 	}
 
 
@@ -82,7 +85,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->copy();
 
-		$this->assertContains( 'order', $result );
+		$this->assertStringContainsString( 'order', $result );
 	}
 
 
@@ -158,7 +161,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->get();
 
-		$this->assertContains( 'order', $result );
+		$this->assertStringContainsString( 'order', $result );
 	}
 
 
@@ -198,7 +201,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = new \Aimeos\Admin\JQAdm\Type\Plugin\Standard( $this->context, [] );
 
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->getView();
 	}
 
@@ -221,9 +224,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
-		$this->object->save();
+		$result = $this->object->save();
 
 		$manager->deleteItem( $manager->findItem( 'jqadm@test', [], 'plugin' )->getId() );
+
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertNull( $result );
 	}
 
 
@@ -291,7 +297,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
-		$this->assertContains( '>order<', $result );
+		$this->assertStringContainsString( '>order<', $result );
 	}
 
 
@@ -329,14 +335,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientInvalid()
 	{
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( '$unknown$' );
 	}
 
 
 	public function testGetSubClientUnknown()
 	{
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 

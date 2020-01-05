@@ -16,7 +16,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	private $view;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
@@ -28,7 +28,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		unset( $this->object, $this->view, $this->context );
 	}
@@ -48,8 +48,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->delete();
 
-		$this->assertContains( 'dashboard-job', $result );
-		$this->assertNotContains( 'jobdeletetest.csv', $result );
+		$this->assertStringContainsString( 'dashboard-job', $result );
+		$this->assertStringNotContainsString( 'jobdeletetest.csv', $result );
 	}
 
 
@@ -149,8 +149,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->search();
 
-		$this->assertContains( 'dashboard-job', $result );
-		$this->assertContains( 'unittest job', $result );
+		$this->assertStringContainsString( 'dashboard-job', $result );
+		$this->assertStringContainsString( 'unittest job', $result );
 	}
 
 

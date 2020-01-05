@@ -15,7 +15,7 @@ class JQAdmTest extends \PHPUnit\Framework\TestCase
 	private $context;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->aimeos = \TestHelperJqadm::getAimeos();
 		$this->context = \TestHelperJqadm::getContext();
@@ -49,21 +49,21 @@ class JQAdmTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClientNameEmpty()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, '' );
 	}
 
 
 	public function testCreateClientNameInvalid()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, '%product' );
 	}
 
 
 	public function testCreateClientNameNotFound()
 	{
-		$this->setExpectedException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, 'unknown' );
 	}
 

@@ -16,7 +16,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	private $view;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
@@ -31,7 +31,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		unset( $this->object, $this->view, $this->context );
 	}
@@ -39,7 +39,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
-		$this->assertContains( 'item-locale-site', $this->object->create() );
+		$this->assertStringContainsString( 'item-locale-site', $this->object->create() );
 	}
 
 
@@ -75,7 +75,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->copy();
 
-		$this->assertContains( 'unittest', $result );
+		$this->assertStringContainsString( 'unittest', $result );
 	}
 
 
@@ -141,7 +141,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->get();
 
-		$this->assertContains( 'unittest', $result );
+		$this->assertStringContainsString( 'unittest', $result );
 	}
 
 
@@ -171,7 +171,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = new \Aimeos\Admin\JQAdm\Locale\Site\Standard( $this->context, [] );
 
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->getView();
 	}
 
@@ -255,7 +255,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
-		$this->assertContains( '>unittest<', $result );
+		$this->assertStringContainsString( '>unittest<', $result );
 	}
 
 
@@ -283,14 +283,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientInvalid()
 	{
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( '$unknown$' );
 	}
 
 
 	public function testGetSubClientUnknown()
 	{
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 

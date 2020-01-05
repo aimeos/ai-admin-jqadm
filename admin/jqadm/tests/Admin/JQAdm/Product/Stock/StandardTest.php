@@ -16,7 +16,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	private $view;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
@@ -28,7 +28,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		unset( $this->object, $this->view, $this->context );
 	}
@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertContains( 'item-stock', $result );
+		$this->assertStringContainsString( 'item-stock', $result );
 	}
 
 
@@ -54,8 +54,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;stock.stocklevel&quot;:1200', $result );
-		$this->assertContains( '&quot;stock.dateback&quot;:&quot;2015-05-01T00:00:00&quot;', $result );
+		$this->assertStringContainsString( '&quot;stock.stocklevel&quot;:1200', $result );
+		$this->assertStringContainsString( '&quot;stock.dateback&quot;:&quot;2015-05-01T00:00:00&quot;', $result );
 	}
 
 
@@ -67,8 +67,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertContains( '&quot;stock.stocklevel&quot;:1200', $result );
-		$this->assertContains( '&quot;stock.dateback&quot;:&quot;2015-05-01T00:00:00&quot;', $result );
+		$this->assertStringContainsString( '&quot;stock.stocklevel&quot;:1200', $result );
+		$this->assertStringContainsString( '&quot;stock.dateback&quot;:&quot;2015-05-01T00:00:00&quot;', $result );
 	}
 
 
@@ -133,7 +133,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->save();
 	}
 
@@ -153,14 +153,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->save();
 	}
 
 
 	public function testGetSubClient()
 	{
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 }

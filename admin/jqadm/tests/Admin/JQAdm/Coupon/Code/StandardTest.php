@@ -16,7 +16,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	private $view;
 
 
-	protected function setUp()
+	protected function setUp() : void
 	{
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
@@ -28,7 +28,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function tearDown()
+	protected function tearDown() : void
 	{
 		unset( $this->object, $this->view, $this->context );
 	}
@@ -40,7 +40,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->copy();
 
-		$this->assertContains( 'item-code', $result );
+		$this->assertStringContainsString( 'item-code', $result );
 	}
 
 
@@ -48,7 +48,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->create();
 
-		$this->assertContains( 'item-code', $result );
+		$this->assertStringContainsString( 'item-code', $result );
 	}
 
 
@@ -58,8 +58,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->get();
 
-		$this->assertContains( 'item-code', $result );
-		$this->assertContains( 'OPQR', $result );
+		$this->assertStringContainsString( 'item-code', $result );
+		$this->assertStringContainsString( 'OPQR', $result );
 	}
 
 
@@ -116,9 +116,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->view->item = $this->getCouponItem();
 
-		$this->object->save();
+		$result = $this->object->save();
 
 		$manager->deleteItem( $manager->findItem( 'jqadm test code' )->getId() );
+
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertNull( $result );
 	}
 
 
@@ -156,7 +159,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->setExpectedException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 
