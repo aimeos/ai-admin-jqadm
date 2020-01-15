@@ -35,10 +35,20 @@ $sortclass = function( $sortcode, $code ) {
 
 if( $this->get( 'action' ) === 'get' )
 {
-	$target = $this->config( 'admin/jqadm/url/get/target' );
-	$controller = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-	$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
-	$config = $this->config( 'admin/jqadm/url/get/config', [] );
+	if( isset( $params['id'] ) )
+	{
+		$target = $this->config( 'admin/jqadm/url/get/target' );
+		$controller = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
+		$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
+		$config = $this->config( 'admin/jqadm/url/get/config', [] );
+	}
+	else
+	{
+		$target = $this->config( 'admin/jqadm/url/create/target' );
+		$controller = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
+		$action = $this->config( 'admin/jqadm/url/create/action', 'create' );
+		$config = $this->config( 'admin/jqadm/url/create/config', [] );
+	}
 }
 else
 {
