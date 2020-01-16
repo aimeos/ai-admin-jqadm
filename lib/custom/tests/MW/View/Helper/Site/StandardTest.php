@@ -71,7 +71,7 @@ class TestSite
 		$this->label = $label;
 	}
 
-	public function getId()
+	public function getSiteId()
 	{
 		return $this->id;
 	}

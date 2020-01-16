@@ -64,7 +64,7 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 */
 	public function match( string $siteid = null ) : ?string
 	{
-		if( $this->siteItem->getId() == $siteid ) {
+		if( $this->siteItem->getSiteId() == $siteid ) {
 			return $this->siteItem->getLabel();
 		}
 
@@ -80,7 +80,7 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 */
 	public function readonly( string $siteid = null ) : ?string
 	{
-		if( $this->siteItem->getId() != $siteid ) {
+		if( $this->siteItem->getSiteId() != $siteid ) {
 			return 'readonly';
 		}
 
@@ -95,6 +95,6 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 */
 	public function siteid() : ?string
 	{
-		return $this->siteItem->getId();
+		return $this->siteItem->getSiteId();
 	}
 }
