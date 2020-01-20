@@ -150,7 +150,7 @@ class Standard
 				}
 			}
 
-			$manager->deleteItems( $items );
+			$manager->deleteItems( $items->toArray() );
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'attribute', null, 'delete' );

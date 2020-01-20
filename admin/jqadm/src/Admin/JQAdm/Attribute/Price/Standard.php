@@ -308,9 +308,11 @@ class Standard
 		$listSearch->setConditions( $listSearch->compare( '==', 'attribute.lists.type.domain', 'price' ) );
 		$listSearch->setSortations( [$listSearch->sort( '+', 'attribute.lists.type.position' )] );
 
+		$curSearch = $currencyManager->createSearch( true )->setSlice( 0, 10000 );
+
 		$view->priceTypes = $this->map( $priceTypeManager->searchItems( $search ) );
 		$view->priceListTypes = $this->map( $listTypeManager->searchItems( $listSearch ) );
-		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true )->setSlice( 0, 10000 ) );
+		$view->priceCurrencies = $currencyManager->searchItems( $curSearch )->toArray();
 
 		if( $view->priceCurrencies === [] ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );

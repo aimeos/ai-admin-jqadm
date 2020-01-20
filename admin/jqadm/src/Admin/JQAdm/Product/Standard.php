@@ -152,10 +152,10 @@ class Standard
 				}
 			}
 
-			$manager->deleteItems( $items );
+			$manager->deleteItems( $items->toArray() );
 			$manager->commit();
 
-			\Aimeos\MShop::create( $context, 'index' )->deleteItems( $items );
+			\Aimeos\MShop::create( $context, 'index' )->deleteItems( $items->toArray() );
 			$context->getCache()->deleteByTags( $tags );
 
 			$this->nextAction( $view, 'search', 'product', null, 'delete' );

@@ -199,17 +199,12 @@ class Standard
 	/**
 	 * Returns the basket items for the given orders
 	 *
-	 * @param \Aimeos\MShop\Order\Item\Iface[] $items Order item objects
-	 * @return \Aimeos\MShop\Order\Item\Base\Iface[] Basket items
+	 * @param \Aimeos\Map $items Order items implementing \Aimeos\MShop\Order\Item\Iface
+	 * @return \Aimeos\Map Basket items implementing \Aimeos\MShop\Order\Item\Base\Iface
 	 */
-	protected function getOrderBaseItems( array $items )
+	protected function getOrderBaseItems( \Aimeos\Map $items ) : \Aimeos\Map
 	{
-		$ids = [];
-
-		foreach( $items as $item ) {
-			$ids[] = $item->getBaseId();
-		}
-
+		$ids = $items->getBaseId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 
 		$search = $manager->createSearch()->setSlice( 0, count( $ids ) );
@@ -225,9 +220,9 @@ class Standard
 	 * @param \Aimeos\MShop\Customer\Item\Iface $item Customer item object
 	 * @param array $params Associative list of GET/POST parameters
 	 * @param integer $total Value/result parameter that will contain the item total afterwards
-	 * @return \Aimeos\MShop\Order\Item\Iface[] Order items of the customer
+	 * @return \Aimeos\Map Order items of the customer implementing \Aimeos\MShop\Order\Item\Iface
 	 */
-	protected function getOrderItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [], &$total = null )
+	protected function getOrderItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [], &$total = null ) : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 

@@ -5,7 +5,7 @@
  * @copyright Aimeos (aimeos.org), 2016-2018
  */
 
-$price = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
+$price = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
 {
 	if( isset( $orders[$item->getBaseId()] ) )
 	{
@@ -15,7 +15,7 @@ $price = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item, $priceFo
 };
 
 
-$name = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
+$name = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item )
 {
 	if( isset( $orders[$item->getBaseId()] ) )
 	{
@@ -34,7 +34,7 @@ $name = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
 };
 
 
-$payment = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
+$payment = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item )
 {
 	if( isset( $orders[$item->getBaseId()] ) )
 	{
@@ -51,7 +51,7 @@ $payment = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
 };
 
 
-$status = function( $list, $key )
+$status = function( array $list, $key )
 {
 	return ( isset( $list[$key] ) ? $list[$key] : '' );
 };

@@ -116,9 +116,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'order.type', 'jqadmtst' ) );
-		$items = $manager->searchItems( $search );
 
-		if( ( $item = reset( $items ) ) === false ) {
+		if( ( $item = $manager->searchItems( $search )->first() ) === null ) {
 			$this->fail( 'No saved order item found' );
 		}
 
@@ -155,9 +154,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'order.base.comment', $comment ) );
 
-		$items = $manager->searchItems( $search );
-
-		if( ( $item = reset( $items ) ) === false ) {
+		if( ( $item = $manager->searchItems( $search )->first() ) === null ) {
 			throw new \RuntimeException( 'No order base item found' );
 		}
 

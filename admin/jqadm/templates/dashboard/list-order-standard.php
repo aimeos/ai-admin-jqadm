@@ -6,7 +6,7 @@
  */
 
 $enc = $this->encoder();
-$currencies = array_keys( $this->get( 'orderCurrencyItems', [] ) );
+$currencies = $this->get( 'orderCurrencyItems', new \Aimeos\Map() )->keys()->toArray();
 
 
 ?>

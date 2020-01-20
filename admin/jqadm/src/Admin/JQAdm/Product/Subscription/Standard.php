@@ -227,9 +227,9 @@ class Standard
 	/**
 	 * Returns the available attribute items of type "interval"
 	 *
-	 * @return \Aimeos\MShop\Attribute\Item\Iface[] Associative list of attribute IDs as keys and items as values
+	 * @return \Aimeos\Map List of attribute IDs as keys and items implementing \Aimeos\MShop\Attribute\Item\Iface
 	 */
-	protected function getIntervalItems()
+	protected function getIntervalItems() : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute' );
 

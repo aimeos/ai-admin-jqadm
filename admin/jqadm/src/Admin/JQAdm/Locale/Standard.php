@@ -152,7 +152,7 @@ class Standard
 				}
 			}
 
-			$manager->deleteItems( $items );
+			$manager->deleteItems( $items->toArray() );
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'locale', null, 'delete' );
@@ -432,9 +432,9 @@ class Standard
 	/**
 	 * Returns the available currencies
 	 *
-	 * @return \Aimeos\MShop\Locale\Item\Currency\Iface[] List of currency items
+	 * @return \Aimeos\Map List of currency items implementing \Aimeos\MShop\Locale\Item\Currency\Iface
 	 */
-	protected function getCurrencyItems() : array
+	protected function getCurrencyItems() : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 
@@ -449,9 +449,9 @@ class Standard
 	/**
 	 * Returns the available languages
 	 *
-	 * @return \Aimeos\MShop\Locale\Item\Language\Iface[] List of language items
+	 * @return \Aimeos\Map List of language items implementing \Aimeos\MShop\Locale\Item\Language\Iface
 	 */
-	protected function getLanguageItems() : array
+	protected function getLanguageItems() : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/language' );
 

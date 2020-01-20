@@ -285,9 +285,9 @@ class Standard
 	 * @param \Aimeos\MShop\Customer\Item\Iface $item Customer item object
 	 * @param array $params Associative list of GET/POST parameters
 	 * @param integer $total Value/result parameter that will contain the item total afterwards
-	 * @return \Aimeos\MShop\Common\Item\List\Iface[] Customer list items referencing the products
+	 * @return \Aimeos\Map Customer list items implementing \Aimeos\MShop\Common\Item\List\Iface referencing the products
 	 */
-	protected function getListItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [], &$total = null )
+	protected function getListItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [], &$total = null ) : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/lists' );
 
@@ -326,17 +326,12 @@ class Standard
 	/**
 	 * Returns the product items referenced by the given list items
 	 *
-	 * @param \Aimeos\MShop\Common\Item\List\Iface[] $listItems Customer list items referencing the products
-	 * @return \Aimeos\MShop\Product\Item\Iface[] Associative list of product IDs as keys and items as values
+	 * @param \Aimeos\Map $listItems Customer list items implementing \Aimeos\MShop\Common\Item\List\Iface and referencing the products
+	 * @return \Aimeos\Map List of product IDs as keys and items implementing \Aimeos\MShop\Product\Item\Iface
 	 */
-	protected function getProductItems( array $listItems )
+	protected function getProductItems( \Aimeos\Map $listItems ) : \Aimeos\Map
 	{
-		$list = [];
-
-		foreach( $listItems as $listItem ) {
-			$list[] = $listItem->getRefId();
-		}
-
+		$list = $listItems->getRefId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
 		$search = $manager->createSearch()->setSlice( 0, count( $list ) );
@@ -475,10 +470,10 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Common\Item\Lists\Iface[] $listItems Customer list items referencing the products
+	 * @param \Aimeos\Map $listItems Customer list items implementing \Aimeos\MShop\Common\Item\Lists\Iface and referencing the products
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( array $listItems )
+	protected function toArray( \Aimeos\Map $listItems ) : array
 	{
 		$data = [];
 

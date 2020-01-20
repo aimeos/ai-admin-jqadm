@@ -278,9 +278,9 @@ class Standard
 	 * @param \Aimeos\MShop\Order\Item\Base\Iface $order Current order base item
 	 * @param string $params GET/POST parameters containing the filter values
 	 * @param integer $total Value/result parameter that will contain the item total afterwards
-	 * @return \Aimeos\MShop\Order\Item\Iface[] Associative list of order IDs as keys and items as values
+	 * @return \Aimeos\Map List of order IDs as keys and items implementing \Aimeos\MShop\Order\Item\Iface
 	 */
-	protected function getOrderItems( \Aimeos\MShop\Order\Item\Base\Iface $order, array $params, &$total ) : array
+	protected function getOrderItems( \Aimeos\MShop\Order\Item\Base\Iface $order, array $params, &$total ) : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
@@ -357,10 +357,10 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Order\Item\Iface[] $invoices List of invoices belonging to the order
-	 * @return string[] Multi-dimensional associative list of item data
+	 * @param \Aimeos\Map $invoices List of invoices implementing \Aimeos\MShop\Order\Item\Iface belonging to the order
+	 * @return array Multi-dimensional associative list of item data
 	 */
-	protected function toArray( array $invoices ) : array
+	protected function toArray( \Aimeos\Map $invoices ) : array
 	{
 		$data = [];
 

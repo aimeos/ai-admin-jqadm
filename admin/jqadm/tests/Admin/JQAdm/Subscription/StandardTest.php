@@ -179,9 +179,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'order/base/product' );
-		$items = $manager->searchItems( $manager->createSearch()->setSlice( 0, 1 ) );
+		$search = $manager->createSearch()->setSlice( 0, 1 );
 
-		if( ( $item = reset( $items ) ) === false ) {
+		if( ( $item = $manager->searchItems( $search )->first() ) === null ) {
 			throw new \Exception( 'No order product item found' );
 		}
 
@@ -343,9 +343,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'subscription' );
 		$search = $manager->createSearch()->setSlice( 0, 1 );
 		$search->setConditions( $search->compare( '==', 'subscription.dateend', $end ) );
-		$items = $manager->searchItems( $search );
 
-		if( ( $item = reset( $items ) ) === false ) {
+		if( ( $item = $manager->searchItems( $search )->first() ) === null ) {
 			throw new \Exception( sprintf( 'No subscription item found for end date "%1$s"', $end ) );
 		}
 

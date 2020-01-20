@@ -554,7 +554,7 @@ abstract class Base
 	 * @param \Aimeos\MShop\Common\Item\Type\Iface[] $items Associative list of type items
 	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of codes as keys and items as values
 	 */
-	protected function map( array $items ) : array
+	protected function map( \Aimeos\Map $items ) : array
 	{
 		$list = [];
 

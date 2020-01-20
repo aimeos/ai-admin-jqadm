@@ -274,9 +274,9 @@ class Standard
 	/**
 	 * Returns the available customer property types
 	 *
-	 * @return array Associative list of property type IDs as keys and property type items as values
+	 * @return \Aimeos\Map Associative list of property type IDs as keys and property type items as values
 	 */
-	protected function getPropertyTypes() : array
+	protected function getPropertyTypes() : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/property/type' );
 

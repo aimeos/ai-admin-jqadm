@@ -47,7 +47,7 @@ class Page extends Base
 			) {
 				$search = $siteManager->createSearch()->setSlice( 0, 1 );
 				$search->setConditions( $search->compare( '==', 'locale.site.siteid', $siteid ) );
-				$id = current( array_keys( $siteManager->searchItems( $search ) ) ) ?: $siteItem->getId();
+				$id = $siteManager->searchItems( $search )->keys()->first() ?: $siteItem->getId();
 			}
 		}
 		catch( \Exception $e ) { ; }
@@ -74,7 +74,7 @@ class Page extends Base
 
 			$view->pageSiteList = $siteManager->searchItems( $search );
 
-			if( ( $rootItem = reset( $sitePath ) ) !== false ) {
+			if( ( $rootItem = $sitePath->first() ) !== null ) {
 				$view->pageSiteTree = $siteManager->getTree( $rootItem->getId(), [], $level );
 			}
 		}

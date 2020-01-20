@@ -146,7 +146,7 @@ class Standard
 				}
 			}
 
-			$manager->deleteItems( $items );
+			$manager->deleteItems( $items->toArray() );
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'locale/currency', null, 'delete' );

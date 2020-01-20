@@ -267,9 +267,9 @@ class Standard
 	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item object
 	 * @param array $params Associative list of GET/POST parameters
 	 * @param int $total Value/result parameter that will contain the item total afterwards
-	 * @return \Aimeos\MShop\Coupon\Item\Code\Iface[] Coupon code items associated to the coupon item
+	 * @return \Aimeos\Map Coupon code items implementing \Aimeos\MShop\Coupon\Item\Code\Iface associated to the coupon item
 	 */
-	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], int &$total = null ) : array
+	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], int &$total = null ) : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
 
@@ -404,10 +404,10 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Coupon\Item\Code\Iface[] $items Coupon code items
+	 * @param \Aimeos\Map $items Coupon code items implementing \Aimeos\MShop\Coupon\Item\Code\Iface
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( array $items )
+	protected function toArray( \Aimeos\Map $items )
 	{
 		$data = [];
 

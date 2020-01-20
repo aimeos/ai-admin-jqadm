@@ -285,9 +285,9 @@ class Standard
 	 * @param \Aimeos\MShop\Supplier\Item\Iface $item Supplier item object
 	 * @param array $params Associative list of GET/POST parameters
 	 * @param integer $total Value/result parameter that will contain the item total afterwards
-	 * @return \Aimeos\MShop\Common\Item\List\Iface[] Supplier list items referencing the products
+	 * @return \Aimeos\Map Supplier list items implementing \Aimeos\MShop\Common\Item\List\Iface referencing the products
 	 */
-	protected function getListItems( \Aimeos\MShop\Supplier\Item\Iface $item, array $params = [], &$total = null )
+	protected function getListItems( \Aimeos\MShop\Supplier\Item\Iface $item, array $params = [], &$total = null ) : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
 
@@ -309,9 +309,9 @@ class Standard
 	/**
 	 * Returns the available product list types
 	 *
-	 * @return \Aimeos\MShop\Common\Item\Type\Iface[] Associative list of type IDs as keys and type codes as values
+	 * @return array List of type IDs as keys and type items implementing \Aimeos\MShop\Common\Item\Type\Iface
 	 */
-	protected function getListTypes()
+	protected function getListTypes() : array
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists/type' );
 
@@ -326,10 +326,10 @@ class Standard
 	/**
 	 * Returns the product items referenced by the given list items
 	 *
-	 * @param \Aimeos\MShop\Common\Item\List\Iface[] $listItems Supplier list items referencing the products
-	 * @return \Aimeos\MShop\Product\Item\Iface[] Associative list of product IDs as keys and items as values
+	 * @param \Aimeos\Map $listItems Supplier list items implementing \Aimeos\MShop\Common\Item\List\Iface referencing the products
+	 * @return \Aimeos\Map List of product IDs as keys and items implementing \Aimeos\MShop\Product\Item\Iface
 	 */
-	protected function getProductItems( array $listItems )
+	protected function getProductItems( \Aimeos\Map $listItems ) : \Aimeos\Map
 	{
 		$list = [];
 
@@ -475,10 +475,10 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Common\Item\Lists\Iface[] $listItems Supplier list items referencing the products
+	 * @param \Aimeos\Map $listItems Supplier list items implementing \Aimeos\MShop\Common\Item\Lists\Iface and referencing the products
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( array $listItems )
+	protected function toArray( \Aimeos\Map $listItems )
 	{
 		$data = [];
 

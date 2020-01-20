@@ -158,7 +158,7 @@ abstract class Base
 				}
 			}
 
-			$manager->deleteItems( $items );
+			$manager->deleteItems( $items->toArray() );
 			$manager->commit();
 
 			$this->nextAction( $view, 'search', 'type/' . $path, null, 'delete' );

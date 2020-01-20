@@ -420,16 +420,12 @@ class Standard
 	/**
 	 * Returns the base order items (baskets) for the given order items (invoices)
 	 *
-	 * @param \Aimeos\MShop\Order\Item\Iface[] $orderItems List of order items
-	 * @param \Aimeos\MShop\Order\Item\Base\Iface[] List of order base items
+	 * @param \Aimeos\Map $orderItems List of order items implementing \Aimeos\MShop\Order\Item\Iface
+	 * @param \Aimeos\Map List of order base items implementing \Aimeos\MShop\Order\Item\Base\Iface
 	 */
-	protected function getOrderBaseItems( array $orderItems ) : array
+	protected function getOrderBaseItems( \Aimeos\Map $orderItems ) : \Aimeos\Map
 	{
-		$baseIds = [];
-		foreach( $orderItems as $item ) {
-			$baseIds[] = $item->getBaseId();
-		}
-
+		$baseIds = $orderItems->getBaseId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 
 		$search = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
@@ -557,7 +553,7 @@ class Standard
 					}
 				}
 
-				$attrManager->deleteItems( $attrItems );
+				$attrManager->deleteItems( $attrItems->toArray() );
 			}
 		}
 

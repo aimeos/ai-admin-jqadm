@@ -342,9 +342,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		$items = $manager->searchItems( $search );
-
-		if( ( $item = reset( $items ) ) === false ) {
+		if( ( $item = $manager->searchItems( $search )->first() ) === null ) {
 			throw new \Exception( sprintf( 'No locale found' ) );
 		}
 

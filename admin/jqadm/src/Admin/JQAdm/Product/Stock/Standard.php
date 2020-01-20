@@ -96,7 +96,7 @@ class Standard
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $code ) );
 
-		$manager->deleteItems( $manager->searchItems( $search ) );
+		$manager->deleteItems( $manager->searchItems( $search )->toArray() );
 
 		return null;
 	}
@@ -325,17 +325,12 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$ids = $stocks = $stockItems = [];
+		$stockItems = [];
+		$stocks = new \Aimeos\Map();
+		$ids = \Aimeos\Map::from( $data )->col( 'stock.id' )->filter();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 
-		foreach( $data as $entry )
-		{
-			if( ( $id = $this->getValue( $entry, 'stock.id' ) ) !== null ) {
-				$ids[] = $id;
-			}
-		}
-
-		if( !empty( $ids ) )
+		if( !$ids->isEmpty() )
 		{
 			$search = $manager->createSearch();
 			$search->setConditions( $search->compare( '==', 'stock.id', $ids ) );
@@ -346,22 +341,13 @@ class Standard
 		{
 			$id = $this->getValue( $entry, 'stock.id' );
 
-			if( !isset( $stocks[$id] ) ) {
-				$stockItem = $manager->createItem();
-			} else {
-				$stockItem = $stocks[$id];
-			}
+			$stockItems[] = $stocks->get( $id, $manager->createItem() )->fromArray( $entry )
+				->setProductCode( $item->getCode() );
 
-			$stockItems[] = $stockItem->setProductCode( $item->getCode() )
-				->setType( $this->getValue( $entry, 'stock.type', 'default' ) )
-				->setStockLevel( $this->getValue( $entry, 'stock.stocklevel' ) )
-				->setTimeFrame( $this->getValue( $entry, 'stock.timeframe', '' ) )
-				->setDateBack( $this->getValue( $entry, 'stock.dateback' ) );
-
-			unset( $stocks[$id] );
+			$stocks->remove( $id );
 		}
 
-		$manager->deleteItems( $stocks );
+		$manager->deleteItems( $stocks->toArray() );
 		$manager->saveItems( $stockItems, false );
 
 		return $item;

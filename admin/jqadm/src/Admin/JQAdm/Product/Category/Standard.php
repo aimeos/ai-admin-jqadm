@@ -110,7 +110,7 @@ class Standard
 			$search->setSlice( $start );
 
 			$result = $manager->searchItems( $search );
-			$manager->deleteItems( $result );
+			$manager->deleteItems( $result->toArray() );
 
 			$count = count( $result );
 			$start += $count;
@@ -319,17 +319,12 @@ class Standard
 	/**
 	 * Returns the category items for the given catalog list items
 	 *
-	 * @param array $listItems List of items implementing \Aimeos\Common\Item\Lists\Iface
-	 * @return array Associative list of catalog IDs as keys and items implementing \Aimeos\Catalog\Item\Iface as values
+	 * @param \Aimeos\Map $listItems List of items implementing \Aimeos\Common\Item\Lists\Iface
+	 * @return \Aimeos\Map List of catalog IDs as keys and items implementing \Aimeos\Catalog\Item\Iface
 	 */
-	protected function getCatalogItems( array $listItems ) : array
+	protected function getCatalogItems( \Aimeos\Map $listItems ) : \Aimeos\Map
 	{
-		$ids = [];
-
-		foreach( $listItems as $listItem ) {
-			$ids[] = $listItem->getParentId();
-		}
-
+		$ids = $listItems->getParentId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 
 		$search = $manager->createSearch();
@@ -343,9 +338,9 @@ class Standard
 	 * Returns the category list items for the given product ID
 	 *
 	 * @param string $prodid Unique product ID
-	 * @return array Associative list of category list IDs as keys and list items as values
+	 * @return \Aimeos\Map Associative list of category list IDs as keys and list items as values
 	 */
-	protected function getListItems( string $prodid ) : array
+	protected function getListItems( string $prodid ) : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 
@@ -403,7 +398,7 @@ class Standard
 			unset( $listItems[$litem->getId()] );
 		}
 
-		$manager->deleteItems( $listItems );
+		$manager->deleteItems( $listItems->toArray() );
 		$manager->saveItems( $list );
 	}
 
