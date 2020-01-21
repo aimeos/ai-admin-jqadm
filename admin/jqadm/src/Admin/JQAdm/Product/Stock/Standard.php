@@ -326,7 +326,7 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$stockItems = [];
-		$stocks = new \Aimeos\Map();
+		$stocks = map();
 		$ids = \Aimeos\Map::from( $data )->col( 'stock.id' )->filter();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 
