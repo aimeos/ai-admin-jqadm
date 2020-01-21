@@ -421,7 +421,7 @@ class Standard
 	 * Returns the base order items (baskets) for the given order items (invoices)
 	 *
 	 * @param \Aimeos\Map $orderItems List of order items implementing \Aimeos\MShop\Order\Item\Iface
-	 * @param \Aimeos\Map List of order base items implementing \Aimeos\MShop\Order\Item\Base\Iface
+	 * @return \Aimeos\Map List of order base items implementing \Aimeos\MShop\Order\Item\Base\Iface
 	 */
 	protected function getOrderBaseItems( \Aimeos\Map $orderItems ) : \Aimeos\Map
 	{

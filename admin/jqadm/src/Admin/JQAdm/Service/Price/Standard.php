@@ -312,7 +312,7 @@ class Standard
 		$view->priceListTypes = $this->map( $listTypeManager->searchItems( $listSearch ) );
 		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true )->setSlice( 0, 10000 ) );
 
-		if( $view->priceCurrencies === [] ) {
+		if( $view->priceCurrencies->isEmpty() ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
 		}
 

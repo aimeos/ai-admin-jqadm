@@ -300,19 +300,19 @@ class Standard
 		$listTypeManager = \Aimeos\MShop::create( $context, 'product/lists/type' );
 		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
-		$search = $priceTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
+		$search = $priceTypeManager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'price.type.domain', 'product' ) );
 		$search->setSortations( array( $search->sort( '+', 'price.type.position' ) ) );
 
-		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 0x7fffffff );
+		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 10000 );
 		$listSearch->setConditions( $listSearch->compare( '==', 'product.lists.type.domain', 'price' ) );
 		$listSearch->setSortations( array( $listSearch->sort( '+', 'product.lists.type.position' ) ) );
 
 		$view->priceTypes = $this->map( $priceTypeManager->searchItems( $search ) );
 		$view->priceListTypes = $this->map( $listTypeManager->searchItems( $listSearch ) );
-		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true )->setSlice( 0, 0x7fffffff ) );
+		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true )->setSlice( 0, 10000 ) );
 
-		if( $view->priceCurrencies === [] ) {
+		if( $view->priceCurrencies->isEmpty() ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
 		}
 

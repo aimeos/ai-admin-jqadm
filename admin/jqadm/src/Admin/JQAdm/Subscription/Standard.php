@@ -490,7 +490,7 @@ class Standard
 	 * Returns the base order items (baskets) for the given subscription items
 	 *
 	 * @param \Aimeos\Map $items List of subscription items implementing \Aimeos\MShop\Subscription\Item\Iface
-	 * @param \Aimeos\Map List of order base items implementing \Aimeos\MShop\Order\Item\Base\Iface
+	 * @return \Aimeos\Map List of order base items implementing \Aimeos\MShop\Order\Item\Base\Iface
 	 */
 	protected function getOrderBaseItems( \Aimeos\Map $items ) : \Aimeos\Map
 	{
