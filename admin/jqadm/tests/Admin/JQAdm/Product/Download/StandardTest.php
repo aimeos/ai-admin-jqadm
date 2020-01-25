@@ -127,8 +127,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $listItems ) );
-		$this->assertEquals( 'test', reset( $listItems )->getRefItem()->getLabel() );
-		$this->assertEquals( 'test/file.ext', reset( $listItems )->getRefItem()->getCode() );
+		$this->assertEquals( 'test', $listItems->first()->getRefItem()->getLabel() );
+		$this->assertEquals( 'test/file.ext', $listItems->first()->getRefItem()->getCode() );
 	}
 
 

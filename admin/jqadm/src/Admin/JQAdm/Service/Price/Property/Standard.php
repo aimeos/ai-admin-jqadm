@@ -306,7 +306,7 @@ class Standard
 				$refItem->addPropertyItem( $propItem );
 			}
 
-			$refItem->deletePropertyItems( $propItems );
+			$refItem->deletePropertyItems( $propItems->toArray() );
 			$index++;
 		}
 

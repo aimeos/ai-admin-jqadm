@@ -286,7 +286,7 @@ class Standard
 
 			if( ( $value = trim( $value ) ) != '' )
 			{
-				if( ( $propItem = reset( $propItems ) ) === false ) {
+				if( ( $propItem = $propItems->first() ) === null ) {
 					$propItem = $manager->createItem()->setType( $type );
 				}
 
@@ -297,7 +297,7 @@ class Standard
 			}
 			else
 			{
-				$item->deletePropertyItems( $propItems );
+				$item->deletePropertyItems( $propItems->toArray() );
 			}
 		}
 

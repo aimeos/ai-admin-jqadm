@@ -102,7 +102,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$items = $this->view->item->getPropertyItems( null, false );
+		$items = $this->view->item->getPropertyItems( null, false )->toArray();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );

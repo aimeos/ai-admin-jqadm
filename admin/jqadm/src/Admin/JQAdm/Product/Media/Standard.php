@@ -271,7 +271,7 @@ class Standard
 			$mediaItem->addListItem( 'attribute', $litem );
 		}
 
-		return $mediaItem->deleteListItems( $listItems );
+		return $mediaItem->deleteListItems( $listItems->toArray() );
 	}
 
 
@@ -307,10 +307,10 @@ class Standard
 	 * Removes the media reference and the media item if not shared
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item including media reference
-	 * @param array $listItems Media list items to be removed
+	 * @param \Aimeos\Map $listItems Media list items to be removed
 	 * @return \Aimeos\MShop\Product\Item\Iface Modified product item
 	 */
-	protected function deleteMediaItems( \Aimeos\MShop\Product\Item\Iface $item, array $listItems ) : \Aimeos\MShop\Product\Item\Iface
+	protected function deleteMediaItems( \Aimeos\MShop\Product\Item\Iface $item, \Aimeos\Map $listItems ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$context = $this->getContext();
 		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
@@ -431,7 +431,7 @@ class Standard
 			$listItem->setPosition( $idx );
 			$listItem->setConfig( $conf );
 
-			$attrListItems = $item->getListItems( 'attribute', 'variant', null, false );
+			$attrListItems = $item->getListItems( 'attribute', 'variant', null, false )->toArray();
 			$refItem = $this->addMediaAttributes( $refItem, $attrListItems );
 			$item->addListItem( 'media', $listItem, $refItem );
 

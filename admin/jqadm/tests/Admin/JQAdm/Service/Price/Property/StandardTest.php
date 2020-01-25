@@ -115,7 +115,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
 
-		$priceItems = $this->view->item->getRefItems( 'price' );
+		$priceItems = $this->view->item->getRefItems( 'price' )->toArray();
 		$this->assertGreaterThanOrEqual( 1, count( $priceItems ) );
 		$this->assertEquals( 1, count( reset( $priceItems )->getPropertyItems() ) );
 	}

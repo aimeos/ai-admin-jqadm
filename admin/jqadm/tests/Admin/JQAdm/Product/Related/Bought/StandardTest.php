@@ -104,7 +104,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
 		$this->assertEquals( 1, count( $products ) );
-		$this->assertEquals( '123', reset( $products )->getRefId() );
+		$this->assertEquals( '123', $products->first()->getRefId() );
 	}
 
 

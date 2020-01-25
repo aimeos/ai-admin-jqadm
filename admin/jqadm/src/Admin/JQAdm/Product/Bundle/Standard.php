@@ -299,7 +299,7 @@ class Standard
 			unset( $listItems[$litem->getId()] );
 		}
 
-		return $item->deleteListItems( $listItems );
+		return $item->deleteListItems( $listItems->toArray() );
 	}
 
 

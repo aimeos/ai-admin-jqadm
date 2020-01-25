@@ -116,7 +116,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
 
-		$mediaItems = $this->view->item->getRefItems( 'media' );
+		$mediaItems = $this->view->item->getRefItems( 'media' )->toArray();
 		$this->assertEquals( 2, count( $mediaItems ) );
 		$this->assertEquals( 1, count( reset( $mediaItems )->getPropertyItems() ) );
 	}

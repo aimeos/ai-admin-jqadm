@@ -93,7 +93,7 @@ class Standard
 		parent::delete();
 
 		$item = $this->getView()->item;
-		$item->deleteListItems( $item->getListItems( 'text', null, null, false ), true );
+		$item->deleteListItems( $item->getListItems( 'text', null, null, false )->toArray(), true );
 
 		return null;
 	}
@@ -364,7 +364,7 @@ class Standard
 			unset( $listItems[$listItem->getId()] );
 		}
 
-		return $item->deleteListItems( $listItems, true );
+		return $item->deleteListItems( $listItems->toArray(), true );
 	}
 
 

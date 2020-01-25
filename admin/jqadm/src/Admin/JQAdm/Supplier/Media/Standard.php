@@ -97,7 +97,7 @@ class Standard
 		parent::delete();
 
 		$item = $this->getView()->item;
-		$this->deleteMediaItems( $item, $item->getListItems( 'media', null, null, false ) );
+		$this->deleteMediaItems( $item, $item->getListItems( 'media', null, null, false )->toArray() );
 
 		return null;
 	}
@@ -405,7 +405,7 @@ class Standard
 			unset( $listItems[$listItem->getId()] );
 		}
 
-		return $this->deleteMediaItems( $item, $listItems );
+		return $this->deleteMediaItems( $item, $listItems->toArray() );
 	}
 
 

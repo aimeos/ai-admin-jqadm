@@ -283,13 +283,9 @@ class Standard
 
 		foreach( $data as $entry )
 		{
-			if( isset( $addrItems[$entry['customer.address.id']] ) )
-			{
-				$addrItem = $addrItems[$entry['customer.address.id']];
-				unset( $addrItems[$entry['customer.address.id']] );
-			}
-			else
-			{
+			if( ( $addrItem = $addrItems->get( $entry['customer.address.id'] ) ) !== null ) {
+				$addrItems->remove( $entry['customer.address.id'] );
+			} else {
 				$addrItem = $manager->createItem();
 			}
 
@@ -297,7 +293,7 @@ class Standard
 			$item->addAddressItem( $addrItem );
 		}
 
-		return $item->deleteAddressItems( $addrItems );
+		return $item->deleteAddressItems( $addrItems->toArray() );
 	}
 
 

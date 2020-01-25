@@ -211,10 +211,10 @@ class Standard
 	/**
 	 * Filter the list of property items and remove items with excluded types
 	 *
-	 * @param \Aimeos\MShop\Common\Item\Property\Iface[] $propItems List of property items
-	 * @return \Aimeos\MShop\Common\Item\Property\Iface[] Filtered list of property items
+	 * @param \Aimeos\Map $propItems List of property items implementing \Aimeos\MShop\Common\Item\Property\Iface
+	 * @return \Aimeos\Map  Filtered list of property items implementing \Aimeos\MShop\Common\Item\Property\Iface
 	 */
-	protected function excludeItems( array $propItems )
+	protected function excludeItems( \Aimeos\Map $propItems ) : \Aimeos\Map
 	{
 		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
 
@@ -319,7 +319,7 @@ class Standard
 			$item->addPropertyItem( $propItem );
 		}
 
-		return $item->deletePropertyItems( $propItems );
+		return $item->deletePropertyItems( $propItems->toArray() );
 	}
 
 

@@ -175,7 +175,7 @@ $params = $this->get( 'pageParams', [] );
 									<?php endforeach; ?>
 								</select>
 							<?php else : ?>
-								<?php $language = ( ( $item = reset( $languages ) ) !== false ? $item->getId() : '' ); ?>
+								<?php $language = ( ( $item = $languages->first() ) !== null ? $item->getId() : '' ); ?>
 								<input class="item-languageid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ); ?>" value="<?= $enc->attr( $language ); ?>" />
 							<?php endif; ?>
 						</div>

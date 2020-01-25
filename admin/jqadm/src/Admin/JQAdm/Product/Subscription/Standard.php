@@ -326,7 +326,7 @@ class Standard
 			$item->addListItem( 'attribute', $listItem->setPosition( $idx ), $refItem );
 		}
 
-		return $item->deleteListItems( $listItems );
+		return $item->deleteListItems( $listItems->toArray() );
 	}
 
 

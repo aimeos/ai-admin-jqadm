@@ -144,8 +144,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$variants = $this->view->item->getListItems( 'product' );
 		$this->assertEquals( 1, count( $variants ) );
 
-		$refItem = reset( $variants )->getRefItem();
-		$this->assertEquals( '123', reset( $variants )->getRefId() );
+		$refItem = $variants->first()->getRefItem();
+		$this->assertEquals( '123', $variants->first()->getRefId() );
 		$this->assertEquals( '123', $refItem->getId() );
 		$this->assertEquals( 'testprod', $refItem->getCode() );
 		$this->assertEquals( 'test product', $refItem->getLabel() );
@@ -153,8 +153,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$attributes = $refItem->getListItems( 'attribute' );
 		$this->assertEquals( 1, count( $attributes ) );
-		$this->assertEquals( '456', reset( $attributes )->getId() );
-		$this->assertEquals( '789', reset( $attributes )->getRefId() );
+		$this->assertEquals( '456', $attributes->first()->getId() );
+		$this->assertEquals( '789', $attributes->first()->getRefId() );
 	}
 
 
