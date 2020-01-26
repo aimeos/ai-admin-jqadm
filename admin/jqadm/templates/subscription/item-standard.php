@@ -10,13 +10,6 @@ $selected = function( $key, $code ) {
 };
 
 
-$sortItems = function( array $items )
-{
-	krsort( $items );
-	return $items;
-};
-
-
 $enc = $this->encoder();
 
 $target = $this->config( 'admin/jqadm/url/save/target' );
@@ -257,7 +250,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 							</thead>
 							<tbody>
 
-								<?php foreach( (array) $basket->getProducts() as $pos => $orderProduct ) : ?>
+								<?php foreach( $basket->getProducts() as $pos => $orderProduct ) : ?>
 									<?php if( $orderProduct->getId() == $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) : ?>
 										<tr class="list-item">
 											<td class="item-column column-desc">
@@ -298,7 +291,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 				</div>
 
 				<div class="row">
-					<?php foreach( $sortItems( $basket->getAddresses() ) as $type => $list ) : $code = 'address:' . $type; ?>
+					<?php foreach( $basket->getAddresses()->ksrort() as $type => $list ) : $code = 'address:' . $type; ?>
 
 						<div class="col-xl-6 content-block item-address">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>

@@ -9,12 +9,6 @@ $selected = function( $key, $code ) {
 	return ( $key == $code ? 'selected="selected"' : '' );
 };
 
-$sortItems = function( array $items )
-{
-	krsort( $items );
-	return $items;
-};
-
 
 $enc = $this->encoder();
 
@@ -265,7 +259,7 @@ $statusList = [
 								</thead>
 								<tbody>
 
-									<?php foreach( (array) $basket->getProducts() as $pos => $orderProduct ) : ?>
+									<?php foreach( $basket->getProducts() as $pos => $orderProduct ) : ?>
 										<tr class="list-item">
 											<td class="item-column column-subscription">
 												<?php $newParams = [
@@ -360,7 +354,7 @@ $statusList = [
 
 
 					<div class="row">
-						<?php foreach( $sortItems( $basket->getAddresses() ) as $type => $addresses ) : $code = 'address:' . $type; ?>
+						<?php foreach( $basket->getAddresses()->ksrort() as $type => $addresses ) : $code = 'address:' . $type; ?>
 
 							<div class="col-xl-6 content-block item-address">
 								<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
@@ -631,7 +625,7 @@ $statusList = [
 					</div>
 
 					<div class="row">
-						<?php foreach( $sortItems( $basket->getServices() ) as $type => $services ) : $code = 'service:' . $type; ?>
+						<?php foreach( $basket->getServices()->ksrort() as $type => $services ) : $code = 'service:' . $type; ?>
 							<?php foreach( $services as $serviceItem ) : $serviceId = $serviceItem->getServiceId(); ?>
 
 								<div class="col-xl-6 content-block item-service">
