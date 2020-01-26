@@ -7,9 +7,9 @@
 
 $price = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
 {
-	if( isset( $orders[$item->getBaseId()] ) )
+	if( ( $order = $orders->get( $item->getBaseId() ) ) !== null )
 	{
-		$price = $orders[$item->getBaseId()]->getPrice();
+		$price = $order->getPrice();
 		return sprintf( $priceFormat, $price->getValue(), $price->getCurrencyId() );
 	}
 };
@@ -17,11 +17,11 @@ $price = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item, $p
 
 $name = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item )
 {
-	if( isset( $orders[$item->getBaseId()] ) )
+	if( ( $order = $orders->get( $item->getBaseId() ) ) !== null )
 	{
 		$type = \Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT;
 
-		if( ( $address = current( $orders[$item->getBaseId()]->getAddress( $type ) ) ) === false ) {
+		if( ( $address = current( $order->getAddress( $type ) ) ) === false ) {
 			return;
 		}
 
@@ -36,10 +36,10 @@ $name = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item )
 
 $payment = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item )
 {
-	if( isset( $orders[$item->getBaseId()] ) )
+	if( ( $order = $orders->get( $item->getBaseId() ) ) !== null )
 	{
 		$type = \Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT;
-		$services = $orders[$item->getBaseId()]->getService( $type );
+		$services = $order->getService( $type );
 		$codes = [];
 
 		foreach( $services as $service ) {

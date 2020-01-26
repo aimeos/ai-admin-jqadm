@@ -421,11 +421,11 @@ class Standard
 		{
 			$catId = $listItem->getParentId();
 
-			if( !isset( $catItems[$catId] ) ) {
+			if( ( $catItem = $catItems->get( $catId ) ) === null ) {
 				continue;
 			}
 
-			$list = $listItem->toArray( true ) + $catItems[$catId]->toArray( true );
+			$list = $listItem->toArray( true ) + $catItem->toArray( true );
 
 			if( $copy === true )
 			{
