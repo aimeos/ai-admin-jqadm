@@ -40,7 +40,7 @@ $enc = $this->encoder();
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.id'] ) ); ?>'.replace('_idx_', propidx)" />
 
 						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'propertyTypes', [] ), 'product.property.type.code', 'product.property.type.label' )->toArray() ) ?>')"
+							v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.type'] ) ); ?>'.replace('_idx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 							v-bind:readonly="readonly(propidx)"
@@ -49,7 +49,7 @@ $enc = $this->encoder();
 					</td>
 					<td class="property-language">
 						<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
+							v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.code' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'property', '_idx_', 'product.property.languageid'] ) ); ?>'.replace('_idx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 							v-bind:readonly="readonly(propidx)"

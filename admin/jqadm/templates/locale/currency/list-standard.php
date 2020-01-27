@@ -194,7 +194,7 @@ $columnList = [
 		</tbody>
 	</table>
 
-	<?php if( $this->get( 'items', [] ) === [] ) : ?>
+	<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
 		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
 	<?php endif; ?>
 </form>

@@ -287,12 +287,7 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( isset( $listItems[$entry['product.lists.id']] ) ) {
-				$litem = $listItems[$entry['product.lists.id']];
-			} else {
-				$litem = clone $listItem;
-			}
-
+			$litem = $listItems->get( $entry['product.lists.id'], clone $listItem );
 			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );
 			$item->addListItem( 'product', $litem, $litem->getRefItem() );
 

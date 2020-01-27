@@ -276,9 +276,9 @@ class Standard
 	/**
 	 * Returns the available product property types
 	 *
-	 * @return array Associative list of property type IDs as keys and property type items as values
+	 * @return \Aimeos\Map List of IDs as keys and items implementing \Aimeos\MShop\Common\Item\Type\Iface
 	 */
-	protected function getPropertyTypes() : array
+	protected function getPropertyTypes() : \Aimeos\Map
 	{
 		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/property/type' );
@@ -287,7 +287,7 @@ class Standard
 		$search->setConditions( $search->compare( '!=', 'product.property.type.code', $excludes ) );
 		$search->setSortations( [$search->sort( '+', 'product.property.type.position' )] );
 
-		return $this->map( $manager->searchItems( $search ) );
+		return $manager->searchItems( $search );
 	}
 
 

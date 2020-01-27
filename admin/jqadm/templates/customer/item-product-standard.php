@@ -118,7 +118,7 @@ $refItems = $this->get( 'productItems', [] );
 							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
-						'customer.lists.type' => ['op' => '==', 'type' => 'select', 'val' => array_keys( $this->get( 'productListTypes', [] ) )],
+						'customer.lists.type' => ['op' => '==', 'type' => 'select', 'val' => $this->get( 'productListTypes', map() )->getCode()->toArray()],
 						'customer.lists.config' => ['op' => '~='],
 						'customer.lists.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'customer.lists.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
@@ -177,7 +177,7 @@ $refItems = $this->get( 'productItems', [] );
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 										</option>
 
-										<?php foreach( $this->get( 'productListTypes', [] ) as $type => $item ) : ?>
+										<?php foreach( $this->get( 'productListTypes', map() ) as $type => $item ) : ?>
 											<option value="<?= $enc->attr( $type ); ?>"><?= $enc->html( $type ); ?></option>
 										<?php endforeach; ?>
 									</select>
@@ -299,7 +299,7 @@ $refItems = $this->get( 'productItems', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
-								<?php foreach( $this->get( 'productListTypes', [] ) as $type => $item ) : ?>
+								<?php foreach( $this->get( 'productListTypes', map() ) as $type => $item ) : ?>
 									<option value="<?= $enc->attr( $type ); ?>" <?= $selected( $this->get( 'productData/customer.lists.type/' . $idx ), $type ); ?> >
 										<?= $enc->html( $type ); ?>
 									</option>

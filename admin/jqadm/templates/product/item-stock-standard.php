@@ -7,7 +7,7 @@
 
 
 $enc = $this->encoder();
-$stockTypes = $this->get( 'stockTypes', [] );
+$stockTypes = $this->get( 'stockTypes', map() );
 
 $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.dateback', 'stock.timeframe'];
 
@@ -19,12 +19,12 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 		data-items="<?= $enc->attr( $this->get( 'stockData', [] ) ); ?>"
 		data-keys="<?= $enc->attr( $keys ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
-		data-numtypes="<?= count( $stockTypes ) ?>" >
+		data-numtypes="<?= $stockTypes->count() ?>" >
 
 		<thead>
 			<tr>
 				<th class="stock-type">
-					<?php if( count( $stockTypes ) > 1 ) : ?>
+					<?php if( $stockTypes->count() !== 1 ) : ?>
 						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></span>
 						<div class="form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Warehouse or local store if your articles are available at several locations' ) ); ?>
@@ -61,9 +61,9 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row">
 				<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
-					<?php if( $stockTypes !== [] ) : ?>
+					<?php if( $stockTypes->count() !== 1 ) : ?>
 						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-							v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $stockTypes, 'stock.type.code', 'stock.type.label' )->toArray() ) ?>')"
+							v-bind:items="JSON.parse('<?= $enc->attr( $stockTypes->col( 'stock.type.label', 'stock.type.code' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 							v-bind:readonly="checkSite(idx)"
@@ -72,7 +72,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 					<?php else : ?>
 						<input class="item-type" type="hidden"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
-							value="<?= $enc->attr( key( $stockTypes ) ) ?>" />
+							value="<?= $enc->attr( $stockTypes->getCode()->first() ) ?>" />
 					<?php endif; ?>
 				</td>
 				<td class="stock-stocklevel optional">

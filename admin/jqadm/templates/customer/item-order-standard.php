@@ -270,7 +270,7 @@ $deliveryStatusList = [
 		</tbody>
 	</table>
 
-	<?php if( $this->get( 'orderItems', [] ) === [] ) : ?>
+	<?php if( $this->get( 'orderItems', map() )->isEmpty() ) : ?>
 		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
 	<?php endif; ?>
 

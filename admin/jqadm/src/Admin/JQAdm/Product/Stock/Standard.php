@@ -266,7 +266,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'stock.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'stock.type.position' )] );
 
-		$view->stockTypes = $this->map( $typeManager->searchItems( $search ) );
+		$view->stockTypes = $typeManager->searchItems( $search );
 
 		return $view;
 	}
@@ -327,7 +327,7 @@ class Standard
 	{
 		$stockItems = [];
 		$stocks = map();
-		$ids = \Aimeos\Map::from( $data )->col( 'stock.id' )->filter();
+		$ids = map( $data )->col( 'stock.id' )->filter();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 
 		if( !$ids->isEmpty() )

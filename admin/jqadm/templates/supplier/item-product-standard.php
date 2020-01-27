@@ -118,7 +118,7 @@ $refItems = $this->get( 'productItems', [] );
 							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
-						'supplier.lists.type' => ['op' => '==', 'type' => 'select', 'val' => array_keys( $this->get( 'productListTypes', [] ) )],
+						'supplier.lists.type' => ['op' => '==', 'type' => 'select', 'val' => $this->get( 'productListTypes', map() )->getCode()->toArray()],
 						'supplier.lists.config' => ['op' => '~='],
 						'supplier.lists.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'supplier.lists.dateend' => ['op' => '>=', 'type' => 'datetime-local'],

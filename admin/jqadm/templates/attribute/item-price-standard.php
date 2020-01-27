@@ -148,12 +148,12 @@ $enc = $this->encoder();
 								</div>
 							</div>
 
-							<?php if( ( $currencies = $this->get( 'priceCurrencies', [] ) ) !== [] ) : ?>
+							<?php if( ( $currencies = $this->get( 'priceCurrencies', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select item-currencyid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $currencies, 'locale.currency.code', 'locale.currency.label' )->toArray() ) ?>')"
+											v-bind:items="JSON.parse('<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.currencyid'] ) ); ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 											v-bind:readonly="item['price.siteid'] != siteid"
@@ -164,15 +164,15 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="item-currencyid" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.currencyid' ) ) ); ?>'.replace('idx', idx)"
-									value="<?= $enc->attr( key( $currencies ) ) ?>" />
+									value="<?= $enc->attr( $currencies->getCode()->first() ) ?>" />
 							<?php endif; ?>
 
-							<?php if( ( $priceTypes = $this->get( 'priceTypes', [] ) ) !== [] ) : ?>
+							<?php if( ( $priceTypes = $this->get( 'priceTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $priceTypes, 'price.type.code', 'price.type.label' )->toArray() ) ?>')"
+											v-bind:items="JSON.parse('<?= $enc->attr( $priceTypes->col( 'price.type.label', 'price.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.type'] ) ); ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 											v-bind:readonly="item['price.siteid'] != siteid"
@@ -186,7 +186,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="item-type" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.type' ) ) ); ?>'.replace('idx', idx)"
-									value="<?= $enc->attr( key( $priceTypes ) ) ?>" />
+									value="<?= $enc->attr( $priceTypes->getCode()->first() ) ?>" />
 							<?php endif; ?>
 
 							<div class="form-group row mandatory">
@@ -217,12 +217,12 @@ $enc = $this->encoder();
 
 						<div v-show="item['_ext']" class="col-xl-6 content-block secondary">
 
-							<?php if( ( $listTypes = $this->get( 'priceListTypes', [] ) ) !== [] ) : ?>
+							<?php if( ( $listTypes = $this->get( 'priceListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $listTypes, 'attribute.lists.type.code', 'attribute.lists.type.label' )->toArray() ) ?>')"
+											v-bind:items="JSON.parse('<?= $enc->attr( $listTypes->col( 'attribute.lists.type.label', 'attribute.lists.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'attribute.lists.type'] ) ); ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 											v-bind:readonly="item['attribute.lists.siteid'] != siteid"
@@ -236,7 +236,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'attribute.lists.type' ) ) ); ?>'.replace('idx', idx)"
-									value="<?= $enc->attr( key( $listTypes ) ) ?>" />
+									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>" />
 							<?php endif; ?>
 
 							<div class="form-group row optional">

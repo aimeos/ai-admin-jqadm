@@ -267,8 +267,8 @@ class Standard
 		$listSearch->setConditions( $listSearch->compare( '==', 'catalog.lists.type.domain', 'media' ) );
 		$listSearch->setSortations( [$listSearch->sort( '+', 'catalog.lists.type.position' )] );
 
-		$view->mediaListTypes = $this->map( $listTypeManager->searchItems( $listSearch ) );
-		$view->mediaTypes = $this->map( $typeManager->searchItems( $search ) );
+		$view->mediaListTypes = $listTypeManager->searchItems( $listSearch );
+		$view->mediaTypes = $typeManager->searchItems( $search );
 
 		return $view;
 	}

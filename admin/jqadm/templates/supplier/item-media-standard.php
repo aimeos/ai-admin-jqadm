@@ -107,12 +107,12 @@ $enc = $this->encoder();
 									</select>
 								</div>
 							</div>
-							<?php if( ( $mediaTypes = $this->get( 'mediaTypes', [] ) ) !== [] ) : ?>
+							<?php if( ( $mediaTypes = $this->get( 'mediaTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $mediaTypes, 'media.type.code', 'media.type.label' )->toArray() ) ?>')"
+											v-bind:items="JSON.parse('<?= $enc->attr( $mediaTypes->col( 'media.type.label', 'media.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 											v-bind:readonly="item['media.siteid'] != siteid"
@@ -126,7 +126,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="item-type" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.type'] ) ); ?>'.replace('_idx_', idx)"
-									value="<?= $enc->attr( key( $mediaTypes ) ) ?>" />
+									value="<?= $enc->attr( $mediaTypes->getCode()->first() ) ?>" />
 							<?php endif; ?>
 
 							<div class="form-group row mandatory">
@@ -147,7 +147,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 								<div class="col-sm-8">
 									<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $this->get( 'pageLangItems', [] ), 'locale.language.code', 'locale.language.label' )->toArray() ) ?>')"
+										v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.code' )->toArray() ) ?>')"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.languageid'] ) ); ?>'.replace('_idx_', idx)"
 										v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 										v-bind:readonly="item['media.siteid'] != siteid"
@@ -172,12 +172,12 @@ $enc = $this->encoder();
 						</div>
 
 						<div v-show="item['_ext']" class="col-xl-6 content-block secondary">
-							<?php if( ( $listTypes = $this->get( 'mediaListTypes', [] ) ) !== [] ) : ?>
+							<?php if( ( $listTypes = $this->get( 'mediaListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select listitem-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $this->map( $listTypes, 'supplier.lists.type.code', 'supplier.lists.type.label' )->toArray() ) ?>')"
+											v-bind:items="JSON.parse('<?= $enc->attr( $listTypes->col( 'supplier.lists.type.label', 'supplier.lists.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'supplier.lists.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 											v-bind:readonly="item['supplier.lists.siteid'] != siteid"
@@ -191,7 +191,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'supplier.lists.type'] ) ); ?>'.replace('_idx_', idx)"
-									value="<?= $enc->attr( key( $listTypes ) ) ?>" />
+									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>" />
 							<?php endif; ?>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>

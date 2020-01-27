@@ -45,7 +45,6 @@ class Standard
 		$view = $this->getView();
 
 		$view->categoryData = $this->toArray( $view->item, true );
-		$view->categoryListTypes = $this->getListTypes();
 		$view->categoryBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -72,7 +71,6 @@ class Standard
 		}
 
 		$view->categoryData = $data;
-		$view->categoryListTypes = $this->getListTypes();
 		$view->categoryBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -131,7 +129,6 @@ class Standard
 		$view = $this->getView();
 
 		$view->categoryData = $this->toArray( $view->item );
-		$view->categoryListTypes = $this->getListTypes();
 		$view->categoryBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -352,23 +349,6 @@ class Standard
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
 		return $manager->searchItems( $search );
-	}
-
-
-	/**
-	 * Returns the available catalog list types
-	 *
-	 * @return array Associative list of catalog list type codes as keys and list type items as values
-	 */
-	protected function getListTypes() : array
-	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
-
-		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
-		$search->setSortations( [$search->sort( '+', 'catalog.lists.type.position' )] );
-
-		return $this->map( $manager->searchItems( $search ) );
 	}
 
 

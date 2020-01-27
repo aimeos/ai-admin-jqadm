@@ -386,11 +386,11 @@ class Standard
 				$list['product.id'] = null;
 			}
 
-			if( isset( $articles[$refItem->getId()] ) )
+			if( ( $article = $articles->get( $refItem->getId() ) ) !== null )
 			{
 				$idx = 0;
 
-				foreach( $articles[$refItem->getId()]->getListItems( 'attribute', 'variant', null, false ) as $litem )
+				foreach( $article->getListItems( 'attribute', 'variant', null, false ) as $litem )
 				{
 					if( ( $attrItem = $litem->getRefItem() ) !== null ) {
 						$list['attr'][$idx++] = $litem->toArray( true ) + $attrItem->toArray( true );

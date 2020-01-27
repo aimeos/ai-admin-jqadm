@@ -310,11 +310,11 @@ class Standard
 
 		$curSearch = $currencyManager->createSearch( true )->setSlice( 0, 10000 );
 
-		$view->priceTypes = $this->map( $priceTypeManager->searchItems( $search ) );
-		$view->priceListTypes = $this->map( $listTypeManager->searchItems( $listSearch ) );
-		$view->priceCurrencies = $currencyManager->searchItems( $curSearch )->toArray();
+		$view->priceTypes = $priceTypeManager->searchItems( $search );
+		$view->priceListTypes = $listTypeManager->searchItems( $listSearch );
+		$view->priceCurrencies = $currencyManager->searchItems( $curSearch );
 
-		if( $view->priceCurrencies === [] ) {
+		if( $view->priceCurrencies->isEmpty() ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
 		}
 

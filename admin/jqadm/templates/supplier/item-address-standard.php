@@ -65,8 +65,7 @@ $keys = [
 								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'supplier.address.id' ) ) ); ?>'.replace('idx', idx)"
 								v-bind:value="items[idx]['supplier.address.id']" />
 
-							<?php $languages = $this->get( 'pageLangItems', [] ) ?>
-							<?php if( count( $languages ) > 1 ) : ?>
+							<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 									<div class="col-sm-8">
@@ -90,7 +89,7 @@ $keys = [
 							<?php else : ?>
 								<input class="item-languageid" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'supplier.address.languageid' ) ) ); ?>'.replace('idx', idx)"
-									value="<?= $enc->attr( key( $languages ) ); ?>" />
+									value="<?= $enc->attr( $languages->getCode()->first() ); ?>" />
 							<?php endif; ?>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>

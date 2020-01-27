@@ -508,16 +508,16 @@ class Standard
 	/**
 	 * Returns the available product type items
 	 *
-	 * @return array List of item implementing \Aimeos\MShop\Common\Type\Iface
+	 * @return \Aimeos\Map List of item implementing \Aimeos\MShop\Common\Type\Iface
 	 */
-	protected function getTypeItems() : array
+	protected function getTypeItems() : \Aimeos\Map
 	{
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'product/type' );
 
 		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'product.type.position' )] );
 
-		return $this->map( $typeManager->searchItems( $search ) );
+		return $typeManager->searchItems( $search );
 	}
 
 

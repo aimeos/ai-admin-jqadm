@@ -309,9 +309,9 @@ class Standard
 	/**
 	 * Returns the available product list types
 	 *
-	 * @return array List of type IDs as keys and type items implementing \Aimeos\MShop\Common\Item\Type\Iface
+	 * @return \Aimeos\Map List of IDs as keys and items implementing \Aimeos\MShop\Common\Item\Type\Iface
 	 */
-	protected function getListTypes() : array
+	protected function getListTypes() : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists/type' );
 
@@ -319,7 +319,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'supplier.lists.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'supplier.lists.type.position' )] );
 
-		return $this->map( $manager->searchItems( $search ) );
+		return $manager->searchItems( $search );
 	}
 
 

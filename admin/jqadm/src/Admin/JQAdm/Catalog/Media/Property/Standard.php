@@ -224,7 +224,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
 		$search->setSortations( [$search->sort( '+', 'media.property.type.position' )] );
 
-		$view->propertyTypes = $this->map( $manager->searchItems( $search ) );
+		$view->propertyTypes = $manager->searchItems( $search );
 
 		return $view;
 	}

@@ -327,7 +327,7 @@ $statusList = [
 
 						<div class="col-xl-6 content-block">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Coupon' ) ); ?></h2>
-							<?php if( $basket->getCoupons() !== [] ) : ?>
+							<?php if( !$basket->getCoupons()->isEmpty() ) : ?>
 								<?php foreach( $basket->getCoupons() as $code => $product ) : ?>
 									<div class="form-group row">
 										<label class="col-sm-4"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>

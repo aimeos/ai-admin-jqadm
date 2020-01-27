@@ -204,7 +204,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-cl
 
 
 $params = $this->get( 'pageParams', [] );
-$types = $this->map( $this->get( 'itemTypes', [] ), 'product.type.code', 'product.type.label' )->toArray();
+$types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.type.code' )->toArray();
 
 
 ?>

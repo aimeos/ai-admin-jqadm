@@ -80,7 +80,7 @@ class Page extends Base
 		}
 		else
 		{
-			$view->pageSiteList = [$view->pageSiteTree];
+			$view->pageSiteList = map( [$view->pageSiteTree] );
 		}
 
 		$this->getClient()->setView( $view );

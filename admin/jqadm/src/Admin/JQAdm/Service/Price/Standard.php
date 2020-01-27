@@ -308,8 +308,8 @@ class Standard
 		$listSearch->setConditions( $listSearch->compare( '==', 'service.lists.type.domain', 'price' ) );
 		$listSearch->setSortations( [$listSearch->sort( '+', 'service.lists.type.position' )] );
 
-		$view->priceTypes = $this->map( $priceTypeManager->searchItems( $search ) );
-		$view->priceListTypes = $this->map( $listTypeManager->searchItems( $listSearch ) );
+		$view->priceTypes = $priceTypeManager->searchItems( $search );
+		$view->priceListTypes = $listTypeManager->searchItems( $listSearch );
 		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true )->setSlice( 0, 10000 ) );
 
 		if( $view->priceCurrencies->isEmpty() ) {
