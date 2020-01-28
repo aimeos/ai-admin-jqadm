@@ -15,7 +15,7 @@ $keys = [
 
 
 ?>
-<div class="col-xl-6 content-block item-option-config">
+<div class="col-xl-12 content-block item-option-config">
 
 	<table class="attribute-list table table-default"
 		data-items="<?= $enc->attr( $this->get( 'configData', [] ) ); ?>"
