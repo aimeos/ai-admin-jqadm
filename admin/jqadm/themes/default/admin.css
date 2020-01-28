@@ -60,6 +60,10 @@
 	content: "\f066";
 }
 
+.aimeos .tree-toolbar .search-input {
+    border-top: 1px solid #bbb;
+}
+
 .aimeos .tree-toolbar .btn.act-add:before {
 	content: "\f067";
 }
