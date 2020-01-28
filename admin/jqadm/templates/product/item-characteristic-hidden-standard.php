@@ -15,7 +15,7 @@ $keys = [
 
 
 ?>
-<div class="col-xl-6 content-block item-characteristic-hidden">
+<div class="col-xl-12 content-block item-characteristic-hidden">
 
 	<table class="attribute-list table table-default"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'hiddenData', [] ), JSON_HEX_AMP ) ); ?>"

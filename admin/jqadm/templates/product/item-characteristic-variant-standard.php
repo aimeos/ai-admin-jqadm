@@ -15,7 +15,7 @@ $keys = [
 
 
 ?>
-<div class="col-xl-6 content-block item-characteristic-variant">
+<div class="col-xl-12 content-block item-characteristic-variant">
 
 	<table class="attribute-list table table-default"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'variantData', [] ), JSON_HEX_AMP ) ); ?>"

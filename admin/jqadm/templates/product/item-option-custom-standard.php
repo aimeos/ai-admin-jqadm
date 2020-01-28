@@ -14,7 +14,7 @@ $keys = [
 
 
 ?>
-<div class="col-xl-6 content-block item-option-custom">
+<div class="col-xl-12 content-block item-option-custom">
 
 	<table class="attribute-list table table-default"
 		data-items="<?= $enc->attr( json_encode( $this->get( 'customData', [] ), JSON_HEX_AMP ) ); ?>"
