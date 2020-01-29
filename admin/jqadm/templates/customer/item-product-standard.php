@@ -118,7 +118,7 @@ $refItems = $this->get( 'productItems', [] );
 							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
-						'customer.lists.type' => ['op' => '==', 'type' => 'select', 'val' => array_keys( $this->get( 'productListTypes', [] ) )],
+						'customer.lists.type' => ['op' => '==', 'type' => 'select', 'val' => array_column( $this->get( 'productListTypes', [] ), 'customer.lists.type.code', 'customer.lists.type.code' )],
 						'customer.lists.config' => ['op' => '~='],
 						'customer.lists.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
 						'customer.lists.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
