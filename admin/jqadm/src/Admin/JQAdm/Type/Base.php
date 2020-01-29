@@ -68,7 +68,7 @@ abstract class Base
 		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine()];
+			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' )];
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -116,7 +116,7 @@ abstract class Base
 		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine()];
+			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' )];
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -172,7 +172,7 @@ abstract class Base
 		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine()];
+			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error deleting data' )];
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -221,7 +221,7 @@ abstract class Base
 		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine()];
+			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' )];
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -272,7 +272,7 @@ abstract class Base
 		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine()];
+			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' )];
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -319,7 +319,7 @@ abstract class Base
 		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine()];
+			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' )];
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}

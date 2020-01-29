@@ -60,7 +60,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'group-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'group-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -107,7 +107,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'group-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'group-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -162,7 +162,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'group-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'group-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error deleting data' ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -210,7 +210,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'group-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'group-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -260,7 +260,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'group-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'group-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -306,7 +306,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'group-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'group-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
