@@ -61,7 +61,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'order-latest' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'order-latest' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}

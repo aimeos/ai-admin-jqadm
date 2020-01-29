@@ -141,7 +141,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'product-item-text' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
+			$error = array( 'product-item-text' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
