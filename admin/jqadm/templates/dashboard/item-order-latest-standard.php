@@ -2,7 +2,7 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2016-2018
+ * @copyright Aimeos (aimeos.org), 2016-2020
  */
 
 $price = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
