@@ -48,7 +48,7 @@ $enc = $this->encoder();
 					</td>
 					<td class="property-language">
 						<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-							v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.code' )->toArray() ) ?>')"
+							v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'property', '_propidx_', 'media.property.languageid'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 							v-bind:readonly="readonly(propidx)"

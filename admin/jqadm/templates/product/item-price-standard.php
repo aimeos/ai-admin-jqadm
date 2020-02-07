@@ -153,7 +153,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select item-currencyid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.code' )->toArray() ) ?>')"
+											v-bind:items="JSON.parse('<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.id' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.currencyid'] ) ); ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 											v-bind:readonly="item['price.siteid'] != siteid"

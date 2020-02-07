@@ -147,7 +147,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 								<div class="col-sm-8">
 									<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.code' )->toArray() ) ?>')"
+										v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.languageid'] ) ); ?>'.replace('_idx_', idx)"
 										v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 										v-bind:readonly="item['media.siteid'] != siteid"
