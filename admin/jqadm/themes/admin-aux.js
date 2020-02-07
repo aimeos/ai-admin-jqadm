@@ -119,7 +119,7 @@ Aimeos.Media = {
 				domain: null
 			},
 			mounted: function() {
-				this.items = JSON.parse(this.$el.dataset.items);
+				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
 				this.domain = this.$el.dataset.domain;
 
@@ -245,7 +245,7 @@ Aimeos.Price = {
 				domain: null
 			},
 			mounted: function() {
-				this.items = JSON.parse(this.$el.dataset.items);
+				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
 				this.domain = this.$el.dataset.domain;
 
@@ -328,7 +328,7 @@ Aimeos.Text = {
 				domain: null
 			},
 			mounted: function() {
-				this.items = JSON.parse(this.$el.dataset.items);
+				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
 				this.domain = this.$el.dataset.domain;
 
