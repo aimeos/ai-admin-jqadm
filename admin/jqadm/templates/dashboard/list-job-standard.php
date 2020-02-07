@@ -7,7 +7,7 @@
 
 $enc = $this->encoder();
 $params = $this->param();
-$items = $this->get( 'jobItems', [] );
+$items = $this->get( 'jobItems', map() );
 
 $getTarget = $this->config( 'admin/jqadm/url/get/target' );
 $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
@@ -21,7 +21,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 
 
 ?>
-<?php if( !empty( $items ) ) : ?>
+<?php if( !$items->isEmpty() ) : ?>
 	<div class="dashboard-job row">
 		<div class="job-list card col-lg-12">
 			<div id="job-list-head" class="card-header header" role="tab"
