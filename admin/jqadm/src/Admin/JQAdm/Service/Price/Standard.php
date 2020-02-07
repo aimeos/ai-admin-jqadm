@@ -347,10 +347,6 @@ class Standard
 				$refItem = $priceManager->createItem();
 			}
 
-			if( isset( $entry['price.taxrates'] ) && $entry['price.taxrates'] != '' ) {
-				$entry['price.taxrates'] = json_decode( $entry['price.taxrates'] );
-			}
-
 			$refItem->fromArray( $entry, true );
 			$conf = [];
 
