@@ -124,8 +124,8 @@ $enc = $this->encoder();
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
-								<?php foreach( $this->get( 'itemTypes', [] ) as $type => $item ) : ?>
-									<option value="<?= $enc->attr( $type ); ?>" <?= $selected( $this->get( 'itemData/service.type' ), $type ); ?> >
+								<?php foreach( $this->get( 'itemTypes', [] ) as $item ) : ?>
+									<option value="<?= $enc->attr( $item->getCode() ); ?>" <?= $selected( $this->get( 'itemData/service.type' ), $item->getCode() ); ?> >
 										<?= $enc->html( $item->getLabel() ); ?>
 									</option>
 								<?php endforeach; ?>

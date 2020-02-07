@@ -23,14 +23,14 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 
 		<thead>
 			<tr>
-				<th class="stock-type">
-					<?php if( $stockTypes->count() !== 1 ) : ?>
+				<?php if( $stockTypes->count() !== 1 ) : ?>
+					<th class="stock-type">
 						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></span>
 						<div class="form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Warehouse or local store if your articles are available at several locations' ) ); ?>
 						</div>
-					<?php endif; ?>
-				</th>
+					</th>
+				<?php endif ?>
 				<th class="stock-stocklevel">
 					<span class="help"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ); ?></span>
 					<div class="form-text text-muted help-text">
@@ -60,8 +60,8 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 		<tbody>
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row">
-				<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
-					<?php if( $stockTypes->count() !== 1 ) : ?>
+				<?php if( $stockTypes->count() !== 1 ) : ?>
+					<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
 						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:items="JSON.parse('<?= $enc->attr( $stockTypes->col( 'stock.type.label', 'stock.type.code' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
@@ -69,12 +69,8 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 							v-bind:readonly="checkSite(idx)"
 							v-model="item['stock.type']" >
 						</select>
-					<?php else : ?>
-						<input class="item-type" type="hidden"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
-							value="<?= $enc->attr( $stockTypes->getCode()->first() ) ?>" />
-					<?php endif; ?>
-				</td>
+					</td>
+				<?php endif ?>
 				<td class="stock-stocklevel optional">
 					<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.stocklevel'] ) ); ?>'.replace( 'idx', idx )"
@@ -98,6 +94,12 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 				<td class="actions">
 					<input class="item-id" type="hidden" v-model="item['stock.id']"
 					v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.id'] ) ); ?>'.replace( 'idx', idx )" />
+
+					<?php if( $stockTypes->count() === 1 ) : ?>
+						<input class="item-type" type="hidden"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.type'] ) ); ?>'.replace( 'idx', idx )"
+							value="<?= $enc->attr( $stockTypes->getCode()->first() ) ?>" />
+					<?php endif ?>
 
 					<div v-if="!checkSite(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
