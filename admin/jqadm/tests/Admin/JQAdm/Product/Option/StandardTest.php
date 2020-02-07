@@ -128,7 +128,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \RuntimeException::class );
 		$object->save();
 	}
 
@@ -148,7 +148,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->setView( $this->view );
 
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\MShop\Exception::class );
 		$object->save();
 	}
 

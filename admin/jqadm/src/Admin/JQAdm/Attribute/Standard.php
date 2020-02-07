@@ -253,24 +253,20 @@ class Standard
 		}
 		catch( \Aimeos\Admin\JQAdm\Exception $e )
 		{
-			// fall through to create
+			$view->errors = array_merge( $view->get( 'errors', [] ), [$e->getMessage()] );
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$error = array( 'attribute-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$view->errors = array_merge( $view->get( 'errors', [] ), [$context->getI18n()->dt( 'mshop', $e->getMessage() )] );
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'attribute-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$view->errors = array_merge( $view->get( 'errors', [] ), [$context->getI18n()->dt( 'admin', 'Error saving data' )] );
 		}
 
 		$manager->rollback();
 
-		return $this->create();
+		return $this->logException( $e )->create();
 	}
 
 

@@ -110,31 +110,14 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$this->fromArray( $view->item, $view->param( 'physical', [] ) );
-			$view->physicalBody = '';
+		$this->fromArray( $view->item, $view->param( 'physical', [] ) );
+		$view->physicalBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->physicalBody .= $client->save();
-			}
-
-			return null;
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'product-item-physical' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'product-item-physical' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->physicalBody .= $client->save();
 		}
 
-		throw new \Aimeos\Admin\JQAdm\Exception();
+		return null;
 	}
 
 

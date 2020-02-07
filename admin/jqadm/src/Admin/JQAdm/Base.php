@@ -538,13 +538,15 @@ abstract class Base
 	 * Writes the exception details to the log
 	 *
 	 * @param \Exception $e Exception object
+	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
 	 */
 	protected function logException( \Exception $e )
 	{
 		$logger = $this->context->getLogger();
+		$logger->log( $e->getMessage(), \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
+		$logger->log( $e->getTraceAsString(), \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
 
-		$logger->log( $e->getMessage(), \Aimeos\MW\Logger\Base::WARN, 'admin/jqadm' );
-		$logger->log( $e->getTraceAsString(), \Aimeos\MW\Logger\Base::WARN, 'admin/jqadm' );
+		return $this;
 	}
 
 

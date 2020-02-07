@@ -162,24 +162,14 @@ class Standard
 			}
 
 			$manager->commit();
-			return null;
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'product-item-category' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'product-item-category' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$manager->rollback();
+			throw $e;
 		}
 
-		$manager->rollback();
-
-		throw new \Aimeos\Admin\JQAdm\Exception();
+		return null;
 	}
 
 

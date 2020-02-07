@@ -159,7 +159,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->expects( $this->once() )->method( 'fromArray' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \RuntimeException::class );
 		$object->save();
 	}
 
@@ -171,7 +171,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->expects( $this->once() )->method( 'fromArray' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \Aimeos\MShop\Exception::class );
 		$object->save();
 	}
 

@@ -112,34 +112,17 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
+		if( $view->item->getType() === 'select' )
 		{
-			if( $view->item->getType() === 'select' )
-			{
-				$this->fromArray( $view->item, $view->param( 'selection', [] ) );
-				$view->selectionBody = '';
+			$this->fromArray( $view->item, $view->param( 'selection', [] ) );
+			$view->selectionBody = '';
 
-				foreach( $this->getSubClients() as $client ) {
-					$view->selectionBody .= $client->save();
-				}
+			foreach( $this->getSubClients() as $client ) {
+				$view->selectionBody .= $client->save();
 			}
-
-			return null;
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'product-item-selection' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'product-item-selection' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
 		}
 
-		throw new \Aimeos\Admin\JQAdm\Exception();
+		return null;
 	}
 
 
