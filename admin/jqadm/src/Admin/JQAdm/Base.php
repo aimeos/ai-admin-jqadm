@@ -576,7 +576,7 @@ abstract class Base
 	 * @param string|null $act Current action name
 	 * @return \Aimeos\MW\View\Iface Modified view object
 	 */
-	protected function nextAction( \Aimeos\MW\View\Iface $view, string $action = null, string $resource,
+	protected function nextAction( \Aimeos\MW\View\Iface $view, ?string $action, string $resource,
 		string $id = null, string $act = null ) : \Aimeos\MW\View\Iface
 	{
 		$params = $this->getClientParams();
