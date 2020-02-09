@@ -440,7 +440,7 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 									<td class="config-row-key">
 										<input is="auto-complete" required class="form-control" v-bind:readonly="readonly" tabindex="1"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'key' ) ) ); ?>'.replace('_pos_', pos)"
-											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>')"
+											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class', 'quantity-step'] ) ) ?>')"
 											v-model="entry.key" />
 									</td>
 									<td class="config-row-value">

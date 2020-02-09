@@ -192,7 +192,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Minimum quantity' ) ); ?></label>
 								<div class="col-sm-8">
-									<input class="form-control item-quantity" type="number" step="1" min="1" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<input class="form-control item-quantity" type="number" step="0.001" min="0.001" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.quantity' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Minimum quantity' ) ); ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
