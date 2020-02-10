@@ -359,6 +359,18 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 						</div>
 					</div>
 					<div class="form-group row optional">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Quantity scale' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-scale" type="number" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.scale' ) ) ); ?>"
+								value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.scale', 1 ) ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'The step value allowed for quantities in the basket, e.g. "0.1" for fractional quantities or "5" for multiple of five articles' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-datestart" type="datetime-local" tabindex="1"
