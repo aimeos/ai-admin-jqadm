@@ -361,7 +361,7 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Quantity scale' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-scale" type="number" tabindex="1"
+							<input class="form-control item-scale" type="number" tabindex="1" min="0.001" step="0.001"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.scale' ) ) ); ?>"
 								value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.scale', 1 ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
