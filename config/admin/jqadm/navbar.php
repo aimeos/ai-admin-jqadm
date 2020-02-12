@@ -3,12 +3,12 @@
 return [
 	'dashboard',
 	'order',
-	'subscription',
 	'customer',
 	'product',
 	'catalog',
 	'attribute',
 	'coupon',
+	'subscription',
 	'supplier',
 	'service',
 	'plugin',

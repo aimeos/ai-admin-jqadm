@@ -121,7 +121,7 @@ $navlist = $this->config( 'admin/jqadm/navbar', [] );
  * @category Developer
  * @see admin/jqadm/navbar
  */
-$navlimit = $this->config( 'admin/jqadm/navbar-limit', 7 );
+$navlimit = $this->config( 'admin/jqadm/navbar-limit', 6 );
 
 
 $navfirst = reset( $navlist );
