@@ -44,6 +44,7 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
+		$view->priceCustom = $this->isCustom( $view->item );
 		$view->priceData = $this->toArray( $view->item, true );
 		$view->priceBody = '';
 
@@ -72,6 +73,7 @@ class Standard
 			$data[$idx]['price.siteid'] = $siteid;
 		}
 
+		$view->priceCustom = $this->isCustom( $view->item );
 		$view->priceData = $data;
 		$view->priceBody = '';
 
@@ -403,12 +405,26 @@ class Standard
 		return $data;
 	}
 
+
+	/**
+	 * Returns if the prices can be chosen by the customers themselves
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item including attribute items
+	 * @return bool True if price value can be entered by the customer, false if not
+	 */
 	protected function isCustom( \Aimeos\MShop\Product\Item\Iface $item ) : bool
 	{
-		return $item->getRefItems( 'attribute', 'price', 'custom', false )->isEmpty() ? false : true;
+		return !$item->getRefItems( 'attribute', 'price', 'custom', false )->isEmpty();
 	}
 
 
+	/**
+	 * Sets the flag if the price is customizable by the customer
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item including attribute items
+	 * @param mixed $value Zero, empty, null or false to remove the flag, otherwise add the flag
+	 * @return \Aimeos\MShop\Product\Item\Iface $item Modified product item
+	 */
 	protected function setCustom( \Aimeos\MShop\Product\Item\Iface $item, $value ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$context = $this->getContext();
@@ -429,13 +445,13 @@ class Standard
 			if( $item->getListItem( 'attribute', 'custom', $attrItem->getId(), false ) === null )
 			{
 				$listItem = \Aimeos\MShop::create( $context, 'product' )->createListsItem();
-				$item->addListItem( 'attribute', $listItem->setType( 'custom' ), $attrItem );
+				$item = $item->addListItem( 'attribute', $listItem->setType( 'custom' ), $attrItem );
 			}
 		}
 		else
 		{
 			if( ( $litem = $item->getListItem( 'attribute', 'custom', $attrItem->getId(), false ) ) !== null ) {
-				$item->deleteListItem( 'attribute', $litem );
+				$item = $item->deleteListItem( 'attribute', $litem );
 			}
 		}
 

@@ -30,7 +30,7 @@ $enc = $this->encoder();
 			<div class="col-sm-8">
 				<input class="form-control item-pricecustom" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'pricecustom' ) ) ); ?>"
-					<?= $this->get( 'pricecustom' ) ? 'checked="checked"' : ''; ?>
+					<?= $this->get( 'priceCustom' ) ? 'checked="checked"' : ''; ?>
 				/>
 			</div>
 			<div class="col-sm-12 form-text text-muted help-text">
