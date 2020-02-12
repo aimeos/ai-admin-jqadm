@@ -164,7 +164,7 @@ switch( $this->param( 'act' ) )
 
 			<ul class="sidebar-menu basic">
 
-				<?php if( ( $this->get( 'pageSiteList', map() )->count() > 1 || $this->pageSiteTree->getChildren() !== [] || $this->get( 'pageSitePath', map() )->count() > 1 ) && $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) ) : ?>
+				<?php if( ( $this->get( 'pageSiteList', map() )->count() > 1 || !$this->pageSiteTree->getChildren()->isEmpty() || $this->get( 'pageSitePath', map() )->count() > 1 ) && $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) ) : ?>
 					<li class="site treeview">
 						<a href="#">
 							<i class="icon"></i>
@@ -180,7 +180,7 @@ switch( $this->param( 'act' ) )
 										<span class="name"><?= $enc->html( $site->getLabel() ); ?></span>
 									</a>
 
-									<?php if( $site->getChildren() !== [] ) : ?>
+									<?php if( !$site->getChildren()->isEmpty() ) : ?>
 										<ul class="menu-sub">
 											<?php foreach( $site->getChildren() as $site ) { $siteFcn( $site ); } ?>
 										</ul>
