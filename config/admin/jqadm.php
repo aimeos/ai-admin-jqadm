@@ -158,6 +158,20 @@ return [
 			],
 		],
 		'option' => [
+			'config' => [
+				'standard' => [
+					'exclude' => [
+						'interval' => 'interval',
+					],
+				],
+			],
+			'custom' => [
+				'standard' => [
+					'exclude' => [
+						'price' => 'price',
+					],
+				],
+			],
 			'standard' => [
 				'subparts' => [
 					'config' => 'config',

@@ -206,6 +206,30 @@ class Standard
 
 
 	/**
+	 * Returns the list of excluded attribute types
+	 *
+	 * @return array List of excluded attribute types
+	 */
+	protected function getExcludedTypes()
+	{
+		/** admin/jqadm/product/option/custom/standard/exclude
+		 * List of attribute types that shouldn't be managed by the product options client
+		 *
+		 * If certain attribute types which are referenced using the "custom"
+		 * list type will be managed by other clients, this setting excludes
+		 * the attribute items from being added and removed by the product
+		 * custom client.
+		 *
+		 * @param array List of excluded attribute types
+		 * @since 2020.04
+		 * @category Developer
+		 * @see admin/jqadm/product/option/custom/standard/exclude
+		 */
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/option/custom/standard/exclude', [] );
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -259,6 +283,7 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
+		$excludes = $item->getListItems( 'attribute', 'custom', $this->getExcludedTypes(), false );
 		$listItems = $item->getListItems( 'attribute', 'custom', null, false );
 
 		foreach( $data as $idx => $entry )
@@ -275,7 +300,7 @@ class Standard
 			unset( $listItems[$litem->getId()] );
 		}
 
-		return $item->deleteListItems( $listItems->toArray() );
+		return $item->deleteListItems( $listItems->diffKeys( $excludes )->toArray() );
 	}
 
 
@@ -290,10 +315,11 @@ class Standard
 	{
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$excludes = $item->getListItems( 'attribute', 'custom', $this->getExcludedTypes(), false );
 
 		foreach( $item->getListItems( 'attribute', 'custom', null, false ) as $listItem )
 		{
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+			if( $excludes->has( $listItem->getId() ) || ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
