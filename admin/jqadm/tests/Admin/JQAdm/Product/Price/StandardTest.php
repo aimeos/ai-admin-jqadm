@@ -89,6 +89,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$param = array(
 			'site' => 'unittest',
+			'pricecustom' => 1,
 			'price' => [[
 				'price.id' => '',
 				'price.value' => '10.00',
@@ -110,7 +111,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
-		$this->assertEquals( 1, count( $item->getListItems() ) );
+		$this->assertEquals( 1, count( $item->getListItems( 'price' ) ) );
+		$this->assertEquals( 1, count( $item->getListItems( 'attribute', 'custom', 'price' ) ) );
 
 		foreach( $item->getListItems( 'price' ) as $listItem )
 		{

@@ -108,6 +108,7 @@ class Standard
 	{
 		$view = $this->addViewData( $this->getView() );
 
+		$view->priceCustom = $this->isCustom( $view->item );
 		$view->priceData = $this->toArray( $view->item );
 		$view->priceBody = '';
 
@@ -128,6 +129,7 @@ class Standard
 	{
 		$view = $this->getView();
 
+		$view->item = $this->setCustom( $view->item, $view->param( 'pricecustom' ) );
 		$view->item = $this->fromArray( $view->item, $view->param( 'price', [] ) );
 		$view->priceBody = '';
 
@@ -399,6 +401,45 @@ class Standard
 		}
 
 		return $data;
+	}
+
+	protected function isCustom( \Aimeos\MShop\Product\Item\Iface $item ) : bool
+	{
+		return $item->getRefItems( 'attribute', 'price', 'custom', false )->isEmpty() ? false : true;
+	}
+
+
+	protected function setCustom( \Aimeos\MShop\Product\Item\Iface $item, $value ) : \Aimeos\MShop\Product\Item\Iface
+	{
+		$context = $this->getContext();
+
+		try
+		{
+			$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
+			$attrItem = $attrManager->findItem( 'custom', [], 'product', 'price' );
+		}
+		catch( \Aimeos\MShop\Exception $e )
+		{
+			$attrItem = $attrManager->createItem()->setDomain( 'product' )->setType( 'price' )->setCode( 'custom' );
+			$attrItem = $attrManager->saveItem( $attrItem );
+		}
+
+		if( $value )
+		{
+			if( $item->getListItem( 'attribute', 'custom', $attrItem->getId(), false ) === null )
+			{
+				$listItem = \Aimeos\MShop::create( $context, 'product' )->createListsItem();
+				$item->addListItem( 'attribute', $listItem->setType( 'custom' ), $attrItem );
+			}
+		}
+		else
+		{
+			if( ( $litem = $item->getListItem( 'attribute', 'custom', $attrItem->getId(), false ) ) !== null ) {
+				$item->deleteListItem( 'attribute', $litem );
+			}
+		}
+
+		return $item;
 	}
 
 

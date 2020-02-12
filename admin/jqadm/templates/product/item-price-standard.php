@@ -24,6 +24,21 @@ $enc = $this->encoder();
 ?>
 <div id="price" class="item-price content-block tab-pane fade" role="tablist" aria-labelledby="price">
 
+	<div class="col-xl-6 content-block">
+		<div class="form-group row optional">
+			<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Allow custom price' ) ); ?></label>
+			<div class="col-sm-8">
+				<input class="form-control item-pricecustom" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
+					name="<?= $enc->attr( $this->formparam( array( 'pricecustom' ) ) ); ?>"
+					<?= $this->get( 'pricecustom' ) ? 'checked="checked"' : ''; ?>
+				/>
+			</div>
+			<div class="col-sm-12 form-text text-muted help-text">
+				<?= $enc->html( $this->translate( 'admin', 'Allow customers to choose themselves how much they want to pay' ) ); ?>
+			</div>
+		</div>
+	</div>
+
 	<div id="item-price-group"
 		data-items="<?= $enc->attr( $this->get( 'priceData', [] ) ); ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"

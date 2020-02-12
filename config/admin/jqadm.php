@@ -138,7 +138,6 @@ return [
 				'physical' => 'physical',
 				'download' => 'download',
 				'subscription' => 'subscription',
-				'special' => 'special'
 			],
 		],
 		'characteristic' => [
@@ -178,14 +177,6 @@ return [
 				'subparts' => [
 					'suggest' => 'suggest',
 					'bought' => 'bought',
-				],
-			],
-		],
-
-		'special' => [
-			'standard' => [
-				'subparts' => [
-					'price' => 'price',
 				],
 			],
 		],
