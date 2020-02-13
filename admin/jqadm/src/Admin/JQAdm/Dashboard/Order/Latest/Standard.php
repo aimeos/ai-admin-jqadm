@@ -188,6 +188,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
 		$search = $manager->createSearch();
+		$search->setConditions( $search->compare( '!=', 'order.base.product.siteid', '' ) );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
 		$search->setSlice( 0, 10 );
 
