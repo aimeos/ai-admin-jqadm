@@ -31,7 +31,6 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -39,7 +38,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'customer/group' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -69,14 +68,13 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $context, 'customer/group' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'customer/group' )->createItem();
 			}
 
 			$data['customer.group.siteid'] = $view->item->getSiteId();
@@ -108,9 +106,8 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 		$manager->begin();
 
 		try
@@ -156,7 +153,6 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -164,7 +160,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'customer/group' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -194,9 +190,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 		$manager->begin();
 
 		try
@@ -233,13 +228,12 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'group' );
-			$manager = \Aimeos\MShop::create( $context, 'customer/group' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );

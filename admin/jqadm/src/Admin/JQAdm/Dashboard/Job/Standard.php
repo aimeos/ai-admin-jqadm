@@ -100,9 +100,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
-		$manager = \Aimeos\MAdmin::create( $context, 'job' );
+		$manager = \Aimeos\MAdmin::create( $this->getContext(), 'job' );
 
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '-', 'job.ctime' ), $search->sort( '-', 'job.id' )] );

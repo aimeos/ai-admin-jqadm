@@ -90,9 +90,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'coupon/code' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
 		$manager->begin();
 
 		try

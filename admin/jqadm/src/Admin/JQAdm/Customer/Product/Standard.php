@@ -110,9 +110,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'customer/lists' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/lists' );
 		$manager->begin();
 
 		try
@@ -338,10 +337,8 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Customer\Item\Iface $item, array $data ) : \Aimeos\MShop\Customer\Item\Iface
 	{
-		$context = $this->getContext();
 		$listIds = $this->getValue( $data, 'customer.lists.id', [] );
-
-		$listManager = \Aimeos\MShop::create( $context, 'customer/lists' );
+		$listManager = \Aimeos\MShop::create( $this->getContext(), 'customer/lists' );
 
 		$search = $listManager->createSearch()->setSlice( 0, count( $listIds ) );
 		$search->setConditions( $search->compare( '==', 'customer.lists.id', $listIds ) );

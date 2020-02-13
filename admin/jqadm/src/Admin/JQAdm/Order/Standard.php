@@ -31,7 +31,6 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -39,7 +38,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'order/base' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 			$view->item = $manager->load( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -69,14 +68,13 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $context, 'order/base' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'order/base' )->createItem();
 			}
 
 			$data['order.siteid'] = $view->item->getSiteId();
@@ -146,7 +144,6 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -154,7 +151,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'order/base' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 			$refs = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
 
 			$view->item = $manager->getItem( $id, $refs );
@@ -185,9 +182,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 		$manager->begin();
 
 		try
@@ -224,13 +220,12 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'order' );
-			$manager = \Aimeos\MShop::create( $context, 'order' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );

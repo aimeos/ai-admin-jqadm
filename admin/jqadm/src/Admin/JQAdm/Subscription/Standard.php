@@ -119,9 +119,8 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'subscription' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
 		$manager->begin();
 
 		try
@@ -245,9 +244,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'subscription' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
 		$manager->begin();
 
 		try
@@ -284,13 +282,12 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'subscription' );
-			$manager = \Aimeos\MShop::create( $context, 'subscription' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'subscription.ctime' )] );

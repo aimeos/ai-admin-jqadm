@@ -31,13 +31,12 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'log' );
-			$manager = \Aimeos\MAdmin::create( $context, 'log' );
+			$manager = \Aimeos\MAdmin::create( $this->getContext(), 'log' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'log.timestamp' )] );

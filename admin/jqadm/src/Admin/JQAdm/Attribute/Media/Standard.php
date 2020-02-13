@@ -239,8 +239,8 @@ class Standard
 	{
 		$context = $this->getContext();
 
-		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'media/type' );
-		$listTypeManager = \Aimeos\MShop::create( $this->getContext(), 'attribute/lists/type' );
+		$typeManager = \Aimeos\MShop::create( $context, 'media/type' );
+		$listTypeManager = \Aimeos\MShop::create( $context, 'attribute/lists/type' );
 
 		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'media.type.domain', 'attribute' ) );

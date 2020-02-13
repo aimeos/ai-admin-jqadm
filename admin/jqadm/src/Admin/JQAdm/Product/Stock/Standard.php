@@ -130,9 +130,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'stock' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 		$manager->begin();
 
 		try

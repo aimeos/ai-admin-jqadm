@@ -348,8 +348,7 @@ class Standard
 		}
 
 		$data = [];
-		$context = $this->getContext();
-		$siteId = $context->getLocale()->getSiteId();
+		$siteId = $this->getContext()->getLocale()->getSiteId();
 		$articles = $item->getRefItems( 'product', null, 'default', false );
 
 

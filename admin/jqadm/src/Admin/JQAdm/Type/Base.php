@@ -39,7 +39,6 @@ abstract class Base
 	protected function copyBase( string $path ) : string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -47,7 +46,7 @@ abstract class Base
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, $path . '/type' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $path, $view->item, true );
@@ -78,14 +77,13 @@ abstract class Base
 	public function createBase( string $path ) : string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $context, $path . '/type' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), $path . '/type' )->createItem();
 			}
 
 			$data[str_replace( '/', '.', $path ) . '.type.siteid'] = $view->item->getSiteId();
@@ -118,9 +116,8 @@ abstract class Base
 	public function deleteBase( string $path ) : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, $path . '/type' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 		$manager->begin();
 
 		try
@@ -168,7 +165,6 @@ abstract class Base
 	public function getBase( string $path ) : string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -176,7 +172,7 @@ abstract class Base
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, $path . '/type' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -207,9 +203,8 @@ abstract class Base
 	public function saveBase( string $path ) : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, $path . '/type' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 		$manager->begin();
 
 		try
@@ -247,13 +242,12 @@ abstract class Base
 	public function searchBase( string $path ) : \Aimeos\MW\View\Iface
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'type/' . $path );
-			$manager = \Aimeos\MShop::create( $context, $path . '/type' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );

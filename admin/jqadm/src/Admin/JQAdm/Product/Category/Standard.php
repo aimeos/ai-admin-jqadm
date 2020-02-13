@@ -89,9 +89,8 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 
 		$search = $manager->createSearch();
 		$expr = array(
@@ -147,9 +146,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'product/lists' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
 		$manager->begin();
 
 		try

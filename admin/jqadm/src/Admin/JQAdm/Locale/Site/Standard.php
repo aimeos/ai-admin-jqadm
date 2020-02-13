@@ -31,7 +31,6 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -41,7 +40,7 @@ class Standard
 
 			$this->checkSite( $view->access( 'super' ), $id );
 
-			$manager = \Aimeos\MShop::create( $context, 'locale/site' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -71,7 +70,6 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -80,7 +78,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $context, 'locale/site' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/site' )->createItem();
 			}
 
 			$view->itemSubparts = $this->getSubClientNames();
@@ -110,9 +108,8 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 		$manager->begin();
 
 		try
@@ -159,7 +156,6 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -169,7 +165,7 @@ class Standard
 
 			$this->checkSite( $view->access( 'super' ), $id );
 
-			$manager = \Aimeos\MShop::create( $context, 'locale/site' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 
 			$view->item = $manager->getItem( $id );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -199,9 +195,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 		$manager->begin();
 
 		try
@@ -238,13 +233,12 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'locale/site' );
-			$manager = \Aimeos\MShop::create( $context, 'locale/site' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
 			if( $view->access( 'super' ) === false )

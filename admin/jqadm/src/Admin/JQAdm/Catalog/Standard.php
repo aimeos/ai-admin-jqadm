@@ -31,7 +31,6 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -39,7 +38,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'catalog' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -70,14 +69,13 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $context, 'catalog' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'catalog' )->createItem();
 			}
 
 			$data['catalog.siteid'] = $view->item->getSiteId();
@@ -111,9 +109,8 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 		$manager->begin();
 
 		try
@@ -159,7 +156,6 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
@@ -167,7 +163,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $context, 'catalog' );
+			$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -198,9 +194,8 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $context, 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 		$manager->begin();
 
 		try
@@ -240,11 +235,10 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
 
 		try
 		{
-			$view->item = \Aimeos\MShop::create( $context, 'catalog' )->createItem();
+			$view->item = \Aimeos\MShop::create( $this->getContext(), 'catalog' )->createItem();
 			$view->itemRootId = $this->getRootId();
 			$view->itemBody = '';
 
