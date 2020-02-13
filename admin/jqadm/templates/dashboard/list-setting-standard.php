@@ -9,7 +9,7 @@ $settings = [
 	'open_basedir' => ini_get( 'open_basedir' ) != null ? ['warning', $this->translate( 'admin', 'PHP setting "%1$s" is enabled' )] : null,
 	'xdebug.default_enable' => ini_get( 'xdebug.default_enable' ) != 0 ? ['warning', $this->translate( 'admin', 'PHP setting "%1$s" is enabled' )] : null,
 	'madmin/cache/manager/name' => $this->get( 'madmin/cache/manager/name' ) === 'None' ? ['warning', $this->translate( 'admin', 'Aimeos caching is disabled by "%1$s"' )] : null,
-	'madmin/log/manager/standard/loglevel' => $this->get( 'madmin/log/manager/standard/loglevel', 0 ) > 6 ? ['warning', $this->translate( 'admin', 'Aimeos debug logging is disabled by "%1$s"' )] : null,
+	'madmin/log/manager/standard/loglevel' => $this->get( 'madmin/log/manager/standard/loglevel', 0 ) > 6 ? ['warning', $this->translate( 'admin', 'Aimeos debug logging is enabled by "%1$s"' )] : null,
 ];
 
 ?>

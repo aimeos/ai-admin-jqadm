@@ -51,15 +51,9 @@ $enc = $this->encoder();
 									title="<?= $enc->attr( $this->translate( 'admin', 'Translate text' ) ); ?>">
  								</a>
 								<div class="dropdown-menu dropdown-menu-right" v-bind:aria-labelledby="'translate-menu-' + idx">
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'DE')"><?= $enc->html( $this->translate( 'language', 'de' ) ); ?></a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'EN')"><?= $enc->html( $this->translate( 'language', 'en' ) ); ?></a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'ES')"><?= $enc->html( $this->translate( 'language', 'es' ) ); ?></a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'FR')"><?= $enc->html( $this->translate( 'language', 'fr' ) ); ?></a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'IT')"><?= $enc->html( $this->translate( 'language', 'it' ) ); ?></a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'NL')"><?= $enc->html( $this->translate( 'language', 'nl' ) ); ?></a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'PL')"><?= $enc->html( $this->translate( 'language', 'pl' ) ); ?></a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'PT')"><?= $enc->html( $this->translate( 'language', 'pt' ) ); ?></a>
-									<a class="dropdown-item" href="#" v-on:click="translate(idx, 'RU')"><?= $enc->html( $this->translate( 'language', 'ru' ) ); ?></a>
+									<?php foreach( ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'ru'] as $lang ) : ?>
+										<a class="dropdown-item" href="#" v-on:click="translate(idx, '<?= strtoupper( $lang ) ?>')"><?= $enc->html( $this->translate( 'language', $lang ) ); ?></a>
+									<?php endforeach ?>
 								</div>
 							</div>
 							<div v-if="item['service.lists.siteid'] == siteid && !item['_nosort']"

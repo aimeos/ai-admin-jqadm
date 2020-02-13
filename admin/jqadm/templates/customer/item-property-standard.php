@@ -24,7 +24,7 @@ $enc = $this->encoder();
 						<th colspan="3">
 							<span class="help"><?= $enc->html( $this->translate( 'admin', 'Properties' ) ); ?></span>
 							<div class="form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Product characteristics that are not shared with other customers' ) ); ?>
+								<?= $enc->html( $this->translate( 'admin', 'Customer characteristics that are not shared with other customers' ) ); ?>
 							</div>
 						</th>
 						<th class="actions">
