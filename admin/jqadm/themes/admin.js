@@ -798,6 +798,8 @@ Aimeos.Nav = {
 	init : function() {
 
 		this.addShortcuts();
+		this.toggleFormItems();
+		this.toggleNavItems();
 		this.toggleMenu();
 	},
 
@@ -874,6 +876,56 @@ Aimeos.Nav = {
 					window.sessionStorage.setItem('aimeos/jqadm/sidebar', 0);
 				}
 			});
+		});
+	},
+
+
+	toggleNavItems : function() {
+
+		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/item/navbar') == 1) {
+			$(".aimeos .item-navbar .separator .more").removeClass("more").addClass("less");
+			$(".aimeos .item-navbar .advanced").css("display", "list-item");
+		}
+
+		$(".aimeos .item-navbar").on("click", ".separator .more", function(ev) {
+			$(".advanced", ev.delegateTarget).css("display", "list-item");
+			$(ev.currentTarget).removeClass("more").addClass("less");
+			if(window.sessionStorage) {
+				window.sessionStorage.setItem('aimeos/jqadm/item/navbar', 1);
+			}
+		});
+
+		$(".aimeos .item-navbar").on("click", ".separator .less", function(ev) {
+			$(".advanced", ev.delegateTarget).css("display", "none");
+			$(ev.currentTarget).removeClass("less").addClass("more");
+			if(window.sessionStorage) {
+				window.sessionStorage.setItem('aimeos/jqadm/item/navbar', 0);
+			}
+		});
+	},
+
+
+	toggleFormItems : function() {
+
+		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/item/form') == 1) {
+			$(".aimeos .item-content .separator .more").removeClass("more").addClass("less");
+			$(".aimeos .item-content .form-group.advanced").css("display", "flex");
+		}
+
+		$(".aimeos .item-content").on("click", ".separator .more", function(ev) {
+			$(".form-group.advanced", ev.delegateTarget).css("display", "flex");
+			$(ev.currentTarget).removeClass("more").addClass("less");
+			if(window.sessionStorage) {
+				window.sessionStorage.setItem('aimeos/jqadm/item/form', 1);
+			}
+		});
+
+		$(".aimeos .item-content").on("click", ".separator .less", function(ev) {
+			$(".form-group.advanced", ev.delegateTarget).css("display", "none");
+			$(ev.currentTarget).removeClass("less").addClass("more");
+			if(window.sessionStorage) {
+				window.sessionStorage.setItem('aimeos/jqadm/item/form', 0);
+			}
 		});
 	}
 };

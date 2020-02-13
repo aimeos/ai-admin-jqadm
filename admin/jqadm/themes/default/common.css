@@ -206,3 +206,46 @@
 	text-align: left;
 	color: #464a4c;
 }
+
+.aimeos .nav-tabs .advanced,
+.aimeos .item-content .form-group.advanced {
+	display: none;
+}
+
+.aimeos .nav-tabs .separator:hover {
+	background-color: #E0E0E0;
+}
+
+.aimeos .item-content .separator:hover {
+	background-color: #F8F8F8;
+}
+
+.aimeos .nav-tabs .separator .icon,
+.aimeos .item-content .separator .icon {
+	padding: 0.5rem 0;
+}
+
+.aimeos .nav-tabs .more,
+.aimeos .nav-tabs .less,
+.aimeos .item-content .more,
+.aimeos .item-content .less {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-weight: bold;
+	font-size: 125%;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	color: #808080;
+	display: block;
+	text-align: center;
+}
+
+.aimeos .nav-tabs .more:before,
+.aimeos .item-content .more:before {
+	content: "\f0d7";
+}
+
+.aimeos .nav-tabs .less:before,
+.aimeos .item-content .less:before {
+	content: "\f0d8";
+}

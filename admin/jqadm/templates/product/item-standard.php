@@ -97,6 +97,23 @@ $config = $this->config( 'admin/jqadm/url/save/config', [] );
 $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] );
 
 
+/** admin/jqadm/navbar-limit
+ * Number of JQAdm client links in the navigation bar shown by default
+ *
+ * The navigation bar is divided into the basic and advanced section.
+ * All admin client links in the basic section are always shown
+ * while the links in the advanced section are hidden by default. The
+ * entries in the navigation bar are defined by admin/jqadm/navbar. Using
+ * this setting you can change how many links are always shown.
+ *
+ * @param integer Number of client resource links
+ * @since 2017.10
+ * @category Developer
+ * @see admin/jqadm/navbar
+ */
+$navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
+
+
 /** admin/jqadm/partial/itemactions
  * Relative path to the partial template for displaying the available actions for the item
  *
@@ -204,6 +221,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-cl
 
 
 $params = $this->get( 'pageParams', [] );
+$navlist = array_values( $this->get( 'itemSubparts', [] ) );
 $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.type.code' )->toArray();
 
 
@@ -231,14 +249,13 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 
 		<div class="col-md-3 item-navbar">
 			<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
-
 				<li class="nav-item basic">
 					<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
 						<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
 					</a>
 				</li>
 
-				<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
+				<?php foreach( array_splice( $navlist, 0, $navlimit ) as $idx => $subpart ) : ?>
 					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
 						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
 							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
@@ -246,6 +263,15 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 					</li>
 				<?php endforeach; ?>
 
+				<li class="separator"><i class="icon more"></i></li>
+
+				<?php foreach( $navlist as $idx => $subpart ) : ?>
+					<li class="nav-item advanced <?= $enc->attr( $subpart ); ?>">
+						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + $navlimit + 1; ?>">
+							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
+						</a>
+					</li>
+				<?php endforeach; ?>
 			</ul>
 
 			<div class="item-meta text-muted">
@@ -271,28 +297,30 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 				<div class="col-xl-6 content-block vue-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>"
 					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
-					<div class="form-group row optional">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Data set' ) ); ?></label>
-						<div class="col-sm-8">
-							<select class="form-control custom-select item-set" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dataset' ) ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
-								<option value="">
-									<?= $enc->html( $this->translate( 'admin', 'None' ) ); ?>
-								</option>
-
-								<?php foreach( $this->config( 'admin/jqadm/dataset/product', [] ) as $name => $config ) : ?>
-									<option value="<?= $enc->attr( $name ); ?>" <?= $selected( $this->get( 'itemData/product.dataset' ), $name ); ?>
-										data-config="<?= $enc->attr( $config ) ?>" >
-										<?= $enc->html( $name ); ?>
+					<?php if( $this->config( 'admin/jqadm/dataset/product', [] ) !== [] ) : ?>
+						<div class="form-group row optional">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Data set' ) ); ?></label>
+							<div class="col-sm-8">
+								<select class="form-control custom-select item-set" tabindex="1"
+									name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dataset' ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> >
+									<option value="">
+										<?= $enc->html( $this->translate( 'admin', 'None' ) ); ?>
 									</option>
-								<?php endforeach; ?>
-							</select>
+
+									<?php foreach( $this->config( 'admin/jqadm/dataset/product', [] ) as $name => $config ) : ?>
+										<option value="<?= $enc->attr( $name ); ?>" <?= $selected( $this->get( 'itemData/product.dataset' ), $name ); ?>
+											data-config="<?= $enc->attr( $config ) ?>" >
+											<?= $enc->html( $name ); ?>
+										</option>
+									<?php endforeach; ?>
+								</select>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Depending on the selected data set, the list of shown fields for the product will be different' ) ); ?>
+							</div>
 						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Depending on the selected data set, the list of shown fields for the product will be different' ) ); ?>
-						</div>
-					</div>
+					<?php endif ?>
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
@@ -358,7 +386,10 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 							<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site and for searching only if no other product names in any language exist' ) ); ?>
 						</div>
 					</div>
-					<div class="form-group row optional">
+
+					<div class="separator"><i class="icon more"></i></div>
+
+					<div class="form-group row optional advanced">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Quantity scale' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-scale" type="number" tabindex="1" min="0.001" step="0.001"
@@ -370,7 +401,7 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 							<?= $enc->html( $this->translate( 'admin', 'The step value allowed for quantities in the basket, e.g. "0.1" for fractional quantities or "5" for multiple of five articles' ) ); ?>
 						</div>
 					</div>
-					<div class="form-group row optional">
+					<div class="form-group row optional advanced">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-datestart" type="datetime-local" tabindex="1"
@@ -383,7 +414,7 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site after that date and time, useful or seasonal articles' ) ); ?>
 						</div>
 					</div>
-					<div class="form-group row optional">
+					<div class="form-group row optional advanced">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-dateend" type="datetime-local" tabindex="1"
@@ -396,7 +427,7 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ); ?>
 						</div>
 					</div>
-					<div class="form-group row optional">
+					<div class="form-group row optional advanced">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-ctime" type="datetime-local" tabindex="1"
@@ -409,7 +440,7 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 							<?= $enc->html( $this->translate( 'admin', 'Since when the product is available, used for sorting in the front-end' ) ); ?>
 						</div>
 					</div>
-					<div class="form-group row optional warning">
+					<div class="form-group row optional advanced warning">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL target' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-target" type="text" tabindex="1"
