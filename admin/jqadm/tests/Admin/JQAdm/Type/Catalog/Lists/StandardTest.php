@@ -59,22 +59,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testCreateMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Catalog\Lists\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->create();
-	}
-
-
 	public function testCopy()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog/lists/type' );
@@ -105,22 +89,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testCopyMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Catalog\Lists\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->copy();
-	}
-
-
 	public function testDelete()
 	{
 		$this->assertNull( $this->getClientMock( ['nextAction'], false )->delete() );
@@ -136,22 +104,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->delete();
-	}
-
-
-	public function testDeleteMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Catalog\Lists\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients', 'search' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );
 
@@ -182,22 +134,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->get();
-	}
-
-
-	public function testGetMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Catalog\Lists\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );
 
@@ -257,38 +193,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testSaveMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Catalog\Lists\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->save();
-	}
-
-
-	public function testSaveJQAdmException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Catalog\Lists\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->save();
-	}
-
-
 	public function testSearch()
 	{
 		$param = array(
@@ -318,22 +222,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->expects( $this->once() )->method( 'initCriteria' )
 			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->search();
-	}
-
-
-	public function testSearchMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Type\Catalog\Lists\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'initCriteria' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'initCriteria' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->setView( $this->getViewNoRender() );
 

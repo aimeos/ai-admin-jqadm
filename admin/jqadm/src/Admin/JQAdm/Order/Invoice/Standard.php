@@ -66,31 +66,16 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$total = 0;
-			$params = $this->storeSearchParams( $view->param( 'oi', [] ), 'orderinvoice' );
-			$orderItems = $this->getOrderItems( $view->item, $params, $total );
+		$total = 0;
+		$params = $this->storeSearchParams( $view->param( 'oi', [] ), 'orderinvoice' );
+		$orderItems = $this->getOrderItems( $view->item, $params, $total );
 
-			$view->invoiceData = $this->toArray( $orderItems );
-			$view->invoiceTotal = $total;
-			$view->invoiceBody = '';
+		$view->invoiceData = $this->toArray( $orderItems );
+		$view->invoiceTotal = $total;
+		$view->invoiceBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->invoiceBody .= $client->search();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'order-item-invoice' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'order-item-invoice' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->invoiceBody .= $client->search();
 		}
 
 		return $this->render( $view );

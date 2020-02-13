@@ -45,38 +45,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testCopyException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Customer\Product\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->copy();
-	}
-
-
-	public function testCopyMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Customer\Product\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->copy();
-	}
-
-
 	public function testCreate()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
@@ -85,38 +53,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'item-product', $result );
-	}
-
-
-	public function testCreateException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Customer\Product\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->create();
-	}
-
-
-	public function testCreateMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Customer\Product\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->create();
 	}
 
 
@@ -129,38 +65,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertStringContainsString( 'item-product', $result );
 		$this->assertStringContainsString( 'watch', $result );
-	}
-
-
-	public function testGetException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Customer\Product\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->get();
-	}
-
-
-	public function testGetMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Customer\Product\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->get();
 	}
 
 
@@ -228,23 +132,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->setView( $this->getViewNoRender() );
 
 		$this->expectException( \RuntimeException::class );
-		$object->save();
-	}
-
-
-	public function testSaveMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Customer\Product\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$this->expectException( \Aimeos\MShop\Exception::class );
 		$object->save();
 	}
 

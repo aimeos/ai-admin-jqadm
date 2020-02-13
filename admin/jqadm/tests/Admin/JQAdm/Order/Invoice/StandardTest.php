@@ -46,6 +46,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreate()
 	{
+		$this->view->item = $this->getOrderBaseItem();
+
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'item-invoice', $result );
@@ -60,38 +62,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertStringContainsString( 'item-invoice', $result );
 		$this->assertStringContainsString( 'phone', $result );
-	}
-
-
-	public function testGetException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Order\Invoice\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'toArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'toArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->get();
-	}
-
-
-	public function testGetMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Order\Invoice\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'toArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'toArray' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->get();
 	}
 
 

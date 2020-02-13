@@ -66,33 +66,18 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$total = 0;
-			$params = $this->storeSearchParams( $view->param( 'uo', [] ), 'customerorder' );
-			$orderItems = $this->getOrderItems( $view->item, $params, $total );
-			$baseItems = $this->getOrderBaseItems( $orderItems );
+		$total = 0;
+		$params = $this->storeSearchParams( $view->param( 'uo', [] ), 'customerorder' );
+		$orderItems = $this->getOrderItems( $view->item, $params, $total );
+		$baseItems = $this->getOrderBaseItems( $orderItems );
 
-			$view->orderItems = $orderItems;
-			$view->orderBaseItems = $baseItems;
-			$view->orderTotal = $total;
-			$view->orderBody = '';
+		$view->orderItems = $orderItems;
+		$view->orderBaseItems = $baseItems;
+		$view->orderTotal = $total;
+		$view->orderBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->orderBody .= $client->search();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'customer-order' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'customer-order' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->orderBody .= $client->search();
 		}
 
 		return $this->render( $view );

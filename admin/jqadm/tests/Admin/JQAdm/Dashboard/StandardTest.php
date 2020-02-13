@@ -56,17 +56,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testSearchMShopException()
-	{
-		$object = $this->getClientMock( 'getSubClients' );
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->search();
-	}
-
-
 	public function testGetSubClient()
 	{
 		$result = $this->object->getSubClient( 'order' );

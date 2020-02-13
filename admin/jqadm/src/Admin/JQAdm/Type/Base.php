@@ -60,17 +60,9 @@ abstract class Base
 				$view->itemBody .= $client->copy();
 			}
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'copy' );
 		}
 
 		return $this->render( $view );
@@ -108,17 +100,9 @@ abstract class Base
 				$view->itemBody .= $client->create();
 			}
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'create' );
 		}
 
 		return $this->render( $view );
@@ -164,17 +148,9 @@ abstract class Base
 			$this->nextAction( $view, 'search', 'type/' . $path, null, 'delete' );
 			return null;
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error deleting data' )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'delete' );
 		}
 
 		$manager->rollback();
@@ -213,17 +189,9 @@ abstract class Base
 				$view->itemBody .= $client->get();
 			}
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'get' );
 		}
 
 		return $this->render( $view );
@@ -260,22 +228,13 @@ abstract class Base
 			$this->nextAction( $view, $view->param( 'next' ), 'type/' . $path, $view->item->getId(), 'save' );
 			return null;
 		}
-		catch( \Aimeos\Admin\JQAdm\Exception $e )
-		{
-			$view->errors = array_merge( $view->get( 'errors', [] ), [$e->getMessage()] );
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$view->errors = array_merge( $view->get( 'errors', [] ), [$context->getI18n()->dt( 'mshop', $e->getMessage() )] );
-		}
 		catch( \Exception $e )
 		{
-			$view->errors = array_merge( $view->get( 'errors', [] ), [$context->getI18n()->dt( 'admin', 'Error saving data' )] );
+			$manager->rollback();
+			$this->report( $e, 'save' );
 		}
 
-		$manager->rollback();
-
-		return $this->logException( $e )->create();
+		return $this->create();
 	}
 
 
@@ -307,17 +266,9 @@ abstract class Base
 				$view->itemBody .= $client->search();
 			}
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = ['type-' . str_replace( '/', '-', $path ) . '-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' )];
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'search' );
 		}
 
 		return $view;

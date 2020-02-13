@@ -43,35 +43,20 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		try
-		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
-			}
-
-			$fs = $context->getFileSystemManager()->get( 'fs-admin' );
-			$manager = \Aimeos\MAdmin::create( $context, 'job' );
-			$item = $manager->getItem( $id );
-			$result = $item->getResult();
-
-			if( isset( $result['file'] ) && $fs->has( $result['file'] ) ) {
-				$fs->rm( $result['file'] );
-			}
-
-			$manager->deleteItem( $id );
+		if( ( $id = $view->param( 'id' ) ) === null ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 		}
-		catch( \Aimeos\MAdmin\Exception $e )
-		{
-			$error = array( 'job-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+
+		$fs = $context->getFileSystemManager()->get( 'fs-admin' );
+		$manager = \Aimeos\MAdmin::create( $context, 'job' );
+		$item = $manager->getItem( $id );
+		$result = $item->getResult();
+
+		if( isset( $result['file'] ) && $fs->has( $result['file'] ) ) {
+			$fs->rm( $result['file'] );
 		}
-		catch( \Exception $e )
-		{
-			$error = array( 'job-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error deleting data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
+
+		$manager->deleteItem( $id );
 
 		return $this->search();
 	}
@@ -87,35 +72,20 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		try
-		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
-			}
-
-			$fs = $context->getFileSystemManager()->get( 'fs-admin' );
-			$item = \Aimeos\MAdmin::create( $context, 'job' )->getItem( $id );
-			$result = $item->getResult();
-
-			if( isset( $result['file'] ) && $fs->has( $result['file'] ) )
-			{
-				$stream = $view->response()->createStream( $fs->reads( $result['file'] ) );
-				$view->response()->withHeader( 'Content-Disposition', 'attachment; filename="' . $result['file'] . '"' );
-				$view->response()->withHeader( 'Content-Type', 'text/csv' );
-				$view->response()->withBody( $stream );
-			}
+		if( ( $id = $view->param( 'id' ) ) === null ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 		}
-		catch( \Aimeos\MAdmin\Exception $e )
+
+		$fs = $context->getFileSystemManager()->get( 'fs-admin' );
+		$item = \Aimeos\MAdmin::create( $context, 'job' )->getItem( $id );
+		$result = $item->getResult();
+
+		if( isset( $result['file'] ) && $fs->has( $result['file'] ) )
 		{
-			$error = array( 'job-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'job-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$stream = $view->response()->createStream( $fs->reads( $result['file'] ) );
+			$view->response()->withHeader( 'Content-Disposition', 'attachment; filename="' . $result['file'] . '"' );
+			$view->response()->withHeader( 'Content-Type', 'text/csv' );
+			$view->response()->withBody( $stream );
 		}
 
 		return null;
@@ -132,34 +102,19 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		try
-		{
-			$manager = \Aimeos\MAdmin::create( $context, 'job' );
+		$manager = \Aimeos\MAdmin::create( $context, 'job' );
 
-			$search = $manager->createSearch();
-			$search->setSortations( [$search->sort( '-', 'job.ctime' ), $search->sort( '-', 'job.id' )] );
-			$total = 0;
+		$search = $manager->createSearch();
+		$search->setSortations( [$search->sort( '-', 'job.ctime' ), $search->sort( '-', 'job.id' )] );
+		$total = 0;
 
-			$view->jobBody = '';
-			$view->jobItems = $manager->searchItems( $search, [], $total );
-			$view->jobTotal = $total;
+		$view->jobBody = '';
+		$view->jobItems = $manager->searchItems( $search, [], $total );
+		$view->jobTotal = $total;
 
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->jobBody .= $client->search();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'product-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'product-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->jobBody .= $client->search();
 		}
 
 		/** admin/jqadm/dashboard/job/template-list

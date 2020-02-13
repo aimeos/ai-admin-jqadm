@@ -63,38 +63,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testGetException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Coupon\Code\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'toArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'toArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->get();
-	}
-
-
-	public function testGetMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Coupon\Code\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'toArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'toArray' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->get();
-	}
-
-
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'coupon/code' );
@@ -126,22 +94,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 	public function testSaveException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Coupon\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->save();
-	}
-
-
-	public function testSaveMShopException()
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Coupon\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )

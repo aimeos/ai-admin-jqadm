@@ -540,7 +540,7 @@ abstract class Base
 	 * @param \Exception $e Exception object
 	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
 	 */
-	protected function logException( \Exception $e )
+	protected function log( \Exception $e ) : Iface
 	{
 		$logger = $this->context->getLogger();
 		$logger->log( $e->getMessage(), \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
@@ -626,6 +626,42 @@ abstract class Base
 		$view->response()->withHeader( 'Cache-Control', 'no-store' );
 
 		return $view;
+	}
+
+
+	/**
+	 * Writes the exception details to the log
+	 *
+	 * @param \Exception $e Exception object
+	 * @param string $method Method it's called from
+	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
+	 */
+	protected function report( \Exception $e, string $method ) : Iface
+	{
+		$view = $this->view;
+		$i18n = $this->context->getI18n();
+
+		if( $e instanceof \Aimeos\Admin\JQAdm\Exception )
+		{
+			$view->errors = array_merge( $view->get( 'errors', [] ), [$e->getMessage()] );
+			return $this;
+		}
+		elseif( $e instanceof \Aimeos\MShop\Exception )
+		{
+			$view->errors = array_merge( $view->get( 'errors', [] ), [$i18n->dt( 'mshop', $e->getMessage() )] );
+			return $this;
+		}
+
+		switch( $method )
+		{
+			case 'save': $msg = $i18n->dt( 'admin', 'Error saving data' );
+			case 'delete': $msg = $i18n->dt( 'admin', 'Error deleting data' );
+			default: $msg = $i18n->dt( 'admin', 'Error retrieving data' );
+		}
+
+		$view->errors = array_merge( $view->get( 'errors', [] ), [$msg] );
+
+		return $this->log( $e );
 	}
 
 

@@ -66,31 +66,16 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$total = 0;
-			$params = $this->storeSearchParams( $view->param( 'vc', [] ), 'couponcode' );
-			$codeItems = $this->getCodeItems( $view->item, $params, $total );
+		$total = 0;
+		$params = $this->storeSearchParams( $view->param( 'vc', [] ), 'couponcode' );
+		$codeItems = $this->getCodeItems( $view->item, $params, $total );
 
-			$view->codeData = $this->toArray( $codeItems );
-			$view->codeTotal = $total;
-			$view->codeBody = '';
+		$view->codeData = $this->toArray( $codeItems );
+		$view->codeTotal = $total;
+		$view->codeBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->codeBody .= $client->search();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'coupon-item-code' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'coupon-item-code' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->codeBody .= $client->search();
 		}
 
 		return $this->render( $view );

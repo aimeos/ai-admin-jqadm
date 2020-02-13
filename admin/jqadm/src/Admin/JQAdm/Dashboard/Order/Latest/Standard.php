@@ -44,26 +44,11 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$this->addOrders( $view );
-			$view->orderlatestBody = '';
+		$this->addOrders( $view );
+		$view->orderlatestBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->orderlatestBody .= $client->search();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'order-latest' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'order-latest' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->orderlatestBody .= $client->search();
 		}
 
 		/** admin/jqadm/dashboard/order/latest/template-item

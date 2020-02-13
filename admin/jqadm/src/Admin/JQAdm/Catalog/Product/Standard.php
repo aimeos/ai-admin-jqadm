@@ -44,26 +44,11 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$view->productListTypes = $this->getListTypes();
-			$view->productBody = '';
+		$view->productListTypes = $this->getListTypes();
+		$view->productBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->productBody .= $client->copy();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'catalog-product' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'catalog-product' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->productBody .= $client->copy();
 		}
 
 		return $this->render( $view );
@@ -79,26 +64,11 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$view->productListTypes = $this->getListTypes();
-			$view->productBody = '';
+		$view->productListTypes = $this->getListTypes();
+		$view->productBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->productBody .= $client->create();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'catalog-product' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'catalog-product' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->productBody .= $client->create();
 		}
 
 		return $this->render( $view );
@@ -114,33 +84,18 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$total = 0;
-			$params = $this->storeSearchParams( $view->param( 'cp', [] ), 'catalogproduct' );
-			$listItems = $this->getListItems( $view->item, $params, $total );
+		$total = 0;
+		$params = $this->storeSearchParams( $view->param( 'cp', [] ), 'catalogproduct' );
+		$listItems = $this->getListItems( $view->item, $params, $total );
 
-			$view->productItems = $this->getProductItems( $listItems );
-			$view->productData = $this->toArray( $listItems );
-			$view->productListTypes = $this->getListTypes();
-			$view->productTotal = $total;
-			$view->productBody = '';
+		$view->productItems = $this->getProductItems( $listItems );
+		$view->productData = $this->toArray( $listItems );
+		$view->productListTypes = $this->getListTypes();
+		$view->productTotal = $total;
+		$view->productBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->productBody .= $client->get();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'catalog-product' => $this->getContext()->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'catalog-product' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->productBody .= $client->get();
 		}
 
 		return $this->render( $view );

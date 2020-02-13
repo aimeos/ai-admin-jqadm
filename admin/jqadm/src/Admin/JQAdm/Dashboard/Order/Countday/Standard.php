@@ -45,25 +45,10 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		try
-		{
-			$view->orderpaymenttypeBody = '';
+		$view->orderpaymenttypeBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->orderpaymenttypeBody .= $client->search();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'order-countday' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'order-countday' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->orderpaymenttypeBody .= $client->search();
 		}
 
 		/** admin/jqadm/dashboard/order/countday/template-item

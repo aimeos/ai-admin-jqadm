@@ -45,25 +45,10 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		try
-		{
-			$view->ordercountpaystatusBody = '';
+		$view->ordercountpaystatusBody = '';
 
-			foreach( $this->getSubClients() as $client ) {
-				$view->ordercountpaystatusBody .= $client->search();
-			}
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'order-countpaystatus' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
-		catch( \Exception $e )
-		{
-			$error = array( 'order-countpaystatus' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+		foreach( $this->getSubClients() as $client ) {
+			$view->ordercountpaystatusBody .= $client->search();
 		}
 
 		/** admin/jqadm/dashboard/order/countpaystatus/template-item

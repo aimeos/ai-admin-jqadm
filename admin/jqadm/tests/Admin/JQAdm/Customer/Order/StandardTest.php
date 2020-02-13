@@ -70,38 +70,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testGetException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Customer\Order\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'storeSearchParams' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'storeSearchParams' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->get();
-	}
-
-
-	public function testGetMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Customer\Order\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'storeSearchParams' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'storeSearchParams' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->get();
-	}
-
-
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );

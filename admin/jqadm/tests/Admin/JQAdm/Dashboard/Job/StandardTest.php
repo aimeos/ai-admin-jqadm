@@ -53,38 +53,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testDeleteException()
-	{
-		$mock = $this->getMockBuilder( \Aimeos\MW\Filesystem\Manager\Standard::class )
-			->disableOriginalConstructor()
-			->setMethods( ['get'] )
-			->getMock();
-
-		$mock->expects( $this->once() )->method( 'get' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$this->context->setFileSystemManager( $mock );
-		$this->object->setView( $this->getViewNoRender() );
-		$this->object->delete();
-	}
-
-
-	public function testDeleteMAdminException()
-	{
-		$mock = $this->getMockBuilder( \Aimeos\MW\Filesystem\Manager\Standard::class )
-			->disableOriginalConstructor()
-			->setMethods( ['get'] )
-			->getMock();
-
-		$mock->expects( $this->once() )->method( 'get' )
-			->will( $this->throwException( new \Aimeos\MAdmin\Exception() ) );
-
-		$this->context->setFileSystemManager( $mock );
-		$this->object->setView( $this->getViewNoRender() );
-		$this->object->delete();
-	}
-
-
 	public function testGet()
 	{
 		$dir = dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . '/tmp';
@@ -104,6 +72,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setResult( ['file' => 'jobtest.csv'] );
 		$manager->saveItem( $item );
 
+		$param = ['site' => 'unittest', 'id' => $item->getId()];
+		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
 		$result = $this->object->get();
 
 		$this->assertEmpty( $result );
@@ -113,76 +85,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testGetException()
-	{
-		$mock = $this->getMockBuilder( \Aimeos\MW\Filesystem\Manager\Standard::class )
-			->disableOriginalConstructor()
-			->setMethods( ['get'] )
-			->getMock();
-
-		$mock->expects( $this->once() )->method( 'get' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$this->context->setFileSystemManager( $mock );
-		$this->object->setView( $this->getViewNoRender() );
-		$this->object->get();
-	}
-
-
-	public function testGetMAdminException()
-	{
-		$mock = $this->getMockBuilder( \Aimeos\MW\Filesystem\Manager\Standard::class )
-			->disableOriginalConstructor()
-			->setMethods( ['get'] )
-			->getMock();
-
-		$mock->expects( $this->once() )->method( 'get' )
-			->will( $this->throwException( new \Aimeos\MAdmin\Exception() ) );
-
-		$this->context->setFileSystemManager( $mock );
-		$this->object->setView( $this->getViewNoRender() );
-		$this->object->get();
-	}
-
-
 	public function testSearch()
 	{
 		$result = $this->object->search();
 
 		$this->assertStringContainsString( 'dashboard-job', $result );
 		$this->assertStringContainsString( 'unittest job', $result );
-	}
-
-
-	public function testSearchException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Job\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->search();
-	}
-
-
-	public function testSearchMAdminException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Job\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MAdmin\Exception() ) );
-
-		$object->setView( $this->getViewNoRender() );
-
-		$object->search();
 	}
 
 

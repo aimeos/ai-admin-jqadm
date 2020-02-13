@@ -58,17 +58,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testCreateMShopException()
-	{
-		$object = $this->getClientMock( 'getSubClients' );
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->create();
-	}
-
-
 	public function testCopy()
 	{
 		$param = ['site' => 'unittest', 'id' => $this->getOrderBaseItem()->getId()];
@@ -87,17 +76,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->copy();
-	}
-
-
-	public function testCopyMShopException()
-	{
-		$object = $this->getClientMock( 'getSubClients' );
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->copy();
 	}
@@ -127,17 +105,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->get();
-	}
-
-
-	public function testGetMShopException()
-	{
-		$object = $this->getClientMock( 'getSubClients' );
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->get();
 	}
@@ -180,17 +147,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testExportMShopException()
-	{
-		$object = $this->getClientMock( 'storeSearchParams' );
-
-		$object->expects( $this->atLeastOnce() )->method( 'storeSearchParams' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->export();
-	}
-
-
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'order/base' );
@@ -216,28 +172,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 	public function testSaveException()
-	{
-		$object = $this->getClientMock( 'fromArray' );
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->save();
-	}
-
-
-	public function testSaveMShopException()
-	{
-		$object = $this->getClientMock( 'fromArray' );
-
-		$object->expects( $this->once() )->method( 'fromArray' )
-			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->save();
-	}
-
-
-	public function testSaveJQAdmException()
 	{
 		$object = $this->getClientMock( 'fromArray' );
 
@@ -274,17 +208,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$object->expects( $this->once() )->method( 'initCriteria' )
 			->will( $this->throwException( new \RuntimeException() ) );
-
-		$object->search();
-	}
-
-
-	public function testSearchMShopException()
-	{
-		$object = $this->getClientMock( 'initCriteria' );
-
-		$object->expects( $this->once() )->method( 'initCriteria' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$object->search();
 	}

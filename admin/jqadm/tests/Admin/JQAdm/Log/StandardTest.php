@@ -60,17 +60,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testSearchMShopException()
-	{
-		$object = $this->getClientMock( 'initCriteria' );
-
-		$object->expects( $this->once() )->method( 'initCriteria' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$object->search();
-	}
-
-
 	public function testGetSubClientInvalid()
 	{
 		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );

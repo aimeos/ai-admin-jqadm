@@ -52,17 +52,9 @@ class Standard
 				$view->itemBody .= $client->copy();
 			}
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'locale-currency-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-currency-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'copy' );
 		}
 
 		return $this->render( $view );
@@ -97,17 +89,9 @@ class Standard
 				$view->itemBody .= $client->create();
 			}
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'locale-currency-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-currency-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'create' );
 		}
 
 		return $this->render( $view );
@@ -152,20 +136,11 @@ class Standard
 			$this->nextAction( $view, 'search', 'locale/currency', null, 'delete' );
 			return null;
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'locale-currency-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-currency-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error deleting data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$manager->rollback();
+			$this->report( $e, 'delete' );
 		}
-
-		$manager->rollback();
 
 		return $this->search();
 	}
@@ -200,17 +175,9 @@ class Standard
 				$view->itemBody .= $client->get();
 			}
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'locale-currency-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-currency-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'get' );
 		}
 
 		return $this->render( $view );
@@ -246,22 +213,13 @@ class Standard
 			$this->nextAction( $view, $view->param( 'next' ), 'locale/currency', $view->item->getId(), 'save' );
 			return null;
 		}
-		catch( \Aimeos\Admin\JQAdm\Exception $e )
-		{
-			$view->errors = array_merge( $view->get( 'errors', [] ), [$e->getMessage()] );
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$view->errors = array_merge( $view->get( 'errors', [] ), [$context->getI18n()->dt( 'mshop', $e->getMessage() )] );
-		}
 		catch( \Exception $e )
 		{
-			$view->errors = array_merge( $view->get( 'errors', [] ), [$context->getI18n()->dt( 'admin', 'Error saving data' )] );
+			$manager->rollback();
+			$this->report( $e, 'save' );
 		}
 
-		$manager->rollback();
-
-		return $this->logException( $e )->create();
+		return $this->create();
 	}
 
 
@@ -295,17 +253,9 @@ class Standard
 				$view->itemBody .= $client->search();
 			}
 		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$error = array( 'locale-currency-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-currency-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'search' );
 		}
 
 		/** admin/jqadm/locale/currency/template-list

@@ -51,17 +51,9 @@ class Standard
 				$view->itemBody .= $client->search();
 			}
 		}
-		catch( \Aimeos\MAdmin\Exception $e )
-		{
-			$error = array( 'log-item' => $context->getI18n()->dt( 'mshop', $e->getMessage() ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
-		}
 		catch( \Exception $e )
 		{
-			$error = array( 'log-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
-			$view->errors = $view->get( 'errors', [] ) + $error;
-			$this->logException( $e );
+			$this->report( $e, 'search' );
 		}
 
 		/** admin/jqadm/log/template-list
