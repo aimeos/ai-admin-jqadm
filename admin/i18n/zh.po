@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 10:01+0200\n"
-"PO-Revision-Date: 2019-10-03 08:06+0000\n"
-"Last-Translator: Bruce Liu <zcon.bruce@gmail.com>\n"
+"POT-Creation-Date: 2020-02-13 11:15+0100\n"
+"PO-Revision-Date: 2020-02-13 10:16+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -116,6 +116,14 @@ msgstr "Admin JQAdm 類型是空的"
 
 msgid "Advanced"
 msgstr "進階"
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -349,6 +357,9 @@ msgid "Customer Property Type"
 msgstr ""
 
 msgid "Customer Property Types"
+msgstr ""
+
+msgid "Customer characteristics that are not shared with other customers"
 msgstr ""
 
 msgid "Customer comment (optional)"
@@ -869,6 +880,10 @@ msgid "PHP setting \"%1$s\" is disabled"
 msgstr ""
 
 #, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr ""
+
+#, php-format
 msgid "PHP setting for \"%1$s\" is too low"
 msgstr ""
 
@@ -899,6 +914,9 @@ msgstr "支付狀態"
 
 msgid "Payment types"
 msgstr "支付類型"
+
+msgid "Periods"
+msgstr ""
 
 #, php-format
 msgid "Permission denied"
@@ -938,6 +956,9 @@ msgid "Postal code for delivery if used in the area the customer is living"
 msgstr ""
 
 msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr ""
+
+msgid "Potential problems"
 msgstr ""
 
 msgid "Previous"
@@ -1071,6 +1092,9 @@ msgstr "購買"
 msgid "Quantity"
 msgstr "數量"
 
+msgid "Quantity scale"
+msgstr ""
+
 msgid "Reason"
 msgstr "原因"
 
@@ -1080,6 +1104,9 @@ msgstr "折扣"
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
+msgstr ""
+
+msgid "Reference"
 msgstr ""
 
 msgid "Related ID"
@@ -1368,6 +1395,11 @@ msgstr ""
 msgid "The option is only shown on the web site until that date and time"
 msgstr ""
 
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr "三碼 ISO 幣別碼"
 
@@ -1605,7 +1637,7 @@ msgstr ""
 
 #, php-format
 msgid "download"
-msgstr "下載"
+msgstr ""
 
 #, php-format
 msgid "group"

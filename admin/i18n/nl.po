@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 10:01+0200\n"
-"PO-Revision-Date: 2019-10-03 08:06+0000\n"
+"POT-Creation-Date: 2020-02-13 11:15+0100\n"
+"PO-Revision-Date: 2020-02-13 10:16+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -120,6 +120,14 @@ msgstr "Admin JQAdm type is leeg"
 
 msgid "Advanced"
 msgstr "Gevorderd"
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -354,6 +362,9 @@ msgstr "Klant eigenschap type"
 
 msgid "Customer Property Types"
 msgstr "Klant eigenschap types"
+
+msgid "Customer characteristics that are not shared with other customers"
+msgstr ""
 
 msgid "Customer comment (optional)"
 msgstr "Klant notitie (optioneel)"
@@ -873,6 +884,10 @@ msgid "PHP setting \"%1$s\" is disabled"
 msgstr "PHP setting \"%1$s\" is niet actief"
 
 #, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr ""
+
+#, php-format
 msgid "PHP setting for \"%1$s\" is too low"
 msgstr "PHP setting voor \"%1$s\" is te laag"
 
@@ -903,6 +918,9 @@ msgstr "Betaalstatus"
 
 msgid "Payment types"
 msgstr "Betaalmethodes"
+
+msgid "Periods"
+msgstr ""
 
 #, php-format
 msgid "Permission denied"
@@ -943,6 +961,9 @@ msgstr "Post code van levering indien gebruikt in de zone waar de klant woont"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Post code van levering indien gebruikt in de zone waar de leverancier woont"
+
+msgid "Potential problems"
+msgstr ""
 
 msgid "Previous"
 msgstr "Vorige"
@@ -1075,6 +1096,9 @@ msgstr "Aankoop"
 msgid "Quantity"
 msgstr "Aantal"
 
+msgid "Quantity scale"
+msgstr ""
+
 msgid "Reason"
 msgstr "Reden"
 
@@ -1085,6 +1109,9 @@ msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
 msgstr "Korting op de originele prijs, gebruikt om het kortingspercentage te berekenen en de kruisprijs"
+
+msgid "Reference"
+msgstr ""
 
 msgid "Related ID"
 msgstr "Gerelateerde ID"
@@ -1372,6 +1399,11 @@ msgstr "De optie wordt pas op de website getoond vanaf die datum en tijd"
 msgid "The option is only shown on the web site until that date and time"
 msgstr "De optie wordt enkel op de website getoond tot die datum en tijd"
 
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr "3 Letter ISO code voor valuta"
 
@@ -1609,7 +1641,7 @@ msgstr "Per aflevermethode"
 
 #, php-format
 msgid "download"
-msgstr "Downloads"
+msgstr ""
 
 #, php-format
 msgid "group"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 10:01+0200\n"
-"PO-Revision-Date: 2019-10-03 08:05+0000\n"
+"POT-Creation-Date: 2020-02-13 11:15+0100\n"
+"PO-Revision-Date: 2020-02-13 10:16+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Romanian (http://www.transifex.com/aimeos/aimeos-core/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -111,6 +111,14 @@ msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
+msgstr ""
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
 msgstr ""
 
 #, php-format
@@ -345,6 +353,9 @@ msgid "Customer Property Type"
 msgstr ""
 
 msgid "Customer Property Types"
+msgstr ""
+
+msgid "Customer characteristics that are not shared with other customers"
 msgstr ""
 
 msgid "Customer comment (optional)"
@@ -865,6 +876,10 @@ msgid "PHP setting \"%1$s\" is disabled"
 msgstr ""
 
 #, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr ""
+
+#, php-format
 msgid "PHP setting for \"%1$s\" is too low"
 msgstr ""
 
@@ -894,6 +909,9 @@ msgid "Payment status"
 msgstr "Status plata"
 
 msgid "Payment types"
+msgstr ""
+
+msgid "Periods"
 msgstr ""
 
 #, php-format
@@ -934,6 +952,9 @@ msgid "Postal code for delivery if used in the area the customer is living"
 msgstr ""
 
 msgid "Postal code for delivery if used in the area the supplier is living"
+msgstr ""
+
+msgid "Potential problems"
 msgstr ""
 
 msgid "Previous"
@@ -1067,6 +1088,9 @@ msgstr ""
 msgid "Quantity"
 msgstr "Cantitate"
 
+msgid "Quantity scale"
+msgstr ""
+
 msgid "Reason"
 msgstr ""
 
@@ -1076,6 +1100,9 @@ msgstr ""
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
+msgstr ""
+
+msgid "Reference"
 msgstr ""
 
 msgid "Related ID"
@@ -1364,6 +1391,11 @@ msgstr ""
 msgid "The option is only shown on the web site until that date and time"
 msgstr ""
 
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr ""
 
@@ -1601,7 +1633,7 @@ msgstr ""
 
 #, php-format
 msgid "download"
-msgstr "Descarcari"
+msgstr ""
 
 #, php-format
 msgid "group"
