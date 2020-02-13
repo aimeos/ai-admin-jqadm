@@ -41,8 +41,6 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
 		$view->ordersalesdayBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

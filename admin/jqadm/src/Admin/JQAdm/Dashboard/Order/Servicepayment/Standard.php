@@ -43,8 +43,6 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$context = $this->getContext();
-
 		$view->orderservicepaymentBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

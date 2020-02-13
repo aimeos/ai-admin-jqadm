@@ -654,9 +654,9 @@ abstract class Base
 
 		switch( $method )
 		{
-			case 'save': $msg = $i18n->dt( 'admin', 'Error saving data' );
-			case 'delete': $msg = $i18n->dt( 'admin', 'Error deleting data' );
-			default: $msg = $i18n->dt( 'admin', 'Error retrieving data' );
+			case 'save': $msg = $i18n->dt( 'admin', 'Error saving data' ); break;
+			case 'delete': $msg = $i18n->dt( 'admin', 'Error deleting data' ); break;
+			default: $msg = $i18n->dt( 'admin', 'Error retrieving data' ); break;
 		}
 
 		$view->errors = array_merge( $view->get( 'errors', [] ), [$msg] );
