@@ -16,6 +16,8 @@ $enc = $this->encoder();
 
 		<property-table inline-template
 			v-bind:domain="'attribute'" v-bind:siteid="'<?= $this->site()->siteid() ?>'"
+			v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'attribute.property.type.label', 'attribute.property.type.code' )->toArray() ) ?>')"
+			v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
 			v-bind:items="data" v-on:update:property="data = $event">
 
 			<table class="item-attribute-property table table-default" >
@@ -41,19 +43,19 @@ $enc = $this->encoder();
 								v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_propidx_', 'attribute.property.id'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)" />
 
 							<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-								v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'attribute.property.type.label', 'attribute.property.type.code' )->toArray() ) ?>')"
 								v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_propidx_', 'attribute.property.type'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 								v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 								v-bind:readonly="readonly(propidx)"
+								v-bind:items="types"
 								v-model="propdata['attribute.property.type']" >
 							</select>
 						</td>
 						<td class="property-language">
 							<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-								v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
 								v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_propidx_', 'attribute.property.languageid'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 								v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 								v-bind:readonly="readonly(propidx)"
+								v-bind:items="languages"
 								v-model="propdata['attribute.property.languageid']" >
 							</select>
 						</td>

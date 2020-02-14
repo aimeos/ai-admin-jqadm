@@ -14,9 +14,11 @@ $enc = $this->encoder();
 
 	<property-table inline-template
 		v-bind:index="idx" v-bind:domain="'media'" v-bind:siteid="'<?= $this->site()->siteid() ?>'"
+		v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'media.property.type.label', 'media.property.type.code' )->toArray() ) ?>')"
+		v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
 		v-bind:items="item['property']" v-on:update:property="item['property'] = $event">
 
-		<table class="item-media-property table table-default" >
+		<table v-if="Object.keys(types).length" class="item-media-property table table-default" >
 			<thead>
 				<tr>
 					<th colspan="3">
@@ -39,19 +41,19 @@ $enc = $this->encoder();
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'property', '_propidx_', 'media.property.id'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)" />
 
 						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-							v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'media.property.type.label', 'media.property.type.code' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'property', '_propidx_', 'media.property.type'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 							v-bind:readonly="readonly(propidx)"
+							v-bind:items="types"
 							v-model="propdata['media.property.type']" >
 						</select>
 					</td>
 					<td class="property-language">
 						<select is="select-component" class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-							v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'property', '_propidx_', 'media.property.languageid'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 							v-bind:readonly="readonly(propidx)"
+							v-bind:items="languages"
 							v-model="propdata['media.property.languageid']" >
 						</select>
 					</td>

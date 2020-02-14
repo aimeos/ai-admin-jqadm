@@ -182,7 +182,9 @@ Vue.component('property-table', {
 		'domain': {type: String, required: true},
 		'index': {type: Number, default: 0},
 		'items': {type: Array, required: true},
-		'siteid': {type: String, required: true}
+		'siteid': {type: String, required: true},
+		'languages': {type: Object, required: true},
+		'types': {type: Object, required: true}
 	},
 
 	methods: {
