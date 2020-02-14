@@ -31,13 +31,8 @@ class Standard
 	 */
 	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'attribute/type' );
-
-		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setSortations( [$search->sort( '+', 'attribute.type.position' )] );
-
-		$view->itemTypes = $typeManager->searchItems( $search );
 		$view->itemSubparts = $this->getSubClientNames();
+		$view->itemTypes = $this->getTypeItems();
 
 		return $view;
 	}
@@ -444,6 +439,22 @@ class Standard
 		 * @category Developer
 		 */
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/attribute/standard/subparts', [] );
+	}
+
+
+	/**
+	 * Returns the available attribute type items
+	 *
+	 * @return \Aimeos\Map List of item implementing \Aimeos\MShop\Common\Type\Iface
+	 */
+	protected function getTypeItems() : \Aimeos\Map
+	{
+		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'attribute/type' );
+
+		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setSortations( [$search->sort( '+', 'attribute.type.position' )] );
+
+		return $typeManager->searchItems( $search );
 	}
 
 
