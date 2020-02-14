@@ -5,9 +5,9 @@
  * @copyright Aimeos (aimeos.org), 2016-2020
  */
 
-$price = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
+$price = function( \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
 {
-	if( ( $order = $orders->get( $item->getBaseId() ) ) !== null )
+	if( $order = $item->getBaseItem() )
 	{
 		$price = $order->getPrice();
 		return sprintf( $priceFormat, $price->getValue(), $price->getCurrencyId() );
@@ -15,9 +15,9 @@ $price = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item, $p
 };
 
 
-$name = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item )
+$name = function( \Aimeos\MShop\Order\Item\Iface $item )
 {
-	if( ( $order = $orders->get( $item->getBaseId() ) ) !== null )
+	if( $order = $item->getBaseItem() )
 	{
 		$type = \Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT;
 
@@ -34,9 +34,9 @@ $name = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item )
 };
 
 
-$payment = function( \Aimeos\Map $orders, \Aimeos\MShop\Order\Item\Iface $item )
+$payment = function( \Aimeos\MShop\Order\Item\Iface $item )
 {
-	if( ( $order = $orders->get( $item->getBaseId() ) ) !== null )
+	if( $order = $item->getBaseItem() )
 	{
 		$type = \Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT;
 		$services = $order->getService( $type );
@@ -65,7 +65,6 @@ $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 
 $enc = $this->encoder();
 $params = $this->param();
-$baskets = $this->get( 'orderlatestBaskets', [] );
 /// price format with value (%1$s) and currency (%2$s)
 $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
 
@@ -103,10 +102,10 @@ $statuslist = array(
 								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a>
 							</td>
 							<td class="order-base-address-name">
-								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $name( $baskets, $item ) ); ?></a>
+								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $name( $item ) ); ?></a>
 							</td>
 							<td class="order-base-price">
-								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></a>
+								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $price( $item, $priceFormat ) ); ?></a>
 							</td>
 							<td class="order-datepayment">
 								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDatePayment() ); ?></a>
@@ -115,7 +114,7 @@ $statuslist = array(
 								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></a>
 							</td>
 							<td class="order-base-service-payment">
-								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $payment( $baskets, $item ) ); ?></a>
+								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $payment( $item ) ); ?></a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

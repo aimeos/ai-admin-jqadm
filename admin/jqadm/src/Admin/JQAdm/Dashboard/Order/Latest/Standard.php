@@ -43,8 +43,13 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
-		$this->addOrders( $view );
+		$search = $manager->createSearch()->setSlice( 0, 10 );
+		$search->setConditions( $search->compare( '!=', 'order.base.product.siteid', '' ) );
+		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
+
+		$view->orderlatestItems = $manager->searchItems( $search, ['order/base', 'order/base/address', 'order/base/service'] );
 		$view->orderlatestBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -160,41 +165,6 @@ class Standard
 		 * @see admin/jqadm/dashboard/order/latest/decorators/global
 		 */
 		return $this->createSubClient( 'dashboard/order/latest/' . $type, $name );
-	}
-
-
-	/**
-	 * Adds the latest orders to the view object
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object to add the parameters to
-	 */
-	protected function addOrders( \Aimeos\MW\View\Iface $view )
-	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
-
-		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '!=', 'order.base.product.siteid', '' ) );
-		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
-		$search->setSlice( 0, 10 );
-
-		$items = $manager->searchItems( $search );
-
-		$baseIds = [];
-		foreach( $items as $item ) {
-			$baseIds[] = $item->getBaseId();
-		}
-
-
-		$baseManager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
-
-		$baseSearch = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
-		$baseSearch->setConditions( $baseSearch->compare( '==', 'order.base.id', $baseIds ) );
-
-		$basketItems = $baseManager->searchItems( $baseSearch, ['order/base/address', 'order/base/service'] );
-
-
-		$view->orderlatestBaskets = $basketItems;
-		$view->orderlatestItems = $items;
 	}
 
 
