@@ -36,14 +36,41 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the product template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$context = $this->getContext();
+
+		$typeManager = \Aimeos\MShop::create( $context, 'media/type' );
+		$listTypeManager = \Aimeos\MShop::create( $context, 'product/lists/type' );
+
+		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setConditions( $search->compare( '==', 'media.type.domain', 'product' ) );
+		$search->setSortations( [$search->sort( '+', 'media.type.position' )] );
+
+		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 10000 );
+		$listSearch->setConditions( $listSearch->compare( '==', 'product.lists.type.domain', 'media' ) );
+		$listSearch->setSortations( [$listSearch->sort( '+', 'product.lists.type.position' )] );
+
+		$view->mediaListTypes = $listTypeManager->searchItems( $listSearch );
+		$view->mediaTypes = $typeManager->searchItems( $search );
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->mediaData = $this->toArray( $view->item, true );
 		$view->mediaBody = '';
 
@@ -62,7 +89,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 
 		$itemData = $this->toArray( $view->item );
@@ -110,8 +137,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->mediaData = $this->toArray( $view->item );
 		$view->mediaBody = '';
 
@@ -255,34 +281,6 @@ class Standard
 		}
 
 		return $mediaItem->deleteListItems( $listItems->toArray() );
-	}
-
-
-	/**
-	 * Adds the required data used in the product template
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
-	 */
-	protected function addViewData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
-	{
-		$context = $this->getContext();
-
-		$typeManager = \Aimeos\MShop::create( $context, 'media/type' );
-		$listTypeManager = \Aimeos\MShop::create( $context, 'product/lists/type' );
-
-		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'media.type.domain', 'product' ) );
-		$search->setSortations( [$search->sort( '+', 'media.type.position' )] );
-
-		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'product.lists.type.domain', 'media' ) );
-		$listSearch->setSortations( [$listSearch->sort( '+', 'product.lists.type.position' )] );
-
-		$view->mediaListTypes = $listTypeManager->searchItems( $listSearch );
-		$view->mediaTypes = $typeManager->searchItems( $search );
-
-		return $view;
 	}
 
 

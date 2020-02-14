@@ -26,6 +26,7 @@ abstract class Base
 	private $aimeos;
 	private $context;
 	private $subclients;
+	private $object;
 
 
 	/**
@@ -53,6 +54,18 @@ abstract class Base
 
 
 	/**
+	 * Adds the required data used in the attribute template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		return $view;
+	}
+
+
+	/**
 	 * Returns the Aimeos bootstrap object
 	 *
 	 * @return \Aimeos\Bootstrap The Aimeos bootstrap object
@@ -76,6 +89,19 @@ abstract class Base
 	public function setAimeos( \Aimeos\Bootstrap $aimeos ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		$this->aimeos = $aimeos;
+		return $this;
+	}
+
+
+	/**
+	 * Makes the outer decorator object available to inner objects
+	 *
+	 * @param \Aimeos\Admin\JQAdm\Iface $object Outmost object
+	 * @return \Aimeos\Admin\JQAdm\Iface Same object for fluent interface
+	 */
+	public function setObject( \Aimeos\Admin\JQAdm\Iface $object ) : \Aimeos\Admin\JQAdm\Iface
+	{
+		$this->object = $object;
 		return $this;
 	}
 
@@ -333,11 +359,8 @@ abstract class Base
 
 		\Aimeos\MW\Common\Base::checkClass( '\\Aimeos\\Admin\\JQAdm\\Iface', $object );
 
-		$object = $this->addClientDecorators( $object, $path );
-		$object->setAimeos( $this->aimeos );
-		$object->setView( $this->view );
-
-		return $object;
+		return $this->addClientDecorators( $object, $path )->setObject( $this->getObject() )
+			->setAimeos( $this->aimeos )->setView( $this->view );
 	}
 
 
@@ -485,6 +508,21 @@ abstract class Base
 		}
 
 		return $sortation;
+	}
+
+
+	/**
+	 * Returns the outer decoratorator of the object
+	 *
+	 * @return \Aimeos\Admin\JQAdm\Iface Outmost object
+	 */
+	protected function getObject() : Iface
+	{
+		if( isset( $this->object ) ) {
+			return $this->object;
+		}
+
+		return $this;
 	}
 
 

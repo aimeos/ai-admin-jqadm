@@ -36,14 +36,33 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the stock template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'stock/type' );
+
+		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setConditions( $search->compare( '==', 'stock.type.domain', 'product' ) );
+		$search->setSortations( [$search->sort( '+', 'stock.type.position' )] );
+
+		$view->stockTypes = $typeManager->searchItems( $search );
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->stockData = $this->toArray( $view->item, true );
 		$view->stockBody = '';
 
@@ -62,7 +81,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'stock', [] );
 
@@ -109,8 +128,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->stockData = $this->toArray( $view->item );
 		$view->stockBody = '';
 
@@ -238,26 +256,6 @@ class Standard
 		 * @see admin/jqadm/product/stock/decorators/global
 		 */
 		return $this->createSubClient( 'product/stock/' . $type, $name );
-	}
-
-
-	/**
-	 * Adds the required data used in the stock template
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
-	 */
-	protected function addViewData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
-	{
-		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'stock/type' );
-
-		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'stock.type.domain', 'product' ) );
-		$search->setSortations( [$search->sort( '+', 'stock.type.position' )] );
-
-		$view->stockTypes = $typeManager->searchItems( $search );
-
-		return $view;
 	}
 
 

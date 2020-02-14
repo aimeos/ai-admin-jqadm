@@ -21,7 +21,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelperJqadm::getView();
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
-		$this->view ->addHelper( 'request', $helper );
+		$this->view->addHelper( 'request', $helper );
 
 		$this->context = \TestHelperJqadm::getContext();
 
@@ -48,9 +48,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateException()
 	{
-		$object = $this->getClientMock( 'getSubClientNames' );
+		$object = $this->getClientMock( 'getSubClients' );
 
-		$object->expects( $this->once() )->method( 'getSubClientNames' )
+		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->create();
@@ -71,9 +71,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopyException()
 	{
-		$object = $this->getClientMock( 'getSubClientNames' );
+		$object = $this->getClientMock( 'getSubClients' );
 
-		$object->expects( $this->once() )->method( 'getSubClientNames' )
+		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->copy();
@@ -112,9 +112,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetException()
 	{
-		$object = $this->getClientMock( 'getSubClientNames' );
+		$object = $this->getClientMock( 'getSubClients' );
 
-		$object->expects( $this->once() )->method( 'getSubClientNames' )
+		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->get();

@@ -42,8 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->downloadData = $this->toArray( $view->item, true );
 		$view->downloadBody = '';
 
@@ -62,7 +61,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 		$data['product.lists.siteid'] = $this->getContext()->getLocale()->getSiteId();
 		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'download', [] ) );
 
@@ -111,8 +110,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->downloadData = $this->toArray( $view->item );
 		$view->downloadBody = '';
 

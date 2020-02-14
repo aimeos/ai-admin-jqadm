@@ -36,15 +36,33 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
+
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
+		$search->setSortations( [$search->sort( '+', 'catalog.lists.type.position' )] );
+
+		$view->productListTypes = $manager->searchItems( $search );
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getView();
-
-		$view->productListTypes = $this->getListTypes();
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->productBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -62,9 +80,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getView();
-
-		$view->productListTypes = $this->getListTypes();
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->productBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -82,7 +98,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		$total = 0;
 		$params = $this->storeSearchParams( $view->param( 'cp', [] ), 'catalogproduct' );
@@ -90,7 +106,6 @@ class Standard
 
 		$view->productItems = $this->getProductItems( $listItems );
 		$view->productData = $this->toArray( $listItems );
-		$view->productListTypes = $this->getListTypes();
 		$view->productTotal = $total;
 		$view->productBody = '';
 
@@ -246,23 +261,6 @@ class Standard
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
 		return $manager->searchItems( $search, [], $total );
-	}
-
-
-	/**
-	 * Returns the available product list types
-	 *
-	 * @return \Aimeos\Map List of IDs as keys and items implementing \Aimeos\MShop\Common\Item\Type\Iface
-	 */
-	protected function getListTypes() : \Aimeos\Map
-	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
-
-		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
-		$search->setSortations( [$search->sort( '+', 'catalog.lists.type.position' )] );
-
-		return $manager->searchItems( $search );
 	}
 
 

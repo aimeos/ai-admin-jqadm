@@ -36,14 +36,33 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'media/property/type' );
+
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
+		$search->setSortations( [$search->sort( '+', 'media.property.type.position' )] );
+
+		$view->propertyTypes = $manager->searchItems( $search );
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->mediaData = $this->toArray( $view->item, $view->get( 'mediaData', [] ), true );
 		$view->propertyBody = '';
 
@@ -62,7 +81,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->get( 'mediaData', [] );
 
@@ -91,8 +110,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->mediaData = $this->toArray( $view->item, $view->get( 'mediaData', [] ) );
 		$view->propertyBody = '';
 
@@ -207,26 +225,6 @@ class Standard
 		 * @see admin/jqadm/attribute/media/property/decorators/global
 		 */
 		return $this->createSubClient( 'attribute/media/property/' . $type, $name );
-	}
-
-
-	/**
-	 * Adds the required data used in the attribute template
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
-	 */
-	protected function addViewData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
-	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'media/property/type' );
-
-		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
-		$search->setSortations( [$search->sort( '+', 'media.property.type.position' )] );
-
-		$view->propertyTypes = $manager->searchItems( $search );
-
-		return $view;
 	}
 
 

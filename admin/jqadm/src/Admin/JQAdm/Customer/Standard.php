@@ -24,13 +24,26 @@ class Standard
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$view->itemSubparts = $this->getSubClientNames();
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -41,9 +54,8 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 
+			$view->itemGroups = $this->getGroupItems( $view->item );
 			$view->itemData = $this->toArray( $view->item, true );
-			$view->itemSubparts = $this->getSubClientNames();
-			$view->itemGroups = $this->getGroupItems();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -68,7 +80,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -80,8 +92,7 @@ class Standard
 
 			$data['customer.siteid'] = $view->item->getSiteId();
 
-			$view->itemSubparts = $this->getSubClientNames();
-			$view->itemGroups = $this->getGroupItems();
+			$view->itemGroups = $this->getGroupItems( $view->item );
 			$view->itemData = $data;
 			$view->itemBody = '';
 
@@ -154,7 +165,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -166,7 +177,6 @@ class Standard
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemGroups = $this->getGroupItems( $view->item );
-			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = '';
 

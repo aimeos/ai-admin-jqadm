@@ -24,13 +24,26 @@ class Standard
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$view->itemSubparts = $this->getSubClientNames();
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -44,7 +57,6 @@ class Standard
 			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
-			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -69,7 +81,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -81,7 +93,6 @@ class Standard
 				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/site' )->createItem();
 			}
 
-			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $data;
 			$view->itemBody = '';
 
@@ -155,7 +166,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -168,7 +179,6 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 
 			$view->item = $manager->getItem( $id );
-			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = '';
 

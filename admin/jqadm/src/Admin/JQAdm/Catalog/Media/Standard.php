@@ -42,8 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->mediaData = $this->toArray( $view->item, true );
 		$view->mediaBody = '';
 
@@ -62,7 +61,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 
 		$itemData = $this->toArray( $view->item );
@@ -110,8 +109,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->mediaData = $this->toArray( $view->item );
 		$view->mediaBody = '';
 
@@ -235,7 +233,7 @@ class Standard
 	 * @param \Aimeos\MW\View\Iface $view View object
 	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
-	protected function addViewData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
 		$context = $this->getContext();
 

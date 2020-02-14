@@ -62,7 +62,6 @@ class JQAdm
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid factory "%1$s"', $factory ) );
 		}
 
-		return $client->setAimeos( $aimeos )->setView( $view );
+		return $client->setAimeos( $aimeos )->setView( $view )->setObject( $client );
 	}
-
 }

@@ -95,16 +95,17 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSaveException()
 	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Coupon\Standard::class )
+		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Coupon\Code\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelperJqadm::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
+			->setMethods( array( 'getSubClients' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'fromArray' )
+		$object->expects( $this->once() )->method( 'getSubClients' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
 
+		$this->expectException( \RuntimeException::class );
 		$object->save();
 	}
 
@@ -122,6 +123,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();
+
+		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
+		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
+		$view->addHelper( 'request', $helper );
 
 		$view->item = $this->getCouponItem();
 

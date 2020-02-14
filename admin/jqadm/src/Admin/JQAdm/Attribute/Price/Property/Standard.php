@@ -42,8 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceData = $this->toArray( $view->item, $view->get( 'priceData', [] ), true );
 		$view->propertyBody = '';
 
@@ -62,7 +61,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->get( 'priceData', [] );
 
@@ -91,8 +90,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceData = $this->toArray( $view->item, $view->get( 'priceData', [] ) );
 		$view->propertyBody = '';
 
@@ -216,7 +214,7 @@ class Standard
 	 * @param \Aimeos\MW\View\Iface $view View object
 	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
-	protected function addViewData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'price/property/type' );
 

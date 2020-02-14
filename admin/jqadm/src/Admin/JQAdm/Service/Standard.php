@@ -24,13 +24,36 @@ class Standard
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$ds = DIRECTORY_SEPARATOR;
+
+		$view->itemDecorators = $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Decorator' );
+		$view->itemProviders = [
+			'delivery' => $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Delivery' ),
+			'payment' => $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Payment' ),
+		];
+
+		$view->itemSubparts = $this->getSubClientNames();
+		$view->itemTypes = $this->getTypeItems();
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -41,12 +64,8 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'service' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
-			$view->itemData = $this->toArray( $view->item, true );
-			$view->itemSubparts = $this->getSubClientNames();
-			$view->itemProviders = $this->getProviderNames();
-			$view->itemDecorators = $this->getDecoratorNames();
 			$view->itemAttributes = $this->getConfigAttributes( $view->item );
-			$view->itemTypes = $this->getTypeItems();
+			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -71,7 +90,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -83,10 +102,6 @@ class Standard
 
 			$data['service.siteid'] = $view->item->getSiteId();
 
-			$view->itemSubparts = $this->getSubClientNames();
-			$view->itemDecorators = $this->getDecoratorNames();
-			$view->itemProviders = $this->getProviderNames();
-			$view->itemTypes = $this->getTypeItems();
 			$view->itemData = $data;
 			$view->itemBody = '';
 
@@ -159,7 +174,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -170,12 +185,8 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'service' );
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
-			$view->itemData = $this->toArray( $view->item );
-			$view->itemSubparts = $this->getSubClientNames();
-			$view->itemDecorators = $this->getDecoratorNames();
-			$view->itemProviders = $this->getProviderNames();
 			$view->itemAttributes = $this->getConfigAttributes( $view->item );
-			$view->itemTypes = $this->getTypeItems();
+			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -415,33 +426,6 @@ class Standard
 		 * @category Developer
 		 */
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/service/domains', [] );
-	}
-
-
-	/**
-	 * Returns the names of the available service decorators
-	 *
-	 * @return string[] List of decorator class names
-	 */
-	protected function getDecoratorNames() : array
-	{
-		$ds = DIRECTORY_SEPARATOR;
-		return $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Decorator' );
-	}
-
-
-	/**
-	 * Returns the names of the available service providers
-	 *
-	 * @return string[] List of provider class names
-	 */
-	protected function getProviderNames() : array
-	{
-		$ds = DIRECTORY_SEPARATOR;
-		return [
-			'delivery' => $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Delivery' ),
-			'payment' => $this->getClassNames( 'MShop' . $ds . 'Service' . $ds . 'Provider' . $ds . 'Payment' ),
-		];
 	}
 
 

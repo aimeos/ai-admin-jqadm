@@ -36,16 +36,33 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute/property/type' );
+
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setSortations( [$search->sort( '+', 'attribute.property.type.position' )] );
+
+		$view->propertyTypes = $manager->searchItems( $search );
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->propertyData = $this->toArray( $view->item, true );
-		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -63,7 +80,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'property', [] );
 
@@ -71,7 +88,6 @@ class Standard
 			$data[$idx]['attribute.lists.siteid'] = $siteid;
 		}
 
-		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyData = $data;
 		$view->propertyBody = '';
 
@@ -90,10 +106,8 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->propertyData = $this->toArray( $view->item );
-		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -111,7 +125,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		$this->fromArray( $view->item, $view->param( 'property', [] ) );
 		$view->propertyBody = '';
@@ -251,22 +265,6 @@ class Standard
 		 * @category Developer
 		 */
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/attribute/property/standard/subparts', [] );
-	}
-
-
-	/**
-	 * Returns the available attribute property types
-	 *
-	 * @return \Aimeos\Map List of property type IDs as keys and property type items as values
-	 */
-	protected function getPropertyTypes() : \Aimeos\Map
-	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute/property/type' );
-
-		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setSortations( [$search->sort( '+', 'attribute.property.type.position' )] );
-
-		return $manager->searchItems( $search );
 	}
 
 

@@ -22,6 +22,19 @@ abstract class Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$view->itemSubparts = $this->getSubClientNames();
+		return $view;
+	}
+
+
+	/**
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
@@ -38,7 +51,7 @@ abstract class Base
 	 */
 	protected function copyBase( string $path ) : string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -50,7 +63,6 @@ abstract class Base
 			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $path, $view->item, true );
-			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
@@ -76,7 +88,7 @@ abstract class Base
 	 */
 	public function createBase( string $path ) : string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -88,7 +100,6 @@ abstract class Base
 
 			$data[str_replace( '/', '.', $path ) . '.type.siteid'] = $view->item->getSiteId();
 
-			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $data;
 			$view->itemBody = '';
 
@@ -164,7 +175,7 @@ abstract class Base
 	 */
 	public function getBase( string $path ) : string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -175,7 +186,6 @@ abstract class Base
 			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 
 			$view->item = $manager->getItem( $id );
-			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $path, $view->item );
 			$view->itemBody = '';
 

@@ -42,8 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->selectionData = $this->toArray( $view->item, true );
 		$view->selectionBody = '';
 
@@ -62,7 +61,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'selection', [] );
 
@@ -90,8 +89,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->selectionData = $this->toArray( $view->item );
 		$view->selectionBody = '';
 

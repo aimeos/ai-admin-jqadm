@@ -42,8 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->relatedBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -61,8 +60,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->relatedBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -80,8 +78,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->relatedBody = '';
 
 		foreach( $this->getSubClients() as $client ) {

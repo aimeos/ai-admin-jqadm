@@ -36,14 +36,47 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the price template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$context = $this->getContext();
+
+		$priceTypeManager = \Aimeos\MShop::create( $context, 'price/type' );
+		$listTypeManager = \Aimeos\MShop::create( $context, 'service/lists/type' );
+		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
+
+		$search = $priceTypeManager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setConditions( $search->compare( '==', 'price.type.domain', 'service' ) );
+		$search->setSortations( [$search->sort( '+', 'price.type.position' )] );
+
+		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 10000 );
+		$listSearch->setConditions( $listSearch->compare( '==', 'service.lists.type.domain', 'price' ) );
+		$listSearch->setSortations( [$listSearch->sort( '+', 'service.lists.type.position' )] );
+
+		$view->priceTypes = $priceTypeManager->searchItems( $search );
+		$view->priceListTypes = $listTypeManager->searchItems( $listSearch );
+		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true )->setSlice( 0, 10000 ) );
+
+		if( $view->priceCurrencies->isEmpty() ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
+		}
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceData = $this->toArray( $view->item, true );
 		$view->priceBody = '';
 
@@ -62,7 +95,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'price', [] );
 
@@ -106,8 +139,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceData = $this->toArray( $view->item );
 		$view->priceBody = '';
 
@@ -266,40 +298,6 @@ class Standard
 		 * @category Developer
 		 */
 		return $this->getContext()->getConfig()->get( 'admin/jqadm/service/price/standard/subparts', [] );
-	}
-
-
-	/**
-	 * Adds the required data used in the price template
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
-	 */
-	protected function addViewData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
-	{
-		$context = $this->getContext();
-
-		$priceTypeManager = \Aimeos\MShop::create( $context, 'price/type' );
-		$listTypeManager = \Aimeos\MShop::create( $context, 'service/lists/type' );
-		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
-
-		$search = $priceTypeManager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'price.type.domain', 'service' ) );
-		$search->setSortations( [$search->sort( '+', 'price.type.position' )] );
-
-		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'service.lists.type.domain', 'price' ) );
-		$listSearch->setSortations( [$listSearch->sort( '+', 'service.lists.type.position' )] );
-
-		$view->priceTypes = $priceTypeManager->searchItems( $search );
-		$view->priceListTypes = $listTypeManager->searchItems( $listSearch );
-		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true )->setSlice( 0, 10000 ) );
-
-		if( $view->priceCurrencies->isEmpty() ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
-		}
-
-		return $view;
 	}
 
 

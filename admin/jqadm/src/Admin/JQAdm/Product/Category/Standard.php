@@ -42,7 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		$view->categoryData = $this->toArray( $view->item, true );
 		$view->categoryBody = '';
@@ -62,9 +62,9 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getView();
-		$data = $view->param( 'category', [] );
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$data = $view->param( 'category', [] );
 
 		foreach( $view->value( $data, 'catalog.lists.id', [] ) as $idx => $value ) {
 			$data['catalog.lists.siteid'][$idx] = $siteid;
@@ -125,8 +125,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->categoryData = $this->toArray( $view->item );
 		$view->categoryBody = '';
 

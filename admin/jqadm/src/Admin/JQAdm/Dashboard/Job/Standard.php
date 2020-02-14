@@ -69,7 +69,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 		$context = $this->getContext();
 
 		if( ( $id = $view->param( 'id' ) ) === null ) {

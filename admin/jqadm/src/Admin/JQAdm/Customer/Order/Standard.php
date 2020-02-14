@@ -64,7 +64,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		$total = 0;
 		$params = $this->storeSearchParams( $view->param( 'uo', [] ), 'customerorder' );

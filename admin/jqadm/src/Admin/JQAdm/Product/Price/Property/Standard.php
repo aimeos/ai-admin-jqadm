@@ -36,14 +36,33 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the product template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'price/property/type' );
+
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
+		$search->setConditions( $search->compare( '==', 'price.property.type.domain', 'price' ) );
+		$search->setSortations( [$search->sort( '+', 'price.property.type.position' )] );
+
+		$view->propertyTypes = $manager->searchItems( $search );
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceData = $this->toArray( $view->item, $view->get( 'priceData', [] ), true );
 		$view->propertyBody = '';
 
@@ -62,7 +81,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
+		$view = $this->getObject()->addData( $this->getView() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->get( 'priceData', [] );
 
@@ -91,8 +110,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->addViewData( $this->getView() );
-
+		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceData = $this->toArray( $view->item, $view->get( 'priceData', [] ) );
 		$view->propertyBody = '';
 
@@ -207,26 +225,6 @@ class Standard
 		 * @see admin/jqadm/product/price/property/decorators/global
 		 */
 		return $this->createSubClient( 'product/price/property/' . $type, $name );
-	}
-
-
-	/**
-	 * Adds the required data used in the product template
-	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
-	 */
-	protected function addViewData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
-	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'price/property/type' );
-
-		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'price.property.type.domain', 'price' ) );
-		$search->setSortations( [$search->sort( '+', 'price.property.type.position' )] );
-
-		$view->propertyTypes = $manager->searchItems( $search );
-
-		return $view;
 	}
 
 

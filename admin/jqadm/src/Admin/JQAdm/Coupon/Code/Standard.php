@@ -42,7 +42,8 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		return $this->render( $this->getView() );
+		$view = $this->getObject()->addData( $this->getView() );
+		return $this->render( $view );
 	}
 
 
@@ -53,7 +54,8 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		return $this->render( $this->getView() );
+		$view = $this->getObject()->addData( $this->getView() );
+		return $this->render( $view );
 	}
 
 
@@ -64,7 +66,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		$total = 0;
 		$params = $this->storeSearchParams( $view->param( 'vc', [] ), 'couponcode' );
