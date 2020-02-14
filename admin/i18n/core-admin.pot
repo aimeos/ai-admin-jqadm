@@ -67,7 +67,7 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
-msgid "Actual current price"
+msgid "Actual price"
 msgstr ""
 
 msgid "Actual price customers can buy the article for on the web site"
@@ -1181,7 +1181,7 @@ msgstr ""
 msgid "Shipping"
 msgstr ""
 
-msgid "Shipping costs per item"
+msgid "Shipping costs/item"
 msgstr ""
 
 msgid "Shipping/Payment costs"
@@ -1268,7 +1268,7 @@ msgstr ""
 msgid "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\" for zero years, one month, two weeks and three days"
 msgstr ""
 
-msgid "Substracted rebate amount"
+msgid "Given rebate amount"
 msgstr ""
 
 msgid "Suggested products"

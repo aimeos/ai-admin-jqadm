@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-13 10:16+0000\n"
+"PO-Revision-Date: 2020-02-14 16:40+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "(Internationale) Telefonnummer ohne Trennzeichen, kann mit einem \"+\" b
 msgid "Active"
 msgstr "Aktiv"
 
-msgid "Actual current price"
+msgid "Actual price"
 msgstr "Tatsächlicher Preis"
 
 msgid "Actual price customers can buy the article for on the web site"
@@ -1233,8 +1233,8 @@ msgstr "Lieferstatus"
 msgid "Shipping"
 msgstr "Versandkosten"
 
-msgid "Shipping costs per item"
-msgstr "Versandkosten pro Stück"
+msgid "Shipping costs/item"
+msgstr "Versandkosten/Stück"
 
 msgid "Shipping/Payment costs"
 msgstr "Versand-/Zahlungskosten"
@@ -1325,7 +1325,7 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "Abointervall mit Jahren, Monaten, Wochen und Tagen, z.B. \"P0Y1M2W3D\" für kein Jahr, ein Monat, zwei Wochen und drei Tage"
 
-msgid "Substracted rebate amount"
+msgid "Given rebate amount"
 msgstr "Abgezogener Rabattbetrag"
 
 msgid "Suggested products"
