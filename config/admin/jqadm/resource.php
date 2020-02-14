@@ -369,6 +369,15 @@ return [
 				 */
 				'groups' => ['admin', 'super'],
 			],
+			'property' => [
+				/** admin/jqadm/resource/type/price/property/groups
+				 * List of user groups that are allowed to access the price property type panel
+				 *
+				 * @param array List of user group names
+				 * @since 2020.04
+				 */
+				'groups' => ['admin', 'super'],
+			],
 		],
 		'product' => [
 			/** admin/jqadm/resource/type/product/groups

@@ -32,6 +32,7 @@ return [
 		'type/plugin',
 		'type/price',
 		'type/price/lists',
+		'type/price/property',
 		'type/product',
 		'type/product/lists',
 		'type/product/property',
