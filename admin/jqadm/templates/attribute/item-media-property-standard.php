@@ -14,8 +14,8 @@ $enc = $this->encoder();
 
 	<property-table inline-template
 		v-bind:index="idx" v-bind:domain="'media'" v-bind:siteid="'<?= $this->site()->siteid() ?>'"
-		v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'media.property.type.label', 'media.property.type.code' )->toArray() ) ?>')"
-		v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
+		v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'media.property.type.label', 'media.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
+		v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
 		v-bind:items="item['property']" v-on:update:property="item['property'] = $event">
 
 		<table v-if="Object.keys(types).length" class="item-media-property table table-default" >

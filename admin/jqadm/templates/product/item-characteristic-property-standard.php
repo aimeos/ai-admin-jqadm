@@ -15,8 +15,8 @@ $enc = $this->encoder();
 
 	<property-table inline-template
 		v-bind:domain="'product'" v-bind:siteid="'<?= $this->site()->siteid() ?>'"
-		v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->toArray() ) ?>')"
-		v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
+		v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
+		v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
 		v-bind:items="data" v-on:update:property="data = $event">
 
 		<table class="item-characteristic-property table table-default">
