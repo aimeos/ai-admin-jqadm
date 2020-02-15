@@ -194,7 +194,10 @@ $enc = $this->encoder();
 							<?= $enc->html( $this->translate( 'admin', 'Order of the service options in the checkout process' ) ); ?>
 						</div>
 					</div>
-					<div class="form-group row optional">
+
+					<div class="separator"><i class="icon more"></i></div>
+
+					<div class="form-group row optional advanced">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-datestart" type="datetime-local" tabindex="1"
@@ -207,7 +210,7 @@ $enc = $this->encoder();
 							<?= $enc->html( $this->translate( 'admin', 'The option is only shown on the web site after that date and time' ) ); ?>
 						</div>
 					</div>
-					<div class="form-group row optional">
+					<div class="form-group row optional advanced">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-dateend" type="datetime-local" tabindex="1"
