@@ -114,24 +114,30 @@ $enc = $this->encoder();
 							</select>
 						</div>
 					</div>
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
-						<div class="col-sm-8">
-							<select class="form-control custom-select item-type" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.type' ) ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> >
-								<option value="">
-									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-								</option>
-
-								<?php foreach( $this->get( 'itemTypes', [] ) as $item ) : ?>
-									<option value="<?= $enc->attr( $item->getCode() ); ?>" <?= $selected( $this->get( 'itemData/plugin.type', 'order' ), $item->getCode() ); ?> >
-										<?= $enc->html( $item->getLabel() ); ?>
+					<?php if( ( $types = $this->get( 'itemTypes', map() ) )->count() !== 1 ) : ?>
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
+							<div class="col-sm-8">
+								<select class="form-control custom-select item-type" required="required" tabindex="1"
+									name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.type' ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> >
+									<option value="">
+										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 									</option>
-								<?php endforeach; ?>
-							</select>
+
+									<?php foreach( $types as $item ) : ?>
+										<option value="<?= $enc->attr( $item->getCode() ); ?>" <?= $selected( $this->get( 'itemData/plugin.type', 'order' ), $item->getCode() ); ?> >
+											<?= $enc->html( $item->getLabel() ); ?>
+										</option>
+									<?php endforeach; ?>
+								</select>
+							</div>
 						</div>
-					</div>
+					<?php else : ?>
+						<input class="item-type" type="hidden"
+							name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.type' ) ) ); ?>"
+							value="<?= $enc->attr( $types->getCode()->first() ) ?>" />
+					<?php endif; ?>
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
 						<div class="col-sm-8">

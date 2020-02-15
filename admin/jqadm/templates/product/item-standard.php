@@ -222,7 +222,6 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
 
 $params = $this->get( 'pageParams', [] );
 $navlist = array_values( $this->get( 'itemSubparts', [] ) );
-$types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.type.code' )->toArray();
 
 
 ?>
@@ -345,21 +344,27 @@ $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.t
 							</select>
 						</div>
 					</div>
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
-						<div class="col-sm-8">
-							<select is="select-component" class="form-control custom-select item-type" required v-bind:tabindex="'1'"
-								v-bind:readonly="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' ? true : false"
-								v-bind:name="'<?= $enc->attr( $this->formparam( ['item', 'product.type'] ) ); ?>'"
-								v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-								v-bind:items="JSON.parse('<?= $enc->attr( $types ) ?>')"
-								v-model="data['product.type']" >
-								<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
-									<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
-								</option>
-							</select>
+					<?php if( ( $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.type.code' ) )->count() !== 1 ) : ?>
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
+							<div class="col-sm-8">
+								<select is="select-component" class="form-control custom-select item-type" required v-bind:tabindex="'1'"
+									v-bind:readonly="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' ? true : false"
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['item', 'product.type'] ) ); ?>'"
+									v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+									v-bind:items="JSON.parse('<?= $enc->attr( $types->toArray() ) ?>')"
+									v-model="data['product.type']" >
+									<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
+										<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
+									</option>
+								</select>
+							</div>
 						</div>
-					</div>
+					<?php else : ?>
+						<input class="item-type" type="hidden"
+							name="<?= $enc->attr( $this->formparam( array( 'item', 'product.type' ) ) ); ?>"
+							value="<?= $enc->attr( $types->firstKey() ) ?>" />
+					<?php endif; ?>
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 						<div class="col-sm-8">
