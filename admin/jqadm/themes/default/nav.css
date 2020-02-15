@@ -132,6 +132,10 @@
 	margin: 0;
 }
 
+.aimeos .main-content .item-actions .btn.act-help {
+	min-width: 3rem;
+}
+
 .aimeos .main-content {
 	margin-bottom: 5rem;
 }

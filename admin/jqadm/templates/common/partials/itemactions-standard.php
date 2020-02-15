@@ -24,6 +24,10 @@ $enc = $this->encoder();
 
 
 ?>
+<div class="btn btn-secondary act-help" title="<?= $enc->attr( $this->translate( 'admin', 'Display help texts' ) ); ?>">
+	<?= $enc->html( $this->translate( 'admin', '?' ) ); ?>
+</div>
+
 <a class="btn btn-secondary act-cancel"
 	title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list' ) ); ?>"
 	href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $params, [], $listConfig ) ); ?>">
