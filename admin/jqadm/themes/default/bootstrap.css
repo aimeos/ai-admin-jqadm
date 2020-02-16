@@ -33,8 +33,9 @@ input[type='checkbox'], input[type='radio'] {
 
 .dropdown-menu input[type='checkbox'],
 .dropdown-menu input[type='radio'] {
+	vertical-align: middle;
+	margin: 0.25rem;
 	height: auto;
-	margin: 0;
 }
 
 /* unconditional .media class fix */
