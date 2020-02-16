@@ -19,6 +19,7 @@ Aimeos.Product = {
 		Aimeos.Product.Bundle.init();
 		Aimeos.Product.Download.init();
 		Aimeos.Product.Selection.init();
+		Aimeos.Product.Order.init();
 
 		this.components();
 		this.dataset();
@@ -430,6 +431,202 @@ Aimeos.Product.Download = {
 				$("input.item-label", ev.delegateTarget).val(file.name);
 				$(".custom-file-label", ev.delegateTarget).html(file.name);
 			});
+		});
+	}
+};
+
+
+
+Aimeos.Product.Order = {
+	init : function() {
+
+		this.instance = new Vue({
+			'el': '.item-order .order-list',
+			'data': {
+				'id': null,
+				'items': [],
+				'fields': [],
+				'filter': {},
+				'included': {},
+				'offset': 0,
+				'limit': 25,
+				'total': 0,
+				'sort': '-order.base.id',
+			},
+			beforeMount: function() {
+				if(this.$el.dataset && this.$el.dataset.id) {
+					this.id = JSON.parse(this.$el.dataset.id);
+				}
+				this.filter['order.base.product.productid'] = {'==':{'order.base.product.productid': this.id}};
+
+				let list = [];
+				try {
+					if(this.$el.dataset && this.$el.dataset.fields) {
+						if(window.sessionStorage) {
+							list = JSON.parse(window.sessionStorage.getItem('aimeos/jqadm/productorder/fields')) || [];
+						}
+						if(!list.length) {
+							list = JSON.parse(this.$el.dataset.fields);
+						}
+					}
+				} catch(e) {}
+				this.fields = list;
+			},
+			computed : {
+				first : function() {
+					return this.offset > 0 ? 0 : null;
+				},
+				prev : function() {
+					return this.offset - this.limit >= 0 ? this.offset - this.limit : null;
+				},
+				next : function() {
+					return this.offset + this.limit < this.total ? this.offset + this.limit : null;
+				},
+				last : function() {
+					return Math.floor((this.total - 1) / this.limit) * this.limit > this.offset ? Math.floor((this.total - 1) / this.limit ) * this.limit : null;
+				},
+				current : function() {
+					return Math.floor( this.offset / this.limit ) + 1;
+				},
+				pages : function() {
+					return this.total != 0 ? Math.ceil(this.total / this.limit) : 1;
+				}
+			},
+			methods : {
+				value : function(key) {
+					let op = Object.keys(this.filter[key] || {}).pop();
+					return this.filter[key] && this.filter[key][op][key] || '';
+				},
+				submit : function() {
+					this.fetch();
+				},
+				reset : function() {
+					Object.assign(this.$data, {filter: {'order.base.product.productid': {'==':{'order.base.product.productid': this.id}}}});
+				},
+				find : function(ev, key, op) {
+					if(ev.target.value !== '') {
+						let expr = {};
+						expr[op || '=='] = {};
+						expr[op || '=='][key] = ev.target.value;
+						this.$set(this.filter, key, expr);
+					} else {
+						this.$delete(this.filter, key);
+					}
+				},
+				fetch : function() {
+					let self = this;
+
+					Aimeos.options.done(function(response) {
+
+						if(response.meta && response.meta.resources && response.meta.resources['order/base'] ) {
+
+							let args = {
+								'filter': {'&&': []},
+								'fields': {
+									'order/base': self.fields.join(',') + ',order.base.customerid',
+									'order/base/address': self.fields.join(',') + ',order.base.address.type',
+								},
+								'include': 'order/base/address',
+								'page': {
+									'offset': self.offset,
+									'limit': self.limit
+								},
+								'sort': self.sort
+							};
+
+							for(let key in self.filter) {
+								args['filter']['&&'].push(self.filter[key]);
+							}
+
+							let config = {
+								'paramsSerializer': function(params) {
+									return jQuery.param(params); // workaround, Axios and QS fail on [==]
+								}
+							};
+
+							if(response.meta.prefix && response.meta.prefix) {
+								config['params'][response.meta.prefix] = args;
+							} else {
+								config['params'] = args;
+							}
+
+							axios.get(response.meta.resources['order/base'], config).then(response => {
+
+								if(response.data) {
+									self.total = response.data.meta && response.data.meta.total || 0;
+									self.items = response.data.data || [];
+								}
+
+								(response.data.included || []).forEach(function(item) {
+									if(!self.included[item.type]) {
+										self.$set(self.included, item.type, {});
+									}
+									self.$set(self.included[item.type], item.id, item);
+								});
+
+							}).catch(function(error) {
+								console.log('Error: ', error.message);
+								if(error.response && error.response.data && error.response.data.errors) {
+									error.response.data.errors.forEach(function(elem) {
+										console.log(elem.title);
+									});
+								}
+							});
+						}
+					});
+				},
+				related : function(item, type, key) {
+					let id = null;
+					let self = this;
+
+					(item['relationships'][type] || []).forEach(function(addr) {
+						if(addr.data && addr.data.id && self.included[type] && self.included[type][addr.data.id]
+							&& self.included[type][addr.data.id]['attributes']['order.base.address.type'] === 'payment'
+						) {
+							id = addr.data.id;
+						}
+					});
+
+					return this.included[type] && this.included[type][id] ? this.included[type][id]['attributes'][key] : '';
+				},
+				pagecnt : function(str) {
+					return sprintf(str, this.current, this.pages);
+				},
+				orderby : function(key) {
+					this.sort = this.sort === key ? '-' + key : key;
+				},
+				sortclass : function(key) {
+					return this.sort === key ? 'sort-desc' : (this.sort === '-' + key ? 'sort-asc' : '');
+				},
+				toggleField : function(key) {
+					let idx = this.fields.indexOf(key);
+					idx !== -1 ? this.fields.splice(idx, 1) : this.fields.push(key);
+
+					if(window.sessionStorage) {
+						window.sessionStorage.setItem('aimeos/jqadm/productorder/fields', JSON.stringify(this.fields));
+					}
+				}
+			},
+			watch: {
+				fields : function() {
+					this.fetch();
+				},
+				filter : {
+					handler: function() {
+						this.fetch();
+					},
+					deep: true
+				},
+				limit : function() {
+					this.fetch();
+				},
+				offset : function() {
+					this.fetch();
+				},
+				sort : function() {
+					this.fetch();
+				}
+			}
 		});
 	}
 };

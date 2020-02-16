@@ -535,7 +535,7 @@ Aimeos.Form = {
 
 		$(".aimeos .item-content").on("blur", "input,select", function(ev) {
 
-			if($(this).closest(".readonly").length > 0) {
+			if($(this).closest(".readonly").length > 0 || $(this).hasClass("novalidate")) {
 				return;
 			}
 
