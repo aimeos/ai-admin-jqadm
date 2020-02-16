@@ -117,7 +117,8 @@ return [
 				'physical' => 'physical',
 				'download' => 'download',
 				'subscription' => 'subscription',
-				'special' => 'special'
+				'special' => 'special',
+				'order' => 'order',
 			],
 		],
 		'characteristic' => [
