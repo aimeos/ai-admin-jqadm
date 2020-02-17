@@ -145,7 +145,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'service-item-media' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
+			$error = array( 'service-item-media' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}

@@ -68,7 +68,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'job-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error deleting data' ) );
+			$error = array( 'job-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -113,7 +113,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'job-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'job-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -155,7 +155,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'product-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'product-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}

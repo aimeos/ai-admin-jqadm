@@ -130,7 +130,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'customer-item-property' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
+			$error = array( 'customer-item-property' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}

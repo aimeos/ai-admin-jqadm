@@ -64,7 +64,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'service-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'service-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -114,7 +114,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'service-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'service-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -171,7 +171,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'service-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error deleting data' ) );
+			$error = array( 'service-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -223,7 +223,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'service-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'service-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -273,7 +273,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'service-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
+			$error = array( 'service-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -323,7 +323,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'service-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'service-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}

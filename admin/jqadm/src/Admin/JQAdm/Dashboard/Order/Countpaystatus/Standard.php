@@ -61,7 +61,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'order-countpaystatus' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'order-countpaystatus' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}

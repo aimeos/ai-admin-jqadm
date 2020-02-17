@@ -68,7 +68,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-site-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -121,7 +121,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-site-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -185,7 +185,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-site-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error deleting data' ) );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -241,7 +241,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-site-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -293,7 +293,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-site-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error saving data' ) );
+			$error = array( 'locale-site-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
@@ -347,7 +347,7 @@ class Standard
 		}
 		catch( \Exception $e )
 		{
-			$error = array( 'locale-item' => $this->getContext()->getI18n()->dt( 'admin', 'Error retrieving data' ) );
+			$error = array( 'locale-item' => $e->getMessage() . ', ' . $e->getFile() . ':' . $e->getLine() );
 			$view->errors = $view->get( 'errors', [] ) + $error;
 			$this->logException( $e );
 		}
