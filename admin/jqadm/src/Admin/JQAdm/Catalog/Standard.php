@@ -93,8 +93,8 @@ class Standard
 			$data['catalog.siteid'] = $view->item->getSiteId();
 			$data['catalog.parentid'] = $view->item->getParentId() ?: $view->param( 'parentid', $view->param( 'item/catalog.parentid' ) );
 
+			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemRootId = $this->getRootId();
-			$view->itemData = $data;
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )

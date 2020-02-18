@@ -100,7 +100,7 @@ abstract class Base
 
 			$data[str_replace( '/', '.', $path ) . '.type.siteid'] = $view->item->getSiteId();
 
-			$view->itemData = $data;
+			$view->itemData = array_replace_recursive( $this->toArray( $path, $view->item ), $data );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )

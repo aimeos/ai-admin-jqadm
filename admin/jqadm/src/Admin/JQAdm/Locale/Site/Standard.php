@@ -93,7 +93,7 @@ class Standard
 				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/site' )->createItem();
 			}
 
-			$view->itemData = $data;
+			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )

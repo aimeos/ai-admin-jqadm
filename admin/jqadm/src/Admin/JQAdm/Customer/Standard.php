@@ -92,8 +92,8 @@ class Standard
 
 			$data['customer.siteid'] = $view->item->getSiteId();
 
+			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemGroups = $this->getGroupItems( $view->item );
-			$view->itemData = $data;
 			$view->itemBody = '';
 
 			foreach( $this->getSubClients() as $idx => $client )
