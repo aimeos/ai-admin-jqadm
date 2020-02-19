@@ -543,7 +543,8 @@ Aimeos.Product.Order = {
 							let config = {
 								'paramsSerializer': function(params) {
 									return jQuery.param(params); // workaround, Axios and QS fail on [==]
-								}
+								},
+								'params': {}
 							};
 
 							if(response.meta.prefix && response.meta.prefix) {
