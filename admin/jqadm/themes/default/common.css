@@ -189,6 +189,9 @@
 
 .aimeos table .actions .btn {
 	display: inline-block;
+}
+
+.aimeos table .list-item-new .actions .btn {
 	color: #FFFFFF;
 }
 
