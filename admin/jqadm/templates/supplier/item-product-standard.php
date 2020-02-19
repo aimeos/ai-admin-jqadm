@@ -177,8 +177,8 @@ $refItems = $this->get( 'productItems', [] );
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 										</option>
 
-										<?php foreach( $this->get( 'productListTypes', [] ) as $type => $item ) : ?>
-											<option value="<?= $enc->attr( $type ); ?>"><?= $enc->html( $type ); ?></option>
+										<?php foreach( $this->get( 'productListTypes', [] ) as $item ) : ?>
+											<option value="<?= $enc->attr( $item->getCode() ); ?>"><?= $enc->html( $item->getLabel() ); ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>
