@@ -60,6 +60,7 @@ class Page extends Base
 
 		$sitePath = $siteManager->getPath( $id );
 
+		$view->pageInfo = $context->getSession()->pull( 'info', [] );
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
 		$view->pageLangItems = $langManager->searchItems( $langManager->createSearch( true ) );
 		$view->pageSiteTree = $siteManager->getTree( $id, [], $level );

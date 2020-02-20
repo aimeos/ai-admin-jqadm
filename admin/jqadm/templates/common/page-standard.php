@@ -141,15 +141,7 @@ if( $lang ) {
 }
 
 $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
-$infoMsgs = $this->get( 'info', [] );
-
-switch( $this->param( 'act' ) )
-{
-	case 'save':
-		$infoMsgs[] = $this->translate( 'admin', 'Item saved successfully' ); break;
-	case 'delete':
-		$infoMsgs[] = $this->translate( 'admin', 'Item deleted successfully' ); break;
-}
+$infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) );
 
 
 ?>

@@ -303,19 +303,6 @@ abstract class Base
 		$localClass = str_replace( ' ', '\\', ucwords( str_replace( '/', ' ', $path ) ) );
 		$config = $this->context->getConfig();
 
-		$decorators = $config->get( 'admin/jqadm/common/decorators/default', [] );
-		$excludes = $config->get( 'admin/jqadm/' . $path . '/decorators/excludes', [] );
-
-		foreach( $decorators as $key => $name )
-		{
-			if( in_array( $name, $excludes ) ) {
-				unset( $decorators[$key] );
-			}
-		}
-
-		$classprefix = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\';
-		$client = $this->addDecorators( $client, $decorators, $classprefix );
-
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\';
 		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/global', [] );
 		$client = $this->addDecorators( $client, $decorators, $classprefix );
@@ -356,11 +343,10 @@ abstract class Base
 		}
 
 		$object = new $classname( $this->context );
+		$object = \Aimeos\MW\Common\Base::checkClass( '\\Aimeos\\Admin\\JQAdm\\Iface', $object );
+		$object = $this->addClientDecorators( $object, $path );
 
-		\Aimeos\MW\Common\Base::checkClass( '\\Aimeos\\Admin\\JQAdm\\Iface', $object );
-
-		return $this->addClientDecorators( $object, $path )->setObject( $this->getObject() )
-			->setAimeos( $this->aimeos )->setView( $this->view );
+		return $object->setObject( $object )->setAimeos( $this->aimeos )->setView( $this->view );
 	}
 
 
@@ -617,15 +603,12 @@ abstract class Base
 	 * @return \Aimeos\MW\View\Iface Modified view object
 	 */
 	protected function nextAction( \Aimeos\MW\View\Iface $view, ?string $action, string $resource,
-		string $id = null, string $act = null ) : \Aimeos\MW\View\Iface
+		string $id = null, string $method = null ) : \Aimeos\MW\View\Iface
 	{
+		$session = $this->getContext()->getSession();
 		$params = $this->getClientParams();
 		$params['resource'] = $resource;
 		unset( $params['id'] );
-
-		if( $act ) {
-			$params['act'] = $act;
-		}
 
 		switch( $action )
 		{
@@ -657,6 +640,14 @@ abstract class Base
 				$action = $view->config( 'admin/jqadm/url/get/action', 'get' );
 				$conf = $view->config( 'admin/jqadm/url/get/config', [] );
 				$url = $view->url( $target, $cntl, $action, ['id' => $id] + $params, [], $conf );
+		}
+
+		switch( $method )
+		{
+			case 'save':
+				$session->set( 'info', [$this->translate( 'admin', 'Item saved successfully' )] ); break;
+			case 'delete':
+				$session->set( 'info', [$this->translate( 'admin', 'Item deleted successfully' )] ); break;
 		}
 
 		$view->response()->withStatus( 302 );
