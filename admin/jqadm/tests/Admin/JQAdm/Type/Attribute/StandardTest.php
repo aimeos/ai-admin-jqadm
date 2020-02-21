@@ -91,7 +91,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->assertNull( $this->getClientMock( ['nextAction'], false )->delete() );
+		$this->assertNull( $this->getClientMock( ['redirect'], false )->delete() );
 	}
 
 

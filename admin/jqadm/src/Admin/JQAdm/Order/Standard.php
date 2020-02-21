@@ -209,8 +209,7 @@ class Standard
 			$manager->store( clone $view->item );
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'order', $view->item->getId(), 'save' );
-			return null;
+			return $this->redirect( 'order', $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{

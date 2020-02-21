@@ -150,8 +150,7 @@ class Standard
 			\Aimeos\MShop::create( $context, 'index' )->deleteItems( $items->toArray() );
 			$context->getCache()->deleteByTags( $tags );
 
-			$this->nextAction( $view, 'search', 'product', null, 'delete' );
-			return null;
+			return $this->redirect( 'product', 'search', null, 'delete' );
 		}
 		catch( \Exception $e )
 		{
@@ -228,9 +227,7 @@ class Standard
 			\Aimeos\MShop::create( $context, 'index' )->rebuild( [$item->getId() => $item] );
 			$context->getCache()->deleteByTags( ['product', 'product-' . $item->getId()] );
 
-
-			$this->nextAction( $view, $view->param( 'next' ), 'product', $view->item->getId(), 'save' );
-			return null;
+			return $this->redirect( 'product', $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{

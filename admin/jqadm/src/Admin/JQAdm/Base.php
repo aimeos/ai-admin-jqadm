@@ -595,18 +595,19 @@ abstract class Base
 	/**
 	 * Adds a redirect to the response for the next action
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @param string|null $action Next action
 	 * @param string $resource Resource name
+	 * @param string|null $action Next action
 	 * @param string|null $id ID of the next resource item
 	 * @param string|null $act Current action name
-	 * @return \Aimeos\MW\View\Iface Modified view object
+	 * @return string|null Returns value for the actions
 	 */
-	protected function nextAction( \Aimeos\MW\View\Iface $view, ?string $action, string $resource,
-		string $id = null, string $method = null ) : \Aimeos\MW\View\Iface
+	protected function redirect( string $resource, ?string $action, string $id = null,
+		string $method = null ) : ?string
 	{
-		$session = $this->getContext()->getSession();
 		$params = $this->getClientParams();
+		$context = $this->getContext();
+		$view = $this->getView();
+
 		$params['resource'] = $resource;
 		unset( $params['id'] );
 
@@ -645,16 +646,16 @@ abstract class Base
 		switch( $method )
 		{
 			case 'save':
-				$session->set( 'info', [$this->translate( 'admin', 'Item saved successfully' )] ); break;
+				$context->getSession()->set( 'info', [$context->getI18n()->dt( 'admin', 'Item saved successfully' )] ); break;
 			case 'delete':
-				$session->set( 'info', [$this->translate( 'admin', 'Item deleted successfully' )] ); break;
+				$context->getSession()->set( 'info', [$context->getI18n()->dt( 'admin', 'Item deleted successfully' )] ); break;
 		}
 
 		$view->response()->withStatus( 302 );
 		$view->response()->withHeader( 'Location', $url );
 		$view->response()->withHeader( 'Cache-Control', 'no-store' );
 
-		return $view;
+		return null;
 	}
 
 

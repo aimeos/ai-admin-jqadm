@@ -154,8 +154,7 @@ class Standard
 			$manager->deleteItems( $items->toArray() );
 			$manager->commit();
 
-			$this->nextAction( $view, 'search', 'service', null, 'delete' );
-			return null;
+			return $this->redirect( 'service', 'search', null, 'delete' );
 		}
 		catch( \Exception $e )
 		{
@@ -229,8 +228,7 @@ class Standard
 			$manager->saveItem( clone $view->item );
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'service', $view->item->getId(), 'save' );
-			return null;
+			return $this->redirect( 'service', $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{

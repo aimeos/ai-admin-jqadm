@@ -153,8 +153,7 @@ abstract class Base
 			$manager->deleteItems( $items->toArray() );
 			$manager->commit();
 
-			$this->nextAction( $view, 'search', 'type/' . $path, null, 'delete' );
-			return null;
+			return $this->redirect( 'type/' . $path, 'search', null, 'delete' );
 		}
 		catch( \Exception $e )
 		{
@@ -230,8 +229,7 @@ abstract class Base
 			$manager->saveItem( clone $view->item );
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'type/' . $path, $view->item->getId(), 'save' );
-			return null;
+			return $this->redirect( 'type/' . $path, $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{

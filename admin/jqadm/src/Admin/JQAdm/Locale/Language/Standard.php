@@ -141,8 +141,7 @@ class Standard
 			$manager->deleteItems( $items->toArray() );
 			$manager->commit();
 
-			$this->nextAction( $view, 'search', 'locale/language', null, 'delete' );
-			return null;
+			return $this->redirect( 'locale/language', 'search', null, 'delete' );
 		}
 		catch( \Exception $e )
 		{
@@ -215,8 +214,7 @@ class Standard
 			$manager->saveItem( clone $view->item );
 			$manager->commit();
 
-			$this->nextAction( $view, $view->param( 'next' ), 'locale/language', $view->item->getId(), 'save' );
-			return null;
+			return $this->redirect( 'locale/language', $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
 		catch( \Exception $e )
 		{
