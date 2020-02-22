@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 10:01+0200\n"
-"PO-Revision-Date: 2019-10-03 08:06+0000\n"
+"POT-Creation-Date: 2020-02-13 11:15+0100\n"
+"PO-Revision-Date: 2020-02-14 16:35+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -76,8 +76,8 @@ msgstr "(международный) номер телефона без симв
 msgid "Active"
 msgstr "Активно"
 
-msgid "Actual current price"
-msgstr "Фактическая текущая цена"
+msgid "Actual price"
+msgstr ""
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "Фактическая цена покупателей, по которой можно приобретать товар на сайте"
@@ -117,6 +117,14 @@ msgstr "Тип администратора JQAdm не заполнен"
 
 msgid "Advanced"
 msgstr "Расширенный"
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -351,6 +359,9 @@ msgstr "Тип Свойства Клиента"
 
 msgid "Customer Property Types"
 msgstr "Типы Свойств Клиента"
+
+msgid "Customer characteristics that are not shared with other customers"
+msgstr ""
 
 msgid "Customer comment (optional)"
 msgstr "Комментарий клиента (необязательно)"
@@ -870,6 +881,10 @@ msgid "PHP setting \"%1$s\" is disabled"
 msgstr "Настройка PHP \"%1$s\" отключена"
 
 #, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr ""
+
+#, php-format
 msgid "PHP setting for \"%1$s\" is too low"
 msgstr "Настройка PHP для \"%1$s\" весьма занижена"
 
@@ -900,6 +915,9 @@ msgstr "Статус платежа"
 
 msgid "Payment types"
 msgstr "Виды оплаты"
+
+msgid "Periods"
+msgstr ""
 
 #, php-format
 msgid "Permission denied"
@@ -940,6 +958,9 @@ msgstr "Почтовый индекс для доставки, если испо
 
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Почтовый индекс для доставки, если используется в регионе нахождения поставщика"
+
+msgid "Potential problems"
+msgstr ""
 
 msgid "Previous"
 msgstr "Назад"
@@ -1072,6 +1093,9 @@ msgstr "Покупка"
 msgid "Quantity"
 msgstr "Количество"
 
+msgid "Quantity scale"
+msgstr ""
+
 msgid "Reason"
 msgstr "Основание"
 
@@ -1082,6 +1106,9 @@ msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
 msgstr "Сокращение от исходной цены, используется для расчета скидки в % и кросс цены"
+
+msgid "Reference"
+msgstr ""
 
 msgid "Related ID"
 msgstr "Связанный ID"
@@ -1207,8 +1234,8 @@ msgstr "Статус доставки"
 msgid "Shipping"
 msgstr "Перевозка"
 
-msgid "Shipping costs per item"
-msgstr "Стоимость доставки за единицу"
+msgid "Shipping costs/item"
+msgstr ""
 
 msgid "Shipping/Payment costs"
 msgstr "Затраты доставки/оплаты"
@@ -1299,8 +1326,8 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "Интервал подписки с годами, месяцами, неделями и днями, например, «P1Y1M2W3D» за один год, один месяц, две недели и три дня"
 
-msgid "Substracted rebate amount"
-msgstr "Вычитаемая сумма скидки"
+msgid "Given rebate amount"
+msgstr ""
 
 msgid "Suggested products"
 msgstr "Рекомендованные товары"
@@ -1368,6 +1395,11 @@ msgstr "Опция отображается только на веб-сайте 
 
 msgid "The option is only shown on the web site until that date and time"
 msgstr "Опция отображается только на веб-сайте до этой даты и времени"
+
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
 
 msgid "Three letter ISO currency code"
 msgstr "Трехбуквенный код валюты ISO"
@@ -1606,7 +1638,7 @@ msgstr "По типу доставки"
 
 #, php-format
 msgid "download"
-msgstr "Скачиваемые материалы"
+msgstr ""
 
 #, php-format
 msgid "group"

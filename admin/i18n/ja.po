@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 10:01+0200\n"
-"PO-Revision-Date: 2019-10-03 08:06+0000\n"
-"Last-Translator: Darshan Sampat <darshan@usindia.com>\n"
+"POT-Creation-Date: 2020-02-13 11:15+0100\n"
+"PO-Revision-Date: 2020-02-14 16:35+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,8 +73,8 @@ msgstr "(国際)電話番号は分離文字なし、\"+\"で始めることが�
 msgid "Active"
 msgstr "能動"
 
-msgid "Actual current price"
-msgstr "実際の現在の価格"
+msgid "Actual price"
+msgstr ""
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "顧客がウェブサイト上で記事を購入することができる実際の価格"
@@ -114,6 +114,14 @@ msgstr "管理者JQAdmタイプが空です"
 
 msgid "Advanced"
 msgstr "進歩した"
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -348,6 +356,9 @@ msgstr "顧客プロパティタイプ"
 
 msgid "Customer Property Types"
 msgstr "顧客プロパティタイプ"
+
+msgid "Customer characteristics that are not shared with other customers"
+msgstr ""
 
 msgid "Customer comment (optional)"
 msgstr "顧客コメント（オプション）"
@@ -867,6 +878,10 @@ msgid "PHP setting \"%1$s\" is disabled"
 msgstr ""
 
 #, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr ""
+
+#, php-format
 msgid "PHP setting for \"%1$s\" is too low"
 msgstr ""
 
@@ -897,6 +912,9 @@ msgstr "支払い状況"
 
 msgid "Payment types"
 msgstr "支払いのタイプ"
+
+msgid "Periods"
+msgstr ""
 
 #, php-format
 msgid "Permission denied"
@@ -937,6 +955,9 @@ msgstr "顧客が住んでいる地域の場合は配達の郵便番号使用さ
 
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "サプライヤーが住んでいる地域の場合は配達の郵便番号使用されます"
+
+msgid "Potential problems"
+msgstr ""
 
 msgid "Previous"
 msgstr "前"
@@ -1069,6 +1090,9 @@ msgstr "購入"
 msgid "Quantity"
 msgstr "数量"
 
+msgid "Quantity scale"
+msgstr ""
+
 msgid "Reason"
 msgstr ""
 
@@ -1079,6 +1103,9 @@ msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
 msgstr "リベートを％で計算するために使用された元の価格からの減額とクロス価格"
+
+msgid "Reference"
+msgstr ""
 
 msgid "Related ID"
 msgstr "関連ID"
@@ -1204,8 +1231,8 @@ msgstr "出荷状況"
 msgid "Shipping"
 msgstr "出荷"
 
-msgid "Shipping costs per item"
-msgstr "商品1個あたりの送料"
+msgid "Shipping costs/item"
+msgstr ""
 
 msgid "Shipping/Payment costs"
 msgstr "送料/支払い費用"
@@ -1296,8 +1323,8 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "年、月、週、日のサブスクリプション間隔。 0年、1ヶ月、2週間および3日間の \"P0Y1M2W3D\""
 
-msgid "Substracted rebate amount"
-msgstr "リベート額の引き落とし"
+msgid "Given rebate amount"
+msgstr ""
 
 msgid "Suggested products"
 msgstr "推奨商品"
@@ -1365,6 +1392,11 @@ msgstr "このオプションは、その日時以降にウェブサイトにの
 
 msgid "The option is only shown on the web site until that date and time"
 msgstr "このオプションは、その日時までウェブサイトにのみ表示されます"
+
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
 
 msgid "Three letter ISO currency code"
 msgstr "3文字のISO通貨コード"
@@ -1603,7 +1635,7 @@ msgstr "配達タイプ"
 
 #, php-format
 msgid "download"
-msgstr "ダウンロード"
+msgstr ""
 
 #, php-format
 msgid "group"

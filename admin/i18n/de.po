@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aimeos, 2015-2019
+# Aimeos, 2015-2020
 # Cris <cristoph@berane.eu>, 2018
 # Michael Spahn <michael@spahn.me>, 2014
 # nsendetzky, 2014
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 10:01+0200\n"
-"PO-Revision-Date: 2019-10-18 10:41+0000\n"
+"POT-Creation-Date: 2020-02-13 11:15+0100\n"
+"PO-Revision-Date: 2020-02-14 16:54+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "(Internationale) Telefonnummer ohne Trennzeichen, kann mit einem \"+\" b
 msgid "Active"
 msgstr "Aktiv"
 
-msgid "Actual current price"
+msgid "Actual price"
 msgstr "Tatsächlicher Preis"
 
 msgid "Actual price customers can buy the article for on the web site"
@@ -116,6 +116,14 @@ msgstr "Admin JQAdm Typ ist leer"
 
 msgid "Advanced"
 msgstr "Erweitert"
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr "Aimeos Caching ist durch \"%1$s\" deaktiviert"
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
+msgstr "Aimeos Debug-Log ist durch \"%1$s\" aktiviert"
 
 #, php-format
 msgid "Aimeos object not available"
@@ -350,6 +358,9 @@ msgstr "Kunden-Eigenschaftstyp"
 
 msgid "Customer Property Types"
 msgstr "Kunden-Eigentschaftstypen"
+
+msgid "Customer characteristics that are not shared with other customers"
+msgstr "Kundeneigenschaften, die nicht mit anderen Kunden geteilt werden"
 
 msgid "Customer comment (optional)"
 msgstr "Kundenkommentar (optional)"
@@ -869,6 +880,10 @@ msgid "PHP setting \"%1$s\" is disabled"
 msgstr "PHP Einstellung \"%1$s\" ist deaktiviert"
 
 #, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr "PHP Einstellung \"%1$s\" ist aktiviert"
+
+#, php-format
 msgid "PHP setting for \"%1$s\" is too low"
 msgstr "PHP Einstellung für \"%1$s\" ist zu gering"
 
@@ -899,6 +914,9 @@ msgstr "Zahlungsstatus"
 
 msgid "Payment types"
 msgstr "Zahlungsarten"
+
+msgid "Periods"
+msgstr "Perioden"
 
 #, php-format
 msgid "Permission denied"
@@ -939,6 +957,9 @@ msgstr "PLZ für den Versand wenn die Kundenadresse diese Information enthält"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "PLZ für den Versand wenn die Lieferantenadresse diese Information enthält"
+
+msgid "Potential problems"
+msgstr "Potentielle Probleme"
 
 msgid "Previous"
 msgstr "Vorherige"
@@ -1071,6 +1092,9 @@ msgstr "Kaufdatum"
 msgid "Quantity"
 msgstr "Anzahl"
 
+msgid "Quantity scale"
+msgstr "Mengenskala"
+
 msgid "Reason"
 msgstr "Grund"
 
@@ -1081,6 +1105,9 @@ msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
 msgstr "Reduzierung vom Orginalpreis, wird für die Kalkulation des Rabatts in Prozent und den Streichpreis verwendet"
+
+msgid "Reference"
+msgstr "Referenz"
 
 msgid "Related ID"
 msgstr "Zugehörige Bestellnummer"
@@ -1206,11 +1233,11 @@ msgstr "Lieferstatus"
 msgid "Shipping"
 msgstr "Versandkosten"
 
-msgid "Shipping costs per item"
-msgstr "Versandkosten pro Stück"
+msgid "Shipping costs/item"
+msgstr "Versandkosten/Stück"
 
 msgid "Shipping/Payment costs"
-msgstr "Versand-/Zahlungskosten"
+msgstr "Versand- oder Zahlungskosten"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1298,7 +1325,7 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "Abointervall mit Jahren, Monaten, Wochen und Tagen, z.B. \"P0Y1M2W3D\" für kein Jahr, ein Monat, zwei Wochen und drei Tage"
 
-msgid "Substracted rebate amount"
+msgid "Given rebate amount"
 msgstr "Abgezogener Rabattbetrag"
 
 msgid "Suggested products"
@@ -1367,6 +1394,11 @@ msgstr "Diese Option wird auf der Webseite erst nach dem Datum und der Uhrzeit a
 
 msgid "The option is only shown on the web site until that date and time"
 msgstr "Diese Option wird auf der Webseite bis zu dem Datum und der Uhrzeit angezeigt"
+
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr "Die erlaubte Schrittweite für Mengen im Warenkorb, z.B. \"0,1\" für Teilmengen oder \"5\" für das Mehrfache von fünf Artikeln"
 
 msgid "Three letter ISO currency code"
 msgstr "Dreistelliger ISO Währungscode"
@@ -1605,7 +1637,7 @@ msgstr "Nach Versandart"
 
 #, php-format
 msgid "download"
-msgstr "Downloads"
+msgstr "Bezahlte Downloads"
 
 #, php-format
 msgid "group"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-03 10:01+0200\n"
-"PO-Revision-Date: 2019-10-15 21:22+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>\n"
+"POT-Creation-Date: 2020-02-13 11:15+0100\n"
+"PO-Revision-Date: 2020-02-14 16:35+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,8 +72,8 @@ msgstr "Ayırma karakterleri olmaksızın telefon numarası (uluslararası), \"+
 msgid "Active"
 msgstr "Etkin"
 
-msgid "Actual current price"
-msgstr "Güncel cari fiyat"
+msgid "Actual price"
+msgstr ""
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "Müşterilerin ürünü satın alabileceği gerçek ürün web site fiyatı"
@@ -113,6 +113,14 @@ msgstr "Yönetici JQAdm türü boş"
 
 msgid "Advanced"
 msgstr "Gelişmiş"
+
+#, php-format
+msgid "Aimeos caching is disabled by \"%1$s\""
+msgstr ""
+
+#, php-format
+msgid "Aimeos debug logging is enabled by \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -347,6 +355,9 @@ msgstr "Müşteri Özellik Türü"
 
 msgid "Customer Property Types"
 msgstr "Müşteri Özellik Türleri"
+
+msgid "Customer characteristics that are not shared with other customers"
+msgstr ""
 
 msgid "Customer comment (optional)"
 msgstr "Müşteri yorumu (isteğe bağlı)"
@@ -866,6 +877,10 @@ msgid "PHP setting \"%1$s\" is disabled"
 msgstr "\"%1$s\" PHP ayarı devre dışı"
 
 #, php-format
+msgid "PHP setting \"%1$s\" is enabled"
+msgstr ""
+
+#, php-format
 msgid "PHP setting for \"%1$s\" is too low"
 msgstr "\"%1$s\" için PHP ayarı çok düşük"
 
@@ -896,6 +911,9 @@ msgstr "Ödeme durumu"
 
 msgid "Payment types"
 msgstr "Ödeme türleri"
+
+msgid "Periods"
+msgstr ""
 
 #, php-format
 msgid "Permission denied"
@@ -936,6 +954,9 @@ msgstr "Müşterinin yaşadığı bölgede kullanılıyorsa teslimat için posta
 
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Tedarikçinin yaşadığı bölgede kullanılıyorsa teslimat için posta kodu"
+
+msgid "Potential problems"
+msgstr ""
 
 msgid "Previous"
 msgstr "Önceki"
@@ -1068,6 +1089,9 @@ msgstr "Satın alma"
 msgid "Quantity"
 msgstr "Miktar"
 
+msgid "Quantity scale"
+msgstr ""
+
 msgid "Reason"
 msgstr "Sebep"
 
@@ -1078,6 +1102,9 @@ msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
 msgstr "Orijinal fiyattan yapılan iskonto, indirim yüzdesini ve çapraz fiyatı hesaplamak için kullanılır"
+
+msgid "Reference"
+msgstr ""
 
 msgid "Related ID"
 msgstr "İlgili kimlik numarası"
@@ -1203,8 +1230,8 @@ msgstr "Gönderi durumu"
 msgid "Shipping"
 msgstr "Nakliye"
 
-msgid "Shipping costs per item"
-msgstr "Ürün başına nakliye ücreti"
+msgid "Shipping costs/item"
+msgstr ""
 
 msgid "Shipping/Payment costs"
 msgstr "Nakliye/Ödeme masrafları"
@@ -1295,8 +1322,8 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "Yıllık, aylık, haftalık ve günlük abonelik aralığı. Örneğin: sıfır yıl, bir ay, iki hafta ve üç gün için \"P0Y1M2W3D\""
 
-msgid "Substracted rebate amount"
-msgstr "Çıkarılmış indirim tutarı"
+msgid "Given rebate amount"
+msgstr ""
 
 msgid "Suggested products"
 msgstr "Önerilen ürünler"
@@ -1364,6 +1391,11 @@ msgstr "Seçenek, web sitesinde sadece o tarih ve saatten sonra gösterilir"
 
 msgid "The option is only shown on the web site until that date and time"
 msgstr "Seçenek, web sitesinde sadece o tarih ve saate kadar gösterilir"
+
+msgid ""
+"The step value allowed for quantities in the basket, e.g. \"0.1\" for "
+"fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
 
 msgid "Three letter ISO currency code"
 msgstr "Üç harfli ISO para birimi kodu"
@@ -1602,7 +1634,7 @@ msgstr "Teslimat türüne göre"
 
 #, php-format
 msgid "download"
-msgstr "İndirmeler"
+msgstr ""
 
 #, php-format
 msgid "group"
