@@ -5,6 +5,7 @@
 # Translators:
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Helmi Trabelsi <trabelsihelmi@gmail.com>, 2018
+# Laurent Georget <laurent@lgeorget.eu>, 2020
 # Medzo Zeng <medzozeng@hotmail.fr>, 2019
 # Nicolas Lapointe (ComradeNixco) <nixcocpp@gmail.com>, 2018
 # nsendetzky, 2014
@@ -15,8 +16,8 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-14 16:35+0000\n"
-"Last-Translator: Aimeos\n"
+"PO-Revision-Date: 2020-02-20 10:08+0000\n"
+"Last-Translator: Laurent Georget <laurent@lgeorget.eu>\n"
 "Language-Team: French (http://www.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +80,7 @@ msgid "Active"
 msgstr "Actif"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Prix réel"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "Prix actuel pour lequel les clients peuvent acheter le produit sur le site web"
@@ -122,11 +123,11 @@ msgstr "Avancé"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Le cache d'Aimeos est désactivé par \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "La journalisation de débogage d'Aimeos est activée par \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -182,7 +183,7 @@ msgid "Attribute properties that are not shared with other attributes"
 msgstr "Propriétés de caractéristique qui ne sont pas partagées avec les autres attributs "
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Type d'attribut limitant la liste des attributs disponibles"
 
 msgid "Attributes"
 msgstr "Caractéristiques"
@@ -363,7 +364,7 @@ msgid "Customer Property Types"
 msgstr "Types de propriété du client"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Caractéristiques du client qui ne sont pas partagés avec d'autres clients"
 
 msgid "Customer comment (optional)"
 msgstr "Commentaire du client (optionnel)"
@@ -387,7 +388,7 @@ msgid "Dashboard"
 msgstr "Tableau de bord"
 
 msgid "Data set"
-msgstr ""
+msgstr "Jeu de données"
 
 msgid "Date of the last delivery status change"
 msgstr "Date de la dernière modification à l'état de livraison"
@@ -431,7 +432,7 @@ msgstr "Livraison dans les"
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "Selon le jeu de données sélectionné, la liste des champs affichés pour le produit diffère"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Description du contenu du texte s'il est dans une langue étrangère"
@@ -884,7 +885,7 @@ msgstr "Le paramètre PHP \"%1$s\" est désactivé"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "Le paramètre PHP \"%1$s\" est activé"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
@@ -919,7 +920,7 @@ msgid "Payment types"
 msgstr "Types de paiements"
 
 msgid "Periods"
-msgstr ""
+msgstr "Intervalles"
 
 #, php-format
 msgid "Permission denied"
@@ -962,7 +963,7 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Code postal pour la livraison si utilisé dans la zone de résidence du fournisseur"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Problèmes potentiels"
 
 msgid "Previous"
 msgstr "Précédent"
@@ -1051,13 +1052,13 @@ msgid "Product rebate"
 msgstr "Réduction sur le produit"
 
 msgid "Product status"
-msgstr ""
+msgstr "Statut du produit"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "Fournisseur du produit"
 
 msgid "Product tax"
-msgstr ""
+msgstr "Taxe sur le produit"
 
 msgid "Product type"
 msgstr "Type de produit"
@@ -1096,7 +1097,7 @@ msgid "Quantity"
 msgstr "Quantité"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "Barème de quantités"
 
 msgid "Reason"
 msgstr "Raison"
@@ -1110,7 +1111,7 @@ msgid ""
 msgstr "Réduction par rapport au prix d'origine, utilisée pour calculer le rabais en% et le prix croisé"
 
 msgid "Reference"
-msgstr ""
+msgstr "Référence"
 
 msgid "Related ID"
 msgstr "ID lié"
@@ -1237,7 +1238,7 @@ msgid "Shipping"
 msgstr "Livraison"
 
 msgid "Shipping costs/item"
-msgstr ""
+msgstr "Frais d'envoi/item"
 
 msgid "Shipping/Payment costs"
 msgstr "Frais d'envoi / de paiement"
@@ -1309,7 +1310,7 @@ msgid "Stock level"
 msgstr "Niveau du stock"
 
 msgid "Stock type"
-msgstr ""
+msgstr "Type de stock"
 
 msgid "Street"
 msgstr "Rue"
@@ -1329,7 +1330,7 @@ msgid ""
 msgstr "Intervalle pour l'abonnement en années, mois, semaines et jours, par ex. \"P0Y1M2W3D\" pour 0 année, 1 mois, 2 semaines et 3 jours"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Montant de la remise accordée"
 
 msgid "Suggested products"
 msgstr "Produits suggérés"
@@ -1401,7 +1402,7 @@ msgstr "Cette option ne sera affichée sur le site uniquement jusqu'à cette dat
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "La valeur d'incrément autorisée pour modifier la quantité dans le panier, par exemple \"0.1\" pour des quantités fractionnelles ou \"5\" pour des articles commandés cinq par cinq"
 
 msgid "Three letter ISO currency code"
 msgstr "Code ISO à 3 lettres de la devise, par ex. \"EUR\""
@@ -1422,7 +1423,7 @@ msgid "Total"
 msgstr "Total"
 
 msgid "Translate text"
-msgstr ""
+msgstr "Traduire le texte"
 
 msgid "Two letter ISO country code"
 msgstr "Code ISO du pays à deux lettres"
@@ -1640,7 +1641,7 @@ msgstr "Par type de livraison"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "Téléchargements payants"
 
 #, php-format
 msgid "group"
