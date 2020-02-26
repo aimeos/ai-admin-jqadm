@@ -135,6 +135,7 @@ return [
 				'characteristic' => 'characteristic',
 				'option' => 'option',
 				'related' => 'related',
+				'supplier' => 'supplier',
 				'physical' => 'physical',
 				'subscription' => 'subscription',
 				'download' => 'download',
