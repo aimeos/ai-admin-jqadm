@@ -146,7 +146,7 @@ class Standard
 	{
 		$view = $this->getView();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 		$manager->begin();
 
 		try
