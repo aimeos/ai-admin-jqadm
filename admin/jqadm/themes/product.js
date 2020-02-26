@@ -117,6 +117,30 @@ Aimeos.Product = {
 			})
 		};
 
+		this.supplier = {
+
+			default : new Vue({
+				'el': '.item-supplier .supplier-default .supplier-list',
+				'data': {
+					'items': $(".item-supplier .supplier-default .supplier-list").data("items"),
+					'keys': $(".item-supplier .supplier-default .supplier-list").data("keys"),
+					'listtype': $(".item-supplier .supplier-default .supplier-list").data("listtype"),
+					'siteid': $(".item-supplier .supplier-default .supplier-list").data("siteid")
+				},
+				'mixins': [Aimeos.Product.Supplier.mixins.bind(this)()]
+			}),
+
+			promotion : new Vue({
+				'el': '.item-supplier .supplier-promotion .supplier-list',
+				'data': {
+					'items': $(".item-supplier .supplier-promotion .supplier-list").data("items"),
+					'keys': $(".item-supplier .supplier-promotion .supplier-list").data("keys"),
+					'listtype': $(".item-supplier .supplier-promotion .supplier-list").data("listtype"),
+					'siteid': $(".item-supplier .supplier-promotion .supplier-list").data("siteid")
+				},
+				'mixins': [Aimeos.Product.Supplier.mixins.bind(this)()]
+			})
+		};
 
 		this.related = {
 
@@ -1059,5 +1083,92 @@ Aimeos.Product.Subscription = {
 				}
 			}
 		}
+	}
+};
+
+
+Aimeos.Product.Supplier = {
+
+	mixins : function() {
+		return {
+			methods: {
+				checkSite : function(idx) {
+					return this.items[idx]['supplier.lists.siteid'] && this.items[idx]['supplier.lists.siteid'] != this.siteid;
+				},
+
+
+				addItem : function(x, data) {
+
+					var idx = (this.items || []).length;
+					this.$set(this.items, idx, {});
+
+					for(var key in this.keys) {
+						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+					}
+
+					this.$set(this.items[idx], 'supplier.lists.siteid', this.siteid);
+					this.$set(this.items[idx], 'supplier.lists.type', this.listtype);
+				},
+
+
+				removeItem : function(idx) {
+					this.items.splice(idx, 1);
+				},
+
+
+				getItems : function() {
+
+					return function(request, response, element) {
+
+						var labelFcn = function(attr) {
+							return attr['supplier.label'] + ' (' + attr['supplier.code'] + ')';
+						}
+
+						Aimeos.getOptions(request, response, element, 'supplier', 'supplier.label', 'supplier.label', null, labelFcn);
+					}
+				},
+
+
+				getLabel : function(idx) {
+
+					var label = this.items[idx]['supplier.label'];
+
+					if(this.items[idx]['supplier.code']) {
+						label += ' (' + this.items[idx]['supplier.code'] + ')';
+					}
+
+					return label;
+				},
+
+
+				update : function(ev) {
+
+					this.$set(this.items[ev.index], 'supplier.lists.id', '');
+					this.$set(this.items[ev.index], 'supplier.lists.type', this.listtype);
+					this.$set(this.items[ev.index], 'supplier.lists.siteid', this.siteid);
+					this.$set(this.items[ev.index], 'supplier.lists.refid', '');
+					this.$set(this.items[ev.index], 'supplier.label', ev.label);
+					this.$set(this.items[ev.index], 'supplier.id', ev.value);
+					this.$set(this.items[ev.index], 'supplier.code', '');
+
+					var ids = [];
+
+					for(idx in this.items) {
+
+						if(this.items[idx]['supplier.lists.type'] != this.listtype) {
+							continue;
+						}
+
+						this.items[idx]['css'] = '';
+
+						if(ids.indexOf(this.items[idx]['supplier.id']) !== -1) {
+							this.items[idx]['css'] = 'is-invalid';
+						}
+
+						ids.push(this.items[idx]['supplier.id']);
+					}
+				}
+			}
+		};
 	}
 };
