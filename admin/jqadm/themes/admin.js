@@ -141,7 +141,7 @@ Aimeos = {
 
 					if(!labelFcn) {
 						labelFcn = function(attr) {
-							return attr[key] || null
+							return attr[key] || null;
 						}
 					}
 
