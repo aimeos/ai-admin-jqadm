@@ -73,7 +73,7 @@ $enc = $this->encoder();
 									v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.url'] ) ); ?>'.replace('_idx_', idx)"
 									v-model="item['media.url']" />
 								<img v-if="item['media.preview']" class="item-preview"
-									v-bind:src="url('<?= $this->content( '' ) ?>', item['media.preview'])"
+									v-bind:src="url('<?= $this->content( '/' ) ?>', item['media.preview'])"
 									v-bind:alt="item['media.label']" />
 								<p v-else class="item-preview">
 									{{ item['media.label'] || '<?= $enc->html( $this->translate( 'admin', 'Select file' ) ) ?>' }}
