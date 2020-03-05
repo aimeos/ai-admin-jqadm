@@ -329,7 +329,7 @@ class Standard
 	 * @param string $prodid Unique product ID
 	 * @return array Associative list of supplier list IDs as keys and list items as values
 	 */
-	protected function getListItems( string $prodid )
+	protected function getListItems( $prodid )
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
 
