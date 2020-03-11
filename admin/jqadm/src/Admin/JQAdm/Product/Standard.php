@@ -493,8 +493,8 @@ class Standard
 			$item = $manager->createItem();
 		}
 
-		$item->fromArray( $data, true );
-		$item->setConfig( $conf );
+		$item = $item->fromArray( $data, true )->setConfig( $conf )
+			->setUrl( \Aimeos\MW\Common\Base::sanitize( $item->getUrl() ?: $item->getLabel() ) );
 
 		return $item;
 	}

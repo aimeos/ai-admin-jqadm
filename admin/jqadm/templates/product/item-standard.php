@@ -395,6 +395,19 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 					<div class="separator"><i class="icon more"></i></div>
 
 					<div class="form-group row optional advanced">
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL segment' ) ); ?></label>
+						<div class="col-sm-8">
+							<input class="form-control item-label" type="text" required="required" tabindex="1"
+								name="<?= $this->formparam( array( 'item', 'product.url' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Name in URL (optional)' ) ); ?>"
+								value="<?= $enc->attr( $this->get( 'itemData/product.url' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?> />
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'The name of the product shown in the URL, will be used if no language specific URL segment exists' ) ); ?>
+						</div>
+					</div>
+					<div class="form-group row optional advanced">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Quantity scale' ) ); ?></label>
 						<div class="col-sm-8">
 							<input class="form-control item-scale" type="number" tabindex="1" min="0.001" step="0.001"
