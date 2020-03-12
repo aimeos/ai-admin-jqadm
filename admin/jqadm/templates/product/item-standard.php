@@ -397,7 +397,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 					<div class="form-group row optional advanced">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL segment' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-label" type="text" required="required" tabindex="1"
+							<input class="form-control item-label" type="text" tabindex="1"
 								name="<?= $this->formparam( array( 'item', 'product.url' ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Name in URL (optional)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/product.url' ) ); ?>"
