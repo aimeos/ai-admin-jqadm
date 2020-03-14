@@ -349,7 +349,7 @@ Aimeos.Product.Bundle = {
 	init : function()  {
 
 		var tab = $(".item-navbar .bundle");
-		$(".item-basic .item-type option[selected]").val() === 'bundle' ? tab.show() : tab.hide();
+		$(".item-basic .item-type").val() === 'bundle' ? tab.show() : tab.hide();
 
 		$(".item-basic .item-type").on("change", function() {
 			$("option:selected", this).val() === 'bundle' ? tab.show() : tab.hide();
@@ -742,7 +742,7 @@ Aimeos.Product.Selection = {
 	init : function() {
 
 		var tab = $(".item-navbar .selection");
-		$(".item-basic .item-type option[selected]").val() === 'select' ? tab.show() : tab.hide();
+		$(".item-basic .item-type").val() === 'select' ? tab.show() : tab.hide();
 
 		$(".item-basic .item-type").on("change", function() {
 			$("option:selected", this).val() === 'select' ? tab.show() : tab.hide();
