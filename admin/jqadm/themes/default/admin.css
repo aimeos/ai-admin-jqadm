@@ -250,11 +250,11 @@
 }
 
 .aimeos .attribute-list th:not(.actions) {
-	width: 40%;
+	width: 49%;
 }
 
 .aimeos .attribute-list th.actions {
-	width: 20%;
+	width: 2%;
 }
 
 .aimeos .property-type,
