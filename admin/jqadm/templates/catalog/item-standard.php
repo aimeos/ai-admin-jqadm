@@ -208,6 +208,19 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 								<div class="separator"><i class="icon more"></i></div>
 
+								<div class="form-group row optional advanced">
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL segment' ) ); ?></label>
+									<div class="col-sm-8">
+										<input class="form-control item-label" type="text" tabindex="1"
+											name="<?= $this->formparam( array( 'item', 'catalog.url' ) ); ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Name in URL (optional)' ) ); ?>"
+											value="<?= $enc->attr( $this->get( 'itemData/catalog.url' ) ); ?>"
+											<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ); ?> />
+									</div>
+									<div class="col-sm-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'The name of the category shown in the URL, will be used if no language specific URL segment exists' ) ); ?>
+									</div>
+								</div>
 								<div class="form-group row optional advanced warning">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL target' ) ); ?></label>
 									<div class="col-sm-8">

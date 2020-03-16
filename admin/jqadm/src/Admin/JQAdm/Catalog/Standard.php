@@ -457,8 +457,7 @@ class Standard
 			$item = $manager->createItem();
 		}
 
-		$item->fromArray( $data, true );
-		$item->setConfig( $conf );
+		$item = $item->fromArray( $data, true )->setConfig( $conf );
 
 		if( $item->getId() == null ) {
 			return $manager->insertItem( $item, $data['catalog.parentid'] ?: null );
