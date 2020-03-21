@@ -124,11 +124,12 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 							<div class="form-group row optional">
 								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ); ?></label>
 								<div class="col-lg-8">
-									<input type="hidden" v-model="item['stock.id']"
+									<input type="hidden" v-bind:disabled="item['stock'] === false" v-model="item['stock.id']"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'stock.id'] ) ); ?>'.replace('idx', idx)" />
 									<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'stock.stocklevel' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('product.siteid', idx)"
+										v-bind:disabled="item['stock'] === false"
 										v-model="item['stock.stocklevel']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">

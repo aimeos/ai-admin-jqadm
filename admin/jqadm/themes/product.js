@@ -864,7 +864,8 @@ Aimeos.Product.Selection = {
 									return {
 										id: obj.id || null,
 										code: obj.attributes['product.code'] || null,
-										label: obj.attributes['product.label'] || null
+										label: obj.attributes['product.label'] || null,
+										stock: false
 									};
 								}));
 							}
@@ -879,6 +880,7 @@ Aimeos.Product.Selection = {
 						this.$set(this.items[idx], 'product.id', item.id);
 						this.$set(this.items[idx], 'product.code', item.code);
 						this.$set(this.items[idx], 'product.label', item.label);
+						this.$set(this.items[idx], 'stock', item.stock);
 					}
 				},
 

@@ -285,14 +285,16 @@ class Standard
 
 			$refItem->fromArray( $entry, true );
 
+			if( isset( $entry['stock.stocklevel'] ) ) {
+				$codes[] = $refItem->getCode();
+			}
+
 			if( isset( $entry['attr'] ) ) {
 				$refItem = $this->fromArrayAttributes( $refItem, $entry['attr'] );
 			}
 
 			$item->addListItem( 'product', $litem, $refItem );
 			unset( $listItems[$litem->getId()] );
-
-			$codes[] = $refItem->getCode();
 		}
 
 		$this->fromArrayStocks( $codes, $data );
@@ -355,6 +357,10 @@ class Standard
 
 		foreach( $data as $entry )
 		{
+			if( !isset( $entry['stock.stocklevel'] ) ) {
+				continue;
+			}
+
 			$code = $entry['product.code'];
 
 			if( ( $stockItem = $stockItems->get( $map[$code] ?? null ) ) === null ) {
