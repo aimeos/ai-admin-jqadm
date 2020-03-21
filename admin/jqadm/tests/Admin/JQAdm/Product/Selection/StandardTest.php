@@ -44,6 +44,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 					'product.siteid' => '1',
 					'product.code' => 'testprod',
 					'product.label' => 'test product',
+					'stock.stocklevel' => 10,
 					'attr' => array(
 						array(
 							'product.lists.id' => '456',
@@ -51,7 +52,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 							'product.lists.refid' => '789',
 							'attribute.label' => 'test attribute',
 						)
-					)
+					),
 				)
 			),
 		);
@@ -121,6 +122,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 					'product.code' => 'testprod',
 					'product.label' => 'test product',
 					'product.status' => '1',
+					'stock.stocklevel' => 20,
 					'attr' => array(
 						array(
 							'product.lists.id' => '456',
@@ -136,6 +138,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->save();
+
+
+		$manager = \Aimeos\MShop::create( $this->context, 'stock' );
+		$stock = $manager->findItem( 'testprod', [], 'product', 'default' );
+		$manager->deleteItem( $stock );
 
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );

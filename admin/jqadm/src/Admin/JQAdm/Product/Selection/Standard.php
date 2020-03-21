@@ -267,8 +267,8 @@ class Standard
 		$manager = \Aimeos\MShop::create( $context, 'product' );
 		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
-		$articles = $item->getRefItems( 'product', null, 'default', false );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
+		$codes = [];
 
 		foreach( $data as $idx => $entry )
 		{
@@ -276,9 +276,7 @@ class Standard
 				$litem = $listManager->createItem()->setType( 'default' );
 			}
 
-			if( isset( $articles[$litem->getRefId()] ) ) {
-				$refItem = $articles[$litem->getRefId()];
-			} else {
+			if( ( $refItem = $litem->getRefItem() ) === null ) {
 				$refItem = $manager->createItem()->setType( 'default' );
 			}
 
@@ -293,7 +291,11 @@ class Standard
 
 			$item->addListItem( 'product', $litem, $refItem );
 			unset( $listItems[$litem->getId()] );
+
+			$codes[] = $refItem->getCode();
 		}
+
+		$this->fromArrayStocks( $codes, $data );
 
 		return $item->deleteListItems( $listItems->toArray() );
 	}
@@ -321,14 +323,61 @@ class Standard
 				$litem = $listManager->createItem()->setType( 'variant' );
 			}
 
-			$litem->fromArray( $attr, true );
-			$litem->setPosition( $pos );
+			$litem = $litem->fromArray( $attr, true )->setPosition( $pos );
 
 			$refItem->addListItem( 'attribute', $litem, $litem->getRefItem() );
 			unset( $litems[$litem->getId()] );
 		}
 
 		return $refItem->deleteListItems( $litems->toArray() );
+	}
+
+
+	/**
+	 * Updates the stocklevels for the products
+	 *
+	 * @param array $data List of product codes
+	 * @param array $data Data array
+	 */
+	protected function fromArrayStocks( array $codes, array $data )
+	{
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
+
+		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
+		$search->setConditions( $search->combine( '&&', [
+			$search->compare( '==', 'stock.productcode', $codes ),
+			$search->compare( '==', 'stock.type', 'default' ),
+		] ) );
+
+		$stockItems = $manager->searchItems( $search );
+		$map = $stockItems->col( 'stock.productcode', 'stock.id' );
+		$list = [];
+
+		foreach( $data as $entry )
+		{
+			$code = $entry['product.code'];
+
+			if( ( $stockItem = $stockItems->get( $map[$code] ?? null ) ) === null ) {
+				$stockItem = $manager->createItem();
+			}
+
+			$stockItem->fromArray( $entry, true )->setProductCode( $code )->setType( 'default' );
+			unset( $stockItems[$stockItem->getId()] );
+
+			$list[] = $stockItem;
+		}
+
+		try
+		{
+			$manager->begin();
+			$manager->deleteItems( $stockItems->toArray() )->saveItems( $list, false );
+			$manager->commit();
+		}
+		catch( \Exception $e )
+		{
+			$manager->rollback();
+			throw $e;
+		}
 	}
 
 
@@ -347,7 +396,6 @@ class Standard
 
 		$data = [];
 		$siteId = $this->getContext()->getLocale()->getSiteId();
-		$articles = $item->getRefItems( 'product', null, 'default', false );
 
 
 		foreach( $item->getListItems( 'product', 'default', null, false ) as $id => $listItem )
@@ -366,17 +414,16 @@ class Standard
 				$list['product.id'] = null;
 			}
 
-			if( ( $article = $articles->get( $refItem->getId() ) ) !== null )
-			{
-				$idx = 0;
+			$idx = 0;
 
-				foreach( $article->getListItems( 'attribute', 'variant', null, false ) as $litem )
-				{
-					if( ( $attrItem = $litem->getRefItem() ) !== null ) {
-						$list['attr'][$idx++] = $litem->toArray( true ) + $attrItem->toArray( true );
-					}
+			foreach( $refItem->getListItems( 'attribute', 'variant', null, false ) as $litem )
+			{
+				if( ( $attrItem = $litem->getRefItem() ) !== null ) {
+					$list['attr'][$idx++] = $litem->toArray( true ) + $attrItem->toArray( true );
 				}
 			}
+
+			$list = array_merge( $list, $refItem->getStockItems( 'default' )->first( map() )->toArray() );
 
 			$data[] = $list;
 		}

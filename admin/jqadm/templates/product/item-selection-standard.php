@@ -12,7 +12,7 @@ $cntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/get/action', 'get' );
 $config = $this->config( 'admin/jqadm/url/get/config', [] );
 
-$keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'product.label', 'product.code', 'product.status'];
+$keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'product.label', 'product.code', 'product.status', 'stock.id', 'stock.stocklevel'];
 
 
 ?>
@@ -116,6 +116,20 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
 										v-bind:readonly="checkSite('product.siteid', idx)"
 										v-model="item['product.label']" />
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
+								</div>
+							</div>
+							<div class="form-group row optional">
+								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ); ?></label>
+								<div class="col-lg-8">
+									<input type="hidden" v-model="item['stock.id']"
+										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'stock.id'] ) ); ?>'.replace('idx', idx)" />
+									<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'stock.stocklevel' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:readonly="checkSite('product.siteid', idx)"
+										v-model="item['stock.stocklevel']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
