@@ -750,46 +750,6 @@ Aimeos.Product.Selection = {
 	},
 
 
-	getArticles : function(request, response) {
-
-		Aimeos.options.done(function(data) {
-
-			if(!data.meta.resources['product']) {
-				return;
-			}
-
-			var params = {}, param = {};
-
-			param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type.code': 'default'}}]};
-			param['fields'] = {'product': 'product.id,product.code,product.label'};
-			param['sort'] = 'product.code';
-
-			if( data.meta && data.meta.prefix ) {
-				params[data.meta.prefix] = param;
-			} else {
-				params = param;
-			}
-
-			$.ajax({
-				dataType: "json",
-				url: data.meta.resources['product'],
-				data: params,
-				success: function(result) {
-					var list = result.data || [];
-
-					response( list.map(function(obj) {
-						return {
-							id: obj.id || null,
-							code: obj.attributes['product.code'] || null,
-							label: obj.attributes['product.label'] || null
-						};
-					}));
-				}
-			});
-		});
-	},
-
-
 	mixins : function() {
 		return {
 			'methods': {
