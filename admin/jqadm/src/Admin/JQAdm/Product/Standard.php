@@ -251,6 +251,7 @@ class Standard
 		try
 		{
 			$total = 0;
+			$domains = map( $this->getDomains() )->remove( 'product' );
 			$params = $this->storeSearchParams( $view->param(), 'product' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
@@ -258,7 +259,7 @@ class Standard
 			$search->setSortations( [$search->sort( '+', 'product.id' )] );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->searchItems( $search, array_diff( $this->getDomains(), ['product'] ), $total );
+			$view->items = $manager->searchItems( $search, $domains->toArray(), $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemTypes = $this->getTypeItems();

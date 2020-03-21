@@ -121,6 +121,7 @@ return [
 			'price/property' => 'price/property',
 			'product' => 'product',
 			'product/property' => 'product/property',
+			'stock' => ['default'],
 			'text' => 'text',
 		],
 		'standard' => [
