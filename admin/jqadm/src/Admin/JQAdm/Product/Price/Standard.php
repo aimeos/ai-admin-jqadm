@@ -442,7 +442,7 @@ class Standard
 		{
 			if( $item->getListItem( 'attribute', 'custom', $attrItem->getId(), false ) === null )
 			{
-				$listItem = \Aimeos\MShop::create( $context, 'product' )->createListsItem();
+				$listItem = \Aimeos\MShop::create( $context, 'product' )->createListItem();
 				$item = $item->addListItem( 'attribute', $listItem->setType( 'custom' ), $attrItem );
 			}
 		}

@@ -323,7 +323,7 @@ class Standard
 			if( isset( $listItems[$listId] ) ) {
 				$litem = $listItems[$listId]; unset( $listItems[$listId] );
 			} else {
-				$litem = $prodManager->createListsItem()->setType( 'hidden' );
+				$litem = $prodManager->createListItem()->setType( 'hidden' );
 			}
 
 			if( ( $refItem = $litem->getRefItem() ) === null ) {
