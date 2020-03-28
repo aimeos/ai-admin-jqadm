@@ -111,6 +111,10 @@
 	content: "\f093";
 }
 
+.aimeos .btn.act-list.fa:before {
+	content: "\f0ca";
+}
+
 .aimeos .btn.act-menu.fa:before {
 	content: "\f067";
 }
