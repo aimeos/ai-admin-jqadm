@@ -280,9 +280,7 @@ class Standard
 				$refItem = $manager->createItem()->setType( 'default' );
 			}
 
-			$litem->fromArray( $entry, true );
-			$litem->setPosition( $idx );
-
+			$litem->fromArray( $entry, true )->setPosition( $idx );
 			$refItem->fromArray( $entry, true );
 
 			if( isset( $entry['stock.stocklevel'] ) ) {
@@ -314,8 +312,9 @@ class Standard
 	{
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
 		$litems = $refItem->getListItems( 'attribute', 'variant', null, false );
+		$pos = 0;
 
-		foreach( $entry as $pos => $attr )
+		foreach( $entry as $attr )
 		{
 			if( !isset( $attr['product.lists.refid'] ) || $attr['product.lists.refid'] == '' ) {
 				continue;
@@ -325,7 +324,7 @@ class Standard
 				$litem = $listManager->createItem()->setType( 'variant' );
 			}
 
-			$litem = $litem->fromArray( $attr, true )->setPosition( $pos );
+			$litem = $litem->fromArray( $attr, true )->setPosition( $pos++ );
 
 			$refItem->addListItem( 'attribute', $litem, $litem->getRefItem() );
 			unset( $litems[$litem->getId()] );

@@ -166,7 +166,8 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										</th>
 									</tr>
 								</thead>
-								<tbody>
+
+								<tbody is="draggable" handle=".act-move" tag="tbody">
 
 									<tr v-for="(attr, attridx) in (item['attr'] || [])">
 										<td>
@@ -194,7 +195,12 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											</select>
 										</td>
 										<td class="actions">
-											<div v-if="!checkSite('product.lists.siteid', idx, attridx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+											<div v-if="!checkSite('product.lists.siteid', idx, attridx)"
+												class="btn act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
+											</div>
+											<div v-if="!checkSite('product.lists.siteid', idx, attridx)"
+												class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 												v-on:click.stop="removeAttributeItem(idx, attridx)">
 											</div>
