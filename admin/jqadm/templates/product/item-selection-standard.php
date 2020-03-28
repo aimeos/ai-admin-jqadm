@@ -12,6 +12,11 @@ $cntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/get/action', 'get' );
 $config = $this->config( 'admin/jqadm/url/get/config', [] );
 
+$starget = $this->config( 'admin/jqadm/url/search/target' );
+$scntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
+$saction = $this->config( 'admin/jqadm/url/search/action', 'search' );
+$sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
+
 $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'product.label', 'product.code', 'product.status', 'stock.id', 'stock.stocklevel'];
 
 
@@ -150,6 +155,10 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											</div>
 										</th>
 										<th class="actions">
+											<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Go to the list of attributes' ) ); ?>"
+												href="<?= $enc->attr( $this->url( $starget, $scntl, $saction, ['resource' => 'attribute'] + $this->get( 'pageParams', [] ), [], $sconfig ) ); ?>">
+											</a>
 											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 												v-on:click="addAttributeItem(idx)">
