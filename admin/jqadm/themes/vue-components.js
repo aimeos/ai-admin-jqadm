@@ -228,7 +228,7 @@ Vue.component('taxrates', {
 						<div v-if="type != 0" class="input-group-append"><span class="input-group-text">{{ type.toUpperCase() }}</span></div> \
 					</td> \
 					<td class="actions"> \
-						<div v-if="!readonly && type == 0" class="dropdown"> \
+						<div v-if="!readonly && type == 0 && types.length" class="dropdown"> \
 							<button class="btn act-add fa" v-bind:tabindex="tabindex" \
 								type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> \
 							</button> \
