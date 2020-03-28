@@ -17,6 +17,11 @@ $cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
 $config = $this->config( 'admin/jqadm/url/save/config', [] );
 
+$starget = $this->config( 'admin/jqadm/url/search/target' );
+$scntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
+$saction = $this->config( 'admin/jqadm/url/search/action', 'search' );
+$sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
+
 $params = $this->get( 'pageParams', [] );
 
 
@@ -88,9 +93,6 @@ $params = $this->get( 'pageParams', [] );
 							<select class="form-control custom-select item-domain" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.domain' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?> >
-								<option value="">
-									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-								</option>
 
 								<?php foreach( ['product', 'media', 'text', 'catalog'] as $domain ) : ?>
 									<option value="<?= $enc->attr( $domain ); ?>" <?= $selected( $this->get( 'itemData/attribute.domain', 'product' ), $domain ); ?> >
@@ -127,19 +129,32 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-type" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.type' ) ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?> >
-								<option value="">
-									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-								</option>
+							<table>
+								<tr>
+									<td class="input-group">
+										<select class="form-control custom-select item-type" required="required" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.type' ) ) ); ?>"
+											<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?> >
+											<option value="">
+												<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+											</option>
 
-								<?php foreach( $this->get( 'itemTypes', [] ) as $item ) : ?>
-									<option value="<?= $enc->attr( $item->getCode() ); ?>" <?= $selected( $this->get( 'itemData/attribute.type' ), $item->getCode() ); ?> >
-										<?= $enc->html( $item->getLabel() ); ?>
-									</option>
-								<?php endforeach; ?>
-							</select>
+											<?php foreach( $this->get( 'itemTypes', [] ) as $item ) : ?>
+												<option value="<?= $enc->attr( $item->getCode() ); ?>" <?= $selected( $this->get( 'itemData/attribute.type' ), $item->getCode() ); ?> >
+													<?= $enc->html( $item->getLabel() ); ?>
+												</option>
+											<?php endforeach; ?>
+										</select>
+									</td>
+									<td class="actions">
+										<a class="btn act-add fa" tabindex="1" target="_blank"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Go to the list of attribute types' ) ); ?>"
+											href="<?= $enc->attr( $this->url( $starget, $scntl, $saction, ['resource' => 'type/attribute'] + $params, [], $sconfig ) ); ?>">
+										</a>
+									</td>
+								</tr>
+							</table>
+
 						</div>
 					</div>
 				</div><!--
