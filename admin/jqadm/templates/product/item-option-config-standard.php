@@ -8,6 +8,11 @@
 
 $enc = $this->encoder();
 
+$starget = $this->config( 'admin/jqadm/url/search/target' );
+$scntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
+$saction = $this->config( 'admin/jqadm/url/search/action', 'search' );
+$sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
+
 $keys = [
 	'product.lists.id', 'product.lists.siteid', 'product.lists.refid',
 	'attribute.label', 'attribute.type'
@@ -38,6 +43,10 @@ $keys = [
 					</div>
 				</th>
 				<th class="actions">
+					<a class="btn act-list fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Go to attribute panel' ) ); ?>"
+						href="<?= $enc->attr( $this->url( $starget, $scntl, $saction, ['resource' => 'attribute'] + $this->get( 'pageParams', [] ), [], $sconfig ) ); ?>">
+					</a>
 					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
 						v-on:click="addItem('product.lists.')">

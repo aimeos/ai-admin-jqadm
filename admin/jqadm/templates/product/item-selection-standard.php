@@ -155,8 +155,8 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											</div>
 										</th>
 										<th class="actions">
-											<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Go to the list of attributes' ) ); ?>"
+											<a class="btn act-list fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Go to attribute panel' ) ); ?>"
 												href="<?= $enc->attr( $this->url( $starget, $scntl, $saction, ['resource' => 'attribute'] + $this->get( 'pageParams', [] ), [], $sconfig ) ); ?>">
 											</a>
 											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
