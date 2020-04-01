@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Ismail Ashour <dr.ashoor@gmail.com>, 2016
+# Mahmoud Elnomrosy <elnomrosy66@gmail.com>, 2020
 # Mohamed Hassan <hassan.mohamed.sf@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-14 16:35+0000\n"
+"POT-Creation-Date: 2020-04-02 15:27+0200\n"
+"PO-Revision-Date: 2020-04-02 13:35+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Arabic (http://www.transifex.com/aimeos/aimeos-core/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -68,6 +69,9 @@ msgstr ""
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
+msgstr "(دولي)رقم الهاتف بدون اي فواصل , يمكن البدء بعلامة \"+\""
+
+msgid "?"
 msgstr ""
 
 msgid "Active"
@@ -142,7 +146,7 @@ msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "اتاحة العملاء للاختيار بنفسهم كم يريدون ان يدفعون"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "اسم مميز من حروف او ارقام أول الأثنين معاً يكون ممِزاً للمجموعة"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -183,19 +187,19 @@ msgid "Attributes"
 msgstr ""
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "العملة المتاحة للموقع الحالي"
 
 msgid "Available intervals in the front-end"
 msgstr ""
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "اللغة المتاحة للموقع الحالي"
 
 msgid "Back in stock"
 msgstr ""
 
 msgid "Basic"
-msgstr ""
+msgstr "اساسي"
 
 msgid "Basket"
 msgstr "السلة"
@@ -207,25 +211,25 @@ msgid "Birthday"
 msgstr "تاريخ الميلاد"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "عيد ميلاد العميل"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "مشاكل تقنية أو إقتراحات"
 
 msgid "Cancel"
 msgstr "إلغاء"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "الإلغاء والعودة إلي القائمة"
 
 msgid "Catalog"
-msgstr ""
+msgstr "كتالوج"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "نوع قوائم الكاتالوج"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "أنواع قوائم الكاتالوج"
 
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
@@ -239,13 +243,13 @@ msgid ""
 msgstr ""
 
 msgid "Choose file"
-msgstr ""
+msgstr "أختر ملف"
 
 msgid "City"
 msgstr "المدينة"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "أسم المدينة (مطلوب)"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -259,7 +263,7 @@ msgid "Close"
 msgstr "إغلاق"
 
 msgid "Code"
-msgstr ""
+msgstr "كود"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
 msgstr ""
@@ -271,22 +275,22 @@ msgid "Comment"
 msgstr "تعليق"
 
 msgid "Communication"
-msgstr ""
+msgstr "التواصل"
 
 msgid "Company"
 msgstr "الشركة"
 
 msgid "Company details"
-msgstr ""
+msgstr "معلومات الشركة"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "اسم الشركة (إختياري)"
 
 msgid "Config"
-msgstr ""
+msgstr "ضبط"
 
 msgid "Configurable"
-msgstr ""
+msgstr "قابل للضبط"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
@@ -302,16 +306,16 @@ msgid "Costs"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "حساب العدد"
 
 msgid "Country"
 msgstr "الدولة"
 
 msgid "Country ID"
-msgstr ""
+msgstr "معرف الدولة"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "كود الدولة (مطلوب)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
@@ -322,28 +326,28 @@ msgid "Country state code (optional)"
 msgstr ""
 
 msgid "Coupon"
-msgstr ""
+msgstr "قسيمة خصم"
 
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
 
 msgid "Created"
-msgstr ""
+msgstr "أنشئ"
 
 msgid "Currencies"
-msgstr ""
+msgstr "العملات"
 
 msgid "Currency"
-msgstr ""
+msgstr "عملة"
 
 msgid "Custom"
 msgstr ""
 
 msgid "Customer"
-msgstr ""
+msgstr "عميل"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "معرف العميل"
 
 msgid "Customer Lists Type"
 msgstr ""
@@ -379,7 +383,7 @@ msgid "Customer reference (optional)"
 msgstr ""
 
 msgid "Dashboard"
-msgstr ""
+msgstr "لوحة التحكم"
 
 msgid "Data set"
 msgstr ""
@@ -394,13 +398,13 @@ msgid "Date the subscription ends"
 msgstr ""
 
 msgid "Days"
-msgstr ""
+msgstr "ايام"
 
 msgid "Default"
-msgstr ""
+msgstr "إفتراضي"
 
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 msgid "Delete items?"
 msgstr ""
@@ -413,6 +417,10 @@ msgstr "التوصيل"
 
 msgid "Delivery address"
 msgstr "عنوان التوصيل"
+
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr ""
 
 msgid "Delivery status"
 msgstr ""
@@ -438,6 +446,9 @@ msgid "Descritive name of the language"
 msgstr ""
 
 msgid "Descritive name of the site"
+msgstr ""
+
+msgid "Display help texts"
 msgstr ""
 
 msgid "Domain"
@@ -533,6 +544,18 @@ msgstr ""
 msgid "Floor and/or apartment (optional)"
 msgstr ""
 
+msgid "Given rebate amount"
+msgstr ""
+
+msgid "Go to attribute panel"
+msgstr ""
+
+msgid "Go to property type panel"
+msgstr ""
+
+msgid "Go to the list of attribute types"
+msgstr ""
+
 msgid "Group"
 msgstr ""
 
@@ -546,6 +569,9 @@ msgid "Hidden attributes"
 msgstr ""
 
 msgid "Hidden product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Highlighted suppliers of the product"
 msgstr ""
 
 msgid "Honorary title (optional)"
@@ -774,6 +800,9 @@ msgstr ""
 msgid "Name"
 msgstr "الإسم"
 
+msgid "Name in URL (optional)"
+msgstr ""
+
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
@@ -971,6 +1000,12 @@ msgstr ""
 msgid "Price Lists Types"
 msgstr ""
 
+msgid "Price Property Type"
+msgstr ""
+
+msgid "Price Property Types"
+msgstr ""
+
 msgid "Price Type"
 msgstr ""
 
@@ -1091,6 +1126,9 @@ msgid "Quantity"
 msgstr ""
 
 msgid "Quantity scale"
+msgstr ""
+
+msgid "Rabate"
 msgstr ""
 
 msgid "Reason"
@@ -1323,9 +1361,6 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr ""
 
-msgid "Given rebate amount"
-msgstr ""
-
 msgid "Suggested products"
 msgstr "المنتجات المقترحة"
 
@@ -1336,6 +1371,9 @@ msgid "Supplier"
 msgstr ""
 
 msgid "Supplier name or company"
+msgstr ""
+
+msgid "Suppliers who manufacture the product"
 msgstr ""
 
 msgid "Tag Type"
@@ -1385,6 +1423,16 @@ msgid "The item is only shown on the web site until that date and time"
 msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
+msgstr ""
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
 msgstr ""
 
 msgid "The option is only shown on the web site after that date and time"
@@ -1444,6 +1492,9 @@ msgid "URL of the customer web site"
 msgstr ""
 
 msgid "URL of the supplier web site"
+msgstr ""
+
+msgid "URL segment"
 msgstr ""
 
 msgid "URL target"
@@ -1623,7 +1674,7 @@ msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "لوحة التحكم"
 
 #, php-format
 msgid "day"
@@ -1663,7 +1714,7 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "العملات"
 
 #, php-format
 msgid "locale/language"
@@ -1910,6 +1961,10 @@ msgstr ""
 
 #, php-format
 msgid "type/price/lists"
+msgstr ""
+
+#, php-format
+msgid "type/price/property"
 msgstr ""
 
 #, php-format

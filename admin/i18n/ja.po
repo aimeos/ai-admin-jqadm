@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-14 16:35+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2020-04-02 15:27+0200\n"
+"PO-Revision-Date: 2020-04-02 13:35+0000\n"
+"Last-Translator: Darshan Sampat <darshan@usindia.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,6 +69,9 @@ msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
 msgstr "(国際)電話番号は分離文字なし、\"+\"で始めることができます。"
+
+msgid "?"
+msgstr ""
 
 msgid "Active"
 msgstr "能動"
@@ -414,6 +417,10 @@ msgstr "配達"
 msgid "Delivery address"
 msgstr "配達先"
 
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr ""
+
 msgid "Delivery status"
 msgstr "配達状況"
 
@@ -439,6 +446,9 @@ msgstr "言語の記述名"
 
 msgid "Descritive name of the site"
 msgstr "サイトの記述名"
+
+msgid "Display help texts"
+msgstr ""
 
 msgid "Domain"
 msgstr "ドメイン"
@@ -533,6 +543,18 @@ msgstr "階//アパート"
 msgid "Floor and/or apartment (optional)"
 msgstr "階および/またはアパート（オプション）"
 
+msgid "Given rebate amount"
+msgstr ""
+
+msgid "Go to attribute panel"
+msgstr ""
+
+msgid "Go to property type panel"
+msgstr ""
+
+msgid "Go to the list of attribute types"
+msgstr ""
+
 msgid "Group"
 msgstr "グループ"
 
@@ -547,6 +569,9 @@ msgstr "非表示の属性"
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr "注文商品に格納されている非表示の商品属性"
+
+msgid "Highlighted suppliers of the product"
+msgstr ""
 
 msgid "Honorary title (optional)"
 msgstr "名誉称号 (オプション)"
@@ -774,6 +799,9 @@ msgstr "このエントリを上下に移動する"
 msgid "Name"
 msgstr "名前"
 
+msgid "Name in URL (optional)"
+msgstr ""
+
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr "顧客がファイルをコンピュータに保存したときにダウンロードしたファイルの名前"
@@ -971,6 +999,12 @@ msgstr "価格リストタイプ"
 msgid "Price Lists Types"
 msgstr "価格リストタイプ"
 
+msgid "Price Property Type"
+msgstr ""
+
+msgid "Price Property Types"
+msgstr ""
+
 msgid "Price Type"
 msgstr "価格タイプ"
 
@@ -1091,6 +1125,9 @@ msgid "Quantity"
 msgstr "数量"
 
 msgid "Quantity scale"
+msgstr ""
+
+msgid "Rabate"
 msgstr ""
 
 msgid "Reason"
@@ -1323,9 +1360,6 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "年、月、週、日のサブスクリプション間隔。 0年、1ヶ月、2週間および3日間の \"P0Y1M2W3D\""
 
-msgid "Given rebate amount"
-msgstr ""
-
 msgid "Suggested products"
 msgstr "推奨商品"
 
@@ -1337,6 +1371,9 @@ msgstr "サプライヤー"
 
 msgid "Supplier name or company"
 msgstr "サプライヤーの名前または会社"
+
+msgid "Suppliers who manufacture the product"
+msgstr ""
 
 msgid "Tag Type"
 msgstr "タグタイプ"
@@ -1385,6 +1422,16 @@ msgid "The item is only shown on the web site until that date and time"
 msgstr "項目はその日時までウェブサイトにのみ表示されます"
 
 msgid "The media title is used for the title tag of the media on the web site"
+msgstr ""
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
 msgstr ""
 
 msgid "The option is only shown on the web site after that date and time"
@@ -1445,6 +1492,9 @@ msgstr "顧客のWebサイトのURL"
 
 msgid "URL of the supplier web site"
 msgstr "サプライヤのWebサイトのURL"
+
+msgid "URL segment"
+msgstr "URLセグメント"
 
 msgid "URL target"
 msgstr "URLターゲット"
@@ -1911,6 +1961,10 @@ msgstr "価格"
 #, php-format
 msgid "type/price/lists"
 msgstr "価格リスト"
+
+#, php-format
+msgid "type/price/property"
+msgstr ""
 
 #, php-format
 msgid "type/product"

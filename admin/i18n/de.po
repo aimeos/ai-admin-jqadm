@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-14 16:54+0000\n"
+"POT-Creation-Date: 2020-04-02 15:27+0200\n"
+"PO-Revision-Date: 2020-04-02 13:43+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -71,6 +71,9 @@ msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
 msgstr "(Internationale) Telefonnummer ohne Trennzeichen, kann mit einem \"+\" beginnen"
+
+msgid "?"
+msgstr "?"
 
 msgid "Active"
 msgstr "Aktiv"
@@ -416,6 +419,10 @@ msgstr "Versand"
 msgid "Delivery address"
 msgstr "Lieferadresse"
 
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr "Versand- oder Zahlungskosten für die Produkte im Warenkorb des Kunden"
+
 msgid "Delivery status"
 msgstr "Lieferstatus"
 
@@ -441,6 +448,9 @@ msgstr "Beschreibender Name der Sprache"
 
 msgid "Descritive name of the site"
 msgstr "Beschreibender Name des Mandanten"
+
+msgid "Display help texts"
+msgstr "Hilfetexte anzeigen"
 
 msgid "Domain"
 msgstr "Domäne"
@@ -535,6 +545,18 @@ msgstr "Etage / Wohnung"
 msgid "Floor and/or apartment (optional)"
 msgstr "Etage und/oder Wohnung (optional)"
 
+msgid "Given rebate amount"
+msgstr "Abgezogener Rabattbetrag"
+
+msgid "Go to attribute panel"
+msgstr "Zur Attributeliste"
+
+msgid "Go to property type panel"
+msgstr "Zur Liste der Eigenschaftstypen"
+
+msgid "Go to the list of attribute types"
+msgstr "Zur Liste der Attributtypen"
+
 msgid "Group"
 msgstr "Gruppe"
 
@@ -549,6 +571,9 @@ msgstr "Versteckte Attribute"
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr "Versteckte Attribute, die zusammen mit den bestellen Produkten gespeichert werden"
+
+msgid "Highlighted suppliers of the product"
+msgstr "Hervorgehobene Lieferanten des Produkts"
 
 msgid "Honorary title (optional)"
 msgstr "Akademischer Titel (optional)"
@@ -776,6 +801,9 @@ msgstr "Eintrag nach oben/unten verschieben"
 msgid "Name"
 msgstr "Name"
 
+msgid "Name in URL (optional)"
+msgstr "Name in der URL (optional)"
+
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr "Name der herunter geladenen Datei wenn Kunden sie auf ihrem Computer abspeichern"
@@ -973,6 +1001,12 @@ msgstr "Preis-Listentyp"
 msgid "Price Lists Types"
 msgstr "Preis-Listentypen"
 
+msgid "Price Property Type"
+msgstr "Preiseigentschaftstyp"
+
+msgid "Price Property Types"
+msgstr "Preiseigenschaftstypen"
+
 msgid "Price Type"
 msgstr "Preistyp"
 
@@ -1072,7 +1106,7 @@ msgid "Products bought together"
 msgstr "Zusammen gekaufte Produkte"
 
 msgid "Promotion"
-msgstr "Beliebteste"
+msgstr "Beworben"
 
 msgid "Properties"
 msgstr "Eigenschaften"
@@ -1094,6 +1128,9 @@ msgstr "Anzahl"
 
 msgid "Quantity scale"
 msgstr "Mengenskala"
+
+msgid "Rabate"
+msgstr "Rabatt"
 
 msgid "Reason"
 msgstr "Grund"
@@ -1325,9 +1362,6 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "Abointervall mit Jahren, Monaten, Wochen und Tagen, z.B. \"P0Y1M2W3D\" für kein Jahr, ein Monat, zwei Wochen und drei Tage"
 
-msgid "Given rebate amount"
-msgstr "Abgezogener Rabattbetrag"
-
 msgid "Suggested products"
 msgstr "Empfohlene Produkte"
 
@@ -1339,6 +1373,9 @@ msgstr "Lieferant"
 
 msgid "Supplier name or company"
 msgstr "Lieferantenname oder Firma"
+
+msgid "Suppliers who manufacture the product"
+msgstr "Lieferanten, die das Produkt anbieten"
 
 msgid "Tag Type"
 msgstr "Schlagworttyp"
@@ -1388,6 +1425,16 @@ msgstr "Dieser Eintrag wird auf der Webseite bis zu dem Datum und der Uhrzeit an
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "Wird für den Titel des Bildes auf der Webseite verwendet"
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr "Name der Kategorie wie sie in der URL angezeigt wird. Wird verwendet, wenn kein sprachspezifisches URL Segment existiert"
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr "Name des Produkts wie es in der URL angezeigt wird. Wird verwendet, wenn kein sprachspezifisches URL Segment existiert"
 
 msgid "The option is only shown on the web site after that date and time"
 msgstr "Diese Option wird auf der Webseite erst nach dem Datum und der Uhrzeit angezeigt"
@@ -1447,6 +1494,9 @@ msgstr "URL der Kundenwebseite"
 
 msgid "URL of the supplier web site"
 msgstr "URL der Lieferantenwebseite"
+
+msgid "URL segment"
+msgstr "URL- Bestandteil"
 
 msgid "URL target"
 msgstr "URL Ziel"
@@ -1913,6 +1963,10 @@ msgstr "Preise"
 #, php-format
 msgid "type/price/lists"
 msgstr "Preislisten"
+
+#, php-format
+msgid "type/price/property"
+msgstr "Preiseigenschaften"
 
 #, php-format
 msgid "type/product"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Metal <meteoramic@yahoo.com>, 2015-2019
+# Metal <meteoramic@yahoo.com>, 2015-2020
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-14 16:35+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2020-04-02 15:27+0200\n"
+"PO-Revision-Date: 2020-04-02 13:35+0000\n"
+"Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,11 +69,14 @@ msgid ""
 "with a \"+\""
 msgstr "Ayırma karakterleri olmaksızın telefon numarası (uluslararası), \"+\" ile başlayabilir"
 
+msgid "?"
+msgstr ""
+
 msgid "Active"
 msgstr "Etkin"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Güncel fiyat"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "Müşterilerin ürünü satın alabileceği gerçek ürün web site fiyatı"
@@ -116,11 +119,11 @@ msgstr "Gelişmiş"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos önbelleklemesi \"%1$s\" tarafından devre dışı bırakıldı"
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos hata ayıklama günlüğü \"%1$s\" tarafından etkinleştirildi"
 
 #, php-format
 msgid "Aimeos object not available"
@@ -357,7 +360,7 @@ msgid "Customer Property Types"
 msgstr "Müşteri Özellik Türleri"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Diğer müşterilerle paylaşılmayan müşteri karakteristikleri"
 
 msgid "Customer comment (optional)"
 msgstr "Müşteri yorumu (isteğe bağlı)"
@@ -413,6 +416,10 @@ msgstr "Teslimat"
 msgid "Delivery address"
 msgstr "Teslimat adresi"
 
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr ""
+
 msgid "Delivery status"
 msgstr "Teslimat durumu"
 
@@ -438,6 +445,9 @@ msgstr "Dilin tanımlayıcı adı"
 
 msgid "Descritive name of the site"
 msgstr "Sitenin açıklayıcı adı"
+
+msgid "Display help texts"
+msgstr ""
 
 msgid "Domain"
 msgstr "Domain"
@@ -532,6 +542,18 @@ msgstr "Kat/Daire"
 msgid "Floor and/or apartment (optional)"
 msgstr "Kat ve/veya daire (opsiyonel)"
 
+msgid "Given rebate amount"
+msgstr "Belirlenmiş indirim tutarı"
+
+msgid "Go to attribute panel"
+msgstr ""
+
+msgid "Go to property type panel"
+msgstr ""
+
+msgid "Go to the list of attribute types"
+msgstr ""
+
 msgid "Group"
 msgstr "Grup"
 
@@ -546,6 +568,9 @@ msgstr "Gizli nitelikler"
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr "Sipariş edilen ürünlerle birlikte saklanan gizli ürün nitelikleri "
+
+msgid "Highlighted suppliers of the product"
+msgstr ""
 
 msgid "Honorary title (optional)"
 msgstr "Onur unvanı (isteğe bağlı)"
@@ -773,6 +798,9 @@ msgstr "Bu girişi yukarı/aşağı taşı"
 msgid "Name"
 msgstr "İsim"
 
+msgid "Name in URL (optional)"
+msgstr ""
+
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr "Müşteriler dosyayı bilgisayarlarına kaydettiğinde indirilen dosyanın adı"
@@ -878,7 +906,7 @@ msgstr "\"%1$s\" PHP ayarı devre dışı"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "\"%1$s\" PHP ayarı etkin"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
@@ -913,7 +941,7 @@ msgid "Payment types"
 msgstr "Ödeme türleri"
 
 msgid "Periods"
-msgstr ""
+msgstr "Dönemler"
 
 #, php-format
 msgid "Permission denied"
@@ -956,7 +984,7 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Tedarikçinin yaşadığı bölgede kullanılıyorsa teslimat için posta kodu"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Potansiyel sorunlar"
 
 msgid "Previous"
 msgstr "Önceki"
@@ -969,6 +997,12 @@ msgstr "Fiyat Liste Türleri"
 
 msgid "Price Lists Types"
 msgstr "Fiyat Liste Türleri"
+
+msgid "Price Property Type"
+msgstr ""
+
+msgid "Price Property Types"
+msgstr ""
 
 msgid "Price Type"
 msgstr "Fiyat Türü"
@@ -1090,6 +1124,9 @@ msgid "Quantity"
 msgstr "Miktar"
 
 msgid "Quantity scale"
+msgstr "Miktar skalası"
+
+msgid "Rabate"
 msgstr ""
 
 msgid "Reason"
@@ -1104,7 +1141,7 @@ msgid ""
 msgstr "Orijinal fiyattan yapılan iskonto, indirim yüzdesini ve çapraz fiyatı hesaplamak için kullanılır"
 
 msgid "Reference"
-msgstr ""
+msgstr "Referans"
 
 msgid "Related ID"
 msgstr "İlgili kimlik numarası"
@@ -1231,7 +1268,7 @@ msgid "Shipping"
 msgstr "Nakliye"
 
 msgid "Shipping costs/item"
-msgstr ""
+msgstr "Nakliye masrafları/ürün"
 
 msgid "Shipping/Payment costs"
 msgstr "Nakliye/Ödeme masrafları"
@@ -1322,9 +1359,6 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "Yıllık, aylık, haftalık ve günlük abonelik aralığı. Örneğin: sıfır yıl, bir ay, iki hafta ve üç gün için \"P0Y1M2W3D\""
 
-msgid "Given rebate amount"
-msgstr ""
-
 msgid "Suggested products"
 msgstr "Önerilen ürünler"
 
@@ -1336,6 +1370,9 @@ msgstr "Tedarikçi"
 
 msgid "Supplier name or company"
 msgstr "Tedarikçi adı veya şirketi"
+
+msgid "Suppliers who manufacture the product"
+msgstr ""
 
 msgid "Tag Type"
 msgstr "Etiket Türü"
@@ -1386,6 +1423,16 @@ msgstr "Öğe, web sitesinde sadece o tarih ve saate kadar gösterilir"
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "Medya başlığı sitedeki medyanın başlık etiketi için kullanılır"
 
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
 msgid "The option is only shown on the web site after that date and time"
 msgstr "Seçenek, web sitesinde sadece o tarih ve saatten sonra gösterilir"
 
@@ -1395,7 +1442,7 @@ msgstr "Seçenek, web sitesinde sadece o tarih ve saate kadar gösterilir"
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "Sepetteki miktarlar için izin verilen basamak değeri, örn: kesirli miktarlar için \"0.1\" veya beşin katları için \"5\""
 
 msgid "Three letter ISO currency code"
 msgstr "Üç harfli ISO para birimi kodu"
@@ -1444,6 +1491,9 @@ msgstr "Müşteri web sitesinin URL'si"
 
 msgid "URL of the supplier web site"
 msgstr "Tedarikçi web sitesinin URL'si"
+
+msgid "URL segment"
+msgstr "URL segmenti"
 
 msgid "URL target"
 msgstr "URL hedefi"
@@ -1634,7 +1684,7 @@ msgstr "Teslimat türüne göre"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "Ücretli indirmeler"
 
 #, php-format
 msgid "group"
@@ -1910,6 +1960,10 @@ msgstr "Fiyatlar"
 #, php-format
 msgid "type/price/lists"
 msgstr "Fiyat Listeleri"
+
+#, php-format
+msgid "type/price/property"
+msgstr ""
 
 #, php-format
 msgid "type/product"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-14 16:35+0000\n"
+"POT-Creation-Date: 2020-04-02 15:27+0200\n"
+"PO-Revision-Date: 2020-04-02 13:35+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -68,6 +68,9 @@ msgstr ""
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
+msgstr ""
+
+msgid "?"
 msgstr ""
 
 msgid "Active"
@@ -414,6 +417,10 @@ msgstr "Dostawa"
 msgid "Delivery address"
 msgstr "Adres dostawy"
 
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr ""
+
 msgid "Delivery status"
 msgstr "Status dostawy"
 
@@ -438,6 +445,9 @@ msgid "Descritive name of the language"
 msgstr ""
 
 msgid "Descritive name of the site"
+msgstr ""
+
+msgid "Display help texts"
 msgstr ""
 
 msgid "Domain"
@@ -533,6 +543,18 @@ msgstr ""
 msgid "Floor and/or apartment (optional)"
 msgstr ""
 
+msgid "Given rebate amount"
+msgstr ""
+
+msgid "Go to attribute panel"
+msgstr ""
+
+msgid "Go to property type panel"
+msgstr ""
+
+msgid "Go to the list of attribute types"
+msgstr ""
+
 msgid "Group"
 msgstr ""
 
@@ -546,6 +568,9 @@ msgid "Hidden attributes"
 msgstr ""
 
 msgid "Hidden product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Highlighted suppliers of the product"
 msgstr ""
 
 msgid "Honorary title (optional)"
@@ -774,6 +799,9 @@ msgstr ""
 msgid "Name"
 msgstr "Nazwa"
 
+msgid "Name in URL (optional)"
+msgstr ""
+
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
@@ -971,6 +999,12 @@ msgstr ""
 msgid "Price Lists Types"
 msgstr ""
 
+msgid "Price Property Type"
+msgstr ""
+
+msgid "Price Property Types"
+msgstr ""
+
 msgid "Price Type"
 msgstr ""
 
@@ -1091,6 +1125,9 @@ msgid "Quantity"
 msgstr "Ilość"
 
 msgid "Quantity scale"
+msgstr ""
+
+msgid "Rabate"
 msgstr ""
 
 msgid "Reason"
@@ -1323,9 +1360,6 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr ""
 
-msgid "Given rebate amount"
-msgstr ""
-
 msgid "Suggested products"
 msgstr "Produkty sugerowane"
 
@@ -1336,6 +1370,9 @@ msgid "Supplier"
 msgstr "Dostawca"
 
 msgid "Supplier name or company"
+msgstr ""
+
+msgid "Suppliers who manufacture the product"
 msgstr ""
 
 msgid "Tag Type"
@@ -1385,6 +1422,16 @@ msgid "The item is only shown on the web site until that date and time"
 msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
+msgstr ""
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
 msgstr ""
 
 msgid "The option is only shown on the web site after that date and time"
@@ -1444,6 +1491,9 @@ msgid "URL of the customer web site"
 msgstr ""
 
 msgid "URL of the supplier web site"
+msgstr ""
+
+msgid "URL segment"
 msgstr ""
 
 msgid "URL target"
@@ -1910,6 +1960,10 @@ msgstr ""
 
 #, php-format
 msgid "type/price/lists"
+msgstr ""
+
+#, php-format
+msgid "type/price/property"
 msgstr ""
 
 #, php-format
