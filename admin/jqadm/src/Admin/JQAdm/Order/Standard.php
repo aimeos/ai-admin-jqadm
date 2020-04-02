@@ -240,7 +240,7 @@ class Standard
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
 			$search = $this->initCriteria( $search, $params );
 			$search->setConditions( $search->combine( '&&', [
-				$search->compare( '!=', 'order.base.product.siteid', '' ),
+				$search->compare( '=~', 'order.base.product.siteid', $this->getContext()->getLocale()->getSiteId() ),
 				$search->getConditions()
 			] ) );
 
