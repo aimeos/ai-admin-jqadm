@@ -239,10 +239,6 @@ class Standard
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
 			$search = $this->initCriteria( $search, $params );
-			$search->setConditions( $search->combine( '&&', [
-				$search->compare( '=~', 'order.base.product.siteid', $this->getContext()->getLocale()->getSiteId() ),
-				$search->getConditions()
-			] ) );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->baseItems = $this->getOrderBaseItems( $view->items );
