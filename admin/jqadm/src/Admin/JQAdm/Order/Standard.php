@@ -444,9 +444,10 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 		$attrManager = \Aimeos\MShop::create( $this->getContext(), 'order/base/service/attribute' );
+		$domains = ['order/base/address', 'order/base/product', 'order/base/service'];
 
 		if( isset( $data['order.base.id'] ) ) {
-			$basket = $manager->load( $data['order.base.id'] )->off();
+			$basket = $manager->getItem( $data['order.base.id'], $domains )->off();
 		} else {
 			$basket = $manager->createItem()->off();
 		}
