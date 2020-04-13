@@ -46,6 +46,11 @@ $bytes = function( $value ) {
 };
 
 
+$value = function( $val ) {
+	return $val === '1' || strtolower( $val ) === 'on' ? 1 : 0;
+};
+
+
 ?>
 <div id="problem" class="modal fade">
 	<div class="modal-dialog">
@@ -55,7 +60,7 @@ $bytes = function( $value ) {
 				<button type="button" class="close" data-dismiss="modal" aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>"><span aria-hidden="true">&times;</span></button>
 			</div>
 			<div class="modal-body">
-				<p class="file_uploads hidden" data-value="<?= $enc->attr( (int) ini_get( 'file_uploads' ) ); ?>">
+				<p class="file_uploads hidden" data-value="<?= $enc->attr( $value( ini_get( 'file_uploads' ) ) ); ?>">
 					<?= $enc->html( sprintf( $this->translate( 'admin', 'PHP setting "%1$s" is disabled' ), "file_uploads" ) ); ?>
 				</p>
 				<p class="max_input_vars hidden" data-value="<?= $enc->attr( ini_get( 'max_input_vars' ) ); ?>">
