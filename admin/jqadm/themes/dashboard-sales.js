@@ -70,7 +70,7 @@ Aimeos.Dashboard.Sales = {
 				{"==": {"order.base.currencyid": currencyid}}
 			]};
 
-			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", 10000, "order.base.price", "sum");
+			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", 10000, "order.base.product.price", "sum");
 			currencies.push(currencyid);
 		}
 
@@ -173,7 +173,7 @@ Aimeos.Dashboard.Sales = {
 				{"==": {"order.base.currencyid": currencyid}}
 			]};
 
-			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", 10000, "order.base.price", "sum");
+			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", 10000, "order.base.product.price", "sum");
 			currencies.push(currencyid);
 		}
 
@@ -282,7 +282,7 @@ Aimeos.Dashboard.Sales = {
 				{"==": {"order.base.currencyid": currencyid}}
 			]};
 
-			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cwday", criteria, "-order.cdate", 10000, "order.base.price", "sum");
+			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cwday", criteria, "-order.cdate", 10000, "order.base.product.price", "sum");
 			currencies.push(currencyid);
 		}
 
