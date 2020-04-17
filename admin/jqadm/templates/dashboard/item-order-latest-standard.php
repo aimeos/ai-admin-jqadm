@@ -9,8 +9,13 @@ $price = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item, $priceFo
 {
 	if( isset( $orders[$item->getBaseId()] ) )
 	{
-		$price = $orders[$item->getBaseId()]->getPrice();
-		return sprintf( $priceFormat, $price->getValue(), $price->getCurrencyId() );
+		$price = 0;
+
+		foreach( $orders[$item->getBaseId()]->getProducts() as $product ) {
+			$price += $product->getPrice()->getValue() * $product->getQuantity();
+		}
+
+		return sprintf( $priceFormat, $price, $orders[$item->getBaseId()]->getPrice()->getCurrencyId() );
 	}
 };
 
@@ -105,7 +110,7 @@ $statuslist = array(
 							<td class="order-base-address-name">
 								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $name( $baskets, $item ) ); ?></a>
 							</td>
-							<td class="order-base-price">
+							<td class="order-base-product-price">
 								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $price( $baskets, $item, $priceFormat ) ); ?></a>
 							</td>
 							<td class="order-datepayment">

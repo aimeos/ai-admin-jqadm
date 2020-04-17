@@ -205,7 +205,7 @@ class Standard
 		$baseSearch = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
 		$baseSearch->setConditions( $baseSearch->compare( '==', 'order.base.id', $baseIds ) );
 
-		$basketItems = $baseManager->searchItems( $baseSearch, ['order/base/address', 'order/base/service'] );
+		$basketItems = $baseManager->searchItems( $baseSearch, ['order/base/address', 'order/base/product', 'order/base/service'] );
 
 
 		$view->orderlatestBaskets = $basketItems;

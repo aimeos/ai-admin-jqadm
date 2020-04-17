@@ -82,7 +82,7 @@
 }
 
 .dashboard .order-latest .order-id,
-.dashboard .order-latest .order-base-price,
+.dashboard .order-latest .order-base-product-price,
 .dashboard .order-latest .order-statuspayment {
 	text-align: right;
 }
@@ -93,7 +93,7 @@
 }
 
 .dashboard .order-latest .order-statuspayment,
-.dashboard .order-latest .order-base-price {
+.dashboard .order-latest .order-base-product-price {
 	font-weight: bold;
 }
 
