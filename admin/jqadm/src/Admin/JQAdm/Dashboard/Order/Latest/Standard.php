@@ -50,7 +50,7 @@ class Standard
 		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
 		$search->setConditions( $search->compare( '=~', 'order.base.product.siteid', $context->getLocale()->getSiteId() ) );
 
-		$view->orderlatestItems = $manager->searchItems( $search, ['order/base', 'order/base/address', 'order/base/service'] );
+		$view->orderlatestItems = $manager->searchItems( $search, ['order/base', 'order/base/address', 'order/base/product', 'order/base/service'] );
 		$view->orderlatestBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
