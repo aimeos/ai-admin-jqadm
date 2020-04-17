@@ -185,12 +185,12 @@ class Standard
 	 */
 	protected function addOrders( \Aimeos\MW\View\Iface $view )
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
+		$context = $this->getContext();
+		$manager = \Aimeos\MShop::create( $context, 'order' );
 
-		$search = $manager->createSearch();
-		$search->setConditions( $search->compare( '!=', 'order.base.product.siteid', '' ) );
+		$search = $manager->createSearch()->setSlice( 0, 10 );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
-		$search->setSlice( 0, 10 );
+		$search->setConditions( $search->compare( '==', 'order.base.product.siteid', $context->getLocale()->getSiteSubTree() ) );
 
 		$items = $manager->searchItems( $search );
 
