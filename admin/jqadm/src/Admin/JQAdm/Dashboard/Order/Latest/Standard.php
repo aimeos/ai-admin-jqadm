@@ -43,11 +43,12 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
+		$context = $this->getContext();
+		$manager = \Aimeos\MShop::create( $context, 'order' );
 
 		$search = $manager->createSearch()->setSlice( 0, 10 );
-		$search->setConditions( $search->compare( '!=', 'order.base.product.siteid', '' ) );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
+		$search->setConditions( $search->compare( '=~', 'order.base.product.siteid', $context->getLocale()->getSiteId() ) );
 
 		$view->orderlatestItems = $manager->searchItems( $search, ['order/base', 'order/base/address', 'order/base/service'] );
 		$view->orderlatestBody = '';
