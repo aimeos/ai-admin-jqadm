@@ -131,7 +131,7 @@ $columnList = [
 										name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.code', '' ) ) ); ?>" disabled="disabled" />
 								</div>
 							</div>
-							<div class="form-group row mandatory">
+							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Count' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control coupon-code-count" type="number" min="0" step="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
