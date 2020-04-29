@@ -247,45 +247,47 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 	<div class="row item-container">
 
 		<div class="col-md-3 item-navbar">
-			<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
-				<li class="nav-item basic">
-					<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
-						<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
-					</a>
-				</li>
-
-				<?php foreach( array_splice( $navlist, 0, $navlimit ) as $idx => $subpart ) : ?>
-					<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
-							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
+			<div class="navbar-content">
+				<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
+					<li class="nav-item basic">
+						<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
+							<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
 						</a>
 					</li>
-				<?php endforeach; ?>
 
-				<li class="separator"><i class="icon more"></i></li>
+					<?php foreach( array_splice( $navlist, 0, $navlimit ) as $idx => $subpart ) : ?>
+						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
+							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
+								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
+							</a>
+						</li>
+					<?php endforeach; ?>
 
-				<?php foreach( $navlist as $idx => $subpart ) : ?>
-					<li class="nav-item advanced <?= $enc->attr( $subpart ); ?>">
-						<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + $navlimit + 1; ?>">
-							<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
-						</a>
-					</li>
-				<?php endforeach; ?>
-			</ul>
+					<li class="separator"><i class="nav-link icon more"></i></li>
 
-			<div class="item-meta text-muted">
-				<small>
-					<?= $enc->html( $this->translate( 'admin', 'Modified' ) ); ?>:
-					<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.mtime' ) ); ?></span>
-				</small>
-				<small>
-					<?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?>:
-					<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.ctime' ) ); ?></span>
-				</small>
-				<small>
-					<?= $enc->html( $this->translate( 'admin', 'Editor' ) ); ?>:
-					<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.editor' ) ); ?></span>
-				</small>
+					<?php foreach( $navlist as $idx => $subpart ) : ?>
+						<li class="nav-item advanced <?= $enc->attr( $subpart ); ?>">
+							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + $navlimit + 1; ?>">
+								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+
+				<div class="item-meta text-muted">
+					<small>
+						<?= $enc->html( $this->translate( 'admin', 'Modified' ) ); ?>:
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.mtime' ) ); ?></span>
+					</small>
+					<small>
+						<?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?>:
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.ctime' ) ); ?></span>
+					</small>
+					<small>
+						<?= $enc->html( $this->translate( 'admin', 'Editor' ) ); ?>:
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.editor' ) ); ?></span>
+					</small>
+				</div>
 			</div>
 		</div>
 

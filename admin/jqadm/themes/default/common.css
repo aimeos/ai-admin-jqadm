@@ -228,11 +228,6 @@
 	background-color: #F8F8F8;
 }
 
-.aimeos .nav-tabs .separator .icon,
-.aimeos .item-content .separator .icon {
-	padding: 0.5rem 0;
-}
-
 .aimeos .nav-tabs .more,
 .aimeos .nav-tabs .less,
 .aimeos .item-content .more,
@@ -240,12 +235,11 @@
 	font: normal normal normal 14px/1 FontAwesome;
 	font-weight: bold;
 	font-size: 125%;
-	padding: 0;
-	margin: 0;
 	cursor: pointer;
 	color: #808080;
 	display: block;
 	text-align: center;
+	border: transparent;
 }
 
 .aimeos .nav-tabs .more:before,
@@ -256,4 +250,16 @@
 .aimeos .nav-tabs .less:before,
 .aimeos .item-content .less:before {
 	content: "\f0d8";
+}
+
+@media (min-width: 768px) {
+	.aimeos .item .navbar-content {
+		position: -webkit-sticky;
+		position: sticky;
+		z-index: 1020;
+		top: 4.5rem;
+	}
+	.aimeos .item-container .item-actions {
+		display: none;
+	}
 }
