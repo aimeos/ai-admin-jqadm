@@ -128,37 +128,39 @@ $statusList = [
 		<div class="row item-container">
 
 			<div class="col-md-3 item-navbar">
-				<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
+				<div class="navbar-content">
+					<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
 
-					<li class="nav-item order">
-						<a class="nav-link active" href="#order" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="order">
-							<?= $enc->html( $this->translate( 'admin', 'Order' ) ); ?>
-						</a>
-					</li>
-
-					<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $type => $subpart ) : ?>
-						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$type + 1; ?>">
-								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
+						<li class="nav-item order">
+							<a class="nav-link active" href="#order" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="order">
+								<?= $enc->html( $this->translate( 'admin', 'Order' ) ); ?>
 							</a>
 						</li>
-					<?php endforeach; ?>
 
-				</ul>
+						<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $type => $subpart ) : ?>
+							<li class="nav-item <?= $enc->attr( $subpart ); ?>">
+								<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$type + 1; ?>">
+									<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
 
-				<div class="item-meta text-muted">
-					<small>
-						<?= $enc->html( $this->translate( 'admin', 'Modified' ) ); ?>:
-						<span class="meta-value"><?= $enc->html( $basket->getTimeModified() ); ?></span>
-					</small>
-					<small>
-						<?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?>:
-						<span class="meta-value"><?= $enc->html( $basket->getTimeCreated() ); ?></span>
-					</small>
-					<small>
-						<?= $enc->html( $this->translate( 'admin', 'Editor' ) ); ?>:
-						<span class="meta-value"><?= $enc->html( $basket->getEditor() ); ?></span>
-					</small>
+					</ul>
+
+					<div class="item-meta text-muted">
+						<small>
+							<?= $enc->html( $this->translate( 'admin', 'Modified' ) ); ?>:
+							<span class="meta-value"><?= $enc->html( $basket->getTimeModified() ); ?></span>
+						</small>
+						<small>
+							<?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?>:
+							<span class="meta-value"><?= $enc->html( $basket->getTimeCreated() ); ?></span>
+						</small>
+						<small>
+							<?= $enc->html( $this->translate( 'admin', 'Editor' ) ); ?>:
+							<span class="meta-value"><?= $enc->html( $basket->getEditor() ); ?></span>
+						</small>
+					</div>
 				</div>
 			</div>
 

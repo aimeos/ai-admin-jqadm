@@ -679,7 +679,7 @@ Aimeos.Form = {
 			$(".help-text", list).slideToggle(300);
 		});
 
-		$(".aimeos").on("click", ".main-navbar .act-help", function(ev) {
+		$(".aimeos").on("click", ".act-help", function(ev) {
 			$(".help-text", ev.delegateTarget).slideToggle(300);
 		});
 	}
