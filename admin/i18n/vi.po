@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Cao Anh Nhat <anhnhata8cool@gmail.com>, 2018
+# hh hh <minhtrung.4791@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-14 16:35+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2020-04-02 15:27+0200\n"
+"PO-Revision-Date: 2020-04-14 17:40+0000\n"
+"Last-Translator: hh hh <minhtrung.4791@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/aimeos/aimeos-core/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,11 +70,14 @@ msgid ""
 "with a \"+\""
 msgstr ""
 
+msgid "?"
+msgstr ""
+
 msgid "Active"
 msgstr "Kích hoạt"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Giá bán"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
@@ -93,7 +97,7 @@ msgid "Additional information where the supplier's apartment can be found"
 msgstr ""
 
 msgid "Address 1"
-msgstr ""
+msgstr "Địa chỉ 1"
 
 msgid "Address 2"
 msgstr ""
@@ -413,6 +417,10 @@ msgstr "Vận chuyển"
 msgid "Delivery address"
 msgstr "Địa chỉ gửi"
 
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr ""
+
 msgid "Delivery status"
 msgstr ""
 
@@ -437,6 +445,9 @@ msgid "Descritive name of the language"
 msgstr ""
 
 msgid "Descritive name of the site"
+msgstr ""
+
+msgid "Display help texts"
 msgstr ""
 
 msgid "Domain"
@@ -532,6 +543,18 @@ msgstr ""
 msgid "Floor and/or apartment (optional)"
 msgstr ""
 
+msgid "Given rebate amount"
+msgstr ""
+
+msgid "Go to attribute panel"
+msgstr ""
+
+msgid "Go to property type panel"
+msgstr ""
+
+msgid "Go to the list of attribute types"
+msgstr ""
+
 msgid "Group"
 msgstr ""
 
@@ -545,6 +568,9 @@ msgid "Hidden attributes"
 msgstr ""
 
 msgid "Hidden product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Highlighted suppliers of the product"
 msgstr ""
 
 msgid "Honorary title (optional)"
@@ -773,6 +799,9 @@ msgstr ""
 msgid "Name"
 msgstr "Tên"
 
+msgid "Name in URL (optional)"
+msgstr ""
+
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
@@ -970,6 +999,12 @@ msgstr ""
 msgid "Price Lists Types"
 msgstr ""
 
+msgid "Price Property Type"
+msgstr ""
+
+msgid "Price Property Types"
+msgstr ""
+
 msgid "Price Type"
 msgstr ""
 
@@ -1092,6 +1127,9 @@ msgstr "Số lượng"
 msgid "Quantity scale"
 msgstr ""
 
+msgid "Rabate"
+msgstr ""
+
 msgid "Reason"
 msgstr ""
 
@@ -1131,7 +1169,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Đặt lại"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1322,9 +1360,6 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr ""
 
-msgid "Given rebate amount"
-msgstr ""
-
 msgid "Suggested products"
 msgstr ""
 
@@ -1335,6 +1370,9 @@ msgid "Supplier"
 msgstr ""
 
 msgid "Supplier name or company"
+msgstr ""
+
+msgid "Suppliers who manufacture the product"
 msgstr ""
 
 msgid "Tag Type"
@@ -1384,6 +1422,16 @@ msgid "The item is only shown on the web site until that date and time"
 msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
+msgstr ""
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
 msgstr ""
 
 msgid "The option is only shown on the web site after that date and time"
@@ -1443,6 +1491,9 @@ msgid "URL of the customer web site"
 msgstr ""
 
 msgid "URL of the supplier web site"
+msgstr ""
+
+msgid "URL segment"
 msgstr ""
 
 msgid "URL target"
@@ -1909,6 +1960,10 @@ msgstr ""
 
 #, php-format
 msgid "type/price/lists"
+msgstr ""
+
+#, php-format
+msgid "type/price/property"
 msgstr ""
 
 #, php-format

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-14 16:35+0000\n"
+"POT-Creation-Date: 2020-04-02 15:27+0200\n"
+"PO-Revision-Date: 2020-04-02 13:35+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -72,6 +72,9 @@ msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
 msgstr "(международный) номер телефона без символов разделения, может начинаться с \"+\""
+
+msgid "?"
+msgstr ""
 
 msgid "Active"
 msgstr "Активно"
@@ -417,6 +420,10 @@ msgstr "Доставка"
 msgid "Delivery address"
 msgstr "Адрес доставки"
 
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr ""
+
 msgid "Delivery status"
 msgstr "Статус доставки"
 
@@ -442,6 +449,9 @@ msgstr "Наглядное представление языка"
 
 msgid "Descritive name of the site"
 msgstr "Наглядное представление сайта"
+
+msgid "Display help texts"
+msgstr ""
 
 msgid "Domain"
 msgstr "Принадлежность"
@@ -536,6 +546,18 @@ msgstr "Этаж / Квартира"
 msgid "Floor and/or apartment (optional)"
 msgstr "Этаж и/или квартира (необязательно)"
 
+msgid "Given rebate amount"
+msgstr ""
+
+msgid "Go to attribute panel"
+msgstr ""
+
+msgid "Go to property type panel"
+msgstr ""
+
+msgid "Go to the list of attribute types"
+msgstr ""
+
 msgid "Group"
 msgstr "Группа"
 
@@ -550,6 +572,9 @@ msgstr "Скрытые атрибуты"
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr "Скрытые атрибуты товара, которые хранятся вместе с заказанными товарами"
+
+msgid "Highlighted suppliers of the product"
+msgstr ""
 
 msgid "Honorary title (optional)"
 msgstr "Почетное звание (необязательно)"
@@ -777,6 +802,9 @@ msgstr ""
 msgid "Name"
 msgstr "Название"
 
+msgid "Name in URL (optional)"
+msgstr ""
+
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr "Имя загружаемого файла, при сохранении пользователем файла на компьютер"
@@ -974,6 +1002,12 @@ msgstr "Тип Прайс-Листов"
 msgid "Price Lists Types"
 msgstr "Типы Прайс-Листов"
 
+msgid "Price Property Type"
+msgstr ""
+
+msgid "Price Property Types"
+msgstr ""
+
 msgid "Price Type"
 msgstr "Тип Цены"
 
@@ -1094,6 +1128,9 @@ msgid "Quantity"
 msgstr "Количество"
 
 msgid "Quantity scale"
+msgstr ""
+
+msgid "Rabate"
 msgstr ""
 
 msgid "Reason"
@@ -1326,9 +1363,6 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "Интервал подписки с годами, месяцами, неделями и днями, например, «P1Y1M2W3D» за один год, один месяц, две недели и три дня"
 
-msgid "Given rebate amount"
-msgstr ""
-
 msgid "Suggested products"
 msgstr "Рекомендованные товары"
 
@@ -1340,6 +1374,9 @@ msgstr "Поставщик"
 
 msgid "Supplier name or company"
 msgstr "Название поставщика или компании"
+
+msgid "Suppliers who manufacture the product"
+msgstr ""
 
 msgid "Tag Type"
 msgstr "Тип Тега"
@@ -1389,6 +1426,16 @@ msgstr "Товар отображается на веб-сайте только 
 
 msgid "The media title is used for the title tag of the media on the web site"
 msgstr "Название мультимедиа используется для тега заголовка мультимедиа на веб-сайте"
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
 
 msgid "The option is only shown on the web site after that date and time"
 msgstr "Опция отображается только на веб-сайте после этой даты и времени."
@@ -1448,6 +1495,9 @@ msgstr "URL-адрес веб-сайта клиента"
 
 msgid "URL of the supplier web site"
 msgstr "URL-адрес веб-сайта поставщика"
+
+msgid "URL segment"
+msgstr ""
 
 msgid "URL target"
 msgstr "Целевой URL-адрес"
@@ -1914,6 +1964,10 @@ msgstr "Цены"
 #, php-format
 msgid "type/price/lists"
 msgstr "Списки Цен"
+
+#, php-format
+msgid "type/price/property"
+msgstr ""
 
 #, php-format
 msgid "type/product"

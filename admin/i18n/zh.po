@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 11:15+0100\n"
-"PO-Revision-Date: 2020-02-14 16:35+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2020-04-02 15:27+0200\n"
+"PO-Revision-Date: 2020-04-02 13:35+0000\n"
+"Last-Translator: Bruce Liu <zcon.bruce@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,6 +71,9 @@ msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
 msgstr "沒有分隔字元的（國際）電話號碼，可以以 “+” 開頭"
+
+msgid "?"
+msgstr ""
 
 msgid "Active"
 msgstr ""
@@ -416,6 +419,10 @@ msgstr "運送"
 msgid "Delivery address"
 msgstr "配送地址"
 
+msgid ""
+"Delivery or payment costs for the products in the basket of the customer"
+msgstr ""
+
 msgid "Delivery status"
 msgstr "配送狀態"
 
@@ -440,6 +447,9 @@ msgid "Descritive name of the language"
 msgstr ""
 
 msgid "Descritive name of the site"
+msgstr ""
+
+msgid "Display help texts"
 msgstr ""
 
 msgid "Domain"
@@ -535,6 +545,18 @@ msgstr ""
 msgid "Floor and/or apartment (optional)"
 msgstr ""
 
+msgid "Given rebate amount"
+msgstr ""
+
+msgid "Go to attribute panel"
+msgstr ""
+
+msgid "Go to property type panel"
+msgstr ""
+
+msgid "Go to the list of attribute types"
+msgstr ""
+
 msgid "Group"
 msgstr "群組"
 
@@ -548,6 +570,9 @@ msgid "Hidden attributes"
 msgstr "隱藏屬性"
 
 msgid "Hidden product attributes that are stored with the ordered products"
+msgstr ""
+
+msgid "Highlighted suppliers of the product"
 msgstr ""
 
 msgid "Honorary title (optional)"
@@ -776,6 +801,9 @@ msgstr ""
 msgid "Name"
 msgstr "姓名"
 
+msgid "Name in URL (optional)"
+msgstr ""
+
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
@@ -973,6 +1001,12 @@ msgstr ""
 msgid "Price Lists Types"
 msgstr ""
 
+msgid "Price Property Type"
+msgstr ""
+
+msgid "Price Property Types"
+msgstr ""
+
 msgid "Price Type"
 msgstr "價格類型"
 
@@ -1093,6 +1127,9 @@ msgid "Quantity"
 msgstr "數量"
 
 msgid "Quantity scale"
+msgstr ""
+
+msgid "Rabate"
 msgstr ""
 
 msgid "Reason"
@@ -1325,9 +1362,6 @@ msgid ""
 " for zero years, one month, two weeks and three days"
 msgstr "訂閱間隔：年、月、週、日。如：\"P0Y1M2W3D\"為零年一個月兩週三日"
 
-msgid "Given rebate amount"
-msgstr ""
-
 msgid "Suggested products"
 msgstr "建議商品"
 
@@ -1338,6 +1372,9 @@ msgid "Supplier"
 msgstr "供應商"
 
 msgid "Supplier name or company"
+msgstr ""
+
+msgid "Suppliers who manufacture the product"
 msgstr ""
 
 msgid "Tag Type"
@@ -1387,6 +1424,16 @@ msgid "The item is only shown on the web site until that date and time"
 msgstr ""
 
 msgid "The media title is used for the title tag of the media on the web site"
+msgstr ""
+
+msgid ""
+"The name of the category shown in the URL, will be used if no language "
+"specific URL segment exists"
+msgstr ""
+
+msgid ""
+"The name of the product shown in the URL, will be used if no language "
+"specific URL segment exists"
 msgstr ""
 
 msgid "The option is only shown on the web site after that date and time"
@@ -1447,6 +1494,9 @@ msgstr "客戶網站網址"
 
 msgid "URL of the supplier web site"
 msgstr "供應商網站網址"
+
+msgid "URL segment"
+msgstr "URL片段"
 
 msgid "URL target"
 msgstr "URL target"
@@ -1913,6 +1963,10 @@ msgstr "價格"
 #, php-format
 msgid "type/price/lists"
 msgstr "價格清單"
+
+#, php-format
+msgid "type/price/property"
+msgstr ""
 
 #, php-format
 msgid "type/product"

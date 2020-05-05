@@ -3,18 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Jorge Moriñigo <jorgemorinigo@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-02 13:35+0000\n"
-"Last-Translator: Aimeos\n"
-"Language-Team: Norwegian (http://www.transifex.com/aimeos/aimeos-core/language/no/)\n"
+"PO-Revision-Date: 2020-05-03 21:34+0000\n"
+"Last-Translator: Jorge Moriñigo <jorgemorinigo@gmail.com>\n"
+"Language-Team: Spanish (Argentina) (http://www.transifex.com/aimeos/aimeos-core/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: no\n"
+"Language: es_AR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, php-format
@@ -48,7 +49,7 @@ msgstr ""
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr "%1$s %2$s"
+msgstr ""
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
@@ -61,50 +62,50 @@ msgstr ""
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Cód.Internacional) número de fax sin caracteres de separación, puede empezar con \"+\""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Cód.Internacional) número de teléfono sin caracteres de separación, puede empezar con \"+\""
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "Active"
-msgstr ""
+msgstr "Activo"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Precio actual"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "Precio actual con el que los clientes pueden comprar el artículo en el sitio web"
 
 msgid "Add"
-msgstr ""
+msgstr "Agregar"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Costos de envío adicional para cada artículo, ej. $ 20 por un artículo será $ 100 por cinco artículos en total"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Información adicional donde se puede encontrar el departamento del cliente."
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Información adicional donde se puede encontrar el departamento del proveedor"
 
 msgid "Address 1"
-msgstr ""
+msgstr "Domicilio 1"
 
 msgid "Address 2"
-msgstr ""
+msgstr "Domicilio 2"
 
 msgid "Address 3"
-msgstr ""
+msgstr "Domicilio 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Domicilio del cliente para delivery"
 
 msgid "Address identifier of the supplier's house for delivery"
 msgstr ""
@@ -114,7 +115,7 @@ msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
@@ -129,15 +130,15 @@ msgid "Aimeos object not available"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Todo"
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Todos los atributos que identifiquen unívocamente a un artículo, por ej el ancho, largo y el color para los jeans"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Permitir personalizar el precio"
 
 msgid "Allow customers to choose themselves how much they want to pay"
 msgstr ""
@@ -275,7 +276,7 @@ msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr "Company"
+msgstr ""
 
 msgid "Company details"
 msgstr ""
@@ -1647,7 +1648,7 @@ msgid "code"
 msgstr ""
 
 msgid "company"
-msgstr "Company"
+msgstr ""
 
 #, php-format
 msgid "countday"
@@ -1730,13 +1731,13 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr "Miss"
+msgstr ""
 
 msgid "mr"
-msgstr "Mr"
+msgstr ""
 
 msgid "mrs"
-msgstr "Mrs"
+msgstr ""
 
 msgid "new"
 msgstr ""
@@ -1762,28 +1763,28 @@ msgid "order:web"
 msgstr ""
 
 msgid "pay:-1"
-msgstr "unfinished"
+msgstr ""
 
 msgid "pay:0"
-msgstr "deleted"
+msgstr ""
 
 msgid "pay:1"
-msgstr "cancelled"
+msgstr ""
 
 msgid "pay:2"
-msgstr "refused"
+msgstr ""
 
 msgid "pay:3"
-msgstr "refunded"
+msgstr ""
 
 msgid "pay:4"
-msgstr "pending"
+msgstr ""
 
 msgid "pay:5"
-msgstr "authorized"
+msgstr ""
 
 msgid "pay:6"
-msgstr "received"
+msgstr ""
 
 #, php-format
 msgid "paymentstatus"
@@ -1820,7 +1821,7 @@ msgid "reason:0"
 msgstr ""
 
 msgid "reason:1"
-msgstr "cancelled"
+msgstr ""
 
 #, php-format
 msgid "related"
@@ -1851,43 +1852,43 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr "unfinished"
+msgstr ""
 
 msgid "stat:0"
-msgstr "deleted"
+msgstr ""
 
 msgid "stat:1"
-msgstr "pending"
+msgstr ""
 
 msgid "stat:2"
-msgstr "in progress"
+msgstr ""
 
 msgid "stat:3"
-msgstr "dispatched"
+msgstr ""
 
 msgid "stat:4"
-msgstr "delivered"
+msgstr ""
 
 msgid "stat:5"
-msgstr "lost"
+msgstr ""
 
 msgid "stat:6"
-msgstr "refused"
+msgstr ""
 
 msgid "stat:7"
-msgstr "returned"
+msgstr ""
 
 msgid "status:-1"
-msgstr "Archived"
+msgstr ""
 
 msgid "status:-2"
-msgstr "Review"
+msgstr ""
 
 msgid "status:0"
-msgstr "Disabled"
+msgstr ""
 
 msgid "status:1"
-msgstr "Enabled"
+msgstr ""
 
 #, php-format
 msgid "stock"
