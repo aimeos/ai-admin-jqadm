@@ -195,7 +195,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 				<?php foreach( array_splice( $navlist, 0, $navlimit ) as $nav => $navitem ) : ?>
 					<?php if( is_array( $navitem ) ) : ?>
 						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $nav . '/groups', [] ) ) ) : ?>
-							<li class="treeview <?= $enc->attr( $nav ) ?> <?= strncmp( $this->param( 'resource' ), $nav, strlen( $nav ) ) ? '' : 'active' ?>">
+							<li class="treeview <?= $enc->attr( $nav ) ?> <?= \Aimeos\MW\Str::starts( $this->param( 'resource' ), $nav ) ? '' : 'active' ?>">
 								<span>
 									<i class="icon"></i>
 									<span class="title"><?= $enc->attr( $this->translate( 'admin', $nav ) ); ?></span>
@@ -242,7 +242,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 				<?php foreach( $navlist as $nav => $navitem ) : ?>
 					<?php if( is_array( $navitem ) ) : ?>
 						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $nav . '/groups', [] ) ) ) : ?>
-							<li class="treeview <?= $enc->attr( $nav ) ?> <?= strncmp( $this->param( 'resource' ), $nav, strlen( $nav ) ) ? '' : 'active' ?>">
+							<li class="treeview <?= $enc->attr( $nav ) ?> <?= \Aimeos\MW\Str::starts( $this->param( 'resource' ), $nav ) ? '' : 'active' ?>">
 								<span>
 									<i class="icon"></i>
 									<span class="title"><?= $enc->attr( $this->translate( 'admin', $nav ) ); ?></span>
