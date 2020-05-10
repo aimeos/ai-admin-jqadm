@@ -86,7 +86,7 @@ class Base
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid domain "%1$s"', $path ) );
 		}
 
-		$localClass = str_replace( ' ', '\\', ucwords( str_replace( '/', ' ', $path ) ) );
+		$localClass = str_replace( '/', '\\', ucwords( $path, '/' ) );
 		$config = $context->getConfig();
 
 		/** admin/jqadm/common/decorators/default
