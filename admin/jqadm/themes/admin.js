@@ -18,6 +18,8 @@ Aimeos = {
 		{ name: 'document', items: [ 'Source' ] }
 	],
 
+	editortags : 'div(*);span(*);p(*);',
+
 
 	addClone : function(node, getfcn, selectfn, after) {
 

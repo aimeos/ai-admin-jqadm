@@ -156,7 +156,7 @@ Vue.component('html-editor', {
 
 	mounted: function() {
 		this.instance = CKEDITOR.replace(this.id, {
-			extraAllowedContent: 'div(*);span(*);p(*);',
+			extraAllowedContent: Aimeos.editortags,
 			toolbar: Aimeos.editorcfg,
 			extraPlugins: 'divarea',
 			initialData: this.value,
