@@ -8,13 +8,8 @@ Aimeos.Dashboard.Service = {
 
 	init : function() {
 
-		if( $(".order-servicepayment").length ) {
-			this.chartPayment();
-		}
-
-		if( $(".order-servicedelivery").length ) {
-			this.chartDelivery();
-		}
+		Aimeos.observe(".order-servicepayment", this.chartPayment.bind(this));
+		Aimeos.observe(".order-servicedelivery", this.chartDelivery.bind(this));
 	},
 
 
