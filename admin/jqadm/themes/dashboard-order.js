@@ -8,17 +8,9 @@ Aimeos.Dashboard.Order = {
 
 	init : function() {
 
-		if( $(".order-counthour").length ) {
-			this.chartHour();
-		}
-
-		if( $(".order-countday").length ) {
-			this.chartDay();
-		}
-
-		if( $(".order-countpaystatus").length ) {
-			this.chartPaymentStatus();
-		}
+		Aimeos.observe(".order-countday", this.chartDay.bind(this));
+		Aimeos.observe(".order-counthour", this.chartHour.bind(this));
+		Aimeos.observe(".order-countpaystatus", this.chartPaymentStatus.bind(this));
 	},
 
 

@@ -12,17 +12,9 @@ Aimeos.Dashboard.Sales = {
 
 	init: function() {
 
-		if( $(".order-salesday").length ) {
-			this.chartDay();
-		}
-
-		if( $(".order-salesmonth").length ) {
-			this.chartMonth();
-		}
-
-		if( $(".order-salesweekday").length ) {
-			this.chartWeekday();
-		}
+		Aimeos.observe(".order-salesday", this.chartDay.bind(this));
+		Aimeos.observe(".order-salesmonth", this.chartMonth.bind(this));
+		Aimeos.observe(".order-salesweekday", this.chartWeekday.bind(this));
 	},
 
 

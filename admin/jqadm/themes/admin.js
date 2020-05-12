@@ -199,6 +199,29 @@ Aimeos = {
 
 	getOptionsProducts : function(request, response, element, criteria) {
 		Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', criteria);
+	},
+
+
+	observe : function(selector, renderFcn) {
+
+		if('IntersectionObserver' in window) {
+
+			let callback = function(entries, observer) {
+				for(let entry of entries) {
+					if(entry.isIntersecting) {
+						observer.unobserve(entry.target);
+						renderFcn();
+					}
+				};
+			};
+
+			$(selector).each(function() {
+				(new IntersectionObserver(callback, {})).observe(this);
+			});
+
+		} else if($(selector).length) {
+			renderFcn();
+		}
 	}
 };
 
