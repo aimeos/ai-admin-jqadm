@@ -11,8 +11,11 @@ $price = function( \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
 	{
 		$price = 0;
 
-		foreach( $order->getProducts() as $product ) {
-			$price += $product->getPrice()->getValue() * $product->getQuantity();
+		foreach( $order->getProducts() as $product )
+		{
+			if( strncmp( $this->site()->siteid(), $product->getSiteId(), strlen( $this->site()->siteid() ) ) === 0 ) {
+				$price += $product->getPrice()->getValue() * $product->getQuantity();
+			}
 		}
 
 		return sprintf( $priceFormat, $price, $order->getPrice()->getCurrencyId() );
