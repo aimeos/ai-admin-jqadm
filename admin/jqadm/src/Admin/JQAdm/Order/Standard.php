@@ -233,12 +233,17 @@ class Standard
 		try
 		{
 			$total = 0;
+			$context = $this->getContext();
+			$manager = \Aimeos\MShop::create( $context, 'order' );
 			$params = $this->storeSearchParams( $view->param(), 'order' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
 			$search = $manager->createSearch();
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
 			$search = $this->initCriteria( $search, $params );
+			$search->setConditions( $search->combine( '&&', [
+				$search->compare( '=~', 'order.base.product.siteid', $context->getLocale()->getSiteId() ),
+				$search->getConditions()
+			] ) );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->baseItems = $this->getOrderBaseItems( $view->items );
