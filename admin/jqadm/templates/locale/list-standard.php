@@ -103,7 +103,7 @@ $columnList = [
 			<tr>
 				<th class="select">
 					<a class="btn act-delete fa" tabindex="1" data-multi="1"
-						href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, array_diff_key( $params, ['id' => ''] ), [], $delConfig ) ); ?>"
+						href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => ''] + $params, [], $delConfig ) ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 					</a>
