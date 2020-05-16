@@ -343,15 +343,15 @@ class Standard
 			}
 
 			$matches = [];
-			$list['Y'] = $list['M'] = $list['W'] = $list['D'] = 0;
+			$regex = '/^P(([0-9]+)Y)?(([0-9]+)M)?(([0-9]+)W)?(([0-9]+)D)?(([0-9]+)H)?$/';
 
-			if( preg_match( '/^P([0-9]+)Y([0-9]+)M([0-9]+)W([0-9]+)D$/', $list['attribute.code'], $matches ) === 1 )
-			{
-				$list['Y'] = $matches[1];
-				$list['M'] = $matches[2];
-				$list['W'] = $matches[3];
-				$list['D'] = $matches[4];
-			}
+			preg_match( $regex, $list['attribute.code'], $matches );
+
+			$list['Y'] = (int) ( $matches[2] ?? 0 );
+			$list['M'] = (int) ( $matches[4] ?? 0 );
+			$list['W'] = (int) ( $matches[6] ?? 0 );
+			$list['D'] = (int) ( $matches[8] ?? 0 );
+			$list['H'] = (int) ( $matches[10] ?? 0 );
 
 			$data[] = $list;
 		}

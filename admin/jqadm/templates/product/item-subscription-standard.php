@@ -8,7 +8,7 @@
 
 $enc = $this->encoder();
 $keys = [
-	'Y', 'M', 'W', 'D',
+	'Y', 'M', 'W', 'D', 'H',
 	'product.lists.id', 'product.lists.siteid',
 	'attribute.id', 'attribute.label', 'attribute.code'
 ];
@@ -46,6 +46,9 @@ $keys = [
 				</th>
 				<th>
 					<?= $enc->html( $this->translate( 'admin', 'Days' ) ); ?>
+				</th>
+				<th>
+					<?= $enc->html( $this->translate( 'admin', 'Hours' ) ); ?>
 				</th>
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
@@ -94,6 +97,12 @@ $keys = [
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'D' ) ) ); ?>'.replace( 'idx', idx )"
 						v-bind:readonly="getReadOnly(idx)"
 						v-model="items[idx]['D']" />
+				</td>
+				<td class="interval-field mandatory">
+					<input class="form-control field-hour" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'H' ) ) ); ?>'.replace( 'idx', idx )"
+						v-bind:readonly="getReadOnly(idx)"
+						v-model="items[idx]['H']" />
 				</td>
 				<td class="actions">
 					<input class="item-code" type="hidden"
