@@ -190,7 +190,10 @@ class Standard
 
 		$search = $manager->createSearch()->setSlice( 0, 10 );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
-		$search->setConditions( $search->compare( '==', 'order.base.product.siteid', $context->getLocale()->getSiteSubTree() ) );
+		$search->setConditions( $search->combine( '&&', [
+			$search->compare( '>=', 'order.ctime', date( 'Y-m-d 00:00:00', time() - 30 * 86400 ) ),
+			$search->compare( '==', 'order.base.product.siteid', $context->getLocale()->getSiteSubTree() ),
+		] ) );
 
 		$items = $manager->searchItems( $search );
 
