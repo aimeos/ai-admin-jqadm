@@ -8,9 +8,9 @@ Aimeos.Dashboard.Order = {
 
 	init : function() {
 
-		Aimeos.observe(".order-countday", this.chartDay.bind(this));
-		Aimeos.observe(".order-counthour", this.chartHour.bind(this));
-		Aimeos.observe(".order-countpaystatus", this.chartPaymentStatus.bind(this));
+		Aimeos.lazy(".order-countday", this.chartDay.bind(this));
+		Aimeos.lazy(".order-counthour", this.chartHour.bind(this));
+		Aimeos.lazy(".order-countpaystatus", this.chartPaymentStatus.bind(this));
 	},
 
 

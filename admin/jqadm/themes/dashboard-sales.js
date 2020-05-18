@@ -12,9 +12,9 @@ Aimeos.Dashboard.Sales = {
 
 	init: function() {
 
-		Aimeos.observe(".order-salesday", this.chartDay.bind(this));
-		Aimeos.observe(".order-salesmonth", this.chartMonth.bind(this));
-		Aimeos.observe(".order-salesweekday", this.chartWeekday.bind(this));
+		Aimeos.lazy(".order-salesday", this.chartDay.bind(this));
+		Aimeos.lazy(".order-salesmonth", this.chartMonth.bind(this));
+		Aimeos.lazy(".order-salesweekday", this.chartWeekday.bind(this));
 	},
 
 

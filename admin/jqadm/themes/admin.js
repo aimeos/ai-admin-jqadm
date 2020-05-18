@@ -204,7 +204,7 @@ Aimeos = {
 	},
 
 
-	observe : function(selector, renderFcn) {
+	lazy : function(selector, renderFcn) {
 
 		if('IntersectionObserver' in window) {
 

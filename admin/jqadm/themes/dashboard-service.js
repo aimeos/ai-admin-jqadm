@@ -8,8 +8,8 @@ Aimeos.Dashboard.Service = {
 
 	init : function() {
 
-		Aimeos.observe(".order-servicepayment", this.chartPayment.bind(this));
-		Aimeos.observe(".order-servicedelivery", this.chartDelivery.bind(this));
+		Aimeos.lazy(".order-servicepayment", this.chartPayment.bind(this));
+		Aimeos.lazy(".order-servicedelivery", this.chartDelivery.bind(this));
 	},
 
 
