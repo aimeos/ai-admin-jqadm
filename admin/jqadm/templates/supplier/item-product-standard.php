@@ -299,16 +299,16 @@ $refItems = $this->get( 'productItems', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 								</option>
 
-								<?php foreach( $this->get( 'productListTypes', [] ) as $type => $item ) : ?>
-									<option value="<?= $enc->attr( $type ); ?>" <?= $selected( $this->get( 'productData/supplier.lists.type/' . $idx ), $type ); ?> >
-										<?= $enc->html( $type ); ?>
+								<?php foreach( $this->get( 'productListTypes', [] ) as $item ) : ?>
+									<option value="<?= $enc->attr( $item->getCode() ); ?>" <?= $selected( $this->get( 'productData/supplier.lists.type/' . $idx ), $item->getCode() ); ?> >
+										<?= $enc->html( $item->getLabel() ); ?>
 									</option>
 								<?php endforeach; ?>
 							</select>
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'supplier.lists.config', $fields ) ) : ?>
-						<td class="supplier-lists-config item-config">
+						<td class="supplier-lists-config item-config-ext">
 							<div class="config-type config-type-map">
 								<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'product', 'supplier.lists.config', '' ) ) ); ?>"
