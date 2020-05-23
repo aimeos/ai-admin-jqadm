@@ -171,6 +171,8 @@ class Standard
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
+		$locale = $context->getLocale();
+		$siteIds = array_merge( $locale->getSitePath(), $locale->getSiteSubTree() );
 
 		try
 		{
@@ -181,7 +183,17 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'order/base' );
 			$refs = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
 
-			$view->item = $manager->getItem( $id, $refs );
+			$search = $manager->createSearch()->setSlice( 0, 1 );
+			$search->setConditions( $search->combine( '&&', [
+				$search->compare( '==', 'order.base.product.siteid', $siteIds ),
+				$search->compare( '==', 'order.base.id', $id ),
+			] ) );
+
+			if( ( $item = current( $manager->searchItems( $search, $refs ) ) ) === false ) {
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'No order base item with ID "%1$s" found', $id ) );
+			}
+
+			$view->item = $item;
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = '';
@@ -270,6 +282,8 @@ class Standard
 	{
 		$view = $this->getView();
 		$context = $this->getContext();
+		$locale = $context->getLocale();
+		$siteIds = array_merge( $locale->getSitePath(), $locale->getSiteSubTree() );
 
 		try
 		{
@@ -281,7 +295,7 @@ class Standard
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
 			$search = $this->initCriteria( $search, $params );
 			$search->setConditions( $search->combine( '&&', [
-				$search->compare( '==', 'order.base.product.siteid', $context->getLocale()->getSiteSubTree() ),
+				$search->compare( '==', 'order.base.product.siteid', $siteIds ),
 				$search->getConditions()
 			] ) );
 

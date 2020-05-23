@@ -186,13 +186,16 @@ class Standard
 	protected function addOrders( \Aimeos\MW\View\Iface $view )
 	{
 		$context = $this->getContext();
+		$locale = $context->getLocale();
+		$siteIds = array_merge( $locale->getSitePath(), $locale->getSiteSubTree() );
+
 		$manager = \Aimeos\MShop::create( $context, 'order' );
 
 		$search = $manager->createSearch()->setSlice( 0, 10 );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
 		$search->setConditions( $search->combine( '&&', [
 			$search->compare( '>=', 'order.ctime', date( 'Y-m-d 00:00:00', time() - 30 * 86400 ) ),
-			$search->compare( '==', 'order.base.product.siteid', $context->getLocale()->getSiteSubTree() ),
+			$search->compare( '==', 'order.base.product.siteid', $siteIds ),
 		] ) );
 
 		$items = $manager->searchItems( $search );
