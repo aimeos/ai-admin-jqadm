@@ -237,13 +237,9 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'order' );
 			$params = $this->storeSearchParams( $view->param(), 'order' );
 
-			$search = $manager->createSearch();
+			$search = $manager->createSearch( false, true );
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
 			$search = $this->initCriteria( $search, $params );
-			$search->setConditions( $search->combine( '&&', [
-				$search->compare( '=~', 'order.base.product.siteid', $context->getLocale()->getSiteId() ),
-				$search->getConditions()
-			] ) );
 
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->baseItems = $this->getOrderBaseItems( $view->items );
