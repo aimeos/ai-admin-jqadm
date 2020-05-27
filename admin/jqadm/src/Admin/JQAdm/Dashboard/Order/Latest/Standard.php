@@ -46,9 +46,9 @@ class Standard
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop::create( $context, 'order' );
 
-		$search = $manager->createSearch()->setSlice( 0, 10 );
+		$search = $manager->createSearch( false, true )->setSlice( 0, 10 );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
-		$search->setConditions( $search->compare( '=~', 'order.base.product.siteid', $context->getLocale()->getSiteId() ) );
+		$search->setConditions( $search->compare( '>=', 'order.ctime', date( 'Y-m-d 00:00:00', time() - 30 * 86400 ) ) );
 
 		$view->orderlatestItems = $manager->searchItems( $search, ['order/base', 'order/base/address', 'order/base/product', 'order/base/service'] );
 		$view->orderlatestBody = '';
