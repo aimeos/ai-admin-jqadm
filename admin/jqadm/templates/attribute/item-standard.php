@@ -34,12 +34,12 @@ $params = $this->get( 'pageParams', [] );
 	<?= $this->csrf()->formfield(); ?>
 
 	<nav class="main-navbar">
-		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Attribute' ) ); ?>:
-			<?= $enc->html( $this->get( 'itemData/attribute.id' ) ); ?> -
-			<?= $enc->html( $this->get( 'itemData/attribute.label', $this->translate( 'admin', 'New' ) ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/attribute.siteid' ) ) ); ?>)</span>
-		</span>
+		<h1 class="navbar-brand">
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Attribute' ) ); ?></span>
+			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/attribute.id' ) ); ?></span>
+			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/attribute.label' ) ?: $this->translate( 'admin', 'New' ) ); ?></span>
+			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/attribute.siteid' ) ) ); ?></span>
+		</h1>
 		<div class="item-actions">
 			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
 		</div>

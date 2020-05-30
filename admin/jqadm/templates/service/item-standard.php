@@ -37,12 +37,12 @@ $enc = $this->encoder();
 	<?= $this->csrf()->formfield(); ?>
 
 	<nav class="main-navbar">
-		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Service' ) ); ?>:
-			<?= $enc->html( $this->get( 'itemData/service.id' ) ); ?> -
-			<?= $enc->html( $this->get( 'itemData/service.label', $this->translate( 'admin', 'New' ) ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/service.siteid' ) ) ); ?>)</span>
-		</span>
+		<h1 class="navbar-brand">
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Service' ) ); ?></span>
+			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/service.id' ) ); ?></span>
+			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/service.label' ) ?: $this->translate( 'admin', 'New' ) ); ?></span>
+			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/service.siteid' ) ) ); ?></span>
+		</h1>
 		<div class="item-actions">
 			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
 		</div>

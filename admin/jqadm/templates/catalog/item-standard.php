@@ -73,17 +73,12 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 	<?= $this->csrf()->formfield(); ?>
 
 	<nav class="main-navbar">
-		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Catalog' ) ); ?>:
-			<?php if( $this->get( 'itemData/catalog.id' ) ) : ?>
-				<?= $enc->html( $this->get( 'itemData/catalog.id' ) ); ?> -
-			<?php endif; ?>
-			<?= $enc->html( $this->get( 'itemData/catalog.label', $this->translate( 'admin', 'New' ) ) ); ?>
-			<?php if( $this->get( 'itemData/catalog.siteid' ) ) : ?>
-				<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/catalog.siteid' ) ) ); ?>)</span>
-			<?php endif; ?>
-		</span>
-
+		<h1 class="navbar-brand">
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Catalog' ) ); ?></span>
+			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/catalog.id' ) ); ?></span>
+			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/catalog.label' ) ?: $this->translate( 'admin', 'New' ) ); ?></span>
+			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/catalog.siteid' ) ) ); ?></span>
+		</h1>
 		<div class="item-actions">
 			<?php if( isset( $this->itemData ) ) : ?>
 				<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>

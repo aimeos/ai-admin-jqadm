@@ -39,13 +39,18 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 	<?= $this->csrf()->formfield(); ?>
 
 	<nav class="main-navbar">
-		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Subscription' ) ); ?>:
-			<?= $enc->html( $this->get( 'itemData/subscription.id' ) ); ?> -
-			<?= $enc->html( $this->get( 'itemData/subscription.datenext', $this->translate( 'admin', 'New' ) ) ); ?>
-			<?= $enc->html( ' ' . $this->get( 'itemData/subscription.interval' ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/subscription.siteid' ) ) ); ?>)</span>
-		</span>
+		<h1 class="navbar-brand">
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Subscription' ) ); ?></span>
+			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/subscription.id' ) ); ?></span>
+			<span class="navbar-label">
+				<?php if( $this->get( 'itemData/subscription.id' ) ) : ?>
+					<?= $enc->html( $this->get( 'itemData/subscription.datenext' ) . ' ' . $this->get( 'itemData/subscription.interval' ) ); ?>
+				<?php else : ?>
+					<?= $enc->html( $this->translate( 'admin', 'New' ) ); ?>
+				<?php endif; ?>
+			</span>
+			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/subscription.siteid' ) ) ); ?></span>
+		</h1>
 		<div class="item-actions">
 			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
 		</div>

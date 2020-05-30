@@ -29,16 +29,18 @@ $params = $this->get( 'pageParams', [] );
 	<?= $this->csrf()->formfield(); ?>
 
 	<nav class="main-navbar">
-		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Locale' ) ); ?>:
-			<?= $enc->html( $this->get( 'itemData/locale.id' ) ); ?> -
-			<?php if( $this->get( 'itemData/locale.currencyid' ) ) : ?>
-				<?= $enc->html( $this->get( 'itemData/locale.languageid' ) . '/' . $this->get( 'itemData/locale.currencyid' ) ); ?>
-			<?php else : ?>
-				<?= $enc->html( $this->translate( 'admin', 'New' ) ); ?>
-			<?php endif; ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $this->get( 'itemData/locale.siteid' ) ) ); ?>)</span>
-		</span>
+		<h1 class="navbar-brand">
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Locale' ) ); ?></span>
+			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/locale.id' ) ); ?></span>
+			<span class="navbar-label">
+				<?php if( $this->get( 'itemData/locale.id' ) ) : ?>
+					<?= $enc->html( $this->get( 'itemData/locale.languageid' ) . '/' . $this->get( 'itemData/locale.currencyid' ) ); ?>
+				<?php else : ?>
+					<?= $enc->html( $this->translate( 'admin', 'New' ) ); ?>
+				<?php endif; ?>
+			</span>
+			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/locale.siteid' ) ) ); ?></span>
+		</h1>
 		<div class="item-actions">
 			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
 		</div>

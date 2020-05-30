@@ -95,13 +95,12 @@ $statusList = [
 		<?= $this->csrf()->formfield(); ?>
 
 		<nav class="main-navbar">
-			<span class="navbar-brand">
-				<?= $enc->html( $this->translate( 'admin', 'Order' ) ); ?>:
-				<?= $enc->html( $basket->getId() ); ?> -
-				<?= $enc->html( $this->number( $basket->getPrice()->getValue() ) ); ?>
-				<?= $enc->html( $basket->getPrice()->getCurrencyId() ); ?>
-				<span class="navbar-secondary">(<?= $enc->html( $this->site()->match( $basket->getLocale()->getSiteId() ) ); ?>)</span>
-			</span>
+			<h1 class="navbar-brand">
+				<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Order' ) ); ?></span>
+				<span class="navbar-id"><?= $enc->html( $basket->getId() ); ?></span>
+				<span class="navbar-label"><?= $enc->html( $this->number( $basket->getPrice()->getValue() ) ); ?> <?= $enc->html( $basket->getPrice()->getCurrencyId() ); ?></span>
+				<span class="navbar-site"><?= $enc->html( $this->site()->match( $basket->getLocale()->getSiteId() ) ); ?></span>
+			</h1>
 			<div class="item-actions">
 				<a class="btn btn-secondary act-cancel"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list' ) ); ?>"
