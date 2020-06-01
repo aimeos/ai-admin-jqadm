@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-02 13:35+0000\n"
+"PO-Revision-Date: 2020-04-11 23:41+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +70,7 @@ msgid ""
 msgstr "Ayırma karakterleri olmaksızın telefon numarası (uluslararası), \"+\" ile başlayabilir"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "Active"
 msgstr "Etkin"
@@ -418,7 +418,7 @@ msgstr "Teslimat adresi"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "Müşteri sepetindeki ürünler için teslimat veya ödeme maliyetleri"
 
 msgid "Delivery status"
 msgstr "Teslimat durumu"
@@ -447,7 +447,7 @@ msgid "Descritive name of the site"
 msgstr "Sitenin açıklayıcı adı"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Yardım metnini görüntüle"
 
 msgid "Domain"
 msgstr "Domain"
@@ -546,13 +546,13 @@ msgid "Given rebate amount"
 msgstr "Belirlenmiş indirim tutarı"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Nitelik paneline gidin"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Özellik türü paneline gidin"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Nitelik türleri listesine gidin"
 
 msgid "Group"
 msgstr "Grup"
@@ -570,7 +570,7 @@ msgid "Hidden product attributes that are stored with the ordered products"
 msgstr "Sipariş edilen ürünlerle birlikte saklanan gizli ürün nitelikleri "
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Ürünün öne çıkan tedarikçileri"
 
 msgid "Honorary title (optional)"
 msgstr "Onur unvanı (isteğe bağlı)"
@@ -799,7 +799,7 @@ msgid "Name"
 msgstr "İsim"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "URL'deki ad (isteğe bağlı)"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -999,10 +999,10 @@ msgid "Price Lists Types"
 msgstr "Fiyat Liste Türleri"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "Fiyat Özellik Türü"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "Fiyat Özellik Türleri"
 
 msgid "Price Type"
 msgstr "Fiyat Türü"
@@ -1127,7 +1127,7 @@ msgid "Quantity scale"
 msgstr "Miktar skalası"
 
 msgid "Rabate"
-msgstr ""
+msgstr "İndirim"
 
 msgid "Reason"
 msgstr "Sebep"
@@ -1372,7 +1372,7 @@ msgid "Supplier name or company"
 msgstr "Tedarikçi adı veya şirketi"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Ürünü üreten tedarikçiler"
 
 msgid "Tag Type"
 msgstr "Etiket Türü"
@@ -1426,12 +1426,12 @@ msgstr "Medya başlığı sitedeki medyanın başlık etiketi için kullanılır
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Dile özgü bir URL segmenti mevcut değilse URL'de gösterilecek kategori adı"
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Dile özgü bir URL segmenti mevcut değilse URL'de gösterilecek ürün adı"
 
 msgid "The option is only shown on the web site after that date and time"
 msgstr "Seçenek, web sitesinde sadece o tarih ve saatten sonra gösterilir"
@@ -1963,7 +1963,7 @@ msgstr "Fiyat Listeleri"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "tür/fiyat/özellik"
 
 #, php-format
 msgid "type/product"
