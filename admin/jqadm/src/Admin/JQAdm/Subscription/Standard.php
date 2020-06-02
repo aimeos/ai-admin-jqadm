@@ -297,7 +297,7 @@ class Standard
 			$params = $this->storeSearchParams( $view->param(), 'subscription' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
 
-			$search = $manager->createSearch();
+			$search = $manager->createSearch( false, true );
 			$search->setSortations( [$search->sort( '-', 'subscription.ctime' )] );
 			$search = $this->initCriteria( $search, $params );
 
