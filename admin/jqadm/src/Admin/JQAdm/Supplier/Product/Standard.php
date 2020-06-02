@@ -250,7 +250,10 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
 
 		$search = $manager->createSearch();
-		$search->setSortations( [$search->sort( '-', 'supplier.lists.ctime' )] );
+		$search->setSortations( [
+			$search->sort( '+', 'supplier.lists.position' ),
+			$search->sort( '+', 'supplier.lists.refid' )
+		] );
 
 		$search = $this->initCriteria( $search, $params );
 		$expr = [

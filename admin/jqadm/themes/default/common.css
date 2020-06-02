@@ -11,6 +11,12 @@
 	display: none;
 }
 
+.aimeos a.disabled,
+.aimeos div.disabled,
+.aimeos span.disabled {
+	text-decoration: line-through;
+}
+
 .aimeos .warning,
 .aimeos .warning input {
 	color: #ff4000;

@@ -250,7 +250,10 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 
 		$search = $manager->createSearch();
-		$search->setSortations( [$search->sort( '+', 'catalog.lists.position' )] );
+		$search->setSortations( [
+			$search->sort( '+', 'catalog.lists.position' ),
+			$search->sort( '+', 'catalog.lists.refid' )
+		] );
 
 		$search = $this->initCriteria( $search, $params, 'catalogproduct' );
 		$expr = [

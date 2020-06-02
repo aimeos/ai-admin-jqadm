@@ -368,7 +368,8 @@ $refItems = $this->get( 'productItems', [] );
 								name="<?= $enc->attr( $this->formparam( array( 'product', 'catalog.lists.refid', '' ) ) ); ?>"
 								value="<?= $enc->attr( $refId ); ?>" disabled="disabled" />
 							<?php if( $refItem ) : ?>
-								<a class="btn act-view fa item-refid" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
+								<a class="btn act-view fa item-refid <?= $refItem->getStatus() <= 0 ? 'disabled' : '' ?>"
+									tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
 									href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'product', 'id' => $refId] + $params, [], $getConfig ) ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Show entry' ) ); ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show' ) ); ?>">
