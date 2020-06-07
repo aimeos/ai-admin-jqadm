@@ -360,7 +360,7 @@ class Standard
 			}
 
 			if( isset( $data['customer.lists.status'][$idx] ) ) {
-				$litem->setStatus( $this->getValue( $data, 'customer.lists.status/' . $idx ) );
+				$litem->setStatus( (int) $this->getValue( $data, 'customer.lists.status/' . $idx ) );
 			}
 
 			if( isset( $data['customer.lists.type'][$idx] ) ) {
@@ -368,7 +368,7 @@ class Standard
 			}
 
 			if( isset( $data['customer.lists.position'][$idx] ) ) {
-				$litem->setPosition( $this->getValue( $data, 'customer.lists.position/' . $idx ) );
+				$litem->setPosition( (int) $this->getValue( $data, 'customer.lists.position/' . $idx ) );
 			}
 
 			if( isset( $data['customer.lists.datestart'][$idx] ) ) {
