@@ -38,7 +38,7 @@ abstract class Base
 	 * Returns the rendered template including the view data
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
-	 * @return string|null HTML output
+	 * @return string HTML output
 	 */
 	abstract protected function render( \Aimeos\MW\View\Iface $view ) : string;
 

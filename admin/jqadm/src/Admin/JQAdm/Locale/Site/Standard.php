@@ -529,7 +529,8 @@ class Standard
 	/**
 	 * Returns the rendered template including the view data
 	 *
-	 * @return string|null HTML output
+	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
+	 * @return string HTML output
 	 */
 	protected function render( \Aimeos\MW\View\Iface $view ) : string
 	{
