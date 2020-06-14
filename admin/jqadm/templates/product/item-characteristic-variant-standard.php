@@ -49,7 +49,7 @@ $keys = [
 					</a>
 					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-						v-on:click="addItem()">
+						v-on:click="add()">
 					</div>
 				</th>
 			</tr>
@@ -99,7 +99,7 @@ $keys = [
 					<div v-if="!checkSite('product.lists.siteid', idx)"
 						class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-						v-on:click.stop="removeItem(idx)">
+						v-on:click.stop="remove(idx)">
 					</div>
 				</td>
 			</tr>

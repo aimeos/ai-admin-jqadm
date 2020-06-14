@@ -59,7 +59,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 							<div v-if="!checkSite('product.lists.siteid', idx)"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-								v-on:click.stop="removeItem(idx)">
+								v-on:click.stop="remove(idx)">
 							</div>
 						</div>
 					</div>
@@ -220,7 +220,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 			<div slot="footer" class="card-tools-more">
 				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-					v-on:click="addItem()" >
+					v-on:click="add()" >
 				</div>
 			</div>
 		</div>

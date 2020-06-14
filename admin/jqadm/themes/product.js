@@ -230,10 +230,10 @@ Aimeos.Product = {
 
 						if(self[name][key]) {
 							for(var subkey in config[name][key]) {
-								self[name][key].addItem(null, config[name][key][subkey]); // null parameter: workaround for media, price, text and property components
+								self[name][key].add(config[name][key][subkey]);
 							}
 						} else if(!isNaN(key)) {
-							self[name].addItem(null, config[name][key]); // null parameter: workaround for media, price, text and property components
+							self[name].add(config[name][key]);
 						}
 					}
 				}
@@ -254,7 +254,7 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				addItem : function(x, data) {
+				add : function(data) {
 
 					var idx = (this.items || []).length;
 					this.$set(this.items, idx, {});
@@ -267,7 +267,7 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				removeItem : function(idx) {
+				remove : function(idx) {
 					this.items.splice(idx, 1);
 				},
 
@@ -368,7 +368,7 @@ Aimeos.Product.Catalog = {
 				},
 
 
-				addItem : function(x, data) {
+				add : function(data) {
 
 					var idx = (this.items || []).length;
 					this.$set(this.items, idx, {});
@@ -382,7 +382,7 @@ Aimeos.Product.Catalog = {
 				},
 
 
-				removeItem : function(idx) {
+				remove : function(idx) {
 					this.items.splice(idx, 1);
 				},
 
@@ -668,7 +668,7 @@ Aimeos.Product.Product = {
 				},
 
 
-				addItem : function(x, data) {
+				add : function(data) {
 
 					var idx = (this.items || []).length;
 					this.$set(this.items, idx, {});
@@ -681,7 +681,7 @@ Aimeos.Product.Product = {
 				},
 
 
-				removeItem : function(idx) {
+				remove : function(idx) {
 					this.items.splice(idx, 1);
 				},
 
@@ -764,7 +764,7 @@ Aimeos.Product.Selection = {
 				},
 
 
-				addItem : function(x, data) {
+				add : function(data) {
 
 					var idx = this.items.length;
 					this.$set(this.items, idx, {});
@@ -810,7 +810,7 @@ Aimeos.Product.Selection = {
 				},
 
 
-				removeItem : function(idx) {
+				remove : function(idx) {
 					this.items.splice(idx, 1);
 				},
 
@@ -986,7 +986,7 @@ Aimeos.Product.Stock = {
 				},
 
 
-				addItem : function(x, data) {
+				add : function(data) {
 
 					var idx = (this.items || []).length;
 					this.$set(this.items, idx, {});
@@ -999,7 +999,7 @@ Aimeos.Product.Stock = {
 				},
 
 
-				removeItem : function(idx) {
+				remove : function(idx) {
 					this.items.splice(idx, 1);
 				}
 			}
@@ -1026,7 +1026,7 @@ Aimeos.Product.Subscription = {
 				},
 
 
-				addItem : function(x, data) {
+				add : function(data) {
 
 					var idx = this.items.length;
 					this.$set(this.items, idx, {});
@@ -1039,7 +1039,7 @@ Aimeos.Product.Subscription = {
 				},
 
 
-				removeItem : function(idx) {
+				remove : function(idx) {
 					this.items.splice(idx, 1);
 				}
 			}
@@ -1058,7 +1058,7 @@ Aimeos.Product.Supplier = {
 				},
 
 
-				addItem : function(x, data) {
+				add : function(data) {
 
 					var idx = (this.items || []).length;
 					this.$set(this.items, idx, {});
@@ -1072,7 +1072,7 @@ Aimeos.Product.Supplier = {
 				},
 
 
-				removeItem : function(idx) {
+				remove : function(idx) {
 					this.items.splice(idx, 1);
 				},
 

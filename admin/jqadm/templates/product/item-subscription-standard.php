@@ -53,7 +53,7 @@ $keys = [
 				<th class="actions">
 					<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-						v-on:click="addItem()">
+						v-on:click="add()">
 					</div>
 				</th>
 			</tr>
@@ -117,7 +117,7 @@ $keys = [
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'product.lists.siteid' ) ) ); ?>'.replace( 'idx', idx )"
 						v-bind:value="entry['product.lists.siteid']" />
 
-					<div v-if="entry['attribute.id'] == ''" v-on:click="removeItem(idx)"
+					<div v-if="entry['attribute.id'] == ''" v-on:click="remove(idx)"
 						class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
 					</div>
