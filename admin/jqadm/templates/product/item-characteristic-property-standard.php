@@ -15,10 +15,10 @@ $sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
 
 ?>
-<div class="col-xl-12 content-block vue-block"
+<div class="col-xl-12 content-block vue-block" data-key="characteristic/property"
 	data-data="<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>">
 
-	<property-table inline-template
+	<property-table inline-template ref="characteristic/property"
 		v-bind:domain="'product'" v-bind:siteid="'<?= $this->site()->siteid() ?>'"
 		v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
 		v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"

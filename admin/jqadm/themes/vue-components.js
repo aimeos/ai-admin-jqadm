@@ -189,7 +189,7 @@ Vue.component('property-table', {
 	},
 
 	methods: {
-		add: function() {
+		add: function(data) {
 			let entry = {};
 
 			entry[this.domain + '.property.id'] = null;
@@ -199,7 +199,7 @@ Vue.component('property-table', {
 			entry[this.domain + '.property.value'] = null;
 
 			let list = this.items;
-			list.push(entry);
+			list.push(Object.assign(entry, data));
 			this.$emit('update:property', list);
 		},
 

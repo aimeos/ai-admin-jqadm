@@ -110,11 +110,9 @@ Aimeos.Address = {
 
 Aimeos.Media = {
 
-	instance: null,
-
 	init: function() {
 
-		this.instance = new Vue({
+		Aimeos.components['media'] = new Vue({
 			el: '#item-media-group',
 			data: {
 				items: [],
@@ -242,11 +240,9 @@ Aimeos.Media = {
 
 Aimeos.Price = {
 
-	instance: null,
-
 	init: function() {
 
-		this.instance = new Vue({
+		Aimeos.components['price'] = new Vue({
 			el: '#item-price-group',
 			data: {
 				items: [],
@@ -268,7 +264,7 @@ Aimeos.Price = {
 
 	mixins: {
 		methods: {
-			add: function() {
+			add: function(data) {
 				let entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
@@ -294,7 +290,7 @@ Aimeos.Price = {
 				entry['_show'] = true;
 				entry['_nosort'] = true;
 
-				this.items.push(entry);
+				this.items.push(Object.assign(entry, data));
 			},
 
 
@@ -331,11 +327,9 @@ Aimeos.Price = {
 
 Aimeos.Text = {
 
-	instance: null,
-
 	init: function() {
 
-		this.instance = new Vue({
+		Aimeos.components['text'] = new Vue({
 			el: '#item-text-group',
 			data: {
 				items: [],
@@ -351,6 +345,7 @@ Aimeos.Text = {
 					this.$set(this.items[0], '_show', true);
 				}
 			},
+			mixins: [this.mixins]
 		});
 	},
 

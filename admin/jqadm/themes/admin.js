@@ -7,7 +7,8 @@
 
 Aimeos = {
 
-	options : null,
+	options: null,
+	components: {},
 
 	editorcfg : [
 		{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
@@ -1061,12 +1062,19 @@ $(function() {
 	Aimeos.Tabs.init();
 
 	$('.vue-block').each(function() {
-		new Vue({
+		var key = $(this).data('key');
+
+		Aimeos.components[key] = new Vue({
 			el: this,
 			data: {data: null},
 			beforeMount: function() {
 				if(this.$el.dataset && this.$el.dataset.data) {
 					this.data = JSON.parse(this.$el.dataset.data);
+				}
+			},
+			methods: {
+				add: function(data) {
+					this.$refs[key].add(data);
 				}
 			}
 		});
