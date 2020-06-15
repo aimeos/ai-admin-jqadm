@@ -172,7 +172,6 @@ Aimeos.Catalog = {
 
 			var params = {};
 			var url = result.meta.resources.catalog;
-			var targetid = event.move_info.target_node.id;
 
 			if(result.meta.prefix) {
 				params[result.meta.prefix] = {id: event.move_info.moved_node.id};
@@ -184,20 +183,24 @@ Aimeos.Catalog = {
 				params[Aimeos.Catalog.csrf.name] = Aimeos.Catalog.csrf.value;
 			}
 
+			var targetid = event.move_info.target_node.id;
 			var entry = {
 				attributes: {},
 				id: event.move_info.moved_node.id,
-				parentid: event.move_info.previous_parent.id
+				parentid: event.move_info.previous_parent.id,
+				targetid: targetid
 			};
 
 			if(event.move_info.position === 'inside') {
-				entry.targetid = targetid;
-			} else {
-				entry.targetid = event.move_info.target_node.parent.id;
+				var children = event.move_info.target_node.children;
+				entry.refid = children && children[0] && children[0].id || null;
 			}
-
-			if(event.move_info.position === 'after') {
+			else if(event.move_info.position === 'before') {
+				entry.refid = targetid;
+			}
+			else if(event.move_info.position === 'after') {
 				var children = event.move_info.target_node.parent.children;
+				entry.targetid = event.move_info.target_node.parent.id;
 
 				for(var i = 0; i < children.length; i++) {
 					if(children[i].id === targetid && i+1 < children.length) {
@@ -205,8 +208,6 @@ Aimeos.Catalog = {
 						break;
 					}
 				}
-			} else if(event.move_info.position === 'before') {
-				entry.refid = targetid;
 			}
 
 			$.ajax(url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(params), {
