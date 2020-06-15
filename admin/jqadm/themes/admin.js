@@ -1075,6 +1075,9 @@ $(function() {
 			methods: {
 				add: function(data) {
 					this.$refs[key].add(data);
+				},
+				remove: function(idx) {
+					this.$refs[key].remove(idx);
 				}
 			}
 		});
