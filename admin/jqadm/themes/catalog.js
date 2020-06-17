@@ -58,8 +58,6 @@ Aimeos.options.done(function(result) {
 
 		root.bind("tree.click", Aimeos.Catalog.onClick);
 		root.bind("tree.move", Aimeos.Catalog.onMove);
-
-		root.tree("openNode", node);
 	});
 });
 
