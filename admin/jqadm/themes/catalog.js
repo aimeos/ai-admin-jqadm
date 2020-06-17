@@ -58,15 +58,6 @@ Aimeos.options.done(function(result) {
 
 		root.bind("tree.click", Aimeos.Catalog.onClick);
 		root.bind("tree.move", Aimeos.Catalog.onMove);
-
-		var id = $(".aimeos .item-catalog #item-id").val() || $(".aimeos .item-catalog #item-parentid").val();
-		var node = root.tree("getNodeById", id);
-
-		if(!root.tree("getSelectedNode")) {
-			root.tree("selectNode", node);
-		}
-
-		root.tree("openNode", node);
 	});
 });
 
