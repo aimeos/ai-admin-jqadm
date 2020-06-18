@@ -65,6 +65,7 @@ ul.jqtree-tree .jqtree-title {
   color: #1C4257;
   vertical-align: middle;
   margin-left: 1.75em;
+  display: inline-block;
 }
 
 ul.jqtree-tree .jqtree-title.jqtree-title-folder {
