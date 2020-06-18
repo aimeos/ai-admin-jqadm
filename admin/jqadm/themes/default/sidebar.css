@@ -142,6 +142,7 @@
 	position: fixed;
 	display: block;
 	top: 0;
+	left: 3rem;
 	bottom: 0;
 	z-index: -1;
 	width: 15rem;
@@ -151,15 +152,19 @@
 	background: #283038;
 	box-shadow: 0 0 3px #000;
 	transform: translateX(-100%);
-	transition-property: transform;
-	transition-timing-function: ease-in-out;
-	transition-duration: .3s;
+	transition-property: transform, visibility, left;
+	transition-timing-function: ease-in-out, ease, ease-in-out;
+	transition-duration: 0.3s, 0s, 0.3s;
+	transition-delay: 0s, 0.3s, 0s;
 }
 
 .aimeos .sidebar-menu li:hover .tree-menu {
 	transform: translateX(0);
 	visibility: visible;
-	left: 3rem;
+	transition-property: transform, visibility, left;
+	transition-timing-function: ease-in-out, ease, ease-in-out;
+	transition-duration: .3s, 0s, .3s;
+	transition-delay: 0s, 0s, 0s;
 }
 
 .aimeos .sidebar-menu .tree-menu {
