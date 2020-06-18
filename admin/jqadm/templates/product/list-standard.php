@@ -521,7 +521,7 @@ foreach( $this->get( 'itemTypes', [] ) as $typeItem ) {
 }
 
 $columnList = [
-	'image' => null,
+	'image' => $this->translate( 'admin', 'Image' ),
 	'product.id' => $this->translate( 'admin', 'ID' ),
 	'product.status' => $this->translate( 'admin', 'Status' ),
 	'product.type' => $this->translate( 'admin', 'Type' ),
