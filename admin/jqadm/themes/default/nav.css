@@ -144,7 +144,7 @@
 	.aimeos .main-navbar {
 		position: -webkit-sticky;
 		position: sticky;
-		z-index: 1030;
+		z-index: 1060;
 		top: 0;
 	}
 	.aimeos .item-container .item-actions {
