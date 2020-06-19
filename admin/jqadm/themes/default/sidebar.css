@@ -151,20 +151,24 @@
 	visibility: hidden;
 	background: #283038;
 	box-shadow: 0 0 3px #000;
+		-webkit-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
 	transform: translateX(-100%);
-	transition-property: transform, visibility, left;
-	transition-timing-function: ease-in-out, ease, ease-in-out;
-	transition-duration: 0.3s, 0s, 0.3s;
-	transition-delay: 0s, 0.3s, 0s;
+	-webkit-transition: visibility 0s ease 0.3s, left 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+	transition: visibility 0s ease 0.3s, left 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+	-o-transition: transform 0.3s ease-in-out, visibility 0s ease 0.3s, left 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out, visibility 0s ease 0.3s, left 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out, visibility 0s ease 0.3s, left 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 .aimeos .sidebar-menu li:hover .tree-menu {
 	transform: translateX(0);
 	visibility: visible;
-	transition-property: transform, visibility, left;
-	transition-timing-function: ease-in-out, ease, ease-in-out;
-	transition-duration: .3s, 0s, .3s;
-	transition-delay: 0s, 0s, 0s;
+	-webkit-transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
+	transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
+	-o-transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s;
+	transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s;
+	transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 }
 
 .aimeos .sidebar-menu .tree-menu {
