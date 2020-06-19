@@ -43,7 +43,7 @@ class Standard
 	public function copy()
 	{
 		$view = $this->getView();
-
+		$view->attributeTypes = $this->getAttributeTypes();
 		$view->characteristicBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -62,7 +62,7 @@ class Standard
 	public function create()
 	{
 		$view = $this->getView();
-
+		$view->attributeTypes = $this->getAttributeTypes();
 		$view->characteristicBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -81,7 +81,7 @@ class Standard
 	public function get()
 	{
 		$view = $this->getView();
-
+		$view->attributeTypes = $this->getAttributeTypes();
 		$view->characteristicBody = '';
 
 		foreach( $this->getSubClients() as $client ) {
@@ -209,6 +209,22 @@ class Standard
 		 * @see admin/jqadm/product/characteristic/decorators/global
 		 */
 		return $this->createSubClient( 'product/characteristic/' . $type, $name );
+	}
+
+
+	/**
+	 * Returns the available product attribute types
+	 *
+	 * @return array Associative list of attribute type IDs as keys and attribute type items as values
+	 */
+	protected function getAttributeTypes()
+	{
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute/type' );
+
+		$search = $manager->createSearch( true )->setSlice( 0, 1000 );
+		$search->setSortations( [$search->sort( '+', 'attribute.type.position' )] );
+
+		return $manager->searchItems( $search );
 	}
 
 

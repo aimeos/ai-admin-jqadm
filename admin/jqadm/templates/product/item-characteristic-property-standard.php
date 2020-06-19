@@ -49,7 +49,7 @@ $keys = [
 
 					<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'property', 'idx', 'product.property.type' ) ) ); ?>'.replace('idx', idx)"
-						v-bind:readonly="checkSite('product.property.siteid', idx)"
+						v-bind:readonly="checkSite('product.property.siteid', idx) || item['product.property.id'] != ''"
 						v-model="items[idx]['product.property.type']" >
 
 						<option value="" disabled="disabled">
