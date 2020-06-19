@@ -151,7 +151,7 @@
 	visibility: hidden;
 	background: #283038;
 	box-shadow: 0 0 3px #000;
-		-webkit-transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
 	-ms-transform: translateX(-100%);
 	transform: translateX(-100%);
 	-webkit-transition: visibility 0s ease 0.3s, left 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
