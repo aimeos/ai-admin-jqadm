@@ -60,16 +60,22 @@ $keys = [
 			<tr v-for="(item, idx) in items" v-bind:key="idx"
 				v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 				<td v-bind:class="item['css'] || ''">
-					<select is="combo-box" class="form-control custom-select item-type"
-						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'hidden', 'idx', 'attribute.type'] ) ); ?>'.replace( 'idx', idx )"
-						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
-						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
-						v-bind:label="item['attribute.type']"
-						v-bind:required="'required'"
-						v-bind:getfcn="getTypeItems"
-						v-bind:index="idx"
-						v-on:select="updateType"
-						v-model="item['attribute.type']" >
+					<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'hidden', 'idx', 'attribute.type' ) ) ); ?>'.replace('idx', idx)"
+						v-bind:readonly="checkSite('product.lists.siteid', idx) || items[idx]['product.lists.id'] != ''"
+						v-model="items[idx]['attribute.type']" >
+
+						<option value="" disabled="disabled">
+							<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+						</option>
+
+						<?php foreach( $this->get( 'attributeTypes', [] ) as $item ) : ?>
+							<option value="<?= $enc->attr( $item->getCode() ); ?>"
+								selected="items[idx]['attribute.type'] == '<?= $enc->attr( $item->getCode() ) ?>'" >
+								<?= $enc->html( $item->getLabel() ); ?>
+							</option>
+						<?php endforeach; ?>
+
 					</select>
 				</td>
 				<td v-bind:class="item['css'] || ''">

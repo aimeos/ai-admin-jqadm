@@ -36,6 +36,25 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute/type' );
+
+		$search = $manager->createSearch( true )->setSlice( 0, 1000 );
+		$search->setSortations( [$search->sort( '+', 'attribute.type.position' )] );
+
+		$view->attributeTypes = $manager->searchItems( $search );
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
