@@ -370,6 +370,10 @@
     transition: padding .3s ease-in-out;
 }
 
+.aimeos .sidebar-menu.advanced {
+    padding-bottom: 6rem;
+}
+
 @media (min-width: 992px) {
     .aimeos .toggle-nav-items-texts {
         display: none;
@@ -387,6 +391,10 @@
         height: auto;
         padding: 0 0.5em;
         width: 100%;
+    }
+
+    .aimeos .sidebar-menu.advanced {
+        padding-bottom: 0;
     }
 
     .aimeos .main-sidebar .title {
