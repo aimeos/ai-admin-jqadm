@@ -5,6 +5,75 @@
 
 
 
+/** Main Navbar **/
+
+.aimeos .main-navbar {
+ 	min-height: 3rem;
+}
+
+.aimeos .main-navbar span.placeholder {
+	display: inline-block;
+	height: 35px;
+}
+
+
+/** Main navbar search toggle **/
+
+@media (max-width: 992px) {
+	.aimeos .js--toggle-search {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		position: absolute;
+		top: 14px;
+		right: 26px;
+		width: 30px;
+		height: 24px;
+		cursor: pointer;
+		transition: color .3s;
+	}
+
+	.aimeos .js--toggle-search:hover {
+		color: #333;
+	}
+
+	.aimeos .js--toggle-search .icon {
+		font: normal normal normal 14px/1 FontAwesome;
+		color: #90A0B0;
+		display: block;
+	}
+
+	.aimeos .js--toggle-search .icon.chevron {
+		font-size: 10px;
+		color: #ccc;
+	}
+
+	.aimeos .js--toggle-search .icon.search:before {
+		content: "\f002"
+	}
+
+	.aimeos .js--toggle-search .icon.chevron:before {
+		content: "\f078";
+	}
+}
+
+@media (min-width: 992px) {
+	.aimeos .js--toggle-search {
+		display: none;
+	}
+}
+
+
+/* Enable horizontal scrolling for table content  */
+
+.aimeos form.list {
+	overflow-x: auto;
+	margin-bottom: 1rem;
+	padding-bottom: 0.5rem;
+}
+
+
 /* Pagination */
 
 .aimeos .list-page {
@@ -32,6 +101,33 @@
 
 .aimeos .list-page .page-link {
 	min-width: 3rem;
+}
+
+@media (max-width: 992px) {
+
+ 	.aimeos .list-page {
+		margin-bottom: 0.75rem;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.aimeos .list-page .page-limit,
+	.aimeos .list-page .pagination {
+		margin: 0;
+	}
+
+	.aimeos .list-page .page-limit {
+		order: 1;
+	}
+
+	.aimeos .list-page .pagination {
+		order: 2;
+	}
+
+	.aimeos .list-page .btn {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
 }
 
 
@@ -575,12 +671,6 @@
 	padding: 0;
 	opacity: 0;
 	left: 0;
-}
-
-
-.aimeos .main-navbar span.placeholder {
-	display: inline-block;
-	height: 35px;
 }
 
 .aimeos .list-log .list-items td {
