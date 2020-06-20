@@ -185,7 +185,7 @@
 
 	.js--show-search .aimeos .main-navbar .form-inline {
 		visibility: visible;
-		top: 60px;
+		top: 62px;
 		z-index: 2000;
 		transition: top .3s ease-in-out, z-index .3s, visibility 0s ease 0s;
 	}
