@@ -4,7 +4,7 @@
 */
 
 
-/** Content navigation **/
+/* Content navigation */
 
 .aimeos .main-navbar {
 	display: flex;
@@ -31,10 +31,16 @@
 	content: " ";
 }
 
+.aimeos .main-navbar span.placeholder {
+	display: inline-block;
+	height: 35px;
+}
+
 
 /** Search Toggle **/
 
 @media (max-width: 992px) {
+
 	.aimeos .toggle-search {
 		display: flex;
 		align-items: center;
@@ -52,21 +58,27 @@
 
 	.aimeos .toggle-search .icon {
 		font: normal normal normal 14px/1 FontAwesome;
-		color: #90A0B0;
+		color: #bdbdbd;
 		display: block;
 	}
 
 	.aimeos .toggle-search .icon.chevron {
 		font-size: 10px;
-		color: #ccc;
+		color: #4090C0;
 	}
 
 	.aimeos .toggle-search .icon.search:before {
 		content: "\f002"
 	}
 
+	/* open */
 	.aimeos .toggle-search .icon.chevron:before {
 		content: "\f078";
+	}
+
+	/* close */
+	.js--show-search .aimeos .toggle-search .icon.chevron:before {
+		content: "\f077";
 	}
 }
 
@@ -77,22 +89,10 @@
 }
 
 
-/** Search **/
+/** Search field with custom selects **/
 
-.aimeos .main-navbar .input-group {
-	width: inherit;
-}
-
-.aimeos .main-navbar input,
-.aimeos .main-navbar .custom-select,
-.aimeos .main-navbar .filter-columns .dropdown-item,
-.aimeos .main-navbar .filter-columns .dropdown-toggle {
-	font-family: monospace;
-	border-radius: 0;
-}
-
-.aimeos .main-navbar .dropdown-item input {
-	margin-right: 0.75rem;
+.aimeos .main-navbar form>* {
+	margin-left: 0.25rem;
 }
 
 .aimeos .main-navbar form .more,
@@ -113,8 +113,34 @@
 	content: "\f0da";
 }
 
-.aimeos .main-navbar form>* {
-	margin-left: 0.25rem;
+.aimeos .main-navbar .form-inline,
+.aimeos .main-navbar .input-group {
+	display: inline-flex;
+}
+
+.aimeos .main-navbar .input-group {
+	width: inherit;
+}
+
+.aimeos .main-navbar .input-group input,
+.aimeos .main-navbar .input-group select {
+	border: 1px solid #bbb;
+}
+
+.aimeos .main-navbar .input-group select {
+	height: 34px;
+}
+
+.aimeos .main-navbar input,
+.aimeos .main-navbar .custom-select,
+.aimeos .main-navbar .filter-columns .dropdown-item,
+.aimeos .main-navbar .filter-columns .dropdown-toggle {
+	font-family: monospace;
+	border-radius: 0;
+}
+
+.aimeos .main-navbar .dropdown-item input {
+	margin-right: 0.75rem;
 }
 
 .aimeos .main-navbar .filter-columns,
@@ -132,14 +158,37 @@
 	max-width: 4rem;
 }
 
-.aimeos .main-navbar .form-inline,
-.aimeos .main-navbar .input-group {
-	display: inline-flex;
-}
+@media (max-width: 992px) {
 
-.aimeos .main-navbar span.placeholder {
-	display: inline-block;
-	height: 35px;
+	.aimeos .main-navbar .form-inline {
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: flex-end;
+		position: fixed;
+		/*
+		TODO: fixed elements don't respect the scrollbar, so its width
+		need to be included on desktops: 32px
+		*/
+		right: 15px;
+		left: calc(3rem + 15px);
+		background: white;
+		padding: 0.25rem;
+		border-radius: 4px;
+		box-shadow: 0 0 4px rgba(0, 0, 0, .35);
+		white-space: nowrap;
+
+		transition: top .3s ease-in-out, z-index .3s, visibility .3s ease .3s;
+		top: -36px;
+		z-index: -1;
+		visibility: hidden;
+	}
+
+	.js--show-search .aimeos .main-navbar .form-inline {
+		visibility: visible;
+		top: 60px;
+		z-index: 2000;
+		transition: top .3s ease-in-out, z-index .3s, visibility 0s ease 0s;
+	}
 }
 
 
