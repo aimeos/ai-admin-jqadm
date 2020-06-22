@@ -11,8 +11,6 @@
 	align-items: center;
 	justify-content: space-between;
 	min-height: 3rem;
-
-	/* text-align: right; */
 	background-color: #F8F8F8;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
@@ -62,27 +60,12 @@
 		display: block;
 	}
 
-	.aimeos .toggle-search .icon.chevron {
-		font-size: 10px;
-		color: #4090C0;
-	}
-
 	.aimeos .toggle-search .icon.search:before {
 		content: "\f002"
 	}
-
-	/* open */
-	.aimeos .toggle-search .icon.chevron:before {
-		content: "\f078";
-	}
-
-	/* close */
-	.js--show-search .aimeos .toggle-search .icon.chevron:before {
-		content: "\f077";
-	}
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
 	.aimeos .toggle-search {
 		display: none;
 	}
@@ -158,36 +141,66 @@
 	max-width: 4rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 767px) {
 
 	.aimeos .main-navbar .form-inline {
 		flex-wrap: nowrap;
 		align-items: center;
 		justify-content: flex-end;
-		position: fixed;
-		/*
-		TODO: fixed elements don't respect the scrollbar, so its width
-		need to be included on desktops: 32px
-		*/
-		right: 15px;
-		left: calc(3rem + 15px);
+		position: absolute;
+		right: 0;
+		left: 3rem;
+		max-width: 100%;
 		background: white;
 		padding: 0.25rem;
 		border-radius: 4px;
-		box-shadow: 0 0 4px rgba(0, 0, 0, .35);
+		box-shadow: 0 0 4px rgba(20, 20, 20, .35);
 		white-space: nowrap;
-
-		transition: top .3s ease-in-out, z-index .3s, visibility .3s ease .3s;
-		top: -36px;
 		z-index: -1;
 		visibility: hidden;
+		-webkit-transition: z-index .3s,
+			visibility .3s ease .3s,
+			-webkit-transform .3s ease-in-out;
+		transition: z-index .3s,
+			visibility .3s ease .3s,
+			-webkit-transform .3s ease-in-out;
+		-o-transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility .3s ease .3s;
+		transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility .3s ease .3s;
+		transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility .3s ease .3s,
+			-webkit-transform .3s ease-in-out;
+		-webkit-transform: translateY(-48px);
+		-ms-transform: translateY(-48px);
+		transform: translateY(-48px);
 	}
 
 	.js--show-search .aimeos .main-navbar .form-inline {
 		visibility: visible;
-		top: 62px;
 		z-index: 2000;
-		transition: top .3s ease-in-out, z-index .3s, visibility 0s ease 0s;
+		-webkit-transform: translateY(58px);
+		-ms-transform: translateY(58px);
+		transform: translateY(58px);
+		-webkit-transition: z-index .3s,
+			visibility 0s ease 0s,
+			-webkit-transform .3s ease-in-out;
+		transition: z-index .3s,
+			visibility 0s ease 0s,
+			-webkit-transform .3s ease-in-out;
+		-o-transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility 0s ease 0s;
+		transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility 0s ease 0s;
+		transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility 0s ease 0s,
+			-webkit-transform .3s ease-in-out;
 	}
 }
 
