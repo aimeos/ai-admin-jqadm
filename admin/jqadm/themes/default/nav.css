@@ -1,36 +1,16 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos (aimeos.org), 2015-2018
- */
-
-
-
-/* Footer */
-
-.aimeos .main-footer {
-	background-color: #F8F8F8;
-	position: relative;
-	left: 3rem;
-	bottom: 0;
-	margin: 0 2.5%;
-	padding: 0.25rem;
-	width: calc(95% - 3rem);
-	text-align: right;
-}
-
-@media (min-width: 992px) {
-	.aimeos .main-footer {
-		width: calc(95% - 5rem);
-		left: 5rem;
-	}
-}
-
+*/
 
 
 /* Content navigation */
 
 .aimeos .main-navbar {
-	text-align: right;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 3rem;
 	background-color: #F8F8F8;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
@@ -49,20 +29,53 @@
 	content: " ";
 }
 
-.aimeos .main-navbar .input-group {
-	width: inherit;
+.aimeos .main-navbar span.placeholder {
+	display: inline-block;
+	height: 35px;
 }
 
-.aimeos .main-navbar input,
-.aimeos .main-navbar .custom-select,
-.aimeos .main-navbar .filter-columns .dropdown-item,
-.aimeos .main-navbar .filter-columns .dropdown-toggle {
-	font-family: monospace;
-	border-radius: 0;
+
+/** Search Toggle **/
+
+@media (max-width: 992px) {
+
+	.aimeos .toggle-search {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		position: relative;
+		width: 18px;
+		cursor: pointer;
+		transition: color .3s;
+	}
+
+	.aimeos .toggle-search:hover {
+		color: #333;
+	}
+
+	.aimeos .toggle-search .icon {
+		font: normal normal normal 14px/1 FontAwesome;
+		color: #bdbdbd;
+		display: block;
+	}
+
+	.aimeos .toggle-search .icon.search:before {
+		content: "\f002"
+	}
 }
 
-.aimeos .main-navbar .dropdown-item input {
-	margin-right: 0.75rem;
+@media (min-width: 768px) {
+	.aimeos .toggle-search {
+		display: none;
+	}
+}
+
+
+/** Search field with custom selects **/
+
+.aimeos .main-navbar form>* {
+	margin-left: 0.25rem;
 }
 
 .aimeos .main-navbar form .more,
@@ -83,8 +96,34 @@
 	content: "\f0da";
 }
 
-.aimeos .main-navbar form > * {
-	margin-left: 0.25rem;
+.aimeos .main-navbar .form-inline,
+.aimeos .main-navbar .input-group {
+	display: inline-flex;
+}
+
+.aimeos .main-navbar .input-group {
+	width: inherit;
+}
+
+.aimeos .main-navbar .input-group input,
+.aimeos .main-navbar .input-group select {
+	border: 1px solid #bbb;
+}
+
+.aimeos .main-navbar .input-group select {
+	height: 34px;
+}
+
+.aimeos .main-navbar input,
+.aimeos .main-navbar .custom-select,
+.aimeos .main-navbar .filter-columns .dropdown-item,
+.aimeos .main-navbar .filter-columns .dropdown-toggle {
+	font-family: monospace;
+	border-radius: 0;
+}
+
+.aimeos .main-navbar .dropdown-item input {
+	margin-right: 0.75rem;
 }
 
 .aimeos .main-navbar .filter-columns,
@@ -102,10 +141,71 @@
 	max-width: 4rem;
 }
 
-.aimeos .main-navbar .form-inline,
-.aimeos .main-navbar .input-group {
-	display: inline-flex;
+@media (max-width: 767px) {
+
+	.aimeos .main-navbar .form-inline {
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: flex-end;
+		position: absolute;
+		right: 0;
+		left: 3rem;
+		max-width: 100%;
+		background: white;
+		padding: 0.25rem;
+		border-radius: 4px;
+		box-shadow: 0 0 4px rgba(20, 20, 20, .35);
+		white-space: nowrap;
+		z-index: -1;
+		visibility: hidden;
+		-webkit-transition: z-index .3s,
+			visibility .3s ease .3s,
+			-webkit-transform .3s ease-in-out;
+		transition: z-index .3s,
+			visibility .3s ease .3s,
+			-webkit-transform .3s ease-in-out;
+		-o-transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility .3s ease .3s;
+		transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility .3s ease .3s;
+		transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility .3s ease .3s,
+			-webkit-transform .3s ease-in-out;
+		-webkit-transform: translateY(-48px);
+		-ms-transform: translateY(-48px);
+		transform: translateY(-48px);
+	}
+
+	.js--show-search .aimeos .main-navbar .form-inline {
+		visibility: visible;
+		z-index: 2000;
+		-webkit-transform: translateY(58px);
+		-ms-transform: translateY(58px);
+		transform: translateY(58px);
+		-webkit-transition: z-index .3s,
+			visibility 0s ease 0s,
+			-webkit-transform .3s ease-in-out;
+		transition: z-index .3s,
+			visibility 0s ease 0s,
+			-webkit-transform .3s ease-in-out;
+		-o-transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility 0s ease 0s;
+		transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility 0s ease 0s;
+		transition: transform .3s ease-in-out,
+			z-index .3s,
+			visibility 0s ease 0s,
+			-webkit-transform .3s ease-in-out;
+	}
 }
+
+
+/** Content **/
 
 .aimeos .main-content .item-actions {
 	padding: 0 calc(0.5rem + 15px);
@@ -132,12 +232,13 @@
 	margin: 0;
 }
 
-.aimeos .main-content .item-actions .btn.act-help {
-	min-width: 3rem;
-}
-
 .aimeos .main-content {
 	margin-bottom: 1rem;
+	padding: 0;
+}
+
+.aimeos .main-content .item-actions .btn.act-help {
+	min-width: 3rem;
 }
 
 @media (min-width: 768px) {
@@ -147,6 +248,7 @@
 		z-index: 1041;
 		top: 0;
 	}
+
 	.aimeos .item-container .item-actions {
 		display: none;
 	}
@@ -155,5 +257,23 @@
 @media (max-width: 992px) {
 	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle) {
 		min-width: 6rem;
+	}
+}
+
+
+/* Footer */
+
+.aimeos .main-footer {
+	background-color: #F8F8F8;
+	position: relative;
+	padding: 0.25rem 0.5rem;
+	text-align: right;
+	width: auto;
+	margin: auto 0 1rem 3rem;
+}
+
+@media (min-width: 992px) {
+	.aimeos .main-footer {
+		margin-left: 5rem;
 	}
 }

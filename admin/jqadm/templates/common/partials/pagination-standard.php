@@ -97,7 +97,8 @@ $enc = $this->encoder();
 			</li><!--
 			--><li class="page-item disabled">
 				<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" href="#">
-					<?= $enc->html( sprintf( $this->translate( 'admin', 'Page %1$d of %2$d' ), $pageCurrent, $pageTotal ) ); ?>
+					<span class="d-none d-lg-block"><?= $enc->html( sprintf( $this->translate( 'admin', 'Page %1$d of %2$d' ), $pageCurrent, $pageTotal ) ); ?></span>
+					<span class="d-lg-none"><?= $enc->html( sprintf( '%1$d/%2$d', $pageCurrent, $pageTotal ) ); ?></span>
 				</a>
 			</li><!--
 			--><li class="page-item <?= ( $next === null ? 'disabled' : '' ) ?>">
@@ -120,7 +121,7 @@ $enc = $this->encoder();
 				 tabindex="<?= $this->get( 'tabindex', 1 ); ?>" aria-haspopup="true" aria-expanded="false">
 				<?= $limit; ?> <span class="caret"></span>
 			</button>
-			<ul class="dropdown-menu">
+			<ul class="dropdown-menu dropdown-menu-right">
 				<li class="dropdown-item">
 					<a href="<?php $pLimit['limit'] = 25; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
 						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">25</a>

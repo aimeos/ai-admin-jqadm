@@ -36,6 +36,11 @@ $enc = $this->encoder();
 
 
 ?>
+<div id="js--toggle-search" class="toggle-search">
+	<span class="icon search"></span>
+	<span class="hidden">Show/hide search.</span>
+</div>
+
 <form class="form-inline" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 

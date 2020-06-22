@@ -4,36 +4,67 @@
  */
 
 
-
 /* Pagination */
 
 .aimeos .list-page {
 	text-align: center;
 }
 
-.aimeos .list-page .pagination {
-	display: inline-block;
-	margin: 1rem;
+.page-limit .dropdown-menu {
+	min-width: 5rem;
 }
 
-.aimeos .list-page .page-item {
-	display: inline-block;
-	text-align: center;
+.page-limit .dropdown-menu .dropdown-item {
+	text-align: center
 }
 
-.aimeos .list-page .page-limit {
-	vertical-align: top;
-	margin: 1rem;
+@media (max-width: 992px) {
+
+	.aimeos .list-page {
+		display: flex;
+		margin-bottom: 1rem;
+		justify-content: space-between;
+	}
+
+	.aimeos .list-page .page-limit,
+	.aimeos .list-page .pagination {
+		margin: 0;
+	}
+
+	.aimeos .list-page .btn {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
+	.aimeos .list-page .page-link {
+		min-width: 2rem;
+	}
 }
 
-.aimeos .list-page .btn {
-	padding: 0.4rem 1rem;
-}
+@media (min-width: 992px) {
+	.aimeos .list-page .pagination {
+		display: inline-block;
+		margin: 1rem;
+	}
 
-.aimeos .list-page .page-link {
-	min-width: 3rem;
-}
+	.aimeos .list-page .page-item {
+		display: inline-block;
+		text-align: center;
+	}
 
+	.aimeos .list-page .page-limit {
+		vertical-align: top;
+		margin: 1rem;
+	}
+
+	.aimeos .list-page .btn {
+		padding: 0.4rem 1rem;
+	}
+
+	.aimeos .list-page .page-link {
+		min-width: 3rem;
+	}
+}
 
 
 /** Tree view */
@@ -72,6 +103,14 @@
 	content: "\f068";
 }
 
+
+/* Enable horizontal scrolling for table content  */
+
+.aimeos form.list {
+	overflow-x: auto;
+	margin-bottom: 1rem;
+	padding-bottom: 0.5rem;
+}
 
 
 /* Item listing */
@@ -575,12 +614,6 @@
 	padding: 0;
 	opacity: 0;
 	left: 0;
-}
-
-
-.aimeos .main-navbar span.placeholder {
-	display: inline-block;
-	height: 35px;
 }
 
 .aimeos .list-log .list-items td {
