@@ -831,6 +831,7 @@ Aimeos.Nav = {
 		this.toggleFormItems();
 		this.toggleNavItems();
 		this.toggleMenu();
+		this.toggleNavItemsTexts();
 		this.toggleSearch();
 	},
 
@@ -960,13 +961,21 @@ Aimeos.Nav = {
 		});
 	},
 
+  
+	toggleNavItemsTexts : function() {
 
+		$('#js--toggle-nav-items-text').on('click', function() {
+			document.body.classList.toggle('js--show-nav-items-texts');
+		})
+	},
+
+  
 	toggleSearch : function() {
 
 		$('#js--toggle-search').on('click', function() {
 			document.body.classList.toggle('js--show-search');
 		})
-	}
+	},
 };
 
 
