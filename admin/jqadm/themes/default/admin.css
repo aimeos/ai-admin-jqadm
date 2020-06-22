@@ -10,6 +10,14 @@
 	text-align: center;
 }
 
+.page-limit .dropdown-menu {
+	min-width: 5rem;
+}
+
+.page-limit .dropdown-menu .dropdown-item {
+	text-align: center
+}
+
 @media (max-width: 992px) {
 
 	.aimeos .list-page {
@@ -21,14 +29,6 @@
 	.aimeos .list-page .page-limit,
 	.aimeos .list-page .pagination {
 		margin: 0;
-	}
-
-	.aimeos .list-page .page-limit {
-		order: 1;
-	}
-
-	.aimeos .list-page .pagination {
-		order: 2;
 	}
 
 	.aimeos .list-page .btn {
