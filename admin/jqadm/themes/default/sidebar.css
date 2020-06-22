@@ -4,23 +4,27 @@
  */
 
 
-
-/* Sidebar */
-
 .aimeos .main-sidebar {
 	min-height: 100%;
-	position: absolute;
-	display: block;
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
 	left: 0;
 	top: 0;
-	width: 3rem;
 	z-index: 1200;
 	color: #B8C8D0;
 	background: #202830;
 	-webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
-	-moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
 	-o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+	-webkit-transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+	transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+	-o-transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
 	transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 .aimeos .sidebar-wrapper {
@@ -29,6 +33,7 @@
 	bottom: 0;
 	top: 0;
 	width: 3rem;
+	min-height: 100vh;
 }
 
 .aimeos .logo {
@@ -42,6 +47,7 @@
 	display: block;
 	height: 2.75rem;
 	position: relative;
+	-webkit-transform: perspective(1px) translateY(-50%);
 	transform: perspective(1px) translateY(-50%);
 	top: 50%;
 }
@@ -72,7 +78,7 @@
 }
 
 .aimeos .main-sidebar .separator,
-.aimeos .sidebar-menu > li {
+.aimeos .sidebar-menu>li {
 	text-align: center;
 	position: relative;
 	padding: 0;
@@ -80,8 +86,8 @@
 }
 
 .aimeos .main-sidebar .separator .icon,
-.aimeos .sidebar-menu > li > span,
-.aimeos .sidebar-menu > li > a {
+.aimeos .sidebar-menu>li>span,
+.aimeos .sidebar-menu>li>a {
 	padding: 0.5rem 0;
 	display: block;
 }
@@ -102,8 +108,8 @@
 	background: #202830;
 }
 
-.aimeos .main-sidebar .sidebar-menu > li:hover,
-.aimeos .sidebar-menu > li.active,
+.aimeos .main-sidebar .sidebar-menu>li:hover,
+.aimeos .sidebar-menu>li.active,
 .aimeos .sidebar-menu li .tree-menu li:hover,
 .aimeos .sidebar-menu li .tree-menu li.active {
 	border-left-color: #4090C0;
@@ -124,6 +130,10 @@
 
 .aimeos .main-sidebar .separator {
 	background: #202830;
+}
+
+.aimeos .main-sidebar .separator .icon {
+	background: #182028;
 }
 
 .aimeos .tree-menu {
@@ -150,20 +160,34 @@
 	overflow-y: auto;
 	visibility: hidden;
 	background: #283038;
+	-webkit-box-shadow: 0 0 3px #000;
 	box-shadow: 0 0 3px #000;
-	-webkit-transform: translateX(-100%);
-	-ms-transform: translateX(-100%);
-	transform: translateX(-100%);
-	-webkit-transition: visibility 0s ease 0.3s, left 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-	transition: visibility 0s ease 0.3s, left 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-	-o-transition: transform 0.3s ease-in-out, visibility 0s ease 0.3s, left 0.3s ease-in-out;
-	transition: transform 0.3s ease-in-out, visibility 0s ease 0.3s, left 0.3s ease-in-out;
-	transition: transform 0.3s ease-in-out, visibility 0s ease 0.3s, left 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+	-webkit-transform: translateX(-15rem);
+	-ms-transform: translateX(-15rem);
+	transform: translateX(-15rem);
+	-webkit-transition: visibility 0s ease 0.3s,
+		left 0.3s ease-in-out,
+		-webkit-transform 0.3s ease-in-out;
+	transition: visibility 0s ease 0.3s,
+		left 0.3s ease-in-out,
+		-webkit-transform 0.3s ease-in-out;
+	-o-transition: transform 0.3s ease-in-out,
+		visibility 0s ease 0.3s,
+		left 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out,
+		visibility 0s ease 0.3s,
+		left 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out,
+		visibility 0s ease 0.3s,
+		left 0.3s ease-in-out,
+		-webkit-transform 0.3s ease-in-out;
 }
 
 .aimeos .sidebar-menu li:hover .tree-menu {
-	transform: translateX(0);
 	visibility: visible;
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
 	-webkit-transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 	transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 	-o-transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s;
@@ -202,63 +226,263 @@
 	padding: 0 1rem;
 }
 
+.aimeos .toggle-nav-items-texts .icon,
 .aimeos .main-sidebar .icon {
 	font: normal normal normal 14px/1 FontAwesome;
 	font-size: 150%;
 	display: block;
 }
 
-.aimeos .main-sidebar .site .icon:before { content: "\f233" }
-.aimeos .main-sidebar .expert .icon:before { content: "\f19d" }
-.aimeos .main-sidebar .dashboard .icon:before { content: "\f0e4" }
-.aimeos .main-sidebar .order .icon:before { content: "\f07a" }
-.aimeos .main-sidebar .subscription .icon:before { content: "\f073" }
-.aimeos .main-sidebar .customer .icon:before { content: "\f007" }
-.aimeos .main-sidebar .product .icon:before { content: "\f1b2" }
-.aimeos .main-sidebar .catalog .icon:before { content: "\f0e8" }
-.aimeos .main-sidebar .attribute .icon:before { content: "\f02c" }
-.aimeos .main-sidebar .coupon .icon:before { content: "\f295" }
-.aimeos .main-sidebar .separator .more:before { content: "\f0d7" }
-.aimeos .main-sidebar .separator .less:before { content: "\f0d8" }
-.aimeos .main-sidebar .supplier .icon:before { content: "\f275" }
-.aimeos .main-sidebar .service .icon:before { content: "\f09d" }
-.aimeos .main-sidebar .service .icon:after { content: "\f0d1" }
-.aimeos .main-sidebar .plugin .icon:before { content: "\f1e6" }
-.aimeos .main-sidebar .group .icon:before { content: "\f0c0" }
-.aimeos .main-sidebar .type .icon:before { content: "\f02b" }
-.aimeos .main-sidebar .locale .icon:before { content: "\f0ac" }
-.aimeos .main-sidebar .log .icon:before { content: "\f187" }
-.aimeos .main-sidebar .language .icon:before { content: "\f1ab" }
+.aimeos .toggle-nav-items-texts .icon {
+	color: #90A0B0;
+	-webkit-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
 
+.aimeos .main-sidebar .site .icon:before {
+	content: "\f233"
+}
+
+.aimeos .main-sidebar .expert .icon:before {
+	content: "\f19d"
+}
+
+.aimeos .main-sidebar .dashboard .icon:before {
+	content: "\f0e4"
+}
+
+.aimeos .main-sidebar .order .icon:before {
+	content: "\f07a"
+}
+
+.aimeos .main-sidebar .subscription .icon:before {
+	content: "\f073"
+}
+
+.aimeos .main-sidebar .customer .icon:before {
+	content: "\f007"
+}
+
+.aimeos .main-sidebar .product .icon:before {
+	content: "\f1b2"
+}
+
+.aimeos .main-sidebar .catalog .icon:before {
+	content: "\f0e8"
+}
+
+.aimeos .main-sidebar .attribute .icon:before {
+	content: "\f02c"
+}
+
+.aimeos .main-sidebar .coupon .icon:before {
+	content: "\f295"
+}
+
+.aimeos .main-sidebar .separator .more:before {
+	content: "\f0d7";
+}
+
+.aimeos .main-sidebar .separator .less:before {
+	content: "\f0d8";
+}
+
+.aimeos .main-sidebar .supplier .icon:before {
+	content: "\f275"
+}
+
+.aimeos .main-sidebar .service .icon:before {
+	content: "\f09d"
+}
+
+.aimeos .main-sidebar .service .icon:after {
+	content: "\f0d1"
+}
+
+.aimeos .main-sidebar .plugin .icon:before {
+	content: "\f1e6"
+}
+
+.aimeos .main-sidebar .group .icon:before {
+	content: "\f0c0"
+}
+
+.aimeos .main-sidebar .type .icon:before {
+	content: "\f02b"
+}
+
+.aimeos .main-sidebar .locale .icon:before {
+	content: "\f0ac"
+}
+
+.aimeos .main-sidebar .log .icon:before {
+	content: "\f187"
+}
+
+.aimeos .main-sidebar .language .icon:before {
+	content: "\f1ab"
+}
+
+.aimeos .toggle-nav-items-texts .icon:before {
+	content: "\f0d7";
+}
+
+.aimeos .main-sidebar .separator .more:before,
+.aimeos .main-sidebar .separator .less:before,
+.aimeos .toggle-nav-items-texts .icon:before {
+	color: #4090C0;
+}
 
 .aimeos .main-content {
 	margin-left: 3rem;
 	padding: 0 2.5%;
 }
 
+.aimeos .toggle-nav-items-texts {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 3rem;
+	height: 2rem;
+	background: #202830;
+	border-left: 0.2rem solid transparent;
+	border-right: 0.2rem solid transparent;
+	z-index: 2000;
+	-webkit-transition: width .3s ease-in-out;
+	-o-transition: width .3s ease-in-out;
+	transition: width .3s ease-in-out;
+	background: #182028;
+	cursor: pointer;
+}
+
+.aimeos .sidebar-wrapper {
+	-webkit-transition: width .3s ease-in-out;
+	-o-transition: width .3s ease-in-out;
+	transition: width .3s ease-in-out;
+}
+
+.aimeos .sidebar-wrapper .logo,
+.aimeos .sidebar-wrapper .logo img {
+	-webkit-transition: height .3s ease-in-out;
+	-o-transition: height .3s ease-in-out;
+	transition: height .3s ease-in-out;
+}
+
+.aimeos .sidebar-menu li {
+	-webkit-transition: padding .3s ease-in-out;
+	-o-transition: padding .3s ease-in-out;
+	transition: padding .3s ease-in-out;
+}
+
+.aimeos .sidebar-menu.advanced {
+	padding-bottom: 6rem;
+}
+
 @media (min-width: 992px) {
+	.aimeos .toggle-nav-items-texts {
+		display: none;
+	}
+
 	.aimeos .main-sidebar {
 		width: 5rem;
 	}
+
 	.aimeos .sidebar-wrapper {
 		width: 5rem;
 	}
+
 	.aimeos .logo img {
 		height: auto;
 		padding: 0 0.5em;
 		width: 100%;
 	}
+
+	.aimeos .sidebar-menu.advanced {
+		padding-bottom: 0;
+	}
+
 	.aimeos .main-sidebar .title {
 		display: block;
 		font-size: 90%;
 	}
-	.aimeos .sidebar-menu > li:hover > .tree-menu {
+
+	.aimeos .sidebar-menu>li:hover>.tree-menu {
 		left: 5rem;
 	}
+
 	.aimeos .sidebar-menu li:hover .tree-menu {
 		left: 5rem;
 	}
+
 	.aimeos .main-content {
 		margin-left: 5rem;
+	}
+}
+
+
+@media (max-width: 992px) {
+	.js--show-nav-items-texts .aimeos .sidebar-wrapper {
+		width: 9rem;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-wrapper .logo {
+		height: 3.75rem;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-wrapper .logo img {
+		height: 2.15rem;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-wrapper .icon:not(.less):not(.more) {
+		width: 2.25rem;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-menu li {
+		padding-left: .25rem;
+		padding-right: .25rem;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-menu li a,
+	.js--show-nav-items-texts .aimeos .sidebar-menu li span {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-menu li .title {
+		display: block;
+		margin-left: 1.1rem;
+		padding: 0;
+		font-size: 82%;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-menu li:hover .tree-menu {
+		-webkit-transform: translateX(6rem);
+		-ms-transform: translateX(6rem);
+		transform: translateX(6rem);
+	}
+
+	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts {
+		width: 9rem;
+		text-align: right;
+	}
+
+	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts .icon {
+		-webkit-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		transform: rotate(90deg);
 	}
 }

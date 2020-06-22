@@ -831,6 +831,7 @@ Aimeos.Nav = {
 		this.toggleFormItems();
 		this.toggleNavItems();
 		this.toggleMenu();
+		this.toggleNavItemsTexts();
 	},
 
 
@@ -957,6 +958,14 @@ Aimeos.Nav = {
 				window.sessionStorage.setItem('aimeos/jqadm/item/form', 0);
 			}
 		});
+	},
+
+
+	toggleNavItemsTexts : function() {
+
+		$('#js--toggle-nav-items-text').on('click', function() {
+			document.body.classList.toggle('js--show-nav-items-texts');
+		})
 	}
 };
 
