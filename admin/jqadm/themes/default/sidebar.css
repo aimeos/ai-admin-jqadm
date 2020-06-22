@@ -132,6 +132,10 @@
 	background: #202830;
 }
 
+.aimeos .main-sidebar .separator .icon {
+	background: #182028;
+}
+
 .aimeos .tree-menu {
 	padding: 0.5rem 0;
 	display: none;
@@ -225,15 +229,15 @@
 .aimeos .toggle-nav-items-texts .icon,
 .aimeos .main-sidebar .icon {
 	font: normal normal normal 14px/1 FontAwesome;
-	display: block;
-}
-
-.aimeos .main-sidebar .icon {
 	font-size: 150%;
+	display: block;
 }
 
 .aimeos .toggle-nav-items-texts .icon {
 	color: #90A0B0;
+	-webkit-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	transform: rotate(-90deg);
 }
 
 .aimeos .main-sidebar .site .icon:before {
@@ -321,7 +325,7 @@
 }
 
 .aimeos .toggle-nav-items-texts .icon:before {
-	content: "\f054"
+	content: "\f0d7";
 }
 
 .aimeos .main-sidebar .separator .more:before,
@@ -354,14 +358,9 @@
 	border-left: 0.2rem solid transparent;
 	border-right: 0.2rem solid transparent;
 	z-index: 2000;
-	-webkit-transition: -webkit-transform .3s ease-in-out;
-	transition: -webkit-transform .3s ease-in-out;
-	-o-transition: transform .3s ease-in-out;
-	transition: transform .3s ease-in-out;
-	transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
-}
-
-.aimeos .toggle-nav-items-texts:hover {
+	-webkit-transition: width .3s ease-in-out;
+	-o-transition: width .3s ease-in-out;
+	transition: width .3s ease-in-out;
 	background: #182028;
 	cursor: pointer;
 }
@@ -477,14 +476,13 @@
 	}
 
 	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts {
-		-webkit-transform: translateX(6rem);
-		-ms-transform: translateX(6rem);
-		transform: translateX(6rem);
+		width: 9rem;
+		text-align: right;
 	}
 
 	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts .icon {
-		-webkit-transform: rotate(180deg);
-		-ms-transform: rotate(180deg);
-		transform: rotate(180deg);
+		-webkit-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		transform: rotate(90deg);
 	}
 }
