@@ -147,7 +147,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 <div class="aimeos" lang="<?= $this->param( 'lang' ); ?>" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
 
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row flex-nowrap">
 
 			<nav class="main-sidebar">
 				<div class="sidebar-wrapper">
