@@ -137,6 +137,7 @@ Vue.component('html-editor', {
 			extraPlugins: 'divarea',
 			initialData: this.value,
 			readOnly: this.readonly,
+			protectedSource: [/\n/g],
 			autoParagraph: false,
 			entities: false
 		});
