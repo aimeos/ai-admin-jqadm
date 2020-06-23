@@ -335,7 +335,6 @@
 }
 
 .aimeos .main-content {
-	margin-left: 3rem;
 	padding: 0 2.5%;
 }
 
@@ -423,14 +422,14 @@
 	.aimeos .sidebar-menu li:hover .tree-menu {
 		left: 5rem;
 	}
-
-	.aimeos .main-content {
-		margin-left: 5rem;
-	}
 }
 
 
 @media (max-width: 992px) {
+	.aimeos .main-content {
+		margin-left: 3rem;
+	}
+	
 	.js--show-nav-items-texts .aimeos .sidebar-wrapper {
 		width: 9rem;
 	}
