@@ -331,7 +331,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 
 	<div id="js--toggle-nav-items-text" class="toggle-nav-items-texts">
 		<span class="icon"></span>
-		<span class="hidden">Show/hide navigation items' texts.</span>
+		<span class="hidden"><?= $enc->html( $this->translate( 'admin', 'Show/hide navigation labels' ) ) ?></span>
 	</div>
 
 	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-standard' ) ); ?>
