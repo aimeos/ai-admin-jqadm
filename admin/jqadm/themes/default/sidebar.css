@@ -210,6 +210,8 @@
 	-webkit-transform: translateX(-15rem);
 	-ms-transform: translateX(-15rem);
 	transform: translateX(-15rem);
+	
+	pointer-events: none;
 
 	-webkit-transition: visibility 0s ease 0.3s,
 		left 0.3s ease-in-out,
@@ -235,6 +237,8 @@
 	-webkit-transform: translateX(0);
 	-ms-transform: translateX(0);
 	transform: translateX(0);
+	
+	pointer-events: all;
 
 	-webkit-transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 	transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
