@@ -27,29 +27,67 @@
 	transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
-.aimeos .sidebar-wrapper {
-	background: #202830;
-	position: absolute;
-	bottom: 0;
-	top: 0;
-	width: 3rem;
-	min-height: 100vh;
+
+/* Logo */
+
+.aimeos .logo,
+.aimeos .logo img {
+	display: block;
+	-webkit-transition: height .3s ease-in-out, width .3s ease-in-out;
+	-o-transition: height .3s ease-in-out, width .3s ease-in-out;
+	transition: height .3s ease-in-out, width .3s ease-in-out;
 }
 
 .aimeos .logo {
-	display: block;
+	position: fixed;
+	top: 0;
 	overflow: hidden;
 	height: 4.25rem;
+	width: 3.5rem;
 	padding-bottom: 1rem;
+	background: #202830;
+	z-index: 100;
 }
 
 .aimeos .logo img {
-	display: block;
-	height: 2.75rem;
 	position: relative;
+	height: 2.9rem;
+	top: 60%;
+	padding-left: 0.3rem;
 	-webkit-transform: perspective(1px) translateY(-50%);
 	transform: perspective(1px) translateY(-50%);
-	top: 50%;
+}
+
+@media (min-width: 992px) {
+	.aimeos .logo {
+		width: 6rem;
+	}
+
+	.aimeos .logo img {
+		left: 0rem;
+	}
+
+	.aimeos .logo img {
+		height: 20px;
+		padding: 0 0.5em;
+		width: 100%;
+	}
+}
+
+
+/* Sidebar */
+
+.aimeos .sidebar-wrapper {
+	position: fixed;
+	overflow-y: scroll;
+	bottom: 0;
+	top: 4.25rem;
+	min-height: calc(100vh - 4.25rem);
+	background: #202830;
+	width: 3.5rem;
+	-webkit-transition: width .3s ease-in-out;
+	-o-transition: width .3s ease-in-out;
+	transition: width .3s ease-in-out;
 }
 
 .aimeos .sidebar-menu {
@@ -77,6 +115,12 @@
 	border-right: 0.2rem solid transparent;
 }
 
+.aimeos .main-sidebar .icon {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 150%;
+	display: block;
+}
+
 .aimeos .main-sidebar .separator,
 .aimeos .sidebar-menu>li {
 	text-align: center;
@@ -92,8 +136,7 @@
 	display: block;
 }
 
-.aimeos .sidebar-menu,
-.aimeos .sidebar-menu .tree-menu {
+.aimeos .sidebar-menu {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -103,29 +146,36 @@
 	color: #B8C8D0;
 }
 
+.aimeos .sidebar-menu li {
+	-webkit-transition: padding .3s ease-in-out;
+	-o-transition: padding .3s ease-in-out;
+	transition: padding .3s ease-in-out;
+}
+
+.aimeos .sidebar-menu.advanced {
+	padding-bottom: 6rem;
+}
+
 .aimeos .main-sidebar:hover li.active {
 	border-left-color: transparent;
 	background: #202830;
 }
 
+.aimeos .main-sidebar .separator {
+	border-left-color: transparent;
+	color: #B8C8D0;
+}
+
 .aimeos .main-sidebar .sidebar-menu>li:hover,
-.aimeos .sidebar-menu>li.active,
-.aimeos .sidebar-menu li .tree-menu li:hover,
-.aimeos .sidebar-menu li .tree-menu li.active {
+.aimeos .sidebar-menu>li.active {
 	border-left-color: #4090C0;
 	background: #182028;
 	color: #ffffff;
 }
 
-.aimeos .sidebar-menu li .tree-menu li:hover,
-.aimeos .sidebar-menu li .tree-menu li.active {
-	background: #202830;
-}
-
-.aimeos .main-sidebar .separator,
-.aimeos .sidebar-menu li .tree-menu a {
-	border-left-color: transparent;
-	color: #B8C8D0;
+.aimeos .sidebar-menu .title {
+	padding: 0.25rem 0;
+	display: none;
 }
 
 .aimeos .main-sidebar .separator {
@@ -136,35 +186,31 @@
 	background: #182028;
 }
 
-.aimeos .tree-menu {
-	padding: 0.5rem 0;
-	display: none;
-}
 
-.aimeos .tree-menu a {
-	padding: 0.5rem 1.5rem;
-	display: block;
-	color: #90A0B0;
-}
+/* Tree Menu (sub menu) */
 
-.aimeos .sidebar-menu li .tree-menu {
+.aimeos .sidebar-menu li .tree-menu-wrapper {
 	-webkit-transform: translateZ(0);
 	position: fixed;
 	display: block;
 	top: 0;
 	left: 3rem;
 	bottom: 0;
-	z-index: -1;
+	padding: 0;
 	width: 15rem;
 	min-height: 100%;
-	overflow-y: auto;
+	overflow-y: scroll;
 	visibility: hidden;
-	background: #283038;
+	background: #182028;
+	z-index: -1;
+
 	-webkit-box-shadow: 0 0 3px #000;
 	box-shadow: 0 0 3px #000;
+
 	-webkit-transform: translateX(-15rem);
 	-ms-transform: translateX(-15rem);
 	transform: translateX(-15rem);
+
 	-webkit-transition: visibility 0s ease 0.3s,
 		left 0.3s ease-in-out,
 		-webkit-transform 0.3s ease-in-out;
@@ -183,11 +229,13 @@
 		-webkit-transform 0.3s ease-in-out;
 }
 
-.aimeos .sidebar-menu li:hover .tree-menu {
+.aimeos .sidebar-menu li:hover .tree-menu-wrapper {
 	visibility: visible;
+
 	-webkit-transform: translateX(0);
 	-ms-transform: translateX(0);
 	transform: translateX(0);
+
 	-webkit-transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 	transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 	-o-transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s;
@@ -195,25 +243,42 @@
 	transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 }
 
-.aimeos .sidebar-menu .tree-menu {
+.aimeos .sidebar-menu .tree-menu-wrapper .menu-header {
+	display: flex;
+	position: sticky;
+	top: 0;
+	background: #202830;
+	align-items: center;
+	justify-content: center;
+	height: 2.5rem;
+	z-index: 1;
+	margin-bottom: 0.5rem;
+}
+
+.aimeos .sidebar-menu li .tree-menu {
+	display: block;
+	position: relative;
+	min-height: calc(100% - 3rem);
 	background: #182028;
 	text-align: left;
+	list-style: none;
+	padding: 0 0 1rem 0;
+	margin: 0;
 }
 
-.aimeos .sidebar-menu .title {
-	padding: 0.25rem 0;
-	display: none;
-}
-
-.aimeos .sidebar-menu .tree-menu .menu-header {
-	background: #202830;
-	text-align: center;
-	padding: 0.75rem;
-}
-
-.aimeos .sidebar-menu .tree-menu .menu-header:hover {
+.aimeos .sidebar-menu li .tree-menu a {
 	border-left-color: transparent;
+	color: #B8C8D0;
+	padding: 0.5rem 1.5rem;
+	display: block;
+	color: #90A0B0;
+}
+
+.aimeos .sidebar-menu li .tree-menu li:hover,
+.aimeos .sidebar-menu li .tree-menu li.active {
+	border-left-color: #4090C0;
 	background: #202830;
+	color: #ffffff;
 }
 
 .aimeos .sidebar-menu li .tree-menu .name {
@@ -226,19 +291,154 @@
 	padding: 0 1rem;
 }
 
-.aimeos .toggle-nav-items-texts .icon,
-.aimeos .main-sidebar .icon {
-	font: normal normal normal 14px/1 FontAwesome;
-	font-size: 150%;
-	display: block;
+
+/* Toggle nav items texts in moble state */
+
+.aimeos .toggle-nav-items-texts {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 3rem;
+	height: 2rem;
+	background: #202830;
+	border-left: 0.2rem solid transparent;
+	border-right: 0.2rem solid transparent;
+	z-index: 2000;
+	-webkit-transition: width .3s ease-in-out;
+	-o-transition: width .3s ease-in-out;
+	transition: width .3s ease-in-out;
+	background: #182028;
+	cursor: pointer;
 }
 
 .aimeos .toggle-nav-items-texts .icon {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 150%;
+	display: block;
 	color: #90A0B0;
 	-webkit-transform: rotate(-90deg);
 	-ms-transform: rotate(-90deg);
 	transform: rotate(-90deg);
 }
+
+
+/* Main Content */
+
+.aimeos .main-content {
+	margin-left: 3rem;
+	padding: 0 2.5%;
+}
+
+
+/* Desktop state only */
+
+@media (min-width: 992px) {
+	.aimeos .toggle-nav-items-texts {
+		display: none;
+	}
+
+	.aimeos .main-sidebar {
+		width: 6rem;
+	}
+
+	.aimeos .main-sidebar .title {
+		display: block;
+		font-size: 90%;
+	}
+
+	.aimeos .sidebar-wrapper {
+		width: 6rem;
+	}
+
+	.aimeos .sidebar-menu.advanced {
+		padding-bottom: 0;
+	}
+
+	/* .aimeos .sidebar-menu>li:hover>.tree-menu-wrapper {
+		left: 6rem;
+	} */
+
+	.aimeos .sidebar-menu li:hover .tree-menu-wrapper {
+		left: 6rem;
+	}
+
+	.aimeos .main-content {
+		margin-left: 6rem;
+	}
+}
+
+
+/* Mobile state only */
+
+@media (max-width: 992px) {
+	.js--show-nav-items-texts .aimeos .logo {
+		width: 9rem;
+	}
+
+	.js--show-nav-items-texts .aimeos .logo img {
+		height: 33px;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-wrapper {
+		width: 9rem;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-wrapper .icon:not(.less):not(.more) {
+		width: 2.25rem;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-menu li {
+		padding-left: .25rem;
+		padding-right: .25rem;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-menu li a,
+	.js--show-nav-items-texts .aimeos .sidebar-menu li span {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-menu li .title {
+		display: block;
+		margin-left: 1.1rem;
+		padding: 0;
+		font-size: 82%;
+	}
+
+	.js--show-nav-items-texts .aimeos .sidebar-menu li:hover .tree-menu-wrapper {
+		-webkit-transform: translateX(6rem);
+		-ms-transform: translateX(6rem);
+		transform: translateX(6rem);
+	}
+
+	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts {
+		width: 9rem;
+		text-align: right;
+	}
+
+	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts .icon {
+		-webkit-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+}
+
+
+
+/* Fontawesome Icons */
 
 .aimeos .main-sidebar .site .icon:before {
 	content: "\f233"
@@ -334,167 +534,31 @@
 	color: #4090C0;
 }
 
-.aimeos .main-content {
-	padding: 0 2.5%;
+
+/* Scrollbar styles for webkit browsers */
+
+.aimeos .main-sidebar ::-webkit-scrollbar {
+	width: 0.35rem;
+	background-color: #202830;
+	margin: 1px;
 }
 
-.aimeos .toggle-nav-items-texts {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 3rem;
-	height: 2rem;
-	background: #202830;
-	border-left: 0.2rem solid transparent;
-	border-right: 0.2rem solid transparent;
-	z-index: 2000;
-	-webkit-transition: width .3s ease-in-out;
-	-o-transition: width .3s ease-in-out;
-	transition: width .3s ease-in-out;
-	background: #182028;
-	cursor: pointer;
+.aimeos .main-sidebar ::-webkit-scrollbar {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	margin: 2px;
 }
+
+.aimeos .main-sidebar ::-webkit-scrollbar-thumb {
+	/* width: 0.41rem; */
+	background-color: #4090C0;
+	outline: 1px solid rgba(64, 144, 192, .35);
+	border-radius: calc(0.25rem - 2px);
+}
+
+/* Scrollbar styles for Firefox */
 
 .aimeos .sidebar-wrapper {
-	-webkit-transition: width .3s ease-in-out;
-	-o-transition: width .3s ease-in-out;
-	transition: width .3s ease-in-out;
-}
-
-.aimeos .sidebar-wrapper .logo,
-.aimeos .sidebar-wrapper .logo img {
-	-webkit-transition: height .3s ease-in-out;
-	-o-transition: height .3s ease-in-out;
-	transition: height .3s ease-in-out;
-}
-
-.aimeos .sidebar-menu li {
-	-webkit-transition: padding .3s ease-in-out;
-	-o-transition: padding .3s ease-in-out;
-	transition: padding .3s ease-in-out;
-}
-
-.aimeos .sidebar-menu.advanced {
-	padding-bottom: 6rem;
-}
-
-@media (min-width: 992px) {
-	.aimeos .toggle-nav-items-texts {
-		display: none;
-	}
-
-	.aimeos .main-sidebar {
-		width: 5rem;
-	}
-
-	.aimeos .sidebar-wrapper {
-		width: 5rem;
-	}
-
-	.aimeos .logo img {
-		height: auto;
-		padding: 0 0.5em;
-		width: 100%;
-	}
-
-	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 0;
-	}
-
-	.aimeos .main-sidebar .title {
-		display: block;
-		font-size: 90%;
-	}
-
-	.aimeos .sidebar-menu>li:hover>.tree-menu {
-		left: 5rem;
-	}
-
-	.aimeos .sidebar-menu li:hover .tree-menu {
-		left: 5rem;
-	}
-}
-
-
-@media (max-width: 992px) {
-	.aimeos .main-content {
-		margin-left: 3rem;
-	}
-	
-	.js--show-nav-items-texts .aimeos .sidebar-wrapper {
-		width: 9rem;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-wrapper .logo {
-		height: 3.75rem;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-wrapper .logo img {
-		height: 2.15rem;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-wrapper .icon:not(.less):not(.more) {
-		width: 2.25rem;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-menu li {
-		padding-left: .25rem;
-		padding-right: .25rem;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-menu li a,
-	.js--show-nav-items-texts .aimeos .sidebar-menu li span {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-menu li .title {
-		display: block;
-		margin-left: 1.1rem;
-		padding: 0;
-		font-size: 82%;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-menu li:hover .tree-menu {
-		-webkit-transform: translateX(6rem);
-		-ms-transform: translateX(6rem);
-		transform: translateX(6rem);
-	}
-
-	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts {
-		width: 9rem;
-		text-align: right;
-	}
-
-	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts .icon {
-		-webkit-transform: rotate(90deg);
-		-ms-transform: rotate(90deg);
-		transform: rotate(90deg);
-	}
-}
-
-
-
-/* Laravel / Symphony Hack */
-
-.app-menu+.aimeos .sidebar-wrapper {
-	top: -30px;
-	min-height: calc(100vh + 30px);
-}
-
-.app-menu+.aimeos .sidebar-wrapper .logo {
-	padding-top: 15px;
+	scrollbar-color: rgba(64, 144, 192, 0.65) transparent;
+	scrollbar-width: thin;
 }
