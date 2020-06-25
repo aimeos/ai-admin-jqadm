@@ -429,7 +429,7 @@
 	.aimeos .main-content {
 		margin-left: 3rem;
 	}
-	
+
 	.js--show-nav-items-texts .aimeos .sidebar-wrapper {
 		width: 9rem;
 	}
@@ -484,17 +484,4 @@
 		-ms-transform: rotate(90deg);
 		transform: rotate(90deg);
 	}
-}
-
-
-
-/* Laravel / Symphony Hack */
-
-.app-menu+.aimeos .sidebar-wrapper {
-	top: -30px;
-	min-height: calc(100vh + 30px);
-}
-
-.app-menu+.aimeos .sidebar-wrapper .logo {
-	padding-top: 15px;
 }
