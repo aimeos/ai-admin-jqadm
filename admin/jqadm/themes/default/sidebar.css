@@ -85,9 +85,8 @@
 	min-height: calc(100vh - 4.25rem);
 	background: #202830;
 	width: 3.5rem;
-	-webkit-transition: width .3s ease-in-out;
-	-o-transition: width .3s ease-in-out;
-	transition: width .3s ease-in-out;
+	transform-origin: left top;
+	transition: width .3s ease-in-out, transform .3s ease-in-out;
 }
 
 .aimeos .sidebar-menu {
@@ -210,7 +209,10 @@
 	-webkit-transform: translateX(-15rem);
 	-ms-transform: translateX(-15rem);
 	transform: translateX(-15rem);
-	
+
+	/* transform: scaleX(0); */
+	transform-origin: left top;
+
 	pointer-events: none;
 
 	-webkit-transition: visibility 0s ease 0.3s,
@@ -237,8 +239,7 @@
 	-webkit-transform: translateX(0);
 	-ms-transform: translateX(0);
 	transform: translateX(0);
-	
-	pointer-events: all;
+	/* transform: scaleX(1); */
 
 	-webkit-transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 	transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
@@ -346,9 +347,6 @@
 /* Desktop state only */
 
 @media (min-width: 992px) {
-	.aimeos .toggle-nav-items-texts {
-		display: none;
-	}
 
 	.aimeos .main-sidebar {
 		width: 6rem;
@@ -357,6 +355,10 @@
 	.aimeos .main-sidebar .title {
 		display: block;
 		font-size: 90%;
+	}
+
+	.aimeos .toggle-nav-items-texts {
+		display: none;
 	}
 
 	.aimeos .sidebar-wrapper {
@@ -371,8 +373,13 @@
 		left: 6rem;
 	} */
 
+	/* .aimeos .sidebar-menu li .tree-menu-wrapper {
+		left: 6rem;
+	} */
+
 	.aimeos .sidebar-menu li:hover .tree-menu-wrapper {
 		left: 6rem;
+		pointer-events: all;
 	}
 
 	.aimeos .main-content {
@@ -426,6 +433,8 @@
 		-webkit-transform: translateX(6rem);
 		-ms-transform: translateX(6rem);
 		transform: translateX(6rem);
+
+		pointer-events: all;
 	}
 
 	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts {
