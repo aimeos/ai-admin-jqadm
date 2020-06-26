@@ -210,7 +210,6 @@
 	-ms-transform: translateX(-15rem);
 	transform: translateX(-15rem);
 
-	/* transform: scaleX(0); */
 	transform-origin: left top;
 
 	pointer-events: none;
@@ -239,7 +238,6 @@
 	-webkit-transform: translateX(0);
 	-ms-transform: translateX(0);
 	transform: translateX(0);
-	/* transform: scaleX(1); */
 
 	-webkit-transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 	transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
@@ -368,14 +366,6 @@
 	.aimeos .sidebar-menu.advanced {
 		padding-bottom: 0;
 	}
-
-	/* .aimeos .sidebar-menu>li:hover>.tree-menu-wrapper {
-		left: 6rem;
-	} */
-
-	/* .aimeos .sidebar-menu li .tree-menu-wrapper {
-		left: 6rem;
-	} */
 
 	.aimeos .sidebar-menu li:hover .tree-menu-wrapper {
 		left: 6rem;
