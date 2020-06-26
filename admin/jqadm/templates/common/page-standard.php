@@ -164,33 +164,35 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 									<i class="icon"></i>
 									<span class="title"><?= $enc->html( $this->site()->label() ); ?></span>
 								</a>
-								<ul class="tree-menu">
-									<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></li>
+								<div class="tree-menu-wrapper">
+									<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
+									<ul class="tree-menu">
+										
+										<?php $siteFcn = function( \Aimeos\MShop\Locale\Item\Site\Iface $site ) use ( &$siteFcn, $enc, $searchTarget, $cntl, $action, $params, $config ) { ?>
+										
+											<li class="site-<?= $enc->attr( $site->getCode() ) ?>">
+												<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $site->getCode() ) + $params, [], $config ) ); ?>">
+													<span class="name"><?= $enc->html( $site->getLabel() ); ?></span>
+												</a>
 
-									<?php $siteFcn = function( \Aimeos\MShop\Locale\Item\Site\Iface $site ) use ( &$siteFcn, $enc, $searchTarget, $cntl, $action, $params, $config ) { ?>
+												<?php if( !$site->getChildren()->isEmpty() ) : ?>
+													<ul class="menu-sub">
+														<?php foreach( $site->getChildren() as $site ) { $siteFcn( $site ); } ?>
+													</ul>
+												<?php endif; ?>
+											</li>
 
-										<li class="site-<?= $enc->attr( $site->getCode() ) ?>">
-											<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $site->getCode() ) + $params, [], $config ) ); ?>">
-												<span class="name"><?= $enc->html( $site->getLabel() ); ?></span>
-											</a>
+										<?php }; ?>
 
-											<?php if( !$site->getChildren()->isEmpty() ) : ?>
-												<ul class="menu-sub">
-													<?php foreach( $site->getChildren() as $site ) { $siteFcn( $site ); } ?>
-												</ul>
+										<?php foreach( $this->pageSiteList as $siteItem ) : ?>
+											<?php if( $siteItem->getId() === $this->pageSiteTree->getId() ) : ?>
+												<?php $siteFcn( $this->pageSiteTree ); ?>
+											<?php else : ?>
+												<?php $siteFcn( $siteItem ); ?>
 											<?php endif; ?>
-										</li>
-
-									<?php }; ?>
-
-									<?php foreach( $this->pageSiteList as $siteItem ) : ?>
-										<?php if( $siteItem->getId() === $this->pageSiteTree->getId() ) : ?>
-											<?php $siteFcn( $this->pageSiteTree ); ?>
-										<?php else : ?>
-											<?php $siteFcn( $siteItem ); ?>
-										<?php endif; ?>
-									<?php endforeach; ?>
-								</ul>
+										<?php endforeach; ?>
+									</ul>
+								</div>
 							</li>
 						<?php endif; ?>
 
@@ -202,19 +204,20 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 											<i class="icon"></i>
 											<span class="title"><?= $enc->attr( $this->translate( 'admin', $nav ) ); ?></span>
 										</span>
-										<ul class="tree-menu">
-											<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', $nav ) ); ?></strong></li>
-
-											<?php foreach( $navitem as $subresource ) : ?>
-												<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
-													<li class="<?= str_replace( '/', '-', $subresource ); ?>">
-														<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
-															<span class="name"><?= $enc->html( $this->translate( 'admin', $subresource ) ); ?></span>
-														</a>
-													</li>
-												<?php endif; ?>
-											<?php endforeach; ?>
-										</ul>
+										<div class="tree-menu-wrapper">
+											<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
+											<ul class="tree-menu">
+												<?php foreach( $navitem as $subresource ) : ?>
+													<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
+														<li class="<?= str_replace( '/', '-', $subresource ); ?>">
+															<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
+																<span class="name"><?= $enc->html( $this->translate( 'admin', $subresource ) ); ?></span>
+															</a>
+														</li>
+													<?php endif; ?>
+												<?php endforeach; ?>
+											</ul>
+										</div>
 									</li>
 
 								<?php endif; ?>
@@ -249,20 +252,22 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 											<i class="icon"></i>
 											<span class="title"><?= $enc->attr( $this->translate( 'admin', $nav ) ); ?></span>
 										</span>
-										<ul class="tree-menu">
-											<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', $nav ) ); ?></strong></li>
+										<div class="tree-menu-wrapper">
+											<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
+											<ul class="tree-menu">
 
-											<?php foreach( $navitem as $subresource ) : ?>
-												<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
-													<li class="<?= str_replace( '/', '-', $subresource ); ?>">
-														<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
-															<span class="name"><?= $enc->html( $this->translate( 'admin', $subresource ) ); ?></span>
-														</a>
-													</li>
-												<?php endif; ?>
-											<?php endforeach; ?>
+												<?php foreach( $navitem as $subresource ) : ?>
+													<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
+														<li class="<?= str_replace( '/', '-', $subresource ); ?>">
+															<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
+																<span class="name"><?= $enc->html( $this->translate( 'admin', $subresource ) ); ?></span>
+															</a>
+														</li>
+													<?php endif; ?>
+												<?php endforeach; ?>
 
-										</ul>
+											</ul>
+										</div>
 									</li>
 
 								<?php endif; ?>
@@ -288,16 +293,18 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 									<i class="icon"></i>
 									<span class="title"><?= $enc->attr( $this->translate( 'language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
 								</span>
-								<ul class="tree-menu">
-									<li class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></strong></li>
-									<?php foreach( $this->get( 'pageI18nList', [] ) as $langid ) : ?>
-										<li class="lang-<?= $enc->attr( $langid ) ?>">
-											<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
-												<span class="name"><?= $enc->html( $this->translate( 'language', $langid ) ); ?> (<?= $langid ?>)</span>
-											</a>
-										</li>
-									<?php endforeach; ?>
-								</ul>
+								<div class="tree-menu-wrapper">
+									<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
+									<ul class="tree-menu">
+										<?php foreach( $this->get( 'pageI18nList', [] ) as $langid ) : ?>
+											<li class="lang-<?= $enc->attr( $langid ) ?>">
+												<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
+													<span class="name"><?= $enc->html( $this->translate( 'language', $langid ) ); ?> (<?= $langid ?>)</span>
+												</a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
 							</li>
 						<?php endif; ?>
 					</ul>
