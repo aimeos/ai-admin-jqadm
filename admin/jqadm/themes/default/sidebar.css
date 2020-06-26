@@ -51,7 +51,7 @@
 
 .aimeos .logo img {
 	position: relative;
-	height: 2.9rem;
+	height: 2.95rem;
 	top: 60%;
 	padding-left: 0.3rem;
 	-webkit-transform: perspective(1px) translateY(-50%);
@@ -203,16 +203,14 @@
 	background: #182028;
 	z-index: -1;
 
-	-webkit-box-shadow: 0 0 3px #000;
-	box-shadow: 0 0 3px #000;
+	-webkit-box-shadow: 2px 0 2px #000;
+	box-shadow: 2px 0 2px #000;
 
 	-webkit-transform: translateX(-15rem);
 	-ms-transform: translateX(-15rem);
 	transform: translateX(-15rem);
 
 	transform-origin: left top;
-
-	pointer-events: none;
 
 	-webkit-transition: visibility 0s ease 0.3s,
 		left 0.3s ease-in-out,
@@ -364,12 +362,11 @@
 	}
 
 	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 0;
+		padding-bottom: 240px;
 	}
 
 	.aimeos .sidebar-menu li:hover .tree-menu-wrapper {
 		left: 6rem;
-		pointer-events: all;
 	}
 
 	.aimeos .main-content {
@@ -423,8 +420,6 @@
 		-webkit-transform: translateX(6rem);
 		-ms-transform: translateX(6rem);
 		transform: translateX(6rem);
-
-		pointer-events: all;
 	}
 
 	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts {
@@ -438,7 +433,6 @@
 		transform: rotate(90deg);
 	}
 }
-
 
 
 /* Fontawesome Icons */
@@ -543,17 +537,11 @@
 .aimeos .main-sidebar ::-webkit-scrollbar {
 	width: 0.35rem;
 	background-color: #202830;
-	margin: 1px;
-}
-
-.aimeos .main-sidebar ::-webkit-scrollbar {
-	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-	margin: 2px;
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .aimeos .main-sidebar ::-webkit-scrollbar-thumb {
-	/* width: 0.41rem; */
 	background-color: #4090C0;
 	outline: 1px solid rgba(64, 144, 192, .35);
 	border-radius: calc(0.25rem - 2px);
