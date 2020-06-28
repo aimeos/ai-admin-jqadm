@@ -336,10 +336,6 @@
 
 @media (min-width: 992px) {
 
-	.aimeos .main-sidebar {
-		width: 6rem;
-	}
-
 	.aimeos .main-sidebar .title {
 		display: block;
 		font-size: 90%;
