@@ -217,6 +217,27 @@
 	color: #464a4c;
 }
 
+.aimeos .navbar-title:after {
+	content: ":";
+}
+
+.aimeos .navbar-id:not(:empty):after {
+	content: " - ";
+}
+
+.aimeos .navbar-site {
+	font-size: 80%;
+	color: #808080;
+}
+
+.aimeos .navbar-site:not(:empty):before {
+	content: "(";
+}
+
+.aimeos .navbar-site:not(:empty):after {
+	content: ")";
+}
+
 .aimeos .nav-tabs .advanced,
 .aimeos .item-content .form-group.advanced {
 	display: none;
