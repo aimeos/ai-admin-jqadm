@@ -43,7 +43,7 @@
 
 .aimeos .card.sortable-ghost,
 .aimeos tr.sortable-ghost {
-	opacity: 0;
+    opacity: 0;
 }
 
 .aimeos .card {
@@ -60,6 +60,10 @@
 
 .aimeos .card-header .header-label {
 	vertical-align: middle;
+}
+
+.aimeos .btn.fa {
+	font-size: 90%;
 }
 
 .aimeos .btn.act-reset.fa:before {
@@ -217,6 +221,27 @@
 	color: #464a4c;
 }
 
+.aimeos .navbar-title:after {
+	content: ":";
+}
+
+.aimeos .navbar-id:not(:empty):after {
+	content: " - ";
+}
+
+.aimeos .navbar-site {
+	font-size: 80%;
+	color: #808080;
+}
+
+.aimeos .navbar-site:not(:empty):before {
+	content: "(";
+}
+
+.aimeos .navbar-site:not(:empty):after {
+	content: ")";
+}
+
 .aimeos .nav-tabs .advanced,
 .aimeos .item-content .form-group.advanced {
 	display: none;
@@ -254,11 +279,6 @@
 	content: "\f0d8";
 }
 
-.aimeos .tree-toolbar .btn.fa,
-.aimeos .form-control {
-	font-size: 0.8rem;
-}
-
 @media (min-width: 768px) {
 	.aimeos .item .navbar-content {
 		position: -webkit-sticky;
@@ -266,21 +286,7 @@
 		z-index: 1020;
 		top: 4.5rem;
 	}
-
 	.aimeos .item-container .item-actions {
 		display: none;
 	}
-
-}
-
-@media (min-width: 992px) {
-
-	.aimeos .tree-toolbar .btn.fa {
-		font-size: initial;
-	}
-
-	.aimeos .form-control {
-		font-size: 1rem;
-	}
-
 }

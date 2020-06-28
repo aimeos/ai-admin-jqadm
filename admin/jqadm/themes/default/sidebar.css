@@ -332,6 +332,14 @@
 }
 
 
+/* Main Content */
+
+.aimeos .main-content {
+	margin-left: 3rem;
+	padding: 0 2.5%;
+}
+
+
 /* Desktop state only */
 
 @media (min-width: 992px) {
@@ -359,6 +367,10 @@
 
 	.aimeos .sidebar-menu li:hover .tree-menu-wrapper {
 		left: 6rem;
+	}
+
+	.aimeos .main-content {
+		margin-left: 6rem;
 	}
 }
 
@@ -537,7 +549,7 @@
 
 /* Scrollbar styles for Firefox */
 
-.aimeos .main-sidebar .sidebar-wrapper {
+.aimeos .sidebar-wrapper {
 	scrollbar-color: rgba(64, 144, 192, 0.65) transparent;
 	scrollbar-width: thin;
 }
