@@ -362,7 +362,7 @@ Aimeos.Text = {
 
 				entry['text.id'] = null;
 				entry['text.type'] = null;
-				entry['text.languageid'] = null;
+				entry['text.languageid'] = '';
 				entry['text.siteid'] = this.siteid;
 				entry['text.content'] = '';
 				entry['text.label'] = '';

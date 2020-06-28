@@ -194,7 +194,7 @@ Vue.component('property-table', {
 			let entry = {};
 
 			entry[this.domain + '.property.id'] = null;
-			entry[this.domain + '.property.languageid'] = null;
+			entry[this.domain + '.property.languageid'] = '';
 			entry[this.domain + '.property.siteid'] = this.siteid;
 			entry[this.domain + '.property.type'] = null;
 			entry[this.domain + '.property.value'] = null;
@@ -270,14 +270,16 @@ Vue.component('taxrates', {
 Vue.component('select-component', {
 	template: '\
 		<select v-on:change="$emit(\'input\', $event.target.value)"> \
-			<option v-bind:value="null">{{ text }}</option> \
+			<option v-if="text" value="">{{ text }}</option> \
 			<option v-if="value && !items[value]" v-bind:value="value">{{ value }}</option> \
-			<option v-for="(label, type) in items" v-bind:key="type" v-bind:value="type" v-bind:selected="type === value"> \
-				{{ label || type }} \
+			<option v-if="all" v-bind:value="null" v-bind:selected="value === null">{{ all }}</option> \
+			<option v-for="(label, key) in items" v-bind:key="key" v-bind:value="key" v-bind:selected="key === value"> \
+				{{ label || key }} \
 			</option> \
 		</select> \
 	',
 	props: {
+		'all': {type: String, required: false},
 		'items': {type: Object, required: true},
 		'text': {type: String, required: false, default: ''},
 		'value': {required: true}

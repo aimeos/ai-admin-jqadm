@@ -148,6 +148,7 @@ $enc = $this->encoder();
 											v-bind:items="JSON.parse('<?= $enc->attr( $textTypes->col( 'text.type.label', 'text.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', '_idx_', 'text.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+											v-bind:all="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 											v-bind:readonly="item['text.siteid'] != siteid"
 											v-model="item['text.type']" >
 										</select>

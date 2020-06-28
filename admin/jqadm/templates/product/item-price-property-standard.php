@@ -51,7 +51,7 @@ $enc = $this->encoder();
 					<td class="property-language">
 						<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'property', '_propidx_', 'price.property.languageid'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
-							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
+							v-bind:all="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 							v-bind:readonly="readonly(propidx)"
 							v-bind:items="languages"
 							v-model="propdata['price.property.languageid']" >
