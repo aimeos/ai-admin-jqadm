@@ -1,333 +1,643 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
  * @copyright Aimeos (aimeos.org), 2015-2018
-*/
+ */
 
 
-/** Search Toggle **/
 
-@media (max-width: 768px) {
+/* Pagination */
 
-	.aimeos .toggle-search {
+.aimeos .list-page {
+	text-align: center;
+}
+
+.page-limit .dropdown-menu {
+	min-width: 5rem;
+}
+
+.page-limit .dropdown-menu .dropdown-item {
+	text-align: center
+}
+
+@media (max-width: 992px) {
+
+	.aimeos .list-page {
 		display: flex;
-		align-items: center;
+		margin-bottom: 1rem;
 		justify-content: space-between;
-		flex-wrap: nowrap;
-		position: relative;
-		width: 18px;
-		cursor: pointer;
-		transition: color .3s;
 	}
 
-	.aimeos .toggle-search:hover {
-		color: #333;
+	.aimeos .list-page .page-limit,
+	.aimeos .list-page .pagination {
+		margin: 0;
 	}
 
-	.aimeos .toggle-search .icon {
-		font: normal normal normal 14px/1 FontAwesome;
-		color: #bdbdbd;
-		display: block;
+	.aimeos .list-page .btn {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
 	}
 
-	.aimeos .toggle-search .icon.search:before {
-		content: "\f002"
+	.aimeos .list-page .page-link {
+		min-width: 2rem;
 	}
+}
+
+@media (min-width: 992px) {
+	.aimeos .list-page .pagination {
+		display: inline-block;
+		margin: 1rem;
+	}
+
+	.aimeos .list-page .page-item {
+		display: inline-block;
+		text-align: center;
+	}
+
+	.aimeos .list-page .page-limit {
+		vertical-align: top;
+		margin: 1rem;
+	}
+
+	.aimeos .list-page .btn {
+		padding: 0.4rem 1rem;
+	}
+
+	.aimeos .list-page .page-link {
+		min-width: 3rem;
+	}
+}
+
+
+/* Scroll content table horizontally */
+
+.aimeos form.list {
+	overflow-x: auto;
+	margin-bottom: 1rem;
+	padding-bottom: 0.5rem;
+}
+
+
+/** Tree view */
+
+.aimeos .tree-toolbar,
+.aimeos .tree-content {
+	margin: 0.15rem 0;
+	margin-bottom: 1.35rem;
+}
+
+.aimeos .tree-toolbar {
+	font-size: 90%;
+}
+
+.aimeos .tree-toolbar .btn {
+	font-size: initial;
+}
+
+.aimeos .tree-toolbar .btn.expand-all:before {
+	content: "\f065";
+}
+
+.aimeos .tree-toolbar .btn.collapse-all:before {
+	content: "\f066";
+}
+
+.aimeos .tree-toolbar .search-input {
+	border-top: 1px solid #bbb;
+}
+
+.aimeos .tree-toolbar .btn.act-add:before {
+	content: "\f067";
+}
+
+.aimeos .tree-toolbar .btn.act-delete:before {
+	content: "\f068";
+}
+
+
+
+/* Item listing */
+
+.aimeos tbody tr.list-search {
+	background-color: #E4E8F2;
+}
+
+.aimeos .list-item-new {
+	background-color: #F8F8F8;
+}
+
+.aimeos .list-items .btn.fa {
+	margin: 0 0.25rem;
+	padding: 0.5rem;
+}
+
+.aimeos .list-items th {
+	background-color: #202830;
+	color: #FFF;
+}
+
+.aimeos .list-items th.actions {
+	background-color: #5A6884;
+}
+
+.aimeos .list-items th a {
+	color: #FFF;
+	white-space: nowrap;
+	font-weight: normal;
+	margin: auto;
+}
+
+.aimeos .list-items .dropdown-item .btn {
+	text-align: left;
+	color: #464a4c;
+}
+
+.aimeos .list-items th button {
+	border-color: transparent;
+	background-color: inherit;
+	color: #FFF;
+}
+
+.aimeos .list-items th .dropdown-toggle:focus {
+	box-shadow: 0 0 0 2px rgba(2, 117, 216, .25);
+}
+
+.aimeos .list-items tr:not(.list-search) td.image {
+	height: 5em;
+}
+
+.aimeos .list-items img.image {
+	max-height: 5em;
+	max-width: 5em;
+}
+
+.aimeos .list-items a.items-field {
+	display: inline;
+	color: #333;
+}
+
+.aimeos .list-items .sort-asc:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: " \f176";
+}
+
+.aimeos .list-items .sort-desc:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: " \f175";
+}
+
+.aimeos .list-items .status-1:before {
+	content: "\f00c";
+}
+
+.aimeos .list-items .status-0:before {
+	content: "\f00d";
+}
+
+.aimeos .list-items .status--1:before {
+	content: "\f06e";
+}
+
+.aimeos .list-items .status--2:before {
+	content: "\f187";
+}
+
+.aimeos .list-items .config-item {
+	white-space: nowrap;
+	text-align: left;
+	max-width: 15rem;
+	overflow: hidden;
+}
+
+.aimeos .list-items .config-key:after {
+	content: ":";
+}
+
+.aimeos .list-items .config-value {
+	color: #687090;
+}
+
+.aimeos .list-items a.items-field.act-view:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f06e";
+}
+
+
+
+/* Detail view */
+
+.aimeos h2.item-header {
+	font-size: 150%;
+	padding: 0.5rem 0;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid rgba(0, 0, 0, .15);
+}
+
+.aimeos .item-meta {
+	margin: 1rem 0.5rem;
+}
+
+.aimeos .item-meta small,
+.aimeos .item-tree .item-meta small {
+	white-space: nowrap;
+	margin: 0 0.5rem 0.25rem 0;
+	font-size: 80%;
+	display: inline-block;
+}
+
+.aimeos .item-meta .meta-value {
+	white-space: nowrap;
 }
 
 @media (min-width: 768px) {
-	.aimeos .toggle-search {
-		display: none;
+	.aimeos .item-meta small {
+		white-space: normal;
+		margin: 0 0 0.75rem 0;
+		display: block;
+	}
+}
+
+.aimeos .item .form-group.mandatory label:after {
+	white-space: nowrap;
+	content: " *";
+}
+
+.aimeos .help {
+	text-decoration: underline solid;
+	cursor: help;
+}
+
+.aimeos .help-text {
+	font-size: 80%;
+	display: none;
+}
+
+
+.aimeos table.item-config .config-row-key,
+.aimeos table.item-config .config-row-value {
+	width: 49%;
+}
+
+.aimeos table.item-config th {
+	background-color: #ffffff;
+	color: #292b2c;
+}
+
+.aimeos .config-map-table {
+	display: none;
+}
+
+.aimeos td.config-map-action-add {
+	width: 2%;
+}
+
+.aimeos .attribute-list th:not(.actions) {
+	width: 49%;
+}
+
+.aimeos .attribute-list th.actions {
+	width: 2%;
+}
+
+.aimeos .property-type,
+.aimeos .property-language {
+	width: 25%;
+}
+
+
+/* Bundles */
+
+.aimeos .item-navbar .nav-item.bundle {
+	display: none;
+}
+
+
+/* Catalog */
+
+.aimeos .list-search .catalog-lists-position,
+.aimeos .list-search .customer-lists-position,
+.aimeos .list-search .catalog-lists-status,
+.aimeos .list-search .customer-lists-status,
+.aimeos .list-search .catalog-lists-type,
+.aimeos .list-search .customer-lists-type,
+.aimeos .list-search .catalog-lists-config,
+.aimeos .list-search .customer-lists-config {
+	width: 15%;
+}
+
+.aimeos .list-search .catalog-lists-refid,
+.aimeos .list-search .customer-lists-refid {
+	width: 35%;
+}
+
+.aimeos .list-search .catalog-lists-refid,
+.aimeos .list-search .customer-lists-refid {
+	padding: 0 0.75rem;
+	text-align: left;
+}
+
+@media (max-width: 991px) {
+	.aimeos .item-catalog .tree-content {
+		max-height: 400px;
+		overflow: auto;
 	}
 }
 
 
-/* Content navigation */
+/* Download */
 
-.aimeos .main-navbar {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-	min-height: 3rem;
-	background-color: #F8F8F8;
-	margin: 0.5rem 0;
-	padding: 0.5rem;
+.aimeos .item-download .custom-file label {
+	font-weight: normal;
+	font-size: initial;
+	text-align: left;
 }
 
-.aimeos .main-navbar .navbar-brand {
-	align-items: baseline;
-	white-space: nowrap;
+
+/* Images */
+
+.aimeos .item-media .media-preview {
+	border: 2px dashed #B0B0B0;
+	border-radius: .25rem;
+	height: 10rem;
+}
+
+.aimeos .item-media .media-preview p,
+.aimeos .item-media .media-preview img {
+	max-height: calc(10rem - 4px);
+	max-width: 100%;
+	display: block;
+	margin: auto;
+}
+
+.aimeos .item-media .media-preview .fileupload {
+	height: calc(10rem - 4px);
+	width: calc(100% - 4px);
+	position: absolute;
 	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-.aimeos .main-navbar .navbar-secondary {
-	font-size: 80%;
-	color: #808080;
-}
-
-.aimeos .main-navbar .navbar-secondary:before {
-	content: " ";
-}
-
-.aimeos .main-navbar span.placeholder {
-	display: inline-block;
-	height: 35px;
-}
-
-
-/** Search field with custom selects **/
-
-.aimeos .main-navbar form>* {
-	margin-left: 0.25rem;
-}
-
-.aimeos .main-navbar form .more,
-.aimeos .main-navbar form .less {
-	font: normal normal normal 14px/1 FontAwesome;
-	font-weight: bold;
-	font-size: 125%;
-	padding: 0.5rem;
 	cursor: pointer;
-	color: #4090C0;
+	opacity: 0;
 }
 
-.aimeos .main-navbar form .more:before {
-	content: "\f0d9";
-}
 
-.aimeos .main-navbar form .less:before {
-	content: "\f0da";
-}
+/** Selection */
 
-.aimeos .main-navbar .form-inline,
-.aimeos .main-navbar .input-group {
-	display: inline-flex;
-}
-
-.aimeos .main-navbar .input-group {
-	width: inherit;
-}
-
-.aimeos .main-navbar .input-group input,
-.aimeos .main-navbar .input-group select {
-	border: 1px solid #bbb;
-}
-
-.aimeos .main-navbar .input-group select {
-	height: 34px;
-}
-
-.aimeos .main-navbar input,
-.aimeos .main-navbar .custom-select,
-.aimeos .main-navbar .filter-columns .dropdown-item,
-.aimeos .main-navbar .filter-columns .dropdown-toggle {
-	font-family: monospace;
-	border-radius: 0;
-}
-
-.aimeos .main-navbar .dropdown-item input {
-	margin-right: 0.75rem;
-}
-
-.aimeos .main-navbar .filter-columns,
-.aimeos .main-navbar .filter-operator,
-.aimeos .main-navbar .filter-key {
+.aimeos .item-navbar .nav-item.selection {
 	display: none;
-	max-width: 9rem;
-}
-
-.aimeos .main-navbar .filter-value {
-	max-width: 9rem;
-}
-
-.aimeos .main-navbar .filter-operator {
-	max-width: 4rem;
 }
 
 
-/** Content **/
+/** Stock */
 
-.aimeos .main-content {
-	margin-left: 3rem;
-	margin-right: -0.5rem;
-	margin-bottom: 1rem;
-	padding: 0;
+.aimeos .item-stock .stock-type,
+.aimeos .item-stock .stock-stocklevel,
+.aimeos .item-stock .stock-dateback,
+.aimeos .item-stock .stock-timeframe {
+	width: 25%;
 }
 
-.aimeos .main-content .item-actions {
-	font-size: 0.82rem;
-	display: inline-block;
-	width: inherit;
+.aimeos .item-stock .stock-stocklevel input {
+	text-align: right;
+}
+
+
+/** Subscription */
+
+.aimeos .item-subscription span.form-control {
+	border-color: transparent;
+}
+
+.aimeos .item-subscription .interval-field {
+	width: 10%;
+}
+
+
+/** Order */
+
+.aimeos .list-order .list-header .actions .act-add {
+	display: none;
+}
+
+.aimeos .list-order .line {
+	border-bottom: 1px solid #333;
+	white-space: nowrap;
+	display: block;
+}
+
+.aimeos .list-order .line:last-child {
+	border-bottom: none;
+}
+
+.aimeos .list-order .list-item .actions .act-copy {
+	visibility: hidden;
+}
+
+.aimeos .item-order.tab-pane {
+	overflow-x: initial;
+}
+
+.aimeos .item-order span.form-control:not(.ai-combobox) {
+	border-color: transparent;
+}
+
+.aimeos .item-order .item-customerid a.act-view:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: " \f06e";
+}
+
+.aimeos .item-order .item-product-list th.item-column,
+.aimeos .item-order .item-product-list .product-sku {
+	font-weight: bold;
+}
+
+.aimeos .item-order .item-product-list .product-sku:before {
+	content: "(";
+}
+
+.aimeos .item-order .item-product-list .product-sku:after {
+	content: ")";
+}
+
+.aimeos .item-order .item-product-list .column-subscription .btn-subscription:before {
+	content: "\f073";
+}
+
+.aimeos .item-order .item-product-list .column-status {
+	max-width: 10rem;
+	min-width: 5rem;
+}
+
+.aimeos .item-order .item-product-list .column-desc {
+	text-align: left;
+}
+
+.aimeos .item-order .item-product-list .column-price,
+.aimeos .item-order .item-product-list .column-sum {
 	white-space: nowrap;
 	text-align: right;
-	margin-left: auto;
-	padding: 0 calc(0.5rem + 15px);
 }
 
-.aimeos .main-content .main-navbar .item-actions {
-	padding: 0;
+.aimeos .item-order .item-product-list .product-name,
+.aimeos .item-order .item-product-list .product-attr,
+.aimeos .item-order .item-product-list .product-sku,
+.aimeos .item-order .item-product-list .product-status,
+.aimeos .item-order .item-product-list .product-quantity,
+.aimeos .item-order .item-product-list .product-price,
+.aimeos .item-order .item-product-list .product-costs,
+.aimeos .item-order .item-product-list .product-rebate {
+	display: block;
 }
 
-.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
-	min-width: 4rem;
+.aimeos .item-order .item-product-list .product-attr .attr-code:after {
+	content: ":";
 }
 
-.aimeos .main-content .item-actions .btn.act-help {
-	min-width: 2rem;
+.aimeos .item-order .item-product-list .product-attr .attr-value:not(:last-child):after {
+	content: ",";
 }
 
-.aimeos .main-content .item-actions .btn {
+.aimeos .item-order .item-product-list .product-costs:before {
+	content: "+ ";
+}
+
+.aimeos .item-order .item-product-list .product-rebate:before {
+	content: "(- ";
+}
+
+.aimeos .item-order .item-product-list .product-rebate:after {
+	content: ")";
+}
+
+.aimeos .item-order .item-address .address-form {
+	margin-top: 1rem;
+	display: none;
+}
+
+.aimeos .item-order .item-address .address-text {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.aimeos .item-order .item-address .address-edit {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.aimeos .item-order .item-address .address-edit:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f040";
+	cursor: pointer;
+}
+
+.aimeos .item-order .item-service .service-code {
+	font-weight: bold;
+	display: block;
+}
+
+.aimeos .item-order .item-service .service-code:before {
+	content: "(";
+}
+
+.aimeos .item-order .item-service .service-rebate:before {
+	content: "(-";
+}
+
+.aimeos .item-order .item-service .service-code:after,
+.aimeos .item-order .item-service .service-rebate:after {
+	content: ")";
+}
+
+.aimeos .item-order .item-service .service-attr th,
+.aimeos .item-order .item-service .service-attr td {
+	width: 49%;
+}
+
+.aimeos .item-order .item-total .row {
+	padding: 0.75rem;
 	margin: 0;
 }
 
-.aimeos .main-content .item-actions .btn {
-	margin: 0.5rem 0;
-}
-
-.aimeos .main-footer {
-	background-color: #F8F8F8;
-	position: relative;
-	padding: 0.25rem 0.5rem;
+.aimeos .item-order .item-total .value {
 	text-align: right;
-	width: auto;
-	margin: auto -0.5rem 1rem 3rem;
 }
 
 
-/* MQ Mobile very small only */
-
-@media (max-width: 360px) {
-	.aimeos .main-content .item-actions {
-		font-size: 0.7rem;
-	}
-
-	.aimeos .form-control {
-		height: calc(1.9em + 2px);
-		line-height: 1.35;
-		padding: 0.15rem 0.15rem 0.45rem;
-	}
-
-	.nav-tabs .nav-link {
-		padding: 0.35rem 0.75rem;
-	}
+.aimeos .item-order .item-total .total-subtotal,
+.aimeos .item-order .item-total .total-value {
+	background-color: #F8F8F8;
 }
 
-/* MQ Mobile only */
+.aimeos .item-order .item-total .total-value {
+	font-weight: bold;
+}
 
-@media (max-width: 767px) {
+.aimeos .item-subscription .item-product-list .column-desc {
+	text-align: left;
+}
 
-	.aimeos .main-navbar .form-inline {
-		flex-wrap: nowrap;
-		align-items: center;
-		justify-content: flex-end;
-		position: absolute;
-		right: -0.5rem;
-		left: 3rem;
-		max-width: 100%;
-		background: white;
-		padding: 0.25rem;
-		border-radius: 4px;
-		box-shadow: 0 0 4px rgba(20, 20, 20, .35);
-		white-space: nowrap;
-		z-index: -1;
-		visibility: hidden;
-		-webkit-transition: z-index .3s,
-			visibility .3s ease .3s,
-			-webkit-transform .3s ease-in-out;
-		transition: z-index .3s,
-			visibility .3s ease .3s,
-			-webkit-transform .3s ease-in-out;
-		-o-transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility .3s ease .3s;
-		transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility .3s ease .3s;
-		transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility .3s ease .3s,
-			-webkit-transform .3s ease-in-out;
-		-webkit-transform: translateY(-58px);
-		-ms-transform: translateY(-58px);
-		transform: translateY(-58px);
-	}
+.aimeos .item-subscription .item-product-list .column-price,
+.aimeos .item-subscription .item-product-list .column-sum {
+	white-space: nowrap;
+	text-align: right;
+}
 
-	.js--show-search .aimeos .main-navbar .form-inline {
-		visibility: visible;
-		z-index: 2000;
-		-webkit-transform: translateY(54px);
-		-ms-transform: translateY(54px);
-		transform: translateY(54px);
-		-webkit-transition: z-index .3s,
-			visibility 0s ease 0s,
-			-webkit-transform .3s ease-in-out;
-		transition: z-index .3s,
-			visibility 0s ease 0s,
-			-webkit-transform .3s ease-in-out;
-		-o-transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility 0s ease 0s;
-		transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility 0s ease 0s;
-		transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility 0s ease 0s,
-			-webkit-transform .3s ease-in-out;
-	}
+.aimeos .item-subscription .item-product-list .product-name,
+.aimeos .item-subscription .item-product-list .product-attr,
+.aimeos .item-subscription .item-product-list .product-sku,
+.aimeos .item-subscription .item-product-list .product-status,
+.aimeos .item-subscription .item-product-list .product-quantity,
+.aimeos .item-subscription .item-product-list .product-price,
+.aimeos .item-subscription .item-product-list .product-costs,
+.aimeos .item-subscription .item-product-list .product-rebate {
+	display: block;
+}
+
+.aimeos .item-subscription .item-product-list .product-attr .attr-code:after {
+	content: ":";
+}
+
+.aimeos .item-subscription .item-product-list .product-attr .attr-value:not(:last-child):after {
+	content: ",";
+}
+
+.aimeos .item-subscription .item-product-list .product-costs:before {
+	content: "+ ";
+}
+
+.aimeos .item-subscription .item-product-list .product-rebate:before {
+	content: "(- ";
+}
+
+.aimeos .item-subscription .item-product-list .product-rebate:after {
+	content: ")";
 }
 
 
-/* MQ Tablet+ */
+.aimeos .item-coupon .actions .dropdown-item .label input.fileupload {
+	position: absolute;
+	padding: 0;
+	opacity: 0;
+	left: 0;
+}
 
-@media (min-width: 768px) {
-	.aimeos .main-navbar {
-		position: -webkit-sticky;
-		position: sticky;
-		z-index: 1041;
-		top: 0;
-		margin: 1rem 0;
-	}
+.aimeos .list-log .list-items td {
+	vertical-align: top;
+}
 
-	.aimeos .main-navbar .item-actions {
-		margin-top: 0;
-		font-size: 0.9rem;
-	}
+.aimeos .list-log .list-items .items-field {
+	display: inline-block;
+	max-height: 2.5rem;
+	overflow: hidden;
+}
 
-	.aimeos .main-content {
-		margin-left: 3.5rem;
-		margin-right: 0rem;
-	}
+.aimeos .list-log .list-items .items-field.show {
+	max-height: inherit;
+}
 
-	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
-		min-width: 5rem;
-	}
-
-	.aimeos .item-container .item-actions {
-		display: none;
-	}
+.aimeos .list-log .list-items .log-message {
+	text-align: left;
 }
 
 
-/* MQ Desktop+ */
-
-@media (min-width: 992px) {
-
-	.aimeos .main-navbar .item-actions {
-		margin-top: 0;
-		font-size: 1rem;
-	}
-
-	.aimeos .main-content {
-		margin-left: 6rem;
-	}
-
-	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
-		min-width: 6rem;
-	}
-
-	.aimeos .main-footer {
-		margin-left: 6rem;
-	}
+.prototype-map,
+.prototype {
+	display: none;
 }
