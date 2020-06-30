@@ -332,22 +332,9 @@
 }
 
 
-/* Main Content */
-
-.aimeos .main-content {
-	margin-left: 3rem;
-	padding: 0 2.5%;
-}
-
-
 /* Desktop state only */
 
 @media (min-width: 992px) {
-
-	.aimeos .main-sidebar {
-		width: 6rem;
-	}
-
 	.aimeos .main-sidebar .title {
 		display: block;
 		font-size: 90%;
@@ -368,11 +355,8 @@
 	.aimeos .sidebar-menu li:hover .tree-menu-wrapper {
 		left: 6rem;
 	}
-
-	.aimeos .main-content {
-		margin-left: 6rem;
-	}
 }
+
 
 
 /* Mobile state only */
@@ -549,7 +533,52 @@
 
 /* Scrollbar styles for Firefox */
 
-.aimeos .sidebar-wrapper {
+.aimeos .main-sidebar .sidebar-wrapper {
 	scrollbar-color: rgba(64, 144, 192, 0.65) transparent;
 	scrollbar-width: thin;
+}
+
+
+/* Stretching the sidebar's height to prevent visiblity of animated tree-menu */
+
+@media (max-width: 992px) and (min-height: 790px) and (max-height:850px) {
+	.aimeos .sidebar-menu.advanced {
+		padding-bottom: 150px;
+	}
+}
+
+@media (max-width: 992px) and (min-height: 850px) {
+	.aimeos .sidebar-menu.advanced {
+		padding-bottom: 250px;
+	}
+}
+
+@media (max-width: 992px) and (min-height: 950px) {
+	.aimeos .sidebar-menu.advanced {
+		padding-bottom: 350px;
+	}
+}
+
+@media (max-width: 992px) and (min-height: 1050px) {
+	.aimeos .sidebar-menu.advanced {
+		padding-bottom: 450px;
+	}
+}
+
+@media (max-width: 992px) and (min-height: 1150px) {
+	.aimeos .sidebar-menu.advanced {
+		padding-bottom: 550px;
+	}
+}
+
+@media (max-width: 992px) and (min-height: 1250px) {
+	.aimeos .sidebar-menu.advanced {
+		padding-bottom: 650px;
+	}
+}
+
+@media (max-width: 992px) and (min-height: 1350px) {
+	.aimeos .sidebar-menu.advanced {
+		padding-bottom: 750px;
+	}
 }
