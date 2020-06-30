@@ -8,16 +8,23 @@
 
 .aimeos .main-navbar {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	min-height: 3rem;
+	min-height: 2.5rem;
 	background-color: #F8F8F8;
-	padding: 0.5rem;
-	margin: 1rem 0;
+	padding: 0 0.5rem;
+	margin: 0.5rem 0;
 }
 
 .aimeos .main-navbar .navbar-brand {
-	float: left;
+	align-items: baseline;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 .aimeos .main-navbar .navbar-secondary {
@@ -37,7 +44,7 @@
 
 /** Search Toggle **/
 
-@media (max-width: 992px) {
+@media (max-width: 767px) {
 
 	.aimeos .toggle-search {
 		display: flex;
@@ -69,6 +76,10 @@
 	.aimeos .toggle-search {
 		display: none;
 	}
+}
+
+.aimeos .form-control.filter-value {
+	font-size: 1rem;
 }
 
 
@@ -141,6 +152,8 @@
 	max-width: 4rem;
 }
 
+/* MQ Mobile only */
+
 @media (max-width: 767px) {
 
 	.aimeos .main-navbar .form-inline {
@@ -148,7 +161,7 @@
 		align-items: center;
 		justify-content: flex-end;
 		position: absolute;
-		right: 0;
+		right: -0.5rem;
 		left: 3rem;
 		max-width: 100%;
 		background: white;
@@ -174,17 +187,17 @@
 			z-index .3s,
 			visibility .3s ease .3s,
 			-webkit-transform .3s ease-in-out;
-		-webkit-transform: translateY(-48px);
-		-ms-transform: translateY(-48px);
-		transform: translateY(-48px);
+		-webkit-transform: translateY(-58px);
+		-ms-transform: translateY(-58px);
+		transform: translateY(-58px);
 	}
 
 	.js--show-search .aimeos .main-navbar .form-inline {
 		visibility: visible;
 		z-index: 2000;
-		-webkit-transform: translateY(58px);
-		-ms-transform: translateY(58px);
-		transform: translateY(58px);
+		-webkit-transform: translateY(45px);
+		-ms-transform: translateY(45px);
+		transform: translateY(45px);
 		-webkit-transition: z-index .3s,
 			visibility 0s ease 0s,
 			-webkit-transform .3s ease-in-out;
@@ -207,39 +220,66 @@
 
 /** Content **/
 
+.aimeos .main-content {
+	margin-left: 3rem;
+	margin-right: -0.5rem;
+	margin-bottom: 1rem;
+	padding: 0;
+}
+
 .aimeos .main-content .item-actions {
 	padding: 0 calc(0.5rem + 15px);
 	white-space: nowrap;
 	text-align: right;
-	width: 100%;
+	font-size: 0.8rem;
+	display: block;
+	width: inherit;
+	margin-left: auto;
 }
 
-.aimeos .main-navbar .item-actions {
+.aimeos .main-content .main-navbar .item-actions {
 	display: inline-block;
 	width: inherit;
 	padding: 0;
 }
 
-.aimeos .main-content .item-actions .btn:not(.dropdown-toggle) {
-	min-width: 8rem;
+.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
+	min-width: 4rem;
+}
+
+.aimeos .main-content .item-actions .btn.act-help {
+	min-width: 2rem;
+}
+
+.aimeos .main-content .item-actions .btn {
+	margin: 0;
 }
 
 .aimeos .main-content .item-actions .btn {
 	margin: 0.5rem 0;
 }
 
-.aimeos .main-navbar .item-actions .btn {
-	margin: 0;
+
+/* MQ Mobile very small only */
+
+@media (max-width: 360px) {
+	.aimeos .main-content .item-actions {
+		font-size: 0.7rem;
+	}
+
+	.aimeos .form-control {
+		height: calc(1.9em + 2px);
+		line-height: 1.35;
+		padding: 0.15rem 0.15rem 0.45rem;
+	}
+
+	.nav-tabs .nav-link {
+		padding: 0.35rem 0.75rem;
+	}
 }
 
-.aimeos .main-content {
-	margin-bottom: 1rem;
-	padding: 0;
-}
 
-.aimeos .main-content .item-actions .btn.act-help {
-	min-width: 3rem;
-}
+/* MQ Tablet+ */
 
 @media (min-width: 768px) {
 	.aimeos .main-navbar {
@@ -247,6 +287,22 @@
 		position: sticky;
 		z-index: 1041;
 		top: 0;
+		margin: 1rem 0;
+		min-height: 3rem;
+	}
+
+	.aimeos .main-navbar .item-actions {
+		margin-top: 0;
+		font-size: 90%;
+	}
+
+	.aimeos .main-content {
+		margin-left: 3.5rem;
+		margin-right: 0rem;
+	}
+
+	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
+		min-width: 5rem;
 	}
 
 	.aimeos .item-container .item-actions {
@@ -254,8 +310,20 @@
 	}
 }
 
-@media (max-width: 992px) {
-	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle) {
+
+/* MQ Desktop+ */
+
+@media (min-width: 992px) {
+
+	.aimeos .main-navbar .item-actions {
+		margin-top: 0;
+	}
+
+	.aimeos .main-content {
+		margin-left: 6rem;
+	}
+
+	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
 		min-width: 6rem;
 	}
 }
@@ -269,11 +337,12 @@
 	padding: 0.25rem 0.5rem;
 	text-align: right;
 	width: auto;
-	margin: auto 0 1rem 3rem;
+	margin: auto -0.5rem 1rem 3rem;
 }
 
 @media (min-width: 992px) {
 	.aimeos .main-footer {
-		margin-left: 5rem;
+		margin-left: 6rem;
+		margin-right: 0;
 	}
 }
