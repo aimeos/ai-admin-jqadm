@@ -262,15 +262,9 @@
 
 /* MQ Mobile very small only */
 
-@media (max-width: 360px) {
+@media (max-width: 400px) {
 	.aimeos .main-content .item-actions {
 		font-size: 0.7rem;
-	}
-
-	.aimeos .form-control {
-		height: calc(1.9em + 2px);
-		line-height: 1.35;
-		padding: 0.15rem 0.15rem 0.45rem;
 	}
 
 	.nav-tabs .nav-link {
