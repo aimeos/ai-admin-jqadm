@@ -267,6 +267,10 @@
 		font-size: 0.7rem;
 	}
 
+	.aimeos .form-control.search-input {
+		font-size: 0.8rem;
+	}
+
 	.nav-tabs .nav-link {
 		padding: 0.35rem 0.75rem;
 	}
