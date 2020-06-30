@@ -6,7 +6,8 @@
 
 /* Fixes */
 
-html, body {
+html,
+body {
 	position: relative;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -22,12 +23,13 @@ textarea {
 
 /* misaligned col-*-6 block in subpanels */
 .card-block.collapse.show,
-.tab-content > .row.active {
+.tab-content>.row.active {
 	display: flex;
 }
 
 /* checkbox styling */
-input[type='checkbox'], input[type='radio'] {
+input[type='checkbox'],
+input[type='radio'] {
 	margin: calc(0.5rem + 1px) 0;
 	height: 1rem;
 }
@@ -62,7 +64,19 @@ input[type='checkbox'], input[type='radio'] {
 .info-list.alert {
 	position: fixed;
 	z-index: 10000;
-	width: calc(95% - 5rem);
+	width: calc(100% - 4.5rem);
+}
+
+@media (min-width: 768px) {
+	.info-list.alert {
+		width: calc(100% - 5rem);
+	}
+}
+
+@media (min-width: 992px) {
+	.info-list.alert {
+		width: calc(100% - 8rem);
+	}
 }
 
 .btn {
@@ -80,12 +94,15 @@ input[type='checkbox'], input[type='radio'] {
 	color: #FFFFFF !important;
 }
 
-.btn-primary.focus, .btn-primary:focus {
+.btn-primary.focus,
+.btn-primary:focus {
 	box-shadow: none;
 }
 
-.btn-primary.active, .btn-primary:active,
-.btn-primary:hover, .show > .btn-primary.dropdown-toggle {
+.btn-primary.active,
+.btn-primary:active,
+.btn-primary:hover,
+.show>.btn-primary.dropdown-toggle {
 	background-color: #3080B0;
 }
 
@@ -168,7 +185,8 @@ input[type='checkbox'], input[type='radio'] {
 	border-top: 3px solid rgba(0, 0, 0, 0.125);
 }
 
-.table td, .table th {
+.table td,
+.table th {
 	border-top: none;
 }
 
@@ -192,6 +210,7 @@ td.is-invalid .form-control {
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid #bbb;
+	font-size: inherit;
 }
 
 .form-control:focus,
@@ -201,7 +220,8 @@ td.is-invalid .form-control {
 	box-shadow: none;
 }
 
-.form-control:disabled, .form-control[readonly] {
+.form-control:disabled,
+.form-control[readonly] {
 	background-color: #f8f8f8;
 }
 
@@ -210,7 +230,8 @@ td.is-invalid .form-control {
 	justify-content: inherit;
 }
 
-.btn, .dropdown-menu {
+.btn,
+.dropdown-menu {
 	font-size: 100%;
 	z-index: 1040;
 }
@@ -233,20 +254,16 @@ td.is-invalid .form-control {
 	.aimeos {
 		font-size: 80%;
 	}
+
 	.navbar-brand {
 		font-size: 1rem;
 	}
+
 	.custom-select {
 		height: 33px;
 	}
+
 	.form-group.row .form-control-label {
 		font-size: 90%;
-	}
-}
-
-
-@media (max-width: 991px) {
-	.info-list.alert {
-		width: calc(95% - 3rem);
 	}
 }
