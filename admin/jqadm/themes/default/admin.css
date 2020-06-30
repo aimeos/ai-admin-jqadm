@@ -8,40 +8,37 @@
 
 .aimeos .list-page {
 	text-align: center;
+	display: flex;
+	margin-bottom: 0.5rem;
+	justify-content: space-between;
 }
 
-.page-limit .dropdown-menu {
-	min-width: 5rem;
+.aimeos .list-page .page-limit,
+.aimeos .list-page .pagination {
+	margin: 0;
 }
 
-.page-limit .dropdown-menu .dropdown-item {
-	text-align: center
+.aimeos .list-page .btn {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 }
 
-@media (max-width: 992px) {
+.aimeos .list-page .page-link {
+	min-width: 2rem;
+}
 
+@media (min-width: 768px) {
 	.aimeos .list-page {
-		display: flex;
 		margin-bottom: 1rem;
-		justify-content: space-between;
-	}
-
-	.aimeos .list-page .page-limit,
-	.aimeos .list-page .pagination {
-		margin: 0;
-	}
-
-	.aimeos .list-page .btn {
-		padding-left: 0.5rem;
-		padding-right: 0.5rem;
-	}
-
-	.aimeos .list-page .page-link {
-		min-width: 2rem;
 	}
 }
 
 @media (min-width: 992px) {
+	.aimeos .list-page {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+
 	.aimeos .list-page .pagination {
 		display: inline-block;
 		margin: 1rem;
@@ -66,6 +63,14 @@
 	}
 }
 
+.page-limit .dropdown-menu {
+	min-width: 5rem;
+}
+
+.page-limit .dropdown-menu .dropdown-item {
+	text-align: center
+}
+
 
 /** Tree view */
 
@@ -73,10 +78,6 @@
 .aimeos .tree-content {
 	margin: 0.15rem 0;
 	margin-bottom: 1.35rem;
-}
-
-.aimeos .tree-toolbar {
-	font-size: 90%;
 }
 
 .aimeos .tree-toolbar .btn {
@@ -156,7 +157,7 @@
 }
 
 .aimeos .list-items th .dropdown-toggle:focus {
-	box-shadow: 0 0 0 2px rgba(2,117,216,.25);
+	box-shadow: 0 0 0 2px rgba(2, 117, 216, .25);
 }
 
 .aimeos .list-items tr:not(.list-search) td.image {
@@ -175,28 +176,28 @@
 
 .aimeos .list-items .sort-asc:after {
 	font: normal normal normal 14px/1 FontAwesome;
-	content:" \f176";
+	content: " \f176";
 }
 
 .aimeos .list-items .sort-desc:after {
 	font: normal normal normal 14px/1 FontAwesome;
-	content:" \f175";
+	content: " \f175";
 }
 
 .aimeos .list-items .status-1:before {
-	content:"\f00c";
+	content: "\f00c";
 }
 
 .aimeos .list-items .status-0:before {
-	content:"\f00d";
+	content: "\f00d";
 }
 
 .aimeos .list-items .status--1:before {
-	content:"\f06e";
+	content: "\f06e";
 }
 
 .aimeos .list-items .status--2:before {
-	content:"\f187";
+	content: "\f187";
 }
 
 .aimeos .list-items .config-item {
@@ -216,7 +217,7 @@
 
 .aimeos .list-items a.items-field.act-view:after {
 	font: normal normal normal 14px/1 FontAwesome;
-	content:"\f06e";
+	content: "\f06e";
 }
 
 
@@ -227,7 +228,7 @@
 	font-size: 150%;
 	padding: 0.5rem 0;
 	margin-bottom: 1rem;
-	border-bottom: 1px solid rgba(0,0,0,.15);
+	border-bottom: 1px solid rgba(0, 0, 0, .15);
 }
 
 .aimeos .item-meta {
@@ -240,6 +241,10 @@
 	margin: 0.5rem;
 	font-size: 80%;
 	display: inline-block;
+}
+
+.aimeos .item-meta small {
+	margin: 0 0.5rem 0.25rem;
 }
 
 .aimeos .item-meta .meta-value {
@@ -400,7 +405,7 @@
 /** Subscription */
 
 .aimeos .item-subscription span.form-control {
-    border-color: transparent;
+	border-color: transparent;
 }
 
 .aimeos .item-subscription .interval-field {
@@ -455,12 +460,12 @@
 }
 
 .aimeos .item-order .item-product-list .column-subscription .btn-subscription:before {
-	content:"\f073";
+	content: "\f073";
 }
 
 .aimeos .item-order .item-product-list .column-status {
-    max-width: 10rem;
-    min-width: 5rem;
+	max-width: 10rem;
+	min-width: 5rem;
 }
 
 .aimeos .item-order .item-product-list .column-desc {
