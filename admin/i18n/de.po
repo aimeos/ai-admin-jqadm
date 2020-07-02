@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-02 13:43+0000\n"
+"POT-Creation-Date: 2020-07-01 17:24+0200\n"
+"PO-Revision-Date: 2020-07-02 08:47+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -581,6 +585,9 @@ msgstr "Akademischer Titel (optional)"
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr "Akademische Titel wie Dr., Prof., etc."
 
+msgid "Hours"
+msgstr "Stunden"
+
 msgid "House number"
 msgstr "Hausnummer"
 
@@ -604,6 +611,9 @@ msgstr "ISO Wärungscode (benötigt)"
 
 msgid "ISO language code (required)"
 msgstr "ISO Sprachcode (benötigt)"
+
+msgid "Image"
+msgstr "Bild"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -1292,6 +1302,9 @@ msgstr "Eintrag anzeigen"
 
 msgid "Show/hide advanced data"
 msgstr "Erweiterte Daten zeigen/verstecken"
+
+msgid "Show/hide navigation labels"
+msgstr "Namen der Navigationspunkte anzeigen/verstecken"
 
 msgid "Show/hide this entry"
 msgstr "Eintrag zeigen/verstecken"

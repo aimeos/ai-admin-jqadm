@@ -11,15 +11,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-02 13:35+0000\n"
-"Last-Translator: Enrico Porceddu <porceddu_enrico@yahoo.com>\n"
+"POT-Creation-Date: 2020-07-01 17:24+0200\n"
+"PO-Revision-Date: 2020-07-01 19:44+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -581,6 +585,9 @@ msgstr "Titolo onorario (opzionale)"
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
 
+msgid "Hours"
+msgstr ""
+
 msgid "House number"
 msgstr "Numero Civico"
 
@@ -603,6 +610,9 @@ msgid "ISO currency code (required)"
 msgstr ""
 
 msgid "ISO language code (required)"
+msgstr ""
+
+msgid "Image"
 msgstr ""
 
 msgid ""
@@ -1291,6 +1301,9 @@ msgid "Show entry"
 msgstr "Mostra oggetto"
 
 msgid "Show/hide advanced data"
+msgstr ""
+
+msgid "Show/hide navigation labels"
 msgstr ""
 
 msgid "Show/hide this entry"
