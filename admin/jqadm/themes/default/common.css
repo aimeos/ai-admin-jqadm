@@ -279,6 +279,10 @@
 	content: "\f0d8";
 }
 
+.aimeos .tree-toolbar .btn.fa {
+	font-size: 0.8rem;
+}
+
 @media (min-width: 768px) {
 	.aimeos .item .navbar-content {
 		position: -webkit-sticky;
