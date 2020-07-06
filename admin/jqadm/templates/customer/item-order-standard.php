@@ -105,10 +105,10 @@ $columns = [
 	'order.datedelivery' => $this->translate( 'admin', 'Delivery' ),
 	'order.statusdelivery' => $this->translate( 'admin', 'Ship status' ),
 	'order.relatedid' => $this->translate( 'admin', 'Related ID' ),
-	'order.baseid' => $this->translate( 'admin', 'Basket' ),
 	'order.ctime' => $this->translate( 'admin', 'Created' ),
 	'order.mtime' => $this->translate( 'admin', 'Modifed' ),
 	'order.editor' => $this->translate( 'admin', 'Editor' ),
+	'order.baseid' => $this->translate( 'admin', 'Basket' ),
 ];
 
 $paymentStatusList = [
@@ -206,24 +206,24 @@ $deliveryStatusList = [
 							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a>
 						</td>
 					<?php endif; ?>
-					<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
-						<td class="order-statuspayment">
-							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $paymentStatusList[$item->getPaymentStatus()] ); ?></a>
-						</td>
-					<?php endif; ?>
 					<?php if( in_array( 'order.datepayment', $fields ) ) : ?>
 						<td class="order-datepayment">
 							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDatePayment() ); ?></a>
 						</td>
 					<?php endif; ?>
-					<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
-						<td class="order-statusdelivery">
-							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $deliveryStatusList[$item->getDeliveryStatus()] ); ?></a>
+					<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
+						<td class="order-statuspayment">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $paymentStatusList[$item->getPaymentStatus()] ); ?></a>
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.datedelivery', $fields ) ) : ?>
 						<td class="order-datedelivery">
 							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateDelivery() ); ?></a>
+						</td>
+					<?php endif; ?>
+					<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
+						<td class="order-statusdelivery">
+							<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $deliveryStatusList[$item->getDeliveryStatus()] ); ?></a>
 						</td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.relatedid', $fields ) ) : ?>
