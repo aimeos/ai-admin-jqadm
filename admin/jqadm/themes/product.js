@@ -232,10 +232,10 @@ Aimeos.Product = {
 
 						if(self[name][key]) {
 							for(var subkey in config[name][key]) {
-								self[name][key].addItem(null, config[name][key][subkey]); // null parameter: workaround for media, price, text and property components
+								self[name][key].addItem('product.lists.', config[name][key][subkey]);
 							}
 						} else if(!isNaN(key)) {
-							self[name].addItem(null, config[name][key]); // null parameter: workaround for media, price, text and property components
+							self[name].addItem('product.lists.', config[name][key]);
 						}
 					}
 				}
