@@ -1034,6 +1034,9 @@ Aimeos.Tabs = {
 
 Aimeos.Log = {
 
+	time : null,
+
+
 	init : function() {
 
 		this.toggleItem();
@@ -1042,8 +1045,16 @@ Aimeos.Log = {
 
 	toggleItem : function() {
 
-		$(".aimeos .list-log .log-message").on("dblclick", function(ev) {
+		$(".aimeos .list-log .log-message").on("mousedown", function(ev) {
+			this.time = (new Date()).getTime();
+		});
+
+		$(".aimeos .list-log .log-message").on("mouseup", function(ev) {
 			var el = $(this);
+
+			if(this.time < (new Date()).getTime() - 500) {
+				return false;
+			}
 
 			if(el.hasClass("show")) {
 				el.removeClass("show");
