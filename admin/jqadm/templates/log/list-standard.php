@@ -107,7 +107,7 @@ $columnList = [
 						<td class="log-request"><?= $enc->html( $item->getRequest() ); ?></td>
 					<?php endif; ?>
 					<?php if( in_array( 'log.message', $fields ) ) : ?>
-						<td class="log-message"><a class="items-field" href="#" tabindex="1"><?= nl2br( $enc->html( $item->getMessage() ) ); ?></a></td>
+						<td class="log-message"><span class="content"><?= nl2br( $enc->html( $item->getMessage() ) ); ?></span></td>
 					<?php endif; ?>
 
 					<td class="actions"></td>

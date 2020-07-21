@@ -625,18 +625,18 @@
 	vertical-align: top;
 }
 
-.aimeos .list-log .list-items .items-field {
-	display: inline-block;
+.aimeos .list-log .log-message {
+	text-align: left;
+}
+
+.aimeos .list-log .log-message .content {
 	max-height: 2.5rem;
 	overflow: hidden;
+	display: block;
 }
 
-.aimeos .list-log .list-items .items-field.show {
+.aimeos .list-log .log-message.show .content {
 	max-height: inherit;
-}
-
-.aimeos .list-log .list-items .log-message {
-	text-align: left;
 }
 
 

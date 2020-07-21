@@ -961,7 +961,7 @@ Aimeos.Nav = {
 		});
 	},
 
-  
+
 	toggleNavItemsTexts : function() {
 
 		$('#js--toggle-nav-items-text').on('click', function() {
@@ -969,7 +969,7 @@ Aimeos.Nav = {
 		})
 	},
 
-  
+
 	toggleSearch : function() {
 
 		$('#js--toggle-search').on('click', function() {
@@ -1042,7 +1042,7 @@ Aimeos.Log = {
 
 	toggleItem : function() {
 
-		$(".aimeos .list-log .list-items a.items-field").on("click", function(ev) {
+		$(".aimeos .list-log .log-message").on("dblclick", function(ev) {
 			var el = $(this);
 
 			if(el.hasClass("show")) {
