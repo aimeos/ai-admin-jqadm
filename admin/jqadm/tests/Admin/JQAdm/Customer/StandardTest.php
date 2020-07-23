@@ -62,7 +62,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'UTC001' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'test@example.com' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -105,7 +105,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'UTC001' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'test@example.com' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -179,7 +179,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'filter' => array(
 				'key' => array( 0 => 'customer.code' ),
 				'op' => array( 0 => '==' ),
-				'val' => array( 0 => 'UTC001' ),
+				'val' => array( 0 => 'test@example.com' ),
 			),
 			'sort' => array( 'customer.label', '-customer.id' ),
 		);
@@ -188,7 +188,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->search();
 
-		$this->assertStringContainsString( '>UTC001<', $result );
+		$this->assertStringContainsString( '>test@example.com<', $result );
 	}
 
 
@@ -256,7 +256,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( 'UTC001' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( 'test@example.com' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
