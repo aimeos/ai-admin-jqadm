@@ -298,7 +298,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 				</div>
 
 				<div class="row">
-					<?php foreach( $basket->getAddresses()->ksrort() as $type => $list ) : $code = 'address:' . $type; ?>
+					<?php foreach( $basket->getAddresses()->krsort() as $type => $list ) : $code = 'address:' . $type; ?>
 
 						<div class="col-xl-6 content-block item-address">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
