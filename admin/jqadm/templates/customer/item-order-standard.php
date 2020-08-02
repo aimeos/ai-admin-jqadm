@@ -180,13 +180,13 @@ $deliveryStatusList = [
 					'data' => [
 						'order.id' => ['op' => '==', 'type' => 'number'],
 						'order.type' => ['op' => '=~'],
-						'order.datepayment' => ['op' => '>=', 'type' => 'datetime-local'],
+						'order.datepayment' => ['op' => '-', 'type' => 'datetime-local'],
 						'order.statuspayment' => ['op' => '==', 'type' => 'select', 'val' => $paymentStatusList],
-						'order.datedelivery' => ['op' => '>=', 'type' => 'datetime-local'],
+						'order.datedelivery' => ['op' => '-', 'type' => 'datetime-local'],
 						'order.statusdelivery' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
 						'order.relatedid' => ['op' => '=='],
-						'order.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'order.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'order.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+						'order.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 						'order.editor' => ['op' => '=~'],
 						'order.baseid' => ['op' => '=='],
 					]

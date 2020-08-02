@@ -120,8 +120,8 @@ $refItems = $this->get( 'productItems', [] );
 						]],
 						'customer.lists.type' => ['op' => '==', 'type' => 'select', 'val' => $this->get( 'productListTypes', map() )->col( 'customer.lists.type.code', 'customer.lists.type.code' )->toArray()],
 						'customer.lists.config' => ['op' => '~='],
-						'customer.lists.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
-						'customer.lists.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+						'customer.lists.datestart' => ['op' => '-', 'type' => 'datetime-local'],
+						'customer.lists.dateend' => ['op' => '-', 'type' => 'datetime-local'],
 						'customer.lists.refid' => ['op' => '=='],
 					]
 				] );

@@ -110,11 +110,11 @@ $columnList = [
 					'data' => [
 						'coupon.code.code' => [],
 						'coupon.code.count' => ['op' => '=='],
-						'coupon.code.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
-						'coupon.code.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+						'coupon.code.datestart' => ['op' => '-', 'type' => 'datetime-local'],
+						'coupon.code.dateend' => ['op' => '-', 'type' => 'datetime-local'],
 						'coupon.code.ref' => [],
-						'coupon.code.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'coupon.code.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'coupon.code.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+						'coupon.code.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 						'coupon.code.editor' => [],
 					]
 				] );

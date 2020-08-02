@@ -78,6 +78,7 @@ $columnList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
+<div class="vue-block">
 
 <nav class="main-navbar">
 
@@ -167,8 +168,8 @@ $columnList = [
 						'price.property.type.code' => [],
 						'price.property.type.label' => [],
 						'price.property.type.position' => ['op' => '>=', 'type' => 'number'],
-						'price.property.type.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'price.property.type.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'price.property.type.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+						'price.property.type.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 						'price.property.type.editor' => [],
 					]
 				] );
@@ -237,6 +238,7 @@ $columnList = [
 	);
 ?>
 
+</div>
 <?php $this->block()->stop(); ?>
 
 <?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>

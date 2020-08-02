@@ -70,6 +70,7 @@ $columnList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
+<div class="vue-block">
 
 <nav class="main-navbar">
 
@@ -147,11 +148,11 @@ $columnList = [
 						]],
 						'coupon.provider' => [],
 						'coupon.label' => [],
-						'coupon.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
-						'coupon.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+						'coupon.datestart' => ['op' => '-', 'type' => 'datetime-local'],
+						'coupon.dateend' => ['op' => '-', 'type' => 'datetime-local'],
 						'coupon.config' => ['op' => '~='],
-						'coupon.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'coupon.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'coupon.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+						'coupon.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 						'coupon.editor' => [],
 					]
 				] );
@@ -231,6 +232,7 @@ $columnList = [
 	);
 ?>
 
+</div>
 <?php $this->block()->stop(); ?>
 
 <?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>

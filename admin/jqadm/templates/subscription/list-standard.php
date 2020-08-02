@@ -138,6 +138,7 @@ $reasonList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
+<div class="vue-block">
 
 <nav class="main-navbar">
 
@@ -214,12 +215,12 @@ $reasonList = [
 							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
 						]],
 						'subscription.interval' => ['op' => '=~', 'type' => 'string'],
-						'subscription.datenext' => ['op' => '>=', 'type' => 'date'],
-						'subscription.dateend' => ['op' => '>=', 'type' => 'date'],
+						'subscription.datenext' => ['op' => '-', 'type' => 'date'],
+						'subscription.dateend' => ['op' => '-', 'type' => 'date'],
 						'subscription.reason' => ['op' => '==', 'type' => 'select', 'val' => $reasonList],
 						'subscription.period' => ['op' => '==', 'type' => 'string'],
-						'subscription.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'subscription.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'subscription.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+						'subscription.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 						'subscription.editor' => [],
 						'order.base.id' => ['op' => '=='],
 						'order.base.customerid' => ['op' => '=='],
@@ -454,6 +455,7 @@ $reasonList = [
 	);
 ?>
 
+</div>
 <?php $this->block()->stop(); ?>
 
 <?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>

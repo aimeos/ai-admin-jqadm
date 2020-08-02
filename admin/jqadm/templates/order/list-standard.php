@@ -195,6 +195,7 @@ $statusList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
+<div class="vue-block">
 
 <nav class="main-navbar">
 
@@ -258,12 +259,12 @@ $statusList = [
 						'order.id' => ['op' => '=='],
 						'order.type' => [],
 						'order.statuspayment' => ['op' => '==', 'type' => 'select', 'val' => $paymentStatusList],
-						'order.datepayment' => ['op' => '>=', 'type' => 'date'],
+						'order.datepayment' => ['op' => '-', 'type' => 'date'],
 						'order.statusdelivery' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
-						'order.datedelivery' => ['op' => '>=', 'type' => 'date'],
+						'order.datedelivery' => ['op' => '-', 'type' => 'date'],
 						'order.relatedid' => ['op' => '=='],
-						'order.ctime' => ['op' => '>=', 'type' => 'date'],
-						'order.mtime' => ['op' => '>=', 'type' => 'date'],
+						'order.ctime' => ['op' => '-', 'type' => 'date'],
+						'order.mtime' => ['op' => '-', 'type' => 'date'],
 						'order.editor' => [],
 						'order.base.customerid' => ['op' => '=='],
 						'order.base.sitecode' => ['op' => '=='],
@@ -521,6 +522,7 @@ $statusList = [
 	);
 ?>
 
+</div>
 <?php $this->block()->stop(); ?>
 
 <?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>

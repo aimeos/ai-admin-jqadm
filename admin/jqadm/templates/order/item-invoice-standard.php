@@ -147,8 +147,8 @@ $statusList = [
 						'order.datedelivery' => ['oi' => '>=', 'type' => 'datetime-local'],
 						'order.statusdelivery' => ['oi' => '==', 'type' => 'select', 'val' => $statusList],
 						'order.relatedid' => ['oi' => '=='],
-						'order.ctime' => ['op' => '>=', 'type' => 'date'],
-						'order.mtime' => ['op' => '>=', 'type' => 'date'],
+						'order.ctime' => ['op' => '-', 'type' => 'date'],
+						'order.mtime' => ['op' => '-', 'type' => 'date'],
 						'order.editor' => [],
 					]
 				] );

@@ -67,6 +67,7 @@ $columnList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
+<div class="vue-block">
 
 <nav class="main-navbar">
 
@@ -138,8 +139,8 @@ $columnList = [
 						'customer.group.id' => ['op' => '=='],
 						'customer.group.code' => [],
 						'customer.group.label' => [],
-						'customer.group.ctime' => ['op' => '>=', 'type' => 'datetime-local'],
-						'customer.group.mtime' => ['op' => '>=', 'type' => 'datetime-local'],
+						'customer.group.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+						'customer.group.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 						'customer.group.editor' => [],
 					]
 				] );
@@ -199,6 +200,7 @@ $columnList = [
 	);
 ?>
 
+</div>
 <?php $this->block()->stop(); ?>
 
 <?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>

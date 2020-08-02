@@ -120,8 +120,8 @@ $refItems = $this->get( 'productItems', [] );
 						]],
 						'catalog.lists.type' => ['op' => '==', 'type' => 'select', 'val' => $this->get( 'productListTypes', map() )->col( 'catalog.lists.type.code', 'catalog.lists.type.code' )->toArray()],
 						'catalog.lists.config' => ['op' => '~='],
-						'catalog.lists.datestart' => ['op' => '>=', 'type' => 'datetime-local'],
-						'catalog.lists.dateend' => ['op' => '>=', 'type' => 'datetime-local'],
+						'catalog.lists.datestart' => ['op' => '-', 'type' => 'datetime-local'],
+						'catalog.lists.dateend' => ['op' => '-', 'type' => 'datetime-local'],
 						'catalog.lists.refid' => ['op' => '=='],
 					]
 				] );
