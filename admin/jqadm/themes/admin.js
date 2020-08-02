@@ -21,6 +21,50 @@ Aimeos = {
 
 	editortags : 'div(*);span(*);p(*);',
 
+	flatpickr : {
+		datetimerange: {
+			defaultDate: null,
+			defaultHour: 0,
+			enableTime: true,
+			locale: {
+				rangeSeparator: ' - '
+			},
+			mode: "range",
+			plugins: [new confirmDatePlugin({})],
+			time_24hr: true,
+			wrap: false
+		},
+		datetime: {
+			// altInput: true,
+			// altFormat: 'M j, Y H:i K',
+			defaultDate: null,
+			defaultHour: 0,
+			enableTime: true,
+			plugins: [new confirmDatePlugin({})],
+			time_24hr: true,
+			wrap: false
+		},
+		daterange: {
+			defaultDate: null,
+			locale: {
+				rangeSeparator: ' - '
+			},
+			mode: "range",
+			wrap: false
+		},
+		date: {
+			// altInput: true,
+			// altFormat: 'M j, Y',
+			defaultDate: null,
+			wrap: false
+		},
+		time: {
+			defaultHour: 0,
+			enableTime: true,
+			time_24hr: true,
+			wrap: false
+		}
+	},
 
 	addClone : function(node, getfcn, selectfn, after) {
 
@@ -543,7 +587,6 @@ Aimeos.Form = {
 
 		this.checkFields();
 		this.checkSubmit();
-		this.createDatePicker();
 		this.editFields();
 		this.resetSearch();
 		this.setupNext();
@@ -625,34 +668,6 @@ Aimeos.Form = {
 				return false;
 			}
 		});
-	},
-
-
-	createDatePicker : function() {
-
-		if(typeof Modernizr != 'undefined') {
-			if(!Modernizr.inputtypes['datetime-local']) {
-				$(".aimeos input[type='datetime-local']").each(function(idx, elem) {
-					if($(elem).closest(".prototype").length === 0) {
-						$(elem).datepicker({
-							dateFormat: 'yy-mm-dd',
-							constrainInput: false
-						});
-					}
-				});
-			}
-
-			if(Modernizr && !Modernizr.inputtypes['date']) {
-				$(".aimeos input[type='date']").each(function(idx, elem) {
-					if($(elem).closest(".prototype").length === 0) {
-						$(elem).datepicker({
-							dateFormat: 'yy-mm-dd',
-							constrainInput: false
-						});
-					}
-				});
-			}
-		}
 	},
 
 
@@ -1089,6 +1104,10 @@ $(function() {
 	Aimeos.Msg.init();
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();
+
+	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('lang') || 'en']);
+	Vue.prototype.$flatpickr = Aimeos.flatpickr;
+	Vue.component('flat-pickr', VueFlatpickr);
 
 	$('.vue-block').each(function() {
 		var key = $(this).data('key');
