@@ -236,11 +236,27 @@ $statusList = [
 				?>
 
 				<th class="actions">
-					<a class="btn fa act-download" tabindex="1"
-						href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params, [], $expConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>">
-					</a>
+					<?php if( count( $actions = $this->config( 'admin/jqadm/order/actions', ['order-export'] ) ) > 0 ) : ?>
+						<div class="dropdown list-menu">
+							<button class="btn act-menu fa" type="button" id="menuButton"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ); ?>">
+							</button>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="menuButton">
+								<?php foreach( $actions as $code ) : ?>
+									<li class="dropdown-item">
+										<a class="btn fa act-download" tabindex="1"
+											href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params, ['queue' => $code], $expConfig ) ); ?>"
+											aria-label="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ); ?>"
+											title="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ); ?>">
+											<?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?>
+										</a>
+									</li>
+								<?php endforeach ?>
+							</ul>
+						</div>
+					<?php endif ?>
 
 					<?= $this->partial(
 							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ),

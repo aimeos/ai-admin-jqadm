@@ -111,6 +111,9 @@ return [
 		],
 	],
 	'order' => [
+		'actions' => [
+			'order-export' => 'order-export'
+		],
 		'standard' => [
 			'subparts' => [
 				'invoice' => 'invoice',

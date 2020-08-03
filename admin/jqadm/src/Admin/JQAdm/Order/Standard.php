@@ -132,7 +132,8 @@ class Standard
 				$msg['sort'] = $this->getCriteriaSortations( (array) $params['sort'] );
 			}
 
-			$mq = $context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( 'order-export' );
+			$queue = $view->param( 'queue', 'order-export' );
+			$mq = $context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( $queue );
 			$mq->add( json_encode( $msg ) );
 
 			$msg = $context->getI18n()->dt( 'admin', 'Your export will be available in a few minutes for download' );
