@@ -242,10 +242,11 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 								<div class="col-sm-8">
-									<input class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<input is="flat-pickr" class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'attribute.lists.datestart' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-										v-bind:readonly="item['attribute.lists.siteid'] != siteid"
+										v-bind:disabled="item['attribute.lists.siteid'] != siteid"
+										v-bind:config="this.$flatpickr.datetime"
 										v-model="item['attribute.lists.datestart']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -255,10 +256,11 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 								<div class="col-sm-8">
-									<input class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<input is="flat-pickr" class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'attribute.lists.dateend' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-										v-bind:readonly="item['attribute.lists.siteid'] != siteid"
+										v-bind:disabled="item['attribute.lists.siteid'] != siteid"
+										v-bind:config="this.$flatpickr.datetime"
 										v-model="item['attribute.lists.dateend']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
