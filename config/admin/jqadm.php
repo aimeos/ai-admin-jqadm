@@ -53,6 +53,11 @@ return [
 				],
 			],
 		],
+		'product' => [
+			'decorators' => [
+				'global' => ['Index'],
+			],
+		],
 	],
 	'common' => [
 		'decorators' => [
@@ -113,6 +118,9 @@ return [
 		],
 	],
 	'product' => [
+		'decorators' => [
+			'global' => ['Cache'],
+		],
 		'domains' => [
 			'attribute' => 'attribute',
 			'media' => 'media',
@@ -196,6 +204,11 @@ return [
 					'bought' => 'bought',
 				],
 			],
+		],
+	],
+	'product/category' => [
+		'decorators' => [
+			'local' => ['Cache'],
 		],
 	],
 	'service' => [
