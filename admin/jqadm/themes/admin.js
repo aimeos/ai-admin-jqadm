@@ -23,6 +23,7 @@ Aimeos = {
 
 	flatpickr : {
 		datetimerange: {
+			altInput: true,
 			defaultDate: null,
 			defaultHour: 0,
 			enableTime: true,
@@ -31,37 +32,44 @@ Aimeos = {
 			},
 			mode: "range",
 			plugins: [new confirmDatePlugin({})],
+			position: 'below',
 			time_24hr: true,
 			wrap: false
 		},
 		datetime: {
-			// altInput: true,
+			altInput: true,
 			// altFormat: 'M j, Y H:i K',
 			defaultDate: null,
 			defaultHour: 0,
 			enableTime: true,
 			plugins: [new confirmDatePlugin({})],
+			position: 'below',
 			time_24hr: true,
 			wrap: false
 		},
 		daterange: {
+			altInput: true,
 			defaultDate: null,
 			locale: {
 				rangeSeparator: ' - '
 			},
 			mode: "range",
+			position: 'below',
 			wrap: false
 		},
 		date: {
-			// altInput: true,
+			altInput: true,
 			// altFormat: 'M j, Y',
 			defaultDate: null,
+			position: 'below',
 			wrap: false
 		},
 		time: {
+			altInput: true,
 			defaultHour: 0,
 			enableTime: true,
 			time_24hr: true,
+			position: 'below',
 			wrap: false
 		}
 	},
