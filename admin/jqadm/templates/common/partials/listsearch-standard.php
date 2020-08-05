@@ -56,7 +56,7 @@ $enc = $this->encoder();
 						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>"
 							v-bind:value="'<?= $enc->attr( $this->value( $filter, 'val/' . $idx, '' ) ); ?>'"
-							v-bind:config="this.$flatpickr.datetimerange" />
+							v-bind:config="Aimeos.flatpickr.datetimerange" />
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'date' ) : ?>
 						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>"

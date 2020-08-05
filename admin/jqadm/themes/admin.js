@@ -1106,7 +1106,6 @@ $(function() {
 	Aimeos.Tabs.init();
 
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('lang') || 'en']);
-	Vue.prototype.$flatpickr = Aimeos.flatpickr;
 	Vue.component('flat-pickr', VueFlatpickr);
 
 	$('.vue-block').each(function() {

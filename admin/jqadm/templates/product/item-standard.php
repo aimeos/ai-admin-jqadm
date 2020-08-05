@@ -428,8 +428,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.datestart' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>'"
-								v-bind:config="this.$flatpickr.datetime" />
+								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' !== ''"
+								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site after that date and time, useful or seasonal articles' ) ); ?>
@@ -442,8 +442,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.dateend' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>'"
-								v-bind:config="this.$flatpickr.datetime" />
+								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' !== ''"
+								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ); ?>
@@ -456,8 +456,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.ctime' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>'"
-								v-bind:config="this.$flatpickr.datetime" />
+								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' !== ''"
+								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Since when the product is available, used for sorting in the front-end' ) ); ?>

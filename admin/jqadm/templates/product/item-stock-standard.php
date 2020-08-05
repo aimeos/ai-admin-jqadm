@@ -81,7 +81,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 					<input is="flat-pickr" class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.dateback'] ) ); ?>'.replace( 'idx', idx )"
 						placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-						v-bind:config="this.$flatpickr.datetime"
+						v-bind:config="Aimeos.flatpickr.datetime"
 						v-bind:disabled="checkSite(idx)"
 						v-model="item['stock.dateback']" />
 				</td>

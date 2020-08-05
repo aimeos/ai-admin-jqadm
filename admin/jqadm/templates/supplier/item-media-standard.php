@@ -200,7 +200,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'supplier.lists.datestart'] ) ); ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 										v-bind:disabled="item['supplier.lists.siteid'] != siteid"
-										v-bind:config="this.$flatpickr.datetime"
+										v-bind:config="Aimeos.flatpickr.datetime"
 										v-model="item['supplier.lists.datestart']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -214,7 +214,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'supplier.lists.dateend'] ) ); ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 										v-bind:disabled="item['supplier.lists.siteid'] != siteid"
-										v-bind:config="this.$flatpickr.datetime"
+										v-bind:config="Aimeos.flatpickr.datetime"
 										v-model="item['supplier.lists.dateend']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">

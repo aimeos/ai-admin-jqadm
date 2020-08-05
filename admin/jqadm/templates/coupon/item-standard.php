@@ -156,8 +156,8 @@ $params = $this->get( 'pageParams', [] );
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.datestart' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>'"
-								v-bind:config="this.$flatpickr.datetime" />
+								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>' !== ''"
+								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site after that date and time, useful or seasonal articles' ) ); ?>
@@ -170,8 +170,8 @@ $params = $this->get( 'pageParams', [] );
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.dateend' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>'"
-								v-bind:config="this.$flatpickr.datetime" />
+								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>' !== ''"
+								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ); ?>
