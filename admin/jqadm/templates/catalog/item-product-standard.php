@@ -389,7 +389,7 @@ $refItems = $this->get( 'productItems', [] );
 							<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
-							<a class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							<a class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>" data-refid="<?= $enc->attr( $refId ) ?>"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'catalog/lists', 'id' => $listId] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>

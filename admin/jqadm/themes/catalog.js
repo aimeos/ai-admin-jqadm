@@ -409,6 +409,7 @@ Aimeos.Catalog.Product = {
 		$(".item-catalog .item-product .list-item").on("click", ".act-delete", function(ev) {
 
 			var elem = $(this);
+			var refid = $(this).data("refid");
 			var row = $(ev.delegateTarget);
 
 			Aimeos.options.done(function(result) {
@@ -442,6 +443,31 @@ Aimeos.Catalog.Product = {
 
 					Aimeos.focusBefore(row).remove();
 				});
+
+				if(result['meta']['resources'] && result['meta']['resources']['index']) {
+
+					url = result['meta']['resources']['index'];
+
+					if(result.meta.prefix) {
+						params[result.meta.prefix] = {"id": refid};
+					} else {
+						params = {"id": refid};
+					}
+
+					if(Aimeos.Catalog.csrf) {
+						params[Aimeos.Catalog.csrf.name] = Aimeos.Catalog.csrf.value;
+					}
+
+					$.ajax({
+						"url": url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(params),
+						"dataType": "json",
+						"method": "DELETE"
+					}).done(function(result) {
+						if(result.meta.csrf) {
+							Aimeos.Catalog.csrf = result.meta.csrf;
+						}
+					});
+				}
 			});
 
 			return false;
