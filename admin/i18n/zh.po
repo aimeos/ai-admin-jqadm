@@ -11,15 +11,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-02 13:35+0000\n"
-"Last-Translator: Bruce Liu <zcon.bruce@gmail.com>\n"
+"POT-Creation-Date: 2020-07-07 11:14+0200\n"
+"PO-Revision-Date: 2020-07-01 19:44+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -581,6 +585,9 @@ msgstr "榮譽稱號（可不填）"
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
 
+msgid "Hours"
+msgstr ""
+
 msgid "House number"
 msgstr "門牌號碼"
 
@@ -604,6 +611,9 @@ msgstr "ISO 幣別代碼（必填）"
 
 msgid "ISO language code (required)"
 msgstr "ISO 語言代碼（必填）"
+
+msgid "Image"
+msgstr ""
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -1292,6 +1302,9 @@ msgstr "顯示紀錄"
 
 msgid "Show/hide advanced data"
 msgstr "顯示/隱藏進階數據"
+
+msgid "Show/hide navigation labels"
+msgstr ""
 
 msgid "Show/hide this entry"
 msgstr "顯示/隱藏紀錄"

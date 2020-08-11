@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-11 23:41+0000\n"
+"POT-Creation-Date: 2020-07-07 11:14+0200\n"
+"PO-Revision-Date: 2020-07-20 21:18+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -578,6 +582,9 @@ msgstr "Onur unvanı (isteğe bağlı)"
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr "Dr., Ph.D, gibi onur unvanları"
 
+msgid "Hours"
+msgstr "Saatler"
+
 msgid "House number"
 msgstr "Ev numarası"
 
@@ -601,6 +608,9 @@ msgstr "ISO para birimi kodu (gerekli)"
 
 msgid "ISO language code (required)"
 msgstr "ISO dil kodu (gerekli)"
+
+msgid "Image"
+msgstr "Görüntü"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -1289,6 +1299,9 @@ msgstr "Girişi göster"
 
 msgid "Show/hide advanced data"
 msgstr "Gelişmiş verileri göster/gizle"
+
+msgid "Show/hide navigation labels"
+msgstr "Gezinme etiketlerini göster/gizle"
 
 msgid "Show/hide this entry"
 msgstr "Bu girişi göster/sakla"

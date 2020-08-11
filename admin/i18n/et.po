@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-02 13:35+0000\n"
+"POT-Creation-Date: 2020-07-07 11:14+0200\n"
+"PO-Revision-Date: 2020-07-01 19:44+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Estonian (http://www.transifex.com/aimeos/aimeos-core/language/et/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: et\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -578,6 +582,9 @@ msgstr ""
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
 
+msgid "Hours"
+msgstr ""
+
 msgid "House number"
 msgstr ""
 
@@ -600,6 +607,9 @@ msgid "ISO currency code (required)"
 msgstr ""
 
 msgid "ISO language code (required)"
+msgstr ""
+
+msgid "Image"
 msgstr ""
 
 msgid ""
@@ -1288,6 +1298,9 @@ msgid "Show entry"
 msgstr ""
 
 msgid "Show/hide advanced data"
+msgstr ""
+
+msgid "Show/hide navigation labels"
 msgstr ""
 
 msgid "Show/hide this entry"

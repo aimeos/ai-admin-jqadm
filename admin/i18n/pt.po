@@ -4,20 +4,25 @@
 # 
 # Translators:
 # Bruno Faria <email@brunofaria.pt>, 2018
+# Márcio Bortolini <marcio@agenciavirtuos.com.br>, 2020
 # b5fdd37cec45d8078af7e530465bb050, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-02 13:35+0000\n"
-"Last-Translator: b5fdd37cec45d8078af7e530465bb050\n"
+"POT-Creation-Date: 2020-07-07 11:14+0200\n"
+"PO-Revision-Date: 2020-07-25 16:15+0000\n"
+"Last-Translator: Márcio Bortolini <marcio@agenciavirtuos.com.br>\n"
 "Language-Team: Portuguese (http://www.transifex.com/aimeos/aimeos-core/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -29,7 +34,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s%3$s\n%5$s%4$s\n%7$s,%6$s\n%8$s,%9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -54,33 +59,33 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Internacional) número do fax sem caracteres de separação, pode começar com um \"+\""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Internacional) número de telefone sem caracteres de separação, pode começar com um \"+\""
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "Active"
 msgstr "Ativo"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Preço real"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "Preço real pelo qual os clientes podem comprar o artigo no site"
 
 msgid "Add"
 msgstr "Adicionar"
@@ -88,13 +93,13 @@ msgstr "Adicionar"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Custos adicionais de entrega para cada item, ex. R$ 20 para um item pesado serão R$ 100 para cinco itens no total"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Informações adicionais onde o apartamento do cliente pode ser encontrado"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Informações adicionais onde o apartamento do fornecedor pode ser encontrado"
 
 msgid "Address 1"
 msgstr "Endereço 1"
@@ -106,25 +111,25 @@ msgid "Address 3"
 msgstr "Endereço 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Identificador de endereço da casa do cliente para entrega"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Identificador de endereço da casa do fornecedor para entrega"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "O tipo de administrador JQAdm está vazio"
 
 msgid "Advanced"
 msgstr "Avançado"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos cache está desativado por \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos log de depuração está habilitado por \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -139,7 +144,7 @@ msgid ""
 msgstr ""
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Permitir preço personalizado"
 
 msgid "Allow customers to choose themselves how much they want to pay"
 msgstr ""
@@ -579,6 +584,9 @@ msgstr ""
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
 
+msgid "Hours"
+msgstr ""
+
 msgid "House number"
 msgstr "Número da casa"
 
@@ -601,6 +609,9 @@ msgid "ISO currency code (required)"
 msgstr ""
 
 msgid "ISO language code (required)"
+msgstr ""
+
+msgid "Image"
 msgstr ""
 
 msgid ""
@@ -1289,6 +1300,9 @@ msgid "Show entry"
 msgstr "Mostrar entradas"
 
 msgid "Show/hide advanced data"
+msgstr ""
+
+msgid "Show/hide navigation labels"
 msgstr ""
 
 msgid "Show/hide this entry"

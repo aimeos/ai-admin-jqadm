@@ -5,21 +5,26 @@
 # Translators:
 # Islam Saadi <info@irestweb.com>, 2020
 # Ismail Ashour <dr.ashoor@gmail.com>, 2016
+# jana iyad <devoshop20@gmail.com>, 2020
 # Mahmoud Elnomrosy <elnomrosy66@gmail.com>, 2020
 # Mohamed Hassan <hassan.mohamed.sf@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-29 10:01+0000\n"
-"Last-Translator: Islam Saadi <info@irestweb.com>\n"
+"POT-Creation-Date: 2020-07-07 11:14+0200\n"
+"PO-Revision-Date: 2020-07-01 19:44+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Arabic (http://www.transifex.com/aimeos/aimeos-core/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -264,7 +269,7 @@ msgid "Close"
 msgstr "إغلاق"
 
 msgid "Code"
-msgstr "كود"
+msgstr "رمز"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
 msgstr ""
@@ -316,7 +321,7 @@ msgid "Country ID"
 msgstr "معرف الدولة"
 
 msgid "Country code (required)"
-msgstr "كود الدولة (مطلوب)"
+msgstr "كود الدولة (إجباري)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
@@ -345,10 +350,10 @@ msgid "Custom"
 msgstr ""
 
 msgid "Customer"
-msgstr "عميل"
+msgstr "زبون"
 
 msgid "Customer ID"
-msgstr "معرف العميل"
+msgstr "معرِّف الزبون"
 
 msgid "Customer Lists Type"
 msgstr ""
@@ -369,10 +374,10 @@ msgid "Customer comment (optional)"
 msgstr ""
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "البريد الالكتروني للزبون"
 
 msgid "Customer password"
-msgstr ""
+msgstr "كلمة سر الزبون"
 
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
@@ -453,13 +458,13 @@ msgid "Display help texts"
 msgstr ""
 
 msgid "Domain"
-msgstr ""
+msgstr "مجال"
 
 msgid "Download"
-msgstr ""
+msgstr "تحميل"
 
 msgid "Download this file"
-msgstr ""
+msgstr "تحميل الملف"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
@@ -468,13 +473,13 @@ msgid "E-Mail"
 msgstr "البريد الإلكتروني"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "البريد الإلكتروني (اجباري)"
 
 msgid "E-mail"
-msgstr ""
+msgstr "البريد الإلكتروني "
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "البريد الإلكتروني (اختياري)"
 
 msgid "E-mail address that belongs to the address"
 msgstr ""
@@ -492,7 +497,7 @@ msgid "Editor"
 msgstr ""
 
 msgid "Email"
-msgstr ""
+msgstr "البريد الإلكتروني"
 
 msgid "End date"
 msgstr "تاريخ الإنتهاء"
@@ -501,7 +506,7 @@ msgid "End date (optional)"
 msgstr ""
 
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 msgid "Excl. tax"
 msgstr ""
@@ -581,6 +586,9 @@ msgstr ""
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
 
+msgid "Hours"
+msgstr ""
+
 msgid "House number"
 msgstr ""
 
@@ -603,6 +611,9 @@ msgid "ISO currency code (required)"
 msgstr ""
 
 msgid "ISO language code (required)"
+msgstr ""
+
+msgid "Image"
 msgstr ""
 
 msgid ""
@@ -890,10 +901,10 @@ msgid "Order totals"
 msgstr ""
 
 msgid "Orders by day"
-msgstr ""
+msgstr "الطلبات حسب التاريخ"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "الطلبات حسب الساعة"
 
 msgid "Orders by payment status"
 msgstr ""
@@ -1293,6 +1304,9 @@ msgstr ""
 msgid "Show/hide advanced data"
 msgstr ""
 
+msgid "Show/hide navigation labels"
+msgstr ""
+
 msgid "Show/hide this entry"
 msgstr ""
 
@@ -1523,7 +1537,7 @@ msgid "Unique category code, either from external system or self-invented"
 msgstr ""
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "الرمز الوحيد (اجباري)"
 
 msgid "Unique code to identify the service, usually self-invented"
 msgstr ""
@@ -1655,11 +1669,11 @@ msgstr "الشركة"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "الطلبات حسب التاريخ"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "الطلبات حسب الساعة"
 
 #, php-format
 msgid "countpaystatus"

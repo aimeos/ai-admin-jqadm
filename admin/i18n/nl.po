@@ -15,15 +15,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 15:27+0200\n"
-"PO-Revision-Date: 2020-04-02 13:35+0000\n"
-"Last-Translator: Maikel Slot <maikelslot@msdesigns.nl>\n"
+"POT-Creation-Date: 2020-07-07 11:14+0200\n"
+"PO-Revision-Date: 2020-07-30 10:41+0000\n"
+"Last-Translator: Erik Nohlmans <erik2504@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, php-format
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -77,13 +81,13 @@ msgid ""
 msgstr "(Internationaal) telefoonnummer zonder scheidingsteken, kan beginnen met \"+\""
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "Active"
 msgstr "Actief"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Werkelijke prijs"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "Werkelijke prijs waar klanten het artikel voor kunnen kopen op de website"
@@ -126,11 +130,11 @@ msgstr "Gevorderd"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos caching is uitgeschakeld door \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos debug logging is ingeschakeld door \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -186,7 +190,7 @@ msgid "Attribute properties that are not shared with other attributes"
 msgstr "Kenmerk eigenschappen die niet gedeeld worden met andere kenmerken"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Kenmerk type dat de lijst van beschikbare kenmerken beperkt"
 
 msgid "Attributes"
 msgstr "Kenmerken"
@@ -367,7 +371,7 @@ msgid "Customer Property Types"
 msgstr "Klant eigenschap types"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Klant eigenschappen die niet worden gedeeld met andere klanten"
 
 msgid "Customer comment (optional)"
 msgstr "Klant notitie (optioneel)"
@@ -382,16 +386,16 @@ msgid "Customer properties that are not shared with other customers"
 msgstr "Klant eigenschappen dat niet gedeeld worden met andere klanten"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Klant referentie"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Klant referentie (optioneel)"
 
 msgid "Dashboard"
 msgstr "Dashboard"
 
 msgid "Data set"
-msgstr ""
+msgstr "Data set"
 
 msgid "Date of the last delivery status change"
 msgstr "Datum van de laatste wijziging in de status van levering"
@@ -425,7 +429,7 @@ msgstr "Bezorg adres"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "Leverings- of betalingskosten voor de producten in de winkelwagen van de klant"
 
 msgid "Delivery status"
 msgstr "Bezorg status"
@@ -434,12 +438,12 @@ msgid "Delivery types"
 msgstr "Leveringstypes"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Levering binnen"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "Afhankelijk van de selectie zal de lijst met getoonde velden voor het product variëren"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Omschrijving van de tekst indien een andere taal"
@@ -454,7 +458,7 @@ msgid "Descritive name of the site"
 msgstr "Beschrijvende naam voor de site"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Toon hulp teksten"
 
 msgid "Domain"
 msgstr "Domein"
@@ -550,7 +554,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Verdieping en/of appartement (optioneel)"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Gegeven kortingbedrag"
 
 msgid "Go to attribute panel"
 msgstr ""
@@ -585,6 +589,9 @@ msgstr "Eretitel (optioneel)"
 msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr "Eretitels zoals Dr., Mr, e.d."
 
+msgid "Hours"
+msgstr "Uren"
+
 msgid "House number"
 msgstr "Huisnummer"
 
@@ -608,6 +615,9 @@ msgstr "ISO valuta code (verplicht)"
 
 msgid "ISO language code (required)"
 msgstr "ISO taal code (verplicht)"
+
+msgid "Image"
+msgstr "Afbeelding"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -806,7 +816,7 @@ msgid "Name"
 msgstr "Naam"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "Naam in URL (optioneel)"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -841,7 +851,7 @@ msgid "Non-shared properties for the media item"
 msgstr "Niet-gedeelde eigenschappen voor het media-item"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "Niet-gedeelde eigenschappen voor het prijs-item"
 
 msgid "None"
 msgstr "Geen"
@@ -879,7 +889,7 @@ msgid "Order ID"
 msgstr "Aankoop ID"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "Aankoop ID ingevoerd door de klant"
 
 msgid "Order of the language/currency combinations"
 msgstr "Volgorde van de combinaties taal/valuta"
@@ -913,7 +923,7 @@ msgstr "PHP setting \"%1$s\" is niet actief"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "PHP setting \"%1$s\" is actief"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
@@ -948,7 +958,7 @@ msgid "Payment types"
 msgstr "Betaalmethodes"
 
 msgid "Periods"
-msgstr ""
+msgstr "Perioden"
 
 #, php-format
 msgid "Permission denied"
@@ -991,7 +1001,7 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Post code van levering indien gebruikt in de zone waar de leverancier woont"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "Mogelijke problemen"
 
 msgid "Previous"
 msgstr "Vorige"
@@ -1134,7 +1144,7 @@ msgid "Quantity scale"
 msgstr ""
 
 msgid "Rabate"
-msgstr ""
+msgstr "Korting"
 
 msgid "Reason"
 msgstr "Reden"
@@ -1148,7 +1158,7 @@ msgid ""
 msgstr "Korting op de originele prijs, gebruikt om het kortingspercentage te berekenen en de kruisprijs"
 
 msgid "Reference"
-msgstr ""
+msgstr "Referentie"
 
 msgid "Related ID"
 msgstr "Gerelateerde ID"
@@ -1248,22 +1258,22 @@ msgid "Service attribute code"
 msgstr ""
 
 msgid "Service costs"
-msgstr ""
+msgstr "Servicekosten"
 
 msgid "Service name"
-msgstr ""
+msgstr "Servicenaam"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "Servicepositie (vereist)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Serviceprijs"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "Configuratienaam van serviceprovider of decorateur"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "Service-korting"
 
 msgid "Ship date"
 msgstr "Verzenddatum"
@@ -1282,11 +1292,11 @@ msgstr "Verzend-/Betaalkosten"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "Korte staatscode (bijv. NY) indien gebruikt in het land waar de klant woont"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "Korte staatscode (bijv. NY) indien gebruikt in het land waar de leverancier woont"
 
 msgid "Show"
 msgstr "Toon"
@@ -1297,21 +1307,24 @@ msgstr "Toon invoer"
 msgid "Show/hide advanced data"
 msgstr "Toon/verberg uitgebreide data"
 
+msgid "Show/hide navigation labels"
+msgstr "Tonen/verbergen navigatielabels"
+
 msgid "Show/hide this entry"
 msgstr "Toon/Verberg deze invoer"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "Getoond als het artikel een voorraadniveau van nul heeft bereikt"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "Sinds wanneer het product beschikbaar is, gebruikt voor sorteren in de front-end"
 
 msgid "Site"
 msgstr "Site"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "Site-specifieke configuratie-opties zijn beschikbaar als key/value sets"
 
 msgid "Site the order was placed at"
 msgstr "Site waarop de order is geplaatst"
@@ -1347,7 +1360,7 @@ msgid "Stock level"
 msgstr "Voorraad niveau"
 
 msgid "Stock type"
-msgstr ""
+msgstr "Voorraad Type"
 
 msgid "Street"
 msgstr "Straat"
@@ -1364,7 +1377,7 @@ msgstr "Inschrijving"
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "Abonnementsinterval met jaren, maanden, weken en dagen, bijv. \"P0Y1M2W3D\" voor nul jaar, een maand, twee weken en drie dagen"
 
 msgid "Suggested products"
 msgstr "Aanbevolen producten"
@@ -1379,7 +1392,7 @@ msgid "Supplier name or company"
 msgstr "Naam leverancier of bedrijf"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "Leveranciers die het product produceren"
 
 msgid "Tag Type"
 msgstr "Tag Type"
@@ -1414,31 +1427,31 @@ msgstr "Teksttypes"
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Het artikel wordt pas na die datum en tijd op de website getoond, nuttige of seizoensartikelen"
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "Het artikel wordt tot die datum en tijd alleen op de website getoond, nuttige of seizoensartikelen"
 
 msgid "The item is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Het item wordt pas na die datum en tijd op de website weergegeven"
 
 msgid "The item is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Het item wordt tot die datum en tijd alleen op de website weergegeven"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "De mediatitel wordt gebruikt voor de titeltag van de media op de website"
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "De naam van de categorie die in de URL wordt weergegeven, wordt gebruikt als er geen taalspecifiek URL-segment bestaat"
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "De naam van het product dat in de URL wordt weergegeven, wordt gebruikt als er geen taalspecifiek URL-segment bestaat"
 
 msgid "The option is only shown on the web site after that date and time"
 msgstr "De optie wordt pas op de website getoond vanaf die datum en tijd"
@@ -1449,13 +1462,13 @@ msgstr "De optie wordt enkel op de website getoond tot die datum en tijd"
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "De stapwaarde die is toegestaan voor hoeveelheden in het winkelmandje, bijvoorbeeld \"0,1\" voor fractionele hoeveelheden of \"5\" voor veelvoud van vijf artikelen"
 
 msgid "Three letter ISO currency code"
 msgstr "3 Letter ISO code voor valuta"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "Tijdsbestek (optioneel)"
 
 msgid "Timestamp"
 msgstr "Tijdstempel"
@@ -1464,13 +1477,13 @@ msgid "Title"
 msgstr "Titel"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "Toggle dropdown"
 
 msgid "Total"
 msgstr "Totaal"
 
 msgid "Translate text"
-msgstr ""
+msgstr "Vertaal tekst"
 
 msgid "Two letter ISO country code"
 msgstr "Tweeletterige ISO-landcode"
@@ -1482,7 +1495,7 @@ msgid "Type"
 msgstr "Type"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Type positie (optioneel)"
 
 msgid "Types for additional images like icons"
 msgstr "Types voor aanvullende afbeeldingen zoals icons"
@@ -1491,7 +1504,7 @@ msgid "Types for additional prices like per one lb/kg or per month"
 msgstr "Types voor aanvullende prijzen zoals bijvoorbeeld per pond/kg of per maand"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Typen voor extra teksten zoals per een lb/kg of per maand"
 
 msgid "URL of the customer web site"
 msgstr "URL van de website van de klant"
@@ -1563,7 +1576,7 @@ msgid "User groups"
 msgstr "Gebruikersgroepen"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "Gebruikelijk tijdsbestek voor de levering van het product"
 
 msgid "VAT ID"
 msgstr "BTW ID"
@@ -1578,7 +1591,7 @@ msgid "Variant attributes"
 msgstr "Variant attributen"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Variante productkenmerken die worden opgeslagen bij de bestelde producten"
 
 msgid "View details"
 msgstr "Toon details"
@@ -1691,7 +1704,7 @@ msgstr "Per aflevermethode"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "download"
 
 #, php-format
 msgid "group"
@@ -1795,11 +1808,11 @@ msgstr "ontvangen"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "betalingsstatus"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "betalingswijze"
 
 #, php-format
 msgid "physical"
@@ -1848,11 +1861,11 @@ msgstr "Services"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "servicelevering"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "servicebetaling"
 
 #, php-format
 msgid "special"
@@ -1926,15 +1939,15 @@ msgstr "Attributen"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "type/attribuut/lijsten"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "type/attribuut/eigenschap"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "type/catalogus/lijsten"
 
 #, php-format
 msgid "type/customer/lists"
@@ -1970,7 +1983,7 @@ msgstr "Prijslijsten"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "type/prijs/eigenschap"
 
 #, php-format
 msgid "type/product"
