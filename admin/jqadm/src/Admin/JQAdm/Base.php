@@ -542,7 +542,8 @@ abstract class Base
 	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
 	{
 		if( isset( $params['filter'] ) ) {
-			$criteria = $this->initCriteriaConditions( $criteria, (array) $params['filter'] );
+			$criteria = $this->initCriteriaConditions( $criteria, (array) $params['filter'] )
+				->setSlice( 0, $criteria->getSliceSize() );
 		}
 
 		if( isset( $params['sort'] ) ) {
