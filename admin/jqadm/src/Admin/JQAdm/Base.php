@@ -142,7 +142,6 @@ abstract class Base
 	public function copy() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
 
 		foreach( $this->getSubClients() as $client ) {
 			$body .= $client->copy();
@@ -160,7 +159,6 @@ abstract class Base
 	public function create() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
 
 		foreach( $this->getSubClients() as $client ) {
 			$body .= $client->create();
@@ -178,7 +176,6 @@ abstract class Base
 	public function delete() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
 
 		foreach( $this->getSubClients() as $client ) {
 			$body .= $client->delete();
@@ -196,7 +193,6 @@ abstract class Base
 	public function export() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
 
 		foreach( $this->getSubClients() as $client ) {
 			$body .= $client->export();
@@ -214,7 +210,6 @@ abstract class Base
 	public function get() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
 
 		foreach( $this->getSubClients() as $client ) {
 			$body .= $client->get();
@@ -233,7 +228,6 @@ abstract class Base
 	public function import() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
 
 		foreach( $this->getSubClients() as $client ) {
 			$body .= $client->import();
@@ -251,7 +245,6 @@ abstract class Base
 	public function save() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
 
 		foreach( $this->getSubClients() as $client ) {
 			$body .= $client->save();
@@ -269,7 +262,6 @@ abstract class Base
 	public function search() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
 
 		foreach( $this->getSubClients() as $client ) {
 			$body .= $client->search();
