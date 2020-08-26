@@ -141,11 +141,14 @@ abstract class Base
 	 */
 	public function copy() : ?string
 	{
+		$body = null;
+		$view = $this->getView();
+
 		foreach( $this->getSubClients() as $client ) {
-			$client->copy();
+			$body .= $client->copy();
 		}
 
-		return null;
+		return $body;
 	}
 
 
@@ -156,11 +159,14 @@ abstract class Base
 	 */
 	public function create() : ?string
 	{
+		$body = null;
+		$view = $this->getView();
+
 		foreach( $this->getSubClients() as $client ) {
-			$client->create();
+			$body .= $client->create();
 		}
 
-		return null;
+		return $body;
 	}
 
 
@@ -171,11 +177,14 @@ abstract class Base
 	 */
 	public function delete() : ?string
 	{
+		$body = null;
+		$view = $this->getView();
+
 		foreach( $this->getSubClients() as $client ) {
-			$client->delete();
+			$body .= $client->delete();
 		}
 
-		return null;
+		return $body;
 	}
 
 
@@ -186,11 +195,14 @@ abstract class Base
 	 */
 	public function export() : ?string
 	{
+		$body = null;
+		$view = $this->getView();
+
 		foreach( $this->getSubClients() as $client ) {
-			$client->export();
+			$body .= $client->export();
 		}
 
-		return null;
+		return $body;
 	}
 
 
@@ -201,11 +213,14 @@ abstract class Base
 	 */
 	public function get() : ?string
 	{
+		$body = null;
+		$view = $this->getView();
+
 		foreach( $this->getSubClients() as $client ) {
-			$client->get();
+			$body .= $client->get();
 		}
 
-		return null;
+		return $body;
 	}
 
 
@@ -213,11 +228,15 @@ abstract class Base
 	 * Imports a resource
 	 *
 	 * @return string|null Output to display
+	 * @deprecated 2021.01
 	 */
 	public function import() : ?string
 	{
+		$body = null;
+		$view = $this->getView();
+
 		foreach( $this->getSubClients() as $client ) {
-			$client->import();
+			$body .= $client->import();
 		}
 
 		return null;
@@ -231,11 +250,14 @@ abstract class Base
 	 */
 	public function save() : ?string
 	{
+		$body = null;
+		$view = $this->getView();
+
 		foreach( $this->getSubClients() as $client ) {
-			$client->save();
+			$body .= $client->save();
 		}
 
-		return null;
+		return $body;
 	}
 
 
@@ -246,11 +268,14 @@ abstract class Base
 	 */
 	public function search() : ?string
 	{
+		$body = null;
+		$view = $this->getView();
+
 		foreach( $this->getSubClients() as $client ) {
-			$client->search();
+			$body .= $client->search();
 		}
 
-		return null;
+		return $body;
 	}
 
 
@@ -698,11 +723,42 @@ abstract class Base
 
 
 	/**
+	 * Checks and returns the request parameter for the given name
+	 *
+	 * @param string $name Name of the request parameter, can be a path like 'page/limit'
+	 * @return mixed Parameter value
+	 * @throws \Aimeos\Admin\JQAdm\Exception If the parameter is missing
+	 */
+	protected function require( string $name )
+	{
+		if( ( $value = $this->getView()->param( $name ) ) !== null ) {
+			return $value;
+		}
+
+		throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', $name ) );
+	}
+
+
+	/**
 	 * Stores and returns the parameters used for searching items
 	 *
 	 * @param array $params GET/POST parameter set
 	 * @param string $name Name of the panel/subpanel
 	 * @return array Associative list of parameters for searching items
+	 */
+	protected function storeFilter( array $params, string $name ) : array
+	{
+		return $this->storeSearchParams( $params, $name );
+	}
+
+
+	/**
+	 * Stores and returns the parameters used for searching items
+	 *
+	 * @param array $params GET/POST parameter set
+	 * @param string $name Name of the panel/subpanel
+	 * @return array Associative list of parameters for searching items
+	 * @deprecated 2021.01 Use storeFilter() instead
 	 */
 	protected function storeSearchParams( array $params, string $name ) : array
 	{
