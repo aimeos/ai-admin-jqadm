@@ -105,7 +105,7 @@ $jsonConfig = $this->config( 'admin/jsonadm/url/options/config', [] );
  * @category Developer
  * @see admin/jqadm/navbar-limit
  */
-$navlist = $this->config( 'admin/jqadm/navbar', [] );
+$navlist = map( $this->config( 'admin/jqadm/navbar', [] ) )->ksort();
 
 /** admin/jqadm/navbar-limit
  * Number of JQAdm client links in the navigation bar shown by default
@@ -124,7 +124,7 @@ $navlist = $this->config( 'admin/jqadm/navbar', [] );
 $navlimit = $this->config( 'admin/jqadm/navbar-limit', 6 );
 
 
-$navfirst = reset( $navlist );
+$navfirst = $navlist->first();
 if( is_array( $navfirst ) ) {
 	$navfirst = key( $navlist );
 }
@@ -167,9 +167,9 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 								<div class="tree-menu-wrapper">
 									<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
 									<ul class="tree-menu">
-										
+
 										<?php $siteFcn = function( \Aimeos\MShop\Locale\Item\Site\Iface $site ) use ( &$siteFcn, $enc, $searchTarget, $cntl, $action, $params, $config ) { ?>
-										
+
 											<li class="site-<?= $enc->attr( $site->getCode() ) ?>">
 												<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $site->getCode() ) + $params, [], $config ) ); ?>">
 													<span class="name"><?= $enc->html( $site->getLabel() ); ?></span>
@@ -196,7 +196,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 							</li>
 						<?php endif; ?>
 
-						<?php foreach( array_splice( $navlist, 0, $navlimit ) as $nav => $navitem ) : ?>
+						<?php foreach( $navlist->splice( 0, $navlimit ) as $nav => $navitem ) : ?>
 							<?php if( is_array( $navitem ) ) : ?>
 								<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $nav . '/groups', [] ) ) ) : ?>
 									<li class="treeview <?= $enc->attr( $nav ) ?> <?= strncmp( $this->param( 'resource' ), $nav, strlen( $nav ) ) ? '' : 'active' ?>">
@@ -207,7 +207,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 										<div class="tree-menu-wrapper">
 											<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
 											<ul class="tree-menu">
-												<?php foreach( $navitem as $subresource ) : ?>
+												<?php foreach( map( $navitem )->ksort() as $subresource ) : ?>
 													<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
 														<li class="<?= str_replace( '/', '-', $subresource ); ?>">
 															<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
@@ -256,7 +256,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 											<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
 											<ul class="tree-menu">
 
-												<?php foreach( $navitem as $subresource ) : ?>
+												<?php foreach( map( $navitem )->ksort() as $subresource ) : ?>
 													<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
 														<li class="<?= str_replace( '/', '-', $subresource ); ?>">
 															<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
