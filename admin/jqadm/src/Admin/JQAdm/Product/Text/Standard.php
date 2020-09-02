@@ -72,11 +72,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->textData = $this->toArray( $view->item, true );
-		$view->textBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->textBody .= $client->copy();
-		}
+		$view->textBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -100,11 +96,7 @@ class Standard
 		}
 
 		$view->textData = $data;
-		$view->textBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->textBody .= $client->create();
-		}
+		$view->textBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -135,11 +127,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->textData = $this->toArray( $view->item );
-		$view->textBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->textBody .= $client->get();
-		}
+		$view->textBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -155,11 +143,7 @@ class Standard
 		$view = $this->getView();
 
 		$view->item = $this->fromArray( $view->item, $view->param( 'text', [] ) );
-		$view->textBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->textBody .= $client->save();
-		}
+		$view->textBody = parent::save();
 
 		return null;
 	}

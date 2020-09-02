@@ -42,11 +42,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->suggestData = $this->toArray( $view->item, true );
-		$view->suggestBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->suggestBody .= $client->copy();
-		}
+		$view->suggestBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -68,11 +64,7 @@ class Standard
 		}
 
 		$view->suggestData = $data;
-		$view->suggestBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->suggestBody .= $client->create();
-		}
+		$view->suggestBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -87,11 +79,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->suggestData = $this->toArray( $view->item );
-		$view->suggestBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->suggestBody .= $client->get();
-		}
+		$view->suggestBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -107,11 +95,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'related/suggest', [] ) );
-		$view->suggestBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->suggestBody .= $client->save();
-		}
+		$view->suggestBody = parent::save();
 
 		return null;
 	}

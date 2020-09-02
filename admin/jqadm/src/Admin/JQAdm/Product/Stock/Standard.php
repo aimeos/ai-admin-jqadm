@@ -64,11 +64,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->stockData = $this->toArray( $view->item, true );
-		$view->stockBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->stockBody .= $client->copy();
-		}
+		$view->stockBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -90,11 +86,7 @@ class Standard
 		}
 
 		$view->stockData = $data;
-		$view->stockBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->stockBody .= $client->create();
-		}
+		$view->stockBody = parent::copy();
 
 		return $this->render( $view );
 	}

@@ -44,11 +44,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->subscriptionData = $this->toArray( $view->item, true );
-		$view->subscriptionBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->subscriptionBody .= $client->copy();
-		}
+		$view->subscriptionBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -70,11 +66,7 @@ class Standard
 		}
 
 		$view->subscriptionData = $data;
-		$view->subscriptionBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->subscriptionBody .= $client->create();
-		}
+		$view->subscriptionBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -89,11 +81,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->subscriptionData = $this->toArray( $view->item );
-		$view->subscriptionBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->subscriptionBody .= $client->get();
-		}
+		$view->subscriptionBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -109,11 +97,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'subscription', [] ) );
-		$view->subscriptionBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->subscriptionBody .= $client->save();
-		}
+		$view->subscriptionBody = parent::save();
 
 		return null;
 	}

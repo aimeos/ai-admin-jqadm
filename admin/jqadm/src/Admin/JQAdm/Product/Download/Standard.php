@@ -44,11 +44,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->downloadData = $this->toArray( $view->item, true );
-		$view->downloadBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->downloadBody .= $client->copy();
-		}
+		$view->downloadBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -66,11 +62,7 @@ class Standard
 		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'download', [] ) );
 
 		$view->downloadData = $data;
-		$view->downloadBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->downloadBody .= $client->create();
-		}
+		$view->downloadBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -112,11 +104,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->downloadData = $this->toArray( $view->item );
-		$view->downloadBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->downloadBody .= $client->get();
-		}
+		$view->downloadBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -132,11 +120,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'download', [] ) );
-		$view->downloadBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->downloadBody .= $client->save();
-		}
+		$view->downloadBody = parent::save();
 
 		return null;
 	}

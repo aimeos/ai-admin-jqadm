@@ -42,11 +42,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->hiddenData = $this->toArray( $view->item, true );
-		$view->hiddenBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->hiddenBody .= $client->copy();
-		}
+		$view->hiddenBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -68,11 +64,7 @@ class Standard
 		}
 
 		$view->hiddenData = $data;
-		$view->hiddenBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->hiddenBody .= $client->create();
-		}
+		$view->hiddenBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -87,11 +79,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->hiddenData = $this->toArray( $view->item );
-		$view->hiddenBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->hiddenBody .= $client->get();
-		}
+		$view->hiddenBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -107,11 +95,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'characteristic/hidden', [] ) );
-		$view->hiddenBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->hiddenBody .= $client->save();
-		}
+		$view->hiddenBody = parent::save();
 
 		return null;
 	}

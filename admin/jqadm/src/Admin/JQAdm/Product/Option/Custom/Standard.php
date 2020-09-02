@@ -42,11 +42,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->customData = $this->toArray( $view->item, true );
-		$view->customBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->customBody .= $client->copy();
-		}
+		$view->customBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -68,11 +64,7 @@ class Standard
 		}
 
 		$view->customData = $data;
-		$view->customBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->customBody .= $client->create();
-		}
+		$view->customBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -87,11 +79,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->customData = $this->toArray( $view->item );
-		$view->customBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->customBody .= $client->get();
-		}
+		$view->customBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -107,11 +95,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'option/custom', [] ) );
-		$view->customBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->customBody .= $client->save();
-		}
+		$view->customBody = parent::save();
 
 		return null;
 	}

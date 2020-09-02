@@ -44,11 +44,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->selectionData = $this->toArray( $view->item, true );
-		$view->selectionBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->selectionBody .= $client->copy();
-		}
+		$view->selectionBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -72,11 +68,7 @@ class Standard
 		}
 
 		$view->selectionData = $data;
-		$view->selectionBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->selectionBody .= $client->create();
-		}
+		$view->selectionBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -91,11 +83,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->selectionData = $this->toArray( $view->item );
-		$view->selectionBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->selectionBody .= $client->get();
-		}
+		$view->selectionBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -113,11 +101,7 @@ class Standard
 		if( $view->item->getType() === 'select' )
 		{
 			$this->fromArray( $view->item, $view->param( 'selection', [] ) );
-			$view->selectionBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->selectionBody .= $client->save();
-			}
+			$view->selectionBody = parent::save();
 		}
 
 		return null;

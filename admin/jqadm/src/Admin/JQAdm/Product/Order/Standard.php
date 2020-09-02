@@ -65,11 +65,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->getObject()->addData( $this->getView() );
-		$view->orderBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->orderBody .= $client->get();
-		}
+		$view->orderBody = parent::get();
 
 		return $this->render( $view );
 	}

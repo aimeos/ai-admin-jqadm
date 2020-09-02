@@ -79,11 +79,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceCustom = $this->isCustom( $view->item );
 		$view->priceData = $this->toArray( $view->item, true );
-		$view->priceBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->priceBody .= $client->copy();
-		}
+		$view->priceBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -107,12 +103,8 @@ class Standard
 		}
 
 		$view->priceCustom = $this->isCustom( $view->item );
+		$view->priceBody = parent::create();
 		$view->priceData = $data;
-		$view->priceBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->priceBody .= $client->create();
-		}
 
 		return $this->render( $view );
 	}
@@ -144,11 +136,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceCustom = $this->isCustom( $view->item );
 		$view->priceData = $this->toArray( $view->item );
-		$view->priceBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->priceBody .= $client->get();
-		}
+		$view->priceBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -165,11 +153,7 @@ class Standard
 
 		$view->item = $this->setCustom( $view->item, $view->param( 'pricecustom' ) );
 		$view->item = $this->fromArray( $view->item, $view->param( 'price', [] ) );
-		$view->priceBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->priceBody .= $client->save();
-		}
+		$view->priceBody = parent::save();
 
 		return null;
 	}

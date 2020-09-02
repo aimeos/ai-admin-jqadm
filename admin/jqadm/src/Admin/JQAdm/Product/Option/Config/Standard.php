@@ -42,11 +42,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->configData = $this->toArray( $view->item, true );
-		$view->configBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->configBody .= $client->copy();
-		}
+		$view->configBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -68,11 +64,7 @@ class Standard
 		}
 
 		$view->configData = $data;
-		$view->configBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->configBody .= $client->create();
-		}
+		$view->configBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -87,11 +79,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->configData = $this->toArray( $view->item );
-		$view->configBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->configBody .= $client->get();
-		}
+		$view->configBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -107,11 +95,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'option/config', [] ) );
-		$view->configBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->configBody .= $client->save();
-		}
+		$view->configBody = parent::save();
 
 		return null;
 	}

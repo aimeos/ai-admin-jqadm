@@ -62,11 +62,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->getObject()->addData( $this->getView() );
-		$view->characteristicBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->characteristicBody .= $client->copy();
-		}
+		$view->characteristicBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -80,11 +76,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->getObject()->addData( $this->getView() );
-		$view->characteristicBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->characteristicBody .= $client->create();
-		}
+		$view->characteristicBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -98,11 +90,7 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->getObject()->addData( $this->getView() );
-		$view->characteristicBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->characteristicBody .= $client->get();
-		}
+		$view->characteristicBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -116,12 +104,7 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
-
-		$view->characteristicBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->characteristicBody .= $client->save();
-		}
+		$view->characteristicBody = parent::save();
 
 		return null;
 	}

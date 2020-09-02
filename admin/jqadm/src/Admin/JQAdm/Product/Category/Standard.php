@@ -45,11 +45,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 
 		$view->categoryData = $this->toArray( $view->item, true );
-		$view->categoryBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->categoryBody .= $client->copy();
-		}
+		$view->categoryBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -71,11 +67,7 @@ class Standard
 		}
 
 		$view->categoryData = $data;
-		$view->categoryBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->categoryBody .= $client->create();
-		}
+		$view->categoryBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -88,6 +80,7 @@ class Standard
 	 */
 	public function delete() : ?string
 	{
+		parent::delete();
 		$view = $this->getView();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
@@ -127,11 +120,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->categoryData = $this->toArray( $view->item );
-		$view->categoryBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->categoryBody .= $client->get();
-		}
+		$view->categoryBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -152,11 +141,7 @@ class Standard
 		try
 		{
 			$this->fromArray( $view->item, $view->param( 'category', [] ) );
-			$view->categoryBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->categoryBody .= $client->save();
-			}
+			$view->categoryBody = parent::save();
 
 			$manager->commit();
 		}

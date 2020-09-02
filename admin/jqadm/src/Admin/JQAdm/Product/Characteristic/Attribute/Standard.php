@@ -42,11 +42,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->attributeData = $this->toArray( $view->item, true );
-		$view->attributeBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->attributeBody .= $client->copy();
-		}
+		$view->attributeBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -68,11 +64,7 @@ class Standard
 		}
 
 		$view->attributeData = $data;
-		$view->attributeBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->attributeBody .= $client->create();
-		}
+		$view->attributeBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -87,11 +79,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->attributeData = $this->toArray( $view->item );
-		$view->attributeBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->attributeBody .= $client->get();
-		}
+		$view->attributeBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -107,11 +95,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'characteristic/attribute', [] ) );
-		$view->attributeBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->attributeBody .= $client->save();
-		}
+		$view->attributeBody = parent::save();
 
 		return null;
 	}

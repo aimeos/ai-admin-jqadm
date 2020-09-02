@@ -42,11 +42,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->boughtData = $this->toArray( $view->item, true );
-		$view->boughtBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->boughtBody .= $client->copy();
-		}
+		$view->boughtBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -68,11 +64,7 @@ class Standard
 		}
 
 		$view->boughtData = $data;
-		$view->boughtBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->boughtBody .= $client->create();
-		}
+		$view->boughtBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -87,11 +79,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->boughtData = $this->toArray( $view->item );
-		$view->boughtBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->boughtBody .= $client->get();
-		}
+		$view->boughtBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -107,11 +95,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'related/bought', [] ) );
-		$view->boughtBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->boughtBody .= $client->save();
-		}
+		$view->boughtBody = parent::save();
 
 		return null;
 	}

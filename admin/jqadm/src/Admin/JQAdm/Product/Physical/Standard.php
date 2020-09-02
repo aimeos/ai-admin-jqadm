@@ -44,11 +44,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->physicalData = $this->toArray( $view->item, true );
-		$view->physicalBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->physicalBody .= $client->copy();
-		}
+		$view->physicalBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -70,11 +66,7 @@ class Standard
 		}
 
 		$view->physicalData = $data;
-		$view->physicalBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->physicalBody .= $client->create();
-		}
+		$view->physicalBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -89,11 +81,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->physicalData = $this->toArray( $view->item );
-		$view->physicalBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->physicalBody .= $client->get();
-		}
+		$view->physicalBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -109,11 +97,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'physical', [] ) );
-		$view->physicalBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->physicalBody .= $client->save();
-		}
+		$view->physicalBody = parent::save();
 
 		return null;
 	}

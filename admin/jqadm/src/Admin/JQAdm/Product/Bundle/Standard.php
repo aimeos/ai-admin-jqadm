@@ -45,11 +45,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 
 		$view->bundleData = $this->toArray( $view->item, true );
-		$view->bundleBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->bundleBody .= $client->copy();
-		}
+		$view->bundleBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -71,11 +67,7 @@ class Standard
 		}
 
 		$view->bundleData = $data;
-		$view->bundleBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->bundleBody .= $client->create();
-		}
+		$view->bundleBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -91,11 +83,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 
 		$view->bundleData = $this->toArray( $view->item );
-		$view->bundleBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->bundleBody .= $client->get();
-		}
+		$view->bundleBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -113,11 +101,7 @@ class Standard
 		if( $view->item->getType() === 'bundle' )
 		{
 			$this->fromArray( $view->item, $view->param( 'bundle', [] ) );
-			$view->bundleBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->bundleBody .= $client->save();
-			}
+			$view->bundleBody = parent::save();
 		}
 
 		return null;

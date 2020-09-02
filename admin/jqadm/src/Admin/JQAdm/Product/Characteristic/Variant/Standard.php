@@ -42,11 +42,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->variantData = $this->toArray( $view->item, true );
-		$view->variantBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->variantBody .= $client->copy();
-		}
+		$view->variantBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -68,11 +64,7 @@ class Standard
 		}
 
 		$view->variantData = $data;
-		$view->variantBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->variantBody .= $client->create();
-		}
+		$view->variantBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -87,11 +79,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->variantData = $this->toArray( $view->item );
-		$view->variantBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->variantBody .= $client->get();
-		}
+		$view->variantBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -107,11 +95,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'characteristic/variant', [] ) );
-		$view->variantBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->variantBody .= $client->save();
-		}
+		$view->variantBody = parent::save();
 
 		return null;
 	}
