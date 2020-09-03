@@ -73,12 +73,8 @@ class Standard
 
 		$view->orderItems = $orderItems;
 		$view->orderBaseItems = $baseItems;
+		$view->orderBody = parent::get();
 		$view->orderTotal = $total;
-		$view->orderBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->orderBody .= $client->search();
-		}
 
 		return $this->render( $view );
 	}
