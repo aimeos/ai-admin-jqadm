@@ -43,6 +43,8 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->getObject()->addData( $this->getView() );
+		$view->codeBody = parent::copy();
+
 		return $this->render( $view );
 	}
 
@@ -55,6 +57,8 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->getObject()->addData( $this->getView() );
+		$view->codeBody = parent::create();
+
 		return $this->render( $view );
 	}
 
@@ -73,12 +77,8 @@ class Standard
 		$codeItems = $this->getCodeItems( $view->item, $params, $total );
 
 		$view->codeData = $this->toArray( $codeItems );
+		$view->codeBody = parent::search();
 		$view->codeTotal = $total;
-		$view->codeBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->codeBody .= $client->search();
-		}
 
 		return $this->render( $view );
 	}
@@ -101,11 +101,7 @@ class Standard
 			$this->storeSearchParams( $view->param( 'vc', [] ), 'couponcode' );
 			$this->storeFile( $view->item, (array) $view->request()->getUploadedFiles() );
 			$this->fromArray( $view->item, $view->param( 'code', [] ) );
-			$view->couponBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->couponBody .= $client->save();
-			}
+			$view->codeBody = parent::save();
 
 			$manager->commit();
 		}
