@@ -57,13 +57,7 @@ class Standard
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->copy();
-			}
+			$view->itemBody = parent::copy();
 		}
 		catch( \Exception $e )
 		{
@@ -94,13 +88,7 @@ class Standard
 			$data['attribute.siteid'] = $view->item->getSiteId();
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->create();
-			}
+			$view->itemBody = parent::create();
 		}
 		catch( \Exception $e )
 		{
@@ -136,10 +124,7 @@ class Standard
 			foreach( $items as $item )
 			{
 				$view->item = $item;
-
-				foreach( $this->getSubClients() as $client ) {
-					$client->delete();
-				}
+				parent::delete();
 			}
 
 			$manager->deleteItems( $items->toArray() );
@@ -176,13 +161,7 @@ class Standard
 
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemData = $this->toArray( $view->item );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->get();
-			}
+			$view->itemBody = parent::get();
 		}
 		catch( \Exception $e )
 		{
@@ -209,11 +188,7 @@ class Standard
 		{
 			$item = $this->fromArray( $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->saveItem( $item );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->save();
-			}
+			$view->itemBody = parent::save();
 
 			$manager->saveItem( clone $view->item );
 			$manager->commit();
@@ -250,12 +225,8 @@ class Standard
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemTypes = $this->getTypeItems();
+			$view->itemBody = parent::search();
 			$view->total = $total;
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->search();
-			}
 		}
 		catch( \Exception $e )
 		{

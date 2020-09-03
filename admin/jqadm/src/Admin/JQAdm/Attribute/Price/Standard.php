@@ -44,11 +44,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceData = $this->toArray( $view->item, true );
-		$view->priceBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->priceBody .= $client->copy();
-		}
+		$view->priceBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -72,11 +68,7 @@ class Standard
 		}
 
 		$view->priceData = $data;
-		$view->priceBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->priceBody .= $client->create();
-		}
+		$view->priceBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -107,11 +99,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->priceData = $this->toArray( $view->item );
-		$view->priceBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->priceBody .= $client->get();
-		}
+		$view->priceBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -127,11 +115,7 @@ class Standard
 		$view = $this->getView();
 
 		$view->item = $this->fromArray( $view->item, $view->param( 'price', [] ) );
-		$view->priceBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->priceBody .= $client->save();
-		}
+		$view->priceBody = parent::save();
 
 		return null;
 	}

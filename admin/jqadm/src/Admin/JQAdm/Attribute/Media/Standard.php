@@ -73,11 +73,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 
 		$view->mediaData = $this->toArray( $view->item, true );
-		$view->mediaBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->mediaBody .= $client->copy();
-		}
+		$view->mediaBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -105,11 +101,7 @@ class Standard
 		}
 
 		$view->mediaData = $data;
-		$view->mediaBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->mediaBody .= $client->create();
-		}
+		$view->mediaBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -141,11 +133,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 
 		$view->mediaData = $this->toArray( $view->item );
-		$view->mediaBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->mediaBody .= $client->get();
-		}
+		$view->mediaBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -161,11 +149,7 @@ class Standard
 		$view = $this->getView();
 
 		$view->item = $this->fromArray( $view->item, $view->param( 'media', [] ) );
-		$view->mediaBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->mediaBody .= $client->save();
-		}
+		$view->mediaBody = parent::save();
 
 		return null;
 	}
