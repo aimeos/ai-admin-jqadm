@@ -56,13 +56,7 @@ class Standard
 
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemRootId = $this->getRootId();
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->copy();
-			}
+			$view->itemBody = parent::copy();
 		}
 		catch( \Exception $e )
 		{
@@ -95,13 +89,7 @@ class Standard
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
 			$view->itemRootId = $this->getRootId();
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->create();
-			}
+			$view->itemBody = parent::create();
 		}
 		catch( \Exception $e )
 		{
@@ -137,10 +125,7 @@ class Standard
 			foreach( $items as $item )
 			{
 				$view->item = $item;
-
-				foreach( $this->getSubClients() as $client ) {
-					$client->delete();
-				}
+				parent::delete();
 			}
 
 			$manager->deleteItems( $items->toArray() );
@@ -178,13 +163,7 @@ class Standard
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemRootId = $this->getRootId();
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->get();
-			}
+			$view->itemBody = parent::get();
 		}
 		catch( \Exception $e )
 		{
@@ -211,11 +190,7 @@ class Standard
 		{
 			$item = $this->fromArray( $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->saveItem( $item );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->save();
-			}
+			$view->itemBody = parent::save();
 
 			$manager->saveItem( clone $view->item );
 			$manager->commit();
@@ -248,11 +223,7 @@ class Standard
 		{
 			$view->item = \Aimeos\MShop::create( $this->getContext(), 'catalog' )->createItem();
 			$view->itemRootId = $this->getRootId();
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->search();
-			}
+			$view->itemBody = parent::search();
 		}
 		catch( \Exception $e )
 		{
