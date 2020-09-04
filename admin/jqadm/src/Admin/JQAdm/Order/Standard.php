@@ -55,13 +55,7 @@ class Standard
 			$view->item = $manager->load( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->copy();
-			}
+			$view->itemBody = parent::copy();
 		}
 		catch( \Exception $e )
 		{
@@ -92,13 +86,7 @@ class Standard
 			$data['order.siteid'] = $view->item->getSiteId();
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->create();
-			}
+			$view->itemBody = parent::create();
 		}
 		catch( \Exception $e )
 		{
@@ -168,13 +156,7 @@ class Standard
 
 			$view->item = $manager->getItem( $id, $refs );
 			$view->itemData = $this->toArray( $view->item );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->get();
-			}
+			$view->itemBody = parent::get();
 		}
 		catch( \Exception $e )
 		{
@@ -201,11 +183,7 @@ class Standard
 		{
 			$item = $this->fromArray( $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->store( clone $item );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->save();
-			}
+			$view->itemBody = parent::save();
 
 			$manager->store( clone $view->item );
 			$manager->commit();
@@ -246,12 +224,8 @@ class Standard
 			$view->baseItems = $this->getOrderBaseItems( $view->items );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
+			$view->itemBody = parent::search();
 			$view->total = $total;
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->search();
-			}
 		}
 		catch( \Exception $e )
 		{

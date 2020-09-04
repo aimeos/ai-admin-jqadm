@@ -71,12 +71,8 @@ class Standard
 		$orderItems = $this->getOrderItems( $view->item, $params, $total );
 
 		$view->invoiceData = $this->toArray( $orderItems );
+		$view->invoiceTotal = parent::get();
 		$view->invoiceTotal = $total;
-		$view->invoiceBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->invoiceBody .= $client->search();
-		}
 
 		return $this->render( $view );
 	}
@@ -98,11 +94,7 @@ class Standard
 		{
 			$this->storeSearchParams( $view->param( 'oi', [] ), 'orderinvoice' );
 			$this->fromArray( $view->item, $view->param( 'invoice', [] ) );
-			$view->invoiceBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->invoiceBody .= $client->save();
-			}
+			$view->invoiceBody = parent::save();
 
 			$manager->commit();
 		}
