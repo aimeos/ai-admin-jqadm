@@ -43,11 +43,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$view->ordercountpaystatusBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->ordercountpaystatusBody .= $client->search();
-		}
+		$view->ordercountpaystatusBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/countpaystatus/template-item
 		 * Relative path to the HTML body template of the order per countpaystatus subpart for the dashboard.

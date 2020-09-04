@@ -44,16 +44,9 @@ class Standard
 	{
 		$view = $this->getView();
 
-		try
-		{
-			$view->listBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->listBody .= $client->search();
-			}
-		}
-		catch( \Exception $e )
-		{
+		try {
+			$view->listBody = parent::search();
+		} catch( \Exception $e ) {
 			$this->report( $e, 'search' );
 		}
 

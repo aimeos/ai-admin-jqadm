@@ -106,14 +106,9 @@ class Standard
 		$search->setSortations( [$search->sort( '-', 'job.ctime' ), $search->sort( '-', 'job.id' )] );
 		$total = 0;
 
-		$view->jobBody = '';
 		$view->jobItems = $manager->searchItems( $search, [], $total );
+		$view->jobBody = parent::search();
 		$view->jobTotal = $total;
-
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->jobBody .= $client->search();
-		}
 
 		/** admin/jqadm/dashboard/job/template-list
 		 * Relative path to the HTML body template of the job subpart for the dashboard.

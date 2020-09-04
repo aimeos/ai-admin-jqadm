@@ -41,14 +41,10 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$view->orderBody = '';
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 		$view->orderCurrencyItems = $manager->searchItems( $manager->createSearch( true ) );
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->orderBody .= $client->search();
-		}
+		$view->orderBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/template-list
 		 * Relative path to the HTML body template of the order subpart for the dashboard.

@@ -41,11 +41,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$view->ordersalesmonthBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->ordersalesmonthBody .= $client->search();
-		}
+		$view->ordersalesmonthBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/salesmonth/template-item
 		 * Relative path to the HTML body template of the order per salesmonth subpart for the dashboard.

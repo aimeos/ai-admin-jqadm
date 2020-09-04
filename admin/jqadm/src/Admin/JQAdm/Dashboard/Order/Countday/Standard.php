@@ -43,11 +43,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$view->orderpaymenttypeBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->orderpaymenttypeBody .= $client->search();
-		}
+		$view->ordercountdayBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/countday/template-item
 		 * Relative path to the HTML body template of the order per countday subpart for the dashboard.

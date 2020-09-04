@@ -41,6 +41,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
+		$view->settingBody = parent::search();
 
 		/** admin/jqadm/dashboard/setting/template-list
 		 * Relative path to the HTML body template of the setting subpart for the dashboard.

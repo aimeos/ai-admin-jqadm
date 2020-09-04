@@ -51,11 +51,7 @@ class Standard
 		$search->setConditions( $search->compare( '>=', 'order.ctime', date( 'Y-m-d 00:00:00', time() - 30 * 86400 ) ) );
 
 		$view->orderlatestItems = $manager->searchItems( $search, ['order/base', 'order/base/address', 'order/base/product', 'order/base/service'] );
-		$view->orderlatestBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->orderlatestBody .= $client->search();
-		}
+		$view->orderlatestBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/latest/template-item
 		 * Relative path to the HTML body template of the latest orders subpart for the dashboard.

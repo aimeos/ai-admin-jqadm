@@ -43,11 +43,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$view->orderservicepaymentBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->orderservicepaymentBody .= $client->search();
-		}
+		$view->orderservicepaymentBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/servicepayment/template-item
 		 * Relative path to the HTML body template of the order per servicepayment subpart for the dashboard.

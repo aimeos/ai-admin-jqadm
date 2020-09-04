@@ -41,11 +41,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$view->ordersalesdayBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->ordersalesdayBody .= $client->search();
-		}
+		$view->ordersalesdayBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/salesday/template-item
 		 * Relative path to the HTML body template of the order per salesday subpart for the dashboard.
