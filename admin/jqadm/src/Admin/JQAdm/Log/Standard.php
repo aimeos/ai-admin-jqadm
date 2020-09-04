@@ -43,12 +43,8 @@ class Standard
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->searchItems( $search, [], $total );
+			$view->itemBody = parent::search();
 			$view->total = $total;
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->search();
-			}
 		}
 		catch( \Exception $e )
 		{
