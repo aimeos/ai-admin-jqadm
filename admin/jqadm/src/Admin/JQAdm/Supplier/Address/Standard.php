@@ -44,11 +44,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->addressData = $this->toArray( $view->item, true );
-		$view->addressBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->addressBody .= $client->copy();
-		}
+		$view->addressBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -70,11 +66,7 @@ class Standard
 		}
 
 		$view->addressData = $data;
-		$view->addressBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->addressBody .= $client->create();
-		}
+		$view->addressBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -89,11 +81,7 @@ class Standard
 	{
 		$view = $this->getObject()->addData( $this->getView() );
 		$view->addressData = $this->toArray( $view->item );
-		$view->addressBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->addressBody .= $client->get();
-		}
+		$view->addressBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -109,11 +97,7 @@ class Standard
 		$view = $this->getView();
 
 		$this->fromArray( $view->item, $view->param( 'address', [] ) );
-		$view->addressBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->addressBody .= $client->save();
-		}
+		$view->addressBody = parent::save();
 
 		return null;
 	}

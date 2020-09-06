@@ -63,11 +63,7 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->getObject()->addData( $this->getView() );
-		$view->productBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->productBody .= $client->copy();
-		}
+		$view->productBody = parent::copy();
 
 		return $this->render( $view );
 	}
@@ -81,11 +77,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->getObject()->addData( $this->getView() );
-		$view->productBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->productBody .= $client->create();
-		}
+		$view->productBody = parent::create();
 
 		return $this->render( $view );
 	}
@@ -106,12 +98,8 @@ class Standard
 
 		$view->productItems = $this->getProductItems( $listItems );
 		$view->productData = $this->toArray( $listItems );
+		$view->productBody = parent::search();
 		$view->productTotal = $total;
-		$view->productBody = '';
-
-		foreach( $this->getSubClients() as $client ) {
-			$view->productBody .= $client->search();
-		}
 
 		return $this->render( $view );
 	}
@@ -133,11 +121,7 @@ class Standard
 		{
 			$this->storeSearchParams( $view->param( 'sp', [] ), 'supplierproduct' );
 			$this->fromArray( $view->item, $view->param( 'product', [] ) );
-			$view->productBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->productBody .= $client->save();
-			}
+			$view->productBody = parent::save();
 
 			$manager->commit();
 		}
