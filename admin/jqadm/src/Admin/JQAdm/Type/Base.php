@@ -63,13 +63,7 @@ abstract class Base
 			$view->item = $manager->getItem( $id );
 
 			$view->itemData = $this->toArray( $path, $view->item, true );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->copy();
-			}
+			$view->itemBody = parent::copy();
 		}
 		catch( \Exception $e )
 		{
@@ -101,13 +95,7 @@ abstract class Base
 			$data[str_replace( '/', '.', $path ) . '.type.siteid'] = $view->item->getSiteId();
 
 			$view->itemData = array_replace_recursive( $this->toArray( $path, $view->item ), $data );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->create();
-			}
+			$view->itemBody = parent::create();
 		}
 		catch( \Exception $e )
 		{
@@ -144,10 +132,7 @@ abstract class Base
 			foreach( $items as $item )
 			{
 				$view->item = $item;
-
-				foreach( $this->getSubClients() as $client ) {
-					$client->delete();
-				}
+				parent::delete();
 			}
 
 			$manager->deleteItems( $items->toArray() );
@@ -186,13 +171,7 @@ abstract class Base
 
 			$view->item = $manager->getItem( $id );
 			$view->itemData = $this->toArray( $path, $view->item );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $idx => $client )
-			{
-				$view->tabindex = ++$idx + 1;
-				$view->itemBody .= $client->get();
-			}
+			$view->itemBody = parent::get();
 		}
 		catch( \Exception $e )
 		{
@@ -220,11 +199,7 @@ abstract class Base
 		{
 			$item = $this->fromArray( $path, $view->param( 'item', [] ) );
 			$view->item = $item->getId() ? $item : $manager->saveItem( $item );
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->save();
-			}
+			$view->itemBody = parent::save();
 
 			$manager->saveItem( clone $view->item );
 			$manager->commit();
@@ -261,12 +236,8 @@ abstract class Base
 			$view->items = $manager->searchItems( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
+			$view->itemBody = parent::search();
 			$view->total = $total;
-			$view->itemBody = '';
-
-			foreach( $this->getSubClients() as $client ) {
-				$view->itemBody .= $client->search();
-			}
 		}
 		catch( \Exception $e )
 		{
