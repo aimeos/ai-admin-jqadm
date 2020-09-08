@@ -450,7 +450,7 @@ Aimeos.Product.Order = {
 			},
 			beforeMount: function() {
 				if(this.$el.dataset && this.$el.dataset.id) {
-					this.id = JSON.parse(this.$el.dataset.id);
+					this.id = this.$el.dataset.id;
 				}
 				this.filter['order.base.product.productid'] = {'==':{'order.base.product.productid': this.id}};
 
