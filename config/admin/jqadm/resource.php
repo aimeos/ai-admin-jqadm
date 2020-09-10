@@ -229,7 +229,7 @@ return [
 			 * @param array List of user group names
 			 * @since 2017.10
 			 */
-			'groups' => ['admin', 'super'],
+			'groups' => ['super'],
 		],
 		'language' => [
 			/** admin/jqadm/resource/locale/language/groups
