@@ -348,13 +348,13 @@ Aimeos.Config = {
 						el.val(old.val());
 						old.remove();
 
-						$(".help-text", row).html(entry.attributes.label);
+						$(".help-text", row).text(entry.attributes.label);
 						$(".config-row-value", row).append(el);
 					} else {
 						var row = Aimeos.addClone($("table.item-config-ext .config-item.prototype", target));
 
 						$(".config-row-value .config-type:not(.config-type-" + entry.attributes.type + ")", row).remove();
-						$(".config-row-key .help-text", row).html(entry.attributes.label);
+						$(".config-row-key .help-text", row).text(entry.attributes.label);
 						$(".config-value", row).val(entry.attributes.default);
 						$(".config-key", row).val(entry.id);
 					}
@@ -757,7 +757,7 @@ Aimeos.List = {
 		$(".aimeos form.list .list-items").on("click", ".actions .act-delete", function(e) {
 
 			var dialog = $("#confirm-delete");
-			var item = $('<li>').append($(this).parents(".list-item").data('label'));
+			var item = $('<li>').text($(this).parents(".list-item").data('label'));
 
 			$(".modal-body ul.items", dialog).append(item);
 			self.element = $(this);
@@ -777,7 +777,7 @@ Aimeos.List = {
 			var list = $(".modal-body ul.items", dialog);
 
 			$(".list-item input[type='checkbox']:checked", e.delegateTarget).each(function() {
-				list.append($('<li>').append($(this).parents(".list-item").data('label')));
+				list.append($('<li>').text($(this).parents(".list-item").data('label')));
 			});
 
 			self.element = $(this);
