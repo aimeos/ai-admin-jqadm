@@ -197,7 +197,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 						<?php endif; ?>
 
 						<?php foreach( $navlist->splice( 0, $navlimit ) as $nav => $navitem ) : ?>
-							<?php if( is_array( $navitem ) ) : ?>
+							<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? $nav ?>
 								<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $nav . '/groups', [] ) ) ) : ?>
 									<li class="treeview <?= $enc->attr( $nav ) ?> <?= strncmp( $this->param( 'resource' ), $nav, strlen( $nav ) ) ? '' : 'active' ?>">
 										<span>
@@ -207,7 +207,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 										<div class="tree-menu-wrapper">
 											<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
 											<ul class="tree-menu">
-												<?php foreach( map( $navitem )->ksort() as $subresource ) : ?>
+												<?php foreach( map( $navitem )->remove( '' )->ksort() as $subresource ) : ?>
 													<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
 														<li class="<?= str_replace( '/', '-', $subresource ); ?>">
 															<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
@@ -245,7 +245,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 					<ul class="sidebar-menu advanced">
 
 						<?php foreach( $navlist as $nav => $navitem ) : ?>
-							<?php if( is_array( $navitem ) ) : ?>
+							<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? $nav ?>
 								<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $nav . '/groups', [] ) ) ) : ?>
 									<li class="treeview <?= $enc->attr( $nav ) ?> <?= strncmp( $this->param( 'resource' ), $nav, strlen( $nav ) ) ? '' : 'active' ?>">
 										<span>
@@ -256,7 +256,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 											<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
 											<ul class="tree-menu">
 
-												<?php foreach( map( $navitem )->ksort() as $subresource ) : ?>
+												<?php foreach( map( $navitem )->remove( '' )->ksort() as $subresource ) : ?>
 													<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
 														<li class="<?= str_replace( '/', '-', $subresource ); ?>">
 															<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">

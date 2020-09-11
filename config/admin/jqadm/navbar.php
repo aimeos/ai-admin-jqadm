@@ -13,13 +13,15 @@ return [
 	90 => 'service',
 	100 => 'plugin',
 	110 => 'group',
-	'locale' => [
+	120 => [
+		'' => 'locale',
 		10 => 'locale',
 		20 => 'locale/site',
 		30 => 'locale/language',
 		40 => 'locale/currency',
 	],
-	'type' => [
+	130 => [
+		'' => 'type',
 		10 => 'type/attribute',
 		20 => 'type/attribute/lists',
 		30 => 'type/attribute/property',
