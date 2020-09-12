@@ -142,8 +142,11 @@ abstract class Base
 	public function copy() : ?string
 	{
 		$body = null;
+		$view = $this->getView();
 
-		foreach( $this->getSubClients() as $client ) {
+		foreach( $this->getSubClients() as $idx => $client )
+		{
+			$view->tabindex = ++$idx + 1;
 			$body .= $client->copy();
 		}
 
@@ -159,8 +162,11 @@ abstract class Base
 	public function create() : ?string
 	{
 		$body = null;
+		$view = $this->getView();
 
-		foreach( $this->getSubClients() as $client ) {
+		foreach( $this->getSubClients() as $idx => $client )
+		{
+			$view->tabindex = ++$idx + 1;
 			$body .= $client->create();
 		}
 
@@ -210,8 +216,11 @@ abstract class Base
 	public function get() : ?string
 	{
 		$body = null;
+		$view = $this->getView();
 
-		foreach( $this->getSubClients() as $client ) {
+		foreach( $this->getSubClients() as $idx => $client )
+		{
+			$view->tabindex = ++$idx + 1;
 			$body .= $client->get();
 		}
 
