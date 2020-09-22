@@ -5,13 +5,6 @@
 
 
 
-$(function() {
-
-	Aimeos.Product.init();
-});
-
-
-
 Aimeos.Product = {
 
 	init : function() {
@@ -1104,3 +1097,10 @@ Aimeos.Product.Supplier = {
 		};
 	}
 };
+
+
+
+$(function() {
+
+	Aimeos.Product.init();
+});
