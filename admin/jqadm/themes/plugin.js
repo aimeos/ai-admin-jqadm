@@ -9,16 +9,6 @@ Aimeos.Plugin = {
 
 	init : function() {
 
-		Aimeos.Plugin.init();
-	}
-};
-
-
-
-Aimeos.Plugin = {
-
-	init : function() {
-
 		this.setupConfig();
 		this.setupDecorator();
 		this.setupProvider();
