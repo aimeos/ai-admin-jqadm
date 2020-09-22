@@ -9,16 +9,6 @@ Aimeos.Service = {
 
 	init : function() {
 
-		Aimeos.Service.init();
-	}
-};
-
-
-
-Aimeos.Service = {
-
-	init : function() {
-
 		this.setupConfig();
 		this.setupDecorator();
 		this.setupProvider();
