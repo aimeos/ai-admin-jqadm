@@ -140,16 +140,34 @@
 .aimeos .main-navbar .filter-columns,
 .aimeos .main-navbar .filter-operator,
 .aimeos .main-navbar .filter-key {
+	opacity: 0;
 	display: none;
-	max-width: 9rem;
+	overflow: hidden;
+	transition: all 0.25s;
 }
 
 .aimeos .main-navbar .filter-value {
-	max-width: 9rem;
+	width: 9rem;
+	overflow: hidden;
 }
 
+.aimeos .main-navbar .filter-key,
 .aimeos .main-navbar .filter-operator {
-	max-width: 4rem;
+	width: 0;
+}
+
+.aimeos .main-navbar .filter-key.expanded {
+	width: 9rem;
+}
+
+.aimeos .main-navbar .filter-operator.expanded {
+	width: 4rem;
+}
+
+.aimeos .main-navbar .filter-key.expanded,
+.aimeos .main-navbar .filter-operator.expanded {
+	opacity: 1;
+	display: inline-block;
 }
 
 /* MQ Mobile only */

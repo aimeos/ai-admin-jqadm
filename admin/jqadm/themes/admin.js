@@ -509,7 +509,6 @@ Aimeos.Filter = {
 
 		this.selectDDInput();
 		this.setupFilterOperators();
-		this.toggleSearch();
 	},
 
 
@@ -567,22 +566,6 @@ Aimeos.Filter = {
 			var type = $(":selected", this).data("type");
 
 			Aimeos.Filter.selectFilterOperator(select, type);
-		});
-	},
-
-
-	toggleSearch : function() {
-
-		$(".aimeos .main-navbar form").on("click", ".more", function(ev) {
-			$(".filter-columns,.filter-key,.filter-operator", ev.delegateTarget).toggle(300, function() {
-				$(ev.currentTarget).removeClass("more").addClass("less");
-			});
-		});
-
-		$(".aimeos .main-navbar form").on("click", ".less", function(ev) {
-			$(".filter-columns,.filter-key,.filter-operator", ev.delegateTarget).toggle(300, function() {
-				$(ev.currentTarget).removeClass("less").addClass("more");
-			});
 		});
 	}
 };
@@ -1121,11 +1104,19 @@ $(function() {
 
 		Aimeos.components[key] = new Vue({
 			el: this,
-			data: {data: null},
+			data: function() {
+				return {
+					data: null,
+					toggleFilter: true,
+				}
+			},
 			beforeMount: function() {
 				if(this.$el.dataset && this.$el.dataset.data) {
 					this.data = JSON.parse(this.$el.dataset.data);
 				}
+			},
+			mounted: function() {
+				this.clearFilterValue()
 			},
 			methods: {
 				add: function(data) {
@@ -1133,6 +1124,15 @@ $(function() {
 				},
 				remove: function(idx) {
 					this.$refs[key].remove(idx);
+				},
+				toggleFilterSearch: function () {
+					this.toggleFilter = !this.toggleFilter
+				},
+				toggleFilterSearchMobile: function () {
+					document.body.classList.toggle('js--show-search');
+				},
+				clearFilterValue: function () {
+					this.$refs['input-filter-value'].value = ''
 				}
 			}
 		});
