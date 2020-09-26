@@ -545,14 +545,14 @@ class Standard
 
 		foreach( $basket->getServices() as $type => $services )
 		{
-			foreach( $services as $serviceId => $service )
+			foreach( $services as $index => $service )
 			{
 				$list = [];
 				$attrItems = $service->getAttributeItems();
 
-				if( isset( $data['service'][$type][$serviceId] ) )
+				if( isset( $data['service'][$type][$service->getServiceId()] ) )
 				{
-					foreach( (array) $data['service'][$type][$serviceId] as $key => $pair )
+					foreach( (array) $data['service'][$type][$service->getServiceId()] as $key => $pair )
 					{
 						foreach( $pair as $pos => $value ) {
 							$list[$pos][$key] = $value;
