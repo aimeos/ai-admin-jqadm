@@ -8,19 +8,20 @@ return [
 	40 => 'catalog',
 	50 => 'attribute',
 	60 => 'coupon',
-	70 => 'subscription',
-	80 => 'supplier',
-	90 => 'service',
-	100 => 'plugin',
-	110 => 'group',
-	120 => [
+	70 => 'review',
+	80 => 'subscription',
+	90 => 'supplier',
+	100 => 'service',
+	110 => 'plugin',
+	120 => 'group',
+	130 => [
 		'' => 'locale',
 		10 => 'locale',
 		20 => 'locale/site',
 		30 => 'locale/language',
 		40 => 'locale/currency',
 	],
-	130 => [
+	140 => [
 		'' => 'type',
 		10 => 'type/attribute',
 		20 => 'type/attribute/lists',
@@ -45,5 +46,5 @@ return [
 		210 => 'type/text',
 		220 => 'type/text/lists',
 	],
-	140 => 'log',
+	150 => 'log',
 ];

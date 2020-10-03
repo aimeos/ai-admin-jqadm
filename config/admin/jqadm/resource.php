@@ -59,7 +59,7 @@ return [
 		 * @param string Single character in upper case
 		 * @since 2018.04
 		 */
-		'key' => 'R',
+		'key' => 'B',
 	],
 	'customer' => [
 		/** admin/jqadm/resource/customer/groups
@@ -145,6 +145,23 @@ return [
 		 * @since 2017.10
 		 */
 		'key' => 'V',
+	],
+	'review' => [
+		/** admin/jqadm/resource/review/groups
+		 * List of user groups that are allowed to access the review panel
+		 *
+		 * @param array List of user group names
+		 * @since 2020.10
+		 */
+		'groups' => ['admin', 'editor', 'super'],
+
+		/** admin/jqadm/resource/review/key
+		 * Shortcut key to switch to the review panel by using the keyboard
+		 *
+		 * @param string Single character in upper case
+		 * @since 2020.10
+		 */
+		'key' => 'R',
 	],
 	'supplier' => [
 		/** admin/jqadm/resource/supplier/groups
