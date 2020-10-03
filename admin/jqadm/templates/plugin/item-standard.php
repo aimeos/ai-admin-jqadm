@@ -150,7 +150,7 @@ $enc = $this->encoder();
 								<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Plugin label for describing the configured plugin' ) ); ?>
 						</div>
 					</div>
 					<div class="form-group row mandatory">
