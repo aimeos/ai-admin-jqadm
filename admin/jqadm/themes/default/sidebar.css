@@ -461,6 +461,10 @@
 	content: "\f295"
 }
 
+.aimeos .main-sidebar .review .icon:before {
+	content: "\f086"
+}
+
 .aimeos .main-sidebar .separator .more:before {
 	content: "\f0d7";
 }

@@ -15,6 +15,11 @@ $cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
 $config = $this->config( 'admin/jqadm/url/save/config', [] );
 
+$getTarget = $this->config( 'admin/jqadm/url/get/target' );
+$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
+$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
+$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
+
 $params = $this->get( 'pageParams', [] );
 
 $enc = $this->encoder();
@@ -126,7 +131,9 @@ $enc = $this->encoder();
 					<div class="form-group row">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Rating' ) ); ?></label>
 						<div class="col-sm-8">
-							<?= $enc->html( str_pad( '', $this->get( 'itemData/review.rating', 1 ), '★' ) ); ?>
+							<p class="form-control item-comment">
+								<?= $enc->html( str_repeat( '★', $this->get( 'itemData/review.rating', 1 ) ) ); ?>
+							</p>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Rating of the reviewer' ) ); ?>
@@ -135,7 +142,7 @@ $enc = $this->encoder();
 					<div class="form-group row">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Comment' ) ); ?></label>
 						<div class="col-sm-8">
-							<p class="form-control item-comment"><?= $enc->html( $this->get( 'itemData/review.comment' ) ); ?></p>
+							<p class="item-comment"><?= $enc->html( $this->get( 'itemData/review.comment' ) ); ?></p>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Comment of the reviewer' ) ); ?>
@@ -144,15 +151,30 @@ $enc = $this->encoder();
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?>">
-					<div class="form-group">
+					<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $this->item->getDomain() . '/groups', [] ) ) ) : ?>
+						<div class="form-group row">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reviewed item' ) ); ?></label>
+							<div class="col-sm-8">
+								<span class="form-control item-refid">
+									<a class="act-view" target="_blank"
+										href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => $this->item->getDomain(), 'id' => $this->item->getRefId()], [], $getConfig ) ); ?>">
+										<?= $enc->html( $this->item->getDomain() ) ?>: <?= $enc->html( $this->item->getRefId() ) ?>
+									</a>
+								</span>
+							</div>
+						</div>
+					<?php endif; ?>
+					<div class="form-group row">
 							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Response' ) ); ?></label>
-							<textarea class="form-control item-response" tabindex="1" maxlength="255"
-								name="<?= $this->formparam( array( 'item', 'review.response' ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Your response' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
-								<?= $enc->html( $this->get( 'itemData/review.response' ) ); ?>
-							</textarea>
-							<div class="form-text text-muted help-text">
+							<div class="col-sm-8">
+								<textarea class="form-control item-response" tabindex="1" maxlength="1024"
+									name="<?= $this->formparam( array( 'item', 'review.response' ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Your response' ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
+									<?= $enc->html( $this->get( 'itemData/review.response' ) ); ?>
+								</textarea>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
 								<?= $enc->html( $this->translate( 'admin', 'Response to the reviewer' ) ); ?>
 							</div>
 						</div>

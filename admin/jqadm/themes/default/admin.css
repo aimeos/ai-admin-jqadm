@@ -621,6 +621,15 @@
 	left: 0;
 }
 
+.aimeos .item-review .item-refid a.act-view:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: " \f06e";
+}
+
+.aimeos .item-review .item-response {
+	height: 10rem;
+}
+
 .aimeos .list-log .list-items td {
 	vertical-align: top;
 }
