@@ -206,7 +206,7 @@ $statusList = [
 										<?php if( $basket->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
 											<a class="act-view" target="_blank"
 												href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId()], [], $getConfig ) ); ?>">
-												<?= $enc->attr( $basket->getCustomerId() ); ?>
+												<?= $enc->html( $basket->getCustomerId() ); ?>
 											</a>
 										<?php endif; ?>
 									</span>
