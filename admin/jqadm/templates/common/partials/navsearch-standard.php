@@ -36,18 +36,18 @@ $enc = $this->encoder();
 
 
 ?>
-<div id="js--toggle-search" class="toggle-search">
+<div id="js--toggle-search" class="toggle-search" @click="toggleFilterSearchMobile">
 	<span class="icon search"></span>
-	<span class="hidden">Show/hide search.</span>
+	<span class="hidden">Button to show/hide the filter search in mobile state only.</span>
 </div>
 
 <form class="form-inline" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
-	<i class="fa more"></i>
+	<i class="fa" :class="toggleFilter ? 'more' : 'less'" @click="toggleFilterSearch"></i>
 
 	<div class="input-group">
-		<select class="custom-select filter-key" name="<?= $this->formparam( ['filter', 'key', '0'] ); ?>">
+		<select class="custom-select filter-key" :class="toggleFilter ? '' : 'expanded'" name="<?= $this->formparam( ['filter', 'key', '0'] ); ?>">
 			<?php foreach( $this->get( 'filterAttributes', [] ) as $code => $attrItem ) : ?>
 				<?php if( $attrItem->isPublic() ) : ?>
 					<option value="<?= $enc->attr( $code ); ?>" data-type="<?= $enc->attr( $attrItem->getType() ); ?>" <?= $selected( $filter, 'key', $code ); ?> >
@@ -56,14 +56,14 @@ $enc = $this->encoder();
 				<?php endif; ?>
 			<?php endforeach; ?>
 		</select>
-		<select class="custom-select filter-operator" name="<?= $this->formparam( ['filter', 'op', '0'] ); ?>">
+		<select class="custom-select filter-operator" :class="toggleFilter ? '' : 'expanded'" name="<?= $this->formparam( ['filter', 'op', '0'] ); ?>">
 			<?php foreach( $this->get( 'filterOperators/compare', [] ) as $code ) : ?>
 				<option value="<?= $enc->attr( $code ); ?>" <?= $selected( $filter, 'op', $code ); ?> >
 					<?= $enc->html( $code ) . ( strlen( $code ) === 1 ? '&nbsp;' : '' ); ?>&nbsp;&nbsp;<?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?>
 				</option>
 			<?php endforeach; ?>
 		</select>
-		<input type="text" class="form-control filter-value" name="<?= $this->formparam( ['filter', 'val', '0'] ); ?>"
+		<input type="text" class="form-control filter-value" ref="input-filter-value" name="<?= $this->formparam( ['filter', 'val', '0'] ); ?>"
 			 value="<?= $enc->attr( ( isset( $filter['val'][0] ) ? $filter['val'][0] : '' ) ); ?>" >
 		<div class="input-group-append">
 			<button class="btn btn-primary fa fa-search"></button>
