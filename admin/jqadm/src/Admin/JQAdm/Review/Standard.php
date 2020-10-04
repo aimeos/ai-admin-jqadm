@@ -333,7 +333,7 @@ class Standard
 		}
 
 		if( $this->getView()->access( ['super', 'admin'] ) ) {
-			$item->setStatus( (int) $data['review.response'] ?? 1 );
+			$item->setStatus( (int) $data['review.status'] ?? 1 );
 		}
 
 		return $item->setResponse( $data['review.response'] ?? '' );
@@ -405,13 +405,15 @@ class Standard
 				'review.status' => 1
 			] );
 
-			if( $entry = $manager->aggregate( $filter, 'review.refid', 'review.rating', 'rate' )->first() )
-			{
-				$rateManager = \Aimeos\MShop::create( $context, $item->getDomain() );
-				$rateManager->rate( $item->getRefId(), $entry['sum'], $entry['count'] );
+			$rateManager = \Aimeos\MShop::create( $context, $item->getDomain() );
 
-				$context->cache()->deleteByTags( [$item->getDomain() . '-' . $item->getRefId()] );
+			if( $entry = $manager->aggregate( $filter, 'review.refid', 'review.rating', 'rate' )->first() ) {
+				$rateManager->rate( $item->getRefId(), $entry['sum'], $entry['count'] );
+			} else {
+				$rateManager->rate( $item->getRefId(), 0, 0 );
 			}
+
+			$context->cache()->deleteByTags( [$item->getDomain() . '-' . $item->getRefId()] );
 		}
 
 		return $this;
