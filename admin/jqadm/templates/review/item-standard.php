@@ -94,25 +94,32 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-status" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'review.status' ) ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
-								<option value="">
-									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-								</option>
-								<option value="1" <?= $selected( $this->get( 'itemData/review.status', 1 ), 1 ); ?> >
-									<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
-								</option>
-								<option value="0" <?= $selected( $this->get( 'itemData/review.status', 1 ), 0 ); ?> >
-									<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
-								</option>
-								<option value="-1" <?= $selected( $this->get( 'itemData/review.status', 1 ), -1 ); ?> >
-									<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
-								</option>
-								<option value="-2" <?= $selected( $this->get( 'itemData/review.status', 1 ), -2 ); ?> >
-									<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
-								</option>
-							</select>
+							<?php if( $this->access( 'super', 'admin' ) ) : ?>
+								<select class="form-control custom-select item-status" required="required" tabindex="1"
+									name="<?= $enc->attr( $this->formparam( array( 'item', 'review.status' ) ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
+									<option value="">
+										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+									</option>
+									<option value="1" <?= $selected( $this->get( 'itemData/review.status', 1 ), 1 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+									</option>
+									<option value="0" <?= $selected( $this->get( 'itemData/review.status', 1 ), 0 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+									</option>
+									<option value="-1" <?= $selected( $this->get( 'itemData/review.status', 1 ), -1 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+									</option>
+									<option value="-2" <?= $selected( $this->get( 'itemData/review.status', 1 ), -2 ); ?> >
+										<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+									</option>
+								</select>
+							<?php else : ?>
+								<span class="form-control item-status">
+									<?php $key = 'status:' . $this->get( 'itemData/review.status' ) ?>
+									<?= $enc->html( $this->translate( 'mshop/code', $key ) ); ?>
+								</span>
+							<?php endif ?>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -131,9 +138,9 @@ $enc = $this->encoder();
 					<div class="form-group row">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Rating' ) ); ?></label>
 						<div class="col-sm-8">
-							<p class="form-control item-comment">
+							<span class="form-control item-comment">
 								<?= $enc->html( str_repeat( '★', $this->get( 'itemData/review.rating', 1 ) ) ); ?>
-							</p>
+							</span>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Rating of the reviewer' ) ); ?>
@@ -142,7 +149,7 @@ $enc = $this->encoder();
 					<div class="form-group row">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Comment' ) ); ?></label>
 						<div class="col-sm-8">
-							<p class="item-comment"><?= $enc->html( $this->get( 'itemData/review.comment' ) ); ?></p>
+							<span class="item-comment"><?= $enc->html( $this->get( 'itemData/review.comment' ) ); ?></span>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Comment of the reviewer' ) ); ?>

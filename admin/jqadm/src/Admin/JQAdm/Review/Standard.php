@@ -332,7 +332,11 @@ class Standard
 			$item = $manager->createItem();
 		}
 
-		return $item->fromArray( $data, true );
+		if( $this->getView()->access( ['super', 'admin'] ) ) {
+			$item->setStatus( (int) $data['review.response'] ?? 1 );
+		}
+
+		return $item->setResponse( $data['review.response'] ?? '' );
 	}
 
 
