@@ -87,16 +87,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'review' );
+		$item = $manager->save( $manager->create()->setDomain( 'product' )->setRefId( '-1' ) );
 
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
-				'review.id' => '',
-				'review.domain' =>'product',
-				'review.refid' => '123',
+				'review.id' => $item->getId(),
 				'review.name' => 'test name',
-				'review.rating' => '1',
-				'review.comment' => 'test comment',
 				'review.response' => 'test response',
 				'review.status' => '-2',
 			),
@@ -107,9 +104,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $this->getItem( '1' )->getId() );
+		$manager->delete( $item );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
+
 		$this->assertNull( $result );
 	}
 

@@ -326,17 +326,17 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
 
-		if( isset( $data['review.id'] ) && $data['review.id'] != '' ) {
-			$item = $manager->getItem( $data['review.id'] );
-		} else {
-			$item = $manager->createItem();
+		if( ( $id = $data['review.id'] ?? null ) == null ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( 'Creating new reviews is not allowed' );
 		}
+
+		$item = $manager->get( $id );
 
 		if( $this->getView()->access( ['super', 'admin'] ) ) {
 			$item->setStatus( (int) $data['review.status'] ?? 1 );
 		}
 
-		return $item->setResponse( $data['review.response'] ?? '' );
+		return $item->setResponse( $data['review.response'] ?? '' )->setName( $data['review.name'] ?? '' );
 	}
 
 
