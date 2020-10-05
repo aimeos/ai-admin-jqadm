@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 11:14+0200\n"
-"PO-Revision-Date: 2020-07-01 19:44+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2020-10-05 09:23+0200\n"
+"PO-Revision-Date: 2020-10-05 07:29+0000\n"
+"Last-Translator: Matteo Schiona <ms@kiboko.it>\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -279,6 +279,9 @@ msgstr "Colonne"
 msgid "Comment"
 msgstr "Commento"
 
+msgid "Comment of the reviewer"
+msgstr ""
+
 msgid "Communication"
 msgstr "Comunicazione"
 
@@ -512,6 +515,9 @@ msgstr ""
 
 msgid "Execution order of the plugins"
 msgstr ""
+
+msgid "Export"
+msgstr "Esporta"
 
 msgid "Facility"
 msgstr ""
@@ -818,6 +824,9 @@ msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
 
+msgid "Name of the reviewer"
+msgstr ""
+
 msgid "New"
 msgstr ""
 
@@ -973,6 +982,9 @@ msgid "Plugin Type"
 msgstr ""
 
 msgid "Plugin Types"
+msgstr ""
+
+msgid "Plugin label for describing the configured plugin"
 msgstr ""
 
 msgid "Plugin position (required)"
@@ -1142,6 +1154,12 @@ msgstr ""
 msgid "Rabate"
 msgstr ""
 
+msgid "Rating"
+msgstr ""
+
+msgid "Rating of the reviewer"
+msgstr ""
+
 msgid "Reason"
 msgstr ""
 
@@ -1154,6 +1172,9 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
+msgstr ""
+
+msgid "Reference ID"
 msgstr ""
 
 msgid "Related ID"
@@ -1182,6 +1203,21 @@ msgstr ""
 
 msgid "Reset"
 msgstr "Reset"
+
+msgid "Response"
+msgstr ""
+
+msgid "Response to the reviewer"
+msgstr ""
+
+msgid "Review"
+msgstr "In revisione"
+
+msgid "Reviewed item"
+msgstr ""
+
+msgid "Reviewer name"
+msgstr ""
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1623,6 +1659,9 @@ msgstr ""
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr ""
 
+msgid "Your response"
+msgstr ""
+
 msgid "Zip code"
 msgstr ""
 
@@ -1842,6 +1881,10 @@ msgstr "cancellato"
 #, php-format
 msgid "related"
 msgstr "Prodotti"
+
+#, php-format
+msgid "review"
+msgstr ""
 
 #, php-format
 msgid "salesweekday"

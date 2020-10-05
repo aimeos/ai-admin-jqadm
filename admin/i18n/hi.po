@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-01 17:24+0200\n"
+"POT-Creation-Date: 2020-10-05 09:23+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi (http://www.transifex.com/aimeos/aimeos-core/language/hi/)\n"
@@ -263,6 +263,9 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
+msgid "Comment of the reviewer"
+msgstr ""
+
 msgid "Communication"
 msgstr ""
 
@@ -489,6 +492,9 @@ msgid "Excl. tax"
 msgstr ""
 
 msgid "Execution order of the plugins"
+msgstr ""
+
+msgid "Export"
 msgstr ""
 
 msgid "Facility"
@@ -781,6 +787,9 @@ msgstr ""
 msgid "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
 
+msgid "Name of the reviewer"
+msgstr ""
+
 msgid "New"
 msgstr ""
 
@@ -930,6 +939,9 @@ msgid "Plugin Type"
 msgstr ""
 
 msgid "Plugin Types"
+msgstr ""
+
+msgid "Plugin label for describing the configured plugin"
 msgstr ""
 
 msgid "Plugin position (required)"
@@ -1097,6 +1109,12 @@ msgstr ""
 msgid "Rabate"
 msgstr ""
 
+msgid "Rating"
+msgstr ""
+
+msgid "Rating of the reviewer"
+msgstr ""
+
 msgid "Reason"
 msgstr ""
 
@@ -1107,6 +1125,9 @@ msgid "Reduction from the original price, used to calculate the rebate in % and 
 msgstr ""
 
 msgid "Reference"
+msgstr ""
+
+msgid "Reference ID"
 msgstr ""
 
 msgid "Related ID"
@@ -1132,6 +1153,21 @@ msgid "Required quantity of articles for block pricing, e.g. one article for $5.
 msgstr ""
 
 msgid "Reset"
+msgstr ""
+
+msgid "Response"
+msgstr ""
+
+msgid "Response to the reviewer"
+msgstr ""
+
+msgid "Review"
+msgstr ""
+
+msgid "Reviewed item"
+msgstr ""
+
+msgid "Reviewer name"
 msgstr ""
 
 msgid "Route name or page ID of the category page if this category should shown on a different page"
@@ -1552,6 +1588,9 @@ msgstr ""
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr ""
 
+msgid "Your response"
+msgstr ""
+
 msgid "Zip code"
 msgstr ""
 
@@ -1770,6 +1809,10 @@ msgstr ""
 
 #, php-format
 msgid "related"
+msgstr ""
+
+#, php-format
+msgid "review"
 msgstr ""
 
 #, php-format

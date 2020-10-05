@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 11:14+0200\n"
-"PO-Revision-Date: 2020-07-20 21:18+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>\n"
+"POT-Creation-Date: 2020-10-05 09:23+0200\n"
+"PO-Revision-Date: 2020-10-05 07:29+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -276,6 +276,9 @@ msgstr "Sütunlar"
 msgid "Comment"
 msgstr "Yorum"
 
+msgid "Comment of the reviewer"
+msgstr ""
+
 msgid "Communication"
 msgstr "İletişim"
 
@@ -509,6 +512,9 @@ msgstr "KDV hariç"
 
 msgid "Execution order of the plugins"
 msgstr "Eklentilerin yürütme sırası"
+
+msgid "Export"
+msgstr "Dışa aktar"
 
 msgid "Facility"
 msgstr "Kategori"
@@ -815,6 +821,9 @@ msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr "Müşteriler dosyayı bilgisayarlarına kaydettiğinde indirilen dosyanın adı"
 
+msgid "Name of the reviewer"
+msgstr ""
+
 msgid "New"
 msgstr "Yeni"
 
@@ -971,6 +980,9 @@ msgstr "Eklenti Türü"
 
 msgid "Plugin Types"
 msgstr "Eklenti Türleri"
+
+msgid "Plugin label for describing the configured plugin"
+msgstr ""
 
 msgid "Plugin position (required)"
 msgstr "Eklenti pozisyonu (gerekli)"
@@ -1139,6 +1151,12 @@ msgstr "Miktar skalası"
 msgid "Rabate"
 msgstr "İndirim"
 
+msgid "Rating"
+msgstr ""
+
+msgid "Rating of the reviewer"
+msgstr ""
+
 msgid "Reason"
 msgstr "Sebep"
 
@@ -1152,6 +1170,9 @@ msgstr "Orijinal fiyattan yapılan iskonto, indirim yüzdesini ve çapraz fiyat�
 
 msgid "Reference"
 msgstr "Referans"
+
+msgid "Reference ID"
+msgstr ""
 
 msgid "Related ID"
 msgstr "İlgili kimlik numarası"
@@ -1179,6 +1200,21 @@ msgstr "Blok fiyatlandırma için gerekli ürün miktarı, örn; bir ürün içi
 
 msgid "Reset"
 msgstr "Sıfırla"
+
+msgid "Response"
+msgstr ""
+
+msgid "Response to the reviewer"
+msgstr ""
+
+msgid "Review"
+msgstr "İncelemede"
+
+msgid "Reviewed item"
+msgstr ""
+
+msgid "Reviewer name"
+msgstr ""
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1620,6 +1656,9 @@ msgstr "Yıllar"
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "Bir veya daha fazla öğeyi sileceksiniz. Devam etmek istiyor musunuz?"
 
+msgid "Your response"
+msgstr ""
+
 msgid "Zip code"
 msgstr "Posta kodu"
 
@@ -1839,6 +1878,10 @@ msgstr "İptal edildi"
 #, php-format
 msgid "related"
 msgstr "Ürünler"
+
+#, php-format
+msgid "review"
+msgstr ""
 
 #, php-format
 msgid "salesweekday"

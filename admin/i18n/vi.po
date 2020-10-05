@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 11:14+0200\n"
-"PO-Revision-Date: 2020-07-01 19:44+0000\n"
+"POT-Creation-Date: 2020-10-05 09:23+0200\n"
+"PO-Revision-Date: 2020-10-05 07:29+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Vietnamese (http://www.transifex.com/aimeos/aimeos-core/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -278,6 +278,9 @@ msgstr "Cột"
 msgid "Comment"
 msgstr "Bình luận"
 
+msgid "Comment of the reviewer"
+msgstr ""
+
 msgid "Communication"
 msgstr "Trao đổi"
 
@@ -511,6 +514,9 @@ msgstr "Không bao gồm thuế"
 
 msgid "Execution order of the plugins"
 msgstr "Thực hiện yêu cầu của trình cắm"
+
+msgid "Export"
+msgstr ""
 
 msgid "Facility"
 msgstr "Cơ sở"
@@ -817,6 +823,9 @@ msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
 
+msgid "Name of the reviewer"
+msgstr ""
+
 msgid "New"
 msgstr ""
 
@@ -972,6 +981,9 @@ msgid "Plugin Type"
 msgstr ""
 
 msgid "Plugin Types"
+msgstr ""
+
+msgid "Plugin label for describing the configured plugin"
 msgstr ""
 
 msgid "Plugin position (required)"
@@ -1141,6 +1153,12 @@ msgstr ""
 msgid "Rabate"
 msgstr ""
 
+msgid "Rating"
+msgstr ""
+
+msgid "Rating of the reviewer"
+msgstr ""
+
 msgid "Reason"
 msgstr ""
 
@@ -1153,6 +1171,9 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
+msgstr ""
+
+msgid "Reference ID"
 msgstr ""
 
 msgid "Related ID"
@@ -1181,6 +1202,21 @@ msgstr ""
 
 msgid "Reset"
 msgstr "Đặt lại"
+
+msgid "Response"
+msgstr ""
+
+msgid "Response to the reviewer"
+msgstr ""
+
+msgid "Review"
+msgstr "review"
+
+msgid "Reviewed item"
+msgstr ""
+
+msgid "Reviewer name"
+msgstr ""
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1622,6 +1658,9 @@ msgstr ""
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr ""
 
+msgid "Your response"
+msgstr ""
+
 msgid "Zip code"
 msgstr ""
 
@@ -1840,6 +1879,10 @@ msgstr ""
 
 #, php-format
 msgid "related"
+msgstr ""
+
+#, php-format
+msgid "review"
 msgstr ""
 
 #, php-format

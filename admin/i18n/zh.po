@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 11:14+0200\n"
-"PO-Revision-Date: 2020-07-01 19:44+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2020-10-05 09:23+0200\n"
+"PO-Revision-Date: 2020-10-05 07:29+0000\n"
+"Last-Translator: Bruce Liu <zcon.bruce@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -279,6 +279,9 @@ msgstr "欄位"
 msgid "Comment"
 msgstr "備註"
 
+msgid "Comment of the reviewer"
+msgstr ""
+
 msgid "Communication"
 msgstr ""
 
@@ -512,6 +515,9 @@ msgstr "未稅"
 
 msgid "Execution order of the plugins"
 msgstr "插件執行順序"
+
+msgid "Export"
+msgstr "匯出"
 
 msgid "Facility"
 msgstr "設施"
@@ -818,6 +824,9 @@ msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
 
+msgid "Name of the reviewer"
+msgstr ""
+
 msgid "New"
 msgstr "新紀錄"
 
@@ -974,6 +983,9 @@ msgstr "插件類別"
 
 msgid "Plugin Types"
 msgstr "插件類別"
+
+msgid "Plugin label for describing the configured plugin"
+msgstr ""
 
 msgid "Plugin position (required)"
 msgstr ""
@@ -1142,6 +1154,12 @@ msgstr ""
 msgid "Rabate"
 msgstr ""
 
+msgid "Rating"
+msgstr ""
+
+msgid "Rating of the reviewer"
+msgstr ""
+
 msgid "Reason"
 msgstr "原因"
 
@@ -1154,6 +1172,9 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
+msgstr ""
+
+msgid "Reference ID"
 msgstr ""
 
 msgid "Related ID"
@@ -1182,6 +1203,21 @@ msgstr ""
 
 msgid "Reset"
 msgstr "重置"
+
+msgid "Response"
+msgstr ""
+
+msgid "Response to the reviewer"
+msgstr ""
+
+msgid "Review"
+msgstr "狀態：已審核"
+
+msgid "Reviewed item"
+msgstr ""
+
+msgid "Reviewer name"
+msgstr ""
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1623,6 +1659,9 @@ msgstr "年"
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "你將要刪除一個或多個項目, 確定嗎？"
 
+msgid "Your response"
+msgstr ""
+
 msgid "Zip code"
 msgstr "Zip code"
 
@@ -1842,6 +1881,10 @@ msgstr "取消"
 #, php-format
 msgid "related"
 msgstr "商品"
+
+#, php-format
+msgid "review"
+msgstr ""
 
 #, php-format
 msgid "salesweekday"
