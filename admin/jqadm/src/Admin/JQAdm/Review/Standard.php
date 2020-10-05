@@ -32,6 +32,10 @@ class Standard
 	{
 		$view = $this->getView();
 
+		if( !$view->access( ['super', 'admin', 'test'] ) ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( 'Deleting reviews is not allowed' );
+		}
+
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
 		$manager->begin();
 

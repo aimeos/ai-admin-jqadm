@@ -195,7 +195,7 @@ $columnList = [
 					<?php endif; ?>
 
 					<td class="actions">
-						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
+						<?php if( $this->access( ['super', 'admin'] ) && !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 							<a class="btn act-delete fa" tabindex="1"
 								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'review', 'id' => $id] + $params, [], $delConfig ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
