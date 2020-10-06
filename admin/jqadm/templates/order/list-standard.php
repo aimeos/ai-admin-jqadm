@@ -247,7 +247,7 @@ $statusList = [
 								<?php foreach( $actions as $code ) : ?>
 									<li class="dropdown-item">
 										<a class="btn fa act-download" tabindex="1"
-											href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params, ['queue' => $code], $expConfig ) ); ?>"
+											href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params + ['queue' => $code], [], $expConfig ) ); ?>"
 											aria-label="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ); ?>"
 											title="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ); ?>">
 											<?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?>
