@@ -484,6 +484,7 @@ class Standard
 		{
 			$data['product.siteid'] = $this->getContext()->getLocale()->getSiteId();
 			$data['product.code'] = $data['product.code'] . '_copy';
+			$data['product.url'] = $data['product.url'] . '_' . time();
 			$data['product.id'] = '';
 		}
 
