@@ -23,6 +23,25 @@ $copyCntl = $this->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
 $copyAction = $this->config( 'admin/jqadm/url/copy/action', 'copy' );
 $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
 
+/** admin/jqadm/order/actions
+ * Actions available in the list view of the order panel
+ *
+ * List of actions, the editor can select from in the list header of the order
+ * panel. You can dynamically extend the available actions like exporting the
+ * selected orders in CSV format and translate the action names using the
+ * "admin/ext" translation domain.
+ *
+ * The action names will be passed as "queue" parameter to the export method
+ * of the JQADM order class, which will create an entry for the message queue
+ * from the selected filter criteria. You have to implement a suitable controller
+ * which must fetch the entries from the message queue and generate the appropriate
+ * files. If files should be offered for download in the dashboard, a new job
+ * entry must be created using the MAdmin Job manager.
+ *
+ * @param array List of action queue names
+ * @since 2020.10
+ */
+
 /** admin/jqadm/url/export/target
  * Destination of the URL where the controller specified in the URL is known
  *

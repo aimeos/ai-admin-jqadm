@@ -97,19 +97,18 @@ $config = $this->config( 'admin/jqadm/url/save/config', [] );
 $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] );
 
 
-/** admin/jqadm/navbar-limit
- * Number of JQAdm client links in the navigation bar shown by default
+/** admin/jqadm/product/item/navbar-limit
+ * Number of sub-part links in the product sidebar shown by default
  *
- * The navigation bar is divided into the basic and advanced section.
- * All admin client links in the basic section are always shown
- * while the links in the advanced section are hidden by default. The
- * entries in the navigation bar are defined by admin/jqadm/navbar. Using
- * this setting you can change how many links are always shown.
+ * The navigation sidebar is divided into the basic and advanced section.
+ * All sub-parts up to the configured limit are always shown while additional
+ * links in the advanced section are hidden by default. Using this setting you
+ * can change how many links are always shown.
  *
- * @param integer Number of client resource links
- * @since 2017.10
+ * @param integer Number of product sub-part links
+ * @since 2020.10
  * @category Developer
- * @see admin/jqadm/navbar
+ * @see admin/jqadm/navbar-limit
  */
 $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
 
