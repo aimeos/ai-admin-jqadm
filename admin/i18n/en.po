@@ -1823,9 +1823,9 @@ msgstr ""
 msgid "related"
 msgstr "Products"
 
-#, fuzzy, php-format
+#, php-format
 msgid "review"
-msgstr "review"
+msgstr "Reviews"
 
 #, php-format
 msgid "salesweekday"

@@ -1813,7 +1813,7 @@ msgstr "Products"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Reviews"
 
 #, php-format
 msgid "salesweekday"

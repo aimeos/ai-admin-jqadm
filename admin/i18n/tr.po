@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 07:29+0000\n"
-"Last-Translator: Aimeos\n"
+"PO-Revision-Date: 2020-10-05 19:51+0000\n"
+"Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -277,7 +277,7 @@ msgid "Comment"
 msgstr "Yorum"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Değerlendirenin yorumu"
 
 msgid "Communication"
 msgstr "İletişim"
@@ -822,7 +822,7 @@ msgid ""
 msgstr "Müşteriler dosyayı bilgisayarlarına kaydettiğinde indirilen dosyanın adı"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "Değerlendirenin adı"
 
 msgid "New"
 msgstr "Yeni"
@@ -982,7 +982,7 @@ msgid "Plugin Types"
 msgstr "Eklenti Türleri"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "Yapılandırılan eklentiyi açıklamak için eklenti etiketi"
 
 msgid "Plugin position (required)"
 msgstr "Eklenti pozisyonu (gerekli)"
@@ -1152,10 +1152,10 @@ msgid "Rabate"
 msgstr "İndirim"
 
 msgid "Rating"
-msgstr ""
+msgstr "Puanlama"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "Değerlendirenin oyu"
 
 msgid "Reason"
 msgstr "Sebep"
@@ -1172,7 +1172,7 @@ msgid "Reference"
 msgstr "Referans"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Referans numarası"
 
 msgid "Related ID"
 msgstr "İlgili kimlik numarası"
@@ -1202,19 +1202,19 @@ msgid "Reset"
 msgstr "Sıfırla"
 
 msgid "Response"
-msgstr ""
+msgstr "Yanıtla"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "Değerlendireni yanıtla"
 
 msgid "Review"
 msgstr "İncelemede"
 
 msgid "Reviewed item"
-msgstr ""
+msgstr "Değerlendirilen ürün"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "Değerlendirenin adı"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
@@ -1657,7 +1657,7 @@ msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "Bir veya daha fazla öğeyi sileceksiniz. Devam etmek istiyor musunuz?"
 
 msgid "Your response"
-msgstr ""
+msgstr "Sizin yanıtınız"
 
 msgid "Zip code"
 msgstr "Posta kodu"
@@ -1881,7 +1881,7 @@ msgstr "Ürünler"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Değerlendir"
 
 #, php-format
 msgid "salesweekday"
