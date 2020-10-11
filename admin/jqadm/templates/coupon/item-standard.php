@@ -89,7 +89,7 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>">
+				<div class="col-xl-6 content-block vue-block <?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
