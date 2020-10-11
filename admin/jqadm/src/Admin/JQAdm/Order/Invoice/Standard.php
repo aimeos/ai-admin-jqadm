@@ -250,7 +250,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch( false, true );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' )] );
 
 		$search = $this->initCriteria( $search, $params, 'orderinvoice' );

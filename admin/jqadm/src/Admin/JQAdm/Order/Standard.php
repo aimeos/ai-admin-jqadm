@@ -355,7 +355,7 @@ class Standard
 		$baseIds = $orderItems->getBaseId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 
-		$search = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
+		$search = $manager->createSearch( false, true )->setSlice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
 
 		$domains = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
