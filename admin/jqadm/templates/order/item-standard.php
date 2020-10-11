@@ -277,7 +277,7 @@ $statusList = [
 												<td class="item-column column-status">
 													<select class="form-control custom-select product-status" required="required" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.status' ) ) ); ?>"
-														<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
+														<?= $this->site()->readonly( $orderProduct->getSiteId() ); ?> >
 														<option value="">
 															<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
 														</option>
