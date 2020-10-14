@@ -19,11 +19,11 @@ Aimeos = {
 		{ name: 'document', items: [ 'Source' ] }
 	],
 
-  editortags : 'div(*);span(*);p(*);',
+	editortags : 'div(*);span(*);p(*);',
 
-  extraPlugins: 'devarea',
+	extraPlugins: 'devarea',
 
-  removeButtons: 'Superscript,Subscript,JustifyBlock,Underline',
+	removeButtons: 'Superscript,Subscript,JustifyBlock,Underline',
 
 	flatpickr : {
 		datetimerange: {

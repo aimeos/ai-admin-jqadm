@@ -163,8 +163,8 @@ Vue.component('html-editor', {
 			readOnly: this.readonly,
 			protectedSource: [/\n/g],
 			autoParagraph: false,
-      entities: false,
-      removeButtons: Aimeos.removeButtons
+			entities: false,
+			removeButtons: Aimeos.removeButtons
 		});
 		this.instance.on('change', this.change);
 	},
