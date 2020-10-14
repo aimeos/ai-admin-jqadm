@@ -158,12 +158,13 @@ Vue.component('html-editor', {
 		this.instance = CKEDITOR.replace(this.id, {
 			extraAllowedContent: Aimeos.editortags,
 			toolbar: Aimeos.editorcfg,
-			extraPlugins: 'divarea',
+			extraPlugins: Aimeos.extraPlugins,
 			initialData: this.value,
 			readOnly: this.readonly,
 			protectedSource: [/\n/g],
 			autoParagraph: false,
-			entities: false
+      entities: false,
+      removeButtons: Aimeos.removeButtons
 		});
 		this.instance.on('change', this.change);
 	},
