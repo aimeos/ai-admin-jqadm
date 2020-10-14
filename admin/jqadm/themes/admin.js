@@ -21,7 +21,7 @@ Aimeos = {
 
 	editortags : 'div(*);span(*);p(*);',
 
-	extraPlugins: 'devarea',
+	extraPlugins: 'divarea',
 
 	removeButtons: 'Superscript,Subscript,JustifyBlock,Underline',
 
