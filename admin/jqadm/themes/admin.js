@@ -23,7 +23,7 @@ Aimeos = {
 
 	extraPlugins: 'divarea',
 
-	removeButtons: 'Superscript,Subscript,JustifyBlock,Underline',
+	removeButtons: 'Underline,Subscript,Superscript',
 
 	flatpickr : {
 		datetimerange: {
