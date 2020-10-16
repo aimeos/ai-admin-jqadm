@@ -21,6 +21,10 @@ Aimeos = {
 
 	editortags : 'div(*);span(*);p(*);',
 
+	editorExtraPlugins: 'divarea',
+
+	editorRemoveButtons: 'Underline,Subscript,Superscript',
+
 	flatpickr : {
 		datetimerange: {
 			altInput: true,
