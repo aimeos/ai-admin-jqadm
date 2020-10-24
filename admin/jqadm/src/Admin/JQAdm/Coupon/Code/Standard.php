@@ -255,7 +255,7 @@ class Standard
 		];
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		return $manager->searchItems( $search, [], $total );
+		return $manager->search( $search, [], $total );
 	}
 
 
@@ -320,7 +320,7 @@ class Standard
 
 		$search = $manager->createSearch()->setSlice( 0, count( $ids ) );
 		$search->setConditions( $search->compare( '==', 'coupon.code.id', $ids ) );
-		$items = $manager->searchItems( $search );
+		$items = $manager->search( $search );
 
 		foreach( $ids as $idx => $id )
 		{

@@ -42,8 +42,8 @@ class Standard
 		$langsearch->setSortations( [$langsearch->sort( '+', 'locale.language.id' )] );
 		$langsearch->setSlice( 0, 250 );
 
-		$view->itemLanguages = $langmanager->searchItems( $langsearch );
-		$view->itemCurrencies = $curmanager->searchItems( $cursearch );
+		$view->itemLanguages = $langmanager->search( $langsearch );
+		$view->itemCurrencies = $curmanager->search( $cursearch );
 		$view->itemSubparts = $this->getSubClientNames();
 
 		return $view;
@@ -131,7 +131,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'locale.id', $ids ) );
-			$items = $manager->searchItems( $search );
+			$items = $manager->search( $search );
 
 			foreach( $items as $item )
 			{
@@ -233,7 +233,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
-			$view->items = $manager->searchItems( $search, [], $total );
+			$view->items = $manager->search( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();

@@ -117,7 +117,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'supplier.id', $ids ) );
-			$items = $manager->searchItems( $search, $this->getDomains() );
+			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $item )
 			{
@@ -220,7 +220,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
-			$view->items = $manager->searchItems( $search, $this->getDomains(), $total );
+			$view->items = $manager->search( $search, $this->getDomains(), $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();

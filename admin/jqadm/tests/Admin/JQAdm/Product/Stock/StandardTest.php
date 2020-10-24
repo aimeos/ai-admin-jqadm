@@ -102,11 +102,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$search = $stockManager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', 'jqadm-test-stock' ) );
-		$count = count( $stockManager->searchItems( $search ) );
+		$count = count( $stockManager->search( $search ) );
 
 		$search = $stockManager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', 'jqadm-test-stock-2' ) );
-		$stocks = $stockManager->searchItems( $search );
+		$stocks = $stockManager->search( $search );
 
 		$stockManager->deleteItems( $stocks->toArray() );
 		$manager->deleteItem( $item->getId() );

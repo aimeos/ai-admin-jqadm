@@ -120,7 +120,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'catalog.id', $ids ) );
-			$items = $manager->searchItems( $search, $this->getDomains() );
+			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $item )
 			{

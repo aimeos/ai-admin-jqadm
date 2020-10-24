@@ -49,7 +49,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'supplier.lists.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'supplier.lists.type.position' )] );
 
-		$view->productListTypes = $manager->searchItems( $search );
+		$view->productListTypes = $manager->search( $search );
 
 		return $view;
 	}
@@ -247,7 +247,7 @@ class Standard
 		];
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		return $manager->searchItems( $search, [], $total );
+		return $manager->search( $search, [], $total );
 	}
 
 
@@ -270,7 +270,7 @@ class Standard
 		$search = $manager->createSearch()->setSlice( 0, count( $list ) );
 		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
 
-		return $manager->searchItems( $search );
+		return $manager->search( $search );
 	}
 
 
@@ -333,7 +333,7 @@ class Standard
 		$search = $listManager->createSearch()->setSlice( 0, count( $listIds ) );
 		$search->setConditions( $search->compare( '==', 'supplier.lists.id', $listIds ) );
 
-		$listItems = $listManager->searchItems( $search );
+		$listItems = $listManager->search( $search );
 
 
 		foreach( (array) $listIds as $idx => $listid )

@@ -42,7 +42,7 @@ class Standard
 			$search->setSortations( [$search->sort( '-', 'log.timestamp' )] );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->searchItems( $search, [], $total );
+			$view->items = $manager->search( $search, [], $total );
 			$view->itemBody = parent::search();
 			$view->total = $total;
 		}

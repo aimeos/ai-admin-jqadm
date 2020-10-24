@@ -119,7 +119,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'locale.site.id', $ids ) );
-			$items = $manager->searchItems( $search );
+			$items = $manager->search( $search );
 
 			foreach( $items as $id => $item )
 			{
@@ -232,7 +232,7 @@ class Standard
 				] ) );
 			}
 
-			$view->items = $manager->searchItems( $search, [], $total );
+			$view->items = $manager->search( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();

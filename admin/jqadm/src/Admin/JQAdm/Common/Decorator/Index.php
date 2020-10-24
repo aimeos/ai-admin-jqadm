@@ -41,7 +41,7 @@ class Index extends Base
 			$search = $manager->createSearch( true )->setSlice( count( $prodIds ) );
 			$search->setConditions( $search->compare( '==', 'product.id', $prodIds ) );
 
-			$items = $manager->searchItems( $search, $domains );
+			$items = $manager->search( $search, $domains );
 			\Aimeos\MShop::create( $context, 'index' )->rebuild( $items->toArray() );
 		}
 

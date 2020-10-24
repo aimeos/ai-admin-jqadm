@@ -56,8 +56,8 @@ class Standard
 		$listSearch->setConditions( $listSearch->compare( '==', 'supplier.lists.type.domain', 'media' ) );
 		$listSearch->setSortations( [$listSearch->sort( '+', 'supplier.lists.type.position' )] );
 
-		$view->mediaListTypes = $listTypeManager->searchItems( $listSearch );
-		$view->mediaTypes = $typeManager->searchItems( $search );
+		$view->mediaListTypes = $listTypeManager->search( $listSearch );
+		$view->mediaTypes = $typeManager->search( $search );
 
 		return $view;
 	}
@@ -257,7 +257,7 @@ class Standard
 		{
 			$func = $search->createFunction( 'supplier:has', ['media', $listItem->getType(), $listItem->getRefId()] );
 			$search->setConditions( $search->compare( '!=', $func, null ) );
-			$items = $manager->searchItems( $search );
+			$items = $manager->search( $search );
 			$refItem = null;
 
 			if( count( $items ) === 1 && ( $refItem = $listItem->getRefItem() ) !== null ) {

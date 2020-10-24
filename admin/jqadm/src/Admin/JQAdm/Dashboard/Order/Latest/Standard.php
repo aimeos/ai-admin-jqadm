@@ -53,7 +53,7 @@ class Standard
 				$search->getConditions()
 		] ) );
 
-		$view->orderlatestItems = $manager->searchItems( $search, ['order/base', 'order/base/address', 'order/base/product', 'order/base/service'] );
+		$view->orderlatestItems = $manager->search( $search, ['order/base', 'order/base/address', 'order/base/product', 'order/base/service'] );
 		$view->orderlatestBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/latest/template-item

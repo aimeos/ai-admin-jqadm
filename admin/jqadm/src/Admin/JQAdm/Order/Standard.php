@@ -220,7 +220,7 @@ class Standard
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->searchItems( $search, [], $total );
+			$view->items = $manager->search( $search, [], $total );
 			$view->baseItems = $this->getOrderBaseItems( $view->items );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
@@ -359,7 +359,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
 
 		$domains = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
-		return $manager->searchItems( $search, $domains );
+		return $manager->search( $search, $domains );
 	}
 
 

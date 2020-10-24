@@ -130,7 +130,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'subscription.id', $ids ) );
-			$items = $manager->searchItems( $search );
+			$items = $manager->search( $search );
 
 			foreach( $items as $item )
 			{
@@ -276,7 +276,7 @@ class Standard
 			$search->setSortations( [$search->sort( '-', 'subscription.ctime' )] );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->searchItems( $search, [], $total );
+			$view->items = $manager->search( $search, [], $total );
 			$view->baseItems = $this->getOrderBaseItems( $view->items );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
@@ -414,7 +414,7 @@ class Standard
 		$search = $manager->createSearch()->setSlice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
 
-		return $manager->searchItems( $search, ['order/base/address', 'order/base/product'] );
+		return $manager->search( $search, ['order/base/address', 'order/base/product'] );
 	}
 
 

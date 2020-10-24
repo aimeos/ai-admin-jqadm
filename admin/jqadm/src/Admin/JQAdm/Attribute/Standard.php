@@ -119,7 +119,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'attribute.id', $ids ) );
-			$items = $manager->searchItems( $search, $this->getDomains() );
+			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $item )
 			{
@@ -221,7 +221,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
-			$view->items = $manager->searchItems( $search, $this->getDomains(), $total );
+			$view->items = $manager->search( $search, $this->getDomains(), $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemTypes = $this->getTypeItems();
@@ -423,7 +423,7 @@ class Standard
 		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'attribute.type.label' )] );
 
-		return $typeManager->searchItems( $search );
+		return $typeManager->search( $search );
 	}
 
 

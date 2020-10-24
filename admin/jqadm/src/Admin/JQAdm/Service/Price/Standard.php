@@ -57,9 +57,9 @@ class Standard
 		$listSearch->setConditions( $listSearch->compare( '==', 'service.lists.type.domain', 'price' ) );
 		$listSearch->setSortations( [$listSearch->sort( '+', 'service.lists.type.position' )] );
 
-		$view->priceTypes = $priceTypeManager->searchItems( $search );
-		$view->priceListTypes = $listTypeManager->searchItems( $listSearch );
-		$view->priceCurrencies = $currencyManager->searchItems( $currencyManager->createSearch( true )->setSlice( 0, 10000 ) );
+		$view->priceTypes = $priceTypeManager->search( $search );
+		$view->priceListTypes = $listTypeManager->search( $listSearch );
+		$view->priceCurrencies = $currencyManager->search( $currencyManager->createSearch( true )->setSlice( 0, 10000 ) );
 
 		if( $view->priceCurrencies->isEmpty() ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );

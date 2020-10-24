@@ -106,7 +106,7 @@ class Standard
 		$search->setSortations( [$search->sort( '-', 'job.ctime' ), $search->sort( '-', 'job.id' )] );
 		$total = 0;
 
-		$view->jobItems = $manager->searchItems( $search, [], $total );
+		$view->jobItems = $manager->search( $search, [], $total );
 		$view->jobBody = parent::search();
 		$view->jobTotal = $total;
 

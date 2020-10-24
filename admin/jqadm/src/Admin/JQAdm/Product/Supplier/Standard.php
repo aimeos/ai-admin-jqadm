@@ -99,7 +99,7 @@ class Standard
 		{
 			$search->setSlice( $start );
 
-			$result = $manager->searchItems( $search );
+			$result = $manager->search( $search );
 			$manager->deleteItems( $result->toArray() );
 
 			$count = count( $result );
@@ -299,7 +299,7 @@ class Standard
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'supplier.id', $ids ) );
 
-		return $manager->searchItems( $search );
+		return $manager->search( $search );
 	}
 
 
@@ -320,7 +320,7 @@ class Standard
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		return $manager->searchItems( $search );
+		return $manager->search( $search );
 	}
 
 

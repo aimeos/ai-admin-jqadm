@@ -49,7 +49,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'stock.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'stock.type.position' )] );
 
-		$view->stockTypes = $typeManager->searchItems( $search );
+		$view->stockTypes = $typeManager->search( $search );
 
 		return $view;
 	}
@@ -107,7 +107,7 @@ class Standard
 		$search = $manager->createSearch();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $code ) );
 
-		$manager->deleteItems( $manager->searchItems( $search )->toArray() );
+		$manager->deleteItems( $manager->search( $search )->toArray() );
 
 		return null;
 	}
@@ -351,7 +351,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );
 		$search->setSortations( array( $search->sort( '+', 'stock.type' ) ) );
 
-		foreach( $manager->searchItems( $search ) as $stockItem )
+		foreach( $manager->search( $search ) as $stockItem )
 		{
 			$list = $stockItem->toArray( true );
 

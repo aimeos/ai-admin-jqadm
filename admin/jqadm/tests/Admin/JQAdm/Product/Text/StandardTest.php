@@ -23,7 +23,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$langManager = \Aimeos\MShop::create( $this->context, 'locale/language' );
 
-		$this->view->pageLanguages = $langManager->searchItems( $langManager->createSearch() );
+		$this->view->pageLanguages = $langManager->search( $langManager->createSearch() );
 		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Product\Text\Standard( $this->context );

@@ -206,7 +206,7 @@ class Standard
 		$search->setConditions( $search->combine( '&&', $expr ) );
 		$search->setSortations( [$search->sort( '+', 'attribute.code' )] );
 
-		return $manager->searchItems( $search );
+		return $manager->search( $search );
 	}
 
 

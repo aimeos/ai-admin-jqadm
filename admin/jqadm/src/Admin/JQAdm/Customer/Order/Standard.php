@@ -191,7 +191,7 @@ class Standard
 		$search = $manager->createSearch()->setSlice( 0, count( $ids ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $ids ) );
 
-		return $manager->searchItems( $search );
+		return $manager->search( $search );
 	}
 
 
@@ -217,7 +217,7 @@ class Standard
 		];
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		return $manager->searchItems( $search, [], $total );
+		return $manager->search( $search, [], $total );
 	}
 
 

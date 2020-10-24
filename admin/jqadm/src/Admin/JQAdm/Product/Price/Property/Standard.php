@@ -49,7 +49,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'price.property.type.domain', 'price' ) );
 		$search->setSortations( [$search->sort( '+', 'price.property.type.position' )] );
 
-		$view->propertyTypes = $manager->searchItems( $search );
+		$view->propertyTypes = $manager->search( $search );
 
 		return $view;
 	}

@@ -115,7 +115,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'locale.currency.id', $ids ) );
-			$items = $manager->searchItems( $search );
+			$items = $manager->search( $search );
 
 			foreach( $items as $item )
 			{
@@ -220,7 +220,7 @@ class Standard
 			$search->setSortations( [$search->sort( '-', 'locale.currency.status' ), $search->sort( '+', 'locale.currency.id' )] );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->searchItems( $search, [], $total );
+			$view->items = $manager->search( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();

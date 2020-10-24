@@ -56,8 +56,8 @@ class Standard
 		$listSearch->setConditions( $listSearch->compare( '==', 'supplier.lists.type.domain', 'text' ) );
 		$listSearch->setSortations( array( $listSearch->sort( '+', 'supplier.lists.type.position' ) ) );
 
-		$view->textListTypes = $listTypeManager->searchItems( $listSearch );
-		$view->textTypes = $textTypeManager->searchItems( $search );
+		$view->textListTypes = $listTypeManager->search( $listSearch );
+		$view->textTypes = $textTypeManager->search( $search );
 
 		return $view;
 	}

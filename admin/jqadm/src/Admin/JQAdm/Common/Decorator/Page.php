@@ -47,7 +47,7 @@ class Page extends Base
 			) {
 				$search = $siteManager->createSearch()->setSlice( 0, 1 );
 				$search->setConditions( $search->compare( '==', 'locale.site.siteid', $siteid ) );
-				$id = $siteManager->searchItems( $search )->keys()->first() ?: $siteItem->getId();
+				$id = $siteManager->search( $search )->keys()->first() ?: $siteItem->getId();
 			}
 		}
 		catch( \Exception $e ) { ; }
@@ -62,7 +62,7 @@ class Page extends Base
 
 		$view->pageInfo = $context->getSession()->pull( 'info', [] );
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
-		$view->pageLangItems = $langManager->searchItems( $langManager->createSearch( true ) );
+		$view->pageLangItems = $langManager->search( $langManager->createSearch( true ) );
 		$view->pageSiteTree = $siteManager->getTree( $id, [], $level );
 		$view->pageSitePath = $sitePath;
 		$view->pageSiteItem = $siteItem;
@@ -73,7 +73,7 @@ class Page extends Base
 			$search->setSortations( [$search->sort( '+', 'locale.site.label' )] );
 			$search->setConditions( $search->compare( '==', 'locale.site.level', 0 ) );
 
-			$view->pageSiteList = $siteManager->searchItems( $search );
+			$view->pageSiteList = $siteManager->search( $search );
 
 			if( ( $rootItem = $sitePath->first() ) !== null ) {
 				$view->pageSiteTree = $siteManager->getTree( $rootItem->getId(), [], $level );

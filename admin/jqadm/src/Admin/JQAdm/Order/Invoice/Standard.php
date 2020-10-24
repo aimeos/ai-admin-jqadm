@@ -260,7 +260,7 @@ class Standard
 		];
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		return $manager->searchItems( $search, [], $total );
+		return $manager->search( $search, [], $total );
 	}
 
 
@@ -278,7 +278,7 @@ class Standard
 		$search = $manager->createSearch()->setSlice( 0, count( $invoiceIds ) );
 		$search->setConditions( $search->compare( '==', 'order.id', $invoiceIds ) );
 
-		$items = $manager->searchItems( $search );
+		$items = $manager->search( $search );
 
 
 		foreach( $invoiceIds as $idx => $id )

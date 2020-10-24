@@ -275,9 +275,9 @@ class Standard
 
 		$curSearch = $currencyManager->createSearch( true )->setSlice( 0, 10000 );
 
-		$view->priceTypes = $priceTypeManager->searchItems( $search );
-		$view->priceListTypes = $listTypeManager->searchItems( $listSearch );
-		$view->priceCurrencies = $currencyManager->searchItems( $curSearch );
+		$view->priceTypes = $priceTypeManager->search( $search );
+		$view->priceListTypes = $listTypeManager->search( $listSearch );
+		$view->priceCurrencies = $currencyManager->search( $curSearch );
 
 		if( $view->priceCurrencies->isEmpty() ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );

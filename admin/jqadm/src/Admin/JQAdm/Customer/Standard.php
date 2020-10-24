@@ -119,7 +119,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'customer.id', $ids ) );
-			$items = $manager->searchItems( $search, $this->getDomains() );
+			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $item )
 			{
@@ -222,7 +222,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
 			$search = $this->initCriteria( $manager->createSearch(), $params );
 
-			$view->items = $manager->searchItems( $search, $this->getDomains(), $total );
+			$view->items = $manager->search( $search, $this->getDomains(), $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();
@@ -386,7 +386,7 @@ class Standard
 		$search = $manager->createSearch();
 		$search->setSortations( [$search->sort( '+', 'customer.group.label' )] );
 
-		foreach( $manager->searchItems( $search ) as $groupId => $groupItem )
+		foreach( $manager->search( $search ) as $groupId => $groupItem )
 		{
 			if( !$isSuper && $groupItem->getCode() === 'super' ) {
 				continue;

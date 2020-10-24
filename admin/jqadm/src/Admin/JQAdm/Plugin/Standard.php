@@ -127,7 +127,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'plugin.id', $ids ) );
-			$items = $manager->searchItems( $search );
+			$items = $manager->search( $search );
 
 			foreach( $items as $item )
 			{
@@ -233,7 +233,7 @@ class Standard
 			$search->setSortations( [$search->sort( '+', 'plugin.type' ), $search->sort( '+', 'plugin.position' )] );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->searchItems( $search, [], $total );
+			$view->items = $manager->search( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemTypes = $this->getTypeItems();
@@ -431,7 +431,7 @@ class Standard
 		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'plugin.type.position' )] );
 
-		return $typeManager->searchItems( $search );
+		return $typeManager->search( $search );
 	}
 
 

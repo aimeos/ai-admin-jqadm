@@ -48,7 +48,7 @@ class Standard
 		$search = $manager->createSearch( true )->setSlice( 0, 1000 );
 		$search->setSortations( [$search->sort( '+', 'attribute.type.position' )] );
 
-		$view->attributeTypes = $manager->searchItems( $search );
+		$view->attributeTypes = $manager->search( $search );
 
 		return $view;
 	}

@@ -136,7 +136,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'order/base/product' );
 		$search = $manager->createSearch()->setSlice( 0, 1 );
 
-		if( ( $item = $manager->searchItems( $search )->first() ) === null ) {
+		if( ( $item = $manager->search( $search )->first() ) === null ) {
 			throw new \Exception( 'No order product item found' );
 		}
 
@@ -266,7 +266,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$search = $manager->createSearch()->setSlice( 0, 1 );
 		$search->setConditions( $search->compare( '==', 'subscription.dateend', $end ) );
 
-		if( ( $item = $manager->searchItems( $search )->first() ) === null ) {
+		if( ( $item = $manager->search( $search )->first() ) === null ) {
 			throw new \Exception( sprintf( 'No subscription item found for end date "%1$s"', $end ) );
 		}
 

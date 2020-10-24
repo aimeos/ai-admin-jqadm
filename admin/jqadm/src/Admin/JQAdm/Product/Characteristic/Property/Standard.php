@@ -269,7 +269,7 @@ class Standard
 		$search->setConditions( $search->compare( '!=', 'product.property.type.code', $excludes ) );
 		$search->setSortations( [$search->sort( '+', 'product.property.type.position' )] );
 
-		return $manager->searchItems( $search );
+		return $manager->search( $search );
 	}
 
 

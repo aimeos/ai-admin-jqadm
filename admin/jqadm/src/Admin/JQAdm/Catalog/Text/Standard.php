@@ -272,8 +272,8 @@ class Standard
 		$listSearch->setConditions( $listSearch->compare( '==', 'catalog.lists.type.domain', 'text' ) );
 		$listSearch->setSortations( [$listSearch->sort( '+', 'catalog.lists.type.position' )] );
 
-		$view->textTypes = $textTypeManager->searchItems( $search );
-		$view->textListTypes = $listTypeManager->searchItems( $listSearch );
+		$view->textTypes = $textTypeManager->search( $search );
+		$view->textListTypes = $listTypeManager->search( $listSearch );
 
 		return $view;
 	}

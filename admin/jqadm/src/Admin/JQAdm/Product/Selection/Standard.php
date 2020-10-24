@@ -334,7 +334,7 @@ class Standard
 			$search->compare( '==', 'stock.type', 'default' ),
 		] ) );
 
-		$stockItems = $manager->searchItems( $search );
+		$stockItems = $manager->search( $search );
 		$map = $stockItems->col( 'stock.productcode', 'stock.id' );
 		$list = [];
 

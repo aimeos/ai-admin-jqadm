@@ -43,7 +43,7 @@ class Standard
 		$view = $this->getView();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
-		$view->orderCurrencyItems = $manager->searchItems( $manager->createSearch( true ) );
+		$view->orderCurrencyItems = $manager->search( $manager->createSearch( true ) );
 		$view->orderBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/template-list

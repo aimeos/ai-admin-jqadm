@@ -49,7 +49,7 @@ class Standard
 		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'catalog.lists.type.position' )] );
 
-		$view->productListTypes = $manager->searchItems( $search );
+		$view->productListTypes = $manager->search( $search );
 
 		return $view;
 	}
@@ -247,7 +247,7 @@ class Standard
 		];
 		$search->setConditions( $search->combine( '&&', $expr ) );
 
-		return $manager->searchItems( $search, [], $total );
+		return $manager->search( $search, [], $total );
 	}
 
 
@@ -265,7 +265,7 @@ class Standard
 		$search = $manager->createSearch()->setSlice( 0, count( $list ) );
 		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
 
-		return $manager->searchItems( $search );
+		return $manager->search( $search );
 	}
 
 

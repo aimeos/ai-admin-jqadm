@@ -128,7 +128,7 @@ class Standard
 
 			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'service.id', $ids ) );
-			$items = $manager->searchItems( $search, $this->getDomains() );
+			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $item )
 			{
@@ -234,7 +234,7 @@ class Standard
 			$search->setSortations( [$search->sort( '+', 'service.type' ), $search->sort( '+', 'service.position' )] );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->searchItems( $search, $this->getDomains(), $total );
+			$view->items = $manager->search( $search, $this->getDomains(), $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemTypes = $this->getTypeItems();
@@ -454,7 +454,7 @@ class Standard
 		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'service.type.position' )] );
 
-		return $typeManager->searchItems( $search );
+		return $typeManager->search( $search );
 	}
 
 
