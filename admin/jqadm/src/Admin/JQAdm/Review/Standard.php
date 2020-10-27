@@ -87,7 +87,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
 
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();

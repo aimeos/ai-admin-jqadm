@@ -53,7 +53,7 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
-			$view->item = $manager->getItem( $id, $this->getDomains() );
+			$view->item = $manager->get( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
@@ -164,7 +164,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
-			$view->item = $manager->getItem( $id, $this->getDomains() );
+			$view->item = $manager->get( $id, $this->getDomains() );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -460,7 +460,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
 		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
-			$item = $manager->getItem( $data['product.id'], $this->getDomains() );
+			$item = $manager->get( $data['product.id'], $this->getDomains() );
 		} else {
 			$item = $manager->createItem();
 		}

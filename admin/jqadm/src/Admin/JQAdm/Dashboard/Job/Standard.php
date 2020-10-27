@@ -49,7 +49,7 @@ class Standard
 
 		$fs = $context->getFileSystemManager()->get( 'fs-admin' );
 		$manager = \Aimeos\MAdmin::create( $context, 'job' );
-		$item = $manager->getItem( $id );
+		$item = $manager->get( $id );
 		$result = $item->getResult();
 
 		if( isset( $result['file'] ) && $fs->has( $result['file'] ) ) {
@@ -77,7 +77,7 @@ class Standard
 		}
 
 		$fs = $context->getFileSystemManager()->get( 'fs-admin' );
-		$item = \Aimeos\MAdmin::create( $context, 'job' )->getItem( $id );
+		$item = \Aimeos\MAdmin::create( $context, 'job' )->get( $id );
 		$result = $item->getResult();
 
 		if( isset( $result['file'] ) && $fs->has( $result['file'] ) )

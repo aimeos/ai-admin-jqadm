@@ -60,7 +60,7 @@ abstract class Base
 			}
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 
 			$view->itemData = $this->toArray( $path, $view->item, true );
 			$view->itemBody = parent::copy();
@@ -169,7 +169,7 @@ abstract class Base
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $path, $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -261,7 +261,7 @@ abstract class Base
 		$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 
 		if( isset( $data[$key] ) && $data[$key] != '' ) {
-			$item = $manager->getItem( $data[$key] );
+			$item = $manager->get( $data[$key] );
 		} else {
 			$item = $manager->createItem();
 		}

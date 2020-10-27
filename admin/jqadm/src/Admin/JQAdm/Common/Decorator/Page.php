@@ -43,7 +43,7 @@ class Page extends Base
 		try
 		{
 			if( ( $custid = $context->getUserId() ) !== null
-				&& ( $siteid = $customerManager->getItem( $custid )->getSiteId() ) !== null
+				&& ( $siteid = $customerManager->get( $custid )->getSiteId() ) !== null
 			) {
 				$search = $siteManager->createSearch()->setSlice( 0, 1 );
 				$search->setConditions( $search->compare( '==', 'locale.site.siteid', $siteid ) );

@@ -52,7 +52,7 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
@@ -155,7 +155,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -399,7 +399,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 
 		if( isset( $data['locale.currency.id'] ) && $data['locale.currency.id'] != '' ) {
-			$item = $manager->getItem( $data['locale.currency.id'] );
+			$item = $manager->get( $data['locale.currency.id'] );
 		} else {
 			$item = $manager->createItem();
 		}

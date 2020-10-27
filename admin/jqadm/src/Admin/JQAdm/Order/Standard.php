@@ -154,7 +154,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 			$refs = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
 
-			$view->item = $manager->getItem( $id, $refs );
+			$view->item = $manager->get( $id, $refs );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -420,7 +420,7 @@ class Standard
 		$domains = ['order/base/address', 'order/base/product', 'order/base/service'];
 
 		if( isset( $data['order.base.id'] ) ) {
-			$basket = $manager->getItem( $data['order.base.id'], $domains )->off();
+			$basket = $manager->get( $data['order.base.id'], $domains )->off();
 		} else {
 			$basket = $manager->createItem()->off();
 		}
@@ -506,7 +506,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
 
 			try {
-				$data += $manager->getItem( $item->getCustomerId() )->toArray();
+				$data += $manager->get( $item->getCustomerId() )->toArray();
 			} catch( \Exception $e ) {};
 		}
 

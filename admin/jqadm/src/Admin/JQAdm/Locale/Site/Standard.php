@@ -54,7 +54,7 @@ class Standard
 			$this->checkSite( $view->access( 'super' ), $id );
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
@@ -162,7 +162,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -382,7 +382,7 @@ class Standard
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
 
-		return $manager->getItem( $context->getUserId() )->getSiteId();
+		return $manager->get( $context->getUserId() )->getSiteId();
 	}
 
 
@@ -453,7 +453,7 @@ class Standard
 		if( isset( $data['locale.site.id'] ) && $data['locale.site.id'] != '' )
 		{
 			$this->checkSite( $super, $data['locale.site.id'] );
-			$item = $manager->getItem( $data['locale.site.id'] );
+			$item = $manager->get( $data['locale.site.id'] );
 		}
 		else
 		{

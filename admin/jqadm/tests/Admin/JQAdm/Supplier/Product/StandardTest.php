@@ -98,7 +98,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$item = $manager->getItem( $item->getId(), ['product'] );
+		$item = $manager->get( $item->getId(), ['product'] );
 		$manager->deleteItem( $item->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );

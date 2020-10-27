@@ -52,7 +52,7 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
@@ -157,7 +157,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -398,7 +398,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 
 		if( isset( $data['customer.group.id'] ) && $data['customer.group.id'] != '' ) {
-			$item = $manager->getItem( $data['customer.group.id'] );
+			$item = $manager->get( $data['customer.group.id'] );
 		} else {
 			$item = $manager->createItem();
 		}

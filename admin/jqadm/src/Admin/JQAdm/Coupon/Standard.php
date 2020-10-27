@@ -57,7 +57,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
 
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemBody = parent::copy();
@@ -162,7 +162,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
 
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemBody = parent::get();
@@ -438,7 +438,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
 
 		if( isset( $data['coupon.id'] ) && $data['coupon.id'] != '' ) {
-			$item = $manager->getItem( $data['coupon.id'] );
+			$item = $manager->get( $data['coupon.id'] );
 		} else {
 			$item = $manager->createItem();
 		}

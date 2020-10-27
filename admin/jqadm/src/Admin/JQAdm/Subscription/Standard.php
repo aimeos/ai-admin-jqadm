@@ -55,8 +55,8 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'subscription' );
 			$baseManager = \Aimeos\MShop::create( $context, 'order/base' );
 
-			$view->item = $manager->getItem( $id );
-			$view->itemBase = $baseManager->getItem( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
+			$view->item = $manager->get( $id );
+			$view->itemBase = $baseManager->get( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -91,7 +91,7 @@ class Standard
 			$baseId = ( $view->item->getOrderBaseId() ?: $view->param( 'item/subscription.ordbaseid' ) );
 
 			if( $baseId ) {
-				$view->itemBase = $baseManager->getItem( $baseId, ['order/base/address', 'order/base/product'] );
+				$view->itemBase = $baseManager->get( $baseId, ['order/base/address', 'order/base/product'] );
 			} else {
 				$view->itemBase = $baseManager->createItem();
 			}
@@ -210,8 +210,8 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'subscription' );
 			$baseManager = \Aimeos\MShop::create( $context, 'order/base' );
 
-			$view->item = $manager->getItem( $id );
-			$view->itemBase = $baseManager->getItem( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
+			$view->item = $manager->get( $id );
+			$view->itemBase = $baseManager->get( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -473,7 +473,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
 
 		if( isset( $data['subscription.id'] ) && $data['subscription.id'] != '' ) {
-			$item = $manager->getItem( $data['subscription.id'] );
+			$item = $manager->get( $data['subscription.id'] );
 		} else {
 			$item = $manager->createItem();
 		}

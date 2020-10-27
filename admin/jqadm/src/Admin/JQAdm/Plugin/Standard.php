@@ -62,7 +62,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'plugin' );
 
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemBody = parent::copy();
@@ -167,7 +167,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'plugin' );
 
-			$view->item = $manager->getItem( $id );
+			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemAttributes = $this->getConfigAttributes( $view->item );
 			$view->itemBody = parent::get();
@@ -463,7 +463,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'plugin' );
 
 		if( isset( $data['plugin.id'] ) && $data['plugin.id'] != '' ) {
-			$item = $manager->getItem( $data['plugin.id'] );
+			$item = $manager->get( $data['plugin.id'] );
 		} else {
 			$item = $manager->createItem();
 		}
