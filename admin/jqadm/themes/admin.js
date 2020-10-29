@@ -1119,9 +1119,6 @@ $(function() {
 					this.data = JSON.parse(this.$el.dataset.data);
 				}
 			},
-			mounted: function() {
-				this.clearFilterValue()
-			},
 			methods: {
 				add: function(data) {
 					this.$refs[key].add(data);
@@ -1134,9 +1131,6 @@ $(function() {
 				},
 				toggleFilterSearchMobile: function () {
 					document.body.classList.toggle('js--show-search');
-				},
-				clearFilterValue: function () {
-					this.$refs['input-filter-value'].value = ''
 				}
 			}
 		});
