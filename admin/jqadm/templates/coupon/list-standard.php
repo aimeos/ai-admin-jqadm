@@ -106,9 +106,9 @@ $columnList = [
 		<thead class="list-header">
 			<tr>
 				<th class="select">
-					<a class="btn act-delete fa" tabindex="1" data-multi="1"
-						href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => ''] + $params, [], $delConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+					<a href="#" class="btn act-delete fa" tabindex="1" data-multi="1"
+						v-on:click.prevent.stop="removeAll('<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => ''] + $params, [], $delConfig ) ) ?>','<?= $enc->attr( $this->translate( 'admin', 'Selected entries' ) ) ?>')"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 					</a>
 				</th>
@@ -209,8 +209,8 @@ $columnList = [
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
 						</a>
 						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-							<a class="btn act-delete fa" tabindex="1"
-								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'coupon', 'id' => $id] + $params, [], $delConfig ) ); ?>"
+							<a class="btn act-delete fa" tabindex="1" href="#"
+								v-on:click.prevent.stop="remove('<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ) ?>','<?= $enc->attr( $item->getLabel() ) ?>')"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 							</a>
