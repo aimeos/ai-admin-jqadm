@@ -214,7 +214,7 @@ $statusList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
-<div class="vue-block">
+<div class="vue-block" data-data="<?= $enc->attr( $this->get( 'items', map() )->getId()->toArray() ) ?>">
 
 <nav class="main-navbar">
 
@@ -233,6 +233,8 @@ $statusList = [
 	); ?>
 </nav>
 
+
+<div is="list-view" inline-template v-bind:items="data">
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -557,6 +559,7 @@ $statusList = [
 	);
 ?>
 
+</div>
 </div>
 <?php $this->block()->stop(); ?>
 

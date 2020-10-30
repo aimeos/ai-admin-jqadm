@@ -721,93 +721,25 @@ Aimeos.Form = {
 
 Aimeos.List = {
 
-	element : null,
-
-
 	init : function() {
 
-		this.askDelete();
-		this.askSelected();
-		this.cancelDelete();
 		this.confirmDelete();
-		this.select();
-	},
-
-
-	askDelete : function() {
-		var self = this;
-
-		$(".aimeos form.list .list-items").on("click", ".actions .act-delete", function(e) {
-
-			var dialog = $("#confirm-delete");
-			var item = $('<li>').text($(this).parents(".list-item").data('label'));
-
-			$(".modal-body ul.items", dialog).append(item);
-			self.element = $(this);
-			dialog.modal("show");
-
-			return false;
-		});
-	},
-
-
-	askSelected : function() {
-		var self = this;
-
-		$(".aimeos form.list").on("click", ".list-header .select .act-delete", function(e) {
-
-			var dialog = $("#confirm-delete");
-			var list = $(".modal-body ul.items", dialog);
-
-			$(".list-item input[type='checkbox']:checked", e.delegateTarget).each(function() {
-				list.append($('<li>').text($(this).parents(".list-item").data('label')));
-			});
-
-			self.element = $(this);
-			dialog.modal("show");
-			return false;
-		});
-	},
-
-
-	cancelDelete : function() {
-		var self = this;
-
-		$("#confirm-delete").on("click", "button.close, .btn-secondary", function(e) {
-			$(".modal-body ul.items li", $(e.delegateTarget)).remove();
-			self.element = null;
-		});
 	},
 
 
 	confirmDelete : function() {
-		var self = this;
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
 
-			if(self.element) {
-				if(self.element.data("multi")) {
-					var form = self.element.parents("form.list");
-					form.attr('action', self.element.attr('href'));
-					form.submit();
-				} else {
-					window.location = self.element.attr("href");
-				}
+			if($(this).data("multi")) {
+				var form = $("form.list");
+				form.attr('action', $(this).data('url'));
+				form.submit();
+			} else {
+				window.location = $(this).data("url");
 			}
 
 			return false;
-		});
-	},
-
-
-	select : function() {
-
-		$(".aimeos form.list").on("click", ".list-search input[type='checkbox']", function(e) {
-			if($(e.target).prop('checked')) {
-				$(".list-item .select input[type='checkbox']", e.delegateTarget).prop('checked', true);
-			} else {
-				$(".list-item .select input[type='checkbox']", e.delegateTarget).prop('checked', false);
-			}
 		});
 	}
 };

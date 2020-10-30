@@ -68,7 +68,7 @@ $columnList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
-<div class="vue-block">
+<div class="vue-block" data-data="<?= $enc->attr( $this->get( 'items', map() )->getId()->toArray() ) ?>">
 
 <nav class="main-navbar">
 
@@ -88,6 +88,8 @@ $columnList = [
 </nav>
 
 
+<div is="list-view" inline-template v-bind:items="data">
+
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
 		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
@@ -102,9 +104,9 @@ $columnList = [
 		<thead class="list-header">
 			<tr>
 				<th class="select">
-					<a class="btn act-delete fa" tabindex="1" data-multi="1"
-						href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => ''] + $params, [], $delConfig ) ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+					<a href="#" class="btn act-delete fa" tabindex="1" data-multi="1"
+						v-on:click.prevent.stop="removeAll('<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => ''] + $params, [], $delConfig ) ) ?>','<?= $enc->attr( $this->translate( 'admin', 'Selected entries' ) ) ?>')"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 					</a>
 				</th>
@@ -136,7 +138,6 @@ $columnList = [
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/supplier/filter', [] ),
 					'data' => [
-						'select' => ['type' => 'checkbox'],
 						'supplier.id' => ['op' => '=='],
 						'supplier.status' => ['op' => '==', 'type' => 'select', 'val' => [
 							'1' => $this->translate( 'mshop/code', 'status:1' ),
@@ -156,7 +157,7 @@ $columnList = [
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
-					<td class="select"><input class="form-control" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+					<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="!items['<?= $id ?>']" class="form-control" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
 					<?php if( in_array( 'supplier.id', $fields ) ) : ?>
 						<td class="supplier-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
@@ -186,8 +187,8 @@ $columnList = [
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
 						</a>
 						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-							<a class="btn act-delete fa" tabindex="1"
-								href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'supplier', 'id' => $id] + $params, [], $delConfig ) ); ?>"
+							<a class="btn act-delete fa" tabindex="1" href="#"
+								v-on:click.prevent.stop="remove('<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ) ?>','<?= $enc->attr( $item->getLabel() ) ?>')"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 							</a>
@@ -210,6 +211,7 @@ $columnList = [
 	);
 ?>
 
+</div>
 </div>
 <?php $this->block()->stop(); ?>
 
