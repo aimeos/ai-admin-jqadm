@@ -233,7 +233,7 @@ td.is-invalid .form-control {
 .btn,
 .dropdown-menu {
 	font-size: 100%;
-	z-index: 1041;
+	z-index: 1040;
 }
 
 .dropdown-item label {
