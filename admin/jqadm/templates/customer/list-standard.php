@@ -92,7 +92,7 @@ $columnList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
-<div class="vue-block">
+<div class="vue-block" data-data="<?= $enc->attr( $this->get( 'items', map() )->getId()->toArray() ) ?>">
 
 <nav class="main-navbar">
 
@@ -111,6 +111,8 @@ $columnList = [
 	); ?>
 </nav>
 
+
+<div is="list-view" inline-template v-bind:items="data">
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -160,7 +162,6 @@ $columnList = [
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/customer/filter', [] ),
 					'data' => [
-						'select' => ['type' => 'checkbox'],
 						'customer.id' => ['op' => '=='],
 						'customer.status' => ['op' => '==', 'type' => 'select', 'val' => [
 							'1' => $this->translate( 'mshop/code', 'status:1' ),
@@ -202,7 +203,7 @@ $columnList = [
 				<?php $address = $item->getPaymentAddress(); ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>" data-label="<?= $enc->attr( $item->getLabel() ?: $item->getCode() ) ?>">
-					<td class="select"><input class="form-control" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+					<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="!items['<?= $id ?>']" class="form-control" type="checkbox" tabindex="1" /></td>
 					<?php if( in_array( 'customer.id', $fields ) ) : ?>
 						<td class="customer-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
@@ -313,6 +314,7 @@ $columnList = [
 	);
 ?>
 
+</div>
 </div>
 <?php $this->block()->stop(); ?>
 

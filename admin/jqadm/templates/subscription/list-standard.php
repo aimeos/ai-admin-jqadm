@@ -138,7 +138,7 @@ $reasonList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
-<div class="vue-block">
+<div class="vue-block" data-data="<?= $enc->attr( $this->get( 'items', map() )->getId()->toArray() ) ?>">
 
 <nav class="main-navbar">
 
@@ -157,6 +157,8 @@ $reasonList = [
 	); ?>
 </nav>
 
+
+<div is="list-view" inline-template v-bind:items="data">
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -206,7 +208,6 @@ $reasonList = [
 				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
 					'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/subscription/filter', [] ),
 					'data' => [
-						'select' => ['type' => 'checkbox'],
 						'subscription.id' => ['op' => '=='],
 						'subscription.status' => ['op' => '==', 'type' => 'select', 'val' => [
 							'1' => $this->translate( 'mshop/code', 'status:1' ),
@@ -267,7 +268,7 @@ $reasonList = [
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>" data-label="<?= $enc->attr( $item->getId() ) ?>">
-					<td class="select"><input class="form-control" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+					<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="!items['<?= $id ?>']" class="form-control" type="checkbox" tabindex="1" /></td>
 					<?php if( in_array( 'subscription.id', $fields ) ) : ?>
 						<td class="subscription-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
@@ -455,6 +456,7 @@ $reasonList = [
 	);
 ?>
 
+</div>
 </div>
 <?php $this->block()->stop(); ?>
 

@@ -180,6 +180,46 @@ Vue.component('html-editor', {
 
 
 
+Vue.component('list-view', {
+	props: {
+		'items': {type: Object, required: true},
+		'all': {type: Boolean, required: false, default: true}
+	},
+	methods: {
+		remove: function(url, label) {
+			var dialog = $("#confirm-delete");
+
+			$(".modal-footer .btn-danger").data("url", url);
+			$(".modal-body ul.items", dialog).append($('<li>').text(label));
+
+			dialog.modal("show");
+		},
+
+		removeAll: function(url, label) {
+			var dialog = $("#confirm-delete");
+
+			$(".modal-footer .btn-danger").data("url", url).data("multi", "1");
+			$(".modal-body ul.items", dialog).append($('<li>').text(label));
+
+			dialog.modal("show");
+		},
+
+		toggle: function(id) {
+			this.items[id] = !this.items[id];
+		},
+
+		toggleAll: function() {
+			this.all = !this.all;
+
+			for(const key in this.items) {
+				this.items[key] = this.all;
+			};
+		}
+	}
+});
+
+
+
 Vue.component('property-table', {
 	props: {
 		'domain': {type: String, required: true},
