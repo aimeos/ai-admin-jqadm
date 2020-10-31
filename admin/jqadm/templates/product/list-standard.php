@@ -558,7 +558,7 @@ $columnList = [
 </nav>
 
 
-<div is="list-view" inline-template v-bind:items="data">
+<div is="list-view" inline-template v-bind:items="data"><div>
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -710,7 +710,8 @@ $columnList = [
 	);
 ?>
 
-</div>
+</div></div>
+
 </div>
 <?php $this->block()->stop(); ?>
 
