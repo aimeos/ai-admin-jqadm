@@ -224,11 +224,11 @@ class Standard
 		$typeManager = \Aimeos\MShop::create( $context, 'media/type' );
 		$listTypeManager = \Aimeos\MShop::create( $context, 'catalog/lists/type' );
 
-		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
+		$search = $typeManager->filter( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'media.type.domain', 'catalog' ) );
 		$search->setSortations( [$search->sort( '+', 'media.type.position' )] );
 
-		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 10000 );
+		$listSearch = $listTypeManager->filter( true )->setSlice( 0, 10000 );
 		$listSearch->setConditions( $listSearch->compare( '==', 'catalog.lists.type.domain', 'media' ) );
 		$listSearch->setSortations( [$listSearch->sort( '+', 'catalog.lists.type.position' )] );
 
@@ -251,7 +251,7 @@ class Standard
 		$context = $this->getContext();
 		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 		$manager = \Aimeos\MShop::create( $context, 'catalog' );
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 
 		foreach( $listItems as $listItem )
 		{

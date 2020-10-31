@@ -253,7 +253,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'plugin' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'plugin.label', $label ) );
 		$search->setSlice( 0, 1 );
 

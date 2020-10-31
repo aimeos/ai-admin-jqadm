@@ -250,7 +250,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
-		$search = $manager->createSearch( false, true );
+		$search = $manager->filter( false, true );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' )] );
 
 		$search = $this->initCriteria( $search, $params, 'orderinvoice' );
@@ -275,7 +275,7 @@ class Standard
 		$invoiceIds = $this->getValue( $data, 'order.id', [] );
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
-		$search = $manager->createSearch()->setSlice( 0, count( $invoiceIds ) );
+		$search = $manager->filter()->setSlice( 0, count( $invoiceIds ) );
 		$search->setConditions( $search->compare( '==', 'order.id', $invoiceIds ) );
 
 		$items = $manager->search( $search );

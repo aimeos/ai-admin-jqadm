@@ -45,7 +45,7 @@ class Standard
 	{
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'stock/type' );
 
-		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
+		$search = $typeManager->filter( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'stock.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'stock.type.position' )] );
 
@@ -104,7 +104,7 @@ class Standard
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 
 		$code = $this->getView()->item->getCode();
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $code ) );
 
 		$manager->deleteItems( $manager->search( $search )->toArray() );
@@ -311,7 +311,7 @@ class Standard
 
 		if( !$ids->isEmpty() )
 		{
-			$search = $manager->createSearch();
+			$search = $manager->filter();
 			$search->setConditions( $search->compare( '==', 'stock.id', $ids->toArray() ) );
 			$stocks = $manager->searchitems( $search );
 		}
@@ -347,7 +347,7 @@ class Standard
 		$siteId = $context->getLocale()->getSiteId();
 		$manager = \Aimeos\MShop::create( $context, 'stock' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );
 		$search->setSortations( array( $search->sort( '+', 'stock.type' ) ) );
 

@@ -188,7 +188,7 @@ class Standard
 		$ids = $items->getBaseId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 
-		$search = $manager->createSearch()->setSlice( 0, count( $ids ) );
+		$search = $manager->filter()->setSlice( 0, count( $ids ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $ids ) );
 
 		return $manager->search( $search );
@@ -207,7 +207,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setSortations( [$search->sort( '-', 'order.ctime' )] );
 
 		$search = $this->initCriteria( $search, $params );

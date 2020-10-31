@@ -216,7 +216,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'order' );
 			$params = $this->storeSearchParams( $view->param(), 'order' );
 
-			$search = $manager->createSearch( false, true );
+			$search = $manager->filter( false, true );
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );
 			$search = $this->initCriteria( $search, $params );
 
@@ -355,7 +355,7 @@ class Standard
 		$baseIds = $orderItems->getBaseId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 
-		$search = $manager->createSearch( false, true )->setSlice( 0, count( $baseIds ) );
+		$search = $manager->filter( false, true )->setSlice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
 
 		$domains = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];

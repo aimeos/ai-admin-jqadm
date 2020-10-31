@@ -38,7 +38,7 @@ class Standard
 			$params = $this->storeSearchParams( $view->param(), 'log' );
 			$manager = \Aimeos\MAdmin::create( $this->getContext(), 'log' );
 
-			$search = $manager->createSearch();
+			$search = $manager->filter();
 			$search->setSortations( [$search->sort( '-', 'log.timestamp' )] );
 			$search = $this->initCriteria( $search, $params );
 

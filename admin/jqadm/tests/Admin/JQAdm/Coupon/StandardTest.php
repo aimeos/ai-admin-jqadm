@@ -283,7 +283,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'coupon' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'coupon.label', $label ) );
 
 		if( ( $item = $manager->search( $search )->first() ) === null ) {

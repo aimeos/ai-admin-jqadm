@@ -113,7 +113,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'locale.language.id', $ids ) );
 			$items = $manager->search( $search );
 
@@ -216,7 +216,7 @@ class Standard
 			$params = $this->storeSearchParams( $view->param(), 'locale/language' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/language' );
 
-			$search = $manager->createSearch();
+			$search = $manager->filter();
 			$search->setSortations( [$search->sort( '-', 'locale.language.status' ), $search->sort( '+', 'locale.language.id' )] );
 			$search = $this->initCriteria( $search, $params );
 

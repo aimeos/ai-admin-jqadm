@@ -249,7 +249,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'locale' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setSlice( 0, 1 );
 
 		$expr = [];

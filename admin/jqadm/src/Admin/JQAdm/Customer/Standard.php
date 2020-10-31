@@ -117,7 +117,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'customer.id', $ids ) );
 			$items = $manager->search( $search, $this->getDomains() );
 
@@ -220,7 +220,7 @@ class Standard
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'customer' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
-			$search = $this->initCriteria( $manager->createSearch(), $params );
+			$search = $this->initCriteria( $manager->filter(), $params );
 
 			$view->items = $manager->search( $search, $this->getDomains(), $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
@@ -383,7 +383,7 @@ class Standard
 		$isEditor = $this->getView()->access( ['editor'] );
 
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setSortations( [$search->sort( '+', 'customer.group.label' )] );
 
 		foreach( $manager->search( $search ) as $groupId => $groupItem )

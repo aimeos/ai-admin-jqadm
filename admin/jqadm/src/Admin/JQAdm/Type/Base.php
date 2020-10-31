@@ -125,7 +125,7 @@ abstract class Base
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', str_replace( '/', '.', $path ) . '.type.id', $ids ) );
 			$items = $manager->search( $search );
 
@@ -231,7 +231,7 @@ abstract class Base
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'type/' . $path );
 			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
-			$search = $this->initCriteria( $manager->createSearch(), $params );
+			$search = $this->initCriteria( $manager->filter(), $params );
 
 			$view->items = $manager->search( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );

@@ -45,7 +45,7 @@ class Page extends Base
 			if( ( $custid = $context->getUserId() ) !== null
 				&& ( $siteid = $customerManager->get( $custid )->getSiteId() ) !== null
 			) {
-				$search = $siteManager->createSearch()->setSlice( 0, 1 );
+				$search = $siteManager->filter()->setSlice( 0, 1 );
 				$search->setConditions( $search->compare( '==', 'locale.site.siteid', $siteid ) );
 				$id = $siteManager->search( $search )->keys()->first() ?: $siteItem->getId();
 			}
@@ -62,14 +62,14 @@ class Page extends Base
 
 		$view->pageInfo = $context->getSession()->pull( 'info', [] );
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
-		$view->pageLangItems = $langManager->search( $langManager->createSearch( true ) );
+		$view->pageLangItems = $langManager->search( $langManager->filter( true ) );
 		$view->pageSiteTree = $siteManager->getTree( $id, [], $level );
 		$view->pageSitePath = $sitePath;
 		$view->pageSiteItem = $siteItem;
 
 		if( $view->access( ['super'] ) )
 		{
-			$search = $siteManager->createSearch()->setSlice( 0, 1000 );
+			$search = $siteManager->filter()->setSlice( 0, 1000 );
 			$search->setSortations( [$search->sort( '+', 'locale.site.label' )] );
 			$search->setConditions( $search->compare( '==', 'locale.site.level', 0 ) );
 

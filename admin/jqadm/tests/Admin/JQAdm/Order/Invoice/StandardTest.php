@@ -84,7 +84,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'order.type', 'jqadmtst' ) );
 
 		if( ( $item = $manager->search( $search )->first() ) === null ) {
@@ -121,7 +121,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'order/base' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'order.base.comment', $comment ) );
 
 		if( ( $item = $manager->search( $search )->first() ) === null ) {

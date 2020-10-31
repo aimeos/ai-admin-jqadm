@@ -45,7 +45,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute/type' );
 
-		$search = $manager->createSearch( true )->setSlice( 0, 1000 );
+		$search = $manager->filter( true )->setSlice( 0, 1000 );
 		$search->setSortations( [$search->sort( '+', 'attribute.type.position' )] );
 
 		$view->attributeTypes = $manager->search( $search );

@@ -34,11 +34,11 @@ class Standard
 		$curmanager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 		$langmanager = \Aimeos\MShop::create( $this->getContext(), 'locale/language' );
 
-		$cursearch = $curmanager->createSearch( true );
+		$cursearch = $curmanager->filter( true );
 		$cursearch->setSortations( [$cursearch->sort( '+', 'locale.currency.id' )] );
 		$cursearch->setSlice( 0, 250 );
 
-		$langsearch = $langmanager->createSearch( true );
+		$langsearch = $langmanager->filter( true );
 		$langsearch->setSortations( [$langsearch->sort( '+', 'locale.language.id' )] );
 		$langsearch->setSlice( 0, 250 );
 
@@ -129,7 +129,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'locale.id', $ids ) );
 			$items = $manager->search( $search );
 
@@ -231,7 +231,7 @@ class Standard
 			$total = 0;
 			$params = $this->storeSearchParams( $view->param(), 'locale' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale' );
-			$search = $this->initCriteria( $manager->createSearch(), $params );
+			$search = $this->initCriteria( $manager->filter(), $params );
 
 			$view->items = $manager->search( $search, [], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );

@@ -265,15 +265,15 @@ class Standard
 		$listTypeManager = \Aimeos\MShop::create( $context, 'attribute/lists/type' );
 		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
-		$search = $priceTypeManager->createSearch( true )->setSlice( 0, 10000 );
+		$search = $priceTypeManager->filter( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'price.type.domain', 'attribute' ) );
 		$search->setSortations( [$search->sort( '+', 'price.type.position' )] );
 
-		$listSearch = $listTypeManager->createSearch( true )->setSlice( 0, 10000 );
+		$listSearch = $listTypeManager->filter( true )->setSlice( 0, 10000 );
 		$listSearch->setConditions( $listSearch->compare( '==', 'attribute.lists.type.domain', 'price' ) );
 		$listSearch->setSortations( [$listSearch->sort( '+', 'attribute.lists.type.position' )] );
 
-		$curSearch = $currencyManager->createSearch( true )->setSlice( 0, 10000 );
+		$curSearch = $currencyManager->filter( true )->setSlice( 0, 10000 );
 
 		$view->priceTypes = $priceTypeManager->search( $search );
 		$view->priceListTypes = $listTypeManager->search( $listSearch );

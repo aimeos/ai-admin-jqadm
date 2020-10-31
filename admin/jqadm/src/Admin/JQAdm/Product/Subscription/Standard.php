@@ -198,7 +198,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$expr = [
 			$search->compare( '==', 'attribute.type', 'interval' ),
 			$search->compare( '==', 'attribute.domain', 'product' ),

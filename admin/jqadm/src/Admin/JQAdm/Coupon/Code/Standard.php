@@ -245,7 +245,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setSortations( [$search->sort( '+', 'coupon.code.code' )] );
 
 		$search = $this->initCriteria( $search, $params );
@@ -318,7 +318,7 @@ class Standard
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
 
-		$search = $manager->createSearch()->setSlice( 0, count( $ids ) );
+		$search = $manager->filter()->setSlice( 0, count( $ids ) );
 		$search->setConditions( $search->compare( '==', 'coupon.code.id', $ids ) );
 		$items = $manager->search( $search );
 

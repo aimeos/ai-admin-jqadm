@@ -100,11 +100,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$search = $stockManager->createSearch();
+		$search = $stockManager->filter();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', 'jqadm-test-stock' ) );
 		$count = count( $stockManager->search( $search ) );
 
-		$search = $stockManager->createSearch();
+		$search = $stockManager->filter();
 		$search->setConditions( $search->compare( '==', 'stock.productcode', 'jqadm-test-stock-2' ) );
 		$stocks = $stockManager->search( $search );
 

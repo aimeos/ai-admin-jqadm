@@ -85,7 +85,7 @@ class Standard
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$expr = array(
 			$search->compare( '==', 'catalog.lists.refid', $view->param( 'id' ) ),
 			$search->compare( '==', 'catalog.lists.domain', 'product' )
@@ -296,7 +296,7 @@ class Standard
 		$ids = $listItems->getParentId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 
-		$search = $manager->createSearch();
+		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'catalog.id', $ids ) );
 
 		return $manager->search( $search );
@@ -313,7 +313,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 
-		$search = $manager->createSearch()->setSlice( 0, 0x7fffffff );
+		$search = $manager->filter()->setSlice( 0, 0x7fffffff );
 		$expr = array(
 			$search->compare( '==', 'catalog.lists.refid', $prodid ),
 			$search->compare( '==', 'catalog.lists.domain', 'product' ),

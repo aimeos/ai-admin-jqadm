@@ -45,7 +45,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/property/type' );
 
-		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
+		$search = $manager->filter( true )->setSlice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'customer.property.type.position' )] );
 
 		$view->propertyTypes = $manager->search( $search );

@@ -118,7 +118,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'product.id', $ids ) );
 			$items = $manager->search( $search, $this->getDomains() );
 
@@ -230,7 +230,7 @@ class Standard
 			$params = $this->storeSearchParams( $view->param(), 'product' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
-			$search = $manager->createSearch();
+			$search = $manager->filter();
 			$search->setSortations( [$search->sort( '+', 'product.id' )] );
 			$search = $this->initCriteria( $search, $params );
 
@@ -433,7 +433,7 @@ class Standard
 	{
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'product/type' );
 
-		$search = $typeManager->createSearch( true )->setSlice( 0, 10000 );
+		$search = $typeManager->filter( true )->setSlice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'product.type.position' )] );
 
 		return $typeManager->search( $search );

@@ -45,7 +45,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->createSearch()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'review.id', $ids ) );
 			$items = $manager->search( $search );
 
@@ -149,7 +149,7 @@ class Standard
 			$params = $this->storeSearchParams( $view->param(), 'review' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
 
-			$search = $manager->createSearch();
+			$search = $manager->filter();
 			$search->setSortations( [$search->sort( '-', 'review.ctime' )] );
 			$search = $this->initCriteria( $search, $params );
 

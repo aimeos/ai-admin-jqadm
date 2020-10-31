@@ -202,7 +202,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'media/property/type' );
 
-		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
+		$search = $manager->filter( true )->setSlice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
 		$search->setSortations( [$search->sort( '+', 'media.property.type.position' )] );
 
