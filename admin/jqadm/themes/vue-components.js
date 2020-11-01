@@ -220,6 +220,22 @@ Vue.component('list-view', {
 
 
 
+Vue.component('nav-search', {
+	props: {
+		'state': {type: Boolean, required: false, default: false}
+	},
+	methods: {
+		toggle: function () {
+			this.state = !this.state;
+		},
+		toggleMobile: function () {
+			document.body.classList.toggle('js--show-search');
+		}
+	}
+});
+
+
+
 Vue.component('property-table', {
 	props: {
 		'domain': {type: String, required: true},

@@ -1042,8 +1042,7 @@ $(function() {
 			el: this,
 			data: function() {
 				return {
-					data: null,
-					toggleFilter: true,
+					data: null
 				}
 			},
 			beforeMount: function() {
@@ -1057,12 +1056,6 @@ $(function() {
 				},
 				remove: function(idx) {
 					this.$refs[key].remove(idx);
-				},
-				toggleFilterSearch: function () {
-					this.toggleFilter = !this.toggleFilter
-				},
-				toggleFilterSearchMobile: function () {
-					document.body.classList.toggle('js--show-search');
 				}
 			}
 		});
