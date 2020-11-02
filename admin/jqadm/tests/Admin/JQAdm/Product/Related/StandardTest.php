@@ -50,7 +50,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'CNC' );
+		$this->view->item = $manager->find( 'CNC' );
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -71,7 +71,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'CNC' );
+		$this->view->item = $manager->find( 'CNC' );
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -83,7 +83,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$item = $manager->findItem( 'CNC' );
+		$item = $manager->find( 'CNC' );
 		$item->setCode( 'jqadm-test-related' );
 		$item->setId( null );
 

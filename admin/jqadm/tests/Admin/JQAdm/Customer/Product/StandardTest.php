@@ -37,7 +37,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testCopy()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
-		$this->view->item = $manager->findItem( 'test@example.com' );
+		$this->view->item = $manager->find( 'test@example.com' );
 
 		$result = $this->object->copy();
 
@@ -48,7 +48,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testCreate()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
-		$this->view->item = $manager->findItem( 'test@example.com' );
+		$this->view->item = $manager->find( 'test@example.com' );
 
 		$result = $this->object->create();
 
@@ -59,7 +59,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testGet()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
-		$this->view->item = $manager->findItem( 'test@example.com' );
+		$this->view->item = $manager->find( 'test@example.com' );
 
 		$result = $this->object->get();
 
@@ -72,7 +72,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
 
-		$item = $manager->findItem( 'test@example.com' );
+		$item = $manager->find( 'test@example.com' );
 		$item->setCode( 'jqadm-test-save' );
 		$item->setId( null );
 
@@ -151,7 +151,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->getMock();
 
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
-		$view->item = $manager->findItem( 'test@example.com' );
+		$view->item = $manager->find( 'test@example.com' );
 
 		return $view;
 	}

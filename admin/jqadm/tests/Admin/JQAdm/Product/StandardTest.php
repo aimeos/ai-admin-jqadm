@@ -62,7 +62,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'CNC' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( 'CNC' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -105,7 +105,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'CNC' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( 'CNC' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -159,7 +159,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->object->save();
 
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
-		$item = $manager->findItem( 'test' );
+		$item = $manager->find( 'test' );
 		$manager->deleteItem( $item->getId() );
 
 		$this->assertEquals( ['test' => 'value'], $item->getConfig() );
@@ -270,7 +270,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( 'CNC' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'CNC' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

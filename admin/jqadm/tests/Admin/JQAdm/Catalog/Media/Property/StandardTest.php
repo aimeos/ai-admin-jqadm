@@ -50,7 +50,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
-		$this->view->item = $manager->findItem( 'cafe', ['media'] );
+		$this->view->item = $manager->find( 'cafe', ['media'] );
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -71,7 +71,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
-		$this->view->item = $manager->findItem( 'cafe', ['media'] );
+		$this->view->item = $manager->find( 'cafe', ['media'] );
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -84,7 +84,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 		$typeManager = \Aimeos\MShop::create( $this->context, 'media/property/type' );
 
-		$item = $manager->findItem( 'cafe', ['media'] );
+		$item = $manager->find( 'cafe', ['media'] );
 		$item->setCode( 'jqadm-test-media-property' );
 		$item->setId( null );
 

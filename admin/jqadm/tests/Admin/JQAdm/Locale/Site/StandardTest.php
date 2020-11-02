@@ -58,7 +58,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'unittest' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( 'unittest' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -101,7 +101,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'unittest' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( 'unittest' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -154,7 +154,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->save();
 
-		$item = $manager->findItem( 'jqadm@test' );
+		$item = $manager->find( 'jqadm@test' );
 		$manager->deleteItem( $item->getId() );
 
 		$this->assertEquals( ['test' => 'value'], $item->getConfig() );
@@ -240,7 +240,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( 'unittest' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'unittest' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

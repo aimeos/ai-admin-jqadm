@@ -63,7 +63,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer/group' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'unitgroup' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'unitgroup' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -111,7 +111,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'customer/group' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'unitgroup' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'unitgroup' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -164,7 +164,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $manager->findItem( 'jqadm@test' )->getId() );
+		$manager->deleteItem( $manager->find( 'jqadm@test' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
@@ -260,7 +260,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'customer/group' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( 'unitgroup' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'unitgroup' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

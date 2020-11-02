@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'cafe' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( 'cafe' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -102,7 +102,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'cafe' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( 'cafe' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -156,7 +156,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->object->save();
 
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
-		$item = $manager->findItem( 'jqadm catalog test' );
+		$item = $manager->find( 'jqadm catalog test' );
 		$manager->deleteItem( $item->getId() );
 
 		$this->assertEquals( ['test' => 'value'], $item->getConfig() );
@@ -241,7 +241,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( 'cafe' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'cafe' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

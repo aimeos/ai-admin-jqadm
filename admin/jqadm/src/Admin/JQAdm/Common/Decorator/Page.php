@@ -37,7 +37,7 @@ class Page extends Base
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
 		$customerManager = \Aimeos\MShop::create( $context, 'customer' );
 
-		$siteItem = $siteManager->findItem( $view->param( 'site', 'default' ) );
+		$siteItem = $siteManager->find( $view->param( 'site', 'default' ) );
 		$id = $siteItem->getId();
 
 		try

@@ -62,7 +62,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'unitpaymentcode' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( 'unitpaymentcode' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -105,7 +105,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( 'unitpaymentcode' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( 'unitpaymentcode' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -162,7 +162,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $manager->findItem( 'test' )->getId() );
+		$manager->deleteItem( $manager->find( 'test' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
@@ -255,7 +255,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( 'unitpaymentcode' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'unitpaymentcode' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

@@ -50,7 +50,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
 
-		$this->view->item = $manager->findItem( 'unitcode', ['price'] );
+		$this->view->item = $manager->find( 'unitcode', ['price'] );
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -71,7 +71,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
 
-		$this->view->item = $manager->findItem( 'unitcode', ['price'] );
+		$this->view->item = $manager->find( 'unitcode', ['price'] );
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -83,7 +83,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
 
-		$item = $manager->findItem( 'unitcode', ['price'] );
+		$item = $manager->find( 'unitcode', ['price'] );
 		$item->setCode( 'jqadm-test-price-property' );
 		$item->setId( null );
 

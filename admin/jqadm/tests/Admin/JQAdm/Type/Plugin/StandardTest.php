@@ -63,7 +63,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'plugin/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'order', [], 'plugin' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'order', [], 'plugin' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -111,7 +111,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'plugin/type' );
 
-		$param = ['type' => 'unittest', 'id' => $manager->findItem( 'order', [], 'plugin' )->getId()];
+		$param = ['type' => 'unittest', 'id' => $manager->find( 'order', [], 'plugin' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -166,7 +166,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $manager->findItem( 'jqadm@test', [], 'plugin' )->getId() );
+		$manager->deleteItem( $manager->find( 'jqadm@test', [], 'plugin' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
@@ -262,7 +262,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'plugin/type' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( 'order', [], 'plugin' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'order', [], 'plugin' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

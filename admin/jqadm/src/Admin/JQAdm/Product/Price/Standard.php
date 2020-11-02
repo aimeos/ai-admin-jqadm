@@ -414,7 +414,7 @@ class Standard
 		try
 		{
 			$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
-			$attrItem = $attrManager->findItem( 'custom', [], 'product', 'price' );
+			$attrItem = $attrManager->find( 'custom', [], 'product', 'price' );
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{

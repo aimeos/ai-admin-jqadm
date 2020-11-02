@@ -50,7 +50,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'CNC' );
+		$this->view->item = $manager->find( 'CNC' );
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -71,7 +71,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'CNC' );
+		$this->view->item = $manager->find( 'CNC' );
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -84,7 +84,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 		$attrManager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
-		$item = $manager->findItem( 'CNE' );
+		$item = $manager->find( 'CNE' );
 		$item->setCode( 'jqadm-test-option' );
 		$item->setId( null );
 
@@ -96,7 +96,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'option' => [
 				'config' => [[
 					'product.lists.id' => '',
-					'product.lists.refid' => $attrManager->findItem( 'white', [], 'product', 'color' )->getId(),
+					'product.lists.refid' => $attrManager->find( 'white', [], 'product', 'color' )->getId(),
 				]],
 			],
 		);

@@ -62,7 +62,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( '30', [], 'product', 'length' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( '30', [], 'product', 'length' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -105,7 +105,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
-		$param = ['site' => 'unittest', 'id' => $manager->findItem( '30', [], 'product', 'length' )->getId()];
+		$param = ['site' => 'unittest', 'id' => $manager->find( '30', [], 'product', 'length' )->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
@@ -157,7 +157,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $manager->findItem( 'test', [], 'product', 'color' )->getId() );
+		$manager->deleteItem( $manager->find( 'test', [], 'product', 'color' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
@@ -250,7 +250,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
-		$param = ['site' => 'unittest', 'id' => $real ? $manager->findItem( '30', [], 'product', 'length' )->getId() : -1];
+		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( '30', [], 'product', 'length' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 

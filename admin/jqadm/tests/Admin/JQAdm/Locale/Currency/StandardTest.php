@@ -143,7 +143,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->save();
 
-		$item = $manager->findItem( 'XXX' );
+		$item = $manager->find( 'XXX' );
 		$manager->deleteItem( $item->getId() );
 
 		$this->assertEquals( 'jqadm test', $item->getLabel() );

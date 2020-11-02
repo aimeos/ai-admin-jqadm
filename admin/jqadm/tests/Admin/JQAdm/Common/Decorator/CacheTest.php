@@ -63,7 +63,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$item = \Aimeos\MShop::create( $this->context, 'product' )->findItem( 'CNC' );
+		$item = \Aimeos\MShop::create( $this->context, 'product' )->find( 'CNC' );
 
 		$tags = array( 'product', 'product-' . $item->getId() );
 		$view = \TestHelperJqadm::getView();

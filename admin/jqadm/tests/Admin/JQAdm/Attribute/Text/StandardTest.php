@@ -55,7 +55,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
-		$this->view->item = $manager->findItem( 'white', ['text'], 'product', 'color' );
+		$this->view->item = $manager->find( 'white', ['text'], 'product', 'color' );
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -79,7 +79,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
-		$this->view->item = $manager->findItem( 'white', ['text'], 'product', 'color' );
+		$this->view->item = $manager->find( 'white', ['text'], 'product', 'color' );
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );

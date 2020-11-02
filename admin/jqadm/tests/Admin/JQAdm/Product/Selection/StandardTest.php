@@ -76,7 +76,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->findItem( 'U:TEST', ['attribute', 'product'] );
+		$this->view->item = $manager->find( 'U:TEST', ['attribute', 'product'] );
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -93,7 +93,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testGet()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
-		$this->view->item = $manager->findItem( 'U:TEST', ['attribute', 'product'] );
+		$this->view->item = $manager->find( 'U:TEST', ['attribute', 'product'] );
 
 		$result = $this->object->get();
 
@@ -111,7 +111,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
-		$this->view->item = $manager->findItem( 'U:TEST' );
+		$this->view->item = $manager->find( 'U:TEST' );
 
 		$param = array(
 			'site' => 'unittest',
@@ -141,7 +141,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$manager = \Aimeos\MShop::create( $this->context, 'stock' );
-		$stock = $manager->findItem( 'testprod', [], 'product', 'default' );
+		$stock = $manager->find( 'testprod', [], 'product', 'default' );
 		$manager->deleteItem( $stock );
 
 
@@ -176,7 +176,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->findItem( 'U:TEST' );
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->find( 'U:TEST' );
 
 		$object->setView( $this->view );
 
@@ -196,7 +196,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->findItem( 'U:TEST' );
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->find( 'U:TEST' );
 
 		$object->setView( $this->view );
 
