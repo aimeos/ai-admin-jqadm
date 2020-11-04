@@ -118,14 +118,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'selection' => array(
 				array(
 					'product.lists.id' => '',
-					'product.id' => '123',
+					'product.id' => '',
 					'product.code' => 'testprod',
 					'product.label' => 'test product',
 					'product.status' => '1',
 					'stock.stocklevel' => 20,
 					'attr' => array(
 						array(
-							'product.lists.id' => '456',
+							'product.lists.id' => '',
 							'product.lists.refid' => '789',
 							'attribute.label' => 'test attribute',
 						)
@@ -140,9 +140,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->save();
 
 
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+		$product = $manager->find( 'testprod', ['stock'] );
+		$manager->deleteItem( $product );
+
 		$manager = \Aimeos\MShop::create( $this->context, 'stock' );
-		$stock = $manager->find( 'testprod', [], 'product', 'default' );
-		$manager->deleteItem( $stock );
+		$stocks = $manager->search( $manager->filter()->add( ['stock.productid' => $product->getId()] ) );
+		$manager->deleteItems( $stocks->toArray() );
 
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -152,15 +156,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertEquals( 1, count( $variants ) );
 
 		$refItem = $variants->first()->getRefItem();
-		$this->assertEquals( '123', $variants->first()->getRefId() );
-		$this->assertEquals( '123', $refItem->getId() );
 		$this->assertEquals( 'testprod', $refItem->getCode() );
 		$this->assertEquals( 'test product', $refItem->getLabel() );
 		$this->assertEquals( 1, $refItem->getStatus() );
 
 		$attributes = $refItem->getListItems( 'attribute' );
 		$this->assertEquals( 1, count( $attributes ) );
-		$this->assertEquals( '456', $attributes->first()->getId() );
 		$this->assertEquals( '789', $attributes->first()->getRefId() );
 	}
 

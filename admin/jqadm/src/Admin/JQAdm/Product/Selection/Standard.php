@@ -252,7 +252,7 @@ class Standard
 		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
 		$listItems = $item->getListItems( 'product', 'default', null, false );
-		$codes = [];
+		$prodIds = [];
 
 		foreach( $data as $idx => $entry )
 		{
@@ -267,19 +267,17 @@ class Standard
 			$litem->fromArray( $entry, true )->setPosition( $idx );
 			$refItem->fromArray( $entry, true );
 
-			if( isset( $entry['stock.stocklevel'] ) ) {
-				$codes[] = $refItem->getCode();
-			}
-
 			if( isset( $entry['attr'] ) ) {
 				$refItem = $this->fromArrayAttributes( $refItem, $entry['attr'] );
 			}
 
-			$item->addListItem( 'product', $litem, $refItem );
+			$item->addListItem( 'product', $litem, $manager->saveItem( $refItem ) );
+
+			$prodIds[] = $data[$idx]['stock.productid'] = $refItem->getId();
 			unset( $listItems[$litem->getId()] );
 		}
 
-		$this->fromArrayStocks( $codes, $data );
+		$this->fromArrayStocks( $prodIds, $data );
 
 		return $item->deleteListItems( $listItems->toArray() );
 	}
@@ -324,18 +322,17 @@ class Standard
 	 * @param array $data List of product codes
 	 * @param array $data Data array
 	 */
-	protected function fromArrayStocks( array $codes, array $data )
+	protected function fromArrayStocks( array $prodIds, array $data )
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 
-		$search = $manager->filter()->setSlice( 0, 0x7fffffff );
-		$search->setConditions( $search->combine( '&&', [
-			$search->compare( '==', 'stock.productcode', $codes ),
-			$search->compare( '==', 'stock.type', 'default' ),
-		] ) );
+		$search = $manager->filter()->slice( 0, count( $prodIds ) )->add( [
+			'stock.productid' => $prodIds,
+			'stock.type' => 'default',
+		] );
 
 		$stockItems = $manager->search( $search );
-		$map = $stockItems->col( 'stock.productcode', 'stock.id' );
+		$map = $stockItems->col( 'stock.id', 'stock.productid' );
 		$list = [];
 
 		foreach( $data as $entry )
@@ -344,13 +341,11 @@ class Standard
 				continue;
 			}
 
-			$code = $entry['product.code'];
-
-			if( ( $stockItem = $stockItems->get( $map[$code] ?? null ) ) === null ) {
+			if( ( $stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? null ) ) === null ) {
 				$stockItem = $manager->createItem();
 			}
 
-			$stockItem->fromArray( $entry, true )->setProductCode( $code )->setType( 'default' );
+			$stockItem->fromArray( $entry, true )->setType( 'default' );
 			unset( $stockItems[$stockItem->getId()] );
 
 			$list[] = $stockItem;

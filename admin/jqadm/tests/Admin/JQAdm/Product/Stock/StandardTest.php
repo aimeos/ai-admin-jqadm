@@ -77,11 +77,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 		$stockManager = \Aimeos\MShop::create( $this->context, 'stock' );
 
-		$item = $manager->find( 'CNC' );
-		$item->setCode( 'jqadm-test-stock' );
-		$item->setId( null );
-
-		$item = $manager->saveItem( $item );
+		$item = $manager->find( 'CNC' )->setCode( 'jqadm-test-stock' );
+		$item = $manager->saveItem( $item->setId( null ) );
 
 
 		$param = array(
@@ -96,25 +93,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $item->setCode( 'jqadm-test-stock-2' );
+		$this->view->item = $item;
 
 		$result = $this->object->save();
 
-		$search = $stockManager->filter();
-		$search->setConditions( $search->compare( '==', 'stock.productcode', 'jqadm-test-stock' ) );
-		$count = count( $stockManager->search( $search ) );
-
-		$search = $stockManager->filter();
-		$search->setConditions( $search->compare( '==', 'stock.productcode', 'jqadm-test-stock-2' ) );
-		$stocks = $stockManager->search( $search );
+		$filter = $stockManager->filter()->add( ['stock.productid' => $item->getId()] );
+		$stocks = $stockManager->search( $filter );
 
 		$stockManager->deleteItems( $stocks->toArray() );
 		$manager->deleteItem( $item->getId() );
 
+		$this->assertEquals( 1, $stocks->count() );
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
-		$this->assertEquals( 0, $count );
-		$this->assertEquals( 1, count( $stocks ) );
 	}
 
 

@@ -102,12 +102,8 @@ class Standard
 		parent::delete();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
-
-		$code = $this->getView()->item->getCode();
-		$search = $manager->filter();
-		$search->setConditions( $search->compare( '==', 'stock.productcode', $code ) );
-
-		$manager->deleteItems( $manager->search( $search )->toArray() );
+		$filter = $manager->filter()->add( ['stock.productid' => $this->getView()->item->getId()] );
+		$manager->deleteItems( $manager->search( $filter )->toArray() );
 
 		return null;
 	}
@@ -304,24 +300,24 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$stockItems = [];
 		$stocks = map();
+		$stockItems = [];
+
 		$ids = map( $data )->col( 'stock.id' )->filter();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 
 		if( !$ids->isEmpty() )
 		{
-			$search = $manager->filter();
-			$search->setConditions( $search->compare( '==', 'stock.id', $ids->toArray() ) );
-			$stocks = $manager->searchitems( $search );
+			$filter = $manager->filter()->add( ['stock.id' => $ids->toArray()] );
+			$stocks = $manager->search( $filter );
 		}
 
 		foreach( $data as $entry )
 		{
 			$id = $this->getValue( $entry, 'stock.id' );
 
-			$stockItems[] = $stocks->get( $id, $manager->createItem() )->fromArray( $entry )
-				->setProductCode( $item->getCode() );
+			$stockItems[] = $stocks->get( $id, $manager->createItem() )
+				->fromArray( $entry )->setProductId( $item->getId() );
 
 			$stocks->remove( $id );
 		}
@@ -345,13 +341,11 @@ class Standard
 		$data = [];
 		$context = $this->getContext();
 		$siteId = $context->getLocale()->getSiteId();
+
 		$manager = \Aimeos\MShop::create( $context, 'stock' );
+		$filter = $manager->filter()->add( ['stock.productid' => $item->getId()] )->order( 'stock.type' );
 
-		$search = $manager->filter();
-		$search->setConditions( $search->compare( '==', 'stock.productcode', $item->getCode() ) );
-		$search->setSortations( array( $search->sort( '+', 'stock.type' ) ) );
-
-		foreach( $manager->search( $search ) as $stockItem )
+		foreach( $manager->search( $filter ) as $stockItem )
 		{
 			$list = $stockItem->toArray( true );
 
