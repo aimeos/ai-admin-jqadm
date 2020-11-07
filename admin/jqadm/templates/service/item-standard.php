@@ -169,7 +169,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ); ?></label>
 						<div class="col-sm-8 input-group">
-							<input class="form-control item-provider combobox" type="text" required="required" tabindex="1" pattern="[A-Za-z0-9]+(,[A-Za-z0-9]+)*"
+							<input class="form-control item-provider combobox" type="text" required="required" tabindex="1" readonly
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'service.provider' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/service.provider' ) ); ?>"
