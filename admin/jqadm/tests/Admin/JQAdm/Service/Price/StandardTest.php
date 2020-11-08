@@ -38,7 +38,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'item-price', $result );
@@ -62,7 +62,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->delete();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -85,7 +85,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'service' );
-		$item = $manager->createItem();
+		$item = $manager->create();
 
 		$param = array(
 			'site' => 'unittest',
@@ -138,7 +138,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$view = \TestHelperJqadm::getView();
-		$view->item = \Aimeos\MShop::create( $this->context, 'service' )->createItem();
+		$view->item = \Aimeos\MShop::create( $this->context, 'service' )->create();
 
 		$object->setView( $view );
 
@@ -158,7 +158,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'service' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'service' )->create();
 
 		$object->setView( $this->view );
 

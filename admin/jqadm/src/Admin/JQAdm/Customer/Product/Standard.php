@@ -333,7 +333,7 @@ class Standard
 			if( isset( $listItems[$listid] ) ) {
 				$litem = $listItems[$listid];
 			} else {
-				$litem = $listManager->createItem();
+				$litem = $listManager->create();
 			}
 
 			$litem->setParentId( $item->getId() );

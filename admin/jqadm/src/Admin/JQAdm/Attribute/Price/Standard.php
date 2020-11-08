@@ -307,11 +307,11 @@ class Standard
 		foreach( $data as $idx => $entry )
 		{
 			if( ( $listItem = $item->getListItem( 'price', $entry['attribute.lists.type'], $entry['price.id'], false ) ) === null ) {
-				$listItem = $listManager->createItem();
+				$listItem = $listManager->create();
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $priceManager->createItem();
+				$refItem = $priceManager->create();
 			}
 
 			$refItem->fromArray( $entry, true );

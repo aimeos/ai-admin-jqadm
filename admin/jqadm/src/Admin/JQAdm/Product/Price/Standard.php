@@ -311,11 +311,11 @@ class Standard
 			$listType = $entry['product.lists.type'];
 
 			if( ( $listItem = $item->getListItem( 'price', $listType, $entry['price.id'], false ) ) === null ) {
-				$listItem = $listManager->createItem();
+				$listItem = $listManager->create();
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $priceManager->createItem();
+				$refItem = $priceManager->create();
 			}
 
 			$refItem->fromArray( $entry, true );
@@ -418,7 +418,7 @@ class Standard
 		}
 		catch( \Aimeos\MShop\Exception $e )
 		{
-			$attrItem = $attrManager->createItem()->setDomain( 'product' )->setType( 'price' )->setCode( 'custom' );
+			$attrItem = $attrManager->create()->setDomain( 'product' )->setType( 'price' )->setCode( 'custom' );
 			$attrItem = $attrManager->saveItem( $attrItem );
 		}
 

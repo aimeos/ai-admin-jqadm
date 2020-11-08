@@ -338,11 +338,11 @@ class Standard
 		foreach( $data as $idx => $entry )
 		{
 			if( ( $listItem = $item->getListItem( 'media', $entry['attribute.lists.type'], $entry['media.id'], false ) ) === null ) {
-				$listItem = $listManager->createItem();
+				$listItem = $listManager->create();
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $mediaManager->createItem();
+				$refItem = $mediaManager->create();
 			}
 
 			$refItem->fromArray( $entry, true );

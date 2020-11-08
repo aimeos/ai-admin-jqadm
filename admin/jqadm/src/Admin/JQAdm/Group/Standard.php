@@ -80,7 +80,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'customer/group' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'customer/group' )->create();
 			}
 
 			$data['customer.group.siteid'] = $view->item->getSiteId();
@@ -400,7 +400,7 @@ class Standard
 		if( isset( $data['customer.group.id'] ) && $data['customer.group.id'] != '' ) {
 			$item = $manager->get( $data['customer.group.id'] );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );

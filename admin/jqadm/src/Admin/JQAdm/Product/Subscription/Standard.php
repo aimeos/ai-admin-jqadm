@@ -277,12 +277,12 @@ class Standard
 			}
 
 			if( $entry['attribute.id'] == '' || ( $listItem = $item->getListItem( 'attribute', 'config', $entry['attribute.id'], false ) ) === null ) {
-				$listItem = $listManager->createItem()->setType( 'config' );
+				$listItem = $listManager->create()->setType( 'config' );
 			}
 
 			if( $entry['attribute.id'] == '' || ( $refItem = $listItem->getRefItem() ) === null )
 			{
-				$refItem = $attrManager->createItem()->setType( 'interval' );
+				$refItem = $attrManager->create()->setType( 'interval' );
 				$refItem->fromArray( $entry, true );
 			}
 

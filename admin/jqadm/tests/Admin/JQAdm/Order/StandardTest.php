@@ -150,7 +150,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'order/base' );
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 
 		$param = array(
 			'site' => 'unittest',

@@ -80,7 +80,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'supplier' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'supplier' )->create();
 			}
 
 			$data['supplier.siteid'] = $view->item->getSiteId();
@@ -423,7 +423,7 @@ class Standard
 		if( isset( $data['supplier.id'] ) && $data['supplier.id'] != '' ) {
 			$item = $manager->get( $data['supplier.id'], $this->getDomains() );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );

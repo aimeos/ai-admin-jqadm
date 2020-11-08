@@ -328,7 +328,7 @@ class Standard
 		$search = $listManager->filter()->setSlice( 0, count( $listIds ) );
 		$search->setConditions( $search->compare( '==', 'catalog.lists.id', $listIds ) );
 
-		$listItem = $listManager->createItem();
+		$listItem = $listManager->create();
 		$listItem->setParentId( $item->getId() );
 		$listItem->setDomain( 'product' );
 

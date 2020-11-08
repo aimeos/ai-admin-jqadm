@@ -94,7 +94,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale' )->create();
 			}
 
 			$data['locale.siteid'] = $view->item->getSiteId();
@@ -414,7 +414,7 @@ class Standard
 		if( isset( $data['locale.id'] ) && $data['locale.id'] != '' ) {
 			$item = $manager->get( $data['locale.id'] );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );

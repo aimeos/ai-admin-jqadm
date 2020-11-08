@@ -281,7 +281,7 @@ class Standard
 				}
 				else
 				{
-					$propItem = $propManager->createItem();
+					$propItem = $propManager->create();
 				}
 
 				$propItem->fromArray( $entry, true );

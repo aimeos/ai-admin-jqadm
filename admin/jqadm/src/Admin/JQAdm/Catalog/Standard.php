@@ -81,7 +81,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'catalog' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'catalog' )->create();
 			}
 
 			$data['catalog.siteid'] = $view->item->getSiteId();
@@ -221,7 +221,7 @@ class Standard
 
 		try
 		{
-			$view->item = \Aimeos\MShop::create( $this->getContext(), 'catalog' )->createItem();
+			$view->item = \Aimeos\MShop::create( $this->getContext(), 'catalog' )->create();
 			$view->itemRootId = $this->getRootId();
 			$view->itemBody = parent::search();
 		}
@@ -425,7 +425,7 @@ class Standard
 		if( isset( $data['catalog.id'] ) && $data['catalog.id'] != '' ) {
 			$item = $manager->get( $data['catalog.id'], $this->getDomains() );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item = $item->fromArray( $data, true )->setConfig( $conf );

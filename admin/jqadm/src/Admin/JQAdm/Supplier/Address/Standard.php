@@ -251,7 +251,7 @@ class Standard
 			if( ( $addrItem = $addrItems->get( $entry['supplier.address.id'] ) ) !== null ) {
 				$addrItems->remove( $entry['supplier.address.id'] );
 			} else {
-				$addrItem = $manager->createItem();
+				$addrItem = $manager->create();
 			}
 
 			$addrItem->fromArray( $entry, true );

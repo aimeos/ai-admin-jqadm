@@ -316,7 +316,7 @@ class Standard
 		{
 			$id = $this->getValue( $entry, 'stock.id' );
 
-			$stockItems[] = $stocks->get( $id, $manager->createItem() )
+			$stockItems[] = $stocks->get( $id, $manager->create() )
 				->fromArray( $entry )->setProductId( $item->getId() );
 
 			$stocks->remove( $id );

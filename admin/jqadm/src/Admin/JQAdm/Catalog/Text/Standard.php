@@ -303,11 +303,11 @@ class Standard
 			}
 
 			if( ( $listItem = $item->getListItem( 'text', $entry['catalog.lists.type'], $entry['text.id'], false ) ) === null ) {
-				$listItem = $listManager->createItem();
+				$listItem = $listManager->create();
 			}
 
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $textManager->createItem();
+				$refItem = $textManager->create();
 			}
 
 			$refItem->fromArray( $entry, true );

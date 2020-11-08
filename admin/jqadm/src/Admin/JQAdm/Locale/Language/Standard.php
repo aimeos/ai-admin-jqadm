@@ -80,7 +80,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/language' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/language' )->create();
 			}
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
@@ -401,7 +401,7 @@ class Standard
 		if( isset( $data['locale.language.id'] ) && $data['locale.language.id'] != '' ) {
 			$item = $manager->get( $data['locale.language.id'] );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );

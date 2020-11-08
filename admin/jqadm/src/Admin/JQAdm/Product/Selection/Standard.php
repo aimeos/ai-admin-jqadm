@@ -257,11 +257,11 @@ class Standard
 		foreach( $data as $idx => $entry )
 		{
 			if( ( $litem = $item->getListItem( 'product', 'default', $entry['product.id'], false ) ) === null ) {
-				$litem = $listManager->createItem()->setType( 'default' );
+				$litem = $listManager->create()->setType( 'default' );
 			}
 
 			if( ( $refItem = $litem->getRefItem() ) === null ) {
-				$refItem = $manager->createItem()->setType( 'default' );
+				$refItem = $manager->create()->setType( 'default' );
 			}
 
 			$litem->fromArray( $entry, true )->setPosition( $idx );
@@ -303,7 +303,7 @@ class Standard
 			}
 
 			if( ( $litem = $refItem->getListItem( 'attribute', 'variant', $attr['product.lists.refid'], false ) ) === null ) {
-				$litem = $listManager->createItem()->setType( 'variant' );
+				$litem = $listManager->create()->setType( 'variant' );
 			}
 
 			$litem = $litem->fromArray( $attr, true )->setPosition( $pos++ );
@@ -342,7 +342,7 @@ class Standard
 			}
 
 			if( ( $stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? null ) ) === null ) {
-				$stockItem = $manager->createItem();
+				$stockItem = $manager->create();
 			}
 
 			$stockItem->fromArray( $entry, true )->setType( 'default' );

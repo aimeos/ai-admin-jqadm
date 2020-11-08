@@ -90,7 +90,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'plugin' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'plugin' )->create();
 			}
 
 			$data['plugin.siteid'] = $view->item->getSiteId();
@@ -465,7 +465,7 @@ class Standard
 		if( isset( $data['plugin.id'] ) && $data['plugin.id'] != '' ) {
 			$item = $manager->get( $data['plugin.id'] );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );

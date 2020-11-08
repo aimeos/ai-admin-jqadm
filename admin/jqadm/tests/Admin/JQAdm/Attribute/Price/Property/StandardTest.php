@@ -38,7 +38,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'Price properties', $result );
@@ -132,7 +132,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'attribute' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'attribute' )->create();
 
 		$object->setView( $this->view );
 

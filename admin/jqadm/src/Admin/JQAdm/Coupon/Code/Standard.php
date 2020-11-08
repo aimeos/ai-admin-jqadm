@@ -325,7 +325,7 @@ class Standard
 		foreach( $ids as $idx => $id )
 		{
 			if( !isset( $items[$id] ) ) {
-				$citem = $manager->createItem();
+				$citem = $manager->create();
 			} else {
 				$citem = $items[$id];
 			}

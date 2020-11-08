@@ -85,7 +85,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'coupon' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'coupon' )->create();
 			}
 
 			$data['coupon.siteid'] = $view->item->getSiteId();
@@ -440,7 +440,7 @@ class Standard
 		if( isset( $data['coupon.id'] ) && $data['coupon.id'] != '' ) {
 			$item = $manager->get( $data['coupon.id'] );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );

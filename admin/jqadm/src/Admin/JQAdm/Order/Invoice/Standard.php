@@ -284,7 +284,7 @@ class Standard
 		foreach( $invoiceIds as $idx => $id )
 		{
 			if( !isset( $items[$id] ) ) {
-				$item = $manager->createItem();
+				$item = $manager->create();
 			} else {
 				$item = $items[$id];
 			}

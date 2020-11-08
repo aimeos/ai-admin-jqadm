@@ -248,7 +248,7 @@ class Standard
 			if( isset( $listItems[$entry['product.lists.id']] ) ) {
 				$litem = $listItems[$entry['product.lists.id']];
 			} else {
-				$litem = $listManager->createItem()->setType( 'hidden' );
+				$litem = $listManager->create()->setType( 'hidden' );
 			}
 
 			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );

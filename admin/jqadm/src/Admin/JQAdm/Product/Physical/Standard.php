@@ -252,7 +252,7 @@ class Standard
 			if( ( $value = trim( $value ) ) != '' )
 			{
 				if( ( $propItem = $propItems->first() ) === null ) {
-					$propItem = $manager->createItem()->setType( $type );
+					$propItem = $manager->create()->setType( $type );
 				}
 
 				$propItem->setLanguageId( null );

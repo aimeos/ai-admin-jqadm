@@ -80,7 +80,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'order/base' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'order/base' )->create();
 			}
 
 			$data['order.siteid'] = $view->item->getSiteId();
@@ -422,7 +422,7 @@ class Standard
 		if( isset( $data['order.base.id'] ) ) {
 			$basket = $manager->get( $data['order.base.id'], $domains )->off();
 		} else {
-			$basket = $manager->createItem()->off();
+			$basket = $manager->create()->off();
 		}
 
 		$basket->fromArray( $data, true );
@@ -472,7 +472,7 @@ class Standard
 						}
 						else
 						{
-							$attrItem = $attrManager->createItem();
+							$attrItem = $attrManager->create();
 						}
 
 						$attrItem->fromArray( $array, true );

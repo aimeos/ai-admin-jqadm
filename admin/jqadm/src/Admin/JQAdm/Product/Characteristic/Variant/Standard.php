@@ -248,7 +248,7 @@ class Standard
 			if( isset( $listItems[$entry['product.lists.id']] ) ) {
 				$litem = $listItems[$entry['product.lists.id']];
 			} else {
-				$litem = $listManager->createItem()->setType( 'variant' );
+				$litem = $listManager->create()->setType( 'variant' );
 			}
 
 			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );

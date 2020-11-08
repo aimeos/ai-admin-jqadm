@@ -84,7 +84,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/site' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/site' )->create();
 			}
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
@@ -458,7 +458,7 @@ class Standard
 		else
 		{
 			$this->checkSite( $super );
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );

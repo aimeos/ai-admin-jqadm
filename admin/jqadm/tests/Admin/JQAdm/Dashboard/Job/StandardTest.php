@@ -37,7 +37,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testDelete()
 	{
 		$manager = \Aimeos\MAdmin::create( $this->context, 'job' );
-		$item = $manager->createItem();
+		$item = $manager->create();
 		$item->setLabel( 'jobdeletetest.csv' );
 		$item->setResult( ['file' => 'jobdeletetest.csv'] );
 		$manager->saveItem( $item );
@@ -67,7 +67,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		}
 
 		$manager = \Aimeos\MAdmin::create( $this->context, 'job' );
-		$item = $manager->createItem();
+		$item = $manager->create();
 		$item->setLabel( 'jobtest.csv' );
 		$item->setResult( ['file' => 'jobtest.csv'] );
 		$manager->saveItem( $item );

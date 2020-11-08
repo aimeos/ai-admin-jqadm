@@ -46,7 +46,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'item-download', $result );
@@ -93,7 +93,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 
 		$file = $this->getMockBuilder( \Psr\Http\Message\UploadedFileInterface::class )->getMock();
 		$file->expects( $this->any() )->method( 'getError' )->will( $this->returnValue( UPLOAD_ERR_OK ) );
@@ -143,7 +143,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->create();
 
 		$object->setView( $this->view );
 
@@ -163,7 +163,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->create();
 
 		$object->setView( $this->view );
 

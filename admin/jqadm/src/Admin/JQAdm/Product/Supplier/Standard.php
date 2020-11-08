@@ -341,7 +341,7 @@ class Standard
 			if( isset( $listItems[$entry['supplier.lists.id']] ) ) {
 				$litem = $listItems[$entry['supplier.lists.id']];
 			} else {
-				$litem = $manager->createItem();
+				$litem = $manager->create();
 			}
 
 			$list[] = $litem->setParentId( $this->getValue( $entry, 'supplier.id' ) )->setDomain( 'product' )

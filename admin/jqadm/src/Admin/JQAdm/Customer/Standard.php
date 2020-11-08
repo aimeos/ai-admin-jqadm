@@ -81,7 +81,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'customer' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'customer' )->create();
 			}
 
 			$data['customer.siteid'] = $view->item->getSiteId();
@@ -467,7 +467,7 @@ class Standard
 		if( isset( $data['customer.id'] ) && $data['customer.id'] != '' ) {
 			$item = $manager->get( $data['customer.id'], $this->getDomains() );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$addr = $item->getPaymentAddress();

@@ -89,7 +89,7 @@ abstract class Base
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), $path . '/type' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), $path . '/type' )->create();
 			}
 
 			$data[str_replace( '/', '.', $path ) . '.type.siteid'] = $view->item->getSiteId();
@@ -263,7 +263,7 @@ abstract class Base
 		if( isset( $data[$key] ) && $data[$key] != '' ) {
 			$item = $manager->get( $data[$key] );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );

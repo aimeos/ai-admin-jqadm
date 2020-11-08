@@ -38,7 +38,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'Custom', $result );
@@ -82,7 +82,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 
 		$param = array(
 			'site' => 'unittest',

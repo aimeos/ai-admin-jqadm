@@ -38,7 +38,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'item-media', $result );
@@ -62,7 +62,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->delete();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -85,7 +85,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 
 		$param = array(
 			'site' => 'unittest',
@@ -196,7 +196,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->getMock();
 
 		$view = \TestHelperJqadm::getView();
-		$view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->createItem();
+		$view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->create();
 
 		$object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$object->setView( $view );

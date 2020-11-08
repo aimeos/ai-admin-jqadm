@@ -80,7 +80,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' )->createItem();
+				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' )->create();
 			}
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
@@ -401,7 +401,7 @@ class Standard
 		if( isset( $data['locale.currency.id'] ) && $data['locale.currency.id'] != '' ) {
 			$item = $manager->get( $data['locale.currency.id'] );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );

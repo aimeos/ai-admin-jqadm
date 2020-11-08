@@ -38,7 +38,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'item-category', $result );
@@ -106,7 +106,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $productManager->createItem()->setId( -1 );
+		$this->view->item = $productManager->create()->setId( -1 );
 
 		$result = $this->object->save();
 
@@ -141,7 +141,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $productManager->createItem()->setId( -1 );
+		$this->view->item = $productManager->create()->setId( -1 );
 
 		$result = $this->object->save();
 
@@ -166,7 +166,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->create();
 
 		$object->setView( $this->view );
 
@@ -186,7 +186,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->create();
 
 		$object->setView( $this->view );
 

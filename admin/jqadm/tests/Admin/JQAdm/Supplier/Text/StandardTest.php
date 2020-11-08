@@ -24,7 +24,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$langManager = \Aimeos\MShop::create( $this->context, 'locale/language' );
 
 		$this->view->pageLanguages = $langManager->search( $langManager->filter() );
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->create();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Supplier\Text\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
@@ -43,7 +43,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'item-text', $result );
@@ -67,7 +67,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->delete();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -90,7 +90,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
-		$item = $manager->createItem();
+		$item = $manager->create();
 
 		$param = array(
 			'site' => 'unittest',
@@ -150,7 +150,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->create();
 
 		$object->setView( $this->view );
 
@@ -170,7 +170,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'supplier' )->create();
 
 		$object->setView( $this->view );
 

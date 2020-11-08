@@ -311,7 +311,7 @@ class Standard
 			}
 
 			if( ( $refItem = $litem->getRefItem() ) === null ) {
-				$refItem = $attrManager->createItem()->setType( 'download' );
+				$refItem = $attrManager->create()->setType( 'download' );
 			}
 
 			$litem->fromArray( $data, true );

@@ -38,7 +38,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->createItem();
+		$this->view->item = $manager->create();
 		$result = $this->object->create();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -124,7 +124,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->create();
 
 		$object->setView( $this->view );
 
@@ -144,7 +144,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
 		$this->view = \TestHelperJqadm::getView();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->createItem();
+		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->create();
 
 		$object->setView( $this->view );
 

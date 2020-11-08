@@ -84,7 +84,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $context, 'subscription' )->createItem();
+				$view->item = \Aimeos\MShop::create( $context, 'subscription' )->create();
 			}
 
 			$baseManager = \Aimeos\MShop::create( $context, 'order/base' );
@@ -93,7 +93,7 @@ class Standard
 			if( $baseId ) {
 				$view->itemBase = $baseManager->get( $baseId, ['order/base/address', 'order/base/product'] );
 			} else {
-				$view->itemBase = $baseManager->createItem();
+				$view->itemBase = $baseManager->create();
 			}
 
 			$data['subscription.siteid'] = $view->item->getSiteId();
@@ -475,7 +475,7 @@ class Standard
 		if( isset( $data['subscription.id'] ) && $data['subscription.id'] != '' ) {
 			$item = $manager->get( $data['subscription.id'] );
 		} else {
-			$item = $manager->createItem();
+			$item = $manager->create();
 		}
 
 		$item->fromArray( $data, true );
