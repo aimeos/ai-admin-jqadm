@@ -156,18 +156,18 @@ Vue.component('html-editor', {
 
 	mounted: function() {
 		this.instance = CKEDITOR.replace(this.id, {
-      on: {
-        instanceReady: function( ev ) {
-          this.dataProcessor.writer.setRules( 'br', {
-            breakBeforeOpen: false,
-            breakAfterClose: false
-          });
-          this.dataProcessor.writer.setRules( 'p', {
-            breakBeforeOpen: false,
-            breakAfterClose: false
-          });
-        }
-      },
+			on: {
+				instanceReady: function( ev ) {
+					this.dataProcessor.writer.setRules( 'br', {
+					breakBeforeOpen: false,
+					breakAfterClose: false
+				});
+					this.dataProcessor.writer.setRules( 'p', {
+					breakBeforeOpen: false,
+					breakAfterClose: false
+				});
+				}
+			},
 			extraAllowedContent: Aimeos.editortags,
 			toolbar: Aimeos.editorcfg,
 			extraPlugins: Aimeos.editorExtraPlugins,
