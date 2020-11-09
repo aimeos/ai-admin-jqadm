@@ -308,12 +308,10 @@ $statusList = [
 												</td>
 												<td class="item-column column-price">
 													<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getValue(), $currency ) ); ?></span>
-													<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getCosts(), $currency ) ); ?></span>
 													<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getRebate(), $currency ) ); ?></span>
 												</td>
 												<td class="item-column column-sum">
 													<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() * $orderProduct->getQuantity() ), $currency ) ); ?></span>
-													<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getCosts() * $orderProduct->getQuantity() ), $currency ) ); ?></span>
 													<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() * $orderProduct->getQuantity() ), $currency ) ); ?></span>
 												</td>
 											</tr>
