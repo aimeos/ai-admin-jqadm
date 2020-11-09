@@ -111,7 +111,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->save();
 
 		$item = $manager->get( $item->getId(), array( 'product' ) );
-		$manager->deleteItem( $item->getId() );
+		$manager->delete( $item->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
@@ -147,7 +147,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$item = $manager->get( $item->getId(), array( 'product' ) );
 		$listItems = $item->getListItems( 'product' );
-		$manager->deleteItem( $item->getId() );
+		$manager->delete( $item->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );

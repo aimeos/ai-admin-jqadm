@@ -160,7 +160,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 		$item = $manager->find( 'test' );
-		$manager->deleteItem( $item->getId() );
+		$manager->delete( $item->getId() );
 
 		$this->assertEquals( ['test' => 'value'], $item->getConfig() );
 	}

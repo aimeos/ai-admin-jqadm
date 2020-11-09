@@ -154,7 +154,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $this->getCoupon( 'jqadm test label' )->getId() );
+		$manager->delete( $this->getCoupon( 'jqadm test label' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );

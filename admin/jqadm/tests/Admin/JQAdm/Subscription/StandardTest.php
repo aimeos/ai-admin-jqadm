@@ -160,7 +160,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $this->getSubscriptionId( '2006-06-06' ) );
+		$manager->delete( $this->getSubscriptionId( '2006-06-06' ) );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );

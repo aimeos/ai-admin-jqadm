@@ -80,7 +80,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->assertEmpty( $result );
 
-		$manager->deleteItem( $item->getId() );
+		$manager->delete( $item->getId() );
 		unlink( $path );
 	}
 

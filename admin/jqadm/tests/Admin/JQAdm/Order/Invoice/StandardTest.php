@@ -91,7 +91,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			$this->fail( 'No saved order item found' );
 		}
 
-		$manager->deleteItem( $item->getId() );
+		$manager->delete( $item->getId() );
 
 		$this->assertEmpty( $result );
 	}

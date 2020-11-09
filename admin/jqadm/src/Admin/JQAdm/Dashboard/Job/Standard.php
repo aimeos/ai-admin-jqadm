@@ -56,7 +56,7 @@ class Standard
 			$fs->rm( $result['file'] );
 		}
 
-		$manager->deleteItem( $id );
+		$manager->delete( $id );
 
 		return $this->search();
 	}

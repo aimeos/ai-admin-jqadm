@@ -101,7 +101,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$stocks = $stockManager->search( $filter );
 
 		$stockManager->deleteItems( $stocks->toArray() );
-		$manager->deleteItem( $item->getId() );
+		$manager->delete( $item->getId() );
 
 		$this->assertEquals( 1, $stocks->count() );
 		$this->assertEmpty( $this->view->get( 'errors' ) );

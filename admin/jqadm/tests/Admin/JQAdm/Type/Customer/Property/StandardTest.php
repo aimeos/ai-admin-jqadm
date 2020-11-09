@@ -166,7 +166,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $manager->find( 'jqadm@test', [], 'customer' )->getId() );
+		$manager->delete( $manager->find( 'jqadm@test', [], 'customer' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );

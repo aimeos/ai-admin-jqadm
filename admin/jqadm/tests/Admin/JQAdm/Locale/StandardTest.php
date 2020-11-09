@@ -147,7 +147,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->deleteItem( $this->getItem( 'da', 'DKK' )->getId() );
+		$manager->delete( $this->getItem( 'da', 'DKK' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
