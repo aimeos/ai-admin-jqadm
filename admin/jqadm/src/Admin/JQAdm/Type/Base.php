@@ -135,7 +135,7 @@ abstract class Base
 				parent::delete();
 			}
 
-			$manager->deleteItems( $items->toArray() );
+			$manager->delete( $items->toArray() );
 			$manager->commit();
 
 			return $this->redirect( 'type/' . $path, 'search', null, 'delete' );

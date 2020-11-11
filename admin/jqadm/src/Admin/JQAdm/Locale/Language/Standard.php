@@ -123,7 +123,7 @@ class Standard
 				parent::delete();
 			}
 
-			$manager->deleteItems( $items->toArray() );
+			$manager->delete( $items->toArray() );
 			$manager->commit();
 
 			return $this->redirect( 'locale/language', 'search', null, 'delete' );

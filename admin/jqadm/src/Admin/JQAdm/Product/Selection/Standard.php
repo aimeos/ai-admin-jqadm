@@ -354,7 +354,7 @@ class Standard
 		try
 		{
 			$manager->begin();
-			$manager->deleteItems( $stockItems->toArray() )->saveItems( $list, false );
+			$manager->delete( $stockItems->toArray() )->saveItems( $list, false );
 			$manager->commit();
 		}
 		catch( \Exception $e )

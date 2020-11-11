@@ -100,7 +100,7 @@ class Standard
 			$search->setSlice( $start );
 
 			$result = $manager->search( $search );
-			$manager->deleteItems( $result->toArray() );
+			$manager->delete( $result->toArray() );
 
 			$count = count( $result );
 			$start += $count;
@@ -350,7 +350,7 @@ class Standard
 			unset( $listItems[$litem->getId()] );
 		}
 
-		$manager->deleteItems( $listItems->toArray() );
+		$manager->delete( $listItems->toArray() );
 		$manager->saveItems( $list );
 	}
 

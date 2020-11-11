@@ -129,10 +129,10 @@ class Standard
 				parent::delete();
 			}
 
-			$manager->deleteItems( $items->toArray() );
+			$manager->delete( $items->toArray() );
 			$manager->commit();
 
-			\Aimeos\MShop::create( $context, 'index' )->deleteItems( $items->toArray() );
+			\Aimeos\MShop::create( $context, 'index' )->delete( $items->toArray() );
 			$context->getCache()->deleteByTags( $tags );
 
 			return $this->redirect( 'product', 'search', null, 'delete' );

@@ -103,7 +103,7 @@ class Standard
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 		$filter = $manager->filter()->add( ['stock.productid' => $this->getView()->item->getId()] );
-		$manager->deleteItems( $manager->search( $filter )->toArray() );
+		$manager->delete( $manager->search( $filter )->toArray() );
 
 		return null;
 	}
@@ -322,7 +322,7 @@ class Standard
 			$stocks->remove( $id );
 		}
 
-		$manager->deleteItems( $stocks->toArray() );
+		$manager->delete( $stocks->toArray() );
 		$manager->saveItems( $stockItems, false );
 
 		return $item;

@@ -55,7 +55,7 @@ class Standard
 				parent::delete();
 			}
 
-			$manager->deleteItems( $items->toArray() );
+			$manager->delete( $items->toArray() );
 			$manager->commit();
 
 			$this->update( $items->toArray() )->redirect( 'review', 'search', null, 'delete' );

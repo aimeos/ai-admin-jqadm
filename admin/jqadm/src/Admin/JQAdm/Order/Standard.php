@@ -482,7 +482,7 @@ class Standard
 					}
 				}
 
-				$attrManager->deleteItems( $attrItems->toArray() );
+				$attrManager->delete( $attrItems->toArray() );
 			}
 		}
 
