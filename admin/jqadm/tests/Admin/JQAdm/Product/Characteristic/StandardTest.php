@@ -88,7 +88,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-characteristic' );
 		$item->setId( null );
 
-		$item = $manager->saveItem( $item );
+		$item = $manager->save( $item );
 
 
 		$param = array(

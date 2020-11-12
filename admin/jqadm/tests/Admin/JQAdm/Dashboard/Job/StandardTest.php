@@ -40,7 +40,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item = $manager->create();
 		$item->setLabel( 'jobdeletetest.csv' );
 		$item->setResult( ['file' => 'jobdeletetest.csv'] );
-		$manager->saveItem( $item );
+		$manager->save( $item );
 
 		$param = ['site' => 'unittest', 'id' => $item->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
@@ -70,7 +70,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item = $manager->create();
 		$item->setLabel( 'jobtest.csv' );
 		$item->setResult( ['file' => 'jobtest.csv'] );
-		$manager->saveItem( $item );
+		$manager->save( $item );
 
 		$param = ['site' => 'unittest', 'id' => $item->getId()];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );

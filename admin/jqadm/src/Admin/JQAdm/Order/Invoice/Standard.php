@@ -315,7 +315,7 @@ class Standard
 
 			$item->setBaseId( $order->getId() );
 
-			$manager->saveItem( $item );
+			$manager->save( $item );
 		}
 	}
 

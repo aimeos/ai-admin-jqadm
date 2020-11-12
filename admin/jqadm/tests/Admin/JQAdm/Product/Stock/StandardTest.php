@@ -78,7 +78,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$stockManager = \Aimeos\MShop::create( $this->context, 'stock' );
 
 		$item = $manager->find( 'CNC' )->setCode( 'jqadm-test-stock' );
-		$item = $manager->saveItem( $item->setId( null ) );
+		$item = $manager->save( $item->setId( null ) );
 
 
 		$param = array(

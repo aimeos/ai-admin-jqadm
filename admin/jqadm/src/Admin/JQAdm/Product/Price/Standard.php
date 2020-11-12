@@ -419,7 +419,7 @@ class Standard
 		catch( \Aimeos\MShop\Exception $e )
 		{
 			$attrItem = $attrManager->create()->setDomain( 'product' )->setType( 'price' )->setCode( 'custom' );
-			$attrItem = $attrManager->saveItem( $attrItem );
+			$attrItem = $attrManager->save( $attrItem );
 		}
 
 		if( $value )

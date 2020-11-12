@@ -271,7 +271,7 @@ class Standard
 				$refItem = $this->fromArrayAttributes( $refItem, $entry['attr'] );
 			}
 
-			$item->addListItem( 'product', $litem, $manager->saveItem( $refItem ) );
+			$item->addListItem( 'product', $litem, $manager->save( $refItem ) );
 
 			$prodIds[] = $data[$idx]['stock.productid'] = $refItem->getId();
 			unset( $listItems[$litem->getId()] );
@@ -354,7 +354,7 @@ class Standard
 		try
 		{
 			$manager->begin();
-			$manager->delete( $stockItems->toArray() )->saveItems( $list, false );
+			$manager->delete( $stockItems->toArray() )->save( $list, false );
 			$manager->commit();
 		}
 		catch( \Exception $e )

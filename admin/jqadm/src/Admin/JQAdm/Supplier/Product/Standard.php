@@ -391,7 +391,7 @@ class Standard
 				$litem->setConfig( $conf );
 			}
 
-			$listManager->saveItem( $litem, false );
+			$listManager->save( $litem, false );
 		}
 
 		return $item;

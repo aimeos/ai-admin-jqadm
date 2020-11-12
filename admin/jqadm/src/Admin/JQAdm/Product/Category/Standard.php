@@ -351,7 +351,7 @@ class Standard
 		}
 
 		$manager->delete( $listItems->toArray() );
-		$manager->saveItems( $list );
+		$manager->save( $list );
 	}
 
 

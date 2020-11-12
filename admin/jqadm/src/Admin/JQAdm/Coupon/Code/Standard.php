@@ -338,7 +338,7 @@ class Standard
 			$citem->setDateEnd( $this->getValue( $data, 'coupon.code.dateend/' . $idx, $citem->getDateEnd() ) );
 			$citem->setRef( $this->getValue( $data, 'coupon.code.ref/' . $idx, $citem->getRef() ) );
 
-			$manager->saveItem( $citem, false );
+			$manager->save( $citem, false );
 		}
 
 		return $item;

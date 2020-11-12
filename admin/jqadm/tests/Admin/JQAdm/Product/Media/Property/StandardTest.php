@@ -87,7 +87,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-media-property' );
 		$item->setId( null );
 
-		$this->view->item = $manager->saveItem( $item );
+		$this->view->item = $manager->save( $item );
 
 		$param = array(
 			'site' => 'unittest',

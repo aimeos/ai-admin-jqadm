@@ -478,7 +478,7 @@ class Standard
 						$attrItem->fromArray( $array, true );
 						$attrItem->setParentId( $service->getId() );
 
-						$item = $attrManager->saveItem( $attrItem );
+						$item = $attrManager->save( $attrItem );
 					}
 				}
 

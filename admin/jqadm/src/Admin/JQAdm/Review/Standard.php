@@ -116,10 +116,10 @@ class Standard
 		try
 		{
 			$item = $this->fromArray( $view->param( 'item', [] ) );
-			$view->item = $item->getId() ? $item : $manager->saveItem( $item );
+			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
-			$item = $manager->saveItem( clone $view->item );
+			$item = $manager->save( clone $view->item );
 			$manager->commit();
 
 			return $this->update( [$item] )->redirect( 'review', $view->param( 'next' ), $view->item->getId(), 'save' );

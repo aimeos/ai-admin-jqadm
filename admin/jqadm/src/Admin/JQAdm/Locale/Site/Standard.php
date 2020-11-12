@@ -190,10 +190,10 @@ class Standard
 		try
 		{
 			$item = $this->fromArray( $view->param( 'item', [] ), $view->access( 'super' ) );
-			$view->item = $item->getId() ? $item : $manager->saveItem( $item );
+			$view->item = $item->getId() ? $item : $manager->save( $item );
 			$view->itemBody = parent::save();
 
-			$manager->saveItem( clone $view->item );
+			$manager->save( clone $view->item );
 			$manager->commit();
 
 			return $this->redirect( 'locale/site', $view->param( 'next' ), $view->item->getId(), 'save' );

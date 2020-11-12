@@ -323,7 +323,7 @@ class Standard
 		}
 
 		$manager->delete( $stocks->toArray() );
-		$manager->saveItems( $stockItems, false );
+		$manager->save( $stockItems, false );
 
 		return $item;
 	}
