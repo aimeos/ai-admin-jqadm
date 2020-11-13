@@ -157,13 +157,19 @@ Vue.component('html-editor', {
 	mounted: function() {
 		this.instance = CKEDITOR.replace(this.id, {
 			on: {
-				instanceReady: function( ev ) {
+				instanceReady: function() {
 					this.dataProcessor.writer.setRules( 'br', {
+					indent: false,
 					breakBeforeOpen: false,
+					breakAfterOpen: false,
+					breakBeforeClose: false,
 					breakAfterClose: false
 				});
 					this.dataProcessor.writer.setRules( 'p', {
+					indent: false,
 					breakBeforeOpen: false,
+					breakAfterOpen: false,
+					breakBeforeClose: false,
 					breakAfterClose: false
 				});
 				}
