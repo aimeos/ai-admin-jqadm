@@ -583,7 +583,6 @@ Aimeos.Form = {
 		this.checkFields();
 		this.checkSubmit();
 		this.editFields();
-		this.resetSearch();
 		this.setupNext();
 		this.showErrors();
 		this.toggleHelp();
@@ -670,16 +669,6 @@ Aimeos.Form = {
 
 		$(".aimeos .list-item").on("click", ".act-edit", function(ev) {
 			$("[disabled=disabled]", ev.delegateTarget).removeAttr("disabled");
-			return false;
-		});
-	},
-
-
-	resetSearch : function() {
-
-		$(".aimeos .list-search").on("click", ".act-reset", function(ev) {
-			$("select", ev.delegateTarget).val("");
-			$("input", ev.delegateTarget).val("");
 			return false;
 		});
 	},
