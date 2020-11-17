@@ -334,6 +334,7 @@ Aimeos.Config = {
 				$(result.data).each(function(idx, entry) {
 					var nodes = $("table.item-config-ext input.config-key", target);
 					var node = null;
+					var value = '';
 
 					nodes.each(function() {
 						if($(this).val() === entry.id) {
@@ -344,13 +345,14 @@ Aimeos.Config = {
 					if(node) {
 						var el = $("table.item-config-ext .config-item.prototype .config-type-" + entry.attributes.type, target).clone();
 						var row = node.closest(".config-item");
-						var old = $(".config-value", row);
+						var valnode = $(".config-value", row);
+						value = valnode.val();
 
 						$("> [disabled='disabled']", el).prop("disabled", false);
-						$("> input", el).val(old.val());
+						$("> input", el).val(value);
 						el.prop("disabled", false);
-						el.val(old.val());
-						old.remove();
+						el.val(value);
+						valnode.remove();
 
 						$(".help-text", row).text(entry.attributes.label);
 						$(".config-row-value", row).append(el);
@@ -361,6 +363,17 @@ Aimeos.Config = {
 						$(".config-row-key .help-text", row).text(entry.attributes.label);
 						$(".config-value", row).val(entry.attributes.default);
 						$(".config-key", row).val(entry.id);
+					}
+
+					if(entry.attributes.type === 'select') {
+						$.each(entry.attributes.default, function(idx, label) {
+							var opt = $('<option/>');
+							opt.text(label);
+							if(value === label) {
+								opt.prop('selected', true);
+							}
+							$(".config-value", row).append(opt);
+						});
 					}
 
 					if(!entry.attributes.required) {
