@@ -82,8 +82,9 @@ $enc = $this->encoder();
 			title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
 		</button>
-		<a class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
+		<button type="reset" class="btn act-reset fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"
-			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"></a>
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>">
+		</button>
 	</td>
 </tr>
