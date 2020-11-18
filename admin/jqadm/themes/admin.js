@@ -741,7 +741,7 @@ Aimeos.List = {
 				var form = $("form.list");
 				form.attr('action', $(this).data('url'));
 				form.submit();
-			} else {
+			} else if($(this).data("url")) {
 				window.location = $(this).data("url");
 			}
 
