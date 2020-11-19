@@ -760,20 +760,28 @@ $statusList = [
 									<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Shipping' ) ); ?></div>
 									<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
 								</div>
-								<div class="form-group row total-value">
-									<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Total' ) ); ?></div>
-									<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
-								</div>
+								<?php if( $basket->getPrice()->getTaxFlag() === true ) : ?>
+									<div class="form-group row total-value">
+										<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Total' ) ); ?></div>
+										<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() ), $currency ) ); ?></div>
+									</div>
+								<?php endif ?>
 								<div class="form-group row total-tax">
 									<div class="col-6 name">
 										<?php if( $basket->getPrice()->getTaxFlag() ) : ?>
 											<?= $enc->html( $this->translate( 'admin', 'Incl. tax' ) ); ?>
 										<?php else : ?>
-											<?= $enc->html( $this->translate( 'admin', 'Excl. tax' ) ); ?>
+											<?= $enc->html( $this->translate( 'admin', '+ Tax' ) ); ?>
 										<?php endif; ?>
 									</div>
 									<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getTaxValue() ), $currency ) ); ?></div>
 								</div>
+								<?php if( $basket->getPrice()->getTaxFlag() === false ) : ?>
+									<div class="form-group row total-value">
+										<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Total' ) ); ?></div>
+										<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() + $basket->getPrice()->getTaxValue() ), $currency ) ); ?></div>
+									</div>
+								<?php endif ?>
 							</div>
 						</div>
 					<?php endif ?>
