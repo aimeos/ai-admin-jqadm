@@ -322,25 +322,16 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Catalog\Item\Iface $item, array $data ) : \Aimeos\MShop\Catalog\Item\Iface
 	{
-		$listIds = $this->getValue( $data, 'catalog.lists.id', [] );
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
-
-		$search = $listManager->createSearch()->setSlice( 0, count( $listIds ) );
-		$search->setConditions( $search->compare( '==', 'catalog.lists.id', $listIds ) );
 
 		$listItem = $listManager->createItem();
 		$listItem->setParentId( $item->getId() );
 		$listItem->setDomain( 'product' );
 
 
-		foreach( (array) $listIds as $idx => $listid )
+		foreach( (array) $this->getValue( $data, 'catalog.lists.id', [] ) as $idx => $listid )
 		{
-			if( isset( $listItems[$listid] ) ) {
-				$litem = $listItems[$listid];
-			} else {
-				$litem = clone $listItem;
-			}
-
+			$litem = clone $listItem;
 			$litem->setId( $listid ?: null );
 
 			if( isset( $data['catalog.lists.refid'][$idx] ) ) {
