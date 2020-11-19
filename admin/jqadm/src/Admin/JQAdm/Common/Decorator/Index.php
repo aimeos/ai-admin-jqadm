@@ -36,11 +36,14 @@ class Index extends Base
 			$manager = \Aimeos\MShop::create( $context, 'product' );
 			$domains = ['attribute', 'price', 'product', 'supplier', 'text'];
 
-			$search = $manager->createSearch( true )->setSlice( count( $prodIds ) );
+			$search = $manager->createSearch( true )->setSlice( 0, count( $prodIds ) );
 			$search->setConditions( $search->compare( '==', 'product.id', $prodIds ) );
 
 			$items = $manager->searchItems( $search, $domains );
-			\Aimeos\MShop::create( $context, 'index' )->rebuildIndex( $items );
+
+			if( !empty( $items ) ) {
+				\Aimeos\MShop::create( $context, 'index' )->rebuildIndex( $items );
+			}
 		}
 
 		return $result;
