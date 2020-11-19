@@ -289,7 +289,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 
-		$search = $manager->createSearch();
+		$search = $manager->createSearch()->setSlice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'catalog.lists.position' )] );
 
 		$search = $this->initCriteria( $search, $params, 'catalogproduct' );
@@ -396,27 +396,16 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Catalog\Item\Iface $item, array $data )
 	{
-		$context = $this->getContext();
-		$listIds = $this->getValue( $data, 'catalog.lists.id', [] );
-
-		$listManager = \Aimeos\MShop::create( $context, 'catalog/lists' );
-
-		$search = $listManager->createSearch()->setSlice( 0, count( $listIds ) );
-		$search->setConditions( $search->compare( '==', 'catalog.lists.id', $listIds ) );
+		$listManager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 
 		$listItem = $listManager->createItem();
 		$listItem->setParentId( $item->getId() );
 		$listItem->setDomain( 'product' );
 
 
-		foreach( (array) $listIds as $idx => $listid )
+		foreach( (array) $this->getValue( $data, 'catalog.lists.id', [] ) as $idx => $listid )
 		{
-			if( isset( $listItems[$listid] ) ) {
-				$litem = $listItems[$listid];
-			} else {
-				$litem = clone $listItem;
-			}
-
+			$litem = clone $listItem;
 			$litem->setId( $listid ?: null );
 
 			if( isset( $data['catalog.lists.refid'][$idx] ) ) {
