@@ -27,6 +27,7 @@ class Index extends Base
 	public function save() : ?string
 	{
 		$result = $this->getClient()->save();
+
 		$prodIds = array_unique( array_merge(
 			$this->getView()->param( 'product/catalog.lists.refid', [] ),
 			$this->getView()->param( 'product/supplier.lists.refid', [] )
@@ -38,11 +39,14 @@ class Index extends Base
 			$manager = \Aimeos\MShop::create( $context, 'product' );
 			$domains = $context->getConfig()->get( 'admin/jqadm/product/domains', [] );
 
-			$search = $manager->createSearch( true )->setSlice( count( $prodIds ) );
+			$search = $manager->createSearch( true )->setSlice( 0, count( $prodIds ) );
 			$search->setConditions( $search->compare( '==', 'product.id', $prodIds ) );
 
 			$items = $manager->searchItems( $search, $domains );
-			\Aimeos\MShop::create( $context, 'index' )->rebuild( $items->toArray() );
+
+			if( !$items->isEmpty() ) {
+				\Aimeos\MShop::create( $context, 'index' )->rebuild( $items->toArray() );
+			}
 		}
 
 		return $result;
