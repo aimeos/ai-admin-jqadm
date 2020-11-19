@@ -220,6 +220,10 @@
 	content: "\f06e";
 }
 
+.aimeos table .list-item-new .actions .btn.act-close {
+	color:#98a0b0;
+}
+
 
 
 /* Detail view */
