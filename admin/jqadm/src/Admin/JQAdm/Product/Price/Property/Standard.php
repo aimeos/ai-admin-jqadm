@@ -45,7 +45,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'price/property/type' );
 
-		$search = $manager->filter( true )->setSlice( 0, 10000 );
+		$search = $manager->filter( true )->slice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'price.property.type.domain', 'price' ) );
 		$search->setSortations( [$search->sort( '+', 'price.property.type.position' )] );
 

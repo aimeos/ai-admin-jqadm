@@ -45,7 +45,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
 
-		$search = $manager->filter( true )->setSlice( 0, 10000 );
+		$search = $manager->filter( true )->slice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'catalog.lists.type.position' )] );
 
@@ -262,7 +262,7 @@ class Standard
 		$list = $listItems->getRefId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
-		$search = $manager->filter()->setSlice( 0, count( $list ) );
+		$search = $manager->filter()->slice( 0, count( $list ) );
 		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
 
 		return $manager->search( $search );

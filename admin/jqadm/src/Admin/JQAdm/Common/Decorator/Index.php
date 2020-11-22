@@ -39,7 +39,7 @@ class Index extends Base
 			$manager = \Aimeos\MShop::create( $context, 'product' );
 			$domains = $context->getConfig()->get( 'admin/jqadm/product/domains', [] );
 
-			$search = $manager->filter( true )->setSlice( 0, count( $prodIds ) );
+			$search = $manager->filter( true )->slice( 0, count( $prodIds ) );
 			$search->setConditions( $search->compare( '==', 'product.id', $prodIds ) );
 
 			$items = $manager->search( $search, $domains );

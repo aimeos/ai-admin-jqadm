@@ -49,17 +49,17 @@ class Standard
 		$listTypeManager = \Aimeos\MShop::create( $context, 'service/lists/type' );
 		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
-		$search = $priceTypeManager->filter( true )->setSlice( 0, 10000 );
+		$search = $priceTypeManager->filter( true )->slice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'price.type.domain', 'service' ) );
 		$search->setSortations( [$search->sort( '+', 'price.type.position' )] );
 
-		$listSearch = $listTypeManager->filter( true )->setSlice( 0, 10000 );
+		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
 		$listSearch->setConditions( $listSearch->compare( '==', 'service.lists.type.domain', 'price' ) );
 		$listSearch->setSortations( [$listSearch->sort( '+', 'service.lists.type.position' )] );
 
 		$view->priceTypes = $priceTypeManager->search( $search );
 		$view->priceListTypes = $listTypeManager->search( $listSearch );
-		$view->priceCurrencies = $currencyManager->search( $currencyManager->filter( true )->setSlice( 0, 10000 ) );
+		$view->priceCurrencies = $currencyManager->search( $currencyManager->filter( true )->slice( 0, 10000 ) );
 
 		if( $view->priceCurrencies->isEmpty() ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );

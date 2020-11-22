@@ -128,7 +128,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'subscription.id', $ids ) );
 			$items = $manager->search( $search );
 
@@ -411,7 +411,7 @@ class Standard
 		$baseIds = $items->getOrderBaseId()->toArray();
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
 
-		$search = $manager->filter()->setSlice( 0, count( $baseIds ) );
+		$search = $manager->filter()->slice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
 
 		return $manager->search( $search, ['order/base/address', 'order/base/product'] );

@@ -125,7 +125,7 @@ abstract class Base
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', str_replace( '/', '.', $path ) . '.type.id', $ids ) );
 			$items = $manager->search( $search );
 

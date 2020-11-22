@@ -255,7 +255,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'plugin.label', $label ) );
-		$search->setSlice( 0, 1 );
+		$search->slice( 0, 1 );
 
 		if( ( $item = $manager->search( $search )->first() ) === null ) {
 			throw new \Exception( sprintf( 'No plugin with label "%1$s" found', $label ) );

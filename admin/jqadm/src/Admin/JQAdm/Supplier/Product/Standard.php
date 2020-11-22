@@ -45,7 +45,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists/type' );
 
-		$search = $manager->filter( true )->setSlice( 0, 0x7fffffff );
+		$search = $manager->filter( true )->slice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'supplier.lists.type.domain', 'product' ) );
 		$search->setSortations( [$search->sort( '+', 'supplier.lists.type.position' )] );
 
@@ -267,7 +267,7 @@ class Standard
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
-		$search = $manager->filter()->setSlice( 0, count( $list ) );
+		$search = $manager->filter()->slice( 0, count( $list ) );
 		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
 
 		return $manager->search( $search );
@@ -330,7 +330,7 @@ class Standard
 		$listIds = $this->getValue( $data, 'supplier.lists.id', [] );
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
 
-		$search = $listManager->filter()->setSlice( 0, count( $listIds ) );
+		$search = $listManager->filter()->slice( 0, count( $listIds ) );
 		$search->setConditions( $search->compare( '==', 'supplier.lists.id', $listIds ) );
 
 		$listItems = $listManager->search( $search );

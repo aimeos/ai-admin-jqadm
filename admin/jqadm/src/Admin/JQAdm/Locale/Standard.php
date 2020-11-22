@@ -36,11 +36,11 @@ class Standard
 
 		$cursearch = $curmanager->filter( true );
 		$cursearch->setSortations( [$cursearch->sort( '+', 'locale.currency.id' )] );
-		$cursearch->setSlice( 0, 250 );
+		$cursearch->slice( 0, 250 );
 
 		$langsearch = $langmanager->filter( true );
 		$langsearch->setSortations( [$langsearch->sort( '+', 'locale.language.id' )] );
-		$langsearch->setSlice( 0, 250 );
+		$langsearch->slice( 0, 250 );
 
 		$view->itemLanguages = $langmanager->search( $langsearch );
 		$view->itemCurrencies = $curmanager->search( $cursearch );
@@ -129,7 +129,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'locale.id', $ids ) );
 			$items = $manager->search( $search );
 

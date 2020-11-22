@@ -120,7 +120,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'coupon.id', $ids ) );
 			$items = $manager->search( $search );
 

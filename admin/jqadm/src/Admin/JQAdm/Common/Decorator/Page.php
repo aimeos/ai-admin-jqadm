@@ -45,7 +45,7 @@ class Page extends Base
 			if( ( $custid = $context->getUserId() ) !== null
 				&& ( $siteid = $customerManager->get( $custid )->getSiteId() ) !== null
 			) {
-				$search = $siteManager->filter()->setSlice( 0, 1 );
+				$search = $siteManager->filter()->slice( 0, 1 );
 				$search->setConditions( $search->compare( '==', 'locale.site.siteid', $siteid ) );
 				$id = $siteManager->search( $search )->keys()->first() ?: $siteItem->getId();
 			}
@@ -69,7 +69,7 @@ class Page extends Base
 
 		if( $view->access( ['super'] ) )
 		{
-			$search = $siteManager->filter()->setSlice( 0, 1000 );
+			$search = $siteManager->filter()->slice( 0, 1000 );
 			$search->setSortations( [$search->sort( '+', 'locale.site.label' )] );
 			$search->setConditions( $search->compare( '==', 'locale.site.level', 0 ) );
 

@@ -125,7 +125,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$search = $manager->filter()->setSlice( 0, count( (array) $ids ) );
+			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
 			$search->setConditions( $search->compare( '==', 'plugin.id', $ids ) );
 			$items = $manager->search( $search );
 
@@ -428,7 +428,7 @@ class Standard
 	{
 		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'plugin/type' );
 
-		$search = $typeManager->filter( true )->setSlice( 0, 10000 );
+		$search = $typeManager->filter( true )->slice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'plugin.type.position' )] );
 
 		return $typeManager->search( $search );

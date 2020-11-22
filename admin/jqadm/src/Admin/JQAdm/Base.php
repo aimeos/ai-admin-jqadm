@@ -569,7 +569,7 @@ abstract class Base
 	{
 		if( isset( $params['filter'] ) ) {
 			$criteria = $this->initCriteriaConditions( $criteria, (array) $params['filter'] )
-				->setSlice( 0, $criteria->getSliceSize() );
+				->slice( 0, $criteria->getSliceSize() );
 		}
 
 		if( isset( $params['sort'] ) ) {
@@ -820,7 +820,7 @@ abstract class Base
 		$start = ( isset( $params['offset'] ) ? $params['offset'] : 0 );
 		$size = ( isset( $params['limit'] ) ? $params['limit'] : 25 );
 
-		return $criteria->setSlice( $start, $size );
+		return $criteria->slice( $start, $size );
 	}
 
 

@@ -91,13 +91,13 @@ class Standard
 			$search->compare( '==', 'supplier.lists.domain', 'product' )
 		);
 		$search->setConditions( $search->combine( '&&', $expr ) );
-		$search->setSlice( 0, 0x7fffffff );
+		$search->slice( 0, 0x7fffffff );
 
 		$start = 0;
 
 		do
 		{
-			$search->setSlice( $start );
+			$search->slice( $start );
 
 			$result = $manager->search( $search );
 			$manager->delete( $result->toArray() );
@@ -313,7 +313,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
 
-		$search = $manager->filter()->setSlice( 0, 0x7fffffff );
+		$search = $manager->filter()->slice( 0, 0x7fffffff );
 		$expr = array(
 			$search->compare( '==', 'supplier.lists.refid', $prodid ),
 			$search->compare( '==', 'supplier.lists.domain', 'product' ),
