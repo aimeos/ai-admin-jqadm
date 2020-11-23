@@ -501,29 +501,6 @@ abstract class Base
 
 
 	/**
-	 * Returns the array of criteria sortations based on the given parameters
-	 *
-	 * @param array $params List of criteria data with condition, sorting and paging
-	 * @return array Associative list of criteria sortations
-	 */
-	protected function getCriteriaSortations( array $params ) : array
-	{
-		$sortation = [];
-
-		foreach( $params as $sort )
-		{
-			if( $sort[0] === '-' ) {
-				$sortation[substr( $sort, 1 )] = '-';
-			} else {
-				$sortation[$sort] = '+';
-			}
-		}
-
-		return $sortation;
-	}
-
-
-	/**
 	 * Returns the outer decoratorator of the object
 	 *
 	 * @return \Aimeos\Admin\JQAdm\Iface Outmost object
@@ -567,21 +544,9 @@ abstract class Base
 	 */
 	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
 	{
-		if( isset( $params['filter'] ) ) {
-			$criteria = $this->initCriteriaConditions( $criteria, (array) $params['filter'] )
-				->slice( 0, $criteria->getSliceSize() );
-		}
-
-		if( isset( $params['sort'] ) ) {
-			$criteria = $this->initCriteriaSortations( $criteria, (array) $params['sort'] );
-		}
-
-		$page = [];
-		if( isset( $params['page'] ) ) {
-			$page = (array) $params['page'];
-		}
-
-		return $this->initCriteriaSlice( $criteria, $page );
+		return $criteria->order( $params['sort'] ?? [] )
+			->slice( $params['page']['offset'] ?? 0, $params['page']['limit'] ?? 25 )
+			->add( $criteria->parse( $this->getCriteriaConditions( $params['filter'] ?? [] ) ) );
 	}
 
 
@@ -788,51 +753,5 @@ abstract class Base
 			'page' => $session->get( $key . '/page' ),
 			'sort' => $session->get( $key . '/sort' ),
 		];
-	}
-
-
-	/**
-	 * Initializes the criteria object with conditions based on the given parameter
-	 *
-	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
-	 * @param array $params List of criteria data with condition, sorting and paging
-	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
-	 */
-	private function initCriteriaConditions( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
-	{
-		if( ( $cond = $criteria->toConditions( $this->getCriteriaConditions( $params ) ) ) !== null ) {
-			return $criteria->setConditions( $criteria->combine( '&&', [$cond, $criteria->getConditions()] ) );
-		}
-
-		return $criteria;
-	}
-
-
-	/**
-	 * Initializes the criteria object with the slice based on the given parameter.
-	 *
-	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
-	 * @param array $params List of criteria data with condition, sorting and paging
-	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
-	 */
-	private function initCriteriaSlice( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
-	{
-		$start = ( isset( $params['offset'] ) ? $params['offset'] : 0 );
-		$size = ( isset( $params['limit'] ) ? $params['limit'] : 25 );
-
-		return $criteria->slice( $start, $size );
-	}
-
-
-	/**
-	 * Initializes the criteria object with sortations based on the given parameter
-	 *
-	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
-	 * @param array $params List of criteria data with condition, sorting and paging
-	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
-	 */
-	private function initCriteriaSortations( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
-	{
-		return $criteria->setSortations( $criteria->toSortations( $this->getCriteriaSortations( $params ) ) );
 	}
 }

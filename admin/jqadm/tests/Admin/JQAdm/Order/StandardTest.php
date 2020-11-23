@@ -131,7 +131,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertNotNull( $msg );
 		$mq->del( $msg );
 
-		$expected = '{"sitecode":"unittest","filter":{"&&":[{"==":{"order.id":"1"}}]},"sort":{"order.ctime":"-","order.id":"+"}}';
+		$expected = '{"sitecode":"unittest","filter":{"&&":[{"==":{"order.id":"1"}}]},"sort":["-order.ctime","order.id"]}';
 		$this->assertEquals( $expected, $msg->getBody() );
 	}
 
