@@ -173,7 +173,7 @@ class Standard
 			}
 
 			if( isset( $params['sort'] ) ) {
-				$msg['sort'] = $this->getCriteriaSortations( (array) $params['sort'] );
+				$msg['sort'] = (array) $params['sort'];
 			}
 
 			$mq = $context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( 'subscription-export' );
