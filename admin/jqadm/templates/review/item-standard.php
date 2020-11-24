@@ -172,18 +172,17 @@ $enc = $this->encoder();
 						</div>
 					<?php endif; ?>
 					<div class="form-group row">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Response' ) ); ?></label>
-							<div class="col-sm-8">
-								<textarea class="form-control item-response" tabindex="1" maxlength="1024"
-									name="<?= $this->formparam( array( 'item', 'review.response' ) ); ?>"
-									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Your response' ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
-									<?= $enc->html( $this->get( 'itemData/review.response' ) ); ?>
-								</textarea>
-							</div>
-							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Response to the reviewer' ) ); ?>
-							</div>
+						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Response' ) ); ?></label>
+						<div class="col-sm-8">
+							<textarea class="form-control item-response" tabindex="1" maxlength="1024"
+								name="<?= $this->formparam( array( 'item', 'review.response' ) ); ?>"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Your response' ) ); ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
+								<?= $enc->html( $this->get( 'itemData/review.response' ) ); ?>
+							</textarea>
+						</div>
+						<div class="col-sm-12 form-text text-muted help-text">
+							<?= $enc->html( $this->translate( 'admin', 'Response to the reviewer' ) ); ?>
 						</div>
 					</div>
 				</div>
