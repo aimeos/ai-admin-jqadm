@@ -50,10 +50,9 @@ class Standard
 		$fs = $context->getFileSystemManager()->get( 'fs-admin' );
 		$manager = \Aimeos\MAdmin::create( $context, 'job' );
 		$item = $manager->get( $id );
-		$result = $item->getResult();
 
-		if( isset( $result['file'] ) && $fs->has( $result['file'] ) ) {
-			$fs->rm( $result['file'] );
+		if( ( $path = $item->getPath() ) && $fs->has( $path ) ) {
+			$fs->rm( $path );
 		}
 
 		$manager->delete( $id );
@@ -78,12 +77,11 @@ class Standard
 
 		$fs = $context->getFileSystemManager()->get( 'fs-admin' );
 		$item = \Aimeos\MAdmin::create( $context, 'job' )->get( $id );
-		$result = $item->getResult();
 
-		if( isset( $result['file'] ) && $fs->has( $result['file'] ) )
+		if( ( $path = $item->getPath() ) && $fs->has( $path ) )
 		{
-			$stream = $view->response()->createStream( $fs->reads( $result['file'] ) );
-			$view->response()->withHeader( 'Content-Disposition', 'attachment; filename="' . $result['file'] . '"' );
+			$stream = $view->response()->createStream( $fs->reads( $path ) );
+			$view->response()->withHeader( 'Content-Disposition', 'attachment; filename="' . $path . '"' );
 			$view->response()->withHeader( 'Content-Type', 'text/csv' );
 			$view->response()->withBody( $stream );
 		}
