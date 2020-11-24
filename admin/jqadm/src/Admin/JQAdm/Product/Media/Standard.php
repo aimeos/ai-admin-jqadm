@@ -284,7 +284,7 @@ class Standard
 
 		foreach( $listItems as $listItem )
 		{
-			$func = $search->createFunction( 'product:has', ['media', $listItem->getType(), $listItem->getRefId()] );
+			$func = $search->make( 'product:has', ['media', $listItem->getType(), $listItem->getRefId()] );
 			$search->setConditions( $search->compare( '!=', $func, null ) );
 			$items = $manager->search( $search );
 			$refItem = null;
