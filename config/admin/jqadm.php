@@ -10,26 +10,20 @@ return [
 			'price/property' => 'price/property',
 			'text' => 'text',
 		],
-		'standard' => [
+		'subparts' => [
+			'media' => 'media',
+			'text' => 'text',
+			'price' => 'price',
+			'property' => 'property',
+		],
+		'media' => [
 			'subparts' => [
-				'media' => 'media',
-				'text' => 'text',
-				'price' => 'price',
 				'property' => 'property',
 			],
 		],
-		'media' => [
-			'standard' => [
-				'subparts' => [
-					'property' => 'property',
-				],
-			],
-		],
 		'price' => [
-			'standard' => [
-				'subparts' => [
-					'property' => 'property',
-				],
+			'subparts' => [
+				'property' => 'property',
 			],
 		],
 	],
@@ -39,18 +33,14 @@ return [
 			'media/property' => 'media/property',
 			'text' => 'text',
 		],
-		'standard' => [
-			'subparts' => [
-				'media' => 'media',
-				'text' => 'text',
-				'price' => 'product',
-			],
+		'subparts' => [
+			'media' => 'media',
+			'text' => 'text',
+			'price' => 'product',
 		],
 		'media' => [
-			'standard' => [
-				'subparts' => [
-					'property' => 'property',
-				],
+			'subparts' => [
+				'property' => 'property',
 			],
 		],
 		'product' => [
@@ -65,10 +55,8 @@ return [
 		],
 	],
 	'coupon' => [
-		'standard' => [
-			'subparts' => [
-				'code' => 'code',
-			],
+		'subparts' => [
+			'code' => 'code',
 		],
 	],
 	'customer' => [
@@ -77,36 +65,30 @@ return [
 			'customer/group' => 'customer/group',
 			'customer/property' => 'customer/property',
 		],
-		'standard' => [
-			'subparts' => [
-				'address' => 'address',
-				'order' => 'order',
-				'product' => 'product',
-				'property' => 'property',
-			],
+		'subparts' => [
+			'address' => 'address',
+			'order' => 'order',
+			'product' => 'product',
+			'property' => 'property',
 		],
 	],
 	'dashboard' => [
-		'standard' => [
-			'subparts' => [
-				'setting' => 'setting',
-				'job' => 'job',
-				'order' => 'order',
-			],
+		'subparts' => [
+			'setting' => 'setting',
+			'job' => 'job',
+			'order' => 'order',
 		],
 		'order' => [
-			'standard' => [
-					'subparts' => [
-					'latest' => 'latest',
-					'salesday' => 'salesday',
-					'salesmonth' => 'salesmonth',
-					'salesweekday' => 'salesweekday',
-					'countday' => 'countday',
-					'countpaystatus' => 'countpaystatus',
-					'counthour' => 'counthour',
-					'servicepayment' => 'servicepayment',
-					'servicedelivery' => 'servicedelivery',
-				],
+				'subparts' => [
+				'latest' => 'latest',
+				'salesday' => 'salesday',
+				'salesmonth' => 'salesmonth',
+				'salesweekday' => 'salesweekday',
+				'countday' => 'countday',
+				'countpaystatus' => 'countpaystatus',
+				'counthour' => 'counthour',
+				'servicepayment' => 'servicepayment',
+				'servicedelivery' => 'servicedelivery',
 			],
 		],
 	],
@@ -114,10 +96,8 @@ return [
 		'actions' => [
 			'order-export' => 'order-export'
 		],
-		'standard' => [
-			'subparts' => [
-				'invoice' => 'invoice',
-			],
+		'subparts' => [
+			'invoice' => 'invoice',
 		],
 	],
 	'product' => [
@@ -135,77 +115,61 @@ return [
 			'stock' => ['default'],
 			'text' => 'text',
 		],
-		'standard' => [
-			'subparts' => [
-				'selection' => 'selection',
-				'bundle' => 'bundle',
-				'media' => 'media',
-				'text' => 'text',
-				'price' => 'price',
-				'stock' => 'stock',
-				'category' => 'category',
-				'characteristic' => 'characteristic',
-				'option' => 'option',
-				'related' => 'related',
-				'supplier' => 'supplier',
-				'physical' => 'physical',
-				'subscription' => 'subscription',
-				'download' => 'download',
-				'order' => 'order',
-			],
+		'subparts' => [
+			'selection' => 'selection',
+			'bundle' => 'bundle',
+			'media' => 'media',
+			'text' => 'text',
+			'price' => 'price',
+			'stock' => 'stock',
+			'category' => 'category',
+			'characteristic' => 'characteristic',
+			'option' => 'option',
+			'related' => 'related',
+			'supplier' => 'supplier',
+			'physical' => 'physical',
+			'subscription' => 'subscription',
+			'download' => 'download',
+			'order' => 'order',
 		],
 		'characteristic' => [
-			'standard' => [
-				'subparts' => [
-					'property' => 'property',
-					'variant' => 'variant',
-					'attribute' => 'attribute',
-					'hidden' => 'hidden',
-				],
+			'subparts' => [
+				'property' => 'property',
+				'variant' => 'variant',
+				'attribute' => 'attribute',
+				'hidden' => 'hidden',
 			],
 		],
 		'media' => [
-			'standard' => [
-				'subparts' => [
-					'property' => 'property'
-				],
+			'subparts' => [
+				'property' => 'property'
 			],
 		],
 		'option' => [
 			'config' => [
-				'standard' => [
-					'exclude' => [
-						'interval' => 'interval',
-					],
+				'exclude' => [
+					'interval' => 'interval',
 				],
 			],
 			'custom' => [
-				'standard' => [
-					'exclude' => [
-						'price' => 'price',
-					],
+				'exclude' => [
+					'price' => 'price',
 				],
 			],
-			'standard' => [
-				'subparts' => [
-					'config' => 'config',
-					'custom' => 'custom',
-				],
+			'subparts' => [
+				'config' => 'config',
+				'custom' => 'custom',
 			],
 		],
 		'price' => [
-			'standard' => [
-				'subparts' => [
-					'property' => 'property',
-				],
+			'subparts' => [
+				'property' => 'property',
 			],
 		],
 		'related' => [
-			'standard' => [
-				'subparts' => [
-					'suggest' => 'suggest',
-					'bought' => 'bought',
-				],
+			'subparts' => [
+				'suggest' => 'suggest',
+				'bought' => 'bought',
 			],
 		],
 	],
@@ -222,25 +186,19 @@ return [
 			'price/property' => 'price/property',
 			'text' => 'text'
 		],
-		'standard' => [
-			'subparts' => [
-				'media' => 'media',
-				'text' => 'text',
-				'price' => 'price',
-			],
+		'subparts' => [
+			'media' => 'media',
+			'text' => 'text',
+			'price' => 'price',
 		],
 		'media' => [
-			'standard' => [
-				'subparts' => [
-					'property' => 'property',
-				],
+			'subparts' => [
+				'property' => 'property',
 			],
 		],
 		'price' => [
-			'standard' => [
-				'subparts' => [
-					'property' => 'property',
-				],
+			'subparts' => [
+				'property' => 'property',
 			],
 		],
 	],
@@ -250,19 +208,15 @@ return [
 			'supplier/address' => 'supplier/address',
 			'text' => 'text',
 		],
-		'standard' => [
-			'subparts' => [
-				'address' => 'address',
-				'media' => 'media',
-				'text' => 'text',
-				'product' => 'product',
-			],
+		'subparts' => [
+			'address' => 'address',
+			'media' => 'media',
+			'text' => 'text',
+			'product' => 'product',
 		],
 		'media' => [
-			'standard' => [
-				'subparts' => [
-					'property' => 'property',
-				],
+			'subparts' => [
+				'property' => 'property',
 			],
 		],
 	],
