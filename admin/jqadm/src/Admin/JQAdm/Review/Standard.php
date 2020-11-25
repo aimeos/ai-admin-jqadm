@@ -412,7 +412,7 @@ class Standard
 			$rateManager = \Aimeos\MShop::create( $context, $item->getDomain() );
 
 			if( $entry = $manager->aggregate( $filter, 'review.refid', 'review.rating', 'rate' )->first() ) {
-				$rateManager->rate( $item->getRefId(), $entry['sum'], $entry['count'] );
+				$rateManager->rate( $item->getRefId(), $entry['sum'] / $entry['count'], $entry['count'] );
 			} else {
 				$rateManager->rate( $item->getRefId(), 0, 0 );
 			}
