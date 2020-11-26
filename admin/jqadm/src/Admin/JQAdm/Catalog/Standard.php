@@ -431,7 +431,7 @@ class Standard
 		$item = $item->fromArray( $data, true )->setConfig( $conf );
 
 		if( $item->getId() == null ) {
-			return $manager->insertItem( $item, $data['catalog.parentid'] ?: null );
+			return $manager->insert( $item, $data['catalog.parentid'] ?: null );
 		}
 
 		return $item;

@@ -92,7 +92,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-root' );
 		$item->setId( null );
 
-		$item = $manager->insertItem( $item );
+		$item = $manager->insert( $item );
 
 
 		$param = array(
@@ -128,7 +128,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$item->setCode( 'jqadm-test-root' );
 		$item->setId( null );
 
-		$item = $manager->insertItem( $item );
+		$item = $manager->insert( $item );
 
 
 		$param = array(

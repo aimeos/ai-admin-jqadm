@@ -465,7 +465,7 @@ class Standard
 		$item->setConfig( $conf );
 
 		if( $item->getId() == null ) {
-			return $manager->insertItem( $item );
+			return $manager->insert( $item );
 		}
 
 		return $item;
