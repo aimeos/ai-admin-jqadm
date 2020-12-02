@@ -7,13 +7,10 @@ version: 2
 jobs:
   "php-7.1 / mariadb-10":
     docker:
-      - image: circleci/php:7.1
+      - image: aimeos/ci-php:7.1
       - image: circleci/mariadb:10
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install -y default-mysql-client libjpeg62-turbo-dev libpng-dev zlib1g-dev
-      - run: sudo docker-php-ext-configure gd --with-jpeg-dir=/usr/include/
-      - run: sudo docker-php-ext-install -j$(nproc) gd zip pdo_mysql
       - run: git clone --depth=50 --branch=master git://github.com/aimeos/aimeos-core.git ../aimeos-core
       - run: cd .. && mv project aimeos-core/ext/ai-admin-jqadm && mv aimeos-core project && cd project
       - restore_cache:
@@ -25,11 +22,12 @@ jobs:
           paths: [./vendor]
       - run: mysql -h 127.0.0.1 -u root -e "CREATE DATABASE aimeos; GRANT ALL ON aimeos.* TO 'aimeos'@'127.0.0.1' IDENTIFIED BY 'aimeos'"
       - run: echo "<?php return array( 'db' => array( 'adapter' => 'mysql', 'host' => '127.0.0.1', 'port' => 3306, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array( \"SET SESSIOn sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'\" ) ), 'fs' => array( 'adapter' => 'Standard', 'basedir' => '.' ), 'mq' => array( 'adapter' => 'Standard', 'db' => 'db' ) );" > config/resource.php
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
 
   "php-7.2 / mysql-5.7":
     docker:
-      - image: cimg/php:7.2
+      - image: aimeos/ci-php:7.2
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
@@ -38,7 +36,6 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install -y mysql-client php7.2-gd php7.2-intl php7.2-mysql
       - run: git clone --depth=50 --branch=master git://github.com/aimeos/aimeos-core.git ../aimeos-core
       - run: cd .. && mv project aimeos-core/ext/ai-admin-jqadm && mv aimeos-core project && cd project
       - restore_cache:
@@ -49,11 +46,12 @@ jobs:
           key: php72-{{ checksum "composer.json" }}
           paths: [./vendor]
       - run: echo "<?php return array( 'db' => array( 'adapter' => 'mysql', 'host' => '127.0.0.1', 'port' => 3306, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array( \"SET SESSIOn sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'\" ) ), 'fs' => array( 'adapter' => 'Standard', 'basedir' => '.' ), 'mq' => array( 'adapter' => 'Standard', 'db' => 'db' ) );" > config/resource.php
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
 
   "php-7.3 / pgsql-13":
     docker:
-      - image: cimg/php:7.3
+      - image: aimeos/ci-php:7.3
       - image: circleci/postgres:13
         environment:
           POSTGRES_PASSWORD: aimeos
@@ -61,7 +59,6 @@ jobs:
           POSTGRES_DB: aimeos
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install -y postgresql-client php7.3-gd php7.3-intl php7.3-pgsql
       - run: git clone --depth=50 --branch=master git://github.com/aimeos/aimeos-core.git ../aimeos-core
       - run: cd .. && mv project aimeos-core/ext/ai-admin-jqadm && mv aimeos-core project && cd project
       - restore_cache:
@@ -72,11 +69,12 @@ jobs:
           key: php74-{{ checksum "composer.json" }}
           paths: [./vendor]
       - run: echo "<?php return array( 'db' => array( 'adapter' => 'pgsql', 'host' => '127.0.0.1', 'port' => 5432, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array() ), 'fs' => array( 'adapter' => 'Standard', 'basedir' => '.' ), 'mq' => array( 'adapter' => 'Standard', 'db' => 'db' ) );" > config/resource.php
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
 
   "php-7.4 / mysql-8.0":
     docker:
-      - image: cimg/php:7.4
+      - image: aimeos/ci-php:7.4
       - image: circleci/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
@@ -85,7 +83,6 @@ jobs:
           MYSQL_PASSWORD: aimeos
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install -y mysql-client php7.4-gd php7.4-intl php7.4-mysql php7.4-xdebug
       - run: git clone --depth=50 --branch=master git://github.com/aimeos/aimeos-core.git ../aimeos-core
       - run: cd .. && mv project aimeos-core/ext/ai-admin-jqadm && mv aimeos-core project && cd project
       - restore_cache:
@@ -96,6 +93,7 @@ jobs:
           key: php74-{{ checksum "composer.json" }}
           paths: [./vendor]
       - run: echo "<?php return array( 'db' => array( 'adapter' => 'mysql', 'host' => '127.0.0.1', 'port' => 3306, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array( \"SET SESSIOn sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'\" ) ), 'fs' => array( 'adapter' => 'Standard', 'basedir' => '.' ), 'mq' => array( 'adapter' => 'Standard', 'db' => 'db' ) );" > config/resource.php
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup coverageext checkext
       - run: ./vendor/bin/php-coveralls -x ext/ai-admin-jqadm/admin/jqadm/tests/coverage.xml -vvv
 
