@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 07:29+0000\n"
-"Last-Translator: Miro Sertić <miro.sertic0606@gmail.com>\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
+"PO-Revision-Date: 2020-12-02 14:24+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Croatian (http://www.transifex.com/aimeos/aimeos-core/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,6 +71,9 @@ msgstr ""
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
+msgstr ""
+
+msgid "+ Tax"
 msgstr ""
 
 msgid "?"
@@ -412,6 +415,9 @@ msgid "Delete"
 msgstr "Obriši"
 
 msgid "Delete items?"
+msgstr ""
+
+msgid "Delete selected entries"
 msgstr ""
 
 msgid "Delete this entry"
@@ -1267,6 +1273,9 @@ msgstr ""
 
 msgid "Select file"
 msgstr "Odaberite dokument"
+
+msgid "Selected entries"
+msgstr ""
 
 msgid "Service"
 msgstr "Usluga"

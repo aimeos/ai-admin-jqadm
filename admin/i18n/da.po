@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 07:29+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
+"PO-Revision-Date: 2020-12-02 14:24+0000\n"
+"Last-Translator: Tobias Madsen <tubbe.m@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/aimeos/aimeos-core/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,6 +70,9 @@ msgstr ""
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
+msgstr ""
+
+msgid "+ Tax"
 msgstr ""
 
 msgid "?"
@@ -185,7 +188,7 @@ msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
-msgstr ""
+msgstr "Egenskaber"
 
 msgid "Available currency for the current site"
 msgstr ""
@@ -218,7 +221,7 @@ msgid "Bug or suggestion?"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annullér"
 
 msgid "Cancel and return to list"
 msgstr ""
@@ -336,7 +339,7 @@ msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
 
 msgid "Created"
-msgstr ""
+msgstr "Oprettet"
 
 msgid "Currencies"
 msgstr ""
@@ -408,19 +411,22 @@ msgid "Default"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Slet"
 
 msgid "Delete items?"
+msgstr ""
+
+msgid "Delete selected entries"
 msgstr ""
 
 msgid "Delete this entry"
 msgstr ""
 
 msgid "Delivery"
-msgstr ""
+msgstr "Levering"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "Leveringsadresse"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -433,7 +439,7 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Levering inden"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -498,7 +504,7 @@ msgid "Email"
 msgstr ""
 
 msgid "End date"
-msgstr ""
+msgstr "Slut dato"
 
 msgid "End date (optional)"
 msgstr ""
@@ -667,7 +673,7 @@ msgid "Internal type name shown in the administration interface"
 msgstr ""
 
 msgid "Interval"
-msgstr ""
+msgstr "Interval"
 
 msgid "Interval (required)"
 msgstr ""
@@ -884,10 +890,10 @@ msgid ""
 msgstr ""
 
 msgid "Order"
-msgstr ""
+msgstr "Ordre"
 
 msgid "Order ID"
-msgstr ""
+msgstr "Ordre ID"
 
 msgid "Order number entered by the customer"
 msgstr ""
@@ -932,7 +938,7 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Side %1$d af %2$d"
 
 msgid "Password"
 msgstr "kodeord"
@@ -969,7 +975,7 @@ msgid "Personal data"
 msgstr ""
 
 msgid "Please select"
-msgstr ""
+msgstr "Vælg"
 
 msgid "Plugin"
 msgstr ""
@@ -1127,7 +1133,7 @@ msgid "Promotion"
 msgstr ""
 
 msgid "Properties"
-msgstr ""
+msgstr "Egenskaber"
 
 msgid "Property value (required)"
 msgstr ""
@@ -1151,7 +1157,7 @@ msgid "Rabate"
 msgstr ""
 
 msgid "Rating"
-msgstr ""
+msgstr "Score"
 
 msgid "Rating of the reviewer"
 msgstr ""
@@ -1168,7 +1174,7 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
-msgstr ""
+msgstr "Reference"
 
 msgid "Reference ID"
 msgstr ""
@@ -1198,7 +1204,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Nulstil"
 
 msgid "Response"
 msgstr ""
@@ -1241,10 +1247,10 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr ""
+msgstr "Tiltaleform"
 
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 msgid "Save & Close"
 msgstr ""
@@ -1265,6 +1271,9 @@ msgid "Second level type for grouping items"
 msgstr ""
 
 msgid "Select file"
+msgstr ""
+
+msgid "Selected entries"
 msgstr ""
 
 msgid "Service"
@@ -1310,7 +1319,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr ""
+msgstr "Levering"
 
 msgid "Shipping costs/item"
 msgstr ""
@@ -1376,7 +1385,7 @@ msgid "State"
 msgstr ""
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Stock Type"
 msgstr ""
@@ -1666,17 +1675,17 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "Adresser"
 
 msgid "address:delivery"
-msgstr ""
+msgstr "Leveringsadresse"
 
 msgid "address:payment"
 msgstr "Faktureringsadresse"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Egenskaber"
 
 #, php-format
 msgid "bundle"
@@ -1692,7 +1701,7 @@ msgstr "Kategorier"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "Karakteristika"
 
 #, php-format
 msgid "code"
@@ -1755,7 +1764,7 @@ msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Seneste"
 
 #, php-format
 msgid "locale"
@@ -1801,7 +1810,7 @@ msgstr ""
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "Muligheder"
 
 #, php-format
 msgid "order"
@@ -1863,7 +1872,7 @@ msgstr ""
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "Egenskaber"
 
 msgid "reason:-1"
 msgstr ""
@@ -1880,7 +1889,7 @@ msgstr ""
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Anmeldelser"
 
 #, php-format
 msgid "salesweekday"
@@ -1892,7 +1901,7 @@ msgstr ""
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "Services"
 
 #, php-format
 msgid "servicedelivery"
@@ -1970,7 +1979,7 @@ msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "Egenskaber"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2034,7 +2043,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Services"
 
 #, php-format
 msgid "type/service/lists"

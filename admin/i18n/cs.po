@@ -4,15 +4,16 @@
 # 
 # Translators:
 # David Haška <dhaska93@gmail.com>, 2018
+# Jaroslav Klimcik <jerry.klimcik@gmail.com>, 2020
 # Martin Vyšohlíd <vysohlidm@gmail.com>, 2016
 # Vlastimil Vaněk <vlastimil.vanek@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 07:29+0000\n"
-"Last-Translator: Vlastimil Vaněk <vlastimil.vanek@gmail.com>\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
+"PO-Revision-Date: 2020-12-02 14:24+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,14 +76,17 @@ msgid ""
 "with a \"+\""
 msgstr ""
 
+msgid "+ Tax"
+msgstr ""
+
 msgid "?"
 msgstr ""
 
 msgid "Active"
-msgstr ""
+msgstr "Aktivní"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Aktuální cena"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
@@ -415,6 +419,9 @@ msgstr "Smazat"
 
 msgid "Delete items?"
 msgstr "Smazat položky?"
+
+msgid "Delete selected entries"
+msgstr ""
 
 msgid "Delete this entry"
 msgstr "Smazat tento záznam"
@@ -1270,6 +1277,9 @@ msgstr ""
 msgid "Select file"
 msgstr ""
 
+msgid "Selected entries"
+msgstr ""
+
 msgid "Service"
 msgstr ""
 
@@ -1946,7 +1956,7 @@ msgid "status:0"
 msgstr "status:disabled"
 
 msgid "status:1"
-msgstr "status:enabled"
+msgstr "Zapnuto"
 
 #, php-format
 msgid "stock"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
 "PO-Revision-Date: 2017-01-03 11:21+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/aimeos/aimeos-core/language/pt_PT/)\n"
@@ -66,6 +66,9 @@ msgid "(International) facsimilie number without separation characters, can star
 msgstr ""
 
 msgid "(International) telephone number without separation characters, can start with a \"+\""
+msgstr ""
+
+msgid "+ Tax"
 msgstr ""
 
 msgid "?"
@@ -396,6 +399,9 @@ msgid "Delete"
 msgstr ""
 
 msgid "Delete items?"
+msgstr ""
+
+msgid "Delete selected entries"
 msgstr ""
 
 msgid "Delete this entry"
@@ -1216,6 +1222,9 @@ msgid "Second level type for grouping items"
 msgstr ""
 
 msgid "Select file"
+msgstr ""
+
+msgid "Selected entries"
 msgstr ""
 
 msgid "Service"
