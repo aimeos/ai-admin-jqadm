@@ -9,6 +9,11 @@ jobs:
     docker:
       - image: aimeos/ci-php:7.1
       - image: circleci/mariadb:10
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: aimeos
+          MYSQL_USER: aimeos
+          MYSQL_PASSWORD: aimeos
     steps:
       - checkout
       - run: git clone --depth=50 --branch=master git://github.com/aimeos/aimeos-core.git ../aimeos-core
@@ -20,7 +25,6 @@ jobs:
       - save_cache:
           key: php71-{{ checksum "composer.json" }}
           paths: [./vendor]
-      - run: mysql -h 127.0.0.1 -u root -e "CREATE DATABASE aimeos; GRANT ALL ON aimeos.* TO 'aimeos'@'127.0.0.1' IDENTIFIED BY 'aimeos'"
       - run: echo "<?php return array( 'db' => array( 'adapter' => 'mysql', 'host' => '127.0.0.1', 'port' => 3306, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array( \"SET SESSIOn sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'\" ) ), 'fs' => array( 'adapter' => 'Standard', 'basedir' => '.' ), 'mq' => array( 'adapter' => 'Standard', 'db' => 'db' ) );" > config/resource.php
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
@@ -47,7 +51,7 @@ jobs:
           paths: [./vendor]
       - run: echo "<?php return array( 'db' => array( 'adapter' => 'mysql', 'host' => '127.0.0.1', 'port' => 3306, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array( \"SET SESSIOn sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'\" ) ), 'fs' => array( 'adapter' => 'Standard', 'basedir' => '.' ), 'mq' => array( 'adapter' => 'Standard', 'db' => 'db' ) );" > config/resource.php
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
-      - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
+      - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext checkext
 
   "php-7.3 / pgsql-13":
     docker:
@@ -69,7 +73,7 @@ jobs:
           key: php74-{{ checksum "composer.json" }}
           paths: [./vendor]
       - run: echo "<?php return array( 'db' => array( 'adapter' => 'pgsql', 'host' => '127.0.0.1', 'port' => 5432, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array() ), 'fs' => array( 'adapter' => 'Standard', 'basedir' => '.' ), 'mq' => array( 'adapter' => 'Standard', 'db' => 'db' ) );" > config/resource.php
-      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 5432 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
 
   "php-7.4 / mysql-8.0":
@@ -94,7 +98,7 @@ jobs:
           paths: [./vendor]
       - run: echo "<?php return array( 'db' => array( 'adapter' => 'mysql', 'host' => '127.0.0.1', 'port' => 3306, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array( \"SET SESSIOn sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'\" ) ), 'fs' => array( 'adapter' => 'Standard', 'basedir' => '.' ), 'mq' => array( 'adapter' => 'Standard', 'db' => 'db' ) );" > config/resource.php
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
-      - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup coverageext checkext
+      - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup coverageext
       - run: ./vendor/bin/php-coveralls -x ext/ai-admin-jqadm/admin/jqadm/tests/coverage.xml -vvv
 
 workflows:
