@@ -5,15 +5,16 @@
 # Translators:
 # alessandro massarelli <alessandro@openmantra.net>, 2015
 # Enrico Porceddu <porceddu_enrico@yahoo.com>, 2018
+# isabella carlin <isabella@vg7.it>, 2020
 # Matteo Schiona <ms@kiboko.it>, 2017
 # R M <roberto@proprionoi.it>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 07:29+0000\n"
-"Last-Translator: Matteo Schiona <ms@kiboko.it>\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
+"PO-Revision-Date: 2020-12-07 14:31+0000\n"
+"Last-Translator: isabella carlin <isabella@vg7.it>\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,6 +76,9 @@ msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
 msgstr "(internazionale) numeri di telefono senza caratteri separativi possono iniziare con un \"+\""
+
+msgid "+ Tax"
+msgstr ""
 
 msgid "?"
 msgstr ""
@@ -248,7 +252,7 @@ msgid ""
 msgstr ""
 
 msgid "Choose file"
-msgstr ""
+msgstr "Scelta del file "
 
 msgid "City"
 msgstr "Città"
@@ -416,6 +420,9 @@ msgstr "Cancella"
 
 msgid "Delete items?"
 msgstr "Cancella articoli?"
+
+msgid "Delete selected entries"
+msgstr ""
 
 msgid "Delete this entry"
 msgstr "Elimina oggetto"
@@ -671,7 +678,7 @@ msgid "Internal type name shown in the administration interface"
 msgstr ""
 
 msgid "Interval"
-msgstr ""
+msgstr "Intervallo"
 
 msgid "Interval (required)"
 msgstr ""
@@ -1155,7 +1162,7 @@ msgid "Rabate"
 msgstr ""
 
 msgid "Rating"
-msgstr ""
+msgstr "Valutazione"
 
 msgid "Rating of the reviewer"
 msgstr ""
@@ -1172,7 +1179,7 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
-msgstr ""
+msgstr "Referenze"
 
 msgid "Reference ID"
 msgstr ""
@@ -1194,7 +1201,7 @@ msgstr ""
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "Manca il parametro richiesto \"%1$s\""
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
@@ -1269,6 +1276,9 @@ msgid "Second level type for grouping items"
 msgstr ""
 
 msgid "Select file"
+msgstr ""
+
+msgid "Selected entries"
 msgstr ""
 
 msgid "Service"
@@ -1884,7 +1894,7 @@ msgstr "Prodotti"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Recensioni"
 
 #, php-format
 msgid "salesweekday"

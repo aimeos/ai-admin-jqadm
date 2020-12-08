@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 19:51+0000\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
+"PO-Revision-Date: 2020-12-02 20:29+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -72,6 +72,9 @@ msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
 msgstr "Ayırma karakterleri olmaksızın telefon numarası (uluslararası), \"+\" ile başlayabilir"
+
+msgid "+ Tax"
+msgstr "+ Vergi"
 
 msgid "?"
 msgstr "?"
@@ -413,6 +416,9 @@ msgstr "Sil"
 
 msgid "Delete items?"
 msgstr "Öğeleri sil?"
+
+msgid "Delete selected entries"
+msgstr "Seçili girişleri sil"
 
 msgid "Delete this entry"
 msgstr "Bu girişi sil"
@@ -1268,6 +1274,9 @@ msgstr "Öğeleri gruplamak için ikinci seviye türü"
 msgid "Select file"
 msgstr "Dosya seç"
 
+msgid "Selected entries"
+msgstr "Seçilen girişler"
+
 msgid "Service"
 msgstr "Hizmet"
 
@@ -1881,7 +1890,7 @@ msgstr "Ürünler"
 
 #, php-format
 msgid "review"
-msgstr "Değerlendir"
+msgstr "Değerlendirmeler"
 
 #, php-format
 msgid "salesweekday"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 07:29+0000\n"
-"Last-Translator: Bistra Kumanova <b.kumanova@creato.bg>\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
+"PO-Revision-Date: 2020-12-02 14:24+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,6 +73,9 @@ msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
 msgstr "Международните телефонни номера без знак за отделяне, могат да започнат с \"+\""
+
+msgid "+ Tax"
+msgstr ""
 
 msgid "?"
 msgstr ""
@@ -414,6 +417,9 @@ msgstr "Изтрий"
 
 msgid "Delete items?"
 msgstr "Потвърдете изтриването !"
+
+msgid "Delete selected entries"
+msgstr ""
 
 msgid "Delete this entry"
 msgstr ""
@@ -1267,6 +1273,9 @@ msgid "Second level type for grouping items"
 msgstr ""
 
 msgid "Select file"
+msgstr ""
+
+msgid "Selected entries"
 msgstr ""
 
 msgid "Service"

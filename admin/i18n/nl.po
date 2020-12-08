@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 07:29+0000\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
+"PO-Revision-Date: 2020-12-02 14:24+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -79,6 +79,9 @@ msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
 msgstr "(Internationaal) telefoonnummer zonder scheidingsteken, kan beginnen met \"+\""
+
+msgid "+ Tax"
+msgstr ""
 
 msgid "?"
 msgstr "?"
@@ -420,6 +423,9 @@ msgstr "Verwijderen"
 
 msgid "Delete items?"
 msgstr "Verwijder items?"
+
+msgid "Delete selected entries"
+msgstr ""
 
 msgid "Delete this entry"
 msgstr "Verwijder deze ingave"
@@ -1274,6 +1280,9 @@ msgstr "Tweede niveau type voor groeperings items"
 
 msgid "Select file"
 msgstr "Bestand selecteren"
+
+msgid "Selected entries"
+msgstr ""
 
 msgid "Service"
 msgstr "Dienst"

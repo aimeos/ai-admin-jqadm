@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Esmail Alsheakh <ismaielalsheakh@gmail.com>, 2020
+# Esmail Alshikh <ismaielalsheakh@gmail.com>, 2020
 # Islam Saadi <info@irestweb.com>, 2020
 # Ismail Ashour <dr.ashoor@gmail.com>, 2016
 # jana iyad <devoshop20@gmail.com>, 2020
@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 07:29+0000\n"
-"Last-Translator: Esmail Alsheakh <ismaielalsheakh@gmail.com>\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
+"PO-Revision-Date: 2020-12-02 14:24+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Arabic (http://www.transifex.com/aimeos/aimeos-core/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,6 +77,9 @@ msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
 msgstr "رقم الهاتف (الدولي) بدون فواصل، يمكن أن يبدأ بـ \"+\""
+
+msgid "+ Tax"
+msgstr ""
 
 msgid "?"
 msgstr "؟"
@@ -417,6 +420,9 @@ msgid "Delete"
 msgstr "حذف"
 
 msgid "Delete items?"
+msgstr ""
+
+msgid "Delete selected entries"
 msgstr ""
 
 msgid "Delete this entry"
@@ -1271,6 +1277,9 @@ msgid "Second level type for grouping items"
 msgstr ""
 
 msgid "Select file"
+msgstr ""
+
+msgid "Selected entries"
 msgstr ""
 
 msgid "Service"

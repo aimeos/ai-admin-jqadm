@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
-"PO-Revision-Date: 2020-10-05 07:29+0000\n"
+"POT-Creation-Date: 2020-12-02 15:52+0100\n"
+"PO-Revision-Date: 2020-12-02 14:24+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/aimeos/aimeos-core/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -74,6 +74,9 @@ msgstr ""
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
+msgstr ""
+
+msgid "+ Tax"
 msgstr ""
 
 msgid "?"
@@ -416,6 +419,9 @@ msgstr "删除"
 
 msgid "Delete items?"
 msgstr "删除项目？"
+
+msgid "Delete selected entries"
+msgstr ""
 
 msgid "Delete this entry"
 msgstr ""
@@ -1269,6 +1275,9 @@ msgid "Second level type for grouping items"
 msgstr ""
 
 msgid "Select file"
+msgstr ""
+
+msgid "Selected entries"
 msgstr ""
 
 msgid "Service"
