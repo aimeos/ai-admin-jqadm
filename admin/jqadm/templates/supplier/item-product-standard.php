@@ -183,6 +183,15 @@ $refItems = $this->get( 'productItems', [] );
 									</select>
 								</div>
 							</div>
+						</div>
+						<div class="col-xl-6">
+							<div class="form-group row optional">
+								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?></label>
+								<div class="col-sm-8">
+									<input class="form-control item-position" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'product', 'supplier.lists.position', '' ) ) ); ?>" disabled="disabled" />
+								</div>
+							</div>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 								<div class="col-sm-8">
@@ -197,52 +206,6 @@ $refItems = $this->get( 'productItems', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'product', 'supplier.lists.dateend', '' ) ) ); ?>" disabled="disabled" />
 								</div>
 							</div>
-							<div class="form-group row optional">
-								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?></label>
-								<div class="col-sm-8">
-									<input class="form-control item-position" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										name="<?= $enc->attr( $this->formparam( array( 'product', 'supplier.lists.position', '' ) ) ); ?>" disabled="disabled" />
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-6">
-							<table class="item-config config-multiple table table-striped">
-								<thead>
-									<tr>
-										<th>
-											<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
-											<div class="form-text text-muted help-text">
-												<?= $enc->html( $this->translate( 'admin', 'Article specific configuration options, will be available as key/value pairs in the templates' ) ); ?>
-											</div>
-										</th>
-										<th>
-											<?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?>
-										</th>
-										<th class="actions">
-											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>">
-											</div>
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr class="prototype">
-										<td>
-											<input type="text" class="config-key form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'product', 'config', 'idx', 'key', '' ) ) ); ?>" />
-										</td>
-										<td>
-											<input type="text" class="config-value form-control" tabindex="<?= $this->get( 'tabindex' ); ?>" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'product', 'config', 'idx', 'val', '' ) ) ); ?>" />
-										</td>
-										<td class="actions">
-											<div class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>">
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
 						</div>
 					</div>
 				</td>
