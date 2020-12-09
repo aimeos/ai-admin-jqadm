@@ -215,7 +215,7 @@
 	color: #687090;
 }
 
-.aimeos .list-items a.items-field.act-view:after {
+.aimeos .list-items a.items-field.act-view:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	content: "\f06e";
 }
@@ -272,6 +272,20 @@
 .aimeos .help-text {
 	font-size: 80%;
 	display: none;
+}
+
+
+.aimeos .list-items .config-item-key,
+.aimeos .list-items .config-item-value {
+	width: 49%;
+}
+
+.aimeos .list-items .config-item .action {
+	width: 2%;
+}
+
+.aimeos .list-items .config-item input {
+	width: 7.5rem;
 }
 
 
@@ -441,7 +455,7 @@
 	border-color: transparent;
 }
 
-.aimeos .item-order .item-customerid a.act-view:after {
+.aimeos .item-order .item-customerid a.act-view:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	content: " \f06e";
 }
@@ -621,7 +635,7 @@
 	left: 0;
 }
 
-.aimeos .item-review .item-refid a.act-view:after {
+.aimeos .item-review .item-refid a.act-view:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	content: " \f06e";
 }

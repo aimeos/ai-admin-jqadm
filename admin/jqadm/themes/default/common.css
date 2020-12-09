@@ -178,6 +178,10 @@
 	border-bottom: solid 1px #DFDFDF;
 }
 
+.aimeos .custom-datetime {
+	background-color: #ffffff;
+}
+
 .aimeos .table {
 	margin: 0;
 }
@@ -199,6 +203,10 @@
 
 .aimeos table .actions .btn {
 	display: inline-block;
+}
+
+.aimeos .list-items input {
+	text-align: center;
 }
 
 .aimeos table .list-item-new .actions .btn {

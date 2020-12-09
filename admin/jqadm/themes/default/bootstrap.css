@@ -123,6 +123,11 @@ input[type='radio'] {
 	border-left-color: #2070A0;
 }
 
+.custom-select {
+	text-align: center;
+	text-align-last: center;
+}
+
 .table {
 	margin-bottom: 1rem;
 }
