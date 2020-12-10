@@ -90,7 +90,7 @@ class Standard
 			$search->compare( '==', 'supplier.lists.refid', $view->param( 'id' ) ),
 			$search->compare( '==', 'supplier.lists.domain', 'product' )
 		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
+		$search->setConditions( $search->and( $expr ) );
 		$search->slice( 0, 0x7fffffff );
 
 		$start = 0;
@@ -318,7 +318,7 @@ class Standard
 			$search->compare( '==', 'supplier.lists.refid', $prodid ),
 			$search->compare( '==', 'supplier.lists.domain', 'product' ),
 		);
-		$search->setConditions( $search->combine( '&&', $expr ) );
+		$search->setConditions( $search->and( $expr ) );
 
 		return $manager->search( $search );
 	}

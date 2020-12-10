@@ -262,7 +262,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			$expr[] = $search->compare( '==', 'locale.currencyid', $currid );
 		}
 
-		$search->setConditions( $search->combine( '&&', $expr ) );
+		$search->setConditions( $search->and( $expr ) );
 
 		if( ( $item = $manager->search( $search )->first() ) === null ) {
 			throw new \Exception( sprintf( 'No locale found' ) );

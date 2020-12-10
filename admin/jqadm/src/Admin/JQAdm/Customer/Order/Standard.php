@@ -215,7 +215,7 @@ class Standard
 			$search->compare( '==', 'order.base.customerid', $item->getId() ),
 			$search->getConditions(),
 		];
-		$search->setConditions( $search->combine( '&&', $expr ) );
+		$search->setConditions( $search->and( $expr ) );
 
 		return $manager->search( $search, [], $total );
 	}

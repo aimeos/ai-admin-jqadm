@@ -258,7 +258,7 @@ class Standard
 			$search->compare( '==', 'order.baseid', $order->getId() ),
 			$search->getConditions(),
 		];
-		$search->setConditions( $search->combine( '&&', $expr ) );
+		$search->setConditions( $search->and( $expr ) );
 
 		return $manager->search( $search, [], $total );
 	}

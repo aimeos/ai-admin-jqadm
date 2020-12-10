@@ -48,7 +48,7 @@ class Standard
 
 		$search = $manager->filter( false, true )->slice( 0, 10 );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
-		$search->setConditions( $search->combine( '&&', [
+		$search->setConditions( $search->and( [
 				$search->compare( '>=', 'order.ctime', date( 'Y-m-d 00:00:00', time() - 30 * 86400 ) ),
 				$search->getConditions()
 		] ) );

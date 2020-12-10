@@ -253,7 +253,7 @@ class Standard
 			$search->compare( '==', 'coupon.code.parentid', $item->getId() ),
 			$search->getConditions(),
 		];
-		$search->setConditions( $search->combine( '&&', $expr ) );
+		$search->setConditions( $search->and( $expr ) );
 
 		return $manager->search( $search, [], $total );
 	}

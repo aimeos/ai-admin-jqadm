@@ -203,7 +203,7 @@ class Standard
 			$search->compare( '==', 'attribute.type', 'interval' ),
 			$search->compare( '==', 'attribute.domain', 'product' ),
 		];
-		$search->setConditions( $search->combine( '&&', $expr ) );
+		$search->setConditions( $search->and( $expr ) );
 		$search->setSortations( [$search->sort( '+', 'attribute.code' )] );
 
 		return $manager->search( $search );

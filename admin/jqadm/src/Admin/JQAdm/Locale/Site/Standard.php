@@ -226,7 +226,7 @@ class Standard
 
 			if( $view->access( 'super' ) === false )
 			{
-				$search->setConditions( $search->combine( '&&', [
+				$search->setConditions( $search->and( [
 					$search->compare( '==', 'locale.site.id', $this->getUserSiteId() ),
 					$search->getConditions(),
 				] ) );
