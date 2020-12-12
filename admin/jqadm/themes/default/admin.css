@@ -15,7 +15,7 @@
 
 .aimeos .list-page .page-limit,
 .aimeos .list-page .pagination {
-	margin: 0;
+	margin: 1rem 0;
 }
 
 .aimeos .list-page .btn {
@@ -41,7 +41,6 @@
 
 	.aimeos .list-page .pagination {
 		display: inline-block;
-		margin: 1rem;
 	}
 
 	.aimeos .list-page .page-item {
@@ -115,6 +114,10 @@
 
 
 /* Item listing */
+
+.aimeos .noitems {
+	margin: 1rem;
+}
 
 .aimeos tbody tr.list-search {
 	background-color: #E4E8F2;
@@ -215,7 +218,7 @@
 	color: #687090;
 }
 
-.aimeos .list-items a.items-field.act-view:after {
+.aimeos .list-items a.items-field.act-view:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	content: "\f06e";
 }
@@ -279,6 +282,21 @@
 }
 
 
+.aimeos .list-items .config-item input {
+	width: 7.5rem;
+}
+
+
+.aimeos .list-items .config-item-key,
+.aimeos .list-items .config-item-value {
+	width: 49%;
+}
+
+.aimeos .list-items .config-item .action {
+	width: 2%;
+}
+
+
 .aimeos table.item-config .config-row-key,
 .aimeos table.item-config .config-row-value {
 	width: 49%;
@@ -334,12 +352,6 @@
 .aimeos .list-search .catalog-lists-refid,
 .aimeos .list-search .customer-lists-refid {
 	width: 35%;
-}
-
-.aimeos .list-search .catalog-lists-refid,
-.aimeos .list-search .customer-lists-refid {
-	padding: 0 0.75rem;
-	text-align: left;
 }
 
 @media (max-width: 991px) {
