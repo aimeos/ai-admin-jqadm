@@ -294,3 +294,43 @@
 		display: none;
 	}
 }
+
+
+/* 3rd party v-select component */
+
+.vs__dropdown-toggle {
+	border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #bbb;
+	background-color: #fff;
+    padding: .375rem .75rem;
+	height: calc(1.5em + .75rem + 2px);
+}
+
+.vs__search::placeholder {
+	color: #6c757d;
+}
+
+.vs__actions {
+	padding: 0;
+}
+
+.vs__open-indicator, .vs__clear {
+    transform: scale(0.66);
+	fill: #495057;
+}
+
+.vs--open .vs__open-indicator {
+    transform: rotate(180deg) scale(0.66);
+}
+
+.vs__search, .vs__search:focus {
+	margin: 0;
+}
+
+.vs--single .vs__selected {
+	display: inline-block;
+	overflow: hidden;
+	height: 1.5rem;
+	margin: 0;
+}
