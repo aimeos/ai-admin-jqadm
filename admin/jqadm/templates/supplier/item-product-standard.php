@@ -28,9 +28,9 @@ $fields = $this->config( 'admin/jqadm/supplier/product/fields', $fields );
 <div id="product" class="item-product content-block tab-pane fade" role="tabpanel" aria-labelledby="product">
 
 	<?= $this->partial( $this->config( 'admin/jqadm/partial/productref', 'common/partials/productref-standard' ), [
-		'resource' => 'supplier/lists',
+		'siteid' => $this->site()->siteid(),
 		'parentid' => $this->param( 'id' ),
-		'fields' => $fields,
+		'resource' => 'supplier/lists',
 	] ) ?>
 
 </div>

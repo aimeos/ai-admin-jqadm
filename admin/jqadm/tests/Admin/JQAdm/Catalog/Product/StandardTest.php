@@ -64,7 +64,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertStringContainsString( 'item-product', $result );
-		$this->assertStringContainsString( 'Cafe Noire Expresso', $result );
 	}
 
 

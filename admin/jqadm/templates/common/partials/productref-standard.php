@@ -26,7 +26,7 @@ $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 	data-resource="<?= $enc->attr( $this->get( 'resource' ) ) ?>"
 	data-parentid="<?= $enc->attr( $this->get( 'parentid' ) ) ?>"
 	data-fields="<?= $enc->attr( $this->get( 'fields', [] ) ) ?>"
-	data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
+	data-siteid="<?= $enc->attr( $this->get( 'siteid' ) ) ?>">
 
 	<table class="list-items table table-striped table-hover">
 		<thead class="list-header">

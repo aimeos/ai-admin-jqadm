@@ -28,8 +28,9 @@ $fields = $this->config( 'admin/jqadm/catalog/product/fields', $fields );
 <div id="product" class="item-product content-block tab-pane fade" role="tabpanel" aria-labelledby="product">
 
 	<?= $this->partial( $this->config( 'admin/jqadm/partial/productref', 'common/partials/productref-standard' ), [
-		'resource' => 'catalog/lists',
+		'siteid' => $this->site()->siteid(),
 		'parentid' => $this->param( 'id' ),
+		'resource' => 'catalog/lists',
 		'fields' => $fields,
 	] ) ?>
 
