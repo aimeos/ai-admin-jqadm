@@ -1036,6 +1036,7 @@ $(function() {
 
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('lang') || 'en']);
 	Vue.component('flat-pickr', VueFlatpickr);
+	Vue.component('v-select', VueSelect.VueSelect);
 
 	$('.vue-block').each(function() {
 		var key = $(this).data('key');

@@ -325,6 +325,369 @@ Aimeos.Price = {
 
 
 
+Aimeos.ProductRef = {
+
+	mixins: {
+		'data': function() {
+			return {
+				'parentid': null,
+				'siteid': '',
+				'resource': '',
+				'items': [],
+				'fields': [],
+				'filter': {},
+				'offset': 0,
+				'limit': 25,
+				'total': 0,
+				'order': '',
+				'types': {},
+				'options': [],
+				'checked': false,
+				'loading': true
+			}
+		},
+		beforeMount: function() {
+			try {
+				if(!this.$el.dataset) {
+					throw 'Missing "data" attributes';
+				}
+				if(!this.$el.dataset.siteid) {
+					throw 'Missing "data-siteid" attributes';
+				}
+				if(!this.$el.dataset.parentid) {
+					throw 'Missing "data-parentid" attributes';
+				}
+				if(!this.$el.dataset.resource) {
+					throw 'Missing "data-resource" attributes';
+				}
+
+				this.siteid = this.$el.dataset.siteid;
+				this.parentid = this.$el.dataset.parentid;
+				this.resource = this.$el.dataset.resource;
+				this.order = this.prefix + 'position';
+
+				let fieldkey = 'aimeos/jqadm/' + this.resource.replace('/', '') + '/fields';
+				this.fields = this.columns(this.$el.dataset.fields || [], fieldkey);
+
+				this.populate();
+				this.reset();
+			} catch(e) {
+				console.log( '[Aimeos] Init referenced product list failed: ' + e);
+			}
+		},
+		computed: {
+			prefix : function() {
+				return this.resource.replace('/', '.') + '.';
+			}
+		},
+		methods: {
+			add: function() {
+				let obj = {};
+
+				obj[this.prefix + 'id'] = null;
+				obj[this.prefix + 'siteid'] = this.siteid;
+				obj[this.prefix + 'position'] = 0;
+				obj[this.prefix + 'status'] = 1;
+				obj[this.prefix + 'type'] = 'default';
+				obj[this.prefix + 'config'] = {};
+				obj[this.prefix + 'datestart'] = null;
+				obj[this.prefix + 'dateend'] = null;
+				obj[this.prefix + 'refid'] = null;
+				obj['edit'] = true;
+
+				this.items.unshift(obj);
+			},
+			columns: function(json, key) {
+				let list = [];
+				try {
+					if(window.sessionStorage) {
+						list = JSON.parse(window.sessionStorage.getItem(key)) || [];
+					}
+					if(!list.length) {
+						list = JSON.parse(json);
+					}
+				} catch(e) {
+					console.log('[Aimeos] Failed to get list of columns: ' + e);
+				}
+				return list;
+			},
+			css: function(key) {
+				return this.resource.replace('/', '-') + '-' + key;
+			},
+			delete: function(resource, id, callback) {
+
+				const self = this;
+				self.waiting(true);
+
+				Aimeos.options.done(function(response) {
+
+					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
+
+						let config = {};
+
+						if(response.meta.prefix && response.meta.prefix) {
+							config['params'][response.meta.prefix] = {'id': id};
+						} else {
+							config['params'] = {'id': id};
+						}
+
+						axios.delete(response.meta.resources[resource], config).then(function(response) {
+							callback(response.data);
+							self.waiting(false);
+						}).catch(function(error) {
+							self.log(error);
+							self.waiting(false);
+						});
+					}
+				});
+			},
+			edit: function(idx) {
+				if(this.siteid === this.items[idx][this.prefix + 'siteid']) {
+					this.$set(this.items[idx], 'edit', true);
+				}
+			},
+			find: function(ev, key, op) {
+				const value = ev.target ? ev.target.value : ev;
+				if(value) {
+					let expr = {};
+					expr[op || '=='] = {};
+					expr[op || '=='][this.prefix + key] = value;
+					this.$set(this.filter, this.prefix + key, expr);
+				} else {
+					this.$delete(this.filter, this.prefix + key);
+				}
+				this.fetch();
+			},
+			fetch: function() {
+				const self = this;
+				var args = {
+					'filter': {'&&': []},
+					'fields': {},
+					'page': {'offset': self.offset, 'limit': self.limit},
+					'sort': self.order
+				};
+
+				for(let key in self.filter) {
+					args['filter']['&&'].push(self.filter[key]);
+				}
+
+				if(this.fields.includes(this.prefix + 'refid')) {
+					args.fields['product'] = ['product.id', 'product.code', 'product.label', 'product.status'];
+				}
+				args.fields[this.resource] = [self.prefix + 'id', self.prefix + 'siteid', ...self.fields];
+
+				this.get(self.resource, args, function(data) {
+					self.total = data.total || 0;
+					self.items = data.items || [];
+				});
+			},
+			get: function(resource, args, callback) {
+
+				const self = this;
+				self.waiting(true);
+
+				Aimeos.options.done(function(response) {
+
+					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
+
+						if(args.fields) {
+							let include = [];
+							for(let key in args.fields) {
+								args.fields[key] = args.fields[key].join(',');
+								include.push(key);
+							}
+							args['include'] = include.join(',');
+						}
+
+						let config = {
+							'paramsSerializer': function(params) {
+								return jQuery.param(params); // workaround, Axios and QS fail on [==]
+							},
+							'params': {}
+						};
+
+						if(response.meta.prefix && response.meta.prefix) {
+							config['params'][response.meta.prefix] = args;
+						} else {
+							config['params'] = args;
+						}
+
+						axios.get(response.meta.resources[resource], config).then(function(response) {
+							let list = [];
+							(response.data.data || []).forEach(function(entry) {
+								list.push(entry.attributes || {});
+							});
+							callback({
+								total: response.data.meta ? response.data.meta.total || 0 : 0,
+								items: list
+							});
+							self.waiting(false);
+						}).catch(function(error) {
+							self.log(error);
+							self.waiting(false);
+						});
+					}
+				});
+			},
+			label: function(idx) {
+				let str = '';
+
+				if(this.items[idx] && this.items[idx][this.prefix + 'refid']) {
+					str += this.items[idx][this.prefix + 'refid'];
+				}
+
+				return str;
+			},
+			log: function(error) {
+				console.log('[Aimeos] Server error: ', error);
+
+				if(error.response && error.response.data && error.response.data.errors) {
+					error.response.data.errors.forEach(function(elem) {
+						console.log('[Aimeos] Server error: ' + elem.title);
+					});
+				}
+			},
+			populate: function() {
+				const self = this;
+
+				Aimeos.options.done(function(response) {
+
+					let config = {
+						'paramsSerializer': function(params) {
+							return jQuery.param(params); // workaround, Axios and QS fail on [==]
+						},
+						'params': {
+							'fields': {}
+						}
+					};
+
+					config.params['fields'][self.resource + '/type'] = self.prefix + 'type.code';
+
+					if(response.meta && response.meta.resources && response.meta.resources[self.resource] ) {
+
+						axios.get(response.meta.resources[self.resource + '/type'], config).then(function(response) {
+							(response.data.data || []).forEach(function(entry) {
+								if(entry.attributes && entry.attributes[self.prefix + 'type.code']) {
+									self.$set(self.types, entry.attributes[self.prefix + 'type.code'], entry.attributes[self.prefix + 'type.code']);
+								}
+							});
+						}).catch(function(error) {
+							self.log(error);
+						});
+					}
+				});
+			},
+			remove: function(idx) {
+				const self = this;
+				this.checked = false;
+
+				if(idx !== undefined) {
+					this.delete(this.resource, this.items[idx][this.prefix + 'id'], () => self.waiting(false));
+					return this.items.splice(idx, 1);
+				}
+
+				this.items = this.items.filter(function(item) {
+					if(item.checked) {
+						self.delete(self.resource, item[self.prefix + 'id']);
+					}
+					return !item.checked;
+				});
+
+				this.waiting(false);
+			},
+			reset: function() {
+				let domain = {};
+				let parentid = {};
+
+				domain[this.prefix + 'domain'] = 'product';
+				parentid[this.prefix + 'parentid'] = this.parentid;
+
+				Object.assign(this.$data, {filter: {'base': {'&&': [{'==': parentid}, {'==': domain}]}}});
+			},
+			sort: function(key) {
+				this.order = this.order === this.prefix + key ? '-' + this.prefix + key : this.prefix + key;
+				this.fetch();
+			},
+			sortclass: function(key) {
+				return this.order === this.prefix + key ? 'sort-desc' : (this.order === '-' + this.prefix + key ? 'sort-asc' : '');
+			},
+			stringify: function(value) {
+				return typeof value === 'object' || typeof value === 'array' ? JSON.stringify(value) : value;
+			},
+			suggest: function(input, loadfcn) {
+				const self = this;
+				var args = {
+					'filter': {'||': [
+						{'==': {'product.id': input}},
+						{'=~': {'product.code': input}},
+						{'=~': {'product.label': input}}
+					]},
+					'fields': {'product': ['product.id', 'product.code', 'product.label']},
+					'page': {'offset': 0, 'limit': 25},
+					'sort': 'product.label'
+				};
+
+				try {
+					loadfcn ? loadfcn(true) : null;
+
+					this.get('product', args, function(data) {
+						self.options = [];
+						(data.items || []).forEach(function(entry) {
+							self.options.push({
+								'id': entry['product.id'],
+								'label': entry['product.id'] + ' - ' + entry['product.label'] + ' (' + entry['product.code'] + ')'
+							});
+						});
+					});
+				} finally {
+					loadfcn ? loadfcn(false) : null;
+				}
+			},
+			toggle: function(key) {
+				key = this.prefix + key;
+				let idx = this.fields.indexOf(key);
+				idx !== -1 ? this.fields.splice(idx, 1) : this.fields.push(key);
+
+				if(window.sessionStorage) {
+					window.sessionStorage.setItem(
+						'aimeos/jqadm/' + this.resource.replace('/', '') + '/fields',
+						JSON.stringify(this.fields)
+					);
+				}
+
+				this.fetch();
+			},
+			value: function(key) {
+				let op = Object.keys(this.filter[this.prefix + key] || {}).pop();
+				return this.filter[this.prefix + key] && this.filter[this.prefix + key][op][this.prefix + key] || '';
+			},
+			waiting: function(val) {
+				this.loading = val;
+			}
+		},
+		watch: {
+			checked: function() {
+				for(let item of this.items) {
+					this.$set(item, 'checked', this.checked);
+				}
+			},
+			filter: {
+				handler: function() {
+					this.fetch();
+				},
+				deep: true
+			},
+			limit: function() {
+				this.fetch();
+			},
+			offset: function() {
+				this.fetch();
+			}
+		}
+	}
+};
+
+
 Aimeos.Text = {
 
 	init: function() {

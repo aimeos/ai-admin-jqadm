@@ -379,106 +379,10 @@ Aimeos.Catalog.Product = {
 
 	init : function() {
 
-		this.addItem();
-		this.closeItem();
-		this.removeItem();
-	},
-
-
-	addItem : function() {
-
-		$(".item-catalog .item-product").on("click", ".list-header .act-add", function(ev) {
-			Aimeos.addClone(
-				$(".list-item-new.prototype", ev.delegateTarget),
-				Aimeos.getOptionsProducts,
-				Aimeos.Catalog.Product.select);
+		this.instance = new Vue({
+			'el': '.item-product .product-list',
+			'mixins': [Aimeos.ProductRef.mixins]
 		});
-	},
-
-
-	closeItem : function() {
-
-		$(".item-catalog .item-product").on("click", ".act-close", function(ev) {
-			$(this).closest("tr").remove();
-		});
-	},
-
-
-	removeItem : function() {
-
-		$(".item-catalog .item-product .list-item").on("click", ".act-delete", function(ev) {
-
-			var elem = $(this);
-			var refid = $(this).data("refid");
-			var row = $(ev.delegateTarget);
-
-			Aimeos.options.done(function(result) {
-
-				if(!result || !result.meta) {
-					throw {"msg": "No valid data in response", "result": result};
-				}
-
-				var params = {}, param = {};
-				var url = elem.attr("href");
-
-				if(result.meta.prefix) {
-					params[result.meta.prefix] = param;
-				} else {
-					params = param;
-				}
-
-				if(Aimeos.Catalog.csrf) {
-					params[Aimeos.Catalog.csrf.name] = Aimeos.Catalog.csrf.value;
-				}
-
-				$.ajax({
-					"url": url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(params),
-					"dataType": "json",
-					"method": "DELETE"
-				}).done(function(result) {
-
-					if(result.meta.csrf) {
-						Aimeos.Catalog.csrf = result.meta.csrf;
-					}
-
-					Aimeos.focusBefore(row).remove();
-				});
-
-				if(result['meta']['resources'] && result['meta']['resources']['index']) {
-
-					url = result['meta']['resources']['index'];
-
-					if(result.meta.prefix) {
-						params[result.meta.prefix] = {"id": refid};
-					} else {
-						params = {"id": refid};
-					}
-
-					if(Aimeos.Catalog.csrf) {
-						params[Aimeos.Catalog.csrf.name] = Aimeos.Catalog.csrf.value;
-					}
-
-					$.ajax({
-						"url": url + (url.indexOf('?') !== -1 ? '&' : '?') + jQuery.param(params),
-						"dataType": "json",
-						"method": "DELETE"
-					}).done(function(result) {
-						if(result.meta.csrf) {
-							Aimeos.Catalog.csrf = result.meta.csrf;
-						}
-					});
-				}
-			});
-
-			return false;
-		});
-	},
-
-
-	select: function(ev, ui) {
-
-		var node = $(ev.delegateTarget);
-		node.closest("tr").find("input.item-label").val(node.val());
 	}
 };
 
