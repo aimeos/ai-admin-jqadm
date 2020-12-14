@@ -70,6 +70,27 @@
 	text-align: center
 }
 
+.page-limit .dropdown-item {
+	padding: 0;
+}
+
+.page-limit .dropdown-link {
+	display: inline-block;
+	padding: .25rem 0rem;
+	color: #292b2c;
+    width: 100%;
+}
+
+.page-limit .dropdown-link:focus,
+.page-limit .dropdown-link:active {
+	text-decoration: none;
+}
+
+.page-limit .dropdown-link:active {
+	background-color: #6c757d;
+	color: #ffffff;
+}
+
 
 /** Tree view */
 

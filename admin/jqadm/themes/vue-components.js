@@ -353,16 +353,16 @@ Vue.component('page-limit', {
 			</button> \
 			<ul class="dropdown-menu"> \
 				<li class="dropdown-item"> \
-					<a v-on:click.prevent="$emit(\'input\', 25)" href="#" v-bind:tabindex="tabindex">25</a> \
+					<a class="dropdown-link" v-on:click.prevent="$emit(\'input\', 25)" href="#" v-bind:tabindex="tabindex">25</a> \
 				</li> \
 				<li class="dropdown-item"> \
-					<a v-on:click.prevent="$emit(\'input\', 50)" href="#" v-bind:tabindex="tabindex">50</a> \
+					<a class="dropdown-link" v-on:click.prevent="$emit(\'input\', 50)" href="#" v-bind:tabindex="tabindex">50</a> \
 				</li> \
 				<li class="dropdown-item"> \
-					<a v-on:click.prevent="$emit(\'input\', 100)" href="#" v-bind:tabindex="tabindex">100</a> \
+					<a class="dropdown-link" v-on:click.prevent="$emit(\'input\', 100)" href="#" v-bind:tabindex="tabindex">100</a> \
 				</li> \
 				<li class="dropdown-item"> \
-					<a v-on:click.prevent="$emit(\'input\', 250)" href="#" v-bind:tabindex="tabindex">250</a> \
+					<a class="dropdown-link" v-on:click.prevent="$emit(\'input\', 250)" href="#" v-bind:tabindex="tabindex">250</a> \
 				</li> \
 			</ul> \
 		</div> \
