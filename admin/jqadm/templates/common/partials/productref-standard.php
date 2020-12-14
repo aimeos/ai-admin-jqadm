@@ -269,11 +269,11 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					<select class="form-control custom-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						is="select-component" v-if="item.edit"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['product', '-prefix-type', ''] ) ) ?>'.replace('-prefix-', prefix)"
-						v-bind:items="{default: 'default', promotion: 'promotion'}"
+						v-bind:items="types"
 						v-model="item[prefix + 'type']">
 					</select>
 					<div v-else v-on:click="edit(idx)" class="items-field">
-						{{ item[prefix + 'type'] }}
+						{{ types[item[prefix + 'type']] || item[prefix + 'type'] }}
 					</div>
 				</td>
 				<td v-if="fields.includes(prefix + 'config')" v-on:click="edit(idx)" v-bind:class="css('config')">
