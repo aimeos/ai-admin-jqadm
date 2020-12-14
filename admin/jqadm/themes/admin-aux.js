@@ -351,25 +351,28 @@ Aimeos.ProductRef = {
 				if(!this.$el.dataset) {
 					throw 'Missing "data" attributes';
 				}
+				if(!this.$el.dataset.types) {
+					throw 'Missing "data-types" attribute';
+				}
 				if(!this.$el.dataset.siteid) {
-					throw 'Missing "data-siteid" attributes';
+					throw 'Missing "data-siteid" attribute';
 				}
 				if(!this.$el.dataset.parentid) {
-					throw 'Missing "data-parentid" attributes';
+					throw 'Missing "data-parentid" attribute';
 				}
 				if(!this.$el.dataset.resource) {
-					throw 'Missing "data-resource" attributes';
+					throw 'Missing "data-resource" attribute';
 				}
 
 				this.siteid = this.$el.dataset.siteid;
 				this.parentid = this.$el.dataset.parentid;
 				this.resource = this.$el.dataset.resource;
+				this.types = JSON.parse(this.$el.dataset.types);
 				this.order = this.prefix + 'position';
 
 				let fieldkey = 'aimeos/jqadm/' + this.resource.replace('/', '') + '/fields';
 				this.fields = this.columns(this.$el.dataset.fields || [], fieldkey);
 
-				this.populate();
 				this.reset();
 			} catch(e) {
 				console.log( '[Aimeos] Init referenced product list failed: ' + e);
@@ -546,36 +549,6 @@ Aimeos.ProductRef = {
 						console.log('[Aimeos] Server error: ' + elem.title);
 					});
 				}
-			},
-			populate: function() {
-				const self = this;
-
-				Aimeos.options.done(function(response) {
-
-					let config = {
-						'paramsSerializer': function(params) {
-							return jQuery.param(params); // workaround, Axios and QS fail on [==]
-						},
-						'params': {
-							'fields': {}
-						}
-					};
-
-					config.params['fields'][self.resource + '/type'] = self.prefix + 'type.code';
-
-					if(response.meta && response.meta.resources && response.meta.resources[self.resource] ) {
-
-						axios.get(response.meta.resources[self.resource + '/type'], config).then(function(response) {
-							(response.data.data || []).forEach(function(entry) {
-								if(entry.attributes && entry.attributes[self.prefix + 'type.code']) {
-									self.$set(self.types, entry.attributes[self.prefix + 'type.code'], entry.attributes[self.prefix + 'type.code']);
-								}
-							});
-						}).catch(function(error) {
-							self.log(error);
-						});
-					}
-				});
 			},
 			remove: function(idx) {
 				const self = this;

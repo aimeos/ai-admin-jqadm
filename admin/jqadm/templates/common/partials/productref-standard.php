@@ -15,10 +15,11 @@ $status = [
 	-2 => $this->translate( 'mshop/code', 'status:-2' ),
 ];
 
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
+$target = $this->config( 'admin/jqadm/url/get/target' );
+$cntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
+$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
+$config = $this->config( 'admin/jqadm/url/get/config', [] );
+$url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_id_'], [], $config );
 
 
 ?>
@@ -26,7 +27,8 @@ $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 	data-resource="<?= $enc->attr( $this->get( 'resource' ) ) ?>"
 	data-parentid="<?= $enc->attr( $this->get( 'parentid' ) ) ?>"
 	data-fields="<?= $enc->attr( $this->get( 'fields', [] ) ) ?>"
-	data-siteid="<?= $enc->attr( $this->get( 'siteid' ) ) ?>">
+	data-siteid="<?= $enc->attr( $this->get( 'siteid' ) ) ?>"
+	data-types="<?= $enc->attr( $this->get( 'types' ) ) ?>">
 
 	<table class="list-items table table-striped table-hover">
 		<thead class="list-header">
@@ -199,7 +201,7 @@ $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 						v-bind:all="'<?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?>'"
 						v-bind:items="types"
 						v-bind:value="value('type')"
-						v-on:input="console.log($event); find($event, 'type')">
+						v-on:input="find($event, 'type')">
 					</select>
 				</td>
 				<td v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
@@ -323,7 +325,7 @@ $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 					</div>
 					<a v-else class="items-field act-view" v-bind:class="'status-' + item['product.status']"
 						tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
-						v-bind:href="'<?= $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'product', 'id' => '_id_'], [], $getConfig ) ?>'.replace('_id_', item[prefix + 'refid'] || '')">
+						v-bind:href="'<?= $url ?>'.replace('_id_', item[prefix + 'refid'] || '')">
 						{{ label(idx) }}
 					</a>
 				</td>
