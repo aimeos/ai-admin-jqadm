@@ -328,12 +328,17 @@ Aimeos.Price = {
 
 Aimeos.ProductRef = {
 
+	instance: null,
+
 	init: function() {
+		this.instance = new Vue({
+			'el': '.item-product .product-list',
+			'mixins': [Aimeos.ProductRef.mixins]
+		});
+
+		const self = this;
 		Aimeos.lazy('.item-product .product-list', function() {
-			new Vue({
-				'el': '.item-product .product-list',
-				'mixins': [Aimeos.ProductRef.mixins]
-			});
+			self.instance.reset();
 		});
 	},
 
@@ -382,8 +387,6 @@ Aimeos.ProductRef = {
 
 				let fieldkey = 'aimeos/jqadm/' + this.resource.replace('/', '') + '/fields';
 				this.fields = this.columns(this.$el.dataset.fields || [], fieldkey);
-
-				this.reset();
 			} catch(e) {
 				console.log( '[Aimeos] Init referenced product list failed: ' + e);
 			}
