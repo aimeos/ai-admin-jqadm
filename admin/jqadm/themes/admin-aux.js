@@ -7,6 +7,7 @@
 
 $(function() {
 
+	Aimeos.ProductRef.init();
 	Aimeos.Address.init();
 	Aimeos.Media.init();
 	Aimeos.Price.init();
@@ -326,6 +327,15 @@ Aimeos.Price = {
 
 
 Aimeos.ProductRef = {
+
+	init: function() {
+		Aimeos.lazy('.item-product .product-list', function() {
+			new Vue({
+				'el': '.item-product .product-list',
+				'mixins': [Aimeos.ProductRef.mixins]
+			});
+		});
+	},
 
 	mixins: {
 		'data': function() {

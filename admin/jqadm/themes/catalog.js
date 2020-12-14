@@ -375,21 +375,7 @@ Aimeos.Catalog = {
 
 
 
-Aimeos.Catalog.Product = {
-
-	init : function() {
-
-		this.instance = new Vue({
-			'el': '.item-product .product-list',
-			'mixins': [Aimeos.ProductRef.mixins]
-		});
-	}
-};
-
-
-
 $(function() {
 
 	Aimeos.Catalog.init();
-	Aimeos.Catalog.Product.init();
 });
