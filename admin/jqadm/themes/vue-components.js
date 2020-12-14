@@ -202,7 +202,7 @@ Vue.component('input-map', {
 	template: '\
 		<div> \
 			<input type="hidden" v-bind:name="name" v-bind:value="JSON.stringify(value)" /> \
-			<table class="config-table" > \
+			<table class="table config-table" > \
 				<tr v-for="(entry, idx) in list" v-bind:key="idx" class="config-item"> \
 					<td v-if="editable" class="config-item-key"> \
 						<input v-on:input="update(idx, \'key\', $event.target.value)" v-bind:value="entry.key" v-bind:tabindex="tabindex" /> \
