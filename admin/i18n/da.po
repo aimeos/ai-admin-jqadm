@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-02 15:52+0100\n"
-"PO-Revision-Date: 2020-12-07 10:14+0000\n"
+"PO-Revision-Date: 2020-12-11 09:10+0000\n"
 "Last-Translator: Tobias Madsen <tubbe.m@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/aimeos/aimeos-core/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -204,7 +204,7 @@ msgid "Back in stock"
 msgstr "Tilbage på lager"
 
 msgid "Basic"
-msgstr ""
+msgstr "Basisinfo"
 
 msgid "Basket"
 msgstr "Indkøbskurv"
@@ -352,7 +352,7 @@ msgid "Custom"
 msgstr ""
 
 msgid "Customer"
-msgstr "Kunder"
+msgstr "Kunde"
 
 msgid "Customer ID"
 msgstr "Kunde ID"
@@ -466,7 +466,7 @@ msgid "Domain"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Download"
 
 msgid "Download this file"
 msgstr ""
@@ -853,7 +853,7 @@ msgid "No view available"
 msgstr ""
 
 msgid "No voucher"
-msgstr ""
+msgstr "Ingen rabatkupon"
 
 msgid "Non-shared properties for the media item"
 msgstr ""
@@ -979,13 +979,13 @@ msgid "Please select"
 msgstr "Vælg"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Plugintype"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Plugintyper"
 
 msgid "Plugin label for describing the configured plugin"
 msgstr ""
@@ -1383,7 +1383,7 @@ msgid "Start date"
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 msgid "Status"
 msgstr "Status"
@@ -1635,7 +1635,7 @@ msgid "View details"
 msgstr ""
 
 msgid "Voucher"
-msgstr ""
+msgstr "Rabatkupon"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
@@ -1725,11 +1725,11 @@ msgstr ""
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "Rabatkuponer"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "Kunder"
 
 #, php-format
 msgid "dashboard"
@@ -1769,7 +1769,7 @@ msgstr "Seneste"
 
 #, php-format
 msgid "locale"
-msgstr "Lokaliteter"
+msgstr "Sprog"
 
 #, php-format
 msgid "locale/currency"
@@ -1789,7 +1789,7 @@ msgstr "Logs"
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "Medier"
 
 msgid "miss"
 msgstr "Miss"
@@ -1815,7 +1815,7 @@ msgstr "Produkttilpasninger"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "Ordre"
 
 msgid "order:phone"
 msgstr ""
@@ -1857,11 +1857,11 @@ msgstr ""
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "Fysiske egenskaber"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "Plugins"
 
 #, php-format
 msgid "price"
@@ -1957,7 +1957,7 @@ msgstr "Aktiveret"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "Lagre"
 
 #, php-format
 msgid "subscription"
@@ -2004,7 +2004,7 @@ msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "Medier"
 
 #, php-format
 msgid "type/media/lists"
@@ -2016,7 +2016,7 @@ msgstr ""
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "Plugins"
 
 #, php-format
 msgid "type/price"
@@ -2052,7 +2052,7 @@ msgstr ""
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "Lagre"
 
 #, php-format
 msgid "type/tag"
