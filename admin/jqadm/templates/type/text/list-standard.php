@@ -150,7 +150,7 @@ $columnList = [
 					'data' => [
 						'text.type.id' => ['op' => '=='],
 						'text.type.domain' => ['op' => '==', 'type' => 'select', 'val' => [
-							'text' => $this->translate( 'admin', 'text' ),
+							'attribute' => $this->translate( 'admin', 'attribute' ),
 							'catalog' => $this->translate( 'admin', 'catalog' ),
 							'customer' => $this->translate( 'admin', 'customer' ),
 							'media' => $this->translate( 'admin', 'media' ),
