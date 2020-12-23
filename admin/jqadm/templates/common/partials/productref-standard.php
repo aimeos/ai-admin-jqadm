@@ -30,7 +30,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 	data-siteid="<?= $enc->attr( $this->get( 'siteid' ) ) ?>"
 	data-types="<?= $enc->attr( $this->get( 'types' ) ) ?>">
 
-	<table class="list-items table table-striped table-hover">
+	<table class="list-items table table-striped">
 		<thead class="list-header">
 			<tr>
 				<th class="select">

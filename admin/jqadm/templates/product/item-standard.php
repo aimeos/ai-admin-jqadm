@@ -484,7 +484,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 						v-bind:readonly="data['product.siteid'] != '<?= $this->site()->siteid() ?>'"
 						v-bind:items="data['config']" v-on:change="data['config'] = $event">
 
-						<table class="item-config table table-striped">
+						<table class="item-config table">
 							<thead>
 								<tr>
 									<th class="config-row-key">

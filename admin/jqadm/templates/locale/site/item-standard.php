@@ -149,7 +149,7 @@ $params = $this->get( 'pageParams', [] );
 					<config-table inline-template v-bind:readonly="false"
 						v-bind:items="data['config']" v-on:change="data['config'] = $event">
 
-						<table class="item-config table table-striped">
+						<table class="item-config table">
 							<thead>
 								<tr>
 									<th class="config-row-key">

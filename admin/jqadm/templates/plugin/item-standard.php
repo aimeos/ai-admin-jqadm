@@ -191,7 +191,7 @@ $enc = $this->encoder();
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?>">
-					<table class="item-config-ext table table-striped">
+					<table class="item-config-ext table">
 						<thead>
 							<tr>
 								<th class="config-row-key">
@@ -252,7 +252,7 @@ $enc = $this->encoder();
 										<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
 
-										<table class="table table-striped config-map-table">
+										<table class="table config-map-table">
 											<tr class="config-map-row prototype-map">
 												<td class="config-map-actions">
 													<div class="btn act-delete fa" tabindex="1"

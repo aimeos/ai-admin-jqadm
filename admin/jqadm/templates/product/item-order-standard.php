@@ -38,7 +38,7 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 	<div class="order-list" data-id="<?= $enc->attr( $this->param( 'id' ) ) ?>"
 		data-fields="<?= $enc->attr( $fields ) ?>">
 
-		<table class="list-items table table-striped table-hover">
+		<table class="list-items table table-striped">
 			<thead class="list-header">
 				<tr>
 					<th v-if="fields.includes('order.base.id')" class="order-base-id">

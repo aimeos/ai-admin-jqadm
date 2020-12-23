@@ -297,7 +297,7 @@ $enc = $this->encoder();
 										<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
 
-										<table class="table table-striped config-map-table">
+										<table class="table config-map-table">
 											<tr class="config-map-row prototype-map">
 												<td class="config-map-actions">
 													<div class="btn act-delete fa" tabindex="1"

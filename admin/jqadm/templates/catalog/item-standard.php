@@ -240,7 +240,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 									v-bind:readonly="data['catalog.siteid'] != '<?= $this->site()->siteid() ?>'"
 									v-bind:items="data['config']" v-on:change="data['config'] = $event">
 
-									<table class="item-config table table-striped">
+									<table class="item-config table">
 										<thead>
 											<tr>
 												<th class="config-row-key">

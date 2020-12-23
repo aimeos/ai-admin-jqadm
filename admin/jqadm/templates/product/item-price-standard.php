@@ -289,7 +289,7 @@ $enc = $this->encoder();
 								v-bind:index="idx" v-bind:readonly="item['product.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event">
 
-								<table class="item-config table table-striped">
+								<table class="item-config table">
 									<thead>
 										<tr>
 											<th class="config-row-key">

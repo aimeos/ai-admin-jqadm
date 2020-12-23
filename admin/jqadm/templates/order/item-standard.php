@@ -646,7 +646,7 @@ $statusList = [
 										</div>
 									</div>
 
-									<table class="service-attr table table-striped" data-id="<?= $enc->attr( $serviceId ) ?>"
+									<table class="service-attr table" data-id="<?= $enc->attr( $serviceId ) ?>"
 										data-codes="<?= $enc->attr( isset( $serviceAttrCodes[$type] ) ? implode( ',', $serviceAttrCodes[$type] ) : '' ); ?>">
 										<thead>
 											<tr>
