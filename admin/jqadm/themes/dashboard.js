@@ -105,7 +105,7 @@ Aimeos.Dashboard = {
 				throw 'No data in response';
 			}
 
-			var colorScale = d3.scaleOrdinal(d3.schemeCategory20);
+			var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 			var domain = data.data.map(function(d) { return d.id; })
 			var sum = d3.sum(data.data, function(d) { return d.attributes; });
 
