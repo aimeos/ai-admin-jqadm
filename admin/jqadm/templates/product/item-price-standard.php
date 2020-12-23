@@ -28,7 +28,7 @@ $enc = $this->encoder();
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Allow custom price' ) ); ?></label>
 			<div class="col-sm-8">
-				<input class="form-control item-pricecustom" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
+				<input class="form-check-input item-pricecustom" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'pricecustom' ) ) ); ?>"
 					<?= $this->get( 'priceCustom' ) ? 'checked="checked"' : ''; ?>
 				/>

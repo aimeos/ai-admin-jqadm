@@ -104,7 +104,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
 							<li class="dropdown-item">
 								<a v-on:click.prevent.stop="toggle('id')" href="#"><label>
-									<input v-on:click.capture.stop="toggle('id')"
+									<input class="form-check-input"
+										v-on:click.capture.stop="toggle('id')"
 										v-bind:checked="fields.includes(prefix + 'id')"
 										type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 									<?= $enc->html( $this->translate( 'admin', 'ID' ) ); ?>
@@ -112,7 +113,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							</li>
 							<li class="dropdown-item">
 								<a v-on:click.prevent.stop="toggle('position')" href="#"><label>
-									<input v-on:click.capture.stop="toggle('position')"
+									<input class="form-check-input"
+										v-on:click.capture.stop="toggle('position')"
 										v-bind:checked="fields.includes(prefix + 'position')"
 										type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 									<?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?>
@@ -120,7 +122,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							</li>
 							<li class="dropdown-item">
 								<a v-on:click.prevent.stop="toggle('status')" href="#"><label>
-									<input v-on:click.capture.stop="toggle('status')"
+									<input class="form-check-input"
+										v-on:click.capture.stop="toggle('status')"
 										v-bind:checked="fields.includes(prefix + 'status')"
 										type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 									<?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?>
@@ -128,7 +131,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							</li>
 							<li class="dropdown-item">
 								<a v-on:click.prevent.stop="toggle('type')" href="#"><label>
-									<input v-on:click.capture.stop="toggle('type')"
+									<input class="form-check-input"
+										v-on:click.capture.stop="toggle('type')"
 										v-bind:checked="fields.includes(prefix + 'type')"
 										type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 									<?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?>
@@ -136,7 +140,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							</li>
 							<li class="dropdown-item">
 								<a v-on:click.prevent.stop="toggle('config')" href="#"><label>
-									<input v-on:click.capture.stop="toggle('config')"
+									<input class="form-check-input"
+										v-on:click.capture.stop="toggle('config')"
 										v-bind:checked="fields.includes(prefix + 'config')"
 										type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 									<?= $enc->html( $this->translate( 'admin', 'Config' ) ); ?>
@@ -144,7 +149,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							</li>
 							<li class="dropdown-item">
 								<a v-on:click.prevent.stop="toggle('datestart')" href="#"><label>
-									<input v-on:click.capture.stop="toggle('datestart')"
+									<input class="form-check-input"
+										v-on:click.capture.stop="toggle('datestart')"
 										v-bind:checked="fields.includes(prefix + 'datestart')"
 										type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 									<?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?>
@@ -152,7 +158,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							</li>
 							<li class="dropdown-item">
 								<a v-on:click.prevent.stop="toggle('dateend')" href="#"><label>
-									<input v-on:click.capture.stop="toggle('dateend')"
+									<input class="form-check-input"
+										v-on:click.capture.stop="toggle('dateend')"
 										v-bind:checked="fields.includes(prefix + 'dateend')"
 										type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 									<?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?>
@@ -160,7 +167,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							</li>
 							<li class="dropdown-item">
 								<a v-on:click.prevent.stop="toggle('refid')" href="#"><label>
-									<input v-on:click.capture.stop="toggle('refid')"
+									<input class="form-check-input"
+										v-on:click.capture.stop="toggle('refid')"
 										v-bind:checked="fields.includes(prefix + 'refid')"
 										type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 									<?= $enc->html( $this->translate( 'admin', 'Product' ) ); ?>
@@ -174,7 +182,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 		<tbody>
 			<tr class="list-search">
 				<td class="select">
-					<input v-model="checked" class="form-control" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
+					<input v-model="checked" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 				</td>
 				<td v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
 					<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
@@ -240,7 +248,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx" class="list-item">
 				<td class="select">
-					<input class="form-control" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						v-model="item['checked']" />
 				</td>
 				<td v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">

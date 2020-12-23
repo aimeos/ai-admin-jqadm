@@ -37,7 +37,7 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 		<?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 			<li class="dropdown-item">
 				<a href="#"><label>
-					<input type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+					<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
 						name="<?= $enc->attr( $this->formparam( $names ) ); ?>"
 						value="<?= $enc->attr( $key ); ?>" <?= $checked( $fields, $key ); ?> />
 					<?= $enc->html( $name ); ?>

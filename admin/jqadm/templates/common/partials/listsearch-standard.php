@@ -34,7 +34,7 @@ $enc = $this->encoder();
 <tr class="list-search">
 	<?php if( in_array( 'select', $fields ) ) : ?>
 		<td class="select">
-			<input v-on:click="toggleAll()" class="form-control" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>" />
+			<input v-on:click="toggleAll()" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>" />
 		</td>
 	<?php endif ?>
 	<?php foreach( $this->get( 'data', [] ) as $key => $list ) : $idx++ ?>
