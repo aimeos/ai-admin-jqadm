@@ -87,7 +87,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select class="form-control form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.status'] ) ); ?>'.replace('_idx_', idx)"
 										v-bind:readonly="item['media.siteid'] != siteid"
 										v-model="item['media.status']" >
@@ -111,7 +111,7 @@ $enc = $this->encoder();
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										<select is="select-component" required class="form-control form-select item-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											v-bind:items="JSON.parse('<?= $enc->attr( $mediaTypes->col( 'media.type.label', 'media.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
@@ -146,7 +146,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 								<div class="col-sm-8">
-									<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select is="select-component" class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.languageid'] ) ); ?>'.replace('_idx_', idx)"
 										v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
@@ -176,7 +176,7 @@ $enc = $this->encoder();
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" required class="form-control custom-select listitem-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										<select is="select-component" required class="form-control form-select listitem-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											v-bind:items="JSON.parse('<?= $enc->attr( $listTypes->col( 'service.lists.type.label', 'service.lists.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'service.lists.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"

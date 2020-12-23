@@ -52,7 +52,7 @@ $keys = [
 					<input class="item-code" type="hidden" v-model="item['product.code']"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'bought', 'idx', 'product.code'] ) ); ?>'.replace( 'idx', idx )" />
 
-					<select is="combo-box" class="form-control custom-select item-refid"
+					<select is="combo-box" class="form-control form-select item-refid"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'bought', 'idx', 'product.lists.refid'] ) ); ?>'.replace( 'idx', idx )"
 						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"

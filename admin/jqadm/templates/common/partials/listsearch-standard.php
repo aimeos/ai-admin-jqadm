@@ -47,7 +47,7 @@ $enc = $this->encoder();
 						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ); ?>" />
 
 					<?php if( $type === 'select' ) : ?>
-						<select class="form-control custom-select" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<select class="form-control form-select" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>">
 							<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?></option>
 

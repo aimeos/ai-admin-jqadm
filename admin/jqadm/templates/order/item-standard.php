@@ -181,7 +181,7 @@ $statusList = [
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control custom-select item-languageid" required="required" tabindex="1"
+									<select class="form-control form-select item-languageid" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.languageid' ) ) ); ?>"
 										<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 										<option value="">
@@ -275,7 +275,7 @@ $statusList = [
 													<a class="btn btn-subscription fa" href="<?= $this->url( $newTarget, $newCntl, $newAction, $newParams, [], $newConfig ) ?>"></a>
 												</td>
 												<td class="item-column column-status">
-													<select class="form-control custom-select product-status" required="required" tabindex="1"
+													<select class="form-control form-select product-status" required="required" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.status' ) ) ); ?>"
 														<?= $this->site()->readonly( $orderProduct->getSiteId() ); ?> >
 														<option value="">
@@ -390,7 +390,7 @@ $statusList = [
 										<div class="form-group row optional">
 											<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 											<div class="col-sm-8">
-												<select class="form-control custom-select item-languageid" tabindex="1" data-field="languageid"
+												<select class="form-control form-select item-languageid" tabindex="1" data-field="languageid"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.languageid' ) ) ); ?>"
 													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 													<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
@@ -406,7 +406,7 @@ $statusList = [
 										<div class="form-group row optional">
 											<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 											<div class="col-sm-8">
-												<select class="form-control custom-select item-salutation" tabindex="1" data-field="salutation"
+												<select class="form-control form-select item-salutation" tabindex="1" data-field="salutation"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.salutation' ) ) ); ?>"
 													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 													<option value="" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.salutation' ), '' ); ?> >

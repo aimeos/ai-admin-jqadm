@@ -49,7 +49,7 @@ $enc = $this->encoder();
 		<i class="fa more" :class="state ? 'less' :  'more'" @click="toggle"></i>
 
 		<div class="input-group">
-			<select class="custom-select filter-key" :class="state ? 'expanded' : ''" name="<?= $this->formparam( ['filter', 'key', '0'] ); ?>">
+			<select class="form-select filter-key" :class="state ? 'expanded' : ''" name="<?= $this->formparam( ['filter', 'key', '0'] ); ?>">
 				<?php foreach( $this->get( 'filterAttributes', [] ) as $code => $attrItem ) : ?>
 					<?php if( $attrItem->isPublic() ) : ?>
 						<option value="<?= $enc->attr( $code ); ?>" data-type="<?= $enc->attr( $attrItem->getType() ); ?>" <?= $selected( $filter, 'key', $code ); ?> >
@@ -58,7 +58,7 @@ $enc = $this->encoder();
 					<?php endif; ?>
 				<?php endforeach; ?>
 			</select>
-			<select class="custom-select filter-operator" :class="state ? 'expanded' : ''" name="<?= $this->formparam( ['filter', 'op', '0'] ); ?>">
+			<select class="form-select filter-operator" :class="state ? 'expanded' : ''" name="<?= $this->formparam( ['filter', 'op', '0'] ); ?>">
 				<?php foreach( $this->get( 'filterOperators/compare', [] ) as $code ) : ?>
 					<option value="<?= $enc->attr( $code ); ?>" <?= $selected( $filter, 'op', $code ); ?> >
 						<?= $enc->html( $code ) . ( strlen( $code ) === 1 ? '&nbsp;' : '' ); ?>&nbsp;&nbsp;<?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?>

@@ -187,7 +187,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 						v-bind:value="value('position')" />
 				</td>
 				<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
-					<select class="form-control custom-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						is="select-component"
 						v-bind:all="'<?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?>'"
 						v-bind:items="<?= $enc->attr( $status ) ?>"
@@ -196,7 +196,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					</select>
 				</td>
 				<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
-					<select class="form-control custom-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						is="select-component"
 						v-bind:all="'<?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?>'"
 						v-bind:items="types"
@@ -255,7 +255,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					</div>
 				</td>
 				<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
-					<select class="form-control custom-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						is="select-component" v-if="item.edit"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['product', '-prefix-status', ''] ) ) ?>'.replace('-prefix-', prefix)"
 						v-bind:items="<?= $enc->attr( $status ) ?>"
@@ -266,7 +266,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					</div>
 				</td>
 				<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
-					<select class="form-control custom-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						is="select-component" v-if="item.edit"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['product', '-prefix-type', ''] ) ) ?>'.replace('-prefix-', prefix)"
 						v-bind:items="types"

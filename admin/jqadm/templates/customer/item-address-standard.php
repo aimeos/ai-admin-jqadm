@@ -70,7 +70,7 @@ $keys = [
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 									<div class="col-sm-8">
-										<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										<select class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.languageid' ) ) ); ?>'.replace('idx', idx)"
 											v-bind:readonly="checkSite('customer.address.siteid', idx)"
 											v-model="items[idx]['customer.address.languageid']" >
@@ -95,7 +95,7 @@ $keys = [
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control custom-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select class="form-control form-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.salutation' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('customer.address.siteid', idx)"
 										v-model="items[idx]['customer.address.salutation']" >

@@ -40,7 +40,7 @@ $enc = $this->encoder();
 						<input class="item-propertyid" type="hidden" v-model="propdata['price.property.id']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'property', '_propidx_', 'price.property.id'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)" />
 
-						<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
+						<select is="select-component" required class="form-control form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'property', '_propidx_', 'price.property.type'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 							v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
 							v-bind:readonly="readonly(propidx)"
@@ -49,7 +49,7 @@ $enc = $this->encoder();
 						</select>
 					</td>
 					<td class="property-language">
-						<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
+						<select is="select-component" class="form-control form-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'property', '_propidx_', 'price.property.languageid'] ) ); ?>'.replace('_idx_', index).replace('_propidx_', propidx)"
 							v-bind:all="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
 							v-bind:readonly="readonly(propidx)"
