@@ -109,11 +109,11 @@ $enc = $this->encoder();
 								</div>
 							</div>
 							<div class="form-group row optional">
-								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Given rebate amount' ) ); ?></label>
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Granted rebate' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-rebate" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.rebate' ) ) ); ?>'.replace('idx', idx)"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Given rebate amount' ) ); ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Granted rebate' ) ); ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
 										v-model="item['price.rebate']" />
 								</div>
@@ -122,11 +122,11 @@ $enc = $this->encoder();
 								</div>
 							</div>
 							<div class="form-group row optional">
-								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping costs/item' ) ); ?></label>
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping/item' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-costs" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.costs' ) ) ); ?>'.replace('idx', idx)"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping costs/item' ) ); ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping/item' ) ); ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
 										v-model="item['price.costs']" />
 								</div>
@@ -205,11 +205,11 @@ $enc = $this->encoder();
 							<?php endif; ?>
 
 							<div class="form-group row mandatory">
-								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Minimum quantity' ) ); ?></label>
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Min. quantity' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-quantity" type="number" step="0.001" min="0.001" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.quantity' ) ) ); ?>'.replace('idx', idx)"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Minimum quantity' ) ); ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Min. quantity' ) ); ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
 										v-model="item['price.quantity']" />
 								</div>
