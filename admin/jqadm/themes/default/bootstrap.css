@@ -19,31 +19,21 @@ textarea {
 	display: flex;
 }
 
-/* checkbox styling */
-/*input[type='checkbox'],
+/* Bootstrap improvments */
+
+input[type='checkbox'],
 input[type='radio'] {
-	margin: calc(0.5rem + 1px) 0;
-	height: 1rem;
+	vertical-align: middle;
+	vertical-align: -webkit-baseline-middle;
+}
+
+.dropdown {
+	display: inline-block;
 }
 
 .dropdown-menu input[type='checkbox'],
 .dropdown-menu input[type='radio'] {
-	vertical-align: middle;
 	margin: 0.25rem;
-	height: auto;
-}
-*/
-/* unconditional .media class fix */
-/*.nav-item.media {
-	display: list-item;
-	align-items: normal;
-}
-*/
-
-/* Bootstrap improvments */
-
-.dropdown {
-	display: inline-block;
 }
 
 
@@ -202,6 +192,10 @@ td.is-invalid .form-control {
 	margin-bottom: 0;
 }
 
+.form-group.row label {
+	margin-bottom: 1rem;
+}
+
 .form-control,
 .custom-file-label {
 	border: none;
@@ -230,11 +224,10 @@ td.is-invalid .form-control {
 .btn,
 .dropdown-menu {
 	font-size: 100%;
-	z-index: 1040;
 }
 
-.dropdown-item label {
-	margin: 0;
+.dropdown-item a {
+	display: block;
 }
 
 @media (max-width: 575px) {
