@@ -6,14 +6,6 @@
 
 /* Fixes */
 
-html,
-body {
-	position: relative;
-	overflow-y: auto;
-	overflow-x: hidden;
-	height: 100%;
-}
-
 textarea {
 	overflow-x: hidden;
 }
@@ -28,7 +20,7 @@ textarea {
 }
 
 /* checkbox styling */
-input[type='checkbox'],
+/*input[type='checkbox'],
 input[type='radio'] {
 	margin: calc(0.5rem + 1px) 0;
 	height: 1rem;
@@ -40,13 +32,13 @@ input[type='radio'] {
 	margin: 0.25rem;
 	height: auto;
 }
-
+*/
 /* unconditional .media class fix */
-.nav-item.media {
+/*.nav-item.media {
 	display: list-item;
 	align-items: normal;
 }
-
+*/
 
 /* Bootstrap improvments */
 
@@ -125,6 +117,11 @@ input[type='radio'] {
 
 .table {
 	margin-bottom: 1rem;
+}
+
+.table>:not(caption)>*>td {
+	background-image: none;
+	border-bottom-width: 0;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -238,10 +235,6 @@ td.is-invalid .form-control {
 
 .dropdown-item label {
 	margin: 0;
-}
-
-.aimeos {
-	font-size: 90%;
 }
 
 @media (max-width: 575px) {
