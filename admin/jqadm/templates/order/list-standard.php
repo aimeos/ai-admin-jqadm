@@ -260,7 +260,7 @@ $statusList = [
 					<?php if( count( $actions = $this->config( 'admin/jqadm/order/actions', ['order-export'] ) ) > 0 ) : ?>
 						<div class="dropdown list-menu">
 							<button class="btn act-menu fa" type="button" id="menuButton"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ); ?>">
 							</button>

@@ -32,7 +32,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
 					<div v-bind:id="'item-selection-group-item-' + idx" v-bind:class="getCss(idx)"
-						v-bind:data-target="'#item-selection-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
+						v-bind:data-target="'#item-selection-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-selection-group-data-' + idx" aria-expanded="false">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"

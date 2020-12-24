@@ -73,7 +73,7 @@ $columnList = [
 				<th class="actions">
 					<div class="dropdown list-menu">
 						<button class="btn act-menu fa" type="button" id="menuButton"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'More' ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'More' ) ); ?>">
 						</button>

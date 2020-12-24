@@ -207,7 +207,7 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 					<th class="actions">
 						<div class="dropdown filter-columns">
 							<button class="btn act-columns fa" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
 							</button>
@@ -732,7 +732,7 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 				</li>
 			</ul>
 			<div class="page-limit btn-group dropup" role="group">
-				<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+				<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
 					tabindex="<?= $this->get( 'tabindex', 1 ); ?>" aria-haspopup="true" aria-expanded="false">
 					{{ limit }} <span class="caret"></span>
 				</button>

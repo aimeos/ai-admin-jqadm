@@ -17,7 +17,7 @@ $settings = [
 	<div class="dashboard-setting row">
 		<div class="setting-list card col-lg-12">
 			<div id="setting-list-head" class="card-header header" role="tab"
-				data-toggle="collapse" data-target="#setting-list-data"
+				data-bs-toggle="collapse" data-target="#setting-list-data"
 				aria-expanded="true" aria-controls="setting-list-data">
 				<div class="card-tools-left">
 					<div class="btn btn-card-header act-show fa"></div>

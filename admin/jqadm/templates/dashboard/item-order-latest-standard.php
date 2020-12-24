@@ -90,7 +90,7 @@ $statuslist = array(
 ?>
 <div class="order-latest card col-lg-12">
 	<div id="order-latest-head" class="card-header header" role="tab"
-		data-toggle="collapse" data-target="#order-latest-data"
+		data-bs-toggle="collapse" data-target="#order-latest-data"
 		aria-expanded="true" aria-controls="order-latest-data">
 		<div class="card-tools-left">
 			<div class="btn btn-card-header act-show fa"></div>

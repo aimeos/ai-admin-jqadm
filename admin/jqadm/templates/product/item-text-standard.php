@@ -54,7 +54,7 @@ $enc = $this->encoder();
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
 					<div v-bind:id="'item-text-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
-						v-bind:data-target="'#item-text-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
+						v-bind:data-target="'#item-text-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-text-group-data-' + idx" aria-expanded="false" v-on:click.self.stop="toggle('_show', idx)">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
@@ -66,7 +66,7 @@ $enc = $this->encoder();
 						<div class="card-tools-right">
 							<div class="dropdown">
 								<a v-bind:id="'translate-menu-' + idx" class="btn btn-card-header act-translate fa dropdown-toggle" href="#"
-									tabindex="<?= $this->get( 'tabindex' ); ?>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+									tabindex="<?= $this->get( 'tabindex' ); ?>" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Translate text' ) ); ?>">
  								</a>
 								<div class="dropdown-menu dropdown-menu-right" v-bind:aria-labelledby="'translate-menu-' + idx">

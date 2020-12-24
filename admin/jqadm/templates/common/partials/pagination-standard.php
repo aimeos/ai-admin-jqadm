@@ -117,7 +117,7 @@ $enc = $this->encoder();
 			</li>
 		</ul>
 		<div class="page-limit btn-group <?= ( $this->get( 'pos', 'top' ) === 'bottom' ? 'dropup' : '' ); ?>" role="group">
-			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+			<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
 				 tabindex="<?= $this->get( 'tabindex', 1 ); ?>" aria-haspopup="true" aria-expanded="false">
 				<?= $limit; ?> <span class="caret"></span>
 			</button>

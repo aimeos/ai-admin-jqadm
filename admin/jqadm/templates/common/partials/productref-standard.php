@@ -97,7 +97,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					</a>
 					<div class="dropdown filter-columns">
 						<button class="btn act-columns fa" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
 						</button>

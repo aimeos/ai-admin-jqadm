@@ -49,7 +49,7 @@ $enc = $this->encoder();
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
 					<div v-bind:id="'item-price-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
-						v-bind:data-target="'#item-price-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
+						v-bind:data-target="'#item-price-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-price-group-data-' + idx" aria-expanded="false" v-on:click.self.stop="toggle('_show', idx)">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"

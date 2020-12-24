@@ -55,14 +55,14 @@ $enc = $this->encoder();
 				<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
 
 					<li class="nav-item basic">
-						<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
+						<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
 							<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
 						</a>
 					</li>
 
 					<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
+							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
 								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 							</a>
 						</li>
@@ -177,7 +177,7 @@ $enc = $this->encoder();
 								data-payment="<?= implode( ',', $this->get( 'itemProviders/payment', [] ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?> />
 							<div class="dropdown input-group-append">
-								<div class="btn act-add fa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
+								<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="decoratorButton">
 									<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
 										<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ); ?>"><?= $enc->html( $name ); ?></a></li>

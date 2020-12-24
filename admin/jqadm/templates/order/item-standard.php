@@ -113,7 +113,7 @@ $statusList = [
 						title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ); ?>">
 						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 					</button>
-					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
 						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
 					</button>
@@ -131,14 +131,14 @@ $statusList = [
 					<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
 
 						<li class="nav-item order">
-							<a class="nav-link active" href="#order" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="order">
+							<a class="nav-link active" href="#order" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="order">
 								<?= $enc->html( $this->translate( 'admin', 'Order' ) ); ?>
 							</a>
 						</li>
 
 						<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $type => $subpart ) : ?>
 							<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-								<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$type + 1; ?>">
+								<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$type + 1; ?>">
 									<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 								</a>
 							</li>

@@ -29,7 +29,7 @@ $keys = [
 				<div v-for="(entry, idx) in items" v-bind:key="idx" class="group-item card">
 
 					<div v-bind:id="'item-address-group-item-' + idx" v-bind:class="getCss(idx, 'supplier.address.')"
-						v-bind:data-target="'#item-address-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
+						v-bind:data-target="'#item-address-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-address-group-data-' + idx" aria-expanded="false">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
