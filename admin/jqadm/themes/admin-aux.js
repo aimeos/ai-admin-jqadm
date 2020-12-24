@@ -332,12 +332,12 @@ Aimeos.ProductRef = {
 
 	init: function() {
 		this.instance = new Vue({
-			'el': '.item-product .product-list',
+			'el': '.item-product .productref-list',
 			'mixins': [Aimeos.ProductRef.mixins]
 		});
 
 		const self = this;
-		Aimeos.lazy('.item-product .product-list', function() {
+		Aimeos.lazy('.item-product .productref-list', function() {
 			self.instance.reset();
 		});
 	},
