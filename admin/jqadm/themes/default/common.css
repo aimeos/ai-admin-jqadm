@@ -182,6 +182,10 @@
 	background-color: #ffffff;
 }
 
+.aimeos .table {
+	margin: 0;
+}
+
 .aimeos table th,
 .aimeos table td {
 	text-align: center;
