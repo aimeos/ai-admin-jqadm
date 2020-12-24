@@ -22,7 +22,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div id="price" class="item-price content-block tab-pane fade" role="tablist" aria-labelledby="price">
+<div id="price" class="item-price tab-pane fade" role="tablist" aria-labelledby="price">
 
 	<div id="item-price-group"
 		data-items="<?= $enc->attr( $this->get( 'priceData', [] ) ); ?>"
@@ -175,7 +175,7 @@ $enc = $this->encoder();
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 content-block secondary">
+						<div v-show="item['_ext']" class="col-xl-6 secondary">
 
 							<?php if( ( $listTypes = $this->get( 'priceListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
@@ -229,7 +229,7 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 content-block secondary" v-bind:class="{readonly: item['service.lists.siteid'] != siteid}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['service.lists.siteid'] != siteid}">
 							<config-table inline-template
 								v-bind:index="idx" v-bind:readonly="item['service.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event">

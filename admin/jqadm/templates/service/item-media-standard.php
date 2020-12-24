@@ -22,7 +22,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div id="media" class="item-media content-block tab-pane fade" role="tablist" aria-labelledby="media">
+<div id="media" class="item-media tab-pane fade" role="tablist" aria-labelledby="media">
 
 	<div id="item-media-group"
 		data-items="<?= $enc->attr( $this->get( 'mediaData', [] ) ); ?>"
@@ -171,7 +171,7 @@ $enc = $this->encoder();
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 content-block secondary">
+						<div v-show="item['_ext']" class="col-xl-6 secondary">
 							<?php if( ( $listTypes = $this->get( 'mediaListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
@@ -223,7 +223,7 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 content-block secondary" v-bind:class="{readonly: item['service.lists.siteid'] != siteid}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['service.lists.siteid'] != siteid}">
 							<config-table inline-template
 								v-bind:index="idx" v-bind:readonly="item['service.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event">

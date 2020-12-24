@@ -10,7 +10,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div v-show="item['_ext']" class="col-xl-12 content-block secondary">
+<div v-show="item['_ext']" class="col-xl-12 secondary">
 
 	<property-table inline-template
 		v-bind:index="idx" v-bind:domain="'price'" v-bind:siteid="'<?= $this->site()->siteid() ?>'"
