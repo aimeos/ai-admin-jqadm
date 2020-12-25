@@ -352,10 +352,9 @@
 .aimeos .main-footer {
 	background-color: #F8F8F8;
 	position: relative;
-	padding: 0.25rem 0.5rem;
+	padding: 0.25rem 1rem;
 	text-align: right;
 	width: auto;
-	margin: auto -0.5rem 1rem 3rem;
 }
 
 @media (min-width: 992px) {
