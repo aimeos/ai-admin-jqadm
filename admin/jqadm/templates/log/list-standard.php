@@ -28,7 +28,7 @@ $config = $this->config( 'admin/jqadm/url/search/config', [] );
  * @since 2018.04
  * @category Developer
  */
-$default = ['log.timestamp', 'log.facility', 'log.priority', 'log.request', 'log.message'];
+$default = ['log.timestamp', 'log.facility', 'log.priority', 'log.message'];
 $default = $this->config( 'admin/jqadm/log/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/log/fields', $default );
 
