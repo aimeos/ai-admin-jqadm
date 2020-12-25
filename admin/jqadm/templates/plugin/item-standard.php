@@ -165,7 +165,7 @@ $enc = $this->encoder();
 									<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> />
 								<div class="dropdown">
 									<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
-									<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="decoratorButton">
+									<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="decoratorButton">
 										<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
 											<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ); ?>"><?= $enc->html( $name ); ?></a></li>
 										<?php endforeach; ?>

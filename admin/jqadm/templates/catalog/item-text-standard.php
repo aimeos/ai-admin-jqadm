@@ -50,7 +50,7 @@ $enc = $this->encoder();
 									tabindex="<?= $this->get( 'tabindex' ); ?>" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Translate text' ) ); ?>">
  								</a>
-								<div class="dropdown-menu dropdown-menu-start" v-bind:aria-labelledby="'translate-menu-' + idx">
+								<div class="dropdown-menu dropdown-menu-end" v-bind:aria-labelledby="'translate-menu-' + idx">
 									<?php foreach( ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'ru'] as $lang ) : ?>
 										<a class="dropdown-item" href="#" v-on:click="translate(idx, '<?= strtoupper( $lang ) ?>')"><?= $enc->html( $this->translate( 'language', $lang ) ); ?></a>
 									<?php endforeach ?>

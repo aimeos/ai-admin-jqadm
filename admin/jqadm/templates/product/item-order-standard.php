@@ -211,7 +211,7 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
 							</button>
-							<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.id')" href="#"><label>
 										<input class="form-check-input"
