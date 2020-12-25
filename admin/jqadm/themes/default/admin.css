@@ -130,10 +130,7 @@
 }
 
 
-/* Enable horizontal scrolling for table content  */
-
 .aimeos form.list {
-	overflow-x: auto;
 	margin-bottom: 1rem;
 	padding-bottom: 0.5rem;
 }
