@@ -33,7 +33,7 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 		aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
 		title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
 	</button>
-	<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
+	<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
 		<?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 			<li class="dropdown-item">
 				<a href="#"><label>

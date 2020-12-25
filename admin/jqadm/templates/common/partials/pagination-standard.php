@@ -121,7 +121,7 @@ $enc = $this->encoder();
 				 tabindex="<?= $this->get( 'tabindex', 1 ); ?>" aria-haspopup="true" aria-expanded="false">
 				<?= $limit; ?> <span class="caret"></span>
 			</button>
-			<ul class="dropdown-menu dropdown-menu-right">
+			<ul class="dropdown-menu dropdown-menu-start">
 				<li class="dropdown-item">
 					<a href="<?php $pLimit['limit'] = 25; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
 						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">25</a>

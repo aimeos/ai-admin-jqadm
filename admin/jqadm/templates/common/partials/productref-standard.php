@@ -101,7 +101,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
 						</button>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
+						<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
 							<li class="dropdown-item">
 								<a v-on:click.prevent.stop="toggle('id')" href="#"><label>
 									<input class="form-check-input"

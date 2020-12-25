@@ -117,7 +117,7 @@ $statusList = [
 						aria-haspopup="true" aria-expanded="false">
 						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
 					</button>
-					<ul class="dropdown-menu dropdown-menu-right">
+					<ul class="dropdown-menu dropdown-menu-start">
 						<li class="dropdown-item"><a class="next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a></li>
 					</ul>
 				</div>

@@ -77,7 +77,7 @@ $columnList = [
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'More' ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'More' ) ); ?>">
 						</button>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="menuButton">
+						<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="menuButton">
 							<li class="dropdown-item">
 								<a class="btn act-add fa label" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"

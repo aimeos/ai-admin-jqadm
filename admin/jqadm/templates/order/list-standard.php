@@ -264,7 +264,7 @@ $statusList = [
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Export' ) ); ?>">
 							</button>
-							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="menuButton">
+							<ul class="dropdown-menu dropdown-menu-start" aria-labelledby="menuButton">
 								<?php foreach( $actions as $code ) : ?>
 									<li class="dropdown-item">
 										<a class="btn fa act-download" tabindex="1"
