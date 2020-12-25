@@ -308,7 +308,7 @@
     border-bottom: 1px solid #bbb;
 	background-color: #fff;
     padding: .375rem .75rem;
-	height: calc(1.5em + .75rem + 2px);
+	height: calc(1.5rem + .75rem + 2px);
 }
 
 .vs__search::placeholder {

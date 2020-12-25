@@ -4,10 +4,6 @@
  */
 
 
- .aimeos {
-	font-size: 90%;
-}
-
 .aimeos a {
 	text-decoration: none;
 }
@@ -194,12 +190,12 @@
 }
 
 .aimeos .list-items tr:not(.list-search) td.image {
-	height: 5em;
+	height: 5rem;
 }
 
 .aimeos .list-items img.image {
-	max-height: 5em;
-	max-width: 5em;
+	max-height: 5rem;
+	max-width: 5rem;
 }
 
 .aimeos .list-items a.items-field {
