@@ -149,7 +149,7 @@ $enc = $this->encoder();
 					<div class="form-group row">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Comment' ) ); ?></label>
 						<div class="col-sm-8">
-							<span class="item-comment"><?= $enc->html( $this->get( 'itemData/review.comment' ) ); ?></span>
+							<span class="form-control item-comment"><?= $enc->html( $this->get( 'itemData/review.comment' ) ); ?></span>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
 							<?= $enc->html( $this->translate( 'admin', 'Comment of the reviewer' ) ); ?>

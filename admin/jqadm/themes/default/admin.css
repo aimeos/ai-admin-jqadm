@@ -101,12 +101,12 @@
 
 .aimeos .tree-toolbar,
 .aimeos .tree-content {
-	margin: 0.15rem 0;
 	margin-bottom: 1.35rem;
 }
 
 .aimeos .tree-toolbar .btn {
 	font-size: initial;
+	padding: 0.7rem 1rem;
 }
 
 .aimeos .tree-toolbar .btn.expand-all:before {
@@ -674,7 +674,11 @@
 }
 
 .aimeos .item-review .item-response {
-	height: 8rem;
+	height: 9rem;
+}
+
+.aimeos .item-review .item-refid {
+	border-color: transparent;
 }
 
 .aimeos .list-log .list-items td {
@@ -686,7 +690,7 @@
 }
 
 .aimeos .list-log .log-message .content {
-	max-height: 2.5rem;
+	max-height: 3rem;
 	overflow: hidden;
 	display: block;
 }
