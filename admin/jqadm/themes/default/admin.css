@@ -402,10 +402,17 @@
 .aimeos .item-media .media-preview {
 	border: 2px dashed #B0B0B0;
 	border-radius: .25rem;
+	position: relative;
 	height: 11.75rem;
 }
 
-.aimeos .item-media .media-preview p,
+.aimeos .item-media .media-preview p {
+    transform: translate(-50%, -50%);
+	position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
 .aimeos .item-media .media-preview img {
 	max-height: calc(11.75rem - 4px);
 	max-width: 100%;
@@ -415,11 +422,12 @@
 
 .aimeos .item-media .media-preview .fileupload {
 	height: calc(11.75rem - 4px);
-	width: calc(100% - 4px);
 	position: absolute;
 	overflow: hidden;
 	cursor: pointer;
+	width: 100%;
 	opacity: 0;
+	z-index: 1;
 }
 
 

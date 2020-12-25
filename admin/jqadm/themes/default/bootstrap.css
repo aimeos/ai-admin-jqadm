@@ -24,7 +24,6 @@ textarea {
 input[type='checkbox'],
 input[type='radio'] {
 	vertical-align: middle;
-	vertical-align: -webkit-baseline-middle;
 }
 
 .dropdown {
@@ -192,7 +191,7 @@ td.is-invalid .form-control {
 	margin-bottom: 0;
 }
 
-.form-group.row label {
+.form-group {
 	margin-bottom: 1rem;
 }
 
