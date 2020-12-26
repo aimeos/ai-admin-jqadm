@@ -39,11 +39,11 @@ $enc = $this->encoder();
 		title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ); ?>">
 		<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 	</button>
-	<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+	<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
 		aria-haspopup="true" aria-expanded="false">
 		<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
 	</button>
-	<ul class="dropdown-menu dropdown-menu-right">
+	<ul class="dropdown-menu dropdown-menu-end">
 		<li class="dropdown-item"><a class="next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a></li>
 		<li class="dropdown-item"><a class="next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a></li>
 		<li class="dropdown-item"><a class="next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ); ?></a></li>

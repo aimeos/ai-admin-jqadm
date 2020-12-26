@@ -49,11 +49,11 @@ ul.jqtree-tree .jqtree-toggler.jqtree-closed {
 }
 
 ul.jqtree-tree .jqtree-toggler.jqtree-toggler-left {
-  margin-right: 0.25em;
+  margin-right: 0.25rem;
 }
 
 ul.jqtree-tree .jqtree-toggler.jqtree-toggler-right {
-  margin-left: 0.25em;
+  margin-left: 0.25rem;
 }
 
 ul.jqtree-tree .jqtree-element {
@@ -64,7 +64,7 @@ ul.jqtree-tree .jqtree-element {
 ul.jqtree-tree .jqtree-title {
   color: #1C4257;
   vertical-align: middle;
-  margin-left: 1.75em;
+  margin-left: 1.75rem;
   display: inline-block;
 }
 
@@ -160,13 +160,13 @@ ul.jqtree-tree.jqtree-rtl ul.jqtree_common {
 }
 
 ul.jqtree-tree.jqtree-rtl .jqtree-toggler {
-  margin-left: 0.5em;
+  margin-left: 0.5rem;
   margin-right: 0;
 }
 
 ul.jqtree-tree.jqtree-rtl .jqtree-title {
   margin-left: 0;
-  margin-right: 1.5em;
+  margin-right: 1.5rem;
 }
 
 ul.jqtree-tree.jqtree-rtl .jqtree-title.jqtree-title-folder {

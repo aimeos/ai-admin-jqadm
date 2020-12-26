@@ -63,7 +63,7 @@ $keys = [
 				v-bind:class="entry['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 
 				<td class="interval-check">
-					<input class="form-control item-id" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>"
+					<input class="form-check-input item-id" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>"
 						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'subscription', 'idx', 'attribute.id' ) ) ); ?>'.replace( 'idx', idx )"
 						v-bind:checked="entry['product.lists.id'] || !entry['attribute.id'] ? 'checked' : ''"
 						v-bind:value="entry['attribute.id']" />

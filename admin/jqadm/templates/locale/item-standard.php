@@ -53,14 +53,14 @@ $params = $this->get( 'pageParams', [] );
 				<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
 
 					<li class="nav-item basic">
-						<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
+						<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
 							<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
 						</a>
 					</li>
 
 					<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
+							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
 								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 							</a>
 						</li>
@@ -94,7 +94,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-status" required="required" tabindex="1"
+							<select class="form-control form-select item-status" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.status' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ); ?> >
 								<option value="">
@@ -118,7 +118,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-languageid" required="required" tabindex="1"
+							<select class="form-control form-select item-languageid" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.languageid' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ); ?> >
 								<option value="">
@@ -139,7 +139,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-currencyid" required="required" tabindex="1"
+							<select class="form-control form-select item-currencyid" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.currencyid' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ); ?> >
 								<option value="">

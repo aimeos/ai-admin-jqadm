@@ -11,10 +11,10 @@
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	min-height: 2.5rem;
 	background-color: #F8F8F8;
+	margin-bottom: 0.5rem;
+	min-height: 2.5rem;
 	padding: 0 0.5rem;
-	margin: 0.5rem 0;
 	z-index: 1040;
 }
 
@@ -240,10 +240,10 @@
 /** Content **/
 
 .aimeos .main-content {
-	margin-left: 3rem;
-	margin-right: -0.5rem;
-	margin-bottom: 1rem;
 	padding: 0;
+	margin: 0.5rem;
+	margin-left: 4rem;
+	min-height: calc(100vh - 4rem);
 }
 
 .aimeos .main-content .item-actions {
@@ -281,7 +281,7 @@
 
 /* MQ Mobile very small only */
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
 	.aimeos .main-content .item-actions {
 		font-size: 0.7rem;
 	}
@@ -314,8 +314,8 @@
 	}
 
 	.aimeos .main-content {
-		margin-left: 3.5rem;
-		margin-right: 0rem;
+		margin-left: 4.5rem;
+		margin-right: 1rem;
 	}
 
 	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
@@ -337,11 +337,12 @@
 	}
 
 	.aimeos .main-content {
-		margin-left: 6rem;
+		margin-left: 7.5rem;
+		margin-right: 1.5rem;
 	}
 
 	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
-		min-width: 6rem;
+		min-width: 6.5rem;
 	}
 }
 
@@ -351,10 +352,9 @@
 .aimeos .main-footer {
 	background-color: #F8F8F8;
 	position: relative;
-	padding: 0.25rem 0.5rem;
+	padding: 0.25rem 1rem;
 	text-align: right;
 	width: auto;
-	margin: auto -0.5rem 1rem 3rem;
 }
 
 @media (min-width: 992px) {

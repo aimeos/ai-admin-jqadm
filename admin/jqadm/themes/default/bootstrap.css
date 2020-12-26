@@ -6,14 +6,6 @@
 
 /* Fixes */
 
-html,
-body {
-	position: relative;
-	overflow-y: auto;
-	overflow-x: hidden;
-	height: 100%;
-}
-
 textarea {
 	overflow-x: hidden;
 }
@@ -27,31 +19,20 @@ textarea {
 	display: flex;
 }
 
-/* checkbox styling */
+/* Bootstrap improvments */
+
 input[type='checkbox'],
 input[type='radio'] {
-	margin: calc(0.5rem + 1px) 0;
-	height: 1rem;
+	vertical-align: middle;
+}
+
+.dropdown {
+	display: inline-block;
 }
 
 .dropdown-menu input[type='checkbox'],
 .dropdown-menu input[type='radio'] {
-	vertical-align: middle;
 	margin: 0.25rem;
-	height: auto;
-}
-
-/* unconditional .media class fix */
-.nav-item.media {
-	display: list-item;
-	align-items: normal;
-}
-
-
-/* Bootstrap improvments */
-
-.dropdown {
-	display: inline-block;
 }
 
 
@@ -127,6 +108,11 @@ input[type='radio'] {
 	margin-bottom: 1rem;
 }
 
+.table>:not(caption)>*>td {
+	background-image: none;
+	border-bottom-width: 0;
+}
+
 .table-striped tbody tr:nth-of-type(odd) {
 	background-color: #FCFCFC;
 }
@@ -151,7 +137,7 @@ input[type='radio'] {
 	border-left: 0.2rem solid transparent;
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
-	padding: .75em 1em;
+	padding: .75rem 1rem;
 }
 
 .nav-tabs .nav-link:hover {
@@ -205,6 +191,10 @@ td.is-invalid .form-control {
 	margin-bottom: 0;
 }
 
+.form-group {
+	margin-bottom: 1rem;
+}
+
 .form-control,
 .custom-file-label {
 	border: none;
@@ -233,15 +223,10 @@ td.is-invalid .form-control {
 .btn,
 .dropdown-menu {
 	font-size: 100%;
-	z-index: 1040;
 }
 
-.dropdown-item label {
-	margin: 0;
-}
-
-.aimeos {
-	font-size: 90%;
+.dropdown-item a {
+	display: block;
 }
 
 @media (max-width: 575px) {

@@ -29,7 +29,7 @@ $keys = [
 				<div v-for="(entry, idx) in items" v-bind:key="idx" class="group-item card">
 
 					<div v-bind:id="'item-address-group-item-' + idx" v-bind:class="getCss(idx, 'supplier.address.')"
-						v-bind:data-target="'#item-address-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
+						v-bind:data-target="'#item-address-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-address-group-data-' + idx" aria-expanded="false">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
@@ -69,7 +69,7 @@ $keys = [
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 									<div class="col-sm-8">
-										<select class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										<select class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'supplier.address.languageid' ) ) ); ?>'.replace('idx', idx)"
 											v-bind:readonly="checkSite('supplier.address.siteid', idx)"
 											v-model="items[idx]['supplier.address.languageid']" >
@@ -94,7 +94,7 @@ $keys = [
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control custom-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select class="form-control form-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'supplier.address.salutation' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('supplier.address.siteid', idx)"
 										v-model="items[idx]['supplier.address.salutation']" >

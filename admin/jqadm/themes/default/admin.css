@@ -4,6 +4,15 @@
  */
 
 
+.aimeos a {
+	text-decoration: none;
+}
+
+.aimeos a:hover {
+	text-decoration: unterline;
+}
+
+
 /* Pagination */
 
 .aimeos .list-page {
@@ -70,10 +79,6 @@
 	text-align: center
 }
 
-.page-limit .dropdown-item {
-	padding: 0;
-}
-
 .page-limit .dropdown-link {
 	display: inline-block;
 	padding: .25rem 0rem;
@@ -96,12 +101,12 @@
 
 .aimeos .tree-toolbar,
 .aimeos .tree-content {
-	margin: 0.15rem 0;
 	margin-bottom: 1.35rem;
 }
 
 .aimeos .tree-toolbar .btn {
 	font-size: initial;
+	padding: 0.7rem 1rem;
 }
 
 .aimeos .tree-toolbar .btn.expand-all:before {
@@ -125,10 +130,7 @@
 }
 
 
-/* Enable horizontal scrolling for table content  */
-
 .aimeos form.list {
-	overflow-x: auto;
 	margin-bottom: 1rem;
 	padding-bottom: 0.5rem;
 }
@@ -185,12 +187,12 @@
 }
 
 .aimeos .list-items tr:not(.list-search) td.image {
-	height: 5em;
+	height: 5rem;
 }
 
 .aimeos .list-items img.image {
-	max-height: 5em;
-	max-width: 5em;
+	max-height: 5rem;
+	max-width: 5rem;
 }
 
 .aimeos .list-items a.items-field {
@@ -397,24 +399,32 @@
 .aimeos .item-media .media-preview {
 	border: 2px dashed #B0B0B0;
 	border-radius: .25rem;
-	height: 10rem;
+	position: relative;
+	height: 11.75rem;
 }
 
-.aimeos .item-media .media-preview p,
+.aimeos .item-media .media-preview p {
+    transform: translate(-50%, -50%);
+	position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
 .aimeos .item-media .media-preview img {
-	max-height: calc(10rem - 4px);
+	max-height: calc(11.75rem - 4px);
 	max-width: 100%;
 	display: block;
 	margin: auto;
 }
 
 .aimeos .item-media .media-preview .fileupload {
-	height: calc(10rem - 4px);
-	width: calc(100% - 4px);
+	height: calc(11.75rem - 4px);
 	position: absolute;
 	overflow: hidden;
 	cursor: pointer;
+	width: 100%;
 	opacity: 0;
+	z-index: 1;
 }
 
 
@@ -664,7 +674,11 @@
 }
 
 .aimeos .item-review .item-response {
-	height: 8rem;
+	height: 9rem;
+}
+
+.aimeos .item-review .item-refid {
+	border-color: transparent;
 }
 
 .aimeos .list-log .list-items td {
@@ -676,7 +690,8 @@
 }
 
 .aimeos .list-log .log-message .content {
-	max-height: 2.5rem;
+	word-break: break-word;
+	max-height: 3rem;
 	overflow: hidden;
 	display: block;
 }

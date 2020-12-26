@@ -52,14 +52,14 @@ $params = $this->get( 'pageParams', [] );
 				<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
 
 					<li class="nav-item basic">
-						<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
+						<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
 							<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
 						</a>
 					</li>
 
 					<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
+							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
 								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 							</a>
 						</li>
@@ -92,7 +92,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-domain" required="required" tabindex="1"
+							<select class="form-control form-select item-domain" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.domain' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?> >
 
@@ -107,7 +107,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-status" required="required" tabindex="1"
+							<select class="form-control form-select item-status" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.status' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?> >
 								<option value="">
@@ -134,7 +134,7 @@ $params = $this->get( 'pageParams', [] );
 							<table>
 								<tr>
 									<td class="input-group">
-										<select class="form-control custom-select item-type" required="required" tabindex="1"
+										<select class="form-control form-select item-type" required="required" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.type' ) ) ); ?>"
 											<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?> >
 											<option value="">

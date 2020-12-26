@@ -22,7 +22,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div id="media" class="item-media content-block tab-pane fade" role="tablist" aria-labelledby="media">
+<div id="media" class="item-media tab-pane fade" role="tablist" aria-labelledby="media">
 
 	<div id="item-media-group"
 		data-items="<?= $enc->attr( $this->get( 'mediaData', [] ) ); ?>"
@@ -34,7 +34,7 @@ $enc = $this->encoder();
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
 					<div v-bind:id="'item-media-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
-						v-bind:data-target="'#item-media-group-data-' + idx" data-toggle="collapse" role="tab" class="card-header header"
+						v-bind:data-target="'#item-media-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-media-group-data-' + idx" aria-expanded="false" v-on:click.self.stop="toggle('_show', idx)">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
@@ -64,7 +64,7 @@ $enc = $this->encoder();
 
 						<div class="col-xl-6">
 
-							<div class="form-group row media-preview">
+							<div class="form-group media-preview">
 								<input class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									v-bind:name="'media[_idx_][file]'.replace('_idx_', idx)"
 									v-bind:readonly="item['media.siteid'] != siteid"
@@ -87,7 +87,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select class="form-control form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.status'] ) ); ?>'.replace('_idx_', idx)"
 										v-bind:readonly="item['media.siteid'] != siteid"
 										v-model="item['media.status']" >
@@ -111,7 +111,7 @@ $enc = $this->encoder();
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										<select is="select-component" required class="form-control form-select item-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											v-bind:items="JSON.parse('<?= $enc->attr( $mediaTypes->col( 'media.type.label', 'media.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
@@ -146,7 +146,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 								<div class="col-sm-8">
-									<select is="select-component" class="form-control custom-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select is="select-component" class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.languageid'] ) ); ?>'.replace('_idx_', idx)"
 										v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
@@ -171,12 +171,12 @@ $enc = $this->encoder();
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ); ?></span>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 content-block secondary">
+						<div v-show="item['_ext']" class="col-xl-6 secondary">
 							<?php if( ( $listTypes = $this->get( 'mediaListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" required class="form-control custom-select listitem-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										<select is="select-component" required class="form-control form-select listitem-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											v-bind:items="JSON.parse('<?= $enc->attr( $listTypes->col( 'service.lists.type.label', 'service.lists.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'service.lists.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
@@ -223,12 +223,12 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 content-block secondary" v-bind:class="{readonly: item['service.lists.siteid'] != siteid}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['service.lists.siteid'] != siteid}">
 							<config-table inline-template
 								v-bind:index="idx" v-bind:readonly="item['service.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event">
 
-								<table class="item-config table table-striped">
+								<table class="item-config table">
 									<thead>
 										<tr>
 											<th class="config-row-key">

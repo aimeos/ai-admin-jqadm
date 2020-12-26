@@ -55,14 +55,14 @@ $enc = $this->encoder();
 				<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
 
 					<li class="nav-item basic">
-						<a class="nav-link active" href="#basic" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
+						<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
 							<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
 						</a>
 					</li>
 
 					<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
 						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
+							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
 								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 							</a>
 						</li>
@@ -95,7 +95,7 @@ $enc = $this->encoder();
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control custom-select item-status" required="required" tabindex="1"
+							<select class="form-control form-select item-status" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.status' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> >
 								<option value="">
@@ -120,7 +120,7 @@ $enc = $this->encoder();
 						<div class="form-group row mandatory">
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
-								<select class="form-control custom-select item-type" required="required" tabindex="1"
+								<select class="form-control form-select item-type" required="required" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.type' ) ) ); ?>"
 									<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> >
 									<option value="">
@@ -155,20 +155,22 @@ $enc = $this->encoder();
 					</div>
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ); ?></label>
-						<div class="col-sm-8 input-group">
-							<input class="form-control item-provider combobox" type="text" required="required" tabindex="1" readonly
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.provider' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/plugin.provider' ) ); ?>"
-								data-order="<?= implode( ',', $this->get( 'itemProviders/order', [] ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> />
-							<div class="dropdown input-group-append">
-								<div class="btn act-add fa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
-								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="decoratorButton">
-									<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
-										<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ); ?>"><?= $enc->html( $name ); ?></a></li>
-									<?php endforeach; ?>
-								</ul>
+						<div class="col-sm-8">
+							<div class="input-group">
+								<input class="form-control item-provider combobox" type="text" required="required" tabindex="1" readonly
+									name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.provider' ) ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ); ?>"
+									value="<?= $enc->attr( $this->get( 'itemData/plugin.provider' ) ); ?>"
+									data-order="<?= implode( ',', $this->get( 'itemProviders/order', [] ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?> />
+								<div class="dropdown">
+									<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
+									<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="decoratorButton">
+										<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
+											<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ); ?>"><?= $enc->html( $name ); ?></a></li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -191,7 +193,7 @@ $enc = $this->encoder();
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ); ?>">
-					<table class="item-config-ext table table-striped">
+					<table class="item-config-ext table">
 						<thead>
 							<tr>
 								<th class="config-row-key">
@@ -252,7 +254,7 @@ $enc = $this->encoder();
 										<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ); ?>" />
 
-										<table class="table table-striped config-map-table">
+										<table class="table config-map-table">
 											<tr class="config-map-row prototype-map">
 												<td class="config-map-actions">
 													<div class="btn act-delete fa" tabindex="1"
