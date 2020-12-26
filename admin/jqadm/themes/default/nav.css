@@ -11,10 +11,10 @@
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	min-height: 2.5rem;
 	background-color: #F8F8F8;
+	margin-bottom: 0.5rem;
+	min-height: 2.5rem;
 	padding: 0 0.5rem;
-	margin: 0.5rem 0;
 	z-index: 1040;
 }
 
@@ -240,10 +240,10 @@
 /** Content **/
 
 .aimeos .main-content {
-	margin-left: 4rem;
-	margin-right: 0.5rem;
-	margin-bottom: 1rem;
 	padding: 0;
+	margin: 0.5rem;
+	margin-left: 4rem;
+	min-height: calc(100vh - 4rem);
 }
 
 .aimeos .main-content .item-actions {

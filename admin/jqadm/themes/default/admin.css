@@ -690,6 +690,7 @@
 }
 
 .aimeos .list-log .log-message .content {
+	word-break: break-word;
 	max-height: 3rem;
 	overflow: hidden;
 	display: block;
