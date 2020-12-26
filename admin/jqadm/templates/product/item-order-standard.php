@@ -38,7 +38,7 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 	<div class="order-list" data-id="<?= $enc->attr( $this->param( 'id' ) ) ?>"
 		data-fields="<?= $enc->attr( $fields ) ?>">
 
-		<table class="list-items table table-striped table-hover">
+		<table class="list-items table table-striped">
 			<thead class="list-header">
 				<tr>
 					<th v-if="fields.includes('order.base.id')" class="order-base-id">
@@ -207,14 +207,15 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 					<th class="actions">
 						<div class="dropdown filter-columns">
 							<button class="btn act-columns fa" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
 							</button>
-							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.id')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.id')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.id')"
 											v-bind:checked="fields.includes('order.base.id')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'ID' ) ); ?>
@@ -222,7 +223,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.sitecode')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.sitecode')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.sitecode')"
 											v-bind:checked="fields.includes('order.base.sitecode')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?>
@@ -230,7 +232,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.languageid')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.languageid')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.languageid')"
 											v-bind:checked="fields.includes('order.base.languageid')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?>
@@ -238,7 +241,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.currencyid')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.currencyid')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.currencyid')"
 											v-bind:checked="fields.includes('order.base.currencyid')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?>
@@ -246,7 +250,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.price')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.price')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.price')"
 											v-bind:checked="fields.includes('order.base.price')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Price' ) ); ?>
@@ -254,7 +259,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.costs')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.costs')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.costs')"
 											v-bind:checked="fields.includes('order.base.costs')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Costs' ) ); ?>
@@ -262,7 +268,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.rebate')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.rebate')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.rebate')"
 											v-bind:checked="fields.includes('order.base.rebate')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Rebate' ) ); ?>
@@ -270,7 +277,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.tax')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.tax')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.tax')"
 											v-bind:checked="fields.includes('order.base.tax')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Tax' ) ); ?>
@@ -278,7 +286,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.customerref')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.customerref')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.customerref')"
 											v-bind:checked="fields.includes('order.base.customerref')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Customer reference' ) ); ?>
@@ -286,7 +295,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.comment')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.comment')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.comment')"
 											v-bind:checked="fields.includes('order.base.comment')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Comment' ) ); ?>
@@ -294,7 +304,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.company')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.company')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.company')"
 											v-bind:checked="fields.includes('order.base.address.company')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Company' ) ); ?>
@@ -302,7 +313,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.vatid')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.vatid')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.vatid')"
 											v-bind:checked="fields.includes('order.base.address.vatid')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'VAT ID' ) ); ?>
@@ -310,7 +322,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.salutation')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.salutation')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.salutation')"
 											v-bind:checked="fields.includes('order.base.address.salutation')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?>
@@ -318,7 +331,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.title')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.title')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.title')"
 											v-bind:checked="fields.includes('order.base.address.title')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Title' ) ); ?>
@@ -326,7 +340,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.firstname')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.firstname')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.firstname')"
 											v-bind:checked="fields.includes('order.base.address.firstname')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'First name' ) ); ?>
@@ -334,7 +349,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.lastname')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.lastname')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.lastname')"
 											v-bind:checked="fields.includes('order.base.address.lastname')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Last name' ) ); ?>
@@ -342,7 +358,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.address1')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.address1')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.address1')"
 											v-bind:checked="fields.includes('order.base.address.address1')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Address 1' ) ); ?>
@@ -350,7 +367,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.address2')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.address2')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.address2')"
 											v-bind:checked="fields.includes('order.base.address.address2')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Address 2' ) ); ?>
@@ -358,7 +376,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.address3')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.address3')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.address3')"
 											v-bind:checked="fields.includes('order.base.address.address3')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Address 3' ) ); ?>
@@ -366,7 +385,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.postal')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.postal')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.postal')"
 											v-bind:checked="fields.includes('order.base.address.postal')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Zip code' ) ); ?>
@@ -374,7 +394,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.city')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.city')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.city')"
 											v-bind:checked="fields.includes('order.base.address.city')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'City' ) ); ?>
@@ -382,7 +403,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.state')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.state')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.state')"
 											v-bind:checked="fields.includes('order.base.address.state')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'State' ) ); ?>
@@ -390,7 +412,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.countryid')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.countryid')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.countryid')"
 											v-bind:checked="fields.includes('order.base.address.countryid')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?>
@@ -398,7 +421,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.telephone')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.telephone')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.telephone')"
 											v-bind:checked="fields.includes('order.base.address.telephone')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Telephone' ) ); ?>
@@ -406,7 +430,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.telefax')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.telefax')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.telefax')"
 											v-bind:checked="fields.includes('order.base.address.telefax')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ); ?>
@@ -414,7 +439,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.email')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.email')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.email')"
 											v-bind:checked="fields.includes('order.base.address.email')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ); ?>
@@ -422,7 +448,8 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 								</li>
 								<li class="dropdown-item">
 									<a v-on:click.prevent.stop="toggleField('order.base.address.website')" href="#"><label>
-										<input v-on:click.capture.stop="toggleField('order.base.address.website')"
+										<input class="form-check-input"
+											v-on:click.capture.stop="toggleField('order.base.address.website')"
 											v-bind:checked="fields.includes('order.base.address.website')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>" />
 										<?= $enc->html( $this->translate( 'admin', 'Web site' ) ); ?>
@@ -705,7 +732,7 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 				</li>
 			</ul>
 			<div class="page-limit btn-group dropup" role="group">
-				<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+				<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
 					tabindex="<?= $this->get( 'tabindex', 1 ); ?>" aria-haspopup="true" aria-expanded="false">
 					{{ limit }} <span class="caret"></span>
 				</button>

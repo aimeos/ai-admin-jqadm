@@ -25,7 +25,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 	<div class="dashboard-job row">
 		<div class="job-list card col-lg-12">
 			<div id="job-list-head" class="card-header header" role="tab"
-				data-toggle="collapse" data-target="#job-list-data"
+				data-bs-toggle="collapse" data-target="#job-list-data"
 				aria-expanded="true" aria-controls="job-list-data">
 				<div class="card-tools-left">
 					<div class="btn btn-card-header act-show fa"></div>

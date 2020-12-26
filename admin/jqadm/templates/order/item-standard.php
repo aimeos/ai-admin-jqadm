@@ -113,11 +113,11 @@ $statusList = [
 						title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ); ?>">
 						<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
 					</button>
-					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
 						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
 					</button>
-					<ul class="dropdown-menu dropdown-menu-right">
+					<ul class="dropdown-menu dropdown-menu-end">
 						<li class="dropdown-item"><a class="next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a></li>
 					</ul>
 				</div>
@@ -131,14 +131,14 @@ $statusList = [
 					<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
 
 						<li class="nav-item order">
-							<a class="nav-link active" href="#order" data-toggle="tab" role="tab" aria-expanded="true" aria-controls="order">
+							<a class="nav-link active" href="#order" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="order">
 								<?= $enc->html( $this->translate( 'admin', 'Order' ) ); ?>
 							</a>
 						</li>
 
 						<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $type => $subpart ) : ?>
 							<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-								<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-toggle="tab" role="tab" tabindex="<?= ++$type + 1; ?>">
+								<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$type + 1; ?>">
 									<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 								</a>
 							</li>
@@ -181,7 +181,7 @@ $statusList = [
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 								<div class="col-sm-8">
-									<select class="form-control custom-select item-languageid" required="required" tabindex="1"
+									<select class="form-control form-select item-languageid" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.languageid' ) ) ); ?>"
 										<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 										<option value="">
@@ -275,7 +275,7 @@ $statusList = [
 													<a class="btn btn-subscription fa" href="<?= $this->url( $newTarget, $newCntl, $newAction, $newParams, [], $newConfig ) ?>"></a>
 												</td>
 												<td class="item-column column-status">
-													<select class="form-control custom-select product-status" required="required" tabindex="1"
+													<select class="form-control form-select product-status" required="required" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.status' ) ) ); ?>"
 														<?= $this->site()->readonly( $orderProduct->getSiteId() ); ?> >
 														<option value="">
@@ -390,7 +390,7 @@ $statusList = [
 										<div class="form-group row optional">
 											<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 											<div class="col-sm-8">
-												<select class="form-control custom-select item-languageid" tabindex="1" data-field="languageid"
+												<select class="form-control form-select item-languageid" tabindex="1" data-field="languageid"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.languageid' ) ) ); ?>"
 													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 													<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
@@ -406,7 +406,7 @@ $statusList = [
 										<div class="form-group row optional">
 											<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ); ?></label>
 											<div class="col-sm-8">
-												<select class="form-control custom-select item-salutation" tabindex="1" data-field="salutation"
+												<select class="form-control form-select item-salutation" tabindex="1" data-field="salutation"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.salutation' ) ) ); ?>"
 													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 													<option value="" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.salutation' ), '' ); ?> >
@@ -646,7 +646,7 @@ $statusList = [
 										</div>
 									</div>
 
-									<table class="service-attr table table-striped" data-id="<?= $enc->attr( $serviceId ) ?>"
+									<table class="service-attr table" data-id="<?= $enc->attr( $serviceId ) ?>"
 										data-codes="<?= $enc->attr( isset( $serviceAttrCodes[$type] ) ? implode( ',', $serviceAttrCodes[$type] ) : '' ); ?>">
 										<thead>
 											<tr>

@@ -73,11 +73,11 @@ $columnList = [
 				<th class="actions">
 					<div class="dropdown list-menu">
 						<button class="btn act-menu fa" type="button" id="menuButton"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>"
+							data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'More' ) ); ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'More' ) ); ?>">
 						</button>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="menuButton">
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuButton">
 							<li class="dropdown-item">
 								<a class="btn act-add fa label" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"

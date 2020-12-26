@@ -29,15 +29,15 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 ?>
 <div class="dropdown filter-columns">
 	<button class="btn act-columns fa" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
-		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+		data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
 		aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
 		title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
 	</button>
-	<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
+	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
 		<?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 			<li class="dropdown-item">
 				<a href="#"><label>
-					<input type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+					<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
 						name="<?= $enc->attr( $this->formparam( $names ) ); ?>"
 						value="<?= $enc->attr( $key ); ?>" <?= $checked( $fields, $key ); ?> />
 					<?= $enc->html( $name ); ?>

@@ -11,7 +11,7 @@ $enc = $this->encoder();
 
 <div class="order-servicedelivery card col-lg-6">
 	<div id="order-servicedelivery-head" class="card-header header" role="tab"
-		data-toggle="collapse" data-target="#order-servicedelivery-data"
+		data-bs-toggle="collapse" data-target="#order-servicedelivery-data"
 		aria-expanded="true" aria-controls="order-servicedelivery-data">
 		<div class="card-tools-left">
 			<div class="btn btn-card-header act-show fa"></div>

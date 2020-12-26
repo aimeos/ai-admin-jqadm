@@ -34,7 +34,7 @@ $enc = $this->encoder();
 <tr class="list-search">
 	<?php if( in_array( 'select', $fields ) ) : ?>
 		<td class="select">
-			<input v-on:click="toggleAll()" class="form-control" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>" />
+			<input v-on:click="toggleAll()" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>" />
 		</td>
 	<?php endif ?>
 	<?php foreach( $this->get( 'data', [] ) as $key => $list ) : $idx++ ?>
@@ -47,7 +47,7 @@ $enc = $this->encoder();
 						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ); ?>" />
 
 					<?php if( $type === 'select' ) : ?>
-						<select class="form-control custom-select" tabindex="<?= $this->get( 'tabindex' ); ?>"
+						<select class="form-control form-select" tabindex="<?= $this->get( 'tabindex' ); ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>">
 							<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?></option>
 

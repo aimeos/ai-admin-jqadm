@@ -146,7 +146,7 @@ $deliveryStatusList = [
 		);
 	?>
 
-	<table class="list-items table table-striped table-hover">
+	<table class="list-items table table-striped">
 		<thead class="list-header">
 			<tr>
 				<?= $this->partial(

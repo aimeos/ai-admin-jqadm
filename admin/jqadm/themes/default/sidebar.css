@@ -69,7 +69,7 @@
 
 	.aimeos .logo img {
 		height: 20px;
-		padding: 0 0.5em;
+		padding: 0 0.5rem;
 		width: 100%;
 	}
 }
@@ -363,7 +363,7 @@
 
 @media (max-width: 992px) {
 	.js--show-nav-items-texts .aimeos .logo {
-		width: 9rem;
+		width: 15rem;
 	}
 
 	.js--show-nav-items-texts .aimeos .logo img {
@@ -371,7 +371,7 @@
 	}
 
 	.js--show-nav-items-texts .aimeos .sidebar-wrapper {
-		width: 9rem;
+		width: 15rem;
 	}
 
 	.js--show-nav-items-texts .aimeos .sidebar-wrapper .icon:not(.less):not(.more) {
@@ -407,7 +407,7 @@
 	}
 
 	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts {
-		width: 9rem;
+		width: 15rem;
 		text-align: right;
 	}
 
