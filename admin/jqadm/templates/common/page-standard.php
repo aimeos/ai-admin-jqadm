@@ -310,12 +310,10 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 	</nav>
 
 	<main class="main-content">
-
 		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-standard' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
 		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'common/partials/info-standard' ), array( 'info' => $infoMsgs ) ); ?>
 
 		<?= $this->block()->get( 'jqadm_content' ); ?>
-
 	</main>
 
 	<footer class="main-footer">
@@ -323,11 +321,6 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 			<?= $enc->html( $this->translate( 'admin', 'Bug or suggestion?' ) ); ?>
 		</a>
 	</footer>
-
-	<div id="js--toggle-nav-items-text" class="toggle-nav-items-texts">
-		<span class="icon"></span>
-		<span class="hidden"><?= $enc->html( $this->translate( 'admin', 'Show/hide navigation labels' ) ) ?></span>
-	</div>
 
 	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm-standard' ) ); ?>
 	<?= $this->partial( $this->config( 'admin/jqadm/partial/problem', 'common/partials/problem-standard' ) ); ?>

@@ -6,7 +6,6 @@
  .app-menu {
 	background: #202830;
 	color: #fff;
-	font-size: 125%;
 	height: 2.5rem;
 	display: flex;
 	justify-content: space-between;
@@ -15,23 +14,22 @@
 .app-menu .menu,
 .app-menu .logout {
 	vertical-align: middle;
-	padding: 0.4rem 1rem;
+	padding: 0.5rem 1rem;
+	font-size: 125%;
 }
 
 .app-menu .menu:before {
 	font: normal normal normal 14px/1 FontAwesome;
+	vertical-align: top;
 	content: "\f0c9";
-	font-size: 125%;
+	font-size: 100%;
 }
 
 .app-menu .menu.open:before {
 	font: normal normal normal 14px/1 FontAwesome;
+	vertical-align: top;
 	content: "\f00d";
-	font-size: 125%;
-}
-
-.app-menu .logout:before {
-	font-size: 125%;
+	font-size: 100%;
 }
 
 @media (min-width: 992px) {
