@@ -117,15 +117,6 @@
 	width: inherit;
 }
 
-.aimeos .main-navbar .input-group input,
-.aimeos .main-navbar .input-group select {
-	border: 1px solid #bbb;
-}
-
-.aimeos .main-navbar .input-group select {
-	height: 34px;
-}
-
 .aimeos .main-navbar input,
 .aimeos .main-navbar .custom-select,
 .aimeos .main-navbar .filter-columns .dropdown-item,
@@ -141,7 +132,6 @@
 .aimeos .main-navbar .filter-columns,
 .aimeos .main-navbar .filter-operator,
 .aimeos .main-navbar .filter-key {
-	opacity: 0;
 	display: none;
 	overflow: hidden;
 	transition: all 0.25s;
@@ -162,78 +152,12 @@
 }
 
 .aimeos .main-navbar .filter-operator.expanded {
-	width: 4rem;
+	width: 3.5rem;
 }
 
 .aimeos .main-navbar .filter-key.expanded,
 .aimeos .main-navbar .filter-operator.expanded {
-	opacity: 1;
 	display: inline-block;
-}
-
-/* MQ Mobile only */
-
-@media (max-width: 767px) {
-
-	.aimeos .main-navbar .form-inline {
-		flex-wrap: nowrap;
-		align-items: center;
-		justify-content: flex-end;
-		position: absolute;
-		right: -0.5rem;
-		left: 3rem;
-		max-width: 100%;
-		background: white;
-		padding: 0.25rem;
-		border-radius: 4px;
-		box-shadow: 0 0 4px rgba(20, 20, 20, .35);
-		white-space: nowrap;
-		z-index: -1;
-		visibility: hidden;
-		-webkit-transition: z-index .3s,
-			visibility .3s ease .3s,
-			-webkit-transform .3s ease-in-out;
-		transition: z-index .3s,
-			visibility .3s ease .3s,
-			-webkit-transform .3s ease-in-out;
-		-o-transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility .3s ease .3s;
-		transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility .3s ease .3s;
-		transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility .3s ease .3s,
-			-webkit-transform .3s ease-in-out;
-		-webkit-transform: translateY(-58px);
-		-ms-transform: translateY(-58px);
-		transform: translateY(-58px);
-	}
-
-	.js--show-search .aimeos .main-navbar .form-inline {
-		visibility: visible;
-		z-index: 2000;
-		-webkit-transform: translateY(45px);
-		-ms-transform: translateY(45px);
-		transform: translateY(45px);
-		-webkit-transition: z-index .3s,
-			visibility 0s ease 0s,
-			-webkit-transform .3s ease-in-out;
-		transition: z-index .3s,
-			visibility 0s ease 0s,
-			-webkit-transform .3s ease-in-out;
-		-o-transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility 0s ease 0s;
-		transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility 0s ease 0s;
-		transition: transform .3s ease-in-out,
-			z-index .3s,
-			visibility 0s ease 0s,
-			-webkit-transform .3s ease-in-out;
-	}
 }
 
 
@@ -241,28 +165,24 @@
 
 .aimeos .main-content {
 	padding: 0;
-	margin: 0.5rem;
-	margin-left: 4rem;
-	min-height: calc(100vh - 4rem);
+	margin: 0.5rem 1rem;
+	min-height: calc(100vh - 5.5rem);
 }
 
 .aimeos .main-content .item-actions {
-	padding: 0 calc(0.5rem + 15px);
 	white-space: nowrap;
-	text-align: right;
 	font-size: 0.8rem;
 	display: block;
 	width: inherit;
+    margin: 0.5rem 0;
 	margin-left: auto;
 }
 
 .aimeos .main-content .main-navbar .item-actions {
 	display: inline-block;
-	width: inherit;
-	padding: 0;
 }
 
-.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
+.aimeos .main-content .item-actions .btn:not(.dropdown-toggle) {
 	min-width: 4rem;
 }
 
@@ -270,75 +190,23 @@
 	min-width: 2rem;
 }
 
-.aimeos .main-content .item-actions .btn {
-	margin: 0;
-}
-
-.aimeos .main-content .item-actions .btn {
-	margin: 0.5rem 0;
-}
-
-
-/* MQ Mobile very small only */
-
-@media (max-width: 480px) {
-	.aimeos .main-content .item-actions {
-		font-size: 0.7rem;
-	}
-
-	.aimeos .form-control.search-input {
-		font-size: 0.8rem;
-	}
-
-	.nav-tabs .nav-link {
-		padding: 0.35rem 0.75rem;
-	}
-}
-
-
-/* MQ Tablet+ */
-
 @media (min-width: 768px) {
 	.aimeos .main-navbar {
-		position: -webkit-sticky;
 		position: sticky;
+		min-height: 3rem;
 		z-index: 1040;
 		top: 0;
-		margin: 1rem 0;
-		min-height: 3rem;
-	}
-
-	.aimeos .main-navbar .item-actions {
-		margin-top: 0;
-		font-size: 90%;
-	}
-
-	.aimeos .main-content {
-		margin-left: 4.5rem;
-		margin-right: 1rem;
 	}
 
 	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
 		min-width: 5rem;
 	}
-
-	.aimeos .item-container .item-actions {
-		display: none;
-	}
 }
 
-
-/* MQ Desktop+ */
-
 @media (min-width: 992px) {
-
-	.aimeos .main-navbar .item-actions {
-		margin-top: 0;
-	}
-
 	.aimeos .main-content {
-		margin-left: 7.5rem;
-		margin-right: 1.5rem;
+		margin-left: 7rem;
+		margin-right: 1rem;
 	}
 
 	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {

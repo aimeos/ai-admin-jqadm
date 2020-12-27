@@ -90,7 +90,7 @@ input[type='radio'] {
 .btn-secondary {
 	color: #292b2c;
 	background-color: #fff;
-	border-color: #ccc;
+	border-color: #dee2e6;
 }
 
 .btn-danger {
@@ -196,7 +196,7 @@ td.is-invalid .form-control {
 }
 
 .form-control,
-.custom-file-label {
+.form-select {
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid #bbb;
@@ -236,18 +236,6 @@ td.is-invalid .form-control {
 }
 
 @media (max-width: 767px) {
-	.aimeos {
-		font-size: 80%;
-	}
-
-	.navbar-brand {
-		font-size: 1rem;
-	}
-
-	.custom-select {
-		height: 33px;
-	}
-
 	.form-group.row .form-control-label {
 		font-size: 90%;
 	}

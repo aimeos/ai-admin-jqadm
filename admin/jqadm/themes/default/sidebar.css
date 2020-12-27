@@ -1,30 +1,53 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2018
+ * @copyright Aimeos (aimeos.org), 2015-2021
  */
+
+ .app-menu {
+	background: #202830;
+	color: #fff;
+	font-size: 125%;
+	height: 2.5rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.app-menu .menu,
+.app-menu .logout {
+	vertical-align: middle;
+	padding: 0.4rem 1rem;
+}
+
+.app-menu .menu:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f0c9";
+	font-size: 125%;
+}
+
+.app-menu .menu.open:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f00d";
+	font-size: 125%;
+}
+
+.app-menu .logout:before {
+	font-size: 125%;
+}
+
+@media (min-width: 992px) {
+	.app-menu .menu {
+		visibility: hidden;
+	}
+}
 
 
 .aimeos .main-sidebar {
-	min-height: 100%;
-	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-flex: 0;
-	-ms-flex: 0 0 auto;
-	flex: 0 0 auto;
+	position: fixed;
 	left: 0;
 	top: 0;
 	z-index: 1200;
 	color: #B8C8D0;
 	background: #202830;
-	-webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
-	-o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
-	-webkit-transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-	transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-	-o-transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-	transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-	transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 
@@ -33,44 +56,23 @@
 .aimeos .logo,
 .aimeos .logo img {
 	display: block;
-	-webkit-transition: height .3s ease-in-out, width .3s ease-in-out;
-	-o-transition: height .3s ease-in-out, width .3s ease-in-out;
-	transition: height .3s ease-in-out, width .3s ease-in-out;
-}
-
-.aimeos .logo {
-	position: fixed;
-	top: 0;
-	overflow: hidden;
-	height: 4.25rem;
-	width: 3.5rem;
-	padding-bottom: 1rem;
-	background: #202830;
-	z-index: 100;
 }
 
 .aimeos .logo img {
-	position: relative;
-	height: 2.95rem;
-	top: 60%;
-	padding-left: 0.3rem;
-	-webkit-transform: perspective(1px) translateY(-50%);
-	transform: perspective(1px) translateY(-50%);
+	width: 5rem;
+	margin: auto;
 }
 
 @media (min-width: 992px) {
 	.aimeos .logo {
-		width: 6rem;
-	}
-
-	.aimeos .logo img {
-		left: 0rem;
-	}
-
-	.aimeos .logo img {
-		height: 20px;
-		padding: 0 0.5rem;
-		width: 100%;
+		position: fixed;
+		display: inline-block;
+		background: #202830;
+		padding: 0.6rem 0.5rem;
+		z-index: 100;
+		margin: 0;
+		left: 0;
+		top: 0;
 	}
 }
 
@@ -81,10 +83,10 @@
 	position: fixed;
 	overflow-y: scroll;
 	bottom: 0;
-	top: 4.25rem;
-	min-height: calc(100vh - 4.25rem);
+	top: 2.5rem;
+	width: 6rem;
+	min-height: calc(100vh - 5.5rem);
 	background: #202830;
-	width: 3.5rem;
 	transform-origin: left top;
 	transition: width .3s ease-in-out, transform .3s ease-in-out;
 }
@@ -137,22 +139,17 @@
 
 .aimeos .sidebar-menu {
 	list-style: none;
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	padding-top: 1rem;
+}
+
+.aimeos .main-sidebar .title {
+	font-size: 90%;
 }
 
 .aimeos .sidebar-menu a {
 	color: #B8C8D0;
-}
-
-.aimeos .sidebar-menu li {
-	-webkit-transition: padding .3s ease-in-out;
-	-o-transition: padding .3s ease-in-out;
-	transition: padding .3s ease-in-out;
-}
-
-.aimeos .sidebar-menu.advanced {
-	padding-bottom: 6rem;
 }
 
 .aimeos .main-sidebar:hover li.active {
@@ -174,15 +171,33 @@
 
 .aimeos .sidebar-menu .title {
 	padding: 0.25rem 0;
-	display: none;
 }
 
 .aimeos .main-sidebar .separator {
 	background: #202830;
 }
 
-.aimeos .main-sidebar .separator .icon {
-	background: #182028;
+
+@media (max-width: 991px) {
+	.aimeos .sidebar-wrapper {
+		width: 15rem;
+		margin-left: -15rem;
+		transition: margin-left .3s ease-in-out, transform .3s ease-in-out;
+	}
+
+	.aimeos .main-sidebar.open .sidebar-wrapper {
+		margin-left: 0;
+	}
+
+	.aimeos .main-sidebar .icon {
+		display: inline-block;
+		min-width: 2.5rem;
+		padding: 0 .5rem;
+	}
+
+	.aimeos .sidebar-menu>li {
+		text-align: left;
+	}
 }
 
 
@@ -192,75 +207,43 @@
 	-webkit-transform: translateZ(0);
 	position: fixed;
 	display: block;
-	top: 0;
-	left: 3rem;
+	top: 2.5rem;
+	left: 6rem;
 	bottom: 0;
 	padding: 0;
 	width: 15rem;
-	min-height: 100%;
 	overflow-y: scroll;
 	visibility: hidden;
-	background: #182028;
-	z-index: -1;
-
-	-webkit-box-shadow: 2px 0 2px #000;
-	box-shadow: 2px 0 2px #000;
-
-	-webkit-transform: translateX(-15rem);
-	-ms-transform: translateX(-15rem);
+	background: #202830;
+	z-index: 1;
+	box-sizing: initial;
 	transform: translateX(-15rem);
-
-	transform-origin: left top;
-
-	-webkit-transition: visibility 0s ease 0.3s,
-		left 0.3s ease-in-out,
-		-webkit-transform 0.3s ease-in-out;
-	transition: visibility 0s ease 0.3s,
-		left 0.3s ease-in-out,
-		-webkit-transform 0.3s ease-in-out;
-	-o-transition: transform 0.3s ease-in-out,
-		visibility 0s ease 0.3s,
-		left 0.3s ease-in-out;
-	transition: transform 0.3s ease-in-out,
-		visibility 0s ease 0.3s,
-		left 0.3s ease-in-out;
-	transition: transform 0.3s ease-in-out,
-		visibility 0s ease 0.3s,
-		left 0.3s ease-in-out,
-		-webkit-transform 0.3s ease-in-out;
 }
 
 .aimeos .sidebar-menu li:hover .tree-menu-wrapper {
 	visibility: visible;
-
-	-webkit-transform: translateX(0);
-	-ms-transform: translateX(0);
 	transform: translateX(0);
-
-	-webkit-transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
-	transition: visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
-	-o-transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s;
 	transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s;
-	transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s, -webkit-transform .3s ease-in-out;
 }
 
 .aimeos .sidebar-menu .tree-menu-wrapper .menu-header {
 	display: flex;
 	position: sticky;
 	top: 0;
-	background: #202830;
+	background: #182028;
 	align-items: center;
 	justify-content: center;
 	height: 2.5rem;
-	z-index: 1;
+	z-index: 2;
 	margin-bottom: 0.5rem;
 }
 
 .aimeos .sidebar-menu li .tree-menu {
 	display: block;
 	position: relative;
-	min-height: calc(100% - 3rem);
-	background: #182028;
+	min-height: calc(100vh - 5.5rem);
+	background: #202830;
+	box-sizing: initial;
 	text-align: left;
 	list-style: none;
 	padding: 0 0 1rem 0;
@@ -278,7 +261,7 @@
 .aimeos .sidebar-menu li .tree-menu li:hover,
 .aimeos .sidebar-menu li .tree-menu li.active {
 	border-left-color: #4090C0;
-	background: #202830;
+	background: #182028;
 	color: #ffffff;
 }
 
@@ -292,131 +275,18 @@
 	padding: 0 1rem;
 }
 
-
-/* Toggle nav items texts in moble state */
-
-.aimeos .toggle-nav-items-texts {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 3.5rem;
-	height: 2rem;
-	background: #202830;
-	border-left: 0.2rem solid transparent;
-	border-right: 0.2rem solid transparent;
-	z-index: 2000;
-	-webkit-transition: width .3s ease-in-out;
-	-o-transition: width .3s ease-in-out;
-	transition: width .3s ease-in-out;
-	background: #182028;
-	cursor: pointer;
+@media (max-width: 991px) {
+	.aimeos .sidebar-menu li .tree-menu-wrapper {
+		left: 0;
+	}
 }
-
-.aimeos .toggle-nav-items-texts .icon {
-	font: normal normal normal 14px/1 FontAwesome;
-	font-size: 150%;
-	display: block;
-	color: #90A0B0;
-	-webkit-transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg);
-	transform: rotate(-90deg);
-}
-
-
-/* Desktop state only */
 
 @media (min-width: 992px) {
-	.aimeos .main-sidebar .title {
-		display: block;
-		font-size: 90%;
-	}
-
-	.aimeos .toggle-nav-items-texts {
-		display: none;
-	}
-
-	.aimeos .sidebar-wrapper {
-		width: 6rem;
-	}
-
-	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 240px;
-	}
-
-	.aimeos .sidebar-menu li:hover .tree-menu-wrapper {
-		left: 6rem;
+	.aimeos .sidebar-menu li .tree-menu-wrapper {
+		z-index: -1;
 	}
 }
 
-
-
-/* Mobile state only */
-
-@media (max-width: 992px) {
-	.js--show-nav-items-texts .aimeos .logo {
-		width: 15rem;
-	}
-
-	.js--show-nav-items-texts .aimeos .logo img {
-		height: 33px;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-wrapper {
-		width: 15rem;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-wrapper .icon:not(.less):not(.more) {
-		width: 2.25rem;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-menu li {
-		padding-left: .25rem;
-		padding-right: .25rem;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-menu li a,
-	.js--show-nav-items-texts .aimeos .sidebar-menu li span {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-menu li .title {
-		display: block;
-		margin-left: 1.1rem;
-		padding: 0;
-		font-size: 82%;
-	}
-
-	.js--show-nav-items-texts .aimeos .sidebar-menu li:hover .tree-menu-wrapper {
-		-webkit-transform: translateX(6rem);
-		-ms-transform: translateX(6rem);
-		transform: translateX(6rem);
-	}
-
-	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts {
-		width: 15rem;
-		text-align: right;
-	}
-
-	.js--show-nav-items-texts .aimeos .toggle-nav-items-texts .icon {
-		-webkit-transform: rotate(90deg);
-		-ms-transform: rotate(90deg);
-		transform: rotate(90deg);
-	}
-}
 
 
 /* Fontawesome Icons */
@@ -525,64 +395,19 @@
 .aimeos .main-sidebar ::-webkit-scrollbar {
 	width: 0.35rem;
 	background-color: #202830;
-	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: inset 0 0 6px #0000004d;
+	box-shadow: inset 0 0 6px #0000004d;
 }
 
 .aimeos .main-sidebar ::-webkit-scrollbar-thumb {
 	background-color: #4090C0;
-	outline: 1px solid rgba(64, 144, 192, .35);
+	outline: 1px solid #4090C0;
 	border-radius: calc(0.25rem - 2px);
 }
 
 /* Scrollbar styles for Firefox */
 
 .aimeos .main-sidebar .sidebar-wrapper {
-	scrollbar-color: rgba(64, 144, 192, 0.65) transparent;
+	scrollbar-color: #4090C0 transparent;
 	scrollbar-width: thin;
-}
-
-
-/* Stretching the sidebar's height to prevent visiblity of animated tree-menu */
-
-@media (max-width: 992px) and (min-height: 790px) and (max-height:850px) {
-	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 150px;
-	}
-}
-
-@media (max-width: 992px) and (min-height: 850px) {
-	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 250px;
-	}
-}
-
-@media (max-width: 992px) and (min-height: 950px) {
-	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 350px;
-	}
-}
-
-@media (max-width: 992px) and (min-height: 1050px) {
-	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 450px;
-	}
-}
-
-@media (max-width: 992px) and (min-height: 1150px) {
-	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 550px;
-	}
-}
-
-@media (max-width: 992px) and (min-height: 1250px) {
-	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 650px;
-	}
-}
-
-@media (max-width: 992px) and (min-height: 1350px) {
-	.aimeos .sidebar-menu.advanced {
-		padding-bottom: 750px;
-	}
 }

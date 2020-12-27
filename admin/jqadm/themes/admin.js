@@ -1012,6 +1012,20 @@ Aimeos.Log = {
 }
 
 
+Aimeos.Menu = {
+	init: function() {
+		$(".app-menu").on("click", ".menu", function(ev) {
+			$(".main-sidebar").addClass("open");
+			$(this).addClass("open");
+		});
+
+		$(".app-menu").on("click", ".menu.open", function(ev) {
+			$(".main-sidebar").removeClass("open");
+			$(this).removeClass("open");
+		});
+	}
+}
+
 
 
 /**
@@ -1025,6 +1039,7 @@ Aimeos.options = $.ajax($(".aimeos").data("url"), {
 
 $(function() {
 
+	Aimeos.Menu.init();
 	Aimeos.Config.init();
 	Aimeos.Filter.init();
 	Aimeos.Form.init();
