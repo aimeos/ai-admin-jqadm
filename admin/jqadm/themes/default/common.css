@@ -285,7 +285,6 @@
 
 @media (min-width: 768px) {
 	.aimeos .item .navbar-content {
-		position: -webkit-sticky;
 		position: sticky;
 		z-index: 1020;
 		top: 4.5rem;

@@ -39,6 +39,13 @@
 }
 
 
+.app-menu.open {
+	position: sticky;
+	z-index: 1200;
+	width: 100%;
+	top: 0;
+}
+
 .aimeos .main-sidebar {
 	position: fixed;
 	left: 0;
@@ -66,7 +73,7 @@
 		position: fixed;
 		display: inline-block;
 		background: #202830;
-		padding: 0.6rem 0.5rem;
+		padding: 0.625rem 0.5rem;
 		z-index: 100;
 		margin: 0;
 		left: 0;
