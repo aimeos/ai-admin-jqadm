@@ -43,13 +43,13 @@ $enc = $this->encoder();
 		<span class="hidden">Button to show/hide the filter search in mobile state only.</span>
 	</div>
 
-	<form class="form-inline" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
-		<?= $this->csrf()->formfield(); ?>
+	<div class="form-inline">
+		<form method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
+			<?= $this->csrf()->formfield(); ?>
 
-		<i class="fa more" :class="state ? 'less' :  'more'" @click="toggle"></i>
+			<h2><?= $enc->html( $this->translate( 'admin', 'Search' ) ) ?></h2>
 
-		<div class="input-group">
-			<select class="form-select filter-key" :class="state ? 'expanded' : ''" name="<?= $this->formparam( ['filter', 'key', '0'] ); ?>">
+			<select class="form-select filter-key" name="<?= $this->formparam( ['filter', 'key', '0'] ); ?>">
 				<?php foreach( $this->get( 'filterAttributes', [] ) as $code => $attrItem ) : ?>
 					<?php if( $attrItem->isPublic() ) : ?>
 						<option value="<?= $enc->attr( $code ); ?>" data-type="<?= $enc->attr( $attrItem->getType() ); ?>" <?= $selected( $filter, 'key', $code ); ?> >
@@ -58,20 +58,28 @@ $enc = $this->encoder();
 					<?php endif; ?>
 				<?php endforeach; ?>
 			</select>
-			<select class="form-select filter-operator" :class="state ? 'expanded' : ''" name="<?= $this->formparam( ['filter', 'op', '0'] ); ?>">
+
+			<select class="form-select filter-operator" name="<?= $this->formparam( ['filter', 'op', '0'] ); ?>">
 				<?php foreach( $this->get( 'filterOperators/compare', [] ) as $code ) : ?>
 					<option value="<?= $enc->attr( $code ); ?>" <?= $selected( $filter, 'op', $code ); ?> >
 						<?= $enc->html( $code ) . ( strlen( $code ) === 1 ? '&nbsp;' : '' ); ?>&nbsp;&nbsp;<?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?>
 					</option>
 				<?php endforeach; ?>
 			</select>
-			<input type="text" class="form-control filter-value" ref="input-filter-value" name="<?= $this->formparam( ['filter', 'val', '0'] ); ?>"
-				value="<?= $enc->attr( ( isset( $filter['val'][0] ) ? $filter['val'][0] : '' ) ); ?>" >
-			<div class="input-group-append">
-				<button class="btn btn-primary fa fa-search"></button>
-			</div>
-		</div>
 
-	</form>
+			<input type="text" class="form-control filter-value" name="<?= $this->formparam( ['filter', 'val', '0'] ); ?>"
+				value="<?= $enc->attr( ( isset( $filter['val'][0] ) ? $filter['val'][0] : '' ) ); ?>" >
+
+			<div class="button-group">
+				<button class="btn btn-secondary" @click.prevent="toggleMobile">
+					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ) ?>
+				</button>
+				<button class="btn btn-primary">
+					<?= $enc->html( $this->translate( 'admin', 'Search' ) ) ?>
+				</button>
+			</div>
+
+		</form>
+	</div>
 </div>
 </nav-search>

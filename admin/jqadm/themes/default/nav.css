@@ -45,84 +45,31 @@
 
 /** Search Toggle **/
 
-@media (max-width: 767px) {
-
-	.aimeos .toggle-search {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: nowrap;
-		position: relative;
-		width: 18px;
-		cursor: pointer;
-		transition: color .3s;
-	}
-
-	.aimeos .toggle-search:hover {
-		color: #333;
-	}
-
-	.aimeos .toggle-search .icon {
-		font: normal normal normal 14px/1 FontAwesome;
-		color: #bdbdbd;
-		display: block;
-	}
-
-	.aimeos .toggle-search .icon.search:before {
-		content: "\f002"
-	}
+.aimeos .toggle-search {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	position: relative;
+	cursor: pointer;
+	padding: 0.5rem 0.75rem;
 }
 
-@media (min-width: 768px) {
-	.aimeos .toggle-search {
-		display: none;
-	}
+.aimeos .toggle-search .icon {
+	font: normal normal normal 14px/1 FontAwesome;
+	color: #808080;
+	display: block;
 }
 
-.aimeos .form-control.filter-value {
-	font-size: 1rem;
+.aimeos .toggle-search .icon.search:before {
+	content: "\f002"
 }
 
 
 /** Search field with custom selects **/
 
-.aimeos .main-navbar form>* {
-	margin-left: 0.25rem;
-}
-
-.aimeos .main-navbar form .more,
-.aimeos .main-navbar form .less {
-	font: normal normal normal 14px/1 FontAwesome;
-	font-weight: bold;
-	font-size: 125%;
-	padding: 0.5rem;
-	cursor: pointer;
-	color: #4090C0;
-}
-
-.aimeos .main-navbar form .more:before {
-	content: "\f0d9";
-}
-
-.aimeos .main-navbar form .less:before {
-	content: "\f0da";
-}
-
-.aimeos .main-navbar .form-inline,
-.aimeos .main-navbar .input-group {
-	display: inline-flex;
-}
-
 .aimeos .main-navbar .input-group {
 	width: inherit;
-}
-
-.aimeos .main-navbar input,
-.aimeos .main-navbar .custom-select,
-.aimeos .main-navbar .filter-columns .dropdown-item,
-.aimeos .main-navbar .filter-columns .dropdown-toggle {
-	font-family: monospace;
-	border-radius: 0;
 }
 
 .aimeos .main-navbar .dropdown-item input {
@@ -131,33 +78,57 @@
 
 .aimeos .main-navbar .filter-columns,
 .aimeos .main-navbar .filter-operator,
+.aimeos .main-navbar .filter-value,
 .aimeos .main-navbar .filter-key {
-	display: none;
 	overflow: hidden;
-	transition: all 0.25s;
 }
 
 .aimeos .main-navbar .filter-value {
-	width: 9rem;
-	overflow: hidden;
+	min-width: 10rem;
 }
 
-.aimeos .main-navbar .filter-key,
+.aimeos .main-navbar .filter-key {
+	min-width: 10rem;
+}
+
 .aimeos .main-navbar .filter-operator {
-	width: 0;
+	min-width: 5rem;
 }
 
-.aimeos .main-navbar .filter-key.expanded {
-	width: 9rem;
+.aimeos .main-navbar .form-inline {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: -1;
+	visibility: hidden;
+	background: #00000080;
 }
 
-.aimeos .main-navbar .filter-operator.expanded {
-	width: 3.5rem;
+.aimeos .main-navbar .form-inline form {
+	background-color: #fff;
+	border-radius: 0.5rem;
+	max-width: 20rem;
+	padding: 1rem;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
-.aimeos .main-navbar .filter-key.expanded,
-.aimeos .main-navbar .filter-operator.expanded {
-	display: inline-block;
+.aimeos .main-navbar .form-inline form > * {
+	margin: 0.5rem 0;
+}
+
+.aimeos .main-navbar .form-inline h2,
+.aimeos .main-navbar .form-inline .button-group {
+	text-align: center;
+}
+
+.js--show-search .aimeos .main-navbar .form-inline {
+	visibility: visible;
+	z-index: 2000;
 }
 
 
@@ -165,7 +136,7 @@
 
 .aimeos .main-content {
 	padding: 0;
-	margin: 0.5rem 1rem;
+	margin: 0.5rem;
 	min-height: calc(100vh - 5.5rem);
 }
 
