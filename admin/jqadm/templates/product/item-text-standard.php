@@ -61,7 +61,7 @@ $enc = $this->encoder();
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 							</div>
 						</div>
-						<span class="item-label header-label" v-html="label(idx)"></span>
+						<span class="item-label header-label">{{ label(idx) }}</span>
 						&nbsp;
 						<div class="card-tools-right">
 							<div class="dropdown">
