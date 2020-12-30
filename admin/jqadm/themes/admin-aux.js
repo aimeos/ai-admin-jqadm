@@ -331,14 +331,18 @@ Aimeos.ProductRef = {
 	instance: null,
 
 	init: function() {
-		this.instance = new Vue({
-			'el': '.item-product .productref-list',
-			'mixins': [Aimeos.ProductRef.mixins]
-		});
-
 		const self = this;
+		const node = document.querySelector('.item-product .productref-list');
+
+		if(node) {
+			self.instance = new Vue({
+				'el': node,
+				'mixins': [Aimeos.ProductRef.mixins]
+			});
+		}
+
 		Aimeos.lazy('.item-product .productref-list', function() {
-			self.instance.reset();
+			self.instance && self.instance.reset();
 		});
 	},
 
@@ -530,13 +534,30 @@ Aimeos.ProductRef = {
 
 						axios.get(response.meta.resources[resource], config).then(function(response) {
 							let list = [];
+							let included = {};
+
+							(response.data.included || []).forEach(function(entry) {
+								if(!included[entry.type]) {
+									included[entry.type] = {};
+								}
+								included[entry.type][entry.id] = entry;
+							});
+
 							(response.data.data || []).forEach(function(entry) {
+								for(let type in (entry.relationships || {})) {
+									let relitem = entry.relationships[type][0] || null;
+									if(relitem && relitem['data'] && relitem['data']['id'] && included[type][relitem['data']['id']]) {
+										Object.assign(entry['attributes'], included[type][relitem['data']['id']]['attributes'] || {});
+									}
+								}
 								list.push(entry.attributes || {});
 							});
+
 							callback({
 								total: response.data.meta ? response.data.meta.total || 0 : 0,
 								items: list
 							});
+
 							self.waiting(false);
 						}).catch(function(error) {
 							self.log(error);
@@ -548,8 +569,18 @@ Aimeos.ProductRef = {
 			label: function(idx) {
 				let str = '';
 
-				if(this.items[idx] && this.items[idx][this.prefix + 'refid']) {
-					str += this.items[idx][this.prefix + 'refid'];
+				if(this.items[idx]) {
+					if(this.items[idx][this.prefix + 'refid']) {
+						str += this.items[idx][this.prefix + 'refid'];
+					}
+
+					if(this.items[idx]['product.label']) {
+						str += ' - ' + this.items[idx]['product.label'];
+					}
+
+					if(this.items[idx]['product.code']) {
+						str += ' (' + this.items[idx]['product.code'] + ')';
+					}
 				}
 
 				return str;
