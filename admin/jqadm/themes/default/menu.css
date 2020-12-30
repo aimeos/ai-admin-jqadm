@@ -58,14 +58,19 @@
 
 /* Logo */
 
-.aimeos .logo,
-.aimeos .logo img {
+.aimeos .logo {
 	display: block;
+	height: 2.5rem;
+	width: 6rem;
 }
 
 .aimeos .logo img {
 	width: 5rem;
-	margin: auto;
+	top: 50%;
+	left: 50%;
+	display: block;
+	position: relative;
+	transform: translate(-50%, -50%);
 }
 
 @media (min-width: 992px) {
@@ -150,7 +155,7 @@
 }
 
 .aimeos .main-sidebar .title {
-	font-size: 90%;
+	font-size: 80%;
 }
 
 .aimeos .sidebar-menu a {

@@ -138,11 +138,13 @@ input[type='radio'] {
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
 	padding: .75rem 1rem;
+	text-decoration: none;
 }
 
 .nav-tabs .nav-link:hover {
 	background-color: #E0E0E0;
 	border-left: 0.2rem solid #4090C0;
+	text-decoration: none;
 }
 
 .nav-tabs .nav-link.active {

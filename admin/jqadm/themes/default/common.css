@@ -203,6 +203,7 @@
 
 .aimeos .list-items input {
 	text-align: center;
+	margin: auto;
 }
 
 .aimeos table .list-item-new .actions .btn {
