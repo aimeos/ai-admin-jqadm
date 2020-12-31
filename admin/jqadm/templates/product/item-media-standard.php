@@ -224,46 +224,11 @@ $enc = $this->encoder();
 						</div>
 
 						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
-							<config-table inline-template
+							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
+								v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/media/config/suggest', [] ) ) ?>')"
+								v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'config', '_pos_', '_key_'] ) ); ?>'"
 								v-bind:index="idx" v-bind:readonly="item['product.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event">
-
-								<table class="item-config table">
-									<thead>
-										<tr>
-											<th class="config-row-key">
-												<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
-												<div class="form-text text-muted help-text">
-													<?= $enc->html( $this->translate( 'admin', 'Configuration options, will be available as key/value pairs in the list item' ) ); ?>
-												</div>
-											</th>
-											<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?></th>
-											<th class="actions">
-												<div v-if="!readonly" class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>" v-on:click="add()"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"></div>
-											</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr v-for="(entry, pos) in items" v-bind:key="pos" class="config-item">
-											<td class="config-row-key">
-												<input is="auto-complete" required class="form-control" v-bind:readonly="readonly" tabindex="<?= $this->get( 'tabindex' ); ?>"
-													v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'config', '_pos_', 'key'] ) ); ?>'.replace('_idx_', index).replace('_pos_', pos)"
-													v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/media/config/suggest', [] ) ) ?>')"
-													v-model="entry.key" />
-											</td>
-											<td class="config-row-value">
-												<input class="form-control" v-bind:readonly="readonly" tabindex="<?= $this->get( 'tabindex' ); ?>"
-													v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'config', '_pos_', 'val'] ) ); ?>'.replace('_idx_', index).replace('_pos_', pos)"
-													v-model="entry.val" />
-											</td>
-											<td class="actions">
-												<div v-if="!readonly" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>" v-on:click="remove(pos)"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"></div>
-											</td>
-										</tr>
-									</tbody>
-								</table>
 							</config-table>
 						</div>
 

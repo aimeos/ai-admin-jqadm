@@ -146,44 +146,20 @@ $params = $this->get( 'pageParams', [] );
 				--><div class="col-xl-6 content-block vue-block"
 					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
-					<config-table inline-template v-bind:readonly="false"
+					<config-table
+						v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>')"
+						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ); ?>'"
+						v-bind:readonly="false"
 						v-bind:items="data['config']" v-on:change="data['config'] = $event">
 
 						<table class="item-config table">
 							<thead>
 								<tr>
-									<th class="config-row-key">
-										<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span>
-										<div class="form-text text-muted help-text">
-											<?= $enc->html( $this->translate( 'admin', 'Site specific configuration options, will be available as key/value pairs' ) ); ?>
-										</div>
-									</th>
+									<th class="config-row-key"><span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ); ?></span></th>
 									<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ); ?></th>
-									<th class="actions">
-										<div v-if="!readonly" class="btn act-add fa" tabindex="1" v-on:click="add()"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"></div>
-									</th>
+									<th class="actions"><div class="btn act-add fa"></div></th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr v-for="(entry, pos) in items" v-bind:key="pos" class="config-item">
-									<td class="config-row-key">
-										<input is="auto-complete" required class="form-control" v-bind:readonly="readonly" tabindex="1"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'key' ) ) ); ?>'.replace('_pos_', pos)"
-											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>')"
-											v-model="entry.key" />
-									</td>
-									<td class="config-row-value">
-										<input class="form-control" v-bind:readonly="readonly" tabindex="1"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'val' ) ) ); ?>'.replace('_pos_', pos)"
-											v-model="entry.val" />
-									</td>
-									<td class="actions">
-										<div v-if="!readonly" class="btn act-delete fa" tabindex="1" v-on:click="remove(pos)"
-											title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"></div>
-									</td>
-								</tr>
-							</tbody>
 						</table>
 					</config-table>
 				</div>
