@@ -378,7 +378,7 @@
 	border: 2px dashed #B0B0B0;
 	border-radius: .25rem;
 	position: relative;
-	height: 11.75rem;
+	height: 12.25rem;
 }
 
 .aimeos .item-media .media-preview p {
@@ -389,14 +389,14 @@
 }
 
 .aimeos .item-media .media-preview img {
-	max-height: calc(11.75rem - 4px);
+	max-height: calc(12.25rem - 4px);
 	max-width: 100%;
 	display: block;
 	margin: auto;
 }
 
 .aimeos .item-media .media-preview .fileupload {
-	height: calc(11.75rem - 4px);
+	height: calc(12.25rem - 4px);
 	position: absolute;
 	overflow: hidden;
 	cursor: pointer;

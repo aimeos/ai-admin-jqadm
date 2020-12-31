@@ -105,7 +105,7 @@ input[type='radio'] {
 }
 
 .table {
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 }
 
 .table>:not(caption)>*>td {
@@ -139,6 +139,7 @@ input[type='radio'] {
 	border-top-left-radius: 0;
 	padding: .75rem 1rem;
 	text-decoration: none;
+	width: 100%;
 }
 
 .nav-tabs .nav-link:hover {
