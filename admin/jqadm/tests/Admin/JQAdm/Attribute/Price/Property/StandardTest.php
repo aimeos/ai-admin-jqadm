@@ -54,7 +54,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertStringContainsString( 'item-price-property', $result );
+		$this->assertStringContainsString( 'Price properties', $result );
 	}
 
 
@@ -75,7 +75,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertStringContainsString( 'item-price-property', $result );
+		$this->assertStringContainsString( 'Price properties', $result );
 	}
 
 
