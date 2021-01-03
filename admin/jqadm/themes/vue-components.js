@@ -169,6 +169,16 @@ Vue.component('config-table', {
 
 
 
+Vue.component('confirm-delete', {
+	template: '#confirm-delete',
+	props: {
+		'items': {type: Object, default: {}},
+		'show': {type: Boolean, default: false}
+	}
+});
+
+
+
 Vue.component('html-editor', {
 	template: '\
 		<textarea rows="6" class="form-control htmleditor" v-bind:id="id" v-bind:name="name" v-bind:value="value"\

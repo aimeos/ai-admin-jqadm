@@ -31,20 +31,29 @@
 $enc = $this->encoder();
 
 ?>
-<div id="confirm-delete" class="modal fade">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Delete items?' ) ); ?></h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>"><span aria-hidden="true">&times;</span></button>
-			</div>
-			<div class="modal-body">
-				<p><?= $enc->html( $this->translate( 'admin', 'You are going to delete one or more items. Would you like to proceed?' ) ); ?></p>
-				<ul class="items"></ul>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-danger" data-dismiss="modal"><?= $enc->html( $this->translate( 'admin', 'Delete' ) ); ?></button>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal"><?= $enc->html( $this->translate( 'admin', 'Close' ) ); ?></button>
+<div id="confirm-delete">
+	<div class="modal fade" v-bind:class="{show: show}">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Delete items?' ) ); ?></h4>
+					<button type="button" class="btn-close" v-on:click="$emit('close')"
+						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>"></button>
+				</div>
+				<div class="modal-body">
+					<p><?= $enc->html( $this->translate( 'admin', 'You are going to delete one or more items. Would you like to proceed?' ) ); ?></p>
+					<ul class="items">
+						<li class="item" v-for="entry in items">{{ entry }}</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" v-on:click="$emit('close')">
+						<?= $enc->html( $this->translate( 'admin', 'Close' ) ); ?>
+					</button>
+					<button type="button" class="btn btn-danger" v-on:click="$emit('confirm')">
+						<?= $enc->html( $this->translate( 'admin', 'Delete' ) ); ?>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
