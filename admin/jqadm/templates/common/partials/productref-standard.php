@@ -218,13 +218,13 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 						v-bind:value="value('config')" />
 				</td>
 				<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
-					<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					<input v-is="'flat-pickr'" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						v-bind:value="value('datestart')"
 						v-on:input="find($event, 'datestart')"
 						v-bind:config="Aimeos.flatpickr.datetimerange" />
 				</td>
 				<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
-					<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					<input v-is="'flat-pickr'" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 						v-bind:value="value('dateend')"
 						v-on:input="find($event, 'dateend')"
 						v-bind:config="Aimeos.flatpickr.datetimerange" />
@@ -293,7 +293,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					</input-map>
 				</td>
 				<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
-					<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
+					<input v-is="'flat-pickr'" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['product', '-prefix-datestart', ''] ) ) ?>'.replace('-prefix-', prefix)"
 						tabindex="<?= $this->get( 'tabindex' ) ?>"
 						v-bind:value="value('datestart')"
@@ -303,7 +303,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					</div>
 				</td>
 				<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
-					<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
+					<input v-is="'flat-pickr'" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['product', '-prefix-dateend', ''] ) ) ?>'.replace('-prefix-', prefix)"
 						tabindex="<?= $this->get( 'tabindex' ) ?>"
 						v-bind:value="value('dateend')"

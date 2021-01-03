@@ -30,7 +30,7 @@ $enc = $this->encoder();
 		data-domain="attribute" >
 
 		<div class="group-list" role="tablist" aria-multiselectable="true">
-			<div is="draggable" group="media" v-model="items" handle=".act-move">
+			<div v-is="'draggable'" group="media" v-model="items" handle=".act-move">
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
 					<div v-bind:id="'item-media-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
@@ -111,7 +111,7 @@ $enc = $this->encoder();
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" required class="form-control form-select item-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										<select v-is="'select-component'" required class="form-control form-select item-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											v-bind:items="JSON.parse('<?= $enc->attr( $mediaTypes->col( 'media.type.label', 'media.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
@@ -146,7 +146,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 								<div class="col-sm-8">
-									<select is="select-component" class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select v-is="'select-component'" class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:items="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.languageid'] ) ); ?>'.replace('_idx_', idx)"
 										v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ); ?>'"
@@ -176,7 +176,7 @@ $enc = $this->encoder();
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" required class="form-control form-select listitem-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
+										<select v-is="'select-component'" required class="form-control form-select listitem-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											v-bind:items="JSON.parse('<?= $enc->attr( $listTypes->col( 'attribute.lists.type.label', 'attribute.lists.type.code' )->toArray() ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'attribute.lists.type'] ) ); ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
@@ -196,7 +196,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<input v-is="'flat-pickr'" class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'attribute.lists.datestart'] ) ); ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 										v-bind:disabled="item['attribute.lists.siteid'] != siteid"
@@ -210,7 +210,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<input v-is="'flat-pickr'" class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'attribute.lists.dateend'] ) ); ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 										v-bind:disabled="item['attribute.lists.siteid'] != siteid"

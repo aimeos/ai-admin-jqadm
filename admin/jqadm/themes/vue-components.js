@@ -6,8 +6,9 @@
 
 
 Vue.component('auto-complete', {
-	template: '<input type="text" class="form-control" v-bind:name="name" v-bind:value="value" v-bind:readonly="readonly" v-bind:required="required" v-bind:tabindex="tabindex" />',
-	props: ['keys', 'name', 'value', 'readonly', 'required', 'tabindex'],
+	template: '<input type="text" class="form-control" v-bind:name="name" v-bind:value="modelValue" v-bind:readonly="readonly" v-bind:required="required" v-bind:tabindex="tabindex" />',
+	props: ['keys', 'name', 'modelValue', 'readonly', 'required', 'tabindex'],
+	emits: ['update:modelValue'],
 
 	methods: {
 		create: function() {
@@ -32,7 +33,7 @@ Vue.component('auto-complete', {
 		},
 
 		select: function(ev, ui) {
-			this.$emit('input', $(ev.currentTarget).val(), ui.item);
+			this.$emit('update:modelValue', $(ev.currentTarget).val(), ui.item);
 		}
 	},
 
@@ -42,7 +43,7 @@ Vue.component('auto-complete', {
 		}
 	},
 
-	beforeDestroy: function() {
+	beforeUnmount: function() {
 		this.destroy();
 	}
 });
@@ -52,12 +53,13 @@ Vue.component('auto-complete', {
 Vue.component('combo-box', {
 	template: '\
 		<select required class="template" v-bind:name="name" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
-			<option v-bind:value="value">{{ label || value }}</option>\
+			<option v-bind:value="modelValue">{{ label || modelValue }}</option>\
 		</select>\
 	',
-	props: ['index', 'name', 'value', 'label', 'readonly', 'tabindex', 'getfcn'],
+	props: ['index', 'name', 'modelValue', 'label', 'readonly', 'tabindex', 'getfcn'],
+	emits: ['select', 'update:modelValue'],
 
-	beforeDestroy: function() {
+	beforeUnmount: function() {
 		this.destroy();
 	},
 
@@ -147,6 +149,7 @@ Vue.component('config-table', {
 		'readonly': {type: Boolean, default: true},
 		'tabindex': {type: Number, default: 1}
 	},
+	emits: ['update:config'],
 
 	methods: {
 		add: function() {
@@ -174,19 +177,21 @@ Vue.component('confirm-delete', {
 	props: {
 		'items': {type: Object, default: {}},
 		'show': {type: Boolean, default: false}
-	}
+	},
+	emits: ['close', 'confirm'],
 });
 
 
 
 Vue.component('html-editor', {
 	template: '\
-		<textarea rows="6" class="form-control htmleditor" v-bind:id="id" v-bind:name="name" v-bind:value="value"\
+		<textarea rows="6" class="form-control htmleditor" v-bind:id="id" v-bind:name="name" v-bind:value="modelValue"\
 			v-bind:placeholder="placeholder" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
 		</textarea>',
-	props: ['id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
+	props: ['id', 'name', 'modelValue', 'placeholder', 'readonly', 'tabindex'],
+	emits: ['update:modelValue'],
 
-	beforeDestroy: function() {
+	beforeUnmount: function() {
 		if(this.instance) {
 			this.instance.destroy();
 			this.instance = null;
@@ -203,7 +208,7 @@ Vue.component('html-editor', {
 	methods: {
 		change: function() {
 			this.text = this.instance.getData();
-			this.$emit('input', this.text);
+			this.$emit('update:modelValue', this.text);
 		},
 	},
 
@@ -230,7 +235,7 @@ Vue.component('html-editor', {
 			extraAllowedContent: Aimeos.editortags,
 			toolbar: Aimeos.editorcfg,
 			extraPlugins: Aimeos.editorExtraPlugins,
-			initialData: this.value,
+			initialData: this.modelValue,
 			readOnly: this.readonly,
 			protectedSource: [/\n/g],
 			autoParagraph: false,
@@ -241,7 +246,7 @@ Vue.component('html-editor', {
 	},
 
 	watch: {
-		value: function(val, oldval) {
+		modelValue: function(val, oldval) {
 			if(val !== oldval && val !== this.text ) {
 				this.instance.setData(val);
 			}
@@ -254,7 +259,7 @@ Vue.component('html-editor', {
 Vue.component('input-map', {
 	template: '\
 		<div> \
-			<input type="hidden" v-bind:name="name" v-bind:value="JSON.stringify(value)" /> \
+			<input type="hidden" v-bind:name="name" v-bind:value="JSON.stringify(modelValue)" /> \
 			<table class="table config-table" > \
 				<tr v-for="(entry, idx) in list" v-bind:key="idx" class="config-item"> \
 					<td v-if="editable" class="config-item-key"> \
@@ -282,10 +287,11 @@ Vue.component('input-map', {
 
 	props: {
 		'name': {type: String, required: true},
-		'value': {type: Object, required: true},
 		'editable': {type: Boolean, default: false},
+		'modelValue': {type: Object, required: true},
 		'tabindex': {type: String, default: "0"}
 	},
+	emits: ['update:modelValue'],
 
 	data: function () {
 		return {
@@ -294,7 +300,7 @@ Vue.component('input-map', {
 	},
 
 	created: function() {
-		this.list = this.toList(this.value);
+		this.list = this.toList(this.modelValue);
 	},
 
 	methods: {
@@ -328,13 +334,13 @@ Vue.component('input-map', {
 
 		update: function(idx, key, val) {
 			this.$set(this.list[idx], key, val);
-			this.$emit('input', this.toObject(this.list));
+			this.$emit('update:modelValue', this.toObject(this.list));
 		}
 	},
 
 	watch: {
-		value: function() {
-			this.list = this.toList(this.value);
+		modelValue: function() {
+			this.list = this.toList(this.modelValue);
 		}
 	}
 });
@@ -351,6 +357,7 @@ Vue.component('nav-search', {
 		'show': {type: Boolean, default: false},
 		'url': {type: String, required: true},
 	},
+	emits: ['close'],
 	data: function() {
 		return {
 			'key': null,
@@ -413,7 +420,7 @@ Vue.component('page-limit', {
 		<div class="page-limit btn-group dropup" role="group"> \
 			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" \
 				v-bind:tabindex="tabindex" aria-haspopup="true" aria-expanded="false"> \
-				{{ value }} <span class="caret"></span> \
+				{{ modelValue }} <span class="caret"></span> \
 			</button> \
 			<ul class="dropdown-menu"> \
 				<li class="dropdown-item"> \
@@ -432,9 +439,10 @@ Vue.component('page-limit', {
 		</div> \
 	',
 	props: {
-		'value': {type: Number, required: true},
+		'modelValue': {type: Number, required: true},
 		'tabindex': {type: String, default: '0'}
-	}
+	},
+	emits: ['update:modelValue'],
 });
 
 
@@ -467,27 +475,28 @@ Vue.component('page-offset', {
 	',
 	props: {
 		'limit': {type: Number, required: true},
+		'modelValue': {type: Number, required: true},
 		'total': {type: Number, required: true},
-		'value': {type: Number, required: true},
 		'tabindex': {type: String, default: '0'},
 		'text': {type: String, default: '%1$d / %2$d'}
 	},
+	emits: ['update:modelValue'],
 
 	computed: {
 		first : function() {
-			return this.value > 0 ? 0 : null;
+			return this.modelValue > 0 ? 0 : null;
 		},
 		prev : function() {
-			return this.value - this.limit >= 0 ? this.value - this.limit : null;
+			return this.modelValue - this.limit >= 0 ? this.modelValue - this.limit : null;
 		},
 		next : function() {
-			return this.value + this.limit < this.total ? this.value + this.limit : null;
+			return this.modelValue + this.limit < this.total ? this.modelValue + this.limit : null;
 		},
 		last : function() {
-			return Math.floor((this.total - 1) / this.limit) * this.limit > this.value ? Math.floor((this.total - 1) / this.limit ) * this.limit : null;
+			return Math.floor((this.total - 1) / this.limit) * this.limit > this.modelValue ? Math.floor((this.total - 1) / this.limit ) * this.limit : null;
 		},
 		current : function() {
-			return Math.floor( this.value / this.limit ) + 1;
+			return Math.floor( this.modelValue / this.limit ) + 1;
 		},
 		pages : function() {
 			return this.total != 0 ? Math.ceil(this.total / this.limit) : 1;
@@ -564,6 +573,8 @@ Vue.component('property-table', {
 		'types': {type: Object, required: true}
 	},
 
+	emits: ['update:property'],
+
 	methods: {
 		add: function(data) {
 			let entry = {};
@@ -601,9 +612,9 @@ Vue.component('select-component', {
 	template: '\
 		<select v-on:input="$emit(\'input\', $event.target.value)"> \
 			<option v-if="text" value="">{{ text }}</option> \
-			<option v-if="value && !items[value]" v-bind:value="value">{{ value }}</option> \
-			<option v-if="all" v-bind:value="null" v-bind:selected="value === null">{{ all }}</option> \
-			<option v-for="(label, key) in items" v-bind:key="key" v-bind:value="key" v-bind:selected="key === String(value)"> \
+			<option v-if="modelValue && !items[modelValue]" v-bind:value="modelValue">{{ modelValue }}</option> \
+			<option v-if="all" v-bind:value="null" v-bind:selected="modelValue === null">{{ all }}</option> \
+			<option v-for="(label, key) in items" v-bind:key="key" v-bind:value="key" v-bind:selected="key === String(modelValue)"> \
 				{{ label || key }} \
 			</option> \
 		</select> \
@@ -611,9 +622,10 @@ Vue.component('select-component', {
 	props: {
 		'all': {type: String, default: ''},
 		'items': {type: Object, required: true},
-		'text': {type: String, default: ''},
-		'value': {required: true}
-	}
+		'modelValue': {required: true},
+		'text': {type: String, default: ''}
+	},
+	emits: ['update:property']
 });
 
 

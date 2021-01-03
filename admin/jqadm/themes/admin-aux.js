@@ -22,8 +22,7 @@ Aimeos.Address = {
 
 	init: function() {
 
-		this.address = new Vue({
-			'el': '#item-address-group',
+		this.address = createApp({
 			'data': {
 				'advanced': [],
 				'items': $("#item-address-group").data("items"),
@@ -32,7 +31,7 @@ Aimeos.Address = {
 				'domain': $("#item-address-group").data("domain")
 			},
 			'mixins': [this.mixins]
-		});
+		}).mount('#item-address-group');
 	},
 
 	mixins: {
@@ -113,12 +112,13 @@ Aimeos.Media = {
 
 	init: function() {
 
-		Aimeos.components['media'] = new Vue({
-			el: '#item-media-group',
-			data: {
-				items: [],
-				siteid: null,
-				domain: null
+		Aimeos.components['media'] = createApp({
+			data: function() {
+				return {
+					items: [],
+					siteid: null,
+					domain: null
+				}
 			},
 			mounted: function() {
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
@@ -130,7 +130,7 @@ Aimeos.Media = {
 				}
 			},
 			mixins: [this.mixins]
-		});
+		}).mount('#item-media-group');
 	},
 
 	mixins: {
@@ -243,12 +243,13 @@ Aimeos.Price = {
 
 	init: function() {
 
-		Aimeos.components['price'] = new Vue({
-			el: '#item-price-group',
-			data: {
-				items: [],
-				siteid: null,
-				domain: null
+		Aimeos.components['price'] = createApp({
+			data: function() {
+				return {
+					items: [],
+					siteid: null,
+					domain: null
+				}
 			},
 			mounted: function() {
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
@@ -260,7 +261,7 @@ Aimeos.Price = {
 				}
 			},
 			mixins: [this.mixins]
-		});
+		}).mount('#item-price-group');
 	},
 
 	mixins: {
@@ -335,10 +336,10 @@ Aimeos.ProductRef = {
 		const node = document.querySelector('.item-product .productref-list');
 
 		if(node) {
-			self.instance = new Vue({
+			self.instance = createApp({
 				'el': node,
 				'mixins': [Aimeos.ProductRef.mixins]
-			});
+			}).mount(node);
 		}
 
 		Aimeos.lazy('.item-product .productref-list', function() {
@@ -709,12 +710,13 @@ Aimeos.Text = {
 
 	init: function() {
 
-		Aimeos.components['text'] = new Vue({
-			el: '#item-text-group',
-			data: {
-				items: [],
-				siteid: null,
-				domain: null
+		Aimeos.components['text'] = createApp({
+			data: function() {
+				return {
+					items: [],
+					siteid: null,
+					domain: null
+				}
 			},
 			mounted: function() {
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
@@ -726,7 +728,7 @@ Aimeos.Text = {
 				}
 			},
 			mixins: [this.mixins]
-		});
+		}).mount('#item-text-group');
 	},
 
 	mixins: {

@@ -38,7 +38,7 @@ $keys = [
 			</tr>
 		</thead>
 
-		<tbody is="draggable" v-model="items" group="related" handle=".act-move" tag="tbody">
+		<tbody v-is="'draggable'" v-model="items" group="related" handle=".act-move" tag="tbody">
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx"
 				v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
@@ -52,7 +52,7 @@ $keys = [
 					<input class="item-code" type="hidden" v-model="item['product.code']"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.code'] ) ); ?>'.replace( 'idx', idx )" />
 
-					<select is="combo-box" class="form-control form-select item-refid"
+					<select v-is="'combo-box'" class="form-control form-select item-refid"
 						v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.lists.refid'] ) ); ?>'.replace( 'idx', idx )"
 						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"

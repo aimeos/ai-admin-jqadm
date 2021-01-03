@@ -665,7 +665,7 @@ Aimeos.List = {
 
 		let node = document.querySelector(".list-view");
 		if(node) {
-			this.instance = new Vue({el: node, mixins: [this.mixins]});
+			this.instance = createApp({mixins: [this.mixins]}).mount(node);
 		}
 	},
 
@@ -1070,7 +1070,7 @@ $(function() {
 	$('.vue-block').each(function() {
 		var key = $(this).data('key');
 
-		Aimeos.components[key] = new Vue({
+		Aimeos.components[key] = createApp({
 			el: this,
 			data: function() {
 				return {
@@ -1090,6 +1090,6 @@ $(function() {
 					this.$refs[key].remove(idx);
 				}
 			}
-		});
+		}).mount(this);
 	});
 });

@@ -59,7 +59,7 @@ $keys = [
 						<input class="item-label" type="hidden" v-model="item['catalog.label']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.label'] ) ); ?>'.replace( 'idx', idx )" />
 
-						<select is="combo-box" class="form-control form-select item-id"
+						<select v-is="'combo-box'" class="form-control form-select item-id"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.id'] ) ); ?>'.replace( 'idx', idx )"
 							v-bind:readonly="checkSite(idx) || item['catalog.lists.id'] != ''"
 							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
@@ -126,7 +126,7 @@ $keys = [
 						<input class="item-label" type="hidden" v-model="item['catalog.label']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.label'] ) ); ?>'.replace( 'idx', idx )" />
 
-						<select is="combo-box" class="form-control form-select item-id"
+						<select v-is="'combo-box'" class="form-control form-select item-id"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.id'] ) ); ?>'.replace( 'idx', idx )"
 							v-bind:readonly="checkSite(idx) || item['catalog.lists.id'] != ''"
 							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"

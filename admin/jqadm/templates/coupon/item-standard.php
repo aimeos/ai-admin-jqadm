@@ -154,7 +154,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 						<div class="col-sm-8">
-							<input is="flat-pickr" class="form-control item-datestart" type="datetime-local" tabindex="1"
+							<input v-is="'flat-pickr'" class="form-control item-datestart" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.datestart' ) ) ); ?>'"
@@ -168,7 +168,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 						<div class="col-sm-8">
-							<input is="flat-pickr" class="form-control item-dateend" type="datetime-local" tabindex="1"
+							<input v-is="'flat-pickr'" class="form-control item-dateend" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.dateend' ) ) ); ?>'"

@@ -21,8 +21,7 @@ Aimeos.Product = {
 
 	components : function() {
 
-		Aimeos.components['characteristic/attribute'] =  new Vue({
-			'el': '.item-characteristic-attribute .attribute-list',
+		Aimeos.components['characteristic/attribute'] =  createApp({
 			'data': {
 				'items': $(".item-characteristic-attribute .attribute-list").data("items"),
 				'keys': $(".item-characteristic-attribute .attribute-list").data("keys"),
@@ -30,10 +29,9 @@ Aimeos.Product = {
 				'siteid': $(".item-characteristic-attribute .attribute-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
+		}).mount('.item-characteristic-attribute .attribute-list');
 
-		Aimeos.components['characteristic/hidden'] = new Vue({
-			'el': '.item-characteristic-hidden .attribute-list',
+		Aimeos.components['characteristic/hidden'] = createApp({
 			'data': {
 				'items': $(".item-characteristic-hidden .attribute-list").data("items"),
 				'keys': $(".item-characteristic-hidden .attribute-list").data("keys"),
@@ -41,10 +39,9 @@ Aimeos.Product = {
 				'siteid': $(".item-characteristic-hidden .attribute-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
+		}).mount('.item-characteristic-hidden .attribute-list');
 
-		Aimeos.components['characteristic/variant'] = new Vue({
-			'el': '.item-characteristic-variant .attribute-list',
+		Aimeos.components['characteristic/variant'] = createApp({
 			'data': {
 				'items': $(".item-characteristic-variant .attribute-list").data("items"),
 				'keys': $(".item-characteristic-variant .attribute-list").data("keys"),
@@ -52,11 +49,10 @@ Aimeos.Product = {
 				'siteid': $(".item-characteristic-variant .attribute-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
+		}).mount('.item-characteristic-variant .attribute-list');
 
 
-		Aimeos.components['option/config'] = new Vue({
-			'el': '.item-option-config .attribute-list',
+		Aimeos.components['option/config'] = createApp({
 			'data': {
 				'items': $(".item-option-config .attribute-list").data("items"),
 				'keys': $(".item-option-config .attribute-list").data("keys"),
@@ -64,10 +60,9 @@ Aimeos.Product = {
 				'siteid': $(".item-option-config .attribute-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
+		}).mount('.item-option-config .attribute-list');
 
-		Aimeos.components['option/custom'] = new Vue({
-			'el': '.item-option-custom .attribute-list',
+		Aimeos.components['option/custom'] = createApp({
 			'data': {
 				'items': $(".item-option-custom .attribute-list").data("items"),
 				'keys': $(".item-option-custom .attribute-list").data("keys"),
@@ -75,10 +70,9 @@ Aimeos.Product = {
 				'siteid': $(".item-option-custom .attribute-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
+		}).mount('.item-option-custom .attribute-list');
 
-		Aimeos.components['catalog/default'] = new Vue({
-			'el': '.item-category .catalog-default .category-list',
+		Aimeos.components['catalog/default'] = createApp({
 			'data': {
 				'items': $(".item-category .catalog-default .category-list").data("items"),
 				'keys': $(".item-category .catalog-default .category-list").data("keys"),
@@ -86,10 +80,9 @@ Aimeos.Product = {
 				'siteid': $(".item-category .catalog-default .category-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Catalog.mixins.bind(this)()]
-		});
+		}).mount('.item-category .catalog-default .category-list');
 
-		Aimeos.components['catalog/promotion'] = new Vue({
-			'el': '.item-category .catalog-promotion .category-list',
+		Aimeos.components['catalog/promotion'] = createApp({
 			'data': {
 				'items': $(".item-category .catalog-promotion .category-list").data("items"),
 				'keys': $(".item-category .catalog-promotion .category-list").data("keys"),
@@ -97,10 +90,9 @@ Aimeos.Product = {
 				'siteid': $(".item-category .catalog-promotion .category-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Catalog.mixins.bind(this)()]
-		});
+		}).mount('.item-category .catalog-promotion .category-list');
 
-		Aimeos.components['supplier/default'] = new Vue({
-			'el': '.item-supplier .supplier-default .supplier-list',
+		Aimeos.components['supplier/default'] = createApp({
 			'data': {
 				'items': $(".item-supplier .supplier-default .supplier-list").data("items"),
 				'keys': $(".item-supplier .supplier-default .supplier-list").data("keys"),
@@ -108,10 +100,9 @@ Aimeos.Product = {
 				'siteid': $(".item-supplier .supplier-default .supplier-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Supplier.mixins.bind(this)()]
-		});
+		}).mount('.item-supplier .supplier-default .supplier-list');
 
-		Aimeos.components['supplier/promotion'] = new Vue({
-			'el': '.item-supplier .supplier-promotion .supplier-list',
+		Aimeos.components['supplier/promotion'] = createApp({
 			'data': {
 				'items': $(".item-supplier .supplier-promotion .supplier-list").data("items"),
 				'keys': $(".item-supplier .supplier-promotion .supplier-list").data("keys"),
@@ -119,10 +110,9 @@ Aimeos.Product = {
 				'siteid': $(".item-supplier .supplier-promotion .supplier-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Supplier.mixins.bind(this)()]
-		});
+		}).mount('.item-supplier .supplier-promotion .supplier-list');
 
-		Aimeos.components['related/bought'] = new Vue({
-			'el': '.item-related-bought .product-list',
+		Aimeos.components['related/bought'] = createApp({
 			'data': {
 				'items': $(".item-related-bought .product-list").data("items"),
 				'keys': $(".item-related-bought .product-list").data("keys"),
@@ -130,10 +120,9 @@ Aimeos.Product = {
 				'siteid': $(".item-related-bought .product-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Product.mixins.bind(this)()]
-		});
+		}).mount('.item-related-bought .product-list');
 
-		Aimeos.components['related/suggest'] = new Vue({
-			'el': '.item-related-suggest .product-list',
+		Aimeos.components['related/suggest'] = createApp({
 			'data': {
 				'items': $(".item-related-suggest .product-list").data("items"),
 				'keys': $(".item-related-suggest .product-list").data("keys"),
@@ -141,10 +130,9 @@ Aimeos.Product = {
 				'siteid': $(".item-related-suggest .product-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Product.mixins.bind(this)()]
-		});
+		}).mount('.item-related-suggest .product-list');
 
-		Aimeos.components['bundle'] = new Vue({
-			'el': '.item-bundle .product-list',
+		Aimeos.components['bundle'] = createApp({
 			'data': {
 				'items': $(".item-bundle .product-list").data("items"),
 				'keys': $(".item-bundle .product-list").data("keys"),
@@ -152,20 +140,18 @@ Aimeos.Product = {
 				'siteid': $(".item-bundle .product-list").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Product.mixins.bind(this)()]
-		});
+		}).mount('.item-bundle .product-list');
 
-		Aimeos.components['selection'] = new Vue({
-			'el': '#item-selection-group',
+		Aimeos.components['selection'] = createApp({
 			'data': {
 				'items': $("#item-selection-group").data("items"),
 				'keys': $("#item-selection-group").data("keys"),
 				'siteid': $("#item-selection-group").data("siteid")
 			},
 			'mixins': [Aimeos.Product.Selection.mixins.bind(this)()]
-		});
+		}).mount('#item-selection-group');
 
-		Aimeos.components['stock'] = new Vue({
-			'el': '.item-stock .stock-list',
+		Aimeos.components['stock'] = createApp({
 			'data': {
 				'items': $(".item-stock .stock-list").data("items"),
 				'keys': $(".item-stock .stock-list").data("keys"),
@@ -173,10 +159,9 @@ Aimeos.Product = {
 				'numtypes': $(".item-stock .stock-list").data("numtypes")
 			},
 			'mixins': [Aimeos.Product.Stock.mixins.bind(this)()]
-		});
+		}).mount('.item-stock .stock-list');
 
-		Aimeos.components['subscription'] = new Vue({
-			'el': '.item-subscription .subscription-list',
+		Aimeos.components['subscription'] = createApp({
 			'data': {
 				'items': $(".item-subscription .subscription-list").data("items"),
 				'keys': $(".item-subscription .subscription-list").data("keys"),
@@ -184,7 +169,7 @@ Aimeos.Product = {
 
 			},
 			'mixins': [Aimeos.Product.Subscription.mixins.bind(this)()]
-		});
+		}).mount('.item-subscription .subscription-list');
 	},
 
 
@@ -428,8 +413,7 @@ Aimeos.Product.Download = {
 Aimeos.Product.Order = {
 	init : function() {
 
-		this.instance = new Vue({
-			'el': '.item-order .order-list',
+		this.instance = createApp({
 			'data': {
 				'id': null,
 				'items': [],
@@ -616,7 +600,7 @@ Aimeos.Product.Order = {
 					this.fetch();
 				}
 			}
-		});
+		}).mount('.item-order .order-list');
 	}
 };
 

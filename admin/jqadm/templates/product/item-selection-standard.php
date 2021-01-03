@@ -28,7 +28,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<div class="group-list">
-			<div is="draggable" v-model="items" group="selection" handle=".act-move">
+			<div v-is="'draggable'" v-model="items" group="selection" handle=".act-move">
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
 					<div v-bind:id="'item-selection-group-item-' + idx" v-bind:class="getCss(idx)"
@@ -99,7 +99,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 							<div class="form-group row mandatory">
 								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 								<div class="col-lg-8">
-									<input is="auto-complete"
+									<input v-is="'auto-complete'"
 										v-model="item['product.code']"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ); ?>'.replace('idx', idx)"
@@ -167,7 +167,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									</tr>
 								</thead>
 
-								<tbody is="draggable" handle=".act-move" tag="tbody">
+								<tbody v-is="'draggable'" handle=".act-move" tag="tbody">
 
 									<tr v-for="(attr, attridx) in (item['attr'] || [])">
 										<td>
@@ -183,7 +183,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											<input class="item-attr-label" type="hidden" v-model="attr['attribute.label']"
 												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.label'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
 
-											<select is="combo-box" class="form-control form-select item-attr-refid"
+											<select v-is="'combo-box'" class="form-control form-select item-attr-refid"
 												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)"
 												v-bind:readonly="checkSite('product.lists.siteid', idx, attridx) || attr['product.lists.id'] != ''"
 												v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"

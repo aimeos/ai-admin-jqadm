@@ -25,7 +25,7 @@ $keys = [
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
 		<div class="group-list">
-			<div is="draggable" v-model="items" group="address" handle=".act-move" @start="drag=true" @end="drag=false">
+			<div v-is="'draggable'" v-model="items" group="address" handle=".act-move" @start="drag=true" @end="drag=false">
 				<div v-for="(entry, idx) in items" v-bind:key="idx" class="group-item card">
 
 					<div v-bind:id="'item-address-group-item-' + idx" v-bind:class="getCss(idx, 'customer.address.')"
@@ -225,7 +225,7 @@ $keys = [
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
 								<div class="col-sm-8">
-									<select is="combo-box" class="form-control c-select item-countryid" required="required"
+									<select v-is="'combo-box'" class="form-control c-select item-countryid" required="required"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.countryid' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('customer.address.siteid', idx)"
 										v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
