@@ -372,9 +372,60 @@ Vue.component('list-view', {
 
 
 Vue.component('nav-search', {
-	methods: {
-		toggleMobile: function () {
-			document.body.classList.toggle('js--show-search');
+	template: '#nav-search',
+	props: {
+		'attributes': {type: Object, required: true},
+		'filter': {type: Object, required: true},
+		'name': {type: String, required: true},
+		'operators': {type: Object, required: true},
+		'show': {type: Boolean, default: false},
+		'url': {type: String, required: true},
+	},
+	data: function() {
+		return {
+			'key': null,
+			'op': null,
+			'ops': {
+				'string': ['=~', '~=', '==', '!='],
+				'integer': ['==', '!=', '>', '<', '>=', '<='],
+				'datetime': ['>', '<', '>=', '<=', '==', '!='],
+				'date': ['>', '<', '>=', '<=', '==', '!='],
+				'float': ['>', '<', '>=', '<=', '==', '!='],
+				'boolean': ['==', '!=']
+			},
+			'type': 'text',
+		}
+	},
+	beforeMount: function() {
+		this.key = this.filter['key'] && this.filter['key'][0] || null;
+		this.op = this.filter['op'] && this.filter['op'][0] || null;
+	},
+	computed: {
+		oplist: function() {
+			const type = this.attributes[this.key] && this.attributes[this.key]['type'] || 'string';
+			let entries = {};
+
+			(this.ops[type] || []).forEach( function(val) {
+				entries[val] = this.operators[val] || '';
+			}, this);
+
+			[this.op] = (this.ops[type] || []);
+			return entries;
+		}
+	},
+	watch: {
+		key: function(key) {
+			switch(this.attributes[key] && this.attributes[key]['type']) {
+				case 'boolean':
+				case 'integer':
+				case 'float':
+					return this.type = 'number';
+				case 'date':
+					return this.type = 'date';
+				case 'datetime':
+					return this.type = 'datetime-local';
+			}
+			this.type = 'text';
 		}
 	}
 });

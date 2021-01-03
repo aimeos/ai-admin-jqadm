@@ -8,78 +8,52 @@
 
 /**
  * Renders the navbar search fields in the list views
- *
- * Available data:
- * - filterAttributes: Associative list of keys (e.g. "product.id") and translated names (e.g. "ID")
- * - filterOperators: List of columns that are currently shown
- * - filter: Associative list of filter parameters
- * - params: Associative list of current parameters
  */
-
-
-$selected = function( array $filter, $key, $code ) {
-	return ( isset( $filter[$key][0] ) && $filter[$key][0] == $code ? 'selected="selected"' : '' );
-};
-
-
-$target = $this->config( 'admin/jqadm/url/search/target' );
-$controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$config = $this->config( 'admin/jqadm/url/search/config', [] );
-
-$filter = $this->get( 'filter', [] );
-$params = $this->get( 'params', [] );
-$params['page']['start'] = 0;
-unset( $params['filter'] );
 
 $enc = $this->encoder();
 
 
 ?>
-<nav-search inline-template>
-<div>
-	<div id="js--toggle-search" class="toggle-search" @click="toggleMobile">
-		<span class="icon search"></span>
-		<span class="hidden">Button to show/hide the filter search in mobile state only.</span>
-	</div>
+<div id="nav-search">
+	<div class="modal fade" v-bind:class="{show: show}">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content form-inline">
+				<form method="POST" v-bind:action="url">
+					<?= $this->csrf()->formfield(); ?>
 
-	<div class="form-inline">
-		<form method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $params, [], $config ) ); ?>">
-			<?= $this->csrf()->formfield(); ?>
+					<div class="modal-header">
+						<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Search' ) ) ?></h4>
+						<button type="button" class="btn-close" v-on:click="$emit('close')"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>">
+						</button>
+					</div>
 
-			<h2><?= $enc->html( $this->translate( 'admin', 'Search' ) ) ?></h2>
+					<div class="modal-body">
+						<select class="form-group form-select filter-key" v-bind:name="name.replace('_key_', 'key' )" v-model="key">
+							<option v-for="entry in attributes" v-bind:value="entry.code" v-bind:selected="filter['key'] && filter['key'][0] && filter['key'][0] === key">
+								{{ entry.label }}
+							</option>
+						</select>
 
-			<select class="form-select filter-key" name="<?= $this->formparam( ['filter', 'key', '0'] ); ?>">
-				<?php foreach( $this->get( 'filterAttributes', [] ) as $code => $attrItem ) : ?>
-					<?php if( $attrItem->isPublic() ) : ?>
-						<option value="<?= $enc->attr( $code ); ?>" data-type="<?= $enc->attr( $attrItem->getType() ); ?>" <?= $selected( $filter, 'key', $code ); ?> >
-							<?= $enc->html( $this->translate( 'admin/ext', $attrItem->getLabel() ) ); ?>
-						</option>
-					<?php endif; ?>
-				<?php endforeach; ?>
-			</select>
+						<select class="form-group form-select filter-operator" v-bind:name="name.replace('_key_', 'op' )" v-model="op">
+							<option v-for="(label, item) in oplist" v-bind:value="item" v-bind:selected="filter['op'] && filter['op'][0] && filter['op'][0] === op" >
+								{{ item }}{{ item.length === 1 ? '&nbsp;' : '' }}&nbsp;&nbsp;{{ label }}
+							</option>
+						</select>
 
-			<select class="form-select filter-operator" name="<?= $this->formparam( ['filter', 'op', '0'] ); ?>">
-				<?php foreach( $this->get( 'filterOperators/compare', [] ) as $code ) : ?>
-					<option value="<?= $enc->attr( $code ); ?>" <?= $selected( $filter, 'op', $code ); ?> >
-						<?= $enc->html( $code ) . ( strlen( $code ) === 1 ? '&nbsp;' : '' ); ?>&nbsp;&nbsp;<?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?>
-					</option>
-				<?php endforeach; ?>
-			</select>
+						<input v-bind:type="type" class="form-group form-control filter-value" v-bind:name="name.replace('_key_', 'val' )" v-bind:value="filter['val'] && filter['val'][0] || ''" >
+					</div>
 
-			<input type="text" class="form-control filter-value" name="<?= $this->formparam( ['filter', 'val', '0'] ); ?>"
-				value="<?= $enc->attr( ( isset( $filter['val'][0] ) ? $filter['val'][0] : '' ) ); ?>" >
-
-			<div class="button-group">
-				<button class="btn btn-secondary" @click.prevent="toggleMobile">
-					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ) ?>
-				</button>
-				<button class="btn btn-primary">
-					<?= $enc->html( $this->translate( 'admin', 'Search' ) ) ?>
-				</button>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" v-on:click="$emit('close')">
+							<?= $enc->html( $this->translate( 'admin', 'Close' ) ); ?>
+						</button>
+						<button type="submit" class="btn btn-primary">
+							<?= $enc->html( $this->translate( 'admin', 'Search' ) ); ?>
+						</button>
+					</div>
+				</form>
 			</div>
-
-		</form>
+		</div>
 	</div>
 </div>
-</nav-search>

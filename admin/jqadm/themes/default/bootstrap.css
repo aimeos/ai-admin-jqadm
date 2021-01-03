@@ -35,6 +35,14 @@ input[type='radio'] {
 	margin: 0.25rem;
 }
 
+.modal {
+	background: #00000080;
+}
+
+.modal.show {
+	display: block;
+}
+
 
 /* Aimeos Bootstrap theme */
 

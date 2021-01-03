@@ -520,75 +520,6 @@ Aimeos.Config = {
 
 
 
-Aimeos.Filter = {
-
-	init : function() {
-
-		this.selectDDInput();
-		this.setupFilterOperators();
-	},
-
-
-	selectDDInput : function() {
-
-		$(".aimeos .dropdown-menu label").on("click", function(ev) {
-			ev.stopPropagation();
-			return true;
-		});
-	},
-
-
-	selectFilterOperator : function(select, type) {
-
-		var operators = {
-			'string': ['=~', '~=', '==', '!='],
-			'integer': ['==', '!=', '>', '<', '>=', '<='],
-			'datetime': ['>', '<', '>=', '<=', '==', '!='],
-			'date': ['>', '<', '>=', '<=', '==', '!='],
-			'float': ['>', '<', '>=', '<=', '==', '!='],
-			'boolean': ['==', '!='],
-		};
-		var ops = operators[type];
-		var list = [];
-
-		$("option", select).each(function(idx, el) {
-			var elem = $(el).removeProp("selected").hide();
-			list[elem.val()] = elem;
-		});
-
-		if(ops) {
-			for(op in ops.reverse()) {
-				if(list[ops[op]]) {
-					list[ops[op]].remove().show();
-					select.prepend(list[ops[op]]);
-				}
-			};
-		}
-
-		$("option", select).first().prop("selected", "selected");
-	},
-
-
-	setupFilterOperators : function() {
-
-		var select = $(".aimeos .main-navbar form .filter-operator");
-		var type = $(".aimeos .main-navbar form .filter-key option").first().data("type");
-
-		Aimeos.Filter.selectFilterOperator(select, type);
-
-
-		$(".aimeos .main-navbar form").on("change", ".filter-key", function(ev) {
-
-			var select = $(".filter-operator", ev.delegateTarget);
-			var type = $(":selected", this).data("type");
-
-			Aimeos.Filter.selectFilterOperator(select, type);
-		});
-	}
-};
-
-
-
 Aimeos.Form = {
 
 	init : function() {
@@ -1041,7 +972,6 @@ $(function() {
 
 	Aimeos.Menu.init();
 	Aimeos.Config.init();
-	Aimeos.Filter.init();
 	Aimeos.Form.init();
 	Aimeos.List.init();
 	Aimeos.Log.init();
