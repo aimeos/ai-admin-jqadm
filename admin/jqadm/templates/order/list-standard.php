@@ -260,8 +260,7 @@ $statusList = [
 ?>
 
 <form ref="form" class="list list-order" method="POST"
-	action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
-	data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
+	action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 
 	<?= $this->csrf()->formfield(); ?>
 
