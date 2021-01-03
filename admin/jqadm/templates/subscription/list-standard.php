@@ -60,6 +60,16 @@ $fields = $this->session( 'aimeos/admin/jqadm/subscription/fields', $default );
 $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
 
+$searchAttributes = map( $this->get( 'filterAttributes', [] ) )->filter( function( $item ) {
+	return $item->isPublic();
+} )->call( 'toArray' )->each( function( &$val ) {
+	$val = $this->translate( 'admin/ext', $val['label'] ?? '' );
+} )->all();
+
+$operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( function( $val, $key ) {
+	return $this->translate( 'admin/ext', $key );
+} )->all();
+
 $baseItems = $this->get( 'baseItems', [] );
 
 $columnList = [
@@ -138,7 +148,12 @@ $reasonList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
-<div class="vue-block" data-data="<?= $enc->attr( $this->get( 'items', map() )->getId()->toArray() ) ?>">
+
+<?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ) ) ?>
+
+<div class="list-view"
+	data-domain="subscription"
+	data-items="<?= $enc->attr( $this->get( 'items', map() )->call('toArray')->all() ) ?>">
 
 <nav class="main-navbar">
 
@@ -147,18 +162,19 @@ $reasonList = [
 		<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
 	</span>
 
-	<?= $this->partial(
-		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ), [
-			'filter' => $this->session( 'aimeos/admin/jqadm/subscription/filter', [] ),
-			'filterAttributes' => $this->get( 'filterAttributes', [] ),
-			'filterOperators' => $this->get( 'filterOperators', [] ),
-			'params' => $params,
-		]
-	); ?>
+	<div class="btn fa act-search" v-on:click="search = true"
+		title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
+		aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ); ?>">
+	</div>
 </nav>
 
-
-<div is="list-view" inline-template v-bind:items="data"><div>
+<nav-search v-bind:show="search" v-on:close="search = false"
+	v-bind:url="'<?= $enc->attr( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>'"
+	v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/subscription/filter', [] ) ) ?>"
+	v-bind:operators="<?= $enc->attr( $operators ) ?>"
+	v-bind:name="'<?= $enc->formparam( ['filter', '_key_', '0'] ) ?>'"
+	v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
+</nav-search>
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -167,15 +183,18 @@ $reasonList = [
 	);
 ?>
 
-<form class="list list-subscription" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
+<form ref="form" class="list list-subscription" method="POST"
+	action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
+	data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
+
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">
 		<thead class="list-header">
 			<tr>
 				<th class="select">
-					<a href="#" class="btn act-delete fa" tabindex="1" data-multi="1"
-						v-on:click.prevent.stop="removeAll('<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => ''] + $params, [], $delConfig ) ) ?>','<?= $enc->attr( $this->translate( 'admin', 'Selected entries' ) ) ?>')"
+					<a href="#" class="btn act-delete fa" tabindex="1"
+						v-on:click.prevent.stop="askDelete()"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 					</a>
@@ -268,7 +287,7 @@ $reasonList = [
 			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>" data-label="<?= $enc->attr( $item->getId() ) ?>">
-					<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="!items['<?= $id ?>']" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+					<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="items['<?= $id ?>'].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
 					<?php if( in_array( 'subscription.id', $fields ) ) : ?>
 						<td class="subscription-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
 					<?php endif; ?>
@@ -433,7 +452,7 @@ $reasonList = [
 						</a>
 						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 							<a class="btn act-delete fa" tabindex="1" href="#"
-								v-on:click.prevent.stop="remove('<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ) ?>','<?= $enc->attr( $item->getDateNext() . ' -> ' . $item->getInterval() ) ?>')"
+								v-on:click.prevent.stop="askDelete('<?= $enc->attr( $id ) ?>')"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 							</a>
@@ -456,7 +475,8 @@ $reasonList = [
 	);
 ?>
 
-</div></div>
+<confirm-delete v-bind:items="unconfirmed" v-bind:show="dialog"
+	v-on:close="confirmDelete(false)" v-on:confirm="confirmDelete(true)"></confirm-delete>
 
 </div>
 <?php $this->block()->stop(); ?>

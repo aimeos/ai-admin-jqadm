@@ -133,6 +133,16 @@ $fields = $this->session( 'aimeos/admin/jqadm/order/fields', $default );
 $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
 
+$searchAttributes = map( $this->get( 'filterAttributes', [] ) )->filter( function( $item ) {
+	return $item->isPublic();
+} )->call( 'toArray' )->each( function( &$val ) {
+	$val = $this->translate( 'admin/ext', $val['label'] ?? '' );
+} )->all();
+
+$operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( function( $val, $key ) {
+	return $this->translate( 'admin/ext', $key );
+} )->all();
+
 $baseItems = $this->get( 'baseItems', [] );
 
 
@@ -214,7 +224,12 @@ $statusList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
-<div class="vue-block" data-data="<?= $enc->attr( $this->get( 'items', map() )->getId()->toArray() ) ?>">
+
+<?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ) ) ?>
+
+<div class="list-view"
+	data-domain="order"
+	data-items="<?= $enc->attr( $this->get( 'items', map() )->call('toArray')->all() ) ?>">
 
 <nav class="main-navbar">
 
@@ -223,18 +238,19 @@ $statusList = [
 		<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
 	</span>
 
-	<?= $this->partial(
-		$this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ), [
-			'filter' => $this->session( 'aimeos/admin/jqadm/order/filter', [] ),
-			'filterAttributes' => $this->get( 'filterAttributes', [] ),
-			'filterOperators' => $this->get( 'filterOperators', [] ),
-			'params' => $params,
-		]
-	); ?>
+	<div class="btn fa act-search" v-on:click="search = true"
+		title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
+		aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ); ?>">
+	</div>
 </nav>
 
-
-<div is="list-view" inline-template v-bind:items="data"><div>
+<nav-search v-bind:show="search" v-on:close="search = false"
+	v-bind:url="'<?= $enc->attr( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>'"
+	v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/order/filter', [] ) ) ?>"
+	v-bind:operators="<?= $enc->attr( $operators ) ?>"
+	v-bind:name="'<?= $enc->formparam( ['filter', '_key_', '0'] ) ?>'"
+	v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
+</nav-search>
 
 <?= $this->partial(
 		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -243,8 +259,10 @@ $statusList = [
 	);
 ?>
 
-<?php $searchParam = $params; unset( $searchParam['filter'] ); ?>
-<form class="list list-order" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
+<form ref="form" class="list list-order" method="POST"
+	action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
+	data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
+
 	<?= $this->csrf()->formfield(); ?>
 
 	<table class="list-items table table-hover table-striped">
@@ -558,8 +576,6 @@ $statusList = [
 		'page' => $this->session( 'aimeos/admin/jqadm/order/page', [] )]
 	);
 ?>
-
-</div></div>
 
 </div>
 <?php $this->block()->stop(); ?>

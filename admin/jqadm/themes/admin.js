@@ -658,9 +658,93 @@ Aimeos.Form = {
 
 Aimeos.List = {
 
+	instance : null,
+
+
 	init : function() {
 
-		this.confirmDelete();
+		let node = document.querySelector(".list-view");
+		if(node) {
+			this.instance = new Vue({el: node, mixins: [this.mixins]});
+		}
+	},
+
+
+	mixins : {
+		data: function() {
+			return {
+				'all': false,
+				'dialog': false,
+				'items': {},
+				'domain': null,
+				'search': false
+			}
+		},
+		beforeMount: function() {
+			if(this.$el.dataset) {
+				if(this.$el.dataset.items) {
+					this.items = JSON.parse(this.$el.dataset.items);
+				}
+				if(this.$el.dataset.domain) {
+					this.domain = this.$el.dataset.domain;
+				}
+			}
+		},
+		computed: {
+			unconfirmed: function() {
+				let list = {};
+
+				for(const key in this.items) {
+					if(this.items[key].checked) {
+						list[key] = this.items[key][this.domain + '.label'];
+					}
+				}
+
+				return list;
+			}
+		},
+		methods: {
+			askDelete: function(id) {
+				if(id) {
+					this.reset(false);
+					this.$set(this.items[id], 'checked', true);
+				}
+
+				this.dialog = true;
+			},
+
+			confirmDelete: function(val) {
+				if(val) {
+					if(this.$refs.form && this.$refs.form.dataset && this.$refs.form.dataset.deleteurl) {
+						this.$refs.form.action = this.$refs.form.dataset.deleteurl;
+						this.$refs.form.submit();
+					} else {
+						console.log('[Aimeos] Missing form reference or data-deleteurl');
+					}
+				}
+
+				if(Object.keys(this.unconfirmed).length === 1) {
+					this.reset(false);
+				}
+
+				this.dialog = false;
+			},
+
+			reset: function(val) {
+				this.all = val;
+				for(const key in this.items) {
+					this.$set(this.items[key], 'checked', val);
+				};
+			},
+
+			toggle: function(id) {
+				this.$set(this.items[id], 'checked', !this.items[id].checked);
+			},
+
+			toggleAll: function() {
+				this.reset(this.all = !this.all);
+			}
+		}
 	},
 
 
