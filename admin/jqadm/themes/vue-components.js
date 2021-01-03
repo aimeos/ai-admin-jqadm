@@ -379,23 +379,29 @@ Vue.component('nav-search', {
 				entries[val] = this.operators[val] || '';
 			}, this);
 
-			[this.op] = (this.ops[type] || []);
 			return entries;
 		}
 	},
 	watch: {
 		key: function(key) {
-			switch(this.attributes[key] && this.attributes[key]['type']) {
+			const type = this.attributes[key] && this.attributes[key]['type'] || 'string';
+
+			switch(type) {
 				case 'boolean':
 				case 'integer':
 				case 'float':
-					return this.type = 'number';
+					this.type = 'number'; break;
 				case 'date':
-					return this.type = 'date';
+					this.type = 'date'; break;
 				case 'datetime':
-					return this.type = 'datetime-local';
+					this.type = 'datetime-local'; break;
+				default:
+					this.type = 'text'; break;
 			}
-			this.type = 'text';
+
+			if((this.ops[type] || []).indexOf(this.op) === -1) {
+				[this.op] = this.ops[type];
+			}
 		}
 	}
 });

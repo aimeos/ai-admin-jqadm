@@ -101,7 +101,7 @@ $columnList = [
 
 <nav-search v-bind:show="search" v-on:close="search = false"
 	v-bind:url="'<?= $enc->attr( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>'"
-	v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/media/lists/type/filter', [] ) ) ?>"
+	v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/type/media/lists/filter', [] ) ) ?>"
 	v-bind:operators="<?= $enc->attr( $operators ) ?>"
 	v-bind:name="'<?= $enc->formparam( ['filter', '_key_', '0'] ) ?>'"
 	v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
