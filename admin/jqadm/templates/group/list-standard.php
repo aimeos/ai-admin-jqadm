@@ -82,7 +82,7 @@ $columnList = [
 
 <div class="list-view"
 	data-domain="customer/group"
-	data-items="<?= $enc->attr( $this->get( 'items', map() )->call('toArray')->all() ) ?>">
+	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
 <nav class="main-navbar">
 

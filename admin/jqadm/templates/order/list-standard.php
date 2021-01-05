@@ -229,7 +229,7 @@ $statusList = [
 
 <div class="list-view"
 	data-domain="order"
-	data-items="<?= $enc->attr( $this->get( 'items', map() )->call('toArray')->all() ) ?>">
+	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
 <nav class="main-navbar">
 
