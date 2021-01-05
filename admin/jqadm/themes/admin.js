@@ -665,7 +665,7 @@ Aimeos.List = {
 
 		let node = document.querySelector(".list-view");
 		if(node) {
-			this.instance = createApp({mixins: [this.mixins]}).mount(node);
+			this.instance = Vue.createApp({mixins: [this.mixins]}).mount(node);
 		}
 	},
 
@@ -1070,7 +1070,7 @@ $(function() {
 	$('.vue-block').each(function() {
 		var key = $(this).data('key');
 
-		Aimeos.components[key] = createApp({
+		Aimeos.components[key] = Vue.createApp({
 			el: this,
 			data: function() {
 				return {

@@ -22,7 +22,7 @@ Aimeos.Address = {
 
 	init: function() {
 
-		this.address = createApp({
+		this.address = Vue.createApp({
 			'data': {
 				'advanced': [],
 				'items': $("#item-address-group").data("items"),
@@ -112,7 +112,7 @@ Aimeos.Media = {
 
 	init: function() {
 
-		Aimeos.components['media'] = createApp({
+		Aimeos.components['media'] = Vue.createApp({
 			data: function() {
 				return {
 					items: [],
@@ -243,7 +243,7 @@ Aimeos.Price = {
 
 	init: function() {
 
-		Aimeos.components['price'] = createApp({
+		Aimeos.components['price'] = Vue.createApp({
 			data: function() {
 				return {
 					items: [],
@@ -336,7 +336,7 @@ Aimeos.ProductRef = {
 		const node = document.querySelector('.item-product .productref-list');
 
 		if(node) {
-			self.instance = createApp({
+			self.instance = Vue.createApp({
 				'el': node,
 				'mixins': [Aimeos.ProductRef.mixins]
 			}).mount(node);
@@ -710,7 +710,7 @@ Aimeos.Text = {
 
 	init: function() {
 
-		Aimeos.components['text'] = createApp({
+		Aimeos.components['text'] = Vue.createApp({
 			data: function() {
 				return {
 					items: [],

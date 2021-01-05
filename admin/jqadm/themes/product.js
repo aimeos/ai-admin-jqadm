@@ -21,7 +21,7 @@ Aimeos.Product = {
 
 	components : function() {
 
-		Aimeos.components['characteristic/attribute'] =  createApp({
+		Aimeos.components['characteristic/attribute'] =  Vue.createApp({
 			'data': {
 				'items': $(".item-characteristic-attribute .attribute-list").data("items"),
 				'keys': $(".item-characteristic-attribute .attribute-list").data("keys"),
@@ -31,7 +31,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
 		}).mount('.item-characteristic-attribute .attribute-list');
 
-		Aimeos.components['characteristic/hidden'] = createApp({
+		Aimeos.components['characteristic/hidden'] = Vue.createApp({
 			'data': {
 				'items': $(".item-characteristic-hidden .attribute-list").data("items"),
 				'keys': $(".item-characteristic-hidden .attribute-list").data("keys"),
@@ -41,7 +41,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
 		}).mount('.item-characteristic-hidden .attribute-list');
 
-		Aimeos.components['characteristic/variant'] = createApp({
+		Aimeos.components['characteristic/variant'] = Vue.createApp({
 			'data': {
 				'items': $(".item-characteristic-variant .attribute-list").data("items"),
 				'keys': $(".item-characteristic-variant .attribute-list").data("keys"),
@@ -52,7 +52,7 @@ Aimeos.Product = {
 		}).mount('.item-characteristic-variant .attribute-list');
 
 
-		Aimeos.components['option/config'] = createApp({
+		Aimeos.components['option/config'] = Vue.createApp({
 			'data': {
 				'items': $(".item-option-config .attribute-list").data("items"),
 				'keys': $(".item-option-config .attribute-list").data("keys"),
@@ -62,7 +62,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
 		}).mount('.item-option-config .attribute-list');
 
-		Aimeos.components['option/custom'] = createApp({
+		Aimeos.components['option/custom'] = Vue.createApp({
 			'data': {
 				'items': $(".item-option-custom .attribute-list").data("items"),
 				'keys': $(".item-option-custom .attribute-list").data("keys"),
@@ -72,7 +72,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
 		}).mount('.item-option-custom .attribute-list');
 
-		Aimeos.components['catalog/default'] = createApp({
+		Aimeos.components['catalog/default'] = Vue.createApp({
 			'data': {
 				'items': $(".item-category .catalog-default .category-list").data("items"),
 				'keys': $(".item-category .catalog-default .category-list").data("keys"),
@@ -82,7 +82,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Catalog.mixins.bind(this)()]
 		}).mount('.item-category .catalog-default .category-list');
 
-		Aimeos.components['catalog/promotion'] = createApp({
+		Aimeos.components['catalog/promotion'] = Vue.createApp({
 			'data': {
 				'items': $(".item-category .catalog-promotion .category-list").data("items"),
 				'keys': $(".item-category .catalog-promotion .category-list").data("keys"),
@@ -92,7 +92,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Catalog.mixins.bind(this)()]
 		}).mount('.item-category .catalog-promotion .category-list');
 
-		Aimeos.components['supplier/default'] = createApp({
+		Aimeos.components['supplier/default'] = Vue.createApp({
 			'data': {
 				'items': $(".item-supplier .supplier-default .supplier-list").data("items"),
 				'keys': $(".item-supplier .supplier-default .supplier-list").data("keys"),
@@ -102,7 +102,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Supplier.mixins.bind(this)()]
 		}).mount('.item-supplier .supplier-default .supplier-list');
 
-		Aimeos.components['supplier/promotion'] = createApp({
+		Aimeos.components['supplier/promotion'] = Vue.createApp({
 			'data': {
 				'items': $(".item-supplier .supplier-promotion .supplier-list").data("items"),
 				'keys': $(".item-supplier .supplier-promotion .supplier-list").data("keys"),
@@ -112,7 +112,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Supplier.mixins.bind(this)()]
 		}).mount('.item-supplier .supplier-promotion .supplier-list');
 
-		Aimeos.components['related/bought'] = createApp({
+		Aimeos.components['related/bought'] = Vue.createApp({
 			'data': {
 				'items': $(".item-related-bought .product-list").data("items"),
 				'keys': $(".item-related-bought .product-list").data("keys"),
@@ -122,7 +122,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Product.mixins.bind(this)()]
 		}).mount('.item-related-bought .product-list');
 
-		Aimeos.components['related/suggest'] = createApp({
+		Aimeos.components['related/suggest'] = Vue.createApp({
 			'data': {
 				'items': $(".item-related-suggest .product-list").data("items"),
 				'keys': $(".item-related-suggest .product-list").data("keys"),
@@ -132,7 +132,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Product.mixins.bind(this)()]
 		}).mount('.item-related-suggest .product-list');
 
-		Aimeos.components['bundle'] = createApp({
+		Aimeos.components['bundle'] = Vue.createApp({
 			'data': {
 				'items': $(".item-bundle .product-list").data("items"),
 				'keys': $(".item-bundle .product-list").data("keys"),
@@ -142,7 +142,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Product.mixins.bind(this)()]
 		}).mount('.item-bundle .product-list');
 
-		Aimeos.components['selection'] = createApp({
+		Aimeos.components['selection'] = Vue.createApp({
 			'data': {
 				'items': $("#item-selection-group").data("items"),
 				'keys': $("#item-selection-group").data("keys"),
@@ -151,7 +151,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Selection.mixins.bind(this)()]
 		}).mount('#item-selection-group');
 
-		Aimeos.components['stock'] = createApp({
+		Aimeos.components['stock'] = Vue.createApp({
 			'data': {
 				'items': $(".item-stock .stock-list").data("items"),
 				'keys': $(".item-stock .stock-list").data("keys"),
@@ -161,7 +161,7 @@ Aimeos.Product = {
 			'mixins': [Aimeos.Product.Stock.mixins.bind(this)()]
 		}).mount('.item-stock .stock-list');
 
-		Aimeos.components['subscription'] = createApp({
+		Aimeos.components['subscription'] = Vue.createApp({
 			'data': {
 				'items': $(".item-subscription .subscription-list").data("items"),
 				'keys': $(".item-subscription .subscription-list").data("keys"),
@@ -413,7 +413,7 @@ Aimeos.Product.Download = {
 Aimeos.Product.Order = {
 	init : function() {
 
-		this.instance = createApp({
+		this.instance = Vue.createApp({
 			'data': {
 				'id': null,
 				'items': [],
