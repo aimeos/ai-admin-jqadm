@@ -300,10 +300,10 @@ Aimeos.Order = {
 			var format = node.data("format");
 
 			node.html(sprintf(format,
-				'<span class="company"/>', '<span class="firstname"/>', '<span class="lastname"/>',
-				'<span class="address1"/>', '<span class="address2"/>', '<span class="postal"/>',
-				'<span class="city"/>', '<span class="state"/>', '<span class="countryid"/>',
-				'<span class="email"/>', '<span class="telephone"/>', '<span class="vatid"/>'
+				'<span class="company"></span>', '<span class="firstname"></span>', '<span class="lastname"></span>',
+				'<span class="address1"></span>', '<span class="address2"></span>', '<span class="postal"></span>',
+				'<span class="city"></span>', '<span class="state"></span>', '<span class="countryid"></span>',
+				'<span class="email"></span>', '<span class="telephone"></span>', '<span class="vatid"></span>'
 			).replace(/(\n)+/g, '\n').replace(/\n/g, '<br/>'));
 
 			$(".company", node).text($("[data-field=company]", form).val())
