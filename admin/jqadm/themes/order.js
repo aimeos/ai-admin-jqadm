@@ -300,19 +300,24 @@ Aimeos.Order = {
 			var format = node.data("format");
 
 			node.html(sprintf(format,
-				'<span class="company">' + $("[data-field=company]", form).val() + '</span>',
-				'<span class="firstname">' + $("[data-field=firstname]", form).val() + '</span>',
-				'<span class="lastname">' + $("[data-field=lastname]", form).val() + '</span>',
-				'<span class="address1">' + $("[data-field=address1]", form).val() + '</span>',
-				'<span class="address2">' + $("[data-field=address2]", form).val() + '</span>',
-				'<span class="postal">' + $("[data-field=postal]", form).val() + '</span>',
-				'<span class="city">' + $("[data-field=city]", form).val() + '</span>',
-				'<span class="state">' + $("[data-field=state]", form).val() + '</span>',
-				'<span class="countryid">' + $("[data-field=countryid]", form).val() + '</span>',
-				'<span class="email">' + $("[data-field=email]", form).val() + '</span>',
-				'<span class="telephone">' + $("[data-field=telephone]", form).val() + '</span>',
-				'<span class="vatid">' + $("[data-field=vatid]", form).val() + '</span>'
+				'<span class="company"/>', '<span class="firstname"/>', '<span class="lastname"/>',
+				'<span class="address1"/>', '<span class="address2"/>', '<span class="postal"/>',
+				'<span class="city"/>', '<span class="state"/>', '<span class="countryid"/>',
+				'<span class="email"/>', '<span class="telephone"/>', '<span class="vatid"/>'
 			).replace(/(\n)+/g, '\n').replace(/\n/g, '<br/>'));
+
+			$(".company", node).text($("[data-field=company]", form).val())
+			$(".firstname", node).text($("[data-field=firstname]", form).val())
+			$(".lastname", node).text($("[data-field=lastname]", form).val())
+			$(".address1", node).text($("[data-field=address1]", form).val())
+			$(".address2", node).text($("[data-field=address2]", form).val())
+			$(".postal", node).text($("[data-field=postal]", form).val())
+			$(".city", node).text($("[data-field=city]", form).val())
+			$(".state", node).text($("[data-field=state]", form).val())
+			$(".countryid", node).text($("[data-field=countryid]", form).val())
+			$(".email", node).text($("[data-field=email]", form).val())
+			$(".telephone", node).text($("[data-field=telephone]", form).val())
+			$(".vatid", node).text($("[data-field=vatid]", form).val())
 		});
 	},
 
@@ -328,7 +333,7 @@ Aimeos.Order = {
 	updateShortAddress : function() {
 
 		$(".aimeos .item-order .item-address").on("change", "input,select", function(ev) {
-			$(".address-text ." + $(this).data("field"), ev.delegateTarget).html($(this).val());
+			$(".address-text ." + $(this).data("field"), ev.delegateTarget).text($(this).val());
 		});
 	}
 };
