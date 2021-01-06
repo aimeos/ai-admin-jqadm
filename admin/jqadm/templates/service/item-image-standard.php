@@ -32,7 +32,7 @@ $keys = [
 						title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry') ); ?>">
 					</div>
 				</div>
-				<span class="item-label header-label" v-html="getLabel(idx)"></span>
+				<span class="item-label header-label">{{ getLabel(idx) }}</span>
 				&nbsp;
 				<div class="card-tools-right">
 					<div v-if="!checkSite('service.lists.siteid', idx)"

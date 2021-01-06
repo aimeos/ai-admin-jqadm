@@ -2190,7 +2190,7 @@ var DragElement = (function () {
     function DragElement(node_name, offset_x, offset_y, $tree) {
         this.offset_x = offset_x;
         this.offset_y = offset_y;
-        this.$element = $("<span class=\"jqtree-title jqtree-dragging\">" + node_name + "</span>");
+        this.$element = $("<span class=\"jqtree-title jqtree-dragging\"></span>").text(node_name);
         this.$element.css("position", "absolute");
         $tree.append(this.$element);
     }

@@ -272,13 +272,13 @@ Aimeos.Config = {
 						el.val(old.val());
 						old.remove();
 
-						$(".help-text", row).html(entry.attributes.label);
+						$(".help-text", row).text(entry.attributes.label);
 						$(".config-row-value", row).append(el);
 					} else {
 						var row = Aimeos.addClone($("table.item-config .config-item.prototype", target));
 
 						$(".config-row-value .config-type:not(.config-type-" + entry.attributes.type + ")", row).remove();
-						$(".config-row-key .help-text", row).html(entry.attributes.label);
+						$(".config-row-key .help-text", row).text(entry.attributes.label);
 						$(".config-value", row).val(entry.attributes.default);
 						$(".config-key", row).val(entry.id);
 					}
