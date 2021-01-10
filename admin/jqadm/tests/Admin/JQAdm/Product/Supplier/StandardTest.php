@@ -54,7 +54,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertRegexp( '/&quot;supplier.label&quot;:&quot;unitSupplier001&quot;/', $result );
+		$this->assertRegexp( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001&quot;/', $result );
 	}
 
 
@@ -75,7 +75,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertRegexp( '/&quot;supplier.label&quot;:&quot;unitSupplier001&quot;/', $result );
+		$this->assertRegexp( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001&quot;/', $result );
 	}
 
 
@@ -84,7 +84,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 		$productManager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$item = $manager->find( 'unitCode001' );
+		$item = $manager->find( 'unitSupplier001' );
 		$item->setCode( 'jqadm-test-supplier' );
 		$item->setId( null );
 

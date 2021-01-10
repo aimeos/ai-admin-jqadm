@@ -50,7 +50,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
-		$this->view->item = $manager->find( 'unitCode001', ['media'] );
+		$this->view->item = $manager->find( 'unitSupplier001', ['media'] );
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -74,7 +74,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
-		$this->view->item = $manager->find( 'unitCode001', ['media'] );
+		$this->view->item = $manager->find( 'unitSupplier001', ['media'] );
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
