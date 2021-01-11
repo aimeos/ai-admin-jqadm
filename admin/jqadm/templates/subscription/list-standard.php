@@ -92,7 +92,7 @@ $columnList = [
 	'order.base.comment' => $this->translate( 'admin', 'Comment' ),
 	'order.base.product.type' => $this->translate( 'admin', 'Product type' ),
 	'order.base.product.stocktype' => $this->translate( 'admin', 'Stock type' ),
-	'order.base.product.suppliercode' => $this->translate( 'admin', 'Product supplier' ),
+	'order.base.product.suppliername' => $this->translate( 'admin', 'Product supplier' ),
 	'order.base.product.prodcode' => $this->translate( 'admin', 'Product code' ),
 	'order.base.product.name' => $this->translate( 'admin', 'Product name' ),
 	'order.base.product.quantity' => $this->translate( 'admin', 'Product quantity' ),
@@ -251,7 +251,7 @@ $reasonList = [
 						'order.base.comment' => [],
 						'order.base.product.type' => [],
 						'order.base.product.stocktype' => [],
-						'order.base.product.suppliercode' => [],
+						'order.base.product.suppliername' => ['op' => '=~', 'type' => 'string'],
 						'order.base.product.prodcode' => [],
 						'order.base.product.name' => [],
 						'order.base.product.quantity' => ['op' => '==', 'type' => 'number'],
@@ -359,8 +359,8 @@ $reasonList = [
 					<?php if( in_array( 'order.base.product.stocktype', $fields ) ) : ?>
 						<td class="order-base-product-stocktype"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getStockType() ) : ''; ?></a></td>
 					<?php endif; ?>
-					<?php if( in_array( 'order.base.product.suppliercode', $fields ) ) : ?>
-						<td class="order-base-product-suppliercode"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getSupplierCode() ) : ''; ?></a></td>
+					<?php if( in_array( 'order.base.product.suppliername', $fields ) ) : ?>
+						<td class="order-base-product-suppliername"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getSupplierName() ) : ''; ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'order.base.product.prodcode', $fields ) ) : ?>
 						<td class="order-base-product-prodcode"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getProductCode() ) : ''; ?></a></td>
