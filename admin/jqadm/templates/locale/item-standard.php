@@ -160,7 +160,7 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?></label>
 						<div class="col-sm-8">
-							<input class="form-control item-position" required="required" tabindex="1" autocomplete="off"
+							<input class="form-control item-position" type="number" required="required" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.position' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Position (required)' ) ); ?>"
 								value="<?= $enc->attr( $this->get( 'itemData/locale.position' ) ); ?>"
