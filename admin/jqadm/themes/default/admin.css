@@ -120,6 +120,11 @@
 	background-color: #E4E8F2;
 }
 
+.aimeos tbody tr.list-search .custom-select {
+	text-align: center;
+	text-align-last: center;
+}
+
 .aimeos .list-item-new {
 	background-color: #F8F8F8;
 }
