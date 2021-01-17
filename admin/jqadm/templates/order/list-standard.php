@@ -331,7 +331,7 @@ $statusList = [
 						'order.base.taxflag' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
 						'order.base.comment' => [],
 						'order.base.address.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
-							'company' => 'company', 'mr' => 'mr', 'mrs' => 'mrs', 'miss' => 'miss'
+							'' => 'none', 'company' => 'company', 'mr' => 'mr', 'ms' => 'ms'
 						]],
 						'order.base.address.company' => [],
 						'order.base.address.vatid' => [],

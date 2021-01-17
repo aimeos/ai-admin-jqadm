@@ -410,7 +410,7 @@ $statusList = [
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.salutation' ) ) ); ?>"
 													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
 													<option value="" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.salutation' ), '' ); ?> >
-														<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+														<?= $enc->html( $this->translate( 'admin', 'none' ) ); ?>
 													</option>
 													<option value="company" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.salutation' ), 'company' ); ?> >
 														<?= $enc->html( $this->translate( 'client/code', 'company' ) ); ?>
@@ -418,11 +418,8 @@ $statusList = [
 													<option value="mr" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.salutation' ), 'mr' ); ?> >
 														<?= $enc->html( $this->translate( 'client/code', 'mr' ) ); ?>
 													</option>
-													<option value="mrs" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.salutation' ), 'mrs' ); ?> >
-														<?= $enc->html( $this->translate( 'client/code', 'mrs' ) ); ?>
-													</option>
-													<option value="miss" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.salutation' ), 'miss' ); ?> >
-														<?= $enc->html( $this->translate( 'client/code', 'miss' ) ); ?>
+													<option value="ms" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.salutation' ), 'ms' ); ?> >
+														<?= $enc->html( $this->translate( 'client/code', 'ms' ) ); ?>
 													</option>
 												</select>
 											</div>

@@ -190,7 +190,7 @@ $columnList = [
 						'customer.code' => [],
 						'customer.label' => [],
 						'customer.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
-							'company' => 'company', 'mr' => 'mr', 'mrs' => 'mrs', 'miss' => 'miss'
+							'' => 'none', 'company' => 'company', 'mr' => 'mr', 'ms' => 'ms'
 						]],
 						'customer.company' => [],
 						'customer.vatid' => [],

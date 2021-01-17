@@ -189,7 +189,7 @@ $params = $this->get( 'pageParams', [] );
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.salutation' ) ) ); ?>"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> >
 								<option value="" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), '' ); ?> >
-									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'none' ) ); ?>
 								</option>
 								<option value="company" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'company' ); ?> >
 									<?= $enc->html( $this->translate( 'client/code', 'company' ) ); ?>
@@ -197,11 +197,8 @@ $params = $this->get( 'pageParams', [] );
 								<option value="mr" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'mr' ); ?> >
 									<?= $enc->html( $this->translate( 'client/code', 'mr' ) ); ?>
 								</option>
-								<option value="mrs" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'mrs' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'mrs' ) ); ?>
-								</option>
-								<option value="miss" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'miss' ); ?> >
-									<?= $enc->html( $this->translate( 'client/code', 'miss' ) ); ?>
+								<option value="ms" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'ms' ); ?> >
+									<?= $enc->html( $this->translate( 'client/code', 'ms' ) ); ?>
 								</option>
 							</select>
 						</div>

@@ -99,17 +99,17 @@ $keys = [
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.salutation' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('customer.address.siteid', idx)"
 										v-model="items[idx]['customer.address.salutation']" >
+										<option value="" v-bind:selected="items[idx]['customer.address.salutation'] == ''" >
+											<?= $enc->html( $this->translate( 'admin', 'none' ) ); ?>
+										</option>
 										<option value="company" v-bind:selected="items[idx]['customer.address.salutation'] == 'company'" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'company' ) ); ?>
 										</option>
 										<option value="mr" v-bind:selected="items[idx]['customer.address.salutation'] == 'mr'" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'mr' ) ); ?>
 										</option>
-										<option value="mrs" v-bind:selected="items[idx]['customer.address.salutation'] == 'mrs'" >
-											<?= $enc->html( $this->translate( 'mshop/code', 'mrs' ) ); ?>
-										</option>
-										<option value="miss" v-bind:selected="items[idx]['customer.address.salutation'] == 'miss'" >
-											<?= $enc->html( $this->translate( 'mshop/code', 'miss' ) ); ?>
+										<option value="ms" v-bind:selected="items[idx]['customer.address.salutation'] == 'ms'" >
+											<?= $enc->html( $this->translate( 'mshop/code', 'ms' ) ); ?>
 										</option>
 									</select>
 								</div>

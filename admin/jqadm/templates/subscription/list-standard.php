@@ -261,7 +261,7 @@ $reasonList = [
 						'order.base.product.taxvalue' => ['op' => '==', 'type' => 'number'],
 						'order.base.product.status' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
 						'order.base.address.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
-							'company' => 'company', 'mr' => 'mr', 'mrs' => 'mrs', 'miss' => 'miss'
+							'' => 'none', 'company' => 'company', 'mr' => 'mr', 'ms' => 'ms'
 						]],
 						'order.base.address.company' => [],
 						'order.base.address.vatid' => [],

@@ -311,8 +311,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 										<?php
 											$salutations = array(
 												\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MR,
-												\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MRS,
-												\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MISS,
+												\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MS,
 											);
 
 											echo preg_replace( "/\n+/m", "<br/>", trim( $enc->html( sprintf(
