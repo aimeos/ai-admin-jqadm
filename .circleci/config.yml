@@ -101,6 +101,31 @@ jobs:
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup coverageext
       - run: ./vendor/bin/php-coveralls -x ext/ai-admin-jqadm/admin/jqadm/tests/coverage.xml -vvv
 
+  "php-8.0 / mysql-8.0":
+    docker:
+      - image: aimeos/ci-php:8.0
+      - image: circleci/mysql:8.0
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: aimeos
+          MYSQL_USER: aimeos
+          MYSQL_PASSWORD: aimeos
+    steps:
+      - checkout
+      - run: git clone --depth=50 --branch=master git://github.com/aimeos/aimeos-core.git ../aimeos-core
+      - run: cd .. && mv project aimeos-core/ext/ai-admin-jqadm && mv aimeos-core project && cd project
+      - restore_cache:
+          keys:
+            - php80-{{ checksum "composer.json" }}
+      - run: composer update -n --prefer-dist
+      - save_cache:
+          key: php80-{{ checksum "composer.json" }}
+          paths: [./vendor]
+      - run: echo "<?php return array( 'db' => array( 'adapter' => 'mysql', 'host' => '127.0.0.1', 'port' => 3306, 'database' => 'aimeos', 'username' => 'aimeos', 'password' => 'aimeos', 'limit' => 2, 'opt-persistent' => false, 'stmt' => array( \"SET SESSIOn sort_buffer_size=2097144; SET NAMES 'utf8'; SET SESSION sql_mode='ANSI'\" ) ), 'fs' => array( 'adapter' => 'Standard', 'basedir' => '.' ), 'mq' => array( 'adapter' => 'Standard', 'db' => 'db' ) );" > config/resource.php
+      - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
+      - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup coverageext
+      - run: ./vendor/bin/php-coveralls -x ext/ai-admin-jqadm/admin/jqadm/tests/coverage.xml -vvv
+
 workflows:
   version: 2
   unittest:
@@ -109,3 +134,4 @@ workflows:
       - "php-7.2 / mysql-5.7"
       - "php-7.3 / pgsql-13"
       - "php-7.4 / mysql-8.0"
+      - "php-8.0 / mysql-8.0"
