@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Edgars Volkovs <edgarsloskots@gmail.com>, 2020
+# Martins Nav <mveisis1@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-02 15:52+0100\n"
-"PO-Revision-Date: 2020-12-02 14:24+0000\n"
-"Last-Translator: Aimeos\n"
+"PO-Revision-Date: 2021-01-12 18:32+0000\n"
+"Last-Translator: Martins Nav <mveisis1@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/aimeos/aimeos-core/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,7 +160,7 @@ msgid ""
 msgstr ""
 
 msgid "Attribute"
-msgstr ""
+msgstr "Atribūts"
 
 msgid "Attribute Lists Type"
 msgstr ""
@@ -174,13 +175,13 @@ msgid "Attribute Property Types"
 msgstr ""
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Atribūtu tips"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Atribūtu tipi"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Atribūta pozīcija (neobligāti)"
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
@@ -189,7 +190,7 @@ msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
-msgstr ""
+msgstr "Atribūti"
 
 msgid "Available currency for the current site"
 msgstr ""
@@ -207,7 +208,7 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr ""
+msgstr "Grozs"
 
 msgid "Billing address"
 msgstr "Norēķinu adrese"
@@ -268,13 +269,13 @@ msgid "Close"
 msgstr "Aizvērt"
 
 msgid "Code"
-msgstr ""
+msgstr "Kods"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
 msgstr ""
 
 msgid "Columns"
-msgstr ""
+msgstr "Kolonnas"
 
 msgid "Comment"
 msgstr "Komentārs"
@@ -286,19 +287,19 @@ msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr ""
+msgstr "Uzņēmums"
 
 msgid "Company details"
-msgstr ""
+msgstr "Uzņēmuma detaļas"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Uzņēmums nosaukums (neobligāts)"
 
 msgid "Config"
-msgstr ""
+msgstr "Konfigurācija"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Konfigurējams"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
@@ -314,13 +315,13 @@ msgid "Costs"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "Skaits"
 
 msgid "Country"
-msgstr ""
+msgstr "Valsts"
 
 msgid "Country ID"
-msgstr ""
+msgstr "Valsts ID"
 
 msgid "Country code (required)"
 msgstr ""
@@ -463,13 +464,13 @@ msgid "Display help texts"
 msgstr ""
 
 msgid "Domain"
-msgstr ""
+msgstr "Domēns"
 
 msgid "Download"
 msgstr "Lejupielādēt"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Lejupielādēt šo failu"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
@@ -499,7 +500,7 @@ msgid "Edit this entry"
 msgstr ""
 
 msgid "Editor"
-msgstr "Redaktors"
+msgstr "Autors"
 
 msgid "Email"
 msgstr "E-pasts"
@@ -532,7 +533,7 @@ msgid "Facsimile number (optional)"
 msgstr ""
 
 msgid "File"
-msgstr ""
+msgstr "Fails"
 
 msgid "Find category"
 msgstr "Meklēt kategoriju"
@@ -571,7 +572,7 @@ msgid "Go to the list of attribute types"
 msgstr ""
 
 msgid "Group"
-msgstr ""
+msgstr "Grupa"
 
 msgid "Group name describing for which members the group is for"
 msgstr ""
@@ -622,7 +623,7 @@ msgid "ISO language code (required)"
 msgstr ""
 
 msgid "Image"
-msgstr ""
+msgstr "Attēls"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -639,7 +640,7 @@ msgid "Incl. tax"
 msgstr ""
 
 msgid "Info"
-msgstr ""
+msgstr "Informācija"
 
 msgid "Insert new entry"
 msgstr ""
@@ -1095,13 +1096,13 @@ msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr ""
 
 msgid "Product name"
-msgstr "Preces nosaukums"
+msgstr "Produkta nosaukums"
 
 msgid "Product price"
-msgstr "Preces cena"
+msgstr "Produkta cena"
 
 msgid "Product quantity"
-msgstr "Preces daudzums"
+msgstr "Produkta daudzums"
 
 msgid "Product rebate"
 msgstr ""
@@ -1251,10 +1252,10 @@ msgid "Salutation"
 msgstr ""
 
 msgid "Save"
-msgstr ""
+msgstr "Saglabāt"
 
 msgid "Save & Close"
-msgstr "Saglabāt un Aizvērt"
+msgstr "Saglabāt un aizvērt"
 
 msgid "Save & Copy"
 msgstr "Saglabāt un kopēt"
@@ -1337,7 +1338,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "Parādīt"
 
 msgid "Show entry"
 msgstr ""
@@ -1401,7 +1402,7 @@ msgid "Stock type"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Iela"
 
 msgid "Street name (optional)"
 msgstr ""
@@ -1530,7 +1531,7 @@ msgid "Two letter ISO language code"
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Tips"
 
 msgid "Type position (optional)"
 msgstr ""
@@ -1686,7 +1687,7 @@ msgstr "Norēķinu adrese"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Atribūti"
 
 #, php-format
 msgid "bundle"
@@ -1709,7 +1710,7 @@ msgid "code"
 msgstr ""
 
 msgid "company"
-msgstr ""
+msgstr "Uzņēmums"
 
 #, php-format
 msgid "countday"
@@ -1902,7 +1903,7 @@ msgstr ""
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "Servisi"
 
 #, php-format
 msgid "servicedelivery"
@@ -1976,11 +1977,11 @@ msgstr ""
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "Tips"
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "Atribūti"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2032,11 +2033,11 @@ msgstr ""
 
 #, php-format
 msgid "type/product"
-msgstr "Preces"
+msgstr "Produkti"
 
 #, php-format
 msgid "type/product/lists"
-msgstr "Preču saraksts"
+msgstr "Produktu saraksts"
 
 #, php-format
 msgid "type/product/property"
@@ -2044,7 +2045,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Servisi"
 
 #, php-format
 msgid "type/service/lists"
