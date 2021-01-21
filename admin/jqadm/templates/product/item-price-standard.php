@@ -24,7 +24,7 @@ $enc = $this->encoder();
 ?>
 <div id="price" class="item-price tab-pane fade" role="tablist" aria-labelledby="price">
 
-	<div class="col-xl-6 content-block">
+	<div class="col-xl-6">
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Allow custom price' ) ); ?></label>
 			<div class="col-sm-8">
@@ -50,7 +50,7 @@ $enc = $this->encoder();
 
 					<div v-bind:id="'item-price-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
 						v-bind:data-target="'#item-price-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
-						v-bind:aria-controls="'item-price-group-data-' + idx" aria-expanded="false" v-on:click.self.stop="toggle('_show', idx)">
+						v-bind:aria-controls="'item-price-group-data-' + idx" aria-expanded="false" v-on:click="toggle('_show', idx)">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">

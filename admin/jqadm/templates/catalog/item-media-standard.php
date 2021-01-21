@@ -35,7 +35,7 @@ $enc = $this->encoder();
 
 					<div v-bind:id="'item-media-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
 						v-bind:data-target="'#item-media-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
-						v-bind:aria-controls="'item-media-group-data-' + idx" aria-expanded="false" v-on:click.self.stop="toggle('_show', idx)">
+						v-bind:aria-controls="'item-media-group-data-' + idx" aria-expanded="false" v-on:click="toggle('_show', idx)">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
