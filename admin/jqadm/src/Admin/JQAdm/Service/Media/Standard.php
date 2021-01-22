@@ -343,7 +343,7 @@ class Standard
 				$refItem = $mediaManager->create();
 			}
 
-			$refItem->fromArray( $entry, true );
+			$refItem->fromArray( $entry, true )->setDomain( 'service' );
 			$file = $this->getValue( $files, 'media/' . $idx . '/file' );
 
 			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
