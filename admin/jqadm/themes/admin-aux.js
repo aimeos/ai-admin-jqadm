@@ -134,6 +134,11 @@ Aimeos.Media = {
 
 	mixins: {
 		methods: {
+			active: function(idx) {
+				return this.items[idx] && this.items[idx]['media.status'] > 0;
+			},
+
+
 			add: function() {
 				let entry = {};
 
@@ -210,10 +215,6 @@ Aimeos.Media = {
 					label += (this.items[idx]['media.type'] ? ' (' + this.items[idx]['media.type'] + ')' : '');
 				}
 
-				if(this.items[idx]['media.status'] < 1) {
-					label = '<s>' + label + '</s>';
-				}
-
 				return label;
 			},
 
@@ -264,6 +265,11 @@ Aimeos.Price = {
 
 	mixins: {
 		methods: {
+			active: function(idx) {
+				return this.items[idx] && this.items[idx]['price.status'] > 0;
+			},
+
+
 			add: function(data) {
 				let entry = {};
 
@@ -302,10 +308,6 @@ Aimeos.Price = {
 				label += (this.items[idx]['price.costs'] ? ' + ' + this.items[idx]['price.costs'] : '');
 				label += (this.items[idx]['price.currencyid'] ? ' ' + this.items[idx]['price.currencyid'] : '');
 				label += (this.items[idx]['price.type'] ? ' (' + this.items[idx]['price.type'] + ')' : '');
-
-				if(this.items[idx]['price.status'] < 1) {
-					label = '<s>' + label + '</s>';
-				}
 
 				return label;
 			},
@@ -351,6 +353,11 @@ Aimeos.Text = {
 
 	mixins: {
 		methods: {
+			active: function(idx) {
+				return this.items[idx] && this.items[idx]['text.status'] > 0;
+			},
+
+
 			add: function(data) {
 				let entry = {};
 
@@ -389,10 +396,6 @@ Aimeos.Text = {
 					var tmp = document.createElement("span");
 					tmp.innerHTML = this.items[idx]['text.content'];
 					label += ': ' + (tmp.innerText || tmp.textContent || "").substr(0, 40);
-				}
-
-				if(this.items[idx]['text.status'] < 1) {
-					label = '<s>' + label + '</s>';
 				}
 
 				return label;
