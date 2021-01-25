@@ -41,11 +41,11 @@ class Factory
 		 *
 		 * For example, if the name of the default class is
 		 *
-		 *  \Aimeos\Admin\JQAdm\Catalog\Liststype\Standard
+		 *  \Aimeos\Admin\JQAdm\Catalog\Lists\Standard
 		 *
 		 * and you want to replace it with your own version named
 		 *
-		 *  \Aimeos\Admin\JQAdm\Catalog\Liststype\Myfavorite
+		 *  \Aimeos\Admin\JQAdm\Catalog\Lists\Myfavorite
 		 *
 		 * then you have to set the this configuration option:
 		 *

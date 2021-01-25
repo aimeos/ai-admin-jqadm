@@ -181,12 +181,12 @@ class Standard
 		 * modify what is returned to the caller.
 		 *
 		 * This option allows you to wrap local decorators
-		 * ("\Aimeos\Admin\JQAdm\Customer\Liststype\Decorator\*") around the JQAdm client.
+		 * ("\Aimeos\Admin\JQAdm\Customer\Lists\Decorator\*") around the JQAdm client.
 		 *
 		 *  admin/jqadm/type/customer/lists/decorators/local = array( 'decorator2' )
 		 *
 		 * This would add the decorator named "decorator2" defined by
-		 * "\Aimeos\Admin\JQAdm\Customer\Liststype\Decorator\Decorator2" only to the JQAdm client.
+		 * "\Aimeos\Admin\JQAdm\Customer\Lists\Decorator\Decorator2" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.10
