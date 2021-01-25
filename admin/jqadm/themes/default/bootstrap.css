@@ -113,7 +113,7 @@ input[type='radio'] {
 }
 
 .table {
-	margin-bottom: 2rem;
+	margin: 0.75rem 0;
 }
 
 .table>:not(caption)>*>td {
@@ -170,6 +170,7 @@ input[type='radio'] {
 .card-block.row {
 	margin-left: 0;
 	margin-right: 0;
+	padding-bottom: 1rem;
 }
 
 .card-header {
@@ -203,7 +204,7 @@ td.is-invalid .form-control {
 }
 
 .form-group {
-	margin-bottom: 1rem;
+	margin: 1rem 0;
 }
 
 .form-control,
