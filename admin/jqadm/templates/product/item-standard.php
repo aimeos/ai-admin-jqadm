@@ -254,18 +254,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 						</a>
 					</li>
 
-					<?php foreach( array_splice( $navlist, 0, $navlimit ) as $idx => $subpart ) : ?>
-						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
-								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
-							</a>
-						</li>
-					<?php endforeach; ?>
-
-					<li class="separator"><i class="nav-link icon more"></i></li>
-
 					<?php foreach( $navlist as $idx => $subpart ) : ?>
-						<li class="nav-item advanced <?= $enc->attr( $subpart ); ?>">
+						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
 							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + $navlimit + 1; ?>">
 								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
 							</a>
@@ -287,6 +277,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/product.editor' ) ); ?></span>
 					</small>
 				</div>
+
+				<div class="more"></div>
 			</div>
 		</div>
 

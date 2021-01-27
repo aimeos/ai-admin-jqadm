@@ -11,9 +11,11 @@
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #F8F8F8;
-	margin-bottom: 0.5rem;
+	box-shadow: var(--ai-shadow);
+	background-color: #fff;
+	margin: 0.5rem 0;
 	min-height: 2.5rem;
+	margin-bottom: 1rem;
 	padding: 0 0.5rem;
 	z-index: 1040;
 }
@@ -67,6 +69,7 @@
 
 
 /** Search field with custom selects **/
+
 
 .aimeos .main-navbar .input-group {
 	width: inherit;
@@ -136,13 +139,11 @@
 
 .aimeos .main-content {
 	padding: 0;
-	margin: 0.75rem;
-	min-height: calc(100vh - 6rem);
+	min-height: calc(100vh - 5.5rem);
 }
 
 .aimeos .main-content .item-actions {
 	white-space: nowrap;
-	font-size: 0.8rem;
 	display: block;
 	width: inherit;
     margin: 0.5rem 0;
@@ -154,14 +155,14 @@
 }
 
 .aimeos .main-content .item-actions .btn:not(.dropdown-toggle) {
-	min-width: 4rem;
+	min-width: 6.5rem;
 }
 
 .aimeos .main-content .item-actions .btn.act-help {
 	min-width: 2rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
 	.aimeos .main-navbar {
 		position: sticky;
 		min-height: 3rem;

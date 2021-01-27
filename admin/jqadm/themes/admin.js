@@ -874,24 +874,24 @@ Aimeos.Nav = {
 	toggleNavItems : function() {
 
 		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/item/navbar') == 1) {
-			$(".aimeos .item-navbar .separator .more").removeClass("more").addClass("less");
-			$(".aimeos .item-navbar .advanced").css("display", "list-item");
+			$(".aimeos .item-navbar .navbar-content .more").removeClass("more").addClass("less");
+			$(".aimeos .item-navbar .navbar-content").addClass("show");
 		}
 
-		$(".aimeos .item-navbar").on("click", ".separator .more", function(ev) {
-			$(".advanced", ev.delegateTarget).css("display", "list-item");
-			$(ev.currentTarget).removeClass("more").addClass("less");
+		$(".aimeos .item-navbar .navbar-content").on("click", ".more", function(ev) {
 			if(window.sessionStorage) {
 				window.sessionStorage.setItem('aimeos/jqadm/item/navbar', 1);
 			}
+			$(ev.currentTarget).removeClass("more").addClass("less");
+			$(ev.delegateTarget).addClass("show");
 		});
 
-		$(".aimeos .item-navbar").on("click", ".separator .less", function(ev) {
-			$(".advanced", ev.delegateTarget).css("display", "none");
-			$(ev.currentTarget).removeClass("less").addClass("more");
+		$(".aimeos .item-navbar .navbar-content").on("click", ".less", function(ev) {
 			if(window.sessionStorage) {
 				window.sessionStorage.setItem('aimeos/jqadm/item/navbar', 0);
 			}
+			$(ev.currentTarget).removeClass("less").addClass("more");
+			$(ev.delegateTarget).removeClass("show");
 		});
 	},
 

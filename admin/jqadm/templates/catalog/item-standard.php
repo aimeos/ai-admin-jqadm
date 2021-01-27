@@ -144,6 +144,8 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 									<span class="meta-value"><?= $enc->html( $this->get( 'itemData/catalog.editor' ) ); ?></span>
 								</small>
 							</div>
+
+							<div class="more"></div>
 						</div>
 					</div>
 
