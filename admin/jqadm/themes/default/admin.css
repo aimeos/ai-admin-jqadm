@@ -84,7 +84,6 @@
 
 .aimeos .tree-toolbar .btn {
 	font-size: initial;
-	padding: 0.7rem 1rem;
 }
 
 .aimeos .tree-toolbar .btn.expand-all:before {
@@ -96,7 +95,8 @@
 }
 
 .aimeos .tree-toolbar .search-input {
-	border-top: 1px solid #bbb;
+	border-top: 1px solid var(--ai-line-table-color, #dee2e6);
+	border-bottom: 1px solid var(--ai-line-table-color, #dee2e6);
 }
 
 .aimeos .tree-toolbar .btn.act-add:before {
@@ -109,19 +109,29 @@
 
 
 .aimeos form.list {
-	margin-bottom: 1rem;
-	padding-bottom: 0.5rem;
+	background-color: #fff;
+	box-shadow: var(--ai-shadow);
+	margin: 0.5rem 0;
+	padding: 1rem;
 }
 
 
 /* Item listing */
+
+.aimeos .list-view {
+	width: 100%;
+	padding-right: var(--bs-gutter-x,.75rem);
+	padding-left: var(--bs-gutter-x,.75rem);
+	margin-right: auto;
+	margin-left: auto;
+}
 
 .aimeos .noitems {
 	margin: 1rem;
 }
 
 .aimeos tbody tr.list-search {
-	background-color: #E4E8F2;
+	background-color: #F4F8FB;
 }
 
 .aimeos .list-item-new {
@@ -134,12 +144,12 @@
 }
 
 .aimeos .list-items th {
-	background-color: #202830;
+	background-color: var(--ai-primary, #0090e0);
 	color: #FFF;
 }
 
 .aimeos .list-items th.actions {
-	background-color: #5A6884;
+	background-color: var(--ai-primary-light, #0090e0b0);
 }
 
 .aimeos .list-items th a {
@@ -301,11 +311,6 @@
 .aimeos table.item-config .config-row-key,
 .aimeos table.item-config .config-row-value {
 	width: 49%;
-}
-
-.aimeos table.item-config th {
-	background-color: #ffffff;
-	color: #292b2c;
 }
 
 .aimeos .config-map-table {

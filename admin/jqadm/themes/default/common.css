@@ -4,8 +4,52 @@
  */
 
 
+/* Theme colors */
+
+:root {
+	--ai-primary: #0090e0;
+	--ai-primary-dark: #0070c0;
+	--ai-primary-light: #0090e0b0;
+	--ai-primary-alt: #00b0a0;
+	--ai-primary-alt-dark: #009080;
+	--ai-primary-alt-light: #00b0a0b0;
+	--ai-menu-color: #ffffff;
+	--ai-menu-color-active: #607080;
+	--ai-menu-color-scroll: #e0e0e0;
+	--ai-menu-bg: #0090e0;
+	--ai-menu-bg-active: #ffffff;
+	--ai-menu-app: #0090e0;
+	--ai-line-color: #bbb;
+	--ai-line-table-color: #dee2e6;
+	--ai-bg: #F8FAFC;
+	--ai-shadow: #a8b8c825 0px 3px 9px 0px;
+}
+
 
 /* Common styles */
+
+body {
+	background-color: var(--ai-bg, #F8FAFC);
+}
+
+
+/* Scrollbar styles for webkit browsers */
+::-webkit-scrollbar {
+	background-color: var(--ai-bg, #F8FAFC);
+	width: 0.35rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--ai-menu-color-scroll, #e0e0e0);
+	outline: none;
+}
+
+/* Scrollbar styles for Firefox */
+html {
+	scrollbar-color: var(--ai-menu-color-scroll, #e0e0e0) transparent;
+	scrollbar-width: thin;
+	overflow-y: scroll;
+}
 
 .aimeos .hidden {
 	display: none;
@@ -15,6 +59,10 @@
 .aimeos div.disabled,
 .aimeos span.disabled {
 	text-decoration: line-through;
+}
+
+.aimeos a:focus {
+	outline: none;
 }
 
 .aimeos .warning,
@@ -41,17 +89,36 @@
 	content: ":";
 }
 
+.aimeos .tab-pane {
+	--bs-gutter-x: 0;
+}
+
+.aimeos .content-block {
+	box-shadow: var(--ai-shadow);
+	background-color: #fff;
+	margin-bottom: 1rem;
+	padding: 1rem;
+}
+
 .aimeos .card.sortable-ghost,
 .aimeos tr.sortable-ghost {
     opacity: 0;
 }
 
 .aimeos .card {
-	margin-bottom: 0.5rem;
+	box-shadow: var(--ai-shadow);
+	margin-bottom: 1rem;
+	padding: 1rem;
 }
 
 .aimeos .card-header {
 	padding: 0.25rem;
+	background: #FFF;
+	border-bottom: 1px solid #4090C0;
+}
+
+.aimeos .card-header.collapsed {
+	border-bottom: 1px solid transparent;
 }
 
 .aimeos .header.is-invalid {
@@ -158,15 +225,17 @@
 .aimeos .card-tools-right {
 	position: absolute;
 	right: 0.5rem;
-	top: 0.45rem;
+	top: 1.25rem;
 }
 
 .aimeos .card-tools-more {
 	padding: 0 0.5rem;
 }
 
-.aimeos .content-block {
-	margin-bottom: 2.5rem;
+.aimeos .card-block.row {
+	margin-left: 0;
+	margin-right: 0;
+	padding-bottom: 1rem;
 }
 
 .aimeos .card-block .advanced {
@@ -251,44 +320,79 @@
 	display: none;
 }
 
-.aimeos .nav-tabs .separator:hover {
-	background-color: #E0E0E0;
+.aimeos .item .navbar-content {
+	position: relative;
+	max-height: 5.5rem;
+	overflow: hidden;
+	margin-bottom: 1rem;
+	box-shadow: var(--ai-shadow);
 }
 
-.aimeos .item-content .separator:hover {
-	background-color: #F8F8F8;
+.aimeos .item .navbar-content.show {
+	max-height: unset;
 }
 
-.aimeos .nav-tabs .more,
-.aimeos .nav-tabs .less,
+.aimeos .item .navbar-content .more {
+	background-color: var(--ai-menu-bg-active, #ffffff);
+	color: var(--ai-menu-color-active, #607080);
+	position: absolute;
+	height: 2.5rem;
+	width: 100%;
+	bottom: 0;
+}
+
+.aimeos .item .navbar-content.show .more {
+	background-color: var(--ai-bg, #F8FAFC);
+	position: static;
+}
+
+.aimeos .item .nav-tabs .nav-link {
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.aimeos .item:not(.item-catalog) .navbar-content {
+		max-height: 20rem;
+	}
+
+	.aimeos .item:not(.item-catalog) .nav-tabs,
+	.aimeos .item:not(.item-catalog) .nav-item {
+		width: 100%;
+	}
+}
+
+@media (min-width: 768px) {
+	.aimeos .item:not(.item-catalog) .nav-tabs .nav-link {
+		text-align: left;
+	}
+}
+
+.aimeos .navbar-content .more,
+.aimeos .navbar-content .less,
 .aimeos .item-content .more,
 .aimeos .item-content .less {
 	font: normal normal normal 14px/1 FontAwesome;
-	font-weight: bold;
+	font-weight: normal;
 	font-size: 125%;
 	cursor: pointer;
 	color: #808080;
 	display: block;
 	text-align: center;
 	border: transparent;
+	padding: 1rem 0;
 }
 
-.aimeos .nav-tabs .more:before,
+.aimeos .navbar-content .more:before,
 .aimeos .item-content .more:before {
-	content: "\f0d7";
+	content: "\f141";
 }
 
-.aimeos .nav-tabs .less:before,
+.aimeos .navbar-content .less:before,
 .aimeos .item-content .less:before {
-	content: "\f0d8";
+	content: "\f106";
 }
 
 @media (min-width: 768px) {
-	.aimeos .item .navbar-content {
-		position: sticky;
-		z-index: 1020;
-		top: 4.5rem;
-	}
 	.aimeos .item-container .item-actions {
 		display: none;
 	}
