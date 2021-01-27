@@ -18,7 +18,7 @@ $keys = [
 
 
 ?>
-<div id="address" class="item-address content-block tab-pane fade" role="tabpanel" aria-labelledby="address">
+<div id="address" class="item-address tab-pane fade" role="tabpanel" aria-labelledby="address">
 	<div id="item-address-group" role="tablist" aria-multiselectable="true"
 		data-items="<?= $enc->attr( $this->get( 'addressData', [] ) ); ?>"
 		data-keys="<?= $enc->attr( $keys ) ?>"

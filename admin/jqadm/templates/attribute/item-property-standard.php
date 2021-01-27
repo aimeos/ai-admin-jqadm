@@ -12,7 +12,7 @@ $enc = $this->encoder();
 ?>
 <div id="property" class="item-property tab-pane fade" role="tabpanel" aria-labelledby="property">
 
-	<div class="vue-block" data-data="<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>">
+	<div class="content-block vue-block" data-data="<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>">
 
 		<property-table
 			v-bind:domain="'attribute'" v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
