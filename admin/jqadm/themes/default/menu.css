@@ -3,12 +3,12 @@
  * @copyright Aimeos (aimeos.org), 2015-2021
  */
 
- .app-menu {
-	background: #202830;
+.app-menu {
 	color: #fff;
 	height: 2.5rem;
 	display: flex;
 	justify-content: space-between;
+	background: linear-gradient(135deg, var(--ai-primary, #0090e0) min(15%, 12rem), var(--ai-primary-alt, #00b0a0) 100%);
 }
 
 .app-menu .menu,
@@ -46,28 +46,20 @@
 	top: 0;
 }
 
-.aimeos .main-sidebar {
-	position: fixed;
-	left: 0;
-	top: 0;
-	z-index: 1200;
-	color: #B8C8D0;
-	background: #202830;
-}
-
 
 /* Logo */
 
 .aimeos .logo {
 	display: block;
 	height: 2.5rem;
-	width: 6rem;
+	width: 100%;
+	min-width: 12rem;
+	background-color: var(--ai-menu-app, #0090e0);
 }
 
 .aimeos .logo img {
-	width: 5rem;
+	width: 6rem;
 	top: 50%;
-	left: 50%;
 	display: block;
 	position: relative;
 	transform: translate(-50%, -50%);
@@ -77,9 +69,10 @@
 	.aimeos .logo {
 		position: fixed;
 		display: inline-block;
-		background: #202830;
+		background-color: var(--ai-menu-app, #0090e0);
 		padding: 0.625rem 0.5rem;
 		z-index: 100;
+		width: 15%;
 		margin: 0;
 		left: 0;
 		top: 0;
@@ -89,21 +82,37 @@
 
 /* Sidebar */
 
+.aimeos .main-sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+    z-index: 1200;
+	width: max(15%, 12rem);
+	color: var(--ai-menu-color, #ffffff);
+	background-color: var(--ai-menu-bg, #0090e0);
+}
+
 .aimeos .sidebar-wrapper {
 	position: fixed;
-	overflow-y: scroll;
-	bottom: 0;
+	overflow-y: auto;
+	bottom: 2rem;
 	top: 2.5rem;
-	width: 6rem;
-	min-height: calc(100vh - 5.5rem);
-	background: #202830;
+	width: max(15%, 12rem);
+	min-height: calc(100vh - 6.5rem);
+	background-color: var(--ai-menu-bg, #0090e0);
 	transform-origin: left top;
 	transition: width .3s ease-in-out, transform .3s ease-in-out;
+	direction: rtl;
 }
 
 .aimeos .sidebar-menu {
-	background: #202830;
+	background-color: var(--ai-bg, #F8FAFC);
 	overflow: hidden;
+	direction: ltr;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .aimeos .sidebar-menu:hover {
@@ -122,76 +131,106 @@
 }
 
 .aimeos .sidebar-menu li {
+	background-color: var(--ai-menu-bg, #0090e0);
 	border-left: 0.2rem solid transparent;
 	border-right: 0.2rem solid transparent;
 }
 
 .aimeos .main-sidebar .icon {
+	display: inline-block;
 	font: normal normal normal 14px/1 FontAwesome;
-	font-size: 150%;
-	display: block;
+	font-size: 100%;
 }
 
 .aimeos .main-sidebar .separator,
 .aimeos .sidebar-menu>li {
-	text-align: center;
+	text-align: left;
 	position: relative;
 	padding: 0;
 	margin: 0;
 }
 
+.aimeos .main-sidebar .separator {
+	text-align: center;
+}
+
 .aimeos .main-sidebar .separator .icon,
 .aimeos .sidebar-menu>li>span,
 .aimeos .sidebar-menu>li>a {
-	padding: 0.5rem 0;
+	padding: 0.5rem 1rem;
 	display: block;
 }
 
-.aimeos .sidebar-menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	padding-top: 1rem;
-}
-
 .aimeos .main-sidebar .title {
-	font-size: 90%;
+	padding: 0.25rem;
 }
 
 .aimeos .sidebar-menu a {
-	color: #B8C8D0;
+	color: var(--ai-menu-color, #ffffff);
+}
+
+.aimeos .sidebar-menu .active a,
+.aimeos .sidebar-menu a:hover {
+	color: var(--ai-menu-color-active, #607080);
 }
 
 .aimeos .main-sidebar:hover li.active {
 	border-left-color: transparent;
-	background: #202830;
+	background-color: var(--ai-menu-bg, #0090e0);
 }
 
 .aimeos .main-sidebar .separator {
 	border-left-color: transparent;
-	color: #B8C8D0;
+	color: var(--ai-menu-color, #ffffff);
 }
 
-.aimeos .main-sidebar .sidebar-menu>li:hover,
-.aimeos .sidebar-menu>li.active {
-	border-left-color: #4090C0;
-	background: #182028;
-	color: #ffffff;
+.aimeos .main-sidebar .sidebar-menu>li:hover {
+	color: var(--ai-menu-color-active, #607080);
+	border-left-color: var(--ai-menu-bg-active, #F8FAFC);
+	background-color: var(--ai-bg, #F8FAFC);
 }
 
-.aimeos .sidebar-menu .title {
-	padding: 0.25rem 0;
+.aimeos .main-sidebar .sidebar-menu>li.active {
+	color: var(--ai-menu-color-active, #607080);
+	border-left-color: var(--ai-menu-bg-active, #F8FAFC);
+	background-color: var(--ai-bg, #F8FAFC);
 }
 
-.aimeos .main-sidebar .separator {
-	background: #202830;
+.aimeos .main-sidebar .sidebar-menu li.before {
+	border-bottom-right-radius: 2rem;
+}
+
+.aimeos .main-sidebar .sidebar-menu li.after {
+	border-top-right-radius: 2rem;
+}
+
+.aimeos .main-sidebar .sidebar-menu li:hover {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+
+.aimeos .main-sidebar ::-webkit-scrollbar {
+	width: 0;
+}
+
+.aimeos .main-sidebar ::-webkit-scrollbar-thumb {
+	outline: none;
+}
+
+.aimeos .main-sidebar .sidebar-wrapper {
+	scrollbar-width: none;
 }
 
 
 @media (max-width: 991px) {
+	.aimeos .main-sidebar {
+		width: 0;
+	}
+
 	.aimeos .sidebar-wrapper {
-		width: 15rem;
-		margin-left: -15rem;
+		width: max(15%, 12rem);
+		margin-left: min(-15%, -12rem);
 		transition: margin-left .3s ease-in-out, transform .3s ease-in-out;
 	}
 
@@ -217,17 +256,17 @@
 	-webkit-transform: translateZ(0);
 	position: fixed;
 	display: block;
-	top: 2.5rem;
-	left: 6rem;
+	top: 0;
+	left: max(12rem, 15%);
 	bottom: 0;
 	padding: 0;
-	width: 15rem;
-	overflow-y: scroll;
+	width: max(15%, 12rem);
+	overflow-y: auto;
 	visibility: hidden;
-	background: #202830;
-	z-index: 1;
 	box-sizing: initial;
-	transform: translateX(-15rem);
+	transform: translateX(-12rem);
+	box-shadow: #a8b8c825 6px 3px 9px 0px;
+	background-color: var(--ai-bg, #F8FAFC);
 }
 
 .aimeos .sidebar-menu li:hover .tree-menu-wrapper {
@@ -240,39 +279,48 @@
 	display: flex;
 	position: sticky;
 	top: 0;
-	background: #182028;
+	background-color: var(--ai-menu-bg, #0090e0);
+	color: var(--ai-menu-color, #ffffff);
 	align-items: center;
 	justify-content: center;
 	height: 2.5rem;
-	z-index: 2;
-	margin-bottom: 0.5rem;
+}
+
+.aimeos .sidebar-menu .tree-menu-wrapper .menu-footer {
+    background-color: var(--ai-menu-bg);
+	height: 2rem;
+	width: 100%;
+}
+
+.aimeos .sidebar-menu  .tree-menu li {
+	background-color: var(--ai-bg, #F8FAFC);
+	border-left: 0.2rem solid transparent;
+	border-right: 0.2rem solid transparent;
 }
 
 .aimeos .sidebar-menu li .tree-menu {
 	display: block;
 	position: relative;
-	min-height: calc(100vh - 5.5rem);
-	background: #202830;
+	overflow-y: auto;
+	height: calc(100vh - 4.5rem);
+	background-color: var(--ai-bg, #F8FAFC);
 	box-sizing: initial;
 	text-align: left;
 	list-style: none;
-	padding: 0 0 1rem 0;
+	padding: 0;
 	margin: 0;
 }
 
 .aimeos .sidebar-menu li .tree-menu a {
 	border-left-color: transparent;
-	color: #B8C8D0;
 	padding: 0.5rem 1.5rem;
 	display: block;
-	color: #90A0B0;
+	color: var(--ai-menu-color-active, #607080);
 }
 
 .aimeos .sidebar-menu li .tree-menu li:hover,
 .aimeos .sidebar-menu li .tree-menu li.active {
-	border-left-color: #4090C0;
-	background: #182028;
-	color: #ffffff;
+	color: var(--ai-menu-color, #ffffff);
 }
 
 .aimeos .sidebar-menu li .tree-menu .name {
@@ -284,6 +332,25 @@
 	list-style: none;
 	padding: 0 1rem;
 }
+
+
+/* Scrollbar styles for webkit browsers */
+.aimeos .sidebar-menu .tree-menu-wrapper ::-webkit-scrollbar {
+	background-color: var(--ai-bg, #F8FAFC);
+	width: 0.35rem;
+}
+
+.aimeos .sidebar-menu .tree-menu-wrapper ::-webkit-scrollbar-thumb {
+	background-color: var(--ai-menu-color-scroll, #e0e0e0);
+	outline: none;
+}
+
+/* Scrollbar styles for Firefox */
+.aimeos .sidebar-menu .tree-menu-wrapper .sidebar-wrapper {
+	scrollbar-color: var(--ai-menu-color-scroll, #e0e0e0) transparent;
+	scrollbar-width: thin;
+}
+
 
 @media (max-width: 991px) {
 	.aimeos .sidebar-menu li .tree-menu-wrapper {
@@ -396,28 +463,28 @@
 .aimeos .main-sidebar .separator .more:before,
 .aimeos .main-sidebar .separator .less:before,
 .aimeos .toggle-nav-items-texts .icon:before {
-	color: #4090C0;
+	color: var(--ai-menu-color, #ffffff);
 }
 
 
-/* Scrollbar styles for webkit browsers */
+/* Footer */
 
-.aimeos .main-sidebar ::-webkit-scrollbar {
-	width: 0.35rem;
-	background-color: #202830;
-	-webkit-box-shadow: inset 0 0 6px #0000004d;
-	box-shadow: inset 0 0 6px #0000004d;
+.aimeos .main-footer {
+	background: linear-gradient(135deg, var(--ai-primary, #0090e0) min(15%, 12rem), #00b0a0 100%);
+	position: relative;
+	padding: 0.25rem 1rem;
+	margin-top: 0.5rem;
+	text-align: right;
+	width: auto;
 }
 
-.aimeos .main-sidebar ::-webkit-scrollbar-thumb {
-	background-color: #4090C0;
-	outline: 1px solid #4090C0;
-	border-radius: calc(0.25rem - 2px);
+.aimeos .main-footer a {
+	color: var(--ai-menu-color, #ffffff);
 }
 
-/* Scrollbar styles for Firefox */
-
-.aimeos .main-sidebar .sidebar-wrapper {
-	scrollbar-color: #4090C0 transparent;
-	scrollbar-width: thin;
+@media (min-width: 992px) {
+	.aimeos .main-footer {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }

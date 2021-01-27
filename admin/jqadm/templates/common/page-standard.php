@@ -189,57 +189,10 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 									<?php endif; ?>
 								<?php endforeach; ?>
 							</ul>
+							<div class="menu-footer"></div>
 						</div>
 					</li>
 				<?php endif; ?>
-
-				<?php foreach( $navlist->splice( 0, $navlimit ) as $nav => $navitem ) : ?>
-					<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? $nav ?>
-						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $nav . '/groups', [] ) ) ) : ?>
-							<li class="treeview <?= $enc->attr( $nav ) ?> <?= strncmp( $this->param( 'resource' ), $nav, strlen( $nav ) ) ? '' : 'active' ?>">
-								<span>
-									<i class="icon"></i>
-									<span class="title"><?= $enc->attr( $this->translate( 'admin', $nav ) ); ?></span>
-								</span>
-								<div class="tree-menu-wrapper">
-									<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
-									<ul class="tree-menu">
-										<?php foreach( map( $navitem )->remove( '' )->ksort() as $subresource ) : ?>
-											<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
-												<li class="<?= str_replace( '/', '-', $subresource ); ?>">
-													<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
-														<span class="name"><?= $enc->html( $this->translate( 'admin', $subresource ) ); ?></span>
-													</a>
-												</li>
-											<?php endif; ?>
-										<?php endforeach; ?>
-									</ul>
-								</div>
-							</li>
-
-						<?php endif; ?>
-					<?php else : ?>
-						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $navitem . '/groups', [] ) ) ) : ?>
-							<?php $key = $this->config( 'admin/jqadm/resource/' . $navitem . '/key' ); ?>
-
-							<li class="<?= $enc->attr( $navitem ); ?> <?= $this->param( 'resource', $navfirst ) === $navitem ? 'active' : '' ?>">
-								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $navitem ) + $params, [], $config ) ); ?>"
-									title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', $navitem ), $key ) ); ?>"
-									data-ctrlkey="<?= $enc->attr( strtolower( $key ) ); ?>">
-									<i class="icon"></i>
-									<span class="title"><?= $enc->html( $this->translate( 'admin', $navitem ) ); ?></span>
-								</a>
-							</li>
-
-						<?php endif; ?>
-					<?php endif; ?>
-				<?php endforeach; ?>
-
-			</ul>
-
-			<div class="separator"><i class="icon more"></i></div>
-
-			<ul class="sidebar-menu advanced">
 
 				<?php foreach( $navlist as $nav => $navitem ) : ?>
 					<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? $nav ?>
@@ -261,8 +214,8 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 												</li>
 											<?php endif; ?>
 										<?php endforeach; ?>
-
 									</ul>
+									<div class="menu-footer"></div>
 								</div>
 							</li>
 
@@ -270,6 +223,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 					<?php else : ?>
 						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $navitem . '/groups', [] ) ) ) : ?>
 							<?php $key = $this->config( 'admin/jqadm/resource/' . $navitem . '/key' ); ?>
+
 							<li class="<?= $enc->attr( $navitem ); ?> <?= $this->param( 'resource', $navfirst ) === $navitem ? 'active' : '' ?>">
 								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $navitem ) + $params, [], $config ) ); ?>"
 									title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', $navitem ), $key ) ); ?>"

@@ -170,36 +170,7 @@
 		top: 0;
 	}
 
-	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
-		min-width: 5rem;
-	}
-}
-
-@media (min-width: 992px) {
 	.aimeos .main-content {
-		margin-left: 7rem;
-		margin-right: 1rem;
-	}
-
-	.aimeos .main-content .item-actions .btn:not(.dropdown-toggle):not(.act-help) {
-		min-width: 6.5rem;
-	}
-}
-
-
-/* Footer */
-
-.aimeos .main-footer {
-	background-color: #F8F8F8;
-	position: relative;
-	padding: 0.25rem 1rem;
-	text-align: right;
-	width: auto;
-}
-
-@media (min-width: 992px) {
-	.aimeos .main-footer {
-		margin-left: 6rem;
-		margin-right: 0;
+		margin-left: max(15%, 12rem);
 	}
 }

@@ -787,6 +787,7 @@ Aimeos.Nav = {
 	init : function() {
 
 		this.addShortcuts();
+		this.hoverMenu();
 		this.toggleFormItems();
 		this.toggleNavItems();
 		this.toggleMenu();
@@ -840,6 +841,29 @@ Aimeos.Nav = {
 			} else if(ev.which === 13) {
 				$(".btn:focus").trigger("click");
 			}
+		});
+	},
+
+
+	hoverMenu : function() {
+
+		document.querySelectorAll(".aimeos .main-sidebar .sidebar-menu li").forEach(function(item) {
+			item.addEventListener("mouseenter", function(ev) {
+				if(item !== active && ev.target.previousElementSibling) {
+					ev.target.previousElementSibling.classList.add("before");
+				}
+				if(item !== active && ev.target.nextElementSibling) {
+					ev.target.nextElementSibling.classList.add("after");
+				}
+			});
+			item.addEventListener("mouseleave", function(ev) {
+				if(item !== active && ev.target.previousElementSibling) {
+					ev.target.previousElementSibling.classList.remove("before");
+				}
+				if(item !== active && ev.target.nextElementSibling) {
+					ev.target.nextElementSibling.classList.remove("after");
+				}
+			});
 		});
 	},
 
@@ -1043,15 +1067,6 @@ Aimeos.Menu = {
 
 
 
-/**
- * Load JSON admin resource definition immediately
- */
-Aimeos.options = $.ajax($(".aimeos").data("url"), {
-	"method": "OPTIONS",
-	"dataType": "json"
-});
-
-
 $(function() {
 
 	Aimeos.Menu.init();
@@ -1093,3 +1108,28 @@ $(function() {
 		});
 	});
 });
+
+
+/**
+ * Load JSON admin resource definition immediately
+ */
+Aimeos.options = $.ajax($(".aimeos").data("url"), {
+	"method": "OPTIONS",
+	"dataType": "json"
+});
+
+
+/**
+ * Initial menu state
+ */
+(function() {
+	let active;
+	if(active = document.querySelector(".aimeos .main-sidebar .sidebar-menu li.active") ) {
+		if(active.previousElementSibling) {
+			active.previousElementSibling.classList.add("before");
+		}
+		if(active.nextElementSibling) {
+			active.nextElementSibling.classList.add("after");
+		}
+	}
+})();
