@@ -29,19 +29,27 @@ $enc = $this->encoder();
 					</div>
 
 					<div class="modal-body">
-						<select class="form-group form-select filter-key" v-bind:name="name.replace('_key_', 'key' )" v-model="key">
-							<option v-for="entry in attributes" v-bind:value="entry.code" v-bind:selected="filter['key'] && filter['key'][0] && filter['key'][0] === key">
+						<select class="form-group form-select filter-key"
+							v-bind:name="name.replace('_key_', 'key' )" v-model="key">
+							<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
+							<option v-for="entry in attributes" v-bind:value="entry.code"
+								v-bind:selected="filter['key'] && filter['key'][0] && filter['key'][0] === key">
 								{{ entry.label }}
 							</option>
 						</select>
 
-						<select class="form-group form-select filter-operator" v-bind:name="name.replace('_key_', 'op' )" v-model="op">
-							<option v-for="(label, item) in oplist" v-bind:value="item" v-bind:selected="filter['op'] && filter['op'][0] && filter['op'][0] === op" >
+						<select class="form-group form-select filter-operator"
+							v-bind:name="name.replace('_key_', 'op' )" v-model="op">
+							<option v-for="(label, item) in oplist" v-bind:value="item"
+								v-bind:selected="filter['op'] && filter['op'][0] && filter['op'][0] === op" >
 								{{ item }}{{ item.length === 1 ? '&nbsp;' : '' }}&nbsp;&nbsp;{{ label }}
 							</option>
 						</select>
 
-						<input v-bind:type="type" class="form-group form-control filter-value" v-bind:name="name.replace('_key_', 'val' )" v-bind:value="filter['val'] && filter['val'][0] || ''" >
+						<input v-bind:type="type" class="form-group form-control filter-value"
+							v-bind:name="name.replace('_key_', 'val' )"
+							v-bind:value="filter['val'] && filter['val'][0] || ''"
+							placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value' ) ) ?>" >
 					</div>
 
 					<div class="modal-footer">

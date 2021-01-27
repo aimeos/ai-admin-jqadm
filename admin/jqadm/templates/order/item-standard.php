@@ -741,9 +741,7 @@ $statusList = [
 					</div>
 
 					<?php if( $this->site()->siteid() == $basket->getSiteId() ) : ?>
-						<div class="row item-summary">
-							<div class="col-xl-6 content-block"></div>
-
+						<div class="row item-summary justify-content-end">
 							<div class="col-xl-6 content-block item-total">
 								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Order totals' ) ); ?></h2>
 								<div class="form-group row total-subtotal">

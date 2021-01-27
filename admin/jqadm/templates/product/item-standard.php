@@ -292,7 +292,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 
 		<div class="col-md-9 item-content tab-content">
 
-			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="row item-basic tab-pane fade show active g-0" role="tabpanel" aria-labelledby="basic">
 
 				<div class="col-xl-6 content-block vue-block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>"
 					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
