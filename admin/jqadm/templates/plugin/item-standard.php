@@ -29,7 +29,7 @@ $enc = $this->encoder();
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
-<form class="item item-plugin form-horizontal" method="POST" enctype="multipart/form-data"
+<form class="item item-plugin form-horizontal container-fluid" method="POST" enctype="multipart/form-data"
 	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.id' ) ) ); ?>"
 		value="<?= $enc->attr( $this->get( 'itemData/plugin.id' ) ); ?>" />
