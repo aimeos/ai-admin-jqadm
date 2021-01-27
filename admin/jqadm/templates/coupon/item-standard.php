@@ -182,7 +182,7 @@ $params = $this->get( 'pageParams', [] );
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>">
-					<table class="item-config-ext table">
+					<table class="item-config table">
 						<thead>
 							<tr>
 								<th class="config-row-key">

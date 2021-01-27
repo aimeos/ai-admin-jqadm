@@ -332,7 +332,7 @@ Aimeos.Config = {
 			}).done(function(result) {
 
 				$(result.data).each(function(idx, entry) {
-					var nodes = $("table.item-config-ext input.config-key", target);
+					var nodes = $("table.item-config input.config-key", target);
 					var node = null;
 					var value = '';
 
@@ -343,7 +343,7 @@ Aimeos.Config = {
 					})
 
 					if(node) {
-						var el = $("table.item-config-ext .config-item.prototype .config-type-" + entry.attributes.type, target).clone();
+						var el = $("table.item-config .config-item.prototype .config-type-" + entry.attributes.type, target).clone();
 						var row = node.closest(".config-item");
 						var valnode = $(".config-value", row);
 						value = valnode.val();
@@ -357,7 +357,7 @@ Aimeos.Config = {
 						$(".help-text", row).text(entry.attributes.label);
 						$(".config-row-value", row).append(el);
 					} else {
-						var row = Aimeos.addClone($("table.item-config-ext .config-item.prototype", target));
+						var row = Aimeos.addClone($("table.item-config .config-item.prototype", target));
 
 						$(".config-row-value .config-type:not(.config-type-" + entry.attributes.type + ")", row).remove();
 						$(".config-row-key .help-text", row).text(entry.attributes.label);
@@ -391,9 +391,9 @@ Aimeos.Config = {
 
 	addConfigLine : function() {
 
-		$(".aimeos .item .tab-pane").on("click", ".item-config-ext .actions .act-add", function(ev) {
+		$(".aimeos .item .tab-pane").on("click", ".item-config .actions .act-add", function(ev) {
 
-			var node = $(this).closest(".item-config-ext");
+			var node = $(this).closest(".item-config");
 			var clone = Aimeos.addClone($(".prototype", node));
 			var types = $(".config-type", clone);
 
@@ -424,7 +424,7 @@ Aimeos.Config = {
 
 	deleteConfigLine : function() {
 
-		$(".aimeos .item .tab-pane").on("click", ".item-config-ext .config-item .actions .act-delete", function(ev) {
+		$(".aimeos .item .tab-pane").on("click", ".item-config .config-item .actions .act-delete", function(ev) {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
@@ -432,7 +432,7 @@ Aimeos.Config = {
 
 	configComplete : function() {
 
-		var node = $(".aimeos .item-config-ext");
+		var node = $(".aimeos .item-config");
 		$(".config-item .config-key", node).autocomplete({
 			source: node.data("keys") || [],
 			minLength: 0,
@@ -447,7 +447,7 @@ Aimeos.Config = {
 
 	addConfigMapLine : function() {
 
-		$(".aimeos .item-config-ext").on("click", ".config-map-table .config-map-actions .act-add", function(ev) {
+		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-add", function(ev) {
 
 			var node = $(this).closest(".config-map-table");
 			var clone = Aimeos.addClone($(".prototype-map", node));
@@ -462,7 +462,7 @@ Aimeos.Config = {
 
 	deleteConfigMapLine : function() {
 
-		$(".aimeos .item-config-ext").on("click", ".config-map-table .config-map-actions .act-delete", function(ev) {
+		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-delete", function(ev) {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
 		});
 	},
@@ -470,7 +470,7 @@ Aimeos.Config = {
 
 	hideConfigMap : function() {
 
-		$(".aimeos .item-config-ext").on("click", ".config-map-table .config-map-actions .act-update", function(ev) {
+		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-update", function(ev) {
 
 			var obj = {};
 			var table = $(this).closest(".config-map-table");
@@ -492,7 +492,7 @@ Aimeos.Config = {
 
 	showConfigMap : function() {
 
-		$(".aimeos .item-config-ext").on("focus", ".config-value", function() {
+		$(".aimeos .item-config").on("focus", ".config-value", function() {
 
 			var table = $(".config-map-table", $(this).parent());
 
