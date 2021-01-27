@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="order-salesweekday card col-lg-6">
+<div class="chart order-salesweekday card col-lg-6">
 	<div id="order-salesweekday-head" class="card-header header" role="tab"
 		data-bs-toggle="collapse" data-target="#order-salesweekday-data"
 		aria-expanded="true" aria-controls="order-salesweekday-data">

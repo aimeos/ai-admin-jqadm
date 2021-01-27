@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="order-counthour card col-lg-6">
+<div class="chart order-counthour card col-lg-6">
 	<div id="order-counthour-head" class="card-header header" role="tab"
 		data-bs-toggle="collapse" data-target="#order-counthour-data"
 		aria-expanded="true" aria-controls="order-counthour-data">

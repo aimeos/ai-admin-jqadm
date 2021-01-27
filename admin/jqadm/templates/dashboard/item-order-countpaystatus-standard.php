@@ -18,7 +18,7 @@ $trans = array(
 );
 
 ?>
-<div class="order-countpaystatus card col-lg-6">
+<div class="chart order-countpaystatus card col-lg-6">
 	<div id="order-countpaystatus-head" class="card-header header" role="tab"
 		data-bs-toggle="collapse" data-target="#order-countpaystatus-data"
 		aria-expanded="true" aria-controls="order-countpaystatus-data">

@@ -3,22 +3,16 @@
  * @copyright Aimeos (aimeos.org), 2016-2018
  */
 
-.dashboard .card {
+ .dashboard .card {
 	border: none;
-}
-
-.dashboard .card-header {
-	border-left: 1px solid #e5e5e5;
-	border-right: 1px solid #e5e5e5;
 }
 
 .dashboard .card-block {
 	padding: 0.5rem;
 }
 
-.dashboard .content {
-	border: 1px solid #e5e5e5;
-	border-top: none;
+.dashboard .chart .content {
+	border: none;
 	height: 280px;
 	overflow-y: auto;
 }
@@ -64,15 +58,6 @@
 }
 
 
-/* Settings styles */
-
-.dashboard .dashboard-setting .content {
-	max-height: 280px;
-	height: auto;
-	overflow-y: auto;
-}
-
-
 /* Job styles */
 
 .dashboard .dashboard-job .content {
@@ -81,11 +66,6 @@
 
 
 /* Latest order list styles */
-
-.dashboard .order-latest .content {
-	min-height: 280px;
-	height: auto;
-}
 
 .dashboard .order-latest td {
 	height: inherit;
@@ -116,9 +96,6 @@
 }
 
 @media (max-width: 768px) {
-	.dashboard .order-latest .content {
-		height: 280px;
-	}
 	.dashboard .order-latest .order-base-service-payment {
 		display: none;
 	}
