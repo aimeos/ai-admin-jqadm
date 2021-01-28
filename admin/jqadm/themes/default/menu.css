@@ -3,12 +3,19 @@
  * @copyright Aimeos (aimeos.org), 2015-2021
  */
 
-.app-menu {
+ .app-menu {
+	width: 100%;
+	z-index: 1200;
 	color: #fff;
 	height: 2.5rem;
 	display: flex;
 	justify-content: space-between;
-	background: linear-gradient(135deg, var(--ai-primary, #0090e0) min(15%, 12rem), var(--ai-primary-alt, #00b0a0) 100%);
+	background: linear-gradient(135deg, var(--ai-primary, #0090e0) max(15%, 12rem), var(--ai-primary-alt, #00b0a0) 100%);
+}
+
+.app-menu.open {
+	position: sticky;
+	top: 0;
 }
 
 .app-menu .menu,
@@ -25,7 +32,7 @@
 	font-size: 100%;
 }
 
-.app-menu .menu.open:before {
+.app-menu.open .menu:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	vertical-align: top;
 	content: "\f00d";
@@ -39,14 +46,6 @@
 }
 
 
-.app-menu.open {
-	position: sticky;
-	z-index: 1200;
-	width: 100%;
-	top: 0;
-}
-
-
 /* Logo */
 
 .aimeos .logo {
@@ -54,25 +53,23 @@
 	height: 2.5rem;
 	width: 100%;
 	min-width: 12rem;
-	background-color: var(--ai-menu-app, #0090e0);
+	background-color: var(--ai-primary, #0090e0);
 }
 
 .aimeos .logo img {
 	width: 6rem;
-	top: 50%;
+	margin: auto;
 	display: block;
-	position: relative;
-	transform: translate(-50%, -50%);
 }
 
 @media (min-width: 992px) {
 	.aimeos .logo {
 		position: fixed;
 		display: inline-block;
-		background-color: var(--ai-menu-app, #0090e0);
+		background-color: var(--ai-primary, #0090e0);
 		padding: 0.625rem 0.5rem;
 		z-index: 100;
-		width: 15%;
+		width: max(15%, 12rem);
 		margin: 0;
 		left: 0;
 		top: 0;
@@ -84,10 +81,10 @@
 
 .aimeos .main-sidebar {
 	position: fixed;
-	left: 0;
-	top: 0;
+	top: 2.5rem;
 	bottom: 0;
-    z-index: 1200;
+	left: 0;
+    z-index: 1150;
 	width: max(15%, 12rem);
 	color: var(--ai-menu-color, #ffffff);
 	background-color: var(--ai-menu-bg, #0090e0);
@@ -95,24 +92,22 @@
 
 .aimeos .sidebar-wrapper {
 	position: fixed;
-	overflow-y: auto;
 	bottom: 2rem;
 	top: 2.5rem;
+	direction: rtl;
+	overflow-y: auto;
 	width: max(15%, 12rem);
 	min-height: calc(100vh - 6.5rem);
-	background-color: var(--ai-menu-bg, #0090e0);
-	transform-origin: left top;
 	transition: width .3s ease-in-out, transform .3s ease-in-out;
-	direction: rtl;
 }
 
 .aimeos .sidebar-menu {
 	background-color: var(--ai-bg, #F8FAFC);
 	overflow: hidden;
-	direction: ltr;
 	list-style: none;
-	margin: 0;
+	direction: ltr;
 	padding: 0;
+	margin: 0;
 }
 
 .aimeos .sidebar-menu:hover {
@@ -184,7 +179,7 @@
 	color: var(--ai-menu-color, #ffffff);
 }
 
-.aimeos .main-sidebar .sidebar-menu>li:hover {
+.aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 	color: var(--ai-menu-color-active, #607080);
 	border-left-color: var(--ai-menu-bg-active, #F8FAFC);
 	background-color: var(--ai-bg, #F8FAFC);
@@ -209,6 +204,9 @@
 	border-bottom-right-radius: 0;
 }
 
+.aimeos .main-sidebar .sidebar-menu>li.none {
+	height: 2rem;
+}
 
 .aimeos .main-sidebar ::-webkit-scrollbar {
 	width: 0;
@@ -225,17 +223,17 @@
 
 @media (max-width: 991px) {
 	.aimeos .main-sidebar {
-		width: 0;
-	}
-
-	.aimeos .sidebar-wrapper {
+		visibility: hidden;
 		width: max(15%, 12rem);
-		margin-left: min(-15%, -12rem);
-		transition: margin-left .3s ease-in-out, transform .3s ease-in-out;
+		left: max(-15%, -12rem);
+		box-shadow: #a8b8c825 6px 3px 9px 0px;
+		transition: left .3s ease-in-out, visibility 0s linear .3s;
 	}
 
-	.aimeos .main-sidebar.open .sidebar-wrapper {
-		margin-left: 0;
+	.aimeos .main-sidebar.open {
+		left: 0;
+		visibility: visible;
+		transition: left .3s ease-in-out, visibility;
 	}
 
 	.aimeos .main-sidebar .icon {
@@ -253,47 +251,69 @@
 /* Tree Menu (sub menu) */
 
 .aimeos .sidebar-menu li .tree-menu-wrapper {
-	-webkit-transform: translateZ(0);
 	position: fixed;
 	display: block;
 	top: 0;
-	left: max(12rem, 15%);
 	bottom: 0;
 	padding: 0;
-	width: max(15%, 12rem);
+	z-index: -1;
 	overflow-y: auto;
 	visibility: hidden;
 	box-sizing: initial;
-	transform: translateX(-12rem);
+	width: max(15%, 12rem);
+	left: min(-15%, -12rem);
 	box-shadow: #a8b8c825 6px 3px 9px 0px;
-	background-color: var(--ai-bg, #F8FAFC);
+	background-color: var(--ai-menu-bg-active, #ffffff);
+	transition: left .3s ease-in-out, z-index .0s linear .3s, visibility 0s linear .3s;
 }
 
-.aimeos .sidebar-menu li:hover .tree-menu-wrapper {
+.aimeos .sidebar-menu li.show .tree-menu-wrapper {
+	left: 0;
+	z-index: 100;
 	visibility: visible;
-	transform: translateX(0);
-	transition: transform .3s ease-in-out, visibility 0s ease-in-out 0s;
+	transition: left .3s ease-in-out, z-index, visibility;
 }
 
-.aimeos .sidebar-menu .tree-menu-wrapper .menu-header {
-	display: flex;
-	position: sticky;
-	top: 0;
+.aimeos .sidebar-menu li .tree-menu-wrapper .menu-header {
 	background-color: var(--ai-menu-bg, #0090e0);
 	color: var(--ai-menu-color, #ffffff);
-	align-items: center;
 	justify-content: center;
+	align-items: center;
+	position: sticky;
+	display: flex;
 	height: 2.5rem;
+	top: 0;
 }
 
-.aimeos .sidebar-menu .tree-menu-wrapper .menu-footer {
+.aimeos .sidebar-menu li .tree-menu-wrapper .menu-header a {
+	color: var(--ai-menu-color, #ffffff);
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+
+.aimeos .sidebar-menu li .tree-menu-wrapper .menu-header a:hover {
+	color: var(--ai-menu-color, #ffffff);
+}
+
+.aimeos .sidebar-menu li .tree-menu-wrapper .menu-header .close {
+	position: absolute;
+	right: 1rem;
+}
+
+.aimeos .sidebar-menu li .tree-menu-wrapper .menu-header .close:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f00d";
+}
+
+.aimeos .sidebar-menu li .tree-menu-wrapper .menu-footer {
     background-color: var(--ai-menu-bg);
 	height: 2rem;
 	width: 100%;
 }
 
-.aimeos .sidebar-menu  .tree-menu li {
-	background-color: var(--ai-bg, #F8FAFC);
+.aimeos .sidebar-menu li .tree-menu li {
+	background-color: var(--ai-menu-bg-active, #ffffff);
 	border-left: 0.2rem solid transparent;
 	border-right: 0.2rem solid transparent;
 }
@@ -302,13 +322,13 @@
 	display: block;
 	position: relative;
 	overflow-y: auto;
-	height: calc(100vh - 4.5rem);
-	background-color: var(--ai-bg, #F8FAFC);
+	height: calc(100vh - 6.5rem);
+	background-color: var(--ai-menu-bg-active, #ffffff);
 	box-sizing: initial;
 	text-align: left;
 	list-style: none;
+	margin: 1rem;
 	padding: 0;
-	margin: 0;
 }
 
 .aimeos .sidebar-menu li .tree-menu a {
@@ -372,12 +392,12 @@
 	content: "\f233"
 }
 
-.aimeos .main-sidebar .expert .icon:before {
-	content: "\f19d"
-}
-
 .aimeos .main-sidebar .dashboard .icon:before {
 	content: "\f0e4"
+}
+
+.aimeos .main-sidebar .sales .icon:before {
+	content: "\f0d6"
 }
 
 .aimeos .main-sidebar .order .icon:before {
@@ -388,8 +408,20 @@
 	content: "\f073"
 }
 
+.aimeos .main-sidebar .users .icon:before {
+	content: "\f0c0"
+}
+
 .aimeos .main-sidebar .customer .icon:before {
 	content: "\f007"
+}
+
+.aimeos .main-sidebar .group .icon:before {
+	content: "\f0c0"
+}
+
+.aimeos .main-sidebar .goods .icon:before {
+	content: "\f1b3"
 }
 
 .aimeos .main-sidebar .product .icon:before {
@@ -404,6 +436,14 @@
 	content: "\f02c"
 }
 
+.aimeos .main-sidebar .supplier .icon:before {
+	content: "\f275"
+}
+
+.aimeos .main-sidebar .marketing .icon:before {
+	content: "\f0a1"
+}
+
 .aimeos .main-sidebar .coupon .icon:before {
 	content: "\f295"
 }
@@ -412,16 +452,8 @@
 	content: "\f086"
 }
 
-.aimeos .main-sidebar .separator .more:before {
-	content: "\f0d7";
-}
-
-.aimeos .main-sidebar .separator .less:before {
-	content: "\f0d8";
-}
-
-.aimeos .main-sidebar .supplier .icon:before {
-	content: "\f275"
+.aimeos .main-sidebar .settings .icon:before {
+	content: "\f085"
 }
 
 .aimeos .main-sidebar .service .icon:before {
@@ -434,10 +466,6 @@
 
 .aimeos .main-sidebar .plugin .icon:before {
 	content: "\f1e6"
-}
-
-.aimeos .main-sidebar .group .icon:before {
-	content: "\f0c0"
 }
 
 .aimeos .main-sidebar .type .icon:before {

@@ -790,9 +790,9 @@ Aimeos.Nav = {
 		this.hoverMenu();
 		this.toggleFormItems();
 		this.toggleNavItems();
-		this.toggleMenu();
 		this.toggleNavItemsTexts();
 		this.toggleSearch();
+		this.toggleSubmenu();
 	},
 
 
@@ -847,7 +847,9 @@ Aimeos.Nav = {
 
 	hoverMenu : function() {
 
-		document.querySelectorAll(".aimeos .main-sidebar .sidebar-menu li").forEach(function(item) {
+		let active = document.querySelector(".aimeos .main-sidebar .sidebar-menu li.active");
+
+		document.querySelectorAll(".aimeos .main-sidebar .sidebar-menu li:not(.none)").forEach(function(item) {
 			item.addEventListener("mouseenter", function(ev) {
 				if(item !== active && ev.target.previousElementSibling) {
 					ev.target.previousElementSibling.classList.add("before");
@@ -862,33 +864,6 @@ Aimeos.Nav = {
 				}
 				if(item !== active && ev.target.nextElementSibling) {
 					ev.target.nextElementSibling.classList.remove("after");
-				}
-			});
-		});
-	},
-
-
-	toggleMenu : function() {
-
-		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/sidebar') == 1) {
-			$(".aimeos .main-sidebar .separator .more").removeClass("more").addClass("less");
-			$(".aimeos .main-sidebar .advanced").show();
-		}
-
-		$(".aimeos .main-sidebar").on("click", ".separator .more", function(ev) {
-			$(".advanced", ev.delegateTarget).slideDown(300, function() {
-				$(ev.currentTarget).removeClass("more").addClass("less");
-				if(window.sessionStorage) {
-					window.sessionStorage.setItem('aimeos/jqadm/sidebar', 1);
-				}
-			});
-		});
-
-		$(".aimeos .main-sidebar").on("click", ".separator .less", function(ev) {
-			$(".advanced", ev.delegateTarget).slideUp(300, function() {
-				$(ev.currentTarget).removeClass("less").addClass("more");
-				if(window.sessionStorage) {
-					window.sessionStorage.setItem('aimeos/jqadm/sidebar', 0);
 				}
 			});
 		});
@@ -959,6 +934,23 @@ Aimeos.Nav = {
 			document.body.classList.toggle('js--show-search');
 		})
 	},
+
+
+	toggleSubmenu : function() {
+
+		document.querySelectorAll(".aimeos .main-sidebar .sidebar-menu>li:not(.none)").forEach(function(item) {
+			item.addEventListener("click", function(ev) {
+				ev.target.closest("li").classList.add("show");
+			});
+		});
+
+		document.querySelectorAll(".aimeos .main-sidebar .sidebar-menu .menu-header").forEach(function(item) {
+			item.addEventListener("click", function(ev) {
+				ev.target.closest("li.treeview").classList.remove("show");
+				ev.stopPropagation();
+			});
+		});
+	}
 };
 
 
@@ -1053,14 +1045,14 @@ Aimeos.Log = {
 
 Aimeos.Menu = {
 	init: function() {
-		$(".app-menu").on("click", ".menu", function(ev) {
+		$("body").on("click", ".app-menu .menu", function(ev) {
 			$(".main-sidebar").addClass("open");
-			$(this).addClass("open");
+			$(".app-menu").addClass("open");
 		});
 
-		$(".app-menu").on("click", ".menu.open", function(ev) {
+		$("body").on("click", ".app-menu.open .menu", function(ev) {
 			$(".main-sidebar").removeClass("open");
-			$(this).removeClass("open");
+			$(".app-menu").removeClass("open");
 		});
 	}
 }
@@ -1117,19 +1109,3 @@ Aimeos.options = $.ajax($(".aimeos").data("url"), {
 	"method": "OPTIONS",
 	"dataType": "json"
 });
-
-
-/**
- * Initial menu state
- */
-(function() {
-	let active;
-	if(active = document.querySelector(".aimeos .main-sidebar .sidebar-menu li.active") ) {
-		if(active.previousElementSibling) {
-			active.previousElementSibling.classList.add("before");
-		}
-		if(active.nextElementSibling) {
-			active.nextElementSibling.classList.add("after");
-		}
-	}
-})();

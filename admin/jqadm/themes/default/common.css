@@ -18,7 +18,6 @@
 	--ai-menu-color-scroll: #e0e0e0;
 	--ai-menu-bg: #0090e0;
 	--ai-menu-bg-active: #ffffff;
-	--ai-menu-app: #0090e0;
 	--ai-line-color: #bbb;
 	--ai-line-table-color: #dee2e6;
 	--ai-bg: #F8FAFC;
@@ -88,11 +87,11 @@ html {
 .aimeos .error-list .sr-only:after {
 	content: ":";
 }
-
+/*
 .aimeos .tab-pane {
 	--bs-gutter-x: 0;
 }
-
+*/
 .aimeos .content-block {
 	box-shadow: var(--ai-shadow);
 	background-color: #fff;
@@ -351,7 +350,7 @@ html {
 }
 
 @media (min-width: 768px) {
-	.aimeos .item:not(.item-catalog) .navbar-content {
+	.aimeos .item:not(.item-catalog) .navbar-content:not(.show) {
 		max-height: 20rem;
 	}
 
@@ -359,9 +358,7 @@ html {
 	.aimeos .item:not(.item-catalog) .nav-item {
 		width: 100%;
 	}
-}
 
-@media (min-width: 768px) {
 	.aimeos .item:not(.item-catalog) .nav-tabs .nav-link {
 		text-align: left;
 	}

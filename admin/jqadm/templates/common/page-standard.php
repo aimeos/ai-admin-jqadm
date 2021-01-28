@@ -123,12 +123,6 @@ $navlist = map( $this->config( 'admin/jqadm/navbar', [] ) )->ksort();
  */
 $navlimit = $this->config( 'admin/jqadm/navbar-limit', 6 );
 
-
-$navfirst = $navlist->first();
-if( is_array( $navfirst ) ) {
-	$navfirst = key( $navlist );
-}
-
 $resource = $this->param( 'resource', 'dashboard' );
 $site = $this->param( 'site', 'default' );
 $lang = $this->param( 'lang' );
@@ -139,6 +133,14 @@ $extParams = ['site' => $site];
 if( $lang ) {
 	$params['lang'] = $extParams['lang'] = $lang;
 }
+
+
+$pos = $navlist->pos( function( $item, $key ) use ( $resource ) {
+	return is_array( $item ) ? in_array( $resource, $item ) : !strncmp( $resource, $item, strlen( $item ) );
+} );
+$before = $pos > 0 ? $navlist->slice( $pos - 1, 1 )->first() : null;
+$after = $pos < count( $navlist ) ? $navlist->slice( $pos + 1, 1 )->first() : null;
+
 
 $title = $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' );
 $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) );
@@ -154,15 +156,19 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 			</a>
 
 			<ul class="sidebar-menu">
+				<li class="none"></li>
 
 				<?php if( ( $this->get( 'pageSiteList', map() )->count() > 1 || !$this->pageSiteTree->getChildren()->isEmpty() || $this->get( 'pageSitePath', map() )->count() > 1 ) && $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) ) : ?>
-					<li class="site treeview">
+					<li class="site treeview <?= $before === null ? 'before' : '' ?>">
 						<a href="#">
 							<i class="icon"></i>
 							<span class="title"><?= $enc->html( $this->site()->label() ); ?></span>
 						</a>
 						<div class="tree-menu-wrapper">
-							<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
+							<div class="menu-header">
+								<a href="#"><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></a>
+								<span class="close"></span>
+							</div>
 							<ul class="tree-menu">
 
 								<?php $siteFcn = function( \Aimeos\MShop\Locale\Item\Site\Iface $site ) use ( &$siteFcn, $enc, $searchTarget, $cntl, $action, $params, $config ) { ?>
@@ -195,15 +201,18 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 				<?php endif; ?>
 
 				<?php foreach( $navlist as $nav => $navitem ) : ?>
-					<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? $nav ?>
+					<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? current( $nav ) ?>
 						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $nav . '/groups', [] ) ) ) : ?>
-							<li class="treeview <?= $enc->attr( $nav ) ?> <?= strncmp( $this->param( 'resource' ), $nav, strlen( $nav ) ) ? '' : 'active' ?>">
+							<li class="treeview <?= $enc->attr( $nav ) ?> <?= $navitem === $before ? 'before' : '' ?> <?= in_array( $resource, $navitem ) !== false ? 'active' : '' ?> <?= $navitem === $after ? 'after' : '' ?>">
 								<span>
 									<i class="icon"></i>
 									<span class="title"><?= $enc->attr( $this->translate( 'admin', $nav ) ); ?></span>
 								</span>
 								<div class="tree-menu-wrapper">
-									<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
+									<div class="menu-header">
+										<a href="#"><?= $enc->html( $this->translate( 'admin', $nav ) ); ?></a>
+										<span class="close"></span>
+									</div>
 									<ul class="tree-menu">
 										<?php foreach( map( $navitem )->remove( '' )->ksort() as $subresource ) : ?>
 											<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
@@ -222,9 +231,9 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 						<?php endif; ?>
 					<?php else : ?>
 						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $navitem . '/groups', [] ) ) ) : ?>
-							<?php $key = $this->config( 'admin/jqadm/resource/' . $navitem . '/key' ); ?>
+							<?php $nav = $navitem; $key = $this->config( 'admin/jqadm/resource/' . $navitem . '/key' ); ?>
 
-							<li class="<?= $enc->attr( $navitem ); ?> <?= $this->param( 'resource', $navfirst ) === $navitem ? 'active' : '' ?>">
+							<li class="<?= $enc->attr( $navitem ); ?> <?= $nav === $before ? 'before' : '' ?> <?= !strncmp( $resource, $nav, strlen( $nav ) ) ? 'active' : '' ?> <?= $nav === $after ? 'after' : '' ?>">
 								<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $navitem ) + $params, [], $config ) ); ?>"
 									title="<?= $enc->attr( sprintf( $title, $this->translate( 'admin', $navitem ), $key ) ); ?>"
 									data-ctrlkey="<?= $enc->attr( strtolower( $key ) ); ?>">
@@ -238,13 +247,16 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 				<?php endforeach; ?>
 
 				<?php if( $this->access( $this->config( 'admin/jqadm/resource/language/groups', [] ) ) ) : ?>
-					<li class="language treeview">
+					<li class="language treeview<?= $after === null ? 'after' : '' ?>">
 						<span>
 							<i class="icon"></i>
 							<span class="title"><?= $enc->attr( $this->translate( 'language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
 						</span>
 						<div class="tree-menu-wrapper">
-							<div class="menu-header"><strong><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></strong></div>
+							<div class="menu-header">
+								<a href="#"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></a>
+								<span class="close"></span>
+							</div>
 							<ul class="tree-menu">
 								<?php foreach( $this->get( 'pageI18nList', [] ) as $langid ) : ?>
 									<li class="lang-<?= $enc->attr( $langid ) ?>">
@@ -257,6 +269,8 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 						</div>
 					</li>
 				<?php endif; ?>
+
+				<li class="none"></li>
 			</ul>
 
 		</div>

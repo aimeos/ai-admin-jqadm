@@ -2,26 +2,41 @@
 
 return [
 	0 => 'dashboard',
-	10 => 'order',
-	20 => 'customer',
-	30 => 'product',
-	40 => 'catalog',
-	50 => 'attribute',
-	60 => 'coupon',
-	70 => 'review',
-	80 => 'subscription',
-	90 => 'supplier',
-	100 => 'service',
-	110 => 'plugin',
-	120 => 'group',
-	130 => [
+	10 => [
+		'' => 'sales',
+		10 => 'order',
+		20 => 'subscription',
+	],
+	20 => [
+		'' => 'goods',
+		10 => 'product',
+		20 => 'catalog',
+		30 => 'attribute',
+		40 => 'supplier',
+	],
+	30 => [
+		'' => 'users',
+		10 => 'customer',
+		20 => 'group',
+	],
+	40 => [
+		'' => 'marketing',
+		10 => 'coupon',
+		20 => 'review',
+	],
+	50 => [
+		'' => 'settings',
+		10 => 'service',
+		20 => 'plugin',
+	],
+	60 => [
 		'' => 'locale',
 		10 => 'locale',
 		20 => 'locale/site',
 		30 => 'locale/language',
 		40 => 'locale/currency',
 	],
-	140 => [
+	70 => [
 		'' => 'type',
 		10 => 'type/attribute',
 		20 => 'type/attribute/lists',
@@ -46,5 +61,5 @@ return [
 		210 => 'type/text',
 		220 => 'type/text/lists',
 	],
-	150 => 'log',
+	80 => 'log',
 ];
