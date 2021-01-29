@@ -77,11 +77,11 @@ input[type='radio'] {
 }
 
 .modal-content {
-	background-color: var(--ai-bg, #fff);
+	background-color: var(--bs-bg, #fff);
 }
 
 .modal-body {
-	box-shadow: var(--ai-shadow);
+	box-shadow: var(--bs-shadow);
 	background-color: #fff;
 	margin: 1rem;
 }
@@ -121,8 +121,8 @@ input[type='radio'] {
 
 .btn-primary {
 	border: 1px solid transparent;
-	background-color: var(--ai-primary-alt, #0090e0);
-	border-color: var(--ai-primary-alt, #0090e0);
+	background-color: var(--bs-primary-alt, #0090e0);
+	border-color: var(--bs-primary-alt, #0090e0);
 	color: #FFFFFF !important;
 }
 
@@ -136,12 +136,12 @@ input[type='radio'] {
 .btn-primary:hover,
 .btn-primary:focus,
 .show>.btn-primary.dropdown-toggle {
-	background-color: var(--ai-primary-alt-light, #0090e0b0);
-	border-color: var(--ai-primary-alt-light, #0090e0b0);
+	background-color: var(--bs-primary-alt-light, #0090e0b0);
+	border-color: var(--bs-primary-alt-light, #0090e0b0);
 }
 
 .btn-primary.dropdown-toggle-split {
-    border-left-color: var(--ai-primary-alt-dark, #0070c0);
+    border-left-color: var(--bs-primary-alt-dark, #0070c0);
 }
 
 .btn-secondary {
@@ -199,12 +199,12 @@ input[type='radio'] {
 }
 
 .nav-tabs .nav-link:hover {
-	background-color: var(--ai-primary-light, #0090e0b0);
+	background-color: var(--bs-primary-light, #0090e0b0);
 	text-decoration: none;
 }
 
 .nav-tabs .nav-link.active {
-	background-color: var(--ai-primary-light, #0090e0b0);
+	background-color: var(--bs-primary-light, #0090e0b0);
 	color: #fff;
 }
 

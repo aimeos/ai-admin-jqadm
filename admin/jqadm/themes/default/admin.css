@@ -110,7 +110,7 @@
 
 .aimeos form.list {
 	background-color: #fff;
-	box-shadow: var(--ai-shadow);
+	box-shadow: var(--bs-shadow);
 	margin: 0.5rem 0;
 	padding: 1rem;
 }
@@ -144,12 +144,12 @@
 }
 
 .aimeos .list-items th {
-	background-color: var(--ai-primary, #0090e0);
+	background-color: var(--bs-primary, #0090e0);
 	color: #FFF;
 }
 
 .aimeos .list-items th.actions {
-	background-color: var(--ai-primary-light, #0090e0b0);
+	background-color: var(--bs-primary-light, #0090e0b0);
 }
 
 .aimeos .list-items th a {
