@@ -10,6 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Attribute;
 
+sprintf( 'goods' ); // for translation
 sprintf( 'attribute' ); // for translation
 
 

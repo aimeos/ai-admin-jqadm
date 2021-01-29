@@ -10,6 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Order;
 
+sprintf( 'sales' ); // for translation
 sprintf( 'order' ); // for translation
 
 

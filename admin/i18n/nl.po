@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 15:52+0100\n"
-"PO-Revision-Date: 2020-12-02 14:24+0000\n"
+"POT-Creation-Date: 2021-01-29 12:32+0100\n"
+"PO-Revision-Date: 2021-01-29 11:34+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -577,6 +577,9 @@ msgstr ""
 msgid "Go to the list of attribute types"
 msgstr ""
 
+msgid "Granted rebate"
+msgstr ""
+
 msgid "Group"
 msgstr "Groep"
 
@@ -776,6 +779,9 @@ msgstr "Lijst van productsuggesties"
 msgid "List type"
 msgstr "Lijst Type"
 
+msgid "Loading items ..."
+msgstr ""
+
 msgid "Locale"
 msgstr "Locale"
 
@@ -805,6 +811,9 @@ msgstr "Media eigenschappen"
 
 msgid "Message"
 msgstr "Bericht"
+
+msgid "Min. quantity"
+msgstr ""
 
 msgid "Minimum quantity"
 msgstr "Minimum aantal"
@@ -854,6 +863,9 @@ msgstr "Volgende datum dat de aanmelding wordt vernieuwd"
 
 msgid "No items found"
 msgstr "Geen items gevonden"
+
+msgid "No product found"
+msgstr ""
 
 #, php-format
 msgid "No view available"
@@ -1018,6 +1030,9 @@ msgstr "Post code van levering indien gebruikt in de zone waar de klant woont"
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Post code van levering indien gebruikt in de zone waar de leverancier woont"
 
+msgid "Postition"
+msgstr ""
+
 msgid "Potential problems"
 msgstr "Mogelijke problemen"
 
@@ -1059,6 +1074,9 @@ msgstr "Product"
 
 msgid "Product ID"
 msgstr "Product ID"
+
+msgid "Product ID, SKU or label"
+msgstr ""
 
 msgid "Product Lists Type"
 msgstr "Product Lijst Type"
@@ -1281,9 +1299,6 @@ msgstr "Tweede niveau type voor groeperings items"
 msgid "Select file"
 msgstr "Bestand selecteren"
 
-msgid "Selected entries"
-msgstr ""
-
 msgid "Service"
 msgstr "Dienst"
 
@@ -1335,6 +1350,9 @@ msgstr ""
 msgid "Shipping/Payment costs"
 msgstr "Verzend-/Betaalkosten"
 
+msgid "Shipping/item"
+msgstr ""
+
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr "Korte staatscode (bijv. NY) indien gebruikt in het land waar de klant woont"
@@ -1348,6 +1366,9 @@ msgstr "Toon"
 
 msgid "Show entry"
 msgstr "Toon invoer"
+
+msgid "Show search form"
+msgstr ""
 
 msgid "Show/hide advanced data"
 msgstr "Toon/verberg uitgebreide data"
@@ -1388,6 +1409,9 @@ msgstr "Bron van de factuur, bijvoorbeeld via website of telefonisch"
 
 msgid "Start date"
 msgstr "Start datum"
+
+msgid "Start typing ..."
+msgstr ""
 
 msgid "State"
 msgstr "Staat"
@@ -1755,6 +1779,10 @@ msgid "download"
 msgstr "download"
 
 #, php-format
+msgid "goods"
+msgstr "Catalogus"
+
+#, php-format
 msgid "group"
 msgstr "Groepen"
 
@@ -1795,6 +1823,10 @@ msgid "log"
 msgstr "Logs"
 
 #, php-format
+msgid "marketing"
+msgstr ""
+
+#, php-format
 msgid "media"
 msgstr "Media"
 
@@ -1807,11 +1839,17 @@ msgstr "Dhr"
 msgid "mrs"
 msgstr "Mevr"
 
+msgid "ms"
+msgstr ""
+
 msgid "new"
 msgstr "nieuw"
 
 msgid "no"
 msgstr "nee"
+
+msgid "none"
+msgstr "geen"
 
 msgid "not available any more"
 msgstr "niet langer beschikbaar"
@@ -1900,6 +1938,10 @@ msgid "review"
 msgstr ""
 
 #, php-format
+msgid "sales"
+msgstr ""
+
+#, php-format
 msgid "salesweekday"
 msgstr "Verkopen per dag van de week"
 
@@ -1918,6 +1960,10 @@ msgstr "servicelevering"
 #, php-format
 msgid "servicepayment"
 msgstr "servicebetaling"
+
+#, php-format
+msgid "settings"
+msgstr ""
 
 #, php-format
 msgid "special"
@@ -2072,6 +2118,10 @@ msgstr "Teksten"
 #, php-format
 msgid "type/text/lists"
 msgstr "Lijst van Texten"
+
+#, php-format
+msgid "users"
+msgstr "Gebruikers"
 
 msgid "yes"
 msgstr "ja"

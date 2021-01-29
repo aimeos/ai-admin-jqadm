@@ -10,6 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Subscription;
 
+sprintf( 'sales' ); // for translation
 sprintf( 'subscription' ); // for translation
 
 

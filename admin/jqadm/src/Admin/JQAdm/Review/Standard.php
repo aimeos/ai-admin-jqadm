@@ -10,6 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Review;
 
+sprintf( 'marketing' ); // for translation
 sprintf( 'review' ); // for translation
 
 

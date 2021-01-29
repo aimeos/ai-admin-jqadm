@@ -10,6 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Product;
 
+sprintf( 'goods' ); // for translation
 sprintf( 'product' ); // for translation
 
 

@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 15:52+0100\n"
-"PO-Revision-Date: 2020-12-04 15:26+0000\n"
-"Last-Translator: Lara Merlotto <lara@vg7.it>\n"
+"POT-Creation-Date: 2021-01-29 12:32+0100\n"
+"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"Last-Translator: Juan Ramos <juancagb.17@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -576,6 +576,9 @@ msgstr ""
 msgid "Go to the list of attribute types"
 msgstr ""
 
+msgid "Granted rebate"
+msgstr ""
+
 msgid "Group"
 msgstr "Grupo"
 
@@ -775,6 +778,9 @@ msgstr "Listado de productos sugeridos"
 msgid "List type"
 msgstr "Tipo de lista"
 
+msgid "Loading items ..."
+msgstr ""
+
 msgid "Locale"
 msgstr "Configuración regional"
 
@@ -804,6 +810,9 @@ msgstr ""
 
 msgid "Message"
 msgstr "Mensaje"
+
+msgid "Min. quantity"
+msgstr ""
 
 msgid "Minimum quantity"
 msgstr "Cantidad mínima"
@@ -853,6 +862,9 @@ msgstr ""
 
 msgid "No items found"
 msgstr "No se encontraron elementos"
+
+msgid "No product found"
+msgstr ""
 
 #, php-format
 msgid "No view available"
@@ -1017,6 +1029,9 @@ msgstr ""
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr ""
 
+msgid "Postition"
+msgstr ""
+
 msgid "Potential problems"
 msgstr ""
 
@@ -1058,6 +1073,9 @@ msgstr "Producto"
 
 msgid "Product ID"
 msgstr "ID del producto"
+
+msgid "Product ID, SKU or label"
+msgstr ""
 
 msgid "Product Lists Type"
 msgstr ""
@@ -1280,9 +1298,6 @@ msgstr ""
 msgid "Select file"
 msgstr ""
 
-msgid "Selected entries"
-msgstr ""
-
 msgid "Service"
 msgstr "Servicio"
 
@@ -1334,6 +1349,9 @@ msgstr ""
 msgid "Shipping/Payment costs"
 msgstr ""
 
+msgid "Shipping/item"
+msgstr ""
+
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr ""
@@ -1347,6 +1365,9 @@ msgstr "Mostrar"
 
 msgid "Show entry"
 msgstr "Mostrar entrada"
+
+msgid "Show search form"
+msgstr ""
 
 msgid "Show/hide advanced data"
 msgstr ""
@@ -1387,6 +1408,9 @@ msgstr ""
 
 msgid "Start date"
 msgstr "Fecha de inicio"
+
+msgid "Start typing ..."
+msgstr ""
 
 msgid "State"
 msgstr "Estado"
@@ -1754,6 +1778,10 @@ msgid "download"
 msgstr ""
 
 #, php-format
+msgid "goods"
+msgstr "Catálogo"
+
+#, php-format
 msgid "group"
 msgstr ""
 
@@ -1794,6 +1822,10 @@ msgid "log"
 msgstr "Registros"
 
 #, php-format
+msgid "marketing"
+msgstr ""
+
+#, php-format
 msgid "media"
 msgstr "Medios"
 
@@ -1806,11 +1838,17 @@ msgstr "Sr"
 msgid "mrs"
 msgstr "Sra"
 
+msgid "ms"
+msgstr ""
+
 msgid "new"
 msgstr "nuevo"
 
 msgid "no"
 msgstr ""
+
+msgid "none"
+msgstr "ninguno"
 
 msgid "not available any more"
 msgstr ""
@@ -1899,6 +1937,10 @@ msgid "review"
 msgstr "Comentarios"
 
 #, php-format
+msgid "sales"
+msgstr ""
+
+#, php-format
 msgid "salesweekday"
 msgstr ""
 
@@ -1917,6 +1959,10 @@ msgstr ""
 #, php-format
 msgid "servicepayment"
 msgstr "Por tipos de pago"
+
+#, php-format
+msgid "settings"
+msgstr ""
 
 #, php-format
 msgid "special"
@@ -2071,6 +2117,10 @@ msgstr "Textos"
 #, php-format
 msgid "type/text/lists"
 msgstr ""
+
+#, php-format
+msgid "users"
+msgstr "Usuarios"
 
 msgid "yes"
 msgstr "sí"

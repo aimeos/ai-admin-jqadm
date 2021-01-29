@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 15:52+0100\n"
-"PO-Revision-Date: 2020-12-02 20:29+0000\n"
+"POT-Creation-Date: 2021-01-29 12:32+0100\n"
+"PO-Revision-Date: 2021-01-29 11:34+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -570,6 +570,9 @@ msgstr "Özellik türü paneline gidin"
 msgid "Go to the list of attribute types"
 msgstr "Nitelik türleri listesine gidin"
 
+msgid "Granted rebate"
+msgstr ""
+
 msgid "Group"
 msgstr "Grup"
 
@@ -769,6 +772,9 @@ msgstr "Önerilen ürünler listesi"
 msgid "List type"
 msgstr "Liste türü"
 
+msgid "Loading items ..."
+msgstr ""
+
 msgid "Locale"
 msgstr "Yerel"
 
@@ -798,6 +804,9 @@ msgstr "Medya özellikleri"
 
 msgid "Message"
 msgstr "Mesaj"
+
+msgid "Min. quantity"
+msgstr ""
 
 msgid "Minimum quantity"
 msgstr "Minimum miktar"
@@ -847,6 +856,9 @@ msgstr "Aboneliğin yenileneceği bir sonraki tarih"
 
 msgid "No items found"
 msgstr "Hiç bir öğe bulunamadı"
+
+msgid "No product found"
+msgstr ""
 
 #, php-format
 msgid "No view available"
@@ -1011,6 +1023,9 @@ msgstr "Müşterinin yaşadığı bölgede kullanılıyorsa teslimat için posta
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Tedarikçinin yaşadığı bölgede kullanılıyorsa teslimat için posta kodu"
 
+msgid "Postition"
+msgstr ""
+
 msgid "Potential problems"
 msgstr "Potansiyel sorunlar"
 
@@ -1052,6 +1067,9 @@ msgstr "Ürün"
 
 msgid "Product ID"
 msgstr "Ürün kimlik numarası"
+
+msgid "Product ID, SKU or label"
+msgstr ""
 
 msgid "Product Lists Type"
 msgstr "Ürün Liste Türleri"
@@ -1274,9 +1292,6 @@ msgstr "Öğeleri gruplamak için ikinci seviye türü"
 msgid "Select file"
 msgstr "Dosya seç"
 
-msgid "Selected entries"
-msgstr "Seçilen girişler"
-
 msgid "Service"
 msgstr "Hizmet"
 
@@ -1328,6 +1343,9 @@ msgstr "Nakliye masrafları/ürün"
 msgid "Shipping/Payment costs"
 msgstr "Nakliye/Ödeme masrafları"
 
+msgid "Shipping/item"
+msgstr ""
+
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr "Eğer müşterinin yaşadığı ülkede kullanılıyorsa kısa eyalet kodu (örn NY) "
@@ -1341,6 +1359,9 @@ msgstr "Göster"
 
 msgid "Show entry"
 msgstr "Girişi göster"
+
+msgid "Show search form"
+msgstr ""
 
 msgid "Show/hide advanced data"
 msgstr "Gelişmiş verileri göster/gizle"
@@ -1381,6 +1402,9 @@ msgstr "Faturanın kaynağı, örn; web veya telefon aracılığıyla"
 
 msgid "Start date"
 msgstr "Başlangıç tarihi"
+
+msgid "Start typing ..."
+msgstr ""
 
 msgid "State"
 msgstr "Eyalet/İl"
@@ -1748,6 +1772,10 @@ msgid "download"
 msgstr "Ücretli indirmeler"
 
 #, php-format
+msgid "goods"
+msgstr "Katalog"
+
+#, php-format
 msgid "group"
 msgstr "Gruplar"
 
@@ -1788,6 +1816,10 @@ msgid "log"
 msgstr "Günlükler"
 
 #, php-format
+msgid "marketing"
+msgstr ""
+
+#, php-format
 msgid "media"
 msgstr "Medya"
 
@@ -1800,11 +1832,17 @@ msgstr "Bay"
 msgid "mrs"
 msgstr "Bayan"
 
+msgid "ms"
+msgstr ""
+
 msgid "new"
 msgstr "Yeni"
 
 msgid "no"
 msgstr "Hayır"
+
+msgid "none"
+msgstr "Hiçbiri"
 
 msgid "not available any more"
 msgstr "Artık mevcut değil"
@@ -1893,6 +1931,10 @@ msgid "review"
 msgstr "Değerlendirmeler"
 
 #, php-format
+msgid "sales"
+msgstr ""
+
+#, php-format
 msgid "salesweekday"
 msgstr "İş gününe göre satışlar"
 
@@ -1911,6 +1953,10 @@ msgstr "Teslimat türlerine göre"
 #, php-format
 msgid "servicepayment"
 msgstr "Ödeme türlerine göre"
+
+#, php-format
+msgid "settings"
+msgstr ""
 
 #, php-format
 msgid "special"
@@ -2065,6 +2111,10 @@ msgstr "Metinler"
 #, php-format
 msgid "type/text/lists"
 msgstr "Metin Listeleri"
+
+#, php-format
+msgid "users"
+msgstr "Kullanıcılar"
 
 msgid "yes"
 msgstr "evet"

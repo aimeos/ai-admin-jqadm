@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
+"POT-Creation-Date: 2021-01-29 12:32+0100\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -67,15 +67,17 @@ msgstr ""
 msgid "(International) telephone number without separation characters, can start with a \"+\""
 msgstr ""
 
+msgid "+ Tax"
+msgstr ""
+
 msgid "?"
 msgstr ""
 
 msgid "Active"
 msgstr ""
 
-#, fuzzy
 msgid "Actual price"
-msgstr "Products"
+msgstr ""
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
@@ -398,6 +400,9 @@ msgstr ""
 msgid "Delete items?"
 msgstr ""
 
+msgid "Delete selected entries"
+msgstr ""
+
 msgid "Delete this entry"
 msgstr ""
 
@@ -536,14 +541,16 @@ msgstr ""
 msgid "Given rebate amount"
 msgstr ""
 
-#, fuzzy
 msgid "Go to attribute panel"
-msgstr "Attributes"
+msgstr ""
 
 msgid "Go to property type panel"
 msgstr ""
 
 msgid "Go to the list of attribute types"
+msgstr ""
+
+msgid "Granted rebate"
 msgstr ""
 
 msgid "Group"
@@ -597,9 +604,8 @@ msgstr ""
 msgid "ISO language code (required)"
 msgstr ""
 
-#, fuzzy
 msgid "Image"
-msgstr "Images"
+msgstr ""
 
 msgid "Images will only be shown for that language, useful if the media contains text or is language sepecific"
 msgstr ""
@@ -732,6 +738,9 @@ msgstr ""
 msgid "List type"
 msgstr ""
 
+msgid "Loading items ..."
+msgstr ""
+
 msgid "Locale"
 msgstr ""
 
@@ -760,6 +769,9 @@ msgid "Media properties"
 msgstr ""
 
 msgid "Message"
+msgstr ""
+
+msgid "Min. quantity"
 msgstr ""
 
 msgid "Minimum quantity"
@@ -808,6 +820,9 @@ msgid "Next date the subscription is renewed"
 msgstr ""
 
 msgid "No items found"
+msgstr ""
+
+msgid "No product found"
 msgstr ""
 
 #, php-format
@@ -967,6 +982,9 @@ msgstr ""
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr ""
 
+msgid "Postition"
+msgstr ""
+
 msgid "Potential problems"
 msgstr ""
 
@@ -1009,6 +1027,9 @@ msgstr ""
 msgid "Product ID"
 msgstr ""
 
+msgid "Product ID, SKU or label"
+msgstr ""
+
 msgid "Product Lists Type"
 msgstr ""
 
@@ -1036,13 +1057,11 @@ msgstr ""
 msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
-#, fuzzy
 msgid "Product code"
-msgstr "Products"
+msgstr ""
 
-#, fuzzy
 msgid "Product costs"
-msgstr "Products"
+msgstr ""
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr ""
@@ -1050,37 +1069,29 @@ msgstr ""
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
 msgstr ""
 
-#, fuzzy
 msgid "Product name"
-msgstr "Products"
+msgstr ""
 
-#, fuzzy
 msgid "Product price"
-msgstr "Products"
+msgstr ""
 
-#, fuzzy
 msgid "Product quantity"
-msgstr "Products"
+msgstr ""
 
-#, fuzzy
 msgid "Product rebate"
-msgstr "Products"
+msgstr ""
 
-#, fuzzy
 msgid "Product status"
-msgstr "Products"
+msgstr ""
 
-#, fuzzy
 msgid "Product supplier"
-msgstr "Suppliers"
+msgstr ""
 
-#, fuzzy
 msgid "Product tax"
-msgstr "Products"
+msgstr ""
 
-#, fuzzy
 msgid "Product type"
-msgstr "Products"
+msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
 msgstr ""
@@ -1281,6 +1292,9 @@ msgstr ""
 msgid "Shipping/Payment costs"
 msgstr ""
 
+msgid "Shipping/item"
+msgstr ""
+
 msgid "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr ""
 
@@ -1291,6 +1305,9 @@ msgid "Show"
 msgstr ""
 
 msgid "Show entry"
+msgstr ""
+
+msgid "Show search form"
 msgstr ""
 
 msgid "Show/hide advanced data"
@@ -1330,6 +1347,9 @@ msgid "Source of the invoice, e.g. by web or phone"
 msgstr ""
 
 msgid "Start date"
+msgstr ""
+
+msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
@@ -1683,6 +1703,10 @@ msgid "download"
 msgstr "Downloads"
 
 #, php-format
+msgid "goods"
+msgstr ""
+
+#, php-format
 msgid "group"
 msgstr "Groups"
 
@@ -1723,6 +1747,10 @@ msgid "log"
 msgstr "Log"
 
 #, php-format
+msgid "marketing"
+msgstr ""
+
+#, php-format
 msgid "media"
 msgstr "Media"
 
@@ -1735,10 +1763,16 @@ msgstr "Mr"
 msgid "mrs"
 msgstr "Mrs"
 
+msgid "ms"
+msgstr "Ms"
+
 msgid "new"
 msgstr ""
 
 msgid "no"
+msgstr ""
+
+msgid "none"
 msgstr ""
 
 msgid "not available any more"
@@ -1828,6 +1862,10 @@ msgid "review"
 msgstr "Reviews"
 
 #, php-format
+msgid "sales"
+msgstr ""
+
+#, php-format
 msgid "salesweekday"
 msgstr "Sales by weekday"
 
@@ -1846,6 +1884,10 @@ msgstr "Orders by delivery"
 #, php-format
 msgid "servicepayment"
 msgstr "Orders by payment"
+
+#, php-format
+msgid "settings"
+msgstr ""
 
 #, php-format
 msgid "special"
@@ -1961,7 +2003,7 @@ msgstr "Prices"
 msgid "type/price/lists"
 msgstr "Price lists"
 
-#, fuzzy, php-format
+#, php-format
 msgid "type/price/property"
 msgstr "Product properties"
 
@@ -2001,12 +2043,12 @@ msgstr "Texts"
 msgid "type/text/lists"
 msgstr "Text lists"
 
-msgid "yes"
+#, php-format
+msgid "users"
 msgstr ""
 
-#, fuzzy
-#~ msgid "de"
-#~ msgstr "Codes"
+msgid "yes"
+msgstr ""
 
 #~ msgid "pay:authorized"
 #~ msgstr "authorized"

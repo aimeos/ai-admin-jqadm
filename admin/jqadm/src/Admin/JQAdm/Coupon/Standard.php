@@ -10,6 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Coupon;
 
+sprintf( 'marketing' ); // for translation
 sprintf( 'coupon' ); // for translation
 
 

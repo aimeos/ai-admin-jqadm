@@ -10,6 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Group;
 
+sprintf( 'users' ); // for translation
 sprintf( 'group' ); // for translation
 
 

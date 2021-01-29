@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:23+0200\n"
+"POT-Creation-Date: 2021-01-29 12:32+0100\n"
 "PO-Revision-Date: 2017-01-03 11:21+0000\n"
 "Last-Translator: Aimeos <aimeos@aimeos.org>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/aimeos/aimeos-core/language/pt_PT/)\n"
@@ -66,6 +66,9 @@ msgid "(International) facsimilie number without separation characters, can star
 msgstr ""
 
 msgid "(International) telephone number without separation characters, can start with a \"+\""
+msgstr ""
+
+msgid "+ Tax"
 msgstr ""
 
 msgid "?"
@@ -398,6 +401,9 @@ msgstr ""
 msgid "Delete items?"
 msgstr ""
 
+msgid "Delete selected entries"
+msgstr ""
+
 msgid "Delete this entry"
 msgstr ""
 
@@ -543,6 +549,9 @@ msgid "Go to property type panel"
 msgstr ""
 
 msgid "Go to the list of attribute types"
+msgstr ""
+
+msgid "Granted rebate"
 msgstr ""
 
 msgid "Group"
@@ -730,6 +739,9 @@ msgstr ""
 msgid "List type"
 msgstr ""
 
+msgid "Loading items ..."
+msgstr ""
+
 msgid "Locale"
 msgstr ""
 
@@ -758,6 +770,9 @@ msgid "Media properties"
 msgstr ""
 
 msgid "Message"
+msgstr ""
+
+msgid "Min. quantity"
 msgstr ""
 
 msgid "Minimum quantity"
@@ -806,6 +821,9 @@ msgid "Next date the subscription is renewed"
 msgstr ""
 
 msgid "No items found"
+msgstr ""
+
+msgid "No product found"
 msgstr ""
 
 #, php-format
@@ -965,6 +983,9 @@ msgstr ""
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr ""
 
+msgid "Postition"
+msgstr ""
+
 msgid "Potential problems"
 msgstr ""
 
@@ -1005,6 +1026,9 @@ msgid "Product"
 msgstr ""
 
 msgid "Product ID"
+msgstr ""
+
+msgid "Product ID, SKU or label"
 msgstr ""
 
 msgid "Product Lists Type"
@@ -1269,6 +1293,9 @@ msgstr ""
 msgid "Shipping/Payment costs"
 msgstr ""
 
+msgid "Shipping/item"
+msgstr ""
+
 msgid "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr ""
 
@@ -1279,6 +1306,9 @@ msgid "Show"
 msgstr ""
 
 msgid "Show entry"
+msgstr ""
+
+msgid "Show search form"
 msgstr ""
 
 msgid "Show/hide advanced data"
@@ -1318,6 +1348,9 @@ msgid "Source of the invoice, e.g. by web or phone"
 msgstr ""
 
 msgid "Start date"
+msgstr ""
+
+msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
@@ -1671,6 +1704,10 @@ msgid "download"
 msgstr ""
 
 #, php-format
+msgid "goods"
+msgstr ""
+
+#, php-format
 msgid "group"
 msgstr ""
 
@@ -1711,6 +1748,10 @@ msgid "log"
 msgstr ""
 
 #, php-format
+msgid "marketing"
+msgstr ""
+
+#, php-format
 msgid "media"
 msgstr ""
 
@@ -1723,10 +1764,16 @@ msgstr ""
 msgid "mrs"
 msgstr ""
 
+msgid "ms"
+msgstr ""
+
 msgid "new"
 msgstr ""
 
 msgid "no"
+msgstr ""
+
+msgid "none"
 msgstr ""
 
 msgid "not available any more"
@@ -1816,6 +1863,10 @@ msgid "review"
 msgstr ""
 
 #, php-format
+msgid "sales"
+msgstr ""
+
+#, php-format
 msgid "salesweekday"
 msgstr ""
 
@@ -1833,6 +1884,10 @@ msgstr ""
 
 #, php-format
 msgid "servicepayment"
+msgstr ""
+
+#, php-format
+msgid "settings"
 msgstr ""
 
 #, php-format
@@ -1987,6 +2042,10 @@ msgstr ""
 
 #, php-format
 msgid "type/text/lists"
+msgstr ""
+
+#, php-format
+msgid "users"
 msgstr ""
 
 msgid "yes"

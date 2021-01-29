@@ -10,6 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Catalog;
 
+sprintf( 'goods' ); // for translation
 sprintf( 'catalog' ); // for translation
 
 
