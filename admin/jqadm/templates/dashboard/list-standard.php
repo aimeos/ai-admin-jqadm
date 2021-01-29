@@ -10,19 +10,17 @@ $enc = $this->encoder();
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
-<div class="list-view dashboard">
-	<div class="container-fluid">
-		<div class="row">
-			<nav class="main-navbar col-lg-12">
-				<span class="navbar-brand">
-					<?= $enc->html( $this->translate( 'admin', 'Dashboard' ) ); ?>
-					<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
-				</span>
-			</nav>
+<div class="dashboard container-fluid">
+	<div class="row">
+		<nav class="main-navbar col-lg-12">
+			<span class="navbar-brand">
+				<?= $enc->html( $this->translate( 'admin', 'Dashboard' ) ); ?>
+				<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
+			</span>
+		</nav>
 
-			<div class="col-lg-12">
-				<?= $this->get( 'listBody' ); ?>
-			</div>
+		<div class="col-lg-12">
+			<?= $this->get( 'listBody' ); ?>
 		</div>
 	</div>
 </div>
