@@ -53,14 +53,14 @@
 }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-	background: #ffffff;
-	color: #464a4c;
+	background: var(--bs-bg-light, #ffffff);
+	color: var(--bs-secondary, #707880);
 }
 
 .ui-state-default[readonly], .ui-widget-content .ui-state-default[readonly], .ui-widget-header .ui-state-default[readonly] {
-	background: #eceeef;
+	background: var(--bs-bg, #f8fafc);
 }
 
 .ui-button[disabled] {
-	background: #ededed;
+	background: var(--bs-bg, #f8fafc);
 }

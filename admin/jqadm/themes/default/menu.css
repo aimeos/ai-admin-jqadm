@@ -6,7 +6,7 @@
  .app-menu {
 	width: 100%;
 	z-index: 1200;
-	color: #fff;
+	color: var(--bs-menu, #ffffff);
 	height: 2.5rem;
 	display: flex;
 	justify-content: space-between;
@@ -166,7 +166,7 @@
 
 .aimeos .sidebar-menu .active a,
 .aimeos .sidebar-menu a:hover {
-	color: var(--bs-secondary, #6c757d);
+	color: var(--bs-secondary, #707880);
 }
 
 .aimeos .main-sidebar:hover li.active {
@@ -180,13 +180,13 @@
 }
 
 .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
-	color: var(--bs-secondary, #6c757d);
+	color: var(--bs-secondary, #707880);
 	border-left-color: var(--bs-menu-alt-bg, #f8fafc);
 	background-color: var(--bs-bg, #f8fafc);
 }
 
 .aimeos .main-sidebar .sidebar-menu>li.active {
-	color: var(--bs-secondary, #6c757d);
+	color: var(--bs-secondary, #707880);
 	border-left-color: var(--bs-menu-alt-bg, #f8fafc);
 	background-color: var(--bs-bg, #f8fafc);
 }
@@ -307,7 +307,7 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-footer {
-    background-color: var(--ai-menu-bg);
+    background-color: var(--ai-menu-bg, #0090e0);
 	height: 2rem;
 	width: 100%;
 }
@@ -335,7 +335,7 @@
 	border-left-color: transparent;
 	padding: 0.5rem 1.5rem;
 	display: block;
-	color: var(--bs-secondary, #6c757d);
+	color: var(--bs-secondary, #707880);
 }
 
 .aimeos .sidebar-menu li .tree-menu li:hover,
@@ -361,13 +361,13 @@
 }
 
 .aimeos .sidebar-menu .tree-menu-wrapper ::-webkit-scrollbar-thumb {
-	background-color: var(--ai-menu-color-scroll, #e0e0e0);
+	background-color: var(--bs-line-light, #dee2e6);
 	outline: none;
 }
 
 /* Scrollbar styles for Firefox */
 .aimeos .sidebar-menu .tree-menu-wrapper .sidebar-wrapper {
-	scrollbar-color: var(--ai-menu-color-scroll, #e0e0e0) transparent;
+	scrollbar-color: var(--bs-line-light, #dee2e6) transparent;
 	scrollbar-width: thin;
 }
 

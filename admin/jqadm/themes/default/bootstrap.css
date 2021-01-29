@@ -82,7 +82,7 @@ input[type='radio'] {
 
 .modal-body {
 	box-shadow: var(--bs-shadow);
-	background-color: #fff;
+	background-color: var(--bs-bg-light, #ffffff);
 	margin: 1rem;
 }
 
@@ -116,14 +116,14 @@ input[type='radio'] {
 	border: 1px solid transparent;
 	background: transparent;
 	cursor: pointer;
-	color: #98A0B0;
+	color: var(--bs-secondary, #707880);
 }
 
 .btn-primary {
 	border: 1px solid transparent;
 	background-color: var(--bs-primary-alt, #0090e0);
 	border-color: var(--bs-primary-alt, #0090e0);
-	color: #FFFFFF !important;
+	color: var(--bs-menu, #ffffff) !important;
 }
 
 .btn-primary.focus,
@@ -145,16 +145,16 @@ input[type='radio'] {
 }
 
 .btn-secondary {
-	color: #292b2c;
-	background-color: #fff;
-	border-color: #dee2e6;
+	color: var(--bs-secondary, #707880);
+	background-color: var(--bs-menu, #ffffff);
+	border-color: var(--bs-line-light, #dee2e6);
 }
 
 .btn-danger {
-	border: 1px solid #E05040;
-	background-color: #E05040;
-	border-color: #E05040;
-	color: #FFFFFF !important;
+	border: 1px solid var(--bs-danger, #dc3545);
+	background-color: var(--bs-danger, #dc3545);
+	border-color: var(--bs-danger, #dc3545);
+	color: var(--bs-menu, #ffffff) !important;
 }
 
 .table:not(.list-items) {
@@ -167,12 +167,12 @@ input[type='radio'] {
 }
 
 .table tr>th {
-    border-bottom-color: var(--ai-line-color, #bbb) !important;
+    border-bottom-color: var(--bs-line, #bbb) !important;
 }
 
 .table:not(.item-config) tr:not(:last-child)>td,
 .table:not(.item-config)>:not(:last-child)>:last-child>* {
-    border-bottom-color: var(--ai-line-table-color, #dee2e6);
+    border-bottom-color: var(--bs-line-light, #dee2e6);
 	border-bottom-width: 1px;
 }
 
@@ -182,7 +182,7 @@ input[type='radio'] {
 
 .nav-tabs {
 	border: none;
-	background-color: #fff;
+	background-color: var(--bs-menu, #ffffff);
 }
 
 .nav-tabs .nav-item {
@@ -190,7 +190,7 @@ input[type='radio'] {
 }
 
 .nav-tabs .nav-link {
-	color: #333;
+	color: var(--bs-secondary, #707880);
 	border: none;
 	padding: .5rem 1rem;
 	text-decoration: none;
@@ -205,11 +205,11 @@ input[type='radio'] {
 
 .nav-tabs .nav-link.active {
 	background-color: var(--bs-primary-light, #0090e0b0);
-	color: #fff;
+	color: var(--bs-menu, #ffffff);
 }
 
 .nav-tabs .nav-link.is-invalid {
-    background-color: #E05040;
+    background-color: var(--bs-danger, #dc3545);
 }
 
 .table td,
@@ -218,7 +218,7 @@ input[type='radio'] {
 }
 
 td.is-invalid .form-control {
-	border-color: #dc3545;
+	border-color: var(--bs-danger, #dc3545);
 }
 
 .form-group.row .form-control-label {
@@ -240,7 +240,7 @@ td.is-invalid .form-control {
 .form-select {
 	border: none;
 	border-radius: 0;
-	border-bottom: 1px solid var(--ai-line-color, #bbb);
+	border-bottom: 1px solid var(--bs-line, #bbb);
 	font-size: inherit;
 }
 
@@ -253,7 +253,7 @@ td.is-invalid .form-control {
 
 .form-control:disabled,
 .form-control[readonly] {
-	background-color: #f8f8f8;
+	background-color: var(--bs-bg, #f8fafc);
 }
 
 .form-inline label {

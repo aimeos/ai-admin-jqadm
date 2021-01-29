@@ -60,7 +60,7 @@
 .page-limit .dropdown-link {
 	display: inline-block;
 	padding: .25rem 0rem;
-	color: #292b2c;
+	color: var(--bs-secondary, #707880);
     width: 100%;
 }
 
@@ -70,8 +70,8 @@
 }
 
 .page-limit .dropdown-link:active {
-	background-color: #6c757d;
-	color: #ffffff;
+	background-color: var(--bs-menu-bg, #0090e0);
+	color: var(--bs-menu, #ffffff);
 }
 
 
@@ -95,8 +95,8 @@
 }
 
 .aimeos .tree-toolbar .search-input {
-	border-top: 1px solid var(--ai-line-table-color, #dee2e6);
-	border-bottom: 1px solid var(--ai-line-table-color, #dee2e6);
+	border-top: 1px solid var(--bs-line-light, #dee2e6);
+	border-bottom: 1px solid var(--bs-line-light, #dee2e6);
 }
 
 .aimeos .tree-toolbar .btn.act-add:before {
@@ -109,7 +109,7 @@
 
 
 .aimeos form.list {
-	background-color: #fff;
+	background-color: var(--bs-bg-light, #ffffff);
 	box-shadow: var(--bs-shadow);
 	margin: 0.5rem 0;
 	padding: 1rem;
@@ -131,11 +131,11 @@
 }
 
 .aimeos tbody tr.list-search {
-	background-color: #F4F8FB;
+	background-color: var(--bs-bg-dark, #f4f8fb);
 }
 
 .aimeos .list-item-new {
-	background-color: #F8F8F8;
+	background-color: var(--bs-bg, #f8fafc);
 }
 
 .aimeos .list-items .btn.fa {
@@ -145,7 +145,7 @@
 
 .aimeos .list-items th {
 	background-color: var(--bs-primary, #0090e0);
-	color: #FFF;
+	color: var(--bs-menu, #ffffff);
 }
 
 .aimeos .list-items th.actions {
@@ -153,7 +153,7 @@
 }
 
 .aimeos .list-items th a {
-	color: #FFF;
+	color: var(--bs-menu, #ffffff);
 	white-space: nowrap;
 	font-weight: normal;
 	margin: auto;
@@ -161,13 +161,13 @@
 
 .aimeos .list-items .dropdown-item .btn {
 	text-align: left;
-	color: #464a4c;
+	color: var(--bs-secondary-dark, #505860);
 }
 
 .aimeos .list-items th button {
 	border-color: transparent;
 	background-color: inherit;
-	color: #FFF;
+	color: var(--bs-menu, #ffffff);
 }
 
 .aimeos .list-items th .dropdown-toggle:focus {
@@ -185,7 +185,7 @@
 
 .aimeos .list-items a.items-field {
 	display: inline;
-	color: #333;
+	color: var(--bs-secondary, #707880);
 }
 
 .aimeos .list-items .sort-asc:after {
@@ -226,7 +226,7 @@
 }
 
 .aimeos .list-items .config-value {
-	color: #687090;
+	color: var(--bs-secondary, #707880);
 }
 
 .aimeos .list-items a.items-field.act-view:before {
@@ -235,7 +235,7 @@
 }
 
 .aimeos table .list-item-new .actions .btn.act-close {
-	color:#98a0b0;
+	color: var(--bs-light, #9098a0);
 }
 
 
@@ -246,7 +246,7 @@
 	font-size: 150%;
 	padding: 0.5rem 0;
 	margin-bottom: 1rem;
-	border-bottom: 1px solid rgba(0, 0, 0, .15);
+	border-bottom: 1px solid var(--bs-line-light, #dee2e6);
 }
 
 .aimeos .item-meta {
@@ -595,7 +595,7 @@
 
 .aimeos .item-order .item-total .total-subtotal,
 .aimeos .item-order .item-total .total-value {
-	background-color: #F8F8F8;
+	background-color: var(--bs-bg, #f8fafc);
 }
 
 .aimeos .item-order .item-total .total-value {

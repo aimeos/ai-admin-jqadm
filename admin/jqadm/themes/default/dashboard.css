@@ -111,13 +111,13 @@
 /* Common SVG diagram styles */
 
 .dashboard .axis {
-	fill: #808080;
+	fill: var(--bs-secondary, #707880);
 }
 
 .dashboard .axis line,
 .dashboard .axis path {
 	fill: none;
-	stroke: #A0A0A0;
+	stroke: var(--bs-secondary-light, #9098a0);
 	shape-rendering: crispEdges;
 }
 
@@ -143,7 +143,7 @@
 
 .dashboard .order-countday .path-month {
 	fill: none;
-	stroke: #800000;
+	stroke: var(--bs-secondary, #707880);
 	stroke-width: 1px;
 }
 
@@ -171,7 +171,7 @@
 }
 
 .dashboard .order-countpaystatus .focus {
-	stroke: #555;
+	stroke: var(--bs-secondary-dark, #505860);
 }
 
 .dashboard .order-countpaystatus .overlay {
@@ -195,7 +195,7 @@
 	line-height: 1;
 	padding: 10px;
 	margin: 0;
-	color: #fff;
+	color: var(--bs-menu, #ffffff);
 	opacity: 1;
 	display: none;
 	position: absolute;

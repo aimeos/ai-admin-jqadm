@@ -7,21 +7,24 @@
 /* Theme colors */
 
 :root {
+	--bs-bg: #f8fafc;
+	--bs-bg-dark: #f4f8fb;
+	--bs-bg-light: #ffffff;
+	--bs-line: #bbb;
+	--bs-line-light: #dee2e6;
+	--bs-menu: #ffffff;
+	--bs-menu-bg: #0090e0;
+	--bs-menu-alt: #707880;
+	--bs-menu-alt-bg: #ffffff;
 	--bs-primary: #0090e0;
 	--bs-primary-dark: #0070c0;
 	--bs-primary-light: #0090e0b0;
 	--bs-primary-alt: #00b0a0;
 	--bs-primary-alt-dark: #009080;
 	--bs-primary-alt-light: #00b0a0b0;
-	--bs-menu: #ffffff;
-	--bs-menu-bg: #0090e0;
-	--bs-menu-alt: #6c757d;
-	--bs-menu-alt-bg: #ffffff;
-	--ai-line-color: #bbb;
-	--bs-menu-alt-bg: #dee2e6;
-	--ai-menu-color-scroll: #e0e0e0;
-	--bs-bg: #f8fafc;
-	--bs-bg-box: #ffffff;
+	--bs-secondary: #707880;
+	--bs-secondary-dark: #505860;
+	--bs-secondary-light: #9098a0;
 	--bs-shadow: #a8b8c825 0px 3px 9px 0px;
 }
 
@@ -40,13 +43,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: var(--ai-menu-color-scroll, #e0e0e0);
+	background-color: var(--bs-line-light, #dee2e6);
 	outline: none;
 }
 
 /* Scrollbar styles for Firefox */
 html {
-	scrollbar-color: var(--ai-menu-color-scroll, #e0e0e0) transparent;
+	scrollbar-color: var(--bs-line-light, #dee2e6) transparent;
 	scrollbar-width: thin;
 	overflow-y: scroll;
 }
@@ -95,7 +98,7 @@ html {
 */
 .aimeos .content-block {
 	box-shadow: var(--bs-shadow);
-	background-color: var(--bs-bg-box, #ffffff);
+	background-color: var(--bs-bg-light, #ffffff);
 	margin-bottom: 1rem;
 	padding: 1rem;
 }
@@ -114,7 +117,7 @@ html {
 .aimeos .card-header {
 	padding: 0.25rem;
 	background: #FFF;
-	border-bottom: 1px solid #4090C0;
+	border-bottom: 1px solid var(--bs-primary, #0090e0);
 }
 
 .aimeos .card-header.collapsed {
@@ -122,7 +125,7 @@ html {
 }
 
 .aimeos .header.is-invalid {
-	border-top: solid 3px #E05040;
+	border-top: solid 3px var(--bs-danger, #dc3545);
 }
 
 .aimeos .card-header .header-label {
@@ -239,15 +242,15 @@ html {
 }
 
 .aimeos .card-block .advanced {
-	border-top: solid 1px #DFDFDF;
+	border-top: solid 1pxvar(--bs-line-light, #dee2e6);
 }
 
 .aimeos .card-block .advanced.collapsed {
-	border-bottom: solid 1px #DFDFDF;
+	border-bottom: solid 1pxvar(--bs-line-light, #dee2e6);
 }
 
 .aimeos .custom-datetime {
-	background-color: var(--bs-bg-box, #ffffff);
+	background-color: var(--bs-bg-light, #ffffff);
 }
 
 .aimeos table th,
@@ -275,7 +278,7 @@ html {
 }
 
 .aimeos table .list-item-new .actions .btn {
-	color: #FFFFFF;
+	color: var(--bs-menu, #FFFFFF);
 }
 
 .aimeos .actions-group {
@@ -291,7 +294,7 @@ html {
 .aimeos .dropdown-item label {
 	display: block !important;
 	text-align: left;
-	color: #464a4c;
+	color: var(--bs-secondary, #707880);
 }
 
 .aimeos .navbar-title:after {
@@ -304,7 +307,7 @@ html {
 
 .aimeos .navbar-site {
 	font-size: 80%;
-	color: #808080;
+	color: var(--bs-secondary, #707880);
 }
 
 .aimeos .navbar-site:not(:empty):before {
@@ -334,7 +337,7 @@ html {
 
 .aimeos .item .navbar-content .more {
 	background-color: var(--bs-menu-alt-bg, #ffffff);
-	color: var(--bs-secondary, #6c757d);
+	color: var(--bs-secondary, #707880);
 	position: absolute;
 	height: 2.5rem;
 	width: 100%;
@@ -373,7 +376,7 @@ html {
 	font-weight: normal;
 	font-size: 125%;
 	cursor: pointer;
-	color: #808080;
+	color: var(--bs-secondary, #707880);
 	display: block;
 	text-align: center;
 	border: transparent;
@@ -403,13 +406,13 @@ html {
 	border: none;
     border-radius: 0;
     border-bottom: 1px solid #bbb;
-	background-color: #fff;
+	background-color: var(-bs-box-bg, #ffffff);
     padding: .375rem .75rem;
 	height: calc(1.5rem + .75rem + 2px);
 }
 
 .vs__search::placeholder {
-	color: #6c757d;
+	color: var(--bs-secondary, #707880);
 }
 
 .vs__actions {
@@ -418,7 +421,7 @@ html {
 
 .vs__open-indicator, .vs__clear {
     transform: scale(0.66);
-	fill: #495057;
+	fill: var(--bs-secondary, #707880);
 }
 
 .vs--open .vs__open-indicator {
