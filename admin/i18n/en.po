@@ -1704,7 +1704,7 @@ msgstr "Downloads"
 
 #, php-format
 msgid "goods"
-msgstr ""
+msgstr "Catalog"
 
 #, php-format
 msgid "group"
@@ -1748,7 +1748,7 @@ msgstr "Log"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "Marketing"
 
 #, php-format
 msgid "media"
@@ -1863,7 +1863,7 @@ msgstr "Reviews"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "Sales"
 
 #, php-format
 msgid "salesweekday"
@@ -1887,7 +1887,7 @@ msgstr "Orders by payment"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "Settings"
 
 #, php-format
 msgid "special"
@@ -2045,76 +2045,76 @@ msgstr "Text lists"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "Users"
 
 msgid "yes"
 msgstr ""
 
-#~ msgid "pay:authorized"
-#~ msgstr "authorized"
+msgid "pay:authorized"
+msgstr "authorized"
 
-#~ msgid "pay:canceled"
-#~ msgstr "canceled"
+msgid "pay:canceled"
+msgstr "canceled"
 
-#~ msgid "pay:deleted"
-#~ msgstr "deleted"
+msgid "pay:deleted"
+msgstr "deleted"
 
-#~ msgid "pay:pending"
-#~ msgstr "pending"
+msgid "pay:pending"
+msgstr "pending"
 
-#~ msgid "pay:received"
-#~ msgstr "received"
+msgid "pay:received"
+msgstr "received"
 
-#~ msgid "pay:refund"
-#~ msgstr "refund"
+msgid "pay:refund"
+msgstr "refund"
 
-#~ msgid "pay:refused"
-#~ msgstr "refused"
+msgid "pay:refused"
+msgstr "refused"
 
-#~ msgid "pay:unfinished"
-#~ msgstr "unfinished"
+msgid "pay:unfinished"
+msgstr "unfinished"
 
-#~ msgid "service:delivery"
-#~ msgstr "Delivery"
+msgid "service:delivery"
+msgstr "Delivery"
 
-#~ msgid "service:payment"
-#~ msgstr "Payment"
+msgid "service:payment"
+msgstr "Payment"
 
-#~ msgid "stat:deleted"
-#~ msgstr "deleted"
+msgid "stat:deleted"
+msgstr "deleted"
 
-#~ msgid "stat:delivered"
-#~ msgstr "delivered"
+msgid "stat:delivered"
+msgstr "delivered"
 
-#~ msgid "stat:dispatched"
-#~ msgstr "dispatched"
+msgid "stat:dispatched"
+msgstr "dispatched"
 
-#~ msgid "stat:lost"
-#~ msgstr "lost"
+msgid "stat:lost"
+msgstr "lost"
 
-#~ msgid "stat:pending"
-#~ msgstr "pending"
+msgid "stat:pending"
+msgstr "pending"
 
-#~ msgid "stat:progress"
-#~ msgstr "in progress"
+msgid "stat:progress"
+msgstr "in progress"
 
-#~ msgid "stat:refused"
-#~ msgstr "refused"
+msgid "stat:refused"
+msgstr "refused"
 
-#~ msgid "stat:returned"
-#~ msgstr "returned"
+msgid "stat:returned"
+msgstr "returned"
 
-#~ msgid "stat:unfinished"
-#~ msgstr "unfinished"
+msgid "stat:unfinished"
+msgstr "unfinished"
 
-#~ msgid "status:archive"
-#~ msgstr "archive"
+msgid "status:archive"
+msgstr "archive"
 
-#~ msgid "status:disabled"
-#~ msgstr "disabled"
+msgid "status:disabled"
+msgstr "disabled"
 
-#~ msgid "status:enabled"
-#~ msgstr "enabled"
+msgid "status:enabled"
+msgstr "enabled"
 
-#~ msgid "unknown"
-#~ msgstr "Unknown"
+msgid "unknown"
+msgstr "Unknown"
