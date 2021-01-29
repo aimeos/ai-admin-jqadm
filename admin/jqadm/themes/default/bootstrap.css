@@ -200,6 +200,7 @@ input[type='radio'] {
 
 .nav-tabs .nav-link:hover {
 	background-color: var(--bs-primary-light, #0090e0b0);
+	color: var(--bs-secondary-dark, #101820);
 	text-decoration: none;
 }
 
@@ -241,6 +242,7 @@ td.is-invalid .form-control {
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid var(--bs-line, #bbb);
+	color: var(--bs-secondary, #505860);
 	font-size: inherit;
 }
 
@@ -268,6 +270,10 @@ td.is-invalid .form-control {
 
 .dropdown-item a {
 	display: block;
+}
+
+.page-link {
+	color: var(--bs-primary, #0090e0);
 }
 
 @media (max-width: 575px) {

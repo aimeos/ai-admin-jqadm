@@ -22,8 +22,8 @@
 	--bs-primary-alt: #00b0a0;
 	--bs-primary-alt-dark: #009080;
 	--bs-primary-alt-light: #00b0a0b0;
-	--bs-secondary: #707880;
-	--bs-secondary-dark: #505860;
+	--bs-secondary: #505860;
+	--bs-secondary-dark: #101820;
 	--bs-secondary-light: #9098a0;
 	--bs-shadow: #a8b8c825 0px 3px 9px 0px;
 }
@@ -33,6 +33,7 @@
 
 body {
 	background-color: var(--bs-bg, #f8fafc);
+	color: var(--bs-secondary, #505860);
 }
 
 
@@ -337,7 +338,7 @@ html {
 
 .aimeos .item .navbar-content .more {
 	background-color: var(--bs-menu-alt-bg, #ffffff);
-	color: var(--bs-secondary, #707880);
+	color: var(--bs-secondary-light, #9098a0);
 	position: absolute;
 	height: 2.5rem;
 	width: 100%;
@@ -376,7 +377,7 @@ html {
 	font-weight: normal;
 	font-size: 125%;
 	cursor: pointer;
-	color: var(--bs-secondary, #707880);
+	color: var(--bs-secondary-light, #9098a0);
 	display: block;
 	text-align: center;
 	border: transparent;

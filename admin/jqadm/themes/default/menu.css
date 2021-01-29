@@ -5,7 +5,7 @@
 
  .app-menu {
 	width: 100%;
-	z-index: 1200;
+	z-index: 1100;
 	color: var(--bs-menu, #ffffff);
 	height: 2.5rem;
 	display: flex;
@@ -223,17 +223,16 @@
 
 @media (max-width: 991px) {
 	.aimeos .main-sidebar {
+		left: min(-15%, -12rem);
 		visibility: hidden;
-		width: max(15%, 12rem);
-		left: max(-15%, -12rem);
-		box-shadow: #a8b8c825 6px 3px 9px 0px;
-		transition: left .3s ease-in-out, visibility 0s linear .3s;
+		transition: left .3s ease, visibility 0s linear .3s;
 	}
 
 	.aimeos .main-sidebar.open {
 		left: 0;
 		visibility: visible;
-		transition: left .3s ease-in-out, visibility;
+		transition: left .3s ease, visibility;
+		box-shadow: var(--box-shadow, #a8b8c825 6px 3px 9px 0px);
 	}
 
 	.aimeos .main-sidebar .icon {
@@ -256,7 +255,7 @@
 	top: 0;
 	bottom: 0;
 	padding: 0;
-	z-index: -1;
+	z-index: 1;
 	overflow-y: auto;
 	visibility: hidden;
 	box-sizing: initial;
@@ -264,14 +263,13 @@
 	left: min(-15%, -12rem);
 	box-shadow: #a8b8c825 6px 3px 9px 0px;
 	background-color: var(--bs-menu-alt-bg, #ffffff);
-	transition: left .3s ease-in-out, z-index .0s linear .3s, visibility 0s linear .3s;
+	transition: left .3s ease, visibility 0s linear .3s;
 }
 
 .aimeos .sidebar-menu li.show .tree-menu-wrapper {
 	left: 0;
-	z-index: 100;
 	visibility: visible;
-	transition: left .3s ease-in-out, z-index, visibility;
+	transition: left .3s ease, visibility;
 }
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-header {
@@ -327,8 +325,8 @@
 	box-sizing: initial;
 	text-align: left;
 	list-style: none;
-	margin: 1rem;
-	padding: 0;
+	padding: 0 1rem;
+	margin: 1rem 0;
 }
 
 .aimeos .sidebar-menu li .tree-menu a {
@@ -369,19 +367,6 @@
 .aimeos .sidebar-menu .tree-menu-wrapper .sidebar-wrapper {
 	scrollbar-color: var(--bs-line-light, #dee2e6) transparent;
 	scrollbar-width: thin;
-}
-
-
-@media (max-width: 991px) {
-	.aimeos .sidebar-menu li .tree-menu-wrapper {
-		left: 0;
-	}
-}
-
-@media (min-width: 992px) {
-	.aimeos .sidebar-menu li .tree-menu-wrapper {
-		z-index: -1;
-	}
 }
 
 

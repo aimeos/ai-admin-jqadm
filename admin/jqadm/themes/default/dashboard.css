@@ -171,7 +171,7 @@
 }
 
 .dashboard .order-countpaystatus .focus {
-	stroke: var(--bs-secondary-dark, #505860);
+	stroke: var(--bs-secondary-dark, #101820);
 }
 
 .dashboard .order-countpaystatus .overlay {

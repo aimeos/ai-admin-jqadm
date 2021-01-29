@@ -161,12 +161,11 @@
 
 .aimeos .list-items .dropdown-item .btn {
 	text-align: left;
-	color: var(--bs-secondary-dark, #505860);
+	color: var(--bs-secondary-dark, #101820);
 }
 
 .aimeos .list-items th button {
 	border-color: transparent;
-	background-color: inherit;
 	color: var(--bs-menu, #ffffff);
 }
 

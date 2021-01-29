@@ -247,7 +247,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 				<?php endforeach; ?>
 
 				<?php if( $this->access( $this->config( 'admin/jqadm/resource/language/groups', [] ) ) ) : ?>
-					<li class="language treeview<?= $after === null ? 'after' : '' ?>">
+					<li class="language treeview <?= $after === null ? 'after' : '' ?>">
 						<span>
 							<i class="icon"></i>
 							<span class="title"><?= $enc->attr( $this->translate( 'language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
@@ -266,6 +266,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 									</li>
 								<?php endforeach; ?>
 							</ul>
+							<div class="menu-footer"></div>
 						</div>
 					</li>
 				<?php endif; ?>
