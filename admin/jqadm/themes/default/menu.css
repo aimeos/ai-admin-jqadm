@@ -483,7 +483,7 @@
 /* Footer */
 
 .aimeos .main-footer {
-	background: linear-gradient(135deg, var(--bs-primary, #0090e0) min(15%, 12rem), #00b0a0 100%);
+	background: linear-gradient(135deg, var(--bs-primary, #0090e0) max(15%, 12rem), var(--bs-primary-alt, #00b0a0) 100%);
 	position: relative;
 	padding: 0.25rem 1rem;
 	margin-top: 0.5rem;
