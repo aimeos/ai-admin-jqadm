@@ -9,19 +9,21 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="chart order-salesweekday card col-lg-6">
-	<div id="order-salesweekday-head" class="card-header header" role="tab"
-		data-bs-toggle="collapse" data-target="#order-salesweekday-data"
-		aria-expanded="true" aria-controls="order-salesweekday-data">
-		<div class="card-tools-left">
-			<div class="btn btn-card-header act-show fa"></div>
+<div class="chart order-salesweekday col-lg-6">
+	<div class="card">
+		<div id="order-salesweekday-head" class="card-header header" role="tab"
+			data-bs-toggle="collapse" data-target="#order-salesweekday-data"
+			aria-expanded="true" aria-controls="order-salesweekday-data">
+			<div class="card-tools-left">
+				<div class="btn btn-card-header act-show fa"></div>
+			</div>
+			<span class="item-label header-label">
+				<?= $enc->html( $this->translate( 'admin', 'Sales by weekday' ) ); ?>
+			</span>
 		</div>
-		<span class="item-label header-label">
-			<?= $enc->html( $this->translate( 'admin', 'Sales by weekday' ) ); ?>
-		</span>
-	</div>
-	<div id="order-salesweekday-data" class="card-block collapse show content loading" role="tabpanel"
-		aria-labelledby="order-salesweekday-head">
+		<div id="order-salesweekday-data" class="card-block collapse show content loading" role="tabpanel"
+			aria-labelledby="order-salesweekday-head">
+		</div>
 	</div>
 </div>
 <?= $this->get( 'orderweekdayBody' ); ?>

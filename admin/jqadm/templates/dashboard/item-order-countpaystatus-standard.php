@@ -18,19 +18,21 @@ $trans = array(
 );
 
 ?>
-<div class="chart order-countpaystatus card col-lg-6">
-	<div id="order-countpaystatus-head" class="card-header header" role="tab"
-		data-bs-toggle="collapse" data-target="#order-countpaystatus-data"
-		aria-expanded="true" aria-controls="order-countpaystatus-data">
-		<div class="card-tools-left">
-			<div class="btn btn-card-header act-show fa"></div>
+<div class="chart order-countpaystatus col-lg-6">
+	<div class="card">
+		<div id="order-countpaystatus-head" class="card-header header" role="tab"
+			data-bs-toggle="collapse" data-target="#order-countpaystatus-data"
+			aria-expanded="true" aria-controls="order-countpaystatus-data">
+			<div class="card-tools-left">
+				<div class="btn btn-card-header act-show fa"></div>
+			</div>
+			<span class="item-label header-label">
+				<?= $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ); ?>
+			</span>
 		</div>
-		<span class="item-label header-label">
-			<?= $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ); ?>
-		</span>
-	</div>
-	<div id="order-countpaystatus-data" class="card-block collapse show content loading" role="tabpanel"
-		aria-labelledby="order-countpaystatus-head" data-translation="<?= $enc->attr( $trans ); ?>">
+		<div id="order-countpaystatus-data" class="card-block collapse show content loading" role="tabpanel"
+			aria-labelledby="order-countpaystatus-head" data-translation="<?= $enc->attr( $trans ); ?>">
+		</div>
 	</div>
 </div>
 <?= $this->get( 'orderpaymentstatusBody' ); ?>

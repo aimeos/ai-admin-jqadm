@@ -88,46 +88,48 @@ $statuslist = array(
 );
 
 ?>
-<div class="order-latest card col-lg-12">
-	<div id="order-latest-head" class="card-header header" role="tab"
-		data-bs-toggle="collapse" data-target="#order-latest-data"
-		aria-expanded="true" aria-controls="order-latest-data">
-		<div class="card-tools-left">
-			<div class="btn btn-card-header act-show fa"></div>
+<div class="order-latest col-lg-12">
+	<div class="card">
+		<div id="order-latest-head" class="card-header header" role="tab"
+			data-bs-toggle="collapse" data-target="#order-latest-data"
+			aria-expanded="true" aria-controls="order-latest-data">
+			<div class="card-tools-left">
+				<div class="btn btn-card-header act-show fa"></div>
+			</div>
+			<span class="item-label header-label">
+				<?= $enc->html( $this->translate( 'admin', 'Latest orders' ) ); ?>
+			</span>
 		</div>
-		<span class="item-label header-label">
-			<?= $enc->html( $this->translate( 'admin', 'Latest orders' ) ); ?>
-		</span>
-	</div>
-	<div id="order-latest-data" class="card-block content collapse show" role="tabpanel" aria-labelledby="order-latest-head">
-		<div class="table-responsive">
-			<table class="list-items table table-hover">
-				<tbody>
-					<?php foreach( $this->get( 'orderlatestItems', [] ) as $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>
-						<tr>
-							<td class="order-id">
-								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a>
-							</td>
-							<td class="order-base-address-name">
-								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $name( $item ) ); ?></a>
-							</td>
-							<td class="order-base-product-price">
-								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $price( $item, $priceFormat ) ); ?></a>
-							</td>
-							<td class="order-datepayment">
-								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDatePayment() ); ?></a>
-							</td>
-							<td class="order-statuspayment">
-								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></a>
-							</td>
-							<td class="order-base-service-payment">
-								<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $payment( $item ) ); ?></a>
-							</td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
+		<div id="order-latest-data" class="card-block content collapse show" role="tabpanel" aria-labelledby="order-latest-head">
+			<div class="table-responsive">
+				<table class="list-items table table-hover">
+					<tbody>
+						<?php foreach( $this->get( 'orderlatestItems', [] ) as $item ) : ?>
+							<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>
+							<tr>
+								<td class="order-id">
+									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a>
+								</td>
+								<td class="order-base-address-name">
+									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $name( $item ) ); ?></a>
+								</td>
+								<td class="order-base-product-price">
+									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $price( $item, $priceFormat ) ); ?></a>
+								</td>
+								<td class="order-datepayment">
+									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDatePayment() ); ?></a>
+								</td>
+								<td class="order-statuspayment">
+									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></a>
+								</td>
+								<td class="order-base-service-payment">
+									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $payment( $item ) ); ?></a>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

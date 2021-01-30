@@ -9,19 +9,21 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="chart order-counthour card col-lg-6">
-	<div id="order-counthour-head" class="card-header header" role="tab"
-		data-bs-toggle="collapse" data-target="#order-counthour-data"
-		aria-expanded="true" aria-controls="order-counthour-data">
-		<div class="card-tools-left">
-			<div class="btn btn-card-header act-show fa"></div>
+<div class="chart order-counthour col-lg-6">
+	<div class="card">
+		<div id="order-counthour-head" class="card-header header" role="tab"
+			data-bs-toggle="collapse" data-target="#order-counthour-data"
+			aria-expanded="true" aria-controls="order-counthour-data">
+			<div class="card-tools-left">
+				<div class="btn btn-card-header act-show fa"></div>
+			</div>
+			<span class="item-label header-label">
+				<?= $enc->html( $this->translate( 'admin', 'Orders by hour' ) ); ?>
+			</span>
 		</div>
-		<span class="item-label header-label">
-			<?= $enc->html( $this->translate( 'admin', 'Orders by hour' ) ); ?>
-		</span>
-	</div>
-	<div id="order-counthour-data" class="card-block collapse show content loading" role="tabpanel"
-		aria-labelledby="order-counthour-head">
+		<div id="order-counthour-data" class="card-block collapse show content loading" role="tabpanel"
+			aria-labelledby="order-counthour-head">
+		</div>
 	</div>
 </div>
 <?= $this->get( 'orderhourBody' ); ?>

@@ -15,23 +15,25 @@ $settings = [
 ?>
 <?php if( ( $settings = array_filter( $settings ) ) !== [] ) : ?>
 	<div class="dashboard-setting row">
-		<div class="setting-list card col-lg-12">
-			<div id="setting-list-head" class="card-header header" role="tab"
-				data-bs-toggle="collapse" data-target="#setting-list-data"
-				aria-expanded="true" aria-controls="setting-list-data">
-				<div class="card-tools-left">
-					<div class="btn btn-card-header act-show fa"></div>
+		<div class="setting-list col-lg-12">
+			<div class="card">
+				<div id="setting-list-head" class="card-header header" role="tab"
+					data-bs-toggle="collapse" data-target="#setting-list-data"
+					aria-expanded="true" aria-controls="setting-list-data">
+					<div class="card-tools-left">
+						<div class="btn btn-card-header act-show fa"></div>
+					</div>
+					<span class="item-label header-label">
+						<?= $enc->html( $this->translate( 'admin', 'Potential problems' ) ); ?>
+					</span>
 				</div>
-				<span class="item-label header-label">
-					<?= $enc->html( $this->translate( 'admin', 'Potential problems' ) ); ?>
-				</span>
-			</div>
-			<div id="setting-list-data" class="card-block content collapse show" role="tabpanel" aria-labelledby="setting-list-head">
-				<?php foreach( $settings as $setting => $entry ) : list( $type, $problem ) = $entry; ?>
-					<p class="alert alert-<?= $enc->attr( $type ) ?>">
-						<?= $enc->html( sprintf( $problem, $setting ) ) ?>
-					</p>
-				<?php endforeach ?>
+				<div id="setting-list-data" class="card-block content collapse show" role="tabpanel" aria-labelledby="setting-list-head">
+					<?php foreach( $settings as $setting => $entry ) : list( $type, $problem ) = $entry; ?>
+						<p class="alert alert-<?= $enc->attr( $type ) ?>">
+							<?= $enc->html( sprintf( $problem, $setting ) ) ?>
+						</p>
+					<?php endforeach ?>
+				</div>
 			</div>
 		</div>
 	</div>
