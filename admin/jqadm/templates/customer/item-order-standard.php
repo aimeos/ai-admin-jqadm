@@ -136,7 +136,7 @@ $deliveryStatusList = [
 
 
 ?>
-<div id="order" class="item-order content-block tab-pane fade" role="tabpanel" aria-labelledby="order">
+<div id="order" class="box item-order tab-pane fade" role="tabpanel" aria-labelledby="order">
 
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),

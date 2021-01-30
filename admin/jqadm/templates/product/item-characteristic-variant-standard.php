@@ -20,7 +20,7 @@ $keys = [
 
 
 ?>
-<div class="col-xl-12 content-block item-characteristic-variant">
+<div class="col-xl-12 item-characteristic-variant">
 
 	<table class="attribute-list table table-default"
 		data-items="<?= $enc->attr( $this->get( 'variantData', [] ) ); ?>"

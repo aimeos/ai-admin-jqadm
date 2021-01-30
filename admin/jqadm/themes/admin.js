@@ -813,7 +813,7 @@ Aimeos.Nav = {
 				}
 				switch(key) {
 					case 'i':
-						var node = $(".aimeos :focus").closest(".card,.content-block").find(".act-add:visible").first();
+						var node = $(".aimeos :focus").closest(".card,.box").find(".act-add:visible").first();
 						if(node.length > 0) {
 							node.trigger("click");
 							return false;
@@ -1074,7 +1074,7 @@ $(function() {
 	Vue.component('flat-pickr', VueFlatpickr);
 	Vue.component('v-select', VueSelect.VueSelect);
 
-	$('.vue-block').each(function() {
+	$('.vue').each(function() {
 		var key = $(this).data('key');
 
 		Aimeos.components[key] = new Vue({

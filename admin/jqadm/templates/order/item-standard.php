@@ -163,12 +163,12 @@ $statusList = [
 				</div>
 			</div>
 
-			<div class="col-md-9 item-content tab-content">
+			<div class="col-xl-9 item-content tab-content">
 
 				<div id="order" class="item-order tab-pane fade show active" role="tabpanel" aria-labelledby="order">
 
 					<div class="row item-base">
-						<div class="col-xl-6 content-block <?= $this->site()->readonly( $basket->getSiteId() ); ?>">
+						<div class="col-xl-6 <?= $this->site()->readonly( $basket->getSiteId() ); ?>">
 							<div class="form-group row">
 								<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></label>
 								<div class="col-8">
@@ -198,7 +198,7 @@ $statusList = [
 							</div>
 						</div>
 
-						<div class="col-xl-6 content-block <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?>">
+						<div class="col-xl-6 <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?>">
 							<div class="form-group row">
 								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ); ?></label>
 								<div class="col-8">
@@ -245,7 +245,7 @@ $statusList = [
 
 					<div class="row item-product">
 
-						<div class="col-sm-12 content-block">
+						<div class="col-sm-12">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Products' ) ); ?></h2>
 							<table class="item-product-list table table-striped">
 								<thead>
@@ -328,7 +328,7 @@ $statusList = [
 
 					<div class="row item-misc">
 
-						<div class="col-xl-6 content-block">
+						<div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Coupon' ) ); ?></h2>
 							<?php if( !$basket->getCoupons()->isEmpty() ) : ?>
 								<?php foreach( $basket->getCoupons() as $code => $product ) : ?>
@@ -342,7 +342,7 @@ $statusList = [
 							<?php endif; ?>
 						</div>
 
-						<div class="col-xl-6 content-block">
+						<div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Comment' ) ); ?></h2>
 							<div class="form-group optional">
 								<textarea class="form-control item-title" type="text" tabindex="1" rows="3"
@@ -359,7 +359,7 @@ $statusList = [
 					<div class="row">
 						<?php foreach( $basket->getAddresses()->krsort() as $type => $addresses ) : $code = 'address:' . $type; ?>
 
-							<div class="col-xl-6 content-block item-address">
+							<div class="col-xl-6 item-address">
 								<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
 
 								<?php foreach( $addresses as $pos => $addrItem ) : ?>
@@ -628,14 +628,14 @@ $statusList = [
 						<?php foreach( $basket->getServices()->krsort() as $type => $services ) : $code = 'service:' . $type; ?>
 							<?php foreach( $services as $serviceItem ) : $serviceId = $serviceItem->getServiceId(); ?>
 
-								<div class="col-xl-6 content-block item-service">
+								<div class="col-xl-6 item-service">
 									<h2 class="col-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ); ?></h2>
 									<div class="row">
-										<div class="col-6 content-block">
+										<div class="col-6">
 											<span class="service-name"><?= $enc->html( $serviceItem->getName() ); ?></span>
 											<span class="service-code"><?= $enc->html( $serviceItem->getCode() ); ?></span>
 										</div>
-										<div class="col-6 content-block">
+										<div class="col-6">
 											<span class="service-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $serviceItem->getPrice()->getValue() + $serviceItem->getPrice()->getCosts() ), $currency ) ); ?></span>
 											<?php if( $serviceItem->getPrice()->getRebate() > 0 ) : ?>
 												<span class="service-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $serviceItem->getPrice()->getRebate() ), $currency ) ); ?></span>
@@ -742,7 +742,7 @@ $statusList = [
 
 					<?php if( $this->site()->siteid() == $basket->getSiteId() ) : ?>
 						<div class="row item-summary justify-content-end">
-							<div class="col-xl-6 content-block item-total">
+							<div class="col-xl-6 item-total">
 								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Order totals' ) ); ?></h2>
 								<div class="form-group row total-subtotal">
 									<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Sub-total' ) ); ?></div>

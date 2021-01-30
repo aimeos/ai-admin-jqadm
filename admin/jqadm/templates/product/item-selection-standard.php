@@ -21,7 +21,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 
 
 ?>
-<div id="selection" class="item-selection content-block tab-pane fade" role="tablist" aria-labelledby="selection">
+<div id="selection" class="item-selection tab-pane fade" role="tablist" aria-labelledby="selection">
 	<div id="item-selection-group" role="tablist" aria-multiselectable="true"
 		data-items="<?= $enc->attr( $this->get( 'selectionData', [] ) ); ?>"
 		data-keys="<?= $enc->attr( $keys ) ?>"

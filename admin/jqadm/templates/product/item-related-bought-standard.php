@@ -13,7 +13,7 @@ $keys = [
 
 
 ?>
-<div class="col-xl-6 content-block item-related-bought">
+<div class="col-xl-6 item-related-bought">
 
 	<table class="product-list table table-default"
 		data-items="<?= $enc->attr( $this->get( 'boughtData', [] ) ); ?>"

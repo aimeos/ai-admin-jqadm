@@ -15,7 +15,7 @@ $sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
 
 ?>
-<div class="col-xl-12 content-block vue-block" data-key="characteristic/property"
+<div class="col-xl-12 vue" data-key="characteristic/property"
 	data-data="<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>">
 
 	<property-table

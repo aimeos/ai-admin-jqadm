@@ -49,7 +49,7 @@ $columnList = [
 
 
 ?>
-<div id="code" class="item-code content-block tab-pane fade" role="tabpanel" aria-labelledby="code">
+<div id="code" class="item-code tab-pane fade" role="tabpanel" aria-labelledby="code">
 
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -122,7 +122,7 @@ $columnList = [
 
 			<tr class="list-item-new prototype">
 				<td colspan="<?= count( $fields ); ?>">
-					<div class="content-block row">
+					<div class="row">
 						<div class="col-xl-6">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Voucher' ) ); ?></label>

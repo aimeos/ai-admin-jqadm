@@ -14,7 +14,7 @@ $enc = $this->encoder();
 
 ?>
 <div id="download" class="row item-download tab-pane fade" role="tabpanel" aria-labelledby="download">
-	<div class="col-lg-6 content-block <?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ); ?>">
+	<div class="col-lg-6 <?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ); ?>">
 		<div class="form-group row optional">
 			<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'File' ) ); ?></label>
 			<div class="col-sm-8">
@@ -73,7 +73,7 @@ $enc = $this->encoder();
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-6 content-block ">
+	<div class="col-lg-6 ">
 		<?php if( $this->get( 'downloadData/attribute.code' ) != '' ) : ?>
 			<div class="form-group row">
 				<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Path' ) ); ?></label>

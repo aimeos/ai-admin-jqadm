@@ -90,10 +90,10 @@ $params = $this->get( 'pageParams', [] );
 			</div>
 		</div>
 
-		<div class="col-md-9 item-content tab-content">
-			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+		<div class="col-xl-9 item-content tab-content">
+			<div id="basic" class="row box item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 content-block">
+				<div class="col-xl-6">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
@@ -143,7 +143,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block vue-block"
+				--><div class="col-xl-6 vue"
 					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 					<config-table

@@ -17,7 +17,7 @@ $keys = [
 ?>
 <div id="category" class="row item-category tab-pane fade" role="tabpanel" aria-labelledby="category">
 
-	<div class="col-xl-6 content-block catalog-default">
+	<div class="col-xl-6 catalog-default">
 
 		<table class="category-list table table-default"
 			data-items="<?= $enc->attr( $this->get( 'categoryData', [] ) ); ?>"
@@ -84,7 +84,7 @@ $keys = [
 		</table>
 
 	</div>
-	<div class="col-xl-6 content-block catalog-promotion">
+	<div class="col-xl-6 catalog-promotion">
 
 		<table class="category-list table table-default"
 			data-items="<?= $enc->attr( $this->get( 'categoryData', [] ) ); ?>"

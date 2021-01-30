@@ -84,11 +84,11 @@ $params = $this->get( 'pageParams', [] );
 			</div>
 		</div>
 
-		<div class="col-md-9 item-content tab-content">
+		<div class="col-xl-9 item-content tab-content">
 
-			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="row box item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?>">
+				<div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ); ?></label>
 						<div class="col-sm-8">
@@ -161,7 +161,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?>">
+				--><div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ); ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
 						<div class="col-sm-8">

@@ -20,7 +20,7 @@ $keys = [
 
 
 ?>
-<div class="col-xl-12 content-block item-characteristic-attribute">
+<div class="col-xl-12 item-characteristic-attribute">
 
 	<table class="attribute-list table table-default"
 		data-items="<?= $enc->attr( $this->get( 'attributeData', [] ) ); ?>"

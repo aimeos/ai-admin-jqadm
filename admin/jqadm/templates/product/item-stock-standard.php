@@ -13,7 +13,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 
 
 ?>
-<div id="stock" class="item-stock content-block tab-pane fade" role="tabpanel" aria-labelledby="stock">
+<div id="stock" class="item-stock tab-pane fade" role="tabpanel" aria-labelledby="stock">
 
 	<table class="stock-list table table-default"
 		data-items="<?= $enc->attr( $this->get( 'stockData', [] ) ); ?>"

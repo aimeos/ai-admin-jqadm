@@ -15,7 +15,7 @@ $keys = [
 ?>
 <div id="bundle" class="row item-bundle tab-pane fade" role="tabpanel" aria-labelledby="bundle">
 
-	<div class="col-xl-6 content-block product-default">
+	<div class="col-xl-6 product-default">
 
 		<table class="product-list table table-default"
 			data-items="<?= $enc->attr( $this->get( 'bundleData', [] ) ); ?>"

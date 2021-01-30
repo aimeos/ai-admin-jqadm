@@ -72,7 +72,7 @@ $statusList = [
 
 
 ?>
-<div id="invoice" class="item-invoice content-block tab-pane fade" role="tabpanel" aria-labelledby="invoice">
+<div id="invoice" class="item-invoice tab-pane fade" role="tabpanel" aria-labelledby="invoice">
 
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -156,7 +156,7 @@ $statusList = [
 
 			<tr class="list-item-new prototype">
 				<td colspan="<?= count( $fields ); ?>">
-					<div class="content-block row">
+					<div class="row">
 						<div class="col-xl-6">
 							<input class="order-id" type="hidden" value="" disabled="disabled"
 								name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ); ?>" />

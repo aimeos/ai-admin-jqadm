@@ -58,7 +58,7 @@ $keys = [
 					<div v-bind:id="'item-address-group-data-' + idx" v-bind:class="getCss(idx, 'customer.address.')"
 						v-bind:aria-labelledby="'item-address-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
-						<div class="col-xl-6 content-block">
+						<div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ); ?></h2>
 
 							<input class="item-id" type="hidden"
@@ -158,7 +158,7 @@ $keys = [
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6 content-block">
+						--><div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Delivery address' ) ); ?></h2>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ); ?></label>
@@ -253,7 +253,7 @@ $keys = [
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6 content-block">
+						--><div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ); ?></h2>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ); ?></label>
@@ -309,7 +309,7 @@ $keys = [
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6 content-block">
+						--><div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ); ?></h2>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ); ?></label>

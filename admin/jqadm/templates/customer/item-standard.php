@@ -79,12 +79,12 @@ $params = $this->get( 'pageParams', [] );
 			</div>
 		</div>
 
-		<div class="col-md-9 item-content tab-content">
+		<div class="col-xl-9 item-content tab-content">
 			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) : '' ); ?>
 
-			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="row box item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 content-block <?= $readonly ?>">
+				<div class="col-xl-6 <?= $readonly ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">
@@ -137,7 +137,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $readonly ?>">
+				--><div class="col-xl-6 <?= $readonly ?>">
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ); ?></label>
 						<div class="col-sm-8">
@@ -155,7 +155,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $readonly ?>">
+				--><div class="col-xl-6 <?= $readonly ?>">
 					<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ); ?></h2>
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
@@ -260,7 +260,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $readonly ?>">
+				--><div class="col-xl-6 <?= $readonly ?>">
 					<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Billing address' ) ); ?></h2>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ); ?></label>
@@ -354,7 +354,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $readonly ?>">
+				--><div class="col-xl-6 <?= $readonly ?>">
 					<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ); ?></h2>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ); ?></label>
@@ -397,7 +397,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 				</div><!--
 
-				--><div class="col-xl-6 content-block <?= $readonly ?>">
+				--><div class="col-xl-6 <?= $readonly ?>">
 					<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ); ?></h2>
 					<div class="form-group row optional">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ); ?></label>

@@ -17,7 +17,7 @@ $keys = [
 ?>
 <div id="supplier" class="row item-supplier tab-pane fade" role="tabpanel" aria-labelledby="supplier">
 
-	<div class="col-xl-6 content-block supplier-default">
+	<div class="col-xl-6 supplier-default">
 
 		<table class="supplier-list table table-default"
 			data-items="<?= $enc->attr( $this->get( 'supplierData', [] ) ); ?>"
@@ -84,7 +84,7 @@ $keys = [
 		</table>
 
 	</div>
-	<div class="col-xl-6 content-block supplier-promotion">
+	<div class="col-xl-6 supplier-promotion">
 
 		<table class="supplier-list table table-default"
 			data-items="<?= $enc->attr( $this->get( 'supplierData', [] ) ); ?>"

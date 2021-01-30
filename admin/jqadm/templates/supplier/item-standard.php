@@ -79,12 +79,12 @@ $params = $this->get( 'pageParams', [] );
 			</div>
 		</div>
 
-		<div class="col-md-9 item-content tab-content">
+		<div class="col-xl-9 item-content tab-content">
 			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) : '' ); ?>
 
-			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="row box item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 content-block <?= $readonly ?>">
+				<div class="col-xl-6 <?= $readonly ?>">
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 						<div class="col-sm-8">

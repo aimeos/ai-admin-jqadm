@@ -16,7 +16,7 @@ $keys = [
 ?>
 <div id="subscription" class="item-subscription tab-pane fade" role="tablist" aria-labelledby="subscription">
 
-	<table class="subscription-list table table-default col-xl-12 content-block"
+	<table class="subscription-list table table-default col-xl-12"
 		data-items="<?= $enc->attr( $this->get( 'subscriptionData', [] ) ); ?>"
 		data-keys="<?= $enc->attr( $keys ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
