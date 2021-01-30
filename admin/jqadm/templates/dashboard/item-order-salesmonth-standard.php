@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="chart order-salesmonth col-lg-6">
+<div class="chart order-salesmonth col-xl-6">
 	<div class="card">
 		<div id="order-salesmonth-head" class="card-header header" role="tab"
 			data-bs-toggle="collapse" data-target="#order-salesmonth-data"

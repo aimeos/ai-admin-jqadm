@@ -88,7 +88,7 @@ $statuslist = array(
 );
 
 ?>
-<div class="order-latest col-lg-12">
+<div class="order-latest col-xl-12">
 	<div class="card">
 		<div id="order-latest-head" class="card-header header" role="tab"
 			data-bs-toggle="collapse" data-target="#order-latest-data"

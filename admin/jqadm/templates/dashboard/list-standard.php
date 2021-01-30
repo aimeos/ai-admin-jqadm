@@ -11,7 +11,7 @@ $enc = $this->encoder();
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
 <div class="dashboard container-fluid">
-	<nav class="main-navbar col-lg-12">
+	<nav class="main-navbar col-xl-12">
 		<span class="navbar-brand">
 			<?= $enc->html( $this->translate( 'admin', 'Dashboard' ) ); ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>

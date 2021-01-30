@@ -112,8 +112,15 @@ html {
 
 .aimeos .card {
 	box-shadow: var(--bs-shadow);
-	margin-bottom: 1rem;
-	padding: 1rem;
+	margin-bottom: 0.5rem;
+	padding: 0.5rem;
+}
+
+@media (min-width: 576px) {
+	.aimeos .card {
+		margin-bottom: 1rem;
+		padding: 1rem;
+	}
 }
 
 .aimeos .card-header {

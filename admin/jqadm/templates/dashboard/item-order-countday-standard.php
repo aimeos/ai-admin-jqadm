@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="chart order-countday col-lg-12">
+<div class="chart order-countday col-xl-12">
 	<div class="card">
 		<div id="order-countday-head" class="card-header header" role="tab"
 			data-bs-toggle="collapse" data-target="#order-countday-data"

@@ -15,7 +15,7 @@ $settings = [
 ?>
 <?php if( ( $settings = array_filter( $settings ) ) !== [] ) : ?>
 	<div class="dashboard-setting row">
-		<div class="setting-list col-lg-12">
+		<div class="setting-list col-xl-12">
 			<div class="card">
 				<div id="setting-list-head" class="card-header header" role="tab"
 					data-bs-toggle="collapse" data-target="#setting-list-data"

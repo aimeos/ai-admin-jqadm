@@ -23,7 +23,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 ?>
 <?php if( !$items->isEmpty() ) : ?>
 	<div class="dashboard-job row">
-		<div class="job-list col-lg-12">
+		<div class="job-list col-xl-12">
 			<div class="card">
 				<div id="job-list-head" class="card-header header" role="tab"
 					data-bs-toggle="collapse" data-target="#job-list-data"
