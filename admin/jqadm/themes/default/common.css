@@ -92,16 +92,17 @@ html {
 .aimeos .error-list .sr-only:after {
 	content: ":";
 }
-/*
-.aimeos .tab-pane {
-	--bs-gutter-x: 0;
-}
-*/
-.aimeos .content-block {
+
+.aimeos .box {
 	box-shadow: var(--bs-shadow);
 	background-color: var(--bs-bg-light, #ffffff);
-	margin-bottom: 1rem;
+	border-radius: .25rem;
+	margin: 0.5rem 0;
 	padding: 1rem;
+}
+
+.aimeos .box.full {
+	min-height: calc(100% - 1rem);
 }
 
 .aimeos .card.sortable-ghost,
@@ -233,7 +234,7 @@ html {
 }
 
 .aimeos .card-tools-more {
-	padding: 0 0.5rem;
+	margin: 0.5rem 0;
 }
 
 .aimeos .card-block.row {
@@ -326,10 +327,8 @@ html {
 
 .aimeos .item .navbar-content {
 	position: relative;
-	max-height: 5.5rem;
+	max-height: 6rem;
 	overflow: hidden;
-	margin-bottom: 1rem;
-	box-shadow: var(--bs-shadow);
 }
 
 .aimeos .item .navbar-content.show {
@@ -350,11 +349,15 @@ html {
 	position: static;
 }
 
+.aimeos .item .navbar-content .nav-tabs {
+	justify-content: center;
+}
+
 .aimeos .item .nav-tabs .nav-link {
 	text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
 	.aimeos .item:not(.item-catalog) .navbar-content:not(.show) {
 		max-height: 20rem;
 	}

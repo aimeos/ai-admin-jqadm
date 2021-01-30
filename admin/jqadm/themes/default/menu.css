@@ -68,7 +68,6 @@
 		display: inline-block;
 		background-color: var(--bs-primary, #0090e0);
 		padding: 0.625rem 0.5rem;
-		z-index: 100;
 		width: max(15%, 12rem);
 		margin: 0;
 		left: 0;

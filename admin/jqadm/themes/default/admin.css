@@ -118,12 +118,37 @@
 
 /* Item listing */
 
+.container-fluid,
 .aimeos .list-view {
-	width: 100%;
-	padding-right: var(--bs-gutter-x,.75rem);
-	padding-left: var(--bs-gutter-x,.75rem);
+	padding-left: .5rem;
+	padding-right: .5rem;
 	margin-right: auto;
 	margin-left: auto;
+	width: 100%;
+}
+
+@media (min-width: 576px) {
+	.container-fluid,
+	.aimeos .list-view {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.container-fluid,
+	.aimeos .list-view {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+}
+
+@media (min-width: 992px) {
+	.container-fluid,
+	.aimeos .list-view {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 }
 
 .aimeos .noitems {
@@ -250,6 +275,7 @@
 
 .aimeos .item-meta {
 	margin: 1rem 0.5rem;
+	text-align: center;
 }
 
 .aimeos .item-meta small,

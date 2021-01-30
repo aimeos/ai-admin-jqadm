@@ -13,10 +13,8 @@
 	justify-content: space-between;
 	box-shadow: var(--bs-shadow);
 	background-color: var(--bs-bg-light, #ffffff);
-	margin: 0.5rem 0;
-	min-height: 2.5rem;
-	margin-bottom: 1rem;
-	padding: 0 0.5rem;
+	padding: 0.5rem;
+	margin: 1rem 0;
 	z-index: 1040;
 }
 
@@ -26,8 +24,6 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	margin-bottom: 0;
-	padding-top: 0;
-	padding-bottom: 0;
 }
 
 .aimeos .main-navbar .navbar-secondary {
@@ -44,94 +40,11 @@
 	height: 35px;
 }
 
-
-/** Search Toggle **/
-
-.aimeos .toggle-search {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: nowrap;
-	position: relative;
-	cursor: pointer;
-	padding: 0.5rem 0.75rem;
-}
-
-.aimeos .toggle-search .icon {
-	font: normal normal normal 14px/1 FontAwesome;
-	color: var(--bs-secondary, #707880);
-	display: block;
-}
-
-.aimeos .toggle-search .icon.search:before {
-	content: "\f002"
-}
-
-
-/** Search field with custom selects **/
-
-
-.aimeos .main-navbar .input-group {
-	width: inherit;
-}
-
-.aimeos .main-navbar .dropdown-item input {
-	margin-right: 0.75rem;
-}
-
-.aimeos .main-navbar .filter-columns,
-.aimeos .main-navbar .filter-operator,
-.aimeos .main-navbar .filter-value,
-.aimeos .main-navbar .filter-key {
-	overflow: hidden;
-}
-
-.aimeos .main-navbar .filter-value {
-	min-width: 10rem;
-}
-
-.aimeos .main-navbar .filter-key {
-	min-width: 10rem;
-}
-
-.aimeos .main-navbar .filter-operator {
-	min-width: 5rem;
-}
-
-.aimeos .main-navbar .form-inline {
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	z-index: -1;
-	visibility: hidden;
-	background: #00000080;
-}
-
-.aimeos .main-navbar .form-inline form {
-	background-color: var(--bs-bg-light, #ffffff);
-	border-radius: 0.5rem;
-	max-width: 20rem;
-	padding: 1rem;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.aimeos .main-navbar .form-inline form > * {
-	margin: 0.5rem 0;
-}
-
-.aimeos .main-navbar .form-inline h2,
-.aimeos .main-navbar .form-inline .button-group {
-	text-align: center;
-}
-
-.js--show-search .aimeos .main-navbar .form-inline {
-	visibility: visible;
-	z-index: 2000;
+@media (min-width: 992px) {
+	.aimeos .main-navbar {
+		position: sticky;
+		top: 0;
+	}
 }
 
 
@@ -139,19 +52,21 @@
 
 .aimeos .main-content {
 	padding: 0;
-	min-height: calc(100vh - 5.5rem);
+	min-height: calc(100vh - 6rem);
 }
 
 .aimeos .main-content .item-actions {
 	white-space: nowrap;
 	display: block;
 	width: inherit;
-    margin: 0.5rem 0;
+	margin: 0.5rem 0;
 	margin-left: auto;
 }
 
 .aimeos .main-content .main-navbar .item-actions {
 	display: inline-block;
+	margin: 0;
+	margin-left: auto;
 }
 
 .aimeos .main-content .item-actions .btn:not(.dropdown-toggle) {
@@ -163,13 +78,6 @@
 }
 
 @media (min-width: 992px) {
-	.aimeos .main-navbar {
-		position: sticky;
-		min-height: 3rem;
-		z-index: 1040;
-		top: 0;
-	}
-
 	.aimeos .main-content {
 		margin-left: max(15%, 12rem);
 	}

@@ -58,9 +58,9 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 
 	<div class="row item-container">
 
-		<div class="col-md-3 item-navbar">
+		<div class="col-xl-3 item-navbar">
 			<div class="navbar-content">
-				<ul class="nav nav-tabs flex-md-column flex-wrap d-flex justify-content-between" role="tablist">
+				<ul class="nav nav-tabs flex-xl-column flex-wrap d-flex box" role="tablist">
 
 					<li class="nav-item basic">
 						<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">

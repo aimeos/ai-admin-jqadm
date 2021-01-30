@@ -90,19 +90,20 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 	<div class="row item-container">
 
-		<div class="col-lg-3 catalog-tree content-block">
-			<div class="tree-toolbar input-group">
-				<div class="input-group-prepend"><!--
-					--><span class="btn btn-secondary fa expand-all" tabindex="1"></span><!--
-					--><span class="btn btn-secondary fa collapse-all" tabindex="1"></span><!--
-				--></div><!--
-				--><input type="text" class="form-control search-input" tabindex="1" placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ); ?>"><!--
-				--><div class="input-group-append"><!--
-					--><span class="btn btn-secondary fa act-delete " tabindex="1"></span><!--
-					--><span class="btn btn-primary fa act-add" tabindex="1"></span><!--
-				--></div>
-			</div>
-			<div class="tree-content">
+		<div class="col-lg-3 catalog-tree">
+			<div class="box full">
+				<div class="tree-toolbar input-group">
+					<div class="input-group-prepend"><!--
+						--><span class="btn btn-secondary fa expand-all" tabindex="1"></span><!--
+						--><span class="btn btn-secondary fa collapse-all" tabindex="1"></span><!--
+					--></div><!--
+					--><input type="text" class="form-control search-input" tabindex="1" placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ); ?>"><!--
+					--><div class="input-group-append"><!--
+						--><span class="btn btn-secondary fa act-delete " tabindex="1"></span><!--
+						--><span class="btn btn-primary fa act-add" tabindex="1"></span><!--
+					--></div>
+				</div>
+				<div class="tree-content"></div>
 			</div>
 		</div>
 
@@ -112,8 +113,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 					<div class="col-xl-12 item-navbar">
 						<div class="navbar-content">
-							<ul class="nav nav-tabs flex-row flex-wrap d-flex justify-content-between" role="tablist">
-
+							<ul class="nav nav-tabs flex-row flex-wrap d-flex box" role="tablist">
 								<li class="nav-item basic">
 									<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic" tabindex="1">
 										<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
@@ -127,7 +127,6 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 										</a>
 									</li>
 								<?php endforeach; ?>
-
 							</ul>
 
 							<div class="item-meta text-muted">
@@ -151,7 +150,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 					<div class="col-xl-12 item-content tab-content">
 
-						<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+						<div id="basic" class="row item-basic tab-pane fade show active box" role="tabpanel" aria-labelledby="basic">
 
 							<div class="col-xl-6 content-block <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ); ?>">
 								<div class="form-group row mandatory">

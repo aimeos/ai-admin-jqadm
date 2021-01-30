@@ -22,38 +22,6 @@ textarea {
 
 /* Bootstrap improvments */
 
-:root {
-	--bs-gutter-x: 0.5rem;
-}
-
-@media (min-width: 576px) {
-	:root {
-		--bs-gutter-x: 0.75rem;
-	}
-}
-
-@media (min-width: 768px) {
-	:root {
-		--bs-gutter-x: 1rem;
-	}
-}
-
-@media (min-width: 992px) {
-	:root {
-		--bs-gutter-x: 1.25rem;
-	}
-}
-
-@media (min-width: 1200px) {
-	:root {
-		--bs-gutter-x: 1.5rem;
-	}
-}
-
-.item .row {
-	--bs-gutter-x: 0.5rem;
-}
-
 input[type='checkbox'],
 input[type='radio'] {
 	vertical-align: middle;
@@ -70,6 +38,7 @@ input[type='radio'] {
 
 .modal {
 	background: #00000080;
+	z-index: 10000;
 }
 
 .modal.show {
@@ -194,7 +163,6 @@ input[type='radio'] {
 	border: none;
 	padding: .5rem 1rem;
 	text-decoration: none;
-	margin: 0.25rem;
     border-radius: 1.5rem;
 }
 
