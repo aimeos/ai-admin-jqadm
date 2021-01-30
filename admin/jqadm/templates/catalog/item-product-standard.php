@@ -25,15 +25,15 @@ $fields = $this->config( 'admin/jqadm/catalog/product/fields', $fields );
 
 
 ?>
-<div id="product" class="box item-product tab-pane fade box" role="tabpanel" aria-labelledby="product">
-
-	<?= $this->partial( $this->config( 'admin/jqadm/partial/productref', 'common/partials/productref-standard' ), [
-		'types' => $this->get( 'productListTypes', map() )->col( 'catalog.lists.type.label', 'catalog.lists.type.code' )->toArray(),
-		'siteid' => $this->site()->siteid(),
-		'parentid' => $this->param( 'id' ),
-		'resource' => 'catalog/lists',
-		'fields' => $fields,
-	] ) ?>
-
+<div id="product" class="item-product tab-pane fade box" role="tabpanel" aria-labelledby="product">
+	<div class="box">
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/productref', 'common/partials/productref-standard' ), [
+			'types' => $this->get( 'productListTypes', map() )->col( 'catalog.lists.type.label', 'catalog.lists.type.code' )->toArray(),
+			'siteid' => $this->site()->siteid(),
+			'parentid' => $this->param( 'id' ),
+			'resource' => 'catalog/lists',
+			'fields' => $fields,
+		] ) ?>
+	</div>
 </div>
 <?= $this->get( 'productBody' ); ?>

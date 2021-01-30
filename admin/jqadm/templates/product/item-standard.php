@@ -289,7 +289,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 				<div class="col">
 					<div class="box">
 						<div class="row">
-							<div class="col-xl-6 vue<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>"
+							<div class="col-xl-6 vue <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>"
 								data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 								<?php if( $this->config( 'admin/jqadm/dataset/product', [] ) !== [] ) : ?>
@@ -472,7 +472,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								</div>
 							</div><!--
 
-							--><div class="col-xl-6 vue<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>"
+							--><div class="col-xl-6 vue <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>"
 								data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 								<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"

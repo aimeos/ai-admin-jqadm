@@ -237,7 +237,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 											</div>
 										</div><!--
 
-										--><div class="col-xl-6 vue<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ); ?>"
+										--><div class="col-xl-6 vue <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ); ?>"
 											data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 											<config-table

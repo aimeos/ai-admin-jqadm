@@ -96,7 +96,7 @@ $enc = $this->encoder();
 				<div class="col">
 					<div class="box">
 						<div class="row">
-							<div class="col-xl-6 vue<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?>">
+							<div class="col-xl-6 vue <?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?>">
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 									<div class="col-sm-8">
