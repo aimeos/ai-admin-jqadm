@@ -81,58 +81,64 @@ $params = $this->get( 'pageParams', [] );
 		</div>
 
 		<div class="col-xl-9 item-content tab-content">
-			<div id="basic" class="row box item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6">
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
-						<div class="col-sm-8">
-							<select class="form-control form-select item-status" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.currency.status' ) ) ); ?>" >
-								<option value="">
-									<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
-								</option>
-								<option value="1" <?= $selected( $this->get( 'itemData/locale.currency.status', 1 ), 1 ); ?> >
-									<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
-								</option>
-								<option value="0" <?= $selected( $this->get( 'itemData/locale.currency.status', 1 ), 0 ); ?> >
-									<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
-								</option>
-								<option value="-1" <?= $selected( $this->get( 'itemData/locale.currency.status', 1 ), -1 ); ?> >
-									<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
-								</option>
-								<option value="-2" <?= $selected( $this->get( 'itemData/locale.currency.status', 1 ), -2 ); ?> >
-									<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
-								</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-code" required="required" tabindex="1" autocomplete="off"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.currency.code' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'ISO currency code (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/locale.currency.code' ) ); ?>" />
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Three letter ISO currency code' ) ); ?>
-						</div>
-					</div>
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-label" required="required" tabindex="1" autocomplete="off"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.currency.label' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/locale.currency.label' ) ); ?>" />
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Descritive name of the currency' ) ); ?>
+				<div class="col">
+					<div class="box">
+						<div class="row">
+							<div class="col-xl-6">
+								<div class="form-group row mandatory">
+									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
+									<div class="col-sm-8">
+										<select class="form-control form-select item-status" required="required" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.currency.status' ) ) ); ?>" >
+											<option value="">
+												<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
+											</option>
+											<option value="1" <?= $selected( $this->get( 'itemData/locale.currency.status', 1 ), 1 ); ?> >
+												<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+											</option>
+											<option value="0" <?= $selected( $this->get( 'itemData/locale.currency.status', 1 ), 0 ); ?> >
+												<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+											</option>
+											<option value="-1" <?= $selected( $this->get( 'itemData/locale.currency.status', 1 ), -1 ); ?> >
+												<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+											</option>
+											<option value="-2" <?= $selected( $this->get( 'itemData/locale.currency.status', 1 ), -2 ); ?> >
+												<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+											</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row mandatory">
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
+									<div class="col-sm-8">
+										<input class="form-control item-code" required="required" tabindex="1" autocomplete="off"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.currency.code' ) ) ); ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'ISO currency code (required)' ) ); ?>"
+											value="<?= $enc->attr( $this->get( 'itemData/locale.currency.code' ) ); ?>" />
+									</div>
+									<div class="col-sm-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Three letter ISO currency code' ) ); ?>
+									</div>
+								</div>
+								<div class="form-group row mandatory">
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
+									<div class="col-sm-8">
+										<input class="form-control item-label" required="required" tabindex="1" autocomplete="off"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.currency.label' ) ) ); ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label (required)' ) ); ?>"
+											value="<?= $enc->attr( $this->get( 'itemData/locale.currency.label' ) ); ?>" />
+									</div>
+									<div class="col-sm-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Descritive name of the currency' ) ); ?>
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>
-
 			</div>
 
 			<?= $this->get( 'itemBody' ); ?>

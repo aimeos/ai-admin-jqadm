@@ -84,33 +84,39 @@ $params = $this->get( 'pageParams', [] );
 		<div class="col-xl-9 item-content tab-content">
 			<?php $readonly = ( $this->access( ['admin', 'super'] ) === false ? $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ) : '' ); ?>
 
-			<div id="basic" class="row box item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="col-xl-6 <?= $readonly ?>">
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-code" type="text" required="required" tabindex="1"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.group.code' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique group code (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/customer.group.code' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ); ?> />
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Alphanumeric string that can identify the group uniquely' ) ); ?>
-						</div>
-					</div>
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-label" type="text" required="required" tabindex="1"
-								name="<?= $this->formparam( array( 'item', 'customer.group.label' ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/customer.group.label' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ); ?> />
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Group name describing for which members the group is for' ) ); ?>
+				<div class="col <?= $readonly ?>">
+					<div class="box">
+						<div class="row">
+							<div class="col-xl-6">
+								<div class="form-group row mandatory">
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
+									<div class="col-sm-8">
+										<input class="form-control item-code" type="text" required="required" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.group.code' ) ) ); ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique group code (required)' ) ); ?>"
+											value="<?= $enc->attr( $this->get( 'itemData/customer.group.code' ) ); ?>"
+											<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ); ?> />
+									</div>
+									<div class="col-sm-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Alphanumeric string that can identify the group uniquely' ) ); ?>
+									</div>
+								</div>
+								<div class="form-group row mandatory">
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
+									<div class="col-sm-8">
+										<input class="form-control item-label" type="text" required="required" tabindex="1"
+											name="<?= $this->formparam( array( 'item', 'customer.group.label' ) ); ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
+											value="<?= $enc->attr( $this->get( 'itemData/customer.group.label' ) ); ?>"
+											<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ); ?> />
+									</div>
+									<div class="col-sm-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Group name describing for which members the group is for' ) ); ?>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -33,9 +33,10 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 
 
 ?>
-<div id="order" class="box item-order tab-pane fade" role="tabpanel" aria-labelledby="order">
+<div id="order" class="item-order tab-pane fade" role="tabpanel" aria-labelledby="order">
 
-	<div class="order-list" data-id="<?= $enc->attr( $this->param( 'id' ) ) ?>"
+	<div class="order-list box"
+		data-id="<?= $enc->attr( $this->param( 'id' ) ) ?>"
 		data-fields="<?= $enc->attr( $fields ) ?>">
 
 		<table class="list-items table table-striped">
