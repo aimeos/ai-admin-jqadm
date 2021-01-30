@@ -359,6 +359,9 @@
 	width: 25%;
 }
 
+.aimeos .item-price .pricecustom .form-control-label {
+	justify-content: flex-start;
+}
 
 /* Bundles */
 

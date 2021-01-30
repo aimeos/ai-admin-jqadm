@@ -22,11 +22,6 @@ textarea {
 
 /* Bootstrap improvments */
 
-input[type='checkbox'],
-input[type='radio'] {
-	vertical-align: middle;
-}
-
 .dropdown {
 	display: inline-block;
 }
@@ -190,15 +185,23 @@ td.is-invalid .form-control {
 	border-color: var(--bs-danger, #dc3545);
 }
 
-.form-group.row .form-control-label {
-	padding: 0.5rem 15px;
-	font-size: 90%;
+.form-control.is-valid, .was-validated .form-control:valid {
+	padding-right: initial;
+	background-image: none;
 }
 
-.form-group.row label {
+.form-control-label {
 	font-weight: bold;
-	text-align: right;
-	margin-bottom: 0;
+	font-size: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+@media (max-width: 575px) {
+	.form-control-label {
+		justify-content: flex-start;
+	}
 }
 
 .form-group {
@@ -242,12 +245,6 @@ td.is-invalid .form-control {
 
 .page-link {
 	color: var(--bs-primary, #0090e0);
-}
-
-@media (max-width: 575px) {
-	.form-group.row label {
-		text-align: left;
-	}
 }
 
 @media (max-width: 767px) {

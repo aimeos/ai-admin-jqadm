@@ -96,13 +96,10 @@ html {
 .aimeos .box {
 	box-shadow: var(--bs-shadow);
 	background-color: var(--bs-bg-light, #ffffff);
+	min-height: calc(100% - 1rem);
 	border-radius: .25rem;
 	margin: 0.5rem 0;
 	padding: 1rem;
-}
-
-.aimeos .box.full {
-	min-height: calc(100% - 1rem);
 }
 
 .aimeos .card.sortable-ghost,
@@ -251,11 +248,11 @@ html {
 }
 
 .aimeos .card-block .advanced {
-	border-top: solid 1pxvar(--bs-line-light, #dee2e6);
+	border-top: solid 1px var(--bs-line-light, #dee2e6);
 }
 
 .aimeos .card-block .advanced.collapsed {
-	border-bottom: solid 1pxvar(--bs-line-light, #dee2e6);
+	border-bottom: solid 1px var(--bs-line-light, #dee2e6);
 }
 
 .aimeos .custom-datetime {
@@ -366,8 +363,17 @@ html {
 }
 
 @media (min-width: 1200px) {
+	.aimeos .item:not(.item-catalog) .navbar-content {
+		position: sticky;
+		top: 4rem;
+	}
+
 	.aimeos .item:not(.item-catalog) .navbar-content:not(.show) {
-		max-height: 21rem;
+		max-height: 21.5rem;
+	}
+
+	.aimeos .item:not(.item-catalog) .navbar-content .more {
+		top: 18.5rem;
 	}
 
 	.aimeos .item:not(.item-catalog) .nav-tabs,
@@ -377,10 +383,6 @@ html {
 
 	.aimeos .item:not(.item-catalog) .nav-tabs .nav-link {
 		text-align: left;
-	}
-
-	.aimeos .item .navbar-content .more {
-		top: 18rem;
 	}
 }
 
