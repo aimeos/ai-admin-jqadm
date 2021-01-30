@@ -92,6 +92,8 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/subscription.editor' ) ); ?></span>
 					</small>
 				</div>
+
+				<div class="more"></div>
 			</div>
 		</div>
 

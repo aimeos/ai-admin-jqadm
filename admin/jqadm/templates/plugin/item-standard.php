@@ -84,6 +84,8 @@ $enc = $this->encoder();
 						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/plugin.editor' ) ); ?></span>
 					</small>
 				</div>
+
+				<div class="more"></div>
 			</div>
 		</div>
 

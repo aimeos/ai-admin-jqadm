@@ -160,6 +160,8 @@ $statusList = [
 							<span class="meta-value"><?= $enc->html( $basket->getEditor() ); ?></span>
 						</small>
 					</div>
+
+					<div class="more"></div>
 				</div>
 			</div>
 

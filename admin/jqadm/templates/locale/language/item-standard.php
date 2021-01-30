@@ -75,6 +75,8 @@ $params = $this->get( 'pageParams', [] );
 						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/locale.language.editor' ) ); ?></span>
 					</small>
 				</div>
+
+				<div class="more"></div>
 			</div>
 		</div>
 

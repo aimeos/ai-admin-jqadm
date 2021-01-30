@@ -294,7 +294,7 @@
 	white-space: nowrap;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
 	.aimeos .item-meta small {
 		white-space: normal;
 		margin: 0.5rem 0;

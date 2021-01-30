@@ -139,8 +139,8 @@ input[type='radio'] {
     border-bottom-color: var(--bs-line, #bbb) !important;
 }
 
-.table:not(.item-config) tr:not(:last-child)>td,
-.table:not(.item-config)>:not(:last-child)>:last-child>* {
+.table.list-items tr:not(:last-child)>td,
+.table.list-items>:not(:last-child)>:last-child>* {
     border-bottom-color: var(--bs-line-light, #dee2e6);
 	border-bottom-width: 1px;
 }

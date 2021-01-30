@@ -327,7 +327,7 @@ html {
 
 .aimeos .item .navbar-content {
 	position: relative;
-	max-height: 6rem;
+	max-height: 6.5rem;
 	overflow: hidden;
 }
 
@@ -336,30 +336,31 @@ html {
 }
 
 .aimeos .item .navbar-content .more {
-	background-color: var(--bs-menu-alt-bg, #ffffff);
 	color: var(--bs-secondary-light, #9098a0);
+	background-color: var(--bs-bg, #f8fafc);
 	position: absolute;
-	height: 2.5rem;
+	height: 3rem;
 	width: 100%;
-	bottom: 0;
+	top: 3.5rem;
 }
 
 .aimeos .item .navbar-content.show .more {
-	background-color: var(--bs-bg, #f8fafc);
 	position: static;
 }
 
 .aimeos .item .navbar-content .nav-tabs {
 	justify-content: center;
+	padding: 0;
 }
 
 .aimeos .item .nav-tabs .nav-link {
 	text-align: center;
+	margin: 0.25rem;
 }
 
 @media (min-width: 1200px) {
 	.aimeos .item:not(.item-catalog) .navbar-content:not(.show) {
-		max-height: 20rem;
+		max-height: 21rem;
 	}
 
 	.aimeos .item:not(.item-catalog) .nav-tabs,
@@ -369,6 +370,10 @@ html {
 
 	.aimeos .item:not(.item-catalog) .nav-tabs .nav-link {
 		text-align: left;
+	}
+
+	.aimeos .item .navbar-content .more {
+		top: 18rem;
 	}
 }
 
