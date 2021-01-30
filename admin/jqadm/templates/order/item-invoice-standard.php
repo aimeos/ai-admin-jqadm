@@ -72,7 +72,7 @@ $statusList = [
 
 
 ?>
-<div id="invoice" class="item-invoice tab-pane fade" role="tabpanel" aria-labelledby="invoice">
+<div id="invoice" class="item-invoice tab-pane fade box" role="tabpanel" aria-labelledby="invoice">
 
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),

@@ -91,7 +91,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 	<div class="row item-container">
 
 		<div class="col-lg-3 catalog-tree">
-			<div class="box full">
+			<div class="box">
 				<div class="tree-toolbar input-group">
 					<div class="input-group-prepend"><!--
 						--><span class="btn btn-secondary fa expand-all" tabindex="1"></span><!--

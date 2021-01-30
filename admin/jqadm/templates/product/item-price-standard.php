@@ -24,16 +24,16 @@ $enc = $this->encoder();
 ?>
 <div id="price" class="item-price tab-pane fade" role="tablist" aria-labelledby="price">
 
-	<div class="col-xl-6">
-		<div class="form-group row optional">
-			<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Allow custom price' ) ); ?></label>
-			<div class="col-sm-8">
+	<div class="card pricecustom">
+		<div class="row optional">
+			<div class="col-1">
 				<input class="form-check-input item-pricecustom" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'pricecustom' ) ) ); ?>"
 					<?= $this->get( 'priceCustom' ) ? 'checked="checked"' : ''; ?>
 				/>
 			</div>
-			<div class="col-sm-12 form-text text-muted help-text">
+			<label class="col-11 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Allow custom price' ) ); ?></label>
+			<div class="col-12 form-text text-muted help-text">
 				<?= $enc->html( $this->translate( 'admin', 'Allow customers to choose themselves how much they want to pay' ) ); ?>
 			</div>
 		</div>
@@ -82,7 +82,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ); ?></label>
 								<div class="col-sm-8">
-									<div is="taxrates" v-bind:key="idx"
+									<div is="taxrates" v-bind:key="idx" class="item-taxrate"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.taxrates' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:types="JSON.parse('<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>')"
 										v-bind:placeholder="'<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>'"

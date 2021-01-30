@@ -90,101 +90,105 @@ $enc = $this->encoder();
 
 		<div class="col-xl-9 item-content tab-content">
 
-			<div id="basic" class="row box item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
 				<div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?>">
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
-						<div class="col-sm-8">
-							<?php if( $this->access( 'super', 'admin' ) ) : ?>
-								<select class="form-control form-select item-status" required="required" tabindex="1"
-									name="<?= $enc->attr( $this->formparam( array( 'item', 'review.status' ) ) ); ?>"
-									<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
-									<option value="">
-										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
-									</option>
-									<option value="1" <?= $selected( $this->get( 'itemData/review.status', 1 ), 1 ); ?> >
-										<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
-									</option>
-									<option value="0" <?= $selected( $this->get( 'itemData/review.status', 1 ), 0 ); ?> >
-										<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
-									</option>
-									<option value="-1" <?= $selected( $this->get( 'itemData/review.status', 1 ), -1 ); ?> >
-										<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
-									</option>
-									<option value="-2" <?= $selected( $this->get( 'itemData/review.status', 1 ), -2 ); ?> >
-										<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
-									</option>
-								</select>
-							<?php else : ?>
-								<span class="form-control item-status">
-									<?php $key = 'status:' . $this->get( 'itemData/review.status' ) ?>
-									<?= $enc->html( $this->translate( 'mshop/code', $key ) ); ?>
-								</span>
-							<?php endif ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-name" type="text" tabindex="1"
-								name="<?= $this->formparam( array( 'item', 'review.name' ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Reviewer name' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/review.name' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> />
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Name of the reviewer' ) ); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Rating' ) ); ?></label>
-						<div class="col-sm-8">
-							<span class="form-control item-comment">
-								<?= $enc->html( str_repeat( '★', $this->get( 'itemData/review.rating', 1 ) ) ); ?>
-							</span>
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Rating of the reviewer' ) ); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Comment' ) ); ?></label>
-						<div class="col-sm-8">
-							<span class="form-control item-comment"><?= $enc->html( $this->get( 'itemData/review.comment' ) ); ?></span>
-						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Comment of the reviewer' ) ); ?>
-						</div>
-					</div>
-				</div><!--
-
-				--><div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?>">
-					<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $this->item->getDomain() . '/groups', [] ) ) ) : ?>
-						<div class="form-group row">
-							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reviewed item' ) ); ?></label>
+					<div class="box">
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 							<div class="col-sm-8">
-								<span class="form-control item-refid">
-									<a class="act-view" target="_blank"
-										href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => $this->item->getDomain(), 'id' => $this->item->getRefId()], [], $getConfig ) ); ?>">
-										<?= $enc->html( $this->item->getDomain() ) ?>: <?= $enc->html( $this->item->getRefId() ) ?>
-									</a>
-								</span>
+								<?php if( $this->access( 'super', 'admin' ) ) : ?>
+									<select class="form-control form-select item-status" required="required" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'review.status' ) ) ); ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
+										<option value="">
+											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+										</option>
+										<option value="1" <?= $selected( $this->get( 'itemData/review.status', 1 ), 1 ); ?> >
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+										</option>
+										<option value="0" <?= $selected( $this->get( 'itemData/review.status', 1 ), 0 ); ?> >
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+										</option>
+										<option value="-1" <?= $selected( $this->get( 'itemData/review.status', 1 ), -1 ); ?> >
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+										</option>
+										<option value="-2" <?= $selected( $this->get( 'itemData/review.status', 1 ), -2 ); ?> >
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+										</option>
+									</select>
+								<?php else : ?>
+									<span class="form-control item-status">
+										<?php $key = 'status:' . $this->get( 'itemData/review.status' ) ?>
+										<?= $enc->html( $this->translate( 'mshop/code', $key ) ); ?>
+									</span>
+								<?php endif ?>
 							</div>
 						</div>
-					<?php endif; ?>
-					<div class="form-group row">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Response' ) ); ?></label>
-						<div class="col-sm-8">
-							<textarea class="form-control item-response" tabindex="1" maxlength="1024"
-								name="<?= $this->formparam( array( 'item', 'review.response' ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Your response' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
-								<?= $enc->html( $this->get( 'itemData/review.response' ) ); ?>
-							</textarea>
+						<div class="form-group row">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></label>
+							<div class="col-sm-8">
+								<input class="form-control item-name" type="text" tabindex="1"
+									name="<?= $this->formparam( array( 'item', 'review.name' ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Reviewer name' ) ); ?>"
+									value="<?= $enc->attr( $this->get( 'itemData/review.name' ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> />
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Name of the reviewer' ) ); ?>
+							</div>
 						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Response to the reviewer' ) ); ?>
+						<div class="form-group row">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Rating' ) ); ?></label>
+							<div class="col-sm-8">
+								<span class="form-control item-comment">
+									<?= $enc->html( str_repeat( '★', $this->get( 'itemData/review.rating', 1 ) ) ); ?>
+								</span>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Rating of the reviewer' ) ); ?>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Comment' ) ); ?></label>
+							<div class="col-sm-8">
+								<span class="form-control item-comment"><?= $enc->html( $this->get( 'itemData/review.comment' ) ); ?></span>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Comment of the reviewer' ) ); ?>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?>">
+					<div class="box">
+						<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $this->item->getDomain() . '/groups', [] ) ) ) : ?>
+							<div class="form-group row">
+								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reviewed item' ) ); ?></label>
+								<div class="col-sm-8">
+									<span class="form-control item-refid">
+										<a class="act-view" target="_blank"
+											href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => $this->item->getDomain(), 'id' => $this->item->getRefId()], [], $getConfig ) ); ?>">
+											<?= $enc->html( $this->item->getDomain() ) ?>: <?= $enc->html( $this->item->getRefId() ) ?>
+										</a>
+									</span>
+								</div>
+							</div>
+						<?php endif; ?>
+						<div class="form-group row">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Response' ) ); ?></label>
+							<div class="col-sm-8">
+								<textarea class="form-control item-response" tabindex="1" maxlength="1024"
+									name="<?= $this->formparam( array( 'item', 'review.response' ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Your response' ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ); ?> >
+									<?= $enc->html( $this->get( 'itemData/review.response' ) ); ?>
+								</textarea>
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Response to the reviewer' ) ); ?>
+							</div>
 						</div>
 					</div>
 				</div>

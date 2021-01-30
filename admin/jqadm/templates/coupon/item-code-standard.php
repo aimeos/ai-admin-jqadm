@@ -49,7 +49,7 @@ $columnList = [
 
 
 ?>
-<div id="code" class="item-code tab-pane fade" role="tabpanel" aria-labelledby="code">
+<div id="code" class="item-code tab-pane fade box" role="tabpanel" aria-labelledby="code">
 
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
