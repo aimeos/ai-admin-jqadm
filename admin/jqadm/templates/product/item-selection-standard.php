@@ -96,6 +96,27 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									</select>
 								</div>
 							</div>
+							<?php if( ( $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.type.code' )->only( ['default', 'event', 'voucher'] ) )->count() !== 1 ) : ?>
+								<div class="form-group row mandatory">
+									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
+									<div class="col-sm-8">
+										<select is="select-component" class="form-control custom-select item-type" required
+											v-bind:readonly="checkSite('product.siteid', idx)"
+											v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
+											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>'.replace('idx', idx)"
+											v-bind:items="JSON.parse('<?= $enc->attr( $types->toArray() ) ?>')"
+											v-model="item['product.type']" >
+											<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
+												<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
+											</option>
+										</select>
+									</div>
+								</div>
+							<?php else : ?>
+								<input class="item-type" type="hidden"
+									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>'.replace('idx', idx)"
+									value="<?= $enc->attr( $types->firstKey() ) ?>" />
+							<?php endif; ?>
 							<div class="form-group row mandatory">
 								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
 								<div class="col-lg-8">
@@ -143,7 +164,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 							</div>
 
 						</div>
-						<div class="col-lg-6">
+						<div class="col-xl-6">
 
 							<table class="selection-item-attributes table table-default">
 								<thead>
