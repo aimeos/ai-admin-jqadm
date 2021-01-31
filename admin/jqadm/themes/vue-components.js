@@ -501,7 +501,7 @@ Vue.component('page-offset', {
 
 
 Vue.component('property-table', {
-	template: '<table v-if="Object.keys(types).length" class="item-media-property table table-default" > \
+	template: '<table class="item-media-property table table-default" > \
 		<thead> \
 			<tr> \
 				<th colspan="3"> \

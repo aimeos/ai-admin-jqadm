@@ -18,7 +18,7 @@ $sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
 <div class="col-xl-12 vue" data-key="characteristic/property"
 	data-data="<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>">
 
-	<div class="box">
+	<div v-if="data.length" class="box">
 		<property-table
 			v-bind:domain="'product'" v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
 			v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
