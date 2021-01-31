@@ -984,7 +984,9 @@ Aimeos.Tabs = {
 			$('.nav-tabs a[href="#' + hash + '"]').tab('show');
 
 			$("form").each(function() {
-				$(this).attr("action", $(this).attr("action").split('#')[0] + '#' + hash);
+				if($(this).attr("action") !== undefined) {
+					$(this).attr("action", $(this).attr("action").split('#')[0] + '#' + hash);
+				}
 			});
 		}
 
@@ -999,7 +1001,9 @@ Aimeos.Tabs = {
 			}
 
 			$("form").each(function() {
-				$(this).attr("action", $(this).attr("action").split('#')[0] + hash);
+				if($(this).attr("action") !== undefined) {
+					$(this).attr("action", $(this).attr("action").split('#')[0] + hash);
+				}
 			});
 		})
 	}
