@@ -10,7 +10,7 @@
 	height: 2.5rem;
 	display: flex;
 	justify-content: space-between;
-	background: linear-gradient(135deg, var(--bs-primary, #0090e0) max(15%, 12rem), var(--bs-primary-alt, #00b0a0) 100%);
+	background: linear-gradient(135deg, var(--bs-primary, #30a0e0) max(15%, 12rem), var(--bs-primary-alt, #00b0a0) 100%);
 }
 
 .app-menu.open {
@@ -53,7 +53,7 @@
 	height: 2.5rem;
 	width: 100%;
 	min-width: 12rem;
-	background-color: var(--bs-primary, #0090e0);
+	background-color: var(--bs-primary, #30a0e0);
 }
 
 .aimeos .logo img {
@@ -85,12 +85,12 @@
     z-index: 1150;
 	width: max(15%, 12rem);
 	color: var(--bs-menu, #ffffff);
-	background-color: var(--bs-primary, #0090e0);
+	background-color: var(--bs-primary, #30a0e0);
 }
 
 @media (min-width: 992px) {
 	.aimeos .main-sidebar {
-		background: linear-gradient(180deg, var(--bs-primary, #0090e0) 0%, var(--bs-primary-alt, #00b0a0) 100%);
+		background: linear-gradient(180deg, var(--bs-primary, #30a0e0) 2.5rem, var(--bs-primary-alt, #00b0a0) 100%);
 	}
 }
 
@@ -162,16 +162,16 @@
 
 .aimeos .main-sidebar:hover li.active {
 	border-left-color: transparent;
-	background-color: var(--bs-menu-bg, #0090e0);
+	background-color: var(--bs-menu-bg, #30a0e0);
 }
 
 .aimeos .main-sidebar .sidebar-menu > li {
-	background-color: var(--bs-primary, #0090e0);
+	background-color: var(--bs-primary, #30a0e0);
 }
 
 @media (min-width: 992px) {
 	.aimeos .main-sidebar .sidebar-menu > li {
-		background: linear-gradient(180deg, var(--bs-primary, #0090e0) 0%, var(--bs-primary-alt, #00b0a0) 100%);
+		background: linear-gradient(180deg, var(--bs-primary, #30a0e0) 2.5rem, var(--bs-primary-alt, #00b0a0) 100%);
 		background-attachment: fixed;
 	}
 }
@@ -265,7 +265,7 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-header {
-	background-color: var(--bs-menu-bg, #0090e0);
+	background-color: var(--bs-menu-bg, #30a0e0);
 	color: var(--bs-menu, #ffffff);
 	justify-content: center;
 	align-items: center;

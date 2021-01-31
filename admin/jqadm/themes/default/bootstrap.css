@@ -76,8 +76,8 @@ textarea {
 
 .btn-primary {
 	border: 1px solid transparent;
-	background-color: var(--bs-primary-alt, #0090e0);
-	border-color: var(--bs-primary-alt, #0090e0);
+	background-color: var(--bs-primary-alt, #30a0e0);
+	border-color: var(--bs-primary-alt, #30a0e0);
 	color: var(--bs-menu, #ffffff) !important;
 }
 
@@ -91,12 +91,12 @@ textarea {
 .btn-primary:hover,
 .btn-primary:focus,
 .show>.btn-primary.dropdown-toggle {
-	background-color: var(--bs-primary-alt-light, #0090e0b0);
-	border-color: var(--bs-primary-alt-light, #0090e0b0);
+	background-color: var(--bs-primary-light, #5bb3e6);
+	border-color: var(--bs-primary-light, #5bb3e6);
 }
 
 .btn-primary.dropdown-toggle-split {
-    border-left-color: var(--bs-primary-alt-dark, #0070c0);
+    border-left-color: var(--bs-primary-alt-dark, #00998c);
 }
 
 .btn-secondary {
@@ -153,13 +153,13 @@ textarea {
 }
 
 .nav-tabs .nav-link:hover {
-	background-color: var(--bs-primary-light, #0090e0b0);
+	background-color: var(--bs-primary-light, #5bb3e6);
 	color: var(--bs-secondary-dark, #101820);
 	text-decoration: none;
 }
 
 .nav-tabs .nav-link.active {
-	background-color: var(--bs-primary-light, #0090e0b0);
+	background-color: var(--bs-primary-light, #5bb3e6);
 	color: var(--bs-menu, #ffffff);
 }
 
@@ -235,7 +235,7 @@ td.is-invalid .form-control {
 }
 
 .page-link {
-	color: var(--bs-primary, #0090e0);
+	color: var(--bs-primary, #30a0e0);
 }
 
 @media (max-width: 767px) {

@@ -13,15 +13,15 @@
 	--bs-line: #bbb;
 	--bs-line-light: #dee2e6;
 	--bs-menu: #ffffff;
-	--bs-menu-bg: var(--bs-primary, #0090e0);
+	--bs-menu-bg: var(--bs-primary, #30a0e0);
 	--bs-menu-alt: #707880;
 	--bs-menu-alt-bg: #ffffff;
-	--bs-primary: #0090e0;
-	--bs-primary-dark: #0070c0;
-	--bs-primary-light: #0090e0c8;
+	--bs-primary: #30a0e0;
+	--bs-primary-dark: #2093d5;
+	--bs-primary-light: #5bb3e6;
 	--bs-primary-alt: #00b0a0;
-	--bs-primary-alt-dark: #009080;
-	--bs-primary-alt-light: #00b0a0c8;
+	--bs-primary-alt-dark: #00998c;
+	--bs-primary-alt-light: #00ccbb;
 	--bs-secondary: #505860;
 	--bs-secondary-dark: #101820;
 	--bs-secondary-light: #9098a0;
@@ -128,7 +128,7 @@ html {
 .aimeos .card-header {
 	padding: 0.25rem;
 	background: #FFF;
-	border-bottom: 1px solid var(--bs-primary, #0090e0);
+	border-bottom: 1px solid var(--bs-primary, #30a0e0);
 }
 
 .aimeos .card-header.collapsed {

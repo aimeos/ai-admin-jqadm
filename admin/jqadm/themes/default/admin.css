@@ -70,7 +70,7 @@
 }
 
 .page-limit .dropdown-link:active {
-	background-color: var(--bs-menu-bg, #0090e0);
+	background-color: var(--bs-menu-bg, #30a0e0);
 	color: var(--bs-menu, #ffffff);
 }
 
@@ -110,6 +110,7 @@
 
 .aimeos form.list {
 	background-color: var(--bs-bg-light, #ffffff);
+	border: 1px solid rgba(0,0,0,.125);
 	box-shadow: var(--bs-shadow);
 	margin: 0.5rem 0;
 	padding: 1rem;
@@ -169,12 +170,12 @@
 }
 
 .aimeos .list-items th {
-	background-color: var(--bs-primary, #0090e0);
+	background-color: var(--bs-primary, #30a0e0);
 	color: var(--bs-menu, #ffffff);
 }
 
 .aimeos .list-items th.actions {
-	background-color: var(--bs-primary-light, #0090e0b0);
+	background-color: var(--bs-primary-light, #5bb3e6);
 }
 
 .aimeos .list-items th a {

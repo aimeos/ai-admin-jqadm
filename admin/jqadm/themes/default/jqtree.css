@@ -87,7 +87,7 @@ ul.jqtree-tree li.jqtree-ghost span {
 }
 
 ul.jqtree-tree li.jqtree-ghost span.jqtree-circle {
-  border: solid 2px var(--bs-menu-bg, #0090e0);
+  border: solid 2px var(--bs-menu-bg, #30a0e0);
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
@@ -102,7 +102,7 @@ ul.jqtree-tree li.jqtree-ghost span.jqtree-circle {
 }
 
 ul.jqtree-tree li.jqtree-ghost span.jqtree-line {
-  background-color: var(--bs-menu-bg, #0090e0);
+  background-color: var(--bs-menu-bg, #30a0e0);
   height: 2px;
   padding: 0;
   position: absolute;
@@ -120,7 +120,7 @@ ul.jqtree-tree span.jqtree-border {
   display: block;
   left: -3px;
   top: 0;
-  border: solid 2px var(--bs-menu-bg, #0090e0);
+  border: solid 2px var(--bs-menu-bg, #30a0e0);
   border-radius: 6px;
   margin: 0;
   box-sizing: content-box;
@@ -138,7 +138,7 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element {
 
 ul.jqtree-tree .jqtree-element:hover,
 ul.jqtree-tree li.jqtree-selected > .jqtree-element {
-  border-left: 3px solid var(--bs-menu-bg, #0090e0);
+  border-left: 3px solid var(--bs-menu-bg, #30a0e0);
 }
 
 ul.jqtree-tree .jqtree-element:hover,
@@ -147,7 +147,7 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
 }
 
 ul.jqtree-tree .jqtree-moving > .jqtree-element .jqtree-title {
-  outline: dashed 1px var(--bs-menu-bg, #0090e0);
+  outline: dashed 1px var(--bs-menu-bg, #30a0e0);
 }
 
 ul.jqtree-tree.jqtree-rtl {
@@ -196,7 +196,7 @@ ul.jqtree-tree.jqtree-rtl span.jqtree-border {
 }
 
 span.jqtree-dragging {
-  background: var(--bs-menu-bg, #0090e0);
+  background: var(--bs-menu-bg, #30a0e0);
   color: var(--bs-menu, #ffffff);
   opacity: 0.6;
   cursor: pointer;
