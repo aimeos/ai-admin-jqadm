@@ -66,7 +66,6 @@
 	.aimeos .logo {
 		position: fixed;
 		display: inline-block;
-		background-color: var(--bs-primary, #0090e0);
 		padding: 0.625rem 0.5rem;
 		width: max(15%, 12rem);
 		margin: 0;
@@ -86,7 +85,13 @@
     z-index: 1150;
 	width: max(15%, 12rem);
 	color: var(--bs-menu, #ffffff);
-	background-color: var(--bs-menu-bg, #0090e0);
+	background-color: var(--bs-primary, #0090e0);
+}
+
+@media (min-width: 992px) {
+	.aimeos .main-sidebar {
+		background: linear-gradient(180deg, var(--bs-primary, #0090e0) 0%, var(--bs-primary-alt, #00b0a0) 100%);
+	}
 }
 
 .aimeos .sidebar-wrapper {
@@ -125,7 +130,6 @@
 }
 
 .aimeos .sidebar-menu li {
-	background-color: var(--bs-menu-bg, #0090e0);
 	border-left: 0.2rem solid transparent;
 	border-right: 0.2rem solid transparent;
 }
@@ -178,16 +182,22 @@
 	color: var(--bs-menu, #ffffff);
 }
 
-.aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
-	color: var(--bs-secondary, #707880);
-	border-left-color: var(--bs-menu-alt-bg, #f8fafc);
-	background-color: var(--bs-bg, #f8fafc);
+.aimeos .main-sidebar .sidebar-menu > li {
+	background-color: var(--bs-primary, #0090e0);
 }
 
-.aimeos .main-sidebar .sidebar-menu>li.active {
-	color: var(--bs-secondary, #707880);
+@media (min-width: 992px) {
+	.aimeos .main-sidebar .sidebar-menu > li {
+		background: linear-gradient(180deg, var(--bs-primary, #0090e0) 0%, var(--bs-primary-alt, #00b0a0) 100%);
+		background-attachment: fixed;
+	}
+}
+
+.aimeos .main-sidebar .sidebar-menu>li.active,
+.aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 	border-left-color: var(--bs-menu-alt-bg, #f8fafc);
-	background-color: var(--bs-bg, #f8fafc);
+	color: var(--bs-secondary, #707880);
+	background: none;
 }
 
 .aimeos .main-sidebar .sidebar-menu li.before {
@@ -304,7 +314,6 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-footer {
-    background-color: var(--ai-menu-bg, #0090e0);
 	height: 2rem;
 	width: 100%;
 }
@@ -482,19 +491,19 @@
 /* Footer */
 
 .aimeos .main-footer {
-	background: linear-gradient(135deg, var(--bs-primary, #0090e0) max(15%, 12rem), var(--bs-primary-alt, #00b0a0) 100%);
-	position: relative;
+	margin-left: max(15%, 12rem);
 	padding: 0.25rem 1rem;
 	margin-top: 0.5rem;
-	text-align: right;
+	text-align: center;
+	position: relative;
 	width: auto;
 }
 
 .aimeos .main-footer a {
-	color: var(--bs-menu, #ffffff);
+	color: var(--bs-secondary-light, #9098a0);
 }
 
-@media (min-width: 992px) {
+@media (max-width: 992px) {
 	.aimeos .main-footer {
 		margin-left: 0;
 		margin-right: 0;
