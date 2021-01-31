@@ -225,6 +225,11 @@ td.is-invalid .form-control {
 	justify-content: inherit;
 }
 
+.form-check-input:checked {
+    background-color: var(--bs-primary, #30a0e0);
+    border-color: var(--bs-primary, #30a0e0);
+}
+
 .btn,
 .dropdown-menu {
 	font-size: 100%;

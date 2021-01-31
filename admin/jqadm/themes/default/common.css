@@ -128,7 +128,7 @@ html {
 .aimeos .card-header {
 	padding: 0.25rem;
 	background: #FFF;
-	border-bottom: 1px solid var(--bs-primary, #30a0e0);
+	border-bottom: 1px solid var(--bs-primary, #0090e0);
 }
 
 .aimeos .card-header.collapsed {
@@ -285,7 +285,6 @@ html {
 
 .aimeos .list-items input {
 	text-align: center;
-	margin: auto;
 }
 
 .aimeos table .list-item-new .actions .btn {
