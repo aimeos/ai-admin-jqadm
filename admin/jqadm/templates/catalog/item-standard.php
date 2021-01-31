@@ -259,19 +259,19 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 										</div>
 
 									</div>
-
-									<?= $this->get( 'itemBody' ); ?>
-
-								</div>
-
-								<div class="item-actions">
-									<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
 								</div>
 							</div>
-
 						</div>
+
+						<?= $this->get( 'itemBody' ); ?>
+
+					</div>
+
+					<div class="item-actions">
+						<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
 					</div>
 				</div>
+
 			</div>
 
 		<?php endif; ?>
