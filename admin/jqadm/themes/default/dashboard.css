@@ -3,11 +3,7 @@
  * @copyright Aimeos (aimeos.org), 2016-2018
  */
 
- .dashboard .card {
-	border: none;
-}
-
-.dashboard .card-block {
+ .dashboard .card-block {
 	padding: 0.5rem;
 }
 

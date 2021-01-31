@@ -13,6 +13,7 @@
 	justify-content: space-between;
 	box-shadow: var(--bs-shadow);
 	background-color: var(--bs-bg-light, #ffffff);
+	border: 1px solid rgba(0,0,0,.125);
 	padding: 0.5rem;
 	margin: 1rem 0;
 	z-index: 1040;

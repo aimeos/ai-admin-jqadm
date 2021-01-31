@@ -18,10 +18,10 @@
 	--bs-menu-alt-bg: #ffffff;
 	--bs-primary: #0090e0;
 	--bs-primary-dark: #0070c0;
-	--bs-primary-light: #0090e0b0;
+	--bs-primary-light: #0090e0c8;
 	--bs-primary-alt: #00b0a0;
 	--bs-primary-alt-dark: #009080;
-	--bs-primary-alt-light: #00b0a0b0;
+	--bs-primary-alt-light: #00b0a0c8;
 	--bs-secondary: #505860;
 	--bs-secondary-dark: #101820;
 	--bs-secondary-light: #9098a0;
@@ -335,17 +335,30 @@ html {
 	overflow: hidden;
 }
 
-.aimeos .item .navbar-content.show {
+.aimeos .item .navbar-content .nav {
+	max-height: 3rem;
+	overflow: hidden;
+}
+
+.aimeos .item .navbar-content .item-meta {
+	display: none;
+	overflow: hidden;
+}
+
+.aimeos .item .navbar-content.show,
+.aimeos .item .navbar-content.show .nav,
+.aimeos .item .navbar-content.show .item-meta {
+	display: block;
 	max-height: unset;
 }
 
 .aimeos .item .navbar-content .more {
 	color: var(--bs-secondary-light, #9098a0);
 	background-color: var(--bs-bg, #f8fafc);
-	position: absolute;
 	height: 3rem;
 	width: 100%;
-	top: 3.5rem;
+	top: 3rem;
+	z-index: -1;
 }
 
 .aimeos .item .navbar-content.show .more {
@@ -364,16 +377,23 @@ html {
 
 @media (min-width: 1200px) {
 	.aimeos .item:not(.item-catalog) .navbar-content {
+		max-height: 21.5rem;
 		position: sticky;
 		top: 4rem;
 	}
 
-	.aimeos .item:not(.item-catalog) .navbar-content:not(.show) {
-		max-height: 21.5rem;
-	}
-
 	.aimeos .item:not(.item-catalog) .navbar-content .more {
 		top: 18.5rem;
+	}
+
+	.aimeos .item:not(.item-catalog) .navbar-content .nav {
+		max-height: 18.5rem;
+	}
+
+	.aimeos .item:not(.item-catalog) .navbar-content.show,
+	.aimeos .item:not(.item-catalog) .navbar-content.show .nav,
+	.aimeos .item:not(.item-catalog) .navbar-content.show .item-meta {
+		max-height: unset;
 	}
 
 	.aimeos .item:not(.item-catalog) .nav-tabs,
