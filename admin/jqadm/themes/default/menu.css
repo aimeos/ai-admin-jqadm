@@ -118,12 +118,6 @@
 	overflow: visible;
 }
 
-.aimeos .sidebar-menu.advanced {
-	display: none;
-}
-
-.aimeos .main-sidebar .separator:hover,
-.aimeos .main-sidebar .separator:focus,
 .aimeos .sidebar-menu a:hover,
 .aimeos .sidebar-menu a:focus {
 	text-decoration: none;
@@ -140,7 +134,6 @@
 	font-size: 100%;
 }
 
-.aimeos .main-sidebar .separator,
 .aimeos .sidebar-menu>li {
 	text-align: left;
 	position: relative;
@@ -148,11 +141,6 @@
 	margin: 0;
 }
 
-.aimeos .main-sidebar .separator {
-	text-align: center;
-}
-
-.aimeos .main-sidebar .separator .icon,
 .aimeos .sidebar-menu>li>span,
 .aimeos .sidebar-menu>li>a {
 	padding: 0.5rem 1rem;
@@ -175,11 +163,6 @@
 .aimeos .main-sidebar:hover li.active {
 	border-left-color: transparent;
 	background-color: var(--bs-menu-bg, #0090e0);
-}
-
-.aimeos .main-sidebar .separator {
-	border-left-color: transparent;
-	color: var(--bs-menu, #ffffff);
 }
 
 .aimeos .main-sidebar .sidebar-menu > li {
@@ -481,8 +464,6 @@
 	content: "\f0d7";
 }
 
-.aimeos .main-sidebar .separator .more:before,
-.aimeos .main-sidebar .separator .less:before,
 .aimeos .toggle-nav-items-texts .icon:before {
 	color: var(--bs-menu, #ffffff);
 }
