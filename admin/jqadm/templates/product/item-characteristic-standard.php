@@ -8,6 +8,8 @@
 $enc = $this->encoder();
 
 ?>
-<div id="characteristic" class="row item-characteristic tab-pane fade" role="tabpanel" aria-labelledby="characteristic">
-	<?= $this->get( 'characteristicBody' ); ?>
+<div id="characteristic" class="item-characteristic tab-pane fade" role="tabpanel" aria-labelledby="characteristic">
+	<div class="row">
+		<?= $this->get( 'characteristicBody' ); ?>
+	</div>
 </div>

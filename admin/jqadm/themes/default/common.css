@@ -95,11 +95,16 @@ html {
 
 .aimeos .box {
 	box-shadow: var(--bs-shadow);
+	border: 1px solid rgba(0,0,0,.125);
 	background-color: var(--bs-bg-light, #ffffff);
 	min-height: calc(100% - 1rem);
 	border-radius: .25rem;
 	margin: 0.5rem 0;
 	padding: 1rem;
+}
+
+.aimeos .group-list {
+	margin: 0.5rem 0;
 }
 
 .aimeos .card.sortable-ghost,
@@ -442,11 +447,11 @@ html {
 
 .vs__dropdown-toggle {
 	border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #bbb;
-	background-color: var(-bs-box-bg, #ffffff);
-    padding: .375rem .75rem;
+	border-radius: 0;
+	border-bottom: 1px solid var(--bs-line, #bbb);
+	background-color: var(-bs-bg-light, #ffffff);
 	height: calc(1.5rem + .75rem + 2px);
+	padding: .375rem .75rem;
 }
 
 .vs__search::placeholder {
@@ -458,8 +463,8 @@ html {
 }
 
 .vs__open-indicator, .vs__clear {
-    transform: scale(0.66);
 	fill: var(--bs-secondary, #707880);
+	transform: scale(0.66);
 }
 
 .vs--open .vs__open-indicator {

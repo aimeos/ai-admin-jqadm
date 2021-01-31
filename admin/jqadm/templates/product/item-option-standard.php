@@ -9,5 +9,7 @@ $enc = $this->encoder();
 
 ?>
 <div id="option" class="row item-option tab-pane fade" role="tabpanel" aria-labelledby="option">
-	<?= $this->get( 'optionBody' ); ?>
+	<div class="row">
+		<?= $this->get( 'optionBody' ); ?>
+	</div>
 </div>

@@ -11,15 +11,6 @@ textarea {
 }
 
 
-/* Bootstrap bugfixes */
-
-/* misaligned col-*-6 block in subpanels */
-.card-block.collapse.show,
-.tab-content>.row.active {
-	display: flex;
-}
-
-
 /* Bootstrap improvments */
 
 .dropdown {

@@ -8,6 +8,8 @@
 $enc = $this->encoder();
 
 ?>
-<div id="related" class="row item-related tab-pane fade" role="tabpanel" aria-labelledby="related">
-	<?= $this->get( 'relatedBody' ); ?>
+<div id="related" class="item-related tab-pane fade" role="tabpanel" aria-labelledby="related">
+	<div class="row">
+		<?= $this->get( 'relatedBody' ); ?>
+	</div>
 </div>
