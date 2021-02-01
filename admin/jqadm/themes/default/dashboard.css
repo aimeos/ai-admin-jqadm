@@ -7,7 +7,7 @@
 	padding: 0.5rem;
 }
 
-.dashboard .chart .content {
+.dashboard .content .chart {
 	border: none;
 	height: 280px;
 	overflow-y: auto;

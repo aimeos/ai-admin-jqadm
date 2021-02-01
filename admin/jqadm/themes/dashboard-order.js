@@ -8,16 +8,16 @@ Aimeos.Dashboard.Order = {
 
 	init : function() {
 
-		Aimeos.lazy(".order-countday", this.chartDay.bind(this));
-		Aimeos.lazy(".order-counthour", this.chartHour.bind(this));
-		Aimeos.lazy(".order-countpaystatus", this.chartPaymentStatus.bind(this));
+		Aimeos.lazy(".order-countday .chart", this.chartDay.bind(this));
+		Aimeos.lazy(".order-counthour .chart", this.chartHour.bind(this));
+		Aimeos.lazy(".order-countpaystatus .chart", this.chartPaymentStatus.bind(this));
 	},
 
 
 
 	chartDay : function() {
 
-		var selector = "#order-countday-data",
+		var selector = "#order-countday-data .chart",
 			margin = {top: 20, bottom: 20, left: 30, right: 35},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,
@@ -150,7 +150,7 @@ Aimeos.Dashboard.Order = {
 
 	chartHour : function() {
 
-		var selector = "#order-counthour-data",
+		var selector = "#order-counthour-data .chart",
 			margin = {top: 20, bottom: 40, left: 50, right: 20},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10;
@@ -210,7 +210,7 @@ Aimeos.Dashboard.Order = {
 
 	chartPaymentStatus : function() {
 
-		var selector = "#order-countpaystatus-data",
+		var selector = "#order-countpaystatus-data .chart",
 			margin = {top: 20, bottom: 40, left: 50, right: 20},
 			width = $(selector).width() - margin.left - margin.right,
 			height = $(selector).height() - margin.top - margin.bottom - 10,

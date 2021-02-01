@@ -21,7 +21,9 @@ $enc = $this->encoder();
 				<?= $enc->html( $this->translate( 'admin', 'Orders by day' ) ); ?>
 			</span>
 		</div>
-		<div id="order-countday-data" class="collapse show content loading"></div>
+		<div id="order-countday-data" class="collapse show content">
+			<div class="chart loading">/div>
+		</div>
 	</div>
 </div>
 <?= $this->get( 'orderdayBody' ); ?>

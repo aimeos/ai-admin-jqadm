@@ -21,7 +21,9 @@ $enc = $this->encoder();
 				<?= $enc->html( $this->translate( 'admin', 'Delivery types' ) ); ?>
 			</span>
 		</div>
-		<div class="collapse show content loading"></div>
+		<div id="order-servicedelivery-data" class="collapse show content">
+			<div class="chart loading">/div>
+		</div>
 	</div>
 </div>
 <?= $this->get( 'orderdeliverytypeBody' ); ?>

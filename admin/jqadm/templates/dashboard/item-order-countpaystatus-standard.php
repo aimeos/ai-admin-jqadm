@@ -30,8 +30,8 @@ $trans = array(
 				<?= $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ); ?>
 			</span>
 		</div>
-		<div id="order-countpaystatus-data" class="collapse show content loading"
-			data-translation="<?= $enc->attr( $trans ); ?>">
+		<div id="order-countpaystatus-data" class="collapse show content" data-translation="<?= $enc->attr( $trans ); ?>">
+			<div class="chart loading">/div>
 		</div>
 	</div>
 </div>

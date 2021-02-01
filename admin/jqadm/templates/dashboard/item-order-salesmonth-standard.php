@@ -21,6 +21,8 @@ $enc = $this->encoder();
 				<?= $enc->html( $this->translate( 'admin', 'Sales per month' ) ); ?>
 			</span>
 		</div>
-		<div id="order-salesmonth-data" class="collapse show content loading"></div>
+		<div id="order-salesmonth-data" class="collapse show content">
+			<div class="chart loading">/div>
+		</div>
 	</div>
 </div>

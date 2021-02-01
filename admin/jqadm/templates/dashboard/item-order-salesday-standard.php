@@ -21,6 +21,8 @@ $enc = $this->encoder();
 				<?= $enc->html( $this->translate( 'admin', 'Sales of the last 30 days' ) ); ?>
 			</span>
 		</div>
-		<div id="order-salesday-data" class="collapse show content loading"></div>
+		<div id="order-salesday-data" class="collapse show content">
+			<div class="chart loading">/div>
+		</div>
 	</div>
 </div>

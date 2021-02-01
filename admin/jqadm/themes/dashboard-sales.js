@@ -12,16 +12,16 @@ Aimeos.Dashboard.Sales = {
 
 	init: function() {
 
-		Aimeos.lazy(".order-salesday", this.chartDay.bind(this));
-		Aimeos.lazy(".order-salesmonth", this.chartMonth.bind(this));
-		Aimeos.lazy(".order-salesweekday", this.chartWeekday.bind(this));
+		Aimeos.lazy(".order-salesday .chart", this.chartDay.bind(this));
+		Aimeos.lazy(".order-salesmonth .chart", this.chartMonth.bind(this));
+		Aimeos.lazy(".order-salesweekday .chart", this.chartWeekday.bind(this));
 	},
 
 
 
 	chartDay : function() {
 
-		var selector = "#order-salesday-data",
+		var selector = "#order-salesday-data .chart",
 			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 20},
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
@@ -128,7 +128,7 @@ Aimeos.Dashboard.Sales = {
 
 	chartMonth : function() {
 
-		var selector = "#order-salesmonth-data",
+		var selector = "#order-salesmonth-data .chart",
 			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 20},
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
@@ -231,7 +231,7 @@ Aimeos.Dashboard.Sales = {
 
 	chartWeekday : function() {
 
-		var selector = "#order-salesweekday-data",
+		var selector = "#order-salesweekday-data .chart",
 			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 20},
 			width = $(selector).width() - margins.left - margins.right,
 			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
