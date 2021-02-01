@@ -296,11 +296,6 @@
 	content: "\f00d";
 }
 
-.aimeos .sidebar-menu li .tree-menu-wrapper .menu-footer {
-	height: 2rem;
-	width: 100%;
-}
-
 .aimeos .sidebar-menu li .tree-menu li {
 	background-color: var(--bs-menu-alt-bg, #ffffff);
 	border-left: 0.2rem solid transparent;
@@ -311,13 +306,13 @@
 	display: block;
 	position: relative;
 	overflow-y: auto;
-	height: calc(100vh - 6.5rem);
+	height: calc(100vh - 4.5rem);
 	background-color: var(--bs-menu-alt-bg, #ffffff);
 	box-sizing: initial;
 	text-align: left;
 	list-style: none;
-	padding: 0 1rem;
 	margin: 1rem 0;
+	padding: 0;
 }
 
 .aimeos .sidebar-menu li .tree-menu a {
@@ -333,7 +328,6 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu .name {
-	display: block;
 	font-size: 90%;
 }
 
@@ -450,6 +444,18 @@
 
 .aimeos .main-sidebar .locale .icon:before {
 	content: "\f0ac"
+}
+
+.aimeos .main-sidebar .locale-site .icon:before {
+	content: "\f0e4"
+}
+
+.aimeos .main-sidebar .locale-language .icon:before {
+	content: "\f1ab"
+}
+
+.aimeos .main-sidebar .locale-currency .icon:before {
+	content: "\f155"
 }
 
 .aimeos .main-sidebar .log .icon:before {

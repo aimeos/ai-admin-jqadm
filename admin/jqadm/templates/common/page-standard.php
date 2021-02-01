@@ -195,7 +195,6 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 									<?php endif; ?>
 								<?php endforeach; ?>
 							</ul>
-							<div class="menu-footer"></div>
 						</div>
 					</li>
 				<?php endif; ?>
@@ -218,13 +217,13 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 											<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
 												<li class="<?= str_replace( '/', '-', $subresource ); ?>">
 													<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ); ?>">
+														<i class="icon"></i>
 														<span class="name"><?= $enc->html( $this->translate( 'admin', $subresource ) ); ?></span>
 													</a>
 												</li>
 											<?php endif; ?>
 										<?php endforeach; ?>
 									</ul>
-									<div class="menu-footer"></div>
 								</div>
 							</li>
 
@@ -266,7 +265,6 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 									</li>
 								<?php endforeach; ?>
 							</ul>
-							<div class="menu-footer"></div>
 						</div>
 					</li>
 				<?php endif; ?>
