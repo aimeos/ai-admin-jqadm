@@ -31,7 +31,7 @@ $trans = array(
 			</span>
 		</div>
 		<div id="order-countpaystatus-data" class="collapse show content" data-translation="<?= $enc->attr( $trans ); ?>">
-			<div class="chart loading">/div>
+			<div class="chart loading"></div>
 		</div>
 	</div>
 </div>

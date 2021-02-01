@@ -22,7 +22,7 @@ $enc = $this->encoder();
 			</span>
 		</div>
 		<div id="order-servicepayment-data" class="collapse show content loading">
-			<div class="chart loading">/div>
+			<div class="chart loading"></div>
 		</div>
 	</div>
 </div>
