@@ -10,20 +10,18 @@ $enc = $this->encoder();
 ?>
 
 <div class="chart order-countday col-xl-12">
-	<div class="card">
-		<div id="order-countday-head" class="card-header header" role="tab"
-			data-bs-toggle="collapse" data-target="#order-countday-data"
+	<div class="box">
+		<div class="header"
+			data-bs-toggle="collapse" data-bs-target="#order-countday-data"
 			aria-expanded="true" aria-controls="order-countday-data">
 			<div class="card-tools-left">
-				<div class="btn btn-card-header act-show fa"></div>
+				<div class="btn act-show fa"></div>
 			</div>
-			<span class="item-label header-label">
+			<span class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Orders by day' ) ); ?>
 			</span>
 		</div>
-		<div id="order-countday-data" class="card-block collapse show content loading" role="tabpanel"
-			aria-labelledby="order-countday-head">
-		</div>
+		<div id="order-countday-data" class="collapse show content loading"></div>
 	</div>
 </div>
 <?= $this->get( 'orderdayBody' ); ?>

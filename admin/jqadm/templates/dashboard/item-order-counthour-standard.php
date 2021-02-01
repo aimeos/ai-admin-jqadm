@@ -10,20 +10,18 @@ $enc = $this->encoder();
 ?>
 
 <div class="chart order-counthour col-xl-6">
-	<div class="card">
-		<div id="order-counthour-head" class="card-header header" role="tab"
-			data-bs-toggle="collapse" data-target="#order-counthour-data"
+	<div class="box">
+		<div class="header"
+			data-bs-toggle="collapse" data-bs-target="#order-counthour-data"
 			aria-expanded="true" aria-controls="order-counthour-data">
 			<div class="card-tools-left">
-				<div class="btn btn-card-header act-show fa"></div>
+				<div class="btn act-show fa"></div>
 			</div>
-			<span class="item-label header-label">
+			<span class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Orders by hour' ) ); ?>
 			</span>
 		</div>
-		<div id="order-counthour-data" class="card-block collapse show content loading" role="tabpanel"
-			aria-labelledby="order-counthour-head">
-		</div>
+		<div id="order-counthour-data" class="collapse show content loading"></div>
 	</div>
 </div>
 <?= $this->get( 'orderhourBody' ); ?>

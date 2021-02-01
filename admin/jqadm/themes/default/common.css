@@ -125,22 +125,30 @@ html {
 	}
 }
 
-.aimeos .card-header {
+.aimeos .box .header {
 	padding: 0.25rem;
 	background: #FFF;
 	border-bottom: 1px solid var(--bs-primary, #0090e0);
 }
 
-.aimeos .card-header.collapsed {
+.aimeos .box .header.collapsed {
 	border-bottom: 1px solid transparent;
 }
 
-.aimeos .header.is-invalid {
+.aimeos .box .header.is-invalid {
 	border-top: solid 3px var(--bs-danger, #dc3545);
 }
 
-.aimeos .card-header .header-label {
+.aimeos .box .header .header-label {
 	vertical-align: middle;
+}
+
+.aimeos .box .content > * {
+	padding: 1rem 0;
+}
+
+.aimeos .card-body {
+	padding: 0.5rem;
 }
 
 .aimeos .btn.fa {
@@ -247,9 +255,7 @@ html {
 }
 
 .aimeos .card-block.row {
-	margin-left: 0;
-	margin-right: 0;
-	padding-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 .aimeos .card-block .advanced {

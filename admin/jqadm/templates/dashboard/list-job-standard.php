@@ -24,18 +24,18 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 <?php if( !$items->isEmpty() ) : ?>
 	<div class="dashboard-job row">
 		<div class="job-list col-xl-12">
-			<div class="card">
-				<div id="job-list-head" class="card-header header" role="tab"
-					data-bs-toggle="collapse" data-target="#job-list-data"
+			<div class="box">
+				<div class="header"
+					data-bs-toggle="collapse" data-bs-target="#job-list-data"
 					aria-expanded="true" aria-controls="job-list-data">
 					<div class="card-tools-left">
-						<div class="btn btn-card-header act-show fa"></div>
+						<div class="btn act-show fa"></div>
 					</div>
-					<span class="item-label header-label">
+					<span class="header-label">
 						<?= $enc->html( $this->translate( 'admin', 'Import/Export jobs' ) ); ?>
 					</span>
 				</div>
-				<div id="job-list-data" class="card-block content collapse show" role="tabpanel" aria-labelledby="job-list-head">
+				<div class="content collapse show">
 					<div class="table-responsive">
 						<table class="list-items table table-hover">
 							<tbody>
