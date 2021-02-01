@@ -21,7 +21,7 @@ $enc = $this->encoder();
 				<?= $enc->html( $this->translate( 'admin', 'Payment types' ) ); ?>
 			</span>
 		</div>
-		<div id="order-servicepayment-data" class="collapse show content loading">
+		<div id="order-servicepayment-data" class="collapse show content">
 			<div class="chart loading"></div>
 		</div>
 	</div>
