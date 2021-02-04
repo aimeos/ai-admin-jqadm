@@ -30,7 +30,7 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 <div class="dropdown filter-columns">
 	<button class="btn act-columns fa" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
 		data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-		aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+		aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>" data-bs-boundary="window"
 		title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
 	</button>
 	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
