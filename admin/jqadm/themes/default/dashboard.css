@@ -3,7 +3,11 @@
  * @copyright Aimeos (aimeos.org), 2016-2018
  */
 
- .dashboard .card-block {
+ .dashboard h3 {
+	font-size: 1.25rem;
+}
+
+.dashboard .card-block {
 	padding: 0.5rem;
 }
 
@@ -24,33 +28,67 @@
 	background-size: 128px;
 }
 
-.dashboard table {
-	margin: 0;
+
+.dashboard .chart .content {
+	position: relative;
 }
 
-.dashboard td {
-	border-top: none;
-	height: inherit;
+.dashboard .chart.bar .chart,
+.dashboard .chart.line .chart {
+	padding-top: 3rem;
 }
 
-.dashboard .legend {
-	display: block;
-	margin-left: 50px;
+.dashboard .chart.bar .chart-legend,
+.dashboard .chart.line .chart-legend {
+	position: absolute;
+	margin: 1rem 0 .5rem 0;
+	padding: 0;
+	width: 100%;
+	height: 1.5rem;
+	text-align: right;
+	overflow: hidden;
 }
 
-.dashboard .legend-item {
+.dashboard .chart.bar .chart-legend:hover,
+.dashboard .chart.line .chart-legend:hover {
+	overflow: visible;
+}
+
+.dashboard .chart.pie .chart-legend {
+	height: 280px;
+	overflow-y: auto;
+}
+
+.dashboard .chart .legend {
+	background-color: var(--bs-bg-light, #ffffff);
+	cursor: pointer;
+}
+
+.dashboard .chart .legend .item {
 	display: inline-block;
-	margin-right: 20px;
 }
 
-.dashboard .legend-square {
+.dashboard .chart.pie .legend .item {
 	display: inline-block;
-	height: 10px;
-	width: 10px;
 }
 
-.dashboard .legend-text {
-	margin-left: 5px;
+.dashboard .chart .legend .item.disabled .label {
+	text-decoration: line-through;
+}
+
+.dashboard .chart .legend span {
+	font-size: 0.9rem;
+	line-height: 0.9rem;
+	user-select: none;
+	display: inline-block;
+	padding: 0.25rem 0.5rem;
+}
+
+.dashboard .chart .legend .color {
+	height: 0.9rem;
+	width: 0.9rem;
+	padding: 0;
+	margin-bottom: -2px;
 }
 
 
@@ -103,130 +141,31 @@
 	}
 }
 
-
-/* Common SVG diagram styles */
-
-.dashboard .axis {
-	fill: var(--bs-secondary, #707880);
+.dashboard .order-countday .chart {
+	padding-top: 4rem;
+	padding-bottom: 3rem;
 }
 
-.dashboard .axis line,
-.dashboard .axis path {
-	fill: none;
-	stroke: var(--bs-secondary-light, #9098a0);
-	shape-rendering: crispEdges;
+.dashboard .order-country .chart {
+	overflow: hidden;
 }
 
-.dashboard .barcnt:hover,
-.dashboard .barsum:hover {
-	opacity: 0.75
+.dashboard .order-country h3,
+.dashboard .order-country .table {
+	max-width: 30rem;
+	padding: 0 2rem;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-
-/* Order per day diagram styles */
-
-.dashboard .order-countday .axis {
-	text-anchor: middle;
+.dashboard .order-country td.country {
+	padding-left: 2rem;
+	text-align: left;
+	width: 66%;
 }
 
-.dashboard .order-countday .day {
-	fill: #fbfbfb;
-}
-
-.dashboard .order-countday .day:hover {
-	opacity: 0.75
-}
-
-.dashboard .order-countday .path-month {
-	fill: none;
-	stroke: var(--bs-secondary, #707880);
-	stroke-width: 1px;
-}
-
-.dashboard .order-countday .q0 { fill: #fbfbfb; }
-.dashboard .order-countday .q1 { fill: #ebf4ff; }
-.dashboard .order-countday .q2 { fill: #deebf7; }
-.dashboard .order-countday .q3 { fill: #c6dbef; }
-.dashboard .order-countday .q4 { fill: #9ecae1; }
-.dashboard .order-countday .q5 { fill: #6baed6; }
-.dashboard .order-countday .q6 { fill: #4292c6; }
-.dashboard .order-countday .q7 { fill: #2171b5; }
-.dashboard .order-countday .q8 { fill: #08519c; }
-.dashboard .order-countday .q9 { fill: #08306b; }
-
-
-/* Order per hour diagram styles */
-
-.dashboard .order-counthour .barcnt .bar { fill: #4292c6 }
-
-
-/* Order per payment status diagram styles */
-
-.dashboard #order-countpaystatus-data {
-	position: relative;
-}
-
-.dashboard .order-countpaystatus .focus {
-	stroke: var(--bs-secondary-dark, #101820);
-}
-
-.dashboard .order-countpaystatus .overlay {
-	pointer-events: all;
-	fill: none;
-}
-
-.dashboard .order-countpaystatus .pay-unfinished { fill: #969696; }
-.dashboard .order-countpaystatus .pay-deleted { fill: #e6550d; }
-.dashboard .order-countpaystatus .pay-canceled { fill: #fd8d3c; }
-.dashboard .order-countpaystatus .pay-refused { fill: #fdae6b; }
-.dashboard .order-countpaystatus .pay-refund { fill: #756bb1; }
-.dashboard .order-countpaystatus .pay-pending { fill: #3182bd; }
-.dashboard .order-countpaystatus .pay-authorized { fill: #74c476; }
-.dashboard .order-countpaystatus .pay-received { fill: #31a354; }
-
-.dashboard .order-countpaystatus .tooltip {
-	background: rgba(0, 0, 0, 0.6);
-	border-radius: 2px;
-	font-weight: bold;
-	line-height: 1;
-	padding: 10px;
-	margin: 0;
-	color: var(--bs-menu, #ffffff);
-	opacity: 1;
-	display: none;
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-
-.dashboard .order-countpaystatus .tooltip .head {
-	font-size: 100%;
-	font-weight: bold;
-	text-align: center;
-}
-
-.dashboard .order-countpaystatus .tooltip .values th,
-.dashboard .order-countpaystatus .tooltip .values td {
+.dashboard .order-country td.number {
+	padding-right: 2rem;
 	text-align: right;
-	height: inherit;
-}
-
-
-/* Service charts */
-
-.dashboard .order-servicedelivery .card-block.collapse.show,
-.dashboard .order-servicepayment .card-block.collapse.show {
-	display: flex;
-}
-
-.dashboard .order-servicedelivery .legend,
-.dashboard .order-servicepayment .legend {
-	display: inline-block;
-	vertical-align: top;
-	margin-left: 20px;
-}
-
-.dashboard .order-servicedelivery .legend-item,
-.dashboard .order-servicepayment .legend-item {
-	display: block;
+	width: 33%;
 }

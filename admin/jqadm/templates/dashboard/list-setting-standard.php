@@ -23,9 +23,9 @@ $settings = [
 					<div class="card-tools-left">
 						<div class="btn act-show fa"></div>
 					</div>
-					<span class="header-label">
+					<h2 class="header-label">
 						<?= $enc->html( $this->translate( 'admin', 'Potential problems' ) ); ?>
-					</span>
+					</h2>
 				</div>
 				<div class="content collapse show">
 					<?php foreach( $settings as $setting => $entry ) : list( $type, $problem ) = $entry; ?>

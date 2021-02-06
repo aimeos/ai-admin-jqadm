@@ -96,9 +96,9 @@ $statuslist = array(
 			<div class="card-tools-left">
 				<div class="btn act-show fa"></div>
 			</div>
-			<span class="header-label">
+			<h2 class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Latest orders' ) ); ?>
-			</span>
+			</h2>
 		</div>
 		<div id="order-latest-data" class="content collapse show">
 			<div class="table-responsive">

@@ -31,9 +31,9 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 					<div class="card-tools-left">
 						<div class="btn act-show fa"></div>
 					</div>
-					<span class="header-label">
+					<h2 class="header-label">
 						<?= $enc->html( $this->translate( 'admin', 'Import/Export jobs' ) ); ?>
-					</span>
+					</h2>
 				</div>
 				<div class="content collapse show">
 					<div class="table-responsive">

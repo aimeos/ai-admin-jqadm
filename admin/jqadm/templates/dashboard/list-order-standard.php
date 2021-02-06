@@ -6,10 +6,9 @@
  */
 
 $enc = $this->encoder();
-$currencies = $this->get( 'orderCurrencyItems', map() )->keys()->toArray();
 
 
 ?>
-<div class="dashboard-order row" data-currencies="<?= $enc->attr( $currencies ) ?>">
+<div class="dashboard-order row">
 	<?= $this->get( 'orderBody' ); ?>
 </div>
