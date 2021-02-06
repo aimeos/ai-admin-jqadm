@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="chart order-salesweekday col-xl-6">
+<div class="chart line order-salesweekday col-xl-6">
 	<div class="box">
 		<div class="header"
 			data-bs-toggle="collapse" data-bs-target="#order-salesweekday-data"
@@ -17,12 +17,13 @@ $enc = $this->encoder();
 			<div class="card-tools-left">
 				<div class="btn btn-card-header act-show fa"></div>
 			</div>
-			<span class="header-label">
+			<h2 class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Sales by weekday' ) ); ?>
-			</span>
+			</h2>
 		</div>
-		<div id="order-salesweekday-data" class="collapse show content">
-			<div class="chart loading"></div>
+		<div id="order-salesweekday-data" class="collapse show content loading">
+			<div class="chart-legend"></div>
+			<div class="chart"><canvas></canvas></div>
 		</div>
 	</div>
 </div>

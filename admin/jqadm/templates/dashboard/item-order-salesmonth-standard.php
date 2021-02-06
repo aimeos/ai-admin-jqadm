@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="chart order-salesmonth col-xl-6">
+<div class="chart line order-salesmonth col-xl-6">
 	<div class="box">
 		<div class="header"
 			data-bs-toggle="collapse" data-bs-target="#order-salesmonth-data"
@@ -17,12 +17,13 @@ $enc = $this->encoder();
 			<div class="card-tools-left">
 				<div class="btn act-show fa"></div>
 			</div>
-			<span class="header-label">
+			<h2 class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Sales per month' ) ); ?>
-			</span>
+			</h2>
 		</div>
-		<div id="order-salesmonth-data" class="collapse show content">
-			<div class="chart loading"></div>
+		<div id="order-salesmonth-data" class="collapse show content loading">
+			<div class="chart-legend"></div>
+			<div class="chart"><canvas></canvas></div>
 		</div>
 	</div>
 </div>

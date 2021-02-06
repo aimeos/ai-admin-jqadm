@@ -14,7 +14,7 @@
 	box-shadow: var(--bs-shadow);
 	background-color: var(--bs-bg-light, #ffffff);
 	border: 1px solid rgba(0,0,0,.125);
-	padding: 0.5rem 1rem;
+	padding: 0.5rem;
 	margin: 1rem 0;
 	z-index: 1040;
 }
@@ -28,8 +28,8 @@
 }
 
 .aimeos .main-navbar .navbar-secondary {
-	font-size: 80%;
 	color: var(--bs-secondary, #707880);
+	font-size: 80%;
 }
 
 .aimeos .main-navbar .navbar-secondary:before {

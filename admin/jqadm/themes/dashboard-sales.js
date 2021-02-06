@@ -6,8 +6,124 @@
 
 Aimeos.Dashboard.Sales = {
 
-	colors: ["#31A354", "#FF8E00", "#68D6AD", "#DD3737", "#E3E700"],
-	currencies: $(".aimeos .dashboard-order").data("currencies"),
+	colors: ['#30a0e0', '#00b0a0', '#ff7f0e', '#e03028', '#00c8f0', '#00d0b0', '#c8d830', '#f8b820'],
+
+	config: {
+		type: 'line',
+		data: {},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			tooltips: {
+				mode: 'index',
+				position: 'nearest',
+				intersect: false,
+				callbacks: {}
+			},
+			hover: {
+				mode: 'nearest',
+				intersect: true
+			},
+			scales: {
+				xAxes: [{
+					display: true,
+					distribution: 'series',
+					gridLines: {
+						drawOnChartArea: false
+					},
+				}],
+				yAxes: [{
+					display: true,
+					gridLines: {
+						drawOnChartArea: false
+					},
+				}]
+			},
+			legend: false,
+		}
+	},
+
+	limit: 10000,
+
+
+	addLegend: function(chart, selector) {
+		const legend = chart.generateLegend();
+		document.querySelector(selector + ' .chart-legend').appendChild(legend);
+
+		legend.querySelectorAll('.item').forEach(function(item) {
+			item.addEventListener('click', function() {
+				const index = item.dataset.index;
+				const meta = chart.getDatasetMeta(index);
+
+				meta.hidden = !meta.hidden;
+				item.classList.toggle('disabled');
+
+				chart.update();
+			});
+		});
+	},
+
+	color: function(index) {
+		return this.colors[index % this.colors.length];
+	},
+
+	context: function(selector) {
+		const canvas = document.querySelector(selector + ' .chart canvas');
+		if(!canvas) {
+			throw "Unable to create canvas for " + selector + " .chart canvas";
+		}
+		return canvas.getContext('2d');
+	},
+
+	done: function(selector) {
+		document.querySelectorAll(selector + ' .loading').forEach(function(el) {
+			el.classList.remove('loading');
+		});
+	},
+
+	gradient: function(ctx, index) {
+		const gradient = ctx.createLinearGradient(0,0 , 0,280);
+
+		gradient.addColorStop(0, Color(this.colors[index % this.colors.length]).alpha(0.5).rgbaString());
+		gradient.addColorStop(0.66, Color('#ffffff').alpha(0.5).rgbaString());
+		gradient.addColorStop(1, '#ffffff');
+
+		return gradient;
+	},
+
+	legend: function(chart) {
+		const legend = document.createElement('div');
+		legend.classList.add('legend');
+
+		chart.config.data.datasets.forEach(function(dset, idx) {
+
+			const label = document.createElement('span');
+			label.classList.add('label');
+			label.appendChild(document.createTextNode(dset.label));
+
+			const color = document.createElement('span');
+			color.classList.add('color');
+			color.style.backgroundColor = dset.borderColor;
+
+			const item = document.createElement('div');
+			item.classList.add('item');
+			item.dataset.index = idx;
+
+			item.appendChild(color);
+			item.appendChild(label);
+			legend.appendChild(item);
+		});
+
+		return legend;
+	},
+
+	log: function(response) {
+		if(response.responseJSON && response.responseJSON.errors && response.responseJSON.errors[0] ) {
+			console.error('[Aimeos] Failed fetching data:', response.responseJSON.errors[0].title);
+		} else {
+			console.error('Aimeos] Error:', response);
+		}
+	},
 
 
 	init: function() {
@@ -18,320 +134,175 @@ Aimeos.Dashboard.Sales = {
 	},
 
 
-
 	chartDay : function() {
 
-		var selector = "#order-salesday-data .chart",
-			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 20},
-			width = $(selector).width() - margins.left - margins.right,
-			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
+		const self = this;
+		const ctx = this.context('.order-salesday');
+		const keys = "order.base.currencyid,order.cdate";
+		const startdate = moment().utc().subtract(30, 'days');
+		const enddate = moment().utc();
+		const criteria = {"&&": [
+			{">=": {"order.statuspayment": 5}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+		]};
 
-		var days = 30,
-			startdate = new Date(new Date().getTime() - (days+1) * 86400 * 1000),
-			enddate = new Date(new Date().getTime() + 86400 * 1000);
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.price", "sum").then(function(response) {
 
-		var lang = $(".aimeos").attr("lang") || "en",
-			dateFmt = new Intl.DateTimeFormat(lang.replace('_', '-'), {month: "numeric", day: "numeric"});
+			let num = 0;
+			const dsets = [], date = startdate.clone();
 
-		var xScaleDays = d3.scaleTime().rangeRound([0, width]).domain([startdate, enddate]);
-		var xAxis = d3.axisBottom().scale(xScaleDays).ticks(width/days/2).tickFormat(function(d) { return dateFmt.format(d); });
+			for(const entry of response.data) {
+				let data = [];
 
-		var svg = d3.select(selector)
-			.append("svg")
-				.attr("width", width + margins.left + margins.right)
-				.attr("height", height + margins.top + margins.bottom)
-			.append("g")
-				.attr("transform", "translate(" + margins.left + "," + margins.top + ")");
+				do {
+					let day = date.toISOString().substr(0, 10);
 
-		svg.append("g")
-			.attr("class", "x axis")
-			.attr("transform", "translate(0," + height + ")")
-			.call(xAxis);
+					data.push({x: date.toISOString(), y: entry['attributes'][day] || 0});
+					date.add(1, 'days');
+				} while(date.isBefore(enddate, 'day'));
 
+				dsets.push({
+					pointRadius: 2,
+					label: entry['id'], data: data,
+					borderColor: self.color(num),
+					backgroundColor: self.gradient(ctx, num),
+				});
+				num++;
+			}
 
-		var currencies = [], result = {}, max = 0;
-		var criteria, currencyid, promises = {},
-			firstdate = new Date(new Date().getTime() - days * 86400 * 1000);
+			const config = JSON.parse(JSON.stringify(self.config)); // deep copy
 
-		for(var i=0; i<this.currencies.length; i++) {
+			config.data.datasets = dsets;
+			config.options.scales.xAxes[0].type = 'time';
+			config.options.scales.xAxes[0].time = {unit: 'day'};
+			config.options.legendCallback = self.legend;
+			config.options.tooltips.callbacks.title = function(item) {
+				return moment.utc(item[0].label).format('ll');
+			};
+			config.options.tooltips.callbacks.labelColor = function(item) {
+				return {borderColor: '#000', backgroundColor: self.color(item.datasetIndex)};
+			};
 
-			currencyid = this.currencies[i];
-			criteria = {"&&": [
-				{">=": {"order.statuspayment": 5}},
-				{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
-				{"==": {"order.base.currencyid": currencyid}}
-			]};
+			self.addLegend(new Chart(ctx, config), '.order-salesday');
 
-			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cdate", criteria, "-order.cdate", 10000, "order.base.product.price", "sum");
-			currencies.push(currencyid);
-		}
-
-		jQuery.each(promises, function(currency, promise) {
-			promise.done(function(data) {
-
-				if(typeof data.data == "undefined") {
-					throw 'No data in response';
-				}
-
-				for(var i=0; i<data.data.length; i++) {
-					max = Math.max(max, +data.data[i].attributes);
-
-					result[data.data[i].id] = result[data.data[i].id] || {};
-					result[data.data[i].id][currency] = +data.data[i].attributes;
-				}
-			});
-		});
-
-
-		$.when.apply($, Object.values(promises)).done(function() {
-
-			var dateParser = d3.timeParse("%Y-%m-%d");
-			var numFmt = Intl.NumberFormat(lang.replace('_', '-'));
-
-			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, width/days]).padding(0.15).paddingInner(0.05);
-			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
-
-			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
-			var yAxis = d3.axisLeft().scale(yScale).ticks(7).tickFormat(function(d) { return numFmt.format(d); });
-
-
-			Aimeos.Dashboard.addLegend(selector, currencies, colorScale);
-
-			svg.append("g")
-				.attr("class", "y axis left")
-				.call(yAxis);
-
-			svg.append("g")
-				.selectAll("g")
-				.data(Object.entries(result))
-				.enter().append("g")
-					.attr("transform", function(d) { return "translate(" + (xScaleDays(dateParser(d[0])) - width/days/2) + ",0)"; })
-				.selectAll("rect")
-				.data(function(d) { return Object.entries(d[1]); })
-				.enter().append("rect")
-					.attr("class", "barsum")
-					.attr("x", function(d) { return xScaleCurrencies(d[0]); })
-					.attr("y", function(d) { return yScale(d[1]); })
-					.attr("width", xScaleCurrencies.bandwidth())
-					.attr("height", function(d) { return height - yScale(d[1]); })
-					.attr("fill", function(d) { return colorScale(d[0]); })
-					.append("title").text(function(d) {
-						return new Intl.NumberFormat(lang.replace('_', '-'), {style: 'currency', currency: d[0]}).format(d[1]);
-					});
-
-		}).always(function() {
-			$(selector).removeClass("loading");
+		}).catch(function(response) {
+			self.log(response);
+		}).then(function() {
+			self.done('.order-salesday');
 		});
 	},
-
 
 
 	chartMonth : function() {
 
-		var selector = "#order-salesmonth-data .chart",
-			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 20},
-			width = $(selector).width() - margins.left - margins.right,
-			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
+		const self = this;
+		const ctx = this.context('.order-salesmonth');
+		const keys = "order.base.currencyid,order.cmonth";
+		const startdate = moment().utc().subtract(12, 'months');
+		const enddate = moment().utc();
+		const criteria = {"&&": [
+			{">=": {"order.statuspayment": 5}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+		]};
 
-		var date = new Date(new Date().getTime() - 365 * 86400 * 1000),
-			firstdate = new Date(date.getUTCFullYear(), date.getMonth()+1, 1);
-			months = d3.utcMonth.range(firstdate, new Date()).map(function(d) { return d.toISOString().substr(0, 7); });
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", this.limit, "order.base.product.price", "sum").then(function(response) {
 
-		var xScaleMonths = d3.scaleBand().range([0, width]).domain(months).paddingInner(0.15);
-		var xAxis = d3.axisBottom().scale(xScaleMonths).tickFormat(function(d) { return d.substr(5, 2); });
+			let num = 0;
+			const dsets = [], date = startdate.clone();
 
-		var svg = d3.select(selector)
-			.append("svg")
-				.attr("width", width + margins.left + margins.right)
-				.attr("height", height + margins.top + margins.bottom)
-			.append("g")
-				.attr("transform", "translate(" + margins.left + "," + margins.top + ")");
+			for(const entry of response.data) {
+				let data = [];
 
-		svg.append("g")
-			.attr("class", "x axis")
-			.attr("transform", "translate(0," + height + ")")
-			.call(xAxis);
+				do {
+					let month = date.toISOString().substr(0, 7);
 
+					data.push({x: date.toISOString(), y: entry['attributes'][month] || 0});
+					date.add(1, 'months');
+				} while(date.isBefore(enddate, 'month'));
 
-		var currencies = [], result = {}, max = 0;
-		var criteria, currencyid, promises ={};
+				dsets.push({
+					pointRadius: 2,
+					label: entry['id'], data: data,
+					borderColor: self.color(num),
+					backgroundColor: self.gradient(ctx, num),
+				});
+				num++;
+			}
 
-		for(var i=0; i<this.currencies.length; i++) {
+			const config = JSON.parse(JSON.stringify(self.config)); // deep copy
 
-			currencyid = this.currencies[i];
-			criteria = {"&&": [
-				{">=": {"order.statuspayment": 5}},
-				{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
-				{"==": {"order.base.currencyid": currencyid}}
-			]};
+			config.data.datasets = dsets;
+			config.options.legendCallback = self.legend;
+			config.options.scales.xAxes[0].type = 'time';
+			config.options.scales.xAxes[0].time = {unit: 'month'};
+			config.options.tooltips.callbacks.title = function(item) {
+				return moment(item[0].label).format('MMM YYYY');
+			};
+			config.options.tooltips.callbacks.labelColor = function(item) {
+				return {borderColor: '#000', backgroundColor: self.color(item.datasetIndex)};
+			};
 
-			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cmonth", criteria, "-order.cdate", 10000, "order.base.product.price", "sum");
-			currencies.push(currencyid);
-		}
+			self.addLegend(new Chart(ctx, config), '.order-salesmonth');
 
-		jQuery.each(promises, function(currency, promise) {
-			promise.done(function(data) {
-
-				if(typeof data.data == "undefined") {
-					throw 'No data in response';
-				}
-
-				for(var i=0; i<data.data.length; i++) {
-					max = Math.max(max, +data.data[i].attributes);
-
-					result[data.data[i].id] = result[data.data[i].id] || {};
-					result[data.data[i].id][currency] = +data.data[i].attributes;
-				}
-			});
-		});
-
-
-		$.when.apply($, Object.values(promises)).done(function() {
-
-			var lang = $(".aimeos").attr("lang") || "en";
-			var numFmt = Intl.NumberFormat(lang.replace('_', '-'));
-
-			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleMonths.bandwidth()]).padding(0.05);
-			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
-
-			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
-			var yAxis = d3.axisLeft().scale(yScale).ticks(7).tickFormat(function(d) { return numFmt.format(d); });
-
-
-			Aimeos.Dashboard.addLegend(selector, currencies, colorScale);
-
-			svg.append("g")
-				.attr("class", "y axis left")
-				.call(yAxis);
-
-			svg.append("g")
-				.selectAll("g")
-				.data(Object.entries(result))
-				.enter().append("g")
-					.attr("transform", function(d) { return "translate(" + xScaleMonths(d[0]) + ",0)"; })
-				.selectAll("rect")
-				.data(function(d) { return Object.entries(d[1]); })
-				.enter().append("rect")
-					.attr("class", "barsum")
-					.attr("x", function(d) { return xScaleCurrencies(d[0]); })
-					.attr("y", function(d) { return yScale(d[1]); })
-					.attr("width", xScaleCurrencies.bandwidth())
-					.attr("height", function(d) { return height - yScale(d[1]); })
-					.attr("fill", function(d) { return colorScale(d[0]); })
-					.append("title").text(function(d) {
-						return new Intl.NumberFormat(lang.replace('_', '-'), {style: 'currency', currency: d[0]}).format(d[1]);
-					});
-
-		}).always(function() {
-			$(selector).removeClass("loading");
+		}).catch(function(response) {
+			self.log(response);
+		}).then(function() {
+			self.done('.order-salesmonth');
 		});
 	},
 
 
-
 	chartWeekday : function() {
 
-		var selector = "#order-salesweekday-data .chart",
-			margins = {top: 10, bottom: 20, legend: 30, left: 50, right: 20},
-			width = $(selector).width() - margins.left - margins.right,
-			height = $(selector).height() - margins.top - margins.bottom - margins.legend;
+		const self = this;
+		const ctx = this.context('.order-salesweekday');
+		const keys = "order.base.currencyid,order.cwday";
+		const startdate = moment().utc().subtract(12, 'months');
+		const enddate = moment().utc();
+		const criteria = {"&&": [
+			{">=": {"order.statuspayment": 5}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+		]};
 
-		var lang = $(".aimeos").attr("lang") || "en",
-			dateFmt = new Intl.DateTimeFormat(lang.replace('_', '-'), {weekday: "short"});
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.price", "sum").then(function(response) {
 
-		var weekdays = [],
-			firstdate = new Date(new Date().getTime() - 365 * 86400 * 1000);
+			let num = 0;
+			const dsets = [];
 
-		for(var i=1; i<=7; i++) {
-			weekdays.push(dateFmt.format(new Date('1970-02-0' + i))); // Sunday to Saturday
-		}
+			for(const entry of response.data) {
+				let data = [];
 
-		var xScaleWdays = d3.scaleBand().range([0, width]).domain([0, 1, 2, 3, 4, 5, 6]).paddingInner(0.15);
-		var xAxis = d3.axisBottom().scale(xScaleWdays).tickFormat(function(d) { return weekdays[d]; });
-
-		var svg = d3.select(selector)
-			.append("svg")
-				.attr("width", width + margins.left + margins.right)
-				.attr("height", height + margins.top + margins.bottom)
-			.append("g")
-				.attr("transform", "translate(" + margins.left + "," + margins.top + ")");
-
-		svg.append("g")
-			.attr("class", "x axis")
-			.attr("transform", "translate(0," + height + ")")
-			.call(xAxis);
-
-
-		var currencies = [], result = {}, max = 0;
-		var criteria, currencyid, promises ={};
-
-		for(var i=0; i<this.currencies.length; i++) {
-
-			currencyid = this.currencies[i];
-			criteria = {"&&": [
-				{">=": {"order.statuspayment": 5}},
-				{">": {"order.cdate": firstdate.toISOString().substr(0, 10)}},
-				{"==": {"order.base.currencyid": currencyid}}
-			]};
-
-			promises[currencyid] = Aimeos.Dashboard.getData("order", "order.cwday", criteria, "-order.cdate", 10000, "order.base.product.price", "sum");
-			currencies.push(currencyid);
-		}
-
-		jQuery.each(promises, function(currency, promise) {
-			promise.done(function(data) {
-
-				if(typeof data.data == "undefined") {
-					throw 'No data in response';
+				for(const wday in [...Array(7).keys()]) {
+					data[wday] = entry['attributes'][wday] || 0;
 				}
 
-				for(var i=0; i<data.data.length; i++) {
-					max = Math.max(max, +data.data[i].attributes);
+				dsets.push({
+					pointRadius: 2,
+					label: entry['id'], data: data,
+					borderColor: self.color(num),
+					backgroundColor: self.gradient(ctx, num),
+				});
+				num++;
+			}
 
-					result[data.data[i].id] = result[data.data[i].id] || {};
-					result[data.data[i].id][currency] = +data.data[i].attributes;
-				}
-			});
-		});
+			const config = JSON.parse(JSON.stringify(self.config)); // deep copy
 
+			config.data.datasets = dsets;
+			config.data.labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+			config.options.legendCallback = self.legend;
+			config.options.tooltips.callbacks.labelColor = function(item) {
+				return {borderColor: '#000', backgroundColor: self.color(item.datasetIndex)};
+			};
 
-		$.when.apply($, Object.values(promises)).done(function() {
+			self.addLegend(new Chart(ctx, config), '.order-salesweekday');
 
-			var numFmt = Intl.NumberFormat(lang.replace('_', '-'));
-
-			var xScaleCurrencies = d3.scaleBand().domain(currencies).rangeRound([0, xScaleWdays.bandwidth()]).padding(0.05);
-			var colorScale = d3.scaleOrdinal(Aimeos.Dashboard.Sales.colors);
-
-			var yScale = d3.scaleLinear().range([height, 0]).domain([0, max]);
-			var yAxis = d3.axisLeft().scale(yScale).ticks(7).tickFormat(function(d) { return numFmt.format(d); });
-
-
-			Aimeos.Dashboard.addLegend(selector, currencies, colorScale);
-
-			svg.append("g")
-				.attr("class", "y axis left")
-				.call(yAxis);
-
-			svg.append("g")
-				.selectAll("g")
-				.data(Object.entries(result))
-				.enter().append("g")
-					.attr("transform", function(d) { return "translate(" + xScaleWdays(d[0]) + ",0)"; })
-				.selectAll("rect")
-				.data(function(d) { return Object.entries(d[1]); })
-				.enter().append("rect")
-					.attr("class", "barsum")
-					.attr("x", function(d) { return xScaleCurrencies(d[0]); })
-					.attr("y", function(d) { return yScale(d[1]); })
-					.attr("width", xScaleCurrencies.bandwidth())
-					.attr("height", function(d) { return height - yScale(d[1]); })
-					.attr("fill", function(d) { return colorScale(d[0]); })
-					.append("title").text(function(d) {
-						return new Intl.NumberFormat(lang.replace('_', '-'), {style: 'currency', currency: d[0]}).format(d[1]);
-					});
-
-		}).always(function() {
-			$(selector).removeClass("loading");
+		}).catch(function(response) {
+			self.log(response);
+		}).then(function() {
+			self.done('.order-salesweekday');
 		});
 	}
 };
