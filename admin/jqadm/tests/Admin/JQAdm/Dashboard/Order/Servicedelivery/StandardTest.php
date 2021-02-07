@@ -38,7 +38,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->search();
 
-		$this->assertStringContainsString( '<div class="chart order-servicedelivery', $result );
+		$this->assertStringContainsString( '<div class="chart pie order-servicedelivery', $result );
 	}
 
 
