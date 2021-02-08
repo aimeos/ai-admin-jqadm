@@ -146,25 +146,25 @@
 	padding-bottom: 3rem;
 }
 
-.dashboard .order-country .chart {
+.dashboard .order-countcountry .chart {
 	overflow: hidden;
 }
 
-.dashboard .order-country h3,
-.dashboard .order-country .table {
+.dashboard .order-countcountry h3,
+.dashboard .order-countcountry .table {
 	max-width: 30rem;
 	padding: 0 2rem;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.dashboard .order-country td.country {
+.dashboard .order-countcountry td.country {
 	padding-left: 2rem;
 	text-align: left;
 	width: 66%;
 }
 
-.dashboard .order-country td.number {
+.dashboard .order-countcountry td.number {
 	padding-right: 2rem;
 	text-align: right;
 	width: 33%;

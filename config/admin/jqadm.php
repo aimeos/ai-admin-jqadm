@@ -79,7 +79,7 @@ return [
 			'order' => 'order',
 		],
 		'order' => [
-				'subparts' => [
+			'subparts' => [
 				'latest' => 'latest',
 				'salesday' => 'salesday',
 				'salesmonth' => 'salesmonth',
@@ -87,6 +87,7 @@ return [
 				'countday' => 'countday',
 				'countpaystatus' => 'countpaystatus',
 				'counthour' => 'counthour',
+				'countcountry' => 'countcountry',
 				'servicepayment' => 'servicepayment',
 				'servicedelivery' => 'servicedelivery',
 			],

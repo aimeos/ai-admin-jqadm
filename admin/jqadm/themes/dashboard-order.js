@@ -6,15 +6,13 @@
 
 Aimeos.Dashboard.Order = {
 
-	dayColor: ['#f2f2f2', '#e6eff7', '#d4e1ed', '#c9def2', '#a5d2e8', '#7bbee6', '#54a4d7', '#3586ca', '#2069b4', '#2c5490'],
+	color: ['#f2f2f2', '#e6eff7', '#d4e1ed', '#c9def2', '#a5d2e8', '#7bbee6', '#54a4d7', '#3586ca', '#2069b4', '#2c5490'],
+	paystatusColor: ['#d3d3d3', '#e15759', '#f28e2b', '#edc948', '#5bb3e6', '#30a0e0', '#00ccbb', '#00b0a0'],
+	hourColor: ['#ffffff', '#30a0e0'],
 	dayColorHover: '#00b0a0',
 	dayCellSize: 15,
-
-	hourColor: ['#ffffff', '#30a0e0'],
-
-	paystatusColor: ['#d3d3d3', '#e15759', '#f28e2b', '#edc948', '#5bb3e6', '#30a0e0', '#00ccbb', '#00b0a0'],
-
 	limit: 10000,
+	topLimit: 5,
 
 
 	addLegend: function(chart, selector) {
@@ -104,7 +102,7 @@ Aimeos.Dashboard.Order = {
 		Aimeos.lazy(".order-countday .chart", this.chartDay.bind(this));
 		Aimeos.lazy(".order-counthour .chart", this.chartHour.bind(this));
 		Aimeos.lazy(".order-countpaystatus .chart", this.chartPaymentStatus.bind(this));
-		Aimeos.lazy(".order-country .chart", this.chartCountry.bind(this));
+		Aimeos.lazy(".order-countcountry .chart", this.chartCountry.bind(this));
 	},
 
 
@@ -153,10 +151,10 @@ Aimeos.Dashboard.Order = {
 					datasets: [{
 						data: data,
 						backgroundColor: function(ctx) {
-							return self.dayColor[(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
+							return self.color[(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
 						},
 						borderColor: function(ctx) {
-							return self.dayColor[(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
+							return self.color[(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
 						},
 						borderWidth: 1,
 						borderSkipped: false,
@@ -366,7 +364,7 @@ Aimeos.Dashboard.Order = {
 						mode: 'index',
 						intersect: false
 					},
-					  scales: {
+					scales: {
 						xAxes: [{
 							type: 'time',
 							time: {
@@ -401,6 +399,95 @@ Aimeos.Dashboard.Order = {
 			self.done('.order-countpaystatus');
 		});
 	},
+
+
+	chartCountry : function() {
+
+		const self = this;
+		const keys = "order.base.address.countryid";
+		const ctx = this.context('.order-countcountry');
+		const startdate = moment().utc().subtract(12, 'months').startOf('day');
+		const enddate = moment().utc().startOf('day');
+		const criteria = {"&&": [
+			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+		]};
+
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
+
+			let max = 0;
+			const map = {};
+			const geo =  JSON.parse(document.querySelector('.order-countcountry .chart').dataset.map);
+			const countries = ChartGeo.topojson.feature(geo, geo.objects.countries).features;
+
+			for(const entry of response.data) {
+				map[entry.id] = entry.attributes;
+				max = Math.max(max, entry.attributes);
+			}
+
+			new Chart(ctx, {
+				type: 'choropleth',
+				data: {
+					labels: countries.map((c) => c.id),
+					datasets: [{
+						outline: countries,
+						data: countries.map((c) => ({feature: c, value: map[c.id] || 0})),
+						backgroundColor: function(ctx) {
+							const v = ctx.dataIndex && ctx.dataset.data[ctx.dataIndex].value || 0;
+							return self.color[(v / max * 9).toFixed()];
+						},
+				  }]
+				},
+				options: {
+					responsive: true,
+					maintainAspectRatio: false,
+					showOutline: false,
+					showGraticule: false,
+					legend: {
+						display: false
+					},
+					scale: {
+						projection: 'naturalEarth1'
+					},
+					geo: {
+						colorScale: {
+							display: false,
+						}
+					}
+				}
+			});
+
+
+			const toplist = document.querySelector('.order-countcountry .toplist');
+
+			if(toplist) {
+				response.data.sort((a, b) => a.attributes - b.attributes);
+
+				for(const entry of response.data.slice(0, self.topLimit)) {
+
+					const country = document.createElement('td');
+					country.classList.add('country');
+					country.appendChild(document.createTextNode(entry.id));
+
+					const number = document.createElement('td');
+					number.classList.add('number');
+					number.appendChild(document.createTextNode(entry.attributes));
+
+					const item = document.createElement('tr');
+					item.classList.add('item');
+
+					item.appendChild(country);
+					item.appendChild(number);
+					toplist.appendChild(item);
+				}
+			}
+
+		}).catch(function(response) {
+			self.log(response);
+		}).then(function() {
+			self.done('.order-countcountry');
+		});
+	}
 };
 
 
