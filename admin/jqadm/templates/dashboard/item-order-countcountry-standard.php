@@ -8,7 +8,7 @@
 $enc = $this->encoder();
 
 ?>
-<div class="chart geo order-countcountry col-xl-12">
+<div class="chart geo order-countcountry col-xl-12" data-labels="<?= $enc->attr( $this->get( 'ordercountcountryLabels', [] ) ) ?>">
 	<div class="box">
 		<div class="header"
 			data-bs-toggle="collapse" data-bs-target="#order-countcountry-data"
@@ -24,7 +24,7 @@ $enc = $this->encoder();
 			<div class="row">
 				<div class="col-md-5 content">
 					<div>
-						<h3><?= $enc->html( $this->translate( 'admin', 'Top 5 countries' ) ) ?></h3>
+						<h3><?= $enc->html( $this->translate( 'admin', 'Top countries' ) ) ?></h3>
 						<table class="table list-items toplist"></table>
 					</div>
 				</div>

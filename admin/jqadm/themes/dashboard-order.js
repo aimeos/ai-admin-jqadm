@@ -417,7 +417,8 @@ Aimeos.Dashboard.Order = {
 
 			let max = 0;
 			const map = {};
-			const geo =  JSON.parse(document.querySelector('.order-countcountry .chart').dataset.map);
+			const labels = JSON.parse(document.querySelector('.order-countcountry').dataset.labels);
+			const geo = JSON.parse(document.querySelector('.order-countcountry .chart').dataset.map);
 			const countries = ChartGeo.topojson.feature(geo, geo.objects.countries).features;
 
 			for(const entry of response.data) {
@@ -428,7 +429,7 @@ Aimeos.Dashboard.Order = {
 			new Chart(ctx, {
 				type: 'choropleth',
 				data: {
-					labels: countries.map((c) => c.id),
+					labels: countries.map((c) => labels[c.id] || c.id),
 					datasets: [{
 						outline: countries,
 						data: countries.map((c) => ({feature: c, value: map[c.id] || 0})),
@@ -467,7 +468,7 @@ Aimeos.Dashboard.Order = {
 
 					const country = document.createElement('td');
 					country.classList.add('country');
-					country.appendChild(document.createTextNode(entry.id));
+					country.appendChild(document.createTextNode(labels[entry.id] || entry.id));
 
 					const number = document.createElement('td');
 					number.classList.add('number');
