@@ -8,7 +8,6 @@
 $enc = $this->encoder();
 
 ?>
-
 <div class="chart matrix order-countday col-xl-12">
 	<div class="box">
 		<div class="header"
