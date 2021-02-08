@@ -18,7 +18,7 @@ $trans = array(
 );
 
 ?>
-<div class="chart order-countpaystatus col-xl-6">
+<div class="chart bar order-countpaystatus col-xl-6" data-labels="<?= $enc->attr( $trans ) ?>">
 	<div class="box">
 		<div class="header"
 			data-bs-toggle="collapse" data-bs-target="#order-countpaystatus-data"
@@ -26,12 +26,13 @@ $trans = array(
 			<div class="card-tools-left">
 				<div class="btn act-show fa"></div>
 			</div>
-			<span class="header-label">
+			<h2 class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ); ?>
-			</span>
+			</h2>
 		</div>
-		<div id="order-countpaystatus-data" class="collapse show content" data-translation="<?= $enc->attr( $trans ); ?>">
-			<div class="chart loading"></div>
+		<div id="order-salesday-data" class="collapse show content loading">
+			<div class="chart-legend"></div>
+			<div class="chart"><canvas></canvas></div>
 		</div>
 	</div>
 </div>

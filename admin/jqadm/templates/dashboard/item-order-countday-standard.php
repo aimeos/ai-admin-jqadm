@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 ?>
 
-<div class="chart order-countday col-xl-12">
+<div class="chart matrix order-countday col-xl-12">
 	<div class="box">
 		<div class="header"
 			data-bs-toggle="collapse" data-bs-target="#order-countday-data"
@@ -17,12 +17,12 @@ $enc = $this->encoder();
 			<div class="card-tools-left">
 				<div class="btn act-show fa"></div>
 			</div>
-			<span class="header-label">
+			<h2 class="header-label">
 				<?= $enc->html( $this->translate( 'admin', 'Orders by day' ) ); ?>
-			</span>
+			</h2>
 		</div>
 		<div id="order-countday-data" class="collapse show content">
-			<div class="chart loading"></div>
+			<div class="chart loading"><canvas></canvas></div>
 		</div>
 	</div>
 </div>
