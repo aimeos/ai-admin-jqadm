@@ -379,32 +379,32 @@ html {
 }
 
 @media (min-width: 1200px) {
-	.aimeos .item:not(.item-catalog) .navbar-content {
+	.aimeos .item:not(.item-tree) .navbar-content {
 		max-height: 21.5rem;
 		position: sticky;
 		top: 4rem;
 	}
 
-	.aimeos .item:not(.item-catalog) .navbar-content .more {
+	.aimeos .item:not(.item-tree) .navbar-content .more {
 		top: 18.5rem;
 	}
 
-	.aimeos .item:not(.item-catalog) .navbar-content .nav {
+	.aimeos .item:not(.item-tree) .navbar-content .nav {
 		max-height: 18.5rem;
 	}
 
-	.aimeos .item:not(.item-catalog) .navbar-content.show,
-	.aimeos .item:not(.item-catalog) .navbar-content.show .nav,
-	.aimeos .item:not(.item-catalog) .navbar-content.show .item-meta {
+	.aimeos .item:not(.item-tree) .navbar-content.show,
+	.aimeos .item:not(.item-tree) .navbar-content.show .nav,
+	.aimeos .item:not(.item-tree) .navbar-content.show .item-meta {
 		max-height: unset;
 	}
 
-	.aimeos .item:not(.item-catalog) .nav-tabs,
-	.aimeos .item:not(.item-catalog) .nav-item {
+	.aimeos .item:not(.item-tree) .nav-tabs,
+	.aimeos .item:not(.item-tree) .nav-item {
 		width: 100%;
 	}
 
-	.aimeos .item:not(.item-catalog) .nav-tabs .nav-link {
+	.aimeos .item:not(.item-tree) .nav-tabs .nav-link {
 		text-align: left;
 	}
 }
