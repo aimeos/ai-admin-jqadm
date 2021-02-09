@@ -462,7 +462,7 @@ Aimeos.Dashboard.Order = {
 			const toplist = document.querySelector('.order-countcountry .toplist');
 
 			if(toplist) {
-				response.data.sort((a, b) => a.attributes - b.attributes);
+				response.data.sort((a, b) => b.attributes - a.attributes);
 
 				for(const entry of response.data.slice(0, self.topLimit)) {
 
