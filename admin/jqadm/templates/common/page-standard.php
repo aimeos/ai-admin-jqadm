@@ -156,9 +156,9 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 			</a>
 
 			<ul class="sidebar-menu">
-				<li class="none"></li>
 
 				<?php if( ( $this->get( 'pageSiteList', map() )->count() > 1 || !$this->pageSiteTree->getChildren()->isEmpty() || $this->get( 'pageSitePath', map() )->count() > 1 ) && $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) ) : ?>
+					<li class="none"></li>
 					<li class="site treeview <?= $before === null ? 'before' : '' ?>">
 						<a href="#">
 							<i class="icon"></i>
@@ -197,7 +197,9 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 							</ul>
 						</div>
 					</li>
-				<?php endif; ?>
+				<?php else : ?>
+					<li class="none <?= $before === null ? 'before' : '' ?>"></li>
+				<?php endif ?>
 
 				<?php foreach( $navlist as $nav => $navitem ) : ?>
 					<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? current( $nav ) ?>

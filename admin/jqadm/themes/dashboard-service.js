@@ -175,11 +175,14 @@ Aimeos.Dashboard.Service = {
 			config.options.tooltips.callbacks.labelColor = function(item) {
 				return {borderColor: '#000', backgroundColor: self.color(item.index)};
 			};
-			config.options.plugins.doughnutlabel.labels.push({
-				text: document.querySelector('.order-servicedelivery').dataset.title,
-				font: {size: '16'},
-				color: 'grey'
-			});
+
+			if(data.length) {
+				config.options.plugins.doughnutlabel.labels.push({
+					text: document.querySelector('.order-servicedelivery').dataset.title,
+					font: {size: '16'},
+					color: 'grey'
+				});
+			}
 
 			self.addLegend(new Chart(ctx, config), '.order-servicedelivery');
 
@@ -229,11 +232,14 @@ Aimeos.Dashboard.Service = {
 			config.options.tooltips.callbacks.labelColor = function(item) {
 				return {borderColor: '#000', backgroundColor: self.color(item.index)};
 			};
-			config.options.plugins.doughnutlabel.labels.push({
-				text: document.querySelector('.order-servicepayment').dataset.title,
-				font: {size: '16'},
-				color: 'grey'
-			});
+
+			if(data.length) {
+				config.options.plugins.doughnutlabel.labels.push({
+					text: document.querySelector('.order-servicepayment').dataset.title,
+					font: {size: '16'},
+					color: 'grey'
+				});
+			}
 
 			self.addLegend(new Chart(ctx, config), '.order-servicepayment');
 

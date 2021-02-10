@@ -162,12 +162,12 @@ html {
 
 .aimeos .main-navbar .btn.act-show.fa:before,
 .aimeos .advanced.collapsed .btn.act-show.fa:before,
-.aimeos .card-header.collapsed .btn.act-show.fa:before {
+.aimeos .header.collapsed .btn.act-show.fa:before {
 	content: "\f078";
 }
 
 .aimeos .advanced .btn.act-show.fa:before,
-.aimeos .card-header .btn.act-show.fa:before {
+.aimeos .header .btn.act-show.fa:before {
 	content: "\f077";
 }
 

@@ -290,6 +290,7 @@ Aimeos.Dashboard.Order = {
 					scales: {
 						xAxes: [{
 							display: true,
+							distribution: 'series',
 							gridLines: {
 								drawOnChartArea: false
 							},
@@ -299,6 +300,9 @@ Aimeos.Dashboard.Order = {
 							gridLines: {
 								drawOnChartArea: false
 							},
+							ticks: {
+								min: 0
+							}
 						}]
 					}
 				}
@@ -415,7 +419,7 @@ Aimeos.Dashboard.Order = {
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
 
-			let max = 0;
+			let max = 1;
 			const map = {};
 			const labels = JSON.parse(document.querySelector('.order-countcountry').dataset.labels);
 			const geo = JSON.parse(document.querySelector('.order-countcountry .chart').dataset.map);
