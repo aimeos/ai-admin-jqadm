@@ -5,18 +5,20 @@
 # Translators:
 # Aldemar Hernández <napalm-beach@lycos.com>, 2016
 # Álvaro Santos <alvaro_sm_8@hotmail.com>, 2019
+# Anderson Mendoza Aguiar <amendozaaguiar@outlook.com>, 2021
 # Daniel Cortés <skrd@hotmail.es>, 2018
 # Daniel Vega <danielvega131990@gmail.com>, 2015
 # Jorge Moriñigo <jorgemorinigo@gmail.com>, 2020
 # Juan Ramos <juancagb.17@gmail.com>, 2017
 # nsendetzky, 2014
+# S 0l, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
-"Last-Translator: Juan Ramos <juancagb.17@gmail.com>\n"
+"PO-Revision-Date: 2021-02-11 00:26+0000\n"
+"Last-Translator: S 0l\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +28,7 @@ msgstr ""
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -38,7 +40,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -63,11 +65,11 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
@@ -80,10 +82,10 @@ msgid ""
 msgstr "Número de teléfono (Internacional) sin separador de caracteres, puede comenzar con un \"+\""
 
 msgid "+ Tax"
-msgstr ""
+msgstr "Impuesto"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "Active"
 msgstr "Activo"
@@ -140,7 +142,7 @@ msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Objeto Aimeos no disponible"
 
 msgid "All"
 msgstr "Todo"
@@ -412,7 +414,7 @@ msgid "Date the subscription ends"
 msgstr ""
 
 msgid "Days"
-msgstr ""
+msgstr "Dias"
 
 msgid "Default"
 msgstr "Por defecto"
@@ -487,7 +489,7 @@ msgid "E-Mail address (required)"
 msgstr "Correo electrónico (obligatorio)"
 
 msgid "E-mail"
-msgstr ""
+msgstr "Email"
 
 msgid "E-mail address (optional)"
 msgstr ""
@@ -508,7 +510,7 @@ msgid "Editor"
 msgstr "Editor"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "End date"
 msgstr "Fecha final"
@@ -532,7 +534,7 @@ msgid "Facility"
 msgstr "Servicio"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Facsímil"
 
 msgid "Facsimile number (optional)"
 msgstr ""
@@ -556,7 +558,7 @@ msgid "First name of the person if used in cultures where they are used"
 msgstr ""
 
 msgid "Floor"
-msgstr ""
+msgstr "Piso"
 
 msgid "Floor / Appartment"
 msgstr ""
@@ -604,7 +606,7 @@ msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
 
 msgid "Hours"
-msgstr ""
+msgstr "Horas"
 
 msgid "House number"
 msgstr "Número de casa"
@@ -631,12 +633,12 @@ msgid "ISO language code (required)"
 msgstr ""
 
 msgid "Image"
-msgstr ""
+msgstr "Imágen"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Las imágenes solo se mostrarán para ese idioma, lo que es útil si el medio contiene texto o es un idioma específico."
 
 msgid "Import"
 msgstr "Importar"
@@ -659,34 +661,34 @@ msgstr ""
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "El nombre del artículo interno se utilizará en el sitio web y para la búsqueda solo si no existen otros nombres de productos en ningún idioma"
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "Nombre del artículo interno, se utilizará en el sitio web si no hay disponible un nombre de producto para el idioma"
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "El nombre del atributo interno se utilizará en el sitio web si no hay un nombre disponible para el idioma"
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "El nombre de la categoría interna se utilizará en el sitio web si no hay un nombre disponible para el idioma"
 
 msgid "Internal name (required)"
 msgstr "Nombre interno (obligatorio)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Nombre de tipo interno que se muestra en la interfaz de administración"
 
 msgid "Interval"
 msgstr "Intervalo"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "Intervalo (requerido)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
@@ -712,10 +714,10 @@ msgid "Invoice"
 msgstr "Factura"
 
 msgid "Item deleted successfully"
-msgstr ""
+msgstr "Elemento eliminado correctamente"
 
 msgid "Item saved successfully"
-msgstr ""
+msgstr "Elemento guardado con éxito"
 
 msgid "Label"
 msgstr "Etiqueta"
@@ -724,7 +726,7 @@ msgid "Label (required)"
 msgstr "Etiqueta (obligatorio)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "Etiqueta que describe el intervalo, se utilizará si no hay un nombre disponible"
 
 msgid "Language"
 msgstr "Idioma"
@@ -733,7 +735,7 @@ msgid "Language ID"
 msgstr "ID de idioma"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "Idioma del texto introducido"
 
 msgid "Languages"
 msgstr "Idiomas"
@@ -742,7 +744,7 @@ msgid "Last"
 msgstr "Último"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "Último estado de entrega del pedido"
 
 msgid "Last name"
 msgstr "Apellido"
@@ -753,10 +755,10 @@ msgstr "Apellido (obligatorio)"
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "Apellido de la persona o nombre completo en culturas donde no se usan nombres"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "Último estado de pago del pedido"
 
 msgid "Latest orders"
 msgstr "Pedidos más recientes"
@@ -767,7 +769,7 @@ msgstr "Longitud"
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "Lista de artículos que deben venderse como un solo producto, a menudo a un precio reducido"
 
 msgid "List of products often bought together"
 msgstr "Lista de productos que usualmente se compran juntos"
@@ -779,13 +781,13 @@ msgid "List type"
 msgstr "Tipo de lista"
 
 msgid "Loading items ..."
-msgstr ""
+msgstr "Cargando itemes ..."
 
 msgid "Locale"
 msgstr "Configuración regional"
 
 msgid "Log"
-msgstr ""
+msgstr "Registro"
 
 msgid "Media Lists Type"
 msgstr ""
@@ -818,16 +820,16 @@ msgid "Minimum quantity"
 msgstr "Cantidad mínima"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Modificado"
 
 msgid "Modified"
 msgstr "Modificado"
 
 msgid "Months"
-msgstr ""
+msgstr "Meses"
 
 msgid "More"
-msgstr ""
+msgstr "Más"
 
 msgid "Move this entry up/down"
 msgstr ""
@@ -880,25 +882,25 @@ msgid "Non-shared properties for the price item"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "No se permite acceder al cliente JQAdm \"%1$s\""
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr "Número de artículos actualmente en stock, dejar vacío para una cantidad ilimitada"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "Número de identificación fiscal oficial para determinar si el impuesto debe facturarse en las facturas"
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "Un proveedor y cero o más nombres de clases de decoradores separados por comas"
 
 msgid "Option"
 msgstr "Opción"
@@ -906,7 +908,7 @@ msgstr "Opción"
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "Componentes opcionales del producto que el cliente puede elegir junto con el producto"
 
 msgid "Order"
 msgstr "Pedido"
@@ -941,7 +943,7 @@ msgstr "Pedidos por estado de pago"
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "Sobrescriba el archivo existente y los clientes que lo compraron en el pasado también pueden descargar el nuevo contenido."
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
@@ -1196,22 +1198,22 @@ msgstr "Devolver"
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "Reducción del precio original, utilizada para calcular el descuento en % y el precio cruzado"
 
 msgid "Reference"
 msgstr "Referencias"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "ID de referencia"
 
 msgid "Related ID"
-msgstr ""
+msgstr "ID relacionada"
 
 msgid "Related order"
 msgstr "Pedido relacionado"
 
 msgid "Renew"
-msgstr ""
+msgstr "Renovar"
 
 msgid "Replace file"
 msgstr "Reemplazar archivo"
@@ -1226,7 +1228,7 @@ msgstr "Falta el parámetro obligatorio \"%1$s\""
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "Cantidad requerida de artículos para precios en bloque, por ejemplo un artículo por $ 5,00, diez artículos por $ 45,00"
 
 msgid "Reset"
 msgstr "Reiniciar"
@@ -1249,18 +1251,18 @@ msgstr ""
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "Nombre de ruta o ID de página de la página de categoría si esta categoría debe mostrarse en una página diferente"
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "Nombre de ruta o ID de página de la página de detalles del producto si este producto debe mostrarse en una página diferente"
 
 msgid "Route or page ID (optional)"
 msgstr ""
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
 msgstr ""
@@ -1445,7 +1447,7 @@ msgstr "Suscripción"
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "Intervalo de suscripción con años, meses, semanas y días, por ejemplo \"P0Y1M2W3D\" por cero años, un mes, dos semanas y tres días"
 
 msgid "Suggested products"
 msgstr "Productos recomendados"
@@ -1755,7 +1757,7 @@ msgstr "Pedidos por estado de pago"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "Váucher"
 
 #, php-format
 msgid "customer"
@@ -1783,7 +1785,7 @@ msgstr "Catálogo"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "Grupos"
 
 #, php-format
 msgid "hour"
