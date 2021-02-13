@@ -406,7 +406,8 @@ class Standard
 				$list['product.lists.siteid'] = $siteId;
 				$list['product.lists.id'] = '';
 				$list['product.siteid'] = $siteId;
-				$list['product.id'] = null;
+				$list['product.id'] = '';
+				$list['product.code'] = $list['product.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			}
 
 			$idx = 0;
