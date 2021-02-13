@@ -82,7 +82,7 @@ class Base
 	protected static function addClientDecorators( \Aimeos\MShop\Context\Item\Iface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
-		if( !is_string( $path ) || $path === '' ) {
+		if( empty( $path ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid domain "%1$s"', $path ) );
 		}
 
