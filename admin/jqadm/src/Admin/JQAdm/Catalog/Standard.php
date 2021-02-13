@@ -454,7 +454,7 @@ class Standard
 		{
 			$data['catalog.id'] = '';
 			$data['catalog.siteid'] = $item->getSiteId();
-			$data['catalog.code'] = $data['catalog.code'] . '_copy';
+			$data['catalog.code'] = $data['catalog.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 		}
 
 		foreach( $item->getConfig() as $key => $value ) {

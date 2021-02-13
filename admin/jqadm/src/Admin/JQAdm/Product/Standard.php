@@ -484,7 +484,7 @@ class Standard
 		if( $copy === true )
 		{
 			$data['product.siteid'] = $this->getContext()->getLocale()->getSiteId();
-			$data['product.code'] = $data['product.code'] . '_copy';
+			$data['product.code'] = $data['product.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data['product.url'] = $data['product.url'] . '-' . time();
 			$data['product.id'] = '';
 		}

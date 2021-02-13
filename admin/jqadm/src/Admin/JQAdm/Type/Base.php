@@ -287,7 +287,7 @@ abstract class Base
 
 		if( $copy === true )
 		{
-			$data[$key . '.type.code'] = $data[$key . '.type.code'] . '_copy';
+			$data[$key . '.type.code'] = $data[$key . '.type.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data[$key . '.type.id'] = '';
 		}
 

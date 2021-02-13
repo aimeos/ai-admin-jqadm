@@ -514,7 +514,7 @@ class Standard
 		if( $copy === true )
 		{
 			$data['service.siteid'] = $this->getContext()->getLocale()->getSiteId();
-			$data['service.code'] = $data['service.code'] . '_copy';
+			$data['service.code'] = $data['service.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data['service.id'] = '';
 		}
 
