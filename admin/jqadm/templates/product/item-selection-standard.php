@@ -182,7 +182,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											</a>
 											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-												v-on:click="addAttributeItem(idx)">
+												v-on:click.stop="addAttributeItem(idx)">
 											</div>
 										</th>
 									</tr>
