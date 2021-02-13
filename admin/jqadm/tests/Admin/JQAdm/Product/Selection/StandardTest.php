@@ -80,11 +80,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB01&quot;', $result );
-		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB02&quot;', $result );
-		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB03&quot;', $result );
-		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB04&quot;', $result );
-		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB05&quot;', $result );
+		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB01_', $result );
+		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB02_', $result );
+		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB03_', $result );
+		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB04_', $result );
+		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB05_', $result );
 		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/30&quot;', $result );
 		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/32&quot;', $result );
 	}
