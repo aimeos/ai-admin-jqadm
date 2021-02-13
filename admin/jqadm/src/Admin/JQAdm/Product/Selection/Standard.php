@@ -251,6 +251,10 @@ class Standard
 		$manager = \Aimeos\MShop::create( $context, 'product' );
 		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
+		$prodIds = map( $data )->col( 'product.id' )->toArray();
+		$filter = $manager->filter()->add( ['product.id' => $prodIds] );
+		$prodItems = $manager->search( $filter, ['attribute' => ['variant']] );
+
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 		$prodIds = [];
 
@@ -260,7 +264,9 @@ class Standard
 				$litem = $listManager->create()->setType( 'default' );
 			}
 
-			if( ( $refItem = $litem->getRefItem() ) === null ) {
+			if( ( $refItem = $prodItems->get( $entry['product.id'] ) ) === null
+				&& ( $refItem = $litem->getRefItem() ) === null
+			) {
 				$refItem = $manager->create()->setType( 'default' );
 			}
 

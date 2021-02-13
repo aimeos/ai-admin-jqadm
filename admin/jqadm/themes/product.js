@@ -811,6 +811,7 @@ Aimeos.Product.Selection = {
 
 						param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type': 'default'}}]};
 						param['fields'] = {'product': 'product.id,product.code,product.label'};
+						param['include'] = 'attribute';
 						param['sort'] = 'product.code';
 
 						if( data.meta && data.meta.prefix ) {
@@ -824,14 +825,27 @@ Aimeos.Product.Selection = {
 							url: data.meta.resources['product'],
 							data: params,
 							success: function(result) {
-								var list = result.data || [];
+								var map = {};
 
-								response( list.map(function(obj) {
+								(result.included || []).forEach(function(item) {
+									map[item.id] = item.attributes;
+								});
+
+								response( (result.data || []).map(function(obj) {
+									var list = [];
+
+									(obj.relationships.attribute || []).forEach(function(item) {
+										if(item.data.attributes && item.data.attributes['product.lists.type'] === 'variant') {
+											list.push(Object.assign({}, item.data.attributes, map[item.data.id] || {}));
+										}
+									});
+
 									return {
 										id: obj.id || null,
 										code: obj.attributes['product.code'] || null,
 										label: obj.attributes['product.label'] || null,
-										stock: false
+										stock: false,
+										attr: list
 									};
 								}));
 							}
@@ -847,6 +861,7 @@ Aimeos.Product.Selection = {
 						this.$set(this.items[idx], 'product.code', item.code);
 						this.$set(this.items[idx], 'product.label', item.label);
 						this.$set(this.items[idx], 'stock', item.stock);
+						this.$set(this.items[idx], 'attr', item.attr);
 					}
 				},
 
