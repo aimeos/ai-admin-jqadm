@@ -485,7 +485,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['locale.site.code'] = $data['locale.site.code'] . '_copy';
+			$data['locale.site.code'] = $data['locale.site.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data['locale.site.id'] = '';
 		}
 

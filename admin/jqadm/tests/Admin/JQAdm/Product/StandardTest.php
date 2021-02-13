@@ -68,7 +68,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->copy();
 
-		$this->assertStringContainsString( 'CNC_copy', $result );
+		$this->assertStringContainsString( 'CNC_', $result );
 	}
 
 
