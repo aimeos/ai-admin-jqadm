@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 15:52+0100\n"
-"PO-Revision-Date: 2020-12-02 14:24+0000\n"
+"POT-Creation-Date: 2021-01-29 12:32+0100\n"
+"PO-Revision-Date: 2021-01-29 11:34+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -574,6 +574,9 @@ msgstr ""
 msgid "Go to the list of attribute types"
 msgstr ""
 
+msgid "Granted rebate"
+msgstr ""
+
 msgid "Group"
 msgstr "Группа"
 
@@ -773,6 +776,9 @@ msgstr "Список предлагаемых товаров"
 msgid "List type"
 msgstr "Тип списка"
 
+msgid "Loading items ..."
+msgstr ""
+
 msgid "Locale"
 msgstr "Локаль"
 
@@ -802,6 +808,9 @@ msgstr "Свойства Мультимедиа"
 
 msgid "Message"
 msgstr "Сообщение"
+
+msgid "Min. quantity"
+msgstr ""
 
 msgid "Minimum quantity"
 msgstr "Минимальное количество"
@@ -851,6 +860,9 @@ msgstr "Очередная дата продления подписки"
 
 msgid "No items found"
 msgstr "Элементы не найдены"
+
+msgid "No product found"
+msgstr ""
 
 #, php-format
 msgid "No view available"
@@ -1015,6 +1027,9 @@ msgstr "Почтовый индекс для доставки, если испо
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Почтовый индекс для доставки, если используется в регионе нахождения поставщика"
 
+msgid "Postition"
+msgstr ""
+
 msgid "Potential problems"
 msgstr ""
 
@@ -1056,6 +1071,9 @@ msgstr "Товар"
 
 msgid "Product ID"
 msgstr "ID товара"
+
+msgid "Product ID, SKU or label"
+msgstr ""
 
 msgid "Product Lists Type"
 msgstr "Тип Списков Товара"
@@ -1278,9 +1296,6 @@ msgstr "Тип второго уровня для группировки эле�
 msgid "Select file"
 msgstr "Выбрать файл"
 
-msgid "Selected entries"
-msgstr ""
-
 msgid "Service"
 msgstr "Служба"
 
@@ -1332,6 +1347,9 @@ msgstr ""
 msgid "Shipping/Payment costs"
 msgstr "Затраты доставки/оплаты"
 
+msgid "Shipping/item"
+msgstr ""
+
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr "Короткий код региона/города (например, МСК), если он используется в стране нахождения клиента"
@@ -1345,6 +1363,9 @@ msgstr "Показать"
 
 msgid "Show entry"
 msgstr "Показать запись"
+
+msgid "Show search form"
+msgstr ""
 
 msgid "Show/hide advanced data"
 msgstr "Показать/скрыть расширенные данные"
@@ -1385,6 +1406,9 @@ msgstr "Источник счетов, например, через интерн
 
 msgid "Start date"
 msgstr "Начальная дата"
+
+msgid "Start typing ..."
+msgstr ""
 
 msgid "State"
 msgstr "Область"
@@ -1752,6 +1776,10 @@ msgid "download"
 msgstr ""
 
 #, php-format
+msgid "goods"
+msgstr "Каталог"
+
+#, php-format
 msgid "group"
 msgstr "Группы"
 
@@ -1792,6 +1820,10 @@ msgid "log"
 msgstr "Журнал"
 
 #, php-format
+msgid "marketing"
+msgstr ""
+
+#, php-format
 msgid "media"
 msgstr "Медиа"
 
@@ -1804,10 +1836,16 @@ msgstr "Мистер"
 msgid "mrs"
 msgstr "Миссис"
 
+msgid "ms"
+msgstr ""
+
 msgid "new"
 msgstr "новое"
 
 msgid "no"
+msgstr "нет"
+
+msgid "none"
 msgstr "нет"
 
 msgid "not available any more"
@@ -1897,6 +1935,10 @@ msgid "review"
 msgstr ""
 
 #, php-format
+msgid "sales"
+msgstr ""
+
+#, php-format
 msgid "salesweekday"
 msgstr "Продажи в будни"
 
@@ -1915,6 +1957,10 @@ msgstr "По типам доставки"
 #, php-format
 msgid "servicepayment"
 msgstr "По типам оплаты"
+
+#, php-format
+msgid "settings"
+msgstr ""
 
 #, php-format
 msgid "special"
@@ -2069,6 +2115,10 @@ msgstr "Тексты"
 #, php-format
 msgid "type/text/lists"
 msgstr "Списки Текстов"
+
+#, php-format
+msgid "users"
+msgstr ""
 
 msgid "yes"
 msgstr "да"

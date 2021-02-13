@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 15:52+0100\n"
-"PO-Revision-Date: 2020-12-21 11:52+0000\n"
+"POT-Creation-Date: 2021-01-29 12:32+0100\n"
+"PO-Revision-Date: 2021-01-29 11:34+0000\n"
 "Last-Translator: Tobias Madsen <tubbe.m@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/aimeos/aimeos-core/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -570,6 +570,9 @@ msgstr ""
 msgid "Go to the list of attribute types"
 msgstr ""
 
+msgid "Granted rebate"
+msgstr ""
+
 msgid "Group"
 msgstr "Gruppe"
 
@@ -769,6 +772,9 @@ msgstr ""
 msgid "List type"
 msgstr ""
 
+msgid "Loading items ..."
+msgstr ""
+
 msgid "Locale"
 msgstr "Lokalitet"
 
@@ -797,6 +803,9 @@ msgid "Media properties"
 msgstr ""
 
 msgid "Message"
+msgstr ""
+
+msgid "Min. quantity"
 msgstr ""
 
 msgid "Minimum quantity"
@@ -846,6 +855,9 @@ msgid "Next date the subscription is renewed"
 msgstr ""
 
 msgid "No items found"
+msgstr ""
+
+msgid "No product found"
 msgstr ""
 
 #, php-format
@@ -1011,6 +1023,9 @@ msgstr ""
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr ""
 
+msgid "Postition"
+msgstr ""
+
 msgid "Potential problems"
 msgstr "Potentielle problemer"
 
@@ -1052,6 +1067,9 @@ msgstr "Produkt"
 
 msgid "Product ID"
 msgstr "Produkt ID"
+
+msgid "Product ID, SKU or label"
+msgstr ""
 
 msgid "Product Lists Type"
 msgstr ""
@@ -1274,9 +1292,6 @@ msgstr ""
 msgid "Select file"
 msgstr ""
 
-msgid "Selected entries"
-msgstr ""
-
 msgid "Service"
 msgstr "Service"
 
@@ -1328,6 +1343,9 @@ msgstr "Leveringsomkostninger/ting"
 msgid "Shipping/Payment costs"
 msgstr ""
 
+msgid "Shipping/item"
+msgstr ""
+
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr ""
@@ -1340,6 +1358,9 @@ msgid "Show"
 msgstr "Vis"
 
 msgid "Show entry"
+msgstr ""
+
+msgid "Show search form"
 msgstr ""
 
 msgid "Show/hide advanced data"
@@ -1380,6 +1401,9 @@ msgid "Source of the invoice, e.g. by web or phone"
 msgstr ""
 
 msgid "Start date"
+msgstr ""
+
+msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
@@ -1748,6 +1772,10 @@ msgid "download"
 msgstr ""
 
 #, php-format
+msgid "goods"
+msgstr "Katalog"
+
+#, php-format
 msgid "group"
 msgstr "Grupper"
 
@@ -1788,6 +1816,10 @@ msgid "log"
 msgstr "Logs"
 
 #, php-format
+msgid "marketing"
+msgstr ""
+
+#, php-format
 msgid "media"
 msgstr "Medier"
 
@@ -1800,11 +1832,17 @@ msgstr "Mr"
 msgid "mrs"
 msgstr "Mrs"
 
+msgid "ms"
+msgstr ""
+
 msgid "new"
 msgstr ""
 
 msgid "no"
 msgstr ""
+
+msgid "none"
+msgstr "ingen"
 
 msgid "not available any more"
 msgstr ""
@@ -1893,6 +1931,10 @@ msgid "review"
 msgstr "Anmeldelser"
 
 #, php-format
+msgid "sales"
+msgstr ""
+
+#, php-format
 msgid "salesweekday"
 msgstr ""
 
@@ -1910,6 +1952,10 @@ msgstr ""
 
 #, php-format
 msgid "servicepayment"
+msgstr ""
+
+#, php-format
+msgid "settings"
 msgstr ""
 
 #, php-format
@@ -2064,6 +2110,10 @@ msgstr "Tekster"
 
 #, php-format
 msgid "type/text/lists"
+msgstr ""
+
+#, php-format
+msgid "users"
 msgstr ""
 
 msgid "yes"

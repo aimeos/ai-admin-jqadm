@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aimeos, 2015-2020
+# Aimeos, 2015-2021
 # Cris <cristoph@berane.eu>, 2018
 # Michael Spahn <michael@spahn.me>, 2014
 # nsendetzky, 2014
@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-02 15:52+0100\n"
-"PO-Revision-Date: 2021-01-16 18:28+0000\n"
-"Last-Translator: Stephan Kellermayr <stephan.kellermayr@gmail.com>\n"
+"POT-Creation-Date: 2021-01-29 12:32+0100\n"
+"PO-Revision-Date: 2021-01-29 11:47+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -494,7 +494,7 @@ msgid "E-mail address that belongs to the address"
 msgstr "E-Mail, die zur Adresse gehört"
 
 msgid "EAN, SKU or article number (required)"
-msgstr "EAN, SKU oder Artikelnummer (benötigt)"
+msgstr "EAN oder Artikelnummer (benötigt)"
 
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -573,6 +573,9 @@ msgstr "Zur Liste der Eigenschaftstypen"
 
 msgid "Go to the list of attribute types"
 msgstr "Zur Liste der Attributtypen"
+
+msgid "Granted rebate"
+msgstr "Gewährter Rabatt"
 
 msgid "Group"
 msgstr "Gruppe"
@@ -773,6 +776,9 @@ msgstr "Liste der empfohlenen Produkte"
 msgid "List type"
 msgstr "Typ (Zuordnung)"
 
+msgid "Loading items ..."
+msgstr "Lade Daten ..."
+
 msgid "Locale"
 msgstr "Gebiete"
 
@@ -802,6 +808,9 @@ msgstr "Medieneigenschaften"
 
 msgid "Message"
 msgstr "Nachricht"
+
+msgid "Min. quantity"
+msgstr "Mindestmenge"
 
 msgid "Minimum quantity"
 msgstr "Mindestanzahl"
@@ -851,6 +860,9 @@ msgstr "Nächstes Datum wenn das Abonnement erneuert wird"
 
 msgid "No items found"
 msgstr "Keine Einträge gefunden"
+
+msgid "No product found"
+msgstr "Kein Produkt gefunden"
 
 #, php-format
 msgid "No view available"
@@ -1015,6 +1027,9 @@ msgstr "PLZ für den Versand wenn die Kundenadresse diese Information enthält"
 msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "PLZ für den Versand wenn die Lieferantenadresse diese Information enthält"
 
+msgid "Postition"
+msgstr "Position"
+
 msgid "Potential problems"
 msgstr "Potentielle Probleme"
 
@@ -1056,6 +1071,9 @@ msgstr "Produkt"
 
 msgid "Product ID"
 msgstr "Produkt-ID"
+
+msgid "Product ID, SKU or label"
+msgstr "Produkt-ID, Artikelnummer oder Bezeichnung"
 
 msgid "Product Lists Type"
 msgstr "Produkt-Listentyp"
@@ -1278,9 +1296,6 @@ msgstr "Zweiter Typ zur Gruppierung von Einträgen"
 msgid "Select file"
 msgstr "Datei auswählen"
 
-msgid "Selected entries"
-msgstr "Ausgewählte Einträge"
-
 msgid "Service"
 msgstr "Dienst"
 
@@ -1332,6 +1347,9 @@ msgstr "Versandkosten/Stück"
 msgid "Shipping/Payment costs"
 msgstr "Versand- oder Zahlungskosten"
 
+msgid "Shipping/item"
+msgstr "Versandkosten/Stück"
+
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
 msgstr "Bundeslandkürzel (z.B. NRW) wenn diese Information im Land des Kunden genutzt wird"
@@ -1345,6 +1363,9 @@ msgstr "Anzeigen"
 
 msgid "Show entry"
 msgstr "Eintrag anzeigen"
+
+msgid "Show search form"
+msgstr "Zeige Suchformular"
 
 msgid "Show/hide advanced data"
 msgstr "Erweiterte Daten zeigen/verstecken"
@@ -1385,6 +1406,9 @@ msgstr "Ursprung der Bestellung, z.B. Internet oder Telefon"
 
 msgid "Start date"
 msgstr "Startdatum"
+
+msgid "Start typing ..."
+msgstr "Ihre Suche ..."
 
 msgid "State"
 msgstr "Bundesland"
@@ -1752,6 +1776,10 @@ msgid "download"
 msgstr "Bezahlte Downloads"
 
 #, php-format
+msgid "goods"
+msgstr "Katalog"
+
+#, php-format
 msgid "group"
 msgstr "Gruppen"
 
@@ -1792,6 +1820,10 @@ msgid "log"
 msgstr "Protokoll"
 
 #, php-format
+msgid "marketing"
+msgstr "Marketing"
+
+#, php-format
 msgid "media"
 msgstr "Medien"
 
@@ -1804,11 +1836,17 @@ msgstr "Herr"
 msgid "mrs"
 msgstr "Frau"
 
+msgid "ms"
+msgstr "Frau"
+
 msgid "new"
 msgstr "neu"
 
 msgid "no"
 msgstr "Nein"
+
+msgid "none"
+msgstr "keine"
 
 msgid "not available any more"
 msgstr "Nicht mehr verfügbar"
@@ -1897,6 +1935,10 @@ msgid "review"
 msgstr "Rezensionen"
 
 #, php-format
+msgid "sales"
+msgstr "Verkäufe"
+
+#, php-format
 msgid "salesweekday"
 msgstr "Umsatz nach Wochentagen"
 
@@ -1915,6 +1957,10 @@ msgstr "Nach Versandart"
 #, php-format
 msgid "servicepayment"
 msgstr "Nach Zahlungsarten"
+
+#, php-format
+msgid "settings"
+msgstr "Konfiguration"
 
 #, php-format
 msgid "special"
@@ -2069,6 +2115,10 @@ msgstr "Texte"
 #, php-format
 msgid "type/text/lists"
 msgstr "Textlisten"
+
+#, php-format
+msgid "users"
+msgstr "Kunden"
 
 msgid "yes"
 msgstr "Ja"
