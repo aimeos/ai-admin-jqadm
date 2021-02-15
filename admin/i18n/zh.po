@@ -5,6 +5,7 @@
 # Translators:
 # Bruce Liu <zcon.bruce@gmail.com>, 2016
 # manuel.fries <manuel.fries@gdatasoftware.com>, 2014
+# morgan chan <mrmmc8@gmail.com>, 2021
 # stevechen <steve.stevechen@gmail.com>, 2018
 # stevechen <steve.stevechen@gmail.com>, 2018
 msgid ""
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
-"Last-Translator: stevechen <steve.stevechen@gmail.com>\n"
+"PO-Revision-Date: 2021-02-15 06:00+0000\n"
+"Last-Translator: morgan chan <mrmmc8@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -77,19 +78,19 @@ msgid ""
 msgstr "沒有分隔字元的（國際）電話號碼，可以以 “+” 開頭"
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+稅"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "Active"
-msgstr ""
+msgstr "活躍"
 
 msgid "Actual price"
-msgstr ""
+msgstr "實際價格"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "客戶網站上購買產品實際價格客"
 
 msgid "Add"
 msgstr "添加"
@@ -100,10 +101,10 @@ msgid ""
 msgstr "各個物品的附加運費，如：一個較重的物品需附加$20運費，則5個同樣的物品則需要共$100運費。"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "可找到客戶公寓的其他資訊"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "可找到供應商公寓的其他資訊"
 
 msgid "Address 1"
 msgstr "地址1"
@@ -115,10 +116,10 @@ msgid "Address 3"
 msgstr "地址3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "客戶送貨的地址標識符"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "供應商供貨的地址標識符"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
@@ -129,11 +130,11 @@ msgstr "進階"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos 快取在禁用由 \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos 調試注冊能夠由 \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -145,7 +146,7 @@ msgstr "所有"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "所有屬性唯一標識每個產品, \n例子:牛仔褲的寬度、長度和顏色"
 
 msgid "Allow custom price"
 msgstr "允許客制價格"
@@ -154,7 +155,7 @@ msgid "Allow customers to choose themselves how much they want to pay"
 msgstr "允許客戶選擇期望的價格"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "字母數字字串可以正確識別每個組"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -171,10 +172,10 @@ msgid "Attribute Lists Types"
 msgstr "屬性清單種類"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "屬性性能類型"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "屬性性能類型"
 
 msgid "Attribute Type"
 msgstr "屬性種類"
@@ -283,10 +284,10 @@ msgid "Comment"
 msgstr "備註"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "評論者的評論"
 
 msgid "Communication"
-msgstr ""
+msgstr "溝通"
 
 msgid "Company"
 msgstr "公司"
@@ -352,7 +353,7 @@ msgid "Currency"
 msgstr "貨幣"
 
 msgid "Custom"
-msgstr ""
+msgstr "定制"
 
 msgid "Customer"
 msgstr "顧客"
@@ -367,10 +368,10 @@ msgid "Customer Lists Types"
 msgstr "客戶清單種類"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "客戶特性類型"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "客戶特性類型"
 
 msgid "Customer characteristics that are not shared with other customers"
 msgstr ""
@@ -388,16 +389,16 @@ msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
 msgid "Customer reference"
-msgstr ""
+msgstr "客戶參考"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "客戶參考 (可選擇的)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "儀表板"
 
 msgid "Data set"
-msgstr ""
+msgstr "資料集"
 
 msgid "Date of the last delivery status change"
 msgstr "最後運送狀態更改日期"
@@ -443,7 +444,7 @@ msgid "Delivery types"
 msgstr "配送方式"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "交貨在之內"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -463,7 +464,7 @@ msgid "Descritive name of the site"
 msgstr ""
 
 msgid "Display help texts"
-msgstr ""
+msgstr "顯示幫助案文"
 
 msgid "Domain"
 msgstr "網域"
@@ -538,7 +539,7 @@ msgid "File"
 msgstr "檔案"
 
 msgid "Find category"
-msgstr ""
+msgstr "查找類別"
 
 msgid "First"
 msgstr "第一筆"
@@ -556,25 +557,25 @@ msgid "Floor"
 msgstr "樓層"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "樓層 / 公寓"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "樓層 和/或 公寓 (選項)"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "給定回扣金額"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "转到属性控制板"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "转到属性类型控制板"
 
 msgid "Go to the list of attribute types"
 msgstr ""
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "准許回扣"
 
 msgid "Group"
 msgstr "群組"
@@ -598,10 +599,10 @@ msgid "Honorary title (optional)"
 msgstr "榮譽稱號（可不填）"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "榮譽稱號: 如醫生，博士等等"
 
 msgid "Hours"
-msgstr ""
+msgstr "小時"
 
 msgid "House number"
 msgstr "門牌號碼"
@@ -628,7 +629,7 @@ msgid "ISO language code (required)"
 msgstr "ISO 語言代碼（必填）"
 
 msgid "Image"
-msgstr ""
+msgstr "圖片"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -639,7 +640,7 @@ msgid "Import"
 msgstr "匯入"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "導入/導出工作"
 
 msgid "Incl. tax"
 msgstr "含稅"
@@ -776,7 +777,7 @@ msgid "List type"
 msgstr "列表類型"
 
 msgid "Loading items ..."
-msgstr ""
+msgstr "正在加載項目"
 
 msgid "Locale"
 msgstr "區域"
@@ -791,10 +792,10 @@ msgid "Media Lists Types"
 msgstr "媒體清單類別"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "媒體資源類型"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "媒體資源類型"
 
 msgid "Media Type"
 msgstr "媒體類別"
@@ -803,44 +804,44 @@ msgid "Media Types"
 msgstr "媒體類別"
 
 msgid "Media properties"
-msgstr ""
+msgstr "媒體資源"
 
 msgid "Message"
 msgstr "訊息"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "最小數量"
 
 msgid "Minimum quantity"
 msgstr "最小數量"
 
 msgid "Modifed"
-msgstr ""
+msgstr "修改"
 
 msgid "Modified"
 msgstr "修改"
 
 msgid "Months"
-msgstr ""
+msgstr "月"
 
 msgid "More"
 msgstr "更多"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "此條目上下移動"
 
 msgid "Name"
 msgstr "姓名"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "名稱在網址 (選項)"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
 msgstr ""
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "評論人姓名"
 
 msgid "New"
 msgstr "新紀錄"
@@ -849,10 +850,10 @@ msgid "Next"
 msgstr "下一筆"
 
 msgid "Next date"
-msgstr ""
+msgstr "下一個日子"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "下一日 (選項)"
 
 msgid "Next date the subscription is renewed"
 msgstr ""
@@ -861,14 +862,14 @@ msgid "No items found"
 msgstr "找不到項目"
 
 msgid "No product found"
-msgstr ""
+msgstr "找不到產品"
 
 #, php-format
 msgid "No view available"
 msgstr "没有可用的view"
 
 msgid "No voucher"
-msgstr ""
+msgstr "沒有優惠券"
 
 msgid "Non-shared properties for the media item"
 msgstr ""
@@ -877,7 +878,7 @@ msgid "Non-shared properties for the price item"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "沒有"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -1179,7 +1180,7 @@ msgid "Rabate"
 msgstr ""
 
 msgid "Rating"
-msgstr ""
+msgstr "評分"
 
 msgid "Rating of the reviewer"
 msgstr ""
@@ -1196,7 +1197,7 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
-msgstr ""
+msgstr "參考"
 
 msgid "Reference ID"
 msgstr ""
@@ -1760,7 +1761,7 @@ msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "儀表板"
 
 #, php-format
 msgid "day"
@@ -1931,7 +1932,7 @@ msgstr "商品"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "評論"
 
 #, php-format
 msgid "sales"
