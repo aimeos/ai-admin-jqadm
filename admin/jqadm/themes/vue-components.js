@@ -372,7 +372,7 @@ Vue.component('nav-search', {
 	},
 	computed: {
 		oplist: function() {
-			const type = this.attributes[this.key] && this.attributes[this.key]['type'] || 'string';
+			const type = this.key && this.attributes[this.key] && this.attributes[this.key]['type'] || 'string';
 			let entries = {};
 
 			(this.ops[type] || []).forEach( function(val) {
