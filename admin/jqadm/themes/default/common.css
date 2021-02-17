@@ -144,7 +144,7 @@ html {
 	font-size: 1rem;
 }
 
-.aimeos .box .content > * {
+.aimeos .box:not(.nav) .content > * {
 	padding: 1rem 0;
 }
 
