@@ -22,7 +22,7 @@ $enc = $this->encoder();
 
 					<div v-bind:id="'item-address-group-item-' + idx" v-bind:class="entry['_show'] ? 'show' : 'collapsed'"
 						v-bind:data-bs-target="'#item-address-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
-						v-bind:aria-controls="'item-address-group-data-' + idx" aria-expanded="false" v-on:click="toggle('_show', idx)>
+						v-bind:aria-controls="'item-address-group-data-' + idx" aria-expanded="false" v-on:click="toggle('_show', idx)">
 						<div class="card-tools-left">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
@@ -55,7 +55,7 @@ $enc = $this->encoder();
 
 							<input class="item-id" type="hidden"
 								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.id' ) ) ); ?>'.replace('idx', idx)"
-								v-bind:value="items[idx]['customer.address.id']" />
+								v-bind:value="entry['customer.address.id']" />
 
 							<?php  ?>
 							<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
@@ -65,7 +65,7 @@ $enc = $this->encoder();
 										<select class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ); ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.languageid' ) ) ); ?>'.replace('idx', idx)"
 											v-bind:readonly="entry['customer.address.siteid'] != siteid"
-											v-model="items[idx]['customer.address.languageid']" >
+											v-model="entry['customer.address.languageid']" >
 
 											<option value="" disable >
 												<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ); ?>
@@ -90,17 +90,17 @@ $enc = $this->encoder();
 									<select class="form-control form-select item-salutation" tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.salutation' ) ) ); ?>'.replace('idx', idx)"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.salutation']" >
-										<option value="" v-bind:selected="items[idx]['customer.address.salutation'] == ''" >
+										v-model="entry['customer.address.salutation']" >
+										<option value="" v-bind:selected="entry['customer.address.salutation'] == ''" >
 											<?= $enc->html( $this->translate( 'admin', 'none' ) ); ?>
 										</option>
-										<option value="company" v-bind:selected="items[idx]['customer.address.salutation'] == 'company'" >
+										<option value="company" v-bind:selected="entry['customer.address.salutation'] == 'company'" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'company' ) ); ?>
 										</option>
-										<option value="mr" v-bind:selected="items[idx]['customer.address.salutation'] == 'mr'" >
+										<option value="mr" v-bind:selected="entry['customer.address.salutation'] == 'mr'" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'mr' ) ); ?>
 										</option>
-										<option value="ms" v-bind:selected="items[idx]['customer.address.salutation'] == 'ms'" >
+										<option value="ms" v-bind:selected="entry['customer.address.salutation'] == 'ms'" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'ms' ) ); ?>
 										</option>
 									</select>
@@ -116,7 +116,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.title' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.title']" />
+										v-model="entry['customer.address.title']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Honorary titles like Dr., Ph.D, etc.' ) ); ?>
@@ -129,7 +129,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.lastname' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.lastname']" />
+										v-model="entry['customer.address.lastname']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Last name of the person or full name in cultures where no first names are used' ) ); ?>
@@ -142,7 +142,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.firstname' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.firstname']" />
+										v-model="entry['customer.address.firstname']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ); ?>
@@ -159,7 +159,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.address1' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.address1']" />
+										v-model="entry['customer.address.address1']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ); ?>
@@ -172,7 +172,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.address2' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.address2']" />
+										v-model="entry['customer.address.address2']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Address identifier of the customer\'s house for delivery' ) ); ?>
@@ -185,7 +185,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.address3' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.address3']" />
+										v-model="entry['customer.address.address3']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s apartment can be found' ) ); ?>
@@ -198,7 +198,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.postal' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.postal']" />
+										v-model="entry['customer.address.postal']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Postal code for delivery if used in the area the customer is living' ) ); ?>
@@ -211,7 +211,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.city' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.city']" />
+										v-model="entry['customer.address.city']" />
 								</div>
 							</div>
 							<div class="form-group row mandatory">
@@ -222,7 +222,7 @@ $enc = $this->encoder();
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
 										v-bind:getfcn="countries"
-										v-model="items[idx]['customer.address.countryid']" >
+										v-model="entry['customer.address.countryid']" >
 										<option value=""></option>
 									</select>
 								</div>
@@ -237,7 +237,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.state' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.state']" />
+										v-model="entry['customer.address.state']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ); ?>
@@ -254,7 +254,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.telephone' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.telephone']" />
+										v-model="entry['customer.address.telephone']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ); ?>
@@ -267,7 +267,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.telefax' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.telefax']" />
+										v-model="entry['customer.address.telefax']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', '(International) facsimilie number without separation characters, can start with a "+"' ) ); ?>
@@ -280,7 +280,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.email' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-mail address (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.email']" />
+										v-model="entry['customer.address.email']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'E-mail address that belongs to the address' ) ); ?>
@@ -293,7 +293,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.website' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.website']" />
+										v-model="entry['customer.address.website']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'URL of the customer web site' ) ); ?>
@@ -310,7 +310,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.company' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.company']" />
+										v-model="entry['customer.address.company']" />
 								</div>
 							</div>
 							<div class="form-group row optional">
@@ -320,7 +320,7 @@ $enc = $this->encoder();
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.vatid' ) ) ); ?>'.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ); ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-model="items[idx]['customer.address.vatid']" />
+										v-model="entry['customer.address.vatid']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Official VAT ID to determine if the tax needs to be billed in invoices' ) ); ?>
