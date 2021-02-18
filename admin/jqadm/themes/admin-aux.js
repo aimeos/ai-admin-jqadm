@@ -43,8 +43,8 @@ Aimeos.Address = {
 
 	mixins: {
 		methods: {
-			add : function(prefix, data) {
-				let entry = {};
+			add : function() {
+				const entry = {};
 
 				entry[this.domain + '.address.siteid'] = this.siteid;
 				entry[this.domain + '.address.id'] = null;
@@ -81,25 +81,29 @@ Aimeos.Address = {
 
 
 			duplicate : function(idx) {
-				if(idx < this.items.length) {
+				if(this.items[idx]) {
 					this.$set(this.items, this.items.length, JSON.parse(JSON.stringify(this.items[idx])));
 				}
 			},
 
 
 			remove : function(idx) {
-				this.items.splice(idx, 1);
+				if(this.items[idx]) {
+					this.items.splice(idx, 1);
+				}
 			},
 
 
 			label : function(idx) {
-				var label = '', addr = '';
+				let label = '', addr = '';
 
-				label += (this.items[idx][this.domain + '.address.firstname'] ? this.items[idx][this.domain + '.address.firstname'] + ' ' : '');
-				label += (this.items[idx][this.domain + '.address.lastname'] ? this.items[idx][this.domain + '.address.lastname'] : '');
+				if(this.items[idx]) {
+					label += (this.items[idx][this.domain + '.address.firstname'] ? this.items[idx][this.domain + '.address.firstname'] + ' ' : '');
+					label += (this.items[idx][this.domain + '.address.lastname'] ? this.items[idx][this.domain + '.address.lastname'] : '');
 
-				addr += (this.items[idx][this.domain + '.address.postal'] ? ' ' + this.items[idx][this.domain + '.address.postal'] : '');
-				addr += (this.items[idx][this.domain + '.address.city'] ? ' ' + this.items[idx][this.domain + '.address.city'] : '');
+					addr += (this.items[idx][this.domain + '.address.postal'] ? ' ' + this.items[idx][this.domain + '.address.postal'] : '');
+					addr += (this.items[idx][this.domain + '.address.city'] ? ' ' + this.items[idx][this.domain + '.address.city'] : '');
+				}
 
 				if(addr && label) {
 					return label + ' -' + addr;
@@ -110,7 +114,9 @@ Aimeos.Address = {
 
 
 			toggle: function(what, idx) {
-				this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				if(this.items[idx]) {
+					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				}
 			},
 		}
 	}
@@ -150,7 +156,7 @@ Aimeos.Media = {
 
 
 			add: function() {
-				let entry = {};
+				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
 				entry[this.domain + '.lists.type'] = 'default';
@@ -182,9 +188,9 @@ Aimeos.Media = {
 					return;
 				}
 
-				var cnt = sum = 0;
+				let cnt = sum = 0;
 				$( "input:file" ).each(function() {
-					for(var i=0; i<this.files.length; i++) {
+					for(let i=0; i<this.files.length; i++) {
 						sum += this.files[i].size;
 						cnt++;
 					}
@@ -205,7 +211,7 @@ Aimeos.Media = {
 					$("#problem").modal("show");
 				}
 
-				for(var i=0; i<files.length; i++) {
+				for(let i=0; i<files.length; i++) {
 					if(files[i].size > $("#problem .upload_max_filesize").data("value")) {
 						$("#problem .upload_max_filesize").show();
 						$("#problem").modal("show");
@@ -217,7 +223,7 @@ Aimeos.Media = {
 
 
 			label: function(idx) {
-				var label = '';
+				let label = '';
 
 				if(this.items[idx]) {
 					label += (this.items[idx]['media.languageid'] ? this.items[idx]['media.languageid'] + ': ' : '');
@@ -230,18 +236,22 @@ Aimeos.Media = {
 
 
 			remove: function(idx) {
-				this.items.splice(idx, 1);
+				if(this.items[idx]) {
+					this.items.splice(idx, 1);
+				}
 			},
 
 
 			toggle: function(what, idx) {
-				this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				if(this.items[idx]) {
+					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				}
 			},
 
 
 			url: function(prefix, url) {
 
-				var str = url.substr(0, 4);
+				const str = url.substr(0, 4);
 				return (str === 'http' || str === 'data' ? url : prefix + url);
 			}
 		}
@@ -282,7 +292,7 @@ Aimeos.Price = {
 
 
 			add: function(data) {
-				let entry = {};
+				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
 				entry[this.domain + '.lists.type'] = 'default';
@@ -312,13 +322,15 @@ Aimeos.Price = {
 
 
 			label: function(idx) {
-				var label = '';
+				let label = '';
 
-				label += (this.items[idx]['price.quantity'] ? this.items[idx]['price.quantity'] + ' ~ ' : '');
-				label += (this.items[idx]['price.value'] ? this.items[idx]['price.value'] : '');
-				label += (this.items[idx]['price.costs'] ? ' + ' + this.items[idx]['price.costs'] : '');
-				label += (this.items[idx]['price.currencyid'] ? ' ' + this.items[idx]['price.currencyid'] : '');
-				label += (this.items[idx]['price.type'] ? ' (' + this.items[idx]['price.type'] + ')' : '');
+				if(this.items[idx]) {
+					label += (this.items[idx]['price.quantity'] ? this.items[idx]['price.quantity'] + ' ~ ' : '');
+					label += (this.items[idx]['price.value'] ? this.items[idx]['price.value'] : '');
+					label += (this.items[idx]['price.costs'] ? ' + ' + this.items[idx]['price.costs'] : '');
+					label += (this.items[idx]['price.currencyid'] ? ' ' + this.items[idx]['price.currencyid'] : '');
+					label += (this.items[idx]['price.type'] ? ' (' + this.items[idx]['price.type'] + ')' : '');
+				}
 
 				return label;
 			},
@@ -330,7 +342,9 @@ Aimeos.Price = {
 
 
 			toggle: function(what, idx) {
-				this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				if(this.items[idx]) {
+					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				}
 			}
 		}
 	}
@@ -340,23 +354,23 @@ Aimeos.Price = {
 
 Aimeos.ProductRef = {
 
-	instance: null,
-
 	init: function() {
+
 		const self = this;
 		const node = document.querySelector('.item-product .productref-list');
 
 		if(node) {
-			self.instance = new Vue({
+			Aimeos.components['productref'] = new Vue({
 				'el': node,
 				'mixins': [Aimeos.ProductRef.mixins]
 			});
 		}
 
 		Aimeos.lazy('.item-product .productref-list', function() {
-			self.instance && self.instance.reset();
+			Aimeos.components['productref'] && Aimeos.components['productref'].reset();
 		});
 	},
+
 
 	mixins: {
 		'data': function() {
@@ -377,6 +391,8 @@ Aimeos.ProductRef = {
 				'loading': true
 			}
 		},
+
+
 		beforeMount: function() {
 			try {
 				if(!this.$el.dataset) {
@@ -401,20 +417,24 @@ Aimeos.ProductRef = {
 				this.types = JSON.parse(this.$el.dataset.types);
 				this.order = this.prefix + 'position';
 
-				let fieldkey = 'aimeos/jqadm/' + this.resource.replace('/', '') + '/fields';
+				const fieldkey = 'aimeos/jqadm/' + this.resource.replace('/', '') + '/fields';
 				this.fields = this.columns(this.$el.dataset.fields || [], fieldkey);
 			} catch(e) {
 				console.log( '[Aimeos] Init referenced product list failed: ' + e);
 			}
 		},
+
+
 		computed: {
 			prefix : function() {
 				return this.resource.replace('/', '.') + '.';
 			}
 		},
+
+
 		methods: {
 			add: function() {
-				let obj = {};
+				const obj = {};
 
 				obj[this.prefix + 'id'] = null;
 				obj[this.prefix + 'siteid'] = this.siteid;
@@ -429,8 +449,10 @@ Aimeos.ProductRef = {
 
 				this.items.unshift(obj);
 			},
+
+
 			columns: function(json, key) {
-				let list = [];
+				const list = [];
 				try {
 					if(window.sessionStorage) {
 						list = JSON.parse(window.sessionStorage.getItem(key)) || [];
@@ -443,9 +465,13 @@ Aimeos.ProductRef = {
 				}
 				return list;
 			},
+
+
 			css: function(key) {
 				return this.resource.replace('/', '-') + '-' + key;
 			},
+
+
 			delete: function(resource, id, callback) {
 
 				const self = this;
@@ -455,7 +481,7 @@ Aimeos.ProductRef = {
 
 					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
 
-						let config = {};
+						const config = {};
 
 						if(response.meta.prefix && response.meta.prefix) {
 							config['params'][response.meta.prefix] = {'id': id};
@@ -473,15 +499,19 @@ Aimeos.ProductRef = {
 					}
 				});
 			},
+
+
 			edit: function(idx) {
 				if(this.siteid === this.items[idx][this.prefix + 'siteid']) {
 					this.$set(this.items[idx], 'edit', true);
 				}
 			},
+
+
 			find: function(ev, key, op) {
 				const value = ev.target ? ev.target.value : ev;
 				if(value) {
-					let expr = {};
+					const expr = {};
 					expr[op || '=='] = {};
 					expr[op || '=='][this.prefix + key] = value;
 					this.$set(this.filter, this.prefix + key, expr);
@@ -490,9 +520,11 @@ Aimeos.ProductRef = {
 				}
 				this.fetch();
 			},
+
+
 			fetch: function() {
 				const self = this;
-				var args = {
+				const args = {
 					'filter': {'&&': []},
 					'fields': {},
 					'page': {'offset': self.offset, 'limit': self.limit},
@@ -513,6 +545,8 @@ Aimeos.ProductRef = {
 					self.items = data.items || [];
 				});
 			},
+
+
 			get: function(resource, args, callback) {
 
 				const self = this;
@@ -523,7 +557,7 @@ Aimeos.ProductRef = {
 					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
 
 						if(args.fields) {
-							let include = [];
+							const include = [];
 							for(let key in args.fields) {
 								args.fields[key] = args.fields[key].join(',');
 								include.push(key);
@@ -531,7 +565,7 @@ Aimeos.ProductRef = {
 							args['include'] = include.join(',');
 						}
 
-						let config = {
+						const config = {
 							'paramsSerializer': function(params) {
 								return jQuery.param(params); // workaround, Axios and QS fail on [==]
 							},
@@ -545,8 +579,8 @@ Aimeos.ProductRef = {
 						}
 
 						axios.get(response.meta.resources[resource], config).then(function(response) {
-							let list = [];
-							let included = {};
+							const list = [];
+							const included = {};
 
 							(response.data.included || []).forEach(function(entry) {
 								if(!included[entry.type]) {
@@ -557,7 +591,7 @@ Aimeos.ProductRef = {
 
 							(response.data.data || []).forEach(function(entry) {
 								for(let type in (entry.relationships || {})) {
-									let relitem = entry.relationships[type][0] || null;
+									const relitem = entry.relationships[type][0] || null;
 									if(relitem && relitem['data'] && relitem['data']['id'] && included[type][relitem['data']['id']]) {
 										Object.assign(entry['attributes'], included[type][relitem['data']['id']]['attributes'] || {});
 									}
@@ -578,6 +612,8 @@ Aimeos.ProductRef = {
 					}
 				});
 			},
+
+
 			label: function(idx) {
 				let str = '';
 
@@ -597,6 +633,8 @@ Aimeos.ProductRef = {
 
 				return str;
 			},
+
+
 			log: function(error) {
 				console.log('[Aimeos] Server error: ', error);
 
@@ -606,6 +644,8 @@ Aimeos.ProductRef = {
 					});
 				}
 			},
+
+
 			remove: function(idx) {
 				const self = this;
 				this.checked = false;
@@ -624,28 +664,38 @@ Aimeos.ProductRef = {
 
 				this.waiting(false);
 			},
+
+
 			reset: function() {
-				let domain = {};
-				let parentid = {};
+				const domain = {};
+				const parentid = {};
 
 				domain[this.prefix + 'domain'] = 'product';
 				parentid[this.prefix + 'parentid'] = this.parentid;
 
 				Object.assign(this.$data, {filter: {'base': {'&&': [{'==': parentid}, {'==': domain}]}}});
 			},
+
+
 			sort: function(key) {
 				this.order = this.order === this.prefix + key ? '-' + this.prefix + key : this.prefix + key;
 				this.fetch();
 			},
+
+
 			sortclass: function(key) {
 				return this.order === this.prefix + key ? 'sort-desc' : (this.order === '-' + this.prefix + key ? 'sort-asc' : '');
 			},
+
+
 			stringify: function(value) {
 				return typeof value === 'object' || typeof value === 'array' ? JSON.stringify(value) : value;
 			},
+
+
 			suggest: function(input, loadfcn) {
 				const self = this;
-				var args = {
+				const args = {
 					'filter': {'||': [
 						{'==': {'product.id': input}},
 						{'=~': {'product.code': input}},
@@ -672,9 +722,11 @@ Aimeos.ProductRef = {
 					loadfcn ? loadfcn(false) : null;
 				}
 			},
+
+
 			toggle: function(key) {
 				key = this.prefix + key;
-				let idx = this.fields.indexOf(key);
+				const idx = this.fields.indexOf(key);
 				idx !== -1 ? this.fields.splice(idx, 1) : this.fields.push(key);
 
 				if(window.sessionStorage) {
@@ -686,29 +738,41 @@ Aimeos.ProductRef = {
 
 				this.fetch();
 			},
+
+
 			value: function(key) {
-				let op = Object.keys(this.filter[this.prefix + key] || {}).pop();
+				const op = Object.keys(this.filter[this.prefix + key] || {}).pop();
 				return this.filter[this.prefix + key] && this.filter[this.prefix + key][op][this.prefix + key] || '';
 			},
+
+
 			waiting: function(val) {
 				this.loading = val;
 			}
 		},
+
+
 		watch: {
 			checked: function() {
 				for(let item of this.items) {
 					this.$set(item, 'checked', this.checked);
 				}
 			},
+
+
 			filter: {
 				handler: function() {
 					this.fetch();
 				},
 				deep: true
 			},
+
+
 			limit: function() {
 				this.fetch();
 			},
+
+
 			offset: function() {
 				this.fetch();
 			}
@@ -749,7 +813,7 @@ Aimeos.Text = {
 
 
 			add: function(data) {
-				let entry = {};
+				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
 				entry[this.domain + '.lists.type'] = 'default';
@@ -775,17 +839,19 @@ Aimeos.Text = {
 
 
 			label: function(idx) {
-				var label = '';
+				let label = '';
 
-				label += (this.items[idx]['text.languageid'] ? this.items[idx]['text.languageid'].toUpperCase() : '');
-				label += (this.items[idx]['text.type'] ? ' (' + this.items[idx]['text.type'] + ')' : '');
+				if(this.items[idx]) {
+					label += (this.items[idx]['text.languageid'] ? this.items[idx]['text.languageid'].toUpperCase() : '');
+					label += (this.items[idx]['text.type'] ? ' (' + this.items[idx]['text.type'] + ')' : '');
 
-				if(this.items[idx]['text.label']) {
-					label += ': ' + this.items[idx]['text.label'].substr(0, 40);
-				} else if(this.items[idx]['text.content']) {
-					var tmp = document.createElement("span");
-					tmp.innerHTML = this.items[idx]['text.content'];
-					label += ': ' + (tmp.innerText || tmp.textContent || "").substr(0, 40);
+					if(this.items[idx]['text.label']) {
+						label += ': ' + this.items[idx]['text.label'].substr(0, 40);
+					} else if(this.items[idx]['text.content']) {
+						const tmp = document.createElement("span");
+						tmp.innerHTML = this.items[idx]['text.content'];
+						label += ': ' + (tmp.innerText || tmp.textContent || "").substr(0, 40);
+					}
 				}
 
 				return label;
@@ -793,16 +859,24 @@ Aimeos.Text = {
 
 
 			remove: function(idx) {
-				this.items.splice(idx, 1);
+				if(this.items[idx]) {
+					this.items.splice(idx, 1);
+				}
 			},
 
 
 			toggle: function(what, idx) {
-				this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				if(this.items[idx]) {
+					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+				}
 			},
 
 
 			translate : function(idx, langid) {
+
+				if(!this.items[idx]) {
+					return;
+				}
 
 				if(!this.$el.dataset.translate) {
 					alert('No translation service configured');
@@ -821,8 +895,8 @@ Aimeos.Text = {
 					return;
 				}
 
-				var self = this;
-				var data = {
+				const self = this;
+				const data = {
 					'auth_key': config['key'],
 					'text' : this.items[idx]['text.content'],
 					'target_lang' : langid.toUpperCase()
@@ -839,7 +913,7 @@ Aimeos.Text = {
 						'text.languageid': langid.toLowerCase()
 					});
 				}).fail(function(jqxhr, status, error) {
-					var msg = '';
+					let msg = '';
 
 					switch(jqxhr.status) {
 						case 200: break;
