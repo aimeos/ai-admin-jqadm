@@ -18,91 +18,100 @@ $(function() {
 
 Aimeos.Address = {
 
-	instance: null,
-
 	init: function() {
 
-		this.address = new Vue({
-			'el': '#item-address-group',
-			'data': {
-				'advanced': [],
-				'items': $("#item-address-group").data("items"),
-				'keys': $("#item-address-group").data("keys"),
-				'siteid': $("#item-address-group").data("siteid"),
-				'domain': $("#item-address-group").data("domain")
+		Aimeos.components['address'] = new Vue({
+			el: '#item-address-group',
+			data: {
+				items: [],
+				siteid: null,
+				domain: null
 			},
-			'mixins': [this.mixins]
+			mounted: function() {
+				this.items = JSON.parse(this.$el.dataset.items || '{}');
+				this.siteid = this.$el.dataset.siteid;
+				this.domain = this.$el.dataset.domain;
+
+				if(this.items[0]) {
+					this.$set(this.items[0], '_show', true);
+				}
+			},
+			mixins: [this.mixins]
 		});
 	},
 
+
 	mixins: {
 		methods: {
+			add : function(prefix, data) {
+				let entry = {};
 
-			checkSite : function(key, idx) {
-				return this.items[idx][key] != this.siteid;
+				entry[this.domain + '.address.siteid'] = this.siteid;
+				entry[this.domain + '.address.id'] = null;
+				entry[this.domain + '.address.title'] = null;
+				entry[this.domain + '.address.salutation'] = null;
+				entry[this.domain + '.address.firstname'] = null;
+				entry[this.domain + '.address.lastname'] = null;
+				entry[this.domain + '.address.address1'] = null;
+				entry[this.domain + '.address.address2'] = null;
+				entry[this.domain + '.address.address3'] = null;
+				entry[this.domain + '.address.postal'] = null;
+				entry[this.domain + '.address.city'] = null;
+				entry[this.domain + '.address.state'] = null;
+				entry[this.domain + '.address.countryid'] = null;
+				entry[this.domain + '.address.languageid'] = null;
+				entry[this.domain + '.address.email'] = null;
+				entry[this.domain + '.address.website'] = null;
+				entry[this.domain + '.address.telephone'] = null;
+				entry[this.domain + '.address.telefax'] = null;
+				entry[this.domain + '.address.latitude'] = null;
+				entry[this.domain + '.address.longitude'] = null;
+				entry[this.domain + '.address.company'] = null;
+				entry[this.domain + '.address.vatid'] = null;
+
+				entry['_show'] = true;
+
+				this.items.push(entry);
 			},
 
 
-			addItem : function(prefix, data) {
-
-				var idx = this.items.length;
-
-				if(!this.items[idx]) {
-					this.$set(this.items, idx, {});
-				}
-
-				for(var key in this.keys) {
-					key = this.keys[key]; this.$set(this.items, key, data && data[key] || '');
-				}
-
-				this.$set(this.items[idx], (prefix || this.domain + '.address.') + 'siteid', this.siteid);
-			},
-
-
-			duplicateItem : function(idx) {
-
-				var len = this.items.length;
-
-				if(!this.items[len]) {
-					this.$set(this.items, len, {});
-				}
-
-				for(key in this.keys) {
-					key = this.keys[key]; this.items[len][key] = this.items[idx][key];
-				}
-			},
-
-
-			removeItem : function(idx) {
-				this.items.splice(idx, 1);
-			},
-
-
-			getCountries : function() {
+			countries : function() {
 				return Aimeos.getCountries;
 			},
 
 
-			getCss : function(idx, prefix) {
-				return ( idx !== 0 && this.items[idx] && this.items[idx][prefix + 'id'] ? 'collapsed' : 'show' );
+			duplicate : function(idx) {
+				if(idx < this.items.length) {
+					this.$set(this.items, this.items.length, JSON.parse(JSON.stringify(this.items[idx])));
+				}
 			},
 
 
-			getLabel : function(idx, prefix) {
+			remove : function(idx) {
+				this.items.splice(idx, 1);
+			},
+
+
+			label : function(idx) {
 				var label = '', addr = '';
 
-				label += (this.items[idx][prefix + 'firstname'] ? this.items[idx][prefix + 'firstname'] + ' ' : '');
-				label += (this.items[idx][prefix + 'lastname'] ? this.items[idx][prefix + 'lastname'] : '');
+				label += (this.items[idx][this.domain + '.address.firstname'] ? this.items[idx][this.domain + '.address.firstname'] + ' ' : '');
+				label += (this.items[idx][this.domain + '.address.lastname'] ? this.items[idx][this.domain + '.address.lastname'] : '');
 
-				addr += (this.items[idx][prefix + 'postal'] ? ' ' + this.items[idx][prefix + 'postal'] : '');
-				addr += (this.items[idx][prefix + 'city'] ? ' ' + this.items[idx][prefix + 'city'] : '');
+				addr += (this.items[idx][this.domain + '.address.postal'] ? ' ' + this.items[idx][this.domain + '.address.postal'] : '');
+				addr += (this.items[idx][this.domain + '.address.city'] ? ' ' + this.items[idx][this.domain + '.address.city'] : '');
 
 				if(addr && label) {
 					return label + ' -' + addr;
 				}
 
 				return label + ' ' + addr;
-			}
+			},
+
+
+			toggle: function(what, idx) {
+				this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+			},
 		}
 	}
 };
@@ -228,6 +237,7 @@ Aimeos.Media = {
 			toggle: function(what, idx) {
 				this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
 			},
+
 
 			url: function(prefix, url) {
 
