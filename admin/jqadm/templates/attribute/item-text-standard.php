@@ -118,7 +118,7 @@ $enc = $this->encoder();
 								</div>
 							</div>
 
-							<?php if( !( $languages = $this->get( 'pageLangItems', map() ) )->isEmpty() ) : ?>
+							<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ); ?></label>
 									<div class="col-sm-8">
@@ -191,7 +191,7 @@ $enc = $this->encoder();
 
 						<div v-show="item['_ext']" class="col-xl-6 secondary">
 
-							<?php if( !( $listTypes = $this->get( 'textListTypes', map() ) )->isEmpty() ) : ?>
+							<?php if( !( $listTypes = $this->get( 'textListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
