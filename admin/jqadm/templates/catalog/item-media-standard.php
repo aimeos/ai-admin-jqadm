@@ -107,7 +107,7 @@ $enc = $this->encoder();
 									</select>
 								</div>
 							</div>
-							<?php if( !( $mediaTypes = $this->get( 'mediaTypes', map() ) )->count() !== 1 ) : ?>
+							<?php if( ( $mediaTypes = $this->get( 'mediaTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
