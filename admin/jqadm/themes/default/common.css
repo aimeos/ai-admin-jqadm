@@ -83,14 +83,50 @@ html {
 	border-color: var(--bs-danger, #dc3545) !important;
 }
 
-.aimeos .info-list,
-.aimeos .error-list {
-	list-style: none;
+.aimeos .toast-list {
+	position: fixed;
+	right: 0.5rem;
+	bottom: 1rem;
+	z-index: 5;
 }
 
-.aimeos .info-list .sr-only:after,
-.aimeos .error-list .sr-only:after {
-	content: ":";
+.aimeos .toast {
+	width: 320px;
+	padding: 0.5rem 0;
+	margin: 0;
+}
+
+.aimeos .toast.info {
+	border-left: 2px solid var(--bs-primary, #30a0e0);
+}
+
+.aimeos .toast.error {
+	border-left: 2px solid var(--bs-danger, #dc3545);
+}
+
+.aimeos .toast-icon,
+.aimeos .toast-close {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.aimeos .toast-icon {
+	font-size: 125%;
+}
+
+.aimeos .toast-header,
+.aimeos .toast-body {
+	margin: 0.5rem;
+	padding: 0;
+	border: none;
+}
+
+.aimeos .info .toast-icon {
+	color: var(--bs-primary, #30a0e0);
+}
+
+.aimeos .error .toast-icon {
+	color: var(--bs-danger, #dc3545);
 }
 
 .aimeos .box {

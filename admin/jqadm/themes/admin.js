@@ -1074,6 +1074,11 @@ $(function() {
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();
 
+	// show toast notifications
+	document.querySelectorAll('.toast').forEach(el => {
+		new bootstrap.Toast(el, {delay: 3000}).show();
+	});
+
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('lang') || 'en']);
 	Vue.component('flat-pickr', VueFlatpickr);
 	Vue.component('v-select', VueSelect.VueSelect);

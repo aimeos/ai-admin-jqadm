@@ -29,17 +29,30 @@
  */
 
 $enc = $this->encoder();
-$errors = $this->get( 'errors', [] );
+
 
 ?>
-<?php if( !empty( $errors ) ) : ?>
-	<ul class="error-list alert alert-danger" role="alert">
-		<?php	foreach( $errors as $key => $error ) : ?>
-			<li class="error-item" data-key="<?= $enc->attr( $key ); ?>">
-				<span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-				<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Error' ) ); ?></span>
-				<?= $enc->html( $error ); ?>
-			</li>
-		<?php	endforeach; ?>
-	</ul>
-<?php endif; ?>
+<div class="toast-list" aria-live="polite" aria-atomic="true">
+
+<?php foreach( $this->get( 'errors', [] ) as $key => $entry ) : ?>
+	<div class="row error toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+		<div class="col-1 toast-icon">
+			<span class="fa fa-exclamation-circle"></span>
+		</div>
+		<div class="col-9">
+			<div class="toast-header">
+				<strong><?= $enc->html( $this->translate( 'admin', 'Error' ) ); ?></strong>
+			</div>
+			<div class="toast-body">
+				<?= $enc->html( $entry ); ?>
+			</div>
+		</div>
+		<div class="col-2 toast-close">
+			<button type="button" class="btn-close" data-bs-dismiss="toast"
+				aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ) ?>">
+			</button>
+		</div>
+	</div>
+<?php endforeach; ?>
+
+</div>
