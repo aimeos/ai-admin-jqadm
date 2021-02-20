@@ -93,7 +93,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 
 		$total = 0;
-		$params = $this->storeSearchParams( $view->param( 'up', [] ), 'customerproduct' );
+		$params = $this->storeFilter( $view->param( 'up', [] ), 'customerproduct' );
 		$listItems = $this->getListItems( $view->item, $params, $total );
 
 		$view->productItems = $this->getProductItems( $listItems );
@@ -119,7 +119,7 @@ class Standard
 
 		try
 		{
-			$this->storeSearchParams( $view->param( 'up', [] ), 'customerproduct' );
+			$this->storeFilter( $view->param( 'up', [] ), 'customerproduct' );
 			$this->fromArray( $view->item, $view->param( 'product', [] ) );
 			$view->productBody = parent::save();
 

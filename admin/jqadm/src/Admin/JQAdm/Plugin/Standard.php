@@ -227,7 +227,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'plugin' );
+			$params = $this->storeFilter( $view->param(), 'plugin' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'plugin' );
 
 			$search = $manager->filter();

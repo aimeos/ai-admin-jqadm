@@ -138,9 +138,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testExportException()
 	{
-		$object = $this->getClientMock( 'storeSearchParams' );
+		$object = $this->getClientMock( 'storeFilter' );
 
-		$object->expects( $this->atLeastOnce() )->method( 'storeSearchParams' )
+		$object->expects( $this->atLeastOnce() )->method( 'storeFilter' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->export();

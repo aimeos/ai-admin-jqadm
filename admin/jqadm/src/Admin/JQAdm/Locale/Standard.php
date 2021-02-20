@@ -229,7 +229,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'locale' );
+			$params = $this->storeFilter( $view->param(), 'locale' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 

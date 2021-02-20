@@ -166,7 +166,7 @@ class Standard
 
 		try
 		{
-			$params = $this->storeSearchParams( $view->param(), 'subscription' );
+			$params = $this->storeFilter( $view->param(), 'subscription' );
 			$msg = ['sitecode' => $context->getLocale()->getSiteItem()->getCode()];
 
 			if( isset( $params['filter'] ) ) {
@@ -270,7 +270,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'subscription' );
+			$params = $this->storeFilter( $view->param(), 'subscription' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
 
 			$search = $manager->filter( false, true );

@@ -67,7 +67,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 
 		$total = 0;
-		$params = $this->storeSearchParams( $view->param( 'oi', [] ), 'orderinvoice' );
+		$params = $this->storeFilter( $view->param( 'oi', [] ), 'orderinvoice' );
 		$orderItems = $this->getOrderItems( $view->item, $params, $total );
 
 		$view->invoiceData = $this->toArray( $orderItems );
@@ -92,7 +92,7 @@ class Standard
 
 		try
 		{
-			$this->storeSearchParams( $view->param( 'oi', [] ), 'orderinvoice' );
+			$this->storeFilter( $view->param( 'oi', [] ), 'orderinvoice' );
 			$this->fromArray( $view->item, $view->param( 'invoice', [] ) );
 			$view->invoiceBody = parent::save();
 

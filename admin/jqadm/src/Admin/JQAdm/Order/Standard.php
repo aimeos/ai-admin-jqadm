@@ -110,7 +110,7 @@ class Standard
 
 		try
 		{
-			$params = $this->storeSearchParams( $view->param(), 'order' );
+			$params = $this->storeFilter( $view->param(), 'order' );
 			$msg = ['sitecode' => $context->getLocale()->getSiteItem()->getCode()];
 
 			if( isset( $params['filter'] ) ) {
@@ -215,7 +215,7 @@ class Standard
 			$total = 0;
 			$context = $this->getContext();
 			$manager = \Aimeos\MShop::create( $context, 'order' );
-			$params = $this->storeSearchParams( $view->param(), 'order' );
+			$params = $this->storeFilter( $view->param(), 'order' );
 
 			$search = $manager->filter( false, true );
 			$search->setSortations( [$search->sort( '-', 'order.id' )] );

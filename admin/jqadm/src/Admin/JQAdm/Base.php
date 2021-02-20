@@ -714,20 +714,6 @@ abstract class Base
 	 */
 	protected function storeFilter( array $params, string $name ) : array
 	{
-		return $this->storeSearchParams( $params, $name );
-	}
-
-
-	/**
-	 * Stores and returns the parameters used for searching items
-	 *
-	 * @param array $params GET/POST parameter set
-	 * @param string $name Name of the panel/subpanel
-	 * @return array Associative list of parameters for searching items
-	 * @deprecated 2021.01 Use storeFilter() instead
-	 */
-	protected function storeSearchParams( array $params, string $name ) : array
-	{
 		$key = 'aimeos/admin/jqadm/' . $name;
 		$session = $this->getContext()->getSession();
 

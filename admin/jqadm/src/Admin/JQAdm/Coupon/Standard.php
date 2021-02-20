@@ -222,7 +222,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'coupon' );
+			$params = $this->storeFilter( $view->param(), 'coupon' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 

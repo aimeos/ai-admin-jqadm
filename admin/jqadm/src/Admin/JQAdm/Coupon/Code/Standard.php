@@ -73,7 +73,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 
 		$total = 0;
-		$params = $this->storeSearchParams( $view->param( 'vc', [] ), 'couponcode' );
+		$params = $this->storeFilter( $view->param( 'vc', [] ), 'couponcode' );
 		$codeItems = $this->getCodeItems( $view->item, $params, $total );
 
 		$view->codeData = $this->toArray( $codeItems );
@@ -98,7 +98,7 @@ class Standard
 
 		try
 		{
-			$this->storeSearchParams( $view->param( 'vc', [] ), 'couponcode' );
+			$this->storeFilter( $view->param( 'vc', [] ), 'couponcode' );
 			$this->storeFile( $view->item, (array) $view->request()->getUploadedFiles() );
 			$this->fromArray( $view->item, $view->param( 'code', [] ) );
 			$view->codeBody = parent::save();

@@ -229,7 +229,7 @@ abstract class Base
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'type/' . $path );
+			$params = $this->storeFilter( $view->param(), 'type/' . $path );
 			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 

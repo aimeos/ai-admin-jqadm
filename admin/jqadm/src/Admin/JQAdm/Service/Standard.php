@@ -228,7 +228,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'service' );
+			$params = $this->storeFilter( $view->param(), 'service' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'service' );
 
 			$search = $manager->filter();

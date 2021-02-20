@@ -147,7 +147,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'review' );
+			$params = $this->storeFilter( $view->param(), 'review' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
 
 			$search = $manager->filter();

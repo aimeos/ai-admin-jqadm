@@ -67,7 +67,7 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 
 		$total = 0;
-		$params = $this->storeSearchParams( $view->param( 'uo', [] ), 'customerorder' );
+		$params = $this->storeFilter( $view->param( 'uo', [] ), 'customerorder' );
 		$orderItems = $this->getOrderItems( $view->item, $params, $total );
 		$baseItems = $this->getOrderBaseItems( $orderItems );
 

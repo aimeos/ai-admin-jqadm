@@ -216,7 +216,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'group' );
+			$params = $this->storeFilter( $view->param(), 'group' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 

@@ -35,7 +35,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'log' );
+			$params = $this->storeFilter( $view->param(), 'log' );
 			$manager = \Aimeos\MAdmin::create( $this->getContext(), 'log' );
 
 			$search = $manager->filter();

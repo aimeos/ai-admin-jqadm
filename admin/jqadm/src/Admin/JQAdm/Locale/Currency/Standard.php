@@ -213,7 +213,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$params = $this->storeSearchParams( $view->param(), 'locale/currency' );
+			$params = $this->storeFilter( $view->param(), 'locale/currency' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 
 			$search = $manager->filter();

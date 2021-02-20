@@ -228,7 +228,7 @@ class Standard
 		{
 			$total = 0;
 			$domains = map( $this->getDomains() )->remove( 'product' );
-			$params = $this->storeSearchParams( $view->param(), 'product' );
+			$params = $this->storeFilter( $view->param(), 'product' );
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
 			$search = $manager->filter();
