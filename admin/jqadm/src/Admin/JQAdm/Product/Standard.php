@@ -478,14 +478,15 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
+		$unique = substr( md5( microtime( true ) ), -5 );
 		$data = $item->toArray( true );
 		$data['config'] = [];
 
 		if( $copy === true )
 		{
 			$data['product.siteid'] = $this->getContext()->getLocale()->getSiteId();
-			$data['product.code'] = $data['product.code'] . '_' . substr( md5( microtime( true ) ), -5 );
-			$data['product.url'] = $data['product.url'] . '-' . time();
+			$data['product.code'] = $data['product.code'] . '_' . $unique;
+			$data['product.url'] = $data['product.url'] . '-' . $unique;
 			$data['product.id'] = '';
 		}
 
