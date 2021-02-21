@@ -96,8 +96,8 @@
 
 .aimeos .sidebar-wrapper {
 	position: fixed;
-	bottom: 2rem;
 	top: 2.5rem;
+	bottom: 0;
 	direction: rtl;
 	overflow-y: auto;
 	width: max(15%, 12rem);
