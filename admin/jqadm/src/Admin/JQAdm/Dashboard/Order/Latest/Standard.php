@@ -46,12 +46,7 @@ class Standard
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop::create( $context, 'order' );
 
-		$search = $manager->filter( false, true )->slice( 0, 10 );
-		$search->setSortations( [$search->sort( '-', 'order.ctime' ), $search->sort( '-', 'order.id' )] );
-		$search->setConditions( $search->and( [
-				$search->compare( '>=', 'order.ctime', date( 'Y-m-d 00:00:00', time() - 30 * 86400 ) ),
-				$search->getConditions()
-		] ) );
+		$search = $manager->filter( false, true )->order( ['-order.ctime', '-order.id'] )->slice( 0, 10 );
 
 		$view->orderlatestItems = $manager->search( $search, ['order/base', 'order/base/address', 'order/base/product', 'order/base/service'] );
 		$view->orderlatestBody = parent::search();
