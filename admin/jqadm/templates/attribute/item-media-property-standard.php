@@ -12,7 +12,7 @@ $enc = $this->encoder();
 ?>
 <div v-show="item['_ext']" class="col-xl-12 secondary">
 
-	<property-table v-if="item['property'].length"
+	<property-table v-if="item['property'] && item['property'].length"
 		v-bind:index="idx" v-bind:domain="'media'"
 		v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
 		v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'media.property.type.label', 'media.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
