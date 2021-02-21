@@ -331,9 +331,20 @@ Aimeos.Dashboard.Order = {
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
 
-			const dsets = [];
+			const dsets = [], entries = {};
 
-			for(const entry of response.data) {
+			for(const entry in response.data) {
+				entries[entry['id']] = entry['attributes'];
+			}
+
+			for(const id of [-1, 0, 1, 2, 3, 4, 5, 6]) {
+				if(!entries[id]) {
+					entries[id] = {attributes: {}};
+				}
+			}
+
+			for(const id in entries) {
+				const entry = entries[id];
 				const data = [], date = startdate.clone();
 
 				do {
@@ -344,10 +355,10 @@ Aimeos.Dashboard.Order = {
 				} while(date.isBefore(enddate, 'day'));
 
 				dsets.push({
-					id: entry['id'], data: data,
-					label: labels[entry['id']], borderWidth: 0,
-					backgroundColor: Color(self.paystatusColor[entry['id']+1]).rgbString(),
-					hoverBackgroundColor: Color(self.paystatusColor[entry['id']+1]).alpha(0.5).rgbaString(),
+					id: id, data: data,
+					label: labels[id], borderWidth: 0,
+					backgroundColor: Color(self.paystatusColor[Number(id)+1]).rgbString(),
+					hoverBackgroundColor: Color(self.paystatusColor[Number(id)+1]).alpha(0.5).rgbaString(),
 				});
 			}
 
@@ -388,6 +399,9 @@ Aimeos.Dashboard.Order = {
 								drawOnChartArea: false
 							},
 							stacked: true,
+							ticks: {
+								min: 0
+							}
 						}]
 					},
 					legend: false,

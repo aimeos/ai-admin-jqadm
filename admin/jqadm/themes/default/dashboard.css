@@ -142,8 +142,8 @@
 }
 
 .dashboard .order-countday .chart {
-	padding-top: 4rem;
-	padding-bottom: 3rem;
+	padding-top: 4rem !important;
+	padding-bottom: 3rem !important;
 }
 
 .dashboard .order-countcountry .chart {

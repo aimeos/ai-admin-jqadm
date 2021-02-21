@@ -37,6 +37,9 @@ Aimeos.Dashboard.Sales = {
 					gridLines: {
 						drawOnChartArea: false
 					},
+					ticks: {
+						min: 0
+					}
 				}]
 			},
 			legend: false,
@@ -151,8 +154,9 @@ Aimeos.Dashboard.Sales = {
 
 			let num = 0;
 			const dsets = [], date = startdate.clone();
+			const data = response.data.length ? response.data : [{id: '', attributes: {}}];
 
-			for(const entry of response.data) {
+			for(const entry of data) {
 				let data = [];
 
 				do {
@@ -211,8 +215,9 @@ Aimeos.Dashboard.Sales = {
 
 			let num = 0;
 			const dsets = [], date = startdate.clone();
+			const data = response.data.length ? response.data : [{id: '', attributes: {}}];
 
-			for(const entry of response.data) {
+			for(const entry of data) {
 				let data = [];
 
 				do {
@@ -271,8 +276,9 @@ Aimeos.Dashboard.Sales = {
 
 			let num = 0;
 			const dsets = [];
+			const data = response.data.length ? response.data : [{id: '', attributes: {}}];
 
-			for(const entry of response.data) {
+			for(const entry of data) {
 				let data = [];
 
 				for(const wday in [...Array(7).keys()]) {
