@@ -1065,15 +1065,6 @@ Aimeos.Menu = {
 
 $(function() {
 
-	Aimeos.Menu.init();
-	Aimeos.Config.init();
-	Aimeos.Form.init();
-	Aimeos.List.init();
-	Aimeos.Log.init();
-	Aimeos.Msg.init();
-	Aimeos.Nav.init();
-	Aimeos.Tabs.init();
-
 	// show toast notifications
 	document.querySelectorAll('.toast').forEach(el => {
 		new bootstrap.Toast(el, {delay: 3000}).show();
@@ -1108,6 +1099,15 @@ $(function() {
 			}
 		});
 	});
+
+	Aimeos.Menu.init();
+	Aimeos.Config.init();
+	Aimeos.Form.init();
+	Aimeos.List.init();
+	Aimeos.Log.init();
+	Aimeos.Msg.init();
+	Aimeos.Nav.init();
+	Aimeos.Tabs.init();
 });
 
 
