@@ -228,7 +228,14 @@ $enc = $this->encoder();
 								v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/media/config/suggest', [] ) ) ?>')"
 								v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'config', '_pos_', '_key_'] ) ); ?>'"
 								v-bind:index="idx" v-bind:readonly="item['product.lists.siteid'] != siteid"
-								v-bind:items="item['config']" v-on:update:config="item['config'] = $event">
+								v-bind:items="item['config']" v-on:update:config="item['config'] = $event"
+								v-bind:i18n="{
+									value: '<?= $enc->attr( $this->translate( 'admin', 'Value' ) ) ?>',
+									option: '<?= $enc->attr( $this->translate( 'admin', 'Option' ) ) ?>',
+									help: '<?= $enc->attr( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>',
+									insert: '<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
+									delete: '<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
+								}">
 							</config-table>
 						</div>
 

@@ -243,8 +243,14 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-class'] ) ) ?>')"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ); ?>'"
 											v-bind:readonly="data['catalog.siteid'] != '<?= $this->site()->siteid() ?>'"
-											v-bind:items="data['config']" v-on:change="data['config'] = $event">
-
+											v-bind:items="data['config']" v-on:change="data['config'] = $event"
+											v-bind:i18n="{
+												value: '<?= $enc->attr( $this->translate( 'admin', 'Value' ) ) ?>',
+												option: '<?= $enc->attr( $this->translate( 'admin', 'Option' ) ) ?>',
+												help: '<?= $enc->attr( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>',
+												insert: '<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
+												delete: '<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
+											}">
 											<table class="item-config table">
 												<thead>
 													<tr>
