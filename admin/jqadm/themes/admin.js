@@ -767,21 +767,6 @@ Aimeos.List = {
 
 
 
-Aimeos.Msg = {
-
-	init : function() {
-
-		this.fadeInfo();
-	},
-
-
-	fadeInfo : function() {
-		$(".info-list.alert").delay(2500).slideUp();
-	}
-};
-
-
-
 Aimeos.Nav = {
 
 	init : function() {
@@ -790,8 +775,6 @@ Aimeos.Nav = {
 		this.hoverMenu();
 		this.toggleFormItems();
 		this.toggleNavItems();
-		this.toggleNavItemsTexts();
-		this.toggleSearch();
 		this.toggleSubmenu();
 	},
 
@@ -917,22 +900,6 @@ Aimeos.Nav = {
 				window.sessionStorage.setItem('aimeos/jqadm/item/form', 0);
 			}
 		});
-	},
-
-
-	toggleNavItemsTexts : function() {
-
-		$('#js--toggle-nav-items-text').on('click', function() {
-			document.body.classList.toggle('js--show-nav-items-texts');
-		})
-	},
-
-
-	toggleSearch : function() {
-
-		$('#js--toggle-search').on('click', function() {
-			document.body.classList.toggle('js--show-search');
-		})
 	},
 
 
@@ -1105,7 +1072,6 @@ $(function() {
 	Aimeos.Form.init();
 	Aimeos.List.init();
 	Aimeos.Log.init();
-	Aimeos.Msg.init();
 	Aimeos.Nav.init();
 	Aimeos.Tabs.init();
 });
