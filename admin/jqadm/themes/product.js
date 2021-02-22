@@ -430,6 +430,10 @@ Aimeos.Product.Download = {
 Aimeos.Product.Order = {
 	init : function() {
 
+		if(!document.querySelector('.item-order .order-list')) {
+			return;
+		}
+
 		this.instance = new Vue({
 			'el': '.item-order .order-list',
 			'data': {
