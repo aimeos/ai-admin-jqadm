@@ -42,7 +42,6 @@ class PageTest extends \PHPUnit\Framework\TestCase
 		$this->assertIsArray( $view->pageParams );
 		$this->assertIsArray( $view->pageI18nList );
 		$this->assertInstanceOf( \Aimeos\Map::class, $view->pageLangItems );
-		$this->assertInstanceOf( \Aimeos\MShop\Locale\Item\Site\Iface::class, $view->pageSiteTree );
 		$this->assertInstanceOf( \Aimeos\MShop\Locale\Item\Site\Iface::class, $view->pageSiteItem );
 	}
 }

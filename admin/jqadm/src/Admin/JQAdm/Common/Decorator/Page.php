@@ -37,9 +37,6 @@ class Page extends Base
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
 		$customerManager = \Aimeos\MShop::create( $context, 'customer' );
 
-		$siteItem = $siteManager->find( $view->param( 'site', 'default' ) );
-		$id = $siteItem->getId();
-
 		try
 		{
 			if( ( $custid = $context->getUserId() ) !== null
@@ -47,42 +44,26 @@ class Page extends Base
 			) {
 				$search = $siteManager->filter()->slice( 0, 1 );
 				$search->setConditions( $search->compare( '==', 'locale.site.siteid', $siteid ) );
-				$id = $siteManager->search( $search )->keys()->first() ?: $siteItem->getId();
+				$view->pageSiteItem = $siteManager->search( $search )->first();
 			}
 		}
-		catch( \Exception $e ) { ; }
+		catch( \Exception $e ) {}
 
-		if( $view->access( ['admin', 'super'] ) ) {
-			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_TREE;
-		} else {
-			$level = \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE;
+		if( !isset( $view->pageSiteItem ) ) {
+			$view->pageSiteItem = $siteManager->find( $view->param( 'site', 'default' ) );
 		}
 
-		$sitePath = $siteManager->getPath( $id );
+		if( $view->access( ['super'] ) )
+		{
+			$search = $siteManager->filter()->add( ['locale.site.level' => 0] )
+				->order( 'locale.site.id' )->slice( 0, 25 );
+
+			$view->pageSiteList = $siteManager->search( $search );
+		}
 
 		$view->pageInfo = $context->getSession()->pull( 'info', [] );
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
 		$view->pageLangItems = $langManager->search( $langManager->filter( true ) );
-		$view->pageSiteTree = $siteManager->getTree( $id, [], $level );
-		$view->pageSitePath = $sitePath;
-		$view->pageSiteItem = $siteItem;
-
-		if( $view->access( ['super'] ) )
-		{
-			$search = $siteManager->filter()->slice( 0, 1000 );
-			$search->setSortations( [$search->sort( '+', 'locale.site.label' )] );
-			$search->setConditions( $search->compare( '==', 'locale.site.level', 0 ) );
-
-			$view->pageSiteList = $siteManager->search( $search );
-
-			if( ( $rootItem = $sitePath->first() ) !== null ) {
-				$view->pageSiteTree = $siteManager->getTree( $rootItem->getId(), [], $level );
-			}
-		}
-		else
-		{
-			$view->pageSiteList = map( [$view->pageSiteTree] );
-		}
 
 		$this->getClient()->setView( $view );
 		return $this;

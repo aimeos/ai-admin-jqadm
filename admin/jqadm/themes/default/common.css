@@ -129,6 +129,27 @@ html {
 	color: var(--bs-danger, #dc3545);
 }
 
+.aimeos .more,
+.aimeos .less {
+	font: normal normal normal 14px/1 FontAwesome;
+	font-weight: normal;
+	font-size: 125%;
+	cursor: pointer;
+	color: var(--bs-secondary-light, #9098a0);
+	display: block;
+	text-align: center;
+	border: transparent;
+	padding: 1rem 0;
+}
+
+.aimeos .more:before {
+	content: "\f141";
+}
+
+.aimeos .less:before {
+	content: "\f106";
+}
+
 .aimeos .box {
 	box-shadow: var(--bs-shadow);
 	border: 1px solid rgba(0,0,0,.125);
@@ -443,31 +464,6 @@ html {
 	.aimeos .item:not(.item-tree) .nav-tabs .nav-link {
 		text-align: left;
 	}
-}
-
-.aimeos .navbar-content .more,
-.aimeos .navbar-content .less,
-.aimeos .item-content .more,
-.aimeos .item-content .less {
-	font: normal normal normal 14px/1 FontAwesome;
-	font-weight: normal;
-	font-size: 125%;
-	cursor: pointer;
-	color: var(--bs-secondary-light, #9098a0);
-	display: block;
-	text-align: center;
-	border: transparent;
-	padding: 1rem 0;
-}
-
-.aimeos .navbar-content .more:before,
-.aimeos .item-content .more:before {
-	content: "\f141";
-}
-
-.aimeos .navbar-content .less:before,
-.aimeos .item-content .less:before {
-	content: "\f106";
 }
 
 @media (min-width: 768px) {

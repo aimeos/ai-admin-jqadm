@@ -148,7 +148,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 ?>
 <div class="aimeos" lang="<?= $this->param( 'lang' ); ?>" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
 
-	<nav class="main-sidebar">
+	<nav class="main-sidebar vue">
 		<div class="sidebar-wrapper">
 
 			<a class="logo" target="_blank" href="https://aimeos.org/update/?type=<?= $this->get( 'aimeosType' ) ?>&version=<?= $this->get( 'aimeosVersion' ) ?>">
@@ -157,7 +157,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 
 			<ul class="sidebar-menu">
 
-				<?php if( ( $this->get( 'pageSiteList', map() )->count() > 1 || !$this->pageSiteTree->getChildren()->isEmpty() || $this->get( 'pageSitePath', map() )->count() > 1 ) && $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) && $this->get( 'pageSiteList', map() )->count() > 1 ) : ?>
 					<li class="none"></li>
 					<li class="site treeview <?= $before === null ? 'before' : '' ?>">
 						<a href="#">
@@ -169,32 +169,12 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 								<a href="#"><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></a>
 								<span class="close"></span>
 							</div>
-							<ul class="tree-menu">
-
-								<?php $siteFcn = function( \Aimeos\MShop\Locale\Item\Site\Iface $site ) use ( &$siteFcn, $enc, $searchTarget, $cntl, $action, $params, $config ) { ?>
-
-									<li class="site-<?= $enc->attr( $site->getCode() ) ?>">
-										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => $site->getCode() ) + $params, [], $config ) ); ?>">
-											<span class="name"><?= $enc->html( $site->getLabel() ); ?></span>
-										</a>
-
-										<?php if( !$site->getChildren()->isEmpty() ) : ?>
-											<ul class="menu-sub">
-												<?php foreach( $site->getChildren() as $site ) { $siteFcn( $site ); } ?>
-											</ul>
-										<?php endif; ?>
-									</li>
-
-								<?php }; ?>
-
-								<?php foreach( $this->pageSiteList as $siteItem ) : ?>
-									<?php if( $siteItem->getId() === $this->pageSiteTree->getId() ) : ?>
-										<?php $siteFcn( $this->pageSiteTree ); ?>
-									<?php else : ?>
-										<?php $siteFcn( $siteItem ); ?>
-									<?php endif; ?>
-								<?php endforeach; ?>
-							</ul>
+							<site-tree
+								v-bind:promise="Aimeos.options"
+								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find site' ) ) ?>"
+								v-bind:url="'<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => '_code_' ) + $params, [], $config ) ) ?>'"
+								v-bind:initial="JSON.parse('<?= $enc->attr( $this->pageSiteList->call( 'toArray' )->all() ) ?>')">
+							</site-tree>
 						</div>
 					</li>
 				<?php else : ?>

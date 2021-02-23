@@ -296,6 +296,14 @@
 	content: "\f00d";
 }
 
+.aimeos .sidebar-menu li .tree-menu-wrapper .filter {
+	padding: 0.5rem;
+}
+
+.aimeos .sidebar-menu li .tree-menu-wrapper .filter input {
+	width: 100%;
+}
+
 .aimeos .sidebar-menu li .tree-menu li {
 	background-color: var(--bs-menu-alt-bg, #ffffff);
 	border-left: 0.2rem solid transparent;
@@ -306,7 +314,6 @@
 	display: block;
 	position: relative;
 	overflow-y: auto;
-	height: calc(100vh - 4.5rem);
 	background-color: var(--bs-menu-alt-bg, #ffffff);
 	box-sizing: initial;
 	text-align: left;
@@ -324,7 +331,7 @@
 
 .aimeos .sidebar-menu li .tree-menu li:hover,
 .aimeos .sidebar-menu li .tree-menu li.active {
-	color: var(--bs-menu, #ffffff);
+	color: var(--bs-primary, #30a0e0);
 }
 
 .aimeos .sidebar-menu li .tree-menu .name {

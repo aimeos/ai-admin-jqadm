@@ -664,3 +664,166 @@ Vue.component('taxrates', {
 		}
 	}
 });
+
+
+
+Vue.component('site-tree-item', {
+	template: `
+		<li v-bind:class="'site-' + attr('code')">
+			<a v-bind:href="url.replace('_code_', attr('code'))">
+				<span class="name">{{ attr('label') }}</span>
+			</a>
+		</li>
+	`,
+	props: {
+		item: {type: Object, required: true },
+		url: {type: String, required: true}
+	},
+	methods: {
+		attr(name) {
+			return this.item['locale.site.' + name] || '';
+		}
+	}
+});
+
+
+Vue.component('site-tree', {
+	template: `
+		<div class="tree-menu-filter">
+			<div class="filter">
+				<input class="form-control" v-bind:placeholder="placeholder" v-model:value="search" />
+			</div>
+			<ul class="tree-menu">
+				<site-tree-item v-for="(entry, id) in items"
+					v-bind:key="id" v-bind:url="url" v-bind:item="entry">
+				</site-tree-item>
+				<li v-if="more()" class="more" v-on:click="next()"></li>
+			</ul>
+		</div>
+	`,
+
+	props: {
+		url: {type: String, required: true},
+		promise: {type: Object, required: true },
+		placeholder: {type: String, default: 'Find site'},
+		initial: {type: Object, default: {}}
+	},
+
+	data() {
+		return {
+			items: {},
+			limit: 25,
+			offset: 0,
+			search: '',
+			total: null
+		}
+	},
+
+	mounted() {
+		this.items = this.initial;
+		this.fetch = this.debounce(this.fetch, 300);
+	},
+
+	methods: {
+		debounce(func, delay) {
+			let timer;
+			return function() {
+				const context = this;
+				const args = arguments;
+
+				clearTimeout(timer);
+				timer = setTimeout(() => func.apply(context, args), delay);
+			};
+		},
+
+		fetch(value) {
+			const self = this;
+
+			this.promise.done(function(response) {
+
+				const param = {};
+
+				param['filter'] = {'||': [{'=~': {'locale.site.code': value}}, {'=~': {'locale.site.label': value}}]};
+				param['fields'] = {'locale/site': 'locale.site.code,locale.site.label,locale.site.status'};
+				param['page'] = {'offset': self.offset, 'limit': self.limit};
+				param['include'] = 'locale/site';
+				param['sort'] = 'locale.site.id';
+
+				const config = {
+					'paramsSerializer': function(params) {
+						return jQuery.param(params); // workaround, Axios and QS fail on [==]
+					},
+					'params': {}
+				};
+
+				if(response.meta.prefix && response.meta.prefix) {
+					config['params'][response.meta.prefix] = param;
+				} else {
+					config['params'] = param;
+				}
+
+				axios.get(response.meta.resources['locale/site'], config).then(response => {
+					const map = {};
+
+					if(!response.data) {
+						console.log( '[Aimeos] Error: Invalid response for locale/site resource' );
+						return;
+					}
+
+					(response.data.included || []).forEach(function(item) {
+						map[item.id] = item;
+					});
+
+					for(const entry of response.data.data) {
+						self.$set(self.items, entry['id'], self.setup(entry, map));
+					}
+
+					self.total = response.data.meta && response.data.meta.total || 0;
+
+				}).catch(function(error) {
+					self.log(error);
+				});
+			});
+		},
+
+		log(error) {
+			console.log('[Aimeos] Error: ', error.message);
+
+			if(error.response && error.response.data && error.response.data.errors) {
+				error.response.data.errors.forEach(function(elem) {
+					console.log(elem.title);
+				});
+			}
+		},
+
+		more() {
+			return this.total === null || this.offset + this.limit < this.total;
+		},
+
+		next() {
+			this.offset += this.limit;
+			this.fetch(this.search);
+		},
+
+		setup(item, map) {
+			item.attributes.children = {};
+
+			if(item.relationships && item.relationships['locale/site']) {
+				(item.relationships['locale/site'].data || []).forEach(function(entry) {
+					if(map[entry['id']]) {
+						item.attributes.children[entry['id']] = this.setup(map[entry['id']] || {}, map);
+					}
+				});
+			}
+
+			return item.attributes;
+		}
+	},
+	watch: {
+		search(val) {
+			this.offset = 0;
+			this.items = {};
+			this.fetch(val);
+		}
+	}
+});
