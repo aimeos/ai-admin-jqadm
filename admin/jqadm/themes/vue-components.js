@@ -667,46 +667,48 @@ Vue.component('taxrates', {
 
 
 
-Vue.component('site-tree-item', {
+Vue.component('site-tree-items', {
 	template: `
-		<li v-bind:class="'site-' + attr('code')">
-			<a v-bind:href="url.replace('_code_', attr('code'))">
-				<span class="name">{{ attr('label') }}</span>
-			</a>
-		</li>
-	`,
-	props: {
-		item: {type: Object, required: true },
-		url: {type: String, required: true}
-	},
-	methods: {
-		attr(name) {
-			return this.item['locale.site.' + name] || '';
-		}
-	}
-});
-
-
-Vue.component('site-tree', {
-	template: `
-		<div class="tree-menu-filter">
-			<div class="filter">
-				<input class="form-control" v-bind:placeholder="placeholder" v-model:value="search" />
-			</div>
-			<ul class="tree-menu">
-				<site-tree-item v-for="(entry, id) in items"
-					v-bind:key="id" v-bind:url="url" v-bind:item="entry">
-				</site-tree-item>
-				<li v-if="more()" class="more" v-on:click="next()"></li>
-			</ul>
-		</div>
+		<ul v-if="Object.keys(items).length" class="tree-menu">
+			<li v-for="(item, id) in items" v-bind:key="id">
+				<a v-bind:href="url.replace('_code_', item['locale.site.code'])" v-bind:class="{
+					enabled: item['locale.site.status'] == 1,
+					disabled: item['locale.site.status'] == 0,
+					review: item['locale.site.status'] == -1,
+					archived: item['locale.site.status'] == -2
+				}">
+					<span class="name">{{ item['locale.site.label'] }}</span>
+				</a><!--
+				--><span v-if="tree && item['locale.site.hasChildren'] && !filter"
+					v-on:click.stop="toggle(id)" class="icon"
+					v-bind:class="{
+						'icon-open': !item.isOpen,
+						'icon-close': item.isOpen,
+						'icon-loading fa-pulse': item.isLoading
+					}"></span>
+				<site-tree-items v-if="tree && (item.isOpen || Object.keys(item.children || {}).length)"
+					v-on:loading="loading(id, $event)"
+					v-bind:initial="item.children || {}"
+					v-bind:level="level + 1"
+					v-bind:promise="promise"
+					v-bind:filter="filter"
+					v-bind:parent="id"
+					v-bind:tree="tree"
+					v-bind:url="url">
+				</site-tree-items>
+			</li>
+			<li v-if="more()" class="more" v-on:click="next()"></li>
+		</ul>
 	`,
 
 	props: {
 		url: {type: String, required: true},
-		promise: {type: Object, required: true },
-		placeholder: {type: String, default: 'Find site'},
-		initial: {type: Object, default: {}}
+		tree: {type: Boolean, default: false},
+		promise: {type: Object, required: true},
+		initial: {type: Object, default: {}},
+		parent: {type: String, default: '0'},
+		filter: {type: String, default: ''},
+		level: {type: Number, default: 0}
 	},
 
 	data() {
@@ -714,39 +716,41 @@ Vue.component('site-tree', {
 			items: {},
 			limit: 25,
 			offset: 0,
-			search: '',
-			total: null
+			total: null,
 		}
 	},
 
 	mounted() {
-		this.items = this.initial;
-		this.fetch = this.debounce(this.fetch, 300);
+		if(this.filter && Object.keys(this.initial).length) {
+			this.items = this.initial;
+		} else {
+			this.fetch();
+		}
 	},
 
 	methods: {
-		debounce(func, delay) {
-			let timer;
-			return function() {
-				const context = this;
-				const args = arguments;
-
-				clearTimeout(timer);
-				timer = setTimeout(() => func.apply(context, args), delay);
-			};
-		},
-
-		fetch(value) {
+		fetch() {
 			const self = this;
+			self.$emit('loading', true);
 
 			this.promise.done(function(response) {
 
 				const param = {};
 
-				param['filter'] = {'||': [{'=~': {'locale.site.code': value}}, {'=~': {'locale.site.label': value}}]};
-				param['fields'] = {'locale/site': 'locale.site.code,locale.site.label,locale.site.status'};
+				param['filter'] = {'==': {'locale.site.parentid': self.parent}};
+
+				if(self.filter) {
+					param['filter'] = {'&&': [
+						param['filter'],
+						{'||': [
+							{'=~': {'locale.site.code': self.filter}},
+							{'=~': {'locale.site.label': self.filter}}
+						]}
+					]};
+				}
+
+				param['fields'] = {'locale/site': 'locale.site.code,locale.site.label,locale.site.status,locale.site.hasChildren'};
 				param['page'] = {'offset': self.offset, 'limit': self.limit};
-				param['include'] = 'locale/site';
 				param['sort'] = 'locale.site.id';
 
 				const config = {
@@ -763,67 +767,90 @@ Vue.component('site-tree', {
 				}
 
 				axios.get(response.meta.resources['locale/site'], config).then(response => {
-					const map = {};
-
 					if(!response.data) {
-						console.log( '[Aimeos] Error: Invalid response for locale/site resource' );
+						console.error( '[Aimeos] Invalid response for locale/site resource:', response );
 						return;
 					}
 
-					(response.data.included || []).forEach(function(item) {
-						map[item.id] = item;
-					});
-
 					for(const entry of response.data.data) {
-						self.$set(self.items, entry['id'], self.setup(entry, map));
+						self.$set(self.items, entry['id'], entry['attributes']);
 					}
 
 					self.total = response.data.meta && response.data.meta.total || 0;
 
 				}).catch(function(error) {
 					self.log(error);
+				}).then(function() {
+					self.$emit('loading', false);
 				});
 			});
 		},
 
+		loading(id, val) {
+			this.$set(this.items[id], 'isLoading', val);
+		},
+
 		log(error) {
-			console.log('[Aimeos] Error: ', error.message);
+			console.error('[Aimeos]', error.message);
 
 			if(error.response && error.response.data && error.response.data.errors) {
 				error.response.data.errors.forEach(function(elem) {
-					console.log(elem.title);
+					console.error(elem.title);
 				});
 			}
 		},
 
 		more() {
-			return this.total === null || this.offset + this.limit < this.total;
+			return !Object.keys(this.initial).length && (this.total === null || this.offset + this.limit < this.total);
 		},
 
 		next() {
-			this.offset += this.limit;
-			this.fetch(this.search);
+			if(this.total) {
+				this.offset += this.limit;
+			}
+			this.fetch();
 		},
 
-		setup(item, map) {
-			item.attributes.children = {};
-
-			if(item.relationships && item.relationships['locale/site']) {
-				(item.relationships['locale/site'].data || []).forEach(function(entry) {
-					if(map[entry['id']]) {
-						item.attributes.children[entry['id']] = this.setup(map[entry['id']] || {}, map);
-					}
-				});
-			}
-
-			return item.attributes;
+		toggle(id) {
+			this.$set(this.items[id], 'isOpen', !this.items[id].isOpen);
 		}
 	},
+
 	watch: {
-		search(val) {
-			this.offset = 0;
-			this.items = {};
-			this.fetch(val);
+		initial(items) {
+			if(Object.keys(this.initial).length) {
+				this.items = items;
+			}
+		},
+
+		filter(val) {
+			if(!val && this.level === 0) {
+				this.fetch();
+			}
+		}
+	}
+});
+
+
+Vue.component('site-tree', {
+	template: `
+		<div class="tree-menu-filter">
+			<div class="filter">
+				<input class="form-control" v-bind:placeholder="placeholder" v-model:value="filter" />
+			</div>
+			<site-tree-items v-bind:url="url" v-bind:promise="promise" v-bind:filter="filter"></site-tree-items>
+		</div>
+	`,
+
+	props: {
+		url: {type: String, required: true},
+		promise: {type: Object, required: true },
+		placeholder: {type: String, default: 'Find site'}
+	},
+
+	data() {
+		return {
+			filter: ''
 		}
 	}
 });

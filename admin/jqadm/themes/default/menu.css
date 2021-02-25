@@ -125,7 +125,6 @@
 
 .aimeos .sidebar-menu li {
 	border-left: 0.2rem solid transparent;
-	border-right: 0.2rem solid transparent;
 }
 
 .aimeos .main-sidebar .icon {
@@ -272,6 +271,7 @@
 	position: sticky;
 	display: flex;
 	height: 2.5rem;
+	z-index: 1;
 	top: 0;
 }
 
@@ -307,31 +307,86 @@
 .aimeos .sidebar-menu li .tree-menu li {
 	background-color: var(--bs-menu-alt-bg, #ffffff);
 	border-left: 0.2rem solid transparent;
-	border-right: 0.2rem solid transparent;
+	overflow-x: hidden;
 }
 
 .aimeos .sidebar-menu li .tree-menu {
 	display: block;
 	position: relative;
-	overflow-y: auto;
+	color: var(--bs-secondary, #707880);
 	background-color: var(--bs-menu-alt-bg, #ffffff);
 	box-sizing: initial;
 	text-align: left;
 	list-style: none;
-	margin: 1rem 0;
+	overflow-y: auto;
 	padding: 0;
+	margin: 0;
+	margin-left: 1rem;
+}
+
+.aimeos .sidebar-menu li .tree-menu .more {
+	text-align: left;
+}
+
+.aimeos .sidebar-menu li .tree-menu a:hover,
+.aimeos .sidebar-menu li .tree-menu li:hover,
+.aimeos .sidebar-menu li .tree-menu li.active {
+	color: var(--bs-primary, #30a0e0);
 }
 
 .aimeos .sidebar-menu li .tree-menu a {
 	border-left-color: transparent;
-	padding: 0.5rem 1.5rem;
-	display: block;
+	padding: 0.5rem 0;
+	display: inline-block;
+	width: calc(100% - 2rem);
 	color: var(--bs-secondary, #707880);
 }
 
-.aimeos .sidebar-menu li .tree-menu li:hover,
-.aimeos .sidebar-menu li .tree-menu li.active {
-	color: var(--bs-primary, #30a0e0);
+.aimeos .sidebar-menu li .tree-menu .icon-open,
+.aimeos .sidebar-menu li .tree-menu .icon-close,
+.aimeos .sidebar-menu li .tree-menu .icon-loading {
+	font: normal normal normal 14px/1 FontAwesome;
+	padding: 0.5rem;
+	font-size: 80%;
+	width: 2rem;
+}
+
+.aimeos .sidebar-menu li .tree-menu .icon-open:before {
+	content: "\f078";
+}
+
+.aimeos .sidebar-menu li .tree-menu .icon-close:before {
+	content: "\f077";
+}
+
+.aimeos .sidebar-menu li .tree-menu .icon-loading:before {
+	content: "\f110";
+}
+
+.aimeos .sidebar-menu li .tree-menu .disabled,
+.aimeos .sidebar-menu li .tree-menu .review,
+.aimeos .sidebar-menu li .tree-menu .archived {
+	text-decoration: line-through;
+}
+
+.aimeos .sidebar-menu li .tree-menu .enabled:before,
+.aimeos .sidebar-menu li .tree-menu .disabled:before,
+.aimeos .sidebar-menu li .tree-menu .review:before,
+.aimeos .sidebar-menu li .tree-menu .archived:before {
+	font: normal normal normal 14px/1 FontAwesome;
+	margin-right: 0.5rem;
+}
+
+.aimeos .sidebar-menu li .tree-menu .disabled:before {
+	content: "\f05e";
+}
+
+.aimeos .sidebar-menu li .tree-menu .review:before {
+	content: "\f06e";
+}
+
+.aimeos .sidebar-menu li .tree-menu .archived:before {
+	content: "\f187";
 }
 
 .aimeos .sidebar-menu li .tree-menu .name {
@@ -365,119 +420,119 @@
 
 /* Fontawesome Icons */
 
-.aimeos .main-sidebar .site .icon:before {
+.aimeos .main-sidebar .site i.icon:before {
 	content: "\f233"
 }
 
-.aimeos .main-sidebar .dashboard .icon:before {
+.aimeos .main-sidebar .dashboard i.icon:before {
 	content: "\f0e4"
 }
 
-.aimeos .main-sidebar .sales .icon:before {
+.aimeos .main-sidebar .sales i.icon:before {
 	content: "\f0d6"
 }
 
-.aimeos .main-sidebar .order .icon:before {
+.aimeos .main-sidebar .order i.icon:before {
 	content: "\f07a"
 }
 
-.aimeos .main-sidebar .subscription .icon:before {
+.aimeos .main-sidebar .subscription i.icon:before {
 	content: "\f073"
 }
 
-.aimeos .main-sidebar .users .icon:before {
+.aimeos .main-sidebar .users i.icon:before {
 	content: "\f0c0"
 }
 
-.aimeos .main-sidebar .customer .icon:before {
+.aimeos .main-sidebar .customer i.icon:before {
 	content: "\f007"
 }
 
-.aimeos .main-sidebar .group .icon:before {
+.aimeos .main-sidebar .group i.icon:before {
 	content: "\f0c0"
 }
 
-.aimeos .main-sidebar .goods .icon:before {
+.aimeos .main-sidebar .goods i.icon:before {
 	content: "\f1b3"
 }
 
-.aimeos .main-sidebar .product .icon:before {
+.aimeos .main-sidebar .product i.icon:before {
 	content: "\f1b2"
 }
 
-.aimeos .main-sidebar .catalog .icon:before {
+.aimeos .main-sidebar .catalog i.icon:before {
 	content: "\f0e8"
 }
 
-.aimeos .main-sidebar .attribute .icon:before {
+.aimeos .main-sidebar .attribute i.icon:before {
 	content: "\f02c"
 }
 
-.aimeos .main-sidebar .supplier .icon:before {
+.aimeos .main-sidebar .supplier i.icon:before {
 	content: "\f275"
 }
 
-.aimeos .main-sidebar .marketing .icon:before {
+.aimeos .main-sidebar .marketing i.icon:before {
 	content: "\f0a1"
 }
 
-.aimeos .main-sidebar .coupon .icon:before {
+.aimeos .main-sidebar .coupon i.icon:before {
 	content: "\f295"
 }
 
-.aimeos .main-sidebar .review .icon:before {
+.aimeos .main-sidebar .review i.icon:before {
 	content: "\f086"
 }
 
-.aimeos .main-sidebar .settings .icon:before {
+.aimeos .main-sidebar .settings i.icon:before {
 	content: "\f085"
 }
 
-.aimeos .main-sidebar .service .icon:before {
+.aimeos .main-sidebar .service i.icon:before {
 	content: "\f09d"
 }
 
-.aimeos .main-sidebar .service .icon:after {
+.aimeos .main-sidebar .service i.icon:after {
 	content: "\f0d1"
 }
 
-.aimeos .main-sidebar .plugin .icon:before {
+.aimeos .main-sidebar .plugin i.icon:before {
 	content: "\f1e6"
 }
 
-.aimeos .main-sidebar .type .icon:before {
+.aimeos .main-sidebar .type i.icon:before {
 	content: "\f02b"
 }
 
-.aimeos .main-sidebar .locale .icon:before {
+.aimeos .main-sidebar .locale i.icon:before {
 	content: "\f0ac"
 }
 
-.aimeos .main-sidebar .locale-site .icon:before {
+.aimeos .main-sidebar .locale-site i.icon:before {
 	content: "\f233"
 }
 
-.aimeos .main-sidebar .locale-language .icon:before {
+.aimeos .main-sidebar .locale-language i.icon:before {
 	content: "\f1ab"
 }
 
-.aimeos .main-sidebar .locale-currency .icon:before {
+.aimeos .main-sidebar .locale-currency i.icon:before {
 	content: "\f155"
 }
 
-.aimeos .main-sidebar .log .icon:before {
+.aimeos .main-sidebar .log i.icon:before {
 	content: "\f187"
 }
 
-.aimeos .main-sidebar .language .icon:before {
+.aimeos .main-sidebar .language i.icon:before {
 	content: "\f1ab"
 }
 
-.aimeos .toggle-nav-items-texts .icon:before {
+.aimeos .toggle-nav-items-texts i.icon:before {
 	content: "\f0d7";
 }
 
-.aimeos .toggle-nav-items-texts .icon:before {
+.aimeos .toggle-nav-items-texts i.icon:before {
 	color: var(--bs-menu, #ffffff);
 }
 

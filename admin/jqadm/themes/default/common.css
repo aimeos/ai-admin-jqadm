@@ -130,7 +130,8 @@ html {
 }
 
 .aimeos .more,
-.aimeos .less {
+.aimeos .less,
+.aimeos .loading {
 	font: normal normal normal 14px/1 FontAwesome;
 	font-weight: normal;
 	font-size: 125%;
@@ -148,6 +149,10 @@ html {
 
 .aimeos .less:before {
 	content: "\f106";
+}
+
+.aimeos .loading:before {
+	content: "\f110";
 }
 
 .aimeos .box {
