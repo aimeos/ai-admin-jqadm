@@ -148,7 +148,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 ?>
 <div class="aimeos" lang="<?= $this->param( 'lang' ); ?>" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
 
-	<nav class="main-sidebar vue">
+	<nav class="main-sidebar">
 		<div class="sidebar-wrapper">
 
 			<a class="logo" target="_blank" href="https://aimeos.org/update/?type=<?= $this->get( 'aimeosType' ) ?>&version=<?= $this->get( 'aimeosVersion' ) ?>">
@@ -169,12 +169,13 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 								<a href="#"><?= $enc->html( $this->translate( 'admin', 'Site' ) ); ?></a>
 								<span class="close"></span>
 							</div>
-							<site-tree
-								v-bind:promise="Aimeos.options"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find site' ) ) ?>"
-								v-bind:url="'<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => '_code_' ) + $params, [], $config ) ) ?>'"
-								v-bind:initial="JSON.parse('<?= $enc->attr( $this->pageSiteList->call( 'toArray' )->all() ) ?>')">
-							</site-tree>
+							<div class="menu-body vue" data-key="sidebar-sites">
+								<site-tree
+									v-bind:promise="Aimeos.options"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find site' ) ) ?>"
+									v-bind:url="'<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => '_code_' ) + $params, [], $config ) ) ?>'">
+								</site-tree>
+							</div>
 						</div>
 					</li>
 				<?php else : ?>

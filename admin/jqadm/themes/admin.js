@@ -269,7 +269,7 @@ Aimeos = {
 				for(let entry of entries) {
 					if(entry.isIntersecting) {
 						observer.unobserve(entry.target);
-						renderFcn();
+						renderFcn(entry.target);
 					}
 				};
 			};
@@ -1041,11 +1041,12 @@ $(function() {
 	Vue.component('flat-pickr', VueFlatpickr);
 	Vue.component('v-select', VueSelect.VueSelect);
 
-	$('.vue').each(function() {
-		var key = $(this).data('key');
+	Aimeos.lazy('.vue', function(el) {
+		const target = el || '.vue';
+		const key = $(el).data('key') || Math.floor(Math.random() * 1000);
 
 		Aimeos.components[key] = new Vue({
-			el: this,
+			el: target,
 			data: function() {
 				return {
 					data: null

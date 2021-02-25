@@ -252,7 +252,7 @@
 	visibility: hidden;
 	box-sizing: initial;
 	width: max(15%, 12rem);
-	left: min(-15%, -12rem);
+	left: calc(min(-15%, -12rem) - 1px); /* -1 to avoid intersection */
 	box-shadow: #a8b8c825 6px 3px 9px 0px;
 	background-color: var(--bs-menu-alt-bg, #ffffff);
 	transition: left .3s ease, visibility 0s linear .3s;
