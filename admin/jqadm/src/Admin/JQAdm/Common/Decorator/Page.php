@@ -37,33 +37,27 @@ class Page extends Base
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
 		$customerManager = \Aimeos\MShop::create( $context, 'customer' );
 
-		try
-		{
-			if( ( $custid = $context->getUserId() ) !== null
-				&& ( $siteid = $customerManager->get( $custid )->getSiteId() ) !== null
-			) {
-				$search = $siteManager->filter()->slice( 0, 1 );
-				$search->setConditions( $search->compare( '==', 'locale.site.siteid', $siteid ) );
-				$view->pageSiteItem = $siteManager->search( $search )->first();
-			}
-		}
-		catch( \Exception $e ) {}
-
-		if( !isset( $view->pageSiteItem ) ) {
-			$view->pageSiteItem = $siteManager->find( $view->param( 'site', 'default' ) );
-		}
-
 		if( $view->access( ['super'] ) )
 		{
-			$search = $siteManager->filter()->add( ['locale.site.level' => 0] )
-				->order( 'locale.site.id' )->slice( 0, 25 );
+			$view->pageSiteItem = $siteManager->find( $view->param( 'site', 'default' ) );
+		}
+		else
+		{
+			$siteid = $customerManager->get( $context->getUserId() )->getSiteId();
+			$search = $siteManager->filter();
 
-			$view->pageSiteList = $siteManager->search( $search );
+			$search->add( $search->and( [
+				$search->is( 'locale.site.code', '==', $view->param( 'site', 'default' ) ),
+				$search->is( 'locale.site.siteid', $view->access( ['admin'] ) ? '=~' : '==', $siteid )
+			] ) )->slice( 0, 1 );
+
+			$view->pageSiteItem = $siteManager->search( $search )->first();
 		}
 
 		$view->pageInfo = $context->getSession()->pull( 'info', [] );
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
 		$view->pageLangItems = $langManager->search( $langManager->filter( true ) );
+		$view->pageSitePath = $siteManager->getPath( $view->pageSiteItem->getId() );
 
 		$this->getClient()->setView( $view );
 		return $this;

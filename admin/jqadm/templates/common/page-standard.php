@@ -157,7 +157,7 @@ $infoMsgs = array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) 
 
 			<ul class="sidebar-menu">
 
-				<?php if( $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) && $this->get( 'pageSiteList', map() )->count() > 1 ) : ?>
+				<?php if( $this->access( $this->config( 'admin/jqadm/resource/site/groups', [] ) ) ) : ?>
 					<li class="none"></li>
 					<li class="site treeview <?= $before === null ? 'before' : '' ?>">
 						<a href="#">
