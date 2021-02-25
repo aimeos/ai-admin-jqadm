@@ -830,9 +830,9 @@ Aimeos.Nav = {
 
 	hoverMenu : function() {
 
-		let active = document.querySelector(".aimeos .main-sidebar .sidebar-menu li.active");
+		let active = document.querySelector(".aimeos .main-sidebar .sidebar-menu > li.active");
 
-		document.querySelectorAll(".aimeos .main-sidebar .sidebar-menu li:not(.none)").forEach(function(item) {
+		document.querySelectorAll(".aimeos .main-sidebar .sidebar-menu > li:not(.none)").forEach(function(item) {
 			item.addEventListener("mouseenter", function(ev) {
 				if(item !== active && ev.target.previousElementSibling) {
 					ev.target.previousElementSibling.classList.add("before");
