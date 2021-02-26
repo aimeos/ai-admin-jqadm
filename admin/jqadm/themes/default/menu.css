@@ -420,120 +420,112 @@
 
 /* Fontawesome Icons */
 
-.aimeos .main-sidebar .site i.icon:before {
+.aimeos .main-sidebar .menuitem-site i.icon:before {
 	content: "\f233"
 }
 
-.aimeos .main-sidebar .dashboard i.icon:before {
+.aimeos .main-sidebar .menuitem-dashboard i.icon:before {
 	content: "\f0e4"
 }
 
-.aimeos .main-sidebar .sales i.icon:before {
+.aimeos .main-sidebar .menuitem-sales i.icon:before {
 	content: "\f0d6"
 }
 
-.aimeos .main-sidebar .order i.icon:before {
+.aimeos .main-sidebar .menuitem-order i.icon:before {
 	content: "\f07a"
 }
 
-.aimeos .main-sidebar .subscription i.icon:before {
+.aimeos .main-sidebar .menuitem-subscription i.icon:before {
 	content: "\f073"
 }
 
-.aimeos .main-sidebar .users i.icon:before {
+.aimeos .main-sidebar .menuitem-users i.icon:before {
 	content: "\f0c0"
 }
 
-.aimeos .main-sidebar .customer i.icon:before {
+.aimeos .main-sidebar .menuitem-customer i.icon:before {
 	content: "\f007"
 }
 
-.aimeos .main-sidebar .group i.icon:before {
+.aimeos .main-sidebar .menuitem-group i.icon:before {
 	content: "\f0c0"
 }
 
-.aimeos .main-sidebar .goods i.icon:before {
+.aimeos .main-sidebar .menuitem-goods i.icon:before {
 	content: "\f1b3"
 }
 
-.aimeos .main-sidebar .product i.icon:before {
+.aimeos .main-sidebar .menuitem-product i.icon:before {
 	content: "\f1b2"
 }
 
-.aimeos .main-sidebar .catalog i.icon:before {
+.aimeos .main-sidebar .menuitem-catalog i.icon:before {
 	content: "\f0e8"
 }
 
-.aimeos .main-sidebar .attribute i.icon:before {
+.aimeos .main-sidebar .menuitem-attribute i.icon:before {
 	content: "\f02c"
 }
 
-.aimeos .main-sidebar .supplier i.icon:before {
+.aimeos .main-sidebar .menuitem-supplier i.icon:before {
 	content: "\f275"
 }
 
-.aimeos .main-sidebar .marketing i.icon:before {
+.aimeos .main-sidebar .menuitem-marketing i.icon:before {
 	content: "\f0a1"
 }
 
-.aimeos .main-sidebar .coupon i.icon:before {
+.aimeos .main-sidebar .menuitem-coupon i.icon:before {
 	content: "\f295"
 }
 
-.aimeos .main-sidebar .review i.icon:before {
+.aimeos .main-sidebar .menuitem-review i.icon:before {
 	content: "\f086"
 }
 
-.aimeos .main-sidebar .settings i.icon:before {
+.aimeos .main-sidebar .menuitem-settings i.icon:before {
 	content: "\f085"
 }
 
-.aimeos .main-sidebar .service i.icon:before {
+.aimeos .main-sidebar .menuitem-service i.icon:before {
 	content: "\f09d"
 }
 
-.aimeos .main-sidebar .service i.icon:after {
+.aimeos .main-sidebar .menuitem-service i.icon:after {
 	content: "\f0d1"
 }
 
-.aimeos .main-sidebar .plugin i.icon:before {
+.aimeos .main-sidebar .menuitem-plugin i.icon:before {
 	content: "\f1e6"
 }
 
-.aimeos .main-sidebar .type i.icon:before {
+.aimeos .main-sidebar .menuitem-type i.icon:before {
 	content: "\f02b"
 }
 
-.aimeos .main-sidebar .locale i.icon:before {
+.aimeos .main-sidebar .menuitem-locale i.icon:before {
 	content: "\f0ac"
 }
 
-.aimeos .main-sidebar .locale-site i.icon:before {
+.aimeos .main-sidebar .menuitem-locale-site i.icon:before {
 	content: "\f233"
 }
 
-.aimeos .main-sidebar .locale-language i.icon:before {
+.aimeos .main-sidebar .menuitem-locale-language i.icon:before {
 	content: "\f1ab"
 }
 
-.aimeos .main-sidebar .locale-currency i.icon:before {
+.aimeos .main-sidebar .menuitem-locale-currency i.icon:before {
 	content: "\f155"
 }
 
-.aimeos .main-sidebar .log i.icon:before {
+.aimeos .main-sidebar .menuitem-log i.icon:before {
 	content: "\f187"
 }
 
-.aimeos .main-sidebar .language i.icon:before {
+.aimeos .main-sidebar .menuitem-language i.icon:before {
 	content: "\f1ab"
-}
-
-.aimeos .toggle-nav-items-texts i.icon:before {
-	content: "\f0d7";
-}
-
-.aimeos .toggle-nav-items-texts i.icon:before {
-	color: var(--bs-menu, #ffffff);
 }
 
 
