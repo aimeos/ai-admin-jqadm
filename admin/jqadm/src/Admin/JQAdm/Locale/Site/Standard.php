@@ -123,7 +123,7 @@ class Standard
 
 			foreach( $items as $id => $item )
 			{
-				$this->checkSite( $view->access( 'super' ), $id );
+				$this->checkSite( $view->access( 'super' ), $item->getSiteId() );
 				$view->item = $item;
 				parent::delete();
 			}
@@ -158,12 +158,12 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
 			}
 
-			$this->checkSite( $view->access( 'super' ), $id );
+			$item = \Aimeos\MShop::create( $this->getContext(), 'locale/site' )->get( $id );
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
+			$this->checkSite( $view->access( 'super' ), $item->getSiteId() );
 
-			$view->item = $manager->get( $id );
-			$view->itemData = $this->toArray( $view->item );
+			$view->item = $item;
+			$view->itemData = $this->toArray( $item );
 			$view->itemBody = parent::get();
 		}
 		catch( \Exception $e )
@@ -364,7 +364,7 @@ class Standard
 	 */
 	protected function checkSite( bool $super, string $id = null )
 	{
-		if( $super === true || (string) $this->getUserSiteId() === (string) $id ) {
+		if( $super === true || $id === null || (string) $this->getUserSiteId() === (string) $id ) {
 			return;
 		}
 
