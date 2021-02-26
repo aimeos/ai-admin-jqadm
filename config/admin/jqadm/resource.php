@@ -27,6 +27,15 @@ return [
 		 */
 		'key' => 'D',
 	],
+	'sales' => [
+		/** admin/jqadm/resource/sales/groups
+		 * List of user groups that are allowed to access the sales submenu
+		 *
+		 * @param array List of user group names
+		 * @since 2021.04
+		 */
+		'groups' => ['admin', 'editor', 'super'],
+	],
 	'order' => [
 		/** admin/jqadm/resource/order/groups
 		 * List of user groups that are allowed to access the order panel
@@ -61,9 +70,18 @@ return [
 		 */
 		'key' => 'B',
 	],
+	'users' => [
+		/** admin/jqadm/resource/users/groups
+		 * List of user groups that are allowed to access the users submenu
+		 *
+		 * @param array List of user group names
+		 * @since 2021.04
+		 */
+		'groups' => ['admin', 'editor', 'super'],
+	],
 	'customer' => [
 		/** admin/jqadm/resource/customer/groups
-		 * List of user groups that are allowed to access the user panel
+		 * List of user groups that are allowed to access the customer panel
 		 *
 		 * @param array List of user group names
 		 * @since 2017.10
@@ -77,6 +95,32 @@ return [
 		 * @since 2017.10
 		 */
 		'key' => 'U',
+	],
+	'group' => [
+		/** admin/jqadm/resource/group/groups
+		 * List of user groups that are allowed to access the group panel
+		 *
+		 * @param array List of user group names
+		 * @since 2017.10
+		 */
+		'groups' => ['admin', 'super'],
+
+		/** admin/jqadm/resource/group/key
+		 * Shortcut key to switch to the group panel by using the keyboard
+		 *
+		 * @param string Single character in upper case
+		 * @since 2018.07
+		 */
+		'key' => 'G',
+	],
+	'goods' => [
+		/** admin/jqadm/resource/goods/groups
+		 * List of user groups that are allowed to access the goods submenu
+		 *
+		 * @param array List of user group names
+		 * @since 2021.04
+		 */
+		'groups' => ['admin', 'editor', 'super'],
 	],
 	'product' => [
 		/** admin/jqadm/resource/product/groups
@@ -129,6 +173,32 @@ return [
 		 */
 		'key' => 'A',
 	],
+	'supplier' => [
+		/** admin/jqadm/resource/supplier/groups
+		 * List of user groups that are allowed to access the supplier panel
+		 *
+		 * @param array List of user group names
+		 * @since 2017.10
+		 */
+		'groups' => ['admin', 'editor', 'super'],
+
+		/** admin/jqadm/resource/supplier/key
+		 * Shortcut key to switch to the supplier panel by using the keyboard
+		 *
+		 * @param string Single character in upper case
+		 * @since 2017.10
+		 */
+		'key' => 'I',
+	],
+	'marketing' => [
+		/** admin/jqadm/resource/marketing/groups
+		 * List of user groups that are allowed to access the marketing submenu
+		 *
+		 * @param array List of user group names
+		 * @since 2021.04
+		 */
+		'groups' => ['admin', 'editor', 'super'],
+	],
 	'coupon' => [
 		/** admin/jqadm/resource/coupon/groups
 		 * List of user groups that are allowed to access the voucher panel
@@ -163,22 +233,14 @@ return [
 		 */
 		'key' => 'R',
 	],
-	'supplier' => [
-		/** admin/jqadm/resource/supplier/groups
-		 * List of user groups that are allowed to access the supplier panel
+	'settings' => [
+		/** admin/jqadm/resource/settings/groups
+		 * List of user groups that are allowed to access the settings submenu
 		 *
 		 * @param array List of user group names
-		 * @since 2017.10
+		 * @since 2021.04
 		 */
-		'groups' => ['admin', 'editor', 'super'],
-
-		/** admin/jqadm/resource/supplier/key
-		 * Shortcut key to switch to the supplier panel by using the keyboard
-		 *
-		 * @param string Single character in upper case
-		 * @since 2017.10
-		 */
-		'key' => 'I',
+		'groups' => ['admin', 'super'],
 	],
 	'service' => [
 		/** admin/jqadm/resource/service/groups
@@ -213,23 +275,6 @@ return [
 		 * @since 2017.10
 		 */
 		'key' => 'N',
-	],
-	'group' => [
-		/** admin/jqadm/resource/group/groups
-		 * List of user groups that are allowed to access the group panel
-		 *
-		 * @param array List of user group names
-		 * @since 2017.10
-		 */
-		'groups' => ['admin', 'super'],
-
-		/** admin/jqadm/resource/group/key
-		 * Shortcut key to switch to the group panel by using the keyboard
-		 *
-		 * @param string Single character in upper case
-		 * @since 2018.07
-		 */
-		'key' => 'G',
 	],
 	'locale' => [
 		/** admin/jqadm/resource/locale/groups
