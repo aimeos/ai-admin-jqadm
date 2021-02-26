@@ -183,10 +183,10 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 					<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? current( $nav ) ?>
 
 						<li class="treeview menuitem-<?= $enc->attr( $nav ) ?> <?= $nav === $before ? 'before' : '' ?> <?= in_array( $resource, $navitem ) !== false ? 'active' : '' ?> <?= $nav === $after ? 'after' : '' ?>">
-							<span>
+							<a class="name" href="#">
 								<i class="icon"></i>
 								<span class="title"><?= $enc->attr( $this->translate( 'admin', $nav ) ); ?></span>
-							</span>
+							</a>
 							<div class="tree-menu-wrapper">
 								<div class="menu-header">
 									<a href="#"><?= $enc->html( $this->translate( 'admin', $nav ) ); ?></a>

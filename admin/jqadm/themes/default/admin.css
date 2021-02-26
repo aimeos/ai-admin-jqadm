@@ -304,6 +304,7 @@
 }
 
 .aimeos .item .form-group.mandatory label:after {
+	margin-left: 0.25rem;
 	white-space: nowrap;
 	content: " *";
 }
