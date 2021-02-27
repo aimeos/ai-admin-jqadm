@@ -670,13 +670,9 @@ Vue.component('taxrates', {
 Vue.component('site-tree-items', {
 	template: `
 		<ul v-if="Object.keys(items).length" class="tree-menu">
-			<li v-for="(item, id) in items" v-bind:key="id">
-				<a v-bind:href="url.replace('_code_', item['locale.site.code'])" v-bind:class="{
-					enabled: item['locale.site.status'] == 1,
-					disabled: item['locale.site.status'] == 0,
-					review: item['locale.site.status'] == -1,
-					archived: item['locale.site.status'] == -2
-				}">
+			<li v-for="(item, id) in items" v-bind:key="id" v-bind:class="{active: current == id}">
+				<a v-bind:href="url.replace('_code_', item['locale.site.code']).replace('_id_', id)"
+					v-bind:class="'status-' + item['locale.site.status']">
 					<span class="name">{{ item['locale.site.label'] }}</span>
 				</a><!--
 				--><span v-if="tree && item['locale.site.hasChildren'] && !filter"
@@ -685,12 +681,15 @@ Vue.component('site-tree-items', {
 						'icon-open': !item.isOpen,
 						'icon-close': item.isOpen,
 						'icon-loading fa-pulse': item.isLoading
-					}"></span>
+					}">
+				</span>
 				<site-tree-items v-if="tree && (item.isOpen || Object.keys(item.children || {}).length)"
+					v-on="$listeners"
 					v-on:loading="loading(id, $event)"
 					v-bind:initial="item.children || {}"
-					v-bind:level="level + 1"
 					v-bind:promise="promise"
+					v-bind:current="current"
+					v-bind:level="level + 1"
 					v-bind:filter="filter"
 					v-bind:parent="id"
 					v-bind:tree="tree"
@@ -706,6 +705,7 @@ Vue.component('site-tree-items', {
 		tree: {type: Boolean, default: false},
 		promise: {type: Object, required: true},
 		initial: {type: Object, default: {}},
+		current: {type: String, default: ''},
 		parent: {type: String, default: '0'},
 		filter: {type: String, default: ''},
 		level: {type: Number, default: 0}
@@ -721,8 +721,14 @@ Vue.component('site-tree-items', {
 	},
 
 	mounted() {
-		if(this.filter && Object.keys(this.initial).length) {
+		if(this.filter || Object.keys(this.initial).length) {
 			this.items = this.initial;
+
+			for(const id in this.initial) {
+				if(id == this.current) {
+					this.$emit('select', this.initial[id]);
+				}
+			}
 		} else {
 			this.fetch();
 		}
@@ -734,7 +740,6 @@ Vue.component('site-tree-items', {
 			self.$emit('loading', true);
 
 			this.promise.done(function(response) {
-
 				const param = {};
 
 				param['filter'] = {'==': {'locale.site.parentid': self.parent}};
@@ -749,7 +754,7 @@ Vue.component('site-tree-items', {
 					]};
 				}
 
-				param['fields'] = {'locale/site': 'locale.site.code,locale.site.label,locale.site.status,locale.site.hasChildren'};
+				param['fields'] = {'locale/site': 'locale.site.siteid,locale.site.code,locale.site.label,locale.site.status,locale.site.hasChildren'};
 				param['page'] = {'offset': self.offset, 'limit': self.limit};
 				param['sort'] = 'locale.site.id';
 
@@ -801,7 +806,7 @@ Vue.component('site-tree-items', {
 		},
 
 		more() {
-			return !Object.keys(this.initial).length && (this.total === null || this.offset + this.limit < this.total);
+			return (!this.filter || !Object.keys(this.initial).length) && (this.total === null || this.offset + this.limit < this.total);
 		},
 
 		next() {
@@ -838,14 +843,17 @@ Vue.component('site-tree', {
 			<div class="filter">
 				<input class="form-control" v-bind:placeholder="placeholder" v-model:value="filter" />
 			</div>
-			<site-tree-items v-bind:url="url" v-bind:promise="promise" v-bind:filter="filter"></site-tree-items>
+			<site-tree-items v-bind:url="url" v-bind:promise="promise"
+				v-bind:filter="filter" v-bind:current="id">
+			</site-tree-items>
 		</div>
 	`,
 
 	props: {
 		url: {type: String, required: true},
 		promise: {type: Object, required: true },
-		placeholder: {type: String, default: 'Find site'}
+		placeholder: {type: String, default: 'Find site'},
+		current: {type: String, default: ''},
 	},
 
 	data() {

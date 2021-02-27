@@ -166,8 +166,10 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 							<div class="menu-body vue" data-key="sidebar-sites">
 								<site-tree
 									v-bind:promise="Aimeos.options"
+									current="<?= $enc->attr( $this->pageSiteItem->getId() ) ?>"
+									parent="<?= $enc->attr( $this->pageSitePath->getParentId()->first() ) ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find site' ) ) ?>"
-									v-bind:url="'<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => '_code_' ) + $params, [], $config ) ) ?>'">
+									url="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => '_code_' ) + $params, [], $config ) ) ?>">
 								</site-tree>
 							</div>
 						</div>
@@ -183,10 +185,10 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 					<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? current( $nav ) ?>
 
 						<li class="treeview menuitem-<?= $enc->attr( $nav ) ?> <?= $nav === $before ? 'before' : '' ?> <?= in_array( $resource, $navitem ) !== false ? 'active' : '' ?> <?= $nav === $after ? 'after' : '' ?>">
-							<a class="name" href="#">
+							<span>
 								<i class="icon"></i>
 								<span class="title"><?= $enc->attr( $this->translate( 'admin', $nav ) ); ?></span>
-							</a>
+							</span>
 							<div class="tree-menu-wrapper">
 								<div class="menu-header">
 									<a href="#"><?= $enc->html( $this->translate( 'admin', $nav ) ); ?></a>

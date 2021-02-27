@@ -159,11 +159,6 @@
 	color: var(--bs-secondary, #707880);
 }
 
-.aimeos .main-sidebar:hover li.active {
-	border-left-color: transparent;
-	background-color: var(--bs-menu-bg, #30a0e0);
-}
-
 .aimeos .main-sidebar .sidebar-menu > li {
 	background-color: var(--bs-primary, #30a0e0);
 }
@@ -329,17 +324,21 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu a:hover,
-.aimeos .sidebar-menu li .tree-menu li:hover,
-.aimeos .sidebar-menu li .tree-menu li.active {
+.aimeos .sidebar-menu li .tree-menu li:hover {
 	color: var(--bs-primary, #30a0e0);
 }
 
 .aimeos .sidebar-menu li .tree-menu a {
-	border-left-color: transparent;
 	padding: 0.5rem 0;
+	padding-left: 0.5rem;
 	display: inline-block;
+	text-decoration: none;
 	width: calc(100% - 2rem);
 	color: var(--bs-secondary, #707880);
+}
+
+.aimeos .sidebar-menu li .tree-menu li.active > a {
+	border-left: 3px solid var(--bs-primary-light, #5bb3e6);
 }
 
 .aimeos .sidebar-menu li .tree-menu .icon-open,
@@ -363,29 +362,29 @@
 	content: "\f110";
 }
 
-.aimeos .sidebar-menu li .tree-menu .disabled,
-.aimeos .sidebar-menu li .tree-menu .review,
-.aimeos .sidebar-menu li .tree-menu .archived {
+.aimeos .sidebar-menu li .tree-menu .status-0,
+.aimeos .sidebar-menu li .tree-menu .status--1,
+.aimeos .sidebar-menu li .tree-menu .status--2 {
 	text-decoration: line-through;
 }
 
-.aimeos .sidebar-menu li .tree-menu .enabled:before,
-.aimeos .sidebar-menu li .tree-menu .disabled:before,
-.aimeos .sidebar-menu li .tree-menu .review:before,
-.aimeos .sidebar-menu li .tree-menu .archived:before {
+.aimeos .sidebar-menu li .tree-menu .status-1:before,
+.aimeos .sidebar-menu li .tree-menu .status-0:before,
+.aimeos .sidebar-menu li .tree-menu .status--1:before,
+.aimeos .sidebar-menu li .tree-menu .status--2:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	margin-right: 0.5rem;
 }
 
-.aimeos .sidebar-menu li .tree-menu .disabled:before {
+.aimeos .sidebar-menu li .tree-menu .status-0:before {
 	content: "\f05e";
 }
 
-.aimeos .sidebar-menu li .tree-menu .review:before {
+.aimeos .sidebar-menu li .tree-menu .status--1:before {
 	content: "\f06e";
 }
 
-.aimeos .sidebar-menu li .tree-menu .archived:before {
+.aimeos .sidebar-menu li .tree-menu .status--2:before {
 	content: "\f187";
 }
 
