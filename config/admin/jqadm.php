@@ -94,7 +94,8 @@ return [
 			],
 			'quick' => [
 				'subparts' => [
-					'counttotal' => 'counttotal'
+					'counttotal' => 'counttotal',
+					'countcompleted' => 'countcompleted'
 				]
 			]
 		],
