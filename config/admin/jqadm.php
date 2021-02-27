@@ -80,6 +80,7 @@ return [
 		],
 		'order' => [
 			'subparts' => [
+				'quick' => 'quick',
 				'latest' => 'latest',
 				'salesday' => 'salesday',
 				'salesmonth' => 'salesmonth',

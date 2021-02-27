@@ -7,8 +7,8 @@
 
 $enc = $this->encoder();
 
-?>
 
+?>
 <div class="chart bar order-counthour col-xl-6">
 	<div class="box">
 		<div class="header"
