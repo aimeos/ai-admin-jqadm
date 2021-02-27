@@ -675,7 +675,7 @@ Vue.component('site-tree-items', {
 					v-bind:class="'status-' + item['locale.site.status']">
 					<span class="name">{{ item['locale.site.label'] }}</span>
 				</a><!--
-				--><span v-if="tree && item['locale.site.hasChildren'] && !filter"
+				--><span v-if="tree && item['locale.site.hasChildren'] && !item.children && !filter"
 					v-on:click.stop="toggle(id)" class="icon"
 					v-bind:class="{
 						'icon-open': !item.isOpen,

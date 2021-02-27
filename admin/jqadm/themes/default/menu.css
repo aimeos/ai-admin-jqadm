@@ -315,7 +315,10 @@
 	list-style: none;
 	overflow-y: auto;
 	padding: 0;
-	margin: 0;
+	margin: 0 0.5rem;
+}
+
+.aimeos .sidebar-menu li .tree-menu .tree-menu {
 	margin-left: 1rem;
 }
 
