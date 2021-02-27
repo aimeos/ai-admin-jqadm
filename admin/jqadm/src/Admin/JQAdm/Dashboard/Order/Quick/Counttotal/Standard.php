@@ -8,13 +8,13 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Dashboard\Order\Quick\Countorder;
+namespace Aimeos\Admin\JQAdm\Dashboard\Order\Quick\Counttotal;
 
-sprintf( 'quick/countorder' ); // for translation
+sprintf( 'quick/counttotal' ); // for translation
 
 
 /**
- * Default implementation of dashboard quick/countorder JQAdm client.
+ * Default implementation of dashboard quick/counttotal JQAdm client.
  *
  * @package Admin
  * @subpackage JQAdm
@@ -23,10 +23,10 @@ class Standard
 	extends \Aimeos\Admin\JQAdm\Common\Admin\Factory\Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
-	/** admin/jqadm/dashboard/order/quick/countorder/name
-	 * Name of the order quick/countorder subpart used by the JQAdm dashboard implementation
+	/** admin/jqadm/dashboard/order/quick/counttotal/name
+	 * Name of the order quick/counttotal subpart used by the JQAdm dashboard implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Order\Quick\Countorder\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Dashboard\Order\Quick\Counttotal\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
@@ -43,10 +43,10 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->getView();
-		$view->orderQuickCountorderBody = parent::search();
+		$view->quickCounttotalBody = parent::search();
 
-		/** admin/jqadm/dashboard/order/quick/countorder/template-item
-		 * Relative path to the HTML body template of the order per quick/countorder subpart for the dashboard.
+		/** admin/jqadm/dashboard/order/quick/counttotal/template-item
+		 * Relative path to the HTML body template of the order per quick/counttotal subpart for the dashboard.
 		 *
 		 * The template file contains the HTML code and processing instructions
 		 * to generate the result shown in the body of the frontend. The
@@ -64,8 +64,8 @@ class Standard
 		 * @since 2021.04
 		 * @category Developer
 		 */
-		$tplconf = 'admin/jqadm/dashboard/order/quick/countorder/template-item';
-		$default = 'dashboard/item-order-quick-countorder-standard';
+		$tplconf = 'admin/jqadm/dashboard/order/quick/counttotal/template-item';
+		$default = 'dashboard/item-order-quick-counttotal-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -80,7 +80,7 @@ class Standard
 	 */
 	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
-		/** admin/jqadm/dashboard/order/quick/countorder/decorators/excludes
+		/** admin/jqadm/dashboard/order/quick/counttotal/decorators/excludes
 		 * Excludes decorators added by the "common" option from the dashboard JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -92,7 +92,7 @@ class Standard
 		 * "admin/jqadm/common/decorators/default" before they are wrapped
 		 * around the JQAdm client.
 		 *
-		 *  admin/jqadm/dashboard/order/quick/countorder/decorators/excludes = array( 'decorator1' )
+		 *  admin/jqadm/dashboard/order/quick/counttotal/decorators/excludes = array( 'decorator1' )
 		 *
 		 * This would remove the decorator named "decorator1" from the list of
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
@@ -102,11 +102,11 @@ class Standard
 		 * @since 2021.04
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/dashboard/order/quick/countorder/decorators/global
-		 * @see admin/jqadm/dashboard/order/quick/countorder/decorators/local
+		 * @see admin/jqadm/dashboard/order/quick/counttotal/decorators/global
+		 * @see admin/jqadm/dashboard/order/quick/counttotal/decorators/local
 		 */
 
-		/** admin/jqadm/dashboard/order/quick/countorder/decorators/global
+		/** admin/jqadm/dashboard/order/quick/counttotal/decorators/global
 		 * Adds a list of globally available decorators only to the dashboard JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -117,7 +117,7 @@ class Standard
 		 * This option allows you to wrap global decorators
 		 * ("\Aimeos\Admin\JQAdm\Common\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/dashboard/order/quick/countorder/decorators/global = array( 'decorator1' )
+		 *  admin/jqadm/dashboard/order/quick/counttotal/decorators/global = array( 'decorator1' )
 		 *
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
@@ -126,11 +126,11 @@ class Standard
 		 * @since 2021.04
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/dashboard/order/quick/countorder/decorators/excludes
-		 * @see admin/jqadm/dashboard/order/quick/countorder/decorators/local
+		 * @see admin/jqadm/dashboard/order/quick/counttotal/decorators/excludes
+		 * @see admin/jqadm/dashboard/order/quick/counttotal/decorators/local
 		 */
 
-		/** admin/jqadm/dashboard/order/quick/countorder/decorators/local
+		/** admin/jqadm/dashboard/order/quick/counttotal/decorators/local
 		 * Adds a list of local decorators only to the dashboard JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
@@ -141,7 +141,7 @@ class Standard
 		 * This option allows you to wrap local decorators
 		 * ("\Aimeos\Admin\JQAdm\Dashboard\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/dashboard/order/quick/countorder/decorators/local = array( 'decorator2' )
+		 *  admin/jqadm/dashboard/order/quick/counttotal/decorators/local = array( 'decorator2' )
 		 *
 		 * This would add the decorator named "decorator2" defined by
 		 * "\Aimeos\Admin\JQAdm\Dashboard\Decorator\Decorator2" only to the JQAdm client.
@@ -150,10 +150,10 @@ class Standard
 		 * @since 2021.04
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/dashboard/order/quick/countorder/decorators/excludes
-		 * @see admin/jqadm/dashboard/order/quick/countorder/decorators/global
+		 * @see admin/jqadm/dashboard/order/quick/counttotal/decorators/excludes
+		 * @see admin/jqadm/dashboard/order/quick/counttotal/decorators/global
 		 */
-		return $this->createSubClient( 'dashboard/order/quick/countorder/' . $type, $name );
+		return $this->createSubClient( 'dashboard/order/quick/counttotal/' . $type, $name );
 	}
 
 
@@ -164,8 +164,8 @@ class Standard
 	 */
 	protected function getSubClientNames() : array
 	{
-		/** admin/jqadm/dashboard/order/quick/countorder/subparts
-		 * List of JQAdm sub-clients rendered within the dashboard quick/countorder section
+		/** admin/jqadm/dashboard/order/quick/counttotal/subparts
+		 * List of JQAdm sub-clients rendered within the dashboard quick/counttotal section
 		 *
 		 * The output of the frontend is composed of the code generated by the JQAdm
 		 * clients. Each JQAdm client can consist of serveral (or none) sub-clients
@@ -197,6 +197,6 @@ class Standard
 		 * @since 2021.04
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/dashboard/order/quick/countorder/subparts', [] );
+		return $this->getContext()->getConfig()->get( 'admin/jqadm/dashboard/order/quick/counttotal/subparts', [] );
 	}
 }

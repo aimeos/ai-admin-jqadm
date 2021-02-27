@@ -9,7 +9,7 @@ $enc = $this->encoder();
 
 
 ?>
-<div class="quick order-quick-countorder col-sm-6 col-xl-3"
+<div class="quick order-quick-counttotal col-sm-6 col-xl-3"
 	title="<?= $enc->attr( $this->translate( 'admin', 'Total orders within the last seven days compared to the period before' ) ) ?>">
 	<div class="box row">
 		<div class="col quick-left">
@@ -24,4 +24,4 @@ $enc = $this->encoder();
 		</div>
 	</div>
 </div>
-<?= $this->get( 'orderQuickCountorderBody' ); ?>
+<?= $this->get( 'quickCounttotalBody' ); ?>

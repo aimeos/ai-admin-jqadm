@@ -44,7 +44,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$result = $this->object->getSubClient( 'countorder' );
+		$result = $this->object->getSubClient( 'counttotal' );
 		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );
 	}
 }

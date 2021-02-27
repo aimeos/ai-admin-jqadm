@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\Admin\JQAdm\Dashboard\Order\Quick\Countorder;
+namespace Aimeos\Admin\JQAdm\Dashboard\Order\Quick\Counttotal;
 
 
 class StandardTest extends \PHPUnit\Framework\TestCase
@@ -21,7 +21,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelperJqadm::getView();
 		$this->context = \TestHelperJqadm::getContext();
 
-		$this->object = new \Aimeos\Admin\JQAdm\Dashboard\Order\Quick\Countorder\Standard( $this->context );
+		$this->object = new \Aimeos\Admin\JQAdm\Dashboard\Order\Quick\Counttotal\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
 		$this->object->setView( $this->view );
@@ -38,6 +38,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$result = $this->object->search();
 
-		$this->assertStringContainsString( 'order-quick-countorder', $result );
+		$this->assertStringContainsString( 'order-quick-counttotal', $result );
 	}
 }

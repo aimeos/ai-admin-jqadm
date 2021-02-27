@@ -92,6 +92,11 @@ return [
 				'servicepayment' => 'servicepayment',
 				'servicedelivery' => 'servicedelivery',
 			],
+			'quick' => [
+				'subparts' => [
+					'counttotal' => 'counttotal'
+				]
+			]
 		],
 	],
 	'order' => [
