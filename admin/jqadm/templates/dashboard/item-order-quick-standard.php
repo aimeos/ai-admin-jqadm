@@ -9,6 +9,8 @@ $enc = $this->encoder();
 
 
 ?>
-<div class="dashboard-order-quick row vue">
-	<?= $this->get( 'orderQuickBody' ); ?>
+<div class="col-xs-12">
+	<div class="dashboard-order-quick row vue">
+		<?= $this->get( 'orderQuickBody' ); ?>
+	</div>
 </div>

@@ -29,6 +29,71 @@
 }
 
 
+.dashboard .quick-header {
+	font-size: 1rem;
+}
+
+.dashboard .quick-number {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.dashboard .quick-right {
+	text-align: right;
+}
+
+.dashboard .quick-percent {
+	padding: 0.2rem 0.5rem;
+	border-radius: 2rem;
+	margin: 0.25rem 0;
+	font-size: 80%;
+	min-width: 3.5rem;
+	font-weight: bold;
+	text-align: center;
+	display: inline-block;
+}
+
+.dashboard .quick-percent.positive {
+	background-color: #d8f8e8;
+	color: #00998c;
+}
+
+.dashboard .quick-percent.neutral {
+	background-color: #e9f4fc;
+	color: #1080c0;
+}
+
+.dashboard .quick-percent.negative {
+	background-color: #ffebf0;
+	color: #d80028;
+}
+
+.dashboard .quick-progress {
+	background-color: var(--bs-line-light, #dee2e6);
+}
+
+.dashboard .quick-length {
+	height: 0.2rem;
+	width: 100%;
+}
+
+.dashboard .order-quick-countorder .quick-length {
+	background-color: #30a0e0;
+}
+
+.dashboard .order-quick-countcompleted .quick-length {
+	background-color: #00b0a0;
+}
+
+.dashboard .order-quick-countunfinished .quick-length {
+	background-color: #d80028;
+}
+
+.dashboard .order-quick-countcustomer .quick-length {
+	background-color: #9040C8;
+}
+
+
 .dashboard .chart .content {
 	position: relative;
 }

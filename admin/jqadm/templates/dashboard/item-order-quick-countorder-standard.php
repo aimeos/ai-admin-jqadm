@@ -9,16 +9,19 @@ $enc = $this->encoder();
 
 
 ?>
-<div class="quick order-quick-countorder col-md-6 col-xl-3">
-	<div class="box">
-		<h2 class="quick-header">
-			<?= $enc->html( $this->translate( 'admin', 'Orders' ) ); ?>
-		</h2>
-		<div class="quick-body row">
-			<div class="col quick-number"></div>
-			<div class="col quick-difference"></div>
+<div class="quick order-quick-countorder col-sm-6 col-xl-3"
+	title="<?= $enc->attr( $this->translate( 'admin', 'Total orders within the last seven days compared to the period before' ) ) ?>">
+	<div class="box row">
+		<div class="col quick-left">
+			<div class="quick-number">0</div>
 		</div>
-		<div class="quick-progress"></div>
+		<div class="col quick-right">
+			<div class="quick-percent"></div>
+		</div>
+		<div class="col-xs-12">
+			<h2 class="quick-header"><?= $enc->html( $this->translate( 'admin', 'Total orders' ) ) ?></h2>
+			<div class="quick-progress"><div class="quick-length"></div></div>
+		</div>
 	</div>
 </div>
 <?= $this->get( 'orderQuickCountorderBody' ); ?>
