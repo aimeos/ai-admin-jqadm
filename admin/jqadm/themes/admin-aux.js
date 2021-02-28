@@ -452,7 +452,7 @@ Aimeos.ProductRef = {
 
 
 			columns: function(json, key) {
-				const list = [];
+				let list = [];
 				try {
 					if(window.sessionStorage) {
 						list = JSON.parse(window.sessionStorage.getItem(key)) || [];
