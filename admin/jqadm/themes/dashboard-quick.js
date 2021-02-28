@@ -228,3 +228,70 @@ Vue.component('dashboard-order-quick-countunfinished', {
 		}
 	}
 });
+
+
+
+Vue.component('dashboard-order-quick-countcustomer', {
+	props: {
+		limit: {type: Number, default: 10000},
+	},
+
+	data() {
+		return {
+			mood: '',
+			state: '',
+			current: 0,
+			enddate: null,
+			startdate: null,
+			lastdate: null,
+		}
+	},
+
+	mounted() {
+		this.enddate = moment().utc();
+		this.startdate = moment().utc().subtract(7, 'days');
+		this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
+
+		this.fetch();
+	},
+
+	computed: {
+		percent() {
+			return '';
+		},
+
+		width() {
+			return this.current ? 100 : 0;
+		}
+	},
+
+	methods: {
+		criteria() {
+			return {"&&": [
+				{">": {"customer.ctime": this.startdate.toISOString().substr(0, 10)}},
+				{"<=": {"customer.ctime": this.enddate.toISOString().substr(0, 10)}},
+			]};
+		},
+
+		fetch() {
+			const self = this;
+			self.state = 'load';
+
+			Aimeos.Dashboard.getData("customer", "customer.status", self.criteria(), "-customer.ctime", self.limit).then(function(response) {
+				self.update(response.data);
+			}).then(function() {
+				self.state = 'done';
+			});
+		},
+
+		update(data) {
+			let current = 0;
+
+			for(const entry of data) {
+				current += Number(entry['attributes']);
+			}
+
+			this.current = current;
+		}
+	}
+});
