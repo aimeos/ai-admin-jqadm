@@ -36,6 +36,7 @@
 .dashboard .quick-number {
 	font-size: 1.5rem;
 	font-weight: bold;
+	visibility: hidden;
 }
 
 .dashboard .quick-right {
@@ -50,6 +51,7 @@
 	min-width: 3.5rem;
 	font-weight: bold;
 	text-align: center;
+	visibility: hidden;
 	display: inline-block;
 }
 
@@ -74,10 +76,33 @@
 
 .dashboard .quick-length {
 	height: 0.2rem;
-	width: 100%;
+	width: 0;
 }
 
-.dashboard .order-quick-countorder .quick-length {
+.dashboard .done .quick-length {
+	transition: width .3s linear;
+}
+
+@keyframes quick-load {
+	from { width: 0 }
+	to { width: 100% }
+}
+
+.dashboard .load .quick-length {
+	animation-name: quick-load;
+	animation-iteration-count: 15;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+	animation-fill-mode: forwards;
+	animation-duration: 2s;
+}
+
+.dashboard .done .quick-number,
+.dashboard .done .quick-percent {
+	visibility: visible;
+}
+
+.dashboard .order-quick-counttotal .quick-length {
 	background-color: #30a0e0;
 }
 
