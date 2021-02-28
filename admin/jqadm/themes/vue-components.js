@@ -706,7 +706,7 @@ Vue.component('site-tree-items', {
 		promise: {type: Object, required: true},
 		initial: {type: Object, default: {}},
 		current: {type: String, default: ''},
-		parent: {type: String, default: '0'},
+		parent: {type: String, default: ''},
 		filter: {type: String, default: ''},
 		level: {type: Number, default: 0}
 	},
@@ -742,7 +742,9 @@ Vue.component('site-tree-items', {
 			this.promise.done(function(response) {
 				const param = {};
 
-				param['filter'] = {'==': {'locale.site.parentid': self.parent}};
+				if(self.parent) {
+					param['filter'] = {'==': {'locale.site.parentid': self.parent}};
+				}
 
 				if(self.filter) {
 					param['filter'] = {'&&': [
@@ -772,12 +774,12 @@ Vue.component('site-tree-items', {
 				}
 
 				axios.get(response.meta.resources['locale/site'], config).then(response => {
-					if(!response.data) {
+					if(!response.data || !response.data.data) {
 						console.error( '[Aimeos] Invalid response for locale/site resource:', response );
 						return;
 					}
 
-					for(const entry of response.data.data) {
+					for(const entry of (response.data.data || [])) {
 						self.$set(self.items, entry['id'], entry['attributes']);
 					}
 
@@ -844,7 +846,7 @@ Vue.component('site-tree', {
 				<input class="form-control" v-bind:placeholder="placeholder" v-model:value="filter" />
 			</div>
 			<site-tree-items v-bind:url="url" v-bind:promise="promise"
-				v-bind:filter="filter" v-bind:current="id">
+				v-bind:filter="filter" v-bind:current="current">
 			</site-tree-items>
 		</div>
 	`,

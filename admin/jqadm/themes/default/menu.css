@@ -320,6 +320,7 @@
 
 .aimeos .sidebar-menu li .tree-menu .tree-menu {
 	margin-left: 1rem;
+	margin-right: 0;
 }
 
 .aimeos .sidebar-menu li .tree-menu .more {

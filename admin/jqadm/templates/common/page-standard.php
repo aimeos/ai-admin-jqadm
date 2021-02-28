@@ -167,7 +167,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 								<site-tree
 									v-bind:promise="Aimeos.options"
 									current="<?= $enc->attr( $this->pageSiteItem->getId() ) ?>"
-									parent="<?= $enc->attr( $this->pageSitePath->getParentId()->first() ) ?>"
+									parent="<?= $enc->attr( $this->pageSitePath->getParentId()->first( '0' ) ) ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find site' ) ) ?>"
 									url="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => '_code_' ) + $params, [], $config ) ) ?>">
 								</site-tree>
