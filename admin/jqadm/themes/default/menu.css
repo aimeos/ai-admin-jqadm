@@ -324,6 +324,7 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu .more {
+	padding-left: 0.75rem;
 	text-align: left;
 }
 

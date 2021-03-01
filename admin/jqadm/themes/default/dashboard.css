@@ -36,7 +36,7 @@
 .dashboard .quick-number {
 	font-size: 1.5rem;
 	font-weight: bold;
-	visibility: hidden;
+	opacity: 0;
 }
 
 .dashboard .quick-right {
@@ -46,12 +46,12 @@
 .dashboard .quick-percent {
 	padding: 0.2rem 0.5rem;
 	border-radius: 2rem;
+	min-width: 3.5rem;
 	margin: 0.25rem 0;
 	font-size: 80%;
-	min-width: 3.5rem;
+	opacity: 0;
 	font-weight: bold;
 	text-align: center;
-	visibility: hidden;
 	display: inline-block;
 }
 
@@ -99,7 +99,8 @@
 
 .dashboard .done .quick-number,
 .dashboard .done .quick-percent {
-	visibility: visible;
+	transition: opacity .3s linear;
+	opacity: 1;
 }
 
 .dashboard .order-quick-counttotal .quick-length {
