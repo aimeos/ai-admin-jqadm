@@ -333,24 +333,21 @@ Aimeos.Dashboard.Order = {
 
 			const dsets = [], entries = {};
 
-			for(const entry in response.data) {
+			for(const entry of (response.data || [])) {
 				entries[entry['id']] = entry['attributes'];
 			}
 
 			for(const id of [-1, 0, 1, 2, 3, 4, 5, 6]) {
-				if(!entries[id]) {
-					entries[id] = {attributes: {}};
-				}
+				entries[id] = entries[id] || {};
 			}
 
 			for(const id in entries) {
-				const entry = entries[id];
 				const data = [], date = startdate.clone();
 
 				do {
 					let day = date.toISOString().substr(0, 10);
 
-					data.push({x: date.toISOString(), y: entry['attributes'][day] || 0});
+					data.push({x: date.toISOString(), y: entries[id][day] || 0});
 					date.add(1, 'days');
 				} while(date.isBefore(enddate, 'day'));
 
