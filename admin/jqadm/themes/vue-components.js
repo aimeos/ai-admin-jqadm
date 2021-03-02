@@ -675,7 +675,7 @@ Vue.component('site-tree-items', {
 					v-bind:class="'status-' + item['locale.site.status']">
 					<span class="name">{{ item['locale.site.label'] }}</span>
 				</a><!--
-				--><span v-if="tree && item['locale.site.hasChildren'] && !item.children && !filter"
+				--><span v-if="isTogglable(item)"
 					v-on:click.stop="toggle(id)" class="icon"
 					v-bind:class="{
 						'icon-open': !item.isOpen,
@@ -683,7 +683,7 @@ Vue.component('site-tree-items', {
 						'icon-loading fa-pulse': item.isLoading
 					}">
 				</span>
-				<site-tree-items v-if="tree && (item.isOpen || Object.keys(item.children || {}).length)"
+				<site-tree-items v-if="isAvailable(item)"
 					v-on="$listeners"
 					v-on:loading="loading(id, $event)"
 					v-bind:initial="item.children || {}"
@@ -791,6 +791,14 @@ Vue.component('site-tree-items', {
 					self.$emit('loading', false);
 				});
 			});
+		},
+
+		isAvailable(item) {
+			return this.tree && (item.isOpen || Object.keys(item.children || {}).length);
+		},
+
+		isTogglable(item) {
+			return this.tree && !this.filter && item['locale.site.hasChildren'] && !Object.keys(item.children || {}).length;
 		},
 
 		loading(id, val) {
