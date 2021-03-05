@@ -85,15 +85,15 @@ html {
 
 .aimeos .toast-list {
 	position: fixed;
+	bottom: 0.5rem;
 	right: 0.5rem;
-	bottom: 1rem;
 	z-index: 5;
 }
 
 .aimeos .toast {
 	width: 320px;
 	padding: 0.5rem 0;
-	margin: 0;
+	margin: 0.5rem 0;
 }
 
 .aimeos .toast.info {

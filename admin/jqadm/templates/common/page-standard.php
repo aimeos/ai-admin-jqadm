@@ -263,8 +263,10 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 	</nav>
 
 	<main class="main-content">
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/error', 'common/partials/error-standard' ), array( 'errors' => $this->get( 'errors', [] ) ) ); ?>
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'common/partials/info-standard' ), array( 'info' => array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) ) ) ); ?>
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'common/partials/info-standard' ), [
+			'info' => array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) ),
+			'error' => $this->get( 'errors', [] )
+		] ); ?>
 
 		<?= $this->block()->get( 'jqadm_content' ); ?>
 	</main>
