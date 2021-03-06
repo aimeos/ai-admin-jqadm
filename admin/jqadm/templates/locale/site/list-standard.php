@@ -88,179 +88,180 @@ $columnList = [
 	data-domain="locale/site"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
-<nav class="main-navbar">
+	<nav class="main-navbar">
 
-	<span class="navbar-brand">
-		<?= $enc->html( $this->translate( 'admin', 'Sites' ) ); ?>
-	</span>
+		<span class="navbar-brand">
+			<?= $enc->html( $this->translate( 'admin', 'Sites' ) ); ?>
+		</span>
 
-	<div class="btn fa act-search" v-on:click="search = true"
-		title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
-		aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ); ?>">
-	</div>
-</nav>
+		<div class="btn fa act-search" v-on:click="search = true"
+			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ); ?>">
+		</div>
+	</nav>
 
-<nav-search v-bind:show="search" v-on:close="search = false"
-	v-bind:url="'<?= $enc->attr( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>'"
-	v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/locale/site/filter', [] ) ) ?>"
-	v-bind:operators="<?= $enc->attr( $operators ) ?>"
-	v-bind:name="'<?= $enc->formparam( ['filter', '_key_', '0'] ) ?>'"
-	v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
-</nav-search>
+	<nav-search v-bind:show="search" v-on:close="search = false"
+		v-bind:url="'<?= $enc->attr( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>'"
+		v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/locale/site/filter', [] ) ) ?>"
+		v-bind:operators="<?= $enc->attr( $operators ) ?>"
+		v-bind:name="'<?= $enc->formparam( ['filter', '_key_', '0'] ) ?>'"
+		v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
+	</nav-search>
 
-<?= $this->partial(
-		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
-		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
-		'page' => $this->session( 'aimeos/admin/jqadm/locale/site/page', [] )]
-	);
-?>
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
+			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
+			'page' => $this->session( 'aimeos/admin/jqadm/locale/site/page', [] )]
+		);
+	?>
 
-<form ref="form" class="list list-locale-site" method="POST"
-	action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
-	data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
+	<form ref="form" class="list list-locale-site" method="POST"
+		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
+		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
 
-	<?= $this->csrf()->formfield(); ?>
+		<?= $this->csrf()->formfield(); ?>
 
-	<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-		name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
-		v-bind:titles="<?= $enc->attr( $columnList ) ?>"
-		v-bind:fields="<?= $enc->attr( $fields ) ?>"
-		v-bind:show="columns"
-		v-on:close="columns = false">
-	</column-select>
+		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+			name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
+			v-bind:titles="<?= $enc->attr( $columnList ) ?>"
+			v-bind:fields="<?= $enc->attr( $fields ) ?>"
+			v-bind:show="columns"
+			v-on:close="columns = false">
+		</column-select>
 
-	<div class="table-responsive">
-	<table class="list-items table table-hover table-striped">
-		<thead class="list-header">
-			<tr>
-				<?php if( $this->access( 'super' ) ) : ?>
-					<th class="select">
-						<a href="#" class="btn act-delete fa" tabindex="1"
-						v-on:click.prevent.stop="askDelete()"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
-					</a>
-					</th>
-				<?php endif; ?>
-
-				<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
-						['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/locale/site/sort' )]
-					);
-				?>
-
-				<th class="actions">
-					<?php if( $this->access( 'super' ) ) : ?>
-						<a class="btn fa act-add" tabindex="1"
-							href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
-						</a>
-					<?php endif; ?>
-
-					<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
-						v-on:click.prevent.stop="columns = true">
-					</a>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?= $this->partial(
-				$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
-					'fields' => $this->access( 'super' ) ? array_merge( $fields, ['select'] ) : $fields,
-					'filter' => $this->session( 'aimeos/admin/jqadm/locale/site/filter', [] ),
-					'data' => [
-						'locale.site.id' => ['op' => '=='],
-						'locale.site.status' => ['op' => '==', 'type' => 'select', 'val' => [
-							'1' => $this->translate( 'mshop/code', 'status:1' ),
-							'0' => $this->translate( 'mshop/code', 'status:0' ),
-							'-1' => $this->translate( 'mshop/code', 'status:-1' ),
-							'-2' => $this->translate( 'mshop/code', 'status:-2' ),
-						]],
-						'locale.site.code' => [],
-						'locale.site.label' => [],
-						'locale.site.config' => ['op' => '~='],
-						'locale.site.ctime' => ['op' => '-', 'type' => 'datetime-local'],
-						'locale.site.mtime' => ['op' => '-', 'type' => 'datetime-local'],
-						'locale.site.editor' => [],
-					]
-				] );
-			?>
-
-			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
-				<tr class="list-item" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
-					<?php if( $this->access( 'super' ) ) : ?>
-						<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="items['<?= $id ?>'].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
-					<?php endif; ?>
-					<?php if( in_array( 'locale.site.id', $fields ) ) : ?>
-						<td class="locale-site-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'locale.site.status', $fields ) ) : ?>
-						<td class="locale-site-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'locale.site.code', $fields ) ) : ?>
-						<td class="locale-site-code"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getCode() ); ?></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'locale.site.label', $fields ) ) : ?>
-						<td class="locale-site-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'locale.site.config', $fields ) ) : ?>
-						<td class="locale.site-config config-item">
-							<a class="items-field" href="<?= $url; ?>">
-								<?php foreach( $item->getConfig() as $key => $value ) : ?>
-									<span class="config-key"><?= $enc->html( $key ); ?></span>
-									<span class="config-value"><?= $enc->html( $value ); ?></span>
-									<br/>
-								<?php endforeach; ?>
-							</a>
-						</td>
-					<?php endif; ?>
-					<?php if( in_array( 'locale.site.ctime', $fields ) ) : ?>
-						<td class="locale-site-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'locale.site.mtime', $fields ) ) : ?>
-						<td class="locale-site-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
-					<?php endif; ?>
-					<?php if( in_array( 'locale.site.editor', $fields ) ) : ?>
-						<td class="locale-site-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
-					<?php endif; ?>
-
-					<td class="actions">
+		<div class="table-responsive">
+			<table class="list-items table table-hover table-striped">
+				<thead class="list-header">
+					<tr>
 						<?php if( $this->access( 'super' ) ) : ?>
-							<a class="btn act-copy fa" tabindex="1"
-								href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
-							</a>
-							<a class="btn act-delete fa" tabindex="1" href="#"
-								v-on:click.prevent.stop="askDelete('<?= $enc->attr( $id ) ?>')"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+							<th class="select">
+								<a href="#" class="btn act-delete fa" tabindex="1"
+								v-on:click.prevent.stop="askDelete()"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 							</a>
+							</th>
 						<?php endif; ?>
-					</td>
-				</tr>
-			<?php endforeach; ?>
-		</tbody>
-	</table>
-	</div>
 
-	<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
-		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
-	<?php endif; ?>
-</form>
+						<?= $this->partial(
+								$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
+								['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/locale/site/sort' )]
+							);
+						?>
 
-<?= $this->partial(
-		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
-		['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
-		'page' => $this->session( 'aimeos/admin/jqadm/locale/site/page', [] )]
-	);
-?>
+						<th class="actions">
+							<?php if( $this->access( 'super' ) ) : ?>
+								<a class="btn fa act-add" tabindex="1"
+									href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+								</a>
+							<?php endif; ?>
 
-<confirm-delete v-bind:items="unconfirmed" v-bind:show="dialog"
-	v-on:close="confirmDelete(false)" v-on:confirm="confirmDelete(true)"></confirm-delete>
+							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+								v-on:click.prevent.stop="columns = true">
+							</a>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?= $this->partial(
+						$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
+							'fields' => $this->access( 'super' ) ? array_merge( $fields, ['select'] ) : $fields,
+							'filter' => $this->session( 'aimeos/admin/jqadm/locale/site/filter', [] ),
+							'data' => [
+								'locale.site.id' => ['op' => '=='],
+								'locale.site.status' => ['op' => '==', 'type' => 'select', 'val' => [
+									'1' => $this->translate( 'mshop/code', 'status:1' ),
+									'0' => $this->translate( 'mshop/code', 'status:0' ),
+									'-1' => $this->translate( 'mshop/code', 'status:-1' ),
+									'-2' => $this->translate( 'mshop/code', 'status:-2' ),
+								]],
+								'locale.site.code' => [],
+								'locale.site.label' => [],
+								'locale.site.config' => ['op' => '~='],
+								'locale.site.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+								'locale.site.mtime' => ['op' => '-', 'type' => 'datetime-local'],
+								'locale.site.editor' => [],
+							]
+						] );
+					?>
+
+					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
+						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
+						<tr class="list-item" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
+							<?php if( $this->access( 'super' ) ) : ?>
+								<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="items['<?= $id ?>'].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+							<?php endif; ?>
+							<?php if( in_array( 'locale.site.id', $fields ) ) : ?>
+								<td class="locale-site-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
+							<?php endif; ?>
+							<?php if( in_array( 'locale.site.status', $fields ) ) : ?>
+								<td class="locale-site-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
+							<?php endif; ?>
+							<?php if( in_array( 'locale.site.code', $fields ) ) : ?>
+								<td class="locale-site-code"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getCode() ); ?></a></td>
+							<?php endif; ?>
+							<?php if( in_array( 'locale.site.label', $fields ) ) : ?>
+								<td class="locale-site-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
+							<?php endif; ?>
+							<?php if( in_array( 'locale.site.config', $fields ) ) : ?>
+								<td class="locale.site-config config-item">
+									<a class="items-field" href="<?= $url; ?>">
+										<?php foreach( $item->getConfig() as $key => $value ) : ?>
+											<span class="config-key"><?= $enc->html( $key ); ?></span>
+											<span class="config-value"><?= $enc->html( $value ); ?></span>
+											<br/>
+										<?php endforeach; ?>
+									</a>
+								</td>
+							<?php endif; ?>
+							<?php if( in_array( 'locale.site.ctime', $fields ) ) : ?>
+								<td class="locale-site-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
+							<?php endif; ?>
+							<?php if( in_array( 'locale.site.mtime', $fields ) ) : ?>
+								<td class="locale-site-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
+							<?php endif; ?>
+							<?php if( in_array( 'locale.site.editor', $fields ) ) : ?>
+								<td class="locale-site-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
+							<?php endif; ?>
+
+							<td class="actions">
+								<?php if( $this->access( 'super' ) ) : ?>
+									<a class="btn act-copy fa" tabindex="1"
+										href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
+										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
+									</a>
+									<a class="btn act-delete fa" tabindex="1" href="#"
+										v-on:click.prevent.stop="askDelete('<?= $enc->attr( $id ) ?>')"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+									</a>
+								<?php endif; ?>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+
+		<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
+			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
+		<?php endif; ?>
+	</form>
+
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
+			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
+			'page' => $this->session( 'aimeos/admin/jqadm/locale/site/page', [] )]
+		);
+	?>
+
+	<confirm-delete v-bind:items="unconfirmed" v-bind:show="dialog"
+		v-on:close="confirmDelete(false)" v-on:confirm="confirmDelete(true)">
+	</confirm-delete>
 
 </div>
 <?php $this->block()->stop(); ?>

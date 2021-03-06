@@ -52,91 +52,91 @@ $columnList = [
 
 <div class="list-view">
 
-<nav class="main-navbar log">
-	<span class="navbar-brand">
-		<?= $enc->html( $this->translate( 'admin', 'Log' ) ); ?>
-		<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
-	</span>
-	<span class="placeholder">&nbsp;</span>
-</nav>
+	<nav class="main-navbar log">
+		<span class="navbar-brand">
+			<?= $enc->html( $this->translate( 'admin', 'Log' ) ); ?>
+			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
+		</span>
+		<span class="placeholder">&nbsp;</span>
+	</nav>
 
 
-<?= $this->partial(
-		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
-		['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
-		'page' => $this->session( 'aimeos/admin/jqadm/log/page', [] )]
-	);
-?>
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
+			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
+			'page' => $this->session( 'aimeos/admin/jqadm/log/page', [] )]
+		);
+	?>
 
-<form class="list list-log" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
-	<?= $this->csrf()->formfield(); ?>
+	<form class="list list-log" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
+		<?= $this->csrf()->formfield(); ?>
 
-	<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-		name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
-		v-bind:titles="<?= $enc->attr( $columnList ) ?>"
-		v-bind:fields="<?= $enc->attr( $fields ) ?>"
-		v-bind:show="columns"
-		v-on:close="columns = false">
-	</column-select>
+		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+			name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
+			v-bind:titles="<?= $enc->attr( $columnList ) ?>"
+			v-bind:fields="<?= $enc->attr( $fields ) ?>"
+			v-bind:show="columns"
+			v-on:close="columns = false">
+		</column-select>
 
-	<div class="table-responsive">
-	<table class="list-items table table-hover table-striped">
-		<thead class="list-header">
-			<tr>
+		<div class="table-responsive">
+			<table class="list-items table table-hover table-striped">
+				<thead class="list-header">
+					<tr>
 
-				<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
-						['fields' => $fields, 'params' => $params, 'data' => $columnList,
-						'sort' => $this->session( 'aimeos/admin/jqadm/log/sort', '-log.timestamp' )]
-					);
-				?>
+						<?= $this->partial(
+								$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
+								['fields' => $fields, 'params' => $params, 'data' => $columnList,
+								'sort' => $this->session( 'aimeos/admin/jqadm/log/sort', '-log.timestamp' )]
+							);
+						?>
 
-				<th class="actions">
-					<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
-						v-on:click.prevent.stop="columns = true">
-					</a>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
+						<th class="actions">
+							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+								v-on:click.prevent.stop="columns = true">
+							</a>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
 
-			<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-				<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
-					<?php if( in_array( 'log.timestamp', $fields ) ) : ?>
-						<td class="log-timestamp"><?= $enc->attr( $item->getTimestamp() ); ?></td>
-					<?php endif; ?>
-					<?php if( in_array( 'log.facility', $fields ) ) : ?>
-						<td class="log-facility"><?= $enc->html( $item->getFacility() ); ?></td>
-					<?php endif; ?>
-					<?php if( in_array( 'log.priority', $fields ) ) : ?>
-						<td class="log-priority"><?= $enc->html( $item->getPriority() ); ?></td>
-					<?php endif; ?>
-					<?php if( in_array( 'log.request', $fields ) ) : ?>
-						<td class="log-request"><?= $enc->html( $item->getRequest() ); ?></td>
-					<?php endif; ?>
-					<?php if( in_array( 'log.message', $fields ) ) : ?>
-						<td class="log-message"><span class="content"><?= nl2br( $enc->html( $item->getMessage() ) ); ?></span></td>
-					<?php endif; ?>
+					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
+						<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
+							<?php if( in_array( 'log.timestamp', $fields ) ) : ?>
+								<td class="log-timestamp"><?= $enc->attr( $item->getTimestamp() ); ?></td>
+							<?php endif; ?>
+							<?php if( in_array( 'log.facility', $fields ) ) : ?>
+								<td class="log-facility"><?= $enc->html( $item->getFacility() ); ?></td>
+							<?php endif; ?>
+							<?php if( in_array( 'log.priority', $fields ) ) : ?>
+								<td class="log-priority"><?= $enc->html( $item->getPriority() ); ?></td>
+							<?php endif; ?>
+							<?php if( in_array( 'log.request', $fields ) ) : ?>
+								<td class="log-request"><?= $enc->html( $item->getRequest() ); ?></td>
+							<?php endif; ?>
+							<?php if( in_array( 'log.message', $fields ) ) : ?>
+								<td class="log-message"><span class="content"><?= nl2br( $enc->html( $item->getMessage() ) ); ?></span></td>
+							<?php endif; ?>
 
-					<td class="actions"></td>
-				</tr>
-			<?php endforeach; ?>
-		</tbody>
-	</table>
-	</div>
+							<td class="actions"></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
 
-	<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
-		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
-	<?php endif; ?>
-</form>
+		<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
+			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
+		<?php endif; ?>
+	</form>
 
-<?= $this->partial(
-		$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
-		['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
-		'page' => $this->session( 'aimeos/admin/jqadm/log/page', [] )]
-	);
-?>
+	<?= $this->partial(
+			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
+			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
+			'page' => $this->session( 'aimeos/admin/jqadm/log/page', [] )]
+		);
+	?>
 
 </div>
 <?php $this->block()->stop(); ?>
