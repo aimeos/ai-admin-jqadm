@@ -10,7 +10,7 @@
 	height: 2.5rem;
 	display: flex;
 	justify-content: space-between;
-	background: linear-gradient(135deg, var(--bs-primary, #30a0e0) max(15%, 12rem), var(--bs-primary-alt, #00b0a0) 100%);
+	background: linear-gradient(135deg, var(--bs-primary, #30a0e0) 0, var(--bs-primary-alt, #00b0a0) 100%);
 }
 
 .app-menu.open {
@@ -40,6 +40,9 @@
 }
 
 @media (min-width: 992px) {
+	.app-menu {
+		background: linear-gradient(135deg, var(--bs-primary, #30a0e0) max(15%, 12rem), var(--bs-primary-alt, #00b0a0) 100%);
+	}
 	.app-menu .menu {
 		visibility: hidden;
 	}
