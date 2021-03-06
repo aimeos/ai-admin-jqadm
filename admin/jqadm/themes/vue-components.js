@@ -367,7 +367,7 @@ Vue.component('nav-search', {
 		}
 	},
 	beforeMount: function() {
-		this.key = this.filter['key'] && this.filter['key'][0] || null;
+		this.key = this.filter['key'] && this.filter['key'][0] || Object.keys(this.attributes).shift();
 		this.op = this.filter['op'] && this.filter['op'][0] || null;
 	},
 	computed: {
