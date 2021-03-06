@@ -536,10 +536,15 @@ $columnList = [
 	'product.label' => $this->translate( 'admin', 'Label' ),
 	'product.datestart' => $this->translate( 'admin', 'Start date' ),
 	'product.dateend' => $this->translate( 'admin', 'End date' ),
-	'product.config' => $this->translate( 'admin', 'Config' ),
+	'product.dataset' => $this->translate( 'admin', 'Dataset' ),
+	'product.url' => $this->translate( 'admin', 'URL segment' ),
+	'product.scale' => $this->translate( 'admin', 'Quantity scale' ),
+	'product.target' => $this->translate( 'admin', 'URL target' ),
 	'product.ctime' => $this->translate( 'admin', 'Created' ),
 	'product.mtime' => $this->translate( 'admin', 'Modified' ),
 	'product.editor' => $this->translate( 'admin', 'Editor' ),
+	'product.rating' => $this->translate( 'admin', 'Rating' ),
+	'product.ratings' => $this->translate( 'admin', 'Total ratings' ),
 ];
 
 
@@ -638,10 +643,16 @@ $columnList = [
 						'product.label' => [],
 						'product.datestart' => ['op' => '-', 'type' => 'datetime-local'],
 						'product.dateend' => ['op' => '-', 'type' => 'datetime-local'],
+						'product.dataset' => ['op' => '=~'],
+						'product.url' => ['op' => '=~'],
+						'product.scale' => [],
+						'product.target' => ['op' => '=~'],
 						'product.config' => ['op' => '~='],
 						'product.ctime' => ['op' => '-', 'type' => 'datetime-local'],
 						'product.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 						'product.editor' => [],
+						'product.rating' => [],
+						'product.ratings' => [],
 					]
 				] );
 			?>
@@ -674,6 +685,18 @@ $columnList = [
 					<?php if( in_array( 'product.dateend', $fields ) ) : ?>
 						<td class="product-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
 					<?php endif; ?>
+					<?php if( in_array( 'product.dataset', $fields ) ) : ?>
+						<td class="product-dataset"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDataset() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.url', $fields ) ) : ?>
+						<td class="product-url"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getUrl() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.scale', $fields ) ) : ?>
+						<td class="product-scale"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getScale() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.target', $fields ) ) : ?>
+						<td class="product-target"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTarget() ); ?></a></td>
+					<?php endif; ?>
 					<?php if( in_array( 'product.config', $fields ) ) : ?>
 						<td class="product-config config-item">
 							<a class="items-field" href="<?= $url; ?>">
@@ -693,6 +716,12 @@ $columnList = [
 					<?php endif; ?>
 					<?php if( in_array( 'product.editor', $fields ) ) : ?>
 						<td class="product-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.rating', $fields ) ) : ?>
+						<td class="product-rating"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getRating() ); ?></a></td>
+					<?php endif; ?>
+					<?php if( in_array( 'product.ratings', $fields ) ) : ?>
+						<td class="product-ratings"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getRatings() ); ?></a></td>
 					<?php endif; ?>
 
 					<td class="actions">

@@ -386,6 +386,19 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site and for searching only if no other product names in any language exist' ) ); ?>
 								</div>
 							</div>
+							<?php if( $this->get( 'itemData/product.ratings', 0 ) ) : ?>
+								<div class="form-group row">
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Rating' ) ); ?></label>
+									<div class="col-sm-8">
+										<span class="form-control item-rating" readonly>
+											<?= $enc->html( $this->get( 'itemData/product.rating' ) . ' / ' . $this->get( 'itemData/product.ratings', 0 ) ); ?>
+										</span>
+									</div>
+									<div class="col-sm-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Average product rating and total number of ratings by customers for this product' ) ); ?>
+									</div>
+								</div>
+							<?php endif ?>
 
 							<div class="separator"><i class="icon more"></i></div>
 
