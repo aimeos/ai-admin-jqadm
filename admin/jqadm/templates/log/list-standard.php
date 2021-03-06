@@ -46,6 +46,10 @@ $columnList = [
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ); ?>
+
+<?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
+
+
 <div class="list-view">
 
 <nav class="main-navbar log">
@@ -67,6 +71,15 @@ $columnList = [
 <form class="list list-log" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
 	<?= $this->csrf()->formfield(); ?>
 
+	<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+		name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
+		v-bind:titles="<?= $enc->attr( $columnList ) ?>"
+		v-bind:fields="<?= $enc->attr( $fields ) ?>"
+		v-bind:show="columns"
+		v-on:close="columns = false">
+	</column-select>
+
+	<div class="table-responsive">
 	<table class="list-items table table-hover table-striped">
 		<thead class="list-header">
 			<tr>
@@ -79,15 +92,10 @@ $columnList = [
 				?>
 
 				<th class="actions">
-					<?= $this->partial(
-							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ),
-							['fields' => $fields, 'data' => $columnList]
-						);
-					?>
-					<button type="submit" class="btn act-search fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
-					</button>
+					<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+						v-on:click.prevent.stop="columns = true">
+					</a>
 				</th>
 			</tr>
 		</thead>
@@ -116,6 +124,7 @@ $columnList = [
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+	</div>
 
 	<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
 		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>

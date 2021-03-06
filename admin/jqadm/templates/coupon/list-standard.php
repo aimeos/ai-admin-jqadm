@@ -82,6 +82,8 @@ $columnList = [
 <?php $this->block()->start( 'jqadm_content' ); ?>
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ) ) ?>
+<?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
+
 
 <div class="list-view"
 	data-domain="coupon"
@@ -121,6 +123,15 @@ $columnList = [
 
 	<?= $this->csrf()->formfield(); ?>
 
+	<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+		name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
+		v-bind:titles="<?= $enc->attr( $columnList ) ?>"
+		v-bind:fields="<?= $enc->attr( $fields ) ?>"
+		v-bind:show="columns"
+		v-on:close="columns = false">
+	</column-select>
+
+	<div class="table-responsive">
 	<table class="list-items table table-hover table-striped">
 		<thead class="list-header">
 			<tr>
@@ -145,11 +156,10 @@ $columnList = [
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
 					</a>
 
-					<?= $this->partial(
-							$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ),
-							['fields' => $fields, 'data' => $columnList]
-						);
-					?>
+					<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+						title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+						v-on:click.prevent.stop="columns = true">
+					</a>
 				</th>
 			</tr>
 		</thead>
@@ -239,6 +249,7 @@ $columnList = [
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+	</div>
 
 	<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
 		<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>

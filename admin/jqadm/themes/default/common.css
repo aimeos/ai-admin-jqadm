@@ -31,11 +31,6 @@
 
 /* Common styles */
 
-body {
-	background-color: var(--bs-bg, #f8fafc);
-	color: var(--bs-secondary, #505860);
-}
-
 
 /* Scrollbar styles for webkit browsers */
 ::-webkit-scrollbar {
@@ -53,6 +48,11 @@ html {
 	scrollbar-color: var(--bs-line-light, #dee2e6) transparent;
 	scrollbar-width: thin;
 	overflow-y: scroll;
+}
+
+body {
+	background-color: var(--bs-bg, #f8fafc);
+	color: var(--bs-secondary, #505860);
 }
 
 .aimeos .hidden {
@@ -470,6 +470,25 @@ html {
 	.aimeos .item-container .item-actions {
 		display: none;
 	}
+}
+
+
+/* Modal column selector */
+
+.aimeos .column-list {
+	padding: 0 5%;
+}
+
+.aimeos .column-item {
+	list-style: none;
+}
+
+.aimeos .column-item label {
+	padding: 0.5rem 0;
+}
+
+.aimeos .column-item input {
+	margin-right: 0.5rem;
 }
 
 

@@ -15,34 +15,48 @@
  * - tabindex: Numerical index for tabbing through the fields and buttons
  */
 
-
-$checked = function( array $list, $code ) {
-	return ( in_array( $code, $list ) ? 'checked="checked"' : '' );
-};
-
-
 $enc = $this->encoder();
-$fields = $this->get( 'fields', [] );
 $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 
 
 ?>
-<div class="dropdown filter-columns">
-	<button class="btn act-columns fa" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
-		data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-		aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>" data-bs-boundary="window"
-		title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
-	</button>
-	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
-		<?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
-			<li class="dropdown-item">
-				<a href="#"><label>
-					<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-						name="<?= $enc->attr( $this->formparam( $names ) ); ?>"
-						value="<?= $enc->attr( $key ); ?>" <?= $checked( $fields, $key ); ?> />
-					<?= $enc->html( $name ); ?>
-				</label></a>
-			</li>
-		<?php endforeach; ?>
-	</ul>
+<div id="column-select">
+	<div class="modal fade" v-bind:class="{show: show}">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Columns' ) ) ?></h4>
+					<button type="button" class="btn-close" v-on:click="$emit('close')"
+						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>">
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<ul class="column-list">
+						<li v-for="(title, key) in titles" class="column-item">
+							<label tabindex="tabindex">
+								<input class="form-check-input" type="checkbox"
+									v-bind:checked="checked(key)"
+									v-bind:name="name"
+									v-bind:value="key"
+								/>
+								{{ title }}
+							</label>
+						</li>
+					</ul>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" v-on:click="$emit('close')" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
+						<?= $enc->html( $this->translate( 'admin', 'Close' ) ); ?>
+					</button>
+					<button type="submit" class="btn btn-primary" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
+						<?= $enc->html( $this->translate( 'admin', 'Apply' ) ); ?>
+					</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
 </div>

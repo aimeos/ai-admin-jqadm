@@ -673,11 +673,12 @@ Aimeos.List = {
 	mixins : {
 		data: function() {
 			return {
-				'all': false,
-				'dialog': false,
-				'items': {},
-				'domain': null,
-				'search': false
+				all: false,
+				columns: false,
+				dialog: false,
+				items: {},
+				domain: null,
+				search: false,
 			}
 		},
 		beforeMount: function() {

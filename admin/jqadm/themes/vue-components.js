@@ -49,6 +49,34 @@ Vue.component('auto-complete', {
 
 
 
+Vue.component('column-select', {
+	template: '#column-select',
+	props: {
+		'titles': {type: Object, required: true},
+		'fields': {type: Array, required: true},
+		'name': {type: String, required: true},
+		'show': {type: Boolean, default: false},
+		'tabindex': {type: Number, default: 1}
+	},
+	data() {
+		return {
+			active: {}
+		}
+	},
+	beforeMount() {
+		for(const key of this.fields) {
+			this.active[key] = true;
+		}
+	},
+	methods: {
+		checked(key) {
+			return this.active[key] ? true : false;
+		}
+	}
+});
+
+
+
 Vue.component('combo-box', {
 	template: '\
 		<select required class="template" v-bind:name="name" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
