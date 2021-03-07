@@ -337,7 +337,7 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = $item->getListItem( 'media', $entry['attribute.lists.type'], $entry['media.id'], false ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'media', $entry['attribute.lists.type'] ?? 'default', $entry['media.id'] ?? null, false ) ) === null ) {
 				$listItem = $listManager->createItem();
 			}
 
