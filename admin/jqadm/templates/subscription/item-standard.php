@@ -254,54 +254,56 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 							<div class="col-sm-12">
 								<div class="box">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Product' ) ); ?></h2>
-									<table class="item-product-list table table-striped">
-										<thead>
-											<tr>
-												<th class="item-column column-desc"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></th>
-												<th class="item-column column-quantity"><?= $enc->html( $this->translate( 'admin', 'Quantity' ) ); ?></th>
-												<th class="item-column column-price"><?= $enc->html( $this->translate( 'admin', 'Price' ) ); ?></th>
-												<th class="item-column column-sum"><?= $enc->html( $this->translate( 'admin', 'Sum' ) ); ?></th>
-											</tr>
-										</thead>
-										<tbody>
+									<div class="table-responsive">
+										<table class="item-product-list table table-striped">
+											<thead>
+												<tr>
+													<th class="item-column column-desc"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></th>
+													<th class="item-column column-quantity"><?= $enc->html( $this->translate( 'admin', 'Quantity' ) ); ?></th>
+													<th class="item-column column-price"><?= $enc->html( $this->translate( 'admin', 'Price' ) ); ?></th>
+													<th class="item-column column-sum"><?= $enc->html( $this->translate( 'admin', 'Sum' ) ); ?></th>
+												</tr>
+											</thead>
+											<tbody>
 
-											<?php foreach( $basket->getProducts() as $pos => $orderProduct ) : ?>
-												<?php if( $orderProduct->getId() == $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) : ?>
-													<tr class="list-item">
-														<td class="item-column column-desc">
-															<span class="product-name"><?= $enc->html( $orderProduct->getName() ); ?></span>
-															<span class="product-attr">
-																<?php foreach( $orderProduct->getAttributeItems() as $attrItem ) : ?>
-																	<span class="attr-code"><?= $enc->html( $attrItem->getCode() ); ?></span>
-																	<span class="attr-value">
-																		<?php if( $attrItem->getQuantity() > 1 ) : ?>
-																			<?= $enc->html( $attrItem->getQuantity() ); ?>×
-																		<?php endif; ?>
-																		<?= $enc->html( $attrItem->getValue() ); ?>
-																	</span>
-																<?php endforeach; ?>
-															</span>
-															<span class="product-sku"><?= $enc->html( $orderProduct->getProductCode() ); ?></span>
-														</td>
-														<td class="item-column column-quantity">
-															<span class="product-quantity"><?= $enc->html( $orderProduct->getQuantity() ); ?></span>
-														</td>
-														<td class="item-column column-price">
-															<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getValue(), $currency ) ); ?></span>
-															<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getCosts(), $currency ) ); ?></span>
-															<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getRebate(), $currency ) ); ?></span>
-														</td>
-														<td class="item-column column-sum">
-															<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() * $orderProduct->getQuantity() ), $currency ) ); ?></span>
-															<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getCosts() * $orderProduct->getQuantity() ), $currency ) ); ?></span>
-															<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() * $orderProduct->getQuantity() ), $currency ) ); ?></span>
-														</td>
-													</tr>
-												<?php endif; ?>
-											<?php endforeach; ?>
+												<?php foreach( $basket->getProducts() as $pos => $orderProduct ) : ?>
+													<?php if( $orderProduct->getId() == $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) : ?>
+														<tr class="list-item">
+															<td class="item-column column-desc">
+																<span class="product-name"><?= $enc->html( $orderProduct->getName() ); ?></span>
+																<span class="product-attr">
+																	<?php foreach( $orderProduct->getAttributeItems() as $attrItem ) : ?>
+																		<span class="attr-code"><?= $enc->html( $attrItem->getCode() ); ?></span>
+																		<span class="attr-value">
+																			<?php if( $attrItem->getQuantity() > 1 ) : ?>
+																				<?= $enc->html( $attrItem->getQuantity() ); ?>×
+																			<?php endif; ?>
+																			<?= $enc->html( $attrItem->getValue() ); ?>
+																		</span>
+																	<?php endforeach; ?>
+																</span>
+																<span class="product-sku"><?= $enc->html( $orderProduct->getProductCode() ); ?></span>
+															</td>
+															<td class="item-column column-quantity">
+																<span class="product-quantity"><?= $enc->html( $orderProduct->getQuantity() ); ?></span>
+															</td>
+															<td class="item-column column-price">
+																<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getValue(), $currency ) ); ?></span>
+																<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getCosts(), $currency ) ); ?></span>
+																<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getRebate(), $currency ) ); ?></span>
+															</td>
+															<td class="item-column column-sum">
+																<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() * $orderProduct->getQuantity() ), $currency ) ); ?></span>
+																<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getCosts() * $orderProduct->getQuantity() ), $currency ) ); ?></span>
+																<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() * $orderProduct->getQuantity() ), $currency ) ); ?></span>
+															</td>
+														</tr>
+													<?php endif; ?>
+												<?php endforeach; ?>
 
-										</tbody>
-									</table>
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
