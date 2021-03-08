@@ -364,9 +364,9 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$listType = $entry['product.lists.type'];
+			$listType = $entry['product.lists.type'] ?? 'default';
 
-			if( ( $listItem = $item->getListItem( 'media', $listType, $entry['media.id'], false ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'media', $listType, $entry['media.id'] ?? null, false ) ) === null ) {
 				$listItem = $listManager->create();
 			}
 
