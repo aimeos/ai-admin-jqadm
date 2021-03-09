@@ -13,10 +13,10 @@ $enc = $this->encoder();
 	title="<?= $enc->attr( $this->translate( 'admin', 'Completed orders within the last seven days compared to the period before' ) ) ?>">
 	<dashboard-order-quick-countcompleted inline-template>
 		<div class="box row" v-bind:class="state">
-			<div class="col quick-left">
+			<div class="col quick-start">
 				<div class="quick-number" v-html="current">0</div>
 			</div>
-			<div class="col quick-right">
+			<div class="col quick-end">
 				<div class="quick-percent" v-bind:class="mood" v-html="percent"></div>
 			</div>
 			<div class="col-xs-12">

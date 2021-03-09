@@ -34,14 +34,14 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 					<div v-bind:id="'item-selection-group-item-' + idx" v-bind:class="getCss(idx)"
 						v-bind:data-bs-target="'#item-selection-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-selection-group-data-' + idx" aria-expanded="false">
-						<div class="card-tools-left">
+						<div class="card-tools-start">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 							</div>
 						</div>
 						<span class="item-label header-label">{{ getLabel(idx) }}</span>
 						&nbsp;
-						<div class="card-tools-right">
+						<div class="card-tools-end">
 							<a v-if="item['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								v-bind:href="'<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => '_ID_'] + $this->get( 'pageParams', [] ), [], $config ) ); ?>'.replace('_ID_', item['product.id'])"
 								title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ); ?>"></a>

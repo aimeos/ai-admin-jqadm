@@ -20,7 +20,7 @@ $settings = [
 				<div class="header"
 					data-bs-toggle="collapse" data-bs-target="#setting-list-data"
 					aria-expanded="true" aria-controls="setting-list-data">
-					<div class="card-tools-left">
+					<div class="card-tools-start">
 						<div class="btn act-show fa"></div>
 					</div>
 					<h2 class="header-label">

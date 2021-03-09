@@ -14,7 +14,7 @@ $enc = $this->encoder();
 		<div class="header"
 			data-bs-toggle="collapse" data-bs-target="#order-servicepayment-data"
 			aria-expanded="true" aria-controls="order-servicepayment-data">
-			<div class="card-tools-left">
+			<div class="card-tools-start">
 				<div class="btn act-show fa"></div>
 			</div>
 			<h2 class="header-label">

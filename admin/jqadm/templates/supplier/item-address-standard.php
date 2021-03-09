@@ -23,14 +23,14 @@ $enc = $this->encoder();
 					<div v-bind:id="'item-address-group-item-' + idx" v-bind:class="entry['_show'] ? 'show' : 'collapsed'"
 						v-bind:data-bs-target="'#item-address-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-address-group-data-' + idx" aria-expanded="false" v-on:click="toggle('_show', idx)">
-						<div class="card-tools-left">
+						<div class="card-tools-start">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 							</div>
 						</div>
 						<span class="item-label header-label">{{ label(idx) }}</span>
 						&nbsp;
-						<div class="card-tools-right">
+						<div class="card-tools-end">
 							<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)' ) ); ?>"
 								v-on:click.stop="duplicate(idx)">

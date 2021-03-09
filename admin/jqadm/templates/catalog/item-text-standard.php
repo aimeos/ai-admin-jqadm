@@ -37,14 +37,14 @@ $enc = $this->encoder();
 					<div v-bind:id="'item-text-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
 						v-bind:data-bs-target="'#item-text-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-text-group-data-' + idx" aria-expanded="false" v-on:click="toggle('_show', idx)">
-						<div class="card-tools-left">
+						<div class="card-tools-start">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
 							</div>
 						</div>
 						<span class="item-label header-label" v-bind:class="{disabled: !active(idx)}">{{ label(idx) }}</span>
 						&nbsp;
-						<div class="card-tools-right">
+						<div class="card-tools-end">
 							<div class="dropdown">
 								<a v-bind:id="'translate-menu-' + idx" class="btn btn-card-header act-translate fa dropdown-toggle" href="#"
 									tabindex="<?= $this->get( 'tabindex' ); ?>" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -181,7 +181,7 @@ $enc = $this->encoder();
 
 
 						<div v-on:click="toggle('_ext', idx)" class="col-xl-12 advanced" v-bind:class="{'collapsed': !item['_ext']}">
-							<div class="card-tools-left">
+							<div class="card-tools-start">
 								<div class="btn act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide advanced data' ) ); ?>">
 								</div>

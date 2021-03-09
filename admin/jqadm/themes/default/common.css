@@ -302,8 +302,8 @@ body {
 	content: "\f06e";
 }
 
-.aimeos .card-tools-left,
-.aimeos .card-tools-right {
+.aimeos .card-tools-start,
+.aimeos .card-tools-end {
 	display: inline-block;
 	white-space: nowrap;
 }
