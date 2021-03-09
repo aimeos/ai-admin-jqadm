@@ -184,6 +184,11 @@ body {
 	border-bottom: 1px solid var(--bs-primary, #0090e0);
 }
 
+.aimeos .card .header {
+	display: flex;
+	justify-content: space-between;
+}
+
 .aimeos .card .header.collapsed,
 .aimeos .box .header.collapsed {
 	border-bottom: 1px solid transparent;
@@ -196,9 +201,12 @@ body {
 
 .aimeos .card .header .header-label,
 .aimeos .box .header .header-label {
-	vertical-align: middle;
-	display: inline;
+	display: inline-block;
+	white-space: nowrap;
+	padding: 0.33rem 0;
 	font-size: 1rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .aimeos .box:not(.nav) .content > * {
@@ -294,14 +302,10 @@ body {
 	content: "\f06e";
 }
 
-.aimeos .card-tools-left {
-	display: inline-block;
-}
-
+.aimeos .card-tools-left,
 .aimeos .card-tools-right {
-	position: absolute;
-	right: 0.5rem;
-	top: 1.25rem;
+	display: inline-block;
+	white-space: nowrap;
 }
 
 .aimeos .card-tools-more {

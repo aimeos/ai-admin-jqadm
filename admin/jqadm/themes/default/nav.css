@@ -14,8 +14,7 @@
 	box-shadow: var(--bs-shadow);
 	background-color: var(--bs-bg-light, #ffffff);
 	border: 1px solid rgba(0,0,0,.125);
-	padding: 0.5rem;
-	padding-left: 1rem;
+	padding: 0.5rem 1rem;
 	margin: 1rem 0;
 	z-index: 1040;
 }
@@ -68,11 +67,10 @@
 .aimeos .main-content .main-navbar .item-actions {
 	display: inline-block;
 	margin: 0;
-	margin-left: auto;
 }
 
 .aimeos .main-content .item-actions .btn:not(.dropdown-toggle) {
-	min-width: 6.5rem;
+	min-width: 6.25rem;
 }
 
 .aimeos .main-content .item-actions .btn.act-help {
