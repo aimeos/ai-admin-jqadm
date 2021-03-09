@@ -42,7 +42,6 @@ $enc = $this->encoder();
 							</div>
 						</div>
 						<span class="item-label header-label" v-bind:class="{disabled: !active(idx)}">{{ label(idx) }}</span>
-						&nbsp;
 						<div class="card-tools-end">
 							<div v-if="item['attribute.lists.siteid'] == siteid && !item['_nosort']"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"

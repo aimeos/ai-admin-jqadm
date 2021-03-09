@@ -40,7 +40,6 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 							</div>
 						</div>
 						<span class="item-label header-label">{{ getLabel(idx) }}</span>
-						&nbsp;
 						<div class="card-tools-end">
 							<a v-if="item['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								v-bind:href="'<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => '_ID_'] + $this->get( 'pageParams', [] ), [], $config ) ); ?>'.replace('_ID_', item['product.id'])"

@@ -43,7 +43,6 @@ $enc = $this->encoder();
 							</div>
 						</div>
 						<span class="item-label header-label" v-bind:class="{disabled: !active(idx)}">{{ label(idx) }}</span>
-						&nbsp;
 						<div class="card-tools-end">
 							<div class="dropdown">
 								<a v-bind:id="'translate-menu-' + idx" class="btn btn-card-header act-translate fa dropdown-toggle" href="#"

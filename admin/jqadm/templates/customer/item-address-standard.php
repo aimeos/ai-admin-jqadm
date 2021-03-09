@@ -29,7 +29,6 @@ $enc = $this->encoder();
 							</div>
 						</div>
 						<span class="item-label header-label">{{ label(idx) }}</span>
-						&nbsp;
 						<div class="card-tools-end">
 							<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)' ) ); ?>"
