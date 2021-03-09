@@ -41,6 +41,26 @@ textarea {
 	margin: 1rem;
 }
 
+.navbar-brand {
+	margin: 0;
+}
+
+[dir="rtl"] .btn-group>.btn-group:not(:last-child)>.btn,
+[dir="rtl"] .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-right-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
+}
+
+[dir="rtl"] .btn-group>.btn-group:not(:first-child)>.btn,
+[dir="rtl"] .btn-group>.btn:nth-child(n+3),
+[dir="rtl"] .btn-group>:not(.btn-check)+.btn {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-top-left-radius: 0.25rem;
+	border-bottom-left-radius: 0.25rem;
+}
 
 /* Aimeos Bootstrap theme */
 

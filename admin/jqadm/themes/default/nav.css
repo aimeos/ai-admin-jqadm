@@ -81,4 +81,8 @@
 	.aimeos .main-content {
 		margin-left: max(15%, 12rem);
 	}
+	[dir="rtl"] .aimeos .main-content {
+		margin-right: max(15%, 12rem);
+		margin-left: 0;
+	}
 }
