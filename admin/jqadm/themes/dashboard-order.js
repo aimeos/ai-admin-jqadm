@@ -13,6 +13,7 @@ Aimeos.Dashboard.Order = {
 	dayCellSize: 15,
 	limit: 10000,
 	topLimit: 5,
+	position: 'left',
 
 
 	addLegend: function(chart, selector) {
@@ -98,6 +99,10 @@ Aimeos.Dashboard.Order = {
 
 
 	init : function() {
+
+		if(document.documentElement && document.documentElement.getAttribute('dir') === 'rtl') {
+			this.position = 'right';
+		}
 
 		Aimeos.lazy(".order-countday .chart", this.chartDay.bind(this));
 		Aimeos.lazy(".order-counthour .chart", this.chartHour.bind(this));
@@ -208,7 +213,7 @@ Aimeos.Dashboard.Order = {
 						yAxes: [{
 							type: 'time',
 							offset: true,
-							position: 'left',
+							position: self.position,
 							time: {
 								unit: 'day',
 								parser: 'e',
@@ -300,6 +305,7 @@ Aimeos.Dashboard.Order = {
 							gridLines: {
 								drawOnChartArea: false
 							},
+							position: self.position,
 							ticks: {
 								min: 0
 							}
@@ -395,6 +401,7 @@ Aimeos.Dashboard.Order = {
 							gridLines: {
 								drawOnChartArea: false
 							},
+							position: self.position,
 							stacked: true,
 							ticks: {
 								min: 0

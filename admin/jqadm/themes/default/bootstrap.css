@@ -116,7 +116,12 @@ textarea {
 }
 
 .btn-primary.dropdown-toggle-split {
-    border-left-color: var(--bs-primary-alt-dark, #00998c);
+	border-left-color: var(--bs-primary-alt-dark, #00998c);
+}
+
+[dir="rtl"] .btn-primary.dropdown-toggle-split {
+	border-right-color: var(--bs-primary-alt-dark, #00998c);
+	border-left-color: transparent;
 }
 
 .btn-secondary {

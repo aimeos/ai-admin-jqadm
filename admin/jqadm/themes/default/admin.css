@@ -10,6 +10,7 @@
 
 .aimeos a:hover {
 	text-decoration: underline;
+	text-decoration-skip-ink: all;
 }
 
 
@@ -311,6 +312,7 @@
 
 .aimeos .help {
 	text-decoration: underline solid;
+	text-decoration-skip-ink: all;
 	cursor: help;
 }
 

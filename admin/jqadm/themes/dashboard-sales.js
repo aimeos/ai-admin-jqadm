@@ -37,6 +37,7 @@ Aimeos.Dashboard.Sales = {
 					gridLines: {
 						drawOnChartArea: false
 					},
+					position: 'left',
 					ticks: {
 						min: 0
 					}
@@ -130,6 +131,10 @@ Aimeos.Dashboard.Sales = {
 
 
 	init: function() {
+
+		if(document.documentElement && document.documentElement.getAttribute('dir') === 'rtl') {
+			this.config.options.scales.yAxes[0].position = 'right';
+		}
 
 		Aimeos.lazy(".order-salesday .chart", this.chartDay.bind(this));
 		Aimeos.lazy(".order-salesmonth .chart", this.chartMonth.bind(this));
