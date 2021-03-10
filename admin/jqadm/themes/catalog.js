@@ -77,8 +77,6 @@ Aimeos.Catalog = {
 
 		this.setupAdd();
 		this.setupSearch();
-		this.setupExpandAll();
-		this.setupCollapseAll();
 	},
 
 
@@ -329,26 +327,6 @@ Aimeos.Catalog = {
 			}
 
 			window.location = $(ev.delegateTarget).data("createurl").replace("_ID_", (node ? node.id : ''));
-		});
-	},
-
-
-	setupCollapseAll : function() {
-
-		$(".aimeos .item-catalog .catalog-tree").on("click", ".tree-toolbar .collapse-all", function(ev) {
-			$(".tree-content .jqtree-folder .jqtree-toggler", ev.delegateTarget).addClass("jqtree-closed");
-			$(".tree-content .jqtree-folder", ev.delegateTarget).addClass("jqtree-closed");
-			$('.tree-content ul.jqtree_common[role="group"]', ev.delegateTarget).css("display", "none");
-		});
-	},
-
-
-	setupExpandAll : function() {
-
-		$(".aimeos .item-catalog .catalog-tree").on("click", ".tree-toolbar .expand-all", function(ev) {
-			$(".tree-content .jqtree-folder .jqtree-toggler.jqtree-closed", ev.delegateTarget).removeClass("jqtree-closed");
-			$(".tree-content .jqtree-folder.jqtree-closed", ev.delegateTarget).removeClass("jqtree-closed");
-			$('.tree-content ul.jqtree_common[role="group"]', ev.delegateTarget).css("display", "block");
 		});
 	},
 

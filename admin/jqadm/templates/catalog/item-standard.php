@@ -94,13 +94,11 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 			<div class="box">
 				<div class="tree-toolbar input-group">
 					<div class="input-group-prepend"><!--
-						--><span class="btn btn-secondary fa expand-all" tabindex="1"></span><!--
-						--><span class="btn btn-secondary fa collapse-all" tabindex="1"></span><!--
+						--><span class="btn btn-primary fa act-add" tabindex="1"></span><!--
 					--></div><!--
 					--><input type="text" class="form-control search-input" tabindex="1" placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ); ?>"><!--
 					--><div class="input-group-append"><!--
 						--><span class="btn btn-secondary fa act-delete " tabindex="1"></span><!--
-						--><span class="btn btn-primary fa act-add" tabindex="1"></span><!--
 					--></div>
 				</div>
 				<div class="tree-content"></div>
