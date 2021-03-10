@@ -58,7 +58,7 @@ $searchParams['page']['start'] = 0;
 $searchAttributes = map( $this->get( 'filterAttributes', [] ) )->filter( function( $item ) {
 	return $item->isPublic();
 } )->call( 'toArray' )->each( function( &$val ) {
-	$val = $this->translate( 'admin/ext', $val['label'] ?? '' );
+	$val = $this->translate( 'admin/ext', $val['label'] ?? ' ' );
 } )->all();
 
 $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( function( $val, $key ) {
