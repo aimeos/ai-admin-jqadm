@@ -173,7 +173,7 @@
 
 .aimeos .main-sidebar .sidebar-menu>li.active,
 .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
-	border-left-color: var(--bs-menu-alt-bg, #f8fafc);
+	border-color: var(--bs-menu-alt-bg, #f8fafc);
 	color: var(--bs-secondary, #707880);
 	background: none;
 }
@@ -249,7 +249,7 @@
 	}
 
 	.aimeos .sidebar-menu>li {
-		text-align: left;
+		text-align: start;
 	}
 }
 
@@ -356,7 +356,7 @@
 
 .aimeos .sidebar-menu li .tree-menu .more {
 	padding-left: 0.75rem;
-	text-align: left;
+	text-align: start;
 }
 
 .aimeos .sidebar-menu li .tree-menu a:hover,

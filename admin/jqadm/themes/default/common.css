@@ -79,6 +79,11 @@ body {
 	opacity: 0.66 !important;
 }
 
+[dir="rtl"] .aimeos .readonly {
+	border-right: 0.25rem solid var(--bs-warning, #ffc107);
+	border-left: none;
+}
+
 .aimeos .readonly select:focus {
 	border-color: var(--bs-danger, #dc3545) !important;
 }
@@ -102,6 +107,16 @@ body {
 
 .aimeos .toast.error {
 	border-left: 2px solid var(--bs-danger, #dc3545);
+}
+
+[dir="rtl"] .aimeos .toast.info {
+	border-right: 2px solid var(--bs-primary, #30a0e0);
+	border-left: none;
+}
+
+[dir="rtl"] .aimeos .toast.error {
+	border-right: 2px solid var(--bs-danger, #dc3545);
+	border-left: none;
 }
 
 .aimeos .toast-icon,
@@ -335,7 +350,7 @@ body {
 
 .aimeos table .actions {
 	white-space: nowrap;
-	text-align: right;
+	text-align: end;
 	width: 2%;
 }
 
@@ -363,7 +378,7 @@ body {
 
 .aimeos .dropdown-item label {
 	display: block !important;
-	text-align: left;
+	text-align: start;
 	color: var(--bs-secondary, #707880);
 }
 
@@ -466,7 +481,7 @@ body {
 	}
 
 	.aimeos .item:not(.item-tree) .nav-tabs .nav-link {
-		text-align: left;
+		text-align: start;
 	}
 }
 

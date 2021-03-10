@@ -187,7 +187,7 @@
 }
 
 .aimeos .list-items .dropdown-item .btn {
-	text-align: left;
+	text-align: start;
 	color: var(--bs-secondary-dark, #101820);
 }
 
@@ -242,7 +242,7 @@
 
 .aimeos .list-items .config-item {
 	white-space: nowrap;
-	text-align: left;
+	text-align: start;
 	max-width: 15rem;
 	overflow: hidden;
 }
@@ -405,7 +405,7 @@
 .aimeos .item-download .custom-file label {
 	font-weight: normal;
 	font-size: initial;
-	text-align: left;
+	text-align: start;
 }
 
 
@@ -460,7 +460,7 @@
 }
 
 .aimeos .item-stock .stock-stocklevel input {
-	text-align: right;
+	text-align: end;
 }
 
 
@@ -531,13 +531,13 @@
 }
 
 .aimeos .item-order .item-product-list .column-desc {
-	text-align: left;
+	text-align: start;
 }
 
 .aimeos .item-order .item-product-list .column-price,
 .aimeos .item-order .item-product-list .column-sum {
 	white-space: nowrap;
-	text-align: right;
+	text-align: end;
 }
 
 .aimeos .item-order .item-product-list .product-name,
@@ -621,7 +621,7 @@
 }
 
 .aimeos .item-order .item-total .value {
-	text-align: right;
+	text-align: end;
 }
 
 
@@ -635,13 +635,13 @@
 }
 
 .aimeos .item-subscription .item-product-list .column-desc {
-	text-align: left;
+	text-align: start;
 }
 
 .aimeos .item-subscription .item-product-list .column-price,
 .aimeos .item-subscription .item-product-list .column-sum {
 	white-space: nowrap;
-	text-align: right;
+	text-align: end;
 }
 
 .aimeos .item-subscription .item-product-list .product-name,
@@ -701,7 +701,7 @@
 }
 
 .aimeos .list-log .log-message {
-	text-align: left;
+	text-align: start;
 }
 
 .aimeos .list-log .log-message .content {

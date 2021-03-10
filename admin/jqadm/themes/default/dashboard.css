@@ -40,7 +40,7 @@
 }
 
 .dashboard .quick-end {
-	text-align: right;
+	text-align: end;
 }
 
 .dashboard .quick-percent {
@@ -137,12 +137,12 @@
 	width: 100%;
 	height: 1.5rem;
 	overflow: hidden;
-	text-align: right;
+	text-align: end;
 }
 
 [dir="rtl"] .dashboard .chart.bar .chart-legend,
 [dir="rtl"] .dashboard .chart.line .chart-legend {
-	text-align: left;
+	text-align: start;
 }
 
 .dashboard .chart.bar .chart-legend:hover,
@@ -204,12 +204,12 @@
 .dashboard .order-latest .order-id,
 .dashboard .order-latest .order-base-product-price,
 .dashboard .order-latest .order-statuspayment {
-	text-align: right;
+	text-align: end;
 }
 
 .dashboard .order-latest .order-base-address-name,
 .dashboard .order-latest .order-base-service-payment {
-	text-align: left;
+	text-align: start;
 }
 
 .dashboard .order-latest .order-statuspayment,
@@ -256,12 +256,12 @@
 
 .dashboard .order-countcountry td.country {
 	padding-left: 2rem;
-	text-align: left;
+	text-align: start;
 	width: 66%;
 }
 
 .dashboard .order-countcountry td.number {
 	padding-right: 2rem;
-	text-align: right;
+	text-align: end;
 	width: 33%;
 }
