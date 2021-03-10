@@ -82,6 +82,8 @@ Aimeos.Catalog = {
 
 	createTree : function(root) {
 
+		const rtl = document.documentElement && document.documentElement.getAttribute('dir') === 'rtl' ? true : false;
+
 		var tree = $(".aimeos .item-catalog .tree-content").tree({
 			"data": [root],
 			"dragAndDrop": true,
@@ -89,6 +91,7 @@ Aimeos.Catalog = {
 			"openedIcon": " ",
 			"saveState": true,
 			"slide": false,
+			"rtl": rtl,
 			"dataFilter": function(result) {
 				var list = [];
 

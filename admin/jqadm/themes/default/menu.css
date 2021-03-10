@@ -354,9 +354,13 @@
 	margin-right: 0;
 }
 
+[dir="rtl"] .aimeos .sidebar-menu li .tree-menu .tree-menu {
+	margin-right: 1rem;
+	margin-left: 0;
+}
+
 .aimeos .sidebar-menu li .tree-menu .more {
-	padding-left: 0.75rem;
-	text-align: start;
+	text-align: center;
 }
 
 .aimeos .sidebar-menu li .tree-menu a:hover,

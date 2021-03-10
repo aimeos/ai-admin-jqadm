@@ -157,7 +157,7 @@ ul.jqtree-tree .jqtree-moving > .jqtree-element .jqtree-title {
 }
 
 ul.jqtree-tree.jqtree-rtl {
-direction: rtl;
+  direction: rtl;
 }
 
 ul.jqtree-tree.jqtree-rtl ul.jqtree_common {

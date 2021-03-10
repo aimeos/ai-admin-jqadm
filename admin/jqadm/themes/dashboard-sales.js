@@ -134,6 +134,8 @@ Aimeos.Dashboard.Sales = {
 
 		if(document.documentElement && document.documentElement.getAttribute('dir') === 'rtl') {
 			this.config.options.scales.yAxes[0].position = 'right';
+			this.config.options.tooltips.bodyAlign = 'right';
+			this.config.options.tooltips.rtl = true;
 		}
 
 		Aimeos.lazy(".order-salesday .chart", this.chartDay.bind(this));

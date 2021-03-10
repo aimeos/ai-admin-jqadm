@@ -13,7 +13,7 @@ Aimeos.Dashboard.Order = {
 	dayCellSize: 15,
 	limit: 10000,
 	topLimit: 5,
-	position: 'left',
+	rtl: false,
 
 
 	addLegend: function(chart, selector) {
@@ -101,7 +101,7 @@ Aimeos.Dashboard.Order = {
 	init : function() {
 
 		if(document.documentElement && document.documentElement.getAttribute('dir') === 'rtl') {
-			this.position = 'right';
+			this.rtl = true;
 		}
 
 		Aimeos.lazy(".order-countday .chart", this.chartDay.bind(this));
@@ -186,7 +186,9 @@ Aimeos.Dashboard.Order = {
 								const entry = data.datasets[item.datasetIndex].data[item.index] || {};
 								return [moment(entry.x).format('ll') + ": " + entry.v];
 							}
-						}
+						},
+						bodyAlign: self.rtl ? 'right' : 'left',
+						rtl: self.rtl
 					},
 					scales: {
 						xAxes: [{
@@ -213,7 +215,7 @@ Aimeos.Dashboard.Order = {
 						yAxes: [{
 							type: 'time',
 							offset: true,
-							position: self.position,
+							position: self.rtl ? 'right' : 'left',
 							time: {
 								unit: 'day',
 								parser: 'e',
@@ -224,7 +226,7 @@ Aimeos.Dashboard.Order = {
 							ticks: {
 								 // workaround, see: https://github.com/chartjs/Chart.js/pull/6257
 								maxRotation: 90,
-								reverse: true,
+								reverse: true
 							},
 							gridLines: {
 								display: false,
@@ -286,7 +288,9 @@ Aimeos.Dashboard.Order = {
 					tooltips: {
 						mode: 'index',
 						intersect: false,
-						position: 'nearest'
+						position: 'nearest',
+						bodyAlign: self.rtl ? 'right' : 'left',
+						rtl: self.rtl
 					},
 					hover: {
 						mode: 'index',
@@ -305,9 +309,12 @@ Aimeos.Dashboard.Order = {
 							gridLines: {
 								drawOnChartArea: false
 							},
-							position: self.position,
+							position: self.rtl ? 'right' : 'left',
 							ticks: {
-								min: 0
+								min: 0,
+								callback: function(value) {
+									return Number.isInteger(value) ? value : '';
+								}
 							}
 						}]
 					}
@@ -376,7 +383,14 @@ Aimeos.Dashboard.Order = {
 					tooltips: {
 						mode: 'index',
 						intersect: false,
-						position: 'nearest'
+						position: 'nearest',
+						bodyAlign: self.rtl ? 'right' : 'left',
+						rtl: self.rtl,
+						callbacks: {
+							title(item) {
+								return moment.utc(item[0].label).format('ll');
+							}
+						}
 					},
 					hover: {
 						mode: 'index',
@@ -401,10 +415,13 @@ Aimeos.Dashboard.Order = {
 							gridLines: {
 								drawOnChartArea: false
 							},
-							position: self.position,
+							position: self.rtl ? 'right' : 'left',
 							stacked: true,
 							ticks: {
-								min: 0
+								min: 0,
+								callback: function(value) {
+									return Number.isInteger(value) ? value : '';
+								}
 							}
 						}]
 					},
