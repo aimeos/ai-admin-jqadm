@@ -10,20 +10,43 @@ Aimeos = {
 	options: null,
 	components: {},
 
-	editorcfg : [
-		{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
-		{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
-		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
-		{ name: 'insert', items: [ 'SpecialChar' ] },
-		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
-		{ name: 'document', items: [ 'Source' ] }
-	],
-
-	editortags : 'div(*);span(*);p(*);',
-
-	editorExtraPlugins: 'divarea',
-
-	editorRemoveButtons: 'Underline,Subscript,Superscript',
+	ckeditor: {
+		on: {
+			instanceReady: function() {
+				this.dataProcessor.writer.setRules( 'br', {
+					indent: false,
+					breakBeforeOpen: false,
+					breakAfterOpen: false,
+					breakBeforeClose: false,
+					breakAfterClose: false
+				});
+				this.dataProcessor.writer.setRules( 'p', {
+					indent: false,
+					breakBeforeOpen: false,
+					breakAfterOpen: false,
+					breakBeforeClose: false,
+					breakAfterClose: false
+				});
+			}
+		},
+		autoParagraph: false,
+		contentsLangDirection: 'auto',
+		entities: false,
+		extraAllowedContent: 'div(*);span(*);p(*);',
+		extraPlugins: 'divarea',
+		initialData: this.value,
+		protectedSource: [/\n/g],
+		readOnly: this.readonly,
+		removeButtons: 'Underline,Subscript,Superscript',
+		toolbar: [
+			{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
+			{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+			{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+			{ name: 'insert', items: [ 'SpecialChar' ] },
+			{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
+			{ name: 'document', items: [ 'Source' ] }
+		]
+	},
 
 	flatpickr : {
 		datetimerange: {
@@ -1037,6 +1060,8 @@ $(function() {
 	document.querySelectorAll('.toast').forEach(el => {
 		new bootstrap.Toast(el, {delay: 3000}).show();
 	});
+
+	Aimeos.ckeditor.language = document.documentElement && document.documentElement.getAttribute('lang') || 'en';
 
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('lang') || 'en']);
 	Vue.component('flat-pickr', VueFlatpickr);

@@ -80,6 +80,7 @@ $enc = $this->encoder();
 									<textarea is="html-editor" class="form-control item-content" required="required"
 										v-bind:key="idx"
 										v-bind:id="'cke-' + idx"
+										v-bind:config="Aimeos.ckeditor"
 										v-bind:value="item['text.content']"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ); ?>'.replace('_idx_', idx)"
 										v-bind:readonly="item['text.siteid'] != siteid"

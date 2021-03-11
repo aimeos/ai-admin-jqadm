@@ -212,7 +212,7 @@ Vue.component('html-editor', {
 		<textarea rows="6" class="form-control htmleditor" v-bind:id="id" v-bind:name="name" v-bind:value="value"\
 			v-bind:placeholder="placeholder" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
 		</textarea>',
-	props: ['id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
+	props: ['config', 'id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
 
 	beforeDestroy: function() {
 		if(this.instance) {
@@ -236,35 +236,7 @@ Vue.component('html-editor', {
 	},
 
 	mounted: function() {
-		this.instance = CKEDITOR.replace(this.id, {
-			on: {
-				instanceReady: function() {
-					this.dataProcessor.writer.setRules( 'br', {
-					indent: false,
-					breakBeforeOpen: false,
-					breakAfterOpen: false,
-					breakBeforeClose: false,
-					breakAfterClose: false
-				});
-					this.dataProcessor.writer.setRules( 'p', {
-					indent: false,
-					breakBeforeOpen: false,
-					breakAfterOpen: false,
-					breakBeforeClose: false,
-					breakAfterClose: false
-				});
-				}
-			},
-			extraAllowedContent: Aimeos.editortags,
-			toolbar: Aimeos.editorcfg,
-			extraPlugins: Aimeos.editorExtraPlugins,
-			initialData: this.value,
-			readOnly: this.readonly,
-			protectedSource: [/\n/g],
-			autoParagraph: false,
-			entities: false,
-			removeButtons: Aimeos.editorRemoveButtons
-		});
+		this.instance = CKEDITOR.replace(this.id, this.config);
 		this.instance.on('change', this.change);
 	},
 
