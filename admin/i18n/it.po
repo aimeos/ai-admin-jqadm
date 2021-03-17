@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: alessandro massarelli <alessandro@botteega.com>\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -290,7 +290,7 @@ msgid "Communication"
 msgstr "Comunicazione"
 
 msgid "Company"
-msgstr "Società"
+msgstr "Azienda"
 
 msgid "Company details"
 msgstr "Dettagli azienda"
@@ -431,7 +431,7 @@ msgid "Delivery"
 msgstr "Consegna"
 
 msgid "Delivery address"
-msgstr "Indirizzo di spedizione"
+msgstr "Indirizzo di consegna"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -704,7 +704,7 @@ msgstr "Dominio \" 1 %1$s \" non valido"
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr "Fattore \" 1 %1$s \" non valido"
+msgstr "Fattore \" %1$s \" non valido"
 
 msgid "Invoice"
 msgstr "Fattura"
@@ -1449,7 +1449,7 @@ msgid "Suggested products"
 msgstr "Prodotti suggeriti"
 
 msgid "Sum"
-msgstr "Somma"
+msgstr "Totale"
 
 msgid "Supplier"
 msgstr "Fornitore"
@@ -1869,7 +1869,7 @@ msgid "pay:-1"
 msgstr "non completato"
 
 msgid "pay:0"
-msgstr "cancellato"
+msgstr "eliminato"
 
 msgid "pay:1"
 msgstr "cancellato"
@@ -1970,7 +1970,7 @@ msgid "stat:-1"
 msgstr "non completato"
 
 msgid "stat:0"
-msgstr "cancellato"
+msgstr "eliminato"
 
 msgid "stat:1"
 msgstr "in sospeso"

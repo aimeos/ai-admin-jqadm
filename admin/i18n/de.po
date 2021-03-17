@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:47+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -255,7 +255,7 @@ msgid "Choose file"
 msgstr "Datei auswählen"
 
 msgid "City"
-msgstr "Stadt"
+msgstr "Ort"
 
 msgid "City or town name (required)"
 msgstr "Stadt (benötigt)"
@@ -1236,7 +1236,7 @@ msgid "Response to the reviewer"
 msgstr "Rückantwort für den Rezensenten"
 
 msgid "Review"
-msgstr "Rezension"
+msgstr "Zur Prüfung"
 
 msgid "Reviewed item"
 msgstr "Besprochenes Objekt"
@@ -1546,7 +1546,7 @@ msgid "Toggle dropdown"
 msgstr "Menü anzeigen/ausblenden"
 
 msgid "Total"
-msgstr "Gesamtsumme"
+msgstr "Gesamt"
 
 msgid "Translate text"
 msgstr "Text übersetzen"
@@ -1875,7 +1875,7 @@ msgid "pay:1"
 msgstr "Abgebrochen"
 
 msgid "pay:2"
-msgstr "Annahme verweigert"
+msgstr "Abgelehnt"
 
 msgid "pay:3"
 msgstr "Erstattet"
@@ -1988,7 +1988,7 @@ msgid "stat:5"
 msgstr "Verloren"
 
 msgid "stat:6"
-msgstr "Annahme verweigert"
+msgstr "Abgelehnt"
 
 msgid "stat:7"
 msgstr "Zurück gesendet"
