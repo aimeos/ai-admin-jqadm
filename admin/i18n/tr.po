@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Metal <meteoramic@yahoo.com>, 2015-2020
+# Metal <meteoramic@yahoo.com>, 2015-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -207,7 +207,7 @@ msgid "Basic"
 msgstr "Temel bilgiler"
 
 msgid "Basket"
-msgstr "Sepet"
+msgstr "Ürün Sepetiniz"
 
 msgid "Billing address"
 msgstr "Fatura adresi"
@@ -571,7 +571,7 @@ msgid "Go to the list of attribute types"
 msgstr "Nitelik türleri listesine gidin"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Verilmiş indirim"
 
 msgid "Group"
 msgstr "Grup"
@@ -700,7 +700,7 @@ msgstr "Geçersiz domain \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr "Geçersiz fabrika \"%1$s\""
+msgstr "Geçersiz üretici \"%1$s\""
 
 msgid "Invoice"
 msgstr "Fatura"
@@ -773,7 +773,7 @@ msgid "List type"
 msgstr "Liste türü"
 
 msgid "Loading items ..."
-msgstr ""
+msgstr "Öğeler yükleniyor ..."
 
 msgid "Locale"
 msgstr "Yerel"
@@ -806,7 +806,7 @@ msgid "Message"
 msgstr "Mesaj"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Minimum miktar"
 
 msgid "Minimum quantity"
 msgstr "Minimum miktar"
@@ -827,7 +827,7 @@ msgid "Move this entry up/down"
 msgstr "Bu girişi yukarı/aşağı taşı"
 
 msgid "Name"
-msgstr "İsim"
+msgstr "Ad"
 
 msgid "Name in URL (optional)"
 msgstr "URL'deki ad (isteğe bağlı)"
@@ -858,7 +858,7 @@ msgid "No items found"
 msgstr "Hiç bir öğe bulunamadı"
 
 msgid "No product found"
-msgstr ""
+msgstr "Ürün bulunamadı"
 
 #, php-format
 msgid "No view available"
@@ -927,7 +927,7 @@ msgid "Orders by day"
 msgstr "Günlere göre siparişler"
 
 msgid "Orders by hour"
-msgstr "Saatlere göre siparişler"
+msgstr "Saate göre siparişler"
 
 msgid "Orders by payment status"
 msgstr "Ödeme durumuna göre siparişler"
@@ -1024,7 +1024,7 @@ msgid "Postal code for delivery if used in the area the supplier is living"
 msgstr "Tedarikçinin yaşadığı bölgede kullanılıyorsa teslimat için posta kodu"
 
 msgid "Postition"
-msgstr ""
+msgstr "Konum"
 
 msgid "Potential problems"
 msgstr "Potansiyel sorunlar"
@@ -1069,7 +1069,7 @@ msgid "Product ID"
 msgstr "Ürün kimlik numarası"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "Ürün kodu, SKU veya adı"
 
 msgid "Product Lists Type"
 msgstr "Ürün Liste Türleri"
@@ -1257,7 +1257,7 @@ msgid "SKU"
 msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr "Haftasonuna göre satışlar"
+msgstr "İş gününe göre satışlar"
 
 msgid "Sales of the last 30 days"
 msgstr "Son 30 günün satışları"
@@ -1344,7 +1344,7 @@ msgid "Shipping/Payment costs"
 msgstr "Nakliye/Ödeme masrafları"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Nakliye/ürün"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1361,7 +1361,7 @@ msgid "Show entry"
 msgstr "Girişi göster"
 
 msgid "Show search form"
-msgstr ""
+msgstr "Arama formunu göster"
 
 msgid "Show/hide advanced data"
 msgstr "Gelişmiş verileri göster/gizle"
@@ -1404,10 +1404,10 @@ msgid "Start date"
 msgstr "Başlangıç tarihi"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Yazmaya başlayın ..."
 
 msgid "State"
-msgstr "Eyalet/İl"
+msgstr "İl"
 
 msgid "Status"
 msgstr "Durum"
@@ -1817,7 +1817,7 @@ msgstr "Günlükler"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "Pazarlama"
 
 #, php-format
 msgid "media"
@@ -1833,7 +1833,7 @@ msgid "mrs"
 msgstr "Bayan"
 
 msgid "ms"
-msgstr ""
+msgstr "Bayan"
 
 msgid "new"
 msgstr "Yeni"
@@ -1883,7 +1883,7 @@ msgid "pay:5"
 msgstr "Onaylanmış"
 
 msgid "pay:6"
-msgstr "Teslim alındı"
+msgstr "Alındı"
 
 #, php-format
 msgid "paymentstatus"
@@ -1932,7 +1932,7 @@ msgstr "Değerlendirmeler"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "Satış"
 
 #, php-format
 msgid "salesweekday"
@@ -1956,14 +1956,14 @@ msgstr "Ödeme türlerine göre"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #, php-format
 msgid "special"
 msgstr "Özel"
 
 msgid "stat:-1"
-msgstr "Açık"
+msgstr "Tamamlanmadı"
 
 msgid "stat:0"
 msgstr "Silindi"

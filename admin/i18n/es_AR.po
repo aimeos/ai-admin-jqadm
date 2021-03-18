@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: Rodolfo Ruival <ruileo1977@yahoo.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/aimeos/aimeos-core/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -1734,7 +1734,7 @@ msgid "code"
 msgstr "Códigos"
 
 msgid "company"
-msgstr "Compañia"
+msgstr "Empresa"
 
 #, php-format
 msgid "countday"
@@ -1810,7 +1810,7 @@ msgstr "Idiomas"
 
 #, php-format
 msgid "locale/site"
-msgstr "Lugares"
+msgstr "Sitios"
 
 #, php-format
 msgid "log"

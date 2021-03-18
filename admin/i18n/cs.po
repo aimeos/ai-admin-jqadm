@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -430,7 +430,7 @@ msgid "Delivery"
 msgstr "Doručení"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "Doručovací adresa"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -478,7 +478,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -544,7 +544,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "Křestní jméno"
 
 msgid "First name (optional)"
 msgstr ""
@@ -742,7 +742,7 @@ msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "Příjmení"
 
 msgid "Last name (required)"
 msgstr ""
@@ -830,7 +830,7 @@ msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Jméno"
 
 msgid "Name in URL (optional)"
 msgstr ""
@@ -846,7 +846,7 @@ msgid "New"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Další"
 
 msgid "Next date"
 msgstr ""
@@ -954,10 +954,10 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Strana %1$d z %2$d"
 
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 msgid "Password (required)"
 msgstr ""
@@ -975,7 +975,7 @@ msgid "Payment"
 msgstr "Platba"
 
 msgid "Payment status"
-msgstr ""
+msgstr "Stav platby"
 
 msgid "Payment types"
 msgstr ""
@@ -1033,10 +1033,10 @@ msgid "Potential problems"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Předchozí"
 
 msgid "Price"
-msgstr ""
+msgstr "Cena"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1066,7 +1066,7 @@ msgid "Problem"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 msgid "Product ID"
 msgstr ""
@@ -1155,7 +1155,7 @@ msgid "Promotion"
 msgstr ""
 
 msgid "Properties"
-msgstr ""
+msgstr "Vlastnosti"
 
 msgid "Property value (required)"
 msgstr ""
@@ -1170,7 +1170,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Množství"
 
 msgid "Quantity scale"
 msgstr ""
@@ -1269,7 +1269,7 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr ""
+msgstr "Oslovení"
 
 msgid "Save"
 msgstr ""
@@ -1287,7 +1287,7 @@ msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Vyhledávání"
 
 msgid "Second level type for grouping items"
 msgstr ""
@@ -1410,7 +1410,7 @@ msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Země"
 
 msgid "Status"
 msgstr ""
@@ -1428,7 +1428,7 @@ msgid "Stock type"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Ulice"
 
 msgid "Street name (optional)"
 msgstr ""
@@ -1472,7 +1472,7 @@ msgid "Tax rate in %"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "Telefon"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1545,7 +1545,7 @@ msgid "Toggle dropdown"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Celkem"
 
 msgid "Translate text"
 msgstr ""

@@ -5,14 +5,15 @@
 # Translators:
 # Cao Anh Nhat <anhnhata8cool@gmail.com>, 2018
 # hh hh <minhtrung.4791@gmail.com>, 2020
+# Tuan Anh <fancyfree.t@gmail.com>, 2021
 # Van Nguyen <van.webmasters@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
-"Last-Translator: Van Nguyen <van.webmasters@gmail.com>\n"
+"PO-Revision-Date: 2021-03-16 18:43+0000\n"
+"Last-Translator: Tuan Anh <fancyfree.t@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/aimeos/aimeos-core/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,7 +77,7 @@ msgid ""
 msgstr ""
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ Thuế"
 
 msgid "?"
 msgstr ""
@@ -282,7 +283,7 @@ msgid "Comment"
 msgstr "Bình luận"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Lời bình luận của người đánh giá"
 
 msgid "Communication"
 msgstr "Trao đổi"
@@ -552,10 +553,10 @@ msgid "First name of the person if used in cultures where they are used"
 msgstr ""
 
 msgid "Floor"
-msgstr ""
+msgstr "Tầng"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "Tầng / Tòa nhà"
 
 msgid "Floor and/or apartment (optional)"
 msgstr ""
@@ -1705,7 +1706,7 @@ msgid "address"
 msgstr "Các địa chỉ"
 
 msgid "address:delivery"
-msgstr "Địa chỉ gửi"
+msgstr "Địa chỉ nhận"
 
 msgid "address:payment"
 msgstr "Địa chỉ hóa đơn"

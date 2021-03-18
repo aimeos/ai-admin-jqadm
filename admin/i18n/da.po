@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: Tobias Madsen <tubbe.m@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/aimeos/aimeos-core/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -1232,7 +1232,7 @@ msgid "Response to the reviewer"
 msgstr ""
 
 msgid "Review"
-msgstr "Anmeldelse"
+msgstr "Afventer gennemgang"
 
 msgid "Reviewed item"
 msgstr "Anmeldt vare"
@@ -1425,7 +1425,7 @@ msgid "Stock type"
 msgstr "Lagertype"
 
 msgid "Street"
-msgstr "Gade"
+msgstr "Vejnavn og nr."
 
 msgid "Street name (optional)"
 msgstr ""
@@ -1849,7 +1849,7 @@ msgstr ""
 
 #, php-format
 msgid "option"
-msgstr "Produkttilpasninger"
+msgstr "Muligheder"
 
 #, php-format
 msgid "order"
@@ -1993,7 +1993,7 @@ msgid "status:-1"
 msgstr "Arkiveret"
 
 msgid "status:-2"
-msgstr "Anmeldelse"
+msgstr "Afventer gennemgang"
 
 msgid "status:0"
 msgstr "Deaktiveret"

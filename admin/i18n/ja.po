@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -428,7 +428,7 @@ msgid "Delivery"
 msgstr "配達"
 
 msgid "Delivery address"
-msgstr "配達先"
+msgstr "配信先住所"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -476,7 +476,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr "複製のエントリ (Ctrl+D)"
 
 msgid "E-Mail"
-msgstr "電子メイル"
+msgstr "メール"
 
 msgid "E-Mail address (required)"
 msgstr "電子メールアドレス（必須）"
@@ -689,7 +689,7 @@ msgstr "クラス名 \"%1$s\"に無効な文字があります"
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr "クライアント名 \"1%1$s\"に無効な文字があります"
+msgstr "クライアント名 \"%1$s\"に無効な文字があります"
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
@@ -1704,7 +1704,7 @@ msgid "address"
 msgstr "住所"
 
 msgid "address:delivery"
-msgstr "配達先"
+msgstr "配信先住所"
 
 msgid "address:payment"
 msgstr "請求先住所"
@@ -1967,7 +1967,7 @@ msgid "stat:-1"
 msgstr "未完成"
 
 msgid "stat:0"
-msgstr "削除された"
+msgstr "削除"
 
 msgid "stat:1"
 msgstr "保留中"

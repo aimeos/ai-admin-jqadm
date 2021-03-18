@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: Goran Sabo <info@noaset.pro>\n"
 "Language-Team: Slovenian (http://www.transifex.com/aimeos/aimeos-core/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -843,7 +843,7 @@ msgid "New"
 msgstr "New"
 
 msgid "Next"
-msgstr "Next"
+msgstr "Naprej"
 
 msgid "Next date"
 msgstr "Next date"
@@ -1030,7 +1030,7 @@ msgid "Potential problems"
 msgstr "Potential problems"
 
 msgid "Previous"
-msgstr "Previous"
+msgstr "Nazaj"
 
 msgid "Price"
 msgstr "Price"
@@ -1193,7 +1193,7 @@ msgid ""
 msgstr "Reduction from the original price, used to calculate the rebate in % and the cross price"
 
 msgid "Reference"
-msgstr "Reference"
+msgstr "Referenca"
 
 msgid "Reference ID"
 msgstr "Reference ID"
@@ -1407,7 +1407,7 @@ msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr "State"
+msgstr "Pokrajina"
 
 msgid "Status"
 msgstr "Status"
@@ -1824,13 +1824,13 @@ msgid "media"
 msgstr "Media"
 
 msgid "miss"
-msgstr "Miss"
+msgstr "Gospodična"
 
 msgid "mr"
-msgstr "Mr"
+msgstr "Gospod"
 
 msgid "mrs"
-msgstr "Mrs"
+msgstr "Gospa"
 
 msgid "ms"
 msgstr ""
@@ -1975,7 +1975,7 @@ msgid "stat:2"
 msgstr "in progress"
 
 msgid "stat:3"
-msgstr "dispatched"
+msgstr "odposlano"
 
 msgid "stat:4"
 msgstr "delivered"
@@ -2007,7 +2007,7 @@ msgstr "Stocks"
 
 #, php-format
 msgid "subscription"
-msgstr "Subscriptions"
+msgstr "Naročnine"
 
 #, php-format
 msgid "supplier"

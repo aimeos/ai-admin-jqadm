@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: iulian iulian <iulian.abc@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/aimeos/aimeos-core/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -1801,7 +1801,7 @@ msgstr "Locale"
 
 #, php-format
 msgid "locale/currency"
-msgstr "Monede"
+msgstr "Valute"
 
 #, php-format
 msgid "locale/language"
@@ -1903,7 +1903,7 @@ msgstr ""
 
 #, php-format
 msgid "price"
-msgstr "preturi"
+msgstr "Preturi"
 
 #, php-format
 msgid "product"

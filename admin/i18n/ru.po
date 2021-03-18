@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
-"Last-Translator: Aimeos\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
+"Last-Translator: Вячеслав Васильев <uverst@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -214,7 +214,7 @@ msgid "Basket"
 msgstr "Корзина"
 
 msgid "Billing address"
-msgstr "Платежный адрес"
+msgstr "Платёжный адрес"
 
 msgid "Birthday"
 msgstr "День рождения"
@@ -831,7 +831,7 @@ msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Name"
-msgstr "Название"
+msgstr "названию"
 
 msgid "Name in URL (optional)"
 msgstr ""
@@ -976,7 +976,7 @@ msgid "Payment"
 msgstr "Оплата"
 
 msgid "Payment status"
-msgstr "Статус платежа"
+msgstr "Статус оплаты"
 
 msgid "Payment types"
 msgstr "Виды оплаты"
@@ -1037,7 +1037,7 @@ msgid "Previous"
 msgstr "Назад"
 
 msgid "Price"
-msgstr "Цена"
+msgstr "цене"
 
 msgid "Price Lists Type"
 msgstr "Тип Прайс-Листов"
@@ -1270,7 +1270,7 @@ msgid "Sales per month"
 msgstr "Продажи за месяц"
 
 msgid "Salutation"
-msgstr "Обращение"
+msgstr "Приветствие"
 
 msgid "Save"
 msgstr "Сохранить"
@@ -1825,7 +1825,7 @@ msgstr ""
 
 #, php-format
 msgid "media"
-msgstr "Медиа"
+msgstr "Мультимедиа"
 
 msgid "miss"
 msgstr "Мисс"
@@ -1895,7 +1895,7 @@ msgstr "По статусу оплаты"
 
 #, php-format
 msgid "paymenttype"
-msgstr "По типам оплат"
+msgstr "По типам оплаты"
 
 #, php-format
 msgid "physical"
@@ -1940,7 +1940,7 @@ msgstr ""
 
 #, php-format
 msgid "salesweekday"
-msgstr "Продажи в будни"
+msgstr "Продажи по дням недели"
 
 #, php-format
 msgid "selection"
@@ -1948,7 +1948,7 @@ msgstr "Варианты"
 
 #, php-format
 msgid "service"
-msgstr "Оплата и доставка"
+msgstr "Службы"
 
 #, php-format
 msgid "servicedelivery"

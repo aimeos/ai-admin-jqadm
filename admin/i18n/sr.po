@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-01-29 11:34+0000\n"
+"PO-Revision-Date: 2021-03-10 10:01+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Serbian (http://www.transifex.com/aimeos/aimeos-core/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -211,7 +211,7 @@ msgid "Basket"
 msgstr "Korpa"
 
 msgid "Billing address"
-msgstr "Adresa za naplatu"
+msgstr "Adresa za račun"
 
 msgid "Birthday"
 msgstr ""
@@ -287,7 +287,7 @@ msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr "Kompanija"
+msgstr "Firma"
 
 msgid "Company details"
 msgstr ""
@@ -318,7 +318,7 @@ msgid "Count"
 msgstr "Broj"
 
 msgid "Country"
-msgstr "Država"
+msgstr "Zemlja"
 
 msgid "Country ID"
 msgstr ""
@@ -428,7 +428,7 @@ msgid "Delivery"
 msgstr "Isporuka"
 
 msgid "Delivery address"
-msgstr "Adresa za dostavu"
+msgstr "Adresa Isporuke"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -973,7 +973,7 @@ msgid "Payment"
 msgstr "Placanje"
 
 msgid "Payment status"
-msgstr "Status plaćanja"
+msgstr "Status placanja"
 
 msgid "Payment types"
 msgstr ""
@@ -1168,7 +1168,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr "Količina"
+msgstr "kolicina"
 
 msgid "Quantity scale"
 msgstr ""
@@ -1408,7 +1408,7 @@ msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr "Država"
+msgstr "Drzava"
 
 msgid "Status"
 msgstr "Status"
