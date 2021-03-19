@@ -242,6 +242,23 @@ return [
 		 */
 		'groups' => ['admin', 'super'],
 	],
+	'rule' => [
+		/** admin/jqadm/resource/rule/groups
+		 * List of user groups that are allowed to access the rule panel
+		 *
+		 * @param array List of user group names
+		 * @since 2021.04
+		 */
+		'groups' => ['admin', 'editor', 'super'],
+
+		/** admin/jqadm/resource/rule/key
+		 * Shortcut key to switch to the rule panel by using the keyboard
+		 *
+		 * @param string Single character in upper case
+		 * @since 2021.04
+		 */
+		'key' => 'E',
+	],
 	'service' => [
 		/** admin/jqadm/resource/service/groups
 		 * List of user groups that are allowed to access the service panel

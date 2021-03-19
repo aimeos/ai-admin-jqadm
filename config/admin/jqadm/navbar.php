@@ -23,6 +23,7 @@ return [
 		'' => 'marketing',
 		10 => 'coupon',
 		20 => 'review',
+		30 => 'rule',
 	],
 	50 => [
 		'' => 'settings',
