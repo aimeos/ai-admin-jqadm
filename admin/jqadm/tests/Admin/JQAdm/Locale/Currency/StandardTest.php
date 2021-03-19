@@ -118,7 +118,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetViewException()
 	{
-		$object = new \Aimeos\Admin\JQAdm\Locale\Currency\Standard( $this->context, [] );
+		$object = new \Aimeos\Admin\JQAdm\Locale\Currency\Standard( $this->context );
 
 		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->getView();

@@ -120,7 +120,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetViewException()
 	{
-		$object = new \Aimeos\Admin\JQAdm\Rule\Standard( $this->context, [] );
+		$object = new \Aimeos\Admin\JQAdm\Rule\Standard( $this->context );
 
 		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$object->getView();
