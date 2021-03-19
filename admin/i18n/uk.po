@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-03-13 11:06+0000\n"
-"Last-Translator: Alex k <akropivko@gmail.com>\n"
+"POT-Creation-Date: 2021-03-19 09:06+0100\n"
+"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,8 +18,29 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
+msgid " "
+msgstr ""
+
 #, php-format
 msgid "%1$d/%2$d"
+msgstr ""
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
 msgstr ""
 
 #, php-format
@@ -153,6 +174,9 @@ msgstr "Дозволити клієнтам самим вибирати суму
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Буквено-цифровий рядок, який може ідентифікувати групу однозначно"
 
+msgid "Apply"
+msgstr ""
+
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
@@ -199,6 +223,11 @@ msgstr "Доступні інтервали в публічній частині
 
 msgid "Available language for the current site"
 msgstr "Доступна мова для поточного сайту"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr ""
 
 msgid "Back in stock"
 msgstr ""
@@ -293,6 +322,13 @@ msgstr "Відомості про компанію"
 
 msgid "Company name (optional)"
 msgstr "Назва компанії (опціонально)"
+
+msgid "Completed orders"
+msgstr ""
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid "Config"
 msgstr "Конфигурація"
@@ -395,6 +431,9 @@ msgstr "Статистика"
 
 msgid "Data set"
 msgstr "Набір даних"
+
+msgid "Dataset"
+msgstr ""
 
 msgid "Date of the last delivery status change"
 msgstr "Дата останньої зміни статусу доставки"
@@ -519,6 +558,9 @@ msgstr ""
 msgid "Execution order of the plugins"
 msgstr "Порядок виконання для плагінів"
 
+msgid "Execution order of the rules"
+msgstr ""
+
 msgid "Export"
 msgstr "Експорт"
 
@@ -536,6 +578,9 @@ msgstr "Файл"
 
 msgid "Find category"
 msgstr "Знайти категорію"
+
+msgid "Find site"
+msgstr ""
 
 msgid "First"
 msgstr "Перший"
@@ -711,6 +756,11 @@ msgstr "Елемент успішно видалений"
 msgid "Item saved successfully"
 msgstr "Елемент успішно збережено"
 
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr ""
+
 msgid "Label"
 msgstr "Позначка"
 
@@ -842,6 +892,12 @@ msgstr "Ім`я оглядача"
 msgid "New"
 msgstr "Новий"
 
+msgid "New customers"
+msgstr ""
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr ""
+
 msgid "Next"
 msgstr "Далі"
 
@@ -922,6 +978,9 @@ msgstr "Порядок типів в публічній частині"
 
 msgid "Order totals"
 msgstr "Загальні дані замовлення"
+
+msgid "Orders by country"
+msgstr ""
 
 msgid "Orders by day"
 msgstr "Замовлення по днях"
@@ -1253,6 +1312,24 @@ msgstr "Назва роуту або ID сторінки товару, якщо 
 msgid "Route or page ID (optional)"
 msgstr "Роут або ID сторінки (опціонально)"
 
+msgid "Rule"
+msgstr ""
+
+msgid "Rule Type"
+msgstr ""
+
+msgid "Rule Types"
+msgstr ""
+
+msgid "Rule label for describing the configured rule"
+msgstr ""
+
+msgid "Rule position (required)"
+msgstr ""
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr ""
+
 msgid "SKU"
 msgstr "Артикул SKU"
 
@@ -1541,8 +1618,20 @@ msgstr ""
 msgid "Toggle dropdown"
 msgstr ""
 
+msgid "Top countries"
+msgstr ""
+
 msgid "Total"
 msgstr "Всього"
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Total ratings"
+msgstr ""
 
 msgid "Translate text"
 msgstr ""
@@ -1583,6 +1672,13 @@ msgstr "Цільовий URL"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Неможливо викликати метод \"%1$s\""
+
+msgid "Unfinished orders"
+msgstr ""
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1734,6 +1830,10 @@ msgstr "Код"
 
 msgid "company"
 msgstr "компанія"
+
+#, php-format
+msgid "countcountry"
+msgstr ""
 
 #, php-format
 msgid "countday"
@@ -1913,6 +2013,22 @@ msgstr "Товари"
 msgid "property"
 msgstr "Властивості"
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr ""
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr ""
+
+#, php-format
+msgid "quick/counttotal"
+msgstr ""
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr ""
+
 msgid "reason:-1"
 msgstr ""
 
@@ -1929,6 +2045,10 @@ msgstr "Пов'язані товари"
 #, php-format
 msgid "review"
 msgstr "огляд"
+
+#, php-format
+msgid "rule"
+msgstr ""
 
 #, php-format
 msgid "sales"
@@ -2087,6 +2207,10 @@ msgstr "Списки Товарів"
 #, php-format
 msgid "type/product/property"
 msgstr "Властивості Товару"
+
+#, php-format
+msgid "type/rule"
+msgstr ""
 
 #, php-format
 msgid "type/service"

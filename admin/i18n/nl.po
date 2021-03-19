@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-03-10 10:01+0000\n"
-"Last-Translator: Maikel Slot <maikelslot@msdesigns.nl>\n"
+"POT-Creation-Date: 2021-03-19 09:06+0100\n"
+"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,9 +25,30 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr " "
+
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -160,6 +181,9 @@ msgstr "Geef klanten de mogelijkheid zelf een prijs te bepalen"
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Alfanumerieke string dat de groep uniek kan identificeren"
 
+msgid "Apply"
+msgstr ""
+
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
@@ -206,6 +230,11 @@ msgstr "Beschikbare intervallen in de front-end"
 
 msgid "Available language for the current site"
 msgstr "Beschikbare talen voor de huidige site"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr ""
 
 msgid "Back in stock"
 msgstr "Weer op voorraad"
@@ -300,6 +329,13 @@ msgstr "Bedrijfsgegevens"
 
 msgid "Company name (optional)"
 msgstr "Naam bedrijf (optioneel)"
+
+msgid "Completed orders"
+msgstr ""
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid "Config"
 msgstr "Configuratie"
@@ -402,6 +438,9 @@ msgstr "Dashboard"
 
 msgid "Data set"
 msgstr "Data set"
+
+msgid "Dataset"
+msgstr ""
 
 msgid "Date of the last delivery status change"
 msgstr "Datum van de laatste wijziging in de status van levering"
@@ -526,6 +565,9 @@ msgstr "Excl. BTW"
 msgid "Execution order of the plugins"
 msgstr "Volgorde van uitvoeren van de plug-ins"
 
+msgid "Execution order of the rules"
+msgstr ""
+
 msgid "Export"
 msgstr "Export"
 
@@ -543,6 +585,9 @@ msgstr "Bestand"
 
 msgid "Find category"
 msgstr "Vind categorie"
+
+msgid "Find site"
+msgstr ""
 
 msgid "First"
 msgstr "Eerste"
@@ -718,6 +763,11 @@ msgstr "Item succesvol verwijderd"
 msgid "Item saved successfully"
 msgstr "Item succesvol opgeslagen"
 
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr ""
+
 msgid "Label"
 msgstr "Label"
 
@@ -849,6 +899,12 @@ msgstr ""
 msgid "New"
 msgstr "Nieuw"
 
+msgid "New customers"
+msgstr ""
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr ""
+
 msgid "Next"
 msgstr "Volgende"
 
@@ -929,6 +985,9 @@ msgstr "Orde van de types in de frontend"
 
 msgid "Order totals"
 msgstr "Order totalen"
+
+msgid "Orders by country"
+msgstr ""
 
 msgid "Orders by day"
 msgstr "Bestellingen per dag"
@@ -1260,6 +1319,24 @@ msgstr "Route naam of pagina ID van de product pagina als dit product moet getoo
 msgid "Route or page ID (optional)"
 msgstr "Route of pagina ID (optioneel)"
 
+msgid "Rule"
+msgstr ""
+
+msgid "Rule Type"
+msgstr ""
+
+msgid "Rule Types"
+msgstr ""
+
+msgid "Rule label for describing the configured rule"
+msgstr ""
+
+msgid "Rule position (required)"
+msgstr ""
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr ""
+
 msgid "SKU"
 msgstr "SKU"
 
@@ -1548,8 +1625,20 @@ msgstr "Titel"
 msgid "Toggle dropdown"
 msgstr "Toggle dropdown"
 
+msgid "Top countries"
+msgstr ""
+
 msgid "Total"
 msgstr "Totaal"
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Total ratings"
+msgstr ""
 
 msgid "Translate text"
 msgstr "Vertaal tekst"
@@ -1590,6 +1679,13 @@ msgstr "Bestemmingsurl"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Call method \"%1$s\" kon niet worden aangeroepen"
+
+msgid "Unfinished orders"
+msgstr ""
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1741,6 +1837,10 @@ msgstr "Codes"
 
 msgid "company"
 msgstr "Organisatie"
+
+#, php-format
+msgid "countcountry"
+msgstr ""
 
 #, php-format
 msgid "countday"
@@ -1920,6 +2020,22 @@ msgstr "Producten"
 msgid "property"
 msgstr "Eigenschappen"
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr ""
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr ""
+
+#, php-format
+msgid "quick/counttotal"
+msgstr ""
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr ""
+
 msgid "reason:-1"
 msgstr "Mislukt"
 
@@ -1935,6 +2051,10 @@ msgstr "Producten"
 
 #, php-format
 msgid "review"
+msgstr ""
+
+#, php-format
+msgid "rule"
 msgstr ""
 
 #, php-format
@@ -2094,6 +2214,10 @@ msgstr "Productlijsten"
 #, php-format
 msgid "type/product/property"
 msgstr "Producteigenschappen"
+
+#, php-format
+msgid "type/rule"
+msgstr ""
 
 #, php-format
 msgid "type/service"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
+"POT-Creation-Date: 2021-03-19 09:06+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi (http://www.transifex.com/aimeos/aimeos-core/language/hi/)\n"
@@ -17,8 +17,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 #, php-format
 msgid "%1$d/%2$d"
+msgstr ""
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
 msgstr ""
 
 #, php-format
@@ -144,6 +165,9 @@ msgstr ""
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
+msgid "Apply"
+msgstr ""
+
 msgid "Article specific configuration options, will be available as key/value pairs in the templates"
 msgstr ""
 
@@ -187,6 +211,9 @@ msgid "Available intervals in the front-end"
 msgstr ""
 
 msgid "Available language for the current site"
+msgstr ""
+
+msgid "Average product rating and total number of ratings by customers for this product"
 msgstr ""
 
 msgid "Back in stock"
@@ -279,6 +306,12 @@ msgid "Company details"
 msgstr ""
 
 msgid "Company name (optional)"
+msgstr ""
+
+msgid "Completed orders"
+msgstr ""
+
+msgid "Completed orders within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Config"
@@ -378,6 +411,9 @@ msgid "Dashboard"
 msgstr ""
 
 msgid "Data set"
+msgstr ""
+
+msgid "Dataset"
 msgstr ""
 
 msgid "Date of the last delivery status change"
@@ -500,6 +536,9 @@ msgstr ""
 msgid "Execution order of the plugins"
 msgstr ""
 
+msgid "Execution order of the rules"
+msgstr ""
+
 msgid "Export"
 msgstr ""
 
@@ -516,6 +555,9 @@ msgid "File"
 msgstr ""
 
 msgid "Find category"
+msgstr ""
+
+msgid "Find site"
 msgstr ""
 
 msgid "First"
@@ -682,6 +724,9 @@ msgstr ""
 msgid "Item saved successfully"
 msgstr ""
 
+msgid "Item specific configuration options, will be available as key/value pairs in the templates"
+msgstr ""
+
 msgid "Label"
 msgstr ""
 
@@ -808,6 +853,12 @@ msgstr ""
 msgid "New"
 msgstr ""
 
+msgid "New customers"
+msgstr ""
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr ""
+
 msgid "Next"
 msgstr ""
 
@@ -883,6 +934,9 @@ msgid "Order of the types in the frontend"
 msgstr ""
 
 msgid "Order totals"
+msgstr ""
+
+msgid "Orders by country"
 msgstr ""
 
 msgid "Orders by day"
@@ -1203,6 +1257,24 @@ msgstr ""
 msgid "Route or page ID (optional)"
 msgstr ""
 
+msgid "Rule"
+msgstr ""
+
+msgid "Rule Type"
+msgstr ""
+
+msgid "Rule Types"
+msgstr ""
+
+msgid "Rule label for describing the configured rule"
+msgstr ""
+
+msgid "Rule position (required)"
+msgstr ""
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr ""
+
 msgid "SKU"
 msgstr ""
 
@@ -1476,7 +1548,19 @@ msgstr ""
 msgid "Toggle dropdown"
 msgstr ""
 
+msgid "Top countries"
+msgstr ""
+
 msgid "Total"
+msgstr ""
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Total ratings"
 msgstr ""
 
 msgid "Translate text"
@@ -1517,6 +1601,12 @@ msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
+msgstr ""
+
+msgid "Unfinished orders"
+msgstr ""
+
+msgid "Unfinished orders within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented"
@@ -1665,6 +1755,10 @@ msgid "code"
 msgstr ""
 
 msgid "company"
+msgstr ""
+
+#, php-format
+msgid "countcountry"
 msgstr ""
 
 #, php-format
@@ -1845,6 +1939,22 @@ msgstr ""
 msgid "property"
 msgstr ""
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr ""
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr ""
+
+#, php-format
+msgid "quick/counttotal"
+msgstr ""
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr ""
+
 msgid "reason:-1"
 msgstr ""
 
@@ -1860,6 +1970,10 @@ msgstr ""
 
 #, php-format
 msgid "review"
+msgstr ""
+
+#, php-format
+msgid "rule"
 msgstr ""
 
 #, php-format
@@ -2018,6 +2132,10 @@ msgstr ""
 
 #, php-format
 msgid "type/product/property"
+msgstr ""
+
+#, php-format
+msgid "type/rule"
 msgstr ""
 
 #, php-format

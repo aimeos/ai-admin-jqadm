@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-03-10 10:01+0000\n"
-"Last-Translator: alessandro massarelli <alessandro@botteega.com>\n"
+"POT-Creation-Date: 2021-03-19 09:06+0100\n"
+"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,8 +22,29 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr " "
+
 #, php-format
 msgid "%1$d/%2$d"
+msgstr ""
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
 msgstr ""
 
 #, php-format
@@ -157,6 +178,9 @@ msgstr "Consenti ai clienti di scegliere quanto vogliono pagare"
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Stringa alfanumerica che può identificare un gruppo in modo univoco"
 
+msgid "Apply"
+msgstr ""
+
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
@@ -203,6 +227,11 @@ msgstr "Intervalli disponibili nel front-end"
 
 msgid "Available language for the current site"
 msgstr "Lingua disponibile per questo sito"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr ""
 
 msgid "Back in stock"
 msgstr "Nuovamente disponibile"
@@ -297,6 +326,13 @@ msgstr "Dettagli azienda"
 
 msgid "Company name (optional)"
 msgstr "Nome azienda (opzionale)"
+
+msgid "Completed orders"
+msgstr ""
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid "Config"
 msgstr "Configurazioni"
@@ -398,6 +434,9 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 msgid "Data set"
+msgstr ""
+
+msgid "Dataset"
 msgstr ""
 
 msgid "Date of the last delivery status change"
@@ -523,6 +562,9 @@ msgstr ""
 msgid "Execution order of the plugins"
 msgstr ""
 
+msgid "Execution order of the rules"
+msgstr ""
+
 msgid "Export"
 msgstr "Esporta"
 
@@ -540,6 +582,9 @@ msgstr "File"
 
 msgid "Find category"
 msgstr "Trova categoria"
+
+msgid "Find site"
+msgstr ""
 
 msgid "First"
 msgstr "Primo"
@@ -715,6 +760,11 @@ msgstr "Articolo cancellato con successo"
 msgid "Item saved successfully"
 msgstr "Articolo salvato con successo"
 
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr ""
+
 msgid "Label"
 msgstr "Etichetta"
 
@@ -846,6 +896,12 @@ msgstr ""
 msgid "New"
 msgstr ""
 
+msgid "New customers"
+msgstr ""
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr ""
+
 msgid "Next"
 msgstr "Procedi"
 
@@ -926,6 +982,9 @@ msgstr ""
 
 msgid "Order totals"
 msgstr "Totale ordine"
+
+msgid "Orders by country"
+msgstr ""
 
 msgid "Orders by day"
 msgstr ""
@@ -1257,6 +1316,24 @@ msgstr ""
 msgid "Route or page ID (optional)"
 msgstr ""
 
+msgid "Rule"
+msgstr ""
+
+msgid "Rule Type"
+msgstr ""
+
+msgid "Rule Types"
+msgstr ""
+
+msgid "Rule label for describing the configured rule"
+msgstr ""
+
+msgid "Rule position (required)"
+msgstr ""
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr ""
+
 msgid "SKU"
 msgstr ""
 
@@ -1545,8 +1622,20 @@ msgstr "Titolo"
 msgid "Toggle dropdown"
 msgstr "Chiudi/apri finestra"
 
+msgid "Top countries"
+msgstr ""
+
 msgid "Total"
 msgstr "Totale"
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Total ratings"
+msgstr ""
 
 msgid "Translate text"
 msgstr ""
@@ -1587,6 +1676,13 @@ msgstr "Target URL"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Impossibile chiamare il metodo \" 1 %1$s \""
+
+msgid "Unfinished orders"
+msgstr ""
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1738,6 +1834,10 @@ msgstr "Codici"
 
 msgid "company"
 msgstr "Azienda"
+
+#, php-format
+msgid "countcountry"
+msgstr ""
 
 #, php-format
 msgid "countday"
@@ -1917,6 +2017,22 @@ msgstr "Prodotti"
 msgid "property"
 msgstr "Proprietà"
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr ""
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr ""
+
+#, php-format
+msgid "quick/counttotal"
+msgstr ""
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr ""
+
 msgid "reason:-1"
 msgstr ""
 
@@ -1933,6 +2049,10 @@ msgstr "Prodotti"
 #, php-format
 msgid "review"
 msgstr "Recensioni"
+
+#, php-format
+msgid "rule"
+msgstr ""
 
 #, php-format
 msgid "sales"
@@ -2090,6 +2210,10 @@ msgstr ""
 
 #, php-format
 msgid "type/product/property"
+msgstr ""
+
+#, php-format
+msgid "type/rule"
 msgstr ""
 
 #, php-format
