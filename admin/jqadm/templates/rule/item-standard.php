@@ -165,7 +165,7 @@ $enc = $this->encoder();
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.provider' ) ) ); ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ); ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/rule.provider' ) ); ?>"
-											data-order="<?= implode( ',', $this->get( 'itemProviders/order', [] ) ); ?>"
+											data-catalog="<?= implode( ',', $this->get( 'itemProviders/catalog', [] ) ); ?>"
 											<?= $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ); ?> />
 										<div class="dropdown">
 											<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>

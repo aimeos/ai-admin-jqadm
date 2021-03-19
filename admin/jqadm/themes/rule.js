@@ -5,7 +5,7 @@
 
 
 
-Aimeos.Rule = {
+ Aimeos.Rule = {
 
 	init : function() {
 
@@ -48,7 +48,7 @@ Aimeos.Rule = {
 
 		$(".aimeos .item-rule").on("focus", ".item-provider", function(ev) {
 
-			var type = $(".item-type option:selected", ev.delegateTarget).val() || 'order';
+			var type = $(".item-type option:selected", ev.delegateTarget).val() || 'catalog';
 
 			$(this).autocomplete({
 				source: $(this).data(type).split(","),
