@@ -544,8 +544,11 @@ abstract class Base
 	 */
 	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
 	{
-		return $criteria->order( $params['sort'] ?? [] )
-			->slice( $params['page']['offset'] ?? 0, $params['page']['limit'] ?? 25 )
+		if( isset( $params['sort'] ) && !empty( $params['sort'] ) ) {
+			$criteria->order( $params['sort'] );
+		}
+
+		return $criteria->slice( $params['page']['offset'] ?? 0, $params['page']['limit'] ?? 25 )
 			->add( $criteria->parse( $this->getCriteriaConditions( $params['filter'] ?? [] ) ) );
 	}
 
