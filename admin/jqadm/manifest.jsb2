@@ -89,6 +89,9 @@
 			"text": "plugin.js",
 			"path": "themes/"
 		},{
+			"text": "rule.js",
+			"path": "themes/"
+		},{
 			"text": "service.js",
 			"path": "themes/"
 		},{
