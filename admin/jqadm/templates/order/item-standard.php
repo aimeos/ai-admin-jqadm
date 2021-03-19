@@ -210,7 +210,7 @@ $statusList = [
 										<span class="form-control item-customerid">
 											<?php if( $basket->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
 												<a class="act-view" target="_blank"
-													href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId()], [], $getConfig ) ); ?>">
+													href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId(), 'lang' => $this->param( 'lang' )], [], $getConfig ) ); ?>">
 													<?= $enc->html( $basket->getCustomerId() ); ?>
 												</a>
 											<?php endif; ?>
@@ -260,6 +260,7 @@ $statusList = [
 											<tr>
 												<th class="item-column column-subscription"><?= $enc->html( $this->translate( 'admin', 'Renew' ) ); ?></th>
 												<th class="item-column column-status"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></th>
+												<th class="item-column column-timeframe"><?= $enc->html( $this->translate( 'admin', 'Delivery in' ) ); ?></th>
 												<th class="item-column column-desc"><?= $enc->html( $this->translate( 'admin', 'Name' ) ); ?></th>
 												<th class="item-column column-quantity"><?= $enc->html( $this->translate( 'admin', 'Quantity' ) ); ?></th>
 												<th class="item-column column-price"><?= $enc->html( $this->translate( 'admin', 'Price' ) ); ?></th>
@@ -295,6 +296,13 @@ $statusList = [
 																	</option>
 																<?php endforeach; ?>
 															</select>
+														</td>
+														<td class="item-column column-timeframe">
+															<input class="form-control product-timeframe" maxlength="16" tabindex="1"
+																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.timeframe' ) ) ); ?>"
+																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Delivery timeframe (optional)' ) ); ?>"
+																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.base.product.timeframe' ) ); ?>"
+																<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
 														</td>
 														<td class="item-column column-desc">
 															<span class="product-name"><?= $enc->html( $orderProduct->getName() ); ?></span>

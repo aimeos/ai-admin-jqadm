@@ -433,6 +433,10 @@ class Standard
 			if( isset( $data['product'][$pos]['order.base.product.status'] ) ) {
 				$product->setStatus( $data['product'][$pos]['order.base.product.status'] );
 			}
+
+			if( isset( $data['product'][$pos]['order.base.product.timeframe'] ) ) {
+				$product->setTimeframe( $data['product'][$pos]['order.base.product.timeframe'] );
+			}
 		}
 
 		foreach( $basket->getAddresses() as $type => $addresses )
@@ -554,8 +558,10 @@ class Standard
 			}
 		}
 
-		foreach( $item->getProducts() as $pos => $productItem ) {
+		foreach( $item->getProducts() as $pos => $productItem )
+		{
 			$data['product'][$pos]['order.base.product.status'] = $productItem->getStatus();
+			$data['product'][$pos]['order.base.product.timeframe'] = $productItem->getTimeFrame();
 		}
 
 		return $data;

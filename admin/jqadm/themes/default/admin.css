@@ -525,8 +525,9 @@
 	content: "\f073";
 }
 
-.aimeos .item-order .item-product-list .column-status {
-	max-width: 10rem;
+.aimeos .item-order .item-product-list .column-status,
+.aimeos .item-order .item-product-list .column-timeframe {
+	max-width: 7rem;
 	min-width: 5rem;
 }
 
