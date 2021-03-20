@@ -157,7 +157,7 @@ Aimeos.Dashboard.Sales = {
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.price", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.price", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [], date = startdate.clone();
@@ -218,7 +218,7 @@ Aimeos.Dashboard.Sales = {
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", this.limit, "order.base.product.price", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", this.limit, "order.base.price", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [], date = startdate.clone();
@@ -279,7 +279,7 @@ Aimeos.Dashboard.Sales = {
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.price", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.price", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
