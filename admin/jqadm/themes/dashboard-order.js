@@ -145,7 +145,7 @@ Aimeos.Dashboard.Order = {
 					v: map[date.toISOString().substr(0, 10)] || 0
 				});
 				date.add(1, 'days');
-			} while(date.isBefore(enddate, 'day'));
+			} while(date.isBefore(enddate, 'day') || date.isSame(enddate, 'day'));
 
 
 			new Chart(ctx, {
