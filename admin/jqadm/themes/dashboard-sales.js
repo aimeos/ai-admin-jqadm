@@ -149,12 +149,12 @@ Aimeos.Dashboard.Sales = {
 		const self = this;
 		const ctx = this.context('.order-salesday');
 		const keys = "order.base.currencyid,order.cdate";
-		const startdate = moment().utc().subtract(30, 'days');
-		const enddate = moment().utc();
+		const startdate = moment().utc().startOf('day').subtract(30, 'days');
+		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
-			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.price", "sum").then(function(response) {
@@ -210,12 +210,12 @@ Aimeos.Dashboard.Sales = {
 		const self = this;
 		const ctx = this.context('.order-salesmonth');
 		const keys = "order.base.currencyid,order.cmonth";
-		const startdate = moment().utc().subtract(12, 'months');
-		const enddate = moment().utc();
+		const startdate = moment().utc().startOf('day').subtract(12, 'months');
+		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
-			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", this.limit, "order.base.price", "sum").then(function(response) {
@@ -271,12 +271,12 @@ Aimeos.Dashboard.Sales = {
 		const self = this;
 		const ctx = this.context('.order-salesweekday');
 		const keys = "order.base.currencyid,order.cwday";
-		const startdate = moment().utc().subtract(12, 'months');
-		const enddate = moment().utc();
+		const startdate = moment().utc().startOf('day').subtract(12, 'months');
+		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
-			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.price", "sum").then(function(response) {

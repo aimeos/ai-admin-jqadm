@@ -143,12 +143,12 @@ Aimeos.Dashboard.Service = {
 		const self = this;
 		const keys = "order.base.service.code";
 		const ctx = this.context('.order-servicedelivery');
-		const startdate = moment().utc().subtract(12, 'months');
-		const enddate = moment().utc();
+		const startdate = moment().utc().startOf('day').subtract(12, 'months');
+		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{"==": {"order.base.service.type": "delivery"}},
-			{">": {"order.ctime": startdate.toISOString().substr(0, 10) + ' 00:00:00'}},
-			{"<=": {"order.ctime": enddate.toISOString().substr(0, 10) + ' 00:00:00'}},
+			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", this.limit).then(function(response) {
@@ -200,12 +200,12 @@ Aimeos.Dashboard.Service = {
 		const self = this;
 		const keys = "order.base.service.code";
 		const ctx = this.context('.order-servicepayment');
-		const startdate = moment().utc().subtract(12, 'months');
-		const enddate = moment().utc();
+		const startdate = moment().utc().startOf('day').subtract(12, 'months');
+		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{"==": {"order.base.service.type": "payment"}},
-			{">": {"order.ctime": startdate.toISOString().substr(0, 10) + ' 00:00:00'}},
-			{"<=": {"order.ctime": enddate.toISOString().substr(0, 10) + ' 00:00:00'}},
+			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", this.limit).then(function(response) {

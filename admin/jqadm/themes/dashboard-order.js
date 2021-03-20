@@ -121,11 +121,11 @@ Aimeos.Dashboard.Order = {
 		const weeks = Math.ceil((width - cellWidth) / cellWidth);
 
 		const keys = "order.cdate";
-		const startdate = moment().utc().subtract(weeks, 'weeks').startOf('day');
-		const enddate = moment().utc().startOf('day');
+		const startdate = moment().utc().startOf('day').subtract(weeks, 'weeks');
+		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
@@ -251,11 +251,11 @@ Aimeos.Dashboard.Order = {
 		const self = this;
 		const keys = "order.chour";
 		const ctx = this.context('.order-counthour');
-		const startdate = moment().utc().subtract(12, 'months');
-		const enddate = moment().utc().startOf('day');
+		const startdate = moment().utc().startOf('day').subtract(12, 'months');
+		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
@@ -335,11 +335,11 @@ Aimeos.Dashboard.Order = {
 		const keys = "order.statuspayment,order.cdate";
 		const ctx = this.context('.order-countpaystatus');
 		const labels = JSON.parse(document.querySelector('.order-countpaystatus').dataset.labels) || {};
-		const startdate = moment().utc().subtract(30, 'days');
-		const enddate = moment().utc().startOf('day');
+		const startdate = moment().utc().startOf('day').subtract(30, 'days');
+		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
@@ -445,11 +445,11 @@ Aimeos.Dashboard.Order = {
 		const self = this;
 		const keys = "order.base.address.countryid";
 		const ctx = this.context('.order-countcountry');
-		const startdate = moment().utc().subtract(12, 'months').startOf('day');
-		const enddate = moment().utc().startOf('day');
+		const startdate = moment().utc().startOf('day').subtract(12, 'months');
+		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{">": {"order.cdate": startdate.toISOString().substr(0, 10)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 10)}},
+			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
