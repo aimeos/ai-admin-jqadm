@@ -171,7 +171,7 @@ Aimeos.Dashboard.Sales = {
 
 					data.push({x: date.toISOString(), y: entry['attributes'][day] || 0});
 					date.add(1, 'days');
-				} while(date.isBefore(enddate, 'day'));
+				} while(date.isBefore(enddate, 'day') || date.isSame(enddate, 'day'));
 
 				dsets.push({
 					pointRadius: 2,
@@ -232,7 +232,7 @@ Aimeos.Dashboard.Sales = {
 
 					data.push({x: date.toISOString(), y: entry['attributes'][month] || 0});
 					date.add(1, 'months');
-				} while(date.isBefore(enddate, 'month'));
+				} while(date.isBefore(enddate, 'month') || date.isSame(enddate, 'month'));
 
 				dsets.push({
 					pointRadius: 2,

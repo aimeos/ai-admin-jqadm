@@ -362,7 +362,7 @@ Aimeos.Dashboard.Order = {
 
 					data.push({x: date.toISOString(), y: entries[id][day] || 0});
 					date.add(1, 'days');
-				} while(date.isBefore(enddate, 'day'));
+				} while(date.isBefore(enddate, 'day') || date.isSame(enddate, 'day'));
 
 				dsets.push({
 					id: id, data: data,
