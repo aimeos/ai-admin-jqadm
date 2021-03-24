@@ -271,7 +271,7 @@ $columnList = [
 						<td class="customer-website"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getWebsite() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'customer.birthday', $fields ) ) : ?>
-						<td class="customer-birthday"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getBirthday() ); ?></a></td>
+						<td class="customer-birthday"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getBirthday() ); ?></a></td>
 					<?php endif; ?>
 					<?php if( in_array( 'customer.ctime', $fields ) ) : ?>
 						<td class="customer-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
