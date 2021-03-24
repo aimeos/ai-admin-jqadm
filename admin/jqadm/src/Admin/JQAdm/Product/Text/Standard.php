@@ -302,9 +302,9 @@ class Standard
 				continue;
 			}
 
-			$listType = $entry['product.lists.type'];
+			$listType = $entry['product.lists.type'] ?? 'default';
 
-			if( ( $listItem = $item->getListItem( 'text', $listType, $entry['text.id'], false ) ) === null ) {
+			if( ( $listItem = $item->getListItem( 'text', $listType, $entry['text.id'] ?? null, false ) ) === null ) {
 				$listItem = $listManager->create();
 			}
 

@@ -308,7 +308,7 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$listType = $entry['product.lists.type'];
+			$listType = $entry['product.lists.type'] ?? 'default';
 
 			if( ( $listItem = $item->getListItem( 'price', $listType, $entry['price.id'], false ) ) === null ) {
 				$listItem = $listManager->create();

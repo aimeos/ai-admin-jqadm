@@ -96,7 +96,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 						</td>
 						<td class="actions">
 							<input class="item-id" type="hidden" v-model="item['stock.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.id'] ) ); ?>'.replace( 'idx', idx )" />
+								v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.id'] ) ); ?>'.replace( 'idx', idx )" />
 
 							<?php if( $stockTypes->count() === 1 ) : ?>
 								<input class="item-type" type="hidden"
