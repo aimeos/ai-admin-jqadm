@@ -123,23 +123,23 @@ $enc = $this->encoder();
 			</button>
 			<ul class="dropdown-menu dropdown-menu-right">
 				<li class="dropdown-item">
-					<a href="<?php $pLimit['limit'] = 25; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
+					<a href="<?php $pLimit['limit'] = 25; $pLimit['offset'] = 0; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
 						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">25</a>
 				</li>
 				<li class="dropdown-item">
-					<a href="<?php $pLimit['limit'] = 50; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
+					<a href="<?php $pLimit['limit'] = 50; $pLimit['offset'] = 0; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
 						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">50</a>
 				</li>
 				<li class="dropdown-item">
-					<a href="<?php $pLimit['limit'] = 100; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
+					<a href="<?php $pLimit['limit'] = 100; $pLimit['offset'] = 0; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
 						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">100</a>
 				</li>
 				<li class="dropdown-item">
-					<a href="<?php $pLimit['limit'] = 200; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
+					<a href="<?php $pLimit['limit'] = 200; $pLimit['offset'] = 0; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
 						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">200</a>
 				</li>
 				<li class="dropdown-item">
-					<a href="<?php $pLimit['limit'] = 500; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
+					<a href="<?php $pLimit['limit'] = 500; $pLimit['offset'] = 0; echo $enc->attr( $this->url( $target, $controller, $action, $pgroup( $pLimit, $group ) + $params, $fragment, $config ) ); ?>"
 						tabindex="<?= $this->get( 'tabindex', 1 ); ?>">500</a>
 				</li>
 			</ul>
