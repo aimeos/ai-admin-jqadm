@@ -236,6 +236,12 @@
 	border-bottom: 1px solid rgba(0, 0, 0, .15);
 }
 
+.aimeos h2.item-header.is-invalid {
+	border-bottom: 1px solid #dc3545;
+	color: #dc3545;
+}
+
+
 .aimeos .item-meta {
 	margin: 1rem 0.5rem;
 }

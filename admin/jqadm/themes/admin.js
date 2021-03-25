@@ -630,6 +630,7 @@ Aimeos.Form = {
 			var nodes = [];
 
 			$(".card-header", this).removeClass("is-invalid");
+			$(".item-header", this).removeClass("is-invalid");
 			$(".item-navbar .nav-link", this).removeClass("is-invalid");
 
 			$(".item-content input,select", this).each(function(idx, element) {
@@ -651,6 +652,7 @@ Aimeos.Form = {
 
 			$.each(nodes, function() {
 				$(".card-header", $(this).closest(".card")).addClass("is-invalid");
+				$(".item-header", $(this).closest(".content-block")).addClass("is-invalid");
 
 				$(this).closest(".tab-pane").each(function() {
 					$(".item-navbar .nav-item." + $(this).attr("id") + " .nav-link").addClass("is-invalid");
