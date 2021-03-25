@@ -240,7 +240,7 @@ Aimeos.Dashboard.Sales = {
 			config.options.scales.xAxes[0].type = 'time';
 			config.options.scales.xAxes[0].time = {unit: 'month'};
 			config.options.tooltips.callbacks.title = function(item) {
-				return moment(item[0].label).format('MMM YYYY');
+				return moment(item[0].label).format('MMM');
 			};
 			config.options.tooltips.callbacks.labelColor = function(item) {
 				return {borderColor: '#000', backgroundColor: self.color(item.datasetIndex)};
