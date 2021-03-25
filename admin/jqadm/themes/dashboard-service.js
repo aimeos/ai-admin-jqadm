@@ -121,14 +121,6 @@ Aimeos.Dashboard.Service = {
 		return legend;
 	},
 
-	log: function(response) {
-		if(response.responseJSON && response.responseJSON.errors && response.responseJSON.errors[0] ) {
-			console.error('[Aimeos] Failed fetching data:', response.responseJSON.errors[0].title);
-		} else {
-			console.error('Aimeos] Error:', response);
-		}
-	},
-
 
 	init : function() {
 
@@ -186,8 +178,6 @@ Aimeos.Dashboard.Service = {
 
 			self.addLegend(new Chart(ctx, config), '.order-servicedelivery');
 
-		}).catch(function(response) {
-			self.log(response);
 		}).then(function() {
 			self.done('.order-servicedelivery');
 		});
@@ -243,8 +233,6 @@ Aimeos.Dashboard.Service = {
 
 			self.addLegend(new Chart(ctx, config), '.order-servicepayment');
 
-		}).catch(function(response) {
-			self.log(response);
 		}).then(function() {
 			self.done('.order-servicepayment');
 		});

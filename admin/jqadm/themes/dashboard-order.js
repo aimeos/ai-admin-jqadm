@@ -89,14 +89,6 @@ Aimeos.Dashboard.Order = {
 		return legend;
 	},
 
-	log: function(response) {
-		if(response.responseJSON && response.responseJSON.errors && response.responseJSON.errors[0] ) {
-			console.error('[Aimeos] Failed fetching data:', response.responseJSON.errors[0].title);
-		} else {
-			console.error('Aimeos] Error:', response);
-		}
-	},
-
 
 	init : function() {
 
@@ -238,8 +230,6 @@ Aimeos.Dashboard.Order = {
 				}
 			});
 
-		}).catch(function(response) {
-			self.log(response);
 		}).then(function() {
 			self.done('.order-countday');
 		});
@@ -321,8 +311,6 @@ Aimeos.Dashboard.Order = {
 				}
 			});
 
-		}).catch(function(response) {
-			self.log(response);
 		}).then(function() {
 			self.done('.order-counthour');
 		});
@@ -432,8 +420,6 @@ Aimeos.Dashboard.Order = {
 
 			self.addLegend(new Chart(ctx, config), '.order-countpaystatus');
 
-		}).catch(function(response) {
-			self.log(response);
 		}).then(function() {
 			self.done('.order-countpaystatus');
 		});
@@ -522,8 +508,6 @@ Aimeos.Dashboard.Order = {
 				}
 			}
 
-		}).catch(function(response) {
-			self.log(response);
 		}).then(function() {
 			self.done('.order-countcountry');
 		});

@@ -121,14 +121,6 @@ Aimeos.Dashboard.Sales = {
 		return legend;
 	},
 
-	log: function(response) {
-		if(response.responseJSON && response.responseJSON.errors && response.responseJSON.errors[0] ) {
-			console.error('[Aimeos] Failed fetching data:', response.responseJSON.errors[0].title);
-		} else {
-			console.error('Aimeos] Error:', response);
-		}
-	},
-
 
 	init: function() {
 
@@ -197,8 +189,6 @@ Aimeos.Dashboard.Sales = {
 
 			self.addLegend(new Chart(ctx, config), '.order-salesday');
 
-		}).catch(function(response) {
-			self.log(response);
 		}).then(function() {
 			self.done('.order-salesday');
 		});
@@ -258,8 +248,6 @@ Aimeos.Dashboard.Sales = {
 
 			self.addLegend(new Chart(ctx, config), '.order-salesmonth');
 
-		}).catch(function(response) {
-			self.log(response);
 		}).then(function() {
 			self.done('.order-salesmonth');
 		});
@@ -312,8 +300,6 @@ Aimeos.Dashboard.Sales = {
 
 			self.addLegend(new Chart(ctx, config), '.order-salesweekday');
 
-		}).catch(function(response) {
-			self.log(response);
 		}).then(function() {
 			self.done('.order-salesweekday');
 		});

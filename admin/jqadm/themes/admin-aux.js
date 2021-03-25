@@ -491,9 +491,7 @@ Aimeos.ProductRef = {
 
 						axios.delete(response.meta.resources[resource], config).then(function(response) {
 							callback(response.data);
-							self.waiting(false);
-						}).catch(function(error) {
-							self.log(error);
+						}).then(function() {
 							self.waiting(false);
 						});
 					}
@@ -604,9 +602,7 @@ Aimeos.ProductRef = {
 								items: list
 							});
 
-							self.waiting(false);
-						}).catch(function(error) {
-							self.log(error);
+						}).then(function() {
 							self.waiting(false);
 						});
 					}
@@ -632,17 +628,6 @@ Aimeos.ProductRef = {
 				}
 
 				return str;
-			},
-
-
-			log: function(error) {
-				console.log('[Aimeos] Server error: ', error);
-
-				if(error.response && error.response.data && error.response.data.errors) {
-					error.response.data.errors.forEach(function(elem) {
-						console.log('[Aimeos] Server error: ' + elem.title);
-					});
-				}
 			},
 
 
