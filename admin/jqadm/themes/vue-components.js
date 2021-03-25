@@ -785,8 +785,6 @@ Vue.component('site-tree-items', {
 
 					self.total = response.data.meta && response.data.meta.total || 0;
 
-				}).catch(function(error) {
-					self.log(error);
 				}).then(function() {
 					self.$emit('loading', false);
 				});
@@ -803,16 +801,6 @@ Vue.component('site-tree-items', {
 
 		loading(id, val) {
 			this.$set(this.items[id], 'isLoading', val);
-		},
-
-		log(error) {
-			console.error('[Aimeos]', error.message);
-
-			if(error.response && error.response.data && error.response.data.errors) {
-				error.response.data.errors.forEach(function(elem) {
-					console.error(elem.title);
-				});
-			}
 		},
 
 		more() {
