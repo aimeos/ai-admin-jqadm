@@ -31,6 +31,7 @@ Aimeos.Dashboard.Sales = {
 					gridLines: {
 						drawOnChartArea: false
 					},
+					ticks: {}
 				}],
 				yAxes: [{
 					display: true,
@@ -239,8 +240,11 @@ Aimeos.Dashboard.Sales = {
 			config.options.legendCallback = self.legend;
 			config.options.scales.xAxes[0].type = 'time';
 			config.options.scales.xAxes[0].time = {unit: 'month'};
+			config.options.scales.xAxes[0].ticks.callback = function(item) {
+				return moment(item).format('MMM');
+			};
 			config.options.tooltips.callbacks.title = function(item) {
-				return moment(item[0].label).format('MMM');
+				return moment(item[0].label).format('MMM YYYY');
 			};
 			config.options.tooltips.callbacks.labelColor = function(item) {
 				return {borderColor: '#000', backgroundColor: self.color(item.datasetIndex)};
