@@ -22,8 +22,7 @@
 	top: 0;
 }
 
-.app-menu .menu,
-.app-menu .logout {
+.app-menu .menu {
 	vertical-align: middle;
 	padding: 0.5rem 1rem;
 	font-size: 125%;
@@ -90,7 +89,7 @@
 	position: fixed;
 	top: 2.5rem;
 	bottom: 0;
-    z-index: 1150;
+	z-index: 1150;
 	width: max(15%, 12rem);
 	color: var(--bs-menu, #ffffff);
 	background-color: var(--bs-primary, #30a0e0);
@@ -365,7 +364,7 @@
 
 .aimeos .sidebar-menu li .tree-menu a:hover,
 .aimeos .sidebar-menu li .tree-menu li:hover {
-	color: var(--bs-primary, #30a0e0);
+	color: var(--bs-primary-light, #5bb3e6);
 }
 
 .aimeos .sidebar-menu li .tree-menu a {

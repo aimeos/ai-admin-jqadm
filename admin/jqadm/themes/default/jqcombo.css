@@ -19,9 +19,12 @@
 }
 
 .ai-combobox .ui-widget.ui-widget-content,
-.ai-combobox .ui-button {
+.ai-combobox .ui-button,
+.ui-widget-content {
+	background: var(--bs-bg-light, #ffffff);
+	color: var(--bs-secondary, #505860);
 	border: none;
-    outline: 0;
+	outline: 0;
 }
 
 .ai-combobox.form-control {

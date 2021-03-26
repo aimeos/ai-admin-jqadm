@@ -62,7 +62,7 @@
 	display: inline-block;
 	padding: .25rem 0rem;
 	color: var(--bs-secondary, #707880);
-    width: 100%;
+	width: 100%;
 }
 
 .page-limit .dropdown-link:focus,
@@ -424,10 +424,10 @@
 }
 
 .aimeos .item-media .media-preview p {
-    transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 	position: absolute;
-    left: 50%;
-    top: 50%;
+	left: 50%;
+	top: 50%;
 }
 
 .aimeos .item-media .media-preview img {

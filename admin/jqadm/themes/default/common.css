@@ -6,7 +6,7 @@
 
 /* Theme colors */
 
-:root {
+body {
 	--bs-bg: #f8fafc;
 	--bs-bg-dark: #f4f8fb;
 	--bs-bg-light: #ffffff;
@@ -26,6 +26,34 @@
 	--bs-secondary-dark: #101820;
 	--bs-secondary-light: #9098a0;
 	--bs-shadow: #a8b8c825 0px 3px 9px 0px;
+	--bs-hover: #fcfcfc;
+}
+
+body.dark {
+	--bs-bg: #303030;
+	--bs-bg-dark: #404040;
+	--bs-bg-light: #202020;
+	--bs-line: #707070;
+	--bs-line-light: #808080;
+	--bs-menu: #c0c8d0;
+	--bs-menu-bg: var(--bs-primary, #2093d5);
+	--bs-menu-alt: #707880;
+	--bs-menu-alt-bg: #202020;
+	--bs-primary: #003860;
+	--bs-primary-dark: #014475;
+	--bs-primary-light: #0262a7;
+	--bs-primary-alt: #004030;
+	--bs-primary-alt-dark: #01513a;
+	--bs-primary-alt-light: #01835e;
+	--bs-secondary: #c0c8d0;
+	--bs-secondary-dark: #e0e8f0;
+	--bs-secondary-light: #a0a8b0;
+	--bs-shadow: #a8b8c825 0px 3px 9px 0px;
+	--bs-hover: #444;
+}
+
+body.dark img {
+	filter: brightness(.8) contrast(1.2);
 }
 
 
@@ -177,7 +205,7 @@ body {
 
 .aimeos .card.sortable-ghost,
 .aimeos tr.sortable-ghost {
-    opacity: 0;
+	opacity: 0;
 }
 
 .aimeos .card {
@@ -194,6 +222,7 @@ body {
 
 .aimeos .card .header,
 .aimeos .box .header {
+	display: flex;
 	padding: 0.25rem;
 	background: var(--bs-bg-light, #FFFFFF);
 	border-bottom: 1px solid var(--bs-primary, #0090e0);
@@ -537,7 +566,7 @@ body {
 }
 
 .vs--open .vs__open-indicator {
-    transform: rotate(180deg) scale(0.66);
+	transform: rotate(180deg) scale(0.66);
 }
 
 .vs__search, .vs__search:focus {
@@ -549,4 +578,101 @@ body {
 	overflow: hidden;
 	height: 1.5rem;
 	margin: 0;
+}
+
+
+/* 3rd party flatpickr component */
+
+.flatpickr-calendar,
+.flatpickr-months .flatpickr-month,
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month,
+.flatpickr-time .flatpickr-am-pm:focus,
+span.flatpickr-weekday {
+	background-color: var(--bs-bg-light, #ffffff);
+	color: var(--bs-secondary, #505860);
+}
+
+.flatpickr-day,
+.flatpickr-time input,
+.flatpickr-time .flatpickr-time-separator,
+.flatpickr-time .flatpickr-am-pm {
+	color: var(--bs-secondary, #505860);
+	background-color: var(--bs-bg-light, #ffffff);
+}
+
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover {
+	color: var(--bs-secondary-light, #9098a0);
+}
+
+
+/* 3rd party CKEdior component */
+
+.cke_wysiwyg_frame, .cke_wysiwyg_div {
+	color: var(--bs-secondary, #505860) !important;
+	background-color: var(--bs-bg-light, #ffffff) !important;
+}
+
+.cke_top, .cke_bottom {
+	background-color: var(--bs-bg-dark, #f4f8fb) !important;
+}
+
+body.dark .cke_button_icon {
+	filter: invert(1);
+}
+
+.cke_bottom *,
+.cke_button_label {
+	color: var(--bs-secondary, #505860) !important;
+}
+
+.cke_dialog_body,
+.cke_dialog_contents {
+	background-color: var(--bs-bg-light, #ffffff) !important;
+}
+
+select.cke_dialog_ui_input_select, textarea.cke_dialog_ui_input_textarea,
+input.cke_dialog_ui_input_text,input.cke_dialog_ui_input_password,input.cke_dialog_ui_input_tel {
+	background-color: var(--bs-bg-light, #ffffff) !important;
+	color: var(--bs-secondary-dark, #101820) !important;
+}
+
+.cke_dialog_title,
+.cke_dialog_footer {
+	background-color: var(--bs-bg, #f8fafc) !important;
+	color: var(--bs-secondary, #505860) !important;
+}
+
+a.cke_dialog_tab:hover {
+	background-color: var(--bs-bg-dark, #f4f8fb) !important;
+}
+
+a.cke_dialog_tab {
+	background-color: var(--bs-bg-light, #ffffff) !important;
+	color: var(--bs-secondary, #505860) !important;
+}
+
+a.cke_dialog_tab_selected {
+	background-color: var(--bs-bg, #f8fafc) !important;
+}
+
+a.cke_dialog_ui_button,
+a.cke_dialog_ui_button:hover {
+	color: var(--bs-secondary, #707880) !important;
+	background-color: var(--bs-bg-light, #ffffff) !important;
+	border-color: var(--bs-line-light, #dee2e6) !important;
+}
+
+a.cke_dialog_ui_button_ok {
+	color: var(--bs-menu, #ffffff) !important;
+	background-color: var(--bs-primary-alt, #00b0a0) !important;
+	border-color: var(--bs-primary-alt, #00b0a0) !important;
+}
+
+a.cke_dialog_ui_button_ok:hover {
+	color: var(--bs-menu, #ffffff) !important;
+	background-color: var(--bs-primary-alt-light, #00ccbb) !important;
+	border-color: var(--bs-primary-alt-light, #00ccbb) !important;
 }

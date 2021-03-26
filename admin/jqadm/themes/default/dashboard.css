@@ -57,17 +57,32 @@
 
 .dashboard .quick-percent.positive {
 	background-color: #d8f8e8;
-	color: #00998c;
+	color: #008075;
 }
 
 .dashboard .quick-percent.neutral {
 	background-color: #e9f4fc;
-	color: #1080c0;
+	color: #0e71aa;
 }
 
 .dashboard .quick-percent.negative {
 	background-color: #ffebf0;
-	color: #d80028;
+	color: #a3001e;
+}
+
+body.dark .dashboard .quick-percent.positive {
+	background-color: #008075;
+	color: #d8f8e8;
+}
+
+body.dark .dashboard .quick-percent.neutral {
+	background-color: #0e71aa;
+	color: #e9f4fc;
+}
+
+body.dark .dashboard .quick-percent.negative {
+	background-color: #a3001e;
+	color: #ffebf0;
 }
 
 .dashboard .quick-progress {
