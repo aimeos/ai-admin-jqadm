@@ -588,8 +588,7 @@
 }
 
 .aimeos .item-order .item-address .address-edit {
-	display: inline-block;
-	vertical-align: top;
+	float: right;
 }
 
 .aimeos .item-order .item-address .address-edit:before {

@@ -80,7 +80,7 @@ $columnList = [
 		</column-select>
 
 		<div class="table-responsive">
-			<table class="list-items table table-hover table-striped">
+			<table class="list-items table table-hover">
 				<thead class="list-header">
 					<tr>
 
