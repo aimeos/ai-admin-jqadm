@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-19 09:06+0100\n"
-"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"PO-Revision-Date: 2021-03-27 09:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Estonian (http://www.transifex.com/aimeos/aimeos-core/language/et/)\n"
 "MIME-Version: 1.0\n"
@@ -251,7 +251,7 @@ msgid "Bug or suggestion?"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Katkesta"
 
 msgid "Cancel and return to list"
 msgstr ""
@@ -376,7 +376,7 @@ msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
 
 msgid "Created"
-msgstr ""
+msgstr "Loodud"
 
 msgid "Currencies"
 msgstr ""
@@ -451,7 +451,7 @@ msgid "Default"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Kustuta"
 
 msgid "Delete items?"
 msgstr ""
@@ -479,7 +479,7 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Kättetoimetamine ajavahemikus"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -1235,7 +1235,7 @@ msgid "Rabate"
 msgstr ""
 
 msgid "Rating"
-msgstr ""
+msgstr "Hinne"
 
 msgid "Rating of the reviewer"
 msgstr ""
@@ -1346,7 +1346,7 @@ msgid "Salutation"
 msgstr "Pöördumine"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvesta"
 
 msgid "Save & Close"
 msgstr ""
@@ -1487,7 +1487,7 @@ msgid "State"
 msgstr "Maakond"
 
 msgid "Status"
-msgstr ""
+msgstr "Staatus"
 
 msgid "Stock Type"
 msgstr ""
@@ -1893,7 +1893,7 @@ msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Uusim"
 
 #, php-format
 msgid "locale"
@@ -2044,7 +2044,7 @@ msgstr ""
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Arvustused"
 
 #, php-format
 msgid "rule"
@@ -2127,11 +2127,11 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Tellimused"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Tarnijad"
 
 msgid "tag"
 msgstr ""

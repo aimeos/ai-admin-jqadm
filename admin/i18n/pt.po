@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-19 09:06+0100\n"
-"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"PO-Revision-Date: 2021-03-27 09:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Portuguese (http://www.transifex.com/aimeos/aimeos-core/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -2112,16 +2112,16 @@ msgid "stat:7"
 msgstr "devolvido"
 
 msgid "status:-1"
-msgstr "status:arquivo"
+msgstr ""
 
 msgid "status:-2"
-msgstr "status:revisão"
+msgstr ""
 
 msgid "status:0"
-msgstr "status:desabilitado"
+msgstr ""
 
 msgid "status:1"
-msgstr "status:ativado"
+msgstr ""
 
 #, php-format
 msgid "stock"

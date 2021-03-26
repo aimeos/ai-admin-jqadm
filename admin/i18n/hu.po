@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-19 09:06+0100\n"
-"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"PO-Revision-Date: 2021-03-27 09:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -2113,16 +2113,16 @@ msgid "stat:7"
 msgstr "visszaküldött"
 
 msgid "status:-1"
-msgstr "állapot:archív"
+msgstr ""
 
 msgid "status:-2"
-msgstr "állapot:felülvizsgálat alatt"
+msgstr ""
 
 msgid "status:0"
-msgstr "állapot:letiltva"
+msgstr ""
 
 msgid "status:1"
-msgstr "állapot:engedélyezett"
+msgstr ""
 
 #, php-format
 msgid "stock"

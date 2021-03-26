@@ -8,6 +8,7 @@
 # Anderson Mendoza Aguiar <amendozaaguiar@outlook.com>, 2021
 # Daniel Cortés <skrd@hotmail.es>, 2018
 # Daniel Vega <danielvega131990@gmail.com>, 2015
+# Gonzalo Rocha <gonzalo@positivonetworks.com>, 2021
 # Jorge Moriñigo <jorgemorinigo@gmail.com>, 2020
 # Juan Ramos <juancagb.17@gmail.com>, 2017
 # nsendetzky, 2014
@@ -17,7 +18,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-19 09:06+0100\n"
-"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"PO-Revision-Date: 2021-03-27 09:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -352,7 +353,7 @@ msgid "Copy"
 msgstr "Copiar"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Copiar esta entrada"
 
 msgid "Costs"
 msgstr "Costos"
@@ -444,10 +445,10 @@ msgid "Dataset"
 msgstr ""
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Fecha del último cambio de estado del envío"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Fecha del último cambio de estado del pago"
 
 msgid "Date the subscription ends"
 msgstr ""
@@ -465,7 +466,7 @@ msgid "Delete items?"
 msgstr "¿Eliminar elementos?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Eliminar las entradas seleccionadas"
 
 msgid "Delete this entry"
 msgstr "Eliminar esta entrada"
@@ -2118,16 +2119,16 @@ msgid "stat:7"
 msgstr "devuelto"
 
 msgid "status:-1"
-msgstr "archivar"
+msgstr ""
 
 msgid "status:-2"
-msgstr "revisar"
+msgstr ""
 
 msgid "status:0"
-msgstr "deshabilitado"
+msgstr ""
 
 msgid "status:1"
-msgstr "habilitado"
+msgstr ""
 
 #, php-format
 msgid "stock"

@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-19 09:06+0100\n"
-"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"PO-Revision-Date: 2021-03-27 09:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -2114,16 +2114,16 @@ msgid "stat:7"
 msgstr "被退貨"
 
 msgid "status:-1"
-msgstr "狀態：已封存"
+msgstr ""
 
 msgid "status:-2"
-msgstr "狀態：已審核"
+msgstr ""
 
 msgid "status:0"
-msgstr "狀態：已停用"
+msgstr ""
 
 msgid "status:1"
-msgstr "狀態：已啟用"
+msgstr ""
 
 #, php-format
 msgid "stock"

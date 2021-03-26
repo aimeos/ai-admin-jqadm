@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-19 09:06+0100\n"
-"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"PO-Revision-Date: 2021-03-27 09:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Croatian (http://www.transifex.com/aimeos/aimeos-core/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -2110,16 +2110,16 @@ msgid "stat:7"
 msgstr "vraćeno"
 
 msgid "status:-1"
-msgstr "Arhivirano"
+msgstr ""
 
 msgid "status:-2"
-msgstr "Pregled"
+msgstr ""
 
 msgid "status:0"
-msgstr "Onemogućeno"
+msgstr ""
 
 msgid "status:1"
-msgstr "Omogućeno"
+msgstr ""
 
 #, php-format
 msgid "stock"

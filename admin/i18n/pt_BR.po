@@ -6,6 +6,7 @@
 # Bruno Rodrigues <brunojti@gmail.com>, 2016
 # Cesar Devesa <unit.cesar@gmail.com>, 2020
 # Daniele Dantas <daniele@tcix.com.br>, 2020
+# Italo Thales <italo.thales@urca.br>, 2021
 # Jefferson Cardoso <jefferson.mcardoso@gmail.com>, 2019
 # Rafael Gomes <madrafael.gsilva@gmail.com>, 2020
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-19 09:06+0100\n"
-"PO-Revision-Date: 2021-03-19 08:07+0000\n"
+"PO-Revision-Date: 2021-03-27 09:41+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +28,7 @@ msgstr ""
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d%2$d"
 
 #, php-format
 msgid ""
@@ -2114,16 +2115,16 @@ msgid "stat:7"
 msgstr "devolvido"
 
 msgid "status:-1"
-msgstr "status:arquivo"
+msgstr ""
 
 msgid "status:-2"
-msgstr "status:revisão"
+msgstr ""
 
 msgid "status:0"
-msgstr "status:desabilitado"
+msgstr ""
 
 msgid "status:1"
-msgstr "status:habilitado"
+msgstr ""
 
 #, php-format
 msgid "stock"
