@@ -4,9 +4,11 @@
  */
 
 
-Aimeos.Dashboard.Sales = {
+ Aimeos.Dashboard.Sales = {
 
+	theme: 'light',
 	colors: ['#30a0e0', '#00b0a0', '#ff7f0e', '#e03028', '#00c8f0', '#00d0b0', '#c8d830', '#f8b820'],
+	colorsText: {'dark': '#c0c8d0', 'light': '#505860'},
 
 	config: {
 		type: 'line',
@@ -89,9 +91,9 @@ Aimeos.Dashboard.Sales = {
 	gradient: function(ctx, index) {
 		const gradient = ctx.createLinearGradient(0,0 , 0,280);
 
-		gradient.addColorStop(0, Color(this.colors[index % this.colors.length]).alpha(0.5).rgbaString());
-		gradient.addColorStop(0.66, Color('#ffffff').alpha(0.5).rgbaString());
-		gradient.addColorStop(1, '#ffffff');
+		gradient.addColorStop(0, Color(this.color(index)).alpha(0.5).rgbaString());
+		gradient.addColorStop(0.66, Color(this.color(index)).alpha(0).rgbaString());
+		gradient.addColorStop(1, '#000000ff');
 
 		return gradient;
 	},
@@ -108,7 +110,7 @@ Aimeos.Dashboard.Sales = {
 
 			const color = document.createElement('span');
 			color.classList.add('color');
-			color.style.backgroundColor = dset.borderColor;
+			color.style.backgroundColor = Color(dset.borderColor).alpha(0.75).rgbaString();
 
 			const item = document.createElement('div');
 			item.classList.add('item');
@@ -129,6 +131,16 @@ Aimeos.Dashboard.Sales = {
 			this.config.options.scales.yAxes[0].position = 'right';
 			this.config.options.tooltips.bodyAlign = 'right';
 			this.config.options.tooltips.rtl = true;
+		}
+
+		if(document.querySelector('body.dark')) {
+			this.config.options.scales.xAxes[0].ticks.fontColor = this.colorsText.dark;
+			this.config.options.scales.yAxes[0].ticks.fontColor = this.colorsText.dark;
+			this.theme = 'dark';
+		} else {
+			this.config.options.scales.xAxes[0].ticks.fontColor = this.colorsText.light;
+			this.config.options.scales.yAxes[0].ticks.fontColor = this.colorsText.light;
+			this.theme = 'light';
 		}
 
 		Aimeos.lazy(".order-salesday .chart", this.chartDay.bind(this));
@@ -169,8 +181,8 @@ Aimeos.Dashboard.Sales = {
 				dsets.push({
 					pointRadius: 2,
 					label: entry['id'], data: data,
-					borderColor: self.color(num),
 					backgroundColor: self.gradient(ctx, num),
+					borderColor: Color(self.color(num)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString(),
 				});
 				num++;
 			}
@@ -228,8 +240,8 @@ Aimeos.Dashboard.Sales = {
 				dsets.push({
 					pointRadius: 2,
 					label: entry['id'], data: data,
-					borderColor: self.color(num),
 					backgroundColor: self.gradient(ctx, num),
+					borderColor: Color(self.color(num)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString(),
 				});
 				num++;
 			}
@@ -241,7 +253,7 @@ Aimeos.Dashboard.Sales = {
 			config.options.scales.xAxes[0].type = 'time';
 			config.options.scales.xAxes[0].time = {unit: 'month'};
 			config.options.scales.xAxes[0].ticks.callback = function(item) {
-				return moment(item).format('MMM');
+				return item.substr(0, 3);
 			};
 			config.options.tooltips.callbacks.title = function(item) {
 				return moment(item[0].label).format('MMM YYYY');
@@ -287,8 +299,8 @@ Aimeos.Dashboard.Sales = {
 				dsets.push({
 					pointRadius: 2,
 					label: entry['id'], data: data,
-					borderColor: self.color(num),
 					backgroundColor: self.gradient(ctx, num),
+					borderColor: Color(self.color(num)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString(),
 				});
 				num++;
 			}

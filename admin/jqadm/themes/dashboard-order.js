@@ -4,9 +4,14 @@
  */
 
 
-Aimeos.Dashboard.Order = {
+ Aimeos.Dashboard.Order = {
 
-	color: ['#f2f2f2', '#e6eff7', '#d4e1ed', '#c9def2', '#a5d2e8', '#7bbee6', '#54a4d7', '#3586ca', '#2069b4', '#2c5490'],
+	theme: 'light',
+	colorsText: {dark: '#c0c8d0', light: '#505860'},
+	colorScale: {
+		dark: ['#404040', '#404854', '#3f4a5a', '#3d4c61', '#3b4e68', '#384f70', '#365078', '#335280', '#305388', '#2c5490'],
+		light: ['#f2f2f2', '#e6eff7', '#d4e1ed', '#c9def2', '#a5d2e8', '#7bbee6', '#54a4d7', '#3586ca', '#2069b4', '#2c5490']
+	},
 	paystatusColor: ['#d3d3d3', '#e15759', '#f28e2b', '#edc948', '#5bb3e6', '#30a0e0', '#00ccbb', '#00b0a0'],
 	hourColor: ['#ffffff', '#30a0e0'],
 	dayColorHover: '#00b0a0',
@@ -58,7 +63,7 @@ Aimeos.Dashboard.Order = {
 		}
 
 		gradient.addColorStop(0, Color(colorLow).alpha(alpha).rgbaString());
-		gradient.addColorStop(1, colorHigh);
+		gradient.addColorStop(1, this.theme == 'dark' ? '#202020ff' : '#ffffffff');
 
 		return gradient;
 	},
@@ -75,7 +80,7 @@ Aimeos.Dashboard.Order = {
 
 			const color = document.createElement('span');
 			color.classList.add('color');
-			color.style.backgroundColor = dset.backgroundColor;
+			color.style.backgroundColor = Color(dset.backgroundColor).alpha(self.theme == 'dark' ? 1 : 0.75).rgbaString();
 
 			const item = document.createElement('div');
 			item.classList.add('item');
@@ -95,6 +100,8 @@ Aimeos.Dashboard.Order = {
 		if(document.documentElement && document.documentElement.getAttribute('dir') === 'rtl') {
 			this.rtl = true;
 		}
+
+		this.theme = document.querySelector('body.dark') ? 'dark' : 'light';
 
 		Aimeos.lazy(".order-countday .chart", this.chartDay.bind(this));
 		Aimeos.lazy(".order-counthour .chart", this.chartHour.bind(this));
@@ -148,10 +155,10 @@ Aimeos.Dashboard.Order = {
 					datasets: [{
 						data: data,
 						backgroundColor: function(ctx) {
-							return self.color[(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
+							return self.colorScale[self.theme][(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
 						},
 						borderColor: function(ctx) {
-							return self.color[(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
+							return self.colorScale[self.theme][(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
 						},
 						borderWidth: 1,
 						borderSkipped: false,
@@ -196,7 +203,8 @@ Aimeos.Dashboard.Order = {
 							},
 							ticks: {
 								maxRotation: 0,
-								autoSkip: true
+								autoSkip: true,
+								fontColor: self.colorsText[self.theme]
 							},
 							gridLines: {
 								display: false,
@@ -218,7 +226,8 @@ Aimeos.Dashboard.Order = {
 							ticks: {
 								 // workaround, see: https://github.com/chartjs/Chart.js/pull/6257
 								maxRotation: 90,
-								reverse: true
+								reverse: true,
+								fontColor: self.colorsText[self.theme]
 							},
 							gridLines: {
 								display: false,
@@ -293,6 +302,9 @@ Aimeos.Dashboard.Order = {
 							gridLines: {
 								drawOnChartArea: false
 							},
+							ticks: {
+								fontColor: self.colorsText[self.theme]
+							}
 						}],
 						yAxes: [{
 							display: true,
@@ -304,7 +316,8 @@ Aimeos.Dashboard.Order = {
 								min: 0,
 								callback: function(value) {
 									return Number.isInteger(value) ? value : '';
-								}
+								},
+								fontColor: self.colorsText[self.theme]
 							}
 						}]
 					}
@@ -355,8 +368,8 @@ Aimeos.Dashboard.Order = {
 				dsets.push({
 					id: id, data: data,
 					label: labels[id], borderWidth: 0,
-					backgroundColor: Color(self.paystatusColor[Number(id)+1]).rgbString(),
-					hoverBackgroundColor: Color(self.paystatusColor[Number(id)+1]).alpha(0.5).rgbaString(),
+					backgroundColor: Color(self.paystatusColor[Number(id)+1]).alpha(self.theme == 'dark' ? 0.75 : 1).rgbString(),
+					hoverBackgroundColor: Color(self.paystatusColor[Number(id)+1]).alpha(self.theme == 'dark' ? 1 : 0.75).rgbaString(),
 				});
 			}
 
@@ -373,6 +386,7 @@ Aimeos.Dashboard.Order = {
 						intersect: false,
 						position: 'nearest',
 						bodyAlign: self.rtl ? 'right' : 'left',
+						multiKeyBackground: '#000000',
 						rtl: self.rtl,
 						callbacks: {
 							title(item) {
@@ -397,6 +411,9 @@ Aimeos.Dashboard.Order = {
 							},
 							offset: true,
 							stacked: true,
+							ticks: {
+								fontColor: self.colorsText[self.theme]
+							}
 						}],
 						yAxes: [{
 							display: true,
@@ -409,7 +426,8 @@ Aimeos.Dashboard.Order = {
 								min: 0,
 								callback: function(value) {
 									return Number.isInteger(value) ? value : '';
-								}
+								},
+								fontColor: self.colorsText[self.theme]
 							}
 						}]
 					},
@@ -460,7 +478,7 @@ Aimeos.Dashboard.Order = {
 						data: countries.map((c) => ({feature: c, value: map[c.id] || 0})),
 						backgroundColor: function(ctx) {
 							const v = ctx.dataIndex && ctx.dataset.data[ctx.dataIndex].value || 0;
-							return self.color[(v / max * 9).toFixed()];
+							return self.colorScale[self.theme][(v / max * 9).toFixed()];
 						},
 				  }]
 				},

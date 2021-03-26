@@ -4,8 +4,9 @@
  */
 
 
-Aimeos.Dashboard.Service = {
+ Aimeos.Dashboard.Service = {
 
+	theme: 'light',
 	colors: ['#30a0e0', '#00b0a0', '#ff7f0e', '#e03028', '#00c8f0', '#00d0b0', '#c8d830', '#f8b820'],
 
 	config: {
@@ -25,7 +26,7 @@ Aimeos.Dashboard.Service = {
 			tooltips: {
 				callbacks: {}
 			},
-		}
+		},
 	},
 
 	limit: 10000,
@@ -85,7 +86,7 @@ Aimeos.Dashboard.Service = {
 
 		gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, r);
 		gradient.addColorStop(1, Color(this.color(context.dataIndex)).alpha(alpha).rgbaString());
-		gradient.addColorStop(0, Color('#ffffff').alpha(0).rgbaString());
+		gradient.addColorStop(0, Color(this.theme == 'dark' ? '#000000' : '#ffffff').alpha(1).rgbaString());
 
 		return gradient;
 	},
@@ -106,7 +107,7 @@ Aimeos.Dashboard.Service = {
 
 				const color = document.createElement('span');
 				color.classList.add('color');
-				color.style.backgroundColor = self.color(idx);
+				color.style.backgroundColor = Color(self.color(idx)).alpha(self.theme == 'dark' ? 0.75 : 1).rgbaString();
 
 				const item = document.createElement('div');
 				item.classList.add('item');
@@ -123,6 +124,8 @@ Aimeos.Dashboard.Service = {
 
 
 	init : function() {
+
+		this.theme = document.querySelector('body.dark') ? 'dark' : 'light';
 
 		Aimeos.lazy(".order-servicepayment .chart", this.chartPayment.bind(this));
 		Aimeos.lazy(".order-servicedelivery .chart", this.chartDelivery.bind(this));
@@ -158,8 +161,9 @@ Aimeos.Dashboard.Service = {
 
 			config.data.labels = labels;
 			config.data.datasets = [{
-				hoverBackgroundColor: self.gradient.bind(self, 0.5),
-				backgroundColor: self.gradient.bind(self, 1),
+				hoverBackgroundColor: self.gradient.bind(self, self.theme == 'dark' ? 1 : 0.75),
+				backgroundColor: self.gradient.bind(self, self.theme == 'dark' ? 0.75 : 1),
+				borderColor: self.theme == 'dark' ? '#202020' : '#ffffff',
 				data: data
 			}];
 
@@ -213,8 +217,9 @@ Aimeos.Dashboard.Service = {
 
 			config.data.labels = labels;
 			config.data.datasets = [{
-				hoverBackgroundColor: self.gradient.bind(self, 0.5),
-				backgroundColor: self.gradient.bind(self, 1),
+				hoverBackgroundColor: self.gradient.bind(self, self.theme == 'dark' ? 1 : 0.75),
+				backgroundColor: self.gradient.bind(self, self.theme == 'dark' ? 0.75 : 1),
+				borderColor: self.theme == 'dark' ? '#202020' : '#ffffff',
 				data: data
 			}];
 
