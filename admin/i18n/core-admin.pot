@@ -2036,16 +2036,16 @@ msgid "stat:7"
 msgstr "returned"
 
 msgid "status:-1"
-msgstr "Archived"
+msgstr "archived"
 
 msgid "status:-2"
-msgstr "Review"
+msgstr "review"
 
 msgid "status:0"
-msgstr "Disabled"
+msgstr "disabled"
 
 msgid "status:1"
-msgstr "Enabled"
+msgstr "enabled"
 
 #, php-format
 msgid "stock"
