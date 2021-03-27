@@ -170,10 +170,11 @@ $columnList = [
 							'data' => [
 								'price.type.id' => ['op' => '=='],
 								'price.type.domain' => ['op' => '==', 'type' => 'select', 'val' => [
-									'price' => $this->translate( 'admin', 'price' ),
+									'attribute' => $this->translate( 'admin', 'attribute' ),
 									'catalog' => $this->translate( 'admin', 'catalog' ),
 									'customer' => $this->translate( 'admin', 'customer' ),
 									'media' => $this->translate( 'admin', 'media' ),
+									'price' => $this->translate( 'admin', 'price' ),
 									'product' => $this->translate( 'admin', 'product' ),
 									'service' => $this->translate( 'admin', 'service' ),
 									'supplier' => $this->translate( 'admin', 'supplier' ),
