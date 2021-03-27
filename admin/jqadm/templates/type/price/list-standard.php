@@ -150,7 +150,7 @@ $columnList = [
 					'data' => [
 						'price.type.id' => ['op' => '=='],
 						'price.type.domain' => ['op' => '==', 'type' => 'select', 'val' => [
-							'price' => $this->translate( 'admin', 'price' ),
+							'attribute' => $this->translate( 'admin', 'attribute' ),
 							'catalog' => $this->translate( 'admin', 'catalog' ),
 							'customer' => $this->translate( 'admin', 'customer' ),
 							'media' => $this->translate( 'admin', 'media' ),
@@ -168,6 +168,7 @@ $columnList = [
 						]],
 						'price.type.code' => [],
 						'price.type.label' => [],
+						'price.type.position' => ['op' => '>=', 'type' => 'number'],
 						'price.type.ctime' => ['op' => '-', 'type' => 'datetime-local'],
 						'price.type.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 						'price.type.editor' => [],
