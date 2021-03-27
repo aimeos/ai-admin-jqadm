@@ -69,6 +69,10 @@ textarea {
 	}
 }
 
+a, a:hover {
+	color: var(--bs-primary-light, #5bb3e6);
+}
+
 .btn {
 	box-shadow: none;
 	border: 1px solid transparent;
@@ -167,7 +171,7 @@ textarea {
 }
 
 .nav-tabs .nav-link.active {
-	background-color: var(--bs-primary-light, #5bb3e6);
+	background-color: var(--bs-primary, #30a0e0);
 	color: var(--bs-menu, #ffffff);
 }
 
@@ -285,6 +289,11 @@ td.is-invalid .form-control {
 	color: var(--bs-secondary, #505860);
 	background-color: var(--bs-bg-light, #ffffff);
 	border-color: var(--bs-line-light, #dee2e6)
+}
+
+.text-muted,
+.form-control::placeholder {
+	color: var(--bs-secondary-light, #9098a0) !important;
 }
 
 @media (max-width: 767px) {
