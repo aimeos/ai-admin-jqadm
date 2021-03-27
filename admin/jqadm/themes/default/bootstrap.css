@@ -70,7 +70,7 @@ textarea {
 }
 
 a, a:hover {
-	color: var(--bs-primary-light, #5bb3e6);
+	color: var(--bs-primary-dark, #2093d5);
 }
 
 .btn {

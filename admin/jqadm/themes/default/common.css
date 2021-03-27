@@ -347,6 +347,10 @@ body {
 	content: "\f06e";
 }
 
+.dark a.act-view, .dark a.act-view:hover {
+	filter: brightness(1.75);
+}
+
 .aimeos .card-tools-start,
 .aimeos .card-tools-end {
 	display: inline-block;
