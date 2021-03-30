@@ -27,12 +27,14 @@ $settings = [
 						<?= $enc->html( $this->translate( 'admin', 'Potential problems' ) ); ?>
 					</h2>
 				</div>
-				<div class="content collapse show">
-					<?php foreach( $settings as $setting => $entry ) : list( $type, $problem ) = $entry; ?>
-						<p class="alert alert-<?= $enc->attr( $type ) ?>">
-							<?= $enc->html( sprintf( $problem, $setting ) ) ?>
-						</p>
-					<?php endforeach ?>
+				<div id="setting-list-data" class="content collapse show">
+					<div class="problem-list">
+						<?php foreach( $settings as $setting => $entry ) : list( $type, $problem ) = $entry; ?>
+							<p class="alert alert-<?= $enc->attr( $type ) ?>">
+								<?= $enc->html( sprintf( $problem, $setting ) ) ?>
+							</p>
+						<?php endforeach ?>
+					</div>
 				</div>
 			</div>
 		</div>
