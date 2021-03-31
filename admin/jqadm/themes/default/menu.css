@@ -359,8 +359,7 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu .more {
-	padding-left: calc(0.5rem + 3px);
-	text-align: left;
+	text-align: center;
 }
 
 .aimeos .sidebar-menu li .tree-menu a:hover,
