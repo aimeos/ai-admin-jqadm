@@ -4,7 +4,6 @@ $enc = $this->encoder();
 
 $settings = [
 	'file_uploads' => ini_get( 'file_uploads' ) != 1 ? ['danger', $this->translate( 'admin', 'PHP setting "%1$s" is disabled' )] : null,
-	'allow_url_fopen' => ini_get( 'allow_url_fopen' ) != 1 ? ['warning', $this->translate( 'admin', 'PHP setting "%1$s" is disabled' )] : null,
 	'opcache.enable' => ini_get( 'opcache.enable' ) != 1 ? ['warning', $this->translate( 'admin', 'PHP setting "%1$s" is disabled' )] : null,
 	'open_basedir' => ini_get( 'open_basedir' ) != null ? ['warning', $this->translate( 'admin', 'PHP setting "%1$s" is enabled' )] : null,
 	'xdebug.default_enable' => ini_get( 'xdebug.default_enable' ) != 0 ? ['warning', $this->translate( 'admin', 'PHP setting "%1$s" is enabled' )] : null,
