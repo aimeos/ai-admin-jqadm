@@ -71,6 +71,7 @@ body.dark img {
 	outline: none;
 }
 
+
 /* Scrollbar styles for Firefox */
 html {
 	scrollbar-color: var(--bs-line-light, #dee2e6) transparent;
@@ -78,9 +79,17 @@ html {
 	overflow-y: scroll;
 }
 
+.dark ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 body {
-	background-color: var(--bs-bg, #f8fafc);
+	background: linear-gradient(90deg, var(--bs-bg, #f8fafc) 15%, var(--bs-bg-dark, #f4f8fb));
 	color: var(--bs-secondary, #505860);
+}
+
+[dir="rtl"] body {
+	background: linear-gradient(90deg, var(--bs-bg-dark, #f4f8fb), var(--bs-bg, #f8fafc) 15%);
 }
 
 .aimeos .hidden {

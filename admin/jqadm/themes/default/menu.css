@@ -364,7 +364,7 @@
 
 .aimeos .sidebar-menu li .tree-menu a:hover,
 .aimeos .sidebar-menu li .tree-menu li:hover {
-	color: var(--bs-primary-light, #5bb3e6);
+	color: var(--bs-secondary-light, #9098a0);
 }
 
 .aimeos .sidebar-menu li .tree-menu a {
@@ -376,11 +376,11 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu li.active > a {
-	border-left: 3px solid var(--bs-primary-light, #5bb3e6);
+	border-left: 3px solid var(--bs-secondary-light, #9098a0);
 }
 
 [dir="rtl"] .aimeos .sidebar-menu li .tree-menu li.active > a {
-	border-right: 3px solid var(--bs-primary-light, #5bb3e6);
+	border-right: 3px solid var(--bs-secondary-light, #9098a0);
 	border-left: 0;
 }
 

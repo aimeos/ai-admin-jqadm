@@ -43,7 +43,14 @@
 }
 
 .aimeos .list-page .page-link {
+	background-color: var(--bs-bg-light, #ffffff);
+	color: var(--bs-secondary, #707880);
 	min-width: 3rem;
+}
+
+.aimeos .list-page .page-link:hover {
+	background-color: var(--bs-secondary, #707880);
+	color: var(--bs-bg-light, #ffffff);
 }
 
 .page-limit .dropdown-menu {
