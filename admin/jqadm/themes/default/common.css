@@ -476,7 +476,7 @@ body {
 
 .aimeos .item .navbar-content .more {
 	color: var(--bs-secondary-light, #9098a0);
-	background-color: var(--bs-bg, #f8fafc);
+	background-color: transparent;
 	height: 3rem;
 	width: 100%;
 	top: 3rem;
