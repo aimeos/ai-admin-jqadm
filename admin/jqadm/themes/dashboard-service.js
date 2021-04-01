@@ -7,6 +7,7 @@
  Aimeos.Dashboard.Service = {
 
 	theme: 'light',
+	colorBg: {dark: '#202550', light: '#ffffff'},
 	colors: ['#30a0e0', '#00b0a0', '#ff7f0e', '#e03028', '#00c8f0', '#00d0b0', '#c8d830', '#f8b820'],
 
 	config: {
@@ -163,7 +164,7 @@
 			config.data.datasets = [{
 				hoverBackgroundColor: self.gradient.bind(self, self.theme == 'dark' ? 1 : 0.75),
 				backgroundColor: self.gradient.bind(self, self.theme == 'dark' ? 0.75 : 1),
-				borderColor: self.theme == 'dark' ? '#202020' : '#ffffff',
+				borderColor: self.colorBg[self.theme],
 				data: data
 			}];
 
@@ -219,7 +220,7 @@
 			config.data.datasets = [{
 				hoverBackgroundColor: self.gradient.bind(self, self.theme == 'dark' ? 1 : 0.75),
 				backgroundColor: self.gradient.bind(self, self.theme == 'dark' ? 0.75 : 1),
-				borderColor: self.theme == 'dark' ? '#202020' : '#ffffff',
+				borderColor: self.colorBg[self.theme],
 				data: data
 			}];
 

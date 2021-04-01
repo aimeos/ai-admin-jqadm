@@ -7,14 +7,15 @@
  Aimeos.Dashboard.Order = {
 
 	theme: 'light',
+	colorHour: '#30a0e0ff',
+	colorDayHover: '#00b0a0',
+	colorsBg: {dark: '#404570', light: '#ffffff'},
 	colorsText: {dark: '#c0c8d0', light: '#505860'},
 	colorScale: {
-		dark: ['#404040', '#404854', '#3f4a5a', '#3d4c61', '#3b4e68', '#384f70', '#365078', '#335280', '#305388', '#2c5490'],
+		dark: ['#404570', '#4a5082', '#545a92', '#5d64a2', '#6d73ab', '#7d83b5', '#8e92be', '#9ea1c7', '#aeb0d0', '#bec0da'],
 		light: ['#f2f2f2', '#e6eff7', '#d4e1ed', '#c9def2', '#a5d2e8', '#7bbee6', '#54a4d7', '#3586ca', '#2069b4', '#2c5490']
 	},
 	paystatusColor: ['#d3d3d3', '#e15759', '#f28e2b', '#edc948', '#5bb3e6', '#30a0e0', '#00ccbb', '#00b0a0'],
-	hourColor: ['#ffffff', '#30a0e0'],
-	dayColorHover: '#00b0a0',
 	dayCellSize: 15,
 	limit: 10000,
 	topLimit: 5,
@@ -55,15 +56,9 @@
 
 	gradient: function(color, alpha, ctx) {
 		const gradient = ctx.createLinearGradient(0,0 , 0,280);
-		let colorHigh = color, colorLow = color;
 
-		if(Array.isArray(color)) {
-			[colorHigh, colorLow] = color;
-			colorLow = colorLow || colorHigh;
-		}
-
-		gradient.addColorStop(0, Color(colorLow).alpha(alpha).rgbaString());
-		gradient.addColorStop(1, this.theme == 'dark' ? '#202020ff' : '#ffffffff');
+		gradient.addColorStop(0, Color(color).alpha(alpha).rgbaString());
+		gradient.addColorStop(1, Color(this.colorsBg[this.theme]).rgbaString());
 
 		return gradient;
 	},
@@ -162,8 +157,8 @@
 						},
 						borderWidth: 1,
 						borderSkipped: false,
-						hoverBackgroundColor: self.dayColorHover,
-						hoverBorderColor: self.dayColorHover,
+						hoverBackgroundColor: self.colorDayHover,
+						hoverBorderColor: self.colorDayHover,
 						width: self.dayCellSize,
 						height: self.dayCellSize
 					}]
@@ -276,8 +271,8 @@
 					datasets: [{
 						data: dset,
 						borderWidth: 0,
-						backgroundColor: self.gradient(self.hourColor, 1, ctx),
-						hoverBackgroundColor: self.gradient(self.hourColor, 0.5, ctx)
+						backgroundColor: self.gradient(self.colorHour, 1, ctx),
+						hoverBackgroundColor: self.gradient(self.colorHour, 0.5, ctx)
 					}]
 				},
 				options: {
