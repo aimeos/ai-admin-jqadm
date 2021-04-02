@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-19 09:06+0100\n"
+"POT-Creation-Date: 2021-04-01 18:35+0200\n"
 "PO-Revision-Date: 2021-01-29 11:34+0000\n"
 "Last-Translator: Henry LIU <dadaycm@hotmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/aimeos/aimeos-core/language/zh_CN/)\n"
@@ -479,11 +479,18 @@ msgstr "交货"
 msgid "Delivery address"
 msgstr "送货地址"
 
+#, fuzzy
+msgid "Delivery in"
+msgstr "交货"
+
 msgid "Delivery or payment costs for the products in the basket of the customer"
 msgstr ""
 
 msgid "Delivery status"
 msgstr "配送状态"
+
+msgid "Delivery timeframe (optional)"
+msgstr ""
 
 msgid "Delivery types"
 msgstr ""

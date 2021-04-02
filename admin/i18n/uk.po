@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Alex k <akropivko@gmail.com>, 2021
+# Oleksandr Kropyvko <akropivko@gmail.com>, 2021
+# Oleksandr Kropyvko <akropivko@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-19 09:06+0100\n"
-"PO-Revision-Date: 2021-03-27 09:41+0000\n"
+"POT-Creation-Date: 2021-04-01 18:35+0200\n"
+"PO-Revision-Date: 2021-04-01 16:36+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -95,7 +96,7 @@ msgid ""
 msgstr "(міжнародний) номер телефону без символів поділу, може починатися з \"+\""
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ Податок"
 
 msgid "?"
 msgstr ""
@@ -147,7 +148,7 @@ msgstr "Розширений"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Кешування Aimeos вимкнено \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
@@ -230,7 +231,7 @@ msgid ""
 msgstr ""
 
 msgid "Back in stock"
-msgstr ""
+msgstr "Знову в наявності"
 
 msgid "Basic"
 msgstr "Основні налаштування"
@@ -248,7 +249,7 @@ msgid "Birthday of the customer"
 msgstr "День народження покупця"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Помилка чи пропозиція?"
 
 msgid "Cancel"
 msgstr "Скасувати"
@@ -347,7 +348,7 @@ msgid "Copy this entry"
 msgstr "Скопіювати цей запис"
 
 msgid "Costs"
-msgstr ""
+msgstr "Витрати"
 
 msgid "Count"
 msgstr "Кількість"
@@ -385,7 +386,7 @@ msgid "Currency"
 msgstr "Валюта"
 
 msgid "Custom"
-msgstr ""
+msgstr "На замовлення"
 
 msgid "Customer"
 msgstr "Покупець"
@@ -421,10 +422,10 @@ msgid "Customer properties that are not shared with other customers"
 msgstr "Властивості клієнта, які не передаються іншим клієнтам"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Довідка клієнта"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Довідка клієнта (необов’язково)"
 
 msgid "Dashboard"
 msgstr "Статистика"
@@ -468,12 +469,18 @@ msgstr "Доставка"
 msgid "Delivery address"
 msgstr "Адреса доставки"
 
+msgid "Delivery in"
+msgstr ""
+
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "Витрати на доставку або оплату продукції в кошику замовника"
 
 msgid "Delivery status"
 msgstr "Статус доставки"
+
+msgid "Delivery timeframe (optional)"
+msgstr ""
 
 msgid "Delivery types"
 msgstr "Типи доставки"
@@ -553,7 +560,7 @@ msgid "Error"
 msgstr "Помилка"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "Без ПДВ"
 
 msgid "Execution order of the plugins"
 msgstr "Порядок виконання для плагінів"
@@ -565,7 +572,7 @@ msgid "Export"
 msgstr "Експорт"
 
 msgid "Facility"
-msgstr ""
+msgstr "Об'єкт"
 
 msgid "Facsimile"
 msgstr "Факс"
@@ -613,7 +620,7 @@ msgid "Go to property type panel"
 msgstr "До панелі property type"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "До списку типів атрибутів"
 
 msgid "Granted rebate"
 msgstr "Надана знижка"
@@ -634,7 +641,7 @@ msgid "Hidden product attributes that are stored with the ordered products"
 msgstr "Приховані атрибути товару, які зберігаються разом із замовленими товарами"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Виділені постачальники товару"
 
 msgid "Honorary title (optional)"
 msgstr "Почесне звання (опціонально)"
@@ -1163,7 +1170,7 @@ msgid "Product code"
 msgstr "Код товару"
 
 msgid "Product costs"
-msgstr ""
+msgstr "Витрати на продукцію"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
 msgstr "Висота товару, наприклад 20 см"
@@ -1208,7 +1215,7 @@ msgid "Products bought together"
 msgstr "Супутні товари"
 
 msgid "Promotion"
-msgstr ""
+msgstr "Просування"
 
 msgid "Properties"
 msgstr "Властивості"
@@ -1294,7 +1301,7 @@ msgid "Review"
 msgstr "Огляд"
 
 msgid "Reviewed item"
-msgstr ""
+msgstr "Переглянутий пункт"
 
 msgid "Reviewer name"
 msgstr "Ім`я оглядача"
@@ -1421,7 +1428,7 @@ msgid "Shipping/Payment costs"
 msgstr "Доставка/Оплата вартість"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "Доставка/одиниця"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1481,7 +1488,7 @@ msgid "Start date"
 msgstr "Початкова дата"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "Почніть друкувати..."
 
 msgid "State"
 msgstr "Область"
@@ -1613,10 +1620,10 @@ msgid "Timestamp"
 msgstr "Позначка часу"
 
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "Перемкнути спадне меню"
 
 msgid "Top countries"
 msgstr ""
@@ -1634,7 +1641,7 @@ msgid "Total ratings"
 msgstr ""
 
 msgid "Translate text"
-msgstr ""
+msgstr "Перекладіть текст"
 
 msgid "Two letter ISO country code"
 msgstr "Код країни ISO"
@@ -1646,7 +1653,7 @@ msgid "Type"
 msgstr "Тип"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "Позиція типу (необов’язково)"
 
 msgid "Types for additional images like icons"
 msgstr "Типи додаткових зображень, таких як іконки"
@@ -1933,7 +1940,7 @@ msgid "mrs"
 msgstr "Місіс"
 
 msgid "ms"
-msgstr ""
+msgstr "Міс"
 
 msgid "new"
 msgstr "нове"
@@ -2127,14 +2134,14 @@ msgstr "Склад"
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "передплата"
 
 #, php-format
 msgid "supplier"
 msgstr "Постачальник"
 
 msgid "tag"
-msgstr "Мітки"
+msgstr "тег"
 
 #, php-format
 msgid "text"
@@ -2190,11 +2197,11 @@ msgstr "Ціни"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "тип/ціна/списки"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "тип/ціна/властивість"
 
 #, php-format
 msgid "type/product"

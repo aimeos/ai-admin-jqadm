@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-19 09:06+0100\n"
-"PO-Revision-Date: 2021-03-27 14:19+0000\n"
-"Last-Translator: Gonzalo Rocha <gonzalo@positivonetworks.com>\n"
+"POT-Creation-Date: 2021-04-01 18:35+0200\n"
+"PO-Revision-Date: 2021-04-01 16:36+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,7 +160,7 @@ msgstr "El caché de Aimeos está deshabilitado por \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "El registro de depuración de Aimeos está habilitado por \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -207,28 +207,28 @@ msgid "Attribute Property Types"
 msgstr "Tipos de Propiedad de Atributo"
 
 msgid "Attribute Type"
-msgstr "Tipo de atributo"
+msgstr "Tipo de Atributo"
 
 msgid "Attribute Types"
-msgstr "Tipos de atributo"
+msgstr "Tipos de Atributo"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Posición del atributo (opcional)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Propiedades del atributo que no son compartidas con otros atributos"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Tipo de atributo que limita la lista de atributos disponibles"
 
 msgid "Attributes"
 msgstr "Atributos"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Moneda disponible para el sitio actual"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Intervalos disponibles en el front-end"
 
 msgid "Available language for the current site"
 msgstr "Lenguaje disponible para el sitio actual"
@@ -239,7 +239,7 @@ msgid ""
 msgstr ""
 
 msgid "Back in stock"
-msgstr "Nuevas existencias"
+msgstr "Nuevamente en existencias"
 
 msgid "Basic"
 msgstr "Básico"
@@ -477,12 +477,18 @@ msgstr "Entrega"
 msgid "Delivery address"
 msgstr "Dirección de entrega"
 
+msgid "Delivery in"
+msgstr ""
+
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
 msgstr ""
 
 msgid "Delivery status"
 msgstr "Estado de entrega"
+
+msgid "Delivery timeframe (optional)"
+msgstr ""
 
 msgid "Delivery types"
 msgstr "Tipos de envío"
