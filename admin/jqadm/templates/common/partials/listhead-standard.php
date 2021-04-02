@@ -13,11 +13,16 @@
  * - fields: List of columns that are currently shown
  * - params: Associative list of current parameters
  * - sort: Current sort code
+ * - group: Filter group for subpanels
  * - action: Action to use for generating URLs
  * - fragment: Name of the subpanel that should be shown by default
  * - tabindex: Numerical index for tabbing through the fields and buttons
  */
 
+
+$nest = function( $group, $params ) {
+	return $group ? [$group => $params] : $params;
+};
 
 $sort = function( $sortcode, $code ) {
 	return ( $sortcode === $code ? '-' . $code : $code );
@@ -31,6 +36,15 @@ $sortclass = function( $sortcode, $code ) {
 		return 'sort-asc';
 	}
 };
+
+
+$enc = $this->encoder();
+
+$fields = $this->get( 'fields', [] );
+$params = $this->get( 'params', [] );
+$fragment = (array) $this->get( 'fragment', [] );
+$sortcode = $this->get( 'sort' );
+$group = $this->get( 'group' );
 
 
 if( $this->get( 'action' ) === 'get' )
@@ -58,13 +72,6 @@ else
 	$config = $this->config( 'admin/jqadm/url/search/config', [] );
 }
 
-$fields = $this->get( 'fields', [] );
-$params = $this->get( 'params', [] );
-$fragment = (array) $this->get( 'fragment', [] );
-$sortcode = $this->get( 'sort' );
-
-$enc = $this->encoder();
-
 
 ?>
 <?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
@@ -72,7 +79,7 @@ $enc = $this->encoder();
 		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ); ?>">
 			<?php if( $name !== null ) : ?>
 				<a class="<?= $sortclass( $sortcode, $key ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-					href="<?= $enc->attr( $this->url( $target, $controller, $action, ['sort' => $sort( $sortcode, $key )] + $params, $fragment, $config ) ); ?>">
+					href="<?= $enc->attr( $this->url( $target, $controller, $action, $nest( $group, ['sort' => $sort( $sortcode, $key )] ) + $params, $fragment, $config ) ); ?>">
 					<?= $enc->html( $name ); ?>
 				</a>
 			<?php endif; ?>
