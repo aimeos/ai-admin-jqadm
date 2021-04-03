@@ -7,26 +7,26 @@
 /* Theme colors */
 
 body {
-	--bs-bg: #f8fafc;
-	--bs-bg-dark: #f4f8fb;
-	--bs-bg-light: #ffffff;
-	--bs-line: #bbb;
-	--bs-line-light: #dee2e6;
-	--bs-menu: #ffffff;
-	--bs-menu-bg: var(--bs-primary, #30a0e0);
+	--bs-bg: #F8FAFC;
+	--bs-bg-dark: #F4F8FB;
+	--bs-bg-light: #FFFFFF;
+	--bs-line: #BBBBBB;
+	--bs-line-light: #DEE2E6;
+	--bs-menu: #FFFFFF;
+	--bs-menu-bg: var(--bs-primary, #30A0E0);
 	--bs-menu-alt: #707880;
-	--bs-menu-alt-bg: #ffffff;
-	--bs-primary: #30a0e0;
-	--bs-primary-dark: #2093d5;
-	--bs-primary-light: #5bb3e6;
-	--bs-primary-alt: #00b0a0;
-	--bs-primary-alt-dark: #00998c;
-	--bs-primary-alt-light: #00ccbb;
+	--bs-menu-alt-bg: #FFFFFF;
+	--bs-primary: #30A0E0;
+	--bs-primary-dark: #2093D5;
+	--bs-primary-light: #5BB3E6;
+	--bs-primary-alt: #00B0A0;
+	--bs-primary-alt-dark: #00998C;
+	--bs-primary-alt-light: #00CCBB;
 	--bs-secondary: #505860;
 	--bs-secondary-dark: #101820;
 	--bs-secondary-light: #9098a0;
-	--bs-shadow: #a8b8c825 0px 3px 9px 0px;
-	--bs-hover: #fcfcfc;
+	--bs-shadow: #A8B8C825 0px 3px 9px 0px;
+	--bs-hover: #FCFCFC;
 }
 
 body.dark {
@@ -35,20 +35,20 @@ body.dark {
 	--bs-bg-light: #202550;
 	--bs-line: #7075A0;
 	--bs-line-light: #8085B0;
-	--bs-menu: #c0c8d0;
+	--bs-menu: #D0D8F0;
 	--bs-menu-bg: var(--bs-primary, #485080);
 	--bs-menu-alt: #707880;
 	--bs-menu-alt-bg: #6870A0;
 	--bs-primary: #485080;
-	--bs-primary-dark: #515b90;
-	--bs-primary-light: #3e466f;
+	--bs-primary-light: #515b90;
+	--bs-primary-dark: #3e466f;
 	--bs-primary-alt: #6870A0;
-	--bs-primary-alt-dark: #7880B0;
-	--bs-primary-alt-light: #586090;
-	--bs-secondary: #c0c8e0;
-	--bs-secondary-dark: #e0e8ff;
-	--bs-secondary-light: #a0a8c0;
-	--bs-shadow: #a8b8c825 0px 3px 9px 0px;
+	--bs-primary-alt-light: #7880B0;
+	--bs-primary-alt-dark: #586090;
+	--bs-secondary: #D0D8F0;
+	--bs-secondary-dark: #C0C8E0;
+	--bs-secondary-light: #E0E8FF;
+	--bs-shadow: #A8B8C825 0px 3px 9px 0px;
 	--bs-hover: #404570;
 }
 
@@ -205,7 +205,7 @@ body {
 .aimeos .box {
 	box-shadow: var(--bs-shadow);
 	border: 1px solid rgba(0,0,0,.125);
-	background-color: var(--bs-bg-light, #ffffff);
+	background-color: var(--bs-bg-light, #FFFFFF);
 	min-height: calc(100% - 1rem);
 	border-radius: .25rem;
 	margin: 0.5rem 0;
@@ -379,7 +379,7 @@ body {
 }
 
 .aimeos .custom-datetime {
-	background-color: var(--bs-bg-light, #ffffff);
+	background-color: var(--bs-bg-light, #FFFFFF);
 }
 
 .aimeos table th,
@@ -476,7 +476,7 @@ body {
 
 .aimeos .item .navbar-content .more {
 	color: var(--bs-secondary-light, #9098a0);
-	background-color: transparent;
+	background-color: var(--bs-bg, #f8fafc);
 	height: 3rem;
 	width: 100%;
 	top: 3rem;
@@ -560,7 +560,7 @@ body {
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid var(--bs-line, #bbb);
-	background-color: var(-bs-bg-light, #ffffff);
+	background-color: var(-bs-bg-light, #FFFFFF);
 	height: calc(1.5rem + .75rem + 2px);
 	padding: .375rem .75rem;
 }
@@ -602,7 +602,7 @@ body {
 .flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month,
 .flatpickr-time .flatpickr-am-pm:focus,
 span.flatpickr-weekday {
-	background-color: var(--bs-bg-light, #ffffff);
+	background-color: var(--bs-bg-light, #FFFFFF);
 	color: var(--bs-secondary, #505860);
 }
 
@@ -611,7 +611,7 @@ span.flatpickr-weekday {
 .flatpickr-time .flatpickr-time-separator,
 .flatpickr-time .flatpickr-am-pm {
 	color: var(--bs-secondary, #505860);
-	background-color: var(--bs-bg-light, #ffffff);
+	background-color: var(--bs-bg-light, #FFFFFF);
 }
 
 .flatpickr-day:hover,
@@ -625,7 +625,7 @@ span.flatpickr-weekday {
 
 .cke_wysiwyg_frame, .cke_wysiwyg_div {
 	color: var(--bs-secondary, #505860) !important;
-	background-color: var(--bs-bg-light, #ffffff) !important;
+	background-color: var(--bs-bg-light, #FFFFFF) !important;
 }
 
 .cke_top, .cke_bottom {
@@ -643,12 +643,12 @@ body.dark .cke_button_icon {
 
 .cke_dialog_body,
 .cke_dialog_contents {
-	background-color: var(--bs-bg-light, #ffffff) !important;
+	background-color: var(--bs-bg-light, #FFFFFF) !important;
 }
 
 select.cke_dialog_ui_input_select, textarea.cke_dialog_ui_input_textarea,
 input.cke_dialog_ui_input_text,input.cke_dialog_ui_input_password,input.cke_dialog_ui_input_tel {
-	background-color: var(--bs-bg-light, #ffffff) !important;
+	background-color: var(--bs-bg-light, #FFFFFF) !important;
 	color: var(--bs-secondary-dark, #101820) !important;
 }
 
@@ -663,7 +663,7 @@ a.cke_dialog_tab:hover {
 }
 
 a.cke_dialog_tab {
-	background-color: var(--bs-bg-light, #ffffff) !important;
+	background-color: var(--bs-bg-light, #FFFFFF) !important;
 	color: var(--bs-secondary, #505860) !important;
 }
 
@@ -674,18 +674,18 @@ a.cke_dialog_tab_selected {
 a.cke_dialog_ui_button,
 a.cke_dialog_ui_button:hover {
 	color: var(--bs-secondary, #707880) !important;
-	background-color: var(--bs-bg-light, #ffffff) !important;
+	background-color: var(--bs-bg-light, #FFFFFF) !important;
 	border-color: var(--bs-line-light, #dee2e6) !important;
 }
 
 a.cke_dialog_ui_button_ok {
-	color: var(--bs-menu, #ffffff) !important;
+	color: var(--bs-menu, #FFFFFF) !important;
 	background-color: var(--bs-primary-alt, #00b0a0) !important;
 	border-color: var(--bs-primary-alt, #00b0a0) !important;
 }
 
 a.cke_dialog_ui_button_ok:hover {
-	color: var(--bs-menu, #ffffff) !important;
+	color: var(--bs-menu, #FFFFFF) !important;
 	background-color: var(--bs-primary-alt-light, #00ccbb) !important;
 	border-color: var(--bs-primary-alt-light, #00ccbb) !important;
 }

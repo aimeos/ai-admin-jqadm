@@ -325,11 +325,11 @@ td.is-invalid .form-control {
 
 
 .toast {
-	background-color: #ffffff40;
+	background-color: #FFFFFFB0;
 }
 
 .dark .toast {
-	background-color: #00000040;
+	background-color: #000020B0;
 	box-shadow: 0 0.5rem 1rem rgb(255 255 255 / 15%);
 }
 

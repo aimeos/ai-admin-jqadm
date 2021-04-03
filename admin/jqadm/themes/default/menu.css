@@ -170,6 +170,10 @@
 	}
 }
 
+.aimeos .main-sidebar .sidebar-menu>li.treeview {
+	cursor: pointer;
+}
+
 .aimeos .main-sidebar .sidebar-menu>li.active,
 .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 	border-color: var(--bs-menu-alt-bg, #f8fafc);
