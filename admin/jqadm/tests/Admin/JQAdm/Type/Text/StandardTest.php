@@ -192,7 +192,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSearch()
 	{
 		$param = array(
-			'type' => 'unittest', 'lang' => 'de',
+			'type' => 'unittest', 'locale' => 'de',
 			'filter' => array(
 				'key' => array( 0 => 'text.type.code' ),
 				'op' => array( 0 => '==' ),

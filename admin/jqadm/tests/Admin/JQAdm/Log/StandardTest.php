@@ -37,7 +37,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSearch()
 	{
 		$param = array(
-			'site' => 'unittest', 'lang' => 'de',
+			'site' => 'unittest', 'locale' => 'de',
 			'sort' => array( '-log.timestamp' ),
 		);
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );

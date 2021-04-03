@@ -164,7 +164,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSearch()
 	{
 		$param = array(
-			'lang' => 'de',
+			'locale' => 'de',
 			'filter' => array(
 				'key' => array( 0 => 'locale.language.code' ),
 				'op' => array( 0 => '==' ),

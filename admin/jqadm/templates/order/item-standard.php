@@ -210,7 +210,7 @@ $statusList = [
 										<span class="form-control item-customerid">
 											<?php if( $basket->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
 												<a class="act-view" target="_blank"
-													href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId(), 'lang' => $this->param( 'lang' )], [], $getConfig ) ); ?>">
+													href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId(), 'locale' => $this->param( 'locale' )], [], $getConfig ) ); ?>">
 													<?= $enc->html( $basket->getCustomerId() ); ?>
 												</a>
 											<?php endif; ?>
@@ -277,7 +277,7 @@ $statusList = [
 															<?php $newParams = [
 																	'item' => ['subscription.ordbaseid' => $basket->getId(), 'subscription.ordprodid' => $orderProduct->getId()],
 																	'site' => $this->param( 'site' ),
-																	'lang' => $this->param( 'lang' ),
+																	'locale' => $this->param( 'locale' ),
 																	'resource' => 'subscription'
 																];
 															?>

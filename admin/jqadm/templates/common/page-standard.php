@@ -119,13 +119,13 @@ foreach( $navlist as $key => $navitem )
 
 $resource = $this->param( 'resource', 'dashboard' );
 $site = $this->param( 'site', 'default' );
-$lang = $this->param( 'lang' );
+$lang = $this->param( 'locale' );
 
 $params = ['resource' => $resource, 'site' => $site];
 $extParams = ['site' => $site];
 
 if( $lang ) {
-	$params['lang'] = $extParams['lang'] = $lang;
+	$params['locale'] = $extParams['locale'] = $lang;
 }
 
 
@@ -139,7 +139,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 
 
 ?>
-<div class="aimeos" lang="<?= $this->param( 'lang' ); ?>" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
+<div class="aimeos" lang="<?= $this->param( 'locale' ); ?>" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ); ?>">
 
 	<nav class="main-sidebar">
 		<div class="sidebar-wrapper">
@@ -235,7 +235,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 					<li class="treeview menuitem-language <?= $after === null ? 'after' : '' ?>">
 						<span>
 							<i class="icon"></i>
-							<span class="title"><?= $enc->attr( $this->translate( 'language', $this->param( 'lang', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
+							<span class="title"><?= $enc->attr( $this->translate( 'language', $this->param( 'locale', $this->translate( 'admin', 'Language' ) ) ) ); ?></span>
 						</span>
 						<div class="tree-menu-wrapper">
 							<div class="menu-header">
@@ -245,7 +245,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 							<ul class="tree-menu">
 								<?php foreach( $this->get( 'pageI18nList', [] ) as $langid ) : ?>
 									<li class="menuitem-language-<?= $enc->attr( $langid ) ?>">
-										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'lang' => $langid ) + $params, [], $config ) ); ?>">
+										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'locale' => $langid ) + $params, [], $config ) ); ?>">
 											<span class="name"><?= $enc->html( $this->translate( 'language', $langid ) ); ?> (<?= $langid ?>)</span>
 										</a>
 									</li>

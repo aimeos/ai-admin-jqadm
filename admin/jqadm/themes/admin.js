@@ -1063,9 +1063,9 @@ $(function() {
 		new bootstrap.Toast(el, {delay: 3000}).show();
 	});
 
-	Aimeos.ckeditor.language = document.documentElement && document.documentElement.getAttribute('lang') || 'en';
+	Aimeos.ckeditor.language = document.documentElement && document.documentElement.getAttribute('locale') || 'en';
 
-	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('lang') || 'en']);
+	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);
 	Vue.component('flat-pickr', VueFlatpickr);
 	Vue.component('v-select', VueSelect.VueSelect);
 

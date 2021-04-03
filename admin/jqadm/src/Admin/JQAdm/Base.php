@@ -405,7 +405,7 @@ abstract class Base
 	 * @param array $names List of parameter names
 	 * @return array Associative list of parameters names as key and their values
 	 */
-	protected function getClientParams( $names = ['id', 'resource', 'site', 'lang'] ) : array
+	protected function getClientParams( $names = ['id', 'resource', 'site', 'locale'] ) : array
 	{
 		$list = [];
 

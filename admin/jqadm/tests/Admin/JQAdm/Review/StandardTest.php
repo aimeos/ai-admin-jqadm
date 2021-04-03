@@ -128,7 +128,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSearch()
 	{
 		$param = array(
-			'site' => 'unittest', 'lang' => 'de',
+			'site' => 'unittest', 'locale' => 'de',
 			'filter' => array(
 				'key' => array( 0 => 'review.rating' ),
 				'op' => array( 0 => '==' ),
