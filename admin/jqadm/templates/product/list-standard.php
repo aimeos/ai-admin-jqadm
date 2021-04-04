@@ -528,7 +528,7 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 $typeList = $this->get( 'itemTypes', map() )->col( 'product.type.code', 'product.type.code' )->all();
 
 $columnList = [
-	'image' => $this->translate( 'admin', 'Image' ),
+	'image' => null, // no label and no sorting
 	'product.id' => $this->translate( 'admin', 'ID' ),
 	'product.status' => $this->translate( 'admin', 'Status' ),
 	'product.type' => $this->translate( 'admin', 'Type' ),

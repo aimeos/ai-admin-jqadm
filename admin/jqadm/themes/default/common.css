@@ -30,9 +30,9 @@ body {
 }
 
 body.dark {
-	--bs-bg: #303560;
-	--bs-bg-dark: #404570;
-	--bs-bg-light: #202550;
+	--bs-bg: #384068;
+	--bs-bg-dark: #586088;
+	--bs-bg-light: #283058;
 	--bs-line: #7075A0;
 	--bs-line-light: #8085B0;
 	--bs-menu: #D0D8F0;
@@ -130,6 +130,11 @@ body {
 	bottom: 0.5rem;
 	right: 0.5rem;
 	z-index: 5;
+}
+
+.dark .aimeos .toast-list {
+	left: 0.5rem;
+	right: unset;
 }
 
 .aimeos .toast {
@@ -476,7 +481,7 @@ body {
 
 .aimeos .item .navbar-content .more {
 	color: var(--bs-secondary-light, #9098a0);
-	background-color: var(--bs-bg, #f8fafc);
+	background-color: transparent;
 	height: 3rem;
 	width: 100%;
 	top: 3rem;
