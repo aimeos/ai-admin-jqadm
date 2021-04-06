@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 18:35+0200\n"
-"PO-Revision-Date: 2021-04-01 16:36+0000\n"
+"POT-Creation-Date: 2021-04-06 09:37+0200\n"
+"PO-Revision-Date: 2021-04-06 07:47+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -1424,6 +1424,9 @@ msgstr "Статус доставки"
 msgid "Shipping"
 msgstr "Перевозка"
 
+msgid "Shipping / Payment costs"
+msgstr ""
+
 msgid "Shipping costs/item"
 msgstr ""
 
@@ -1840,6 +1843,10 @@ msgstr "Коды"
 
 msgid "company"
 msgstr "Компания"
+
+#, php-format
+msgid "configuration"
+msgstr ""
 
 #, php-format
 msgid "countcountry"

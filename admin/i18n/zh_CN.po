@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 18:35+0200\n"
+"POT-Creation-Date: 2021-04-06 09:37+0200\n"
 "PO-Revision-Date: 2021-01-29 11:34+0000\n"
 "Last-Translator: Henry LIU <dadaycm@hotmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/aimeos/aimeos-core/language/zh_CN/)\n"
@@ -1397,6 +1397,9 @@ msgstr ""
 msgid "Shipping"
 msgstr "送货费"
 
+msgid "Shipping / Payment costs"
+msgstr ""
+
 msgid "Shipping costs/item"
 msgstr ""
 
@@ -1794,6 +1797,10 @@ msgstr ""
 
 msgid "company"
 msgstr "公司"
+
+#, php-format
+msgid "configuration"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "countcountry"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 18:35+0200\n"
+"POT-Creation-Date: 2021-04-06 09:37+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -1366,6 +1366,9 @@ msgstr ""
 msgid "Shipping"
 msgstr ""
 
+msgid "Shipping / Payment costs"
+msgstr ""
+
 msgid "Shipping costs/item"
 msgstr ""
 
@@ -1763,6 +1766,10 @@ msgstr "Codes"
 
 msgid "company"
 msgstr "Company"
+
+#, php-format
+msgid "configuration"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "countcountry"

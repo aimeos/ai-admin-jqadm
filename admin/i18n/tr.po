@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 18:35+0200\n"
-"PO-Revision-Date: 2021-04-01 16:36+0000\n"
+"POT-Creation-Date: 2021-04-06 09:37+0200\n"
+"PO-Revision-Date: 2021-04-06 07:47+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -469,7 +469,7 @@ msgid "Delivery address"
 msgstr "Teslimat adresi"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Teslimat"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -479,7 +479,7 @@ msgid "Delivery status"
 msgstr "Teslimat durumu"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Teslimat zaman aralığı (isteğe bağlı)"
 
 msgid "Delivery types"
 msgstr "Teslimat türleri"
@@ -1420,6 +1420,9 @@ msgstr "Gönderi durumu"
 msgid "Shipping"
 msgstr "Nakliye"
 
+msgid "Shipping / Payment costs"
+msgstr ""
+
 msgid "Shipping costs/item"
 msgstr "Nakliye masrafları/ürün"
 
@@ -1836,6 +1839,10 @@ msgstr "Kodlar"
 
 msgid "company"
 msgstr "Şirket"
+
+#, php-format
+msgid "configuration"
+msgstr ""
 
 #, php-format
 msgid "countcountry"
