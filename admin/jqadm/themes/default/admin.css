@@ -24,7 +24,7 @@
 .aimeos .list-page .page-limit,
 .aimeos .list-page .pagination {
 	vertical-align: middle;
-	display: inline-block;
+	display: inline-flex;
 	margin: .5rem;
 }
 

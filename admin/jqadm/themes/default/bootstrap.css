@@ -223,11 +223,13 @@ td.is-invalid .form-control {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	text-align: end;
 }
 
 @media (max-width: 575px) {
 	.form-control-label {
 		justify-content: flex-start;
+		text-align: start;
 	}
 }
 
