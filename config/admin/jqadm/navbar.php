@@ -26,7 +26,7 @@ return [
 		30 => 'rule',
 	],
 	50 => [
-		'' => 'settings',
+		'' => 'configuration',
 		10 => 'service',
 		20 => 'plugin',
 	],
