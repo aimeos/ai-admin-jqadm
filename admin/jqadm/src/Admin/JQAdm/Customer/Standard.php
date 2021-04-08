@@ -468,7 +468,7 @@ class Standard
 		$isEditor = $this->getView()->access( ['editor'] );
 
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
-		$search = $manager->createSearch();
+		$search = $manager->createSearch( true )->setSlice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'customer.group.label' )] );
 
 		foreach( $manager->searchItems( $search ) as $groupId => $groupItem )
