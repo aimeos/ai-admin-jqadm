@@ -132,7 +132,7 @@ body {
 	z-index: 5;
 }
 
-.dark .aimeos .toast-list {
+[dir="rtl"] .aimeos .toast-list {
 	left: 0.5rem;
 	right: unset;
 }

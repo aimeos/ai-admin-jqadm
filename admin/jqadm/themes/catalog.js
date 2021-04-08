@@ -20,7 +20,7 @@
 /**
  * Load categories and create catalog tree
  */
-Aimeos.options.done(function(result) {
+ Aimeos.options.done(function(result) {
 
 	if(!result || !result.meta || !result.meta.resources || !result.meta.resources.catalog || $(".aimeos .item-catalog").length === 0) {
 		return;
@@ -259,10 +259,12 @@ Aimeos.Catalog = {
 			self.element = $(".tree-content", ev.delegateTarget).tree("getSelectedNode");
 
 			var dialog = $("#confirm-delete");
+			var list = $(".modal-body ul.items", dialog);
 			var item = $('<li>').text(self.element.name);
 
-			$(".modal-body ul.items", dialog).append(item);
+			list.html("").append(item);
 			dialog.modal("show", $(this));
+			$(".modal", dialog).addClass('show');
 
 			return false;
 		});
