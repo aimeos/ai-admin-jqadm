@@ -1769,7 +1769,7 @@ msgstr "Company"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "Configuration"
 
 #, fuzzy, php-format
 msgid "countcountry"
@@ -1988,7 +1988,7 @@ msgstr "Reviews"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "Price rules"
 
 #, php-format
 msgid "sales"
