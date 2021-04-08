@@ -22,9 +22,13 @@ textarea {
 	margin: 0.25rem;
 }
 
+.modal-backdrop {
+	z-index: 1500;
+}
+
 .modal {
 	background: #00000080;
-	z-index: 10000;
+	z-index: 1510;
 }
 
 .modal.show {
@@ -78,11 +82,6 @@ a, a:hover {
 	border: 1px solid transparent;
 	background: transparent;
 	cursor: pointer;
-	color: var(--bs-secondary, #707880);
-}
-
-.btn:hover {
-	color: var(--bs-secondary-dark, #101820);
 }
 
 .btn-primary {
@@ -132,7 +131,6 @@ a, a:hover {
 	border: 1px solid var(--bs-danger, #dc3545);
 	background-color: var(--bs-danger, #dc3545);
 	border-color: var(--bs-danger, #dc3545);
-	color: var(--bs-secondary-dark, #101820) !important;
 }
 
 .dark .btn-close {
@@ -199,7 +197,7 @@ a, a:hover {
 	background-color: var(--bs-bg-light, #ffffff);
 }
 
-.table {
+.table, .table-striped>tbody>tr:nth-of-type(odd) {
 	color: var(--bs-secondary, #505860);
 }
 
