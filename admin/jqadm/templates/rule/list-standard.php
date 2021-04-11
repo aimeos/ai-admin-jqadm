@@ -74,6 +74,8 @@ $columnList = [
 	'rule.position' => $this->translate( 'admin', 'Position' ),
 	'rule.label' => $this->translate( 'admin', 'Label' ),
 	'rule.provider' => $this->translate( 'admin', 'Provider' ),
+	'rule.datestart' => $this->translate( 'admin', 'Start date' ),
+	'rule.dateend' => $this->translate( 'admin', 'End date' ),
 	'rule.config' => $this->translate( 'admin', 'Config' ),
 	'rule.ctime' => $this->translate( 'admin', 'Created' ),
 	'rule.mtime' => $this->translate( 'admin', 'Modified' ),
@@ -182,6 +184,8 @@ $columnList = [
 								'rule.position' => ['op' => '>=', 'type' => 'number'],
 								'rule.label' => [],
 								'rule.provider' => [],
+								'rule.datestart' => ['op' => '-', 'type' => 'datetime-local'],
+								'rule.dateend' => ['op' => '-', 'type' => 'datetime-local'],
 								'rule.config' => ['op' => '~='],
 								'rule.ctime' => ['op' => '-', 'type' => 'datetime-local'],
 								'rule.mtime' => ['op' => '-', 'type' => 'datetime-local'],
@@ -211,6 +215,12 @@ $columnList = [
 							<?php endif; ?>
 							<?php if( in_array( 'rule.provider', $fields ) ) : ?>
 								<td class="rule-provider"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getProvider() ); ?></a></td>
+							<?php endif; ?>
+							<?php if( in_array( 'rule.datestart', $fields ) ) : ?>
+								<td class="rule-datestart"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateStart() ); ?></a></td>
+							<?php endif; ?>
+							<?php if( in_array( 'rule.dateend', $fields ) ) : ?>
+								<td class="rule-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
 							<?php endif; ?>
 							<?php if( in_array( 'rule.config', $fields ) ) : ?>
 								<td class="rule-config config-item">

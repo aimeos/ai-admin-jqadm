@@ -194,6 +194,37 @@ $enc = $this->encoder();
 									<?= $enc->html( $this->translate( 'admin', 'Execution order of the rules' ) ); ?>
 								</div>
 							</div>
+
+							<div class="separator"><i class="icon more"></i></div>
+
+							<div class="form-group row optional advanced">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
+								<div class="col-sm-8">
+									<input is="flat-pickr" class="form-control item-datestart" type="datetime-local" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.datestart' ) ) ); ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
+										v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/rule.datestart' ) ) ); ?>'"
+										v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ); ?>' !== ''"
+										v-bind:config="Aimeos.flatpickr.datetime" />
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'The rule is only used after that date and time' ) ); ?>
+								</div>
+							</div>
+							<div class="form-group row optional advanced">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
+								<div class="col-sm-8">
+									<input is="flat-pickr" class="form-control item-dateend" type="datetime-local" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.dateend' ) ) ); ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
+										v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/rule.dateend' ) ) ); ?>'"
+										v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ); ?>' !== ''"
+										v-bind:config="Aimeos.flatpickr.datetime"/>
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'The rule is only used until that date and time' ) ); ?>
+								</div>
+							</div>
 						</div><!--
 
 						--><div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ); ?>">
