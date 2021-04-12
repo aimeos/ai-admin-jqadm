@@ -68,6 +68,7 @@ Aimeos.Catalog = {
 	csrf : null,
 	element : null,
 	prefix : null,
+	instance: null,
 
 
 	init : function() {
@@ -77,6 +78,71 @@ Aimeos.Catalog = {
 
 		this.setupAdd();
 		this.setupSearch();
+
+		const node = document.querySelector(".item-catalog .tree-toolbar");
+		if(node) {
+			this.instance = new Vue({el: node, mixins: [this.mixins]});
+		}
+	},
+
+
+	mixins : {
+		data() {
+			return {
+				dialog: false,
+				selected: null,
+				unconfirmed: {},
+			}
+		},
+
+		methods: {
+			create() {
+				const root = $(".tree-content");
+				let node = root.tree("getSelectedNode");
+
+				if(!node) {
+					node = root.tree("getNodeByHtmlElement", $(".jqtree-tree > .jqtree-folder", root));
+				}
+
+				window.location = $(".aimeos .item-catalog").data("createurl").replace("_ID_", (node ? node.id : ''));
+			},
+
+			confirm: function(val) {
+				if(val && this.selected) {
+					Aimeos.Catalog.deleteNode(this.selected.id, this.selected.parentid || null);
+				}
+
+				this.selected = null;
+				this.dialog = false;
+			},
+
+			filter(val) {
+				$('.aimeos .catalog-tree .tree-content .jqtree_common[role="treeitem"]').each(function(idx, node) {
+					const regex = new RegExp(val, 'i');
+					const jqnode = $(node);
+
+					if(regex.test(jqnode.html())) {
+						jqnode.parents("li.jqtree_common").show();
+						jqnode.show();
+					} else {
+						jqnode.hide();
+					}
+				});
+			},
+
+			remove() {
+				const panel = $(".tree-content");
+				let node = panel.tree("getSelectedNode");
+
+				if(!node) {
+					node = panel.tree("getNodeByHtmlElement", $(".jqtree-tree > .jqtree-folder", panel));
+				}
+
+				this.selected = {id: node.id, parentid: node.parent.id};
+				this.unconfirmed = {1: node.name || '***'};
+				this.dialog = true;
+			}
+		}
 	},
 
 
@@ -282,7 +348,7 @@ Aimeos.Catalog = {
 	},
 
 
-	deleteNode : function(node, parent) {
+	deleteNode : function(nodeid, parentid) {
 
 		Aimeos.options.done(function(result) {
 
@@ -294,9 +360,9 @@ Aimeos.Catalog = {
 			var url = result.meta.resources.catalog;
 
 			if(result.meta.prefix) {
-				params[result.meta.prefix] = {id: node.id};
+				params[result.meta.prefix] = {id: nodeid};
 			} else {
-				params = {id: node.id};
+				params = {id: nodeid};
 			}
 
 			if(Aimeos.Catalog.csrf) {
@@ -313,7 +379,7 @@ Aimeos.Catalog = {
 				}
 
 				if(!result.errors) {
-					window.location = $(".aimeos .item-catalog").data("createurl").replace("_ID_", (parent && parent.id ? parent.id : ''));
+					window.location = $(".aimeos .item-catalog").data("createurl").replace("_ID_", parentid || '');
 				}
 			});
 		});

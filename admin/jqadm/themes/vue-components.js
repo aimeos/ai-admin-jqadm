@@ -49,6 +49,29 @@ Vue.component('auto-complete', {
 
 
 
+Vue.component('catalog-tree', {
+	template: `
+		<div class="tree-menu-filter">
+			<div class="filter input-group tree-toolbar">
+				<button v-if="remove" v-on:click.stop="$emit('remove')" type="button" class="btn btn-secondary fa act-delete" tabindex="1"></button>
+				<input class="form-control" v-bind:placeholder="placeholder" v-on:input="$emit('filter', $event.target.value)" />
+				<button v-if="create" v-on:click.stop="$emit('create')" type="button" class="btn btn-primary fa act-add" tabindex="1"></button>
+			</div>
+		</div>
+	`,
+
+	props: {
+		url: {type: String, required: true},
+		promise: {type: Object, required: true },
+		placeholder: {type: String, default: 'Find category'},
+		current: {type: String, default: ''},
+		create: {type: Boolean, default: false},
+		remove: {type: Boolean, default: false},
+	}
+});
+
+
+
 Vue.component('column-select', {
 	template: '#column-select',
 	props: {

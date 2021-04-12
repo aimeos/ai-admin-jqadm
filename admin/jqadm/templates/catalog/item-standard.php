@@ -93,13 +93,14 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 		<div class="col-lg-3 catalog-tree">
 			<div class="box">
 				<div class="tree-toolbar input-group">
-					<div class="input-group-prepend"><!--
-						--><span class="btn btn-secondary fa act-delete " tabindex="1"></span><!--
-					--></div><!--
-					--><input type="text" class="form-control search-input" tabindex="1" placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find category' ) ); ?>"><!--
-					--><div class="input-group-append"><!--
-						--><span class="btn btn-primary fa act-add" tabindex="1"></span><!--
-					--></div>
+					<confirm-delete
+						v-bind:items="unconfirmed" v-bind:show="dialog"
+						v-on:close="confirm(false)" v-on:confirm="confirm(true)">
+					</confirm-delete>
+					<catalog-tree
+						v-on:create="create()" v-on:remove="remove()" v-on:filter="filter($event)"
+						v-bind:create="true" v-bind:remove="true">
+					</catalog-tree>
 				</div>
 				<div class="tree-content"></div>
 			</div>
