@@ -740,6 +740,7 @@ Vue.component('site-tree-items', {
 			limit: 25,
 			offset: 0,
 			total: null,
+			timer: null
 		}
 	},
 
