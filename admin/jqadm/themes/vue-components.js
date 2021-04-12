@@ -832,13 +832,9 @@ Vue.component('site-tree-items', {
 			}
 		},
 
-		filter(val) {
-			if(!val) {
-				clearTimeout(this.timer);
-			} else {
-				this.items = {};
-				this.fetch();
-			}
+		filter() {
+			this.items = {};
+			this.fetch();
 		}
 	}
 });
