@@ -712,6 +712,7 @@ Vue.component('site-tree-items', {
 					v-bind:initial="item.children || {}"
 					v-bind:promise="promise"
 					v-bind:current="current"
+					v-bind:level="level + 1"
 					v-bind:filter="filter"
 					v-bind:parent="id"
 					v-bind:tree="tree"
@@ -728,7 +729,9 @@ Vue.component('site-tree-items', {
 		promise: {type: Object, required: true},
 		initial: {type: Object, default: {}},
 		current: {type: String, default: ''},
-		filter: {type: String, default: ''}
+		parent: {type: String, default: ''},
+		filter: {type: String, default: ''},
+		level: {type: Number, default: 0}
 	},
 
 	data() {
@@ -737,13 +740,10 @@ Vue.component('site-tree-items', {
 			limit: 25,
 			offset: 0,
 			total: null,
-			timer: null,
 		}
 	},
 
 	mounted() {
-		this.fetch = this.debounce(this.fetch, 300);
-
 		if(this.filter || Object.keys(this.initial).length) {
 			this.items = this.initial;
 
@@ -758,22 +758,16 @@ Vue.component('site-tree-items', {
 	},
 
 	methods: {
-		debounce(func, delay) {
-			return function() {
-				const context = this;
-				const args = arguments;
-
-				clearTimeout(this.timer);
-				this.timer = setTimeout(() => func.apply(context, args), delay);
-			};
-		},
-
 		fetch() {
 			const self = this;
 			self.$emit('loading', true);
 
 			this.promise.done(function(response) {
-				const param = {'filter': {'==': {'locale.site.level': 0}}};
+				const param = {};
+
+				if(self.parent) {
+					param['filter'] = {'==': {'locale.site.parentid': self.parent}};
+				}
 
 				if(self.filter) {
 					param['filter'] = {'&&': [
@@ -856,10 +850,7 @@ Vue.component('site-tree-items', {
 		},
 
 		filter(val) {
-			if(!val) {
-				clearTimeout(this.timer);
-			} else {
-				this.items = {};
+			if(!val && this.level === 0) {
 				this.fetch();
 			}
 		}
