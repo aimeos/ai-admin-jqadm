@@ -744,6 +744,8 @@ Vue.component('site-tree-items', {
 	},
 
 	mounted() {
+		this.fetch = this.debounce(this.fetch, 300);
+
 		if(this.filter || Object.keys(this.initial).length) {
 			this.items = this.initial;
 
@@ -758,16 +760,22 @@ Vue.component('site-tree-items', {
 	},
 
 	methods: {
+		debounce(func, delay) {
+			return function() {
+				const context = this;
+				const args = arguments;
+
+				clearTimeout(this.timer);
+				this.timer = setTimeout(() => func.apply(context, args), delay);
+			};
+		},
+
 		fetch() {
 			const self = this;
 			self.$emit('loading', true);
 
 			this.promise.done(function(response) {
-				const param = {};
-
-				if(self.parent) {
-					param['filter'] = {'==': {'locale.site.parentid': self.parent}};
-				}
+				const param = {filter: {'==': {'locale.site.level': 0}}};
 
 				if(self.filter) {
 					param['filter'] = {'&&': [
@@ -850,7 +858,8 @@ Vue.component('site-tree-items', {
 		},
 
 		filter(val) {
-			if(!val && this.level === 0) {
+			if(val && this.level === 0) {
+				this.items = {};
 				this.fetch();
 			}
 		}
