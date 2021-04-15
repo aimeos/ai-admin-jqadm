@@ -145,7 +145,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'service.id' => '',
 				'service.type' => 'delivery',
 				'service.code' => 'test',
-				'service.provider' => 'Example',
+				'service.provider' => 'Standard',
 				'service.label' => 'test label',
 				'service.datestart' => null,
 				'service.dateend' => null,

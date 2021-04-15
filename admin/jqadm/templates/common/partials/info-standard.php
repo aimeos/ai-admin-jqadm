@@ -44,7 +44,7 @@ $enc = $this->encoder();
 					<strong><?= $enc->html( $this->translate( 'admin', 'Info' ) ); ?></strong>
 				</div>
 				<div class="toast-body">
-					<?= $enc->html( $entry ); ?>
+					<?= str_replace( "\n", '<br>', $enc->html( $entry ) ) ?>
 				</div>
 			</div>
 			<div class="col-2 toast-close">
@@ -65,7 +65,7 @@ $enc = $this->encoder();
 					<strong><?= $enc->html( $this->translate( 'admin', 'Error' ) ); ?></strong>
 				</div>
 				<div class="toast-body">
-					<?= $enc->html( $entry ); ?>
+					<?= str_replace( "\n", '<br>', $enc->html( $entry ) ) ?>
 				</div>
 			</div>
 			<div class="col-2 toast-close">

@@ -492,8 +492,9 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$item->fromArray( $data, true );
-		$item->setConfig( $conf );
+		$item = $item->fromArray( $data, true )->setConfig( $conf );
+
+		$this->notify( $manager->getProvider( $item, $item->getType() )->checkConfigBE( $conf ) );
 
 		return $item;
 	}
