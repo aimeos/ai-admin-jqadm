@@ -77,9 +77,6 @@
 			"text": "dashboard-service.js",
 			"path": "themes/"
 		},{
-			"text": "customer.js",
-			"path": "themes/"
-		},{
 			"text": "order.js",
 			"path": "themes/"
 		},{

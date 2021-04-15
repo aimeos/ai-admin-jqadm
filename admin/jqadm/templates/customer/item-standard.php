@@ -84,7 +84,8 @@ $params = $this->get( 'pageParams', [] );
 		<div class="col-xl-9 item-content tab-content">
 			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) : '' ); ?>
 
-			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="item-basic tab-pane fade show active vue" role="tabpanel" aria-labelledby="basic"
+				data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>">
 
 				<div class="row">
 					<div class="col-xl-6 <?= $readonly ?>">
@@ -261,7 +262,7 @@ $params = $this->get( 'pageParams', [] );
 											<input is="flat-pickr" class="form-control item-birthday" type="date" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ); ?>"
 												v-bind:value="'<?= $enc->attr( $this->get( 'itemData/customer.birthday' ) ); ?>'"
-												v-bind:config="this.$flatpickr.date"
+												v-bind:config="Aimeos.flatpickr.date"
 												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
@@ -337,11 +338,14 @@ $params = $this->get( 'pageParams', [] );
 									<div class="form-group row mandatory">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
 										<div class="col-sm-8">
-											<select class="combobox item-countryid" required="required" tabindex="1" maxlength="2" pattern="^[a-zA-Z]{2}$"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ); ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
-												<option value="<?= $enc->attr( $this->get( 'itemData/customer.countryid' ) ); ?>" >
-													<?= $enc->html( $this->get( 'itemData/customer.countryid' ) ); ?>
+											<select is="combo-box" class="form-control c-select item-countryid" required="required"
+												v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>'"
+												v-bind:readonly="data['customer.siteid'] != '<?= $this->site()->siteid() ?>'"
+												v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+												v-bind:getfcn="() => Aimeos.getCountries"
+												v-model="data['customer.countryid']" >
+												<option value="<?= $enc->attr( $this->get( 'itemData/customer.countryid' ) ) ?>">
+													<?= $enc->html( $this->get( 'itemData/customer.countryid' ) ) ?>
 												</option>
 											</select>
 										</div>
