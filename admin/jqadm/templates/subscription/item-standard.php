@@ -100,7 +100,8 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 		<div class="col-xl-9 item-content tab-content">
 			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) : '' ); ?>
 
-			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="item-basic vue tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
+				data-data="<?= $enc->attr( $this->get( 'subscriptionData' ) ) ?>">
 
 				<input class="item-ordbaseid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.ordbaseid' ) ) ); ?>"
 					value="<?= $enc->attr( $this->param( 'subscription.ordbaseid', $this->get( 'itemData/subscription.ordbaseid' ) ) ); ?>" />
@@ -154,7 +155,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ); ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Next date (optional)' ) ); ?>"
 										v-bind:value="'<?= $enc->attr( $this->get( 'itemData/subscription.datenext' ) ); ?>'"
-										v-bind:config="this.$flatpickr.date"
+										v-bind:config="Aimeos.flatpickr.date"
 										<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ); ?> />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -168,7 +169,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ); ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'End date (optional)' ) ); ?>"
 										v-bind:value="'<?= $enc->attr( $this->get( 'itemData/subscription.dateend' ) ); ?>'"
-										v-bind:config="this.$flatpickr.date"
+										v-bind:config="Aimeos.flatpickr.date"
 										<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ); ?> />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
