@@ -136,12 +136,12 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'item' => array(
 				'rule.id' => '',
 				'rule.type' =>'catalog',
-				'rule.provider' => 'Example',
+				'rule.provider' => 'Percent',
 				'rule.label' => 'test label',
 				'rule.position' => '2',
 				'config' => array(
-					'key' => array( 0 => 'test key' ),
-					'val' => array( 0 => 'test value' ),
+					'key' => array( 0 => 'percent' ),
+					'val' => array( 0 => '-10' ),
 				),
 			),
 		);

@@ -743,4 +743,30 @@ abstract class Base
 			'sort' => $session->get( $key . '/sort' ),
 		];
 	}
+
+
+	/**
+	 * Throws an exception with given details
+	 *
+	 * @param array $errors List of key/message pairs of errors
+	 * @throws \Aimeos\Admin\JQAdm\Exception Exception with error details
+	 */
+	protected function notify( array $errors ) : Iface
+	{
+		$list = [];
+		$i18n = $this->context->getI18n();
+
+		foreach( $errors as $key => $error )
+		{
+			if( $error ) {
+				$list[] = $key . ': ' . $i18n->dt( 'mshop', $error );
+			}
+		}
+
+		if( !empty( $list ) ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( join( "\n", $list ) );
+		}
+
+		return $this;
+	}
 }
