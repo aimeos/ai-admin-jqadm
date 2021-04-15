@@ -45,7 +45,7 @@ Vue.component('dashboard-order-quick-counttotal', {
 		criteria() {
 			return {"&&": [
 				{">": {"order.cdate": this.startdate.toISOString().substr(0, 19)}},
-				{"<=": {"order.cdate": this.enddate.toISOString().substr(0, 19)}},
+				{"<=": {"order.cdate": this.lastdate.toISOString().substr(0, 19)}},
 			]};
 		},
 
@@ -120,7 +120,7 @@ Vue.component('dashboard-order-quick-countcompleted', {
 		criteria() {
 			return {"&&": [
 				{">": {"order.cdate": this.startdate.toISOString().substr(0, 19)}},
-				{"<=": {"order.cdate": this.enddate.toISOString().substr(0, 19)}},
+				{"<=": {"order.cdate": this.lastdate.toISOString().substr(0, 19)}},
 				{"==": {"order.statuspayment": {0: 4, 1: 5, 2:6}}},
 			]};
 		},
@@ -196,7 +196,7 @@ Vue.component('dashboard-order-quick-countunfinished', {
 		criteria() {
 			return {"&&": [
 				{">": {"order.cdate": this.startdate.toISOString().substr(0, 19)}},
-				{"<=": {"order.cdate": this.enddate.toISOString().substr(0, 19)}},
+				{"<=": {"order.cdate": this.lastdate.toISOString().substr(0, 19)}},
 				{"==": {"order.statuspayment": -1}},
 			]};
 		},
@@ -243,14 +243,12 @@ Vue.component('dashboard-order-quick-countcustomer', {
 			current: 0,
 			enddate: null,
 			startdate: null,
-			lastdate: null,
 		}
 	},
 
 	mounted() {
 		this.enddate = moment().utc();
 		this.startdate = moment().utc().subtract(7, 'days');
-		this.lastdate = this.enddate.clone().subtract(this.enddate.diff(this.startdate, 'seconds') * 2, 'seconds');
 
 		this.fetch();
 	},
