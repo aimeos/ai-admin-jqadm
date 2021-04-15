@@ -266,7 +266,7 @@ Vue.component('dashboard-order-quick-countcustomer', {
 	methods: {
 		criteria() {
 			return {"&&": [
-				{">": {"customer.ctime": this.lastdate.toISOString().substr(0, 19)}},
+				{">": {"customer.ctime": this.startdate.toISOString().substr(0, 19)}},
 				{"<=": {"customer.ctime": this.enddate.toISOString().substr(0, 19)}},
 			]};
 		},
