@@ -589,9 +589,9 @@ Aimeos.ProductRef = {
 
 							(response.data.data || []).forEach(function(entry) {
 								for(let type in (entry.relationships || {})) {
-									const relitem = entry.relationships[type][0] || null;
-									if(relitem && relitem['data'] && relitem['data']['id'] && included[type][relitem['data']['id']]) {
-										Object.assign(entry['attributes'], included[type][relitem['data']['id']]['attributes'] || {});
+									const relitem = entry.relationships[type]['data'] && entry.relationships[type]['data'][0] || null;
+									if(relitem && relitem['id'] && included[type][relitem['id']]) {
+										Object.assign(entry['attributes'], included[type][relitem['id']]['attributes'] || {});
 									}
 								}
 								list.push(entry.attributes || {});
