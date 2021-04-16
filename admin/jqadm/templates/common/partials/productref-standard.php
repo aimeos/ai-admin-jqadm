@@ -339,7 +339,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 						</a>
 					</td>
 					<td class="actions">
-						<input type="hidden" v-bind:value="item[prefix + 'id']"
+						<input type="hidden" v-if="item.edit" v-bind:value="item[prefix + 'id']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['product', '-prefix-id', ''] ) ) ?>'.replace('-prefix-', prefix)" >
 						<a v-if="!item.edit" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ); ?>"
