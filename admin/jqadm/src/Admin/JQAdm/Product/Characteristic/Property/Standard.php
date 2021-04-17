@@ -198,16 +198,11 @@ class Standard
 	 */
 	protected function excludeItems( \Aimeos\Map $propItems ) : \Aimeos\Map
 	{
-		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
+		$excludes = $this->getContext()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
 
-		foreach( $propItems as $key => $propItem )
-		{
-			if( in_array( $propItem->getType(), $excludes ) ) {
-				unset( $propItems[$key] );
-			}
-		}
-
-		return $propItems;
+		return $propItems->filter( function( $item ) use ( $excludes ) {
+			return !in_array( $item->getType(), $excludes );
+		} );
 	}
 
 

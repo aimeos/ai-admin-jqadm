@@ -280,7 +280,22 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = [];
-		$types = ['package-length', 'package-height', 'package-width', 'package-weight'];
+
+		/** admin/jqadm/product/physical/types
+		 * Type codes used for physical product properties values
+		 *
+		 * Physical values like "package-length", "package-height", "package-width" and
+		 * "package-weight" are stored as regular product properties. To avoid displaying
+		 * them in the product characteristics tab too, these types are excluded there.
+		 *
+		 * You can add new physical types by adding additional type codes and insert the
+		 * input fields for displaying and changing them in the product/item-physical-standard
+		 * template.
+		 *
+		 * @param array List of product property type codes
+		 * @since 2021.07
+		 */
+		$types = $this->getContext()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
 
 		foreach( $item->getPropertyItems( $types, false ) as $item ) {
 			$data[$item->getType()] = $item->getValue();

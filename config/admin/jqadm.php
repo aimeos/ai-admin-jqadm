@@ -182,6 +182,14 @@ return [
 				'bought' => 'bought',
 			],
 		],
+		'physical' => [
+			'types' => [
+				'package-length' => 'package-length',
+				'package-height' => 'package-height',
+				'package-width' => 'package-width',
+				'package-weight' => 'package-weight',
+			]
+		]
 	],
 	'product/category' => [
 		'decorators' => [
