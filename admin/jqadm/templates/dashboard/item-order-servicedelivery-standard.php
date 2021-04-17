@@ -18,7 +18,7 @@ $enc = $this->encoder();
 				<div class="btn act-show fa"></div>
 			</div>
 			<h2 class="header-label">
-				<?= $enc->html( $this->translate( 'admin', 'Delivery types' ) ); ?>
+				<?= $enc->html( $this->translate( 'admin', 'Delivery types' ) ) ?>
 			</h2>
 		</div>
 		<div id="order-servicedelivery-data" class="collapse show loading">
@@ -33,4 +33,4 @@ $enc = $this->encoder();
 		</div>
 	</div>
 </div>
-<?= $this->get( 'orderdeliverytypeBody' ); ?>
+<?= $this->get( 'orderdeliverytypeBody' ) ?>

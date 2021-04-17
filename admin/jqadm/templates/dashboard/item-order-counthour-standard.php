@@ -18,7 +18,7 @@ $enc = $this->encoder();
 				<div class="btn act-show fa"></div>
 			</div>
 			<h2 class="header-label">
-				<?= $enc->html( $this->translate( 'admin', 'Orders by hour' ) ); ?>
+				<?= $enc->html( $this->translate( 'admin', 'Orders by hour' ) ) ?>
 			</h2>
 		</div>
 		<div id="order-counthour-data" class="collapse show content loading">
@@ -27,4 +27,4 @@ $enc = $this->encoder();
 		</div>
 	</div>
 </div>
-<?= $this->get( 'orderhourBody' ); ?>
+<?= $this->get( 'orderhourBody' ) ?>

@@ -23,7 +23,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 ?>
 <div id="selection" class="item-selection tab-pane fade" role="tablist" aria-labelledby="selection">
 	<div id="item-selection-group" role="tablist" aria-multiselectable="true"
-		data-items="<?= $enc->attr( $this->get( 'selectionData', [] ) ); ?>"
+		data-items="<?= $enc->attr( $this->get( 'selectionData', [] ) ) ?>"
 		data-keys="<?= $enc->attr( $keys ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>" >
 
@@ -35,29 +35,29 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 						v-bind:data-bs-target="'#item-selection-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
 						v-bind:aria-controls="'item-selection-group-data-' + idx" aria-expanded="false">
 						<div class="card-tools-start">
-							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ); ?>">
+							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>">
 							</div>
 						</div>
 						<span class="item-label header-label">{{ getLabel(idx) }}</span>
 						<div class="card-tools-end">
-							<a v-if="item['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								v-bind:href="'<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => '_ID_'] + $this->get( 'pageParams', [] ), [], $config ) ); ?>'.replace('_ID_', item['product.id'])"
-								title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ); ?>"></a>
+							<a v-if="item['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-bind:href="'<?= $enc->attr( $this->url( $target, $cntl, $action, ['id' => '_ID_'] + $this->get( 'pageParams', [] ), [], $config ) ) ?>'.replace('_ID_', item['product.id'])"
+								title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ) ?>"></a>
 
-							<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)' ) ); ?>"
+							<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)' ) ) ?>"
 								v-on:click.stop="copyItem(idx)">
 							</div>
 
 							<div v-if="!checkSite('product.lists.siteid', idx) && item['product.lists.id'] != ''"
-								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
+								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
 
 							<div v-if="!checkSite('product.lists.siteid', idx)"
-								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">
 							</div>
 						</div>
@@ -67,41 +67,41 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 						v-bind:aria-labelledby="'item-selection-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['product.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'product.id'] ) ); ?>'.replace('idx', idx)" />
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'product.id'] ) ) ?>'.replace('idx', idx)" />
 						<input type="hidden" v-model="item['product.lists.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'product.lists.id'] ) ); ?>'.replace('idx', idx)" />
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'product.lists.id'] ) ) ?>'.replace('idx', idx)" />
 
 						<div class="col-xl-6">
 
 							<div class="form-group row mandatory">
-								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
+								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
-									<select class="form-control form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									<select class="form-control form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.status' ) ) ) ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('product.siteid', idx)"
 										v-model="item['product.status']" >
 										<option value="1" v-bind:selected="item['product.status'] == 1" >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
 										</option>
 										<option value="0" v-bind:selected="item['product.status'] == 0" >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
 										</option>
 										<option value="-1" v-bind:selected="item['product.status'] == -1" >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?>
 										</option>
 										<option value="-2" v-bind:selected="item['product.status'] == -2" >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?>
 										</option>
 									</select>
 								</div>
 							</div>
 							<?php if( ( $types = $this->get( 'itemTypes', map() )->col( 'product.type.label', 'product.type.code' )->only( ['default', 'event', 'voucher'] ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
+									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" class="form-control form-select item-type" required
 											v-bind:readonly="checkSite('product.siteid', idx)"
-											v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
+											v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>'.replace('idx', idx)"
 											v-bind:items="JSON.parse('<?= $enc->attr( $types->toArray() ) ?>')"
 											v-model="item['product.type']" >
@@ -115,50 +115,50 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<input class="item-type" type="hidden"
 									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>'.replace('idx', idx)"
 									value="<?= $enc->attr( $types->firstKey() ) ?>" />
-							<?php endif; ?>
+							<?php endif ?>
 							<div class="form-group row mandatory">
-								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ); ?></label>
+								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ) ?></label>
 								<div class="col-lg-8">
 									<input is="auto-complete"
 										v-model="item['product.code']"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ); ?>'.replace('idx', idx)"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ) ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('product.siteid', idx) || item['product.lists.id'] != ''"
-										v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
+										v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:keys="getArticles"
 										v-bind:required="'required'"
 										v-on:input="updateProductItem(idx, ...arguments)" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ) ?>
 								</div>
 							</div>
 							<div class="form-group row mandatory">
-								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
+								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ) ?></label>
 								<div class="col-lg-8">
-									<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.label' ) ) ); ?>'.replace('idx', idx)"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
+									<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.label' ) ) ) ?>'.replace('idx', idx)"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										v-bind:readonly="checkSite('product.siteid', idx)"
 										v-model="item['product.label']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ) ?>
 								</div>
 							</div>
 							<div class="form-group row optional">
-								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ); ?></label>
+								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ) ?></label>
 								<div class="col-lg-8">
 									<input type="hidden" v-bind:disabled="item['stock'] === false" v-model="item['stock.id']"
-										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'stock.id'] ) ); ?>'.replace('idx', idx)" />
-									<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'stock.stocklevel' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'stock.id'] ) ) ?>'.replace('idx', idx)" />
+									<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'stock.stocklevel' ) ) ) ?>'.replace('idx', idx)"
 										v-bind:readonly="checkSite('product.siteid', idx)"
 										v-bind:disabled="item['stock'] === false"
 										v-model="item['stock.stocklevel']" />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ) ?>
 								</div>
 							</div>
 
@@ -169,18 +169,18 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<thead>
 									<tr>
 										<th>
-											<span class="help"><?= $enc->html( $this->translate( 'admin', 'Variant attributes' ) ); ?></span>
+											<span class="help"><?= $enc->html( $this->translate( 'admin', 'Variant attributes' ) ) ?></span>
 											<div class="form-text text-muted help-text">
-												<?= $enc->html( $this->translate( 'admin', 'All attributes that uniquely define an article, e.g. width, length and color for jeans' ) ); ?>
+												<?= $enc->html( $this->translate( 'admin', 'All attributes that uniquely define an article, e.g. width, length and color for jeans' ) ) ?>
 											</div>
 										</th>
 										<th class="actions">
-											<a class="btn act-list fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Go to attribute panel' ) ); ?>"
-												href="<?= $enc->attr( $this->url( $starget, $scntl, $saction, ['resource' => 'attribute'] + $this->get( 'pageParams', [] ), [], $sconfig ) ); ?>">
+											<a class="btn act-list fa" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Go to attribute panel' ) ) ?>"
+												href="<?= $enc->attr( $this->url( $starget, $scntl, $saction, ['resource' => 'attribute'] + $this->get( 'pageParams', [] ), [], $sconfig ) ) ?>">
 											</a>
-											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
+											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 												v-on:click.stop="addAttributeItem(idx)">
 											</div>
 										</th>
@@ -192,21 +192,21 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									<tr v-for="(attr, attridx) in (item['attr'] || [])">
 										<td>
 											<input class="item-attr-listid" type="hidden" v-model="attr['product.lists.id']"
-												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.id'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
+												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.id'] ) ) ?>'.replace('idx', idx).replace('attridx', attridx)" />
 
 											<input class="item-attr-siteid" type="hidden" v-model="attr['product.lists.siteid']"
-												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.siteid'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
+												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.siteid'] ) ) ?>'.replace('idx', idx).replace('attridx', attridx)" />
 
 											<input class="item-attr-type" type="hidden" v-model="attr['attribute.type']"
-												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.type'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
+												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.type'] ) ) ?>'.replace('idx', idx).replace('attridx', attridx)" />
 
 											<input class="item-attr-label" type="hidden" v-model="attr['attribute.label']"
-												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.label'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)" />
+												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.label'] ) ) ?>'.replace('idx', idx).replace('attridx', attridx)" />
 
 											<select is="combo-box" class="form-control form-select item-attr-refid"
-												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ); ?>'.replace('idx', idx).replace('attridx', attridx)"
+												v-bind:name="'<?= $enc->attr( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>'.replace('idx', idx).replace('attridx', attridx)"
 												v-bind:readonly="checkSite('product.lists.siteid', idx, attridx) || attr['product.lists.id'] != ''"
-												v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+												v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"
 												v-bind:label="getAttributeLabel(idx, attridx)"
 												v-bind:required="'required'"
 												v-bind:getfcn="getAttributeItems"
@@ -216,12 +216,12 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										</td>
 										<td class="actions">
 											<div v-if="!checkSite('product.lists.siteid', idx, attridx)"
-												class="btn act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
+												class="btn act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 											</div>
 											<div v-if="!checkSite('product.lists.siteid', idx, attridx)"
-												class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+												class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 												v-on:click.stop="removeAttributeItem(idx, attridx)">
 											</div>
 										</td>
@@ -231,15 +231,15 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 							</table>
 						</div>
 
-						<?= $this->get( 'selectionBody' ); ?>
+						<?= $this->get( 'selectionBody' ) ?>
 
 					</div>
 				</div>
 			</div>
 
 			<div slot="footer" class="card-tools-more">
-				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
+				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 					v-on:click="add()" >
 				</div>
 			</div>

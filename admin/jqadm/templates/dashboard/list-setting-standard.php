@@ -23,12 +23,12 @@ $settings = [
 						<div class="btn act-show fa"></div>
 					</div>
 					<h2 class="header-label">
-						<?= $enc->html( $this->translate( 'admin', 'Potential problems' ) ); ?>
+						<?= $enc->html( $this->translate( 'admin', 'Potential problems' ) ) ?>
 					</h2>
 				</div>
 				<div id="setting-list-data" class="content collapse show">
 					<div class="problem-list">
-						<?php foreach( $settings as $setting => $entry ) : list( $type, $problem ) = $entry; ?>
+						<?php foreach( $settings as $setting => $entry ) : list( $type, $problem ) = $entry ?>
 							<p class="alert alert-<?= $enc->attr( $type ) ?>">
 								<?= $enc->html( sprintf( $problem, $setting ) ) ?>
 							</p>
@@ -38,4 +38,4 @@ $settings = [
 			</div>
 		</div>
 	</div>
-<?php endif; ?>
+<?php endif ?>

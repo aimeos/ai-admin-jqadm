@@ -36,22 +36,22 @@ $enc = $this->encoder();
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Delete items?' ) ); ?></h4>
+					<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Delete items?' ) ) ?></h4>
 					<button type="button" class="btn-close" v-on:click="$emit('close')"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>"></button>
+						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ) ?>"></button>
 				</div>
 				<div class="modal-body">
-					<p><?= $enc->html( $this->translate( 'admin', 'You are going to delete one or more items. Would you like to proceed?' ) ); ?></p>
+					<p><?= $enc->html( $this->translate( 'admin', 'You are going to delete one or more items. Would you like to proceed?' ) ) ?></p>
 					<ul class="items">
 						<li class="item" v-for="entry in items">{{ entry }}</li>
 					</ul>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" v-on:click="$emit('close')">
-						<?= $enc->html( $this->translate( 'admin', 'Close' ) ); ?>
+						<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
 					</button>
 					<button type="button" class="btn btn-danger" v-on:click="$emit('confirm')">
-						<?= $enc->html( $this->translate( 'admin', 'Delete' ) ); ?>
+						<?= $enc->html( $this->translate( 'admin', 'Delete' ) ) ?>
 					</button>
 				</div>
 			</div>

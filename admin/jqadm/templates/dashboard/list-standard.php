@@ -9,17 +9,17 @@ $enc = $this->encoder();
 
 
 ?>
-<?php $this->block()->start( 'jqadm_content' ); ?>
+<?php $this->block()->start( 'jqadm_content' ) ?>
 <div class="dashboard container-fluid">
 	<nav class="main-navbar col-xl-12">
 		<h1 class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Dashboard' ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
+			<?= $enc->html( $this->translate( 'admin', 'Dashboard' ) ) ?>
+			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</h1>
 	</nav>
 
-	<?= $this->get( 'listBody' ); ?>
+	<?= $this->get( 'listBody' ) ?>
 </div>
-<?php $this->block()->stop(); ?>
+<?php $this->block()->stop() ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ) ?>

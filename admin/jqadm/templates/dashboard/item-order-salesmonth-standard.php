@@ -18,7 +18,7 @@ $enc = $this->encoder();
 				<div class="btn act-show fa"></div>
 			</div>
 			<h2 class="header-label">
-				<?= $enc->html( $this->translate( 'admin', 'Sales per month' ) ); ?>
+				<?= $enc->html( $this->translate( 'admin', 'Sales per month' ) ) ?>
 			</h2>
 		</div>
 		<div id="order-salesmonth-data" class="collapse show content loading">

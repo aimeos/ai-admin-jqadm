@@ -34,57 +34,57 @@ $enc = $this->encoder();
 <tr class="list-search">
 	<?php if( in_array( 'select', $fields ) ) : ?>
 		<td class="select">
-			<input v-on:click="toggleAll()" v-model="all" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ); ?>" />
+			<input v-on:click="toggleAll()" v-model="all" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
 		</td>
 	<?php endif ?>
 	<?php foreach( $this->get( 'data', [] ) as $key => $list ) : $idx++ ?>
 		<?php if( in_array( $key, $fields ) ) : ?>
-			<td class="<?= str_replace( '.', '-', $key ); ?>">
-				<?php if( $list !== null ) : $type = $this->value( $list, 'type', 'text' ); ?>
-					<input type="hidden" value="<?= $enc->attr( $key ); ?>"
-						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'key', $idx] ) ) ); ?>" />
-					<input type="hidden" value="<?= $enc->attr( $this->value( $list, 'op', '=~' ) ); ?>"
-						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ); ?>" />
+			<td class="<?= str_replace( '.', '-', $key ) ?>">
+				<?php if( $list !== null ) : $type = $this->value( $list, 'type', 'text' ) ?>
+					<input type="hidden" value="<?= $enc->attr( $key ) ?>"
+						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'key', $idx] ) ) ) ?>" />
+					<input type="hidden" value="<?= $enc->attr( $this->value( $list, 'op', '=~' ) ) ?>"
+						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ) ?>" />
 
 					<?php if( $type === 'select' ) : ?>
-						<select class="form-control form-select" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>">
-							<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?></option>
+						<select class="form-control form-select" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>">
+							<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ) ?></option>
 
 							<?php foreach( (array) $this->value( $list, 'val', [] ) as $val => $name ) : ?>
-								<option value="<?= $enc->attr( $val ); ?>" <?= $selected( $this->value( $filter, 'val/' . $idx ), $val ); ?> >
-									<?= $enc->html( $name ); ?>
+								<option value="<?= $enc->attr( $val ) ?>" <?= $selected( $this->value( $filter, 'val/' . $idx ), $val ) ?> >
+									<?= $enc->html( $name ) ?>
 								</option>
-							<?php endforeach; ?>
+							<?php endforeach ?>
 						</select>
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'datetime-local' ) : ?>
-						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>"
-							v-bind:value="'<?= $enc->attr( $this->value( $filter, 'val/' . $idx, '' ) ); ?>'"
+						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
+							v-bind:value="'<?= $enc->attr( $this->value( $filter, 'val/' . $idx, '' ) ) ?>'"
 							v-bind:config="Aimeos.flatpickr.datetimerange" />
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'date' ) : ?>
-						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>"
-							v-bind:value="'<?= $enc->attr( $this->value( $filter, 'val/' . $idx, '' ) ); ?>'"
+						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
+							v-bind:value="'<?= $enc->attr( $this->value( $filter, 'val/' . $idx, '' ) ) ?>'"
 							v-bind:config="Aimeos.flatpickr.daterange" />
 					<?php else : ?>
-						<input class="form-control" type="<?= $enc->attr( $type ); ?>" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ); ?>"
-							value="<?= $enc->attr( $this->value( $filter, 'val/' . $idx, '' ) ); ?>" />
-					<?php endif; ?>
-				<?php endif; ?>
+						<input class="form-control" type="<?= $enc->attr( $type ) ?>" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
+							value="<?= $enc->attr( $this->value( $filter, 'val/' . $idx, '' ) ) ?>" />
+					<?php endif ?>
+				<?php endif ?>
 			</td>
-		<?php endif; ?>
-	<?php endforeach; ?>
+		<?php endif ?>
+	<?php endforeach ?>
 
 	<td class="actions">
-		<button type="submit" class="btn act-search fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-			title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>"
-			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
+		<button type="submit" class="btn act-search fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+			title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>"
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>">
 		</button>
-		<button type="reset" class="btn act-reset fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-			title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"
-			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>">
+		<button type="reset" class="btn act-reset fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+			title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>">
 		</button>
 	</td>
 </tr>

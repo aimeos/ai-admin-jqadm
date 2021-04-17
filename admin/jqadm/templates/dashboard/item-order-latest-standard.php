@@ -98,7 +98,7 @@ $statuslist = array(
 					<div class="btn act-show fa"></div>
 				</div>
 				<h2 class="header-label">
-					<?= $enc->html( $this->translate( 'admin', 'Latest orders' ) ); ?>
+					<?= $enc->html( $this->translate( 'admin', 'Latest orders' ) ) ?>
 				</h2>
 			</div>
 			<div id="order-latest-data" class="content collapse show">
@@ -106,33 +106,33 @@ $statuslist = array(
 					<table class="list-items table table-hover">
 						<tbody>
 							<?php foreach( $this->get( 'orderlatestItems', [] ) as $item ) : ?>
-								<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>
+								<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ) ?>
 								<tr>
 									<td class="order-id">
-										<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a>
+										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a>
 									</td>
 									<td class="order-base-address-name">
-										<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $name( $item ) ); ?></a>
+										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $name( $item ) ) ?></a>
 									</td>
 									<td class="order-base-product-price">
-										<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $price( $item, $priceFormat ) ); ?></a>
+										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $price( $item, $priceFormat ) ) ?></a>
 									</td>
 									<td class="order-datepayment">
-										<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDatePayment() ); ?></a>
+										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDatePayment() ) ?></a>
 									</td>
 									<td class="order-statuspayment">
-										<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ); ?></a>
+										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ) ?></a>
 									</td>
 									<td class="order-base-service-payment">
-										<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $payment( $item ) ); ?></a>
+										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $payment( $item ) ) ?></a>
 									</td>
 								</tr>
-							<?php endforeach; ?>
+							<?php endforeach ?>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
 	</div>
-	<?= $this->get( 'orderlatestBody' ); ?>
+	<?= $this->get( 'orderlatestBody' ) ?>
 <?php endif ?>

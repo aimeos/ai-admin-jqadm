@@ -24,28 +24,28 @@ $enc = $this->encoder();
 
 
 ?>
-<div class="btn btn-secondary act-help" title="<?= $enc->attr( $this->translate( 'admin', 'Display help texts' ) ); ?>">
-	<?= $enc->html( $this->translate( 'admin', '?' ) ); ?>
+<div class="btn btn-secondary act-help" title="<?= $enc->attr( $this->translate( 'admin', 'Display help texts' ) ) ?>">
+	<?= $enc->html( $this->translate( 'admin', '?' ) ) ?>
 </div>
 
 <a class="btn btn-secondary act-cancel"
-	title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list' ) ); ?>"
-	href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $params, [], $listConfig ) ); ?>">
-	<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ); ?>
+	title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list' ) ) ?>"
+	href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $params, [], $listConfig ) ) ?>">
+	<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ) ?>
 </a>
 
 <div class="btn-group">
 	<button type="submit" class="btn btn-primary act-save"
-		title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ); ?>">
-		<?= $enc->html( $this->translate( 'admin', 'Save' ) ); ?>
+		title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ) ?>">
+		<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 	</button>
 	<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
 		aria-haspopup="true" aria-expanded="false">
-		<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ); ?></span>
+		<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ) ?></span>
 	</button>
 	<ul class="dropdown-menu dropdown-menu-end">
-		<li class="dropdown-item"><a class="next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ); ?></a></li>
-		<li class="dropdown-item"><a class="next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ); ?></a></li>
-		<li class="dropdown-item"><a class="next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ); ?></a></li>
+		<li class="dropdown-item"><a class="next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ) ?></a></li>
+		<li class="dropdown-item"><a class="next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ) ?></a></li>
+		<li class="dropdown-item"><a class="next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ) ?></a></li>
 	</ul>
 </div>

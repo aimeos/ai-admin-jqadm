@@ -189,86 +189,86 @@ $deliveryStatusList = [
 					?>
 
 					<?php foreach( $this->get( 'orderItems', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>">
+						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ) ?>
+						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>">
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id">
-									<a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getId() ); ?></a>
+									<a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'order.type', $fields ) ) : ?>
 								<td class="order-type">
-									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getType() ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'order.datepayment', $fields ) ) : ?>
 								<td class="order-datepayment">
-									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDatePayment() ); ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDatePayment() ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 								<td class="order-statuspayment">
-									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $paymentStatusList[$item->getPaymentStatus()] ); ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $paymentStatusList[$item->getPaymentStatus()] ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'order.datedelivery', $fields ) ) : ?>
 								<td class="order-datedelivery">
-									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateDelivery() ); ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateDelivery() ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
 								<td class="order-statusdelivery">
-									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $deliveryStatusList[$item->getDeliveryStatus()] ); ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $deliveryStatusList[$item->getDeliveryStatus()] ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'order.relatedid', $fields ) ) : ?>
 								<td class="order-relatedid">
-									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getRelatedId() ); ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRelatedId() ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'order.ctime', $fields ) ) : ?>
 								<td class="order-ctime">
-									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'order.mtime', $fields ) ) : ?>
 								<td class="order-mtime">
-									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'order.editor', $fields ) ) : ?>
 								<td class="order-editor">
-									<a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 
-							<?php $baseItem = ( isset( $baseItems[$item->getBaseId()] ) ? $baseItems[$item->getBaseId()] : null ); ?>
+							<?php $baseItem = ( isset( $baseItems[$item->getBaseId()] ) ? $baseItems[$item->getBaseId()] : null ) ?>
 
 							<?php if( in_array( 'order.baseid', $fields ) ) : ?>
 								<td class="order-baseid">
-									<a class="items-field" href="<?= $url; ?>">
-										<?= $enc->html( $item->getBaseId() ); ?>
+									<a class="items-field" href="<?= $url ?>">
+										<?= $enc->html( $item->getBaseId() ) ?>
 										<?php if( $baseItem ) : ?>
-											- <?= $enc->html( $baseItem->getPrice()->getValue() . '+' . $baseItem->getPrice()->getCosts() . ' ' . $baseItem->getPrice()->getCurrencyId() ); ?>
-										<?php endif; ?>
+											- <?= $enc->html( $baseItem->getPrice()->getValue() . '+' . $baseItem->getPrice()->getCosts() . ' ' . $baseItem->getPrice()->getCurrencyId() ) ?>
+										<?php endif ?>
 									</a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 
 							<td class="actions">
-								<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ); ?>" target="_blank"
-									href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ); ?>"></a>
+								<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
+									href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ) ?>"></a>
 							</td>
 						</tr>
-					<?php endforeach; ?>
+					<?php endforeach ?>
 				</tbody>
 			</table>
 		</div>
 
 		<?php if( $this->get( 'orderItems', map() )->isEmpty() ) : ?>
-			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
-		<?php endif; ?>
+			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
+		<?php endif ?>
 
 		<?= $this->partial(
 				$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -280,4 +280,4 @@ $deliveryStatusList = [
 
 	</div>
 </div>
-<?= $this->get( 'orderBody' ); ?>
+<?= $this->get( 'orderBody' ) ?>

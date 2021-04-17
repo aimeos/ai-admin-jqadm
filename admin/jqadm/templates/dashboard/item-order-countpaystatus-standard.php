@@ -27,7 +27,7 @@ $trans = array(
 				<div class="btn act-show fa"></div>
 			</div>
 			<h2 class="header-label">
-				<?= $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ); ?>
+				<?= $enc->html( $this->translate( 'admin', 'Orders by payment status' ) ) ?>
 			</h2>
 		</div>
 		<div id="order-salesday-data" class="collapse show content loading">
@@ -36,4 +36,4 @@ $trans = array(
 		</div>
 	</div>
 </div>
-<?= $this->get( 'orderpaymentstatusBody' ); ?>
+<?= $this->get( 'orderpaymentstatusBody' ) ?>

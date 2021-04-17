@@ -10,6 +10,6 @@ $enc = $this->encoder();
 ?>
 <div id="related" class="item-related tab-pane fade" role="tabpanel" aria-labelledby="related">
 	<div class="row">
-		<?= $this->get( 'relatedBody' ); ?>
+		<?= $this->get( 'relatedBody' ) ?>
 	</div>
 </div>

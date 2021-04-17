@@ -32,7 +32,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 						<div class="btn act-show fa"></div>
 					</div>
 					<h2 class="header-label">
-						<?= $enc->html( $this->translate( 'admin', 'Import/Export jobs' ) ); ?>
+						<?= $enc->html( $this->translate( 'admin', 'Import/Export jobs' ) ) ?>
 					</h2>
 				</div>
 				<div class="content collapse show">
@@ -41,22 +41,22 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 							<tbody>
 								<?php foreach( $items as $id => $item ) : ?>
 									<tr>
-										<td class="job-label"><?= $enc->html( $item->getLabel() ); ?></td>
-										<td class="job-mtime"><?= $enc->html( $item->getTimeModified() ); ?></td>
+										<td class="job-label"><?= $enc->html( $item->getLabel() ) ?></td>
+										<td class="job-mtime"><?= $enc->html( $item->getTimeModified() ) ?></td>
 										<td class="actions">
 											<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 												<a class="btn act-delete fa" tabindex="1"
-													href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $delConfig ) ); ?>"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-													aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"></a>
-											<?php endif; ?>
+													href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $delConfig ) ) ?>"
+													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+													aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"></a>
+											<?php endif ?>
 											<a class="btn act-download fa" tabindex="1"
-												href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $getConfig ) ); ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Download this file' ) ); ?>"
-												aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>"></a>
+												href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $getConfig ) ) ?>"
+												title="<?= $enc->attr( $this->translate( 'admin', 'Download this file' ) ) ?>"
+												aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ) ?>"></a>
 										</td>
 									</tr>
-								<?php endforeach; ?>
+								<?php endforeach ?>
 							</tbody>
 						</table>
 					</div>
@@ -64,4 +64,4 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 			</div>
 		</div>
 	</div>
-<?php endif; ?>
+<?php endif ?>

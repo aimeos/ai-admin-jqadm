@@ -77,7 +77,7 @@ $columnList = [
 
 
 ?>
-<?php $this->block()->start( 'jqadm_content' ); ?>
+<?php $this->block()->start( 'jqadm_content' ) ?>
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ) ) ?>
 <?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
@@ -90,12 +90,12 @@ $columnList = [
 	<nav class="main-navbar">
 
 		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Currencies' ) ); ?>
+			<?= $enc->html( $this->translate( 'admin', 'Currencies' ) ) ?>
 		</span>
 
 		<div class="btn fa act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
-			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ); ?>">
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
 	</nav>
 
@@ -115,10 +115,10 @@ $columnList = [
 	?>
 
 	<form ref="form" class="list list-locale-currency" method="POST"
-		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
-		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
+		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>"
+		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ) ?>">
 
-		<?= $this->csrf()->formfield(); ?>
+		<?= $this->csrf()->formfield() ?>
 
 		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 			name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
@@ -135,8 +135,8 @@ $columnList = [
 						<th class="select">
 							<a href="#" class="btn act-delete fa" tabindex="1"
 								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 							</a>
 						</th>
 
@@ -148,13 +148,13 @@ $columnList = [
 
 						<th class="actions">
 							<a class="btn fa act-add" tabindex="1"
-								href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+								href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
 						</th>
@@ -183,52 +183,52 @@ $columnList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
+						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
 						<tr class="list-item" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
 							<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="items['<?= $id ?>'].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
 							<?php if( in_array( 'locale.currency.id', $fields ) ) : ?>
-								<td class="locale-currency-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
-							<?php endif; ?>
+								<td class="locale-currency-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'locale.currency.status', $fields ) ) : ?>
-								<td class="locale-currency-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
-							<?php endif; ?>
+								<td class="locale-currency-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'locale.currency.code', $fields ) ) : ?>
-								<td class="locale-currency-code"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getCode() ); ?></a></td>
-							<?php endif; ?>
+								<td class="locale-currency-code"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getCode() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'locale.currency.label', $fields ) ) : ?>
-								<td class="locale-currency-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
-							<?php endif; ?>
+								<td class="locale-currency-label"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getLabel() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'locale.currency.ctime', $fields ) ) : ?>
-								<td class="locale-currency-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
-							<?php endif; ?>
+								<td class="locale-currency-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'locale.currency.mtime', $fields ) ) : ?>
-								<td class="locale-currency-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
-							<?php endif; ?>
+								<td class="locale-currency-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'locale.currency.editor', $fields ) ) : ?>
-								<td class="locale-currency-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
-							<?php endif; ?>
+								<td class="locale-currency-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a></td>
+							<?php endif ?>
 
 							<td class="actions">
 								<a class="btn act-copy fa" tabindex="1"
-									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
+									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>
 								<a class="btn act-delete fa" tabindex="1" href="#"
 									v-on:click.prevent.stop="askDelete('<?= $enc->attr( $id ) ?>')"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 								</a>
 							</td>
 						</tr>
-					<?php endforeach; ?>
+					<?php endforeach ?>
 				</tbody>
 			</table>
 		</div>
 
 		<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
-			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
-		<?php endif; ?>
+			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
+		<?php endif ?>
 	</form>
 
 	<?= $this->partial(
@@ -243,6 +243,6 @@ $columnList = [
 	</confirm-delete>
 
 </div>
-<?php $this->block()->stop(); ?>
+<?php $this->block()->stop() ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ) ?>

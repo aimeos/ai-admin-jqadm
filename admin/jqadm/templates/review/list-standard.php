@@ -82,7 +82,7 @@ $columnList = [
 ];
 
 ?>
-<?php $this->block()->start( 'jqadm_content' ); ?>
+<?php $this->block()->start( 'jqadm_content' ) ?>
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ) ) ?>
 <?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
@@ -95,13 +95,13 @@ $columnList = [
 	<nav class="main-navbar">
 
 		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Review' ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
+			<?= $enc->html( $this->translate( 'admin', 'Review' ) ) ?>
+			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
 		<div class="btn fa act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
-			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ); ?>">
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
 	</nav>
 
@@ -121,10 +121,10 @@ $columnList = [
 	?>
 
 	<form ref="form" class="list list-review" method="POST"
-		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
-		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
+		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>"
+		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ) ?>">
 
-		<?= $this->csrf()->formfield(); ?>
+		<?= $this->csrf()->formfield() ?>
 
 		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 			name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
@@ -141,8 +141,8 @@ $columnList = [
 						<th class="select">
 							<a href="#" class="btn act-delete fa" tabindex="1"
 								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 							</a>
 						</th>
 
@@ -153,8 +153,8 @@ $columnList = [
 						?>
 
 						<th class="actions">
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
 						</th>
@@ -187,61 +187,61 @@ $columnList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>" data-label="<?= $enc->attr( $item->getName() ) ?>">
+						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
+						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getName() ) ?>">
 							<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="items['<?= $id ?>'].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
 							<?php if( in_array( 'review.id', $fields ) ) : ?>
-								<td class="review-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.status', $fields ) ) : ?>
-								<td class="review-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
-							<?php endif; ?>
+								<td class="review-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.domain', $fields ) ) : ?>
-								<td class="review-domain"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDomain() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.refid', $fields ) ) : ?>
-								<td class="review-refid"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getRefId() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-refid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRefId() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.name', $fields ) ) : ?>
-								<td class="review-name"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getName() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-name"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getName() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.rating', $fields ) ) : ?>
-								<td class="review-rating"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getRating() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-rating"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getRating() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.comment', $fields ) ) : ?>
-								<td class="review-comment"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getComment() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-comment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getComment() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.response', $fields ) ) : ?>
-								<td class="review-response"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getResponse() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-response"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getResponse() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.ctime', $fields ) ) : ?>
-								<td class="review-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.mtime', $fields ) ) : ?>
-								<td class="review-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'review.editor', $fields ) ) : ?>
-								<td class="review-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
-							<?php endif; ?>
+								<td class="review-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a></td>
+							<?php endif ?>
 
 							<td class="actions">
 								<?php if( $this->access( ['super', 'admin'] ) && !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 									<a class="btn act-delete fa" tabindex="1" href="#"
 										v-on:click.prevent.stop="askDelete('<?= $enc->attr( $id ) ?>')"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>
-								<?php endif; ?>
+								<?php endif ?>
 							</td>
 						</tr>
-					<?php endforeach; ?>
+					<?php endforeach ?>
 				</tbody>
 			</table>
 		</div>
 
 		<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
-			<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?>
-		<?php endif; ?>
+			<?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?>
+		<?php endif ?>
 	</form>
 
 	<?= $this->partial(
@@ -256,6 +256,6 @@ $columnList = [
 	</confirm-delete>
 
 </div>
-<?php $this->block()->stop(); ?>
+<?php $this->block()->stop() ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ) ?>

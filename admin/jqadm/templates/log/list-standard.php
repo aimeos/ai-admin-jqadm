@@ -45,7 +45,7 @@ $columnList = [
 
 
 ?>
-<?php $this->block()->start( 'jqadm_content' ); ?>
+<?php $this->block()->start( 'jqadm_content' ) ?>
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
 
@@ -54,8 +54,8 @@ $columnList = [
 
 	<nav class="main-navbar log">
 		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Log' ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
+			<?= $enc->html( $this->translate( 'admin', 'Log' ) ) ?>
+			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 		<span class="placeholder">&nbsp;</span>
 	</nav>
@@ -68,8 +68,8 @@ $columnList = [
 		);
 	?>
 
-	<form class="list list-log" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>">
-		<?= $this->csrf()->formfield(); ?>
+	<form class="list list-log" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>">
+		<?= $this->csrf()->formfield() ?>
 
 		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 			name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
@@ -92,8 +92,8 @@ $columnList = [
 						?>
 
 						<th class="actions">
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
 						</th>
@@ -102,33 +102,33 @@ $columnList = [
 				<tbody>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<tr class="<?= $this->site()->readonly( $item->getSiteId() ); ?>">
+						<tr class="<?= $this->site()->readonly( $item->getSiteId() ) ?>">
 							<?php if( in_array( 'log.timestamp', $fields ) ) : ?>
-								<td class="log-timestamp"><?= $enc->attr( $item->getTimestamp() ); ?></td>
-							<?php endif; ?>
+								<td class="log-timestamp"><?= $enc->attr( $item->getTimestamp() ) ?></td>
+							<?php endif ?>
 							<?php if( in_array( 'log.facility', $fields ) ) : ?>
-								<td class="log-facility"><?= $enc->html( $item->getFacility() ); ?></td>
-							<?php endif; ?>
+								<td class="log-facility"><?= $enc->html( $item->getFacility() ) ?></td>
+							<?php endif ?>
 							<?php if( in_array( 'log.priority', $fields ) ) : ?>
-								<td class="log-priority"><?= $enc->html( $item->getPriority() ); ?></td>
-							<?php endif; ?>
+								<td class="log-priority"><?= $enc->html( $item->getPriority() ) ?></td>
+							<?php endif ?>
 							<?php if( in_array( 'log.request', $fields ) ) : ?>
-								<td class="log-request"><?= $enc->html( $item->getRequest() ); ?></td>
-							<?php endif; ?>
+								<td class="log-request"><?= $enc->html( $item->getRequest() ) ?></td>
+							<?php endif ?>
 							<?php if( in_array( 'log.message', $fields ) ) : ?>
-								<td class="log-message"><span class="content"><?= nl2br( $enc->html( $item->getMessage() ) ); ?></span></td>
-							<?php endif; ?>
+								<td class="log-message"><span class="content"><?= nl2br( $enc->html( $item->getMessage() ) ) ?></span></td>
+							<?php endif ?>
 
 							<td class="actions"></td>
 						</tr>
-					<?php endforeach; ?>
+					<?php endforeach ?>
 				</tbody>
 			</table>
 		</div>
 
 		<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
-			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
-		<?php endif; ?>
+			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
+		<?php endif ?>
 	</form>
 
 	<?= $this->partial(
@@ -139,6 +139,6 @@ $columnList = [
 	?>
 
 </div>
-<?php $this->block()->stop(); ?>
+<?php $this->block()->stop() ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ) ?>

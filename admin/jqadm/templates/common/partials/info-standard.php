@@ -41,7 +41,7 @@ $enc = $this->encoder();
 			</div>
 			<div class="col-9">
 				<div class="toast-header">
-					<strong><?= $enc->html( $this->translate( 'admin', 'Info' ) ); ?></strong>
+					<strong><?= $enc->html( $this->translate( 'admin', 'Info' ) ) ?></strong>
 				</div>
 				<div class="toast-body">
 					<?= str_replace( "\n", '<br>', $enc->html( $entry ) ) ?>
@@ -53,7 +53,7 @@ $enc = $this->encoder();
 				</button>
 			</div>
 		</div>
-	<?php endforeach; ?>
+	<?php endforeach ?>
 
 	<?php foreach( $this->get( 'error', [] ) as $key => $entry ) : ?>
 		<div class="row error toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
@@ -62,7 +62,7 @@ $enc = $this->encoder();
 			</div>
 			<div class="col-9">
 				<div class="toast-header">
-					<strong><?= $enc->html( $this->translate( 'admin', 'Error' ) ); ?></strong>
+					<strong><?= $enc->html( $this->translate( 'admin', 'Error' ) ) ?></strong>
 				</div>
 				<div class="toast-body">
 					<?= str_replace( "\n", '<br>', $enc->html( $entry ) ) ?>
@@ -74,6 +74,6 @@ $enc = $this->encoder();
 				</button>
 			</div>
 		</div>
-	<?php endforeach; ?>
+	<?php endforeach ?>
 
 </div>

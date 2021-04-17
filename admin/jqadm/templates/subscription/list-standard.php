@@ -147,7 +147,7 @@ $reasonList = [
 
 
 ?>
-<?php $this->block()->start( 'jqadm_content' ); ?>
+<?php $this->block()->start( 'jqadm_content' ) ?>
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ) ) ?>
 <?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
@@ -160,13 +160,13 @@ $reasonList = [
 	<nav class="main-navbar">
 
 		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Subscription' ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
+			<?= $enc->html( $this->translate( 'admin', 'Subscription' ) ) ?>
+			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
 		<div class="btn fa act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
-			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ); ?>">
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
 	</nav>
 
@@ -186,10 +186,10 @@ $reasonList = [
 	?>
 
 	<form ref="form" class="list list-subscription" method="POST"
-		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
-		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
+		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>"
+		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ) ?>">
 
-		<?= $this->csrf()->formfield(); ?>
+		<?= $this->csrf()->formfield() ?>
 
 		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 			name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
@@ -206,8 +206,8 @@ $reasonList = [
 						<th class="select">
 							<a href="#" class="btn act-delete fa" tabindex="1"
 								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 							</a>
 						</th>
 
@@ -219,13 +219,13 @@ $reasonList = [
 
 						<th class="actions">
 							<a class="btn fa act-download" tabindex="1"
-								href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params, [], $expConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ); ?>">
+								href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params, [], $expConfig ) ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ) ?>">
 							</a>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
 						</th>
@@ -295,63 +295,63 @@ $reasonList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>" data-label="<?= $enc->attr( $item->getId() ) ?>">
+						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
+						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getId() ) ?>">
 							<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="items['<?= $id ?>'].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
 							<?php if( in_array( 'subscription.id', $fields ) ) : ?>
-								<td class="subscription-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
-							<?php endif; ?>
+								<td class="subscription-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'subscription.status', $fields ) ) : ?>
-								<td class="subscription-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
-							<?php endif; ?>
+								<td class="subscription-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'subscription.interval', $fields ) ) : ?>
-								<td class="subscription-interval"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getInterval() ); ?></a></td>
-							<?php endif; ?>
+								<td class="subscription-interval"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getInterval() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'subscription.datenext', $fields ) ) : ?>
-								<td class="subscription-datenext"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateNext() ); ?></a></td>
-							<?php endif; ?>
+								<td class="subscription-datenext"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateNext() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'subscription.dateend', $fields ) ) : ?>
-								<td class="subscription-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
-							<?php endif; ?>
+								<td class="subscription-dateend"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateEnd() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'subscription.reason', $fields ) ) : ?>
-								<td class="subscription-reason"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $reasonList[$item->getReason()] ); ?></td>
-							<?php endif; ?>
+								<td class="subscription-reason"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $reasonList[$item->getReason()] ) ?></td>
+							<?php endif ?>
 							<?php if( in_array( 'subscription.period', $fields ) ) : ?>
-								<td class="subscription-period"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getPeriod() ); ?></td>
-							<?php endif; ?>
+								<td class="subscription-period"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPeriod() ) ?></td>
+							<?php endif ?>
 							<?php if( in_array( 'subscription.ctime', $fields ) ) : ?>
-								<td class="subscription-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
-							<?php endif; ?>
+								<td class="subscription-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'subscription.mtime', $fields ) ) : ?>
-								<td class="subscription-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
-							<?php endif; ?>
+								<td class="subscription-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'subscription.editor', $fields ) ) : ?>
-								<td class="subscription-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
-							<?php endif; ?>
+								<td class="subscription-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a></td>
+							<?php endif ?>
 
-							<?php $baseItem = ( isset( $baseItems[$item->getOrderBaseId()] ) ? $baseItems[$item->getOrderBaseId()] : null ); ?>
+							<?php $baseItem = ( isset( $baseItems[$item->getOrderBaseId()] ) ? $baseItems[$item->getOrderBaseId()] : null ) ?>
 
 							<?php if( in_array( 'order.base.id', $fields ) ) : ?>
-								<td class="order-base-id"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getId() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-id"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->getId() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.customerid', $fields ) ) : ?>
-								<td class="order-base-customerid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getCustomerId() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-customerid"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->getCustomerId() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.sitecode', $fields ) ) : ?>
-								<td class="order-base-sitecode"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getSiteCode() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-sitecode"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->getSiteCode() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.languageid', $fields ) ) : ?>
-								<td class="order-base-languageid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getLocale()->getLanguageId() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-languageid"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->getLocale()->getLanguageId() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.currencyid', $fields ) ) : ?>
-								<td class="order-base-currencyid"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getLocale()->getCurrencyId() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-currencyid"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->getLocale()->getCurrencyId() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.taxflag', $fields ) ) : ?>
-								<td class="order-base-taxflag"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $statusList[$baseItem->getPrice()->getTaxFlag()] ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-taxflag"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $statusList[$baseItem->getPrice()->getTaxFlag()] ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.comment', $fields ) ) : ?>
-								<td class="order-base-comment"><a class="items-field" href="<?= $url; ?>"><?= $baseItem ? $enc->html( $baseItem->getComment() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-comment"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->getComment() ) : '' ?></a></td>
+							<?php endif ?>
 
 							<?php $prodItem = null;
 								if( $baseItem ) {
@@ -364,119 +364,119 @@ $reasonList = [
 							?>
 
 							<?php if( in_array( 'order.base.product.type', $fields ) ) : ?>
-								<td class="order-base-product-type"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getType() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-type"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getType() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.stocktype', $fields ) ) : ?>
-								<td class="order-base-product-stocktype"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getStockType() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-stocktype"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getStockType() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.suppliername', $fields ) ) : ?>
-								<td class="order-base-product-suppliername"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getSupplierName() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-suppliername"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getSupplierName() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.prodcode', $fields ) ) : ?>
-								<td class="order-base-product-prodcode"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getProductCode() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-prodcode"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getProductCode() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.name', $fields ) ) : ?>
-								<td class="order-base-product-name"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getName() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-name"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getName() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.quantity', $fields ) ) : ?>
-								<td class="order-base-product-quantity"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getQuantity() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-quantity"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getQuantity() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.price', $fields ) ) : ?>
-								<td class="order-base-product-price"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getValue() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-price"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getValue() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.costs', $fields ) ) : ?>
-								<td class="order-base-product-costs"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getCosts() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-costs"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getCosts() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.rebate', $fields ) ) : ?>
-								<td class="order-base-product-rebate"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getRebate() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-rebate"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getRebate() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.taxvalue', $fields ) ) : ?>
-								<td class="order-base-product-taxvalue"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getTaxValue() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-taxvalue"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getTaxValue() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.product.status', $fields ) ) : ?>
-								<td class="order-base-product-status"><a class="items-field" href="<?= $url; ?>"><?= $prodItem ? $enc->html( $deliveryStatusList[$prodItem->getStatus()] ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-product-status"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $deliveryStatusList[$prodItem->getStatus()] ) : '' ?></a></td>
+							<?php endif ?>
 
-							<?php $addrItem = $baseItem ? current( $baseItem->getAddress( \Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT ) ) : null; ?>
+							<?php $addrItem = $baseItem ? current( $baseItem->getAddress( \Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT ) ) : null ?>
 
 							<?php if( in_array( 'order.base.address.salutation', $fields ) ) : ?>
-								<td class="order-base-address-salutation"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getSalutation() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-salutation"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getSalutation() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.company', $fields ) ) : ?>
-								<td class="order-base-address-company"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getCompany() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-company"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getCompany() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.vatid', $fields ) ) : ?>
-								<td class="order-base-address-vatid"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getVatID() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-vatid"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getVatID() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.title', $fields ) ) : ?>
-								<td class="order-base-address-title"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getTitle() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-title"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getTitle() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.firstname', $fields ) ) : ?>
-								<td class="order-base-address-firstname"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getFirstname() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-firstname"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getFirstname() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.lastname', $fields ) ) : ?>
-								<td class="order-base-address-lastname"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getLastname() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-lastname"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getLastname() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.address1', $fields ) ) : ?>
-								<td class="order-base-address-address1"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getAddress1() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-address1"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getAddress1() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.address2', $fields ) ) : ?>
-								<td class="order-base-address-address2"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getAddress2() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-address2"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getAddress2() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.address3', $fields ) ) : ?>
-								<td class="order-base-address-address3"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getAddress3() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-address3"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getAddress3() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.postal', $fields ) ) : ?>
-								<td class="order-base-address-postal"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getPostal() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-postal"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getPostal() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.city', $fields ) ) : ?>
-								<td class="order-base-address-city"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getCity() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-city"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getCity() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.state', $fields ) ) : ?>
-								<td class="order-base-address-state"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getState() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-state"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getState() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.countryid', $fields ) ) : ?>
-								<td class="order-base-address-countryid"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getCountryId() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-countryid"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getCountryId() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.languageid', $fields ) ) : ?>
-								<td class="order-base-address-languageid"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getLanguageId() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-languageid"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getLanguageId() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.telephone', $fields ) ) : ?>
-								<td class="order-base-address-telephone"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getTelephone() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-telephone"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getTelephone() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.telefax', $fields ) ) : ?>
-								<td class="order-base-address-telefax"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getTelefax() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-telefax"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getTelefax() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.email', $fields ) ) : ?>
-								<td class="order-base-address-email"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getEmail() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-email"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getEmail() ) : '' ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.base.address.website', $fields ) ) : ?>
-								<td class="order-base-address-website"><a class="items-field" href="<?= $url; ?>"><?= $addrItem ? $enc->html( $addrItem->getWebsite() ) : ''; ?></a></td>
-							<?php endif; ?>
+								<td class="order-base-address-website"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getWebsite() ) : '' ?></a></td>
+							<?php endif ?>
 
 							<td class="actions">
 								<a class="btn act-copy fa" tabindex="1"
-									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
+									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>
 								<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 									<a class="btn act-delete fa" tabindex="1" href="#"
 										v-on:click.prevent.stop="askDelete('<?= $enc->attr( $id ) ?>')"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>
-								<?php endif; ?>
+								<?php endif ?>
 							</td>
 						</tr>
-					<?php endforeach; ?>
+					<?php endforeach ?>
 				</tbody>
 			</table>
 		</div>
 
 		<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
-			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
-		<?php endif; ?>
+			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
+		<?php endif ?>
 	</form>
 
 	<?= $this->partial(
@@ -491,6 +491,6 @@ $reasonList = [
 	</confirm-delete>
 
 </div>
-<?php $this->block()->stop(); ?>
+<?php $this->block()->stop() ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ) ?>

@@ -100,7 +100,7 @@ $columnList = [
 
 
 ?>
-<?php $this->block()->start( 'jqadm_content' ); ?>
+<?php $this->block()->start( 'jqadm_content' ) ?>
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ) ) ?>
 <?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
@@ -113,13 +113,13 @@ $columnList = [
 	<nav class="main-navbar">
 
 		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Customer' ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
+			<?= $enc->html( $this->translate( 'admin', 'Customer' ) ) ?>
+			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
 		<div class="btn fa act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
-			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ); ?>">
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
 	</nav>
 
@@ -139,10 +139,10 @@ $columnList = [
 	?>
 
 	<form ref="form" class="list list-customer" method="POST"
-		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
-		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
+		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>"
+		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ) ?>">
 
-		<?= $this->csrf()->formfield(); ?>
+		<?= $this->csrf()->formfield() ?>
 
 		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 			name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
@@ -159,8 +159,8 @@ $columnList = [
 						<th class="select">
 							<a href="#" class="btn act-delete fa" tabindex="1"
 								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 							</a>
 						</th>
 
@@ -172,13 +172,13 @@ $columnList = [
 
 						<th class="actions">
 							<a class="btn fa act-add" tabindex="1"
-								href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+								href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
 						</th>
@@ -228,112 +228,112 @@ $columnList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<?php $address = $item->getPaymentAddress(); ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>" data-label="<?= $enc->attr( $item->getLabel() ?: $item->getCode() ) ?>">
+						<?php $address = $item->getPaymentAddress() ?>
+						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
+						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ?: $item->getCode() ) ?>">
 							<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="items['<?= $id ?>'].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
 							<?php if( in_array( 'customer.id', $fields ) ) : ?>
-								<td class="customer-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.status', $fields ) ) : ?>
-								<td class="customer-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
-							<?php endif; ?>
+								<td class="customer-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.code', $fields ) ) : ?>
-								<td class="customer-code"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getCode() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.label', $fields ) ) : ?>
-								<td class="customer-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-label"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getLabel() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.salutation', $fields ) ) : ?>
-								<td class="customer-salutation"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getSalutation() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-salutation"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getSalutation() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.company', $fields ) ) : ?>
-								<td class="customer-company"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getCompany() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-company"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getCompany() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.vatid', $fields ) ) : ?>
-								<td class="customer-vatid"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getVatID() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-vatid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getVatID() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.title', $fields ) ) : ?>
-								<td class="customer-title"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getTitle() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-title"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getTitle() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.firstname', $fields ) ) : ?>
-								<td class="customer-firstname"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getFirstname() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-firstname"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getFirstname() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.lastname', $fields ) ) : ?>
-								<td class="customer-lastname"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getLastname() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-lastname"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getLastname() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.address1', $fields ) ) : ?>
-								<td class="customer-address1"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getAddress1() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-address1"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getAddress1() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.address2', $fields ) ) : ?>
-								<td class="customer-address2"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getAddress2() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-address2"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getAddress2() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.address3', $fields ) ) : ?>
-								<td class="customer-address3"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getAddress3() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-address3"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getAddress3() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.postal', $fields ) ) : ?>
-								<td class="customer-postal"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getPostal() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-postal"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getPostal() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.city', $fields ) ) : ?>
-								<td class="customer-city"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getCity() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-city"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getCity() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.state', $fields ) ) : ?>
-								<td class="customer-state"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getState() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-state"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getState() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.languageid', $fields ) ) : ?>
-								<td class="customer-languageid"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getLanguageId() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-languageid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getLanguageId() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.countryid', $fields ) ) : ?>
-								<td class="customer-countryid"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getCountryId() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-countryid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getCountryId() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.telephone', $fields ) ) : ?>
-								<td class="customer-telephone"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getTelephone() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-telephone"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getTelephone() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.telefax', $fields ) ) : ?>
-								<td class="customer-telefax"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getTelefax() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-telefax"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getTelefax() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.email', $fields ) ) : ?>
-								<td class="customer-email"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getEmail() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-email"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getEmail() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.website', $fields ) ) : ?>
-								<td class="customer-website"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getWebsite() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-website"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getWebsite() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.birthday', $fields ) ) : ?>
-								<td class="customer-birthday"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $address->getBirthday() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-birthday"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getBirthday() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.ctime', $fields ) ) : ?>
-								<td class="customer-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.mtime', $fields ) ) : ?>
-								<td class="customer-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'customer.editor', $fields ) ) : ?>
-								<td class="customer-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
-							<?php endif; ?>
+								<td class="customer-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a></td>
+							<?php endif ?>
 
 							<td class="actions">
 								<a class="btn act-copy fa" tabindex="1"
-									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
+									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>
 								<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 									<a class="btn act-delete fa" tabindex="1" href="#"
 										v-on:click.prevent.stop="askDelete('<?= $enc->attr( $id ) ?>')"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>
-								<?php endif; ?>
+								<?php endif ?>
 							</td>
 						</tr>
-					<?php endforeach; ?>
+					<?php endforeach ?>
 				</tbody>
 			</table>
 		</div>
 
 		<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
-			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
-		<?php endif; ?>
+			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
+		<?php endif ?>
 	</form>
 
 	<?= $this->partial(
@@ -348,6 +348,6 @@ $columnList = [
 	</confirm-delete>
 
 </div>
-<?php $this->block()->stop(); ?>
+<?php $this->block()->stop() ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ) ?>

@@ -37,70 +37,70 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					<th class="select">
 						<a v-on:click.prevent.stop="remove()" class="btn act-delete fa"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 						</a>
 					</th>
 					<th v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
 						<a v-bind:class="sortclass('id')" v-on:click.prevent="sort('id')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'ID' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'ID' ) ) ?>
 						</a>
 					</th>
 					<th v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
 						<a v-bind:class="sortclass('position')" v-on:click.prevent="sort('position')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Postition' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Postition' ) ) ?>
 						</a>
 					</th>
 					<th v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
 						<a v-bind:class="sortclass('status')" v-on:click.prevent="sort('status')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
 						</a>
 					</th>
 					<th v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
 						<a v-bind:class="sortclass('type')" v-on:click.prevent="sort('type')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?>
 						</a>
 					</th>
 					<th v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
 						<a v-bind:class="sortclass('config')" v-on:click.prevent="sort('config')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Config' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Config' ) ) ?>
 						</a>
 					</th>
 					<th v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
 						<a v-bind:class="sortclass('datestart')" v-on:click.prevent="sort('datestart')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 						</a>
 					</th>
 					<th v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
 						<a v-bind:class="sortclass('dateend')" v-on:click.prevent="sort('dateend')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 						</a>
 					</th>
 					<th v-if="fields.includes(prefix + 'refid')" v-bind:class="css('refid')">
 						<a v-bind:class="sortclass('refid')" v-on:click.prevent="sort('refid')"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
-							<?= $enc->html( $this->translate( 'admin', 'Product' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?>
 						</a>
 					</th>
 
 					<th class="actions">
 						<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:click.prevent.stop="add()" href="#"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 						</a>
 						<div class="dropdown filter-columns">
 							<button class="btn act-columns fa" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
 								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>">
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>">
 							</button>
 							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
 								<li class="dropdown-item">
@@ -109,7 +109,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 											v-on:click.capture.stop="toggle('id')"
 											v-bind:checked="fields.includes(prefix + 'id')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'ID' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'ID' ) ) ?>
 									</label></a>
 								</li>
 								<li class="dropdown-item">
@@ -118,7 +118,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 											v-on:click.capture.stop="toggle('position')"
 											v-bind:checked="fields.includes(prefix + 'position')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?>
 									</label></a>
 								</li>
 								<li class="dropdown-item">
@@ -127,7 +127,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 											v-on:click.capture.stop="toggle('status')"
 											v-bind:checked="fields.includes(prefix + 'status')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
 									</label></a>
 								</li>
 								<li class="dropdown-item">
@@ -136,7 +136,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 											v-on:click.capture.stop="toggle('type')"
 											v-bind:checked="fields.includes(prefix + 'type')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?>
 									</label></a>
 								</li>
 								<li class="dropdown-item">
@@ -145,7 +145,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 											v-on:click.capture.stop="toggle('config')"
 											v-bind:checked="fields.includes(prefix + 'config')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Config' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Config' ) ) ?>
 									</label></a>
 								</li>
 								<li class="dropdown-item">
@@ -154,7 +154,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 											v-on:click.capture.stop="toggle('datestart')"
 											v-bind:checked="fields.includes(prefix + 'datestart')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 									</label></a>
 								</li>
 								<li class="dropdown-item">
@@ -163,7 +163,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 											v-on:click.capture.stop="toggle('dateend')"
 											v-bind:checked="fields.includes(prefix + 'dateend')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 									</label></a>
 								</li>
 								<li class="dropdown-item">
@@ -172,7 +172,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 											v-on:click.capture.stop="toggle('refid')"
 											v-bind:checked="fields.includes(prefix + 'refid')"
 											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Product' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?>
 									</label></a>
 								</li>
 							</ul>
@@ -198,7 +198,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
 						<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="select-component"
-							v-bind:all="'<?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?>'"
+							v-bind:all="'<?= $enc->attr( $this->translate( 'admin', 'All' ) ) ?>'"
 							v-bind:items="<?= $enc->attr( $status ) ?>"
 							v-bind:value="value('status')"
 							v-on:input="find($event, 'status')">
@@ -207,7 +207,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
 						<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="select-component"
-							v-bind:all="'<?= $enc->attr( $this->translate( 'admin', 'All' ) ); ?>'"
+							v-bind:all="'<?= $enc->attr( $this->translate( 'admin', 'All' ) ) ?>'"
 							v-bind:items="types"
 							v-bind:value="value('type')"
 							v-on:input="find($event, 'type')">
@@ -238,12 +238,12 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 
 					<td class="actions">
 						<a v-on:click.prevent="fetch()" class="btn act-search fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ); ?>">
+							title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>">
 						</a>
 						<a v-on:click.prevent="reset()" class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ); ?>"></a>
+							title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"></a>
 					</td>
 				</tr>
 
@@ -342,14 +342,14 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 						<input type="hidden" v-if="item.edit" v-bind:value="item[prefix + 'id']"
 							v-bind:name="'<?= $enc->attr( $this->formparam( ['product', '-prefix-id', ''] ) ) ?>'.replace('-prefix-', prefix)" >
 						<a v-if="!item.edit" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"
 							v-if="item[prefix + 'siteid'] === siteid"
 							v-on:click.prevent.stop="edit(idx)" >
 						</a>
 						<a class="btn act-delete fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
 							v-if="item[prefix + 'siteid'] === siteid"
 							v-on:click.prevent.stop="remove(idx)" >
 						</a>
@@ -360,8 +360,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 		</table>
 	</div>
 
-	<div v-if="loading" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'Loading items ...' ) ) ); ?></div>
-	<div v-if="!loading && !items.length" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
+	<div v-if="loading" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'Loading items ...' ) ) ) ?></div>
+	<div v-if="!loading && !items.length" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
 
 	<nav class="list-page">
 		<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"></page-offset>
