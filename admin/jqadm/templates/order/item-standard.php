@@ -220,7 +220,7 @@ $statusList = [
 										<div class="form-group row">
 											<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer' ) ) ?></label>
 											<div class="col-8">
-												<select class="combobox item-customer" tabindex="1"
+												<select class="form-select combobox item-customer" tabindex="1"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.customerid' ) ) ) ?>"
 													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
 													<option value="<?= $enc->attr( $this->get( 'itemData/order.base.customerid' ) ) ?>" >
