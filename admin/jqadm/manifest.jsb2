@@ -36,64 +36,64 @@
 		"isDebug": true,
 		"fileIncludes": [{
 			"text": "combo.jquery.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "tree.jquery.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "sortable.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "axios.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "admin.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "vue-components.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "admin-aux.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "catalog.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "coupon.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "dashboard.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "dashboard-quick.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "dashboard-sales.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "dashboard-order.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "dashboard-service.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "order.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "product.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "plugin.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "rule.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "service.js",
-			"path": "themes/"
+			"path": "js/"
 		},{
 			"text": "supplier.js",
-			"path": "themes/"
+			"path": "js/"
 		}]
 	}],
 	"resources" : []
