@@ -21,22 +21,22 @@ $params = $this->get( 'pageParams', [] );
 
 
 ?>
-<?php $this->block()->start( 'jqadm_content' ); ?>
+<?php $this->block()->start( 'jqadm_content' ) ?>
 
-<form class="item item-media-type form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ); ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.id' ) ) ); ?>" value="<?= $enc->attr( $this->get( 'itemData/media.type.id' ) ); ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ); ?>" value="get" />
-	<?= $this->csrf()->formfield(); ?>
+<form class="item item-media-type form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>">
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/media.type.id' ) ) ?>" />
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
 		<h1 class="navbar-brand">
-			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Media Type' ) ); ?></span>
-			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/media.type.id' ) ); ?></span>
-			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/media.type.label' ) ?: $this->translate( 'admin', 'New' ) ); ?></span>
-			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/media.type.siteid' ) ) ); ?></span>
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Media Type' ) ) ?></span>
+			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/media.type.id' ) ) ?></span>
+			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/media.type.label' ) ?: $this->translate( 'admin', 'New' ) ) ?></span>
+			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/media.type.siteid' ) ) ) ?></span>
 		</h1>
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ) ?>
 		</div>
 	</nav>
 
@@ -48,32 +48,32 @@ $params = $this->get( 'pageParams', [] );
 
 					<li class="nav-item basic">
 						<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic">
-							<?= $enc->html( $this->translate( 'admin', 'Basic' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?>
 						</a>
 					</li>
 
 					<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
-						<li class="nav-item <?= $enc->attr( $subpart ); ?>">
-							<a class="nav-link" href="#<?= $enc->attr( $subpart ); ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1; ?>">
-								<?= $enc->html( $this->translate( 'admin', $subpart ) ); ?>
+						<li class="nav-item <?= $enc->attr( $subpart ) ?>">
+							<a class="nav-link" href="#<?= $enc->attr( $subpart ) ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1 ?>">
+								<?= $enc->html( $this->translate( 'admin', $subpart ) ) ?>
 							</a>
 						</li>
-					<?php endforeach; ?>
+					<?php endforeach ?>
 
 				</ul>
 
 				<div class="item-meta text-muted">
 					<small>
-						<?= $enc->html( $this->translate( 'admin', 'Modified' ) ); ?>:
-						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/media.type.mtime' ) ); ?></span>
+						<?= $enc->html( $this->translate( 'admin', 'Modified' ) ) ?>:
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/media.type.mtime' ) ) ?></span>
 					</small>
 					<small>
-						<?= $enc->html( $this->translate( 'admin', 'Created' ) ); ?>:
-						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/media.type.ctime' ) ); ?></span>
+						<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>:
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/media.type.ctime' ) ) ?></span>
 					</small>
 					<small>
-						<?= $enc->html( $this->translate( 'admin', 'Editor' ) ); ?>:
-						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/media.type.editor' ) ); ?></span>
+						<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>:
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/media.type.editor' ) ) ?></span>
 					</small>
 				</div>
 
@@ -87,86 +87,86 @@ $params = $this->get( 'pageParams', [] );
 
 				<div class="box">
 					<div class="row">
-						<div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ); ?>">
+						<div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
-								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ); ?></label>
+								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-control form-select item-domain" required="required" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.domain' ) ) ); ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ); ?> >
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.domain' ) ) ) ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?> >
 										<option value="">
-											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
 
 										<?php foreach( ['attribute', 'catalog', 'customer', 'media', 'price', 'product', 'service', 'supplier', 'text'] as $domain ) : ?>
-											<option value="<?= $enc->attr( $domain ); ?>" <?= $selected( $this->get( 'itemData/media.type.domain', 'product' ), $domain ); ?> >
-												<?= $enc->html( $this->translate( 'admin', $domain ) ); ?>
+											<option value="<?= $enc->attr( $domain ) ?>" <?= $selected( $this->get( 'itemData/media.type.domain', 'product' ), $domain ) ?> >
+												<?= $enc->html( $this->translate( 'admin', $domain ) ) ?>
 											</option>
-										<?php endforeach; ?>
+										<?php endforeach ?>
 									</select>
 								</div>
 							</div>
 							<div class="form-group row mandatory">
-								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
+								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-control form-select item-status" required="required" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.status' ) ) ); ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ); ?> >
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.status' ) ) ) ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?> >
 										<option value="">
-											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
-										<option value="1" <?= $selected( $this->get( 'itemData/media.type.status', 1 ), 1 ); ?> >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ); ?>
+										<option value="1" <?= $selected( $this->get( 'itemData/media.type.status', 1 ), 1 ) ?> >
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
 										</option>
-										<option value="0" <?= $selected( $this->get( 'itemData/media.type.status', 1 ), 0 ); ?> >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ); ?>
+										<option value="0" <?= $selected( $this->get( 'itemData/media.type.status', 1 ), 0 ) ?> >
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
 										</option>
-										<option value="-1" <?= $selected( $this->get( 'itemData/media.type.status', 1 ), -1 ); ?> >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ); ?>
+										<option value="-1" <?= $selected( $this->get( 'itemData/media.type.status', 1 ), -1 ) ?> >
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?>
 										</option>
-										<option value="-2" <?= $selected( $this->get( 'itemData/media.type.status', 1 ), -2 ); ?> >
-											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ); ?>
+										<option value="-2" <?= $selected( $this->get( 'itemData/media.type.status', 1 ), -2 ) ?> >
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?>
 										</option>
 									</select>
 								</div>
 							</div>
 							<div class="form-group row mandatory">
-								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ); ?></label>
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-code" type="text" required="required" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.code' ) ) ); ?>"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique type code (required)' ) ); ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/media.type.code' ) ); ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ); ?> />
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.code' ) ) ) ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique type code (required)' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/media.type.code' ) ) ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?> />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Unique type code' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Unique type code' ) ) ?>
 								</div>
 							</div>
 							<div class="form-group row mandatory">
-								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ); ?></label>
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-label" type="text" required="required" tabindex="1"
-										name="<?= $this->formparam( array( 'item', 'media.type.label' ) ); ?>"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ); ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/media.type.label' ) ); ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ); ?> />
+										name="<?= $this->formparam( array( 'item', 'media.type.label' ) ) ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/media.type.label' ) ) ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?> />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Internal type name shown in the administration interface' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Internal type name shown in the administration interface' ) ) ?>
 								</div>
 							</div>
 							<div class="form-group row optional">
-								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ); ?></label>
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-position" type="number" step="1" tabindex="1"
-										name="<?= $this->formparam( array( 'item', 'media.type.position' ) ); ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/media.type.position' ) ); ?>"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Type position (optional)' ) ); ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ); ?> />
+										name="<?= $this->formparam( array( 'item', 'media.type.position' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/media.type.position' ) ) ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Type position (optional)' ) ) ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?> />
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Order of the types in the frontend' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Order of the types in the frontend' ) ) ?>
 								</div>
 							</div>
 						</div>
@@ -175,17 +175,17 @@ $params = $this->get( 'pageParams', [] );
 				</div>
 			</div>
 
-			<?= $this->get( 'itemBody' ); ?>
+			<?= $this->get( 'itemBody' ) ?>
 
 		</div>
 
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ); ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ) ?>
 		</div>
 	</div>
 </form>
 
-<?php $this->block()->stop(); ?>
+<?php $this->block()->stop() ?>
 
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ) ?>

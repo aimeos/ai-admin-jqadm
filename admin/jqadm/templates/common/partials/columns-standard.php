@@ -28,7 +28,7 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 				<div class="modal-header">
 					<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Columns' ) ) ?></h4>
 					<button type="button" class="btn-close" v-on:click="$emit('close')"
-						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>">
+						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ) ?>">
 					</button>
 				</div>
 
@@ -49,10 +49,10 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" v-on:click="$emit('close')" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-						<?= $enc->html( $this->translate( 'admin', 'Close' ) ); ?>
+						<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
 					</button>
 					<button type="submit" class="btn btn-primary" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
-						<?= $enc->html( $this->translate( 'admin', 'Apply' ) ); ?>
+						<?= $enc->html( $this->translate( 'admin', 'Apply' ) ) ?>
 					</button>
 				</div>
 

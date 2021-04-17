@@ -10,6 +10,6 @@ $enc = $this->encoder();
 ?>
 <div id="characteristic" class="item-characteristic tab-pane fade" role="tabpanel" aria-labelledby="characteristic">
 	<div class="row">
-		<?= $this->get( 'characteristicBody' ); ?>
+		<?= $this->get( 'characteristicBody' ) ?>
 	</div>
 </div>

@@ -15,7 +15,7 @@ $enc = $this->encoder();
 	<div class="box vue" data-data="<?= $enc->attr( $this->get( 'propertyData', [] ) ) ?>">
 
 		<property-table
-			v-bind:domain="'attribute'" v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
+			v-bind:domain="'attribute'" v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 			v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'attribute.property.type.label', 'attribute.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
 			v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
 			v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_propidx_', '_key_'] ) ) ?>'"
@@ -33,5 +33,5 @@ $enc = $this->encoder();
 
 	</div>
 
-	<?= $this->get( 'propertyBody' ); ?>
+	<?= $this->get( 'propertyBody' ) ?>
 </div>

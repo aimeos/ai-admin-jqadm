@@ -21,7 +21,7 @@ $keys = [
 		<div class="col-xl-6 catalog-default">
 			<div class="box">
 				<table class="category-list table table-default"
-					data-items="<?= $enc->attr( $this->get( 'categoryData', [] ) ); ?>"
+					data-items="<?= $enc->attr( $this->get( 'categoryData', [] ) ) ?>"
 					data-keys="<?= $enc->attr( $keys ) ?>"
 					data-siteid="<?= $this->site()->siteid() ?>"
 					data-listtype="default">
@@ -29,14 +29,14 @@ $keys = [
 					<thead>
 						<tr>
 							<th>
-								<span class="help"><?= $enc->html( $this->translate( 'admin', 'Default' ) ); ?></span>
+								<span class="help"><?= $enc->html( $this->translate( 'admin', 'Default' ) ) ?></span>
 								<div class="form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Categories the product can be found in by the user on the web site' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Categories the product can be found in by the user on the web site' ) ) ?>
 								</div>
 							</th>
 							<th class="actions">
-								<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
+								<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 									v-on:click="add()">
 								</div>
 							</th>
@@ -49,21 +49,21 @@ $keys = [
 							v-bind:class="checkSite(idx) ? 'readonly' : ''">
 							<td v-bind:class="item['css'] || ''">
 								<input class="item-listtype" type="hidden" v-model="item['catalog.lists.type']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.lists.type'] ) ); ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.lists.type'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-listid" type="hidden" v-model="item['catalog.lists.id']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-label" type="hidden" v-model="item['catalog.code']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.code'] ) ); ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.code'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-label" type="hidden" v-model="item['catalog.label']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.label'] ) ); ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.label'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<select is="combo-box" class="form-control form-select item-id"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.id'] ) ); ?>'.replace( 'idx', idx )"
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.id'] ) ) ?>'.replace( 'idx', idx )"
 									v-bind:readonly="checkSite(idx) || item['catalog.lists.id'] != ''"
-									v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+									v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"
 									v-bind:label="getLabel(idx)"
 									v-bind:required="'required'"
 									v-bind:getfcn="getItems"
@@ -73,8 +73,8 @@ $keys = [
 								</select>
 							</td>
 							<td class="actions">
-								<div v-if="!checkSite(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+								<div v-if="!checkSite(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 									v-on:click.stop="remove(idx)">
 								</div>
 							</td>
@@ -90,7 +90,7 @@ $keys = [
 
 			<div class="box">
 				<table class="category-list table table-default"
-					data-items="<?= $enc->attr( $this->get( 'categoryData', [] ) ); ?>"
+					data-items="<?= $enc->attr( $this->get( 'categoryData', [] ) ) ?>"
 					data-keys="<?= $enc->attr( $keys ) ?>"
 					data-siteid="<?= $this->site()->siteid() ?>"
 					data-listtype="promotion">
@@ -98,14 +98,14 @@ $keys = [
 					<thead>
 						<tr>
 							<th>
-								<span class="help"><?= $enc->html( $this->translate( 'admin', 'Promotion' ) ); ?></span>
+								<span class="help"><?= $enc->html( $this->translate( 'admin', 'Promotion' ) ) ?></span>
 								<div class="form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Categories the product will be shown for in the promotional section' ) ); ?>
+									<?= $enc->html( $this->translate( 'admin', 'Categories the product will be shown for in the promotional section' ) ) ?>
 								</div>
 							</th>
 							<th class="actions">
-								<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
+								<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 									v-on:click="add()">
 								</div>
 							</th>
@@ -118,21 +118,21 @@ $keys = [
 							v-bind:class="checkSite(idx) ? 'readonly' : ''">
 							<td v-bind:class="item['css'] || ''">
 								<input class="item-listtype" type="hidden" v-model="item['catalog.lists.type']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.type'] ) ); ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.type'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-listid" type="hidden" v-model="item['catalog.lists.id']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-label" type="hidden" v-model="item['catalog.code']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.code'] ) ); ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.code'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-label" type="hidden" v-model="item['catalog.label']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.label'] ) ); ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.label'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<select is="combo-box" class="form-control form-select item-id"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.id'] ) ); ?>'.replace( 'idx', idx )"
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.id'] ) ) ?>'.replace( 'idx', idx )"
 									v-bind:readonly="checkSite(idx) || item['catalog.lists.id'] != ''"
-									v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+									v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"
 									v-bind:label="getLabel(idx)"
 									v-bind:required="'required'"
 									v-bind:getfcn="getItems"
@@ -142,8 +142,8 @@ $keys = [
 								</select>
 							</td>
 							<td class="actions">
-								<div v-if="!checkSite(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+								<div v-if="!checkSite(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 									v-on:click.stop="remove(idx)">
 								</div>
 							</td>
@@ -156,6 +156,6 @@ $keys = [
 		</div>
 	</div>
 
-	<?= $this->get( 'categoryBody' ); ?>
+	<?= $this->get( 'categoryBody' ) ?>
 
 </div>

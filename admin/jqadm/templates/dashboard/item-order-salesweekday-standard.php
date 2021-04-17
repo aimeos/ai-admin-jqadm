@@ -18,7 +18,7 @@ $enc = $this->encoder();
 				<div class="btn btn-card-header act-show fa"></div>
 			</div>
 			<h2 class="header-label">
-				<?= $enc->html( $this->translate( 'admin', 'Sales by weekday' ) ); ?>
+				<?= $enc->html( $this->translate( 'admin', 'Sales by weekday' ) ) ?>
 			</h2>
 		</div>
 		<div id="order-salesweekday-data" class="collapse show content loading">
@@ -27,4 +27,4 @@ $enc = $this->encoder();
 		</div>
 	</div>
 </div>
-<?= $this->get( 'orderweekdayBody' ); ?>
+<?= $this->get( 'orderweekdayBody' ) ?>

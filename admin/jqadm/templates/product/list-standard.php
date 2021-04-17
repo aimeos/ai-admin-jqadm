@@ -549,7 +549,7 @@ $columnList = [
 
 
 ?>
-<?php $this->block()->start( 'jqadm_content' ); ?>
+<?php $this->block()->start( 'jqadm_content' ) ?>
 
 <?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch-standard' ) ) ?>
 <?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
@@ -562,13 +562,13 @@ $columnList = [
 	<nav class="main-navbar">
 
 		<span class="navbar-brand">
-			<?= $enc->html( $this->translate( 'admin', 'Product' ) ); ?>
-			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ); ?>)</span>
+			<?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?>
+			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
 
 		<div class="btn fa act-search" v-on:click="search = true"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
-			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ); ?>">
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
 		</div>
 	</nav>
 
@@ -588,10 +588,10 @@ $columnList = [
 	?>
 
 	<form ref="form" class="list list-product" method="POST"
-		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ); ?>"
-		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ); ?>">
+		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>"
+		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ) ?>">
 
-		<?= $this->csrf()->formfield(); ?>
+		<?= $this->csrf()->formfield() ?>
 
 		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 			name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
@@ -608,8 +608,8 @@ $columnList = [
 						<th class="select">
 							<a href="#" class="btn act-delete fa" tabindex="1"
 								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 							</a>
 						</th>
 
@@ -622,13 +622,13 @@ $columnList = [
 
 						<th class="actions">
 							<a class="btn fa act-add" tabindex="1"
-								href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+								href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
 
-							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ); ?>"
+							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 								v-on:click.prevent.stop="columns = true">
 							</a>
 						</th>
@@ -668,95 +668,95 @@ $columnList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
-						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ); ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
+						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
+						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
 							<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="items['<?= $id ?>'].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
-							<?php if( in_array( 'image', $fields ) ) : $mediaItem = $item->getRefItems( 'media', 'default', 'default' )->first(); ?>
-								<td class="image"><a class="items-field" href="<?= $url; ?>" tabindex="1"><img class="image" src="<?= $mediaItem ? $enc->attr( $this->content( $mediaItem->getPreview() ) ) : '' ?>" /></a></td>
-							<?php endif; ?>
+							<?php if( in_array( 'image', $fields ) ) : $mediaItem = $item->getRefItems( 'media', 'default', 'default' )->first() ?>
+								<td class="image"><a class="items-field" href="<?= $url ?>" tabindex="1"><img class="image" src="<?= $mediaItem ? $enc->attr( $this->content( $mediaItem->getPreview() ) ) : '' ?>" /></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.id', $fields ) ) : ?>
-								<td class="product-id"><a class="items-field" href="<?= $url; ?>" tabindex="1"><?= $enc->html( $item->getId() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.status', $fields ) ) : ?>
-								<td class="product-status"><a class="items-field" href="<?= $url; ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ); ?>"></div></a></td>
-							<?php endif; ?>
+								<td class="product-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.type', $fields ) ) : ?>
-								<td class="product-type"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getType() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-type"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getType() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.code', $fields ) ) : ?>
-								<td class="product-code"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getCode() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-code"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getCode() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.label', $fields ) ) : ?>
-								<td class="product-label"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getLabel() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-label"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getLabel() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.datestart', $fields ) ) : ?>
-								<td class="product-datestart"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateStart() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-datestart"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateStart() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.dateend', $fields ) ) : ?>
-								<td class="product-dateend"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDateEnd() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-dateend"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateEnd() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.dataset', $fields ) ) : ?>
-								<td class="product-dataset"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getDataset() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-dataset"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDataset() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.url', $fields ) ) : ?>
-								<td class="product-url"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getUrl() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-url"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getUrl() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.scale', $fields ) ) : ?>
-								<td class="product-scale"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getScale() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-scale"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getScale() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.target', $fields ) ) : ?>
-								<td class="product-target"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTarget() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-target"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTarget() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.config', $fields ) ) : ?>
 								<td class="product-config config-item">
-									<a class="items-field" href="<?= $url; ?>">
+									<a class="items-field" href="<?= $url ?>">
 										<?php foreach( $item->getConfig() as $key => $value ) : ?>
-											<span class="config-key"><?= $enc->html( $key ); ?></span>
-											<span class="config-value"><?= $enc->html( $value ); ?></span>
+											<span class="config-key"><?= $enc->html( $key ) ?></span>
+											<span class="config-value"><?= $enc->html( $value ) ?></span>
 											<br/>
-										<?php endforeach; ?>
+										<?php endforeach ?>
 									</a>
 								</td>
-							<?php endif; ?>
+							<?php endif ?>
 							<?php if( in_array( 'product.ctime', $fields ) ) : ?>
-								<td class="product-ctime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeCreated() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.mtime', $fields ) ) : ?>
-								<td class="product-mtime"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getTimeModified() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.editor', $fields ) ) : ?>
-								<td class="product-editor"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getEditor() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.rating', $fields ) ) : ?>
-								<td class="product-rating"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getRating() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-rating"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRating() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'product.ratings', $fields ) ) : ?>
-								<td class="product-ratings"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getRatings() ); ?></a></td>
-							<?php endif; ?>
+								<td class="product-ratings"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRatings() ) ?></a></td>
+							<?php endif ?>
 
 							<td class="actions">
 								<a class="btn act-copy fa" tabindex="1"
-									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ); ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
+									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ) ?>"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>
 								<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 									<a class="btn act-delete fa" tabindex="1" href="#"
 										v-on:click.prevent.stop="askDelete('<?= $enc->attr( $id ) ?>')"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
-										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>
-								<?php endif; ?>
+								<?php endif ?>
 							</td>
 						</tr>
-					<?php endforeach; ?>
+					<?php endforeach ?>
 				</tbody>
 			</table>
 		</div>
 
 		<?php if( $this->get( 'items', map() )->isEmpty() ) : ?>
-			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
-		<?php endif; ?>
+			<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
+		<?php endif ?>
 	</form>
 
 	<?= $this->partial(
@@ -771,6 +771,6 @@ $columnList = [
 	</confirm-delete>
 
 </div>
-<?php $this->block()->stop(); ?>
+<?php $this->block()->stop() ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ); ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ) ?>

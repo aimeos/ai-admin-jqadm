@@ -107,9 +107,9 @@ $statusList = [
 					?>
 
 					<th class="actions">
-						<a class="btn fa act-add" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ); ?>">
+						<a class="btn fa act-add" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 						</a>
 
 						<?= $this->partial(
@@ -156,209 +156,209 @@ $statusList = [
 				?>
 
 				<tr class="list-item-new prototype">
-					<td colspan="<?= count( $fields ); ?>">
+					<td colspan="<?= count( $fields ) ?>">
 						<div class="row">
 							<div class="col-xl-6">
 								<input class="order-id" type="hidden" value="" disabled="disabled"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ); ?>" />
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ) ?>" />
 
 								<div class="form-group row mandatory">
-									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
-										<select class="form-control form-select order-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.type', '' ) ) ); ?>" disabled="disabled">
-											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
+										<select class="form-control form-select order-type" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.type', '' ) ) ) ?>" disabled="disabled">
+											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 
 											<?php foreach( $types as $type ) : ?>
-												<option value="<?= $enc->attr( $type ); ?>" ><?= $enc->html( $type ); ?></option>
-											<?php endforeach; ?>
+												<option value="<?= $enc->attr( $type ) ?>" ><?= $enc->html( $type ) ?></option>
+											<?php endforeach ?>
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'Source of the invoice, e.g. by web or phone' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Source of the invoice, e.g. by web or phone' ) ) ?>
 									</div>
 								</div>
 								<div class="form-group row mandatory">
-									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Payment' ) ); ?></label>
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Payment' ) ) ?></label>
 									<div class="col-sm-8">
-										<input class="form-control order-datepayment" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ); ?>" disabled="disabled" />
+										<input class="form-control order-datepayment" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ) ?>" disabled="disabled" />
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'Date of the last payment status change' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Date of the last payment status change' ) ) ?>
 									</div>
 								</div>
 								<div class="form-group row mandatory">
-									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Payment status' ) ); ?></label>
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Payment status' ) ) ?></label>
 									<div class="col-sm-8">
-										<select class="form-control form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ); ?>" disabled="disabled">
-											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
+										<select class="form-control form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ) ?>" disabled="disabled">
+											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 											<?php foreach( $paymentStatusList as $code => $label ) : ?>
-												<option value="<?= $code ?>"><?= $enc->html( $label ); ?></option>
-											<?php endforeach; ?>
+												<option value="<?= $code ?>"><?= $enc->html( $label ) ?></option>
+											<?php endforeach ?>
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'Last payment status of the order' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Last payment status of the order' ) ) ?>
 									</div>
 								</div>
 							</div>
 							<div class="col-xl-6">
 								<div class="form-group row optional">
-									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Delivery' ) ); ?></label>
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Delivery' ) ) ?></label>
 									<div class="col-sm-8">
-										<input class="form-control order-datedelivery" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datedelivery', '' ) ) ); ?>" disabled="disabled" />
+										<input class="form-control order-datedelivery" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datedelivery', '' ) ) ) ?>" disabled="disabled" />
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'Date of the last delivery status change' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Date of the last delivery status change' ) ) ?>
 									</div>
 								</div>
 								<div class="form-group row optional">
-									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Delivery status' ) ); ?></label>
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Delivery status' ) ) ?></label>
 									<div class="col-sm-8">
-										<select class="form-control form-select order-statusdelivery" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ); ?>" disabled="disabled">
-											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
+										<select class="form-control form-select order-statusdelivery" tabindex="<?= $this->get( 'tabindex' ) ?>"
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ) ?>" disabled="disabled">
+											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 											<?php foreach( $statusList as $code => $label ) : ?>
-												<option value="<?= $code ?>"><?= $enc->html( $label ); ?></option>
-											<?php endforeach; ?>
+												<option value="<?= $code ?>"><?= $enc->html( $label ) ?></option>
+											<?php endforeach ?>
 										</select>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'Last delivery status of the order' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Last delivery status of the order' ) ) ?>
 									</div>
 								</div>
 								<div class="form-group row optional">
-									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Related ID' ) ); ?></label>
+									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Related ID' ) ) ?></label>
 									<div class="col-sm-8">
-										<input class="form-control order-relatedid" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.relatedid', '' ) ) ); ?>" disabled="disabled" />
+										<input class="form-control order-relatedid" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.relatedid', '' ) ) ) ?>" disabled="disabled" />
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'ID of a related invoice, e.g. of a changed or refunded invoice' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'ID of a related invoice, e.g. of a changed or refunded invoice' ) ) ?>
 									</div>
 								</div>
 							</div>
 						</div>
 					</td>
 					<td class="actions">
-						<a class="btn fa act-close" href="#" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>">
+						<a class="btn fa act-close" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ) ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ) ?>">
 						</a>
 					</td>
 				</tr>
 
 				<?php foreach( $this->get( 'invoiceData/order.id', [] ) as $idx => $orderId ) : ?>
-					<?php $siteId = $this->get( 'invoiceData/order.siteid/' . $idx ); ?>
+					<?php $siteId = $this->get( 'invoiceData/order.siteid/' . $idx ) ?>
 
-					<tr class="list-item <?= $this->site()->readonly( $siteId ); ?>">
+					<tr class="list-item <?= $this->site()->readonly( $siteId ) ?>">
 						<?php if( in_array( 'order.id', $fields ) ) : ?>
 							<td class="order-id">
 								<input class="order-id" type="hidden"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ); ?>"
-									value="<?= $enc->attr( $orderId ); ?>" disabled="disabled" />
-								<?= $enc->html( $orderId ); ?>
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ) ?>"
+									value="<?= $enc->attr( $orderId ) ?>" disabled="disabled" />
+								<?= $enc->html( $orderId ) ?>
 							</td>
-						<?php endif; ?>
+						<?php endif ?>
 						<?php if( in_array( 'order.type', $fields ) ) : ?>
 							<td class="order-type">
-								<select class="form-control form-select order-type" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.type', '' ) ) ); ?>"
-									value="<?= $enc->attr( $this->get( 'invoiceData/order.type/' . $idx ) ); ?>" disabled="disabled" />
-									<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
+								<select class="form-control form-select order-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.type', '' ) ) ) ?>"
+									value="<?= $enc->attr( $this->get( 'invoiceData/order.type/' . $idx ) ) ?>" disabled="disabled" />
+									<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 
 									<?php foreach( $types as $type ) : ?>
-										<option value="<?= $enc->attr( $type ); ?>" <?= $selected( $this->get( 'invoiceData/order.type/' . $idx ), $type ); ?> >
-											<?= $enc->html( $type ); ?>
+										<option value="<?= $enc->attr( $type ) ?>" <?= $selected( $this->get( 'invoiceData/order.type/' . $idx ), $type ) ?> >
+											<?= $enc->html( $type ) ?>
 										</option>
-									<?php endforeach; ?>
+									<?php endforeach ?>
 								</select>
 							</td>
-						<?php endif; ?>
+						<?php endif ?>
 						<?php if( in_array( 'order.datepayment', $fields ) ) : ?>
 							<td class="order-datepayment">
-								<input class="form-control order-datepayment" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ); ?>"
-									value="<?= $enc->attr( $this->datetime( $this->get( 'invoiceData/order.datepayment/' . $idx ) ) ); ?>"
-									<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
+								<input class="form-control order-datepayment" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ) ?>"
+									value="<?= $enc->attr( $this->datetime( $this->get( 'invoiceData/order.datepayment/' . $idx ) ) ) ?>"
+									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" />
 							</td>
-						<?php endif; ?>
+						<?php endif ?>
 						<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 							<td class="order-statuspayment">
-								<select class="form-control form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ); ?>"
-									<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" >
+								<select class="form-control form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ) ?>"
+									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" >
 									<option value="">
-										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 									</option>
 									<?php foreach( $paymentStatusList as $code => $label ) : ?>
-										<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), $code ); ?> >
-											<?= $enc->html( $label ); ?>
+										<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), $code ) ?> >
+											<?= $enc->html( $label ) ?>
 										</option>
-									<?php endforeach; ?>
+									<?php endforeach ?>
 								</select>
 							</td>
-						<?php endif; ?>
+						<?php endif ?>
 						<?php if( in_array( 'order.datedelivery', $fields ) ) : ?>
 							<td class="order-datedelivery">
-								<input class="form-control order-datedelivery" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datedelivery', '' ) ) ); ?>"
-									value="<?= $enc->attr( $this->datetime( $this->get( 'invoiceData/order.datedelivery/' . $idx ) ) ); ?>"
-									<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
+								<input class="form-control order-datedelivery" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datedelivery', '' ) ) ) ?>"
+									value="<?= $enc->attr( $this->datetime( $this->get( 'invoiceData/order.datedelivery/' . $idx ) ) ) ?>"
+									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" />
 							</td>
-						<?php endif; ?>
+						<?php endif ?>
 						<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
 							<td class="order-statusdelivery">
-								<select class="form-control form-select order-statusdelivery" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ); ?>"
-									<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" >
+								<select class="form-control form-select order-statusdelivery" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ) ?>"
+									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" >
 									<option value="">
-										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>
+										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 									</option>
 									<?php foreach( $statusList as $code => $label ) : ?>
-										<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), $code ); ?> >
-											<?= $enc->html( $label ); ?>
+										<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), $code ) ?> >
+											<?= $enc->html( $label ) ?>
 										</option>
-									<?php endforeach; ?>
+									<?php endforeach ?>
 								</select>
 							</td>
-						<?php endif; ?>
+						<?php endif ?>
 						<?php if( in_array( 'order.relatedid', $fields ) ) : ?>
 							<td class="order-relatedid">
-								<input class="form-control order-relatedid" type="text" tabindex="<?= $this->get( 'tabindex' ); ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.relatedid', '' ) ) ); ?>"
-									value="<?= $enc->attr( $this->get( 'invoiceData/order.relatedid/' . $idx ) ); ?>"
-									<?= $this->site()->readonly( $siteId ); ?> disabled="disabled" />
+								<input class="form-control order-relatedid" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.relatedid', '' ) ) ) ?>"
+									value="<?= $enc->attr( $this->get( 'invoiceData/order.relatedid/' . $idx ) ) ?>"
+									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" />
 							</td>
-						<?php endif; ?>
+						<?php endif ?>
 						<?php if( in_array( 'order.ctime', $fields ) ) : ?>
-							<td class="order-ctime"><?= $enc->html( $this->get( 'invoiceData/order.ctime/' . $idx ) ); ?></td>
-						<?php endif; ?>
+							<td class="order-ctime"><?= $enc->html( $this->get( 'invoiceData/order.ctime/' . $idx ) ) ?></td>
+						<?php endif ?>
 						<?php if( in_array( 'order.mtime', $fields ) ) : ?>
-							<td class="order-mtime"><?= $enc->html( $this->get( 'invoiceData/order.mtime/' . $idx ) ); ?></td>
-						<?php endif; ?>
+							<td class="order-mtime"><?= $enc->html( $this->get( 'invoiceData/order.mtime/' . $idx ) ) ?></td>
+						<?php endif ?>
 						<?php if( in_array( 'order.editor', $fields ) ) : ?>
-							<td class="order-editor"><?= $enc->html( $this->get( 'invoiceData/order.editor/' . $idx ) ); ?></td>
-						<?php endif; ?>
+							<td class="order-editor"><?= $enc->html( $this->get( 'invoiceData/order.editor/' . $idx ) ) ?></td>
+						<?php endif ?>
 						<td class="actions">
 							<?php if( !$this->site()->readonly( $siteId ) ) : ?>
-								<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ); ?>" href="#"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ); ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ); ?>"></a>
-							<?php endif; ?>
+								<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"
+									title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
+									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"></a>
+							<?php endif ?>
 						</td>
 					</tr>
-				<?php endforeach; ?>
+				<?php endforeach ?>
 			</tbody>
 		</table>
 	</div>
 
 	<?php if( $this->get( 'invoiceData/order.id', [] ) === [] ) : ?>
-		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ); ?></div>
-	<?php endif; ?>
+		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
+	<?php endif ?>
 
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
@@ -369,4 +369,4 @@ $statusList = [
 	?>
 
 </div>
-<?= $this->get( 'invoiceIBody' ); ?>
+<?= $this->get( 'invoiceIBody' ) ?>

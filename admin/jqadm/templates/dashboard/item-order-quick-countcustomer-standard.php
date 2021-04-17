@@ -26,4 +26,4 @@ $enc = $this->encoder();
 		</div>
 	</dashboard-order-quick-countcustomer>
 </div>
-<?= $this->get( 'quickCountcustomerBody' ); ?>
+<?= $this->get( 'quickCountcustomerBody' ) ?>

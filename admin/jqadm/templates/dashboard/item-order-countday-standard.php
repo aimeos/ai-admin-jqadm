@@ -17,7 +17,7 @@ $enc = $this->encoder();
 				<div class="btn act-show fa"></div>
 			</div>
 			<h2 class="header-label">
-				<?= $enc->html( $this->translate( 'admin', 'Orders by day' ) ); ?>
+				<?= $enc->html( $this->translate( 'admin', 'Orders by day' ) ) ?>
 			</h2>
 		</div>
 		<div id="order-countday-data" class="collapse show content">
@@ -25,4 +25,4 @@ $enc = $this->encoder();
 		</div>
 	</div>
 </div>
-<?= $this->get( 'orderdayBody' ); ?>
+<?= $this->get( 'orderdayBody' ) ?>

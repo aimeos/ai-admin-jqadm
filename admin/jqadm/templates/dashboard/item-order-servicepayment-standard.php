@@ -18,7 +18,7 @@ $enc = $this->encoder();
 				<div class="btn act-show fa"></div>
 			</div>
 			<h2 class="header-label">
-				<?= $enc->html( $this->translate( 'admin', 'Payment types' ) ); ?>
+				<?= $enc->html( $this->translate( 'admin', 'Payment types' ) ) ?>
 			</h2>
 		</div>
 		<div id="order-servicepayment-data" class="collapse show loading">
@@ -33,4 +33,4 @@ $enc = $this->encoder();
 		</div>
 	</div>
 </div>
-<?= $this->get( 'orderpaymenttypeBody' ); ?>
+<?= $this->get( 'orderpaymenttypeBody' ) ?>

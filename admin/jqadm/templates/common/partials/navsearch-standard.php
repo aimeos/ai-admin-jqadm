@@ -19,12 +19,12 @@ $enc = $this->encoder();
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 			<div class="modal-content form-inline">
 				<form method="POST" v-bind:action="url">
-					<?= $this->csrf()->formfield(); ?>
+					<?= $this->csrf()->formfield() ?>
 
 					<div class="modal-header">
 						<h4 class="modal-title"><?= $enc->html( $this->translate( 'admin', 'Search' ) ) ?></h4>
 						<button type="button" class="btn-close" v-on:click="$emit('close')"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ); ?>">
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ) ?>">
 						</button>
 					</div>
 
@@ -54,10 +54,10 @@ $enc = $this->encoder();
 
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" v-on:click="$emit('close')">
-							<?= $enc->html( $this->translate( 'admin', 'Close' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
 						</button>
 						<button type="submit" class="btn btn-primary">
-							<?= $enc->html( $this->translate( 'admin', 'Search' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'Search' ) ) ?>
 						</button>
 					</div>
 				</form>

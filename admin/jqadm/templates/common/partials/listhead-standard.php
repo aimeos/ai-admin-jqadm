@@ -76,13 +76,13 @@ else
 ?>
 <?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 	<?php if( in_array( $key, $fields ) ) : ?>
-		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ); ?>">
+		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ) ?>">
 			<?php if( $name !== null ) : ?>
-				<a class="<?= $sortclass( $sortcode, $key ); ?>" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-					href="<?= $enc->attr( $this->url( $target, $controller, $action, $nest( $group, ['sort' => $sort( $sortcode, $key )] ) + $params, $fragment, $config ) ); ?>">
-					<?= $enc->html( $name ); ?>
+				<a class="<?= $sortclass( $sortcode, $key ) ?>" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+					href="<?= $enc->attr( $this->url( $target, $controller, $action, $nest( $group, ['sort' => $sort( $sortcode, $key )] ) + $params, $fragment, $config ) ) ?>">
+					<?= $enc->html( $name ) ?>
 				</a>
-			<?php endif; ?>
+			<?php endif ?>
 		</th>
-	<?php endif; ?>
-<?php endforeach; ?>
+	<?php endif ?>
+<?php endforeach ?>

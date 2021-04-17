@@ -36,4 +36,4 @@ $fields = $this->config( 'admin/jqadm/supplier/product/fields', $fields );
 		] ) ?>
 	</div>
 </div>
-<?= $this->get( 'productBody' ); ?>
+<?= $this->get( 'productBody' ) ?>

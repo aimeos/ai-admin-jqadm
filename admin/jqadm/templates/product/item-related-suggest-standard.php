@@ -17,7 +17,7 @@ $keys = [
 
 	<div class="box">
 		<table class="product-list table table-default"
-			data-items="<?= $enc->attr( $this->get( 'suggestData', [] ) ); ?>"
+			data-items="<?= $enc->attr( $this->get( 'suggestData', [] ) ) ?>"
 			data-keys="<?= $enc->attr( $keys ) ?>"
 			data-prefix="product.lists."
 			data-siteid="<?= $this->site()->siteid() ?>" >
@@ -25,14 +25,14 @@ $keys = [
 			<thead>
 				<tr>
 					<th>
-						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Suggested products' ) ); ?></span>
+						<span class="help"><?= $enc->html( $this->translate( 'admin', 'Suggested products' ) ) ?></span>
 						<div class="form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'List of suggested products' ) ); ?>
+							<?= $enc->html( $this->translate( 'admin', 'List of suggested products' ) ) ?>
 						</div>
 					</th>
 					<th class="actions">
-						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ); ?>"
+						<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 							v-on:click="add()">
 						</div>
 					</th>
@@ -45,18 +45,18 @@ $keys = [
 					v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 					<td v-bind:class="item['css'] || ''">
 						<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
 
 						<input class="item-label" type="hidden" v-model="item['product.label']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.label'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.label'] ) ) ?>'.replace( 'idx', idx )" />
 
 						<input class="item-code" type="hidden" v-model="item['product.code']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.code'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.code'] ) ) ?>'.replace( 'idx', idx )" />
 
 						<select is="combo-box" class="form-control form-select item-refid"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.lists.refid'] ) ); ?>'.replace( 'idx', idx )"
+							v-bind:name="'<?= $enc->attr( $this->formparam( ['related', 'suggest', 'idx', 'product.lists.refid'] ) ) ?>'.replace( 'idx', idx )"
 							v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+							v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
 							v-bind:getfcn="getItems"
@@ -67,12 +67,12 @@ $keys = [
 					</td>
 					<td class="actions">
 						<div v-if="!checkSite('product.lists.siteid', idx) && item['product.lists.id'] != ''"
-							class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ); ?>">
+							class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 						</div>
 						<div v-if="!checkSite('product.lists.siteid', idx)"
-							class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ); ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
+							class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 							v-on:click.stop="remove(idx)">
 						</div>
 					</td>
@@ -82,6 +82,6 @@ $keys = [
 		</table>
 	</div>
 
-	<?= $this->get( 'suggestBody' ); ?>
+	<?= $this->get( 'suggestBody' ) ?>
 
 </div>

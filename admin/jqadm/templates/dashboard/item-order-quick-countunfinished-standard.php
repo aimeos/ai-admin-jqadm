@@ -26,4 +26,4 @@ $enc = $this->encoder();
 		</div>
 	</dashboard-order-quick-countunfinished>
 </div>
-<?= $this->get( 'quickCountunfinishedBody' ); ?>
+<?= $this->get( 'quickCountunfinishedBody' ) ?>
