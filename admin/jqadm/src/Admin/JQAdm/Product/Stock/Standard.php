@@ -316,8 +316,14 @@ class Standard
 		{
 			$id = $this->getValue( $entry, 'stock.id' );
 
-			$stockItems[] = $stocks->get( $id, $manager->create() )
+			$stockItem = $stocks->get( $id, $manager->create() )
 				->fromArray( $entry )->setProductId( $item->getId() );
+
+			if( $entry['stock.stockflag'] ?? false ) {
+				$stockItem->setStockLevel( $stockItem->getStockLevel() + $entry['stock.stockdiff'] ?? 0 );
+			}
+
+			$stockItems[] = $stockItem;
 
 			$stocks->remove( $id );
 		}

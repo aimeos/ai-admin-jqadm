@@ -971,6 +971,11 @@ Aimeos.Product.Stock = {
 				},
 
 
+				checked : function(idx) {
+					return this.items[idx].checked || this.items[idx].checked === undefined && this.items[idx]['stock.stocklevel'] !== null;
+				},
+
+
 				add : function(data) {
 
 					var idx = (this.items || []).length;
@@ -986,6 +991,11 @@ Aimeos.Product.Stock = {
 
 				remove : function(idx) {
 					this.items.splice(idx, 1);
+				},
+
+
+				toggle : function(idx) {
+					this.$set(this.items[idx], 'checked', !this.checked(idx));
 				}
 			}
 		}

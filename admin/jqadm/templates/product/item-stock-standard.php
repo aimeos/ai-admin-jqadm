@@ -74,10 +74,24 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 							</td>
 						<?php endif ?>
 						<td class="stock-stocklevel optional">
-							<input class="form-control item-stocklevel" type="number" step="1" min="0" tabindex="<?= $this->get( 'tabindex' ); ?>"
-								v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.stocklevel'] ) ); ?>'.replace( 'idx', idx )"
-								v-bind:readonly="checkSite(idx)"
-								v-model="item['stock.stocklevel']" />
+							<div class="item-stockflag">
+								<input class="form-check-input" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.stockflag'] ) ); ?>'.replace( 'idx', idx )"
+									v-on:click="toggle(idx)" v-bind:checked="checked(idx)" v-bind:readonly="checkSite(idx)" />
+							</div><!--
+							--><div v-if="!checked(idx)" class="form-control item-stocklevel">
+								&infin;
+								<input type="hidden" value=""
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.stocklevel'] ) ); ?>'.replace( 'idx', idx )"
+									v-bind:readonly="checkSite(idx)" />
+							</div><!--
+							--><div v-else class="form-control item-stocklevel">
+								<span class="item-stocklevel-value">{{ item['stock.stocklevel'] || 0 }} +</span>
+								<input class="item-stocklevel-diff" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ); ?>"
+									v-bind:name="'<?= $enc->attr( $this->formparam( ['stock', 'idx', 'stock.stockdiff'] ) ); ?>'.replace( 'idx', idx )"
+									v-bind:readonly="checkSite(idx)"
+									v-bind:value="0" />
+							</div>
 						</td>
 						<td class="stock-dateback optional">
 							<input is="flat-pickr" class="form-control item-dateback" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"

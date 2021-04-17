@@ -4,7 +4,7 @@
  */
 
 
- .aimeos a {
+.aimeos a {
 	text-decoration: none;
 }
 
@@ -467,8 +467,30 @@
 	width: 25%;
 }
 
-.aimeos .item-stock .stock-stocklevel input {
+.aimeos .item-stock .item-stockflag {
+	display: inline-block;
+	width: 20%;
+}
+
+.aimeos .item-stock .item-stocklevel {
+	justify-content: space-between;
+	display: inline-flex;
+	text-align: center;
+	width: 80%;
+}
+
+.aimeos .item-stock .item-stocklevel-diff {
 	text-align: end;
+	border: none;
+	padding: 0;
+	width: 40%;
+}
+
+.aimeos .item-stock .item-stocklevel-diff:focus {
+	background-color: var(--bs-bg-light, #ffffff);
+	color: var(--bs-secondary, #505860);
+	box-shadow: none;
+	outline: none;
 }
 
 
