@@ -338,7 +338,7 @@ $params = $this->get( 'pageParams', [] );
 									<div class="form-group row mandatory">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?></label>
 										<div class="col-sm-8">
-											<select is="combo-box" class="form-control c-select item-countryid" required="required"
+											<select is="combo-box" class="form-select item-countryid" required="required"
 												v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>'"
 												v-bind:readonly="data['customer.siteid'] != '<?= $this->site()->siteid() ?>'"
 												v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
