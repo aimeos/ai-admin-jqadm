@@ -231,7 +231,7 @@ $enc = $this->encoder();
 						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['service.lists.siteid'] != siteid}">
 							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/service/item/price/config/suggest', [] ) ) ?>')"
-								v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>'"
+								v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>'.replace('_idx_', idx)"
 								v-bind:index="idx" v-bind:readonly="item['service.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event"
 								v-bind:i18n="{
