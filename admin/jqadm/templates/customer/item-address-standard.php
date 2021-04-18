@@ -56,7 +56,6 @@ $enc = $this->encoder();
 								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.id' ) ) ) ?>'.replace('idx', idx)"
 								v-bind:value="entry['customer.address.id']" />
 
-							<?php  ?>
 							<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row optional">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
