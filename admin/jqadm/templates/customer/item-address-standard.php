@@ -58,7 +58,7 @@ $enc = $this->encoder();
 
 							<?php  ?>
 							<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
-								<div class="form-group row mandatory">
+								<div class="form-group row optional">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
 									<div class="col-sm-8">
 										<select class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ) ?>"
@@ -121,12 +121,12 @@ $enc = $this->encoder();
 									<?= $enc->html( $this->translate( 'admin', 'Honorary titles like Dr., Ph.D, etc.' ) ) ?>
 								</div>
 							</div>
-							<div class="form-group row mandatory">
+							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Last name' ) ) ?></label>
 								<div class="col-sm-8">
-									<input class="form-control item-lastname" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<input class="form-control item-lastname" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.address.lastname' ) ) ) ?>'.replace('idx', idx)"
-										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ) ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.lastname']" />
 								</div>
