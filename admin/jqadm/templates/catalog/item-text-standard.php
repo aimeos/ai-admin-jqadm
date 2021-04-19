@@ -250,11 +250,11 @@ $enc = $this->encoder();
 								v-bind:index="idx" v-bind:readonly="item['catalog.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event"
 								v-bind:i18n="{
-									value: '<?= $enc->attr( $this->translate( 'admin', 'Value' ) ) ?>',
-									option: '<?= $enc->attr( $this->translate( 'admin', 'Option' ) ) ?>',
-									help: '<?= $enc->attr( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>',
-									insert: '<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
-									delete: '<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
+									value: '<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>',
+									option: '<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>',
+									help: '<?= $enc->js( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>',
+									insert: '<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
+									delete: '<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
 								}">
 							</config-table>
 						</div>

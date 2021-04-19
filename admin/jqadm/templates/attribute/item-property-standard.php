@@ -21,13 +21,13 @@ $enc = $this->encoder();
 			v-bind:name="'<?= $enc->js( $this->formparam( ['property', '_propidx_', '_key_'] ) ) ?>'"
 			v-bind:items="data" v-on:update:property="data = $event"
 			v-bind:i18n="{
-				all: '<?= $enc->attr( $this->translate( 'admin', 'All' ) ) ?>',
-				delete: '<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
-				header: '<?= $enc->attr( $this->translate( 'admin', 'Properties' ) ) ?>',
-				help: '<?= $enc->attr( $this->translate( 'admin', 'Attribute properties that are not shared with other attributes' ) ) ?>',
-				insert: '<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
-				placeholder: '<?= $enc->attr( $this->translate( 'admin', 'Property value (required)' ) ) ?>',
-				select: '<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ) ?>'
+				all: '<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>',
+				delete: '<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
+				header: '<?= $enc->js( $this->translate( 'admin', 'Properties' ) ) ?>',
+				help: '<?= $enc->js( $this->translate( 'admin', 'Attribute properties that are not shared with other attributes' ) ) ?>',
+				insert: '<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
+				placeholder: '<?= $enc->js( $this->translate( 'admin', 'Property value (required)' ) ) ?>',
+				select: '<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>'
 			}">
 		</property-table>
 

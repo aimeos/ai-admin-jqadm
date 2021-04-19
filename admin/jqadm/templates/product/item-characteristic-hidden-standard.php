@@ -71,8 +71,8 @@ $keys = [
 							</option>
 
 							<?php foreach( $this->get( 'attributeTypes', [] ) as $item ) : ?>
-								<option v-if="item['product.lists.id'] == '' || item['attribute.type'] == '<?= $enc->attr( $item->getCode() ) ?>'"
-									v-bind:selected="item['attribute.type'] == '<?= $enc->attr( $item->getCode() ) ?>'"
+								<option v-if="item['product.lists.id'] == '' || item['attribute.type'] == '<?= $enc->js( $item->getCode() ) ?>'"
+									v-bind:selected="item['attribute.type'] == '<?= $enc->js( $item->getCode() ) ?>'"
 									value="<?= $enc->attr( $item->getCode() ) ?>" >
 									<?= $enc->html( $item->getLabel() ) ?>
 								</option>
