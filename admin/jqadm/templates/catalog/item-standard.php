@@ -239,7 +239,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 										data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 										<config-table
-											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-class'] ) ) ?>')"
+											v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-class'] ) ) ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>'"
 											v-bind:readonly="data['catalog.siteid'] != '<?= $this->site()->siteid() ?>'"
 											v-bind:items="data['config']" v-on:change="data['config'] = $event"

@@ -142,7 +142,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $languages->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>')"
+											v-bind:items="<?= $enc->attr( $languages->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', '_idx_', 'text.languageid'] ) ) ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
 											v-bind:all="'<?= $enc->html( $this->translate( 'admin', 'All' ) ) ?>'"
@@ -165,7 +165,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $textTypes->col( 'text.type.label', 'text.type.code' )->toArray() ) ?>')"
+											v-bind:items="<?= $enc->attr( $textTypes->col( 'text.type.label', 'text.type.code' )->toArray() ) ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', '_idx_', 'text.type'] ) ) ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
 											v-bind:readonly="item['text.siteid'] != siteid"
@@ -215,7 +215,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $listTypes->col( 'product.lists.type.label', 'product.lists.type.code' )->toArray() ) ?>')"
+											v-bind:items="<?= $enc->attr( $listTypes->col( 'product.lists.type.label', 'product.lists.type.code' )->toArray() ) ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['text', '_idx_', 'product.lists.type'] ) ) ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
 											v-bind:readonly="item['product.lists.siteid'] != siteid"
@@ -264,7 +264,7 @@ $enc = $this->encoder();
 
 						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
 							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
-								v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/text/config/suggest', [] ) ) ?>')"
+								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/text/config/suggest', [] ) ) ?>"
 								v-bind:name="'<?= $enc->attr( $this->formparam( ['text', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>'.replace('_idx_', idx)"
 								v-bind:index="idx" v-bind:readonly="item['product.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event"

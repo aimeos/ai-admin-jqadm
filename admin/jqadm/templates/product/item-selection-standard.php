@@ -103,7 +103,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											v-bind:readonly="checkSite('product.siteid', idx)"
 											v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>'.replace('idx', idx)"
-											v-bind:items="JSON.parse('<?= $enc->attr( $types->toArray() ) ?>')"
+											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
 											v-model="item['product.type']" >
 											<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
 												<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>

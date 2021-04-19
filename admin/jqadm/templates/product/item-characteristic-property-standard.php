@@ -21,8 +21,8 @@ $sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
 	<div class="box">
 		<property-table
 			v-bind:domain="'product'" v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
-			v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
-			v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
+			v-bind:types="<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>"
+			v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toJson( JSON_FORCE_OBJECT ) ) ?>"
 			v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_propidx_', '_key_'] ) ) ?>'"
 			v-bind:items="data" v-on:update:property="data = $event"
 			v-bind:i18n="{
