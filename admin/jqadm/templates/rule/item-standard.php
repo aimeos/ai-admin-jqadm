@@ -203,7 +203,7 @@ $enc = $this->encoder();
 									<input is="flat-pickr" class="form-control item-datestart" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.datestart' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-										v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/rule.datestart' ) ) ) ?>'"
+										v-bind:value="'<?= $enc->js( $this->datetime( $this->get( 'itemData/rule.datestart' ) ) ) ?>'"
 										v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ) ?>' !== ''"
 										v-bind:config="Aimeos.flatpickr.datetime" />
 								</div>
@@ -217,7 +217,7 @@ $enc = $this->encoder();
 									<input is="flat-pickr" class="form-control item-dateend" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-										v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/rule.dateend' ) ) ) ?>'"
+										v-bind:value="'<?= $enc->js( $this->datetime( $this->get( 'itemData/rule.dateend' ) ) ) ?>'"
 										v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ) ?>' !== ''"
 										v-bind:config="Aimeos.flatpickr.datetime"/>
 								</div>

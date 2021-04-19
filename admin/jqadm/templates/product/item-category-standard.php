@@ -49,19 +49,19 @@ $keys = [
 							v-bind:class="checkSite(idx) ? 'readonly' : ''">
 							<td v-bind:class="item['css'] || ''">
 								<input class="item-listtype" type="hidden" v-model="item['catalog.lists.type']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.lists.type'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.lists.type'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-listid" type="hidden" v-model="item['catalog.lists.id']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-label" type="hidden" v-model="item['catalog.code']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.code'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.code'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-label" type="hidden" v-model="item['catalog.label']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.label'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.label'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<select is="combo-box" class="form-control form-select item-id"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'default-idx', 'catalog.id'] ) ) ?>'.replace( 'idx', idx )"
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.id'] ) ) ?>'.replace( 'idx', idx )"
 									v-bind:readonly="checkSite(idx) || item['catalog.lists.id'] != ''"
 									v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"
 									v-bind:label="getLabel(idx)"
@@ -118,19 +118,19 @@ $keys = [
 							v-bind:class="checkSite(idx) ? 'readonly' : ''">
 							<td v-bind:class="item['css'] || ''">
 								<input class="item-listtype" type="hidden" v-model="item['catalog.lists.type']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.type'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.type'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-listid" type="hidden" v-model="item['catalog.lists.id']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-label" type="hidden" v-model="item['catalog.code']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.code'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.code'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<input class="item-label" type="hidden" v-model="item['catalog.label']"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.label'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.label'] ) ) ?>'.replace( 'idx', idx )" />
 
 								<select is="combo-box" class="form-control form-select item-id"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['category', 'promotion-idx', 'catalog.id'] ) ) ?>'.replace( 'idx', idx )"
+									v-bind:name="'<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.id'] ) ) ?>'.replace( 'idx', idx )"
 									v-bind:readonly="checkSite(idx) || item['catalog.lists.id'] != ''"
 									v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"
 									v-bind:label="getLabel(idx)"

@@ -59,7 +59,7 @@ $enc = $this->encoder();
 						v-bind:aria-labelledby="'item-media-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['media.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.id'] ) ) ?>'.replace('_idx_', idx)" />
+							v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.id'] ) ) ?>'.replace('_idx_', idx)" />
 
 						<div class="col-xl-6">
 
@@ -69,7 +69,7 @@ $enc = $this->encoder();
 									v-bind:readonly="item['media.siteid'] != siteid"
 									v-on:change="files(idx, $event.target.files)" />
 								<input class="item-url" type="hidden"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.url'] ) ) ?>'.replace('_idx_', idx)"
+									v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.url'] ) ) ?>'.replace('_idx_', idx)"
 									v-model="item['media.url']" />
 								<img v-if="item['media.preview']" class="item-preview"
 									v-bind:src="url('<?= $this->content( $this->config( 'resource/fs/baseurl' ) ) ?>/', item['media.preview'])"
@@ -87,7 +87,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-control form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.status'] ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.status'] ) ) ?>'.replace('_idx_', idx)"
 										v-bind:readonly="item['media.siteid'] != siteid"
 										v-model="item['media.status']" >
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
@@ -112,7 +112,7 @@ $enc = $this->encoder();
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select item-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											v-bind:items="<?= $enc->attr( $mediaTypes->col( 'media.type.label', 'media.type.code' )->toArray() ) ?>"
-											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.type'] ) ) ?>'.replace('_idx_', idx)"
+											v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.type'] ) ) ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
 											v-bind:readonly="item['media.siteid'] != siteid"
 											v-model="item['media.type']" >
@@ -124,7 +124,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="item-type" type="hidden"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.type'] ) ) ?>'.replace('_idx_', idx)"
+									v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.type'] ) ) ?>'.replace('_idx_', idx)"
 									value="<?= $enc->attr( $mediaTypes->getCode()->first() ) ?>" />
 							<?php endif ?>
 
@@ -132,7 +132,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.label'] ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.label'] ) ) ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Title' ) ) ?>"
 										v-bind:readonly="item['media.siteid'] != siteid"
 										v-model="item['media.label']" />
@@ -147,7 +147,7 @@ $enc = $this->encoder();
 								<div class="col-sm-8">
 									<select is="select-component" class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:items="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'media.languageid'] ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.languageid'] ) ) ?>'.replace('_idx_', idx)"
 										v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'All' ) ) ?>'"
 										v-bind:readonly="item['media.siteid'] != siteid"
 										v-model="item['media.languageid']" >
@@ -177,7 +177,7 @@ $enc = $this->encoder();
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select listitem-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											v-bind:items="<?= $enc->attr( $listTypes->col( 'attribute.lists.type.label', 'attribute.lists.type.code' )->toArray() ) ?>"
-											v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'attribute.lists.type'] ) ) ?>'.replace('_idx_', idx)"
+											v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'attribute.lists.type'] ) ) ?>'.replace('_idx_', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
 											v-bind:readonly="item['attribute.lists.siteid'] != siteid"
 											v-model="item['attribute.lists.type']" >
@@ -189,14 +189,14 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'attribute.lists.type'] ) ) ?>'.replace('_idx_', idx)"
+									v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'attribute.lists.type'] ) ) ?>'.replace('_idx_', idx)"
 									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>" />
 							<?php endif ?>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'attribute.lists.datestart'] ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'attribute.lists.datestart'] ) ) ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['attribute.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
@@ -210,7 +210,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'attribute.lists.dateend'] ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'attribute.lists.dateend'] ) ) ?>'.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['attribute.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
@@ -225,7 +225,7 @@ $enc = $this->encoder();
 						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['attribute.lists.siteid'] != siteid}">
 							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/attribute/item/media/config/suggest', [] ) ) ?>"
-								v-bind:name="'<?= $enc->attr( $this->formparam( ['media', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>'.replace('_idx_', idx)"
+								v-bind:name="'<?= $enc->js( $this->formparam( ['media', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>'.replace('_idx_', idx)"
 								v-bind:index="idx" v-bind:readonly="item['attribute.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event"
 								v-bind:i18n="{
