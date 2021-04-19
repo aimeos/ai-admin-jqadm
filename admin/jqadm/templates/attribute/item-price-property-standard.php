@@ -17,7 +17,7 @@ $enc = $this->encoder();
 		v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 		v-bind:types="<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'price.property.type.label', 'price.property.type.code' )->toArray() ) ?>"
 		v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>"
-		v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'property', '_propidx_', '_key_'] ) ) ?>'"
+		v-bind:name="'<?= $enc->js( $this->formparam( ['price', '_idx_', 'property', '_propidx_', '_key_'] ) ) ?>'"
 		v-bind:items="item['property']" v-on:update:property="item['property'] = $event"
 		v-bind:i18n="{
 			all: '<?= $enc->attr( $this->translate( 'admin', 'All' ) ) ?>',

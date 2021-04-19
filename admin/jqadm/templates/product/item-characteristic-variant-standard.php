@@ -62,7 +62,7 @@ $keys = [
 					v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
 					<td v-bind:class="item['css'] || ''">
 						<select class="form-control form-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'variant', 'idx', 'attribute.type' ) ) ) ?>'.replace('idx', idx)"
+							v-bind:name="'<?= $enc->js( $this->formparam( array( 'characteristic', 'variant', 'idx', 'attribute.type' ) ) ) ?>'.replace('idx', idx)"
 							v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 							v-model="item['attribute.type']" >
 
@@ -82,13 +82,13 @@ $keys = [
 					</td>
 					<td v-bind:class="item['css'] || ''">
 						<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'variant', 'idx', 'product.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
+							v-bind:name="'<?= $enc->js( $this->formparam( ['characteristic', 'variant', 'idx', 'product.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
 
 						<input class="item-label" type="hidden" v-model="item['attribute.label']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'variant', 'idx', 'attribute.label'] ) ) ?>'.replace( 'idx', idx )" />
+							v-bind:name="'<?= $enc->js( $this->formparam( ['characteristic', 'variant', 'idx', 'attribute.label'] ) ) ?>'.replace( 'idx', idx )" />
 
 						<select is="combo-box" class="form-control form-select item-refid"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'variant', 'idx', 'product.lists.refid'] ) ) ?>'.replace( 'idx', idx )"
+							v-bind:name="'<?= $enc->js( $this->formparam( ['characteristic', 'variant', 'idx', 'product.lists.refid'] ) ) ?>'.replace( 'idx', idx )"
 							v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 							v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"
 							v-bind:label="item['attribute.label']"

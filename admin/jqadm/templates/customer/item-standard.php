@@ -261,7 +261,7 @@ $params = $this->get( 'pageParams', [] );
 										<div class="col-sm-8">
 											<input is="flat-pickr" class="form-control item-birthday" type="date" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ) ?>"
-												v-bind:value="'<?= $enc->attr( $this->get( 'itemData/customer.birthday' ) ) ?>'"
+												v-bind:value="'<?= $enc->js( $this->get( 'itemData/customer.birthday' ) ) ?>'"
 												v-bind:config="Aimeos.flatpickr.date"
 												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
 										</div>
@@ -339,7 +339,7 @@ $params = $this->get( 'pageParams', [] );
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?></label>
 										<div class="col-sm-8">
 											<select is="combo-box" class="form-select item-countryid" required="required"
-												v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>'"
+												v-bind:name="'<?= $enc->js( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>'"
 												v-bind:readonly="data['customer.siteid'] != '<?= $this->site()->siteid() ?>'"
 												v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 												v-bind:getfcn="() => Aimeos.getCountries"

@@ -23,7 +23,7 @@ $sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
 			v-bind:domain="'product'" v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 			v-bind:types="<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->toArray() ) ?>"
 			v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>"
-			v-bind:name="'<?= $enc->attr( $this->formparam( ['property', '_propidx_', '_key_'] ) ) ?>'"
+			v-bind:name="'<?= $enc->js( $this->formparam( ['property', '_propidx_', '_key_'] ) ) ?>'"
 			v-bind:items="data" v-on:update:property="data = $event"
 			v-bind:i18n="{
 				all: '<?= $enc->attr( $this->translate( 'admin', 'All' ) ) ?>',
