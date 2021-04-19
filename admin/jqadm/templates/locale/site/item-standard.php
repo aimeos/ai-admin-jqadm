@@ -151,7 +151,7 @@ $params = $this->get( 'pageParams', [] );
 							data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 							<config-table
-								v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>')"
+								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>"
 								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>'"
 								v-bind:readonly="false"
 								v-bind:items="data['config']" v-on:change="data['config'] = $event"

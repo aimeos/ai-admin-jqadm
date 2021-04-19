@@ -83,7 +83,7 @@ $enc = $this->encoder();
 								<div class="col-sm-8">
 									<div is="taxrates" v-bind:key="idx" class="item-taxrate"
 										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.taxrates' ) ) ) ?>'.replace('idx', idx)"
-										v-bind:types="JSON.parse('<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>')"
+										v-bind:types="<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>"
 										v-bind:placeholder="'<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ) ?>'"
 										v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
@@ -167,7 +167,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select item-currencyid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.id' )->toArray() ) ?>')"
+											v-bind:items="<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.id' )->toArray() ) ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.currencyid'] ) ) ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
 											v-bind:readonly="item['price.siteid'] != siteid"
@@ -186,7 +186,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $priceTypes->col( 'price.type.label', 'price.type.code' )->toArray() ) ?>')"
+											v-bind:items="<?= $enc->attr( $priceTypes->col( 'price.type.label', 'price.type.code' )->toArray() ) ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.type'] ) ) ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
 											v-bind:readonly="item['price.siteid'] != siteid"
@@ -236,7 +236,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $listTypes->col( 'product.lists.type.label', 'product.lists.type.code' )->toArray() ) ?>')"
+											v-bind:items="<?= $enc->attr( $listTypes->col( 'product.lists.type.label', 'product.lists.type.code' )->toArray() ) ?>"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'product.lists.type'] ) ) ?>'.replace('idx', idx)"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
 											v-bind:readonly="item['product.lists.siteid'] != siteid"
@@ -285,7 +285,7 @@ $enc = $this->encoder();
 
 						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
 							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
-								v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/price/config/suggest', [] ) ) ?>')"
+								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/price/config/suggest', [] ) ) ?>"
 								v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>'.replace('_idx_', idx)"
 								v-bind:index="idx" v-bind:readonly="item['product.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event"

@@ -347,7 +347,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 											v-bind:readonly="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>' ? true : false"
 											v-bind:name="'<?= $enc->attr( $this->formparam( ['item', 'product.type'] ) ) ?>'"
 											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
-											v-bind:items="JSON.parse('<?= $enc->attr( $types->toArray() ) ?>')"
+											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
 											v-model="data['product.type']" >
 											<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
 												<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
@@ -488,7 +488,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
-								v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] ) ) ?>')"
+								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] ) ) ?>"
 								v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>'"
 								v-bind:readonly="data['product.siteid'] != '<?= $this->site()->siteid() ?>'"
 								v-bind:items="data['config']" v-on:change="data['config'] = $event"

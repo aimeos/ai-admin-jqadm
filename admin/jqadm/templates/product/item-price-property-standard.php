@@ -15,8 +15,8 @@ $enc = $this->encoder();
 	<property-table v-if="item['property'] && item['property'].length"
 		v-bind:index="idx" v-bind:domain="'price'"
 		v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
-		v-bind:types="JSON.parse('<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'price.property.type.label', 'price.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
-		v-bind:languages="JSON.parse('<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toJson( JSON_FORCE_OBJECT ) ) ?>')"
+		v-bind:types="<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'price.property.type.label', 'price.property.type.code' )->toJson( JSON_FORCE_OBJECT ) ) ?>"
+		v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toJson( JSON_FORCE_OBJECT ) ) ?>"
 		v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'property', '_propidx_', '_key_'] ) ) ?>'"
 		v-bind:items="item['property']" v-on:update:property="item['property'] = $event"
 		v-bind:i18n="{
