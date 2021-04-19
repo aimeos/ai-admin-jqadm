@@ -156,11 +156,11 @@ $params = $this->get( 'pageParams', [] );
 								v-bind:readonly="false"
 								v-bind:items="data['config']" v-on:change="data['config'] = $event"
 								v-bind:i18n="{
-									value: '<?= $enc->attr( $this->translate( 'admin', 'Value' ) ) ?>',
-									option: '<?= $enc->attr( $this->translate( 'admin', 'Option' ) ) ?>',
-									help: '<?= $enc->attr( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>',
-									insert: '<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
-									delete: '<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
+									value: '<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>',
+									option: '<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>',
+									help: '<?= $enc->js( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>',
+									insert: '<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
+									delete: '<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
 								}">
 								<table class="item-config table">
 									<thead>

@@ -70,7 +70,7 @@ $enc = $this->encoder();
 											</option>
 
 											<?php foreach( $languages as $langId => $langItem ) : ?>
-												<option value="<?= $enc->attr( $langId ) ?>" v-bind:selected="entry['supplier.address.languageid'] == '<?= $enc->attr( $langId ) ?>'" >
+												<option value="<?= $enc->attr( $langId ) ?>" v-bind:selected="entry['supplier.address.languageid'] == '<?= $enc->js( $langId ) ?>'" >
 													<?= $enc->html( $langItem->getLabel() ) ?>
 												</option>
 											<?php endforeach ?>

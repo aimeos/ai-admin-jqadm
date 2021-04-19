@@ -215,7 +215,7 @@ $columnList = [
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>
 								<a class="btn act-delete fa" tabindex="1" href="#"
-									v-on:click.prevent.stop="askDelete('<?= $enc->attr( $id ) ?>')"
+									v-on:click.prevent.stop="askDelete('<?= $enc->js( $id ) ?>')"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 								</a>
