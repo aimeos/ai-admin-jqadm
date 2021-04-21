@@ -223,7 +223,7 @@ $enc = $this->encoder();
 						</div>
 
 						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['supplier.lists.siteid'] != siteid}">
-							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/supplier/item/media/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"
 								v-bind:index="idx" v-bind:readonly="item['supplier.lists.siteid'] != siteid"

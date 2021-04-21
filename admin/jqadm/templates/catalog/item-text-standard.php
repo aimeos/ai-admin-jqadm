@@ -84,7 +84,7 @@ $enc = $this->encoder();
 										v-bind:value="item['text.content']"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:readonly="item['text.siteid'] != siteid"
-										v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 										v-model="item['text.content']"
 									></textarea>
 								</div>
@@ -244,7 +244,7 @@ $enc = $this->encoder();
 						</div>
 
 						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['catalog.lists.siteid'] != siteid}">
-							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/catalog/item/text/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"
 								v-bind:index="idx" v-bind:readonly="item['catalog.lists.siteid'] != siteid"

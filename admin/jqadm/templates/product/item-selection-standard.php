@@ -101,7 +101,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									<div class="col-sm-8">
 										<select is="select-component" class="form-control form-select item-type" required
 											v-bind:readonly="checkSite('product.siteid', idx)"
-											v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+											v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>`.replace('idx', idx)"
 											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
 											v-model="item['product.type']" >
@@ -124,7 +124,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:readonly="checkSite('product.siteid', idx) || item['product.lists.id'] != ''"
-										v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 										v-bind:keys="getArticles"
 										v-bind:required="'required'"
 										v-on:input="updateProductItem(idx, ...arguments)" />
@@ -206,7 +206,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											<select is="combo-box" class="form-control form-select item-attr-refid"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)"
 												v-bind:readonly="checkSite('product.lists.siteid', idx, attridx) || attr['product.lists.id'] != ''"
-												v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"
+												v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 												v-bind:label="getAttributeLabel(idx, attridx)"
 												v-bind:required="'required'"
 												v-bind:getfcn="getAttributeItems"

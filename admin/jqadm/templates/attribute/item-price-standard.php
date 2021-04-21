@@ -70,7 +70,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.taxrates' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:types="<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>"
 										v-bind:placeholder="`<?= $enc->js( $this->translate( 'admin', 'Tax rate in %' ) ) ?>`"
-										v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 										v-bind:readonly="item['price.siteid'] != siteid"
 										v-bind:taxrates="item['price.taxrates']"
 									></div>
@@ -269,7 +269,7 @@ $enc = $this->encoder();
 						</div>
 
 						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['attribute.lists.siteid'] != siteid}">
-							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/attribute/item/price/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"
 								v-bind:index="idx" v-bind:readonly="item['attribute.lists.siteid'] != siteid"
