@@ -105,10 +105,10 @@ $columnList = [
 	</nav>
 
 	<nav-search v-bind:show="search" v-on:close="search = false"
-		v-bind:url="'<?= $enc->js( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>'"
+		v-bind:url="`<?= $enc->js( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>`"
 		v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/plugin/filter', [] ) ) ?>"
 		v-bind:operators="<?= $enc->attr( $operators ) ?>"
-		v-bind:name="'<?= $enc->formparam( ['filter', '_key_', '0'] ) ?>'"
+		v-bind:name="`<?= $enc->formparam( ['filter', '_key_', '0'] ) ?>`"
 		v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
 	</nav-search>
 
@@ -193,7 +193,7 @@ $columnList = [
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
-							<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="items['<?= $id ?>'].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+							<td class="select"><input v-on:click="toggle(`<?= $id ?>`)" v-bind:checked="items[`<?= $id ?>`].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
 							<?php if( in_array( 'plugin.id', $fields ) ) : ?>
 								<td class="plugin-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
@@ -241,7 +241,7 @@ $columnList = [
 								</a>
 								<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 									<a class="btn act-delete fa" tabindex="1" href="#"
-										v-on:click.prevent.stop="askDelete('<?= $enc->js( $id ) ?>')"
+										v-on:click.prevent.stop="askDelete(`<?= $enc->js( $id ) ?>`)"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>

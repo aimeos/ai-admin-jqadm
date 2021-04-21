@@ -70,7 +70,7 @@ $enc = $this->encoder();
  								</a>
 								<div class="dropdown-menu dropdown-menu-end" v-bind:aria-labelledby="'translate-menu-' + idx">
 									<?php foreach( ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'ru'] as $lang ) : ?>
-										<a class="dropdown-item" href="#" v-on:click="translate(idx, '<?= strtoupper( $lang ) ?>')"><?= $enc->html( $this->translate( 'language', $lang ) ) ?></a>
+										<a class="dropdown-item" href="#" v-on:click="translate(idx, `<?= strtoupper( $lang ) ?>`)"><?= $enc->html( $this->translate( 'language', $lang ) ) ?></a>
 									<?php endforeach ?>
 								</div>
 							</div>
@@ -90,7 +90,7 @@ $enc = $this->encoder();
 						v-bind:aria-labelledby="'item-text-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['text.id']"
-							v-bind:name="'<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.id' ) ) ) ?>'.replace('_idx_', idx)" />
+							v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.id' ) ) ) ?>`.replace('_idx_', idx)" />
 
 						<div class="col-xl-6">
 
@@ -101,7 +101,7 @@ $enc = $this->encoder();
 										v-bind:id="'cke-' + idx"
 										v-bind:config="Aimeos.ckeditor"
 										v-bind:value="item['text.content']"
-										v-bind:name="'<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:readonly="item['text.siteid'] != siteid"
 										v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-model="item['text.content']"
@@ -117,7 +117,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-control form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="'<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.status' ) ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.status' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:readonly="item['text.siteid'] != siteid"
 										v-model="item['text.status']" >
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
@@ -143,9 +143,9 @@ $enc = $this->encoder();
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select item-languageid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 											v-bind:items="<?= $enc->attr( $languages->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>"
-											v-bind:name="'<?= $enc->js( $this->formparam( ['text', '_idx_', 'text.languageid'] ) ) ?>'.replace('_idx_', idx)"
-											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
-											v-bind:all="'<?= $enc->html( $this->translate( 'admin', 'All' ) ) ?>'"
+											v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'text.languageid'] ) ) ?>`.replace('_idx_', idx)"
+											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
+											v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
 											v-bind:readonly="item['text.siteid'] != siteid"
 											v-model="item['text.languageid']" >
 										</select>
@@ -156,7 +156,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="text-langid" type="hidden"
-									v-bind:name="'<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.languageid' ) ) ) ?>'.replace('_idx_', idx)"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.languageid' ) ) ) ?>`.replace('_idx_', idx)"
 									value="<?= $enc->attr( $languages->getCode()->first() ) ?>" />
 							<?php endif ?>
 
@@ -166,8 +166,8 @@ $enc = $this->encoder();
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 											v-bind:items="<?= $enc->attr( $textTypes->col( 'text.type.label', 'text.type.code' )->toArray() ) ?>"
-											v-bind:name="'<?= $enc->js( $this->formparam( ['text', '_idx_', 'text.type'] ) ) ?>'.replace('_idx_', idx)"
-											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
+											v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'text.type'] ) ) ?>`.replace('_idx_', idx)"
+											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 											v-bind:readonly="item['text.siteid'] != siteid"
 											v-model="item['text.type']" >
 										</select>
@@ -178,7 +178,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="item-type" type="hidden"
-									v-bind:name="'<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.type' ) ) ) ?>'.replace('_idx_', idx)"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.type' ) ) ) ?>`.replace('_idx_', idx)"
 									value="<?= $enc->attr( $textTypes->getCode()->first() ) ?>" />
 							<?php endif ?>
 
@@ -186,7 +186,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-label" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="'<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.label' ) ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.label' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label' ) ) ?>"
 										v-bind:readonly="item['text.siteid'] != siteid"
 										v-model="item['text.label']" />
@@ -216,8 +216,8 @@ $enc = $this->encoder();
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control form-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 											v-bind:items="<?= $enc->attr( $listTypes->col( 'product.lists.type.label', 'product.lists.type.code' )->toArray() ) ?>"
-											v-bind:name="'<?= $enc->js( $this->formparam( ['text', '_idx_', 'product.lists.type'] ) ) ?>'.replace('_idx_', idx)"
-											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>'"
+											v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'product.lists.type'] ) ) ?>`.replace('_idx_', idx)"
+											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 											v-bind:readonly="item['product.lists.siteid'] != siteid"
 											v-model="item['product.lists.type']" >
 										</select>
@@ -228,7 +228,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
-									v-bind:name="'<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'product.lists.type' ) ) ) ?>'.replace('_idx_', idx)"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'product.lists.type' ) ) ) ?>`.replace('_idx_', idx)"
 									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>" />
 							<?php endif ?>
 
@@ -236,7 +236,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="'<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'product.lists.datestart' ) ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'product.lists.datestart' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
@@ -250,7 +250,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="'<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'product.lists.dateend' ) ) ) ?>'.replace('_idx_', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'product.lists.dateend' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
@@ -265,15 +265,15 @@ $enc = $this->encoder();
 						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
 							<config-table v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/text/config/suggest', [] ) ) ?>"
-								v-bind:name="'<?= $enc->js( $this->formparam( ['text', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>'.replace('_idx_', idx)"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"
 								v-bind:index="idx" v-bind:readonly="item['product.lists.siteid'] != siteid"
 								v-bind:items="item['config']" v-on:update:config="item['config'] = $event"
 								v-bind:i18n="{
-									value: '<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>',
-									option: '<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>',
-									help: '<?= $enc->js( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>',
-									insert: '<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
-									delete: '<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
+									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
+									option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
+									help: `<?= $enc->js( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>`,
+									insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
+									delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
 								}">
 							</config-table>
 						</div>

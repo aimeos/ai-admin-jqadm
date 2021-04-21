@@ -14,19 +14,19 @@ $enc = $this->encoder();
 
 	<property-table v-if="item['property'] && item['property'].length"
 		v-bind:index="idx" v-bind:domain="'price'"
-		v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+		v-bind:siteid="`<?= $this->site()->siteid() ?>`" v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 		v-bind:types="<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'price.property.type.label', 'price.property.type.code' )->toArray() ) ?>"
 		v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>"
-		v-bind:name="'<?= $enc->js( $this->formparam( ['price', '_idx_', 'property', '_propidx_', '_key_'] ) ) ?>'"
+		v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'property', '_propidx_', '_key_'] ) ) ?>`"
 		v-bind:items="item['property']" v-on:update:property="item['property'] = $event"
 		v-bind:i18n="{
-			all: '<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>',
-			delete: '<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
-			header: '<?= $enc->js( $this->translate( 'admin', 'Price properties' ) ) ?>',
-			help: '<?= $enc->js( $this->translate( 'admin', 'Non-shared properties for the price item' ) ) ?>',
-			insert: '<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
-			placeholder: '<?= $enc->js( $this->translate( 'admin', 'Property value (required)' ) ) ?>',
-			select: '<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>'
+			all: `<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`,
+			delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
+			header: `<?= $enc->js( $this->translate( 'admin', 'Price properties' ) ) ?>`,
+			help: `<?= $enc->js( $this->translate( 'admin', 'Non-shared properties for the price item' ) ) ?>`,
+			insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
+			placeholder: `<?= $enc->js( $this->translate( 'admin', 'Property value (required)' ) ) ?>`,
+			select: `<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`
 		}">
 	</property-table>
 

@@ -247,10 +247,10 @@ $statusList = [
 	</nav>
 
 	<nav-search v-bind:show="search" v-on:close="search = false"
-		v-bind:url="'<?= $enc->js( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>'"
+		v-bind:url="`<?= $enc->js( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>`"
 		v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/order/filter', [] ) ) ?>"
 		v-bind:operators="<?= $enc->attr( $operators ) ?>"
-		v-bind:name="'<?= $enc->formparam( ['filter', '_key_', '0'] ) ?>'"
+		v-bind:name="`<?= $enc->formparam( ['filter', '_key_', '0'] ) ?>`"
 		v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
 	</nav-search>
 

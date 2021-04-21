@@ -198,7 +198,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
 						<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="select-component"
-							v-bind:all="'<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>'"
+							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
 							v-bind:items="<?= $enc->attr( $status ) ?>"
 							v-bind:value="value('status')"
 							v-on:input="find($event, 'status')">
@@ -207,7 +207,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
 						<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="select-component"
-							v-bind:all="'<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>'"
+							v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
 							v-bind:items="types"
 							v-bind:value="value('type')"
 							v-on:input="find($event, 'type')">
@@ -257,7 +257,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					</td>
 					<td v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
 						<input type="number" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-bind:name="'<?= $enc->js( $this->formparam( ['product', '-prefix-position', ''] ) ) ?>'.replace('-prefix-', prefix)"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-position', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							v-if="item.edit" v-model="item[prefix + 'position']" />
 						<div v-else v-on:click="edit(idx)" class="items-field">
 							{{ item[prefix + 'position'] }}
@@ -266,7 +266,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
 						<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="select-component" v-if="item.edit"
-							v-bind:name="'<?= $enc->js( $this->formparam( ['product', '-prefix-status', ''] ) ) ?>'.replace('-prefix-', prefix)"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-status', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							v-bind:items="<?= $enc->attr( $status ) ?>"
 							v-model="item[prefix + 'status']">
 						</select>
@@ -277,7 +277,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
 						<select class="form-control form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							is="select-component" v-if="item.edit"
-							v-bind:name="'<?= $enc->js( $this->formparam( ['product', '-prefix-type', ''] ) ) ?>'.replace('-prefix-', prefix)"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-type', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							v-bind:items="types"
 							v-model="item[prefix + 'type']">
 						</select>
@@ -288,14 +288,14 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					<td v-if="fields.includes(prefix + 'config')" v-on:click="edit(idx)" v-bind:class="css('config')">
 						<input-map
 							v-bind:editable="siteid === item[prefix + 'siteid'] && item.edit"
-							v-bind:name="'<?= $enc->js( $this->formparam( ['product', '-prefix-config', ''] ) ) ?>'.replace('-prefix-', prefix)"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-config', ''] ) ) ?>`.replace('-prefix-', prefix)"
+							v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"
 							v-model="item[prefix + 'config']">
 						</input-map>
 					</td>
 					<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
 						<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
-							v-bind:name="'<?= $enc->js( $this->formparam( ['product', '-prefix-datestart', ''] ) ) ?>'.replace('-prefix-', prefix)"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-datestart', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('datestart')"
 							v-bind:config="Aimeos.flatpickr.datetime" />
@@ -305,7 +305,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 					</td>
 					<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
 						<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
-							v-bind:name="'<?= $enc->js( $this->formparam( ['product', '-prefix-dateend', ''] ) ) ?>'.replace('-prefix-', prefix)"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-dateend', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('dateend')"
 							v-bind:config="Aimeos.flatpickr.datetime" />
@@ -330,17 +330,17 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 								</template>
 							</v-select>
 							<input type="hidden" v-model="item[prefix + 'refid']"
-								v-bind:name="'<?= $enc->js( $this->formparam( ['product', '-prefix-refid', ''] ) ) ?>'.replace('-prefix-', prefix)" />
+								v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-refid', ''] ) ) ?>`.replace('-prefix-', prefix)" />
 						</div>
 						<a v-else class="items-field act-view" v-bind:class="'status-' + item['product.status']"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
-							v-bind:href="'<?= $url ?>'.replace('_id_', item[prefix + 'refid'] || '')">
+							v-bind:href="`<?= $url ?>`.replace('_id_', item[prefix + 'refid'] || '')">
 							{{ label(idx) }}
 						</a>
 					</td>
 					<td class="actions">
 						<input type="hidden" v-if="item.edit" v-bind:value="item[prefix + 'id']"
-							v-bind:name="'<?= $enc->js( $this->formparam( ['product', '-prefix-id', ''] ) ) ?>'.replace('-prefix-', prefix)" >
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-id', ''] ) ) ?>`.replace('-prefix-', prefix)" >
 						<a v-if="!item.edit" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"
@@ -364,8 +364,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 	<div v-if="!loading && !items.length" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
 
 	<nav class="list-page">
-		<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"></page-offset>
-		<page-limit v-model="limit" v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"></page-limit>
+		<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"></page-offset>
+		<page-limit v-model="limit" v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"></page-limit>
 	</nav>
 
 </div>
