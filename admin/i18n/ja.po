@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-06 09:37+0200\n"
-"PO-Revision-Date: 2021-04-06 07:47+0000\n"
+"POT-Creation-Date: 2021-04-21 11:32+0200\n"
+"PO-Revision-Date: 2021-04-21 09:34+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -797,6 +797,9 @@ msgstr "注文の最終配達ステータス"
 
 msgid "Last name"
 msgstr "名字"
+
+msgid "Last name (optional)"
+msgstr ""
 
 msgid "Last name (required)"
 msgstr "名字（必須）"
@@ -1607,6 +1610,12 @@ msgstr "このオプションは、その日時以降にウェブサイトにの
 
 msgid "The option is only shown on the web site until that date and time"
 msgstr "このオプションは、その日時までウェブサイトにのみ表示されます"
+
+msgid "The rule is only used after that date and time"
+msgstr ""
+
+msgid "The rule is only used until that date and time"
+msgstr ""
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "

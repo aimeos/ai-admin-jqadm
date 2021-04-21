@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-06 09:37+0200\n"
-"PO-Revision-Date: 2021-04-08 09:50+0000\n"
+"POT-Creation-Date: 2021-04-21 11:32+0200\n"
+"PO-Revision-Date: 2021-04-21 09:36+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -328,7 +328,7 @@ msgid "Company name (optional)"
 msgstr "Firmenname (optional)"
 
 msgid "Completed orders"
-msgstr "Abgeschlossene Bestellungen"
+msgstr "Erfolgreiche Bestellungen"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
@@ -800,6 +800,9 @@ msgstr "Aktueller Versandstatus der Bestellung"
 
 msgid "Last name"
 msgstr "Nachname"
+
+msgid "Last name (optional)"
+msgstr "Nachname (optional)"
 
 msgid "Last name (required)"
 msgstr "Nachname (benötigt)"
@@ -1428,13 +1431,13 @@ msgid "Shipping / Payment costs"
 msgstr "Versand- oder Zahlungskosten"
 
 msgid "Shipping costs/item"
-msgstr "Versandkosten/Stück"
+msgstr "Versandkosten / Stück"
 
 msgid "Shipping/Payment costs"
 msgstr "Versand- oder Zahlungskosten"
 
 msgid "Shipping/item"
-msgstr "Versandkosten/Stück"
+msgstr "Versandkosten / Stück"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1610,6 +1613,12 @@ msgstr "Diese Option wird auf der Webseite erst nach dem Datum und der Uhrzeit a
 
 msgid "The option is only shown on the web site until that date and time"
 msgstr "Diese Option wird auf der Webseite bis zu dem Datum und der Uhrzeit angezeigt"
+
+msgid "The rule is only used after that date and time"
+msgstr "Diese Regel wird erst nach dem Datum und der Uhrzeit angewendet"
+
+msgid "The rule is only used until that date and time"
+msgstr "Diese Regel wird nur bis zu dem Datum und der Uhrzeit angewendet"
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "

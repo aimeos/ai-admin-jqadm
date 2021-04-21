@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-06 09:37+0200\n"
+"POT-Creation-Date: 2021-04-21 11:32+0200\n"
 "PO-Revision-Date: 2021-01-29 11:34+0000\n"
 "Last-Translator: Henry LIU <dadaycm@hotmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/aimeos/aimeos-core/language/zh_CN/)\n"
@@ -794,6 +794,10 @@ msgstr ""
 msgid "Last name"
 msgstr "姓名"
 
+#, fuzzy
+msgid "Last name (optional)"
+msgstr "姓名"
+
 msgid "Last name (required)"
 msgstr ""
 
@@ -1569,6 +1573,12 @@ msgid "The option is only shown on the web site after that date and time"
 msgstr ""
 
 msgid "The option is only shown on the web site until that date and time"
+msgstr ""
+
+msgid "The rule is only used after that date and time"
+msgstr ""
+
+msgid "The rule is only used until that date and time"
 msgstr ""
 
 msgid "The step value allowed for quantities in the basket, e.g. \"0.1\" for fractional quantities or \"5\" for multiple of five articles"
