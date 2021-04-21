@@ -375,7 +375,6 @@
 	padding: 0.5rem;
 	display: inline-block;
 	text-decoration: none;
-	width: calc(100% - 2rem);
 	color: var(--bs-secondary, #707880);
 }
 
@@ -388,54 +387,58 @@
 	border-left: 0;
 }
 
-.aimeos .sidebar-menu li .tree-menu .icon-open,
-.aimeos .sidebar-menu li .tree-menu .icon-close,
-.aimeos .sidebar-menu li .tree-menu .icon-loading {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu a {
+	width: calc(100% - 2rem);
+}
+
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-open,
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-close,
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-loading {
 	font: normal normal normal 14px/1 FontAwesome;
 	padding: 0.5rem;
 	font-size: 80%;
 	width: 2rem;
 }
 
-.aimeos .sidebar-menu li .tree-menu .icon-open:before {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-open:before {
 	content: "\f078";
 }
 
-.aimeos .sidebar-menu li .tree-menu .icon-close:before {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-close:before {
 	content: "\f077";
 }
 
-.aimeos .sidebar-menu li .tree-menu .icon-loading:before {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-loading:before {
 	content: "\f110";
 }
 
-.aimeos .sidebar-menu li .tree-menu .status-0,
-.aimeos .sidebar-menu li .tree-menu .status--1,
-.aimeos .sidebar-menu li .tree-menu .status--2 {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0,
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1,
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2 {
 	text-decoration: line-through;
 }
 
-.aimeos .sidebar-menu li .tree-menu .status-1:before,
-.aimeos .sidebar-menu li .tree-menu .status-0:before,
-.aimeos .sidebar-menu li .tree-menu .status--1:before,
-.aimeos .sidebar-menu li .tree-menu .status--2:before {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-1:before,
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0:before,
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1:before,
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	margin-right: 0.5rem;
 }
 
-.aimeos .sidebar-menu li .tree-menu .status-0:before {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0:before {
 	content: "\f05e";
 }
 
-.aimeos .sidebar-menu li .tree-menu .status--1:before {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1:before {
 	content: "\f06e";
 }
 
-.aimeos .sidebar-menu li .tree-menu .status--2:before {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2:before {
 	content: "\f187";
 }
 
-.aimeos .sidebar-menu li .tree-menu .name {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .name {
 	font-size: 90%;
 }
 
