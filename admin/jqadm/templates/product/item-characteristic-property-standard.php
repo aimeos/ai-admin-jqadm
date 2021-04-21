@@ -20,19 +20,19 @@ $sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
 	<div class="box">
 		<property-table
-			v-bind:domain="'product'" v-bind:siteid="'<?= $this->site()->siteid() ?>'" v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+			v-bind:domain="'product'" v-bind:siteid="`<?= $this->site()->siteid() ?>`" v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
 			v-bind:types="<?= $enc->attr( $this->get( 'propertyTypes', map() )->col( 'product.property.type.label', 'product.property.type.code' )->toArray() ) ?>"
 			v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>"
-			v-bind:name="'<?= $enc->js( $this->formparam( ['property', '_propidx_', '_key_'] ) ) ?>'"
+			v-bind:name="`<?= $enc->js( $this->formparam( ['property', '_propidx_', '_key_'] ) ) ?>`"
 			v-bind:items="data" v-on:update:property="data = $event"
 			v-bind:i18n="{
-				all: '<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>',
-				delete: '<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
-				header: '<?= $enc->js( $this->translate( 'admin', 'Properties' ) ) ?>',
-				help: '<?= $enc->js( $this->translate( 'admin', 'Product characteristics that are not shared with other products' ) ) ?>',
-				insert: '<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
-				placeholder: '<?= $enc->js( $this->translate( 'admin', 'Property value (required)' ) ) ?>',
-				select: '<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>'
+				all: `<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`,
+				delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
+				header: `<?= $enc->js( $this->translate( 'admin', 'Properties' ) ) ?>`,
+				help: `<?= $enc->js( $this->translate( 'admin', 'Product characteristics that are not shared with other products' ) ) ?>`,
+				insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
+				placeholder: `<?= $enc->js( $this->translate( 'admin', 'Property value (required)' ) ) ?>`,
+				select: `<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`
 			}">
 		</property-table>
 	</div>

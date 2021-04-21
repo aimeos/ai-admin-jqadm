@@ -60,12 +60,12 @@ $enc = $this->encoder();
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'datetime-local' ) : ?>
 						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:value="'<?= $enc->js( $this->value( $filter, 'val/' . $idx, '' ) ) ?>'"
+							v-bind:value="`<?= $enc->js( $this->value( $filter, 'val/' . $idx, '' ) ) ?>`"
 							v-bind:config="Aimeos.flatpickr.datetimerange" />
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'date' ) : ?>
 						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:value="'<?= $enc->js( $this->value( $filter, 'val/' . $idx, '' ) ) ?>'"
+							v-bind:value="`<?= $enc->js( $this->value( $filter, 'val/' . $idx, '' ) ) ?>`"
 							v-bind:config="Aimeos.flatpickr.daterange" />
 					<?php else : ?>
 						<input class="form-control" type="<?= $enc->attr( $type ) ?>" tabindex="<?= $this->get( 'tabindex' ) ?>"

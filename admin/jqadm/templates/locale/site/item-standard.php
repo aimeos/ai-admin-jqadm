@@ -152,15 +152,15 @@ $params = $this->get( 'pageParams', [] );
 
 							<config-table
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>"
-								v-bind:name="'<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>'"
+								v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
 								v-bind:readonly="false"
 								v-bind:items="data['config']" v-on:change="data['config'] = $event"
 								v-bind:i18n="{
-									value: '<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>',
-									option: '<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>',
-									help: '<?= $enc->js( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>',
-									insert: '<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>',
-									delete: '<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>',
+									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
+									option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
+									help: `<?= $enc->js( $this->translate( 'admin', 'Item specific configuration options, will be available as key/value pairs in the templates' ) ) ?>`,
+									insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
+									delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
 								}">
 								<table class="item-config table">
 									<thead>

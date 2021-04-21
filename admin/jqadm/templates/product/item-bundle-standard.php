@@ -45,21 +45,21 @@ $keys = [
 					<tbody is="draggable" v-model="items" group="bundle" handle=".act-move" tag="tbody">
 
 						<tr v-for="(item, idx) in items" v-bind:key="idx"
-							v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+							v-bind:class="item['product.lists.siteid'] != `<?= $this->site()->siteid() ?>` ? 'readonly' : ''">
 							<td v-bind:class="item['css'] ||''">
 								<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-									v-bind:name="'<?= $enc->js( $this->formparam( ['bundle', 'idx', 'product.lists.id'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', 'idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )" />
 
 								<input class="item-label" type="hidden" v-model="item['product.label']"
-									v-bind:name="'<?= $enc->js( $this->formparam( ['bundle', 'idx', 'product.label'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', 'idx', 'product.label'] ) ) ?>`.replace( 'idx', idx )" />
 
 								<input class="item-code" type="hidden" v-model="item['product.code']"
-									v-bind:name="'<?= $enc->js( $this->formparam( ['bundle', 'idx', 'product.code'] ) ) ?>'.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', 'idx', 'product.code'] ) ) ?>`.replace( 'idx', idx )" />
 
 								<select is="combo-box" class="form-control form-select item-refid"
-									v-bind:name="'<?= $enc->js( $this->formparam( ['bundle', 'idx', 'product.lists.refid'] ) ) ?>'.replace( 'idx', idx )"
+									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )"
 									v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
-									v-bind:tabindex="'<?= $this->get( 'tabindex' ) ?>'"
+									v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"
 									v-bind:label="getLabel(idx)"
 									v-bind:required="'required'"
 									v-bind:getfcn="getItems"
