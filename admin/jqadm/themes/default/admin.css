@@ -410,10 +410,8 @@
 
 /* Download */
 
-.aimeos .item-download .custom-file label {
-	font-weight: normal;
-	font-size: initial;
-	text-align: start;
+.aimeos .item-download item-file {
+	word-break: break-all;
 }
 
 
