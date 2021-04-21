@@ -289,7 +289,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 						<input-map
 							v-bind:editable="siteid === item[prefix + 'siteid'] && item.edit"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-config', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"
+							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 							v-model="item[prefix + 'config']">
 						</input-map>
 					</td>
@@ -364,8 +364,8 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 	<div v-if="!loading && !items.length" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
 
 	<nav class="list-page">
-		<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"></page-offset>
-		<page-limit v-model="limit" v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"></page-limit>
+		<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"></page-offset>
+		<page-limit v-model="limit" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"></page-limit>
 	</nav>
 
 </div>

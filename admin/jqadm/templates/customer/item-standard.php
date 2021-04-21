@@ -340,8 +340,8 @@ $params = $this->get( 'pageParams', [] );
 										<div class="col-sm-8">
 											<select is="combo-box" class="form-select item-countryid" required="required"
 												v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>`"
-												v-bind:readonly="data['customer.siteid'] != `<?= $this->site()->siteid() ?>`"
-												v-bind:tabindex="<?= $this->get( 'tabindex' ) ?>"
+												v-bind:readonly="data['customer.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>`"
+												v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 												v-bind:getfcn="() => Aimeos.getCountries"
 												v-model="data['customer.countryid']" >
 												<option value="<?= $enc->attr( $this->get( 'itemData/customer.countryid' ) ) ?>">

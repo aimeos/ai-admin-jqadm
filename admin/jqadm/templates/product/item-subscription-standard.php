@@ -62,7 +62,7 @@ $keys = [
 				</thead>
 				<tbody>
 					<tr v-for="(entry, idx) in items" v-bind:key="idx"
-						v-bind:class="entry['product.lists.siteid'] != `<?= $this->site()->siteid() ?>` ? 'readonly' : ''">
+						v-bind:class="entry['product.lists.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>` ? 'readonly' : ''">
 
 						<td class="interval-check">
 							<input class="form-check-input item-id" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"

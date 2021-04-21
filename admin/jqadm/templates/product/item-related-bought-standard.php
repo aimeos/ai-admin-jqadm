@@ -42,7 +42,7 @@ $keys = [
 			<tbody is="draggable" v-model="items" group="related" handle=".act-move" tag="tbody">
 
 				<tr v-for="(item, idx) in items" v-bind:key="idx"
-					v-bind:class="item['product.lists.siteid'] != `<?= $this->site()->siteid() ?>` ? 'readonly' : ''">
+					v-bind:class="item['product.lists.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>` ? 'readonly' : ''">
 					<td v-bind:class="(item['css'] || '')">
 						<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', 'idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )" />
@@ -56,7 +56,7 @@ $keys = [
 						<select is="combo-box" class="form-control form-select item-refid"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )"
 							v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
-							v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"
+							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
 							v-bind:getfcn="getItems"

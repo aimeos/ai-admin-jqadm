@@ -218,7 +218,7 @@ $enc = $this->encoder();
 									<select is="combo-box" class="form-control c-select item-countryid" required="required"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.countryid' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-bind:tabindex="`<?= $this->get( 'tabindex' ) ?>`"
+										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 										v-bind:getfcn="countries"
 										v-model="entry['supplier.address.countryid']" >
 										<option value=""></option>
