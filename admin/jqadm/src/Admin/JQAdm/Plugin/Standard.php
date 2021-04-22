@@ -452,7 +452,7 @@ class Standard
 			{
 				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) )
 				{
-					if( ( $val = json_decode( $data['config']['val'][$idx] ) ) === null ) {
+					if( ( $val = json_decode( $data['config']['val'][$idx], true ) ) === null ) {
 						$conf[$key] = $data['config']['val'][$idx];
 					} else {
 						$conf[$key] = $val;
