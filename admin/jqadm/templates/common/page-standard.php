@@ -11,7 +11,7 @@ $target = $this->request()->getTarget();
 $searchTarget = $this->config( 'admin/jqadm/url/search/target' );
 $cntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$config = $this->config( 'admin/jqadm/url/search/config', [] );
+$config = $this->config( 'admin/jqadm/url/search/config', [] ) + ['absoluteUri' => true];
 
 
 /** admin/jsonadm/url/options/target
