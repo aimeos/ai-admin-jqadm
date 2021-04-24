@@ -143,7 +143,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'item' => array(
 				'customer.id' => '',
-				'customer.email' => 'jqadm@test',
+				'customer.email' => 'jqadm@test.com',
 				'customer.firstname' => 'test',
 				'customer.lastname' => 'label',
 			),
@@ -154,7 +154,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->delete( $manager->find( 'jqadm@test' )->getId() );
+		$manager->delete( $manager->find( 'jqadm@test.com' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
