@@ -708,10 +708,10 @@ Aimeos.Product.Selection = {
 	init : function() {
 
 		var tab = $(".item-navbar .selection");
-		$(".item-basic .item-type").val() === 'select' ? tab.show() : tab.hide();
+		['group', 'select'].includes($(".item-basic .item-type").val()) ? tab.show() : tab.hide();
 
 		$(".item-basic .item-type").on("change", function() {
-			$("option:selected", this).val() === 'select' ? tab.show() : tab.hide();
+			['group', 'select'].includes($("option:selected", this).val()) ? tab.show() : tab.hide();
 		});
 	},
 
