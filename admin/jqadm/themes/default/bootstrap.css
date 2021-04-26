@@ -79,8 +79,9 @@ a, a:hover {
 
 .btn {
 	box-shadow: none;
-	border: 1px solid transparent;
 	background: transparent;
+	border: 1px solid transparent;
+	color: var(--bs-secondary, #505860) !important;
 	cursor: pointer;
 }
 
