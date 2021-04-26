@@ -74,7 +74,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 	<nav class="main-navbar">
 		<h1 class="navbar-brand">
-			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Catalog' ) ) ?></span>
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Categories' ) ) ?></span>
 			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/catalog.id' ) ) ?></span>
 			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/catalog.label' ) ?: $this->translate( 'admin', 'New' ) ) ?></span>
 			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/catalog.siteid' ) ) ) ?></span>
