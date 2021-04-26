@@ -98,7 +98,7 @@ class Standard
 	{
 		$view = $this->getView();
 
-		if( $view->item->getType() === 'select' )
+		if( in_array( $view->item->getType(), ['group', 'select'] ) )
 		{
 			$this->fromArray( $view->item, $view->param( 'selection', [] ) );
 			$view->selectionBody = parent::save();
@@ -380,7 +380,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
-		if( $item->getType() !== 'select' ) {
+		if( !in_array( $item->getType(), ['group', 'select'] ) ) {
 			return [];
 		}
 
