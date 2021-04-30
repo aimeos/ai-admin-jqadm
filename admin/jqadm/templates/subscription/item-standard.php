@@ -151,7 +151,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 								<input is="flat-pickr" class="form-control item-datenext" type="date" required="required" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Next date (optional)' ) ); ?>"
-									v-bind:value="'<?= $enc->attr( $this->get( 'itemData/subscription.datenext' ) ); ?>'"
+									v-bind:value="`<?= $enc->attr( $this->get( 'itemData/subscription.datenext' ) ); ?>`"
 									v-bind:config="this.$flatpickr.date"
 									<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ); ?> />
 							</div>
@@ -165,7 +165,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 								<input is="flat-pickr" class="form-control item-dateendend" type="date" tabindex="1"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ); ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'End date (optional)' ) ); ?>"
-									v-bind:value="'<?= $enc->attr( $this->get( 'itemData/subscription.dateend' ) ); ?>'"
+									v-bind:value="`<?= $enc->attr( $this->get( 'itemData/subscription.dateend' ) ); ?>`"
 									v-bind:config="this.$flatpickr.date"
 									<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ); ?> />
 							</div>

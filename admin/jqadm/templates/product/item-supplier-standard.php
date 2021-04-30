@@ -48,21 +48,21 @@ $keys = [
 					v-bind:class="checkSite(idx) ? 'readonly' : ''">
 					<td v-bind:class="item['css'] || ''">
 						<input class="item-listtype" type="hidden" v-model="item['supplier.lists.type']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.lists.type'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.lists.type'] ) ); ?>`.replace( 'idx', idx )" />
 
 						<input class="item-listid" type="hidden" v-model="item['supplier.lists.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.lists.id'] ) ); ?>`.replace( 'idx', idx )" />
 
 						<input class="item-label" type="hidden" v-model="item['supplier.code']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.code'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.code'] ) ); ?>`.replace( 'idx', idx )" />
 
 						<input class="item-label" type="hidden" v-model="item['supplier.label']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.label'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.label'] ) ); ?>`.replace( 'idx', idx )" />
 
 						<select is="combo-box" class="form-control custom-select item-id"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.id'] ) ); ?>'.replace( 'idx', idx )"
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'default-idx', 'supplier.id'] ) ); ?>`.replace( 'idx', idx )"
 							v-bind:readonly="checkSite(idx) || item['supplier.lists.id'] != ''"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+							v-bind:tabindex="`<?= $this->get( 'tabindex' ); ?>`"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
 							v-bind:getfcn="getItems"
@@ -115,21 +115,21 @@ $keys = [
 					v-bind:class="checkSite(idx) ? 'readonly' : ''">
 					<td v-bind:class="item['css'] || ''">
 						<input class="item-listtype" type="hidden" v-model="item['supplier.lists.type']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.lists.type'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.lists.type'] ) ); ?>`.replace( 'idx', idx )" />
 
 						<input class="item-listid" type="hidden" v-model="item['supplier.lists.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.lists.id'] ) ); ?>`.replace( 'idx', idx )" />
 
 						<input class="item-label" type="hidden" v-model="item['supplier.code']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.code'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.code'] ) ); ?>`.replace( 'idx', idx )" />
 
 						<input class="item-label" type="hidden" v-model="item['supplier.label']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.label'] ) ); ?>'.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.label'] ) ); ?>`.replace( 'idx', idx )" />
 
 						<select is="combo-box" class="form-control custom-select item-id"
-							v-bind:name="'<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.id'] ) ); ?>'.replace( 'idx', idx )"
+							v-bind:name="`<?= $enc->attr( $this->formparam( ['supplier', 'promotion-idx', 'supplier.id'] ) ); ?>`.replace( 'idx', idx )"
 							v-bind:readonly="checkSite(idx) || item['supplier.lists.id'] != ''"
-							v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+							v-bind:tabindex="`<?= $this->get( 'tabindex' ); ?>`"
 							v-bind:label="getLabel(idx)"
 							v-bind:required="'required'"
 							v-bind:getfcn="getItems"

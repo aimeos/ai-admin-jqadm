@@ -350,10 +350,10 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 							<div class="col-sm-8">
 								<select is="select-component" class="form-control custom-select item-type" required v-bind:tabindex="'1'"
-									v-bind:readonly="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' ? true : false"
-									v-bind:name="'<?= $enc->attr( $this->formparam( ['item', 'product.type'] ) ); ?>'"
-									v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
-									v-bind:items="JSON.parse('<?= $enc->attr( $types->toArray() ) ?>')"
+									v-bind:readonly="`<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>` ? true : false"
+									v-bind:name="`<?= $enc->attr( $this->formparam( ['item', 'product.type'] ) ); ?>`"
+									v-bind:text="`<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>`"
+									v-bind:items="JSON.parse(`<?= $enc->attr( $types->toArray() ) ?>`)"
 									v-model="data['product.type']" >
 									<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
 										<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
@@ -426,8 +426,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<input is="flat-pickr" class="form-control item-datestart" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.datestart' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' !== ''"
+								v-bind:value="`<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.datestart' ) ) ); ?>`"
+								v-bind:disabled="`<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>` !== ''"
 								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -440,8 +440,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<input is="flat-pickr" class="form-control item-dateend" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.dateend' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' !== ''"
+								v-bind:value="`<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.dateend' ) ) ); ?>`"
+								v-bind:disabled="`<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>` !== ''"
 								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -454,8 +454,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<input is="flat-pickr" class="form-control item-ctime" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.ctime' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>' !== ''"
+								v-bind:value="`<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.ctime' ) ) ); ?>`"
+								v-bind:disabled="`<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ); ?>` !== ''"
 								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -481,7 +481,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 					<config-table inline-template
-						v-bind:readonly="data['product.siteid'] != '<?= $this->site()->siteid() ?>'"
+						v-bind:readonly="data['product.siteid'] != `<?= $this->site()->siteid() ?>`"
 						v-bind:items="data['config']" v-on:change="data['config'] = $event">
 
 						<table class="item-config table table-striped">
@@ -504,13 +504,13 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								<tr v-for="(entry, pos) in items" v-bind:key="pos" class="config-item">
 									<td class="config-row-key">
 										<input is="auto-complete" required class="form-control" v-bind:readonly="readonly" tabindex="1"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'key' ) ) ); ?>'.replace('_pos_', pos)"
-											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] ) ) ?>')"
+											v-bind:name="`<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'key' ) ) ); ?>`.replace('_pos_', pos)"
+											v-bind:keys="JSON.parse(`<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] ) ) ?>`)"
 											v-model="entry.key" />
 									</td>
 									<td class="config-row-value">
 										<input class="form-control" v-bind:readonly="readonly" v-bind:tabindex="1"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'val' ) ) ); ?>'.replace('_pos_', pos)"
+											v-bind:name="`<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'val' ) ) ); ?>`.replace('_pos_', pos)"
 											v-model="entry.val" />
 									</td>
 									<td class="actions">

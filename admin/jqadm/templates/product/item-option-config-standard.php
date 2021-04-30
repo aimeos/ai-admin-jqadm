@@ -58,12 +58,12 @@ $keys = [
 		<tbody is="draggable" v-model="items" group="option-config" handle=".act-move" tag="tbody">
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx"
-				v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+				v-bind:class="item['product.lists.siteid'] != `<?= $this->site()->siteid() ?>` ? 'readonly' : ''">
 				<td v-bind:class="item['css'] || ''">
 					<select is="combo-box" class="form-control custom-select item-type"
-						v-bind:name="'<?= $enc->attr( $this->formparam( ['option', 'config', 'idx', 'attribute.type'] ) ); ?>'.replace( 'idx', idx )"
+						v-bind:name="`<?= $enc->attr( $this->formparam( ['option', 'config', 'idx', 'attribute.type'] ) ); ?>`.replace( 'idx', idx )"
 						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
-						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+						v-bind:tabindex="`<?= $this->get( 'tabindex' ); ?>`"
 						v-bind:label="item['attribute.type']"
 						v-bind:required="'required'"
 						v-bind:getfcn="getTypeItems"
@@ -74,15 +74,15 @@ $keys = [
 				</td>
 				<td v-bind:class="item['css'] || ''">
 					<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-						v-bind:name="'<?= $enc->attr( $this->formparam( ['option', 'config', 'idx', 'product.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
+						v-bind:name="`<?= $enc->attr( $this->formparam( ['option', 'config', 'idx', 'product.lists.id'] ) ); ?>`.replace( 'idx', idx )" />
 
 					<input class="item-label" type="hidden" v-model="item['attribute.label']"
-						v-bind:name="'<?= $enc->attr( $this->formparam( ['option', 'config', 'idx', 'attribute.label'] ) ); ?>'.replace( 'idx', idx )" />
+						v-bind:name="`<?= $enc->attr( $this->formparam( ['option', 'config', 'idx', 'attribute.label'] ) ); ?>`.replace( 'idx', idx )" />
 
 					<select is="combo-box" class="form-control custom-select item-refid"
-						v-bind:name="'<?= $enc->attr( $this->formparam( ['option', 'config', 'idx', 'product.lists.refid'] ) ); ?>'.replace( 'idx', idx )"
+						v-bind:name="`<?= $enc->attr( $this->formparam( ['option', 'config', 'idx', 'product.lists.refid'] ) ); ?>`.replace( 'idx', idx )"
 						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
-						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+						v-bind:tabindex="`<?= $this->get( 'tabindex' ); ?>`"
 						v-bind:label="item['attribute.label']"
 						v-bind:required="'required'"
 						v-bind:getfcn="getItems"

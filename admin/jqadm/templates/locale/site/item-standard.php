@@ -169,13 +169,13 @@ $params = $this->get( 'pageParams', [] );
 								<tr v-for="(entry, pos) in items" v-bind:key="pos" class="config-item">
 									<td class="config-row-key">
 										<input is="auto-complete" required class="form-control" v-bind:readonly="readonly" tabindex="1"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'key' ) ) ); ?>'.replace('_pos_', pos)"
-											v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>')"
+											v-bind:name="`<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'key' ) ) ); ?>`.replace('_pos_', pos)"
+											v-bind:keys="JSON.parse(`<?= $enc->attr( $this->config( 'admin/jqadm/locale/site/item/config/suggest', [] ) ) ?>`)"
 											v-model="entry.key" />
 									</td>
 									<td class="config-row-value">
 										<input class="form-control" v-bind:readonly="readonly" tabindex="1"
-											v-bind:name="'<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'val' ) ) ); ?>'.replace('_pos_', pos)"
+											v-bind:name="`<?= $enc->attr( $this->formparam( array( 'item', 'config', '_pos_', 'val' ) ) ); ?>`.replace('_pos_', pos)"
 											v-model="entry.val" />
 									</td>
 									<td class="actions">

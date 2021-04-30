@@ -253,7 +253,7 @@ $params = $this->get( 'pageParams', [] );
 						<div class="col-sm-8">
 							<input is="flat-pickr" class="form-control item-birthday" type="date" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ); ?>"
-								v-bind:value="'<?= $enc->attr( $this->get( 'itemData/customer.birthday' ) ); ?>'"
+								v-bind:value="`<?= $enc->attr( $this->get( 'itemData/customer.birthday' ) ); ?>`"
 								v-bind:config="this.$flatpickr.date"
 								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
 						</div>

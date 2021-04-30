@@ -106,7 +106,7 @@ $columnList = [
 				<?php if( $this->access( 'super' ) ) : ?>
 					<th class="select">
 						<a href="#" class="btn act-delete fa" tabindex="1" data-multi="1"
-						v-on:click.prevent.stop="removeAll('<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => ''] + $params, [], $delConfig ) ) ?>','<?= $enc->attr( $this->translate( 'admin', 'Selected entries' ) ) ?>')"
+						v-on:click.prevent.stop="removeAll(`<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => ''] + $params, [], $delConfig ) ) ?>`,`<?= $enc->attr( $this->translate( 'admin', 'Selected entries' ) ) ?>`)"
 						title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ); ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 					</a>
@@ -163,7 +163,7 @@ $columnList = [
 				<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ); ?>
 				<tr class="list-item" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
 					<?php if( $this->access( 'super' ) ) : ?>
-						<td class="select"><input v-on:click="toggle('<?= $id ?>')" v-bind:checked="!items['<?= $id ?>']" class="form-control" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+						<td class="select"><input v-on:click="toggle(`<?= $id ?>`)" v-bind:checked="!items[`<?= $id ?>`]" class="form-control" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
 					<?php endif; ?>
 					<?php if( in_array( 'locale.site.id', $fields ) ) : ?>
 						<td class="locale-site-id"><a class="items-field" href="<?= $url; ?>"><?= $enc->html( $item->getId() ); ?></a></td>
@@ -206,7 +206,7 @@ $columnList = [
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
 							</a>
 							<a class="btn act-delete fa" tabindex="1" href="#"
-								v-on:click.prevent.stop="remove('<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ) ?>','<?= $enc->attr( $item->getLabel() ) ?>')"
+								v-on:click.prevent.stop="remove(`<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ) ?>`,`<?= $enc->attr( $item->getLabel() ) ?>`)"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ); ?>">
 							</a>

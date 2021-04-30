@@ -58,10 +58,10 @@ $keys = [
 		<tbody is="draggable" v-model="items" group="characteristic-attribute" handle=".act-move" tag="tbody">
 
 			<tr v-for="(item, idx) in items" v-bind:key="idx"
-				v-bind:class="item['product.lists.siteid'] != '<?= $this->site()->siteid() ?>' ? 'readonly' : ''">
+				v-bind:class="item['product.lists.siteid'] != `<?= $this->site()->siteid() ?>` ? 'readonly' : ''">
 				<td v-bind:class="item['css'] || ''">
 					<select class="form-control custom-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-						v-bind:name="'<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'idx', 'attribute.type' ) ) ); ?>'.replace('idx', idx)"
+						v-bind:name="`<?= $enc->attr( $this->formparam( array( 'characteristic', 'attribute', 'idx', 'attribute.type' ) ) ); ?>`.replace('idx', idx)"
 						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 						v-model="item['attribute.type']" >
 
@@ -70,8 +70,8 @@ $keys = [
 						</option>
 
 						<?php foreach( $this->get( 'attributeTypes', [] ) as $item ) : ?>
-							<option v-if="item['product.lists.id'] == '' || item['attribute.type'] == '<?= $enc->attr( $item->getCode() ) ?>'"
-								v-bind:selected="item['attribute.type'] == '<?= $enc->attr( $item->getCode() ) ?>'"
+							<option v-if="item['product.lists.id'] == '' || item['attribute.type'] == `<?= $enc->attr( $item->getCode() ) ?>`"
+								v-bind:selected="item['attribute.type'] == `<?= $enc->attr( $item->getCode() ) ?>`"
 								value="<?= $enc->attr( $item->getCode() ); ?>" >
 								<?= $enc->html( $item->getLabel() ); ?>
 							</option>
@@ -81,18 +81,18 @@ $keys = [
 				</td>
 				<td v-bind:class="item['css'] || ''">
 					<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.id'] ) ); ?>'.replace( 'idx', idx )" />
+						v-bind:name="`<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.id'] ) ); ?>`.replace( 'idx', idx )" />
 
 					<input class="item-label" type="hidden" v-model="item['attribute.label']"
-						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'attribute.label'] ) ); ?>'.replace( 'idx', idx )" />
+						v-bind:name="`<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'attribute.label'] ) ); ?>`.replace( 'idx', idx )" />
 
 					<input class="item-type" type="hidden" v-model="item['attribute.type']"
-						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'attribute.type'] ) ); ?>'.replace( 'idx', idx )" />
+						v-bind:name="`<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'attribute.type'] ) ); ?>`.replace( 'idx', idx )" />
 
 					<select is="combo-box" class="form-control custom-select item-refid"
-						v-bind:name="'<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.refid'] ) ); ?>'.replace( 'idx', idx )"
+						v-bind:name="`<?= $enc->attr( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.refid'] ) ); ?>`.replace( 'idx', idx )"
 						v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
-						v-bind:tabindex="'<?= $this->get( 'tabindex' ); ?>'"
+						v-bind:tabindex="`<?= $this->get( 'tabindex' ); ?>`"
 						v-bind:label="item['attribute.label']"
 						v-bind:required="'required'"
 						v-bind:getfcn="getItems"

@@ -60,7 +60,7 @@ $enc = $this->encoder();
 						v-bind:aria-labelledby="'item-price-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['price.id']"
-							v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.id' ) ) ); ?>'.replace('idx', idx)" />
+							v-bind:name="`<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.id' ) ) ); ?>`.replace('idx', idx)" />
 
 						<div class="col-xl-6">
 
@@ -68,9 +68,9 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ); ?></label>
 								<div class="col-sm-8">
 									<div is="taxrates" v-bind:key="idx"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.taxrates' ) ) ); ?>'.replace('idx', idx)"
-										v-bind:types="JSON.parse('<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>')"
-										v-bind:placeholder="'<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>'"
+										v-bind:name="`<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.taxrates' ) ) ); ?>`.replace('idx', idx)"
+										v-bind:types="JSON.parse(`<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>`)"
+										v-bind:placeholder="`<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ); ?>`"
 										v-bind:tabindex="<?= $this->get( 'tabindex' ); ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
 										v-bind:taxrates="item['price.taxrates']"
@@ -84,7 +84,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping/Payment costs' ) ); ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-costs" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.costs' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:name="`<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.costs' ) ) ); ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping/Payment costs' ) ); ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
 										v-model="item['price.costs']" />
@@ -102,7 +102,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ); ?></label>
 								<div class="col-sm-8">
 									<select class="form-control custom-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.status' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:name="`<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.status' ) ) ); ?>`.replace('idx', idx)"
 										v-bind:readonly="item['price.siteid'] != siteid"
 										v-model="item['price.status']" >
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?></option>
@@ -127,9 +127,9 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ); ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select item-currencyid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.id' )->toArray() ) ?>')"
-											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.currencyid'] ) ); ?>'.replace('idx', idx)"
-											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+											v-bind:items="JSON.parse(`<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.id' )->toArray() ) ?>`)"
+											v-bind:name="`<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.currencyid'] ) ); ?>`.replace('idx', idx)"
+											v-bind:text="`<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>`"
 											v-bind:readonly="item['price.siteid'] != siteid"
 											v-model="item['price.currencyid']" >
 										</select>
@@ -137,7 +137,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="item-currencyid" type="hidden"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.currencyid' ) ) ); ?>'.replace('idx', idx)"
+									v-bind:name="`<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.currencyid' ) ) ); ?>`.replace('idx', idx)"
 									value="<?= $enc->attr( $currencies->getCode()->first() ) ?>" />
 							<?php endif; ?>
 
@@ -146,9 +146,9 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ); ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $priceTypes->col( 'price.type.label', 'price.type.code' )->toArray() ) ?>')"
-											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.type'] ) ); ?>'.replace('idx', idx)"
-											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+											v-bind:items="JSON.parse(`<?= $enc->attr( $priceTypes->col( 'price.type.label', 'price.type.code' )->toArray() ) ?>`)"
+											v-bind:name="`<?= $enc->attr( $this->formparam( ['price', 'idx', 'price.type'] ) ); ?>`.replace('idx', idx)"
+											v-bind:text="`<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>`"
 											v-bind:readonly="item['price.siteid'] != siteid"
 											v-model="item['price.type']" >
 										</select>
@@ -159,7 +159,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="item-type" type="hidden"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.type' ) ) ); ?>'.replace('idx', idx)"
+									v-bind:name="`<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'price.type' ) ) ); ?>`.replace('idx', idx)"
 									value="<?= $enc->attr( $priceTypes->getCode()->first() ) ?>" />
 							<?php endif; ?>
 
@@ -182,9 +182,9 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ); ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-control custom-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ); ?>"
-											v-bind:items="JSON.parse('<?= $enc->attr( $listTypes->col( 'service.lists.type.label', 'service.lists.type.code' )->toArray() ) ?>')"
-											v-bind:name="'<?= $enc->attr( $this->formparam( ['price', 'idx', 'service.lists.type'] ) ); ?>'.replace('idx', idx)"
-											v-bind:text="'<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>'"
+											v-bind:items="JSON.parse(`<?= $enc->attr( $listTypes->col( 'service.lists.type.label', 'service.lists.type.code' )->toArray() ) ?>`)"
+											v-bind:name="`<?= $enc->attr( $this->formparam( ['price', 'idx', 'service.lists.type'] ) ); ?>`.replace('idx', idx)"
+											v-bind:text="`<?= $enc->html( $this->translate( 'admin', 'Please select' ) ); ?>`"
 											v-bind:readonly="item['service.lists.siteid'] != siteid"
 											v-model="item['service.lists.type']" >
 										</select>
@@ -195,7 +195,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
-									v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.type' ) ) ); ?>'.replace('idx', idx)"
+									v-bind:name="`<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.type' ) ) ); ?>`.replace('idx', idx)"
 									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>" />
 							<?php endif; ?>
 
@@ -203,7 +203,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ); ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.datestart' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:name="`<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.datestart' ) ) ); ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 										v-bind:disabled="item['service.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
@@ -217,7 +217,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ); ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ); ?>"
-										v-bind:name="'<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.dateend' ) ) ); ?>'.replace('idx', idx)"
+										v-bind:name="`<?= $enc->attr( $this->formparam( array( 'price', 'idx', 'service.lists.dateend' ) ) ); ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
 										v-bind:disabled="item['service.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
@@ -254,13 +254,13 @@ $enc = $this->encoder();
 										<tr v-for="(entry, pos) in items" v-bind:key="pos" class="config-item">
 											<td class="config-row-key">
 												<input is="auto-complete" required class="form-control" v-bind:readonly="readonly" tabindex="<?= $this->get( 'tabindex' ); ?>"
-													v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', 'key'] ) ); ?>'.replace('_idx_', index).replace('_pos_', pos)"
-													v-bind:keys="JSON.parse('<?= $enc->attr( $this->config( 'admin/jqadm/service/item/price/config/suggest', [] ) ) ?>')"
+													v-bind:name="`<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', 'key'] ) ); ?>`.replace('_idx_', index).replace('_pos_', pos)"
+													v-bind:keys="JSON.parse(`<?= $enc->attr( $this->config( 'admin/jqadm/service/item/price/config/suggest', [] ) ) ?>`)"
 													v-model="entry.key" />
 											</td>
 											<td class="config-row-value">
 												<input class="form-control" v-bind:readonly="readonly" tabindex="<?= $this->get( 'tabindex' ); ?>"
-													v-bind:name="'<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', 'val'] ) ); ?>'.replace('_idx_', index).replace('_pos_', pos)"
+													v-bind:name="`<?= $enc->attr( $this->formparam( ['price', '_idx_', 'config', '_pos_', 'val'] ) ); ?>`.replace('_idx_', index).replace('_pos_', pos)"
 													v-model="entry.val" />
 											</td>
 											<td class="actions">

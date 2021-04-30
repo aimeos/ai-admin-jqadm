@@ -211,8 +211,8 @@ $enc = $this->encoder();
 							<input is="flat-pickr" class="form-control item-datestart" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'service.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/service.datestart' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?>' !== ''"
+								v-bind:value="`<?= $enc->attr( $this->datetime( $this->get( 'itemData/service.datestart' ) ) ); ?>`"
+								v-bind:disabled="`<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?>` !== ''"
 								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -225,8 +225,8 @@ $enc = $this->encoder();
 							<input is="flat-pickr" class="form-control item-dateend" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'service.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/service.dateend' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?>' !== ''"
+								v-bind:value="`<?= $enc->attr( $this->datetime( $this->get( 'itemData/service.dateend' ) ) ); ?>`"
+								v-bind:disabled="`<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ); ?>` !== ''"
 								v-bind:config="Aimeos.flatpickr.datetime"/>
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">

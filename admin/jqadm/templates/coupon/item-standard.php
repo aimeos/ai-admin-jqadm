@@ -155,8 +155,8 @@ $params = $this->get( 'pageParams', [] );
 							<input is="flat-pickr" class="form-control item-datestart" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.datestart' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.datestart' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>' !== ''"
+								v-bind:value="`<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.datestart' ) ) ); ?>`"
+								v-bind:disabled="`<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>` !== ''"
 								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
@@ -169,8 +169,8 @@ $params = $this->get( 'pageParams', [] );
 							<input is="flat-pickr" class="form-control item-dateend" type="datetime-local" tabindex="1"
 								name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.dateend' ) ) ); ?>"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ); ?>"
-								v-bind:value="'<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.dateend' ) ) ); ?>'"
-								v-bind:disabled="'<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>' !== ''"
+								v-bind:value="`<?= $enc->attr( $this->datetime( $this->get( 'itemData/coupon.dateend' ) ) ); ?>`"
+								v-bind:disabled="`<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ); ?>` !== ''"
 								v-bind:config="Aimeos.flatpickr.datetime" />
 						</div>
 						<div class="col-sm-12 form-text text-muted help-text">
