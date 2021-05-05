@@ -10,11 +10,11 @@
 	height: 2.5rem;
 	display: flex;
 	justify-content: space-between;
-	background: linear-gradient(135deg, var(--bs-primary, #30a0e0) 0, var(--bs-primary-alt, #00b0a0) 100%);
+	background: linear-gradient(135deg, var(--bs-menu-bg, #30a0e0) 0, var(--bs-menu-alt-bg, #00b0a0) 100%);
 }
 
 [dir="rtl"] .app-menu {
-	background: linear-gradient(135deg, var(--bs-primary-alt, #00b0a0) 0, var(--bs-primary, #30a0e0) 100%);
+	background: linear-gradient(135deg, var(--bs-menu-alt-bg, #00b0a0) 0, var(--bs-menu-bg, #30a0e0) 100%);
 }
 
 .app-menu.open {
@@ -44,10 +44,10 @@
 
 @media (min-width: 992px) {
 	.app-menu {
-		background: linear-gradient(135deg, var(--bs-primary, #30a0e0) max(15%, 12rem), var(--bs-primary-alt, #00b0a0) 100%);
+		background: linear-gradient(135deg, var(--bs-menu-bg, #30a0e0) max(15%, 12rem), var(--bs-menu-alt-bg, #00b0a0) 100%);
 	}
 	[dir="rtl"] .app-menu {
-		background: linear-gradient(135deg, var(--bs-primary-alt, #00b0a0) 0, var(--bs-primary, #30a0e0) max(85%, calc(100% - 12rem)));
+		background: linear-gradient(135deg, var(--bs-menu-alt-bg, #00b0a0) 0, var(--bs-menu-bg, #30a0e0) max(85%, calc(100% - 12rem)));
 	}
 	.app-menu .menu {
 		visibility: hidden;
@@ -92,12 +92,12 @@
 	z-index: 1150;
 	width: max(15%, 12rem);
 	color: var(--bs-menu, #ffffff);
-	background-color: var(--bs-primary, #30a0e0);
+	background-color: var(--bs-menu-bg, #30a0e0);
 }
 
 @media (min-width: 992px) {
 	.aimeos .main-sidebar {
-		background: linear-gradient(180deg, var(--bs-primary, #30a0e0) 2.5rem, var(--bs-primary-alt, #00b0a0) 100%);
+		background: linear-gradient(180deg, var(--bs-menu-bg, #30a0e0) 2.5rem, var(--bs-menu-alt-bg, #00b0a0) 100%);
 	}
 }
 
@@ -154,9 +154,15 @@
 	color: var(--bs-menu, #ffffff);
 }
 
-.aimeos .sidebar-menu .active a,
-.aimeos .sidebar-menu a:hover {
-	color: var(--bs-secondary, #707880);
+.aimeos .sidebar-menu .active > :not(.tree-menu-wrapper) .title,
+.aimeos .sidebar-menu li:hover > :not(.tree-menu-wrapper) .title,
+.aimeos .sidebar-menu .active > :not(.tree-menu-wrapper) .icon,
+.aimeos .sidebar-menu li:hover > :not(.tree-menu-wrapper) .icon {
+	color: var(--bs-secondary-dark, #101820);
+}
+
+.dark .aimeos .sidebar-menu .active .title {
+	font-weight: bold;
 }
 
 .aimeos .main-sidebar .sidebar-menu > li {
@@ -165,7 +171,7 @@
 
 @media (min-width: 992px) {
 	.aimeos .main-sidebar .sidebar-menu > li {
-		background: linear-gradient(180deg, var(--bs-primary, #30a0e0) 2.5rem, var(--bs-primary-alt, #00b0a0) 100%);
+		background: linear-gradient(180deg, var(--bs-menu-bg, #30a0e0) 2.5rem, var(--bs-menu-alt-bg, #00b0a0) 100%);
 		background-attachment: fixed;
 	}
 }
@@ -176,8 +182,11 @@
 
 .aimeos .main-sidebar .sidebar-menu>li.active,
 .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
-	border-color: var(--bs-menu-alt-bg, #f8fafc);
 	color: var(--bs-secondary, #707880);
+}
+
+body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li.active,
+body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 	background: none;
 }
 
@@ -197,6 +206,12 @@
 [dir="rtl"] .aimeos .main-sidebar .sidebar-menu li.after {
 	border-top-left-radius: 2rem;
 	border-top-right-radius: 0;
+}
+
+.dark .aimeos .main-sidebar .sidebar-menu li.before,
+.dark .aimeos .main-sidebar .sidebar-menu li.after {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 .aimeos .main-sidebar .sidebar-menu li:hover {
@@ -272,7 +287,7 @@
 	width: max(15%, 12rem);
 	left: calc(min(-15%, -12rem) - 1px); /* -1 to avoid intersection */
 	box-shadow: #a8b8c825 6px 3px 9px 0px;
-	background-color: var(--bs-menu-alt-bg, #ffffff);
+	background-color: var(--bs-bg-light, #ffffff);
 	transition: left .3s ease, visibility 0s linear .3s;
 }
 
@@ -296,7 +311,7 @@
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-header {
 	background-color: var(--bs-menu-bg, #30a0e0);
-	color: var(--bs-menu, #ffffff);
+	color: var(--bs-menu, #FFFFFF);
 	justify-content: center;
 	align-items: center;
 	position: sticky;
@@ -307,14 +322,14 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-header a {
-	color: var(--bs-menu, #ffffff);
+	color: var(--bs-menu, #FFFFFF);
 	text-align: center;
 	display: block;
 	width: 100%;
 }
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-header a:hover {
-	color: var(--bs-menu, #ffffff);
+	color: var(--bs-menu, #FFFFFF);
 }
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-header .close {
@@ -336,7 +351,7 @@
 }
 
 .aimeos .sidebar-menu li .tree-menu li {
-	background-color: var(--bs-menu-alt-bg, #ffffff);
+	background-color: var(--bs-bg-light, #ffffff);
 	overflow-x: hidden;
 }
 
@@ -344,7 +359,7 @@
 	display: block;
 	position: relative;
 	color: var(--bs-secondary, #707880);
-	background-color: var(--bs-menu-alt-bg, #ffffff);
+	background-color: var(--bs-bg-light, #ffffff);
 	box-sizing: initial;
 	list-style: none;
 	overflow-y: auto;
@@ -368,13 +383,14 @@
 
 .aimeos .sidebar-menu li .tree-menu a:hover,
 .aimeos .sidebar-menu li .tree-menu li:hover {
-	color: var(--bs-secondary-light, #9098a0);
+	color: var(--bs-secondary-dark, #101820);
 }
 
 .aimeos .sidebar-menu li .tree-menu a {
 	padding: 0.5rem;
 	display: inline-block;
 	text-decoration: none;
+	border-left: 3px solid transparent;
 	color: var(--bs-secondary, #707880);
 }
 

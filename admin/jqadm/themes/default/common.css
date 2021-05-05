@@ -13,9 +13,9 @@ body {
 	--bs-line: #BBBBBB;
 	--bs-line-light: #DEE2E6;
 	--bs-menu: #FFFFFF;
-	--bs-menu-bg: var(--bs-primary, #30A0E0);
+	--bs-menu-bg: #30A0E0;
 	--bs-menu-alt: #707880;
-	--bs-menu-alt-bg: #FFFFFF;
+	--bs-menu-alt-bg: #00B0A0;
 	--bs-primary: #30A0E0;
 	--bs-primary-dark: #2093D5;
 	--bs-primary-light: #5BB3E6;
@@ -24,32 +24,32 @@ body {
 	--bs-primary-alt-light: #00CCBB;
 	--bs-secondary: #505860;
 	--bs-secondary-dark: #101820;
-	--bs-secondary-light: #9098a0;
-	--bs-shadow: #A8B8C825 0px 3px 9px 0px;
+	--bs-secondary-light: #9098A0;
+	--bs-shadow: 0px 3px 9px 0px #A8B8C825;
 	--bs-hover: #FCFCFC;
 }
 
 body.dark {
-	--bs-bg: #384068;
-	--bs-bg-dark: #586088;
-	--bs-bg-light: #283058;
+	--bs-bg: #404474;
+	--bs-bg-dark: #202844;
+	--bs-bg-light: #202844;
 	--bs-line: #7075A0;
 	--bs-line-light: #8085B0;
 	--bs-menu: #D0D8F0;
-	--bs-menu-bg: var(--bs-primary, #485080);
-	--bs-menu-alt: #707880;
-	--bs-menu-alt-bg: #6870A0;
-	--bs-primary: #485080;
-	--bs-primary-light: #515b90;
-	--bs-primary-dark: #3e466f;
-	--bs-primary-alt: #6870A0;
-	--bs-primary-alt-light: #7880B0;
-	--bs-primary-alt-dark: #586090;
-	--bs-secondary: #D0D8F0;
-	--bs-secondary-dark: #C0C8E0;
-	--bs-secondary-light: #E0E8FF;
-	--bs-shadow: #A8B8C825 0px 3px 9px 0px;
-	--bs-hover: #404570;
+	--bs-menu-bg: #404474;
+	--bs-menu-alt: #D0D8F0;
+	--bs-menu-alt-bg: #202844;
+	--bs-primary: #404474;
+	--bs-primary-light: #B4B8FF60;
+	--bs-primary-dark: #04082040;
+	--bs-primary-alt: #404474;
+	--bs-primary-alt-light: #B4B8FF60;
+	--bs-primary-alt-dark: #04082040;
+	--bs-secondary: #C0D8E0;
+	--bs-secondary-dark: #FFFFFF;
+	--bs-secondary-light: #A0A8C0;
+	--bs-shadow:  0px 5px 9px 0px #00000060;
+	--bs-hover: #04082040;
 }
 
 body.dark img {
@@ -84,7 +84,8 @@ html {
 }
 
 body {
-	background: linear-gradient(90deg, var(--bs-bg, #f8fafc) 15%, var(--bs-bg-dark, #f4f8fb));
+	background: radial-gradient(farthest-side ellipse at max(15%, 12rem) 0,var(--bs-bg, #F8FAFC),var(--bs-bg-dark, #F4F8FB));
+	background-attachment: fixed;
 	color: var(--bs-secondary, #505860);
 }
 
