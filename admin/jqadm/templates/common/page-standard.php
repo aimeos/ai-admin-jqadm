@@ -154,7 +154,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 
 					<li class="none"></li>
 					<li class="treeview menuitem-site <?= $before === null ? 'before' : '' ?>">
-						<a href="#">
+						<a class="item-group" href="#">
 							<i class="icon"></i>
 							<span class="title"><?= $enc->html( $this->site()->label() ) ?></span>
 						</a>
@@ -185,7 +185,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 					<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? current( $nav ) ?>
 
 						<li class="treeview menuitem-<?= $enc->attr( $nav ) ?> <?= $nav === $before ? 'before' : '' ?> <?= in_array( $resource, $navitem ) !== false ? 'active' : '' ?> <?= $nav === $after ? 'after' : '' ?>">
-							<span>
+							<span class="item-group">
 								<i class="icon"></i>
 								<span class="title"><?= $enc->attr( $this->translate( 'admin', $nav ) ) ?></span>
 							</span>
@@ -200,8 +200,8 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 										<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
 											<?php $key = $this->config( 'admin/jqadm/resource/' . $subresource . '/key' ) ?>
 
-											<li class="menuitem-<?= str_replace( '/', '-', $subresource ) ?>">
-												<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ) ?>"
+											<li class="menuitem-<?= str_replace( '/', '-', $subresource ) ?> <?= $subresource === $resource ? 'active' : '' ?>">
+												<a class="item-group" href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ) ?>"
 													title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $subresource ), $key ) ) ?>"
 													data-ctrlkey="<?= $enc->attr( strtolower( $key ) ) ?>">
 													<i class="icon"></i>
@@ -219,7 +219,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 						<?php $key = $this->config( 'admin/jqadm/resource/' . $navitem . '/key' ) ?>
 
 						<li class="menuitem-<?= $enc->attr( $navitem ) ?> <?= $navitem === $before ? 'before' : '' ?> <?= !strncmp( $resource, $navitem, strlen( $navitem ) ) ? 'active' : '' ?> <?= $navitem === $after ? 'after' : '' ?>">
-							<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $navitem ) + $params, [], $config ) ) ?>"
+							<a class="item-group" href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $navitem ) + $params, [], $config ) ) ?>"
 								title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $navitem ), $key ) ) ?>"
 								data-ctrlkey="<?= $enc->attr( strtolower( $key ) ) ?>">
 								<i class="icon"></i>
@@ -233,7 +233,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 				<?php if( $this->access( $this->config( 'admin/jqadm/resource/language/groups', [] ) ) ) : ?>
 
 					<li class="treeview menuitem-language <?= $after === null ? 'after' : '' ?>">
-						<span>
+						<span class="item-group">
 							<i class="icon"></i>
 							<span class="title"><?= $enc->attr( $this->translate( 'language', $this->param( 'locale', $this->translate( 'admin', 'Language' ) ) ) ) ?></span>
 						</span>
