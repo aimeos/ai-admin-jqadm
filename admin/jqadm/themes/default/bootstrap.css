@@ -36,7 +36,7 @@ textarea {
 }
 
 .modal-content {
-	background-color: var(--bs-bg, #fff);
+	background-color: var(--bs-bg-light, #ffffff);
 }
 
 .modal-body {
@@ -81,7 +81,7 @@ a, a:hover {
 	box-shadow: none;
 	background: transparent;
 	border: 1px solid transparent;
-	color: var(--bs-secondary, #505860) !important;
+	color: var(--bs-secondary, #505860);
 	cursor: pointer;
 }
 
@@ -257,7 +257,7 @@ td.is-invalid .form-control {
 
 .form-control:disabled,
 .form-control[readonly] {
-	background-color: var(--bs-bg, #f8fafc);
+	background-color: var(--bs-bg-dark, #F4F8FB);
 }
 
 .form-inline label {
