@@ -85,9 +85,7 @@ a, a:hover {
 	cursor: pointer;
 }
 
-.btn:hover,
-.btn:active,
-.btn:focus {
+.btn:hover, .btn:active, .btn:focus {
 	background-color: var(--bs-secondary, #707880);
 	color: var(--bs-bg-light, #ffffff);
 }
