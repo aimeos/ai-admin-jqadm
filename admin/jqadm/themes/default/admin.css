@@ -8,7 +8,7 @@
 	text-decoration: none;
 }
 
-.aimeos a:hover {
+.aimeos a:hover:not(.btn) {
 	text-decoration: underline;
 	text-decoration-skip-ink: all;
 }
@@ -182,7 +182,7 @@
 	background-color: var(--bs-primary-light, #5bb3e6);
 }
 
-.aimeos .list-items th a {
+.aimeos .list-items th a:not(.btn) {
 	color: var(--bs-menu, #ffffff);
 	white-space: nowrap;
 	font-weight: normal;
