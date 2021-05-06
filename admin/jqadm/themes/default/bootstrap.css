@@ -85,6 +85,13 @@ a, a:hover {
 	cursor: pointer;
 }
 
+.btn:hover,
+.btn:active,
+.btn:focus {
+	background-color: var(--bs-secondary, #707880);
+	color: var(--bs-bg-light, #ffffff);
+}
+
 .btn-primary {
 	border: 1px solid transparent;
 	background-color: var(--bs-primary-alt, #00b0a0);
