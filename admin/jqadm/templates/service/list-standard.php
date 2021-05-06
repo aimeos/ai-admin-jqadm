@@ -92,6 +92,7 @@ $columnList = [
 
 <div class="list-view"
 	data-domain="service"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/service/filter', [] ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
 	<nav class="main-navbar">

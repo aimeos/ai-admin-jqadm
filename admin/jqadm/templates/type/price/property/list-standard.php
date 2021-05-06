@@ -86,6 +86,7 @@ $columnList = [
 
 <div class="list-view"
 	data-domain="price/property/type"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/type/price/property/filter', [] ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
 	<nav class="main-navbar">

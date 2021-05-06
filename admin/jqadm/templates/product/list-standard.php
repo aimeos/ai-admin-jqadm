@@ -557,6 +557,7 @@ $columnList = [
 
 <div class="list-view"
 	data-domain="product"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/product/filter', [] ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
 	<nav class="main-navbar">

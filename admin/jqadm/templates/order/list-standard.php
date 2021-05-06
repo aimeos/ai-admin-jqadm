@@ -231,6 +231,7 @@ $statusList = [
 
 <div class="list-view"
 	data-domain="order"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/order/filter', [] ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
 	<nav class="main-navbar">

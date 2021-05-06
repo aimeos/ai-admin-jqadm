@@ -702,6 +702,7 @@ Aimeos.List = {
 				columns: false,
 				dialog: false,
 				items: {},
+				filter: {},
 				domain: null,
 				search: false,
 			}
@@ -710,6 +711,9 @@ Aimeos.List = {
 			if(this.$el.dataset) {
 				if(this.$el.dataset.items) {
 					this.items = JSON.parse(this.$el.dataset.items);
+				}
+				if(this.$el.dataset.filter) {
+					this.filter = JSON.parse(this.$el.dataset.filter);
 				}
 				if(this.$el.dataset.domain) {
 					this.domain = this.$el.dataset.domain;
@@ -732,7 +736,7 @@ Aimeos.List = {
 		methods: {
 			askDelete: function(id) {
 				if(id) {
-					this.reset(false);
+					this.clear(false);
 					this.$set(this.items[id], 'checked', true);
 				}
 
@@ -750,17 +754,26 @@ Aimeos.List = {
 				}
 
 				if(Object.keys(this.unconfirmed).length === 1) {
-					this.reset(false);
+					this.clear(false);
 				}
 
 				this.dialog = false;
 			},
 
-			reset: function(val) {
+			clear: function(val) {
 				this.all = val;
 				for(const key in this.items) {
 					this.$set(this.items[key], 'checked', val);
 				};
+			},
+
+			reset: function() {
+				if(this.filter['val'])
+				{
+					for(let idx of Object.keys(this.filter['val'])) {
+						this.$set(this.filter['val'], idx, '');
+					}
+				}
 			},
 
 			toggle: function(id) {
@@ -768,7 +781,11 @@ Aimeos.List = {
 			},
 
 			toggleAll: function() {
-				this.reset(this.all = !this.all);
+				this.clear(this.all = !this.all);
+			},
+
+			value: function(idx) {
+				return this.filter['val'] && this.filter['val'][idx] || null;
 			}
 		}
 	},
