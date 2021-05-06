@@ -702,7 +702,7 @@ Aimeos.List = {
 				columns: false,
 				dialog: false,
 				items: {},
-				filter: [],
+				filter: {},
 				domain: null,
 				search: false,
 			}
@@ -770,8 +770,8 @@ Aimeos.List = {
 			reset: function() {
 				if(this.filter['val'])
 				{
-					for(let idx = 0; idx < this.filter.length; idx++) {
-						this.filter['val'][idx] = '';
+					for(let idx of Object.keys(this.filter['val'])) {
+						this.$set(this.filter['val'], idx, '');
 					}
 				}
 			},
@@ -785,7 +785,7 @@ Aimeos.List = {
 			},
 
 			value: function(idx) {
-				return this.filter['val'] && this.filter['val'][idx] || '';
+				return this.filter['val'] && this.filter['val'][idx] || null;
 			}
 		}
 	},
