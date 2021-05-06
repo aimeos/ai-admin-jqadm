@@ -87,6 +87,7 @@ $columnList = [
 
 <div class="list-view"
 	data-domain="coupon"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/coupon/filter', [] ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
 	<nav class="main-navbar">

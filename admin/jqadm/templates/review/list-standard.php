@@ -90,6 +90,7 @@ $columnList = [
 
 <div class="list-view"
 	data-domain="review"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/review/filter', [] ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
 	<nav class="main-navbar">
