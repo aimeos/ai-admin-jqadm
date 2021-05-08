@@ -233,14 +233,31 @@ return [
 		 */
 		'key' => 'R',
 	],
+	'configuration' => [
+		/** admin/jqadm/resource/configuration/groups
+		 * List of user groups that are allowed to access the configuration menu
+		 *
+		 * @param array List of user group names
+		 * @since 2021.04
+		 */
+		'groups' => ['admin', 'editor', 'super'],
+	],
 	'settings' => [
 		/** admin/jqadm/resource/settings/groups
 		 * List of user groups that are allowed to access the settings submenu
 		 *
 		 * @param array List of user group names
-		 * @since 2021.04
+		 * @since 2021.07
 		 */
 		'groups' => ['admin', 'super'],
+
+		/** admin/jqadm/resource/settings/key
+		 * Shortcut key to switch to the rule panel by using the keyboard
+		 *
+		 * @param string Single character in upper case
+		 * @since 2021.04
+		 */
+		'key' => 'T',
 	],
 	'rule' => [
 		/** admin/jqadm/resource/rule/groups

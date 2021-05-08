@@ -27,8 +27,9 @@ return [
 	],
 	50 => [
 		'' => 'configuration',
-		10 => 'service',
-		20 => 'plugin',
+		10 => 'settings',
+		20 => 'service',
+		30 => 'plugin',
 	],
 	60 => [
 		'' => 'locale',
