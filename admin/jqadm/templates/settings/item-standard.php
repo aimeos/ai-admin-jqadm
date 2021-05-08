@@ -1,0 +1,137 @@
+<?php
+
+/**
+ * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
+ * @copyright Aimeos (aimeos.org), 2021
+ */
+
+$selected = function( $key, $code ) {
+	return ( $key == $code ? 'selected="selected"' : '' );
+};
+
+
+$enc = $this->encoder();
+
+$target = $this->config( 'admin/jqadm/url/save/target' );
+$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
+$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
+$config = $this->config( 'admin/jqadm/url/save/config', [] );
+
+$params = $this->get( 'pageParams', [] );
+
+
+?>
+<?php $this->block()->start( 'jqadm_content' ) ?>
+
+<form class="item item-settings form-horizontal container-fluid" method="POST" enctype="multipart/form-data"
+	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>"
+	data-data="<?= $enc->attr( $this->get( 'data', [] ) ) ?>" >
+
+	<?= $this->csrf()->formfield() ?>
+
+	<nav class="main-navbar">
+		<h1 class="navbar-brand">
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Settings' ) ) ?></span>
+			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/locale.site.label' ) ) ?></span>
+		</h1>
+		<div class="item-actions">
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ) ?>
+		</div>
+	</nav>
+
+	<div class="row item-container">
+
+		<div class="col-lg-9 settings-content">
+			<div class="row">
+
+				<div class="col-xl-12 item-navbar">
+					<div class="navbar-content">
+						<ul class="nav nav-tabs flex-row flex-wrap d-flex box" role="tablist">
+							<li class="nav-item basic">
+								<a class="nav-link active" href="#basic" data-bs-toggle="tab" role="tab" aria-expanded="true" aria-controls="basic" tabindex="1">
+									<?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?>
+								</a>
+							</li>
+
+							<?php foreach( array_values( $this->get( 'itemSubparts', [] ) ) as $idx => $subpart ) : ?>
+								<li class="nav-item <?= $enc->attr( $subpart ) ?>">
+									<a class="nav-link" href="#<?= $enc->attr( $subpart ) ?>" data-bs-toggle="tab" role="tab" tabindex="<?= ++$idx + 1 ?>">
+										<?= $enc->html( $this->translate( 'admin', $subpart ) ) ?>
+									</a>
+								</li>
+							<?php endforeach ?>
+						</ul>
+
+						<div class="item-meta text-muted">
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Modified' ) ) ?>:
+								<span class="meta-value"><?= $enc->html( $this->get( 'itemData/locale.site.mtime' ) ) ?></span>
+							</small>
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>:
+								<span class="meta-value"><?= $enc->html( $this->get( 'itemData/locale.site.ctime' ) ) ?></span>
+							</small>
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>:
+								<span class="meta-value"><?= $enc->html( $this->get( 'itemData/locale.site.editor' ) ) ?></span>
+							</small>
+						</div>
+
+						<div class="more"></div>
+					</div>
+				</div>
+
+				<div class="col-xl-12 item-content tab-content">
+
+					<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+
+						<div class="box">
+							<div class="row">
+								<div class="col-xl-6">
+									<div class="form-group row mandatory">
+										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ) ?></label>
+										<div class="col-sm-8">
+											<input class="form-control item-email-address" type="text" required="required" tabindex="1"
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'resource', 'email', 'from-email' ) ) ) ?>"
+												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop e-mail address (required)' ) ) ?>"
+												value="<?= $enc->attr( $this->get( 'itemData/resource/email/from-email' ) ) ?>" />
+										</div>
+										<div class="col-sm-12 form-text text-muted help-text">
+											<?= $enc->html( $this->translate( 'admin', 'E-Mail address used for sending shop related e-mails' ) ) ?>
+										</div>
+									</div>
+									<div class="form-group row mandatory">
+										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></label>
+										<div class="col-sm-8">
+											<input class="form-control item-email-name" type="text" required="required" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'resource', 'email', 'from-name' ) ) ) ?>"
+												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop name (required)' ) ) ?>"
+												value="<?= $enc->attr( $this->get( 'itemData/resource/email/from-name' ) ) ?>" />
+										</div>
+										<div class="col-sm-12 form-text text-muted help-text">
+											<?= $enc->html( $this->translate( 'admin', 'Shop name used for sending shop related e-mails' ) ) ?>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<?= $this->get( 'itemBody' ) ?>
+
+				</div>
+
+				<div class="item-actions">
+					<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions-standard' ), ['params' => $params] ) ?>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</form>
+
+<?php $this->block()->stop() ?>
+
+
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page-standard' ) ) ?>
