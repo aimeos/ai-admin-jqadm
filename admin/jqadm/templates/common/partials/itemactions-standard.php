@@ -10,6 +10,7 @@
  *
  * Available data:
  * - params: Associative list of current parameters
+ * - actions: List of possible save actions (e.g. "search", "copy", "create")
  */
 
 $listTarget = $this->config( 'admin/jqadm/url/search/target' );
@@ -17,6 +18,7 @@ $listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 $listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
 $listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
 
+$actions = $this->get( 'actions', ['search', 'copy', 'create'] );
 $params = $this->get( 'params', [] );
 unset( $params['id'] );
 
@@ -39,13 +41,21 @@ $enc = $this->encoder();
 		title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ) ?>">
 		<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 	</button>
-	<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false">
-		<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ) ?></span>
-	</button>
-	<ul class="dropdown-menu dropdown-menu-end">
-		<li class="dropdown-item"><a class="next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ) ?></a></li>
-		<li class="dropdown-item"><a class="next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ) ?></a></li>
-		<li class="dropdown-item"><a class="next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ) ?></a></li>
-	</ul>
+	<?php if( !empty( $actions ) ) : ?>
+		<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+			aria-haspopup="true" aria-expanded="false">
+			<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ) ?></span>
+		</button>
+		<ul class="dropdown-menu dropdown-menu-end">
+			<?php if( in_array( 'search', $actions ) ) : ?>
+				<li class="dropdown-item"><a class="next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ) ?></a></li>
+			<?php endif ?>
+			<?php if( in_array( 'copy', $actions ) ) : ?>
+				<li class="dropdown-item"><a class="next-action" href="#" data-next="copy"><?= $enc->html( $this->translate( 'admin', 'Save & Copy' ) ) ?></a></li>
+			<?php endif ?>
+			<?php if( in_array( 'create', $actions ) ) : ?>
+				<li class="dropdown-item"><a class="next-action" href="#" data-next="create"><?= $enc->html( $this->translate( 'admin', 'Save & New' ) ) ?></a></li>
+			<?php endif ?>
+		</ul>
+	<?php endif ?>
 </div>
