@@ -44,8 +44,9 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->getView();
+		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
+		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$manager->begin();
 
 		try
@@ -56,7 +57,16 @@ class Standard
 			$manager->save( clone $view->item );
 			$manager->commit();
 
-			return $this->redirect( 'settings', 'search', null, 'save' );
+			$params = $this->getClientParams();
+			$params['site'] = $view->item->getCode();
+
+			$view->response()->withStatus( 302 )
+				->withHeader( 'Cache-Control', 'no-store' )
+				->withHeader( 'Location', $view->link( 'admin/jqadm/url/search', $params ) );
+
+			$context->getSession()->set( 'info', [$context->getI18n()->dt( 'admin', 'Item saved successfully' )] );
+
+			return null;
 		}
 		catch( \Exception $e )
 		{
@@ -79,7 +89,7 @@ class Standard
 
 		try
 		{
-			$view->item = $this->getContext()->getLocale()->getSiteItem();
+			$view->itemData = $this->toArray( $this->getContext()->getLocale()->getSiteItem() );
 			$view->itemBody = parent::search();
 		}
 		catch( \Exception $e )
@@ -229,7 +239,13 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
-		return $this->getContext()->getLocale()->getSiteItem()->setConfig( $data );
+		$config = $data['locale.site.config'] ?? [];
+		$config['resource']['email']['email-name'] = $data['locale.site.label'];
+
+		return $this->getContext()->getLocale()->getSiteItem()
+			->setLabel( $data['locale.site.label'] )
+			->setCode( $data['locale.site.code'] )
+			->setConfig( $config );
 	}
 
 
@@ -241,7 +257,14 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Locale\Item\Site\Iface $item, bool $copy = false ) : array
 	{
-		return $item->getConfig();
+		return [
+			'locale.site.code' => $item->getCode(),
+			'locale.site.label' => $item->getLabel(),
+			'locale.site.config' => $item->getConfig(),
+			'locale.site.ctime' => $item->getTimeCreated(),
+			'locale.site.mtime' => $item->getTimeModified(),
+			'locale.site.editor' => $item->getEditor(),
+		];
 	}
 
 

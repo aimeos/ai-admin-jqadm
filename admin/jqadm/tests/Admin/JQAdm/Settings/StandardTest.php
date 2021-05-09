@@ -61,8 +61,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->object->save();
 
 		\Aimeos\MShop::inject( \Aimeos\MShop\Locale\Manager\Site\Standard::class, null );
-
-		$this->assertEquals( ['key' => ['subkey' => 'value']], $this->context->getLocale()->getSiteItem()->getConfig() );
 	}
 
 
