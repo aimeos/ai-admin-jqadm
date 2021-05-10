@@ -217,6 +217,10 @@ body {
 	padding: 1rem;
 }
 
+.aimeos .col-xl-6 > .box {
+	min-height: calc(100% - 1rem);
+}
+
 .aimeos .card.sortable-ghost,
 .aimeos tr.sortable-ghost {
 	opacity: 0;

@@ -82,9 +82,28 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box">
-					<div class="row">
-						<div class="col-xl-6">
+				<div class="row">
+					<div class="col-xl-6 item-media">
+						<div class="box">
+
+							<div class="form-group media-preview">
+								<input class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
+									name="media[file]" />
+								<?php if( $logos = $this->get( 'itemData/locale.site.logo' ) ) : ?>
+									<img class="item-preview"
+										src="<?= $enc->attr( $this->content( end( $logos ) ) ) ?>" />
+								<?php else : ?>
+									<p class="item-preview">
+										<?= $enc->html( $this->translate( 'admin', 'Upload shop logo' ) ) ?>
+									</p>
+								<?php endif ?>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-xl-6">
+						<div class="box">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop name' ) ) ?></label>
 								<div class="col-sm-8">
@@ -97,8 +116,6 @@ $params = $this->get( 'pageParams', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Name of your shop shown to your customers' ) ) ?>
 								</div>
 							</div>
-						</div>
-						<div class="col-xl-6">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop e-mail' ) ) ?></label>
 								<div class="col-sm-8">
@@ -114,26 +131,27 @@ $params = $this->get( 'pageParams', [] );
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="box">
-				<div class="row">
-					<div class="col-xl-6">
-						<div class="form-group row mandatory warning">
-							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop domain' ) ) ?></label>
-							<div class="col-sm-8">
-								<input class="form-control item-code" type="text" required="required" tabindex="1"
-									pattern="^[a-z0-9\-]+(\.[a-z0-9]+)*$"
-									name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.code' ) ) ) ?>"
-									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop domain (required)' ) ) ?>"
-									value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ) ?>" />
-							</div>
-							<div class="col-sm-12 form-text text-muted help-text">
-								<?= $enc->html( $this->translate( 'admin', 'Custom domain or unique code of your shop' ) ) ?>
+				<div class="box">
+					<div class="row">
+						<div class="col-xl-6">
+							<div class="form-group row mandatory warning">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop domain' ) ) ?></label>
+								<div class="col-sm-8">
+									<input class="form-control item-code" type="text" required="required" tabindex="1"
+										pattern="^[a-z0-9\-]+(\.[a-z0-9]+)*$"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.code' ) ) ) ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop domain (required)' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ) ?>" />
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Custom domain or unique code of your shop' ) ) ?>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
 			</div>
 
 			<?= $this->get( 'itemBody' ) ?>

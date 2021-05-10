@@ -57,14 +57,20 @@ class Standard
 			$manager->save( clone $view->item );
 			$manager->commit();
 
+			$target = $view->config( 'admin/jqadm/url/search/target' );
+			$cntl = $view->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
+			$action = $view->config( 'admin/jqadm/url/search/action', 'search' );
+			$conf = $view->config( 'admin/jqadm/url/search/config', [] );
+
 			$params = $this->getClientParams();
 			$params['site'] = $view->item->getCode();
-
-			$view->response()->withStatus( 302 )
-				->withHeader( 'Cache-Control', 'no-store' )
-				->withHeader( 'Location', $view->link( 'admin/jqadm/url/search', $params ) );
+			$url = $view->url( $target, $cntl, $action, $params, [], $conf );
 
 			$context->getSession()->set( 'info', [$context->getI18n()->dt( 'admin', 'Item saved successfully' )] );
+
+			$view->response()->withStatus( 302 );
+			$view->response()->withHeader( 'Location', $url );
+			$view->response()->withHeader( 'Cache-Control', 'no-store' );
 
 			return null;
 		}
@@ -239,13 +245,49 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
+		$context = $this->getContext();
+		$locale = $context->getLocale();
+		$cfg = $context->getConfig();
+
+		$item = $locale->getSiteItem();
+		$siteId = $locale->getSiteId();
+
 		$config = $data['locale.site.config'] ?? [];
 		$config['resource']['email']['email-name'] = $data['locale.site.label'];
 
-		return $this->getContext()->getLocale()->getSiteItem()
+		$files = (array) $this->getView()->request()->getUploadedFiles();
+		$file = $this->getValue( $files, 'media/file' );
+
+		if( $file && $file->getError() === UPLOAD_ERR_OK )
+		{
+			$options = $context->getConfig()->get( 'controller/common/media/options', [] );
+			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
+			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
+			$filepaths = [];
+
+			if( !in_array( $image->getMimetype(), ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'] ) )
+			{
+				$msg = $context->dt( 'admin', 'Only .jpg, .png, .gif or .svg are allowed for logos' );
+				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
+			}
+
+			foreach( $cfg->get( 'admin/jqadm/settings/logo-size', ['maxwidth' => null, 'maxheight' => null] ) as $size )
+			{
+				$w = $size['maxwidth'] ?? null;
+				$h = $size['maxheight'] ?? null;
+
+				$filepath = 'aimeos/' . $siteId . '/logo' . $w . '.' . $ext;
+				$context->getFilesystemManager()->get( 'fs-media' )->write( $filepath, $image->scale( $w, $h )->save() );
+				$filepaths[] = $filepath;
+			}
+
+
+			$item->setLogos( $filepaths );
+		}
+
+		return $item->setConfig( $config )
 			->setLabel( $data['locale.site.label'] )
-			->setCode( $data['locale.site.code'] )
-			->setConfig( $config );
+			->setCode( $data['locale.site.code'] );
 	}
 
 
@@ -259,8 +301,10 @@ class Standard
 	{
 		return [
 			'locale.site.code' => $item->getCode(),
+			'locale.site.logo' => $item->getLogos(),
 			'locale.site.label' => $item->getLabel(),
 			'locale.site.config' => $item->getConfig(),
+			'locale.site.supplierid' => $item->getSupplierId(),
 			'locale.site.ctime' => $item->getTimeCreated(),
 			'locale.site.mtime' => $item->getTimeModified(),
 			'locale.site.editor' => $item->getEditor(),
