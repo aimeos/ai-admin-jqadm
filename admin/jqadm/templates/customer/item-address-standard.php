@@ -215,7 +215,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?></label>
 								<div class="col-sm-8">
-									<select is="combo-box" class="form-control c-select item-countryid" required="required"
+									<select is="combo-box" class="form-select c-select item-countryid" required="required"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.countryid' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"

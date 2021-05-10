@@ -318,11 +318,11 @@ $enc = $this->encoder();
 												</table>
 											</div>
 
-											<select class="config-value form-control config-type config-type-select" tabindex="1" disabled="disabled"
+											<select class="config-value form-select config-type config-type-select" tabindex="1" disabled="disabled"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" >
 											</select>
 
-											<select class="config-value form-control config-type config-type-boolean" tabindex="1" disabled="disabled"
+											<select class="config-value form-select config-type config-type-boolean" tabindex="1" disabled="disabled"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" >
 												<option value=""></option>
 												<option value="0"><?= $enc->html( $this->translate( 'client', 'no' ) ) ?></option>
