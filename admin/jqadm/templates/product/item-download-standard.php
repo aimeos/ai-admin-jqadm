@@ -32,7 +32,7 @@ $enc = $this->encoder();
 				<div class="form-group row optional">
 					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 					<div class="col-sm-8">
-						<select class="form-control form-select item-status" tabindex="<?= $this->get( 'tabindex' ) ?>"
+						<select class="form-select item-status" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.status' ) ) ) ?>"
 							<?= $this->site()->readonly( $this->get( 'downloadData/attribute.siteid', $this->pageSiteItem->getId() ) ) ?> >
 							<option value="1" <?= $selected( $this->get( 'downloadData/attribute.status', 1 ), 1 ) ?> >

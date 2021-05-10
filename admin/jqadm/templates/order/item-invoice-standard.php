@@ -165,7 +165,7 @@ $statusList = [
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
-										<select class="form-control form-select order-type" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										<select class="form-select order-type" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.type', '' ) ) ) ?>" disabled="disabled">
 											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 
@@ -191,7 +191,7 @@ $statusList = [
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Payment status' ) ) ?></label>
 									<div class="col-sm-8">
-										<select class="form-control form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										<select class="form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ) ?>" disabled="disabled">
 											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 											<?php foreach( $paymentStatusList as $code => $label ) : ?>
@@ -218,7 +218,7 @@ $statusList = [
 								<div class="form-group row optional">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Delivery status' ) ) ?></label>
 									<div class="col-sm-8">
-										<select class="form-control form-select order-statusdelivery" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										<select class="form-select order-statusdelivery" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ) ?>" disabled="disabled">
 											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 											<?php foreach( $statusList as $code => $label ) : ?>
@@ -265,7 +265,7 @@ $statusList = [
 						<?php endif ?>
 						<?php if( in_array( 'order.type', $fields ) ) : ?>
 							<td class="order-type">
-								<select class="form-control form-select order-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<select class="form-select order-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.type', '' ) ) ) ?>"
 									value="<?= $enc->attr( $this->get( 'invoiceData/order.type/' . $idx ) ) ?>" disabled="disabled" />
 									<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
@@ -288,7 +288,7 @@ $statusList = [
 						<?php endif ?>
 						<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 							<td class="order-statuspayment">
-								<select class="form-control form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<select class="form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ) ?>"
 									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" >
 									<option value="">
@@ -312,7 +312,7 @@ $statusList = [
 						<?php endif ?>
 						<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
 							<td class="order-statusdelivery">
-								<select class="form-control form-select order-statusdelivery" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<select class="form-select order-statusdelivery" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ) ?>"
 									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" >
 									<option value="">
