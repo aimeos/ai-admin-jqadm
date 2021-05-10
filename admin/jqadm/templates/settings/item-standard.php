@@ -139,7 +139,7 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop domain' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-code" type="text" required="required" tabindex="1"
-										pattern="^[a-z0-9\-]+(\.[a-z0-9]+)*$"
+										pattern="^[a-z0-9\-]+(\.[a-z0-9\-]+)*$"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop domain (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ) ?>" />
