@@ -76,7 +76,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
-									<select class="form-control form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<select class="form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.status' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:readonly="checkSite('product.siteid', idx)"
 										v-model="item['product.status']" >
@@ -99,7 +99,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
-										<select is="select-component" class="form-control form-select item-type" required
+										<select is="select-component" class="form-select item-type" required
 											v-bind:readonly="checkSite('product.siteid', idx)"
 											v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>`.replace('idx', idx)"
@@ -203,7 +203,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											<input class="item-attr-label" type="hidden" v-model="attr['attribute.label']"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.label'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)" />
 
-											<select is="combo-box" class="form-control form-select item-attr-refid"
+											<select is="combo-box" class="form-select item-attr-refid"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)"
 												v-bind:readonly="checkSite('product.lists.siteid', idx, attridx) || attr['product.lists.id'] != ''"
 												v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"

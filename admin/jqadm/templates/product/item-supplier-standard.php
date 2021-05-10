@@ -59,7 +59,7 @@ $keys = [
 								<input class="item-label" type="hidden" v-model="item['supplier.label']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'default-idx', 'supplier.label'] ) ) ?>`.replace( 'idx', idx )" />
 
-								<select is="combo-box" class="form-control form-select item-id"
+								<select is="combo-box" class="form-select item-id"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'default-idx', 'supplier.id'] ) ) ?>`.replace( 'idx', idx )"
 									v-bind:readonly="checkSite(idx) || item['supplier.lists.id'] != ''"
 									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
@@ -126,7 +126,7 @@ $keys = [
 								<input class="item-label" type="hidden" v-model="item['supplier.label']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'promotion-idx', 'supplier.label'] ) ) ?>`.replace( 'idx', idx )" />
 
-								<select is="combo-box" class="form-control form-select item-id"
+								<select is="combo-box" class="form-select item-id"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'promotion-idx', 'supplier.id'] ) ) ?>`.replace( 'idx', idx )"
 									v-bind:readonly="checkSite(idx) || item['supplier.lists.id'] != ''"
 									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"

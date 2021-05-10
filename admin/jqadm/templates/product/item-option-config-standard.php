@@ -61,7 +61,7 @@ $keys = [
 				<tr v-for="(item, idx) in items" v-bind:key="idx"
 					v-bind:class="item['product.lists.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>` ? 'readonly' : ''">
 					<td v-bind:class="item['css'] || ''">
-						<select is="combo-box" class="form-control form-select item-type"
+						<select is="combo-box" class="form-select item-type"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'config', 'idx', 'attribute.type'] ) ) ?>`.replace( 'idx', idx )"
 							v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
@@ -80,7 +80,7 @@ $keys = [
 						<input class="item-label" type="hidden" v-model="item['attribute.label']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'config', 'idx', 'attribute.label'] ) ) ?>`.replace( 'idx', idx )" />
 
-						<select is="combo-box" class="form-control form-select item-refid"
+						<select is="combo-box" class="form-select item-refid"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'config', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )"
 							v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"

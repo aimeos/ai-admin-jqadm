@@ -60,7 +60,7 @@ $enc = $this->encoder();
 								<div class="form-group row optional">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
 									<div class="col-sm-8">
-										<select class="form-control form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										<select class="form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.languageid' ) ) ) ?>`.replace('idx', idx)"
 											v-bind:readonly="entry['supplier.address.siteid'] != siteid"
 											v-model="entry['supplier.address.languageid']" >
@@ -85,7 +85,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ) ?></label>
 								<div class="col-sm-8">
-									<select class="form-control form-select item-salutation" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<select class="form-select item-salutation" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.salutation' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
 										v-model="entry['supplier.address.salutation']" >

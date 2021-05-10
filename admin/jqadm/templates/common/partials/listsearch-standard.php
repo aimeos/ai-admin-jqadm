@@ -47,7 +47,7 @@ $enc = $this->encoder();
 						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ) ?>" />
 
 					<?php if( $type === 'select' ) : ?>
-						<select class="form-control form-select" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+						<select class="form-select" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
 							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)">
 							<option value=""><?= $enc->attr( $this->translate( 'admin', 'All' ) ) ?></option>
