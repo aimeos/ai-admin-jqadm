@@ -45,9 +45,9 @@ body.dark {
 	--bs-primary-alt: #404474;
 	--bs-primary-alt-light: #B4B8FF60;
 	--bs-primary-alt-dark: #04082040;
-	--bs-secondary: #B0C8D0;
+	--bs-secondary: #D0D8F0;
 	--bs-secondary-dark: #FFFFFF;
-	--bs-secondary-light: #8088A0;
+	--bs-secondary-light: #B0C8D0;
 	--bs-shadow:  0px 5px 9px 0px #00000060;
 	--bs-hover: #04082040;
 }
@@ -605,21 +605,25 @@ body {
 
 /* 3rd party flatpickr component */
 
+span.flatpickr-weekday,
 .flatpickr-calendar,
 .flatpickr-months .flatpickr-month,
 .flatpickr-current-month .flatpickr-monthDropdown-months,
 .flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month,
 .flatpickr-time .flatpickr-am-pm:focus,
-span.flatpickr-weekday {
-	background-color: var(--bs-bg-light, #FFFFFF);
-	color: var(--bs-secondary, #505860);
-}
-
 .flatpickr-day,
 .flatpickr-time input,
 .flatpickr-time .flatpickr-time-separator,
 .flatpickr-time .flatpickr-am-pm {
 	color: var(--bs-secondary, #505860);
+	background-color: var(--bs-bg-light, #FFFFFF);
+}
+
+.flatpickr-time input:hover,
+.flatpickr-time .flatpickr-am-pm:hover,
+.flatpickr-time input:focus,
+.flatpickr-time .flatpickr-am-pm:focus {
+	color: var(--bs-secondary-dark, #101820);
 	background-color: var(--bs-bg-light, #FFFFFF);
 }
 
