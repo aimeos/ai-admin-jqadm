@@ -93,7 +93,7 @@ $params = $this->get( 'pageParams', [] );
 
 				<div class="box">
 					<div class="row">
-						<div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ?>">
+						<div class="col-xl-6 vue <?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
@@ -276,11 +276,11 @@ $params = $this->get( 'pageParams', [] );
 												</table>
 											</div>
 
-											<select class="config-value form-select config-type config-type-select" tabindex="1" disabled="disabled"
+											<select class="config-value form-control config-type config-type-select" tabindex="1" disabled="disabled"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" >
 											</select>
 
-											<select class="config-value form-select config-type config-type-boolean" tabindex="1" disabled="disabled"
+											<select class="config-value form-control config-type config-type-boolean" tabindex="1" disabled="disabled"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" >
 												<option value=""></option>
 												<option value="0"><?= $enc->html( $this->translate( 'client', 'no' ) ) ?></option>
