@@ -169,7 +169,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reviewed item' ) ) ?></label>
 									<div class="col-sm-8">
 										<span class="form-control item-refid">
-											<a class="act-view" target="_blank"
+											<a class="btn fa act-view" target="_blank"
 												href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => $this->item->getDomain(), 'id' => $this->item->getRefId()], [], $getConfig ) ) ?>">
 												<?= $enc->html( $this->item->getDomain() ) ?>: <?= $enc->html( $this->item->getRefId() ) ?>
 											</a>

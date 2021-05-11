@@ -40,14 +40,14 @@ body.dark {
 	--bs-menu-alt: #D0D8F0;
 	--bs-menu-alt-bg: #202844;
 	--bs-primary: #404474;
-	--bs-primary-light: #B4B8FF60;
-	--bs-primary-dark: #04082040;
+	--bs-primary-light: #58608B;
+	--bs-primary-dark: #202844;
 	--bs-primary-alt: #404474;
-	--bs-primary-alt-light: #B4B8FF60;
-	--bs-primary-alt-dark: #04082040;
+	--bs-primary-alt-light: #58608B;
+	--bs-primary-alt-dark: #202844;
 	--bs-secondary: #D0D8F0;
 	--bs-secondary-dark: #FFFFFF;
-	--bs-secondary-light: #B0C8D0;
+	--bs-secondary-light: #90A8C0;
 	--bs-shadow:  0px 5px 9px 0px #00000060;
 	--bs-hover: #04082040;
 }
@@ -363,10 +363,6 @@ body {
 .aimeos .btn.act-view.fa:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	content: "\f06e";
-}
-
-.dark a.act-view, .dark a.act-view:hover {
-	filter: brightness(1.75);
 }
 
 .aimeos .card-tools-start,
