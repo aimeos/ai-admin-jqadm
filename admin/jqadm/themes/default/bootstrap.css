@@ -74,7 +74,7 @@ textarea {
 }
 
 a, a:hover {
-	color: var(--bs-primary-dark, #2093d5);
+	color: var(--bs-primary-light, #2093d5);
 }
 
 .btn {
@@ -261,8 +261,10 @@ td.is-invalid .form-control {
 }
 
 .form-control:disabled,
+.form-control:read-only,
 .form-control[readonly] {
-	background-color: var(--bs-bg-dark, #F4F8FB);
+	background-color: var(--bs-bg-light, #FFFFFF);
+	color: var(--bs-secondary, #505860);
 }
 
 .form-inline label {

@@ -179,7 +179,7 @@
 }
 
 .aimeos .list-items th.actions {
-	background-color: var(--bs-primary-light, #5bb3e6);
+	background-color: var(--bs-primary-light, #5BB3E6);
 }
 
 .aimeos .list-items th a:not(.btn) {
@@ -507,11 +507,6 @@
 
 .aimeos .item-order span.form-control:not(.ai-combobox) {
 	border-color: transparent;
-}
-
-.aimeos .item-order .item-customerid a.act-view:after {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: " \f06e";
 }
 
 .aimeos .item-order .item-product-list th.item-column,
