@@ -47,10 +47,10 @@
 			"text": "axios.js",
 			"path": "themes/"
 		},{
-			"text": "admin.js",
+			"text": "vue-components.js",
 			"path": "themes/"
 		},{
-			"text": "vue-components.js",
+			"text": "admin.js",
 			"path": "themes/"
 		},{
 			"text": "admin-aux.js",
