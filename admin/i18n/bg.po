@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-03-10 10:01+0000\n"
-"Last-Translator: Bistra Kumanova <b.kumanova@creato.bg>\n"
+"POT-Creation-Date: 2021-04-21 11:32+0200\n"
+"PO-Revision-Date: 2021-04-21 09:34+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,8 +19,29 @@ msgstr ""
 "Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 #, php-format
 msgid "%1$d/%2$d"
+msgstr ""
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
 msgstr ""
 
 #, php-format
@@ -154,6 +175,9 @@ msgstr "Позволи на купувачите да изберат сами к
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
+msgid "Apply"
+msgstr ""
+
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
@@ -199,6 +223,11 @@ msgid "Available intervals in the front-end"
 msgstr ""
 
 msgid "Available language for the current site"
+msgstr ""
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
 msgstr ""
 
 msgid "Back in stock"
@@ -294,6 +323,13 @@ msgstr "Данни за компанията"
 
 msgid "Company name (optional)"
 msgstr "Компания (опция)"
+
+msgid "Completed orders"
+msgstr ""
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid "Config"
 msgstr ""
@@ -397,6 +433,9 @@ msgstr ""
 msgid "Data set"
 msgstr ""
 
+msgid "Dataset"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr "Датата на статуса на последната доставка е променена"
 
@@ -430,12 +469,18 @@ msgstr "Доставка"
 msgid "Delivery address"
 msgstr "Адрес на доставка"
 
+msgid "Delivery in"
+msgstr ""
+
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
 msgstr ""
 
 msgid "Delivery status"
 msgstr "Статус на доставка"
+
+msgid "Delivery timeframe (optional)"
+msgstr ""
 
 msgid "Delivery types"
 msgstr ""
@@ -520,6 +565,9 @@ msgstr ""
 msgid "Execution order of the plugins"
 msgstr ""
 
+msgid "Execution order of the rules"
+msgstr ""
+
 msgid "Export"
 msgstr "Експорт"
 
@@ -536,6 +584,9 @@ msgid "File"
 msgstr "Файл"
 
 msgid "Find category"
+msgstr ""
+
+msgid "Find site"
 msgstr ""
 
 msgid "First"
@@ -712,6 +763,11 @@ msgstr ""
 msgid "Item saved successfully"
 msgstr ""
 
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr ""
+
 msgid "Label"
 msgstr "Етикет"
 
@@ -741,6 +797,9 @@ msgstr ""
 
 msgid "Last name"
 msgstr "Фамилия"
+
+msgid "Last name (optional)"
+msgstr ""
 
 msgid "Last name (required)"
 msgstr "Фамилия (задължително)"
@@ -843,6 +902,12 @@ msgstr ""
 msgid "New"
 msgstr ""
 
+msgid "New customers"
+msgstr ""
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr ""
+
 msgid "Next"
 msgstr "Следващ"
 
@@ -922,6 +987,9 @@ msgid "Order of the types in the frontend"
 msgstr ""
 
 msgid "Order totals"
+msgstr ""
+
+msgid "Orders by country"
 msgstr ""
 
 msgid "Orders by day"
@@ -1254,6 +1322,24 @@ msgstr ""
 msgid "Route or page ID (optional)"
 msgstr ""
 
+msgid "Rule"
+msgstr ""
+
+msgid "Rule Type"
+msgstr ""
+
+msgid "Rule Types"
+msgstr ""
+
+msgid "Rule label for describing the configured rule"
+msgstr ""
+
+msgid "Rule position (required)"
+msgstr ""
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr ""
+
 msgid "SKU"
 msgstr ""
 
@@ -1337,6 +1423,9 @@ msgstr ""
 
 msgid "Shipping"
 msgstr "Доставка"
+
+msgid "Shipping / Payment costs"
+msgstr ""
 
 msgid "Shipping costs/item"
 msgstr ""
@@ -1522,6 +1611,12 @@ msgstr ""
 msgid "The option is only shown on the web site until that date and time"
 msgstr ""
 
+msgid "The rule is only used after that date and time"
+msgstr ""
+
+msgid "The rule is only used until that date and time"
+msgstr ""
+
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
@@ -1542,8 +1637,20 @@ msgstr "Заглавие"
 msgid "Toggle dropdown"
 msgstr ""
 
+msgid "Top countries"
+msgstr ""
+
 msgid "Total"
 msgstr "Общо"
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Total ratings"
+msgstr ""
 
 msgid "Translate text"
 msgstr ""
@@ -1584,6 +1691,13 @@ msgstr ""
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Невъзможно е да се извика метод \"%1$s\""
+
+msgid "Unfinished orders"
+msgstr ""
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1735,6 +1849,14 @@ msgstr "Кодове"
 
 msgid "company"
 msgstr "Компания"
+
+#, php-format
+msgid "configuration"
+msgstr ""
+
+#, php-format
+msgid "countcountry"
+msgstr ""
 
 #, php-format
 msgid "countday"
@@ -1914,6 +2036,22 @@ msgstr "Продукти"
 msgid "property"
 msgstr "Свойства"
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr ""
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr ""
+
+#, php-format
+msgid "quick/counttotal"
+msgstr ""
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr ""
+
 msgid "reason:-1"
 msgstr ""
 
@@ -1929,6 +2067,10 @@ msgstr "Продукти"
 
 #, php-format
 msgid "review"
+msgstr ""
+
+#, php-format
+msgid "rule"
 msgstr ""
 
 #, php-format
@@ -1991,16 +2133,16 @@ msgid "stat:7"
 msgstr "върнат"
 
 msgid "status:-1"
-msgstr "статус:архив"
+msgstr ""
 
 msgid "status:-2"
-msgstr "статус:преглед"
+msgstr ""
 
 msgid "status:0"
-msgstr "статус:деактивиран"
+msgstr ""
 
 msgid "status:1"
-msgstr "статус:активиран"
+msgstr ""
 
 #, php-format
 msgid "stock"
@@ -2087,6 +2229,10 @@ msgstr ""
 
 #, php-format
 msgid "type/product/property"
+msgstr ""
+
+#, php-format
+msgid "type/rule"
 msgstr ""
 
 #, php-format

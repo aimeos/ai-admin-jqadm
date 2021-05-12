@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-03-10 10:01+0000\n"
+"POT-Creation-Date: 2021-04-21 11:32+0200\n"
+"PO-Revision-Date: 2021-05-08 07:54+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -22,9 +22,30 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr "  "
+
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
+msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -157,6 +178,9 @@ msgstr "Kunden können selbst entscheiden, wieviel sie bezahlen möchten"
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Zeichenkette, die die Gruppe eindeutig identifiziert"
 
+msgid "Apply"
+msgstr "Anwenden"
+
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
@@ -203,6 +227,11 @@ msgstr "Verfügbare Intervalle im Frontend"
 
 msgid "Available language for the current site"
 msgstr "Verfügbare Sprache für den aktuellen Mandanten"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr "Durchschnittliche Produktbewertung und gesamte Anzahl der Kundenbewertungen für diese Produkt"
 
 msgid "Back in stock"
 msgstr "Wieder vorrätig am"
@@ -297,6 +326,13 @@ msgstr "Firmendetails"
 
 msgid "Company name (optional)"
 msgstr "Firmenname (optional)"
+
+msgid "Completed orders"
+msgstr "Erfolgreiche Bestellungen"
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr "Abgeschlossene Bestellungen innerhalb der letzten sieben Tage verglichen mit dem Zeitraum davor"
 
 msgid "Config"
 msgstr "Konfiguration"
@@ -400,6 +436,9 @@ msgstr "Übersicht"
 msgid "Data set"
 msgstr "Datensatz"
 
+msgid "Dataset"
+msgstr "Datensatz"
+
 msgid "Date of the last delivery status change"
 msgstr "Datum der letzten Änderung des Lieferstatus"
 
@@ -433,12 +472,18 @@ msgstr "Versand"
 msgid "Delivery address"
 msgstr "Lieferadresse"
 
+msgid "Delivery in"
+msgstr "Versand in"
+
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
 msgstr "Versand- oder Zahlungskosten für die Produkte im Warenkorb des Kunden"
 
 msgid "Delivery status"
 msgstr "Lieferstatus"
+
+msgid "Delivery timeframe (optional)"
+msgstr "Versandzeitraum (optional)"
 
 msgid "Delivery types"
 msgstr "Versandarten"
@@ -523,6 +568,9 @@ msgstr "Exkl. Steuer"
 msgid "Execution order of the plugins"
 msgstr "Ausführungsreihenfolge der Plugins"
 
+msgid "Execution order of the rules"
+msgstr "Ausführungsreihenfolge der Regeln"
+
 msgid "Export"
 msgstr "Exportieren"
 
@@ -540,6 +588,9 @@ msgstr "Datei"
 
 msgid "Find category"
 msgstr "Kategorie suchen"
+
+msgid "Find site"
+msgstr "Mandatenen finden"
 
 msgid "First"
 msgstr "Erste"
@@ -715,6 +766,11 @@ msgstr "Eintrag erfolgreich gelöscht"
 msgid "Item saved successfully"
 msgstr "Eintrag erfolgreich gespeichert"
 
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr "Spezifische Konfigurationsoptionen für den Eintrag, sind in den Templates als Schlüssel/Wert Paare verfügbar"
+
 msgid "Label"
 msgstr "Bezeichnung"
 
@@ -744,6 +800,9 @@ msgstr "Aktueller Versandstatus der Bestellung"
 
 msgid "Last name"
 msgstr "Nachname"
+
+msgid "Last name (optional)"
+msgstr "Nachname (optional)"
 
 msgid "Last name (required)"
 msgstr "Nachname (benötigt)"
@@ -846,6 +905,12 @@ msgstr "Name des Rezensenten"
 msgid "New"
 msgstr "Neu"
 
+msgid "New customers"
+msgstr "Neue Kunden"
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr "Neue Kunden innerhalb der letzten sieben Tage verglichen mit dem Zeitraum davor"
+
 msgid "Next"
 msgstr "Nächste"
 
@@ -926,6 +991,9 @@ msgstr "Reihenfolge der Typen im Frontend"
 
 msgid "Order totals"
 msgstr "Rechnungsbetrag"
+
+msgid "Orders by country"
+msgstr "Bestellungen nach Ländern"
 
 msgid "Orders by day"
 msgstr "Bestellungen nach Tagen"
@@ -1236,10 +1304,10 @@ msgid "Response to the reviewer"
 msgstr "Rückantwort für den Rezensenten"
 
 msgid "Review"
-msgstr "Zur Prüfung"
+msgstr "Rezension"
 
 msgid "Reviewed item"
-msgstr "Besprochenes Objekt"
+msgstr "Rezensiertes Objekt"
 
 msgid "Reviewer name"
 msgstr "Name des Rezensenten"
@@ -1256,6 +1324,24 @@ msgstr "Routenname oder Seiten-ID der Produktseite falls dieses Produkt auf eine
 
 msgid "Route or page ID (optional)"
 msgstr "Routenname oder Seiten-ID (optional)"
+
+msgid "Rule"
+msgstr "Preisregel"
+
+msgid "Rule Type"
+msgstr "Regeltyp"
+
+msgid "Rule Types"
+msgstr "Regeltypen"
+
+msgid "Rule label for describing the configured rule"
+msgstr "Name der Preisregel um die konfigurierte Regel zu beschreiben"
+
+msgid "Rule position (required)"
+msgstr "Preisregel-Reihenfolge (benötigt)"
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr "Konfigurationsname für den Preisregel-Provider oder Preisregel-Dekorator"
 
 msgid "SKU"
 msgstr "Artikelcode"
@@ -1341,14 +1427,17 @@ msgstr "Lieferstatus"
 msgid "Shipping"
 msgstr "Versandkosten"
 
+msgid "Shipping / Payment costs"
+msgstr "Versand- oder Zahlungskosten"
+
 msgid "Shipping costs/item"
-msgstr "Versandkosten/Stück"
+msgstr "Versandkosten / Stück"
 
 msgid "Shipping/Payment costs"
 msgstr "Versand- oder Zahlungskosten"
 
 msgid "Shipping/item"
-msgstr "Versandkosten/Stück"
+msgstr "Versandkosten / Stück"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1525,6 +1614,12 @@ msgstr "Diese Option wird auf der Webseite erst nach dem Datum und der Uhrzeit a
 msgid "The option is only shown on the web site until that date and time"
 msgstr "Diese Option wird auf der Webseite bis zu dem Datum und der Uhrzeit angezeigt"
 
+msgid "The rule is only used after that date and time"
+msgstr "Diese Regel wird erst nach dem Datum und der Uhrzeit angewendet"
+
+msgid "The rule is only used until that date and time"
+msgstr "Diese Regel wird nur bis zu dem Datum und der Uhrzeit angewendet"
+
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
@@ -1545,8 +1640,20 @@ msgstr "Titel"
 msgid "Toggle dropdown"
 msgstr "Menü anzeigen/ausblenden"
 
+msgid "Top countries"
+msgstr "Spitzenländer"
+
 msgid "Total"
 msgstr "Gesamt"
+
+msgid "Total orders"
+msgstr "Gesamtbestellungen"
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr "Gesamte Bestellungen innerhalb der letzten sieben Tage verglichen mit dem Zeitraum davor"
+
+msgid "Total ratings"
+msgstr "Gesamtbewertungen"
 
 msgid "Translate text"
 msgstr "Text übersetzen"
@@ -1587,6 +1694,13 @@ msgstr "URL Ziel"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Methode \"%1$s\" kann nicht aufgerufen werden"
+
+msgid "Unfinished orders"
+msgstr "Unvollendete Bestellungen"
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr "Unvollendete Bestellungen innerhalb der letzten sieben Tage verglichen mit dem Zeitraum davor"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1738,6 +1852,14 @@ msgstr "Schlüssel"
 
 msgid "company"
 msgstr "Firma"
+
+#, php-format
+msgid "configuration"
+msgstr "Konfiguration"
+
+#, php-format
+msgid "countcountry"
+msgstr "countcountry"
 
 #, php-format
 msgid "countday"
@@ -1917,6 +2039,22 @@ msgstr "Produkte"
 msgid "property"
 msgstr "Eigenschaften"
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr "quick/countcompleted"
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr "quick/countcustomer"
+
+#, php-format
+msgid "quick/counttotal"
+msgstr "quick/counttotal"
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr "quick/countunfinished"
+
 msgid "reason:-1"
 msgstr "fehlgeschlagen"
 
@@ -1933,6 +2071,10 @@ msgstr "Produkte"
 #, php-format
 msgid "review"
 msgstr "Rezensionen"
+
+#, php-format
+msgid "rule"
+msgstr "Preisregeln"
 
 #, php-format
 msgid "sales"
@@ -1960,7 +2102,7 @@ msgstr "Nach Zahlungsarten"
 
 #, php-format
 msgid "settings"
-msgstr "Konfiguration"
+msgstr "Einstellungen"
 
 #, php-format
 msgid "special"
@@ -2091,6 +2233,10 @@ msgstr "Produktlisten"
 #, php-format
 msgid "type/product/property"
 msgstr "Produkteigenschaften"
+
+#, php-format
+msgid "type/rule"
+msgstr "Regeltypen"
 
 #, php-format
 msgid "type/service"

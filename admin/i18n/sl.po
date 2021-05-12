@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-03-10 10:01+0000\n"
-"Last-Translator: Goran Sabo <info@noaset.pro>\n"
+"POT-Creation-Date: 2021-04-21 11:32+0200\n"
+"PO-Revision-Date: 2021-04-21 09:34+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Slovenian (http://www.transifex.com/aimeos/aimeos-core/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,9 +18,30 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
+msgid " "
+msgstr "Tip zaloge"
+
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -153,6 +174,9 @@ msgstr "Allow customers to choose themselves how much they want to pay"
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Alphanumeric string that can identify the group uniquely"
 
+msgid "Apply"
+msgstr ""
+
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
@@ -199,6 +223,11 @@ msgstr "Available intervals in the front-end"
 
 msgid "Available language for the current site"
 msgstr "Available language for the current site"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr ""
 
 msgid "Back in stock"
 msgstr "Back in stock"
@@ -293,6 +322,13 @@ msgstr "Company details"
 
 msgid "Company name (optional)"
 msgstr "Company name (optional)"
+
+msgid "Completed orders"
+msgstr ""
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid "Config"
 msgstr "Config"
@@ -396,6 +432,9 @@ msgstr "Dashboard"
 msgid "Data set"
 msgstr "Data set"
 
+msgid "Dataset"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr "Date of the last delivery status change"
 
@@ -429,12 +468,18 @@ msgstr "Delivery"
 msgid "Delivery address"
 msgstr "Delivery address"
 
+msgid "Delivery in"
+msgstr ""
+
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
 msgstr "Delivery or payment costs for the products in the basket of the customer"
 
 msgid "Delivery status"
 msgstr "Delivery status"
+
+msgid "Delivery timeframe (optional)"
+msgstr ""
 
 msgid "Delivery types"
 msgstr "Delivery types"
@@ -519,6 +564,9 @@ msgstr "Excl. tax"
 msgid "Execution order of the plugins"
 msgstr "Execution order of the plugins"
 
+msgid "Execution order of the rules"
+msgstr ""
+
 msgid "Export"
 msgstr "Export"
 
@@ -536,6 +584,9 @@ msgstr "File"
 
 msgid "Find category"
 msgstr "Find category"
+
+msgid "Find site"
+msgstr ""
 
 msgid "First"
 msgstr "First"
@@ -711,6 +762,11 @@ msgstr "Item deleted successfully"
 msgid "Item saved successfully"
 msgstr "Item saved successfully"
 
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr ""
+
 msgid "Label"
 msgstr "Label"
 
@@ -740,6 +796,9 @@ msgstr "Last delivery status of the order"
 
 msgid "Last name"
 msgstr "Last name"
+
+msgid "Last name (optional)"
+msgstr ""
 
 msgid "Last name (required)"
 msgstr "Last name (required)"
@@ -842,6 +901,12 @@ msgstr "Name of the reviewer"
 msgid "New"
 msgstr "New"
 
+msgid "New customers"
+msgstr ""
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr ""
+
 msgid "Next"
 msgstr "Naprej"
 
@@ -922,6 +987,9 @@ msgstr "Order of the types in the frontend"
 
 msgid "Order totals"
 msgstr "Order totals"
+
+msgid "Orders by country"
+msgstr ""
 
 msgid "Orders by day"
 msgstr "Orders by day"
@@ -1253,6 +1321,24 @@ msgstr "Route name or page ID of the product detail page if this product should 
 msgid "Route or page ID (optional)"
 msgstr "Route or page ID (optional)"
 
+msgid "Rule"
+msgstr ""
+
+msgid "Rule Type"
+msgstr ""
+
+msgid "Rule Types"
+msgstr ""
+
+msgid "Rule label for describing the configured rule"
+msgstr ""
+
+msgid "Rule position (required)"
+msgstr ""
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr ""
+
 msgid "SKU"
 msgstr "SKU"
 
@@ -1336,6 +1422,9 @@ msgstr "Ship status"
 
 msgid "Shipping"
 msgstr "Shipping"
+
+msgid "Shipping / Payment costs"
+msgstr ""
 
 msgid "Shipping costs/item"
 msgstr "Shipping costs/item"
@@ -1521,6 +1610,12 @@ msgstr "The option is only shown on the web site after that date and time"
 msgid "The option is only shown on the web site until that date and time"
 msgstr "The option is only shown on the web site until that date and time"
 
+msgid "The rule is only used after that date and time"
+msgstr ""
+
+msgid "The rule is only used until that date and time"
+msgstr ""
+
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
@@ -1541,8 +1636,20 @@ msgstr "Title"
 msgid "Toggle dropdown"
 msgstr "Toggle dropdown"
 
+msgid "Top countries"
+msgstr ""
+
 msgid "Total"
 msgstr "Total"
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Total ratings"
+msgstr ""
 
 msgid "Translate text"
 msgstr "Translate text"
@@ -1583,6 +1690,13 @@ msgstr "URL target"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Unable to call method \"%1$s\""
+
+msgid "Unfinished orders"
+msgstr ""
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1734,6 +1848,14 @@ msgstr "Codes"
 
 msgid "company"
 msgstr "Company"
+
+#, php-format
+msgid "configuration"
+msgstr ""
+
+#, php-format
+msgid "countcountry"
+msgstr ""
 
 #, php-format
 msgid "countday"
@@ -1913,6 +2035,22 @@ msgstr "Products"
 msgid "property"
 msgstr "Properties"
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr ""
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr ""
+
+#, php-format
+msgid "quick/counttotal"
+msgstr ""
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr ""
+
 msgid "reason:-1"
 msgstr "failed"
 
@@ -1929,6 +2067,10 @@ msgstr "Products"
 #, php-format
 msgid "review"
 msgstr "Reviews"
+
+#, php-format
+msgid "rule"
+msgstr ""
 
 #, php-format
 msgid "sales"
@@ -1990,16 +2132,16 @@ msgid "stat:7"
 msgstr "returned"
 
 msgid "status:-1"
-msgstr "Archived"
+msgstr ""
 
 msgid "status:-2"
-msgstr "Review"
+msgstr "mnenje"
 
 msgid "status:0"
-msgstr "Disabled"
+msgstr ""
 
 msgid "status:1"
-msgstr "Enabled"
+msgstr ""
 
 #, php-format
 msgid "stock"
@@ -2087,6 +2229,10 @@ msgstr "Product Lists"
 #, php-format
 msgid "type/product/property"
 msgstr "Product Properties"
+
+#, php-format
+msgid "type/rule"
+msgstr ""
 
 #, php-format
 msgid "type/service"

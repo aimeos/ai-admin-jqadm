@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-03-10 10:01+0000\n"
-"Last-Translator: Nicolas Lapointe (ComradeNixco) <nixcocpp@gmail.com>\n"
+"POT-Creation-Date: 2021-04-21 11:32+0200\n"
+"PO-Revision-Date: 2021-04-21 09:34+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: French (http://www.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,9 +25,30 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+msgid " "
+msgstr " "
+
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -160,6 +181,9 @@ msgstr "Permettre aux clients de choisir eux-même le prix à payer"
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Chaîne alphanumérique pouvant identifier le groupe de manière unique"
 
+msgid "Apply"
+msgstr ""
+
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
@@ -206,6 +230,11 @@ msgstr "Intervalles disponibles pour le front-end"
 
 msgid "Available language for the current site"
 msgstr "Langues disponibles pour le site actuel"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr ""
 
 msgid "Back in stock"
 msgstr "Stock réapprovisionné"
@@ -300,6 +329,13 @@ msgstr "Détails de l'entreprise"
 
 msgid "Company name (optional)"
 msgstr "Nom de l'entreprise (optionnel)"
+
+msgid "Completed orders"
+msgstr ""
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid "Config"
 msgstr "Configuration"
@@ -403,6 +439,9 @@ msgstr "Tableau de bord"
 msgid "Data set"
 msgstr "Jeu de données"
 
+msgid "Dataset"
+msgstr ""
+
 msgid "Date of the last delivery status change"
 msgstr "Date de la dernière modification à l'état de livraison"
 
@@ -436,12 +475,18 @@ msgstr "Livraison"
 msgid "Delivery address"
 msgstr "Adresse de livraison"
 
+msgid "Delivery in"
+msgstr ""
+
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
 msgstr "Coûts dûs à la livraison ou à la méthode de paiement pour les produits du panier du client"
 
 msgid "Delivery status"
 msgstr "État de la livraison"
+
+msgid "Delivery timeframe (optional)"
+msgstr ""
 
 msgid "Delivery types"
 msgstr "Types de livraison"
@@ -526,6 +571,9 @@ msgstr "Exclure taxe"
 msgid "Execution order of the plugins"
 msgstr "Ordre d’exécution des plugins"
 
+msgid "Execution order of the rules"
+msgstr ""
+
 msgid "Export"
 msgstr "Exporter"
 
@@ -543,6 +591,9 @@ msgstr "Fichier"
 
 msgid "Find category"
 msgstr "Trouver une catégorie"
+
+msgid "Find site"
+msgstr ""
 
 msgid "First"
 msgstr "Premier"
@@ -718,6 +769,11 @@ msgstr "Item supprimé avec succès"
 msgid "Item saved successfully"
 msgstr "Item sauvegardé avec succès"
 
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr ""
+
 msgid "Label"
 msgstr "Étiquette"
 
@@ -747,6 +803,9 @@ msgstr "Dernier état connu de la livraison de la commande"
 
 msgid "Last name"
 msgstr "Nom"
+
+msgid "Last name (optional)"
+msgstr ""
 
 msgid "Last name (required)"
 msgstr "Nom (obligatoire)"
@@ -849,6 +908,12 @@ msgstr ""
 msgid "New"
 msgstr "Nouveau"
 
+msgid "New customers"
+msgstr ""
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr ""
+
 msgid "Next"
 msgstr "Suivant"
 
@@ -929,6 +994,9 @@ msgstr "Ordre des types dans le frontend"
 
 msgid "Order totals"
 msgstr "Ordre totaux"
+
+msgid "Orders by country"
+msgstr ""
 
 msgid "Orders by day"
 msgstr "Commandes par jour"
@@ -1260,6 +1328,24 @@ msgstr "Nom de la route ou ID de la page produit détaillé si jamais ce produit
 msgid "Route or page ID (optional)"
 msgstr "Route ou page ID (optionnel)"
 
+msgid "Rule"
+msgstr ""
+
+msgid "Rule Type"
+msgstr ""
+
+msgid "Rule Types"
+msgstr ""
+
+msgid "Rule label for describing the configured rule"
+msgstr ""
+
+msgid "Rule position (required)"
+msgstr ""
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr ""
+
 msgid "SKU"
 msgstr "UGS"
 
@@ -1343,6 +1429,9 @@ msgstr "Statut de l'expédition"
 
 msgid "Shipping"
 msgstr "Livraison"
+
+msgid "Shipping / Payment costs"
+msgstr ""
 
 msgid "Shipping costs/item"
 msgstr "Frais d'envoi/item"
@@ -1528,6 +1617,12 @@ msgstr "Cette option sera affichée sur le site uniquement après cette date et 
 msgid "The option is only shown on the web site until that date and time"
 msgstr "Cette option ne sera affichée sur le site uniquement jusqu'à cette date et heure"
 
+msgid "The rule is only used after that date and time"
+msgstr ""
+
+msgid "The rule is only used until that date and time"
+msgstr ""
+
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
@@ -1548,8 +1643,20 @@ msgstr "Titre"
 msgid "Toggle dropdown"
 msgstr "Afficher le menu déroulant"
 
+msgid "Top countries"
+msgstr ""
+
 msgid "Total"
 msgstr "Total"
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Total ratings"
+msgstr ""
 
 msgid "Translate text"
 msgstr "Traduire le texte"
@@ -1590,6 +1697,13 @@ msgstr "URL cible"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Impossible d'appeler la méthode \"%1$s\""
+
+msgid "Unfinished orders"
+msgstr ""
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1741,6 +1855,14 @@ msgstr "Codes"
 
 msgid "company"
 msgstr "Nom de la compagnie"
+
+#, php-format
+msgid "configuration"
+msgstr ""
+
+#, php-format
+msgid "countcountry"
+msgstr ""
 
 #, php-format
 msgid "countday"
@@ -1920,6 +2042,22 @@ msgstr "Produits"
 msgid "property"
 msgstr "Propriétés"
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr ""
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr ""
+
+#, php-format
+msgid "quick/counttotal"
+msgstr ""
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr ""
+
 msgid "reason:-1"
 msgstr "échoué"
 
@@ -1936,6 +2074,10 @@ msgstr "Produits"
 #, php-format
 msgid "review"
 msgstr "Avis"
+
+#, php-format
+msgid "rule"
+msgstr ""
 
 #, php-format
 msgid "sales"
@@ -1997,16 +2139,16 @@ msgid "stat:7"
 msgstr "renvoyée"
 
 msgid "status:-1"
-msgstr "archivé"
+msgstr ""
 
 msgid "status:-2"
-msgstr "à l'étude"
+msgstr ""
 
 msgid "status:0"
-msgstr "désactivé"
+msgstr ""
 
 msgid "status:1"
-msgstr "activé"
+msgstr ""
 
 #, php-format
 msgid "stock"
@@ -2094,6 +2236,10 @@ msgstr "Listes produit"
 #, php-format
 msgid "type/product/property"
 msgstr "Propriétés du produit"
+
+#, php-format
+msgid "type/rule"
+msgstr ""
 
 #, php-format
 msgid "type/service"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-03-10 10:01+0000\n"
+"POT-Creation-Date: 2021-04-21 11:32+0200\n"
+"PO-Revision-Date: 2021-04-26 20:59+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,30 @@ msgstr ""
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+msgid " "
+msgstr " "
+
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
+msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -153,6 +174,9 @@ msgstr "Müşterilerin ne kadar ödeme yapmak istediklerini kendilerinin seçmes
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Grubu benzersiz bir şekilde tanımlayabilen alfanümerik dize"
 
+msgid "Apply"
+msgstr "Uygula"
+
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
@@ -199,6 +223,11 @@ msgstr "Front-end bölümündeki mevcut aralıklar"
 
 msgid "Available language for the current site"
 msgstr "Geçerli site için mevcut dil"
+
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr "Bu ürün için ortalama müşteri değerlendirmesi ve toplam puan derecesi"
 
 msgid "Back in stock"
 msgstr "Stoğa gireceği tarih"
@@ -294,6 +323,13 @@ msgstr "Şirket detayları"
 msgid "Company name (optional)"
 msgstr "Şirket adı (isteğe bağlı)"
 
+msgid "Completed orders"
+msgstr "Tamamlanan siparişler"
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr "Önceki döneme kıyasla son yedi gün içinde tamamlanan siparişler"
+
 msgid "Config"
 msgstr "Yapılandırma"
 
@@ -340,7 +376,7 @@ msgid "Coupon provider or coupon decorator configuration name"
 msgstr "Kupon sağlayıcı veya kupon dekoratör yapılandırma adı"
 
 msgid "Created"
-msgstr "Oluşturuldu"
+msgstr "Oluşturulma Tarihi"
 
 msgid "Currencies"
 msgstr "Para Birimleri"
@@ -396,6 +432,9 @@ msgstr "Gösterge Paneli"
 msgid "Data set"
 msgstr "Veri kümesi"
 
+msgid "Dataset"
+msgstr "Veri Kümesi"
+
 msgid "Date of the last delivery status change"
 msgstr "En son teslimat durumu değişiklik tarihi"
 
@@ -429,12 +468,18 @@ msgstr "Teslimat"
 msgid "Delivery address"
 msgstr "Teslimat adresi"
 
+msgid "Delivery in"
+msgstr "Teslimat"
+
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
 msgstr "Müşteri sepetindeki ürünler için teslimat veya ödeme maliyetleri"
 
 msgid "Delivery status"
 msgstr "Teslimat durumu"
+
+msgid "Delivery timeframe (optional)"
+msgstr "Teslimat zaman aralığı (isteğe bağlı)"
 
 msgid "Delivery types"
 msgstr "Teslimat türleri"
@@ -519,6 +564,9 @@ msgstr "KDV hariç"
 msgid "Execution order of the plugins"
 msgstr "Eklentilerin yürütme sırası"
 
+msgid "Execution order of the rules"
+msgstr "Kuralların uygulama sırası"
+
 msgid "Export"
 msgstr "Dışa aktar"
 
@@ -536,6 +584,9 @@ msgstr "Dosya"
 
 msgid "Find category"
 msgstr "Kategori bul"
+
+msgid "Find site"
+msgstr "Site bul"
 
 msgid "First"
 msgstr "Birinci"
@@ -711,6 +762,11 @@ msgstr "Öğe başarıyla silindi"
 msgid "Item saved successfully"
 msgstr "Öğe başarıyla kaydedildi"
 
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr "Ürüne özel yapılandırma seçenekleri; şablonlarda anahtar/değer çifti olarak kullanılacaktır"
+
 msgid "Label"
 msgstr "Etiket"
 
@@ -740,6 +796,9 @@ msgstr "Siparişin son teslim durumu"
 
 msgid "Last name"
 msgstr "Soyad"
+
+msgid "Last name (optional)"
+msgstr "Soyadı (isteğe bağlı)"
 
 msgid "Last name (required)"
 msgstr "Soyad (gerekli)"
@@ -842,6 +901,12 @@ msgstr "Değerlendirenin adı"
 msgid "New"
 msgstr "Yeni"
 
+msgid "New customers"
+msgstr "Yeni müşteriler"
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr "Önceki döneme kıyasla son yedi gün içinde kazanılan yeni müşteriler"
+
 msgid "Next"
 msgstr "Sonraki"
 
@@ -923,6 +988,9 @@ msgstr "Türlerin ön plandaki sırası"
 msgid "Order totals"
 msgstr "Sipariş toplamları"
 
+msgid "Orders by country"
+msgstr "Ülkeye göre siparişler"
+
 msgid "Orders by day"
 msgstr "Günlere göre siparişler"
 
@@ -951,7 +1019,7 @@ msgstr "\"%1$s\" için PHP ayarı çok düşük"
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr "Toplam %2$d sayfadan %1$d."
+msgstr "%2$d sayfadan %1$d."
 
 msgid "Password"
 msgstr "Şifre"
@@ -1015,7 +1083,7 @@ msgid "Position (required)"
 msgstr "Pozisyon (gerekli)"
 
 msgid "Postal"
-msgstr "Posta"
+msgstr "Posta Kodu"
 
 msgid "Postal code for delivery if used in the area the customer is living"
 msgstr "Müşterinin yaşadığı bölgede kullanılıyorsa teslimat için posta kodu"
@@ -1226,7 +1294,7 @@ msgid "Reset"
 msgstr "Sıfırla"
 
 msgid "Response"
-msgstr "Yanıtla"
+msgstr "Yanıt"
 
 msgid "Response to the reviewer"
 msgstr "Değerlendireni yanıtla"
@@ -1252,6 +1320,24 @@ msgstr "Eğer bu ürünün farklı bir sayfada gösterilmesi gerekiyorsa ürün 
 
 msgid "Route or page ID (optional)"
 msgstr "Rota veya sayfa kimlik numarası (isteğe bağlı)"
+
+msgid "Rule"
+msgstr "Kural"
+
+msgid "Rule Type"
+msgstr "Kural Türü"
+
+msgid "Rule Types"
+msgstr "Kural Türleri"
+
+msgid "Rule label for describing the configured rule"
+msgstr "Yapılandırılan kuralı açıklamak için kural etiketi"
+
+msgid "Rule position (required)"
+msgstr "Kural konumu (gerekli)"
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr "Kural sağlayıcı veya kural dekoratörü yapılandırma adı"
 
 msgid "SKU"
 msgstr "SKU"
@@ -1336,6 +1422,9 @@ msgstr "Gönderi durumu"
 
 msgid "Shipping"
 msgstr "Nakliye"
+
+msgid "Shipping / Payment costs"
+msgstr "Nakliye/Ödeme masrafları"
 
 msgid "Shipping costs/item"
 msgstr "Nakliye masrafları/ürün"
@@ -1521,6 +1610,12 @@ msgstr "Seçenek, web sitesinde sadece o tarih ve saatten sonra gösterilir"
 msgid "The option is only shown on the web site until that date and time"
 msgstr "Seçenek, web sitesinde sadece o tarih ve saate kadar gösterilir"
 
+msgid "The rule is only used after that date and time"
+msgstr "Kural sadece bu tarih ve saatten sonra kullanılır"
+
+msgid "The rule is only used until that date and time"
+msgstr "Kural sadece bu tarih ve saate kadar kullanılır"
+
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
@@ -1541,8 +1636,20 @@ msgstr "Başlık"
 msgid "Toggle dropdown"
 msgstr "Açılır menüyü aç/kapat"
 
+msgid "Top countries"
+msgstr "Başlıca ülkeler"
+
 msgid "Total"
 msgstr "Toplam"
+
+msgid "Total orders"
+msgstr "Toplam siparişler"
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr "Önceki döneme kıyasla son yedi gün içindeki toplam sipariş sayısı"
+
+msgid "Total ratings"
+msgstr "Toplam puanlar"
 
 msgid "Translate text"
 msgstr "Metin çevir"
@@ -1583,6 +1690,13 @@ msgstr "URL hedefi"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "Metot \"%1$s\" çağrılamıyor"
+
+msgid "Unfinished orders"
+msgstr "Tamamlanmamış siparişler"
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr "Önceki döneme kıyasla son yedi gün içindeki tamamlanmamış sipariş sayısı"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1734,6 +1848,14 @@ msgstr "Kodlar"
 
 msgid "company"
 msgstr "Şirket"
+
+#, php-format
+msgid "configuration"
+msgstr "Yapılandırma"
+
+#, php-format
+msgid "countcountry"
+msgstr "countcountry"
 
 #, php-format
 msgid "countday"
@@ -1913,6 +2035,22 @@ msgstr "Ürünler"
 msgid "property"
 msgstr "Özellikler"
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr "quick/countcompleted"
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr "quick/countcustomer"
+
+#, php-format
+msgid "quick/counttotal"
+msgstr "quick/counttotal"
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr "quick/countunfinished"
+
 msgid "reason:-1"
 msgstr "Başarısız"
 
@@ -1929,6 +2067,10 @@ msgstr "Ürünler"
 #, php-format
 msgid "review"
 msgstr "Değerlendirmeler"
+
+#, php-format
+msgid "rule"
+msgstr "Fiyat kuralları"
 
 #, php-format
 msgid "sales"
@@ -1993,7 +2135,7 @@ msgid "status:-1"
 msgstr "Arşivlendi"
 
 msgid "status:-2"
-msgstr "İncelemede"
+msgstr "Değerlendir"
 
 msgid "status:0"
 msgstr "Devre dışı bırakıldı"
@@ -2034,7 +2176,7 @@ msgstr "Nitelik Listeleri"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr "Nitelik özellikleri"
+msgstr "Nitelik Özellikleri"
 
 #, php-format
 msgid "type/catalog/lists"
@@ -2046,7 +2188,7 @@ msgstr "Müşteri Listeleri"
 
 #, php-format
 msgid "type/customer/property"
-msgstr "Müşteri özellikleri"
+msgstr "Müşteri Özellikleri"
 
 #, php-format
 msgid "type/media"
@@ -2074,7 +2216,7 @@ msgstr "Fiyat Listeleri"
 
 #, php-format
 msgid "type/price/property"
-msgstr "tür/fiyat/özellik"
+msgstr "Fiyat Özellikleri"
 
 #, php-format
 msgid "type/product"
@@ -2087,6 +2229,10 @@ msgstr "Ürün Listeleri"
 #, php-format
 msgid "type/product/property"
 msgstr "Ürün Özellikleri"
+
+#, php-format
+msgid "type/rule"
+msgstr "Tür/Kural"
 
 #, php-format
 msgid "type/service"

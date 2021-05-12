@@ -8,6 +8,7 @@
 # Anderson Mendoza Aguiar <amendozaaguiar@outlook.com>, 2021
 # Daniel Cortés <skrd@hotmail.es>, 2018
 # Daniel Vega <danielvega131990@gmail.com>, 2015
+# Gonzalo Rocha <gonzalo@positivonetworks.com>, 2021
 # Jorge Moriñigo <jorgemorinigo@gmail.com>, 2020
 # Juan Ramos <juancagb.17@gmail.com>, 2017
 # nsendetzky, 2014
@@ -16,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-29 12:32+0100\n"
-"PO-Revision-Date: 2021-03-10 10:01+0000\n"
+"POT-Creation-Date: 2021-04-21 11:32+0200\n"
+"PO-Revision-Date: 2021-04-21 09:34+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -26,9 +27,30 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 #, php-format
 msgid "%1$d/%2$d"
 msgstr "%1$d/%2$d"
+
+#, php-format
+msgid ""
+"%1$s\n"
+"\t%2$s %3$s %4$s %5$s\n"
+"\t%6$s %7$s\n"
+"\t%8$s\n"
+"\t%9$s %10$s\n"
+"\t%11$s\n"
+"\t%12$s\n"
+"\t%13$s\n"
+"\t%14$s\n"
+"\t%15$s\n"
+"\t%16$s\n"
+"\t%17$s\n"
+"\t%18$s\n"
+"\t"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -82,7 +104,7 @@ msgid ""
 msgstr "Número de teléfono (Internacional) sin separador de caracteres, puede comenzar con un \"+\""
 
 msgid "+ Tax"
-msgstr "Impuesto"
+msgstr "+ Impuesto"
 
 msgid "?"
 msgstr "?"
@@ -134,11 +156,11 @@ msgstr "Avanzado"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "El caché de Aimeos está deshabilitado por \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "El registro de depuración de Aimeos está habilitado por \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -161,6 +183,9 @@ msgstr "Permitir a los clientes escoger por ellos mismos la cantidad que desean 
 msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Cadena de caracteres alfanumérica que puede identificar el grupo de forma única"
 
+msgid "Apply"
+msgstr "Aplicar"
+
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
@@ -170,46 +195,51 @@ msgid "Attribute"
 msgstr "Atributo"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Tipo de Listas de Atributos"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Tipos de Listas de Atributos"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Tipo de Propiedad de Atributo"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Tipos de Propiedad de Atributo"
 
 msgid "Attribute Type"
-msgstr "Tipo de atributo"
+msgstr "Tipo de Atributo"
 
 msgid "Attribute Types"
-msgstr "Tipos de atributo"
+msgstr "Tipos de Atributo"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Posición del atributo (opcional)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Propiedades del atributo que no son compartidas con otros atributos"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Tipo de atributo que limita la lista de atributos disponibles"
 
 msgid "Attributes"
 msgstr "Atributos"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Moneda disponible para el sitio actual"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Intervalos disponibles en el front-end"
 
 msgid "Available language for the current site"
 msgstr "Lenguaje disponible para el sitio actual"
 
+msgid ""
+"Average product rating and total number of ratings by customers for this "
+"product"
+msgstr ""
+
 msgid "Back in stock"
-msgstr "Nuevas existencias"
+msgstr "Nuevamente en existencias"
 
 msgid "Basic"
 msgstr "Básico"
@@ -302,6 +332,13 @@ msgstr "Detalles de la compañía"
 msgid "Company name (optional)"
 msgstr ""
 
+msgid "Completed orders"
+msgstr ""
+
+msgid ""
+"Completed orders within the last seven days compared to the period before"
+msgstr ""
+
 msgid "Config"
 msgstr ""
 
@@ -316,7 +353,7 @@ msgid "Copy"
 msgstr "Copiar"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Copiar esta entrada"
 
 msgid "Costs"
 msgstr "Costos"
@@ -404,11 +441,14 @@ msgstr "Panel de control"
 msgid "Data set"
 msgstr ""
 
-msgid "Date of the last delivery status change"
+msgid "Dataset"
 msgstr ""
 
+msgid "Date of the last delivery status change"
+msgstr "Fecha del último cambio de estado del envío"
+
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Fecha del último cambio de estado del pago"
 
 msgid "Date the subscription ends"
 msgstr ""
@@ -426,7 +466,7 @@ msgid "Delete items?"
 msgstr "¿Eliminar elementos?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Eliminar las entradas seleccionadas"
 
 msgid "Delete this entry"
 msgstr "Eliminar esta entrada"
@@ -437,12 +477,18 @@ msgstr "Entrega"
 msgid "Delivery address"
 msgstr "Dirección de entrega"
 
+msgid "Delivery in"
+msgstr ""
+
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
 msgstr ""
 
 msgid "Delivery status"
 msgstr "Estado de entrega"
+
+msgid "Delivery timeframe (optional)"
+msgstr ""
 
 msgid "Delivery types"
 msgstr "Tipos de envío"
@@ -527,6 +573,9 @@ msgstr ""
 msgid "Execution order of the plugins"
 msgstr "Orden de ejecución de los plugins"
 
+msgid "Execution order of the rules"
+msgstr ""
+
 msgid "Export"
 msgstr "Exportar"
 
@@ -544,6 +593,9 @@ msgstr "Archivo"
 
 msgid "Find category"
 msgstr "Buscar categoría"
+
+msgid "Find site"
+msgstr ""
 
 msgid "First"
 msgstr "Primero"
@@ -719,6 +771,11 @@ msgstr "Elemento eliminado correctamente"
 msgid "Item saved successfully"
 msgstr "Elemento guardado con éxito"
 
+msgid ""
+"Item specific configuration options, will be available as key/value pairs in"
+" the templates"
+msgstr ""
+
 msgid "Label"
 msgstr "Etiqueta"
 
@@ -748,6 +805,9 @@ msgstr "Último estado de entrega del pedido"
 
 msgid "Last name"
 msgstr "Apellido"
+
+msgid "Last name (optional)"
+msgstr ""
 
 msgid "Last name (required)"
 msgstr "Apellido (obligatorio)"
@@ -850,6 +910,12 @@ msgstr ""
 msgid "New"
 msgstr "Nuevo"
 
+msgid "New customers"
+msgstr ""
+
+msgid "New customers within the last seven days compared to the period before"
+msgstr ""
+
 msgid "Next"
 msgstr "Siguiente"
 
@@ -929,6 +995,9 @@ msgid "Order of the types in the frontend"
 msgstr ""
 
 msgid "Order totals"
+msgstr ""
+
+msgid "Orders by country"
 msgstr ""
 
 msgid "Orders by day"
@@ -1261,6 +1330,24 @@ msgstr "Nombre de ruta o ID de página de la página de detalles del producto si
 msgid "Route or page ID (optional)"
 msgstr ""
 
+msgid "Rule"
+msgstr ""
+
+msgid "Rule Type"
+msgstr ""
+
+msgid "Rule Types"
+msgstr ""
+
+msgid "Rule label for describing the configured rule"
+msgstr ""
+
+msgid "Rule position (required)"
+msgstr ""
+
+msgid "Rule provider or rule decorator configuration name"
+msgstr ""
+
 msgid "SKU"
 msgstr "SKU"
 
@@ -1344,6 +1431,9 @@ msgstr ""
 
 msgid "Shipping"
 msgstr "Envío"
+
+msgid "Shipping / Payment costs"
+msgstr ""
 
 msgid "Shipping costs/item"
 msgstr ""
@@ -1529,6 +1619,12 @@ msgstr ""
 msgid "The option is only shown on the web site until that date and time"
 msgstr ""
 
+msgid "The rule is only used after that date and time"
+msgstr ""
+
+msgid "The rule is only used until that date and time"
+msgstr ""
+
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
@@ -1549,8 +1645,20 @@ msgstr "Título"
 msgid "Toggle dropdown"
 msgstr ""
 
+msgid "Top countries"
+msgstr ""
+
 msgid "Total"
 msgstr "Total"
+
+msgid "Total orders"
+msgstr ""
+
+msgid "Total orders within the last seven days compared to the period before"
+msgstr ""
+
+msgid "Total ratings"
+msgstr ""
 
 msgid "Translate text"
 msgstr ""
@@ -1591,6 +1699,13 @@ msgstr "URL objetivo"
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "No se ha podido invocar el método \"%1$s\""
+
+msgid "Unfinished orders"
+msgstr ""
+
+msgid ""
+"Unfinished orders within the last seven days compared to the period before"
+msgstr ""
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1742,6 +1857,14 @@ msgstr "Códigos"
 
 msgid "company"
 msgstr "Compañía"
+
+#, php-format
+msgid "configuration"
+msgstr ""
+
+#, php-format
+msgid "countcountry"
+msgstr ""
 
 #, php-format
 msgid "countday"
@@ -1921,6 +2044,22 @@ msgstr "Productos"
 msgid "property"
 msgstr "Propiedades"
 
+#, php-format
+msgid "quick/countcompleted"
+msgstr ""
+
+#, php-format
+msgid "quick/countcustomer"
+msgstr ""
+
+#, php-format
+msgid "quick/counttotal"
+msgstr ""
+
+#, php-format
+msgid "quick/countunfinished"
+msgstr ""
+
 msgid "reason:-1"
 msgstr ""
 
@@ -1937,6 +2076,10 @@ msgstr "Productos"
 #, php-format
 msgid "review"
 msgstr "Comentarios"
+
+#, php-format
+msgid "rule"
+msgstr ""
 
 #, php-format
 msgid "sales"
@@ -1998,16 +2141,16 @@ msgid "stat:7"
 msgstr "devuelto"
 
 msgid "status:-1"
-msgstr "archivar"
+msgstr ""
 
 msgid "status:-2"
-msgstr "revisar"
+msgstr ""
 
 msgid "status:0"
-msgstr "deshabilitado"
+msgstr ""
 
 msgid "status:1"
-msgstr "habilitado"
+msgstr ""
 
 #, php-format
 msgid "stock"
@@ -2094,6 +2237,10 @@ msgstr ""
 
 #, php-format
 msgid "type/product/property"
+msgstr ""
+
+#, php-format
+msgid "type/rule"
 msgstr ""
 
 #, php-format
