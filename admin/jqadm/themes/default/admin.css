@@ -182,11 +182,16 @@
 	background-color: var(--bs-primary-light, #5BB3E6);
 }
 
-.aimeos .list-items th a:not(.btn) {
+.aimeos .list-items th a {
 	color: var(--bs-menu, #ffffff);
 	white-space: nowrap;
 	font-weight: normal;
 	margin: auto;
+}
+
+.aimeos .list-items th .btn:hover {
+	color: var(--bs-secondary-dark, #101820);
+	background-color: var(--bs-bg-light, #FFFFFF);
 }
 
 .aimeos .list-items .dropdown-item .btn {
