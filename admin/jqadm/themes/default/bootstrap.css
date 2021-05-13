@@ -40,8 +40,6 @@ textarea {
 }
 
 .modal-body {
-	box-shadow: var(--bs-shadow);
-	background-color: var(--bs-bg-light, #ffffff);
 	margin: 1rem;
 }
 

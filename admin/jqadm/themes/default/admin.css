@@ -441,6 +441,9 @@
 	max-width: 100%;
 	display: block;
 	margin: auto;
+	top: 50%;
+	position: relative;
+	transform: translate(0, -50%);
 }
 
 .aimeos .item-media .media-preview .fileupload {
