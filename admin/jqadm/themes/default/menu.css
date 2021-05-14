@@ -553,6 +553,10 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 	content: "\f1ec"
 }
 
+.aimeos .main-sidebar .menuitem-settings i.icon:before {
+	content: "\f013"
+}
+
 .aimeos .main-sidebar .menuitem-configuration i.icon:before {
 	content: "\f085"
 }
