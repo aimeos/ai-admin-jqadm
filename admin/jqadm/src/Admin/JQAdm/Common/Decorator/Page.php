@@ -37,27 +37,28 @@ class Page extends Base
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
 		$customerManager = \Aimeos\MShop::create( $context, 'customer' );
 
-		if( $view->access( ['super'] ) )
+		if( $userId = $context->getUserId() )
 		{
-			$view->pageSiteItem = $siteManager->find( $view->param( 'site', 'default' ) );
-		}
-		else
-		{
-			$siteid = $customerManager->get( $context->getUserId() )->getSiteId();
-			$search = $siteManager->filter();
+			$siteid = $customerManager->get( $userId )->getSiteId();
 
+			$search = $siteManager->filter();
 			$search->add( $search->and( [
 				$search->is( 'locale.site.code', '==', $view->param( 'site', 'default' ) ),
 				$search->is( 'locale.site.siteid', $view->access( ['admin'] ) ? '=~' : '==', $siteid )
 			] ) )->slice( 0, 1 );
 
-			$view->pageSiteItem = $siteManager->search( $search )->first();
+			$siteItem = $siteManager->search( $search )->first();
+		}
+		else
+		{
+			$siteItem = $siteManager->find( $view->param( 'site', 'default' ) );
 		}
 
 		$view->pageInfo = $context->getSession()->pull( 'info', [] );
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
 		$view->pageLangItems = $langManager->search( $langManager->filter( true ) );
-		$view->pageSitePath = $siteManager->getPath( $view->pageSiteItem->getId() );
+		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
+		$view->pageSiteItem = $siteItem;
 
 		$this->getClient()->setView( $view );
 		return $this;
