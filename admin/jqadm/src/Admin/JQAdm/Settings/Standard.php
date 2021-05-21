@@ -31,6 +31,7 @@ class Standard
 	 */
 	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
+		$view->themes = $this->getContext()->config()->get( 'client/html/themes', [] );
 		$view->itemSubparts = $this->getSubClientNames();
 		return $view;
 	}
@@ -245,21 +246,70 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
-		$context = $this->getContext();
-		$locale = $context->getLocale();
-		$cfg = $context->getConfig();
-
-		$item = $locale->getSiteItem();
-		$siteId = $locale->getSiteId();
+		$item = $this->getContext()->getLocale()->getSiteItem();
 
 		$config = $data['locale.site.config'] ?? [];
 		$config['resource']['email']['email-name'] = $data['locale.site.label'];
 
 		$files = (array) $this->getView()->request()->getUploadedFiles();
-		$file = $this->getValue( $files, 'media/file' );
+
+		$item = $this->fromArrayIcon( $files );
+		$item = $this->fromArrayLogo( $files );
+
+		return $item->setConfig( $config )
+			->setTheme( $data['locale.site.theme'] ?? '' )
+			->setLabel( $data['locale.site.label'] ?? '' )
+			->setCode( $data['locale.site.code'] ?? '' );
+	}
+
+
+	/**
+	 * Creates new and updates existing items using the data array
+	 *
+	 * @param array $files Uploaded files
+	 * @return \Aimeos\MShop\Locale\Item\Site\Iface New settings item object
+	 */
+	protected function fromArrayIcon( array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
+	{
+		$file = $this->getValue( $files, 'media/icon' );
 
 		if( $file && $file->getError() === UPLOAD_ERR_OK )
 		{
+			$context = $this->getContext();
+			$siteId = $context->getLocale()->getSiteId();
+			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
+
+			if( !in_array( $image->getMimetype(), ['image/jpeg', 'image/png', 'image/gif'] ) )
+			{
+				$msg = $context->i18n()->dt( 'admin', 'Only .jpg, .png and .gif are allowed for icons' );
+				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
+			}
+
+			$filepath = 'aimeos/' . $siteId . '/icon.' . $ext;
+			$context->getFilesystemManager()->get( 'fs-media' )->write( $filepath, $image->save() );
+
+			$item->setIcon( $filepath );
+		}
+
+		return $item;
+	}
+
+
+	/**
+	 * Creates new and updates existing items using the data array
+	 *
+	 * @param array $files Uploaded files
+	 * @return \Aimeos\MShop\Locale\Item\Site\Iface New settings item object
+	 */
+	protected function fromArrayLogo( array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
+	{
+		$file = $this->getValue( $files, 'media/logo' );
+
+		if( $file && $file->getError() === UPLOAD_ERR_OK )
+		{
+			$context = $this->getContext();
+			$siteId = $context->getLocale()->getSiteId();
+
 			$options = $context->getConfig()->get( 'controller/common/media/options', [] );
 			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
 			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
@@ -281,13 +331,10 @@ class Standard
 				$filepaths[] = $filepath;
 			}
 
-
 			$item->setLogos( $filepaths );
 		}
 
-		return $item->setConfig( $config )
-			->setLabel( $data['locale.site.label'] )
-			->setCode( $data['locale.site.code'] );
+		return $item;
 	}
 
 
