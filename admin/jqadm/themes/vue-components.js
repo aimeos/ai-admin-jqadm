@@ -524,7 +524,7 @@ Vue.component('page-offset', {
 
 
 Vue.component('property-table', {
-	template: '<table class="item-media-property table table-default" > \
+	template: '<table class="item-property table table-default" > \
 		<thead> \
 			<tr> \
 				<th colspan="3"> \
@@ -541,13 +541,13 @@ Vue.component('property-table', {
 		<tbody> \
 			<tr v-for="(propdata, propidx) in items" v-bind:key="propidx" v-bind:class="{readonly: readonly(propidx)}"> \
 				<td class="property-type"> \
-					<input type="hidden" v-model="propdata[\'media.property.id\']" v-bind:name="fname(\'id\', propidx)" /> \
+					<input type="hidden" v-model="propdata[domain + \'.property.id\']" v-bind:name="fname(\'id\', propidx)" /> \
 					<select is="select-component" required class="form-control form-select item-type" v-bind:tabindex="tabindex" \
 						v-bind:name="fname(\'type\', propidx)" \
 						v-bind:text="i18n.select || \'Please select\'" \
 						v-bind:readonly="readonly(propidx)" \
 						v-bind:items="types" \
-						v-model="propdata[\'media.property.type\']" > \
+						v-model="propdata[domain + \'.property.type\']" > \
 					</select> \
 				</td> \
 				<td class="property-language"> \
@@ -556,7 +556,7 @@ Vue.component('property-table', {
 						v-bind:all="i18n.all || \'All\'" \
 						v-bind:readonly="readonly(propidx)" \
 						v-bind:items="languages" \
-						v-model="propdata[\'media.property.languageid\']" > \
+						v-model="propdata[domain + \'.property.languageid\']" > \
 					</select> \
 				</td> \
 				<td class="property-value"> \
@@ -564,7 +564,7 @@ Vue.component('property-table', {
 						v-bind:name="fname(\'value\', propidx)" \
 						v-bind:placeholder="i18n.placeholder || \'Property value (required)\'" \
 						v-bind:readonly="readonly(propidx)" \
-						v-model="propdata[\'media.property.value\']" > \
+						v-model="propdata[domain + \'.property.value\']" > \
 				</td> \
 				<td class="actions"> \
 					<div v-if="!readonly(propidx)" class="btn act-delete fa" v-bind:tabindex="tabindex" \
