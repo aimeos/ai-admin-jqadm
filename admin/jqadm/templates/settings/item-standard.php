@@ -82,7 +82,7 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="row">
+				<div class="row item-media">
 					<div class="col-xl-6 item-logo">
 						<div class="box">
 
@@ -91,7 +91,7 @@ $params = $this->get( 'pageParams', [] );
 									name="media[logo]" />
 								<?php if( $logos = $this->get( 'itemData/locale.site.logo' ) ) : ?>
 									<img class="item-preview"
-										src="<?= $enc->attr( $this->content( end( $logos ) ) ) ?>" />
+										src="<?= $enc->attr( $this->content( $this->config( 'resource/fs/baseurl' ) . '/' . end( $logos ) ) ) ?>" />
 								<?php else : ?>
 									<p class="item-preview">
 										<?= $enc->html( $this->translate( 'admin', 'Upload shop logo' ) ) ?>
@@ -110,7 +110,7 @@ $params = $this->get( 'pageParams', [] );
 									name="media[icon]" />
 								<?php if( $icon = $this->get( 'itemData/locale.site.icon' ) ) : ?>
 									<img class="item-preview"
-										src="<?= $enc->attr( $this->content( $icon ) ) ?>" />
+										src="<?= $enc->attr( $this->content( $this->config( 'resource/fs/baseurl' ) . '/' . $icon ) ) ?>" />
 								<?php else : ?>
 									<p class="item-preview">
 										<?= $enc->html( $this->translate( 'admin', 'Upload shop icon' ) ) ?>
@@ -152,19 +152,6 @@ $params = $this->get( 'pageParams', [] );
 								</div>
 
 								<div class="col-xl-6">
-									<div class="form-group row mandatory warning">
-										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop domain' ) ) ?></label>
-										<div class="col-sm-8">
-											<input class="form-control item-code" type="text" required="required" tabindex="1"
-												pattern="^[a-z0-9\-]+(\.[a-z0-9\-]+)*$"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.code' ) ) ) ?>"
-												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop domain (required)' ) ) ?>"
-												value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ) ?>" />
-										</div>
-										<div class="col-sm-12 form-text text-muted help-text">
-											<?= $enc->html( $this->translate( 'admin', 'Custom domain or unique code of your shop' ) ) ?>
-										</div>
-									</div>
 									<div class="form-group row optional">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop theme' ) ) ?></label>
 										<div class="col-sm-8">
@@ -173,9 +160,9 @@ $params = $this->get( 'pageParams', [] );
 												<option value="">
 													<?= $enc->html( $this->translate( 'admin', 'Default' ) ) ?>
 												</option>
-												<?php foreach( $this->get( 'themes', [] ) as $theme ) : ?>
+												<?php foreach( $this->get( 'themes', [] ) as $theme => $name ) : ?>
 													<option value="<?= $enc->attr( $theme ) ?>" <?= $selected( $this->get( 'itemData/locale.site.theme' ), $theme ) ?> >
-														<?= $enc->html( $theme ) ?>
+														<?= $enc->html( $name ) ?>
 													</option>
 												<?php endforeach ?>
 											</select>
@@ -192,6 +179,21 @@ $params = $this->get( 'pageParams', [] );
 
 				<div class="box">
 					<div class="row">
+						<div class="col-xl-6">
+							<div class="form-group row mandatory warning">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop domain' ) ) ?></label>
+								<div class="col-sm-8">
+									<input class="form-control item-code" type="text" required="required" tabindex="1"
+										pattern="^[a-z0-9\-]+(\.[a-z0-9\-]+)*$"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.code' ) ) ) ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop domain (required)' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ) ?>" />
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Custom domain or unique code of your shop' ) ) ?>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 

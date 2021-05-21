@@ -44,7 +44,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 		$context = $this->getContext();
 
 		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
@@ -92,7 +92,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->getObject()->addData( $this->getView() );
 
 		try
 		{
@@ -253,8 +253,8 @@ class Standard
 
 		$files = (array) $this->getView()->request()->getUploadedFiles();
 
-		$item = $this->fromArrayIcon( $files );
-		$item = $this->fromArrayLogo( $files );
+		$item = $this->fromArrayIcon( $item, $files );
+		$item = $this->fromArrayLogo( $item, $files );
 
 		return $item->setConfig( $config )
 			->setTheme( $data['locale.site.theme'] ?? '' )
@@ -266,10 +266,11 @@ class Standard
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
+	 * @param \Aimeos\MShop\Locale\Item\Site\Iface Site item object
 	 * @param array $files Uploaded files
 	 * @return \Aimeos\MShop\Locale\Item\Site\Iface New settings item object
 	 */
-	protected function fromArrayIcon( array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
+	protected function fromArrayIcon( \Aimeos\MShop\Locale\Item\Site\Iface $item, array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
 		$file = $this->getValue( $files, 'media/icon' );
 
@@ -277,7 +278,10 @@ class Standard
 		{
 			$context = $this->getContext();
 			$siteId = $context->getLocale()->getSiteId();
+
+			$options = $context->getConfig()->get( 'controller/common/media/options', [] );
 			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
+			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 
 			if( !in_array( $image->getMimetype(), ['image/jpeg', 'image/png', 'image/gif'] ) )
 			{
@@ -298,10 +302,11 @@ class Standard
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
+	 * @param \Aimeos\MShop\Locale\Item\Site\Iface Site item object
 	 * @param array $files Uploaded files
 	 * @return \Aimeos\MShop\Locale\Item\Site\Iface New settings item object
 	 */
-	protected function fromArrayLogo( array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
+	protected function fromArrayLogo( \Aimeos\MShop\Locale\Item\Site\Iface $item, array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
 		$file = $this->getValue( $files, 'media/logo' );
 
@@ -321,14 +326,14 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 
-			foreach( $cfg->get( 'admin/jqadm/settings/logo-size', ['maxwidth' => null, 'maxheight' => null] ) as $size )
+			foreach( $context->config()->get( 'admin/jqadm/settings/logo-size', ['maxwidth' => null, 'maxheight' => null] ) as $size )
 			{
 				$w = $size['maxwidth'] ?? null;
 				$h = $size['maxheight'] ?? null;
 
 				$filepath = 'aimeos/' . $siteId . '/logo' . $w . '.' . $ext;
 				$context->getFilesystemManager()->get( 'fs-media' )->write( $filepath, $image->scale( $w, $h )->save() );
-				$filepaths[] = $filepath;
+				$filepaths[$w] = $filepath;
 			}
 
 			$item->setLogos( $filepaths );
@@ -348,8 +353,10 @@ class Standard
 	{
 		return [
 			'locale.site.code' => $item->getCode(),
+			'locale.site.icon' => $item->getIcon(),
 			'locale.site.logo' => $item->getLogos(),
 			'locale.site.label' => $item->getLabel(),
+			'locale.site.theme' => $item->getTheme(),
 			'locale.site.config' => $item->getConfig(),
 			'locale.site.supplierid' => $item->getSupplierId(),
 			'locale.site.ctime' => $item->getTimeCreated(),
