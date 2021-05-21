@@ -104,7 +104,7 @@ $params = $this->get( 'pageParams', [] );
 									<select class="form-select item-status" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.status' ) ) ) ?>" >
 										<option value="">
-											<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ) ?>
+											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
 										<option value="1" <?= $selected( $this->get( 'itemData/locale.site.status', 1 ), 1 ) ?> >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>

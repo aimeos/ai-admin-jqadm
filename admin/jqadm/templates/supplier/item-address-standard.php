@@ -66,7 +66,7 @@ $enc = $this->encoder();
 											v-model="entry['supplier.address.languageid']" >
 
 											<option value="" disable >
-												<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ) ?>
+												<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 											</option>
 
 											<?php foreach( $languages as $langId => $langItem ) : ?>

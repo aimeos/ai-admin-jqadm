@@ -96,7 +96,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'supplier.status' ) ) ) ?>"
 										<?= $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) ?> >
 										<option value="">
-											<?= $enc->attr( $this->translate( 'admin', 'Please select' ) ) ?>
+											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
 										<option value="1" <?= $selected( $this->get( 'itemData/supplier.status', 1 ), 1 ) ?> >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
