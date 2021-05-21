@@ -341,7 +341,7 @@ class Standard
 		] ) );
 
 		$stockItems = $manager->searchItems( $search );
-		$map = $stockItems->col( 'stock.productcode', 'stock.id' );
+		$map = $stockItems->col( null, 'stock.productcode' );
 		$list = [];
 
 		foreach( $data as $entry )
@@ -351,10 +351,7 @@ class Standard
 			}
 
 			$code = $entry['product.code'];
-
-			if( ( $stockItem = $stockItems->get( $map[$code] ?? null ) ) === null ) {
-				$stockItem = $manager->createItem();
-			}
+			$stockItem = $map[$code] ?? $manager->createItem();
 
 			$stockItem->fromArray( $entry, true )->setProductCode( $code )->setType( 'default' );
 			unset( $stockItems[$stockItem->getId()] );
