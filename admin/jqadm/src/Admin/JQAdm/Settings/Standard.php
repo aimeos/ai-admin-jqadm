@@ -333,7 +333,7 @@ class Standard
 
 				$filepath = 'aimeos/' . $siteId . '/logo' . $w . '.' . $ext;
 				$context->getFilesystemManager()->get( 'fs-media' )->write( $filepath, $image->scale( $w, $h )->save() );
-				$filepaths[$w] = $filepath;
+				$filepaths[(int) $w?:1] = $filepath;
 			}
 
 			$item->setLogos( $filepaths );
