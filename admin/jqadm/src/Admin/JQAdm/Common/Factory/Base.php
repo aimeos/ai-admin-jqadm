@@ -142,7 +142,7 @@ class Base
 	 * @param \Aimeos\MShop\Context\Item\Iface $context Context instance with necessary objects
 	 * @param string $classname Name of the client class
 	 * @param string $interface Name of the client interface
-	 * @return \Aimeos\Admin\JQAdm\\Iface Admin object
+	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 * @throws \Aimeos\Admin\JQAdm\Exception If client couldn't be found or doesn't implement the interface
 	 */
 	protected static function createAdmin( \Aimeos\MShop\Context\Item\Iface $context,

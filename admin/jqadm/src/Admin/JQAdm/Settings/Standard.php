@@ -289,7 +289,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 
-			$filepath = 'aimeos/' . $siteId . '/icon.' . $ext;
+			$filepath = $siteId . '/icon.' . $ext;
 			$context->getFilesystemManager()->get( 'fs-media' )->write( $filepath, $image->save() );
 
 			$item->setIcon( $filepath );
@@ -331,7 +331,7 @@ class Standard
 				$w = $size['maxwidth'] ?? null;
 				$h = $size['maxheight'] ?? null;
 
-				$filepath = 'aimeos/' . $siteId . '/logo' . $w . '.' . $ext;
+				$filepath = $siteId . '/logo' . $w . '.' . $ext;
 				$context->getFilesystemManager()->get( 'fs-media' )->write( $filepath, $image->scale( $w, $h )->save() );
 				$filepaths[(int) $w ?: 1] = $filepath;
 			}
