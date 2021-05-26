@@ -314,7 +314,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 						</div>
 					</td>
 					<td v-if="fields.includes(prefix + 'refid')" v-bind:class="css('refid')">
-						<div v-if="item.edit">
+						<div v-if="item.edit && item[prefix + 'refid'] == ''">
 							<v-select class="custom-combobox" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:options="options" v-bind:reduce="entry => entry.id" v-bind:filterable="false"
 								v-model="item[prefix + 'refid']" v-on:search="suggest" v-on:search:focus="suggest"
