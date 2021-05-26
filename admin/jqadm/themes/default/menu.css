@@ -323,6 +323,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-header a {
 	color: var(--bs-menu, #FFFFFF);
+	text-decoration: none;
 	text-align: center;
 	display: block;
 	width: 100%;
