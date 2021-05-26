@@ -256,7 +256,7 @@ class Standard
 		$item = $this->fromArrayIcon( $item, $files );
 		$item = $this->fromArrayLogo( $item, $files );
 
-		return $item->setConfig( array_replace_recursive($item->getConfig(), $config) )
+		return $item->setConfig( array_replace_recursive( $item->getConfig(), $config ) )
 			->setTheme( $data['locale.site.theme'] ?? '' )
 			->setLabel( $data['locale.site.label'] ?? '' )
 			->setCode( $data['locale.site.code'] ?? '' );
