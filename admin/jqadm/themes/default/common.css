@@ -109,7 +109,7 @@ body {
 
 .aimeos .warning,
 .aimeos .warning input {
-	color: var(--bs-danger, #dc3545);
+	color: var(--bs-orange, #fd7e14);
 }
 
 .aimeos .readonly {

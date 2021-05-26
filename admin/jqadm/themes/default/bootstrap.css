@@ -331,9 +331,17 @@ td.is-invalid .form-select {
 	border-color: var(--bs-line-light, #dee2e6)
 }
 
-.text-muted,
-.form-control::placeholder {
+.text-muted {
 	color: var(--bs-secondary-light, #9098a0) !important;
+}
+
+.form-control::placeholder {
+	color: var(--bs-secondary-light, #9098a0);
+}
+
+.form-control.is-invalid::placeholder,
+.form-select.is-invalid {
+	color: var(--bs-danger, #dc3545);
 }
 
 @media (max-width: 767px) {
