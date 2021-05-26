@@ -213,7 +213,13 @@ a, a:hover {
 	border-top: none;
 }
 
-td.is-invalid .form-control {
+.btn.is-invalid {
+	background-color: var(--bs-danger, #dc3545);
+	border-color: var(--bs-danger, #dc3545);
+}
+
+td.is-invalid .form-control,
+td.is-invalid .form-select {
 	border-color: var(--bs-danger, #dc3545);
 }
 
@@ -254,7 +260,10 @@ td.is-invalid .form-control {
 
 .form-control:focus,
 .form-control.is-valid:focus,
-.form-control.is-invalid:focus {
+.form-control.is-invalid:focus,
+.form-select:focus,
+.form-select.is-valid:focus,
+.form-select.is-invalid:focus {
 	background-color: var(--bs-bg-light, #ffffff);
 	color: var(--bs-secondary, #505860);
 	border-width: 1.5px;
@@ -263,7 +272,10 @@ td.is-invalid .form-control {
 
 .form-control:disabled,
 .form-control:read-only,
-.form-control[readonly] {
+.form-control[readonly],
+.form-select:disabled,
+.form-select:read-only,
+.form-select[readonly] {
 	background-color: var(--bs-bg-light, #FFFFFF);
 	color: var(--bs-secondary, #505860);
 }

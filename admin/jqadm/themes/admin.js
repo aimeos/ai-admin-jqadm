@@ -587,6 +587,10 @@ Aimeos.Form = {
 		$(".aimeos form").on("submit", function(ev) {
 			var nodes = [];
 
+			document.querySelectorAll('.main-navbar .btn-primary').forEach(function(el) {
+				el.classList.remove('is-invalid');
+			});
+
 			$(".card-header", this).removeClass("is-invalid");
 			$(".item-header", this).removeClass("is-invalid");
 			$(".item-navbar .nav-link", this).removeClass("is-invalid");
@@ -595,9 +599,10 @@ Aimeos.Form = {
 				var elem = $(element);
 
 				if(elem.closest(".prototype").length === 0 && elem.is(":invalid") === true) {
-					if(!elem.hasClass('.form-control')) {
+					if(!element.classList.contains('.form-control') && !element.classList.contains('form-select')) {
 						elem = elem.closest('.form-control');
 					}
+
 					nodes.push(elem.addClass("is-invalid"));
 				} else {
 					elem.removeClass("is-invalid");
@@ -620,6 +625,10 @@ Aimeos.Form = {
 			if( nodes.length > 0 ) {
 				$('html, body').animate({
 					scrollTop: '0px'
+				});
+
+				document.querySelectorAll('.main-navbar .btn-primary').forEach(function(el) {
+					el.classList.add('is-invalid');
 				});
 
 				return false;
