@@ -387,8 +387,8 @@ body {
 	background-color: var(--bs-bg-light, #FFFFFF);
 }
 
-.aimeos table th,
-.aimeos table td {
+.aimeos .table th,
+.aimeos .table td {
 	text-align: center;
 	font-weight: normal;
 	vertical-align: middle;
@@ -396,13 +396,13 @@ body {
 	height: 2.5rem;
 }
 
-.aimeos table .actions {
+.aimeos .table .actions {
 	white-space: nowrap;
 	text-align: end;
 	width: 2%;
 }
 
-.aimeos table .actions .btn {
+.aimeos .table .actions .btn {
 	display: inline-block;
 }
 
@@ -410,7 +410,7 @@ body {
 	text-align: center;
 }
 
-.aimeos table .list-item-new .actions .btn {
+.aimeos .table .list-item-new .actions .btn {
 	color: var(--bs-menu, #FFFFFF);
 }
 
