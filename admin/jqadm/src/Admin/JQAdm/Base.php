@@ -561,9 +561,8 @@ abstract class Base
 	 */
 	protected function log( \Exception $e ) : Iface
 	{
-		$logger = $this->context->getLogger();
-		$logger->log( $e->getMessage(), \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
-		$logger->log( $e->getTraceAsString(), \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
+		$msg = $e->getMessage() . PHP_EOL . $e->getTraceAsString();
+		$this->context->getLogger()->log( $msg, \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
 
 		return $this;
 	}
