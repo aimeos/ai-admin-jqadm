@@ -4,7 +4,9 @@
  */
 
 
- .aimeos a {
+/* General */
+
+.aimeos a {
 	text-decoration: none;
 }
 
@@ -712,11 +714,6 @@
 	padding: 0;
 	opacity: 0;
 	left: 0;
-}
-
-.aimeos .item-review .item-refid a.act-view:after {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: " \f06e";
 }
 
 .aimeos .item-review .item-response {
