@@ -404,22 +404,23 @@ class Standard
 
 		foreach( $items as $item )
 		{
+			$domain = $item->getDomain();
 			$filter = $manager->filter( true )->add( [
-				'review.domain' => $item->getDomain(),
 				'review.refid' => $item->getRefId(),
+				'review.domain' => $domain,
 				'review.status' => 1
 			] );
 
-			$rateManager = \Aimeos\MShop::create( $context, $item->getDomain() );
+			$rateManager = \Aimeos\MShop::create( $context, $domain );
 			$entry = $manager->aggregate( $filter, 'review.refid', 'review.rating', 'rate' )->first( [] );
 
-			if( $count = $entry['count'] ?? null ) {
-				$rateManager->rate( $item->getRefId(), $entry['sum'] / $entry['count'], $entry['count'] );
+			if( !empty( $cnt = current( $entry ) ) ) {
+				$rateManager->rate( $item->getRefId(), key( $entry ) / $cnt, $cnt );
 			} else {
 				$rateManager->rate( $item->getRefId(), 0, 0 );
 			}
 
-			$context->cache()->deleteByTags( [$item->getDomain() . '-' . $item->getRefId()] );
+			$context->cache()->deleteByTags( [$domain, $domain . '-' . $item->getRefId()] );
 		}
 
 		return $this;
