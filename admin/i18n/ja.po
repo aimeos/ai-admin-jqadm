@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:32+0200\n"
-"PO-Revision-Date: 2021-04-21 09:34+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2021-05-31 11:31+0200\n"
+"PO-Revision-Date: 2021-05-31 09:32+0000\n"
+"Last-Translator: Darshan Sampat <darshan@usindia.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -266,6 +266,9 @@ msgstr "カタログリストタイプ"
 msgid "Catalog Lists Types"
 msgstr "カタログリストタイプ"
 
+msgid "Categories"
+msgstr "カテゴリ"
+
 msgid "Categories the product can be found in by the user on the web site"
 msgstr "商品がウェブサイト上のユーザによって見つけられるカテゴリ"
 
@@ -387,6 +390,9 @@ msgstr "通貨"
 
 msgid "Custom"
 msgstr "関税"
+
+msgid "Custom domain or unique code of your shop"
+msgstr ""
 
 msgid "Customer"
 msgstr "顧客"
@@ -525,6 +531,9 @@ msgstr "メール"
 
 msgid "E-Mail address (required)"
 msgstr "電子メールアドレス（必須）"
+
+msgid "E-Mail address used for sending shop related e-mails"
+msgstr ""
 
 msgid "E-mail"
 msgstr "電子メイル"
@@ -899,6 +908,9 @@ msgstr "顧客がファイルをコンピュータに保存したときにダウ
 msgid "Name of the reviewer"
 msgstr ""
 
+msgid "Name of your shop shown to your customers"
+msgstr ""
+
 msgid "New"
 msgstr "新しい"
 
@@ -988,6 +1000,9 @@ msgstr "フロントエンドのタイプの順序"
 
 msgid "Order totals"
 msgstr "注文総額"
+
+msgid "Ordered at"
+msgstr ""
 
 msgid "Orders by country"
 msgstr ""
@@ -1340,6 +1355,9 @@ msgstr ""
 msgid "Rule provider or rule decorator configuration name"
 msgstr ""
 
+msgid "Rules"
+msgstr ""
+
 msgid "SKU"
 msgstr "SKU"
 
@@ -1415,6 +1433,9 @@ msgstr "サービスプロバイダまたはサービスデコレータの設定
 msgid "Service rebate"
 msgstr ""
 
+msgid "Settings"
+msgstr ""
+
 msgid "Ship date"
 msgstr "出荷日"
 
@@ -1434,6 +1455,27 @@ msgid "Shipping/Payment costs"
 msgstr "送料/支払い費用"
 
 msgid "Shipping/item"
+msgstr ""
+
+msgid "Shop domain"
+msgstr ""
+
+msgid "Shop domain (required)"
+msgstr ""
+
+msgid "Shop e-mail"
+msgstr ""
+
+msgid "Shop e-mail address (required)"
+msgstr ""
+
+msgid "Shop name"
+msgstr ""
+
+msgid "Shop name (required)"
+msgstr ""
+
+msgid "Shop theme"
 msgstr ""
 
 msgid ""
@@ -1622,6 +1664,9 @@ msgid ""
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr ""
 
+msgid "Theme to change the layout of your shop"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr "3文字のISO通貨コード"
 
@@ -1745,6 +1790,12 @@ msgstr "一意のタイプコード（必須）"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "一意のタイプコード。 \"緑\"、 \"青\"、 \"赤\"などの属性の \"色\""
+
+msgid "Upload shop icon"
+msgstr ""
+
+msgid "Upload shop logo"
+msgstr ""
 
 msgid "Uploaded"
 msgstr "アップロードされた"

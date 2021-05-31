@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:32+0200\n"
-"PO-Revision-Date: 2021-04-26 20:59+0000\n"
+"POT-Creation-Date: 2021-05-31 11:31+0200\n"
+"PO-Revision-Date: 2021-05-31 09:32+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -265,6 +265,9 @@ msgstr "Katalog Liste Türü"
 msgid "Catalog Lists Types"
 msgstr "Katalog Liste Türleri"
 
+msgid "Categories"
+msgstr "Kategoriler"
+
 msgid "Categories the product can be found in by the user on the web site"
 msgstr "Sitedeki müşteri tarafından ürünün bulunabileceği kategoriler"
 
@@ -386,6 +389,9 @@ msgstr "Para birimi"
 
 msgid "Custom"
 msgstr "Özelleştirilmiş"
+
+msgid "Custom domain or unique code of your shop"
+msgstr ""
 
 msgid "Customer"
 msgstr "Müşteri"
@@ -524,6 +530,9 @@ msgstr "E-Posta"
 
 msgid "E-Mail address (required)"
 msgstr "E-Mail adresi (gerekli)"
+
+msgid "E-Mail address used for sending shop related e-mails"
+msgstr ""
 
 msgid "E-mail"
 msgstr "E-mail"
@@ -898,6 +907,9 @@ msgstr "Müşteriler dosyayı bilgisayarlarına kaydettiğinde indirilen dosyan�
 msgid "Name of the reviewer"
 msgstr "Değerlendirenin adı"
 
+msgid "Name of your shop shown to your customers"
+msgstr ""
+
 msgid "New"
 msgstr "Yeni"
 
@@ -987,6 +999,9 @@ msgstr "Türlerin ön plandaki sırası"
 
 msgid "Order totals"
 msgstr "Sipariş toplamları"
+
+msgid "Ordered at"
+msgstr ""
 
 msgid "Orders by country"
 msgstr "Ülkeye göre siparişler"
@@ -1339,6 +1354,9 @@ msgstr "Kural konumu (gerekli)"
 msgid "Rule provider or rule decorator configuration name"
 msgstr "Kural sağlayıcı veya kural dekoratörü yapılandırma adı"
 
+msgid "Rules"
+msgstr ""
+
 msgid "SKU"
 msgstr "SKU"
 
@@ -1414,6 +1432,9 @@ msgstr "Hizmet sağlayıcı veya hizmet dekoratörü yapılandırma adı"
 msgid "Service rebate"
 msgstr "Hizmet indirimi"
 
+msgid "Settings"
+msgstr "Ayarlar"
+
 msgid "Ship date"
 msgstr "Gönderi tarihi"
 
@@ -1434,6 +1455,27 @@ msgstr "Nakliye/Ödeme masrafları"
 
 msgid "Shipping/item"
 msgstr "Nakliye/ürün"
+
+msgid "Shop domain"
+msgstr ""
+
+msgid "Shop domain (required)"
+msgstr ""
+
+msgid "Shop e-mail"
+msgstr ""
+
+msgid "Shop e-mail address (required)"
+msgstr ""
+
+msgid "Shop name"
+msgstr ""
+
+msgid "Shop name (required)"
+msgstr ""
+
+msgid "Shop theme"
+msgstr ""
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1621,6 +1663,9 @@ msgid ""
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "Sepetteki miktarlar için izin verilen basamak değeri, örn: kesirli miktarlar için \"0.1\" veya beşin katları için \"5\""
 
+msgid "Theme to change the layout of your shop"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr "Üç harfli ISO para birimi kodu"
 
@@ -1744,6 +1789,12 @@ msgstr "Benzersiz tür kodu (gerekli)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Benzersiz tür kodu, örn: \"yeşil\", \"mavi\", \"kırmızı\" gibi nitelikler için \"renk\""
+
+msgid "Upload shop icon"
+msgstr ""
+
+msgid "Upload shop logo"
+msgstr ""
 
 msgid "Uploaded"
 msgstr "Yüklendi"

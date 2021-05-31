@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-06 09:37+0200\n"
+"POT-Creation-Date: 2021-05-31 11:31+0200\n"
 "PO-Revision-Date: 2021-01-29 11:34+0000\n"
 "Last-Translator: Henry LIU <dadaycm@hotmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/aimeos/aimeos-core/language/zh_CN/)\n"
@@ -282,6 +282,10 @@ msgstr ""
 msgid "Catalog Lists Types"
 msgstr ""
 
+#, fuzzy
+msgid "Categories"
+msgstr "类目"
+
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
 
@@ -396,6 +400,9 @@ msgid "Currency"
 msgstr "货币"
 
 msgid "Custom"
+msgstr ""
+
+msgid "Custom domain or unique code of your shop"
 msgstr ""
 
 msgid "Customer"
@@ -532,6 +539,9 @@ msgid "E-Mail"
 msgstr "电子邮件"
 
 msgid "E-Mail address (required)"
+msgstr ""
+
+msgid "E-Mail address used for sending shop related e-mails"
 msgstr ""
 
 msgid "E-mail"
@@ -794,6 +804,10 @@ msgstr ""
 msgid "Last name"
 msgstr "姓名"
 
+#, fuzzy
+msgid "Last name (optional)"
+msgstr "姓名"
+
 msgid "Last name (required)"
 msgstr ""
 
@@ -887,6 +901,9 @@ msgstr ""
 msgid "Name of the reviewer"
 msgstr ""
 
+msgid "Name of your shop shown to your customers"
+msgstr ""
+
 msgid "New"
 msgstr ""
 
@@ -973,6 +990,10 @@ msgstr ""
 
 msgid "Order totals"
 msgstr ""
+
+#, fuzzy
+msgid "Ordered at"
+msgstr "订单编号"
 
 msgid "Orders by country"
 msgstr ""
@@ -1313,6 +1334,9 @@ msgstr ""
 msgid "Rule provider or rule decorator configuration name"
 msgstr ""
 
+msgid "Rules"
+msgstr ""
+
 msgid "SKU"
 msgstr ""
 
@@ -1388,6 +1412,9 @@ msgstr ""
 msgid "Service rebate"
 msgstr ""
 
+msgid "Settings"
+msgstr ""
+
 msgid "Ship date"
 msgstr ""
 
@@ -1407,6 +1434,29 @@ msgid "Shipping/Payment costs"
 msgstr ""
 
 msgid "Shipping/item"
+msgstr ""
+
+msgid "Shop domain"
+msgstr ""
+
+msgid "Shop domain (required)"
+msgstr ""
+
+msgid "Shop e-mail"
+msgstr ""
+
+#, fuzzy
+msgid "Shop e-mail address (required)"
+msgstr "内部名称(必填)"
+
+msgid "Shop name"
+msgstr ""
+
+#, fuzzy
+msgid "Shop name (required)"
+msgstr "内部名称(必填)"
+
+msgid "Shop theme"
 msgstr ""
 
 msgid "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1571,7 +1621,16 @@ msgstr ""
 msgid "The option is only shown on the web site until that date and time"
 msgstr ""
 
+msgid "The rule is only used after that date and time"
+msgstr ""
+
+msgid "The rule is only used until that date and time"
+msgstr ""
+
 msgid "The step value allowed for quantities in the basket, e.g. \"0.1\" for fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
+msgid "Theme to change the layout of your shop"
 msgstr ""
 
 msgid "Three letter ISO currency code"
@@ -1693,6 +1752,12 @@ msgid "Unique type code (required)"
 msgstr ""
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+msgstr ""
+
+msgid "Upload shop icon"
+msgstr ""
+
+msgid "Upload shop logo"
 msgstr ""
 
 msgid "Uploaded"

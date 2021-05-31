@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:32+0200\n"
-"PO-Revision-Date: 2021-04-21 09:34+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2021-05-31 11:31+0200\n"
+"PO-Revision-Date: 2021-05-31 09:32+0000\n"
+"Last-Translator: Андрей Аксёнов <aksenovaa@bk.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,6 +269,9 @@ msgstr "Тип Списков Каталога"
 msgid "Catalog Lists Types"
 msgstr "Типы Списков Каталога"
 
+msgid "Categories"
+msgstr "Категории"
+
 msgid "Categories the product can be found in by the user on the web site"
 msgstr "Категории товара могут быть найдены пользователем на веб-сайте."
 
@@ -390,6 +393,9 @@ msgstr "Валюта"
 
 msgid "Custom"
 msgstr "Пользовательский"
+
+msgid "Custom domain or unique code of your shop"
+msgstr ""
 
 msgid "Customer"
 msgstr "Покупатель"
@@ -528,6 +534,9 @@ msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
 msgstr "Адрес эл. почты (обязательно)"
+
+msgid "E-Mail address used for sending shop related e-mails"
+msgstr ""
 
 msgid "E-mail"
 msgstr "Эл. почта"
@@ -902,6 +911,9 @@ msgstr "Имя загружаемого файла, при сохранении 
 msgid "Name of the reviewer"
 msgstr ""
 
+msgid "Name of your shop shown to your customers"
+msgstr ""
+
 msgid "New"
 msgstr "Новый"
 
@@ -991,6 +1003,9 @@ msgstr "Упорядоченность типов в публичной част
 
 msgid "Order totals"
 msgstr "Общие данные заказа"
+
+msgid "Ordered at"
+msgstr ""
 
 msgid "Orders by country"
 msgstr ""
@@ -1343,6 +1358,9 @@ msgstr ""
 msgid "Rule provider or rule decorator configuration name"
 msgstr ""
 
+msgid "Rules"
+msgstr ""
+
 msgid "SKU"
 msgstr "Артикул SKU"
 
@@ -1418,6 +1436,9 @@ msgstr "Служба провайдера или название конфигу
 msgid "Service rebate"
 msgstr "Служба скидок"
 
+msgid "Settings"
+msgstr ""
+
 msgid "Ship date"
 msgstr "Дата доставки"
 
@@ -1437,6 +1458,27 @@ msgid "Shipping/Payment costs"
 msgstr "Затраты доставки/оплаты"
 
 msgid "Shipping/item"
+msgstr ""
+
+msgid "Shop domain"
+msgstr ""
+
+msgid "Shop domain (required)"
+msgstr ""
+
+msgid "Shop e-mail"
+msgstr ""
+
+msgid "Shop e-mail address (required)"
+msgstr ""
+
+msgid "Shop name"
+msgstr ""
+
+msgid "Shop name (required)"
+msgstr ""
+
+msgid "Shop theme"
 msgstr ""
 
 msgid ""
@@ -1625,6 +1667,9 @@ msgid ""
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr ""
 
+msgid "Theme to change the layout of your shop"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr "Трехбуквенный код валюты ISO"
 
@@ -1748,6 +1793,12 @@ msgstr "Уникальный тип кода (обязательно)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Уникальный тип кода, например «цвет» для таких атрибутов, как «зеленый», «синий», «красный»"
+
+msgid "Upload shop icon"
+msgstr ""
+
+msgid "Upload shop logo"
+msgstr ""
 
 msgid "Uploaded"
 msgstr "Загружено"

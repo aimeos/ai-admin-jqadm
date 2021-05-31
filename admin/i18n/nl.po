@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:32+0200\n"
-"PO-Revision-Date: 2021-04-21 09:34+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2021-05-31 11:31+0200\n"
+"PO-Revision-Date: 2021-05-31 09:32+0000\n"
+"Last-Translator: Klaas Runia <info@sennik.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -272,6 +272,9 @@ msgstr "Catalogus Lijsttype"
 msgid "Catalog Lists Types"
 msgstr "Catalogus Lijsttypes"
 
+msgid "Categories"
+msgstr "Categorieën"
+
 msgid "Categories the product can be found in by the user on the web site"
 msgstr "Categorieën waarin het product door de gebruiker gevonden kan worden op de website "
 
@@ -393,6 +396,9 @@ msgstr "Valuta"
 
 msgid "Custom"
 msgstr "Aangepast"
+
+msgid "Custom domain or unique code of your shop"
+msgstr ""
 
 msgid "Customer"
 msgstr "Klant"
@@ -531,6 +537,9 @@ msgstr "E-mail"
 
 msgid "E-Mail address (required)"
 msgstr "E-mailadres (vereist)"
+
+msgid "E-Mail address used for sending shop related e-mails"
+msgstr ""
 
 msgid "E-mail"
 msgstr "E-mail"
@@ -905,6 +914,9 @@ msgstr "Naam van het downloadbestand wanneer deze opgeslagen wordt door de klant
 msgid "Name of the reviewer"
 msgstr ""
 
+msgid "Name of your shop shown to your customers"
+msgstr ""
+
 msgid "New"
 msgstr "Nieuw"
 
@@ -994,6 +1006,9 @@ msgstr "Orde van de types in de frontend"
 
 msgid "Order totals"
 msgstr "Order totalen"
+
+msgid "Ordered at"
+msgstr ""
 
 msgid "Orders by country"
 msgstr ""
@@ -1346,6 +1361,9 @@ msgstr ""
 msgid "Rule provider or rule decorator configuration name"
 msgstr ""
 
+msgid "Rules"
+msgstr ""
+
 msgid "SKU"
 msgstr "SKU"
 
@@ -1421,6 +1439,9 @@ msgstr "Configuratienaam van serviceprovider of decorateur"
 msgid "Service rebate"
 msgstr "Service-korting"
 
+msgid "Settings"
+msgstr ""
+
 msgid "Ship date"
 msgstr "Verzenddatum"
 
@@ -1440,6 +1461,27 @@ msgid "Shipping/Payment costs"
 msgstr "Verzend-/Betaalkosten"
 
 msgid "Shipping/item"
+msgstr ""
+
+msgid "Shop domain"
+msgstr ""
+
+msgid "Shop domain (required)"
+msgstr ""
+
+msgid "Shop e-mail"
+msgstr ""
+
+msgid "Shop e-mail address (required)"
+msgstr ""
+
+msgid "Shop name"
+msgstr ""
+
+msgid "Shop name (required)"
+msgstr ""
+
+msgid "Shop theme"
 msgstr ""
 
 msgid ""
@@ -1628,6 +1670,9 @@ msgid ""
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "De stapwaarde die is toegestaan voor hoeveelheden in het winkelmandje, bijvoorbeeld \"0,1\" voor fractionele hoeveelheden of \"5\" voor veelvoud van vijf artikelen"
 
+msgid "Theme to change the layout of your shop"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr "3 Letter ISO code voor valuta"
 
@@ -1751,6 +1796,12 @@ msgstr "Unieke typecode (vereist)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Uniek type code, bijvoorbeeld \"kleur\" voor attributen zoals \"groen\", \"blauw\", \"rood\""
+
+msgid "Upload shop icon"
+msgstr ""
+
+msgid "Upload shop logo"
+msgstr ""
 
 msgid "Uploaded"
 msgstr "Geupload"

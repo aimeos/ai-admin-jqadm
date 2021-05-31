@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:32+0200\n"
-"PO-Revision-Date: 2021-04-21 09:34+0000\n"
+"POT-Creation-Date: 2021-05-31 11:31+0200\n"
+"PO-Revision-Date: 2021-05-31 09:31+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -267,6 +267,9 @@ msgstr ""
 msgid "Catalog Lists Types"
 msgstr ""
 
+msgid "Categories"
+msgstr ""
+
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
 
@@ -387,6 +390,9 @@ msgid "Currency"
 msgstr "Waluta"
 
 msgid "Custom"
+msgstr ""
+
+msgid "Custom domain or unique code of your shop"
 msgstr ""
 
 msgid "Customer"
@@ -525,6 +531,9 @@ msgid "E-Mail"
 msgstr "E-mail"
 
 msgid "E-Mail address (required)"
+msgstr ""
+
+msgid "E-Mail address used for sending shop related e-mails"
 msgstr ""
 
 msgid "E-mail"
@@ -900,6 +909,9 @@ msgstr ""
 msgid "Name of the reviewer"
 msgstr ""
 
+msgid "Name of your shop shown to your customers"
+msgstr ""
+
 msgid "New"
 msgstr ""
 
@@ -988,6 +1000,9 @@ msgid "Order of the types in the frontend"
 msgstr ""
 
 msgid "Order totals"
+msgstr ""
+
+msgid "Ordered at"
 msgstr ""
 
 msgid "Orders by country"
@@ -1341,6 +1356,9 @@ msgstr ""
 msgid "Rule provider or rule decorator configuration name"
 msgstr ""
 
+msgid "Rules"
+msgstr ""
+
 msgid "SKU"
 msgstr ""
 
@@ -1416,6 +1434,9 @@ msgstr ""
 msgid "Service rebate"
 msgstr ""
 
+msgid "Settings"
+msgstr ""
+
 msgid "Ship date"
 msgstr ""
 
@@ -1435,6 +1456,27 @@ msgid "Shipping/Payment costs"
 msgstr ""
 
 msgid "Shipping/item"
+msgstr ""
+
+msgid "Shop domain"
+msgstr ""
+
+msgid "Shop domain (required)"
+msgstr ""
+
+msgid "Shop e-mail"
+msgstr ""
+
+msgid "Shop e-mail address (required)"
+msgstr ""
+
+msgid "Shop name"
+msgstr ""
+
+msgid "Shop name (required)"
+msgstr ""
+
+msgid "Shop theme"
 msgstr ""
 
 msgid ""
@@ -1623,6 +1665,9 @@ msgid ""
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr ""
 
+msgid "Theme to change the layout of your shop"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr ""
 
@@ -1745,6 +1790,12 @@ msgid "Unique type code (required)"
 msgstr ""
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+msgstr ""
+
+msgid "Upload shop icon"
+msgstr ""
+
+msgid "Upload shop logo"
 msgstr ""
 
 msgid "Uploaded"

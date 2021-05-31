@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:32+0200\n"
-"PO-Revision-Date: 2021-04-21 09:34+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2021-05-31 11:31+0200\n"
+"PO-Revision-Date: 2021-05-31 09:32+0000\n"
+"Last-Translator: Oleksandr Kropyvko <akropivko@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -266,6 +266,9 @@ msgstr "Тип Списків Каталогу"
 msgid "Catalog Lists Types"
 msgstr "Типи Списків Каталогу"
 
+msgid "Categories"
+msgstr "Категорії"
+
 msgid "Categories the product can be found in by the user on the web site"
 msgstr "Категорії, до яких належить товар"
 
@@ -387,6 +390,9 @@ msgstr "Валюта"
 
 msgid "Custom"
 msgstr "На замовлення"
+
+msgid "Custom domain or unique code of your shop"
+msgstr ""
 
 msgid "Customer"
 msgstr "Покупець"
@@ -525,6 +531,9 @@ msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
 msgstr "Адреса ел. пошти (обов`язково)"
+
+msgid "E-Mail address used for sending shop related e-mails"
+msgstr ""
 
 msgid "E-mail"
 msgstr "Ел. пошта"
@@ -899,6 +908,9 @@ msgstr "Ім`я файлу при збереженні користувачем 
 msgid "Name of the reviewer"
 msgstr "Ім`я оглядача"
 
+msgid "Name of your shop shown to your customers"
+msgstr ""
+
 msgid "New"
 msgstr "Новий"
 
@@ -988,6 +1000,9 @@ msgstr "Порядок типів в публічній частині"
 
 msgid "Order totals"
 msgstr "Загальні дані замовлення"
+
+msgid "Ordered at"
+msgstr ""
 
 msgid "Orders by country"
 msgstr ""
@@ -1340,6 +1355,9 @@ msgstr ""
 msgid "Rule provider or rule decorator configuration name"
 msgstr ""
 
+msgid "Rules"
+msgstr ""
+
 msgid "SKU"
 msgstr "Артикул SKU"
 
@@ -1415,6 +1433,9 @@ msgstr "Сервіс провайдер або назва конфігураці
 msgid "Service rebate"
 msgstr "Сервіс знижок"
 
+msgid "Settings"
+msgstr "налаштування"
+
 msgid "Ship date"
 msgstr "Дата доставки"
 
@@ -1435,6 +1456,27 @@ msgstr "Доставка/Оплата вартість"
 
 msgid "Shipping/item"
 msgstr "Доставка/одиниця"
+
+msgid "Shop domain"
+msgstr ""
+
+msgid "Shop domain (required)"
+msgstr ""
+
+msgid "Shop e-mail"
+msgstr ""
+
+msgid "Shop e-mail address (required)"
+msgstr ""
+
+msgid "Shop name"
+msgstr ""
+
+msgid "Shop name (required)"
+msgstr ""
+
+msgid "Shop theme"
+msgstr ""
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1622,6 +1664,9 @@ msgid ""
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "Шаг інкременту кількости в кошику, наприклад 0.1, 1 або 5"
 
+msgid "Theme to change the layout of your shop"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr "Код валюти ISO"
 
@@ -1745,6 +1790,12 @@ msgstr "Унікальний тип коду (обов`язково)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Унікальний тип коду, наприклад «колір» для таких атрибутів, як «зелений», «синій», «червоний»"
+
+msgid "Upload shop icon"
+msgstr ""
+
+msgid "Upload shop logo"
+msgstr ""
 
 msgid "Uploaded"
 msgstr "Завантажено"
