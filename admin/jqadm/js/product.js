@@ -574,7 +574,7 @@ Aimeos.Product.Order = {
 					let id = null;
 					let self = this;
 
-					(item['relationships'][type]['data'] || []).forEach(function(addr) {
+					(item['relationships'] && item['relationships'][type] && item['relationships'][type]['data'] || []).forEach(function(addr) {
 						if(addr.data && addr.data.id && self.included[type] && self.included[type][addr.data.id]
 							&& self.included[type][addr.data.id]['attributes']['order.base.address.type'] === 'payment'
 						) {
