@@ -249,7 +249,7 @@ class Standard
 		$item = $this->getContext()->getLocale()->getSiteItem();
 
 		$config = $data['locale.site.config'] ?? [];
-		$config['resource']['email']['email-name'] = $data['locale.site.label'];
+		$config['resource']['email']['from-name'] = $data['locale.site.label'];
 
 		$files = (array) $this->getView()->request()->getUploadedFiles();
 
