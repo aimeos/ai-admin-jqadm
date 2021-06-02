@@ -31,12 +31,12 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 			<div is="draggable" v-model="items" group="selection" handle=".act-move">
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
-					<div v-bind:id="'item-selection-group-item-' + idx" v-bind:class="getCss(idx)"
-						v-bind:data-bs-target="'#item-selection-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
-						v-bind:aria-controls="'item-selection-group-data-' + idx" aria-expanded="false">
+					<div v-bind:id="'item-selection-group-item-' + idx" class="card-header header">
 						<div class="card-tools-start">
-							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>">
+							<div class="btn btn-card-header act-show fa" v-bind:class="getCss(idx)"
+								v-bind:aria-controls="'item-selection-group-data-' + idx" aria-expanded="false"
+								data-bs-toggle="collapse" v-bind:data-bs-target="'#item-selection-group-data-' + idx"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>">
 							</div>
 						</div>
 						<span class="item-label header-label">{{ getLabel(idx) }}</span>

@@ -285,15 +285,15 @@ body {
 	content: "\f002";
 }
 
-.aimeos .main-navbar .btn.act-show.fa:before,
-.aimeos .advanced.collapsed .btn.act-show.fa:before,
-.aimeos .header.collapsed .btn.act-show.fa:before {
-	content: "\f078";
-}
-
 .aimeos .advanced .btn.act-show.fa:before,
 .aimeos .header .btn.act-show.fa:before {
 	content: "\f077";
+}
+
+.aimeos .main-navbar .btn.act-show.fa:before,
+.aimeos .advanced.collapsed .btn.act-show.fa:before,
+.aimeos .header .btn.act-show.fa.collapsed:before {
+	content: "\f078";
 }
 
 .aimeos .btn.act-add.fa:before {
