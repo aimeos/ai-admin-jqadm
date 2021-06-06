@@ -11,7 +11,7 @@ $enc = $this->encoder();
 ?>
 <div id="physical" class="item-physical tab-pane fade" role="tabpanel" aria-labelledby="physical">
 	<div class="row">
-		<div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>">
+		<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>">
 			<div class="box">
 				<div class="form-group row optional">
 					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Length' ) ) ?></label>

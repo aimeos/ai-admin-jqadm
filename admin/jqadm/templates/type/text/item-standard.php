@@ -88,7 +88,7 @@ $params = $this->get( 'pageParams', [] );
 				<div class="col">
 					<div class="box">
 						<div class="row">
-							<div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/text.type.siteid' ) ) ?>">
+							<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/text.type.siteid' ) ) ?>">
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
 									<div class="col-sm-8">

@@ -272,10 +272,13 @@ td.is-invalid .form-select {
 .form-control:read-only,
 .form-control[readonly],
 .form-select:disabled,
-.form-select:read-only,
 .form-select[readonly] {
 	background-color: var(--bs-bg-light, #FFFFFF);
 	color: var(--bs-secondary-light, #9098A0);
+}
+
+.block:not(.readonly) .form-control[readonly].select {
+	color: var(--bs-secondary, #505860);
 }
 
 .form-inline label {

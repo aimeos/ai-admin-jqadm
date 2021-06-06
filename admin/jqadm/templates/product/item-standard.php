@@ -288,7 +288,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 
 				<div class="box">
 					<div class="row">
-						<div class="col-xl-6 vue <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>"
+						<div class="col-xl-6 block vue <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>"
 							data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 							<?php if( $this->config( 'admin/jqadm/dataset/product', [] ) !== [] ) : ?>
@@ -430,7 +430,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<div class="form-group row optional advanced">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-datestart" type="datetime-local" tabindex="1"
+									<input is="flat-pickr" class="form-control item-datestart select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.datestart' ) ) ) ?>`"
@@ -444,7 +444,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<div class="form-group row optional advanced">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-dateend" type="datetime-local" tabindex="1"
+									<input is="flat-pickr" class="form-control item-dateend select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.dateend' ) ) ) ?>`"
@@ -484,7 +484,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6 vue <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>"
+						--><div class="col-xl-6 block vue <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>"
 							data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"

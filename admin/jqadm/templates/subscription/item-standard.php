@@ -151,7 +151,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Next date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-datenext" type="date" required="required" tabindex="1"
+									<input is="flat-pickr" class="form-control item-datenext select" type="date" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Next date (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/subscription.datenext' ) ) ?>`"
@@ -165,7 +165,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
-									<input is="flat-pickr" class="form-control item-dateendend" type="date" tabindex="1"
+									<input is="flat-pickr" class="form-control item-dateend select" type="date" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'End date (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/subscription.dateend' ) ) ?>`"
@@ -200,7 +200,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 						</div>
 					</div>
 
-					<div class="col-xl-6 <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?>">
+					<div class="col-xl-6 block <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?>">
 						<div class="box">
 							<div class="form-group row">
 								<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?></label>

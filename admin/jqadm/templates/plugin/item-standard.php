@@ -95,7 +95,7 @@ $enc = $this->encoder();
 
 				<div class="box">
 					<div class="row">
-						<div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>">
+						<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
@@ -161,7 +161,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
 								<div class="col-sm-8">
 									<div class="input-group">
-										<input class="form-control item-provider combobox" type="text" required="required" tabindex="1" readonly
+										<input class="form-control combobox select item-provider" type="text" required="required" tabindex="1" readonly
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.provider' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ) ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/plugin.provider' ) ) ?>"
@@ -196,7 +196,7 @@ $enc = $this->encoder();
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6 <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>">
+						--><div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>">
 							<table class="item-config table">
 								<thead>
 									<tr>

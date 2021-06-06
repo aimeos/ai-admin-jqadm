@@ -170,7 +170,7 @@ $statusList = [
 				<div id="order" class="item-order tab-pane fade show active" role="tabpanel" aria-labelledby="order">
 
 					<div class="row item-base">
-						<div class="col-xl-6 <?= $this->site()->readonly( $basket->getSiteId() ) ?>">
+						<div class="col-xl-6 block <?= $this->site()->readonly( $basket->getSiteId() ) ?>">
 							<div class="box">
 								<div class="form-group row">
 									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?></label>
@@ -202,7 +202,7 @@ $statusList = [
 							</div>
 						</div>
 
-						<div class="col-xl-6 <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?>">
+						<div class="col-xl-6 block <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?>">
 							<div class="box">
 								<div class="form-group row">
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>

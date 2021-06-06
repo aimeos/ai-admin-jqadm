@@ -144,14 +144,14 @@ $columnList = [
 								<div class="form-group row optional">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 									<div class="col-sm-8">
-										<input class="form-control coupon-code-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										<input class="form-control coupon-code-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.datestart', '' ) ) ) ?>" disabled="disabled" />
 									</div>
 								</div>
 								<div class="form-group row optional">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 									<div class="col-sm-8">
-										<input class="form-control coupon-code-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										<input class="form-control coupon-code-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.dateend', '' ) ) ) ?>" disabled="disabled" />
 									</div>
 								</div>
@@ -194,16 +194,16 @@ $columnList = [
 							</td>
 						<?php endif ?>
 						<?php if( in_array( 'coupon.code.datestart', $fields ) ) : ?>
-							<td class="coupon-datestart">
-								<input class="form-control coupon-code-datestart" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<td class="coupon-datestart select">
+								<input class="form-control coupon-code-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.datestart', '' ) ) ) ?>"
 									value="<?= $enc->attr( $this->datetime( $this->get( 'codeData/coupon.code.datestart/' . $idx ) ) ) ?>"
 									<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ) ?> disabled="disabled" />
 							</td>
 						<?php endif ?>
 						<?php if( in_array( 'coupon.code.dateend', $fields ) ) : ?>
-							<td class="coupon-dateend">
-								<input class="form-control coupon-code-dateend" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<td class="coupon-dateend select">
+								<input class="form-control coupon-code-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.dateend', '' ) ) ) ?>"
 									value="<?= $enc->attr( $this->datetime( $this->get( 'codeData/coupon.code.dateend/' . $idx ) ) ) ?>"
 									<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ) ?> disabled="disabled" />

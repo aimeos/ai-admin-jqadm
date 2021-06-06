@@ -19,21 +19,22 @@ Aimeos.Coupon = {
 
 	setupConfig : function() {
 
-		var delegate = $(".aimeos .item-coupon .item-basic");
+		const delegate = $(".aimeos .item-coupon .item-basic");
+		const input = $(".block:not(.readonly) input.item-provider", delegate);
 
-		if(delegate.length > 0 ) {
-			Aimeos.Config.setup('coupon/config', $("input.item-provider", delegate).val(), delegate);
+		if(input.length > 0 ) {
+			Aimeos.Config.setup('coupon/config', input.val(), delegate);
+
+			delegate.on("change", "input.item-provider", function(ev) {
+				Aimeos.Config.setup('coupon/config', $(this).val(), ev.delegateTarget);
+			});
 		}
-
-		delegate.on("change", "input.item-provider", function(ev) {
-			Aimeos.Config.setup('coupon/config', $(this).val(), ev.delegateTarget);
-		});
 	},
 
 
 	setupDecorator : function() {
 
-		$(".aimeos .item-coupon").on("click", ".provider .dropdown .decorator-name", function() {
+		$(".aimeos .item-coupon .block:not(.readonly)").on("click", ".provider .dropdown .decorator-name", function() {
 
 			var name = $(this).data("name");
 			var input = $(this).closest(".provider").find('input.item-provider');
@@ -48,7 +49,7 @@ Aimeos.Coupon = {
 
 	setupProvider : function() {
 
-		$(".aimeos .item-coupon").on("focus click", "input.item-provider", function() {
+		$(".aimeos .item-coupon .block:not(.readonly)").on("focus click", "input.item-provider", function() {
 			const self = $(this);
 
 			self.autocomplete({
