@@ -275,7 +275,7 @@ td.is-invalid .form-select {
 .form-select:read-only,
 .form-select[readonly] {
 	background-color: var(--bs-bg-light, #FFFFFF);
-	color: var(--bs-secondary, #505860);
+	color: var(--bs-secondary-light, #9098A0);
 }
 
 .form-inline label {
