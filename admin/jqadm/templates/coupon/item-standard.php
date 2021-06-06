@@ -134,8 +134,8 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
 								<div class="col-sm-8">
-									<div class="input-group">
-										<input class="form-control item-provider combobox" type="text" required="required" tabindex="1"
+									<div class="input-group provider">
+										<input class="form-control item-provider combobox" type="text" required="required" tabindex="1" readonly
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.provider' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ) ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/coupon.provider' ) ) ?>"

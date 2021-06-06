@@ -25,22 +25,22 @@ Aimeos.Coupon = {
 			Aimeos.Config.setup('coupon/config', $("input.item-provider", delegate).val(), delegate);
 		}
 
-		delegate.on("change input blur", "input.item-provider", function(ev) {
-			Aimeos.Config.setup('coupon/config', $(ev.currentTarget).val(), ev.delegateTarget);
+		delegate.on("change", "input.item-provider", function(ev) {
+			Aimeos.Config.setup('coupon/config', $(this).val(), ev.delegateTarget);
 		});
 	},
 
 
 	setupDecorator : function() {
 
-		$(".aimeos .item-coupon .item-provider").parent().on("click", ".dropdown .decorator-name", function(ev) {
+		$(".aimeos .item-coupon").on("click", ".provider .dropdown .decorator-name", function() {
 
 			var name = $(this).data("name");
-			var input = $("input.item-provider", ev.delegateTarget);
+			var input = $(this).closest(".provider").find('input.item-provider');
 
 			if(input.val().indexOf(name) === -1) {
 				input.val(input.val() + ',' + name);
-				input.trigger("change");
+				input.trigger('change');
 			}
 		});
 	},
@@ -48,15 +48,20 @@ Aimeos.Coupon = {
 
 	setupProvider : function() {
 
-		var input = $(".aimeos .item-coupon").on("focus", ".item-provider", function(ev) {
+		$(".aimeos .item-coupon").on("focus click", "input.item-provider", function() {
+			const self = $(this);
 
-			$(this).autocomplete({
-				source: $(this).data("names").split(","),
+			self.autocomplete({
+				source: self.data("names").split(","),
+				select: function(ev, ui) {
+					self.val(ui.item.value);
+					self.trigger('change');
+				},
 				minLength: 0,
 				delay: 0
 			});
 
-			$(this).autocomplete("search", "");
+			self.autocomplete("search", "");
 		});
 	}
 };
