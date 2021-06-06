@@ -59,7 +59,7 @@ $columnList = [
 		);
 	?>
 
-	<div class="table-responsive">
+	<div class="">
 		<table class="list-items table table-hover">
 			<thead class="list-header">
 				<tr>
