@@ -260,10 +260,10 @@ $statusList = [
 											<tr>
 												<th class="item-column column-subscription"><?= $enc->html( $this->translate( 'admin', 'Renew' ) ) ?></th>
 												<th class="item-column column-status"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></th>
-												<th class="item-column column-timeframe"><?= $enc->html( $this->translate( 'admin', 'Delivery in' ) ) ?></th>
 												<th class="item-column column-desc"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></th>
 												<th class="item-column column-quantity"><?= $enc->html( $this->translate( 'admin', 'Quantity' ) ) ?></th>
-												<th class="item-column column-price"><?= $enc->html( $this->translate( 'admin', 'Price' ) ) ?></th>
+												<th class="item-column column-qtyopen"><?= $enc->html( $this->translate( 'admin', 'Open' ) ) ?></th>
+												<th class="item-column column-timeframe"><?= $enc->html( $this->translate( 'admin', 'Delivery in' ) ) ?></th>
 												<th class="item-column column-sum"><?= $enc->html( $this->translate( 'admin', 'Sum' ) ) ?></th>
 											</tr>
 										</thead>
@@ -297,13 +297,6 @@ $statusList = [
 																<?php endforeach ?>
 															</select>
 														</td>
-														<td class="item-column column-timeframe">
-															<input class="form-control product-timeframe" maxlength="16" tabindex="1"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.timeframe' ) ) ) ?>"
-																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Delivery timeframe (optional)' ) ) ?>"
-																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.base.product.timeframe' ) ) ?>"
-																<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
-														</td>
 														<td class="item-column column-desc">
 															<span class="product-name"><?= $enc->html( $orderProduct->getName() ) ?></span>
 															<span class="product-attr">
@@ -322,13 +315,32 @@ $statusList = [
 														<td class="item-column column-quantity">
 															<span class="product-quantity"><?= $enc->html( $orderProduct->getQuantity() ) ?></span>
 														</td>
-														<td class="item-column column-price">
-															<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getValue(), $currency ) ) ?></span>
-															<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getRebate(), $currency ) ) ?></span>
+														<td class="item-column column-qtyopen">
+															<input class="form-control product-qtyopen" type="number" tabindex="1" step="0.001"
+																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.qtyopen' ) ) ) ?>"
+																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Open' ) ) ?>"
+																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.base.product.qtyopen' ) ) ?>"
+																<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
+														</td>
+														<td class="item-column column-timeframe">
+															<input class="form-control product-timeframe" maxlength="16" tabindex="1"
+																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.timeframe' ) ) ) ?>"
+																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Delivery timeframe (optional)' ) ) ?>"
+																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.base.product.timeframe' ) ) ?>"
+																<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
 														</td>
 														<td class="item-column column-sum">
 															<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
 															<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
+														</td>
+													</tr>
+													<tr class="list-item">
+														<td class="item-column column-notes" colspan="8" maxlength="255">
+															<input class="form-control product-notes" tabindex="1"
+																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.notes' ) ) ) ?>"
+																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Notes' ) ) ?>"
+																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.base.product.notes' ) ) ?>"
+																<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
 														</td>
 													</tr>
 

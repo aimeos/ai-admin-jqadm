@@ -427,16 +427,17 @@ class Standard
 		}
 
 		$basket->fromArray( $data, true );
+		$allowed = array_flip( [
+			'order.base.product.status',
+			'order.base.product.qtyopen',
+			'order.base.product.timeframe',
+			'order.base.product.notes',
+		] );
 
 		foreach( $basket->getProducts() as $pos => $product )
 		{
-			if( isset( $data['product'][$pos]['order.base.product.status'] ) ) {
-				$product->setStatus( $data['product'][$pos]['order.base.product.status'] );
-			}
-
-			if( isset( $data['product'][$pos]['order.base.product.timeframe'] ) ) {
-				$product->setTimeframe( $data['product'][$pos]['order.base.product.timeframe'] );
-			}
+			$list = array_intersect_key( $data['product'][$pos], $allowed );
+			$product->fromArray( $list );
 		}
 
 		foreach( $basket->getAddresses() as $type => $addresses )
@@ -558,10 +559,8 @@ class Standard
 			}
 		}
 
-		foreach( $item->getProducts() as $pos => $productItem )
-		{
-			$data['product'][$pos]['order.base.product.status'] = $productItem->getStatus();
-			$data['product'][$pos]['order.base.product.timeframe'] = $productItem->getTimeFrame();
+		foreach( $item->getProducts() as $pos => $productItem ) {
+			$data['product'][$pos] = $productItem->toArray();
 		}
 
 		return $data;

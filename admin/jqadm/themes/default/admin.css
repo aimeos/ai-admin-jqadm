@@ -568,7 +568,12 @@
 	text-align: start;
 }
 
-.aimeos .item-order .item-product-list .column-price,
+.aimeos .item-order .item-product-list .column-qtyopen {
+	max-width: 5rem;
+	min-width: 3rem;
+}
+
+.aimeos .item-order .item-product-list .product-qtyopen,
 .aimeos .item-order .item-product-list .column-sum {
 	white-space: nowrap;
 	text-align: end;
@@ -579,6 +584,7 @@
 .aimeos .item-order .item-product-list .product-sku,
 .aimeos .item-order .item-product-list .product-status,
 .aimeos .item-order .item-product-list .product-quantity,
+.aimeos .item-order .item-product-list .product-qtyopen,
 .aimeos .item-order .item-product-list .product-price,
 .aimeos .item-order .item-product-list .product-costs,
 .aimeos .item-order .item-product-list .product-rebate {
