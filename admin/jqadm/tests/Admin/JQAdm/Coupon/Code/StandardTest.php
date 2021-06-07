@@ -134,7 +134,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	protected function getCouponItem( $provider = 'Example,BasketValues' )
+	protected function getCouponItem( $provider = 'Example,Basket' )
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'coupon' );
 
