@@ -69,7 +69,7 @@ class TestHelperCustom
 
 	public static function getTemplatePaths()
 	{
-		return self::getAimeos()->getCustomPaths( 'admin/jqadm/templates' );
+		return self::getAimeos()->getTemplatePaths( 'admin/jqadm/templates' );
 	}
 
 

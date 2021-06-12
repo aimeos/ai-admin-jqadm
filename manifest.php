@@ -1,27 +1,29 @@
 <?php
 
-return array(
+return [
 	'name' => 'ai-admin-jqadm',
-	'depends' => array(
+	'depends' => [
 		'aimeos-core',
-	),
-	'config' => array(
+	],
+	'config' => [
 		'config',
-	),
-	'include' => array(
+	],
+	'include' => [
 		'admin/jqadm/src',
 		'lib/custom/src',
-	),
-	'i18n' => array(
+	],
+	'i18n' => [
 		'admin' => 'admin/i18n',
 		'admin/ext' => 'admin/i18n/ext',
-	),
-	'custom' => array(
-		'admin/jqadm' => array(
+	],
+	'custom' => [
+		'admin/jqadm' => [
 			'admin/jqadm/manifest.jsb2',
-		),
-		'admin/jqadm/templates' => array(
+		],
+	],
+	'template' => [
+		'admin/jqadm/templates' => [
 			'admin/jqadm/templates',
-		),
-	),
-);
+		],
+	],
+];
