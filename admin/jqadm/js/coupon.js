@@ -34,7 +34,7 @@ Aimeos.Coupon = {
 
 	setupDecorator : function() {
 
-		$(".aimeos .item-coupon .block:not(.readonly)").on("click", ".provider .dropdown .decorator-name", function() {
+		$(".aimeos .item-coupon").on("click", ".block:not(.readonly) .provider .dropdown .decorator-name", function() {
 
 			var name = $(this).data("name");
 			var input = $(this).closest(".provider").find('input.item-provider');
@@ -49,7 +49,7 @@ Aimeos.Coupon = {
 
 	setupProvider : function() {
 
-		$(".aimeos .item-coupon .block:not(.readonly)").on("focus click", "input.item-provider", function() {
+		$(".aimeos .item-coupon").on("focus click", ".block:not(.readonly) input.item-provider", function() {
 			const self = $(this);
 
 			self.autocomplete({
