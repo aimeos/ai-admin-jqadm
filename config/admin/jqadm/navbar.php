@@ -22,8 +22,8 @@ return [
 	40 => [
 		'' => 'marketing',
 		10 => 'coupon',
-		20 => 'review',
-		30 => 'rule',
+		20 => 'rule',
+		30 => 'review',
 	],
 	50 => [
 		'' => 'configuration',

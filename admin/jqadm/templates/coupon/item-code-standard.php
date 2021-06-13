@@ -126,7 +126,7 @@ $columnList = [
 						<div class="row">
 							<div class="col-xl-6">
 								<div class="form-group row mandatory">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Voucher' ) ) ?></label>
+									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Coupon' ) ) ?></label>
 									<div class="col-sm-8">
 										<input class="form-control coupon-code-code" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>" required="required"
 											name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.code', '' ) ) ) ?>" disabled="disabled" />

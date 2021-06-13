@@ -36,7 +36,7 @@ $params = $this->get( 'pageParams', [] );
 
 	<nav class="main-navbar">
 		<h1 class="navbar-brand">
-			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Voucher' ) ) ?></span>
+			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Discount' ) ) ?></span>
 			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/coupon.id' ) ) ?></span>
 			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/coupon.label' ) ?: $this->translate( 'admin', 'New' ) ) ?></span>
 			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/coupon.siteid' ) ) ) ?></span>
