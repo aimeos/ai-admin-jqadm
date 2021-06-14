@@ -15,7 +15,6 @@
 	"minimum-stability": "dev",
 	"require": {
 		"php": "~7.1||~8.0",
-		"composer/installers": "^1.0",
 		"aimeos/aimeos-core": "dev-master"
 	},
 	"require-dev": {
