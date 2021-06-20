@@ -122,19 +122,21 @@ $params = $this->get( 'pageParams', [] );
 							<?= $enc->html( $this->translate( 'admin', 'Unique customer e-mail address' ) ); ?>
 						</div>
 					</div>
-					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Password' ) ); ?></label>
-						<div class="col-sm-8">
-							<input class="form-control item-password" type="password" required="required" tabindex="1" autocomplete="new-password"
-								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ); ?>"
-								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Password (required)' ) ); ?>"
-								value="<?= $enc->attr( $this->get( 'itemData/customer.password' ) ); ?>"
-								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+					<?php if( $this->access( ['super'] ) ) : ?>
+						<div class="form-group row mandatory">
+							<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Password' ) ); ?></label>
+							<div class="col-sm-8">
+								<input class="form-control item-password" type="password" required="required" tabindex="1" autocomplete="new-password"
+									name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ); ?>"
+									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Password (required)' ) ); ?>"
+									value="<?= $enc->attr( $this->get( 'itemData/customer.password' ) ); ?>"
+									<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ); ?> />
+							</div>
+							<div class="col-sm-12 form-text text-muted help-text">
+								<?= $enc->html( $this->translate( 'admin', 'Customer password' ) ); ?>
+							</div>
 						</div>
-						<div class="col-sm-12 form-text text-muted help-text">
-							<?= $enc->html( $this->translate( 'admin', 'Customer password' ) ); ?>
-						</div>
-					</div>
+					<?php endif ?>
 				</div><!--
 
 				--><div class="col-xl-6 content-block <?= $readonly ?>">
