@@ -560,10 +560,19 @@ class Standard
 		$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
 		$groupIds = $this->getValue( $data, 'customer.groups', [] );
 
-		return $item->fromArray( $data, true )
+		$pass = $data['customer.password'] ?? null;
+		unset( $data['customer.password'] );
+
+		$item->fromArray( $data, true )
 			->setGroups( array_intersect( array_keys( $this->getGroupItems( $item ) ), $groupIds ) )
 			->setCode( $item->getCode() ?: $addr->getEmail() )
 			->setLabel( $label );
+
+		if( $pass && $this->getView()->access( ['super'] ) ) {
+			$item->setPassword( $pass );
+		}
+
+		return $item;
 	}
 
 
@@ -576,6 +585,10 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Customer\Item\Iface $item, $copy = false )
 	{
 		$data = $item->toArray( true );
+
+		if( !$this->getView()->access( ['super'] ) ) {
+			unset( $data['customer.password'] );
+		}
 
 		if( $copy === true )
 		{
