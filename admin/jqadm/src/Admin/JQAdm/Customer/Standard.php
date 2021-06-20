@@ -547,7 +547,8 @@ class Standard
 	 */
 	protected function fromArray( array $data )
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
+		$context = $this->getContext();
+		$manager = \Aimeos\MShop::create( $context, 'customer' );
 
 		if( isset( $data['customer.id'] ) && $data['customer.id'] != '' ) {
 			$item = $manager->getItem( $data['customer.id'], $this->getDomains() );
@@ -568,7 +569,7 @@ class Standard
 			->setCode( $item->getCode() ?: $addr->getEmail() )
 			->setLabel( $label );
 
-		if( $pass && $this->getView()->access( ['super'] ) ) {
+		if( $pass && ( $this->getView()->access( ['super'] ) || $item->getId() === $context->getUserId() ) ) {
 			$item->setPassword( $pass );
 		}
 
@@ -586,7 +587,7 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( !$this->getView()->access( ['super'] ) ) {
+		if( !$this->getView()->access( ['super'] ) && $item->getId() !== $this->getContext()->getUserId() ) {
 			unset( $data['customer.password'] );
 		}
 
