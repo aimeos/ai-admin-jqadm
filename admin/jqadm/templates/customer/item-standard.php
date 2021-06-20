@@ -127,7 +127,7 @@ $params = $this->get( 'pageParams', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Unique customer e-mail address' ) ) ?>
 								</div>
 							</div>
-							<?php if( $this->access( ['super'] ) ) : ?>
+							<?php if( $this->get( 'itemData/customer.password' ) ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Password' ) ) ?></label>
 									<div class="col-sm-8">
