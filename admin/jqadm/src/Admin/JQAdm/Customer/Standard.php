@@ -484,7 +484,7 @@ class Standard
 			->setCode( $item->getCode() ?: $addr->getEmail() )
 			->setLabel( $label );
 
-		if( $this->getView()->access( ['super'] ) ) {
+		if( $pass && $this->getView()->access( ['super'] ) ) {
 			$item->setPassword( $pass );
 		}
 
