@@ -209,8 +209,12 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .dark .aimeos .main-sidebar .sidebar-menu li.before,
-.dark .aimeos .main-sidebar .sidebar-menu li.after {
+.dark .aimeos .main-sidebar .sidebar-menu li.after,
+[dir="rtl"] .dark .aimeos .main-sidebar .sidebar-menu li.before,
+[dir="rtl"] .dark .aimeos .main-sidebar .sidebar-menu li.after {
+	border-top-left-radius: 0;
 	border-top-right-radius: 0;
+	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 }
 

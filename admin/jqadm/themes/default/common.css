@@ -32,7 +32,7 @@ body {
 body.dark {
 	--bs-bg: #404474;
 	--bs-bg-dark: #202844;
-	--bs-bg-light: #202844;
+	--bs-bg-light: #182038;
 	--bs-line: #7075A0;
 	--bs-line-light: #8085B0;
 	--bs-menu: #D0D8F0;
@@ -84,13 +84,13 @@ html {
 }
 
 body {
-	background: radial-gradient(farthest-side ellipse at max(15%, 12rem) 0,var(--bs-bg, #F8FAFC),var(--bs-bg-dark, #F4F8FB));
+	background: radial-gradient(farthest-side ellipse at max(15%, 12rem) 0, var(--bs-bg, #F8FAFC), var(--bs-bg-dark, #F4F8FB));
 	background-attachment: fixed;
 	color: var(--bs-secondary, #505860);
 }
 
 [dir="rtl"] body {
-	background: linear-gradient(90deg, var(--bs-bg-dark, #f4f8fb), var(--bs-bg, #f8fafc) 15%);
+	background: radial-gradient(farthest-side ellipse at max(85%, calc(100% - 12rem)) 0, var(--bs-bg, #F8FAFC), var(--bs-bg-dark, #F4F8FB));
 }
 
 .aimeos .hidden {
