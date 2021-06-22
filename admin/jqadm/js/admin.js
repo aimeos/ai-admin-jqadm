@@ -1,7 +1,23 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2018
+ * @copyright Aimeos (aimeos.org), 2015-2021
  */
+
+
+/* Check for preferred theme mode (dark/light) */
+
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+if (prefersDark.matches && !document.cookie.includes('aimeos_backend_theme=light')) {
+	['light', 'dark'].map(cl => document.body.classList.toggle(cl));
+}
+
+document.querySelectorAll(".btn-theme").forEach(item => {
+	item.addEventListener("click", function() {
+		['light', 'dark'].map(cl => document.body.classList.toggle(cl));
+		const theme = document.body.classList.contains("dark") ? "dark" : "light";
+		document.cookie = "aimeos_backend_theme=" + theme + ";path=/";
+	});
+});
 
 
 
