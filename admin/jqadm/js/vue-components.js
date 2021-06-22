@@ -79,7 +79,7 @@ Vue.component('column-select', {
 		'fields': {type: Array, required: true},
 		'name': {type: String, required: true},
 		'show': {type: Boolean, default: false},
-		'tabindex': {type: Number, default: 1}
+		'tabindex': {type: String, default: '1'}
 	},
 	data() {
 		return {
@@ -196,7 +196,7 @@ Vue.component('config-table', {
 		'keys': {type: Array, default: []},
 		'name': {type: String, required: true},
 		'readonly': {type: Boolean, default: true},
-		'tabindex': {type: Number, default: 1}
+		'tabindex': {type: String, default: '1'}
 	},
 
 	methods: {
@@ -307,7 +307,7 @@ Vue.component('input-map', {
 		'name': {type: String, required: true},
 		'value': {type: Object, required: true},
 		'editable': {type: Boolean, default: false},
-		'tabindex': {type: String, default: "0"}
+		'tabindex': {type: String, default: '1'}
 	},
 
 	data: function () {
@@ -456,7 +456,7 @@ Vue.component('page-limit', {
 	',
 	props: {
 		'value': {type: Number, required: true},
-		'tabindex': {type: String, default: '0'}
+		'tabindex': {type: String, default: '1'}
 	}
 });
 
@@ -492,7 +492,7 @@ Vue.component('page-offset', {
 		'limit': {type: Number, required: true},
 		'total': {type: Number, required: true},
 		'value': {type: Number, required: true},
-		'tabindex': {type: String, default: '0'},
+		'tabindex': {type: String, default: '1'},
 		'text': {type: String, default: '%1$d / %2$d'}
 	},
 
@@ -583,7 +583,7 @@ Vue.component('property-table', {
 		'name': {type: String, required: true},
 		'siteid': {type: String, required: true},
 		'languages': {type: Object, required: true},
-		'tabindex': {type: Number, default: 0},
+		'tabindex': {type: String, default: '1'},
 		'types': {type: Object, required: true}
 	},
 
