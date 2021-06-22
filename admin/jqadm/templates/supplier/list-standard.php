@@ -85,7 +85,7 @@ $columnList = [
 
 <div class="list-view"
 	data-domain="supplier"
-	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/supplier/filter', [] ) ) ?>"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/supplier/filter', new \stdClass ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
 	<nav class="main-navbar">
@@ -103,7 +103,7 @@ $columnList = [
 
 	<nav-search v-bind:show="search" v-on:close="search = false"
 		v-bind:url="`<?= $enc->js( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>`"
-		v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/supplier/filter', [] ) ) ?>"
+		v-bind:filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/supplier/filter', new \stdClass ) ) ?>"
 		v-bind:operators="<?= $enc->attr( $operators ) ?>"
 		v-bind:name="`<?= $enc->js( $this->formparam( ['filter', '_key_', '0'] ) ) ?>`"
 		v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
