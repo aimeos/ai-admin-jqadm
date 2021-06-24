@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:32+0200\n"
-"PO-Revision-Date: 2021-04-21 09:34+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2021-05-31 11:31+0200\n"
+"PO-Revision-Date: 2021-05-31 09:32+0000\n"
+"Last-Translator: Goran Sabo <info@noaset.pro>\n"
 "Language-Team: Slovenian (http://www.transifex.com/aimeos/aimeos-core/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,6 +265,9 @@ msgstr "Catalog Lists Type"
 msgid "Catalog Lists Types"
 msgstr "Catalog Lists Types"
 
+msgid "Categories"
+msgstr "Categories"
+
 msgid "Categories the product can be found in by the user on the web site"
 msgstr "Categories the product can be found in by the user on the web site"
 
@@ -386,6 +389,9 @@ msgstr "Currency"
 
 msgid "Custom"
 msgstr "Custom"
+
+msgid "Custom domain or unique code of your shop"
+msgstr ""
 
 msgid "Customer"
 msgstr "Customer"
@@ -524,6 +530,9 @@ msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
 msgstr "E-Mail address (required)"
+
+msgid "E-Mail address used for sending shop related e-mails"
+msgstr ""
 
 msgid "E-mail"
 msgstr "E-mail"
@@ -898,6 +907,9 @@ msgstr "Name of the downloaded file when customers saves the file on their compu
 msgid "Name of the reviewer"
 msgstr "Name of the reviewer"
 
+msgid "Name of your shop shown to your customers"
+msgstr ""
+
 msgid "New"
 msgstr "New"
 
@@ -987,6 +999,9 @@ msgstr "Order of the types in the frontend"
 
 msgid "Order totals"
 msgstr "Order totals"
+
+msgid "Ordered at"
+msgstr ""
 
 msgid "Orders by country"
 msgstr ""
@@ -1339,6 +1354,9 @@ msgstr ""
 msgid "Rule provider or rule decorator configuration name"
 msgstr ""
 
+msgid "Rules"
+msgstr ""
+
 msgid "SKU"
 msgstr "SKU"
 
@@ -1414,6 +1432,9 @@ msgstr "Service provider or service decorator configuration name"
 msgid "Service rebate"
 msgstr "Service rebate"
 
+msgid "Settings"
+msgstr ""
+
 msgid "Ship date"
 msgstr "Ship date"
 
@@ -1433,6 +1454,27 @@ msgid "Shipping/Payment costs"
 msgstr "Shipping/Payment costs"
 
 msgid "Shipping/item"
+msgstr ""
+
+msgid "Shop domain"
+msgstr ""
+
+msgid "Shop domain (required)"
+msgstr ""
+
+msgid "Shop e-mail"
+msgstr ""
+
+msgid "Shop e-mail address (required)"
+msgstr ""
+
+msgid "Shop name"
+msgstr ""
+
+msgid "Shop name (required)"
+msgstr ""
+
+msgid "Shop theme"
 msgstr ""
 
 msgid ""
@@ -1621,6 +1663,9 @@ msgid ""
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "The step value allowed for quantities in the basket, e.g. \"0.1\" for fractional quantities or \"5\" for multiple of five articles"
 
+msgid "Theme to change the layout of your shop"
+msgstr ""
+
 msgid "Three letter ISO currency code"
 msgstr "Three letter ISO currency code"
 
@@ -1744,6 +1789,12 @@ msgstr "Unique type code (required)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+
+msgid "Upload shop icon"
+msgstr ""
+
+msgid "Upload shop logo"
+msgstr ""
 
 msgid "Uploaded"
 msgstr "Uploaded"
