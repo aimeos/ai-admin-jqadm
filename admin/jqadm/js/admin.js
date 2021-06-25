@@ -574,12 +574,12 @@ Aimeos.Form = {
 
 	checkFields : function() {
 
-		$(".aimeos .item-content .readonly").on("change", "input,select", function(ev) {
+		$(".aimeos form .readonly").on("change", "input,select", function(ev) {
 			$(this).addClass("is-invalid");
 		});
 
 
-		$(".aimeos .item-content").on("blur", "input,select", function(ev) {
+		$(".aimeos form").on("blur", "input,select", function(ev) {
 
 			if($(this).closest(".readonly").length > 0 || $(this).hasClass("novalidate")) {
 				return;
@@ -611,7 +611,7 @@ Aimeos.Form = {
 			$(".item-header", this).removeClass("is-invalid");
 			$(".item-navbar .nav-link", this).removeClass("is-invalid");
 
-			$(".item-content input,select", this).each(function(idx, element) {
+			$("input,select", this).each(function(idx, element) {
 				var elem = $(element);
 
 				if(elem.closest(".prototype").length === 0 && elem.is(":invalid") === true) {
@@ -625,7 +625,7 @@ Aimeos.Form = {
 				}
 			});
 
-			$(".item-content td.is-invalid", this).each(function(idx, element) {
+			$("td.is-invalid", this).each(function(idx, element) {
 				nodes.push(element);
 			});
 
