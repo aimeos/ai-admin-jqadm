@@ -439,15 +439,6 @@ class Standard
 	 */
 	protected function fromArray( array $data, bool $super ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
-		$conf = [];
-
-		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
-		{
-			if( trim( $entry['key'] ?? '' ) !== '' ) {
-				$conf[$entry['key']] = $entry['val'] ?? null;
-			}
-		}
-
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 
 		if( isset( $data['locale.site.id'] ) && $data['locale.site.id'] != '' )
@@ -462,7 +453,13 @@ class Standard
 		}
 
 		$item->fromArray( $data, true );
-		$item->setConfig( $conf );
+
+		foreach( (array) $this->getValue( $data, 'config', [] ) as $entry )
+		{
+			if( trim( $entry['key'] ?? '' ) !== '' ) {
+				$item->setConfigValue( $entry['key'], $entry['val'] ?? null );
+			}
+		}
 
 		if( $item->getId() == null ) {
 			return $manager->insert( $item );
@@ -481,16 +478,12 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Locale\Item\Site\Iface $item, bool $copy = false ) : array
 	{
 		$data = $item->toArray( true );
-		$data['config'] = [];
+		$data['config'] = $this->flatten( $item->getConfig() );
 
 		if( $copy === true )
 		{
 			$data['locale.site.code'] = $data['locale.site.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data['locale.site.id'] = '';
-		}
-
-		foreach( $item->getConfig() as $key => $value ) {
-			$data['config'][] = ['key' => $key, 'val' => $value];
 		}
 
 		return $data;
@@ -528,5 +521,29 @@ class Standard
 		$default = 'locale/site/item-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
+	}
+
+
+	/**
+	 * Flattens the nested configuration array
+	 *
+	 * @param array $config Multi-dimensional list of key/value pairs
+	 * @param string $path Path of keys separated by slashes (/) to add new values for
+	 * @return array List of arrays with "key" and "val" keys
+	 */
+	protected function flatten( array $config, string $path = '' ) : array
+	{
+		$list = [];
+
+		foreach( $config as $key => $val )
+		{
+			if( is_array( $val ) ) {
+				$list = array_merge( $list, $this->flatten( $val, $path . '/' . $key ) );
+			} else {
+				$list[] = ['key' => ltrim( $path, '/' ) . '/' . $key, 'val' => $val];
+			}
+		}
+
+		return $list;
 	}
 }
