@@ -83,11 +83,6 @@ a, a:hover {
 	cursor: pointer;
 }
 
-.btn:hover, .btn:active {
-	background-color: var(--bs-secondary, #707880);
-	color: var(--bs-bg-light, #ffffff);
-}
-
 .btn-primary {
 	border: 1px solid transparent;
 	background-color: var(--bs-primary-alt, #00b0a0);
@@ -128,14 +123,13 @@ a, a:hover {
 .btn-secondary:active,
 .btn-secondary:focus {
 	background-color: var(--bs-secondary, #707880);
-	color: var(--bs-menu, #ffffff) !important;
+	color: var(--bs-bg-light, #ffffff) !important;
 }
 
 .btn-danger {
 	border: 1px solid var(--bs-danger, #dc3545);
 	background-color: var(--bs-danger, #dc3545);
 	border-color: var(--bs-danger, #dc3545);
-	color: var(--bs-menu, #ffffff) !important;
 }
 
 .dark .btn-close {

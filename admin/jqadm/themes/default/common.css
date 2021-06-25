@@ -27,6 +27,7 @@ body {
 	--bs-secondary-light: #9098A0;
 	--bs-shadow: 0px 3px 9px 0px #A8B8C825;
 	--bs-hover: #FCFCFC;
+	--bs-table-striped-bg: #F4F8FB;
 }
 
 body.dark {
@@ -50,6 +51,7 @@ body.dark {
 	--bs-secondary-light: #90A8C0;
 	--bs-shadow:  0px 5px 9px 0px #00000060;
 	--bs-hover: #04082040;
+	--bs-table-striped-bg: #202844;
 }
 
 body.dark img {
