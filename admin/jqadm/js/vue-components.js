@@ -706,7 +706,7 @@ Vue.component('site-tree-items', {
 						'icon-loading fa-pulse': item.isLoading
 					}">
 				</span>
-				<site-tree-items v-if="isAvailable(item)"
+				<site-tree-items v-if="isAvailable(item) && item.isOpen"
 					v-on="$listeners"
 					v-on:loading="loading(id, $event)"
 					v-bind:initial="item.children || {}"
@@ -828,7 +828,7 @@ Vue.component('site-tree-items', {
 		},
 
 		isTogglable(item) {
-			return this.tree && !this.filter && item['locale.site.hasChildren'] && !Object.keys(item.children || {}).length;
+			return this.tree && !this.filter && (item['locale.site.hasChildren'] || Object.keys(item.children || {}).length);
 		},
 
 		loading(id, val) {
