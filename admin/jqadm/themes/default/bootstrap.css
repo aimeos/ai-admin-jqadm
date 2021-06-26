@@ -156,7 +156,6 @@ a, a:hover {
 }
 
 .table-hover tbody tr:hover {
-	background-color: var(--bs-hover, #fcfcfc);
 	color: var(--bs-secondary, #707880);
 }
 

@@ -26,8 +26,11 @@ body {
 	--bs-secondary-dark: #101820;
 	--bs-secondary-light: #9098A0;
 	--bs-shadow: 0px 3px 9px 0px #A8B8C825;
-	--bs-hover: #FCFCFC;
-	--bs-table-striped-bg: #F4F8FB;
+}
+
+body .table {
+	--bs-table-striped-bg: #F8FAFC;
+	--bs-table-hover-bg: rgba(232, 240, 255, 0.15);
 }
 
 body.dark {
@@ -50,8 +53,11 @@ body.dark {
 	--bs-secondary-dark: #FFFFFF;
 	--bs-secondary-light: #90A8C0;
 	--bs-shadow:  0px 5px 9px 0px #00000060;
-	--bs-hover: #04082040;
+}
+
+body.dark .table {
 	--bs-table-striped-bg: #202844;
+	--bs-table-hover-bg: rgba(232, 240, 255, 0.15);
 }
 
 body.dark img {
