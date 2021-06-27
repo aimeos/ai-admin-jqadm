@@ -215,13 +215,19 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?></label>
 								<div class="col-sm-8">
-									<select is="combo-box" class="form-select c-select item-countryid" required="required"
+									<select class="form-select item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.countryid' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
-										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-										v-bind:getfcn="countries"
-										v-model="entry['customer.address.countryid']" >
-										<option value=""></option>
+										v-model="entry['customer.address.countryid']" />
+										<option value="" disabled>
+											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+										</option>
+
+										<?php foreach( $this->get( 'countries', [] ) as $code => $label ) : ?>
+											<option value="<?= $enc->attr( $code ) ?>" >
+												<?= $enc->html( $label ) ?>
+											</option>
+										<?php endforeach ?>
 									</select>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">

@@ -84,10 +84,11 @@ $params = $this->get( 'pageParams', [] );
 		<div class="col-xl-9 item-content tab-content">
 			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) : '' ) ?>
 
-			<div id="basic" class="item-basic tab-pane fade show active vue" role="tabpanel" aria-labelledby="basic"
-				data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>">
+			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="row">
+				<div class="row vue"
+					data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>">
+
 					<div class="col-xl-6 <?= $readonly ?>">
 						<div class="box">
 							<div class="form-group row mandatory">
@@ -340,14 +341,18 @@ $params = $this->get( 'pageParams', [] );
 									<div class="form-group row mandatory">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?></label>
 										<div class="col-sm-8">
-											<select is="combo-box" class="form-select item-countryid" required="required" tabindex="1"
-												v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>`"
-												v-bind:readonly="data['customer.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>`"
-												v-bind:getfcn="() => Aimeos.getCountries"
-												v-model="data['customer.countryid']" >
-												<option value="<?= $enc->attr( $this->get( 'itemData/customer.countryid' ) ) ?>">
-													<?= $enc->html( $this->get( 'itemData/customer.countryid' ) ) ?>
+											<select class="form-select item-countryid" required="required" tabindex="1"
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>"
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
+												<option value="" disabled>
+													<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 												</option>
+
+												<?php foreach( $this->get( 'countries', [] ) as $code => $label ) : ?>
+													<option value="<?= $enc->attr( $code ) ?>" <?= $selected( $this->get( 'itemData/customer.countryid' ), $code ) ?> >
+														<?= $enc->html( $label ) ?>
+													</option>
+												<?php endforeach ?>
 											</select>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">

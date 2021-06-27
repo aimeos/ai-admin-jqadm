@@ -243,6 +243,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
 
+		$trans = new \Aimeos\MW\Translation\None( 'de_DE' );
+		$helper = new \Aimeos\MW\View\Helper\Translate\Standard( $view, $trans );
+		$view->addHelper( 'translate', $helper );
+
 		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'unitSupplier001' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );

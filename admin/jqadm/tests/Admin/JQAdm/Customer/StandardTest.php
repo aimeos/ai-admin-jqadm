@@ -21,7 +21,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelperJqadm::getView();
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
 		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
-		$this->view ->addHelper( 'request', $helper );
+		$this->view->addHelper( 'request', $helper );
 
 		$this->context = \TestHelperJqadm::getContext();
 
@@ -255,6 +255,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->getMock();
 
 		$manager = \Aimeos\MShop::create( $this->context, 'customer' );
+
+		$trans = new \Aimeos\MW\Translation\None( 'de_DE' );
+		$helper = new \Aimeos\MW\View\Helper\Translate\Standard( $view, $trans );
+		$view->addHelper( 'translate', $helper );
 
 		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'test@example.com' )->getId() : -1];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
