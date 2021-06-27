@@ -562,6 +562,27 @@ $statusList = [
 												</div>
 											</div>
 											<div class="form-group row optional">
+												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?></label>
+												<div class="col-sm-8">
+													<select class="form-select item-countryid" required="required" tabindex="1"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.countryid' ) ) ) ?>"
+														<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
+														<option value="" disabled>
+															<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+														</option>
+
+														<?php foreach( $this->get( 'countries', [] ) as $code => $label ) : ?>
+															<option value="<?= $enc->attr( $code ) ?>" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.countryid' ), $code ) ?> >
+																<?= $enc->html( $label ) ?>
+															</option>
+														<?php endforeach ?>
+													</select>
+												</div>
+												<div class="col-sm-12 form-text text-muted help-text">
+													<?= $enc->html( $this->translate( 'admin', 'Two letter ISO country code' ) ) ?>
+												</div>
+											</div>
+											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'State' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-state" type="text" tabindex="1" data-field="state"
@@ -572,19 +593,6 @@ $statusList = [
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ) ?>
-												</div>
-											</div>
-											<div class="form-group row optional">
-												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?></label>
-												<div class="col-sm-8">
-													<input class="form-control item-countryid" type="text" tabindex="1" maxlength="2" pattern="^[a-zA-Z]{2}$" data-field="countryid"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.countryid' ) ) ) ?>"
-														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country code (required)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.countryid' ) ) ?>"
-														<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
-												</div>
-												<div class="col-sm-12 form-text text-muted help-text">
-													<?= $enc->html( $this->translate( 'admin', 'Two letter ISO country code' ) ) ?>
 												</div>
 											</div>
 											<div class="form-group row optional">

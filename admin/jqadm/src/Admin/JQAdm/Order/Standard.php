@@ -32,7 +32,16 @@ class Standard
 	 */
 	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
+		$codes = [];
+
+		foreach( $this->getContext()->config()->get( 'countries', [] ) as $code ) {
+			$codes[$code] = $view->translate( 'country', $code );
+		}
+
+		asort( $codes );
+
 		$view->itemSubparts = $this->getSubClientNames();
+		$view->countries = $codes;
 		return $view;
 	}
 
