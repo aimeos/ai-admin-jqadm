@@ -484,21 +484,20 @@ class Standard
 		$addr = $item->getPaymentAddress();
 		$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
 		$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
+
 		$groupIds = $this->getValue( $data, 'customer.groups', [] );
+		$gids = array_keys( $this->getGroupItems( $item ) );
 
-		$pass = $data['customer.password'] ?? null;
-		unset( $data['customer.password'] );
+		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
+			->setGroups( array_intersect( $gids, $groupIds ) );
 
-		$item->fromArray( $data, true )
-			->setGroups( array_intersect( array_keys( $this->getGroupItems( $item ) ), $groupIds ) )
-			->setCode( $item->getCode() ?: $addr->getEmail() )
-			->setLabel( $label );
-
-		if( $pass && ( $this->getView()->access( ['super'] ) || $item->getId() === $context->getUserId() ) ) {
-			$item->setPassword( $pass );
+		if( $this->getView()->access( ['super'] ) || $item->getId() === $context->getUserId() )
+		{
+			!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
+			!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
 		}
 
-		return $item;
+		return $item->fromArray( $data );
 	}
 
 
@@ -512,14 +511,14 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( !$this->getView()->access( ['super'] ) && $item->getId() !== $this->getContext()->getUserId() ) {
-			unset( $data['customer.password'] );
+		if( $this->getView()->access( ['super'] ) || $item->getId() === $this->getContext()->getUserId() ) {
+			$data['.modify'] = true;
 		}
 
 		if( $copy === true )
 		{
 			$data['customer.siteid'] = $this->getContext()->getLocale()->getSiteId();
-			$data['customer.email'] = '';
+			$data['customer.code'] = '';
 			$data['customer.id'] = '';
 		}
 
