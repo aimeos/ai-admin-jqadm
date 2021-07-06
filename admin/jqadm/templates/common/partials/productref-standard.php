@@ -271,7 +271,7 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							v-model="item[prefix + 'status']">
 						</select>
 						<div v-else v-on:click="edit(idx)" class="items-field">
-							{{ <?= $enc->html( $status ) ?>[item[prefix + 'status']] }}
+							{{ status(JSON.parse(`<?= $enc->js( $status ) ?>`), item[prefix + 'status']) }}
 						</div>
 					</td>
 					<td v-if="fields.includes(prefix + 'type')" v-bind:class="css('type')">
