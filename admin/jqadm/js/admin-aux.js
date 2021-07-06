@@ -673,6 +673,10 @@ Aimeos.ProductRef = {
 			},
 
 
+			status: function(map, val) {
+				return map[val] || val;
+			},
+
 			stringify: function(value) {
 				return typeof value === 'object' || typeof value === 'array' ? JSON.stringify(value) : value;
 			},

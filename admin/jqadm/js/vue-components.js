@@ -185,7 +185,7 @@ Vue.component('config-table', {
 				</td> \
 				<td class="actions"> \
 					<div v-if="!readonly" class="btn act-delete fa" v-bind:tabindex="tabindex" v-on:click="remove(pos)" \
-						title="i18n.delete || \'Delete this entry\'"></td></div> \
+						title="i18n.delete || \'Delete this entry\'"></div> \
 				</td> \
 			</tr> \
 		</tbody> \
