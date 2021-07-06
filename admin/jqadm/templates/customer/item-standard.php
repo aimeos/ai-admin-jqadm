@@ -212,13 +212,13 @@ $params = $this->get( 'pageParams', [] );
 													<?= $enc->html( $this->translate( 'admin', 'none' ) ) ?>
 												</option>
 												<option value="company" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'company' ) ?> >
-													<?= $enc->html( $this->translate( 'client/code', 'company' ) ) ?>
+													<?= $enc->html( $this->translate( 'mshop/code', 'company' ) ) ?>
 												</option>
 												<option value="mr" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'mr' ) ?> >
-													<?= $enc->html( $this->translate( 'client/code', 'mr' ) ) ?>
+													<?= $enc->html( $this->translate( 'mshop/code', 'mr' ) ) ?>
 												</option>
 												<option value="ms" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'ms' ) ?> >
-													<?= $enc->html( $this->translate( 'client/code', 'ms' ) ) ?>
+													<?= $enc->html( $this->translate( 'mshop/code', 'ms' ) ) ?>
 												</option>
 											</select>
 										</div>
