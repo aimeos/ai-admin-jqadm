@@ -838,9 +838,9 @@ Aimeos.Product.Selection = {
 								response( (result.data || []).map(function(obj) {
 									var list = [];
 
-									(obj.relationships.attribute || []).forEach(function(item) {
-										if(item.data.attributes && item.data.attributes['product.lists.type'] === 'variant') {
-											list.push(Object.assign({}, item.data.attributes, map[item.data.id] || {}));
+									(obj.relationships.attribute && obj.relationships.attribute.data || []).forEach(function(item) {
+										if(item.attributes && item.attributes['product.lists.type'] === 'variant') {
+											list.push(Object.assign({}, item.attributes, map[item.id] || {}));
 										}
 									});
 
