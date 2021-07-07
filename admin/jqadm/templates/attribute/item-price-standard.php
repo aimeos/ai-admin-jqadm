@@ -82,7 +82,7 @@ $enc = $this->encoder();
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Actual price' ) ) ?></label>
 								<div class="col-sm-8">
-									<input class="form-control item-value" type="number" step="0.01" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<input class="form-control item-value" type="number" step="<?= $this->pageNumberStep ?>" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.value' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual price' ) ) ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
@@ -95,7 +95,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Granted rebate' ) ) ?></label>
 								<div class="col-sm-8">
-									<input class="form-control item-rebate" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<input class="form-control item-rebate" type="number" step="<?= $this->pageNumberStep ?>" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.rebate' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Granted rebate' ) ) ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
@@ -108,7 +108,7 @@ $enc = $this->encoder();
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping/item' ) ) ?></label>
 								<div class="col-sm-8">
-									<input class="form-control item-costs" type="number" step="0.01" tabindex="<?= $this->get( 'tabindex' ) ?>"
+									<input class="form-control item-costs" type="number" step="<?= $this->pageNumberStep ?>" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.costs' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping/item' ) ) ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"

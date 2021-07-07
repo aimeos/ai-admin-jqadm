@@ -57,6 +57,7 @@ class Page extends Base
 		$view->pageInfo = $context->getSession()->pull( 'info', [] );
 		$view->pageI18nList = $this->getAimeos()->getI18nList( 'admin' );
 		$view->pageLangItems = $langManager->search( $langManager->filter( true ) );
+		$view->pageNumberStep = 1 / pow( 10, $context->config()->get( 'mshop/price/precision', 2 ) );
 		$view->pageSitePath = $siteManager->getPath( $siteItem->getId() );
 		$view->pageSiteItem = $siteItem;
 
