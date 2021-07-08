@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-31 11:31+0200\n"
-"PO-Revision-Date: 2021-05-31 09:31+0000\n"
+"POT-Creation-Date: 2021-07-06 09:42+0200\n"
+"PO-Revision-Date: 2021-07-06 07:44+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Vietnamese (http://www.transifex.com/aimeos/aimeos-core/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -513,6 +513,9 @@ msgstr "Tên mô tả của ngôn ngữ"
 msgid "Descritive name of the site"
 msgstr "Tên mô tả của trang"
 
+msgid "Discount"
+msgstr ""
+
 msgid "Display help texts"
 msgstr ""
 
@@ -960,6 +963,9 @@ msgstr ""
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr ""
 
+msgid "Notes"
+msgstr ""
+
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr ""
@@ -972,6 +978,9 @@ msgstr ""
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
+msgstr ""
+
+msgid "Open"
 msgstr ""
 
 msgid "Option"
