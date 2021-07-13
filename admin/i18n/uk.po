@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-31 11:31+0200\n"
-"PO-Revision-Date: 2021-05-31 09:32+0000\n"
-"Last-Translator: Oleksandr Kropyvko <akropivko@gmail.com>\n"
+"POT-Creation-Date: 2021-07-06 09:42+0200\n"
+"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,6 +511,9 @@ msgstr "Наочне уявлення мови"
 msgid "Descritive name of the site"
 msgstr "Наочне уявлення сайту"
 
+msgid "Discount"
+msgstr ""
+
 msgid "Display help texts"
 msgstr "Відобразити справочну інформацію"
 
@@ -958,6 +961,9 @@ msgstr "Жоден"
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Не дозволений доступ до клієнта JQAdm \"%1$s\""
 
+msgid "Notes"
+msgstr ""
+
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr "Кількість товару в наявності на поточний момент, залиште порожнім якщо кількість необмежена"
@@ -971,6 +977,9 @@ msgstr "Офіційний ID ПДВ, визначає, чи повинен по
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Один провайдер та нуль або більше назв класів декораторів, розділених комами"
+
+msgid "Open"
+msgstr ""
 
 msgid "Option"
 msgstr "Параметр"

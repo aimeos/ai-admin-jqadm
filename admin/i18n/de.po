@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-31 11:31+0200\n"
-"PO-Revision-Date: 2021-05-31 09:38+0000\n"
+"POT-Creation-Date: 2021-07-06 09:42+0200\n"
+"PO-Revision-Date: 2021-07-06 07:50+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -514,6 +514,9 @@ msgstr "Beschreibender Name der Sprache"
 msgid "Descritive name of the site"
 msgstr "Beschreibender Name des Mandanten"
 
+msgid "Discount"
+msgstr "Rabatte"
+
 msgid "Display help texts"
 msgstr "Hilfetexte anzeigen"
 
@@ -961,6 +964,9 @@ msgstr "Keine"
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Zugriff auf den JQAdm Client \"%1$s\" verweigert"
 
+msgid "Notes"
+msgstr "Notizen"
+
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr "Anzahl der Artikel die auf Lager sind, kein Wert bedeutet unbegrenzt verfügbar"
@@ -974,6 +980,9 @@ msgstr "Offizielle Steuernummer um entscheiden zu können ob die Steuer in Rechn
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Klassennamen von einem Provider und beliebig vielen Dekoratoren, getrennt durch Kommas"
+
+msgid "Open"
+msgstr "Öffnen"
 
 msgid "Option"
 msgstr "Option"

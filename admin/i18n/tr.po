@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-31 11:31+0200\n"
-"PO-Revision-Date: 2021-05-31 09:32+0000\n"
+"POT-Creation-Date: 2021-07-06 09:42+0200\n"
+"PO-Revision-Date: 2021-07-12 21:20+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -391,7 +391,7 @@ msgid "Custom"
 msgstr "Özelleştirilmiş"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Mağazanızın özel alan adı veya benzersiz kodu"
 
 msgid "Customer"
 msgstr "Müşteri"
@@ -510,6 +510,9 @@ msgstr "Dilin tanımlayıcı adı"
 msgid "Descritive name of the site"
 msgstr "Sitenin açıklayıcı adı"
 
+msgid "Discount"
+msgstr "İndirim"
+
 msgid "Display help texts"
 msgstr "Yardım metnini görüntüle"
 
@@ -532,7 +535,7 @@ msgid "E-Mail address (required)"
 msgstr "E-Mail adresi (gerekli)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "Mağazayla ilgili e-postaları göndermek için kullanılan e-posta adresi"
 
 msgid "E-mail"
 msgstr "E-mail"
@@ -908,7 +911,7 @@ msgid "Name of the reviewer"
 msgstr "Değerlendirenin adı"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "Mağazanızın müşterilerinize gösterilecek adı"
 
 msgid "New"
 msgstr "Yeni"
@@ -957,6 +960,9 @@ msgstr "Hiçbiri"
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "JQAdm \"%1$s\" istemcisine erişime izin verilmedi"
 
+msgid "Notes"
+msgstr "Notlar"
+
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr "Şu anda stokta olan ürün sayısı, sınırsız miktar için boş bırakın"
@@ -970,6 +976,9 @@ msgstr "Verginin faturada faturalandırılmasının gerekip gerekmediğini belir
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Virgüllerle ayrılmış bir sağlayıcı ve sıfır veya daha fazla dekatör sınıfı isimleri"
+
+msgid "Open"
+msgstr "Aç"
 
 msgid "Option"
 msgstr "Seçenek"
@@ -1001,7 +1010,7 @@ msgid "Order totals"
 msgstr "Sipariş toplamları"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Sipariş yeri"
 
 msgid "Orders by country"
 msgstr "Ülkeye göre siparişler"
@@ -1355,7 +1364,7 @@ msgid "Rule provider or rule decorator configuration name"
 msgstr "Kural sağlayıcı veya kural dekoratörü yapılandırma adı"
 
 msgid "Rules"
-msgstr ""
+msgstr "Kurallar"
 
 msgid "SKU"
 msgstr "SKU"
@@ -1457,25 +1466,25 @@ msgid "Shipping/item"
 msgstr "Nakliye/ürün"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "Mağaza alan adı"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "Mağaza alan adı (gerekli)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "Mağaza e-posta"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "Mağaza e-posta adresi (gerekli)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "Mağaza adı"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "Mağaza adı (gerekli)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "Mağaza teması"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
@@ -1664,7 +1673,7 @@ msgid ""
 msgstr "Sepetteki miktarlar için izin verilen basamak değeri, örn: kesirli miktarlar için \"0.1\" veya beşin katları için \"5\""
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Mağazanızın düzenini değiştirmek için tema"
 
 msgid "Three letter ISO currency code"
 msgstr "Üç harfli ISO para birimi kodu"
@@ -1791,10 +1800,10 @@ msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\",
 msgstr "Benzersiz tür kodu, örn: \"yeşil\", \"mavi\", \"kırmızı\" gibi nitelikler için \"renk\""
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "Mağaza simgesi yükle"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "Mağaza logosunu yükle"
 
 msgid "Uploaded"
 msgstr "Yüklendi"

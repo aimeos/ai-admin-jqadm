@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Emiliya Adigozalova <emiliyaadigozalova@gmail.com>, 2021
 # Roman Krutovoy <serveri.minecraft@gmail.com>, 2018
 # Вячеслав Васильев <uverst@gmail.com>, 2019
 # Yakov Vladimirov <yakov_255@mail.ru>, 2019
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-31 11:31+0200\n"
-"PO-Revision-Date: 2021-05-31 09:32+0000\n"
-"Last-Translator: Андрей Аксёнов <aksenovaa@bk.ru>\n"
+"POT-Creation-Date: 2021-07-06 09:42+0200\n"
+"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -431,7 +432,7 @@ msgid "Customer properties that are not shared with other customers"
 msgstr "Свойства клиента, которые не передаются другим клиентам"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Рекомендация покупателей"
 
 msgid "Customer reference (optional)"
 msgstr ""
@@ -513,6 +514,9 @@ msgstr "Наглядное представление языка"
 
 msgid "Descritive name of the site"
 msgstr "Наглядное представление сайта"
+
+msgid "Discount"
+msgstr ""
 
 msgid "Display help texts"
 msgstr ""
@@ -961,6 +965,9 @@ msgstr "Нет"
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Не разрешен доступ к клиенту JQAdm \"%1$s\""
 
+msgid "Notes"
+msgstr ""
+
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr "Количество товара в наличии на текущий момент, оставьте пустым для неограниченного количества"
@@ -974,6 +981,9 @@ msgstr "Официальный ID НДС, определяет, должен л�
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Один провайдер, ноль или более названий классов декораторов, разделенных запятыми"
+
+msgid "Open"
+msgstr ""
 
 msgid "Option"
 msgstr "Параметр"
@@ -1005,7 +1015,7 @@ msgid "Order totals"
 msgstr "Общие данные заказа"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Заказ сделан в "
 
 msgid "Orders by country"
 msgstr ""
@@ -1120,7 +1130,7 @@ msgid "Previous"
 msgstr "Назад"
 
 msgid "Price"
-msgstr "цене"
+msgstr "Цена"
 
 msgid "Price Lists Type"
 msgstr "Тип Прайс-Листов"
@@ -1263,7 +1273,7 @@ msgid "Rabate"
 msgstr ""
 
 msgid "Rating"
-msgstr ""
+msgstr "Оценка"
 
 msgid "Rating of the reviewer"
 msgstr ""
@@ -1280,7 +1290,7 @@ msgid ""
 msgstr "Сокращение от исходной цены, используется для расчета скидки в % и кросс цены"
 
 msgid "Reference"
-msgstr ""
+msgstr "Рекомендация"
 
 msgid "Reference ID"
 msgstr ""
@@ -1359,7 +1369,7 @@ msgid "Rule provider or rule decorator configuration name"
 msgstr ""
 
 msgid "Rules"
-msgstr ""
+msgstr "Правила"
 
 msgid "SKU"
 msgstr "Артикул SKU"
@@ -1437,7 +1447,7 @@ msgid "Service rebate"
 msgstr "Служба скидок"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Ship date"
 msgstr "Дата доставки"
@@ -2153,7 +2163,7 @@ msgstr "По типам оплаты"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "Настройки"
 
 #, php-format
 msgid "special"
