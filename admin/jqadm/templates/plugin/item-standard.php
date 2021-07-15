@@ -161,7 +161,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
 								<div class="col-sm-8">
 									<div class="input-group">
-										<input class="form-control combobox select item-provider" type="text" required="required" tabindex="1" readonly
+										<input class="form-control combobox select item-provider noedit" type="text" required="required" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.provider' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ) ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/plugin.provider' ) ) ?>"
