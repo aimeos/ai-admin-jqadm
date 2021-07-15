@@ -566,6 +566,7 @@ Aimeos.Form = {
 		this.checkFields();
 		this.checkSubmit();
 		this.editFields();
+		this.noedit();
 		this.setupNext();
 		this.showErrors();
 		this.toggleHelp();
@@ -664,6 +665,14 @@ Aimeos.Form = {
 		$(".aimeos .list-item").on("click", ".act-edit", function(ev) {
 			$("[disabled=disabled]", ev.delegateTarget).removeAttr("disabled");
 			return false;
+		});
+	},
+
+
+	noedit : function() {
+
+		$("input.noedit, select.noedit").on('keydown paste', function(ev){
+			if(ev.which != 9) return false; // ignore tab
 		});
 	},
 
