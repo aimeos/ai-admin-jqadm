@@ -735,13 +735,9 @@ Aimeos.List = {
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
 
-			if($(this).data("multi")) {
-				var form = $("form.list");
-				form.attr('action', $(this).data('url'));
-				form.submit();
-			} else if($(this).data("url")) {
-				window.location = $(this).data("url");
-			}
+			const form = $("form.list");
+			form.attr('action', $(this).data('url'));
+			form.submit();
 
 			return false;
 		});
