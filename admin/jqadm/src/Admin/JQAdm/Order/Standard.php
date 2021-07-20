@@ -34,7 +34,7 @@ class Standard
 	{
 		$codes = [];
 
-		foreach( $this->getContext()->config()->get( 'countries', [] ) as $code ) {
+		foreach( $this->getContext()->config()->get( 'common/countries', [] ) as $code ) {
 			$codes[$code] = $view->translate( 'country', $code );
 		}
 
