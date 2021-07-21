@@ -360,6 +360,9 @@ $enc = $this->encoder();
 
 											<input type="time" class="config-value form-control config-type config-type-time" tabindex="1" disabled="disabled"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" />
+
+											<textarea class="config-value form-control config-type config-type-textarea" tabindex="1" disabled="disabled"
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>"></textarea>
 										</td>
 										<td class="actions">
 											<div class="btn act-delete fa" tabindex="1"
