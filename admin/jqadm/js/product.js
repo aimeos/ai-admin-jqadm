@@ -714,7 +714,7 @@ Aimeos.Product.Selection = {
 		var tab = $(".item-navbar .selection");
 		['group', 'select'].includes($(".item-basic .item-type").val()) ? tab.show() : tab.hide();
 
-		$(".item-basic .item-type").on("change", function() {
+		$(".item-product").on("change", ".item-basic .item-type", function() {
 			['group', 'select'].includes($("option:selected", this).val()) ? tab.show() : tab.hide();
 		});
 	},

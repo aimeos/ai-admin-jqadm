@@ -172,6 +172,9 @@ Aimeos = {
 	},
 
 
+	/**
+	 * @deprecated 2022.01
+	 */
 	getCountries : function(request, response, element) {
 
 		if(request.term.length == 0) {
