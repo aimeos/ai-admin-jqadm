@@ -83,7 +83,7 @@ $enc = $this->encoder();
 			title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>">
 		</button>
-		<button v-on:click="reset()"  type="reset" class="btn act-reset fa" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+		<button v-on:click="reset()"  type="submit" class="btn act-reset fa" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 			title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"
 			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>">
 		</button>
