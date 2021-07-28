@@ -719,9 +719,9 @@ abstract class Base
 		$key = 'aimeos/admin/jqadm/' . $name;
 		$session = $this->getContext()->getSession();
 
-		$session->set( $key . '/fields', $params['fields'] ?? null )
-			->set( $key . '/filter', $params['filter'] ?? null )
-			->set( $key . '/page', $params['page'] ?? null )
+		$session->set( $key . '/fields', $params['fields'] ?? [] )
+			->set( $key . '/filter', $params['filter'] ?? [] )
+			->set( $key . '/page', $params['page'] ?? [] )
 			->set( $key . '/sort', $params['sort'] ?? null );
 
 		return [
