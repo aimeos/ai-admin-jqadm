@@ -79,7 +79,7 @@ $enc = $this->encoder();
 									<?= $enc->html( $this->translate( 'admin', 'Country specific tax rate to calculate and display the included tax (B2C) or add the tax if required (B2B)' ) ) ?>
 								</div>
 							</div>
-							<div class="form-group row mandatory">
+							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Actual price' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-value" type="number" step="<?= $this->pageNumberStep ?>" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
