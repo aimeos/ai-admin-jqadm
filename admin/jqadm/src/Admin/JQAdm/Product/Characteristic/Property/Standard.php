@@ -277,20 +277,13 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/property' );
+		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 		$propItems = $this->excludeItems( $item->getPropertyItems( null, false ) );
 
 		foreach( $data as $entry )
 		{
-			if( isset( $propItems[$entry['product.property.id']] ) )
-			{
-				$propItem = $propItems[$entry['product.property.id']];
-				unset( $propItems[$entry['product.property.id']] );
-			}
-			else
-			{
-				$propItem = $manager->create();
-			}
+			$propItem = $propItems[$entry['product.property.id']] ?? $manager->createPropertyItem();
+			unset( $propItems[$entry['product.property.id']] );
 
 			$propItem->fromArray( $entry, true );
 			$item->addPropertyItem( $propItem );
