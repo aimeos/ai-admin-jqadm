@@ -332,6 +332,11 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
+						<l-map :center="latLng(entry['supplier.address.latitude'], entry['supplier.address.longitude'])">
+							<l-tile-layer :url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" :attribution="&copy; OpenStreetMap contributors"/>
+							<l-marker :lat-lng="latLng(entry['supplier.address.latitude'], entry['supplier.address.longitude'])" />
+						</l-map>
+
 						<?= $this->get( 'addressBody' ) ?>
 
 					</div>
