@@ -567,6 +567,25 @@ body {
 }
 
 
+/* Map styles */
+
+.aimeos .osm-map {
+	height: 25rem;
+}
+
+.leaflet-default-icon-path {
+    background-image: url(https://cdn.jsdelivr.net/npm/leaflet@1/dist/images/marker-icon.png);
+}
+
+.leaflet-control-layers-toggle {
+	background-image: url(https://cdn.jsdelivr.net/npm/leaflet@1/dist/images/images/layers.png);
+}
+
+.leaflet-retina .leaflet-control-layers-toggle {
+	background-image: url(https://cdn.jsdelivr.net/npm/leaflet@1/dist/images/images/layers-2x.png);
+}
+
+
 /* 3rd party v-select component */
 
 .vs__dropdown-toggle {

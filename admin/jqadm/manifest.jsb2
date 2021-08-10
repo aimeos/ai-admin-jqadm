@@ -29,9 +29,6 @@
 		},{
 			"text": "dashboard.css",
 			"path": "themes/default/"
-		},{
-			"text": "leaflet.css",
-			"path": "themes/default/"
 		}]
 	}, {
 		"name": "Aimeos Admin Core JS",
@@ -96,9 +93,6 @@
 			"path": "js/"
 		},{
 			"text": "supplier.js",
-			"path": "js/"
-		},{
-			"text": "leaflet.js",
 			"path": "js/"
 		}]
 	}],

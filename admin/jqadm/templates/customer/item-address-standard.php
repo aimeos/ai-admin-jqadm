@@ -332,10 +332,19 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<l-map :center="latLng(entry['supplier.address.latitude'], entry['supplier.address.longitude'])">
-							<l-tile-layer :url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" :attribution="&copy; OpenStreetMap contributors"/>
-							<l-marker :lat-lng="latLng(entry['supplier.address.latitude'], entry['supplier.address.longitude'])" />
-						</l-map>
+						<div class="col-xl-12">
+							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Map' ) ) ?></h2>
+							<div class="osm-map">
+								<input type="hidden" v-bind:value="entry['customer.address.latitude']"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.latitude' ) ) ) ?>`.replace('idx', idx)" />
+								<input type="hidden" v-bind:value="entry['customer.address.longitude']"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.longitude' ) ) ) ?>`.replace('idx', idx)" />
+								<l-map ref="map" v-if="show" :center="point(entry)" :zoom="zoom(idx)" @click="setPoint(idx, $event)">
+									<l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors"></l-tile-layer>
+									<l-marker v-if="entry['customer.address.latitude'] && entry['customer.address.longitude']" :lat-lng="point(entry)"></l-marker>
+								</l-map>
+							</div>
+						</div>
 
 						<?= $this->get( 'addressBody' ) ?>
 

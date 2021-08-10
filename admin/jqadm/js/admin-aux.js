@@ -25,7 +25,8 @@ Aimeos.Address = {
 			data: {
 				items: [],
 				siteid: null,
-				domain: null
+				domain: null,
+				show: false
 			},
 			mounted: function() {
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
@@ -35,6 +36,11 @@ Aimeos.Address = {
 				if(this.items[0]) {
 					this.$set(this.items[0], '_show', true);
 				}
+
+				const self = this;
+				Aimeos.lazy(this.$el, function() {
+					self.show = true;
+				});
 			},
 			mixins: [this.mixins]
 		});
@@ -75,6 +81,7 @@ Aimeos.Address = {
 			},
 
 
+			/* @deprecated 2022.01 */
 			countries : function() {
 				return Aimeos.getCountries;
 			},
@@ -118,6 +125,27 @@ Aimeos.Address = {
 					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
 				}
 			},
+
+
+			point(entry) {
+				return [entry[this.domain + '.address.latitude'] || 0, entry[this.domain + '.address.longitude'] || 0];
+			},
+
+
+			setPoint(idx, ev) {
+				const map = this.$refs.map[0].mapObject;
+
+				map.getZoom() > 2 ? null : map.setZoom(8);
+				map.panTo(ev.latlng);
+
+				this.$set(this.items[idx], this.domain + '.address.latitude', ev.latlng.lat || null);
+				this.$set(this.items[idx], this.domain + '.address.longitude', ev.latlng.lng || null);
+			},
+
+
+			zoom(idx) {
+				return this.items[idx][this.domain + '.address.latitude'] && this.items[idx][this.domain + '.address.longitude'] ? 8 : 2;
+			}
 		}
 	}
 };
