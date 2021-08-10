@@ -434,7 +434,7 @@ Vue.component('nav-search', {
 Vue.component('page-limit', {
 	template: '\
 		<div class="page-limit btn-group dropup" role="group"> \
-			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" \
+			<button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" \
 				v-bind:tabindex="tabindex" aria-haspopup="true" aria-expanded="false"> \
 				{{ value }} <span class="caret"></span> \
 			</button> \
@@ -655,7 +655,7 @@ Vue.component('taxrates', {
 					<td v-if="!readonly && types.length" class="actions"> \
 						<div v-if="!readonly && type == 0 && types.length" class="dropdown"> \
 							<button class="btn act-add fa" v-bind:tabindex="tabindex" \
-								type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> \
+								type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> \
 							</button> \
 							<div class="dropdown-menu dropdown-menu-right"> \
 								<a v-for="(rate, code) in types" class="dropdown-item" href="#" v-on:click="add(code, rate)">{{ code.toUpperCase() }}</a> \
