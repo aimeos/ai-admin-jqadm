@@ -502,8 +502,8 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( !$this->getView()->access( ['super'] ) && $item->getId() !== $this->getContext()->getUserId() ) {
-			unset( $data['customer.password'] );
+		if( $this->getView()->access( ['super'] ) || $item->getId() === $this->getContext()->getUserId() ) {
+			$data['.modify'] = true;
 		}
 
 		if( $copy === true )
