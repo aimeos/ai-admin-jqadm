@@ -6,13 +6,14 @@
 # Jan Konieczny <whooof@outlook.com>, 2020
 # jerzys <jerzy.skalski@gmail.com>, 2014
 # jerzys <jerzy.skalski@gmail.com>, 2014
+# Łukasz Sobiecki <lukasz@sobiecki.pl>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-31 11:31+0200\n"
-"PO-Revision-Date: 2021-05-31 09:31+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2021-07-06 09:42+0200\n"
+"PO-Revision-Date: 2021-08-02 21:05+0000\n"
+"Last-Translator: Łukasz Sobiecki <lukasz@sobiecki.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,10 +104,10 @@ msgid "?"
 msgstr "?"
 
 msgid "Active"
-msgstr ""
+msgstr "Aktywny"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Aktualna cena"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
@@ -145,15 +146,15 @@ msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "Zaawansowane"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos cache został wyłączony przez \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Tryb sprawdzania błędów w Aimeos został włączony przez \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -168,16 +169,16 @@ msgid ""
 msgstr ""
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Zezwól na niestandardową cenę"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Pozwól użytkownikom wybrać ile chcą zapłacić"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Alfanumeryczny ciąg znaków który pozwoli jednoznacznie zidentyfikować grupę"
 
 msgid "Apply"
-msgstr ""
+msgstr "Zaaplikuj"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -336,10 +337,10 @@ msgid ""
 msgstr ""
 
 msgid "Config"
-msgstr ""
+msgstr "Konfiguracja"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Konfigurowalny"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
@@ -349,7 +350,7 @@ msgid "Copy"
 msgstr "Kopia"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Skopiuj tę pozycję"
 
 msgid "Costs"
 msgstr "Koszty"
@@ -423,7 +424,7 @@ msgid "Customer e-mail address"
 msgstr ""
 
 msgid "Customer password"
-msgstr ""
+msgstr "Hasło klienta"
 
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
@@ -465,7 +466,7 @@ msgid "Delete items?"
 msgstr "Usunąć?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Usuń wybrane elementy"
 
 msgid "Delete this entry"
 msgstr ""
@@ -512,6 +513,9 @@ msgstr ""
 msgid "Descritive name of the site"
 msgstr ""
 
+msgid "Discount"
+msgstr ""
+
 msgid "Display help texts"
 msgstr ""
 
@@ -519,7 +523,7 @@ msgid "Domain"
 msgstr "Domena"
 
 msgid "Download"
-msgstr ""
+msgstr "Pobierz"
 
 msgid "Download this file"
 msgstr ""
@@ -558,7 +562,7 @@ msgid "Editor"
 msgstr "Edytor"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "End date"
 msgstr "Data końcowa"
@@ -959,6 +963,9 @@ msgstr ""
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr ""
 
+msgid "Notes"
+msgstr ""
+
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr ""
@@ -971,6 +978,9 @@ msgstr ""
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
+msgstr ""
+
+msgid "Open"
 msgstr ""
 
 msgid "Option"

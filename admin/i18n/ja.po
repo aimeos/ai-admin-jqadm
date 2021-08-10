@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-31 11:31+0200\n"
-"PO-Revision-Date: 2021-05-31 09:32+0000\n"
-"Last-Translator: Darshan Sampat <darshan@usindia.com>\n"
+"POT-Creation-Date: 2021-07-06 09:42+0200\n"
+"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,6 +511,9 @@ msgstr "言語の記述名"
 msgid "Descritive name of the site"
 msgstr "サイトの記述名"
 
+msgid "Discount"
+msgstr ""
+
 msgid "Display help texts"
 msgstr ""
 
@@ -958,6 +961,9 @@ msgstr ""
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "JQAdm \"%1$s\"クライアントにアクセスできません"
 
+msgid "Notes"
+msgstr ""
+
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
 msgstr "現在在庫がある記事の数. 無制限の数量のために空のままにする."
@@ -971,6 +977,9 @@ msgstr "請求書に課税する必要があるかどうかを判断するため
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "1つのプロバイダと、コンマで区切られた0個以上のデコレータクラス名"
+
+msgid "Open"
+msgstr ""
 
 msgid "Option"
 msgstr "オプション"
