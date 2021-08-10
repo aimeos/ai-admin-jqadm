@@ -518,7 +518,7 @@ Aimeos.ProductRef = {
 						}
 
 						axios.delete(response.meta.resources[resource], config).then(function(response) {
-							callback(response.data);
+							callback ? callback(response.data) : null;
 						}).then(function() {
 							self.waiting(false);
 						});
