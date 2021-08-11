@@ -130,6 +130,7 @@ a, a:hover {
 	border: 1px solid var(--bs-danger, #dc3545);
 	background-color: var(--bs-danger, #dc3545);
 	border-color: var(--bs-danger, #dc3545);
+	color: #ffffff;
 }
 
 .dark .btn-close {
