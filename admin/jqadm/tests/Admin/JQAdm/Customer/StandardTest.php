@@ -85,16 +85,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$this->assertNull( $this->getClientMock( ['redirect'], false )->delete() );
+		$this->assertEquals( '', $this->getClientMock( ['redirect'], false )->delete() );
 	}
 
 
 	public function testDeleteException()
 	{
-		$object = $this->getClientMock( ['getSubClients', 'search'] );
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \RuntimeException() ) );
+		$object = $this->getClientMock( ['search'] );
 		$object->expects( $this->once() )->method( 'search' );
 
 		$object->delete();

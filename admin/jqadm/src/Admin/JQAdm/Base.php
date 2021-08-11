@@ -411,7 +411,7 @@ abstract class Base
 
 		foreach( $names as $name )
 		{
-			if( ( $val = $this->view->param( $name ) ) !== null ) {
+			if( ( $val = $this->view->param( $name ) ) !== null && !is_array( $val ) ) {
 				$list[$name] = $val;
 			}
 		}

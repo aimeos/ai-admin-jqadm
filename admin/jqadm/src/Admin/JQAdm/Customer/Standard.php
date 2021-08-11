@@ -117,14 +117,19 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->getView();
+		$context = $this->getContext();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
+		$manager = \Aimeos\MShop::create( $context, 'customer' );
 		$manager->begin();
 
 		try
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null ) {
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
+			}
+
+			if( !$view->access( ['super', 'admin'] ) ) {
+				throw new \Aimeos\Admin\JQAdm\Exception( 'Only super users and administrators can delete items' );
 			}
 
 			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
@@ -386,15 +391,15 @@ class Standard
 	protected function getGroupItems( \Aimeos\MShop\Customer\Item\Iface $item = null ) : array
 	{
 		$list = [];
+		$view = $this->getView();
 		$context = $this->getContext();
 
-		$isSuper = $this->getView()->access( ['super'] );
-		$isAdmin = $this->getView()->access( ['admin'] );
-		$isEditor = $this->getView()->access( ['editor'] );
+		$isSuper = $view->access( ['super'] );
+		$isAdmin = $view->access( ['admin'] );
+		$isEditor = $view->access( ['editor'] );
 
 		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
-		$search = $manager->filter( true )->slice( 0, 10000 );
-		$search->setSortations( [$search->sort( '+', 'customer.group.label' )] );
+		$search = $manager->filter( true )->slice( 0, 10000 )->order( 'customer.group.label' );
 
 		foreach( $manager->search( $search ) as $groupId => $groupItem )
 		{
