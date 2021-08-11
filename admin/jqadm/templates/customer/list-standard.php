@@ -289,7 +289,7 @@ $columnList = [
 							title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ); ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ); ?>">
 						</a>
-						<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
+						<?php if( $this->access( ['super', 'admin'] ) && !$this->site()->readonly( $item->getSiteId() ) ) : ?>
 							<a class="btn act-delete fa" tabindex="1" href="#"
 								v-on:click.prevent.stop="remove(`<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['id' => $id] + $params, [], $delConfig ) ) ?>`,`<?= $enc->attr( $item->getLabel() ) ?>`)"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ); ?>"
