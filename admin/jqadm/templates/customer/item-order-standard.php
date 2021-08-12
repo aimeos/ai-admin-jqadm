@@ -208,7 +208,7 @@ $deliveryStatusList = [
 							<?php endif ?>
 							<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 								<td class="order-statuspayment">
-									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $paymentStatusList[$item->getPaymentStatus()] ) ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $paymentStatusList[$item->getStatusPayment()] ) ?></a>
 								</td>
 							<?php endif ?>
 							<?php if( in_array( 'order.datedelivery', $fields ) ) : ?>
@@ -218,7 +218,7 @@ $deliveryStatusList = [
 							<?php endif ?>
 							<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
 								<td class="order-statusdelivery">
-									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $deliveryStatusList[$item->getDeliveryStatus()] ) ?></a>
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $deliveryStatusList[$item->getStatusDelivery()] ) ?></a>
 								</td>
 							<?php endif ?>
 							<?php if( in_array( 'order.relatedid', $fields ) ) : ?>

@@ -290,11 +290,11 @@ class Standard
 			}
 
 			if( isset( $data['order.statusdelivery'][$idx] ) ) {
-				$item->setDeliveryStatus( $data['order.statusdelivery'][$idx] );
+				$item->setStatusDelivery( $data['order.statusdelivery'][$idx] );
 			}
 
 			if( isset( $data['order.statuspayment'][$idx] ) ) {
-				$item->setPaymentStatus( $data['order.statuspayment'][$idx] );
+				$item->setStatusPayment( $data['order.statuspayment'][$idx] );
 			}
 
 			if( isset( $data['order.datedelivery'][$idx] ) ) {

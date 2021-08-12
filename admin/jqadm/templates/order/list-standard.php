@@ -381,13 +381,13 @@ $statusList = [
 								<td class="order-type"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getType() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
-								<td class="order-statuspayment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $paymentStatusList[$item->getPaymentStatus()] ) ?></a></td>
+								<td class="order-statuspayment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $paymentStatusList[$item->getStatusPayment()] ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.datepayment', $fields ) ) : ?>
 								<td class="order-datepayment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDatePayment() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
-								<td class="order-statusdelivery"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $deliveryStatusList[$item->getDeliveryStatus()] ) ?></a></td>
+								<td class="order-statusdelivery"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $deliveryStatusList[$item->getStatusDelivery()] ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.datedelivery', $fields ) ) : ?>
 								<td class="order-datedelivery"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateDelivery() ) ?></a></td>

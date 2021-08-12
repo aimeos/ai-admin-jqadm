@@ -121,7 +121,7 @@ $statuslist = array(
 										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDatePayment() ) ?></a>
 									</td>
 									<td class="order-statuspayment">
-										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $status( $statuslist, $item->getPaymentStatus() ) ) ?></a>
+										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $status( $statuslist, $item->getStatusPayment() ) ) ?></a>
 									</td>
 									<td class="order-base-service-payment">
 										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $payment( $item ) ) ?></a>
