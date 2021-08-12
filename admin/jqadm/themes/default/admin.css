@@ -541,9 +541,22 @@
 	border-color: transparent;
 }
 
-.aimeos .item-order .item-product-list th.item-column,
-.aimeos .item-order .item-product-list .product-sku {
-	font-weight: bold;
+
+.aimeos .item-order .item-product-list .list-item {
+	padding: 0.5rem;
+}
+
+.aimeos .item-order .item-product-list .list-item:nth-of-type(odd) {
+	background-color: var(--bs-bg-dark, #F4F8FB);
+}
+
+.aimeos .item-order .item-product-list .form-control-label {
+	justify-content: flex-start;
+}
+
+.aimeos .item-order .item-product-list .column-qtyopen .form-control-label,
+.aimeos .item-order .item-product-list .column-sum .form-control-label {
+	justify-content: center;
 }
 
 .aimeos .item-order .item-product-list .product-sku:before {
@@ -558,37 +571,34 @@
 	content: "\f073";
 }
 
-.aimeos .item-order .item-product-list .column-status,
-.aimeos .item-order .item-product-list .column-timeframe {
-	max-width: 7rem;
-	min-width: 5rem;
-}
-
-.aimeos .item-order .item-product-list .column-desc {
-	text-align: start;
-}
-
+.aimeos .item-order .item-product-list .column-sum,
 .aimeos .item-order .item-product-list .column-qtyopen {
-	max-width: 5rem;
-	min-width: 3rem;
-}
-
-.aimeos .item-order .item-product-list .product-qtyopen,
-.aimeos .item-order .item-product-list .column-sum {
 	white-space: nowrap;
-	text-align: end;
+	text-align: center;
 }
 
-.aimeos .item-order .item-product-list .product-name,
-.aimeos .item-order .item-product-list .product-attr,
+.aimeos .item-order .item-product-list .product-qtyopen {
+	display: inline;
+	max-width: 7rem;
+	text-align: center;
+}
+
 .aimeos .item-order .item-product-list .product-sku,
-.aimeos .item-order .item-product-list .product-status,
-.aimeos .item-order .item-product-list .product-quantity,
-.aimeos .item-order .item-product-list .product-qtyopen,
+.aimeos .item-order .item-product-list .product-name,
 .aimeos .item-order .item-product-list .product-price,
 .aimeos .item-order .item-product-list .product-costs,
 .aimeos .item-order .item-product-list .product-rebate {
 	display: block;
+}
+
+@media screen and (max-width: 575px) {
+	.aimeos .item-order .item-product-list .column-qtyopen .form-control-label,
+	.aimeos .item-order .item-product-list .column-sum .form-control-label,
+	.aimeos .item-order .item-product-list .column-qtyopen,
+	.aimeos .item-order .item-product-list .column-sum {
+		justify-content: flex-start;
+		text-align: start;
+	}
 }
 
 .aimeos .item-order .item-product-list .product-attr .attr-code:after {

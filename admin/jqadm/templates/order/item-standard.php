@@ -193,8 +193,8 @@ $paymentStatusList = [
 									</div>
 								</div>
 								<div class="form-group row mandatory">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
-									<div class="col-sm-8">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
+									<div class="col-8">
 										<select class="form-select item-languageid" required="required" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.languageid' ) ) ) ?>"
 											<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> >
@@ -242,15 +242,15 @@ $paymentStatusList = [
 										</div>
 									<?php endif ?>
 									<div class="form-group row optional">
-										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Customer reference' ) ) ?></label>
-										<div class="col-sm-8">
+										<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Customer reference' ) ) ?></label>
+										<div class="col-8">
 											<input class="form-control item-customerref" type="text" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.customerref' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Customer reference (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/order.base.customerref' ) ) ?>"
 												<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
 										</div>
-										<div class="col-sm-12 form-text text-muted help-text">
+										<div class="col-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Order number entered by the customer' ) ) ?>
 										</div>
 									</div>
@@ -261,30 +261,20 @@ $paymentStatusList = [
 
 
 					<div class="box">
-						<div class="row item-product">
+						<div class="row item-product-list">
 
 							<div class="col-sm-12">
-								<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Products' ) ) ?></h2>
-								<div class="table-responsive">
-									<table class="item-product-list table table-striped">
-										<thead>
-											<tr>
-												<th class="item-column column-subscription"><?= $enc->html( $this->translate( 'admin', 'Renew' ) ) ?></th>
-												<th class="item-column column-status"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></th>
-												<th class="item-column column-desc"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></th>
-												<th class="item-column column-quantity"><?= $enc->html( $this->translate( 'admin', 'Quantity' ) ) ?></th>
-												<th class="item-column column-qtyopen"><?= $enc->html( $this->translate( 'admin', 'Open' ) ) ?></th>
-												<th class="item-column column-timeframe"><?= $enc->html( $this->translate( 'admin', 'Delivery in' ) ) ?></th>
-												<th class="item-column column-sum"><?= $enc->html( $this->translate( 'admin', 'Sum' ) ) ?></th>
-											</tr>
-										</thead>
-										<tbody>
+								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Products' ) ) ?></h2>
 
-											<?php foreach( $basket->getProducts() as $pos => $orderProduct ) : ?>
-												<?php if( strncmp( $this->site()->siteid(), $orderProduct->getSiteId(), strlen( $this->site()->siteid() ) ) === 0 ) : ?>
+								<?php foreach( $basket->getProducts() as $pos => $orderProduct ) : ?>
+									<?php if( strncmp( $this->site()->siteid(), $orderProduct->getSiteId(), strlen( $this->site()->siteid() ) ) === 0 ) : ?>
 
-													<tr class="list-item">
-														<td class="item-column column-subscription">
+										<div class="list-item">
+											<div class="row">
+												<div class="col-sm-2 item-column column-subscription">
+													<div class="row">
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Renew' ) ) ?></label>
+														<div class="col-7 col-sm-12">
 															<?php $newParams = [
 																	'item' => ['subscription.ordbaseid' => $basket->getId(), 'subscription.ordprodid' => $orderProduct->getId()],
 																	'site' => $this->param( 'site' ),
@@ -292,37 +282,16 @@ $paymentStatusList = [
 																	'resource' => 'subscription'
 																];
 															?>
-															<a class="btn btn-subscription fa" href="<?= $this->url( $newTarget, $newCntl, $newAction, $newParams, [], $newConfig ) ?>"></a>
-														</td>
-														<td class="item-column column-statusdelivery">
-															<select class="form-select product-status" required="required" tabindex="1"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.statusdelivery' ) ) ) ?>"
-																<?= $this->site()->readonly( $orderProduct->getSiteId() ) ?> >
-																<option value="">
-																	<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
-																</option>
-																<?php foreach( $deliveryStatusList as $code => $label ) : ?>
-																	<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.statusdelivery' ), $code ) ?> >
-																		<?= $enc->html( $label ) ?>
-																	</option>
-																<?php endforeach ?>
-															</select>
-														</td>
-														<td class="item-column column-statuspayment">
-															<select class="form-select product-status" required="required" tabindex="1"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.statuspayment' ) ) ) ?>"
-																<?= $this->site()->readonly( $orderProduct->getSiteId() ) ?> >
-																<option value="">
-																	<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
-																</option>
-																<?php foreach( $paymentStatusList as $code => $label ) : ?>
-																	<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.statuspayment' ), $code ) ?> >
-																		<?= $enc->html( $label ) ?>
-																	</option>
-																<?php endforeach ?>
-															</select>
-														</td>
-														<td class="item-column column-desc">
+															<a class="btn btn-subscription fa"
+																href="<?= $this->url( $newTarget, $newCntl, $newAction, $newParams, [], $newConfig ) ?>"
+																title="<?= $enc->html( $this->translate( 'admin', 'Renew' ) ) ?>"></a>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-4 item-column column-desc">
+													<div class="row">
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></label>
+														<div class="col-7 col-sm-12">
 															<span class="product-name"><?= $enc->html( $orderProduct->getName() ) ?></span>
 															<span class="product-attr">
 																<?php foreach( $orderProduct->getAttributeItems() as $attrItem ) : ?>
@@ -336,45 +305,103 @@ $paymentStatusList = [
 																<?php endforeach ?>
 															</span>
 															<span class="product-sku"><?= $enc->html( $orderProduct->getProductCode() ) ?></span>
-														</td>
-														<td class="item-column column-quantity">
-															<span class="product-quantity"><?= $enc->html( $orderProduct->getQuantity() ) ?></span>
-														</td>
-														<td class="item-column column-qtyopen">
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-2 item-column column-sum">
+													<div class="row">
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Sum' ) ) ?></label>
+														<div class="col-7 col-sm-12">
+															<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
+															<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-4 item-column column-qtyopen">
+													<div class="row">
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Open Qty' ) ) ?></label>
+														<div class="col-7 col-sm-12">
 															<input class="form-control product-qtyopen" type="number" tabindex="1" step="0.001"
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.qtyopen' ) ) ) ?>"
 																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Open' ) ) ?>"
 																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.base.product.qtyopen' ) ) ?>"
-																<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
-														</td>
-														<td class="item-column column-timeframe">
+																<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?>
+															/> / <span class="product-quantity"><?= $enc->html( $orderProduct->getQuantity() ) ?></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-4 item-column column-statuspayment">
+													<div class="row">
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Payment' ) ) ?></label>
+														<div class="col-7 col-sm-12">
+															<select class="form-select product-status" required="required" tabindex="1"
+																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.statuspayment' ) ) ) ?>"
+																<?= $this->site()->readonly( $orderProduct->getSiteId() ) ?> >
+																<option value="">
+																	<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+																</option>
+																<?php foreach( $paymentStatusList as $code => $label ) : ?>
+																	<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.statuspayment' ), $code ) ?> >
+																		<?= $enc->html( $label ) ?>
+																	</option>
+																<?php endforeach ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-4 item-column column-statusdelivery">
+													<div class="row">
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Delivery' ) ) ?></label>
+														<div class="col-7 col-sm-12">
+															<select class="form-select product-status" required="required" tabindex="1"
+																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.statusdelivery' ) ) ) ?>"
+																<?= $this->site()->readonly( $orderProduct->getSiteId() ) ?> >
+																<option value="">
+																	<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+																</option>
+																<?php foreach( $deliveryStatusList as $code => $label ) : ?>
+																	<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.statusdelivery' ), $code ) ?> >
+																		<?= $enc->html( $label ) ?>
+																	</option>
+																<?php endforeach ?>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-4 item-column column-timeframe">
+													<div class="row">
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Delivery in' ) ) ?></label>
+														<div class="col-7 col-sm-12">
 															<input class="form-control product-timeframe" maxlength="16" tabindex="1"
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.timeframe' ) ) ) ?>"
 																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Delivery timeframe (optional)' ) ) ?>"
 																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.base.product.timeframe' ) ) ?>"
 																<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
-														</td>
-														<td class="item-column column-sum">
-															<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
-															<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
-														</td>
-													</tr>
-													<tr class="list-item">
-														<td class="item-column column-notes" colspan="8" maxlength="255">
-															<input class="form-control product-notes" tabindex="1"
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-12 item-column column-notes">
+													<div class="row">
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Notes' ) ) ?></label>
+														<div class="col-7 col-sm-12">
+															<input class="form-control product-notes" tabindex="1" maxlength="255"
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.notes' ) ) ) ?>"
-																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Notes' ) ) ?>"
+																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Notes (not shown to customer)' ) ) ?>"
 																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.base.product.notes' ) ) ?>"
 																<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?> />
-														</td>
-													</tr>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 
-												<?php endif ?>
-											<?php endforeach ?>
+									<?php endif ?>
+								<?php endforeach ?>
 
-										</tbody>
-									</table>
-								</div>
 							</div>
 
 						</div>
