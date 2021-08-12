@@ -437,7 +437,8 @@ class Standard
 
 		$basket->fromArray( $data, true );
 		$allowed = array_flip( [
-			'order.base.product.status',
+			'order.base.product.statusdelivery',
+			'order.base.product.statuspayment',
 			'order.base.product.qtyopen',
 			'order.base.product.timeframe',
 			'order.base.product.notes',

@@ -100,7 +100,8 @@ $columnList = [
 	'order.base.product.costs' => $this->translate( 'admin', 'Product costs' ),
 	'order.base.product.rebate' => $this->translate( 'admin', 'Product rebate' ),
 	'order.base.product.taxvalue' => $this->translate( 'admin', 'Product tax' ),
-	'order.base.product.status' => $this->translate( 'admin', 'Product status' ),
+	'order.base.product.statusdelivery' => $this->translate( 'admin', 'Product shipping' ),
+	'order.base.product.statuspayment' => $this->translate( 'admin', 'Product payment' ),
 	'order.base.address.salutation' => $this->translate( 'admin', 'Salutation' ),
 	'order.base.address.company' => $this->translate( 'admin', 'Company' ),
 	'order.base.address.vatid' => $this->translate( 'admin', 'VAT ID' ),
@@ -131,6 +132,17 @@ $deliveryStatusList = [
 	'5' => $this->translate( 'mshop/code', 'stat:5' ),
 	'6' => $this->translate( 'mshop/code', 'stat:6' ),
 	'7' => $this->translate( 'mshop/code', 'stat:7' ),
+];
+
+$paymentStatusList = [
+	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
+	'0' => $this->translate( 'mshop/code', 'pay:0' ),
+	'1' => $this->translate( 'mshop/code', 'pay:1' ),
+	'2' => $this->translate( 'mshop/code', 'pay:2' ),
+	'3' => $this->translate( 'mshop/code', 'pay:3' ),
+	'4' => $this->translate( 'mshop/code', 'pay:4' ),
+	'5' => $this->translate( 'mshop/code', 'pay:5' ),
+	'6' => $this->translate( 'mshop/code', 'pay:6' ),
 ];
 
 $statusList = [
@@ -270,7 +282,8 @@ $reasonList = [
 								'order.base.product.costs' => ['op' => '==', 'type' => 'number'],
 								'order.base.product.rebate' => ['op' => '==', 'type' => 'number'],
 								'order.base.product.taxvalue' => ['op' => '==', 'type' => 'number'],
-								'order.base.product.status' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
+								'order.base.product.statusdelivery' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
+								'order.base.product.statuspayment' => ['op' => '==', 'type' => 'select', 'val' => $paymentStatusList],
 								'order.base.address.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
 									'' => 'none', 'company' => 'company', 'mr' => 'mr', 'ms' => 'ms'
 								]],
@@ -394,8 +407,11 @@ $reasonList = [
 							<?php if( in_array( 'order.base.product.taxvalue', $fields ) ) : ?>
 								<td class="order-base-product-taxvalue"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $prodItem->getPrice()->getTaxValue() ) : '' ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.base.product.status', $fields ) ) : ?>
-								<td class="order-base-product-status"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $deliveryStatusList[$prodItem->getStatus()] ) : '' ?></a></td>
+							<?php if( in_array( 'order.base.product.statusdelivery', $fields ) ) : ?>
+								<td class="order-base-product-statusdelivery"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $deliveryStatusList[$prodItem->getStatusDelivery()] ) : '' ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.base.product.statuspayment', $fields ) ) : ?>
+								<td class="order-base-product-statuspayment"><a class="items-field" href="<?= $url ?>"><?= $prodItem ? $enc->html( $deliveryStatusList[$prodItem->getStatusPayment()] ) : '' ?></a></td>
 							<?php endif ?>
 
 							<?php $addrItem = $baseItem ? current( $baseItem->getAddress( \Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT ) ) : null ?>

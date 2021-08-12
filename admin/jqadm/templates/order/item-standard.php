@@ -70,7 +70,7 @@ $serviceAttrCodes = [
 	'payment' => $this->config( 'admin/jqadm/order/service/payment/attribute/suggest', [] ),
 ];
 
-$statusList = [
+$deliveryStatusList = [
 	'-1' => $this->translate( 'mshop/code', 'stat:-1' ),
 	'0' => $this->translate( 'mshop/code', 'stat:0' ),
 	'1' => $this->translate( 'mshop/code', 'stat:1' ),
@@ -80,6 +80,17 @@ $statusList = [
 	'5' => $this->translate( 'mshop/code', 'stat:5' ),
 	'6' => $this->translate( 'mshop/code', 'stat:6' ),
 	'7' => $this->translate( 'mshop/code', 'stat:7' ),
+];
+
+$paymentStatusList = [
+	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
+	'0' => $this->translate( 'mshop/code', 'pay:0' ),
+	'1' => $this->translate( 'mshop/code', 'pay:1' ),
+	'2' => $this->translate( 'mshop/code', 'pay:2' ),
+	'3' => $this->translate( 'mshop/code', 'pay:3' ),
+	'4' => $this->translate( 'mshop/code', 'pay:4' ),
+	'5' => $this->translate( 'mshop/code', 'pay:5' ),
+	'6' => $this->translate( 'mshop/code', 'pay:6' ),
 ];
 
 
@@ -283,15 +294,29 @@ $statusList = [
 															?>
 															<a class="btn btn-subscription fa" href="<?= $this->url( $newTarget, $newCntl, $newAction, $newParams, [], $newConfig ) ?>"></a>
 														</td>
-														<td class="item-column column-status">
+														<td class="item-column column-statusdelivery">
 															<select class="form-select product-status" required="required" tabindex="1"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.status' ) ) ) ?>"
+																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.statusdelivery' ) ) ) ?>"
 																<?= $this->site()->readonly( $orderProduct->getSiteId() ) ?> >
 																<option value="">
 																	<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 																</option>
-																<?php foreach( $statusList as $code => $label ) : ?>
-																	<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.status' ), $code ) ?> >
+																<?php foreach( $deliveryStatusList as $code => $label ) : ?>
+																	<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.statusdelivery' ), $code ) ?> >
+																		<?= $enc->html( $label ) ?>
+																	</option>
+																<?php endforeach ?>
+															</select>
+														</td>
+														<td class="item-column column-statuspayment">
+															<select class="form-select product-status" required="required" tabindex="1"
+																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.statuspayment' ) ) ) ?>"
+																<?= $this->site()->readonly( $orderProduct->getSiteId() ) ?> >
+																<option value="">
+																	<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+																</option>
+																<?php foreach( $paymentStatusList as $code => $label ) : ?>
+																	<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.statuspayment' ), $code ) ?> >
 																		<?= $enc->html( $label ) ?>
 																	</option>
 																<?php endforeach ?>
