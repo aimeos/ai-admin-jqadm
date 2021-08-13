@@ -336,12 +336,10 @@ $paymentStatusList = [
 													<div class="row">
 														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Payment' ) ) ?></label>
 														<div class="col-7 col-sm-12">
-															<select class="form-select product-status" required="required" tabindex="1"
+															<select class="form-select product-status" tabindex="1"
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.statuspayment' ) ) ) ?>"
 																<?= $this->site()->readonly( $orderProduct->getSiteId() ) ?> >
-																<option value="">
-																	<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
-																</option>
+																<option value=""></option>
 																<?php foreach( $paymentStatusList as $code => $label ) : ?>
 																	<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.statuspayment' ), $code ) ?> >
 																		<?= $enc->html( $label ) ?>
@@ -355,12 +353,10 @@ $paymentStatusList = [
 													<div class="row">
 														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Delivery' ) ) ?></label>
 														<div class="col-7 col-sm-12">
-															<select class="form-select product-status" required="required" tabindex="1"
+															<select class="form-select product-status" tabindex="1"
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.base.product.statusdelivery' ) ) ) ?>"
 																<?= $this->site()->readonly( $orderProduct->getSiteId() ) ?> >
-																<option value="">
-																	<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
-																</option>
+																<option value=""></option>
 																<?php foreach( $deliveryStatusList as $code => $label ) : ?>
 																	<option value="<?= $code ?>" <?= $selected( $this->get( 'itemData/product/' . $pos . '/order.base.product.statusdelivery' ), $code ) ?> >
 																		<?= $enc->html( $label ) ?>
