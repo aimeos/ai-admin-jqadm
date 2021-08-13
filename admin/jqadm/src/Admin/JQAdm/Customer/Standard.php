@@ -133,7 +133,11 @@ class Standard
 			}
 
 			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'customer.id', $ids ) );
+			$search->add( $search->and( [
+				$search->compare( '==', 'customer.id', $ids ),
+				$search->compare( '!=', 'customer.siteid', '' )
+			] ) );
+
 			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $item )
@@ -144,6 +148,10 @@ class Standard
 
 			$manager->delete( $items->toArray() );
 			$manager->commit();
+
+			if( $items->count() !== count( (array) $ids ) ) {
+				throw new \Aimeos\Admin\JQAdm\Exception( 'Not all items could be deleted' );
+			}
 
 			return $this->redirect( 'customer', 'search', null, 'delete' );
 		}
