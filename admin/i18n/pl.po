@@ -6,12 +6,13 @@
 # Jan Konieczny <whooof@outlook.com>, 2020
 # jerzys <jerzy.skalski@gmail.com>, 2014
 # jerzys <jerzy.skalski@gmail.com>, 2014
+# Łukasz Sobiecki <lukasz@sobiecki.pl>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -103,10 +104,10 @@ msgid "?"
 msgstr "?"
 
 msgid "Active"
-msgstr ""
+msgstr "Aktywny"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Aktualna cena"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
@@ -145,15 +146,15 @@ msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "Zaawansowane"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos cache został wyłączony przez \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Tryb sprawdzania błędów w Aimeos został włączony przez \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
@@ -168,16 +169,16 @@ msgid ""
 msgstr ""
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Zezwól na niestandardową cenę"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Pozwól użytkownikom wybrać ile chcą zapłacić"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Alfanumeryczny ciąg znaków który pozwoli jednoznacznie zidentyfikować grupę"
 
 msgid "Apply"
-msgstr ""
+msgstr "Zaaplikuj"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -336,10 +337,10 @@ msgid ""
 msgstr ""
 
 msgid "Config"
-msgstr ""
+msgstr "Konfiguracja"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Konfigurowalny"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
@@ -349,7 +350,7 @@ msgid "Copy"
 msgstr "Kopia"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Skopiuj tę pozycję"
 
 msgid "Costs"
 msgstr "Koszty"
@@ -423,7 +424,7 @@ msgid "Customer e-mail address"
 msgstr ""
 
 msgid "Customer password"
-msgstr ""
+msgstr "Hasło klienta"
 
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
@@ -465,9 +466,12 @@ msgid "Delete items?"
 msgstr "Usunąć?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Usuń wybrane elementy"
 
 msgid "Delete this entry"
+msgstr ""
+
+msgid "Deleting reviews is not allowed"
 msgstr ""
 
 msgid "Delivery"
@@ -522,7 +526,7 @@ msgid "Domain"
 msgstr "Domena"
 
 msgid "Download"
-msgstr ""
+msgstr "Pobierz"
 
 msgid "Download this file"
 msgstr ""
@@ -561,7 +565,7 @@ msgid "Editor"
 msgstr "Edytor"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "End date"
 msgstr "Data końcowa"
@@ -593,7 +597,13 @@ msgstr ""
 msgid "Facsimile number (optional)"
 msgstr ""
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
+msgstr ""
+
+msgid "File upload stopped by extension"
 msgstr ""
 
 msgid "Find category"
@@ -854,6 +864,9 @@ msgstr "Lokalizacje"
 msgid "Log"
 msgstr ""
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr ""
 
@@ -936,6 +949,12 @@ msgstr ""
 msgid "Next date the subscription is renewed"
 msgstr ""
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr ""
 
@@ -958,11 +977,17 @@ msgstr ""
 msgid "None"
 msgstr ""
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr ""
 
 msgid "Notes"
+msgstr ""
+
+msgid "Notes (not shown to customer)"
 msgstr ""
 
 msgid ""
@@ -979,7 +1004,13 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr ""
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
+msgstr ""
+
+msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
@@ -1209,6 +1240,9 @@ msgstr ""
 msgid "Product name"
 msgstr "Nazwa produktu"
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "Cena produktu"
 
@@ -1217,6 +1251,9 @@ msgstr "Ilość produktu"
 
 msgid "Product rebate"
 msgstr "Rabat produktu"
+
+msgid "Product shipping"
+msgstr ""
 
 msgid "Product status"
 msgstr "Status produktu"
@@ -1616,6 +1653,9 @@ msgstr "Telefon"
 msgid "Telephone number (optional)"
 msgstr ""
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr ""
 
@@ -1672,6 +1712,12 @@ msgstr ""
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
 msgid "Theme to change the layout of your shop"
@@ -1799,6 +1845,9 @@ msgid "Unique type code (required)"
 msgstr ""
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+msgstr ""
+
+msgid "Unknown upload error"
 msgstr ""
 
 msgid "Upload shop icon"

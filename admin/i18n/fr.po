@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: French (http://www.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -475,6 +475,9 @@ msgstr "Supprimer les entrées sélectionnées"
 msgid "Delete this entry"
 msgstr "Supprimer cette entrée"
 
+msgid "Deleting reviews is not allowed"
+msgstr ""
+
 msgid "Delivery"
 msgstr "Livraison"
 
@@ -598,8 +601,14 @@ msgstr "Télécopieur"
 msgid "Facsimile number (optional)"
 msgstr "Numéro de télécopieur (optionnel)"
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
 msgstr "Fichier"
+
+msgid "File upload stopped by extension"
+msgstr ""
 
 msgid "Find category"
 msgstr "Trouver une catégorie"
@@ -859,6 +868,9 @@ msgstr "Emplacement"
 msgid "Log"
 msgstr "Journal"
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr "Type des listes de média"
 
@@ -941,6 +953,12 @@ msgstr "Prochaine date (optionnel)"
 msgid "Next date the subscription is renewed"
 msgstr "Prochaine date de renouvellement de l'abonnement"
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr "Aucunes entrées trouvées"
 
@@ -963,11 +981,17 @@ msgstr "Propriétés non partagées pour l'élément prix"
 msgid "None"
 msgstr "Aucun"
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "L'accès au client JQAdm \"%1$s\" non autorisé"
 
 msgid "Notes"
+msgstr ""
+
+msgid "Notes (not shown to customer)"
 msgstr ""
 
 msgid ""
@@ -984,7 +1008,13 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Un fournisseur et zéro ou plusieurs noms de classe de décorateur séparés par des virgules"
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
+msgstr ""
+
+msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
@@ -1214,6 +1244,9 @@ msgstr "Longueur du produit, par ex. 30.0 (en m, cm, mm, etc.)"
 msgid "Product name"
 msgstr "Nom du produit"
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "Prix du produit"
 
@@ -1222,6 +1255,9 @@ msgstr "Quantité du produit"
 
 msgid "Product rebate"
 msgstr "Réduction sur le produit"
+
+msgid "Product shipping"
+msgstr ""
 
 msgid "Product status"
 msgstr "Statut du produit"
@@ -1621,6 +1657,9 @@ msgstr "Téléphone"
 msgid "Telephone number (optional)"
 msgstr "Numéro de téléphone (optionnel)"
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr "Type de liste de texte"
 
@@ -1678,6 +1717,12 @@ msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "La valeur d'incrément autorisée pour modifier la quantité dans le panier, par exemple \"0.1\" pour des quantités fractionnelles ou \"5\" pour des articles commandés cinq par cinq"
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
 
 msgid "Theme to change the layout of your shop"
 msgstr ""
@@ -1805,6 +1850,9 @@ msgstr "Code unique pour le type (requis)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Code unique pour le type d'attribut, par. ex. \"couleur\" pour les attributs \"vert\", \"bleu\", \"rouge\""
+
+msgid "Unknown upload error"
+msgstr ""
 
 msgid "Upload shop icon"
 msgstr ""

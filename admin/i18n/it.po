@@ -7,13 +7,14 @@
 # Enrico Porceddu <porceddu_enrico@yahoo.com>, 2018
 # isabella carlin <isabella@vg7.it>, 2020
 # Matteo Schiona <ms@kiboko.it>, 2017
+# Michele Grifa <grifamichele@gmail.com>, 2021
 # R M <roberto@proprionoi.it>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Italian (http://www.transifex.com/aimeos/aimeos-core/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -108,7 +109,7 @@ msgid "Active"
 msgstr "Attivo"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Prezzo Corrente"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "Il prezzo per il quali i clienti possono comprare l'articolo sul sito internet"
@@ -151,7 +152,7 @@ msgstr "Avanzato"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos caching è disabilitata da \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
@@ -179,7 +180,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Stringa alfanumerica che può identificare un gruppo in modo univoco"
 
 msgid "Apply"
-msgstr ""
+msgstr "Applica"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -307,7 +308,7 @@ msgid "Code"
 msgstr "Codice"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Codice per identificare univocamente il sito, rinominarla è rischioso!"
 
 msgid "Columns"
 msgstr "Colonne"
@@ -331,11 +332,11 @@ msgid "Company name (optional)"
 msgstr "Nome azienda (opzionale)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Ordini completati"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Ordini completati negli ultimi sette giorni riferiti al periodo precedente"
 
 msgid "Config"
 msgstr "Configurazioni"
@@ -395,7 +396,7 @@ msgid "Custom"
 msgstr "Personalizzato"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Dominio personalizzato o codice univoco del tuo shop"
 
 msgid "Customer"
 msgstr "Cliente"
@@ -455,7 +456,7 @@ msgid "Date the subscription ends"
 msgstr ""
 
 msgid "Days"
-msgstr ""
+msgstr "Giorni"
 
 msgid "Default"
 msgstr "Predefinito"
@@ -471,6 +472,9 @@ msgstr ""
 
 msgid "Delete this entry"
 msgstr "Elimina oggetto"
+
+msgid "Deleting reviews is not allowed"
+msgstr ""
 
 msgid "Delivery"
 msgstr "Consegna"
@@ -515,7 +519,7 @@ msgid "Descritive name of the site"
 msgstr "Nome descrittivo del sito"
 
 msgid "Discount"
-msgstr ""
+msgstr "Sconto"
 
 msgid "Display help texts"
 msgstr ""
@@ -536,10 +540,10 @@ msgid "E-Mail"
 msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "Indirizzo E-Mail (richiesto)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "Indirizzo E-Mail usato per inviare e-mail relative al negozio"
 
 msgid "E-mail"
 msgstr "E-mail"
@@ -551,7 +555,7 @@ msgid "E-mail address that belongs to the address"
 msgstr ""
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU o numero articolo (richiesto)"
 
 msgid "Edit"
 msgstr "Modifica"
@@ -595,8 +599,14 @@ msgstr "Facsimile"
 msgid "Facsimile number (optional)"
 msgstr ""
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
 msgstr "File"
+
+msgid "File upload stopped by extension"
+msgstr ""
 
 msgid "Find category"
 msgstr "Trova categoria"
@@ -611,7 +621,7 @@ msgid "First name"
 msgstr "Nome"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Nome (opzionale)"
 
 msgid "First name of the person if used in cultures where they are used"
 msgstr ""
@@ -856,6 +866,9 @@ msgstr ""
 msgid "Log"
 msgstr ""
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr ""
 
@@ -938,6 +951,12 @@ msgstr ""
 msgid "Next date the subscription is renewed"
 msgstr ""
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr "Nessun articolo trovato"
 
@@ -960,11 +979,17 @@ msgstr ""
 msgid "None"
 msgstr ""
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Accesso al client \" 1 %1$s \" JQAdm non consentito "
 
 msgid "Notes"
+msgstr ""
+
+msgid "Notes (not shown to customer)"
 msgstr ""
 
 msgid ""
@@ -981,7 +1006,13 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr ""
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
+msgstr ""
+
+msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
@@ -1211,6 +1242,9 @@ msgstr ""
 msgid "Product name"
 msgstr ""
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "Prezzo prodotto"
 
@@ -1218,6 +1252,9 @@ msgid "Product quantity"
 msgstr "Quantità prodotto"
 
 msgid "Product rebate"
+msgstr ""
+
+msgid "Product shipping"
 msgstr ""
 
 msgid "Product status"
@@ -1618,6 +1655,9 @@ msgstr "Telefono"
 msgid "Telephone number (optional)"
 msgstr ""
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr ""
 
@@ -1674,6 +1714,12 @@ msgstr ""
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
 msgid "Theme to change the layout of your shop"
@@ -1801,6 +1847,9 @@ msgid "Unique type code (required)"
 msgstr ""
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+msgstr ""
+
+msgid "Unknown upload error"
 msgstr ""
 
 msgid "Upload shop icon"
