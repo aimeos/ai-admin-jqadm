@@ -86,6 +86,7 @@ $columnList = [
 
 <div class="list-view"
 	data-domain="locale/site"
+	data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/locale/site/filter', new \stdClass ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
@@ -193,7 +194,14 @@ $columnList = [
 						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
 						<tr class="list-item" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
 							<?php if( $this->access( 'super' ) ) : ?>
-								<td class="select"><input v-on:click="toggle(`<?= $id ?>`)" v-bind:checked="items[`<?= $id ?>`].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+								<td class="select">
+								<input class="form-check-input" type="checkbox" tabindex="1"
+									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
+									value="<?= $enc->attr( $item->getId() ) ?>"
+									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
+									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+							</td>
 							<?php endif ?>
 							<?php if( in_array( 'locale.site.id', $fields ) ) : ?>
 								<td class="locale-site-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>

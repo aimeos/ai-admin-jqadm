@@ -167,6 +167,7 @@ $reasonList = [
 
 <div class="list-view"
 	data-domain="subscription"
+	data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/subscription/filter', new \stdClass ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
 
@@ -311,7 +312,14 @@ $reasonList = [
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getId() ) ?>">
-							<td class="select"><input v-on:click="toggle(`<?= $id ?>`)" v-bind:checked="items[`<?= $id ?>`].checked" class="form-check-input" type="checkbox" tabindex="1" name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>" value="<?= $enc->attr( $item->getId() ) ?>" /></td>
+							<td class="select">
+								<input class="form-check-input" type="checkbox" tabindex="1"
+									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
+									value="<?= $enc->attr( $item->getId() ) ?>"
+									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
+									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+							</td>
 							<?php if( in_array( 'subscription.id', $fields ) ) : ?>
 								<td class="subscription-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>

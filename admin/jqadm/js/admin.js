@@ -742,6 +742,7 @@ Aimeos.List = {
 				filter: {},
 				domain: null,
 				search: false,
+				siteid: null
 			}
 		},
 		beforeMount: function() {
@@ -754,6 +755,9 @@ Aimeos.List = {
 				}
 				if(this.$el.dataset.domain) {
 					this.domain = this.$el.dataset.domain;
+				}
+				if(this.$el.dataset.siteid) {
+					this.siteid = this.$el.dataset.siteid;
 				}
 			}
 		},
@@ -780,6 +784,10 @@ Aimeos.List = {
 				this.dialog = true;
 			},
 
+			checked: function(id) {
+				return this.items[id] && this.items[id].checked;
+			},
+
 			confirmDelete: function(val) {
 				if(val) {
 					if(this.$refs.form && this.$refs.form.dataset && this.$refs.form.dataset.deleteurl) {
@@ -800,8 +808,14 @@ Aimeos.List = {
 			clear: function(val) {
 				this.all = val;
 				for(const key in this.items) {
-					this.$set(this.items[key], 'checked', val);
+					if(this.items[key][this.domain + '.siteid'] === this.siteid) {
+						this.$set(this.items[key], 'checked', val);
+					}
 				};
+			},
+
+			readonly: function(id) {
+				return !(this.items[id] && this.items[id][this.domain + '.siteid'] == this.siteid);
 			},
 
 			reset: function() {
