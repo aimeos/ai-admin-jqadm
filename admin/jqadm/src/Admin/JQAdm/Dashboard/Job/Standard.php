@@ -43,8 +43,10 @@ class Standard
 		$view = $this->getView();
 		$context = $this->getContext();
 
-		if( ( $id = $view->param( 'id' ) ) === null ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
+		if( ( $id = $view->param( 'id' ) ) === null )
+		{
+			$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 		}
 
 		$fs = $context->getFileSystemManager()->get( 'fs-admin' );
@@ -71,8 +73,10 @@ class Standard
 		$view = $this->getObject()->addData( $this->getView() );
 		$context = $this->getContext();
 
-		if( ( $id = $view->param( 'id' ) ) === null ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
+		if( ( $id = $view->param( 'id' ) ) === null )
+		{
+			$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 		}
 
 		$fs = $context->getFileSystemManager()->get( 'fs-admin' );

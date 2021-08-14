@@ -211,24 +211,28 @@ class Standard
 	{
 		if( $file->getError() !== UPLOAD_ERR_OK )
 		{
+			$ctx = $this->getContext();
+
 			switch( $file->getError() )
 			{
 				case UPLOAD_ERR_INI_SIZE:
 				case UPLOAD_ERR_FORM_SIZE:
-					throw new \Aimeos\Admin\JQAdm\Exception( 'The uploaded file exceeds the max. allowed filesize' );
+					$msg = $ctx->translate( 'admin', 'The uploaded file exceeds the max. allowed filesize' );
 				case UPLOAD_ERR_PARTIAL:
-					throw new \Aimeos\Admin\JQAdm\Exception( 'The uploaded file was only partially uploaded' );
+					$msg = $ctx->translate( 'admin', 'The uploaded file was only partially uploaded' );
 				case UPLOAD_ERR_NO_FILE:
-					throw new \Aimeos\Admin\JQAdm\Exception( 'No file was uploaded' );
+					$msg = $ctx->translate( 'admin', 'No file was uploaded' );
 				case UPLOAD_ERR_NO_TMP_DIR:
-					throw new \Aimeos\Admin\JQAdm\Exception( 'Temporary folder is missing' );
+					$msg = $ctx->translate( 'admin', 'Temporary folder is missing' );
 				case UPLOAD_ERR_CANT_WRITE:
-					throw new \Aimeos\Admin\JQAdm\Exception( 'Failed to write file to disk' );
+					$msg = $ctx->translate( 'admin', 'Failed to write file to disk' );
 				case UPLOAD_ERR_EXTENSION:
-					throw new \Aimeos\Admin\JQAdm\Exception( 'File upload stopped by extension' );
+					$msg = $ctx->translate( 'admin', 'File upload stopped by extension' );
 				default:
-					throw new \Aimeos\Admin\JQAdm\Exception( 'Unknown upload error' );
+					$msg = $ctx->translate( 'admin', 'Unknown upload error' );
 			}
+
+			throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 		}
 	}
 

@@ -49,7 +49,8 @@ abstract class Base
 	 */
 	public function __call( string $name, array $param )
 	{
-		throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Unable to call method "%1$s"', $name ) );
+		$msg = $this->context->translate( 'admin', 'Unable to call method "%1$s"' );
+		throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $name ) );
 	}
 
 
@@ -73,7 +74,7 @@ abstract class Base
 	public function getAimeos() : \Aimeos\Bootstrap
 	{
 		if( !isset( $this->aimeos ) ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Aimeos object not available' ) );
+			throw new \Aimeos\Admin\JQAdm\Exception( $this->context->translate( 'admin', 'Aimeos object not available' ) );
 		}
 
 		return $this->aimeos;
@@ -114,7 +115,7 @@ abstract class Base
 	public function getView() : \Aimeos\MW\View\Iface
 	{
 		if( !isset( $this->view ) ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'No view available' ) );
+			throw new \Aimeos\Admin\JQAdm\Exception( $this->context->translate( 'admin', 'No view available' ) );
 		}
 
 		return $this->view;
@@ -292,16 +293,18 @@ abstract class Base
 	{
 		foreach( $decorators as $name )
 		{
-			if( ctype_alnum( $name ) === false )
-			{
-				$classname = is_string( $name ) ? $classprefix . $name : '<not a string>';
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid class name "%1$s"', $classname ) );
-			}
-
 			$classname = $classprefix . $name;
 
-			if( class_exists( $classname ) === false ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ) );
+			if( ctype_alnum( $name ) === false )
+			{
+				$msg = $this->context->translate( 'admin', 'Invalid class name "%1$s"' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
+			}
+
+			if( class_exists( $classname ) === false )
+			{
+				$msg = $this->context->translate( 'admin', 'Class "%1$s" not found' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
 			}
 
 			$client = new $classname( $client, $this->context );
@@ -322,8 +325,10 @@ abstract class Base
 	 */
 	protected function addClientDecorators( \Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
-		if( !is_string( $path ) || $path === '' ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid domain "%1$s"', $path ) );
+		if( !is_string( $path ) || $path === '' )
+		{
+			$msg = $this->context->translate( 'admin', 'Invalid domain "%1$s"' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $path ) );
 		}
 
 		$localClass = str_replace( '/', '\\', ucwords( $path, '/' ) );
@@ -356,16 +361,19 @@ abstract class Base
 			$name = $this->context->getConfig()->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
 		}
 
-		if( empty( $name ) || ctype_alnum( $name ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid characters in client name "%1$s"', $name ) );
+		if( empty( $name ) || ctype_alnum( $name ) === false )
+		{
+			$msg = $this->context->translate( 'admin', 'Invalid characters in client name "%1$s"' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $name ) );
 		}
 
 		$subnames = str_replace( '/', '\\', ucwords( $path, '/' ) );
-
 		$classname = '\\Aimeos\\Admin\\JQAdm\\' . $subnames . '\\' . $name;
 
-		if( class_exists( $classname ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not available', $classname ) );
+		if( class_exists( $classname ) === false )
+		{
+			$msg = $this->context->translate( 'admin', 'Class "%1$s" not available' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
 		}
 
 		$object = new $classname( $this->context );
@@ -641,9 +649,9 @@ abstract class Base
 		switch( $method )
 		{
 			case 'save':
-				$context->getSession()->set( 'info', [$context->getI18n()->dt( 'admin', 'Item saved successfully' )] ); break;
+				$context->getSession()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] ); break;
 			case 'delete':
-				$context->getSession()->set( 'info', [$context->getI18n()->dt( 'admin', 'Item deleted successfully' )] ); break;
+				$context->getSession()->set( 'info', [$context->translate( 'admin', 'Item deleted successfully' )] ); break;
 		}
 
 		$view->response()->withStatus( 302 );
@@ -703,7 +711,8 @@ abstract class Base
 			return $value;
 		}
 
-		throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', $name ) );
+		$msg = $this->context->translate( 'admin', 'Required parameter "%1$s" is missing' );
+		throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $name ) );
 	}
 
 

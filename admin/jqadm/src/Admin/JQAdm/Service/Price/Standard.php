@@ -61,8 +61,10 @@ class Standard
 		$view->priceListTypes = $listTypeManager->search( $listSearch );
 		$view->priceCurrencies = $currencyManager->search( $currencyManager->filter( true )->slice( 0, 10000 ) );
 
-		if( $view->priceCurrencies->isEmpty() ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( 'No currencies available. Please enable at least one currency' );
+		if( $view->priceCurrencies->isEmpty() )
+		{
+			$msg = $context->translate( 'admin', 'No currencies available. Please enable at least one currency' );
+			throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 		}
 
 		return $view;

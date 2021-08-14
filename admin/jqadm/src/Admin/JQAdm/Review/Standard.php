@@ -32,18 +32,23 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->getView();
+		$context = $this->getContext();
 
-		if( !$view->access( ['super', 'admin', 'test'] ) ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( 'Deleting reviews is not allowed' );
+		if( !$view->access( ['super', 'admin', 'test'] ) )
+		{
+			$msg = $context->translate( 'admin', 'Deleting reviews is not allowed' );
+			throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 		}
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
+		$manager = \Aimeos\MShop::create( $context, 'review' );
 		$manager->begin();
 
 		try
 		{
-			if( ( $ids = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
+			if( ( $ids = $view->param( 'id' ) ) === null )
+			{
+				$msg = $context->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
 			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
@@ -82,8 +87,10 @@ class Standard
 
 		try
 		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
+			if( ( $id = $view->param( 'id' ) ) === null )
+			{
+				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
@@ -329,10 +336,13 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Review\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
+		$context = $this->getContext();
+		$manager = \Aimeos\MShop::create( $context, 'review' );
 
-		if( ( $id = $data['review.id'] ?? null ) == null ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( 'Creating new reviews is not allowed' );
+		if( ( $id = $data['review.id'] ?? null ) == null )
+		{
+			$msg = $context->translate( 'admin', 'Deleting reviews is not allowed' );
+			throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 		}
 
 		$item = $manager->get( $id );

@@ -57,8 +57,10 @@ class Standard
 
 		try
 		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
+			if( ( $id = $view->param( 'id' ) ) === null )
+			{
+				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
@@ -124,12 +126,16 @@ class Standard
 
 		try
 		{
-			if( ( $ids = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
+			if( ( $ids = $view->param( 'id' ) ) === null )
+			{
+				$msg = $context->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			if( !$view->access( ['super', 'admin'] ) ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( 'Only super users and administrators can delete items' );
+			if( !$view->access( ['super', 'admin'] ) )
+			{
+				$msg = $context->translate( 'admin', 'Only super users and administrators can delete items' );
+				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 
 			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
@@ -149,8 +155,10 @@ class Standard
 			$manager->delete( $items->toArray() );
 			$manager->commit();
 
-			if( $items->count() !== count( (array) $ids ) ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( 'Not all items could be deleted' );
+			if( $items->count() !== count( (array) $ids ) )
+			{
+				$msg = $context->translate( 'admin', 'Not all items could be deleted' );
+				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 
 			return $this->redirect( 'customer', 'search', null, 'delete' );
@@ -176,8 +184,10 @@ class Standard
 
 		try
 		{
-			if( ( $id = $view->param( 'id' ) ) === null ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Required parameter "%1$s" is missing', 'id' ) );
+			if( ( $id = $view->param( 'id' ) ) === null )
+			{
+				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
 			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );

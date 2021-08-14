@@ -32,7 +32,7 @@ class JQAdm
 	public static function create( \Aimeos\MShop\Context\Item\Iface $context, \Aimeos\Bootstrap $aimeos, $path, $name = null )
 	{
 		if( empty( $path ) ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Admin JQAdm type is empty' ) );
+			throw new \Aimeos\Admin\JQAdm\Exception( $context->translate( 'admin', 'Admin JQAdm type is empty' ) );
 		}
 
 		$view = $context->getView();
@@ -48,18 +48,22 @@ class JQAdm
 			$parts[$idx] = ucwords( $part );
 		}
 
-		if( $view->access( $config->get( 'admin/jqadm/resource/' . $path . '/groups', [] ) ) !== true ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $path ) );
+		if( $view->access( $config->get( 'admin/jqadm/resource/' . $path . '/groups', [] ) ) !== true )
+		{
+			$msg = $context->translate( 'admin', 'Not allowed to access JQAdm "%1$s" client' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $path ) );
 		}
 
 		$factory = '\\Aimeos\\Admin\\JQAdm\\' . implode( '\\', $parts ) . '\\Factory';
 
 		if( class_exists( $factory ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not available', $factory ) );
+			throw new \Aimeos\Admin\JQAdm\Exception( $context->translate( 'admin', 'Class "%1$s" not available', $factory ) );
 		}
 
-		if( ( $client = @call_user_func_array( [$factory, 'create'], [$context, $name] ) ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid factory "%1$s"', $factory ) );
+		if( ( $client = @call_user_func_array( [$factory, 'create'], [$context, $name] ) ) === false )
+		{
+			$msg = $context->translate( 'admin', 'Invalid factory "%1$s"' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $factory ) );
 		}
 
 		return $client->setAimeos( $aimeos )->setView( $view )->setObject( $client );

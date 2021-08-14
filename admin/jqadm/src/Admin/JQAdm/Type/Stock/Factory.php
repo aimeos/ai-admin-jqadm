@@ -71,8 +71,10 @@ class Factory
 		$iface = '\\Aimeos\\Admin\\JQAdm\\Iface';
 		$classname = '\\Aimeos\\Admin\\JQAdm\\Type\\Stock\\' . $name;
 
-		if( ctype_alnum( $name ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid characters in class name "%1$s"', $classname ) );
+		if( ctype_alnum( $name ) === false )
+		{
+			$msg = $context->translate( 'admin', 'Invalid characters in class name "%1$s"' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
 		}
 
 		$client = self::createAdmin( $context, $classname, $iface );

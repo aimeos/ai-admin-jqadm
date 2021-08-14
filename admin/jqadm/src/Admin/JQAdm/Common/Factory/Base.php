@@ -50,16 +50,18 @@ class Base
 	{
 		foreach( $decorators as $name )
 		{
-			if( ctype_alnum( $name ) === false )
-			{
-				$classname = is_string( $name ) ? $classprefix . $name : '<not a string>';
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid class name "%1$s"', $classname ) );
-			}
-
 			$classname = $classprefix . $name;
 
-			if( class_exists( $classname ) === false ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ) );
+			if( ctype_alnum( $name ) === false )
+			{
+				$msg = $context->translate( 'admin', 'Invalid class name "%1$s"' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
+			}
+
+			if( class_exists( $classname ) === false )
+			{
+				$msg = $context->translate( 'admin', 'Class "%1$s" not found' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
 			}
 
 			$client = new $classname( $client, $context );
@@ -82,8 +84,10 @@ class Base
 	protected static function addClientDecorators( \Aimeos\MShop\Context\Item\Iface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
-		if( empty( $path ) ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid domain "%1$s"', $path ) );
+		if( empty( $path ) )
+		{
+			$msg = $context->translate( 'admin', 'Invalid domain "%1$s"' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $path ) );
 		}
 
 		$localClass = str_replace( '/', '\\', ucwords( $path, '/' ) );
@@ -152,8 +156,10 @@ class Base
 			return self::$objects[$classname];
 		}
 
-		if( class_exists( $classname ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not available', $classname ) );
+		if( class_exists( $classname ) === false )
+		{
+			$msg = $context->translate( 'admin', 'Class "%1$s" not available' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
 		}
 
 		$client = new $classname( $context );
