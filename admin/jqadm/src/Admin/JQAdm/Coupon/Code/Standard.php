@@ -217,17 +217,17 @@ class Standard
 			{
 				case UPLOAD_ERR_INI_SIZE:
 				case UPLOAD_ERR_FORM_SIZE:
-					$msg = $ctx->translate( 'admin', 'The uploaded file exceeds the max. allowed filesize' );
+					$msg = $ctx->translate( 'admin', 'The uploaded file exceeds the max. allowed filesize' ); break;
 				case UPLOAD_ERR_PARTIAL:
-					$msg = $ctx->translate( 'admin', 'The uploaded file was only partially uploaded' );
+					$msg = $ctx->translate( 'admin', 'The uploaded file was only partially uploaded' ); break;
 				case UPLOAD_ERR_NO_FILE:
-					$msg = $ctx->translate( 'admin', 'No file was uploaded' );
+					$msg = $ctx->translate( 'admin', 'No file was uploaded' ); break;
 				case UPLOAD_ERR_NO_TMP_DIR:
-					$msg = $ctx->translate( 'admin', 'Temporary folder is missing' );
+					$msg = $ctx->translate( 'admin', 'Temporary folder is missing' ); break;
 				case UPLOAD_ERR_CANT_WRITE:
-					$msg = $ctx->translate( 'admin', 'Failed to write file to disk' );
+					$msg = $ctx->translate( 'admin', 'Failed to write file to disk' ); break;
 				case UPLOAD_ERR_EXTENSION:
-					$msg = $ctx->translate( 'admin', 'File upload stopped by extension' );
+					$msg = $ctx->translate( 'admin', 'File upload stopped by extension' ); break;
 				default:
 					$msg = $ctx->translate( 'admin', 'Unknown upload error' );
 			}
