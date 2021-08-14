@@ -53,7 +53,8 @@ Aimeos = {
 		initialData: this.value,
 		protectedSource: [/\n/g],
 		readOnly: this.readonly,
-		removeButtons: 'Underline,Subscript,Superscript',
+		// removeButtons: 'Underline,Subscript,Superscript',
+		/*
 		toolbar: [
 			{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
 			{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
@@ -62,6 +63,7 @@ Aimeos = {
 			{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
 			{ name: 'document', items: [ 'Source' ] }
 		]
+		*/
 	},
 
 	flatpickr : {
