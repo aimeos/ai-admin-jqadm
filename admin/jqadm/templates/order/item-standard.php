@@ -6,7 +6,7 @@
  */
 
 $selected = function( $key, $code ) {
-	return ( $key == $code ? 'selected="selected"' : '' );
+	return ( $key === $code ? 'selected="selected"' : '' );
 };
 
 
