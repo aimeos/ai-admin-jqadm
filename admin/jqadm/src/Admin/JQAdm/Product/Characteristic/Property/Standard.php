@@ -257,7 +257,7 @@ class Standard
 	 */
 	protected function getPropertyTypes() : \Aimeos\Map
 	{
-		$excludes = array( 'package-length', 'package-height', 'package-width', 'package-weight' );
+		$excludes = $this->getContext()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/property/type' );
 
 		$search = $manager->filter( true )->slice( 0, 10000 );
