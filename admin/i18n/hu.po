@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-08-09 21:00+0000\n"
-"Last-Translator: Patrik Szakos <szakos0208@gmail.com>\n"
+"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -472,6 +472,9 @@ msgstr "Kijelölt elemek törlése"
 msgid "Delete this entry"
 msgstr "Bejegyzés törlése"
 
+msgid "Deleting reviews is not allowed"
+msgstr ""
+
 msgid "Delivery"
 msgstr "Szállítás"
 
@@ -595,8 +598,14 @@ msgstr "Távmásoló"
 msgid "Facsimile number (optional)"
 msgstr "Fax száma (nem kötelező)"
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
 msgstr "Fájl"
+
+msgid "File upload stopped by extension"
+msgstr ""
 
 msgid "Find category"
 msgstr "Termékkör keresése"
@@ -856,6 +865,9 @@ msgstr "Helyi beállítás"
 msgid "Log"
 msgstr "Napló"
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr "Médialisták típusa"
 
@@ -938,6 +950,12 @@ msgstr "Következő dátum (nem kötelező)"
 msgid "Next date the subscription is renewed"
 msgstr "Az előfizetés megújításának következő dátuma"
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr "Nincs találat"
 
@@ -960,12 +978,18 @@ msgstr "Nem megosztott ártulajdonság"
 msgid "None"
 msgstr "Egyik sem"
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Nem engedélyezett a \"%1$s\" azonosítójú JQAdm ügyfél elérése"
 
 msgid "Notes"
 msgstr "Jegyzetek"
+
+msgid "Notes (not shown to customer)"
+msgstr ""
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -981,8 +1005,14 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Egy szolgáltató és nulla vagy több dekorációs osztály neve vesszővel elválasztva"
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
 msgstr "Megnyit"
+
+msgid "Open Qty"
+msgstr ""
 
 msgid "Option"
 msgstr "Választási lehetőség"
@@ -1211,6 +1241,9 @@ msgstr "Termék hossz, például 30.0 (cm, inch stb.)"
 msgid "Product name"
 msgstr "Termék név"
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "Termék ár"
 
@@ -1219,6 +1252,9 @@ msgstr "Mennyiség"
 
 msgid "Product rebate"
 msgstr "Engedmény"
+
+msgid "Product shipping"
+msgstr ""
 
 msgid "Product status"
 msgstr "Termék állapota"
@@ -1618,6 +1654,9 @@ msgstr "Telefon"
 msgid "Telephone number (optional)"
 msgstr "Telefonszám (opcionális)"
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr "Szöveglisták típusa"
 
@@ -1674,6 +1713,12 @@ msgstr "A szabály csak addig a dátumig és időpontig használható"
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
 msgid "Theme to change the layout of your shop"
@@ -1802,6 +1847,9 @@ msgstr "Egyedi típuskód (kötelező)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Egyedi típusú kód, pl. \"szín\" olyan attribútumokhoz, mint a \"zöld\", \"kék\", \"piros\""
+
+msgid "Unknown upload error"
+msgstr ""
 
 msgid "Upload shop icon"
 msgstr "Üzleti ikon feltöltése"

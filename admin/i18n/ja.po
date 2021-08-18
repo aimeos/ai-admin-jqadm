@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -469,6 +469,9 @@ msgstr ""
 msgid "Delete this entry"
 msgstr "このエントリを削除する"
 
+msgid "Deleting reviews is not allowed"
+msgstr ""
+
 msgid "Delivery"
 msgstr "配達"
 
@@ -592,8 +595,14 @@ msgstr "ファクシミリ"
 msgid "Facsimile number (optional)"
 msgstr "ファクシミリ番号（オプション）"
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
 msgstr "ファイル"
+
+msgid "File upload stopped by extension"
+msgstr ""
 
 msgid "Find category"
 msgstr "カテゴリを検索"
@@ -853,6 +862,9 @@ msgstr "ロケール"
 msgid "Log"
 msgstr "ログ"
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr "メディアリストタイプ"
 
@@ -935,6 +947,12 @@ msgstr "次の日付（オプション）"
 msgid "Next date the subscription is renewed"
 msgstr "次回のサブスクリプションは更新されます"
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr "項目は見つかりませんでした"
 
@@ -957,11 +975,17 @@ msgstr ""
 msgid "None"
 msgstr ""
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "JQAdm \"%1$s\"クライアントにアクセスできません"
 
 msgid "Notes"
+msgstr ""
+
+msgid "Notes (not shown to customer)"
 msgstr ""
 
 msgid ""
@@ -978,7 +1002,13 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "1つのプロバイダと、コンマで区切られた0個以上のデコレータクラス名"
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
+msgstr ""
+
+msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
@@ -1208,6 +1238,9 @@ msgstr "商品の長さ。 30.0（ヤード、インチなど）"
 msgid "Product name"
 msgstr "商品名"
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "商品価格"
 
@@ -1216,6 +1249,9 @@ msgstr "商品数量"
 
 msgid "Product rebate"
 msgstr "商品リベート"
+
+msgid "Product shipping"
+msgstr ""
 
 msgid "Product status"
 msgstr ""
@@ -1615,6 +1651,9 @@ msgstr "電話"
 msgid "Telephone number (optional)"
 msgstr "電話番号（オプション）"
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr "テキストリストタイプ"
 
@@ -1671,6 +1710,12 @@ msgstr ""
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
 msgid "Theme to change the layout of your shop"
@@ -1799,6 +1844,9 @@ msgstr "一意のタイプコード（必須）"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "一意のタイプコード。 \"緑\"、 \"青\"、 \"赤\"などの属性の \"色\""
+
+msgid "Unknown upload error"
+msgstr ""
 
 msgid "Upload shop icon"
 msgstr ""

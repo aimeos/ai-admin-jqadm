@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -472,6 +472,9 @@ msgstr ""
 msgid "Delete this entry"
 msgstr "刪除此紀錄"
 
+msgid "Deleting reviews is not allowed"
+msgstr ""
+
 msgid "Delivery"
 msgstr "運送"
 
@@ -595,8 +598,14 @@ msgstr "傳真"
 msgid "Facsimile number (optional)"
 msgstr "傳真號碼（可不填）"
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
 msgstr "檔案"
+
+msgid "File upload stopped by extension"
+msgstr ""
 
 msgid "Find category"
 msgstr "查找類別"
@@ -856,6 +865,9 @@ msgstr "區域"
 msgid "Log"
 msgstr "日誌"
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr "媒體清單類別"
 
@@ -938,6 +950,12 @@ msgstr "下一日 (選項)"
 msgid "Next date the subscription is renewed"
 msgstr ""
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr "找不到項目"
 
@@ -960,11 +978,17 @@ msgstr ""
 msgid "None"
 msgstr "沒有"
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "讀取 JQAdm \"%1$s\" client 不允許"
 
 msgid "Notes"
+msgstr ""
+
+msgid "Notes (not shown to customer)"
 msgstr ""
 
 msgid ""
@@ -981,7 +1005,13 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr ""
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
+msgstr ""
+
+msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
@@ -1211,6 +1241,9 @@ msgstr "商品長度"
 msgid "Product name"
 msgstr "商品名稱"
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "商品價格"
 
@@ -1219,6 +1252,9 @@ msgstr "商品數量"
 
 msgid "Product rebate"
 msgstr "商品折扣"
+
+msgid "Product shipping"
+msgstr ""
 
 msgid "Product status"
 msgstr ""
@@ -1618,6 +1654,9 @@ msgstr "電話"
 msgid "Telephone number (optional)"
 msgstr "電話（可不填）"
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr ""
 
@@ -1674,6 +1713,12 @@ msgstr ""
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
+msgstr ""
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
 msgid "Theme to change the layout of your shop"
@@ -1801,6 +1846,9 @@ msgid "Unique type code (required)"
 msgstr ""
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
+msgstr ""
+
+msgid "Unknown upload error"
 msgstr ""
 
 msgid "Upload shop icon"

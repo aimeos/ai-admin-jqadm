@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/aimeos/aimeos-core/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -469,6 +469,9 @@ msgstr ""
 msgid "Delete this entry"
 msgstr "Eliminar este ingreso"
 
+msgid "Deleting reviews is not allowed"
+msgstr ""
+
 msgid "Delivery"
 msgstr "Entrega"
 
@@ -592,8 +595,14 @@ msgstr "Fax"
 msgid "Facsimile number (optional)"
 msgstr "Numero de Fax (opcional)"
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
 msgstr "Archivo"
+
+msgid "File upload stopped by extension"
+msgstr ""
 
 msgid "Find category"
 msgstr "Encontrar categoría"
@@ -853,6 +862,9 @@ msgstr ""
 msgid "Log"
 msgstr ""
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr ""
 
@@ -935,6 +947,12 @@ msgstr "Próxima fecha (opcional)"
 msgid "Next date the subscription is renewed"
 msgstr "Próxima fecha de renovación de la suscripción"
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr "No se encontraron artículos"
 
@@ -957,11 +975,17 @@ msgstr "Características no compartidas para el precio del artículo"
 msgid "None"
 msgstr "Ninguno"
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr ""
 
 msgid "Notes"
+msgstr ""
+
+msgid "Notes (not shown to customer)"
 msgstr ""
 
 msgid ""
@@ -978,7 +1002,13 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr ""
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
+msgstr ""
+
+msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
@@ -1208,6 +1238,9 @@ msgstr "Longitud del producto, por ej. 30.0 (en centímetros, pulgada, etc.)"
 msgid "Product name"
 msgstr "Nombre del producto"
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "Precio del producto"
 
@@ -1216,6 +1249,9 @@ msgstr "Cantidad de producto"
 
 msgid "Product rebate"
 msgstr "Rebaja del producto"
+
+msgid "Product shipping"
+msgstr ""
 
 msgid "Product status"
 msgstr "Estado del producto"
@@ -1615,6 +1651,9 @@ msgstr "Teléfono"
 msgid "Telephone number (optional)"
 msgstr "Número de teléfono (opcional)"
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr ""
 
@@ -1672,6 +1711,12 @@ msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "El valor de medida permitido para cantidades en el carrito, por ej. \"0.1\" para cantidades fraccionarias o \"5\" para múltiplos de cinco artículos"
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
 
 msgid "Theme to change the layout of your shop"
 msgstr ""
@@ -1799,6 +1844,9 @@ msgstr "Código único de tipo (obligatorio)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Código único de tipo, por ej. \"color\" para atributos como \"verde\", \"azul\", \"rojo\""
+
+msgid "Unknown upload error"
+msgstr ""
 
 msgid "Upload shop icon"
 msgstr ""

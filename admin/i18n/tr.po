@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-12 21:20+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>\n"
+"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -468,6 +468,9 @@ msgstr "Seçili girişleri sil"
 msgid "Delete this entry"
 msgstr "Bu girişi sil"
 
+msgid "Deleting reviews is not allowed"
+msgstr ""
+
 msgid "Delivery"
 msgstr "Teslimat"
 
@@ -591,8 +594,14 @@ msgstr "Faks"
 msgid "Facsimile number (optional)"
 msgstr "Faks numarası (isteğe bağlı)"
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
 msgstr "Dosya"
+
+msgid "File upload stopped by extension"
+msgstr ""
 
 msgid "Find category"
 msgstr "Kategori bul"
@@ -852,6 +861,9 @@ msgstr "Yerel"
 msgid "Log"
 msgstr "Günlük"
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr "Medya Liste Türleri"
 
@@ -934,6 +946,12 @@ msgstr "Sonraki tarih (opsiyonel)"
 msgid "Next date the subscription is renewed"
 msgstr "Aboneliğin yenileneceği bir sonraki tarih"
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr "Hiç bir öğe bulunamadı"
 
@@ -956,12 +974,18 @@ msgstr "Fiyat öğesi için paylaşılmayan mülkler"
 msgid "None"
 msgstr "Hiçbiri"
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "JQAdm \"%1$s\" istemcisine erişime izin verilmedi"
 
 msgid "Notes"
 msgstr "Notlar"
+
+msgid "Notes (not shown to customer)"
+msgstr ""
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -977,8 +1001,14 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Virgüllerle ayrılmış bir sağlayıcı ve sıfır veya daha fazla dekatör sınıfı isimleri"
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
 msgstr "Aç"
+
+msgid "Open Qty"
+msgstr ""
 
 msgid "Option"
 msgstr "Seçenek"
@@ -1207,6 +1237,9 @@ msgstr "Ürün uzunluğu, örn: 30.0 (yard, inç, vb.)"
 msgid "Product name"
 msgstr "Ürün adı"
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "Ürün fiyatı"
 
@@ -1215,6 +1248,9 @@ msgstr "Ürün miktarı"
 
 msgid "Product rebate"
 msgstr "Ürün indirimi"
+
+msgid "Product shipping"
+msgstr ""
 
 msgid "Product status"
 msgstr "Ürün durumu"
@@ -1614,6 +1650,9 @@ msgstr "Telefon"
 msgid "Telephone number (optional)"
 msgstr "Telefon numarası (isteğe bağlı)"
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr "Metin Liste Türleri"
 
@@ -1671,6 +1710,12 @@ msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "Sepetteki miktarlar için izin verilen basamak değeri, örn: kesirli miktarlar için \"0.1\" veya beşin katları için \"5\""
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
 
 msgid "Theme to change the layout of your shop"
 msgstr "Mağazanızın düzenini değiştirmek için tema"
@@ -1798,6 +1843,9 @@ msgstr "Benzersiz tür kodu (gerekli)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Benzersiz tür kodu, örn: \"yeşil\", \"mavi\", \"kırmızı\" gibi nitelikler için \"renk\""
+
+msgid "Unknown upload error"
+msgstr ""
 
 msgid "Upload shop icon"
 msgstr "Mağaza simgesi yükle"

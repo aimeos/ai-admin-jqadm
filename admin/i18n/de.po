@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-06 07:50+0000\n"
+"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"PO-Revision-Date: 2021-08-14 07:19+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -472,6 +472,9 @@ msgstr "Ausgewählte Einträge löschen"
 msgid "Delete this entry"
 msgstr "Eintrag löschen"
 
+msgid "Deleting reviews is not allowed"
+msgstr "Löschen von Rezensionen ist nicht erlaubt"
+
 msgid "Delivery"
 msgstr "Versand"
 
@@ -595,8 +598,14 @@ msgstr "Fax"
 msgid "Facsimile number (optional)"
 msgstr "Faxnummer (optional)"
 
+msgid "Failed to write file to disk"
+msgstr "Speichern der Datei fehlgeschlagen"
+
 msgid "File"
 msgstr "Datei"
+
+msgid "File upload stopped by extension"
+msgstr "Hochladen der Datei wurde von einer Erweiterung unterbunden"
 
 msgid "Find category"
 msgstr "Kategorie suchen"
@@ -856,6 +865,9 @@ msgstr "Gebiete"
 msgid "Log"
 msgstr "Protokoll"
 
+msgid "Map"
+msgstr "Karte"
+
 msgid "Media Lists Type"
 msgstr "Medien-Listentyp"
 
@@ -938,6 +950,12 @@ msgstr "Nächstes Datum (optional)"
 msgid "Next date the subscription is renewed"
 msgstr "Nächstes Datum wenn das Abonnement erneuert wird"
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr "Keine Währungen verfügbar. Bitte aktivieren Sie mindestens eine Währung"
+
+msgid "No file was uploaded"
+msgstr "Es wurde keine Datei hochgeladen"
+
 msgid "No items found"
 msgstr "Keine Einträge gefunden"
 
@@ -960,12 +978,18 @@ msgstr "Eigenschaften von Preiseinträgen"
 msgid "None"
 msgstr "Keine"
 
+msgid "Not all items could be deleted"
+msgstr "Nicht alle Einträge konnten gelöscht werden"
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Zugriff auf den JQAdm Client \"%1$s\" verweigert"
 
 msgid "Notes"
 msgstr "Notizen"
+
+msgid "Notes (not shown to customer)"
+msgstr "Notizen (werden dem Kunden nicht angezeigt)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -981,8 +1005,14 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Klassennamen von einem Provider und beliebig vielen Dekoratoren, getrennt durch Kommas"
 
+msgid "Only super users and administrators can delete items"
+msgstr "Nur Superuser und Administratoren können Einträge löschen"
+
 msgid "Open"
 msgstr "Öffnen"
+
+msgid "Open Qty"
+msgstr "Anz. offen"
 
 msgid "Option"
 msgstr "Option"
@@ -1211,6 +1241,9 @@ msgstr "Produktlänge, z.B. 30.0 (in m, cm, etc.)"
 msgid "Product name"
 msgstr "Produktname"
 
+msgid "Product payment"
+msgstr "Zahlung Produkt"
+
 msgid "Product price"
 msgstr "Productpreis"
 
@@ -1219,6 +1252,9 @@ msgstr "Produktanzahl"
 
 msgid "Product rebate"
 msgstr "Produktrabatt"
+
+msgid "Product shipping"
+msgstr "Versand Produkt"
 
 msgid "Product status"
 msgstr "Produktstatus"
@@ -1618,6 +1654,9 @@ msgstr "Telefon"
 msgid "Telephone number (optional)"
 msgstr "Telefonnummer (optional)"
 
+msgid "Temporary folder is missing"
+msgstr "Temporäres Verzeichnis fehlt"
+
 msgid "Text Lists Type"
 msgstr "Text-Listentyp"
 
@@ -1675,6 +1714,12 @@ msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "Die erlaubte Schrittweite für Mengen im Warenkorb, z.B. \"0,1\" für Teilmengen oder \"5\" für das Mehrfache von fünf Artikeln"
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr "Die hoch geladene Datei überschreitet die maximal erlaubte Dateigröße"
+
+msgid "The uploaded file was only partially uploaded"
+msgstr "Die Datei wurde nur teilweise hoch geladen."
 
 msgid "Theme to change the layout of your shop"
 msgstr "Alternatives Layout für Ihre Shop-Webseite"
@@ -1802,6 +1847,9 @@ msgstr "Eindeutiger Typschlüssel (benötigt)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Eindeutiger Typschlüssel, z.B. \"farbe\" für Attribute wie \"grün\", \"blau\", \"rot\""
+
+msgid "Unknown upload error"
+msgstr "Unbekannter Upload-Fehler"
 
 msgid "Upload shop icon"
 msgstr "Shop-Icon hochlanden"
