@@ -746,6 +746,8 @@ Aimeos.List = {
 			}
 		},
 		beforeMount: function() {
+			this.Aimeos = Aimeos;
+
 			if(this.$el.dataset) {
 				if(this.$el.dataset.items) {
 					this.items = JSON.parse(this.$el.dataset.items);
@@ -1148,6 +1150,7 @@ $(function() {
 				}
 			},
 			beforeMount: function() {
+				this.Aimeos = Aimeos;
 				if(this.$el.dataset && this.$el.dataset.data) {
 					this.data = JSON.parse(this.$el.dataset.data);
 				}
@@ -1159,6 +1162,11 @@ $(function() {
 				remove: function(idx) {
 					this.$refs[key].remove(idx);
 				}
+			},
+			provide: function() {
+				return {
+					Aimeos: Aimeos
+				};
 			}
 		});
 	});

@@ -212,6 +212,9 @@ Aimeos.Product.Attribute = {
 
 	mixins: function() {
 		return {
+			beforeMount() {
+				this.Aimeos = Aimeos;
+			},
 			methods: {
 				checkSite : function(key, idx) {
 					return this.items[idx][key] && this.items[idx][key] != this.siteid;
@@ -328,6 +331,9 @@ Aimeos.Product.Catalog = {
 
 	mixins : function() {
 		return {
+			beforeMount() {
+				this.Aimeos = Aimeos;
+			},
 			methods: {
 				checkSite : function(idx) {
 					return this.items[idx]['catalog.lists.siteid'] && this.items[idx]['catalog.lists.siteid'] != this.siteid;
@@ -448,6 +454,8 @@ Aimeos.Product.Order = {
 				'sort': '-order.base.id',
 			},
 			beforeMount: function() {
+				this.Aimeos = Aimeos;
+
 				if(this.$el.dataset && this.$el.dataset.id) {
 					this.id = this.$el.dataset.id;
 				}
@@ -632,6 +640,9 @@ Aimeos.Product.Product = {
 
 	mixins : function() {
 		return {
+			beforeMount() {
+				this.Aimeos = Aimeos;
+			},
 			methods: {
 				checkSite : function(key, idx) {
 					return this.items[idx][key] && this.items[idx][key] != this.siteid;
@@ -722,7 +733,10 @@ Aimeos.Product.Selection = {
 
 	mixins : function() {
 		return {
-			'methods': {
+			beforeMount() {
+				this.Aimeos = Aimeos;
+			},
+			methods: {
 
 				checkSite : function(key, idx, attridx) {
 
@@ -950,6 +964,9 @@ Aimeos.Product.Stock = {
 
 	mixins : function() {
 		return {
+			beforeMount() {
+				this.Aimeos = Aimeos;
+			},
 			methods: {
 				checkSite : function(idx) {
 					return this.items[idx]['stock.siteid'] && this.items[idx]['stock.siteid'] != this.siteid;
@@ -1008,6 +1025,9 @@ Aimeos.Product.Subscription = {
 
 	mixins : function() {
 		return {
+			beforeMount() {
+				this.Aimeos = Aimeos;
+			},
 			methods: {
 				getAttributeValue: function(idx) {
 					return 'P' + (this.items[idx]['Y'] || 0) + 'Y'
@@ -1047,6 +1067,9 @@ Aimeos.Product.Supplier = {
 
 	mixins : function() {
 		return {
+			beforeMount() {
+				this.Aimeos = Aimeos;
+			},
 			methods: {
 				checkSite : function(idx) {
 					return this.items[idx]['supplier.lists.siteid'] && this.items[idx]['supplier.lists.siteid'] != this.siteid;

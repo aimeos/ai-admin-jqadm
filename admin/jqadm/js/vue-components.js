@@ -61,8 +61,6 @@ Vue.component('catalog-tree', {
 	`,
 
 	props: {
-		url: {type: String, required: true},
-		promise: {type: Object, required: true },
 		placeholder: {type: String, default: 'Find category'},
 		current: {type: String, default: ''},
 		create: {type: Boolean, default: false},
@@ -891,5 +889,7 @@ Vue.component('site-tree', {
 		return {
 			filter: ''
 		}
-	}
+	},
+
+	inject: ['Aimeos']
 });

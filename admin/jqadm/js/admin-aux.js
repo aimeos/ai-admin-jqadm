@@ -29,6 +29,7 @@ Aimeos.Address = {
 				show: false
 			},
 			mounted: function() {
+				this.Aimeos = Aimeos;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
 				this.domain = this.$el.dataset.domain;
@@ -164,6 +165,7 @@ Aimeos.Media = {
 				domain: null
 			},
 			mounted: function() {
+				this.Aimeos = Aimeos;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
 				this.domain = this.$el.dataset.domain;
@@ -300,6 +302,7 @@ Aimeos.Price = {
 				domain: null
 			},
 			mounted: function() {
+				this.Aimeos = Aimeos;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
 				this.domain = this.$el.dataset.domain;
@@ -422,6 +425,7 @@ Aimeos.ProductRef = {
 
 
 		beforeMount: function() {
+			this.Aimeos = Aimeos;
 			try {
 				if(!this.$el.dataset) {
 					throw 'Missing "data" attributes';
@@ -810,6 +814,7 @@ Aimeos.Text = {
 				domain: null
 			},
 			mounted: function() {
+				this.Aimeos = Aimeos;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
 				this.domain = this.$el.dataset.domain;
