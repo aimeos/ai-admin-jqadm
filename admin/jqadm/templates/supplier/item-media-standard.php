@@ -65,7 +65,7 @@ $enc = $this->encoder();
 
 							<div class="form-group media-preview">
 								<input ref="preview" class="d-none" type="file" v-bind:name="'media[_idx_][preview]'.replace('_idx_', idx)" />
-								<input class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<input ref="file" class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									v-bind:name="'media[_idx_][file]'.replace('_idx_', idx)"
 									v-bind:readonly="item['media.siteid'] != siteid"
 									v-on:change="files(idx, $event.target.files)" />
@@ -248,7 +248,8 @@ $enc = $this->encoder();
 			<div slot="footer" class="card-tools-more">
 				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
-					v-on:click="add()" >
+					v-on:click="$refs.add.click()" >
+					<input ref="add" class="d-none" type="file" multiple v-on:change="create($event)" />
 				</div>
 			</div>
 		</div>

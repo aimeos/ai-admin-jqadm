@@ -213,6 +213,27 @@ Aimeos.Media = {
 			},
 
 
+			create: function(ev) {
+				const self = this;
+				const len = ev.target.files.length;
+
+				for(let i = 0; i < len; i++) {
+					this.add();
+				}
+
+				Vue.nextTick(function() {
+					for(let i = 0; i < len; i++) {
+						const dt = new DataTransfer();
+						const idx = self.items.length - len + i;
+
+						dt.items.add(ev.target.files[i]);
+						self.$refs.file[idx].files = dt.files;
+						self.files(idx, dt.files);
+					}
+				});
+			},
+
+
 			files: function(idx, files) {
 
 				if(!files.length) {
@@ -222,49 +243,47 @@ Aimeos.Media = {
 				const self = this;
 				let cnt = sum = 0;
 
-				$( "input:file" ).each(function() {
-					for(let i=0; i<this.files.length; i++) {
-						self.$set(self.items[idx], 'media.mimetype', this.files[i].type);
+				for(let i=0; i<files.length; i++) {
+					self.$set(self.items[idx], 'media.mimetype', files[i].type);
 
-						if(this.files[i].type.startsWith('image/')) {
-							self.$set(self.items[idx], 'media.preview', URL.createObjectURL(this.files[i]));
-						} else if(this.files[i].type.startsWith('video/')) {
-							const video = document.createElement('video');
+					if(files[i].type.startsWith('image/')) {
+						self.$set(self.items[idx], 'media.preview', URL.createObjectURL(files[i]));
+					} else if(files[i].type.startsWith('video/')) {
+						const video = document.createElement('video');
 
-							video.addEventListener('canplay', function(e) {
-								video.currentTime = video.duration / 2;
-								e.target.removeEventListener(e.type, arguments.callee);
+						video.addEventListener('canplay', function(e) {
+							video.currentTime = video.duration / 2;
+							e.target.removeEventListener(e.type, arguments.callee);
+						});
+
+						video.addEventListener('seeked', function() {
+							const canvas = document.createElement('canvas');
+							const context = canvas.getContext('2d');
+
+							canvas.width = video.videoWidth;
+							canvas.height = video.videoHeight;
+
+							context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+							self.$set(self.items[idx], 'media.preview', canvas.toDataURL());
+
+							canvas.toBlob(function(blob) {
+								const container = new DataTransfer();
+								const preview = self.$refs.preview[idx];
+
+								container.items.add(new File([blob], 'video.png', {
+									type: 'image/png', lastModified: new Date().getTime()
+								}));
+								preview.files = container.files;
 							});
+						});
 
-							video.addEventListener('seeked', function() {
-								const canvas = document.createElement('canvas');
-								const context = canvas.getContext('2d');
-
-								canvas.width = video.videoWidth;
-								canvas.height = video.videoHeight;
-
-								context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-								self.$set(self.items[idx], 'media.preview', canvas.toDataURL());
-
-								canvas.toBlob(function(blob) {
-									const container = new DataTransfer();
-									const preview = self.$refs.preview[idx];
-
-									container.items.add(new File([blob], 'video.png', {
-										type: 'image/png', lastModified: new Date().getTime()
-									}));
-									preview.files = container.files;
-								});
-							});
-
-							video.src = URL.createObjectURL(this.files[i]);
-							video.load();
-						}
-
-						sum += this.files[i].size;
-						cnt++;
+						video.src = URL.createObjectURL(files[i]);
+						video.load();
 					}
-				});
+
+					sum += files[i].size;
+					cnt++;
+				}
 
 				if($("#problem .file_uploads").data("value") != 1) {
 					$("#problem .file_uploads").show();
