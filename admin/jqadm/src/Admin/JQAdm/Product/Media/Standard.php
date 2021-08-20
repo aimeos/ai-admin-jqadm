@@ -376,10 +376,18 @@ class Standard
 
 			$refItem->fromArray( $entry, true )->setDomain( 'product' );
 			$file = $this->getValue( $files, 'media/' . $idx . '/file' );
+			$preview = $this->getValue( $files, 'media/' . $idx . '/preview' );
 
-			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
+			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE )
+			{
 				$refItem = $cntl->add( $refItem, $file );
-			} elseif( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
+
+				if( $preview &&  $preview->getError() !== UPLOAD_ERR_NO_FILE ) {
+					$refItem = $cntl->addPreview( $refItem, $preview );
+				}
+			}
+			elseif( $refItem->getId() === null && $refItem->getUrl() !== '' )
+			{
 				$refItem = $cntl->copy( $refItem );
 			}
 

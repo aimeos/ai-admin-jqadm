@@ -199,6 +199,7 @@ Aimeos.Media = {
 				entry['media.type'] = 'default';
 				entry['media.siteid'] = this.siteid;
 				entry['media.languageid'] = null;
+				entry['media.mimetype'] = null;
 				entry['media.preview'] = null;
 				entry['media.url'] = null;
 				entry['media.status'] = 1;
@@ -218,9 +219,48 @@ Aimeos.Media = {
 					return;
 				}
 
+				const self = this;
 				let cnt = sum = 0;
+
 				$( "input:file" ).each(function() {
 					for(let i=0; i<this.files.length; i++) {
+						self.$set(self.items[idx], 'media.mimetype', this.files[i].type);
+
+						if(this.files[i].type.startsWith('image/')) {
+							self.$set(self.items[idx], 'media.preview', URL.createObjectURL(this.files[i]));
+						} else if(this.files[i].type.startsWith('video/')) {
+							const video = document.createElement('video');
+
+							video.addEventListener('canplay', function(e) {
+								video.currentTime = video.duration / 2;
+								e.target.removeEventListener(e.type, arguments.callee);
+							});
+
+							video.addEventListener('seeked', function() {
+								const canvas = document.createElement('canvas');
+								const context = canvas.getContext('2d');
+
+								canvas.width = video.videoWidth;
+								canvas.height = video.videoHeight;
+
+								context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+								self.$set(self.items[idx], 'media.preview', canvas.toDataURL());
+
+								canvas.toBlob(function(blob) {
+									const container = new DataTransfer();
+									const preview = self.$refs.preview[idx];
+
+									container.items.add(new File([blob], 'video.png', {
+										type: 'image/png', lastModified: new Date().getTime()
+									}));
+									preview.files = container.files;
+								});
+							});
+
+							video.src = URL.createObjectURL(this.files[i]);
+							video.load();
+						}
+
 						sum += this.files[i].size;
 						cnt++;
 					}
@@ -280,9 +320,8 @@ Aimeos.Media = {
 
 
 			url: function(prefix, url) {
-
-				const str = url.substr(0, 4);
-				return (str === 'http' || str === 'data' ? url : prefix + url);
+				const str = url ? url.substr(0, 4) : '';
+				return (str === 'http' || str === 'data' || str === 'blob' ? url : prefix + url);
 			}
 		}
 	}
