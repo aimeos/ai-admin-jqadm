@@ -135,7 +135,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 								<div class="col-sm-8">
-									<table>
+									<table class="w-100">
 										<tr>
 											<td class="input-group">
 												<select class="form-select item-type" required="required" tabindex="1"
