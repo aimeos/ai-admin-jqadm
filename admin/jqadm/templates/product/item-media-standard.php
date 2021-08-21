@@ -33,12 +33,13 @@ $enc = $this->encoder();
 			<div is="draggable" group="media" v-model="items" handle=".act-move">
 				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
 
-					<div v-bind:id="'item-media-group-item-' + idx" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
-						v-bind:data-bs-target="'#item-media-group-data-' + idx" data-bs-toggle="collapse" role="tab" class="card-header header"
-						v-bind:aria-controls="'item-media-group-data-' + idx" aria-expanded="false" v-on:click="toggle('_show', idx)">
+					<div v-bind:id="'item-media-group-item-' + idx" class="card-header header">
 						<div class="card-tools-start">
-							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>">
+							<div class="btn btn-card-header act-show fa" v-bind:class="item['_show'] ? 'show' : 'collapsed'"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" v-on:click="toggle('_show', idx)"
+								v-bind:data-bs-target="'#item-media-group-data-' + idx" data-bs-toggle="collapse"
+								v-bind:aria-controls="'item-media-group-data-' + idx" aria-expanded="false">
 							</div>
 						</div>
 						<span class="item-label header-label" v-bind:class="{disabled: !active(idx)}">{{ label(idx) }}</span>
