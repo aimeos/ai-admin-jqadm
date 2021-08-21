@@ -270,7 +270,7 @@ Aimeos.Media = {
 								const container = new DataTransfer();
 								const preview = self.$refs.preview[idx];
 
-								container.items.add(new File([blob], 'video.png', {
+								container.items.add(new File([blob], files[i].name, {
 									type: 'image/png', lastModified: new Date().getTime()
 								}));
 								preview.files = container.files;
