@@ -88,7 +88,7 @@ $columnList = [
 	data-domain="media/property/type"
 	data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/type/media/property/filter', new \stdClass ) ) ?>"
-	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray' )->all() ) ?>">
+	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray', [true] )->all() ) ?>">
 
 	<nav class="main-navbar">
 
