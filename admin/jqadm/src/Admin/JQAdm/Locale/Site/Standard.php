@@ -547,7 +547,7 @@ class Standard
 			if( is_array( $val ) ) {
 				$list = array_merge( $list, $this->flatten( $val, $path . '/' . $key ) );
 			} else {
-				$list[] = ['key' => ltrim( $path, '/' ) . '/' . $key, 'val' => $val];
+				$list[] = ['key' => trim( $path . '/' . $key, '/' ), 'val' => $val];
 			}
 		}
 
