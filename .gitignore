@@ -2,3 +2,6 @@
 *.junit.xml
 *.log
 *.ser
+
+.idea
+vendor

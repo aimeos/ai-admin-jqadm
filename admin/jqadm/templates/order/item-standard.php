@@ -295,13 +295,15 @@ $paymentStatusList = [
 															<span class="product-name"><?= $enc->html( $orderProduct->getName() ) ?></span>
 															<span class="product-attr">
 																<?php foreach( $orderProduct->getAttributeItems() as $attrItem ) : ?>
-																	<span class="attr-code"><?= $enc->html( $attrItem->getCode() ) ?></span>
-																	<span class="attr-value">
-																		<?php if( $attrItem->getQuantity() > 1 ) : ?>
-																			<?= $enc->html( $attrItem->getQuantity() ) ?>×
-																		<?php endif ?>
-																		<?= $enc->html( join( ',', (array) $attrItem->getValue() ) ) ?>
-																	</span>
+                                                                    <?php if ($attrItem->getCode() !== 'upload') : ?>
+                                                                        <span class="attr-code"><?= $enc->html( $attrItem->getCode() ) ?></span>
+                                                                        <span class="attr-value">
+                                                                            <?php if( $attrItem->getQuantity() > 1 ) : ?>
+                                                                                <?= $enc->html( $attrItem->getQuantity() ) ?>×
+                                                                            <?php endif ?>
+                                                                            <?= $enc->html( join( ',', (array) $attrItem->getValue() ) ) ?>
+                                                                        </span>
+                                                                    <?php endif ?>
 																<?php endforeach ?>
 															</span>
 															<span class="product-sku"><?= $enc->html( $orderProduct->getProductCode() ) ?></span>
@@ -331,6 +333,23 @@ $paymentStatusList = [
 													</div>
 												</div>
 											</div>
+                                            <div class="row">
+                                                <?php foreach( $orderProduct->getAttributeItems('custom') as $attrItem ) : ?>
+                                                    <?php if( $attrItem->getCode() === 'upload' ) : ?>
+                                                        <label class="col-5 col-sm-12 form-control-label"><?= $attrItem->getName() ?></label>
+                                                        <div class="col-7 col-sm-12">
+                                                            <div class="upload-images">
+                                                                <?php foreach ($attrItem->getValue() as $upload) : ?>
+                                                                    <span class="upload-image">
+                                                                                        <img src="<?= $enc->attr( $this->content($upload) ) ?>" alt="upload-image" />
+                                                                                        <a href="<?= $enc->attr( $this->content($upload) ) ?>" target="_blank">Download</a>
+                                                                                    </span>
+                                                                <?php endforeach ?>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif ?>
+                                                <?php endforeach ?>
+                                            </div>
 											<div class="row">
 												<div class="col-sm-4 item-column column-statuspayment">
 													<div class="row">

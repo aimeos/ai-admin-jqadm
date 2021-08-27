@@ -1134,9 +1134,9 @@ $(function() {
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);
 	Vue.component('flat-pickr', VueFlatpickr);
 	Vue.component('v-select', VueSelect.VueSelect);
-	Vue.component('l-map', window.Vue2Leaflet.LMap);
-	Vue.component('l-marker', window.Vue2Leaflet.LMarker);
-	Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
+	Vue.component('l-map', window.Vue2Leaflet?.LMap);
+	Vue.component('l-marker', window.Vue2Leaflet?.LMarker);
+	Vue.component('l-tile-layer', window.Vue2Leaflet?.LTileLayer);
 
 	Aimeos.lazy('.vue', function(el) {
 		const target = el || '.vue';
