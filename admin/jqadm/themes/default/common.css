@@ -680,69 +680,27 @@ span.flatpickr-weekday,
 
 /* 3rd party CKEdior component */
 
-.cke_wysiwyg_frame, .cke_wysiwyg_div {
-	color: var(--bs-secondary, #505860) !important;
-	background-color: var(--bs-bg-light, #FFFFFF) !important;
+.ck-content {
+	height: 12.5rem;
 }
 
-.cke_top, .cke_bottom {
-	background-color: var(--bs-bg-dark, #f4f8fb) !important;
-}
-
-body.dark .cke_button_icon {
-	filter: invert(1);
-}
-
-.cke_bottom *,
-.cke_button_label {
-	color: var(--bs-secondary, #505860) !important;
-}
-
-.cke_dialog_body,
-.cke_dialog_contents {
-	background-color: var(--bs-bg-light, #FFFFFF) !important;
-}
-
-select.cke_dialog_ui_input_select, textarea.cke_dialog_ui_input_textarea,
-input.cke_dialog_ui_input_text,input.cke_dialog_ui_input_password,input.cke_dialog_ui_input_tel {
-	background-color: var(--bs-bg-light, #FFFFFF) !important;
-	color: var(--bs-secondary-dark, #101820) !important;
-}
-
-.cke_dialog_title,
-.cke_dialog_footer {
-	background-color: var(--bs-bg, #f8fafc) !important;
-	color: var(--bs-secondary, #505860) !important;
-}
-
-a.cke_dialog_tab:hover {
-	background-color: var(--bs-bg-dark, #f4f8fb) !important;
-}
-
-a.cke_dialog_tab {
-	background-color: var(--bs-bg-light, #FFFFFF) !important;
-	color: var(--bs-secondary, #505860) !important;
-}
-
-a.cke_dialog_tab_selected {
-	background-color: var(--bs-bg, #f8fafc) !important;
-}
-
-a.cke_dialog_ui_button,
-a.cke_dialog_ui_button:hover {
-	color: var(--bs-secondary, #707880) !important;
-	background-color: var(--bs-bg-light, #FFFFFF) !important;
-	border-color: var(--bs-line-light, #dee2e6) !important;
-}
-
-a.cke_dialog_ui_button_ok {
-	color: var(--bs-menu, #FFFFFF) !important;
-	background-color: var(--bs-primary-alt, #00b0a0) !important;
-	border-color: var(--bs-primary-alt, #00b0a0) !important;
-}
-
-a.cke_dialog_ui_button_ok:hover {
-	color: var(--bs-menu, #FFFFFF) !important;
-	background-color: var(--bs-primary-alt-light, #00ccbb) !important;
-	border-color: var(--bs-primary-alt-light, #00ccbb) !important;
+body {
+	--ck-color-base-background: var(--bs-bg-light, #FFFFFF);
+	--ck-color-input-background: var(--bs-bg-light, #FFFFFF);
+	--ck-color-toolbar-background: var(--bs-bg-dark, #F4F8FB);
+	--ck-color-dropdown-panel-background: var(--bs-bg-light, #FFFFFF);
+	--ck-color-labeled-field-label-background: var(--bs-bg-light, #FFFFFF);
+	--ck-color-button-default-active-background: var(--bs-primary-alt-light, #00CCBB);
+	--ck-color-button-default-hover-background: var(--bs-primary-alt-light, #00CCBB);
+	--ck-color-button-on-focus-background: var(--bs-primary-alt-light, #00CCBB);
+	--ck-color-button-on-hover-background: var(--bs-primary-alt-light, #00CCBB);
+	--ck-color-button-on-background: var(--bs-primary-alt-light, #00CCBB);
+	--ck-color-button-save: var(--bs-secondary-dark, #FFFFFF);
+	--ck-color-dropdown-panel-border: var(--bs-line, #BBBBBB);
+	--ck-color-toolbar-border: var(--bs-line, #BBBBBB);
+	--ck-color-base-border: var(--bs-line, #BBBBBB);
+	--ck-color-base-text: var(--bs-secondary, #505860);
+	--ck-color-text: var(--bs-secondary, #505860);
+	--ck-color-input-disabled-text: var(--bs-secondary-light, #90A8C0);
+	--ck-z-modal: 1050;
 }

@@ -27,41 +27,27 @@ Aimeos = {
 	components: {},
 
 	ckeditor: {
-		on: {
-			instanceReady: function() {
-				this.dataProcessor.writer.setRules( 'br', {
-					indent: false,
-					breakBeforeOpen: false,
-					breakAfterOpen: false,
-					breakBeforeClose: false,
-					breakAfterClose: false
-				});
-				this.dataProcessor.writer.setRules( 'p', {
-					indent: false,
-					breakBeforeOpen: false,
-					breakAfterOpen: false,
-					breakBeforeClose: false,
-					breakAfterClose: false
-				});
-			}
+		htmlSupport: {
+			allow: [{
+				name: /div|p|span/,
+				classes: true
+			}],
+			disallow: []
 		},
-		autoParagraph: false,
-		contentsLangDirection: 'auto',
-		entities: false,
-		extraAllowedContent: 'div(*);span(*);p(*);',
-		extraPlugins: 'divarea',
-		initialData: this.value,
-		protectedSource: [/\n/g],
-		readOnly: this.readonly,
-		removeButtons: 'Underline,Subscript,Superscript',
-		toolbar: [
-			{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
-			{ name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
-			{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
-			{ name: 'insert', items: [ 'SpecialChar' ] },
-			{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
-			{ name: 'document', items: [ 'Source' ] }
-		]
+		language: $('html').attr('lang'),
+		toolbar: {
+			items: [
+				'link', '|',
+				'bold', 'italic', 'underline', 'strikethrough', '|',
+				'undo', 'redo', '|',
+				'specialCharacters', 'removeFormat', '|',
+				'bulletedList', 'numberedList', '|',
+				'outdent', 'indent', '|',
+				'blockQuote', '|',
+				'insertTable', 'mediaEmbed', '|',
+				'sourceEditing'
+			]
+		}
 	},
 
 	flatpickr : {

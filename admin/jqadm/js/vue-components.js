@@ -229,11 +229,8 @@ Vue.component('confirm-delete', {
 
 
 Vue.component('html-editor', {
-	template: '\
-		<textarea rows="6" class="form-control htmleditor" v-bind:id="id" v-bind:name="name" v-bind:value="value"\
-			v-bind:placeholder="placeholder" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
-		</textarea>',
-	props: ['config', 'id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
+	template: `<input type="hidden" v-bind:id="id" v-bind:name="name" v-bind:value="value" />`,
+	props: ['config', 'editor', 'id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
 
 	beforeDestroy: function() {
 		if(this.instance) {
@@ -245,27 +242,53 @@ Vue.component('html-editor', {
 	data: function() {
 		return {
 			instance: null,
-			text: null
+			content: null
 		};
 	},
 
 	methods: {
-		change: function() {
-			this.text = this.instance.getData();
-			this.$emit('input', this.text);
-		},
+		debounce(func, delay) {
+			return function() {
+				const context = this;
+				const args = arguments;
+
+				clearTimeout(this.timer);
+				this.timer = setTimeout(() => func.apply(context, args), delay);
+			};
+		}
 	},
 
 	mounted: function() {
-		this.instance = CKEDITOR.replace(this.id, this.config);
-		this.instance.on('change', this.change);
+		const config = Object.assign({}, this.config);
+
+		if(this.value) {
+			config.initialData = this.value;
+		}
+
+		this.editor.create(this.$el, config).then(editor => {
+			this.instance = editor;
+			editor.isReadOnly = this.readonly;
+
+			const event = this.debounce(ev => {
+				this.content = editor.getData().replace(/^<p>/, '').replace(/<\/p>$/, '');
+				this.$emit('input', this.content, ev, editor);
+			}, 300);
+
+			editor.model.document.on('change:data', event);
+		} ).catch(err => {
+			console.error(err);
+		} );
 	},
 
 	watch: {
-		value: function(val, oldval) {
-			if(val !== oldval && val !== this.text ) {
+		value(val, oldval) {
+			if(val !== oldval && val !== this.content) {
 				this.instance.setData(val);
 			}
+		},
+
+		readonly(val) {
+			this.instance.isReadOnly = val;
 		}
 	}
 });

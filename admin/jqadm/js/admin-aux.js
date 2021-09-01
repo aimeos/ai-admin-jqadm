@@ -873,6 +873,7 @@ Aimeos.Text = {
 			},
 			mounted: function() {
 				this.Aimeos = Aimeos;
+				this.CKEditor = ClassicEditor;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
 				this.domain = this.$el.dataset.domain;
