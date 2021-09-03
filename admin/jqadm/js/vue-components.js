@@ -270,7 +270,10 @@ Vue.component('html-editor', {
 			editor.isReadOnly = this.readonly;
 
 			const event = this.debounce(ev => {
-				this.content = editor.getData().replace(/^<p>/, '').replace(/<\/p>$/, '');
+				this.content = editor.getData();
+				if(this.content.match(/<p>/g).length === 1 && this.content.startsWith('<p>') && this.content.endsWith('</p>')) {
+					this.content = this.content.replace(/^<p>/, '').replace(/<\/p>$/, '');
+				}
 				this.$emit('input', this.content, ev, editor);
 			}, 300);
 

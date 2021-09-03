@@ -35,6 +35,9 @@ Aimeos = {
 			disallow: []
 		},
 		language: $('html').attr('lang'),
+		mediaEmbed: {
+			previewsInData: true,
+		},
 		toolbar: {
 			items: [
 				'link', '|',
