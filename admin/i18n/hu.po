@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-14 09:09+0200\n"
-"PO-Revision-Date: 2021-08-14 07:10+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2021-08-18 13:26+0200\n"
+"PO-Revision-Date: 2021-08-23 17:44+0000\n"
+"Last-Translator: Patrik Szakos <szakos0208@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -473,7 +473,7 @@ msgid "Delete this entry"
 msgstr "Bejegyzés törlése"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Vélemények törlése nem engedélyezett"
 
 msgid "Delivery"
 msgstr "Szállítás"
@@ -599,13 +599,13 @@ msgid "Facsimile number (optional)"
 msgstr "Fax száma (nem kötelező)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Fájlok lemezre írása sikertelen"
 
 msgid "File"
 msgstr "Fájl"
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Kiterjesztés miatt a feltöltés leállítva"
 
 msgid "Find category"
 msgstr "Termékkör keresése"
@@ -866,7 +866,7 @@ msgid "Log"
 msgstr "Napló"
 
 msgid "Map"
-msgstr ""
+msgstr "Térkép"
 
 msgid "Media Lists Type"
 msgstr "Médialisták típusa"
@@ -951,10 +951,10 @@ msgid "Next date the subscription is renewed"
 msgstr "Az előfizetés megújításának következő dátuma"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Nincs elérhető pénznem. Kérjük, engedélyezzen legalább egy pénznemet"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Nem történt fájl feltöltés"
 
 msgid "No items found"
 msgstr "Nincs találat"
@@ -979,7 +979,7 @@ msgid "None"
 msgstr "Egyik sem"
 
 msgid "Not all items could be deleted"
-msgstr ""
+msgstr "Nem lehet minden elemet törölni"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
@@ -989,7 +989,7 @@ msgid "Notes"
 msgstr "Jegyzetek"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "Megjegyzések (nem jelenik meg az ügyfélnek)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -1006,13 +1006,13 @@ msgid ""
 msgstr "Egy szolgáltató és nulla vagy több dekorációs osztály neve vesszővel elválasztva"
 
 msgid "Only super users and administrators can delete items"
-msgstr ""
+msgstr "Csak szuper felhasználók és rendszergazdák törölhetnek elemeket"
 
 msgid "Open"
 msgstr "Megnyit"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Nyitott mennyiség"
 
 msgid "Option"
 msgstr "Választási lehetőség"
@@ -1242,7 +1242,7 @@ msgid "Product name"
 msgstr "Termék név"
 
 msgid "Product payment"
-msgstr ""
+msgstr "Termék fizetés"
 
 msgid "Product price"
 msgstr "Termék ár"
@@ -1254,7 +1254,7 @@ msgid "Product rebate"
 msgstr "Engedmény"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "Termék szállítás"
 
 msgid "Product status"
 msgstr "Termék állapota"
@@ -1380,7 +1380,7 @@ msgstr "A kategóriaoldal elérési útja vagy azonosítója, ha ezt a kategóri
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "Ha a terméket egy másik oldalon kell megjeleníteni, akkor adja meg az útvonal nevét vagy a termékadat -oldal azonosítóját"
 
 msgid "Route or page ID (optional)"
 msgstr "Elérési út vagy oldal azonosító (opcionális)"
@@ -1563,7 +1563,7 @@ msgstr "Webhely"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "A helyspecifikus konfigurációs lehetőségek kulcs/érték párokként állnak rendelkezésre"
 
 msgid "Site the order was placed at"
 msgstr "A rendelés helyén"
@@ -1575,10 +1575,10 @@ msgid "Size"
 msgstr "Méret"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "Az attribútumok rendezése ugyanazon attribútumtípuson belül"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "A számla forrása, pl. weben vagy telefonon"
 
 msgid "Start date"
 msgstr "Kezdő dátum"
@@ -1619,7 +1619,7 @@ msgstr "Előfizetés"
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "Előfizetési intervallum évekkel, hónapokkal, hetekkel és napokkal, pl. \"P0Y1M2W3D\" nulla évre, egy hónapra, két hétre és három napra"
 
 msgid "Suggested products"
 msgstr "Javasolt termékek"
@@ -1655,7 +1655,7 @@ msgid "Telephone number (optional)"
 msgstr "Telefonszám (opcionális)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Hiányzik az ideiglenes mappa"
 
 msgid "Text Lists Type"
 msgstr "Szöveglisták típusa"
@@ -1672,37 +1672,37 @@ msgstr "Szöveg típusok"
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "A cikk csak addig a dátumig és időpontig jelenik meg a webhelyen, ameddig hasznos"
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "A cikk csak addig a dátumig és időpontig jelenik meg a webhelyen, ameddig hasznos"
 
 msgid "The item is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Az elem csak addig a dátumig és időpontig jelenik meg a webhelyen"
 
 msgid "The item is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Az elem csak addig a dátumig és időpontig jelenik meg a webhelyen"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "A média címe a webhelyen található média címcímkéje"
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Az URL -ben megjelenő kategória nevét akkor használjuk, ha nem létezik nyelvspecifikus URL -szegmens"
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "Az URL -ben látható termék nevét akkor használjuk, ha nem létezik nyelvspecifikus URL -szegmens"
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "Az opció csak az adott dátum és idő után jelenik meg a webhelyen"
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "Az opció csak addig a dátumig és időpontig jelenik meg a webhelyen"
 
 msgid "The rule is only used after that date and time"
 msgstr "A szabály csak az adott dátum és idő után használható"
@@ -1716,13 +1716,13 @@ msgid ""
 msgstr ""
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "A feltöltött fájl mérete meghaladja a maximális értéket"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "A feltöltött fájl csak részben került feltöltésre"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "Téma az üzlet elrendezésének megváltoztatására"
 
 msgid "Three letter ISO currency code"
 msgstr "Hárombetűs ISO pénznemkód"
@@ -1749,7 +1749,7 @@ msgid "Total orders"
 msgstr "Összes rendelés"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Az elmúlt hét nap összes megrendelése az előző időszakhoz képest"
 
 msgid "Total ratings"
 msgstr "Összes értékelés"
@@ -1773,10 +1773,10 @@ msgid "Types for additional images like icons"
 msgstr "További képek típusai, például ikonok"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "Típusok további árakért, például 1 lb/kg vagy havonta"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "Típusok további árakért, például 1 lb/kg vagy havonta"
 
 msgid "URL of the customer web site"
 msgstr "Vevői oldal linkje"
@@ -1804,19 +1804,19 @@ msgstr "Befejezetlen megrendelések az elmúlt hét napban az előző időszakho
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "A készletek szintjéhez kapcsolódó egyedi cikkkód, pl. az ERP rendszerből, egy EAN/GTIN szám vagy kitalált kód"
 
 msgid "Unique attribute code (required)"
 msgstr "Egyedi attribútum kód (kötelező)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "Egyedi attribútumkód, pl. \"zöld\" a \"color\" típusú attribútumokhoz"
 
 msgid "Unique category code (required)"
 msgstr "Egyedi kategória kód (kötelező)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "Egyedi kategóriakód, akár külső rendszertől, akár saját fejlesztésű"
 
 msgid "Unique code (required)"
 msgstr "Egyedi kód (kötelező)"
@@ -1849,7 +1849,7 @@ msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\",
 msgstr "Egyedi típusú kód, pl. \"szín\" olyan attribútumokhoz, mint a \"zöld\", \"kék\", \"piros\""
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "Ismeretlen feltöltési hiba"
 
 msgid "Upload shop icon"
 msgstr "Üzleti ikon feltöltése"
@@ -1879,7 +1879,7 @@ msgid "Variant attributes"
 msgstr "Jellemző változat"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Változatos termékattribútumok, amelyeket a megrendelt termékekkel együtt tárolnak"
 
 msgid "View details"
 msgstr "Részletek megjelenítése"
@@ -1889,7 +1889,7 @@ msgstr "Utalvány"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "Raktár vagy helyi üzlet, ha cikkei több helyen is elérhetők"
 
 msgid "Web site"
 msgstr "Weboldal"
@@ -2153,7 +2153,7 @@ msgstr "gyors/megszámolt"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "gyors/számoló ügyfél"
 
 #, php-format
 msgid "quick/counttotal"
@@ -2284,23 +2284,23 @@ msgstr "Jellemzők"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "Attribútumlisták"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "Attribútum tulajdonságok"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "Katalóguslisták"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "Vevők listája"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "A vevő tulajdonságai"
 
 #, php-format
 msgid "type/media"
@@ -2344,7 +2344,7 @@ msgstr "Terméktulajdonságok"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "típus/előírás"
 
 #, php-format
 msgid "type/service"
@@ -2372,7 +2372,7 @@ msgstr "Szöveglisták"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "Felhasználók"
 
 msgid "yes"
 msgstr "igen"
