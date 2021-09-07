@@ -57,7 +57,6 @@ $columnList = [
 			<?= $enc->html( $this->translate( 'admin', 'Log' ) ) ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
-		<span class="placeholder">&nbsp;</span>
 	</nav>
 
 
