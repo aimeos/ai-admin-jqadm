@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"POT-Creation-Date: 2021-08-18 13:26+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -469,6 +469,9 @@ msgstr "Видалити обрані елементи"
 msgid "Delete this entry"
 msgstr "Видалити цей запис"
 
+msgid "Deleting reviews is not allowed"
+msgstr ""
+
 msgid "Delivery"
 msgstr "Доставка"
 
@@ -592,8 +595,14 @@ msgstr "Факс"
 msgid "Facsimile number (optional)"
 msgstr "Номер факсу (опціонально)"
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
 msgstr "Файл"
+
+msgid "File upload stopped by extension"
+msgstr ""
 
 msgid "Find category"
 msgstr "Знайти категорію"
@@ -853,6 +862,9 @@ msgstr "Локаль"
 msgid "Log"
 msgstr "Лог журнал"
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr "Тип Списків Мультимедіа"
 
@@ -935,6 +947,12 @@ msgstr "Наступна дата (не обов`язково)"
 msgid "Next date the subscription is renewed"
 msgstr "Наступна дата продовження підписки"
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr "Елементи не знайдені"
 
@@ -957,11 +975,17 @@ msgstr "Властивості для елементу ціни, які не п�
 msgid "None"
 msgstr "Жоден"
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Не дозволений доступ до клієнта JQAdm \"%1$s\""
 
 msgid "Notes"
+msgstr ""
+
+msgid "Notes (not shown to customer)"
 msgstr ""
 
 msgid ""
@@ -978,7 +1002,13 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Один провайдер та нуль або більше назв класів декораторів, розділених комами"
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
+msgstr ""
+
+msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
@@ -1208,6 +1238,9 @@ msgstr "Довжина товару, наприклад 20 см"
 msgid "Product name"
 msgstr "Назва товару"
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "Ціна товару"
 
@@ -1216,6 +1249,9 @@ msgstr "Кількість товару"
 
 msgid "Product rebate"
 msgstr "Знижка на товар"
+
+msgid "Product shipping"
+msgstr ""
 
 msgid "Product status"
 msgstr "Статус товару"
@@ -1615,6 +1651,9 @@ msgstr "Телефон"
 msgid "Telephone number (optional)"
 msgstr "Номер телефону (опціонально)"
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr "Тип Текстових Списків"
 
@@ -1672,6 +1711,12 @@ msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "Шаг інкременту кількости в кошику, наприклад 0.1, 1 або 5"
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
 
 msgid "Theme to change the layout of your shop"
 msgstr ""
@@ -1799,6 +1844,9 @@ msgstr "Унікальний тип коду (обов`язково)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Унікальний тип коду, наприклад «колір» для таких атрибутів, як «зелений», «синій», «червоний»"
+
+msgid "Unknown upload error"
+msgstr ""
 
 msgid "Upload shop icon"
 msgstr ""
