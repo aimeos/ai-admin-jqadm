@@ -288,12 +288,10 @@ $statusList = [
 						<?php endif ?>
 						<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 							<td class="order-statuspayment">
-								<select class="form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<select class="form-select order-statuspayment" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ) ?>"
 									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" >
-									<option value="">
-										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
-									</option>
+									<option value=""></option>
 									<?php foreach( $paymentStatusList as $code => $label ) : ?>
 										<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), $code ) ?> >
 											<?= $enc->html( $label ) ?>
@@ -312,12 +310,10 @@ $statusList = [
 						<?php endif ?>
 						<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
 							<td class="order-statusdelivery">
-								<select class="form-select order-statusdelivery" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<select class="form-select order-statusdelivery" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ) ?>"
 									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" >
-									<option value="">
-										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
-									</option>
+									<option value=""></option>
 									<?php foreach( $statusList as $code => $label ) : ?>
 										<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), $code ) ?> >
 											<?= $enc->html( $label ) ?>
