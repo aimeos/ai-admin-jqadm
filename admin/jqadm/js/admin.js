@@ -45,6 +45,7 @@ Aimeos = {
 				});
 			}
 		},
+		startupMode: 'source',
 		autoParagraph: false,
 		contentsLangDirection: 'auto',
 		entities: false,
