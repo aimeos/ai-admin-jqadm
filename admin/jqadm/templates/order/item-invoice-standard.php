@@ -7,7 +7,7 @@
 
 
 $selected = function( $key, $code ) {
-	return ( $key == $code ? 'selected="selected"' : '' );
+	return ( $key === $code ? 'selected="selected"' : '' );
 };
 
 $enc = $this->encoder();
@@ -48,6 +48,7 @@ $types = $this->config( 'admin/jqadm/order/invoice/fields', ['web', 'phone'] );
 
 
 $paymentStatusList = [
+	null => '',
 	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
 	'0' => $this->translate( 'mshop/code', 'pay:0' ),
 	'1' => $this->translate( 'mshop/code', 'pay:1' ),
@@ -59,6 +60,7 @@ $paymentStatusList = [
 ];
 
 $statusList = [
+	null => '',
 	'-1' => $this->translate( 'mshop/code', 'stat:-1' ),
 	'0' => $this->translate( 'mshop/code', 'stat:0' ),
 	'1' => $this->translate( 'mshop/code', 'stat:1' ),
@@ -193,7 +195,6 @@ $statusList = [
 									<div class="col-sm-8">
 										<select class="form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ) ?>" disabled="disabled">
-											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 											<?php foreach( $paymentStatusList as $code => $label ) : ?>
 												<option value="<?= $code ?>"><?= $enc->html( $label ) ?></option>
 											<?php endforeach ?>
@@ -220,7 +221,6 @@ $statusList = [
 									<div class="col-sm-8">
 										<select class="form-select order-statusdelivery" tabindex="<?= $this->get( 'tabindex' ) ?>"
 											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ) ?>" disabled="disabled">
-											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 											<?php foreach( $statusList as $code => $label ) : ?>
 												<option value="<?= $code ?>"><?= $enc->html( $label ) ?></option>
 											<?php endforeach ?>
@@ -288,12 +288,9 @@ $statusList = [
 						<?php endif ?>
 						<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 							<td class="order-statuspayment">
-								<select class="form-select order-statuspayment" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<select class="form-select order-statuspayment" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statuspayment', '' ) ) ) ?>"
 									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" >
-									<option value="">
-										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
-									</option>
 									<?php foreach( $paymentStatusList as $code => $label ) : ?>
 										<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statuspayment/' . $idx ), $code ) ?> >
 											<?= $enc->html( $label ) ?>
@@ -312,12 +309,9 @@ $statusList = [
 						<?php endif ?>
 						<?php if( in_array( 'order.statusdelivery', $fields ) ) : ?>
 							<td class="order-statusdelivery">
-								<select class="form-select order-statusdelivery" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<select class="form-select order-statusdelivery" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.statusdelivery', '' ) ) ) ?>"
 									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" >
-									<option value="">
-										<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
-									</option>
 									<?php foreach( $statusList as $code => $label ) : ?>
 										<option value="<?= $code ?>" <?= $selected( $this->get( 'invoiceData/order.statusdelivery/' . $idx ), $code ) ?> >
 											<?= $enc->html( $label ) ?>

@@ -289,30 +289,12 @@ class Standard
 				$item = $items[$id];
 			}
 
-			if( isset( $data['order.statusdelivery'][$idx] ) ) {
-				$item->setStatusDelivery( $data['order.statusdelivery'][$idx] );
-			}
-
-			if( isset( $data['order.statuspayment'][$idx] ) ) {
-				$item->setStatusPayment( $data['order.statuspayment'][$idx] );
-			}
-
-			if( isset( $data['order.datedelivery'][$idx] ) ) {
-				$item->setDateDelivery( $data['order.datedelivery'][$idx] );
-			}
-
-			if( isset( $data['order.datepayment'][$idx] ) ) {
-				$item->setDatePayment( $data['order.datepayment'][$idx] );
-			}
-
-			if( isset( $data['order.relatedid'][$idx] ) ) {
-				$item->setRelatedId( $data['order.relatedid'][$idx] );
-			}
-
-			if( isset( $data['order.type'][$idx] ) ) {
-				$item->setType( $data['order.type'][$idx] );
-			}
-
+			$item->setType( $this->getValue( $data, 'order.type/' . $idx, $item->getType() ) );
+			$item->setStatusDelivery( $this->getValue( $data, 'order.statusdelivery/' . $idx ) );
+			$item->setStatusPayment( $this->getValue( $data, 'order.statuspayment/' . $idx ) );
+			$item->setDateDelivery( $this->getValue( $data, 'order.datedelivery/' . $idx ) );
+			$item->setDatePayment( $this->getValue( $data, 'order.datepayment/' . $idx ) );
+			$item->setRelatedId( $this->getValue( $data, 'order.relatedid/' . $idx ) );
 			$item->setBaseId( $order->getId() );
 
 			$manager->save( $item );

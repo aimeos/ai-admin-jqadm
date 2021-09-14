@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @todo 2022.01 Use dots instead of empty strings to avoid problems when using TypoScript
+ */
+
 return [
 	0 => 'dashboard',
 	10 => [

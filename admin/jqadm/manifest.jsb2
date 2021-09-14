@@ -47,6 +47,9 @@
 			"text": "axios.js",
 			"path": "js/"
 		},{
+			"text": "ckeditor.js",
+			"path": "js/"
+		},{
 			"text": "vue-components.js",
 			"path": "js/"
 		},{
