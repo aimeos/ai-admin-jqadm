@@ -1127,12 +1127,11 @@ $(function() {
 	Vue.component('l-marker', window.Vue2Leaflet.LMarker);
 	Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
 
-	Aimeos.lazy('.vue', function(el) {
-		const target = el || '.vue';
-		const key = $(el).data('key') || Math.floor(Math.random() * 1000);
+	$('.vue').each(function(el) {
+		var key = $(this).data('key');
 
 		Aimeos.components[key] = new Vue({
-			el: target,
+			el: this,
 			data: function() {
 				return {
 					data: null
