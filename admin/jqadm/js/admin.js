@@ -312,6 +312,37 @@ Aimeos = {
 		} else if($(selector).length) {
 			renderFcn();
 		}
+	},
+
+
+	vue(node) {
+		return new Vue({
+			el: node,
+			data: function() {
+				return {
+					data: null
+				}
+			},
+			beforeMount: function() {
+				this.Aimeos = Aimeos;
+				if(this.$el.dataset && this.$el.dataset.data) {
+					this.data = JSON.parse(this.$el.dataset.data);
+				}
+			},
+			methods: {
+				add: function(data) {
+					this.$refs[key].add(data);
+				},
+				remove: function(idx) {
+					this.$refs[key].remove(idx);
+				}
+			},
+			provide: function() {
+				return {
+					Aimeos: Aimeos
+				};
+			}
+		});
 	}
 };
 
@@ -1128,35 +1159,8 @@ $(function() {
 	Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
 
 	$('.vue').each(function(el) {
-		var key = $(this).data('key');
-
-		Aimeos.components[key] = new Vue({
-			el: this,
-			data: function() {
-				return {
-					data: null
-				}
-			},
-			beforeMount: function() {
-				this.Aimeos = Aimeos;
-				if(this.$el.dataset && this.$el.dataset.data) {
-					this.data = JSON.parse(this.$el.dataset.data);
-				}
-			},
-			methods: {
-				add: function(data) {
-					this.$refs[key].add(data);
-				},
-				remove: function(idx) {
-					this.$refs[key].remove(idx);
-				}
-			},
-			provide: function() {
-				return {
-					Aimeos: Aimeos
-				};
-			}
-		});
+		const key = $(el).data('key') || Math.floor(Math.random() * 1000);
+		Aimeos.components[key] = Aimeos.vue(el);
 	});
 
 	Aimeos.Menu.init();
