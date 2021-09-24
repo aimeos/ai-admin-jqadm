@@ -1158,7 +1158,7 @@ $(function() {
 	Vue.component('l-marker', window.Vue2Leaflet.LMarker);
 	Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
 
-	$('.vue').each(function(el) {
+	$('.vue').each(function(idx, el) {
 		const key = $(el).data('key') || Math.floor(Math.random() * 1000);
 		Aimeos.components[key] = Aimeos.vue(el);
 	});
