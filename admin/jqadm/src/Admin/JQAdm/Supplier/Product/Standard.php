@@ -327,25 +327,19 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Supplier\Item\Iface $item, array $data ) : \Aimeos\MShop\Supplier\Item\Iface
 	{
-		$listIds = $this->getValue( $data, 'supplier.lists.id', [] );
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
+		$listItem = $listManager->create()->setParentId( $item->getId() )->setDomain( 'product' );
+		$listIds = $this->getValue( $data, 'supplier.lists.id', [] );
 
-		$search = $listManager->filter()->slice( 0, count( $listIds ) );
-		$search->setConditions( $search->compare( '==', 'supplier.lists.id', $listIds ) );
-
-		$listItems = $listManager->search( $search );
-
+		if( !empty( $listIds ) ) {
+			$listItems = $listManager->search( $listManager->filter()->add( 'supplier.lists.id', '==', $listIds ) );
+		} else {
+			$listItems = map();
+		}
 
 		foreach( (array) $listIds as $idx => $listid )
 		{
-			if( isset( $listItems[$listid] ) ) {
-				$litem = $listItems[$listid];
-			} else {
-				$litem = $listManager->create();
-			}
-
-			$litem->setParentId( $item->getId() );
-			$litem->setDomain( 'product' );
+			$litem = $listItems->get( $listid ) ?: clone $listItem;
 
 			if( isset( $data['supplier.lists.refid'][$idx] ) ) {
 				$litem->setRefId( $this->getValue( $data, 'supplier.lists.refid/' . $idx ) );
