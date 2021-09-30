@@ -67,7 +67,7 @@ class Standard
 			$params['site'] = $view->item->getCode();
 			$url = $view->url( $target, $cntl, $action, $params, [], $conf );
 
-			$context->getSession()->set( 'info', [$context->getI18n()->dt( 'admin', 'Item saved successfully' )] );
+			$context->getSession()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] );
 
 			$view->response()->withStatus( 302 );
 			$view->response()->withHeader( 'Location', $url );

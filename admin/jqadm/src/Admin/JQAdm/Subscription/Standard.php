@@ -184,7 +184,7 @@ class Standard
 			$mq = $context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( 'subscription-export' );
 			$mq->add( json_encode( $msg ) );
 
-			$msg = $context->getI18n()->dt( 'admin', 'Your export will be available in a few minutes for download' );
+			$msg = $context->translate( 'admin', 'Your export will be available in a few minutes for download' );
 			$view->info = $view->get( 'info', [] ) + ['subscription-item' => $msg];
 		}
 		catch( \Exception $e )
