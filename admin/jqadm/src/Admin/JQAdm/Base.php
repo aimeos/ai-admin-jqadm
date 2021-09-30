@@ -723,8 +723,6 @@ abstract class Base
 		{
 			if( isset( $params[$part] ) ) {
 				$session->set( $key . '/' . $part, $params[$part] );
-			} else {
-				$session->del( $key . '/' . $part );
 			}
 		}
 
