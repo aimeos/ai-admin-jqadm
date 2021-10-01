@@ -73,43 +73,43 @@ $keys = [
 						<td class="interval-label mandatory">
 							<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', 'idx', 'attribute.label' ) ) ) ?>`.replace( 'idx', idx )"
-								v-bind:readonly="getReadOnly(idx)"
+								v-bind:readonly="readonly(idx)"
 								v-model="items[idx]['attribute.label']" />
 						</td>
 						<td class="interval-field mandatory">
 							<input class="form-control field-year" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', 'idx', 'Y' ) ) ) ?>`.replace( 'idx', idx )"
-								v-bind:readonly="getReadOnly(idx)"
+								v-bind:readonly="readonly(idx)"
 								v-model="items[idx]['Y']" />
 						</td>
 						<td class="interval-field mandatory">
 							<input class="form-control field-month" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', 'idx', 'M' ) ) ) ?>`.replace( 'idx', idx )"
-								v-bind:readonly="getReadOnly(idx)"
+								v-bind:readonly="readonly(idx)"
 								v-model="items[idx]['M']" />
 						</td>
 						<td class="interval-field mandatory">
 							<input class="form-control field-week" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', 'idx', 'W' ) ) ) ?>`.replace( 'idx', idx )"
-								v-bind:readonly="getReadOnly(idx)"
+								v-bind:readonly="readonly(idx)"
 								v-model="items[idx]['W']" />
 						</td>
 						<td class="interval-field mandatory">
 							<input class="form-control field-day" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', 'idx', 'D' ) ) ) ?>`.replace( 'idx', idx )"
-								v-bind:readonly="getReadOnly(idx)"
+								v-bind:readonly="readonly(idx)"
 								v-model="items[idx]['D']" />
 						</td>
 						<td class="interval-field mandatory">
 							<input class="form-control field-hour" type="number" step="1" min="0" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', 'idx', 'H' ) ) ) ?>`.replace( 'idx', idx )"
-								v-bind:readonly="getReadOnly(idx)"
+								v-bind:readonly="readonly(idx)"
 								v-model="items[idx]['H']" />
 						</td>
 						<td class="actions">
 							<input class="item-code" type="hidden"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', 'idx', 'attribute.code' ) ) ) ?>`.replace( 'idx', idx )"
-								v-bind:value="getAttributeValue(idx)" />
+								v-bind:value="value(idx)" />
 
 							<input class="item-listid" type="hidden"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'subscription', 'idx', 'product.lists.id' ) ) ) ?>`.replace( 'idx', idx )"
