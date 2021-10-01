@@ -331,11 +331,11 @@ class Standard
 
 			preg_match( $regex, $list['attribute.code'], $matches );
 
-			$list['Y'] = (int) ( $matches[2] ?? 0 );
-			$list['M'] = (int) ( $matches[4] ?? 0 );
-			$list['W'] = (int) ( $matches[6] ?? 0 );
-			$list['D'] = (int) ( $matches[8] ?? 0 );
-			$list['H'] = (int) ( $matches[10] ?? 0 );
+			empty( $matches[2] ) ?: $list['Y'] = (int) $matches[2];
+			empty( $matches[4] ) ?: $list['M'] = (int) $matches[4];
+			empty( $matches[6] ) ?: $list['W'] = (int) $matches[6];
+			empty( $matches[8] ) ?: $list['D'] = (int) $matches[8];
+			empty( $matches[10] ) ?: $list['H'] = (int) $matches[10];
 
 			$data[] = $list;
 		}
