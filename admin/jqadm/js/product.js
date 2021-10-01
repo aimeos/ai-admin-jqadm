@@ -1010,9 +1010,12 @@ Aimeos.Product.Subscription = {
 		return {
 			methods: {
 				getAttributeValue: function(idx) {
-					return 'P' + (this.items[idx]['Y'] || 0) + 'Y'
-						+ (this.items[idx]['M'] || 0) + 'M' + (this.items[idx]['W'] || 0) + 'W'
-						+ (this.items[idx]['D'] || 0) + 'D' + (this.items[idx]['H'] || 0) + 'H';
+					const map = this.items[idx];
+					return 'P' + (map['Y'] > 0 ? map['Y'] + 'Y' : '')
+						+ (map['M'] > 0 ? map['M'] + 'M' : '')
+						+ (map['W'] > 0 ? map['W'] + 'W' : '')
+						+ (map['D'] > 0 ? map['D'] + 'D' : '')
+						+ (map['H'] > 0 ? map['H'] + 'H' : '');
 				},
 
 
