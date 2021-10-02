@@ -55,7 +55,7 @@ $columnList = [
 			v-bind:fields="<?= $enc->attr( $fields ) ?>"
 			v-bind:show="colselect"
 			v-bind:submit="false"
-			v-on:submit="update($event)"
+			v-on:submit="toggle($event)"
 			v-on:close="colselect = false">
 		</column-select>
 

@@ -59,7 +59,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertStringContainsString( 'item-code', $result );
-		$this->assertStringContainsString( 'OPQR', $result );
 	}
 
 
