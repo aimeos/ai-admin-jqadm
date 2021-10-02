@@ -321,10 +321,8 @@ class Standard
 		}
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
-
-		$search = $manager->filter()->slice( 0, count( $ids ) );
-		$search->setConditions( $search->compare( '==', 'coupon.code.id', $ids ) );
-		$items = $manager->search( $search );
+		$filter = $manager->filter()->add( ['coupon.code.id' => $ids] )->slice( 0, count( $ids ) );
+		$items = $manager->search( $filter );
 
 		foreach( $ids as $idx => $id )
 		{

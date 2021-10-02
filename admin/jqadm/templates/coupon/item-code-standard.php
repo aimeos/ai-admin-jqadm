@@ -6,17 +6,7 @@
  */
 
 
-$selected = function( $key, $code ) {
-	return ( $key == $code ? 'selected="selected"' : '' );
-};
-
-$jsonTarget = $this->config( 'admin/jsonadm/url/target' );
-$jsonCntl = $this->config( 'admin/jsonadm/url/controller', 'Jsonadm' );
-$jsonAction = $this->config( 'admin/jsonadm/url/action', 'index' );
-$jsonConfig = $this->config( 'admin/jsonadm/url/config', [] );
-
 $enc = $this->encoder();
-$params = $this->get( 'pageParams', [] );
 
 
 /** admin/jqadm/coupon/code/fields
@@ -37,6 +27,7 @@ $default = $this->config( 'admin/jqadm/coupon/code/fields', ['coupon.code.code',
 $fields = $this->session( 'aimeos/admin/jqadm/couponcode/fields', $default );
 
 $columnList = [
+	'coupon.code.id' => $this->translate( 'admin', 'ID' ),
 	'coupon.code.code' => $this->translate( 'admin', 'Code' ),
 	'coupon.code.count' => $this->translate( 'admin', 'Count' ),
 	'coupon.code.datestart' => $this->translate( 'admin', 'Start date' ),
@@ -51,222 +42,269 @@ $columnList = [
 ?>
 <div id="code" class="item-code tab-pane fade box" role="tabpanel" aria-labelledby="code">
 
-	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
-			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'codeTotal' ),
-			'group' => 'vc', 'action' => 'get', 'fragment' => 'code',
-			'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]
-		);
-	?>
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
 
-	<div class="">
-		<table class="list-items table table-hover">
-			<thead class="list-header">
-				<tr>
-					<?= $this->partial(
-							$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead-standard' ),
-							['fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
-							'data' => $columnList, 'group' => 'vc', 'action' => 'get', 'fragment' => 'code',
-							'sort' => $this->session( 'aimeos/admin/jqadm/couponcode/sort' )]
-						);
-					?>
+	<div class="coupon-code-list"
+		data-parentid="<?= $enc->attr( $this->param( 'id' ) ) ?>"
+		data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+		data-fields="<?= $enc->attr( $fields ) ?>">
 
-					<th class="actions">
-						<div class="dropdown list-menu">
-							<button class="btn act-menu fa" type="button" id="menuButton"
-								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'More' ) ) ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'More' ) ) ?>">
-							</button>
-							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuButton">
-								<li class="dropdown-item">
-									<a class="btn act-add fa label" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
-										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
-										<?= $enc->html( $this->translate( 'admin', 'Add' ) ) ?>
-									</a>
-								</li>
-								<li class="dropdown-item">
-									<div class="btn fa fa-upload label">
-										<?= $enc->html( $this->translate( 'admin', 'Import' ) ) ?>
-										<input class="fileupload act-import" type="file" name="code[file]" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-									</div>
-								</li>
-							</ul>
-						</div>
+		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+			name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
+			v-bind:titles="<?= $enc->attr( $columnList ) ?>"
+			v-bind:fields="<?= $enc->attr( $fields ) ?>"
+			v-bind:show="colselect"
+			v-bind:submit="false"
+			v-on:submit="update($event)"
+			v-on:close="colselect = false">
+		</column-select>
 
-						<?= $this->partial(
-								$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ),
-								['fields' => $fields, 'group' => 'vc', 'data' => $columnList, 'tabindex' => $this->get( 'tabindex' )]
-							);
-						?>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?= $this->partial(
-					$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch-standard' ), [
-						'filter' => $this->session( 'aimeos/admin/jqadm/couponcode/filter', [] ),
-						'fields' => $fields, 'group' => 'vc', 'tabindex' => $this->get( 'tabindex' ),
-						'data' => [
-							'coupon.code.code' => [],
-							'coupon.code.count' => ['op' => '=='],
-							'coupon.code.datestart' => ['op' => '-', 'type' => 'datetime-local'],
-							'coupon.code.dateend' => ['op' => '-', 'type' => 'datetime-local'],
-							'coupon.code.ref' => [],
-							'coupon.code.ctime' => ['op' => '-', 'type' => 'datetime-local'],
-							'coupon.code.mtime' => ['op' => '-', 'type' => 'datetime-local'],
-							'coupon.code.editor' => [],
-						]
-					] );
-				?>
-
-				<tr class="list-item-new prototype">
-					<td colspan="<?= count( $fields ) ?>">
-						<div class="row">
-							<div class="col-xl-6">
-								<div class="form-group row mandatory">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Coupon' ) ) ?></label>
-									<div class="col-sm-8">
-										<input class="form-control coupon-code-code" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>" required="required"
-											name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.code', '' ) ) ) ?>" disabled="disabled" />
-									</div>
-								</div>
-								<div class="form-group row optional">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Count' ) ) ?></label>
-									<div class="col-sm-8">
-										<input class="form-control coupon-code-count" type="number" min="0" step="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.count', '' ) ) ) ?>" disabled="disabled" />
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-6">
-								<div class="form-group row optional">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
-									<div class="col-sm-8">
-										<input class="form-control coupon-code-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.datestart', '' ) ) ) ?>" disabled="disabled" />
-									</div>
-								</div>
-								<div class="form-group row optional">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
-									<div class="col-sm-8">
-										<input class="form-control coupon-code-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.dateend', '' ) ) ) ?>" disabled="disabled" />
-									</div>
-								</div>
-								<div class="form-group row optional">
-									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reference' ) ) ?></label>
-									<div class="col-sm-8">
-										<input class="form-control coupon-code-ref" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.ref', '' ) ) ) ?>" disabled="disabled" />
-									</div>
-								</div>
-							</div>
-						</div>
-					</td>
-					<td class="actions">
-						<input type="hidden" name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.id', '' ) ) ) ?>" disabled="disabled" />
-
-						<a class="btn fa act-close" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ) ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Close' ) ) ?>">
-						</a>
-					</td>
-				</tr>
-
-				<?php foreach( $this->get( 'codeData/coupon.code.id', [] ) as $idx => $id ) : ?>
-					<tr class="list-item <?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ) ?>">
-						<?php if( in_array( 'coupon.code.code', $fields ) ) : ?>
-							<td class="coupon-code">
-								<input class="form-control coupon-code-code" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.code', '' ) ) ) ?>"
-									value="<?= $enc->attr( $this->get( 'codeData/coupon.code.code/' . $idx ) ) ?>"
-									<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ) ?> disabled="disabled" />
-							</td>
-						<?php endif ?>
-						<?php if( in_array( 'coupon.code.count', $fields ) ) : ?>
-							<td class="coupon-count">
-								<input class="form-control coupon-code-count" type="number" min="0" step="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.count', '' ) ) ) ?>"
-									value="<?= $enc->attr( $this->get( 'codeData/coupon.code.count/' . $idx ) ) ?>"
-									<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ) ?> disabled="disabled" />
-							</td>
-						<?php endif ?>
-						<?php if( in_array( 'coupon.code.datestart', $fields ) ) : ?>
-							<td class="coupon-datestart select">
-								<input class="form-control coupon-code-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.datestart', '' ) ) ) ?>"
-									value="<?= $enc->attr( $this->datetime( $this->get( 'codeData/coupon.code.datestart/' . $idx ) ) ) ?>"
-									<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ) ?> disabled="disabled" />
-							</td>
-						<?php endif ?>
-						<?php if( in_array( 'coupon.code.dateend', $fields ) ) : ?>
-							<td class="coupon-dateend select">
-								<input class="form-control coupon-code-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.dateend', '' ) ) ) ?>"
-									value="<?= $enc->attr( $this->datetime( $this->get( 'codeData/coupon.code.dateend/' . $idx ) ) ) ?>"
-									<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ) ?> disabled="disabled" />
-							</td>
-						<?php endif ?>
-						<?php if( in_array( 'coupon.code.ref', $fields ) ) : ?>
-							<td class="coupon-ref">
-								<input class="form-control coupon-code-ref" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.ref', '' ) ) ) ?>"
-									value="<?= $enc->attr( $this->get( 'codeData/coupon.code.ref/' . $idx ) ) ?>"
-									<?= $this->site()->readonly( $this->get( 'codeData/coupon.code.siteid/' . $idx ) ) ?> disabled="disabled" />
-							</td>
-						<?php endif ?>
-						<?php if( in_array( 'coupon.code.ctime', $fields ) ) : ?>
-							<td class="coupon-ctime">
-								<span class="form-control coupon-code-ctime">
-									<?= $enc->attr( $this->get( 'codeData/coupon.code.ctime/' . $idx ) ) ?>
-								</span>
-							</td>
-						<?php endif ?>
-						<?php if( in_array( 'coupon.code.mtime', $fields ) ) : ?>
-							<td class="coupon-mtime">
-								<span class="form-control coupon-code-mtime">
-									<?= $enc->attr( $this->get( 'codeData/coupon.code.mtime/' . $idx ) ) ?>
-								</span>
-							</td>
-						<?php endif ?>
-						<?php if( in_array( 'coupon.code.editor', $fields ) ) : ?>
-							<td class="coupon-editor">
-								<span class="form-control coupon-code-editor">
-									<?= $enc->attr( $this->get( 'codeData/coupon.code.editor/' . $idx ) ) ?>
-								</span>
-							</td>
-						<?php endif ?>
-						<td class="actions">
-							<input type="hidden" value="<?= $enc->attr( $id ) ?>" disabled="disabled"
-								name="<?= $enc->attr( $this->formparam( array( 'code', 'coupon.code.id', '' ) ) ) ?>" />
-
-							<a class="btn act-edit fa" tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"></a>
-							<a class="btn fa act-delete" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								href="<?= $this->url( $jsonTarget, $jsonCntl, $jsonAction, ['resource' => 'coupon/code', 'id' => $id], [], $jsonConfig ) ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
+		<div class="table-responsive">
+			<table class="list-items table table-striped">
+				<thead class="list-header">
+					<tr>
+						<th class="select">
+							<a v-on:click.prevent.stop="remove()" class="btn act-delete fa"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
+							</a>
+						</th>
+						<th v-if="fields.includes('coupon.code.id')" v-bind:class="css('id')">
+							<a v-bind:class="sortclass('id')" v-on:click.prevent="sort('id')"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
+								<?= $enc->html( $this->translate( 'admin', 'ID' ) ) ?>
+							</a>
+						</th>
+						<th v-if="fields.includes('coupon.code.code')" v-bind:class="css('code')">
+							<a v-bind:class="sortclass('code')" v-on:click.prevent="sort('code')"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
+								<?= $enc->html( $this->translate( 'admin', 'Code' ) ) ?>
+							</a>
+						</th>
+						<th v-if="fields.includes('coupon.code.count')" v-bind:class="css('count')">
+							<a v-bind:class="sortclass('count')" v-on:click.prevent="sort('count')"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
+								<?= $enc->html( $this->translate( 'admin', 'Count' ) ) ?>
+							</a>
+						</th>
+						<th v-if="fields.includes('coupon.code.datestart')" v-bind:class="css('datestart')">
+							<a v-bind:class="sortclass('datestart')" v-on:click.prevent="sort('datestart')"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
+								<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
+							</a>
+						</th>
+						<th v-if="fields.includes('coupon.code.dateend')" v-bind:class="css('dateend')">
+							<a v-bind:class="sortclass('dateend')" v-on:click.prevent="sort('dateend')"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
+								<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
+							</a>
+						</th>
+						<th v-if="fields.includes('coupon.code.ref')" v-bind:class="css('ref')">
+							<a v-bind:class="sortclass('ref')" v-on:click.prevent="sort('ref')"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
+								<?= $enc->html( $this->translate( 'admin', 'Reference' ) ) ?>
+							</a>
+						</th>
+						<th v-if="fields.includes('coupon.code.ctime')" v-bind:class="css('ctime')">
+							<a v-bind:class="sortclass('ctime')" v-on:click.prevent="sort('ctime')"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
+								<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>
+							</a>
+						</th>
+						<th v-if="fields.includes('coupon.code.mtime')" v-bind:class="css('mtime')">
+							<a v-bind:class="sortclass('mtime')" v-on:click.prevent="sort('mtime')"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
+								<?= $enc->html( $this->translate( 'admin', 'Modified' ) ) ?>
+							</a>
+						</th>
+						<th v-if="fields.includes('coupon.code.editor')" v-bind:class="css('editor')">
+							<a v-bind:class="sortclass('editor')" v-on:click.prevent="sort('editor')"
+								tabindex="<?= $this->get( 'tabindex' ) ?>" href="#">
+								<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>
+							</a>
+						</th>
+
+						<th class="actions">
+							<button class="btn fa fa-upload label">
+								<input class="fileupload act-import" type="file" name="code[file]" tabindex="<?= $this->get( 'tabindex' ) ?>" />
+							</button>
+							<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-on:click="add()" href="#"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
+							</a>
+							<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
+								v-on:click.prevent.stop="colselect = true">
+							</a>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="list-search">
+						<td class="select">
+							<input v-model="checked" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
+						</td>
+						<td v-if="fields.includes('coupon.code.id')" v-bind:class="css('id')">
+							<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-on:change="find($event, 'id')"
+								v-bind:value="value('id')" />
+						</td>
+						<td v-if="fields.includes('coupon.code.code')" v-bind:class="css('code')">
+							<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-on:change="find($event, 'code', '=~')"
+								v-bind:value="value('code')" />
+						</td>
+						<td v-if="fields.includes('coupon.code.count')" v-bind:class="css('count')">
+							<input type="number" step="1" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-on:change="find($event, 'count', '<=')"
+								v-bind:value="value('count')" />
+						</td>
+						<td v-if="fields.includes('coupon.code.datestart')" v-bind:class="css('datestart')">
+							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-bind:value="value('datestart')"
+								v-on:input="find($event, 'datestart')"
+								v-bind:config="Aimeos.flatpickr.datetimerange" />
+						</td>
+						<td v-if="fields.includes('coupon.code.dateend')" v-bind:class="css('dateend')">
+							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-bind:value="value('dateend')"
+								v-on:input="find($event, 'dateend')"
+								v-bind:config="Aimeos.flatpickr.datetimerange" />
+						</td>
+						<td v-if="fields.includes('coupon.code.ref')" v-bind:class="css('ref')">
+							<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-on:change="find($event, 'ref')"
+								v-bind:value="value('ref')" />
+						</td>
+						<td v-if="fields.includes('coupon.code.ctime')" v-bind:class="css('ctime')">
+							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-bind:value="value('ctime')"
+								v-on:input="find($event, 'ctime')"
+								v-bind:config="Aimeos.flatpickr.datetimerange" />
+						</td>
+						<td v-if="fields.includes('coupon.code.mtime')" v-bind:class="css('mtime')">
+							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-bind:value="value('mtime')"
+								v-on:input="find($event, 'mtime')"
+								v-bind:config="Aimeos.flatpickr.datetimerange" />
+						</td>
+						<td v-if="fields.includes('coupon.code.editor')" v-bind:class="css('editor')">
+							<input type="number" step="1" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-on:change="find($event, 'editor', '=~')"
+								v-bind:value="value('editor')" />
+						</td>
+
+						<td class="actions">
+							<a v-on:click.prevent="fetch()" class="btn act-search fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Search' ) ) ?>">
+							</a>
+							<a v-on:click.prevent="reset()" class="btn act-reset fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Reset' ) ) ?>"></a>
+						</td>
+					</tr>
+
+					<tr v-for="(item, idx) in items" v-bind:key="idx" class="list-item">
+						<td class="select">
+							<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" v-model="item['checked']" />
+						</td>
+						<td v-if="fields.includes('coupon.code.id')" v-bind:class="css('id')">
+							<div class="items-field">{{ item['coupon.code.id'] }}</div>
+						</td>
+						<td v-if="fields.includes('coupon.code.code')" v-bind:class="css('code')">
+							<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>" maxlength="64"
+								v-if="item.edit"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.code', ''] ) ) ?>`"
+								v-model="item['coupon.code.code']">
+							</select>
+							<div v-else v-on:click="edit(idx)" class="items-field">
+								{{ item['coupon.code.code'] }}
+							</div>
+						</td>
+						<td v-if="fields.includes('coupon.code.count')" v-bind:class="css('count')">
+							<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								type="number" step="1" min="-2147483647" max="2147483647"
+								v-if="item.edit"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.count', ''] ) ) ?>`"
+								v-model="item['coupon.code.count']">
+							</select>
+							<div v-else v-on:click="edit(idx)" class="items-field">
+								{{ item['coupon.code.count'] }}
+							</div>
+						</td>
+						<td v-if="fields.includes('coupon.code.datestart')" v-bind:class="css('datestart')">
+							<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.datestart', ''] ) ) ?>`"
+								tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-bind:value="value('datestart')"
+								v-bind:config="Aimeos.flatpickr.datetime" />
+							<div v-else v-on:click="edit(idx)" class="items-field">
+								{{ item['coupon.code.datestart'] || '-' }}
+							</div>
+						</td>
+						<td v-if="fields.includes('coupon.code.dateend')" v-bind:class="css('dateend')">
+							<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.dateend', ''] ) ) ?>`"
+								tabindex="<?= $this->get( 'tabindex' ) ?>"
+								v-bind:value="value('dateend')"
+								v-bind:config="Aimeos.flatpickr.datetime" />
+							<div v-else v-on:click="edit(idx)" class="items-field">
+								{{ item['coupon.code.dateend'] || '-' }}
+							</div>
+						</td>
+						<td v-if="fields.includes('coupon.code.ref')" v-bind:class="css('ref')">
+							<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>" maxlength="64"
+								v-if="item.edit"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.ref', ''] ) ) ?>`"
+								v-model="item['coupon.code.ref']">
+							</select>
+							<div v-else v-on:click="edit(idx)" class="items-field">
+								{{ item['coupon.code.ref'] }}
+							</div>
+						</td>
+						<td v-if="fields.includes('coupon.code.ctime')" v-bind:class="css('ctime')">
+							<div class="items-field">{{ item['coupon.code.ctime'] }}</div>
+						</td>
+						<td v-if="fields.includes('coupon.code.mtime')" v-bind:class="css('mtime')">
+							<div class="items-field">{{ item['coupon.code.mtime'] }}</div>
+						</td>
+						<td v-if="fields.includes('coupon.code.editor')" v-bind:class="css('editor')">
+							<div class="items-field">{{ item['coupon.code.editor'] }}</div>
+						</td>
+						<td class="actions">
+							<input type="hidden" v-if="item.edit" v-bind:value="item['coupon.code.id']"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.id', ''] ) ) ?>`" >
+							<a v-if="!item.edit" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"
+								v-if="item['coupon.code.siteid'] === siteid"
+								v-on:click.prevent.stop="edit(idx)" >
+							</a>
+							<a class="btn act-delete fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
+								v-if="item['coupon.code.siteid'] === siteid"
+								v-on:click.prevent.stop="remove(idx)" >
 							</a>
 						</td>
 					</tr>
-				<?php endforeach ?>
-			</tbody>
-		</table>
+
+				</tbody>
+			</table>
+		</div>
+
+		<div v-if="loading" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'Loading items ...' ) ) ) ?></div>
+		<div v-if="!loading && !items.length" class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
+
+		<nav class="list-page">
+			<page-offset v-model="offset" v-bind:limit="limit" v-bind:total="total" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"></page-offset>
+			<page-limit v-model="limit" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"></page-limit>
+		</nav>
+
 	</div>
 
-	<?php if( $this->get( 'codeData/coupon.code.siteid', [] ) === [] ) : ?>
-		<div class="noitems"><?= $enc->html( sprintf( $this->translate( 'admin', 'No items found' ) ) ) ?></div>
-	<?php endif ?>
-
-	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination-standard' ),
-			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'codeTotal' ),
-			'group' => 'vc', 'action' => 'get', 'fragment' => 'code',
-			'page' =>$this->session( 'aimeos/admin/jqadm/couponcode/page', [] )]
-		);
-	?>
+	<?= $this->get( 'codeBody' ) ?>
 </div>
-<?= $this->get( 'codeBody' ) ?>

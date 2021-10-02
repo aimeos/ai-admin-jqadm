@@ -40,6 +40,7 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 									v-bind:checked="checked(key)"
 									v-bind:name="name"
 									v-bind:value="key"
+									v-on:click="toggle(key)"
 								/>
 								{{ title }}
 							</label>
@@ -51,7 +52,7 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 					<button type="button" class="btn btn-secondary" v-on:click="$emit('close')" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
 						<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
 					</button>
-					<button type="submit" class="btn btn-primary" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
+					<button type="submit" class="btn btn-primary" v-on:click="update($event); $emit('close')" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
 						<?= $enc->html( $this->translate( 'admin', 'Apply' ) ) ?>
 					</button>
 				</div>
