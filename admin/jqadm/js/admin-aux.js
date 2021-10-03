@@ -476,6 +476,7 @@ Aimeos.ProductRef = {
 				'order': '',
 				'types': {},
 				'options': [],
+				'colselect': false,
 				'checked': false,
 				'loading': true
 			}
@@ -538,6 +539,7 @@ Aimeos.ProductRef = {
 				obj['edit'] = true;
 
 				this.items.unshift(obj);
+				return this;
 			},
 
 
@@ -586,6 +588,8 @@ Aimeos.ProductRef = {
 						});
 					}
 				});
+
+				return this;
 			},
 
 
@@ -593,6 +597,7 @@ Aimeos.ProductRef = {
 				if(this.siteid === this.items[idx][this.prefix + 'siteid']) {
 					this.$set(this.items[idx], 'edit', true);
 				}
+				return this;
 			},
 
 
@@ -606,7 +611,7 @@ Aimeos.ProductRef = {
 				} else {
 					this.$delete(this.filter, this.prefix + key);
 				}
-				this.fetch();
+				return this.fetch();
 			},
 
 
@@ -632,6 +637,8 @@ Aimeos.ProductRef = {
 					self.total = data.total || 0;
 					self.items = data.items || [];
 				});
+
+				return this;
 			},
 
 
@@ -697,6 +704,8 @@ Aimeos.ProductRef = {
 						});
 					}
 				});
+
+				return this;
 			},
 
 
@@ -737,7 +746,7 @@ Aimeos.ProductRef = {
 					return !item.checked;
 				});
 
-				this.waiting(false);
+				return this.waiting(false);
 			},
 
 
@@ -749,12 +758,13 @@ Aimeos.ProductRef = {
 				parentid[this.prefix + 'parentid'] = this.parentid;
 
 				Object.assign(this.$data, {filter: {'base': {'&&': [{'==': parentid}, {'==': domain}]}}});
+				return this.fetch();
 			},
 
 
 			sort: function(key) {
 				this.order = this.order === this.prefix + key ? '-' + this.prefix + key : this.prefix + key;
-				this.fetch();
+				return this.fetch();
 			},
 
 
@@ -803,10 +813,8 @@ Aimeos.ProductRef = {
 			},
 
 
-			toggle: function(key) {
-				key = this.prefix + key;
-				const idx = this.fields.indexOf(key);
-				idx !== -1 ? this.fields.splice(idx, 1) : this.fields.push(key);
+			toggle: function(fields) {
+				this.fields = fields;
 
 				if(window.sessionStorage) {
 					window.sessionStorage.setItem(
@@ -815,7 +823,7 @@ Aimeos.ProductRef = {
 					);
 				}
 
-				this.fetch();
+				return this.fetch();
 			},
 
 
@@ -827,6 +835,7 @@ Aimeos.ProductRef = {
 
 			waiting: function(val) {
 				this.loading = val;
+				return this;
 			}
 		},
 
@@ -836,14 +845,6 @@ Aimeos.ProductRef = {
 				for(let item of this.items) {
 					this.$set(item, 'checked', this.checked);
 				}
-			},
-
-
-			filter: {
-				handler: function() {
-					this.fetch();
-				},
-				deep: true
 			},
 
 

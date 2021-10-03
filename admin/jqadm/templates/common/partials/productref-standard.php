@@ -7,6 +7,7 @@
 
 
 $enc = $this->encoder();
+$prefix = str_replace( '/', '.', $this->get( 'resource' ) ) . '.';
 
 $status = [
 	1 => $this->translate( 'mshop/code', 'status:1' ),
@@ -15,20 +16,38 @@ $status = [
 	-2 => $this->translate( 'mshop/code', 'status:-2' ),
 ];
 
-$target = $this->config( 'admin/jqadm/url/get/target' );
-$cntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$config = $this->config( 'admin/jqadm/url/get/config', [] );
-$url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_id_'], [], $config );
+$columnList = [
+	$prefix . 'id' => $this->translate( 'admin', 'ID' ),
+	$prefix . 'position' => $this->translate( 'admin', 'Position' ),
+	$prefix . 'status' => $this->translate( 'admin', 'Status' ),
+	$prefix . 'type' => $this->translate( 'admin', 'Type' ),
+	$prefix . 'config' => $this->translate( 'admin', 'Config' ),
+	$prefix . 'datestart' => $this->translate( 'admin', 'Start date' ),
+	$prefix . 'dateend' => $this->translate( 'admin', 'End date' ),
+];
+
+$url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_id_'] );
 
 
 ?>
+<?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns-standard' ) ) ?>
+
 <div class="productref-list"
 	data-resource="<?= $enc->attr( $this->get( 'resource' ) ) ?>"
 	data-parentid="<?= $enc->attr( $this->get( 'parentid' ) ) ?>"
 	data-fields="<?= $enc->attr( $this->get( 'fields', [] ) ) ?>"
 	data-siteid="<?= $enc->attr( $this->get( 'siteid' ) ) ?>"
 	data-types="<?= $enc->attr( $this->get( 'types' ) ) ?>">
+
+	<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+		name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
+		v-bind:fields="<?= $enc->attr( $this->get( 'fields', [] ) ) ?>"
+		v-bind:titles="<?= $enc->attr( $columnList ) ?>"
+		v-bind:show="colselect"
+		v-bind:submit="false"
+		v-on:submit="toggle($event)"
+		v-on:close="colselect = false">
+	</column-select>
 
 	<div class="table-responsive">
 		<table class="list-items table table-striped">
@@ -96,87 +115,10 @@ $url = $this->url( $target, $cntl, $action, ['resource' => 'product', 'id' => '_
 							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 						</a>
-						<div class="dropdown filter-columns">
-							<button class="btn act-columns fa" type="button" id="dropdownMenuButton-<?= $this->get( 'group' ) ?>"
-								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>">
-							</button>
-							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton-<?= $this->get( 'group' ) ?>">
-								<li class="dropdown-item">
-									<a v-on:click.prevent.stop="toggle('id')" href="#"><label>
-										<input class="form-check-input"
-											v-on:click.capture.stop="toggle('id')"
-											v-bind:checked="fields.includes(prefix + 'id')"
-											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'ID' ) ) ?>
-									</label></a>
-								</li>
-								<li class="dropdown-item">
-									<a v-on:click.prevent.stop="toggle('position')" href="#"><label>
-										<input class="form-check-input"
-											v-on:click.capture.stop="toggle('position')"
-											v-bind:checked="fields.includes(prefix + 'position')"
-											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?>
-									</label></a>
-								</li>
-								<li class="dropdown-item">
-									<a v-on:click.prevent.stop="toggle('status')" href="#"><label>
-										<input class="form-check-input"
-											v-on:click.capture.stop="toggle('status')"
-											v-bind:checked="fields.includes(prefix + 'status')"
-											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
-									</label></a>
-								</li>
-								<li class="dropdown-item">
-									<a v-on:click.prevent.stop="toggle('type')" href="#"><label>
-										<input class="form-check-input"
-											v-on:click.capture.stop="toggle('type')"
-											v-bind:checked="fields.includes(prefix + 'type')"
-											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?>
-									</label></a>
-								</li>
-								<li class="dropdown-item">
-									<a v-on:click.prevent.stop="toggle('config')" href="#"><label>
-										<input class="form-check-input"
-											v-on:click.capture.stop="toggle('config')"
-											v-bind:checked="fields.includes(prefix + 'config')"
-											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Config' ) ) ?>
-									</label></a>
-								</li>
-								<li class="dropdown-item">
-									<a v-on:click.prevent.stop="toggle('datestart')" href="#"><label>
-										<input class="form-check-input"
-											v-on:click.capture.stop="toggle('datestart')"
-											v-bind:checked="fields.includes(prefix + 'datestart')"
-											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
-									</label></a>
-								</li>
-								<li class="dropdown-item">
-									<a v-on:click.prevent.stop="toggle('dateend')" href="#"><label>
-										<input class="form-check-input"
-											v-on:click.capture.stop="toggle('dateend')"
-											v-bind:checked="fields.includes(prefix + 'dateend')"
-											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
-									</label></a>
-								</li>
-								<li class="dropdown-item">
-									<a v-on:click.prevent.stop="toggle('refid')" href="#"><label>
-										<input class="form-check-input"
-											v-on:click.capture.stop="toggle('refid')"
-											v-bind:checked="fields.includes(prefix + 'refid')"
-											type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-										<?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?>
-									</label></a>
-								</li>
-							</ul>
-						</div>
+						<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
+							v-on:click.prevent.stop="colselect = true">
+						</a>
 					</th>
 				</tr>
 			</thead>
