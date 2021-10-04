@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-14 09:09+0200\n"
+"POT-Creation-Date: 2021-10-04 18:31+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -251,7 +251,6 @@ msgstr ""
 msgid "Catalog Lists Types"
 msgstr ""
 
-#, fuzzy
 msgid "Categories"
 msgstr "Categories"
 
@@ -458,7 +457,6 @@ msgstr ""
 msgid "Delivery address"
 msgstr ""
 
-#, fuzzy
 msgid "Delivery in"
 msgstr "By delivery type"
 
@@ -492,7 +490,6 @@ msgstr ""
 msgid "Descritive name of the site"
 msgstr ""
 
-#, fuzzy
 msgid "Discount"
 msgstr "By day"
 
@@ -891,7 +888,6 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#, fuzzy
 msgid "New customers"
 msgstr "Customers"
 
@@ -1193,7 +1189,6 @@ msgstr ""
 msgid "Product name"
 msgstr ""
 
-#, fuzzy
 msgid "Product payment"
 msgstr "Orders by payment"
 
@@ -1426,7 +1421,6 @@ msgstr ""
 msgid "Service rebate"
 msgstr ""
 
-#, fuzzy
 msgid "Settings"
 msgstr "Settings"
 
@@ -1840,6 +1834,9 @@ msgid "Years"
 msgstr ""
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
+msgstr ""
+
+msgid "Your export will be available in a few minutes for download"
 msgstr ""
 
 msgid "Your response"

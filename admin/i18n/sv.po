@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Wonjin Choi <dwon97@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
@@ -11,15 +10,15 @@ msgstr ""
 "POT-Creation-Date: 2021-10-04 18:31+0200\n"
 "PO-Revision-Date: 2021-10-04 16:35+0000\n"
 "Last-Translator: Aimeos\n"
-"Language-Team: Korean (http://www.transifex.com/aimeos/aimeos-core/language/ko/)\n"
+"Language-Team: Swedish (http://www.transifex.com/aimeos/aimeos-core/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
@@ -70,11 +69,11 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr ""
+msgstr "%2$s %3$s %4$s %5$s\n%1$s\n%7$s %6$s\n%8$s\n%10$s %11$s %9$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr ""
+msgstr "%2$s %1$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
@@ -101,7 +100,7 @@ msgid "?"
 msgstr ""
 
 msgid "Active"
-msgstr "활성"
+msgstr ""
 
 msgid "Actual price"
 msgstr ""
@@ -110,7 +109,7 @@ msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
 
 msgid "Add"
-msgstr "추가"
+msgstr ""
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -213,7 +212,7 @@ msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
-msgstr ""
+msgstr "Attribut"
 
 msgid "Available currency for the current site"
 msgstr ""
@@ -236,13 +235,13 @@ msgid "Basic"
 msgstr ""
 
 msgid "Basket"
-msgstr ""
+msgstr "Varukorg"
 
 msgid "Billing address"
-msgstr "청구지"
+msgstr "Faktureringsadress"
 
 msgid "Birthday"
-msgstr ""
+msgstr "Födelsedag"
 
 msgid "Birthday of the customer"
 msgstr ""
@@ -251,7 +250,7 @@ msgid "Bug or suggestion?"
 msgstr ""
 
 msgid "Cancel"
-msgstr "취소"
+msgstr "Avbryt"
 
 msgid "Cancel and return to list"
 msgstr ""
@@ -266,7 +265,7 @@ msgid "Catalog Lists Types"
 msgstr ""
 
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
@@ -280,10 +279,10 @@ msgid ""
 msgstr ""
 
 msgid "Choose file"
-msgstr "파일을 선택하세요"
+msgstr ""
 
 msgid "City"
-msgstr "도시"
+msgstr "Stad"
 
 msgid "City or town name (required)"
 msgstr ""
@@ -297,7 +296,7 @@ msgid "Class \"%1$s\" not found"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "Stäng"
 
 msgid "Code"
 msgstr ""
@@ -318,7 +317,7 @@ msgid "Communication"
 msgstr ""
 
 msgid "Company"
-msgstr "회사"
+msgstr "Företag"
 
 msgid "Company details"
 msgstr ""
@@ -356,7 +355,7 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 msgid "Country ID"
 msgstr ""
@@ -379,7 +378,7 @@ msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
 
 msgid "Created"
-msgstr ""
+msgstr "Skapad"
 
 msgid "Currencies"
 msgstr ""
@@ -457,7 +456,7 @@ msgid "Default"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
 msgid "Delete items?"
 msgstr ""
@@ -472,10 +471,10 @@ msgid "Deleting reviews is not allowed"
 msgstr ""
 
 msgid "Delivery"
-msgstr ""
+msgstr "Leverans"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "Leveransadress"
 
 msgid "Delivery in"
 msgstr ""
@@ -532,7 +531,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr ""
+msgstr "E-post"
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -565,7 +564,7 @@ msgid "Email"
 msgstr ""
 
 msgid "End date"
-msgstr ""
+msgstr "Slutdatum"
 
 msgid "End date (optional)"
 msgstr ""
@@ -613,7 +612,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "Förnamn"
 
 msgid "First name (optional)"
 msgstr ""
@@ -749,7 +748,7 @@ msgid "Internal type name shown in the administration interface"
 msgstr ""
 
 msgid "Interval"
-msgstr ""
+msgstr "Intervall"
 
 msgid "Interval (required)"
 msgstr ""
@@ -798,7 +797,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
 msgid "Language ID"
 msgstr ""
@@ -816,7 +815,7 @@ msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "Efternamn"
 
 msgid "Last name (optional)"
 msgstr ""
@@ -836,7 +835,7 @@ msgid "Latest orders"
 msgstr ""
 
 msgid "Length"
-msgstr ""
+msgstr "Längd"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
@@ -910,7 +909,7 @@ msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 msgid "Name in URL (optional)"
 msgstr ""
@@ -935,7 +934,7 @@ msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Nästa"
 
 msgid "Next date"
 msgstr ""
@@ -1011,7 +1010,7 @@ msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
-msgstr ""
+msgstr "Option"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
@@ -1073,10 +1072,10 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "Sida %1$d av %2$d"
 
 msgid "Password"
-msgstr ""
+msgstr "Lösenord"
 
 msgid "Password (required)"
 msgstr ""
@@ -1091,10 +1090,10 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr ""
+msgstr "Betalning"
 
 msgid "Payment status"
-msgstr ""
+msgstr "Betalningsstatus"
 
 msgid "Payment types"
 msgstr ""
@@ -1110,7 +1109,7 @@ msgid "Personal data"
 msgstr ""
 
 msgid "Please select"
-msgstr ""
+msgstr "Vönligen välj"
 
 msgid "Plugin"
 msgstr ""
@@ -1152,10 +1151,10 @@ msgid "Potential problems"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Tidigare"
 
 msgid "Price"
-msgstr ""
+msgstr "Pris"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1185,7 +1184,7 @@ msgid "Problem"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 msgid "Product ID"
 msgstr ""
@@ -1280,7 +1279,7 @@ msgid "Promotion"
 msgstr ""
 
 msgid "Properties"
-msgstr ""
+msgstr "Egenskaper"
 
 msgid "Property value (required)"
 msgstr ""
@@ -1295,7 +1294,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Antal"
 
 msgid "Quantity scale"
 msgstr ""
@@ -1304,7 +1303,7 @@ msgid "Rabate"
 msgstr ""
 
 msgid "Rating"
-msgstr ""
+msgstr "Betyg"
 
 msgid "Rating of the reviewer"
 msgstr ""
@@ -1321,7 +1320,7 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
-msgstr ""
+msgstr "Referens"
 
 msgid "Reference ID"
 msgstr ""
@@ -1351,7 +1350,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Återställ"
 
 msgid "Response"
 msgstr ""
@@ -1415,10 +1414,10 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr ""
+msgstr "Tilltal"
 
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 msgid "Save & Close"
 msgstr ""
@@ -1433,7 +1432,7 @@ msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 msgid "Second level type for grouping items"
 msgstr ""
@@ -1487,7 +1486,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr ""
+msgstr "Frakt"
 
 msgid "Shipping / Payment costs"
 msgstr ""
@@ -1531,7 +1530,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "Visa"
 
 msgid "Show entry"
 msgstr ""
@@ -1568,7 +1567,7 @@ msgid "Sites"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Storlek"
 
 msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
@@ -1586,7 +1585,7 @@ msgid "State"
 msgstr ""
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Stock Type"
 msgstr ""
@@ -1601,13 +1600,13 @@ msgid "Stock type"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Gatuadress"
 
 msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr ""
+msgstr "Delsumma"
 
 msgid "Subscription"
 msgstr ""
@@ -1618,10 +1617,10 @@ msgid ""
 msgstr ""
 
 msgid "Suggested products"
-msgstr ""
+msgstr "Föreslagna produkkter"
 
 msgid "Sum"
-msgstr ""
+msgstr "Summa"
 
 msgid "Supplier"
 msgstr ""
@@ -1645,7 +1644,7 @@ msgid "Tax rate in %"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "Telefon"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1739,7 +1738,7 @@ msgid "Top countries"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Total orders"
 msgstr ""
@@ -1888,7 +1887,7 @@ msgid ""
 msgstr ""
 
 msgid "Web site"
-msgstr ""
+msgstr "Webbplats"
 
 msgid "Web site URL (optional)"
 msgstr ""
@@ -1900,7 +1899,7 @@ msgid "Weight"
 msgstr ""
 
 msgid "Width"
-msgstr ""
+msgstr "Width"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr ""
@@ -1925,17 +1924,17 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr ""
+msgstr "Adresser"
 
 msgid "address:delivery"
-msgstr ""
+msgstr "Leveransadress"
 
 msgid "address:payment"
-msgstr "청구지"
+msgstr "Faktureringsadress"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Attribut"
 
 #, php-format
 msgid "bundle"
@@ -1943,22 +1942,22 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Kategorier"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "Kategorier"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "Egenskaper"
 
 #, php-format
 msgid "code"
 msgstr ""
 
 msgid "company"
-msgstr "회사"
+msgstr "Företag"
 
 #, php-format
 msgid "configuration"
@@ -2026,7 +2025,7 @@ msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Senaste"
 
 #, php-format
 msgid "locale"
@@ -2075,7 +2074,7 @@ msgid "no"
 msgstr ""
 
 msgid "none"
-msgstr ""
+msgstr "inget"
 
 msgid "not available any more"
 msgstr ""
@@ -2144,7 +2143,7 @@ msgstr ""
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "Egenskaper"
 
 #, php-format
 msgid "quick/countcompleted"
@@ -2177,7 +2176,7 @@ msgstr ""
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Rescensioner"
 
 #, php-format
 msgid "rule"
@@ -2197,7 +2196,7 @@ msgstr ""
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "Tjänster"
 
 #, php-format
 msgid "servicedelivery"
@@ -2260,11 +2259,11 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Prenumerationer"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Butiker"
 
 msgid "tag"
 msgstr ""
@@ -2279,7 +2278,7 @@ msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "Attribut"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2347,7 +2346,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Tjänster"
 
 #, php-format
 msgid "type/service/lists"
