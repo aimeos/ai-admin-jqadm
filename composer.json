@@ -15,7 +15,7 @@
 	"minimum-stability": "dev",
 	"require": {
 		"php": "~7.1||~8.0",
-		"aimeos/aimeos-core": "dev-master"
+		"aimeos/aimeos-core": "2021.10.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~7.0||~8.0||~9.0",
