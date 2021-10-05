@@ -547,7 +547,7 @@ $statusList = [
 										<div class="form-group row optional">
 											<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
 											<div class="col-sm-8">
-												<select class="form-select item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+												<select class="form-control item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.countryid' ) ) ); ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.countryid' ) ); ?>"
 													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
