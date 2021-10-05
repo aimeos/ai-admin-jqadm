@@ -224,13 +224,19 @@ $keys = [
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
 								<div class="col-sm-8">
-									<select is="combo-box" class="form-control c-select item-countryid" required="required"
-										v-bind:name="`<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'supplier.address.countryid' ) ) ); ?>`.replace('idx', idx)"
-										v-bind:readonly="checkSite('supplier.address.siteid', idx)"
-										v-bind:tabindex="`<?= $this->get( 'tabindex' ); ?>`"
-										v-bind:getfcn="getCountries"
-										v-model="items[idx]['supplier.address.countryid']" >
-										<option value=""></option>
+									<select class="form-select item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										v-bind:name="`<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'supplier.address.countryid' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:readonly="items[idx]['supplier.address.siteid'] != siteid"
+										v-model="items[idx]['supplier.address.countryid']" />
+										<option value="" disabled>
+											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+										</option>
+
+										<?php foreach( $this->get( 'countries', [] ) as $code => $label ) : ?>
+											<option value="<?= $enc->attr( $code ) ?>" >
+												<?= $enc->html( $label ) ?>
+											</option>
+										<?php endforeach ?>
 									</select>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">

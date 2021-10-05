@@ -547,11 +547,20 @@ $statusList = [
 										<div class="form-group row optional">
 											<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
 											<div class="col-sm-8">
-												<input class="form-control item-countryid" type="text" tabindex="1" maxlength="2" pattern="^[a-zA-Z]{2}$" data-field="countryid"
+												<select class="form-select item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.base.address.countryid' ) ) ); ?>"
-													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country code (required)' ) ); ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.base.address.countryid' ) ); ?>"
-													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> />
+													<?= $this->site()->readonly( $basket->getLocale()->getSiteId() ); ?> >
+													<option value="" disabled>
+														<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+													</option>
+
+													<?php foreach( $this->get( 'countries', [] ) as $code => $label ) : ?>
+														<option value="<?= $enc->attr( $code ) ?>" >
+															<?= $enc->html( $label ) ?>
+														</option>
+													<?php endforeach ?>
+												</select>
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
 												<?= $enc->html( $this->translate( 'admin', 'Two letter ISO country code' ) ); ?>
