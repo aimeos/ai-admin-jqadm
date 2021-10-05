@@ -139,7 +139,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'item' => array(
 				'coupon.id' => '',
 				'coupon.label' => 'jqadm test label',
-				'coupon.provider' => 'Example',
+				'coupon.provider' => 'None',
 				'coupon.datestart' => null,
 				'coupon.dateend' => null,
 				'config' => array(
