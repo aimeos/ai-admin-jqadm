@@ -42,6 +42,7 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'customer' );
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 
+			$view->countries = $this->getCountries();
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemGroups = $this->getGroupItems();
@@ -90,6 +91,7 @@ class Standard
 
 			$data['customer.siteid'] = $view->item->getSiteId();
 
+			$view->countries = $this->getCountries();
 			$view->itemSubparts = $this->getSubClientNames();
 			$view->itemGroups = $this->getGroupItems();
 			$view->itemData = $data;
@@ -195,6 +197,7 @@ class Standard
 
 			$manager = \Aimeos\MShop::create( $context, 'customer' );
 
+			$view->countries = $this->getCountries();
 			$view->item = $manager->getItem( $id, $this->getDomains() );
 			$view->itemGroups = $this->getGroupItems( $view->item );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -425,6 +428,25 @@ class Standard
 		 * @see admin/jqadm/customer/decorators/global
 		 */
 		return $this->createSubClient( 'customer/' . $type, $name );
+	}
+
+
+	/**
+	 * Returns the available countries
+	 *
+	 * @return array Associative list of country codes as keys and names as values
+	 */
+	public function getCountries()
+	{
+		$codes = [];
+		$context = $this->getContext();
+
+		foreach( $context->config()->get( 'admin/jqadm/countries', [] ) as $code ) {
+				$codes[$code] = $context->getI18n()->dt( 'country', $code );
+		}
+
+		asort( $codes );
+		return $codes;
 	}
 
 
