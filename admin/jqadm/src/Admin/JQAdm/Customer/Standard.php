@@ -441,7 +441,7 @@ class Standard
 		$codes = [];
 		$context = $this->getContext();
 
-		foreach( $context->config()->get( 'admin/jqadm/countries', [] ) as $code ) {
+		foreach( $context->getConfig()->get( 'admin/jqadm/countries', [] ) as $code ) {
 				$codes[$code] = $context->getI18n()->dt( 'country', $code );
 		}
 
