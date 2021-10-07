@@ -19,4 +19,31 @@ namespace Aimeos\Admin\JQAdm;
  */
 class Exception extends \Exception
 {
+	private $details;
+
+
+	/**
+	 * Initializes the object.
+	 *
+	 * @param string $message Exception message
+	 * @param int $code Custom exception code
+	 * @param mixed $details Custom exception details
+	 */
+	public function __construct( string $message = '', int $code = 0, $details = null )
+	{
+		parent::__construct( $message, $code );
+
+		$this->details = $details;
+	}
+
+
+	/**
+	 * Returns the custom exception details
+	 *
+	 * @return mixed Custom exception details
+	 */
+	public function getDetails()
+	{
+		return $this->details;
+	}
 }

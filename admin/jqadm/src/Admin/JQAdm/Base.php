@@ -569,8 +569,13 @@ abstract class Base
 	 */
 	protected function log( \Exception $e ) : Iface
 	{
-		$msg = $e->getMessage() . PHP_EOL . $e->getTraceAsString();
-		$this->context->getLogger()->log( $msg, \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
+		$msg = $e->getMessage() . PHP_EOL;
+
+		if( $e instanceof \Aimeos\Admin\JQAdm\Exception ) {
+			$msg .= print_r( $e->getDetails(), true ) . PHP_EOL;
+		}
+
+		$this->context->getLogger()->log( $msg . $e->getTraceAsString(), \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
 
 		return $this;
 	}
@@ -677,12 +682,12 @@ abstract class Base
 		if( $e instanceof \Aimeos\Admin\JQAdm\Exception )
 		{
 			$view->errors = array_merge( $view->get( 'errors', [] ), [$e->getMessage()] );
-			return $this;
+			return $this->log( $e );
 		}
 		elseif( $e instanceof \Aimeos\MShop\Exception )
 		{
 			$view->errors = array_merge( $view->get( 'errors', [] ), [$i18n->dt( 'mshop', $e->getMessage() )] );
-			return $this;
+			return $this->log( $e );
 		}
 
 		switch( $method )
