@@ -278,7 +278,7 @@
 
 /* Detail view */
 
-.aimeos h2.item-header {
+.aimeos .item-header {
 	font-size: 150%;
 	padding: 0.5rem 0;
 	margin-bottom: 1rem;
@@ -288,6 +288,10 @@
 .aimeos h2.item-header.is-invalid {
 	color: var(--bs-danger, #dc3545);
 	border-bottom: 1px solid var(--bs-danger, #dc3545);
+}
+
+.aimeos h3.item-header {
+	font-size: 125%;
 }
 
 .aimeos .item-meta {

@@ -140,14 +140,13 @@ a, a:hover {
 .table:not(.list-items) {
 	margin: 0.75rem 0;
 }
+.table>:not(:first-child) {
+	border-width: 0;
+}
 
 .table>:not(caption)>*>td {
 	border-bottom-color: transparent;
 	background-image: none;
-}
-
-.table tr>th {
-	border-bottom-color: var(--bs-line, #bbb) !important;
 }
 
 .table.list-items tr:not(:last-child)>td,
