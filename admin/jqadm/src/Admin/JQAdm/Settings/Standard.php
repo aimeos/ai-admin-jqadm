@@ -96,7 +96,8 @@ class Standard
 
 		try
 		{
-			$view->itemData = $this->toArray( $this->getContext()->getLocale()->getSiteItem() );
+			$view->item = $this->getContext()->getLocale()->getSiteItem();
+			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'item', [] ) );
 			$view->itemBody = parent::search();
 		}
 		catch( \Exception $e )
