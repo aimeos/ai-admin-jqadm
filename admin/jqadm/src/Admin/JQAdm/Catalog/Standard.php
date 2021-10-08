@@ -426,21 +426,21 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Catalog\Item\Iface
 	{
-		$conf = [];
-
-		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
-		{
-			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
-				$conf[$key] = trim( $entry['val'] ?? '' );
-			}
-		}
-
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
 
 		if( isset( $data['catalog.id'] ) && $data['catalog.id'] != '' ) {
 			$item = $manager->get( $data['catalog.id'], $this->getDomains() );
 		} else {
 			$item = $manager->create();
+		}
+
+		$conf = [];
+
+		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
+		{
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
+				$conf[$key] = trim( $entry['val'] ?? null );
+			}
 		}
 
 		$item = $item->fromArray( $data, true )->setConfig( $conf );
