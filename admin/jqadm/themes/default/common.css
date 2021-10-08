@@ -106,6 +106,7 @@ body {
 }
 
 .aimeos a.disabled,
+.aimeos tr.disabled,
 .aimeos div.disabled,
 .aimeos span.disabled {
 	text-decoration: line-through;
