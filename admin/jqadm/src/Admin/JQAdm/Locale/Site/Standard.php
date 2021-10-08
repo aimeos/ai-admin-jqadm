@@ -459,14 +459,16 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$item->fromArray( $data, true );
+		$conf = [];
 
 		foreach( (array) $this->getValue( $data, 'config', [] ) as $entry )
 		{
-			if( trim( $entry['key'] ?? '' ) !== '' ) {
-				$item->setConfigValue( $entry['key'], $entry['val'] ?? null );
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
+				$conf[$key] = trim( $entry['val'] ?? null );
 			}
 		}
+
+		$item->fromArray( $data, true )->setConfig( $conf );
 
 		if( $item->getId() == null ) {
 			return $manager->insert( $item );

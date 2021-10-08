@@ -455,21 +455,21 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$conf = [];
-
-		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
-		{
-			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
-				$conf[$key] = trim( $entry['val'] ?? '' );
-			}
-		}
-
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
 
 		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
 			$item = $manager->get( $data['product.id'], $this->getDomains() );
 		} else {
 			$item = $manager->create();
+		}
+
+		$conf = [];
+
+		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
+		{
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
+				$conf[$key] = trim( $entry['val'] ?? null );
+			}
 		}
 
 		return $item->fromArray( $data, true )->setConfig( $conf );
