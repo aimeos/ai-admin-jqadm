@@ -77,6 +77,7 @@ $params = $this->param();
 $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
 
 $statuslist = array(
+	null => '',
 	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
 	'0' => $this->translate( 'mshop/code', 'pay:0' ),
 	'1' => $this->translate( 'mshop/code', 'pay:1' ),
@@ -85,6 +86,7 @@ $statuslist = array(
 	'4' => $this->translate( 'mshop/code', 'pay:4' ),
 	'5' => $this->translate( 'mshop/code', 'pay:5' ),
 	'6' => $this->translate( 'mshop/code', 'pay:6' ),
+	'7' => $this->translate( 'mshop/code', 'pay:7' ),
 );
 
 ?>

@@ -57,6 +57,7 @@ $paymentStatusList = [
 	'4' => $this->translate( 'mshop/code', 'pay:4' ),
 	'5' => $this->translate( 'mshop/code', 'pay:5' ),
 	'6' => $this->translate( 'mshop/code', 'pay:6' ),
+	'7' => $this->translate( 'mshop/code', 'pay:7' ),
 ];
 
 $statusList = [
