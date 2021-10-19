@@ -327,6 +327,9 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										<option value="1" <?= $selected( $this->get( 'itemData/product.status', 1 ), 1 ) ?> >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
 										</option>
+										<option value="2" <?= $selected( $this->get( 'itemData/product.status', 1 ), 2 ) ?> >
+											<?= $enc->html( $this->translate( 'mshop/code', 'status:2' ) ) ?>
+										</option>
 										<option value="0" <?= $selected( $this->get( 'itemData/product.status', 1 ), 0 ) ?> >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
 										</option>
