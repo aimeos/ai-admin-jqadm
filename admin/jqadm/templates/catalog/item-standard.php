@@ -166,6 +166,9 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													<option value="1" <?= $selected( $this->get( 'itemData/catalog.status', 1 ), 1 ) ?> >
 														<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
 													</option>
+													<option value="2" <?= $selected( $this->get( 'itemData/catalog.status', 1 ), 1 ) ?> >
+														<?= $enc->html( $this->translate( 'mshop/code', 'status:2' ) ) ?>
+													</option>
 													<option value="0" <?= $selected( $this->get( 'itemData/catalog.status', 1 ), 0 ) ?> >
 														<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
 													</option>
