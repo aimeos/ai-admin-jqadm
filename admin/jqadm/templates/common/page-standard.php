@@ -109,7 +109,7 @@ $navlist = map( $this->config( 'admin/jqadm/navbar', [] ) )->ksort();
 
 foreach( $navlist as $key => $navitem )
 {
-	$name = is_array( $navitem ) ? ( $navitem[''] ?? current( $nav ) ) : $navitem;
+	$name = is_array( $navitem ) ? ( $navitem['_'] ?? current( $nav ) ) : $navitem;
 
 	if( !$this->access( $this->config( 'admin/jqadm/resource/' . $name . '/groups', [] ) ) ) {
 		$navlist->remove( $key );
@@ -133,9 +133,9 @@ $pos = $navlist->pos( function( $item, $key ) use ( $resource ) {
 	return is_array( $item ) ? in_array( $resource, $item ) : !strncmp( $resource, $item, strlen( $item ) );
 } );
 $before = $pos > 0 ? $navlist->slice( $pos - 1, 1 )->first() : null;
-$before = is_array( $before ) ? $before[''] ?? reset( $before ) : $before;
+$before = is_array( $before ) ? $before['_'] ?? reset( $before ) : $before;
 $after = $pos < count( $navlist ) ? $navlist->slice( $pos + 1, 1 )->first() : null;
-$after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
+$after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 
 
 ?>
@@ -182,7 +182,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 				<?php endif ?>
 
 				<?php foreach( $navlist as $nav => $navitem ) : ?>
-					<?php if( is_array( $navitem ) ) : $nav = $navitem[''] ?? current( $nav ) ?>
+					<?php if( is_array( $navitem ) ) : $nav = $navitem['_'] ?? current( $nav ) ?>
 
 						<li class="treeview menuitem-<?= $enc->attr( $nav ) ?> <?= $nav === $before ? 'before' : '' ?> <?= in_array( $resource, $navitem ) !== false ? 'active' : '' ?> <?= $nav === $after ? 'after' : '' ?>">
 							<span class="item-group">
@@ -196,7 +196,7 @@ $after = is_array( $after ) ? $after[''] ?? reset( $after ) : $after;
 								</div>
 								<ul class="tree-menu">
 
-								<?php foreach( map( $navitem )->remove( '' )->ksort() as $subresource ) : ?>
+								<?php foreach( map( $navitem )->remove( '_' )->ksort() as $subresource ) : ?>
 										<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
 											<?php $key = $this->config( 'admin/jqadm/resource/' . $subresource . '/key' ) ?>
 
