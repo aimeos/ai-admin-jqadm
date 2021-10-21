@@ -323,6 +323,10 @@ class Standard
 				$stockItem->setStockLevel( $stockItem->getStockLevel() + $entry['stock.stockdiff'] ?? 0 );
 			}
 
+			if( $stockItem->getStockLevel() > 0 || $stockItem->getStockLevel() === null ) {
+				$item->inStock( 1 );
+			}
+
 			$stockItems[] = $stockItem;
 
 			$stocks->remove( $id );
