@@ -290,8 +290,10 @@ class Standard
 			}
 
 			$item->setType( $this->getValue( $data, 'order.type/' . $idx, $item->getType() ) );
-			$item->setStatusDelivery( $this->getValue( $data, 'order.statusdelivery/' . $idx ) );
-			$item->setStatusPayment( $this->getValue( $data, 'order.statuspayment/' . $idx ) );
+			$value = $this->getValue( $data, 'order.statusdelivery/' . $idx );
+			$item->setStatusDelivery( is_numeric( $value ) ? (int) $value : null );
+			$value = $this->getValue( $data, 'order.statuspayment/' . $idx );
+			$item->setStatusPayment( is_numeric( $value ) ? (int) $value : null );
 			$item->setDateDelivery( $this->getValue( $data, 'order.datedelivery/' . $idx ) );
 			$item->setDatePayment( $this->getValue( $data, 'order.datepayment/' . $idx ) );
 			$item->setRelatedId( $this->getValue( $data, 'order.relatedid/' . $idx ) );
