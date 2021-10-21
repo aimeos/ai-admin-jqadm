@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Ranu Yulianto <vanarif@gmail.com>, 2018
+# Wira Sandy, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-04 18:31+0200\n"
-"PO-Revision-Date: 2021-10-04 16:35+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2021-10-12 12:52+0200\n"
+"PO-Revision-Date: 2021-10-21 00:23+0000\n"
+"Last-Translator: Wira Sandy\n"
 "Language-Team: Indonesian (http://www.transifex.com/aimeos/aimeos-core/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,41 +88,41 @@ msgstr ""
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(International) Nomor fax tanpa karakter pemisah. Dapat diawali dengan tanda \"+\""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(International) Nomor telepon tanpa karakter pemisah. Dapat diawali dengan tanda \"+\""
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ Pajak"
 
 msgid "?"
 msgstr ""
 
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Harga aktual"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "Harga aktual yang didapatkan oleh konsumen untuk membeli produk pada website"
 
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Tambahan biaya pengiriman untuk tiap barang, misal: Rp20 untuk satu barang berat akan menjadi total Rp100 untuk 5 barang tersebut"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Tambahan informasi untuk menjelaskan lokasi hunian konsumen secara rinci"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Tambahan informasi untuk menjelaskan lokasi hunian pemasok secara rinci"
 
 msgid "Address 1"
 msgstr "Alamat 1"
@@ -133,29 +134,29 @@ msgid "Address 3"
 msgstr "Alamat 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Detail alamat rumah pelanggan untuk pengiriman"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Detail alamat rumah pemasok untuk pengiriman"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Tipe Admin JQAdm kosong"
 
 msgid "Advanced"
 msgstr ""
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos caching dinonaktifkan oleh \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos debug logging diaktifkan oleh \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Aimeos object tidak tersedia"
 
 msgid "All"
 msgstr "Semua"
@@ -163,24 +164,24 @@ msgstr "Semua"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Segala hal yang menjelaskan suatu produk secara unik, misal: lebar, panjang, dan warna dari celana jeans"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "Membolehkan kustomisasi harga"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Membolehkan konsumen memilih berapa banyak yang ingin mereka bayarkan"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Isian alfanumerik yang mengidentifikasikan grup secara unik"
 
 msgid "Apply"
-msgstr ""
+msgstr "Terapkan"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Opsi konfigurasi spesifik, akan tersedia sebagai pasangan kata kunci-isi pada template"
 
 msgid "Attribute"
 msgstr "Atribut"
@@ -280,7 +281,7 @@ msgid ""
 msgstr ""
 
 msgid "Choose file"
-msgstr ""
+msgstr "Pilih file"
 
 msgid "City"
 msgstr "Kota"
