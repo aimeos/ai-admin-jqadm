@@ -771,6 +771,7 @@
 }
 
 
+.prototype-list,
 .prototype-map,
 .prototype {
 	display: none;
