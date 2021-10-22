@@ -361,11 +361,13 @@
 	width: 49%;
 }
 
-.aimeos .config-map-table {
+.aimeos .config-map-table,
+.aimeos .config-list-table {
 	display: none;
 }
 
-.aimeos td.config-map-action-add {
+.aimeos td.config-map-action-add,
+.aimeos td.config-list-action-add {
 	width: 2%;
 }
 
@@ -769,6 +771,7 @@
 }
 
 
+.prototype-list,
 .prototype-map,
 .prototype {
 	display: none;

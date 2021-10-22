@@ -360,6 +360,11 @@ Aimeos.Config = {
 		this.deleteConfigMapLine();
 		this.hideConfigMap();
 		this.showConfigMap();
+
+		this.addConfigListLine();
+		this.deleteConfigListLine();
+		this.hideConfigList();
+		this.showConfigList();
 	},
 
 
@@ -507,6 +512,21 @@ Aimeos.Config = {
 	},
 
 
+	addConfigListLine : function() {
+
+		$(".aimeos .item-config").on("click", ".config-list-table .config-list-actions .act-add", function(ev) {
+
+			var node = $(this).closest(".config-list-table");
+			var clone = Aimeos.addClone($(".prototype-list", node));
+
+			clone.removeClass("prototype-list");
+			$(".act-delete", clone).focus();
+
+			return false;
+		});
+	},
+
+
 	addConfigMapLine : function() {
 
 		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-add", function(ev) {
@@ -522,10 +542,40 @@ Aimeos.Config = {
 	},
 
 
+	deleteConfigListLine : function() {
+
+		$(".aimeos .item-config").on("click", ".config-list-table .config-list-actions .act-delete", function(ev) {
+			Aimeos.focusBefore($(this).closest("tr")).remove();
+		});
+	},
+
+
 	deleteConfigMapLine : function() {
 
 		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-delete", function(ev) {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
+		});
+	},
+
+
+	hideConfigList : function() {
+
+		$(".aimeos .item-config").on("click", ".config-list-table .config-list-actions .act-update", function(ev) {
+
+			var obj = [];
+			var table = $(this).closest(".config-list-table");
+			var lines = $(".config-list-row:not(.prototype-list)", table)
+
+			lines.each(function() {
+				obj.push($("input.config-list-value", this).val());
+			});
+
+			$(".config-value", table.parent()).val(JSON.stringify(obj));
+
+			table.hide();
+			lines.remove();
+
+			return false;
 		});
 	},
 
@@ -548,6 +598,33 @@ Aimeos.Config = {
 			lines.remove();
 
 			return false;
+		});
+	},
+
+
+	showConfigList : function() {
+
+		$(".aimeos .item-config").on("focus", ".config-value", function() {
+
+			var table = $(".config-list-table", $(this).parent());
+
+			if(table.is(":visible")) {
+				return false;
+			}
+
+			try {
+				var obj = JSON.parse($(this).val())
+			} catch(e) {
+				var obj = [];
+			}
+
+			for(var val of obj) {
+				var clone = Aimeos.addClone($(".prototype-list", table));
+				$(".config-list-value", clone).val(val);
+				clone.removeClass("prototype-list");
+			}
+
+			table.show();
 		});
 	},
 

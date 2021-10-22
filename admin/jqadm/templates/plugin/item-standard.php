@@ -266,10 +266,10 @@ $enc = $this->encoder();
 															</div>
 														</td>
 														<td class="config-map-row-key">
-															<input type="text" class="config-map-key form-control" tabindex="1" disabled="disabled" name="" />
+															<input type="text" class="config-map-key form-control" tabindex="1" disabled="disabled" />
 														</td>
 														<td class="config-map-row-value">
-															<input type="text" class="config-map-value form-control" tabindex="1" disabled="disabled" name="" />
+															<input type="text" class="config-map-value form-control" tabindex="1" disabled="disabled" />
 														</td>
 													</tr>
 													<tr class="config-map-actions">
@@ -279,6 +279,36 @@ $enc = $this->encoder();
 															</div>
 														</td>
 														<td class="config-map-action-update" colspan="2">
+															<div class="btn btn-primary act-update" tabindex="1">
+																<?= $enc->attr( $this->translate( 'admin', 'OK' ) ) ?>
+															</div>
+														</td>
+													</tr>
+												</table>
+											</div>
+
+											<div class="config-type config-type-list">
+												<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
+													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" />
+
+												<table class="table config-list-table">
+													<tr class="config-list-row prototype-list">
+														<td class="config-list-actions">
+															<div class="btn act-delete fa" tabindex="1"
+																title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
+															</div>
+														</td>
+														<td class="config-list-row-value">
+															<input type="text" class="config-list-value form-control" tabindex="1" disabled="disabled" />
+														</td>
+													</tr>
+													<tr class="config-list-actions">
+														<td class="config-list-action-add">
+															<div class="btn act-add fa" tabindex="1"
+																title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry' ) ) ?>">
+															</div>
+														</td>
+														<td class="config-list-action-update">
 															<div class="btn btn-primary act-update" tabindex="1">
 																<?= $enc->attr( $this->translate( 'admin', 'OK' ) ) ?>
 															</div>
