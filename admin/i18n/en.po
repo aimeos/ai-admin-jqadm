@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
@@ -1858,9 +1858,8 @@ msgstr ""
 msgid "Zip code (optional)"
 msgstr ""
 
-#, fuzzy, php-format
 msgid "account"
-msgstr "By day"
+msgstr "Account"
 
 #, php-format
 msgid "address"
