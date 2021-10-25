@@ -215,7 +215,7 @@ Vue.component('config-table', {
 
 	methods: {
 		add: function() {
-			let list = this.items;
+			let list = [...this.items];
 			list.push({key: '', val: ''});
 			this.$emit('update:config', list);
 		},
@@ -225,7 +225,7 @@ Vue.component('config-table', {
 		},
 
 		remove: function(idx) {
-			let list = this.items;
+			let list = [...this.items];
 			list.splice(idx, 1);
 			this.$emit('update:config', list);
 		}
