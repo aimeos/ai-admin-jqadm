@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-04 18:31+0200\n"
+"POT-Creation-Date: 2021-10-25 13:50+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -93,6 +93,10 @@ msgstr ""
 
 msgid "?"
 msgstr ""
+
+#, fuzzy
+msgid "Account"
+msgstr "By day"
 
 msgid "Active"
 msgstr ""
@@ -512,6 +516,9 @@ msgid "E-Mail"
 msgstr ""
 
 msgid "E-Mail address (required)"
+msgstr ""
+
+msgid "E-Mail address or account name (required)"
 msgstr ""
 
 msgid "E-Mail address used for sending shop related e-mails"
@@ -1746,6 +1753,9 @@ msgstr ""
 msgid "Unique code to identify the service, usually self-invented"
 msgstr ""
 
+msgid "Unique customer account name"
+msgstr ""
+
 msgid "Unique customer e-mail address"
 msgstr ""
 
@@ -1847,6 +1857,10 @@ msgstr ""
 
 msgid "Zip code (optional)"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "account"
+msgstr "By day"
 
 #, php-format
 msgid "address"
@@ -2043,6 +2057,10 @@ msgstr "authorized"
 msgid "pay:6"
 msgstr "received"
 
+#, fuzzy
+msgid "pay:7"
+msgstr "deleted"
+
 #, php-format
 msgid "paymentstatus"
 msgstr "Orders by payment status"
@@ -2178,6 +2196,10 @@ msgstr "disabled"
 
 msgid "status:1"
 msgstr "enabled"
+
+#, fuzzy
+msgid "status:2"
+msgstr "archive"
 
 #, php-format
 msgid "stock"

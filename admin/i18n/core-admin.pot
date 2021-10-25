@@ -3,11 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ai-admin-jqadm\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-04 18:31+0200\n"
+"POT-Creation-Date: 2021-10-25 13:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,6 +93,9 @@ msgid "+ Tax"
 msgstr ""
 
 msgid "?"
+msgstr ""
+
+msgid "Account"
 msgstr ""
 
 msgid "Active"
@@ -512,6 +516,9 @@ msgid "E-Mail"
 msgstr ""
 
 msgid "E-Mail address (required)"
+msgstr ""
+
+msgid "E-Mail address or account name (required)"
 msgstr ""
 
 msgid "E-Mail address used for sending shop related e-mails"
@@ -1746,6 +1753,9 @@ msgstr ""
 msgid "Unique code to identify the service, usually self-invented"
 msgstr ""
 
+msgid "Unique customer account name"
+msgstr ""
+
 msgid "Unique customer e-mail address"
 msgstr ""
 
@@ -1846,6 +1856,10 @@ msgid "Zip code"
 msgstr ""
 
 msgid "Zip code (optional)"
+msgstr ""
+
+#, php-format
+msgid "account"
 msgstr ""
 
 #, php-format
@@ -2043,6 +2057,9 @@ msgstr "authorized"
 msgid "pay:6"
 msgstr "received"
 
+msgid "pay:7"
+msgstr ""
+
 #, php-format
 msgid "paymentstatus"
 msgstr "By payment status"
@@ -2178,6 +2195,9 @@ msgstr "disabled"
 
 msgid "status:1"
 msgstr "enabled"
+
+msgid "status:2"
+msgstr ""
 
 #, php-format
 msgid "stock"

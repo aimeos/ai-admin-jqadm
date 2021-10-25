@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-12 12:52+0200\n"
-"PO-Revision-Date: 2021-10-04 16:35+0000\n"
+"POT-Creation-Date: 2021-10-25 13:50+0200\n"
+"PO-Revision-Date: 2021-10-25 11:50+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/aimeos/aimeos-core/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -100,6 +100,9 @@ msgstr ""
 
 msgid "?"
 msgstr "?"
+
+msgid "Account"
+msgstr ""
 
 msgid "Active"
 msgstr "Activo"
@@ -537,6 +540,9 @@ msgstr "Correo electrónico"
 
 msgid "E-Mail address (required)"
 msgstr "Dirección de correo electrónico (obligatorio)"
+
+msgid "E-Mail address or account name (required)"
+msgstr ""
 
 msgid "E-Mail address used for sending shop related e-mails"
 msgstr ""
@@ -1821,6 +1827,9 @@ msgstr "Código único (obligatorio)"
 msgid "Unique code to identify the service, usually self-invented"
 msgstr "Código único para identificar el servicio, generalmente autoinventado"
 
+msgid "Unique customer account name"
+msgstr ""
+
 msgid "Unique customer e-mail address"
 msgstr "Dirección de correo electrónico única del cliente"
 
@@ -1923,6 +1932,10 @@ msgstr "Código postal"
 
 msgid "Zip code (optional)"
 msgstr "Código postal (opcional)"
+
+#, php-format
+msgid "account"
+msgstr ""
 
 #, php-format
 msgid "address"
@@ -2119,6 +2132,9 @@ msgstr "autorizado"
 msgid "pay:6"
 msgstr "recibido"
 
+msgid "pay:7"
+msgstr ""
+
 #, php-format
 msgid "paymentstatus"
 msgstr "Por estado de pago"
@@ -2253,6 +2269,9 @@ msgid "status:0"
 msgstr ""
 
 msgid "status:1"
+msgstr ""
+
+msgid "status:2"
 msgstr ""
 
 #, php-format
