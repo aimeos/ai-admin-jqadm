@@ -116,22 +116,22 @@ $params = $this->get( 'pageParams', [] );
 								</div>
 							</div>
 							<div class="form-group row mandatory">
-								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ) ?></label>
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Account' ) ) ?></label>
 								<div class="col-sm-8">
 									<?php if( $this->get( 'itemData/.modify' ) ) : ?>
-										<input class="form-control item-email" type="email" required="required" tabindex="1" autocomplete="off"
+										<input class="form-control item-code" type="text" required="required" tabindex="1" autocomplete="off"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.code' ) ) ) ?>"
-											placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address (required)' ) ) ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address or account name (required)' ) ) ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/customer.code' ) ) ?>"
 											<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
 									<?php else : ?>
-										<span class="form-control item-email" readonly>
+										<span class="form-control item-code">
 											<?= $enc->html( $this->get( 'itemData/customer.code' ) ) ?>
 										</span>
 									<?php endif ?>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Unique customer e-mail address' ) ) ?>
+									<?= $enc->html( $this->translate( 'admin', 'Unique customer account name' ) ) ?>
 								</div>
 							</div>
 							<?php if( $this->get( 'itemData/.modify' ) ) : ?>
@@ -382,6 +382,25 @@ $params = $this->get( 'pageParams', [] );
 
 								<div class="col-xl-6">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ) ?></h2>
+									<div class="form-group row mandatory">
+										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ) ?></label>
+										<div class="col-sm-8">
+											<?php if( $this->get( 'itemData/.modify' ) ) : ?>
+												<input class="form-control item-email" type="email" required="required" tabindex="1" autocomplete="off"
+													name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.email' ) ) ) ?>"
+													placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address (required)' ) ) ?>"
+													value="<?= $enc->attr( $this->get( 'itemData/customer.email' ) ) ?>"
+													<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+											<?php else : ?>
+												<span class="form-control item-email">
+													<?= $enc->html( $this->get( 'itemData/customer.email' ) ) ?>
+												</span>
+											<?php endif ?>
+										</div>
+										<div class="col-sm-12 form-text text-muted help-text">
+											<?= $enc->html( $this->translate( 'admin', 'Unique customer e-mail address' ) ) ?>
+										</div>
+									</div>
 									<div class="form-group row optional">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ) ?></label>
 										<div class="col-sm-8">
