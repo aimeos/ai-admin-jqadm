@@ -133,8 +133,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
-
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
@@ -154,6 +152,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object->save();
 
+		$manager = \Aimeos\MShop::create( $this->context, 'locale/site' );
 		$item = $manager->find( 'jqadm@test' );
 		$manager->delete( $item->getId() );
 

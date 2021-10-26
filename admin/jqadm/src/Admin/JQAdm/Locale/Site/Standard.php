@@ -448,7 +448,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/site' );
 
-		if( isset( $data['locale.site.id'] ) && $data['locale.site.id'] != '' )
+		if( !empty( $data['locale.site.id'] ) )
 		{
 			$this->checkSite( $super, $data['locale.site.id'] );
 			$item = $manager->get( $data['locale.site.id'] );
