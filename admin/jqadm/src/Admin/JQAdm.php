@@ -41,8 +41,10 @@ class JQAdm
 
 		foreach( $parts as $idx => $part )
 		{
-			if( ctype_alnum( $part ) === false ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid characters in client name "%1$s"', $path ) );
+			if( ctype_alnum( $part ) === false )
+			{
+				$msg = $context->translate( 'admin', 'Invalid characters in client name "%1$s"' );
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $path ) );
 			}
 
 			$parts[$idx] = ucwords( $part );
@@ -56,8 +58,10 @@ class JQAdm
 
 		$factory = '\\Aimeos\\Admin\\JQAdm\\' . implode( '\\', $parts ) . '\\Factory';
 
-		if( class_exists( $factory ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( $context->translate( 'admin', 'Class "%1$s" not available', $factory ) );
+		if( class_exists( $factory ) === false )
+		{
+			$msg = $context->translate( 'admin', 'Class "%1$s" not available' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $factory ) );
 		}
 
 		if( ( $client = @call_user_func_array( [$factory, 'create'], [$context, $name] ) ) === false )
