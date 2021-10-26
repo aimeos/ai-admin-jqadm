@@ -215,7 +215,7 @@ Vue.component('config-table', {
 
 	methods: {
 		add: function() {
-			let list = [...this.items];
+			let list = this.items;
 			list.push({key: '', val: ''});
 			this.$emit('update:config', list);
 		},
