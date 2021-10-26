@@ -11,7 +11,7 @@
 namespace Aimeos\Admin\JQAdm\Customer;
 
 sprintf( 'users' ); // for translation
-sprintf( 'account' ); // for translation
+sprintf( 'customer' ); // for translation
 
 
 /**

@@ -20,7 +20,7 @@ return [
 	],
 	30 => [
 		'_' => 'users',
-		10 => 'account',
+		10 => 'customer',
 		20 => 'group',
 	],
 	40 => [
