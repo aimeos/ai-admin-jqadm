@@ -391,18 +391,14 @@ class Standard
 				}
 			}
 
-			$conf = [];
+			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );
 
 			foreach( (array) $this->getValue( $entry, 'config', [] ) as $cfg )
 			{
 				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
-					$conf[$key] = trim( $cfg['val'] ?? '' );
+					$listItem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );
 				}
 			}
-
-			$listItem->fromArray( $entry, true );
-			$listItem->setPosition( $idx );
-			$listItem->setConfig( $conf );
 
 			$attrListItems = $item->getListItems( 'attribute', 'variant', null, false )->toArray();
 			$refItem = $this->addMediaAttributes( $refItem, $attrListItems );
