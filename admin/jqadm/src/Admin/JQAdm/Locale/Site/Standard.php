@@ -459,7 +459,6 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$conf = [];
 		$item->fromArray( $data, true )->setConfig( [] );
 
 		foreach( (array) $this->getValue( $data, 'config', [] ) as $entry )
@@ -469,7 +468,7 @@ class Standard
 			}
 		}
 
-		if( $item->getId() == null ) {
+		if( $item->getId() === null ) {
 			return $manager->insert( $item );
 		}
 
