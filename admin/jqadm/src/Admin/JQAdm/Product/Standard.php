@@ -464,15 +464,16 @@ class Standard
 		}
 
 		$conf = [];
+		$item->fromArray( $data, true )->setConfig( [] );
 
-		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
+		foreach( (array) $this->getValue( $data, 'config', [] ) as $entry )
 		{
 			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
-				$conf[$key] = trim( $entry['val'] ?? '' );
+				$item->setConfigValue( $key, trim( $entry['val'] ?? '' ) );
 			}
 		}
 
-		return $item->fromArray( $data, true )->setConfig( $conf );
+		return $item;
 	}
 
 
@@ -484,20 +485,17 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
-		$unique = substr( md5( microtime( true ) ), -5 );
 		$data = $item->toArray( true );
-		$data['config'] = [];
+		$data['config'] = $this->flatten( $item->getConfig() );
 
 		if( $copy === true )
 		{
+			$unique = substr( md5( microtime( true ) ), -5 );
+
 			$data['product.siteid'] = $this->getContext()->getLocale()->getSiteId();
 			$data['product.code'] = $data['product.code'] . '_' . $unique;
 			$data['product.url'] = $data['product.url'] . '-' . $unique;
 			$data['product.id'] = '';
-		}
-
-		foreach( $item->getConfig() as $key => $value ) {
-			$data['config'][] = ['key' => $key, 'val' => $value];
 		}
 
 		return $data;

@@ -562,6 +562,30 @@ abstract class Base
 
 
 	/**
+	 * Flattens the nested configuration array
+	 *
+	 * @param array $config Multi-dimensional list of key/value pairs
+	 * @param string $path Path of keys separated by slashes (/) to add new values for
+	 * @return array List of arrays with "key" and "val" keys
+	 */
+	protected function flatten( array $config, string $path = '' ) : array
+	{
+		$list = [];
+
+		foreach( $config as $key => $val )
+		{
+			if( is_array( $val ) ) {
+				$list = array_merge( $list, $this->flatten( $val, $path . '/' . $key ) );
+			} else {
+				$list[] = ['key' => trim( $path . '/' . $key, '/' ), 'val' => $val];
+			}
+		}
+
+		return $list;
+	}
+
+
+	/**
 	 * Writes the exception details to the log
 	 *
 	 * @param \Exception $e Exception object

@@ -460,15 +460,14 @@ class Standard
 		}
 
 		$conf = [];
+		$item->fromArray( $data, true )->setConfig( [] );
 
 		foreach( (array) $this->getValue( $data, 'config', [] ) as $entry )
 		{
 			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
-				$conf[$key] = trim( $entry['val'] ?? '' );
+				$item->setConfigValue( $key, trim( $entry['val'] ?? '' ) );
 			}
 		}
-
-		$item->fromArray( $data, true )->setConfig( $conf );
 
 		if( $item->getId() == null ) {
 			return $manager->insert( $item );
@@ -530,29 +529,5 @@ class Standard
 		$default = 'locale/site/item-standard';
 
 		return $view->render( $view->config( $tplconf, $default ) );
-	}
-
-
-	/**
-	 * Flattens the nested configuration array
-	 *
-	 * @param array $config Multi-dimensional list of key/value pairs
-	 * @param string $path Path of keys separated by slashes (/) to add new values for
-	 * @return array List of arrays with "key" and "val" keys
-	 */
-	protected function flatten( array $config, string $path = '' ) : array
-	{
-		$list = [];
-
-		foreach( $config as $key => $val )
-		{
-			if( is_array( $val ) ) {
-				$list = array_merge( $list, $this->flatten( $val, $path . '/' . $key ) );
-			} else {
-				$list[] = ['key' => trim( $path . '/' . $key, '/' ), 'val' => $val];
-			}
-		}
-
-		return $list;
 	}
 }

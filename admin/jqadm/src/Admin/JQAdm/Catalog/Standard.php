@@ -435,15 +435,14 @@ class Standard
 		}
 
 		$conf = [];
+		$item->fromArray( $data, true )->setConfig( [] );
 
-		foreach( (array) $this->getValue( $data, 'config', [] ) as $idx => $entry )
+		foreach( (array) $this->getValue( $data, 'config', [] ) as $entry )
 		{
 			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
-				$conf[$key] = trim( $entry['val'] ?? '' );
+				$item->setConfigValue( $key, trim( $entry['val'] ?? '' ) );
 			}
 		}
-
-		$item = $item->fromArray( $data, true )->setConfig( $conf );
 
 		if( $item->getId() == null ) {
 			return $manager->insert( $item, $data['catalog.parentid'] ?: null );
@@ -462,17 +461,13 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Catalog\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = $item->toArray( true );
-		$data['config'] = [];
+		$data['config'] = $this->flatten( $item->getConfig() );
 
 		if( $copy === true )
 		{
 			$data['catalog.id'] = '';
 			$data['catalog.siteid'] = $item->getSiteId();
 			$data['catalog.code'] = $data['catalog.code'] . '_' . substr( md5( microtime( true ) ), -5 );
-		}
-
-		foreach( $item->getConfig() as $key => $value ) {
-			$data['config'][] = ['key' => $key, 'val' => $value];
 		}
 
 		return $data;
