@@ -468,7 +468,7 @@ class Standard
 			}
 		}
 
-		if( $item->getId() === null ) {
+		if( empty( $item->getId() ) ) {
 			return $manager->insert( $item );
 		}
 
