@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-04 18:31+0200\n"
-"PO-Revision-Date: 2021-10-04 16:35+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2021-10-25 13:50+0200\n"
+"PO-Revision-Date: 2021-10-25 11:50+0000\n"
+"Last-Translator: Vadym Strutovskyi <vadim.strutovskii@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,6 +100,9 @@ msgstr "+ Податок"
 
 msgid "?"
 msgstr ""
+
+msgid "Account"
+msgstr "Акаунт"
 
 msgid "Active"
 msgstr "Активно"
@@ -537,6 +540,9 @@ msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
 msgstr "Адреса ел. пошти (обов`язково)"
+
+msgid "E-Mail address or account name (required)"
+msgstr ""
 
 msgid "E-Mail address used for sending shop related e-mails"
 msgstr ""
@@ -1821,6 +1827,9 @@ msgstr "Унікальний код (обов`язково)"
 msgid "Unique code to identify the service, usually self-invented"
 msgstr "Унікальний код для ідентифікації сервісу, як правило, самостійно вигаданий"
 
+msgid "Unique customer account name"
+msgstr ""
+
 msgid "Unique customer e-mail address"
 msgstr "Унікальна адреса ел. пошти клієнта"
 
@@ -1923,6 +1932,10 @@ msgstr "Індекс"
 
 msgid "Zip code (optional)"
 msgstr "Поштовий код (опціонально)"
+
+#, php-format
+msgid "account"
+msgstr ""
 
 #, php-format
 msgid "address"
@@ -2119,6 +2132,9 @@ msgstr "authorized"
 msgid "pay:6"
 msgstr "received"
 
+msgid "pay:7"
+msgstr ""
+
 #, php-format
 msgid "paymentstatus"
 msgstr "За статусом оплати"
@@ -2253,6 +2269,9 @@ msgid "status:0"
 msgstr ""
 
 msgid "status:1"
+msgstr ""
+
+msgid "status:2"
 msgstr ""
 
 #, php-format

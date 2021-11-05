@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-04 18:31+0200\n"
-"PO-Revision-Date: 2021-10-04 16:35+0000\n"
+"POT-Creation-Date: 2021-10-25 13:50+0200\n"
+"PO-Revision-Date: 2021-10-25 11:50+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Czech (http://www.transifex.com/aimeos/aimeos-core/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -102,6 +102,9 @@ msgstr ""
 
 msgid "?"
 msgstr ""
+
+msgid "Account"
+msgstr "Účet"
 
 msgid "Active"
 msgstr "Aktivní"
@@ -538,6 +541,9 @@ msgid "E-Mail"
 msgstr "E-mail"
 
 msgid "E-Mail address (required)"
+msgstr ""
+
+msgid "E-Mail address or account name (required)"
 msgstr ""
 
 msgid "E-Mail address used for sending shop related e-mails"
@@ -1823,6 +1829,9 @@ msgstr ""
 msgid "Unique code to identify the service, usually self-invented"
 msgstr ""
 
+msgid "Unique customer account name"
+msgstr ""
+
 msgid "Unique customer e-mail address"
 msgstr ""
 
@@ -1924,6 +1933,10 @@ msgid "Zip code"
 msgstr "PSČ"
 
 msgid "Zip code (optional)"
+msgstr ""
+
+#, php-format
+msgid "account"
 msgstr ""
 
 #, php-format
@@ -2121,6 +2134,9 @@ msgstr "autorizováno"
 msgid "pay:6"
 msgstr "obdrženo"
 
+msgid "pay:7"
+msgstr ""
+
 #, php-format
 msgid "paymentstatus"
 msgstr ""
@@ -2255,6 +2271,9 @@ msgid "status:0"
 msgstr ""
 
 msgid "status:1"
+msgstr ""
+
+msgid "status:2"
 msgstr ""
 
 #, php-format
