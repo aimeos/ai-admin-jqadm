@@ -42,7 +42,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertStringContainsString( 'item-order', $result );
-		$this->assertStringContainsString( '4800.00', $result );
+		$this->assertStringContainsString( '2400.00', $result );
 	}
 
 
@@ -54,7 +54,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->create();
 
 		$this->assertStringContainsString( 'item-order', $result );
-		$this->assertStringContainsString( '4800.00', $result );
+		$this->assertStringContainsString( '2400.00', $result );
 	}
 
 
@@ -66,7 +66,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertStringContainsString( 'item-order', $result );
-		$this->assertStringContainsString( '4800.00', $result );
+		$this->assertStringContainsString( '2400.00', $result );
 	}
 
 
@@ -78,7 +78,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->save();
 
 		$this->assertStringContainsString( 'item-order', $result );
-		$this->assertStringContainsString( '4800.00', $result );
+		$this->assertStringContainsString( '2400.00', $result );
 	}
 
 
