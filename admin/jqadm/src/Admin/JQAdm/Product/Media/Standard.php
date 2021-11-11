@@ -254,14 +254,11 @@ class Standard
 
 		foreach( $attrListItems as $listItem )
 		{
-			if( ( $litem = $mediaItem->getListItem( 'attribute', 'variant', $listItem->getRefId(), false ) ) !== null )
-			{
+			if( ( $litem = $mediaItem->getListItem( 'attribute', $listItem->getType(), $listItem->getRefId(), false ) ) === null ) {
+				$mediaItem->addListItem( 'attribute', ( clone $litem )->setId( null ) );
+			} else {
 				unset( $listItems[$litem->getId()] );
-				continue;
 			}
-
-			$litem = $listManager->create()->setType( 'variant' )->setRefId( $listItem->getRefId() );
-			$mediaItem->addListItem( 'attribute', $litem );
 		}
 
 		return $mediaItem->deleteListItems( $listItems->toArray() );
