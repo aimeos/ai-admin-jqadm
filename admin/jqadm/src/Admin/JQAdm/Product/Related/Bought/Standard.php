@@ -40,7 +40,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->boughtData = $this->toArray( $view->item, true );
 		$view->boughtBody = parent::copy();
 
@@ -55,7 +55,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'related/bought', [] );
 
@@ -77,7 +77,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->boughtData = $this->toArray( $view->item );
 		$view->boughtBody = parent::get();
 
@@ -92,7 +92,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$this->fromArray( $view->item, $view->param( 'related/bought', [] ) );
 		$view->boughtBody = parent::save();

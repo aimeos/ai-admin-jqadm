@@ -18,7 +18,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$this->view = \TestHelperJqadm::getView();
+		$this->view = \TestHelperJqadm::view();
 		$this->context = \TestHelperJqadm::getContext();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Service\Price\Standard( $this->context );
@@ -137,7 +137,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->expects( $this->once() )->method( 'fromArray' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
-		$view = \TestHelperJqadm::getView();
+		$view = \TestHelperJqadm::view();
 		$view->item = \Aimeos\MShop::create( $this->context, 'service' )->create();
 
 		$object->setView( $view );
@@ -157,7 +157,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->expects( $this->once() )->method( 'fromArray' )
 			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
 
-		$this->view = \TestHelperJqadm::getView();
+		$this->view = \TestHelperJqadm::view();
 		$this->view->item = \Aimeos\MShop::create( $this->context, 'service' )->create();
 
 		$object->setView( $this->view );

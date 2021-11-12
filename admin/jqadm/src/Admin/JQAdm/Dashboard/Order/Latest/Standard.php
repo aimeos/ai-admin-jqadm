@@ -42,7 +42,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 		$context = $this->getContext();
 		$manager = \Aimeos\MShop::create( $context, 'order' );
 

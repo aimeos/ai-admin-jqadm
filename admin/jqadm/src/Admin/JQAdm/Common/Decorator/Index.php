@@ -29,8 +29,8 @@ class Index extends Base
 		$result = $this->getClient()->save();
 
 		$prodIds = array_unique( array_merge(
-			$this->getView()->param( 'product/catalog.lists.refid', [] ),
-			$this->getView()->param( 'product/supplier.lists.refid', [] )
+			$this->view()->param( 'product/catalog.lists.refid', [] ),
+			$this->view()->param( 'product/supplier.lists.refid', [] )
 		) );
 
 		if( !empty( $prodIds ) )

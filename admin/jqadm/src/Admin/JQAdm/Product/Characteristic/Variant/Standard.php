@@ -40,7 +40,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->variantData = $this->toArray( $view->item, true );
 		$view->variantBody = parent::copy();
 
@@ -55,7 +55,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'characteristic/variant', [] );
 
@@ -77,7 +77,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->variantData = $this->toArray( $view->item );
 		$view->variantBody = parent::get();
 
@@ -92,7 +92,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$this->fromArray( $view->item, $view->param( 'characteristic/variant', [] ) );
 		$view->variantBody = parent::save();

@@ -28,7 +28,7 @@ class Cache extends Base
 	{
 		$result = $this->getClient()->delete();
 
-		$ids = (array) $this->getView()->param( 'id' );
+		$ids = (array) $this->view()->param( 'id' );
 		$tags = array( 'product' );
 
 		foreach( $ids as $id ) {
@@ -49,7 +49,7 @@ class Cache extends Base
 	public function save() : ?string
 	{
 		$result = $this->getClient()->save();
-		$item = $this->getView()->item;
+		$item = $this->view()->item;
 
 		if( $item->getId() !== null )
 		{

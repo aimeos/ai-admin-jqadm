@@ -18,7 +18,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$this->view = \TestHelperJqadm::getView();
+		$this->view = \TestHelperJqadm::view();
 		$this->context = \TestHelperJqadm::getContext();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Product\Media\Property\Standard( $this->context );
@@ -131,7 +131,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->expects( $this->once() )->method( 'fromArray' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
-		$this->view = \TestHelperJqadm::getView();
+		$this->view = \TestHelperJqadm::view();
 		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->create();
 
 		$object->setView( $this->view );

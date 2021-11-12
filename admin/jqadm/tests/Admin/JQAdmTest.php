@@ -19,7 +19,7 @@ class JQAdmTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->aimeos = \TestHelperJqadm::getAimeos();
 		$this->context = \TestHelperJqadm::getContext();
-		$this->context->setView( \TestHelperJqadm::getView() );
+		$this->context->setView( \TestHelperJqadm::view() );
 	}
 
 

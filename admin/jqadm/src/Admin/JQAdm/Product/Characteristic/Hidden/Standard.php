@@ -40,7 +40,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->hiddenData = $this->toArray( $view->item, true );
 		$view->hiddenBody = parent::copy();
 
@@ -55,7 +55,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'characteristic/hidden', [] );
 
@@ -77,7 +77,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->hiddenData = $this->toArray( $view->item );
 		$view->hiddenBody = parent::get();
 
@@ -92,7 +92,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$this->fromArray( $view->item, $view->param( 'characteristic/hidden', [] ) );
 		$view->hiddenBody = parent::save();

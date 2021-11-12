@@ -18,7 +18,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$this->view = \TestHelperJqadm::getView();
+		$this->view = \TestHelperJqadm::view();
 		$this->context = \TestHelperJqadm::getContext();
 
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();

@@ -35,7 +35,7 @@ class JQAdm
 			throw new \Aimeos\Admin\JQAdm\Exception( $context->translate( 'admin', 'Admin JQAdm type is empty' ) );
 		}
 
-		$view = $context->getView();
+		$view = $context->view();
 		$config = $context->getConfig();
 		$parts = explode( '/', $path );
 

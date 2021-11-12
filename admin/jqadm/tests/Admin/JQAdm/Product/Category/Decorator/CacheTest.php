@@ -44,7 +44,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$view = \TestHelperJqadm::getView();
+		$view = \TestHelperJqadm::view();
 		$tags = array( 'catalog', 'catalog-1', 'catalog-2' );
 
 		$param = ['site' => 'unittest', 'category' => [0 => ['catalog.id' => '1'], 1 => ['catalog.id' => '2']]];

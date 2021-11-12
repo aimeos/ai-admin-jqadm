@@ -34,7 +34,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
 
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Cache( $this->mock, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
-		$this->object->setView( \TestHelperJqadm::getView() );
+		$this->object->setView( \TestHelperJqadm::view() );
 	}
 
 
@@ -46,7 +46,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
 
 	public function testDelete()
 	{
-		$view = \TestHelperJqadm::getView();
+		$view = \TestHelperJqadm::view();
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, array( 'id' => 1 ) );
 		$view->addHelper( 'param', $helper );
 
@@ -66,7 +66,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
 		$item = \Aimeos\MShop::create( $this->context, 'product' )->find( 'CNC' );
 
 		$tags = array( 'product', 'product-' . $item->getId() );
-		$view = \TestHelperJqadm::getView();
+		$view = \TestHelperJqadm::view();
 		$view->item = $item;
 
 		$this->cache->expects( $this->once() )->method( 'deleteByTags' )->with( $this->equalTo( $tags ) );

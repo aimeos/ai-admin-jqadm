@@ -42,7 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->textData = $this->toArray( $view->item, true );
 		$view->textBody = parent::copy();
 
@@ -57,7 +57,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'text', [] );
 
@@ -83,7 +83,7 @@ class Standard
 	{
 		parent::delete();
 
-		$item = $this->getView()->item;
+		$item = $this->view()->item;
 		$item->deleteListItems( $item->getListItems( 'text', null, null, false )->toArray(), true );
 
 		return null;
@@ -97,7 +97,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->textData = $this->toArray( $view->item );
 		$view->textBody = parent::get();
 
@@ -112,7 +112,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$view->item = $this->fromArray( $view->item, $view->param( 'text', [] ) );
 		$view->textBody = parent::save();

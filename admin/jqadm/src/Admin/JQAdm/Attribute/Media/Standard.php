@@ -70,7 +70,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		$view->mediaData = $this->toArray( $view->item, true );
 		$view->mediaBody = parent::copy();
@@ -86,7 +86,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 
 		$itemData = $this->toArray( $view->item );
@@ -116,7 +116,7 @@ class Standard
 	{
 		parent::delete();
 
-		$item = $this->getView()->item;
+		$item = $this->view()->item;
 		$this->deleteMediaItems( $item, $item->getListItems( 'media', null, null, false )->toArray() );
 
 		return null;
@@ -130,7 +130,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		$view->mediaData = $this->toArray( $view->item );
 		$view->mediaBody = parent::get();
@@ -146,7 +146,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$view->item = $this->fromArray( $view->item, $view->param( 'media', [] ) );
 		$view->mediaBody = parent::save();
@@ -333,7 +333,7 @@ class Standard
 		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
-		$files = (array) $this->getView()->request()->getUploadedFiles();
+		$files = (array) $this->view()->request()->getUploadedFiles();
 
 		foreach( $data as $idx => $entry )
 		{

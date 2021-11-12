@@ -40,7 +40,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 		$view->ordersalesdayBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/salesday/template-item

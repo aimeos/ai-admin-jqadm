@@ -42,7 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		$view->supplierData = $this->toArray( $view->item, true );
 		$view->supplierBody = parent::copy();
@@ -58,7 +58,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'supplier', [] );
 
@@ -81,7 +81,7 @@ class Standard
 	public function delete() : ?string
 	{
 		parent::delete();
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
 
@@ -118,7 +118,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->supplierData = $this->toArray( $view->item );
 		$view->supplierBody = parent::get();
 
@@ -133,7 +133,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
 		$manager->begin();

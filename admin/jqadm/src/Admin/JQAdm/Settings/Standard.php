@@ -44,7 +44,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$context = $this->getContext();
 
 		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
@@ -92,7 +92,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -252,7 +252,7 @@ class Standard
 		$config = $data['locale.site.config'] ?? [];
 		$config['resource']['email']['from-name'] = $data['locale.site.label'];
 
-		$files = (array) $this->getView()->request()->getUploadedFiles();
+		$files = (array) $this->view()->request()->getUploadedFiles();
 
 		$item = $this->fromArrayIcon( $item, $files );
 		$item = $this->fromArrayLogo( $item, $files );

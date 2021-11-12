@@ -42,7 +42,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 		$view->quickCountorderBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/quick/countcustomer/template-item

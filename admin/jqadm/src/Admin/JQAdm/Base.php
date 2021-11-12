@@ -115,7 +115,7 @@ abstract class Base
 	 *
 	 * @return \Aimeos\MW\View\Iface The view object which generates the admin output
 	 */
-	public function getView() : \Aimeos\MW\View\Iface
+	public function view() : \Aimeos\MW\View\Iface
 	{
 		if( !isset( $this->view ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( $this->context->translate( 'admin', 'No view available' ) );
@@ -146,7 +146,7 @@ abstract class Base
 	public function copy() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
+		$view = $this->view();
 
 		foreach( $this->getSubClients() as $idx => $client )
 		{
@@ -166,7 +166,7 @@ abstract class Base
 	public function create() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
+		$view = $this->view();
 
 		foreach( $this->getSubClients() as $idx => $client )
 		{
@@ -220,7 +220,7 @@ abstract class Base
 	public function get() : ?string
 	{
 		$body = null;
-		$view = $this->getView();
+		$view = $this->view();
 
 		foreach( $this->getSubClients() as $idx => $client )
 		{
@@ -641,7 +641,7 @@ abstract class Base
 	{
 		$params = $this->getClientParams();
 		$context = $this->getContext();
-		$view = $this->getView();
+		$view = $this->view();
 
 		$params['resource'] = $resource;
 		unset( $params['id'] );
@@ -739,7 +739,7 @@ abstract class Base
 	 */
 	protected function require( string $name )
 	{
-		if( ( $value = $this->getView()->param( $name ) ) !== null ) {
+		if( ( $value = $this->view()->param( $name ) ) !== null ) {
 			return $value;
 		}
 

@@ -18,7 +18,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$this->view = \TestHelperJqadm::getView();
+		$this->view = \TestHelperJqadm::view();
 		$this->context = \TestHelperJqadm::getContext();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Subscription\Standard( $this->context );
@@ -127,7 +127,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object = new \Aimeos\Admin\JQAdm\Subscription\Standard( $this->context );
 
 		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
-		$object->getView();
+		$object->view();
 	}
 
 

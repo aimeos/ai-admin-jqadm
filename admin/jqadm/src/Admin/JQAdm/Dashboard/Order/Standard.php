@@ -40,7 +40,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
 		$view->orderCurrencyItems = $manager->search( $manager->filter( true ) );

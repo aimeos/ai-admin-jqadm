@@ -53,7 +53,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -86,7 +86,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -118,7 +118,7 @@ class Standard
 	 */
 	public function delete() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 		$context = $this->getContext();
 
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
@@ -180,7 +180,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -213,7 +213,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
 		$manager->begin();
@@ -246,7 +246,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		try
 		{
@@ -409,7 +409,7 @@ class Standard
 	protected function getGroupItems( \Aimeos\MShop\Customer\Item\Iface $item = null ) : array
 	{
 		$list = [];
-		$view = $this->getView();
+		$view = $this->view();
 		$context = $this->getContext();
 
 		$isSuper = $view->access( ['super'] );
@@ -514,7 +514,7 @@ class Standard
 		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
 			->setGroups( array_intersect( $gids, $groupIds ) );
 
-		if( $this->getView()->access( ['super'] ) || $item->getId() === $context->getUserId() )
+		if( $this->view()->access( ['super'] ) || $item->getId() === $context->getUserId() )
 		{
 			!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
 			!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
@@ -534,7 +534,7 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( $this->getView()->access( ['super'] ) || $item->getId() === $this->getContext()->getUserId() ) {
+		if( $this->view()->access( ['super'] ) || $item->getId() === $this->getContext()->getUserId() ) {
 			$data['.modify'] = true;
 		}
 

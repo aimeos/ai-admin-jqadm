@@ -42,7 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		$view->bundleData = $this->toArray( $view->item, true );
 		$view->bundleBody = parent::copy();
@@ -58,7 +58,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'bundle', [] );
 
@@ -80,7 +80,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		$view->bundleData = $this->toArray( $view->item );
 		$view->bundleBody = parent::get();
@@ -96,7 +96,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		if( $view->item->getType() === 'bundle' )
 		{

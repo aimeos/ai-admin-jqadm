@@ -40,7 +40,7 @@ class Standard
 	 */
 	public function delete() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 		$context = $this->getContext();
 
 		if( ( $id = $view->param( 'id' ) ) === null )
@@ -70,7 +70,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$context = $this->getContext();
 
 		if( ( $id = $view->param( 'id' ) ) === null )
@@ -101,7 +101,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 		$manager = \Aimeos\MAdmin::create( $this->getContext(), 'job' );
 
 		$search = $manager->filter();

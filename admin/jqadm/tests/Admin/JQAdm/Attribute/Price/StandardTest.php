@@ -18,7 +18,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$this->view = \TestHelperJqadm::getView();
+		$this->view = \TestHelperJqadm::view();
 		$this->context = \TestHelperJqadm::getContext();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Attribute\Price\Standard( $this->context );
@@ -171,7 +171,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setMethods( [$method] )
 			->getMock();
 
-		$view = \TestHelperJqadm::getView();
+		$view = \TestHelperJqadm::view();
 		$view->item = \Aimeos\MShop::create( $this->context, 'attribute' )->create();
 
 		$object->setAimeos( \TestHelperJqadm::getAimeos() );

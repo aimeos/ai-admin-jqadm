@@ -17,7 +17,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$this->context = \TestHelperJqadm::getContext();
-		$this->context->setView( \TestHelperJqadm::getView() );
+		$this->context->setView( \TestHelperJqadm::view() );
 
 		$config = $this->context->getConfig();
 		$config->set( 'admin/jqadm/common/decorators/default', [] );

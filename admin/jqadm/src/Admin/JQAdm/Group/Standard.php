@@ -44,7 +44,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -76,7 +76,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -107,7 +107,7 @@ class Standard
 	 */
 	public function delete() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 		$manager->begin();
@@ -152,7 +152,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -184,7 +184,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
 		$manager->begin();
@@ -217,7 +217,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		try
 		{

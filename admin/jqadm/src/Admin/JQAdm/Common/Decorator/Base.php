@@ -158,9 +158,9 @@ abstract class Base
 	 *
 	 * @return \Aimeos\MW\View\Iface $view The view object which generates the admin output
 	 */
-	public function getView() : \Aimeos\MW\View\Iface
+	public function view() : \Aimeos\MW\View\Iface
 	{
-		return $this->client->getView();
+		return $this->client->view();
 	}
 
 

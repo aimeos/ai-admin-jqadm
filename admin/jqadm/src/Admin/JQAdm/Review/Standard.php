@@ -31,7 +31,7 @@ class Standard
 	 */
 	public function delete() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 		$context = $this->getContext();
 
 		if( !$view->access( ['super', 'admin', 'test'] ) )
@@ -83,7 +83,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -116,7 +116,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
 		$manager->begin();
@@ -149,7 +149,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		try
 		{
@@ -347,7 +347,7 @@ class Standard
 
 		$item = $manager->get( $id );
 
-		if( $this->getView()->access( ['super', 'admin'] ) ) {
+		if( $this->view()->access( ['super', 'admin'] ) ) {
 			$item->setStatus( (int) $data['review.status'] ?? 1 );
 		}
 

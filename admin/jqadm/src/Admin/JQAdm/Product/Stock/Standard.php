@@ -62,7 +62,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->stockData = $this->toArray( $view->item, true );
 		$view->stockBody = parent::copy();
 
@@ -77,7 +77,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'stock', [] );
 
@@ -102,7 +102,7 @@ class Standard
 		parent::delete();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
-		$filter = $manager->filter()->add( ['stock.productid' => $this->getView()->item->getId()] );
+		$filter = $manager->filter()->add( ['stock.productid' => $this->view()->item->getId()] );
 		$manager->delete( $manager->search( $filter )->toArray() );
 
 		return null;
@@ -116,7 +116,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->stockData = $this->toArray( $view->item );
 		$view->stockBody = '';
 
@@ -135,7 +135,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
 		$manager->begin();

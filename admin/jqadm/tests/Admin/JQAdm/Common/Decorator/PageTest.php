@@ -22,7 +22,7 @@ class PageTest extends \PHPUnit\Framework\TestCase
 		$client = new \Aimeos\Admin\JQAdm\Product\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $client, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
-		$this->object->setView( \TestHelperJqadm::getView() );
+		$this->object->setView( \TestHelperJqadm::view() );
 	}
 
 
@@ -34,7 +34,7 @@ class PageTest extends \PHPUnit\Framework\TestCase
 
 	public function testSetView()
 	{
-		$view = \TestHelperJqadm::getView();
+		$view = \TestHelperJqadm::view();
 
 		$this->object->setView( $view );
 

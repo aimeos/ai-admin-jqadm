@@ -40,7 +40,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 		$view->ordersalesmonthBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/salesmonth/template-item

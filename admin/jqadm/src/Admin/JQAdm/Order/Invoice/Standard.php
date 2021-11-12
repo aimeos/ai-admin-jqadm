@@ -64,7 +64,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		$total = 0;
 		$params = $this->storeFilter( $view->param( 'oi', [] ), 'orderinvoice' );
@@ -85,7 +85,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 		$manager->begin();

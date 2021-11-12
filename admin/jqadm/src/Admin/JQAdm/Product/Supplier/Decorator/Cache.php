@@ -29,7 +29,7 @@ class Cache extends \Aimeos\Admin\JQAdm\Common\Decorator\Base
 		$result = $this->getClient()->save();
 		$tags = ['supplier'];
 
-		foreach( $this->getView()->param( 'supplier', [] ) as $entry ) {
+		foreach( $this->view()->param( 'supplier', [] ) as $entry ) {
 			$tags[] = 'supplier-' . $entry['supplier.id'];
 		}
 

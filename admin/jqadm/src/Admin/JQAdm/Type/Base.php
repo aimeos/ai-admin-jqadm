@@ -51,7 +51,7 @@ abstract class Base
 	 */
 	protected function copyBase( string $path ) : string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -84,7 +84,7 @@ abstract class Base
 	 */
 	public function createBase( string $path ) : string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -116,7 +116,7 @@ abstract class Base
 	 */
 	public function deleteBase( string $path ) : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 		$manager->begin();
@@ -163,7 +163,7 @@ abstract class Base
 	 */
 	public function getBase( string $path ) : string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		try
 		{
@@ -196,7 +196,7 @@ abstract class Base
 	 */
 	public function saveBase( string $path ) : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
 		$manager->begin();
@@ -230,7 +230,7 @@ abstract class Base
 	 */
 	public function searchBase( string $path ) : \Aimeos\MW\View\Iface
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		try
 		{

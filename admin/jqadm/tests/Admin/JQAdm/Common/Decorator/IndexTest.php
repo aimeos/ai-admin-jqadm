@@ -27,7 +27,7 @@ class IndexTest extends \PHPUnit\Framework\TestCase
 
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Index( $this->mock, $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
-		$this->object->setView( \TestHelperJqadm::getView() );
+		$this->object->setView( \TestHelperJqadm::view() );
 	}
 
 
@@ -39,7 +39,7 @@ class IndexTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$view = \TestHelperJqadm::getView();
+		$view = \TestHelperJqadm::view();
 		$params = ['product' => ['catalog.lists.refid' => [-1]]];
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $params );
 		$view->addHelper( 'param', $helper );

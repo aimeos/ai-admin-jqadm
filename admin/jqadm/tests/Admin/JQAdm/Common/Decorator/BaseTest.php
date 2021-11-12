@@ -26,7 +26,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->mock, $context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );
-		$this->object->setView( \TestHelperJqadm::getView() );
+		$this->object->setView( \TestHelperJqadm::view() );
 	}
 
 

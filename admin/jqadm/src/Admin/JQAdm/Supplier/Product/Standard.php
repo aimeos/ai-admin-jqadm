@@ -62,7 +62,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->productBody = parent::copy();
 
 		return $this->render( $view );
@@ -76,7 +76,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->productBody = parent::create();
 
 		return $this->render( $view );
@@ -90,7 +90,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 
 		$total = 0;
 		$params = $this->storeFilter( $view->param( 'sp', [] ), 'supplierproduct' );
@@ -112,7 +112,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
 		$manager->begin();

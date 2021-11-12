@@ -42,7 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->downloadData = $this->toArray( $view->item, true );
 		$view->downloadBody = parent::copy();
 
@@ -57,7 +57,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$data['product.lists.siteid'] = $this->getContext()->getLocale()->getSiteId();
 		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'download', [] ) );
 
@@ -77,7 +77,7 @@ class Standard
 	{
 		parent::delete();
 
-		$item = $this->getView()->item;
+		$item = $this->view()->item;
 		$fs = $this->getContext()->getFilesystemManager()->get( 'fs-secure' );
 
 		foreach( $item->getListItems( 'attribute', 'hidden', 'download', false ) as $listItem )
@@ -102,7 +102,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->getView() );
+		$view = $this->getObject()->addData( $this->view() );
 		$view->downloadData = $this->toArray( $view->item );
 		$view->downloadBody = parent::get();
 
@@ -117,7 +117,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getView();
+		$view = $this->view();
 
 		$this->fromArray( $view->item, $view->param( 'download', [] ) );
 		$view->downloadBody = parent::save();
@@ -317,7 +317,7 @@ class Standard
 			$litem->fromArray( $data, true );
 			$refItem->fromArray( $data, true );
 
-			if( ( $file = $this->getValue( (array) $this->getView()->request()->getUploadedFiles(), 'download/file' ) ) !== null
+			if( ( $file = $this->getValue( (array) $this->view()->request()->getUploadedFiles(), 'download/file' ) ) !== null
 				&& $file->getError() === UPLOAD_ERR_OK
 			) {
 				$path = ( $this->getValue( $data, 'overwrite' ) == 1 ? $refItem->getCode() : null );
