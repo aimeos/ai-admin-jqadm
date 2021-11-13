@@ -154,17 +154,6 @@ abstract class Base
 
 
 	/**
-	 * Returns the view object that will generate the admin output.
-	 *
-	 * @return \Aimeos\MW\View\Iface $view The view object which generates the admin output
-	 */
-	public function view() : \Aimeos\MW\View\Iface
-	{
-		return $this->client->view();
-	}
-
-
-	/**
 	 * Sets the view object that will generate the admin output.
 	 *
 	 * @param \Aimeos\MW\View\Iface $view The view object which generates the admin output
@@ -176,17 +165,6 @@ abstract class Base
 
 		$this->client->setView( $view );
 		return $this;
-	}
-
-
-	/**
-	 * Returns the Aimeos bootstrap object
-	 *
-	 * @return \Aimeos\Bootstrap The Aimeos bootstrap object
-	 */
-	public function getAimeos() : \Aimeos\Bootstrap
-	{
-		return $this->client->getAimeos();
 	}
 
 
