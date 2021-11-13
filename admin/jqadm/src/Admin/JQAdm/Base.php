@@ -44,20 +44,6 @@ abstract class Base
 
 
 	/**
-	 * Catch unknown methods
-	 *
-	 * @param string $name Name of the method
-	 * @param array $param List of method parameter
-	 * @throws \Aimeos\Admin\JQAdm\Exception If method call failed
-	 */
-	public function __call( string $name, array $param )
-	{
-		$msg = $this->context->translate( 'admin', 'Unable to call method "%1$s"' );
-		throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $name ) );
-	}
-
-
-	/**
 	 * Adds the required data used in the attribute template
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object
