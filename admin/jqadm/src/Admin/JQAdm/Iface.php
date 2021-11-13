@@ -20,30 +20,6 @@ namespace Aimeos\Admin\JQAdm;
 interface Iface
 {
 	/**
-	 * Returns the sub-client given by its name.
-	 *
-	 * @param string $type Name of the client type
-	 * @param string|null $name Name of the sub-client (Default if null)
-	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
-	 */
-	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface;
-
-	/**
-	 * Returns the view object that will generate the admin output.
-	 *
-	 * @return \Aimeos\MW\View\Iface $view The view object which generates the admin output
-	 */
-	public function view() : \Aimeos\MW\View\Iface;
-
-	/**
-	 * Sets the view object that will generate the admin output.
-	 *
-	 * @param \Aimeos\MW\View\Iface $view The view object which generates the admin output
-	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
-	 */
-	public function setView( \Aimeos\MW\View\Iface $view );
-
-	/**
 	 * Copies a resource
 	 *
 	 * @return string Output to display
@@ -98,4 +74,21 @@ interface Iface
 	 * @return string Output to display
 	 */
 	public function search() : ?string;
+
+	/**
+	 * Returns the sub-client given by its name.
+	 *
+	 * @param string $type Name of the client type
+	 * @param string|null $name Name of the sub-client (Default if null)
+	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
+	 */
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface;
+
+	/**
+	 * Sets the view object that will generate the admin output.
+	 *
+	 * @param \Aimeos\MW\View\Iface $view The view object which generates the admin output
+	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
+	 */
+	public function setView( \Aimeos\MW\View\Iface $view );
 }

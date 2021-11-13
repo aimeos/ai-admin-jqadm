@@ -116,15 +116,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testGetViewException()
-	{
-		$object = new \Aimeos\Admin\JQAdm\Locale\Currency\Standard( $this->context );
-
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
-		$object->view();
-	}
-
-
 	public function testSave()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'locale/currency' );
