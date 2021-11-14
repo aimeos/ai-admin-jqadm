@@ -271,6 +271,17 @@ abstract class Base
 
 
 	/**
+	 * Returns the PSR-7 response object for the request
+	 *
+	 * @return \Psr\Http\Message\ResponseInterface Response object
+	 */
+	public function response() : \Psr\Http\Message\ResponseInterface
+	{
+		return $this->view()->response();
+	}
+
+
+	/**
 	 * Adds the decorators to the client object
 	 *
 	 * @param \Aimeos\Admin\JQAdm\Iface $client Admin object

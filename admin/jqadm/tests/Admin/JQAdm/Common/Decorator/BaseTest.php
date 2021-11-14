@@ -68,6 +68,12 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testResponse()
+	{
+		$this->assertInstanceOf( '\Psr\Http\Message\ResponseInterface', $this->object->response() );
+	}
+
+
 	public function testSave()
 	{
 		$this->mock->expects( $this->once() )->method( 'save' )->will( $this->returnValue( 'test' ) );

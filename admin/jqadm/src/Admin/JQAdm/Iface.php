@@ -76,6 +76,13 @@ interface Iface
 	public function search() : ?string;
 
 	/**
+	 * Returns the PSR-7 response object for the request
+	 *
+	 * @return \Psr\Http\Message\ResponseInterface Response object
+	 */
+	public function response() : \Psr\Http\Message\ResponseInterface;
+
+	/**
 	 * Returns the sub-client given by its name.
 	 *
 	 * @param string $type Name of the client type
