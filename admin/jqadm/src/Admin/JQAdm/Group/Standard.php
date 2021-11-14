@@ -30,7 +30,7 @@ class Standard
 	 * @param \Aimeos\MW\View\Iface $view View object
 	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
-	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
 		$view->itemSubparts = $this->getSubClientNames();
 		return $view;
@@ -44,7 +44,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 
 		try
 		{
@@ -76,7 +76,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 
 		try
 		{
@@ -152,7 +152,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 
 		try
 		{

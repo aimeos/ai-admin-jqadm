@@ -83,7 +83,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 
 		try
 		{

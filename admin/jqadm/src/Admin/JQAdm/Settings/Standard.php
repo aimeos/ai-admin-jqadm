@@ -29,7 +29,7 @@ class Standard
 	 * @param \Aimeos\MW\View\Iface $view View object
 	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
-	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
 		$view->themes = $this->getContext()->config()->get( 'client/html/themes', [] );
 		$view->itemSubparts = $this->getSubClientNames();
@@ -44,7 +44,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 		$context = $this->getContext();
 
 		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
@@ -92,7 +92,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 
 		try
 		{

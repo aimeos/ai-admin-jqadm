@@ -27,7 +27,7 @@ abstract class Base
 	 * @param \Aimeos\MW\View\Iface $view View object
 	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
-	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
 		$view->itemSubparts = $this->getSubClientNames();
 		return $view;
@@ -51,7 +51,7 @@ abstract class Base
 	 */
 	protected function copyBase( string $path ) : string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 
 		try
 		{
@@ -84,7 +84,7 @@ abstract class Base
 	 */
 	public function createBase( string $path ) : string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 
 		try
 		{
@@ -163,7 +163,7 @@ abstract class Base
 	 */
 	public function getBase( string $path ) : string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 
 		try
 		{

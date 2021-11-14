@@ -40,7 +40,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 		$view->propertyData = $this->toArray( $view->item, true );
 		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyBody = parent::copy();
@@ -56,7 +56,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 		$data = $view->param( 'characteristic/property', [] );
 
@@ -79,7 +79,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 		$view->propertyData = $this->toArray( $view->item );
 		$view->propertyTypes = $this->getPropertyTypes();
 		$view->propertyBody = parent::get();

@@ -42,7 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 		$view->optionBody = parent::copy();
 
 		return $this->render( $view );
@@ -56,7 +56,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 		$view->optionBody = parent::create();
 
 		return $this->render( $view );
@@ -70,7 +70,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->addData( $this->view() );
+		$view = $this->getObject()->data( $this->view() );
 		$view->optionBody = parent::get();
 
 		return $this->render( $view );
