@@ -183,7 +183,7 @@ Aimeos.Coupon.Code = {
 
 					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
 
-						const config = {};
+						const config = {'params': {}};
 
 						if(response.meta.prefix && response.meta.prefix) {
 							config['params'][response.meta.prefix] = {'id': id};
