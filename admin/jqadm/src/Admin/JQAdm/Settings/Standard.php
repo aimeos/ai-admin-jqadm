@@ -44,7 +44,7 @@ class Standard
 	 */
 	public function save() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$context = $this->getContext();
 
 		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
@@ -92,7 +92,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 
 		try
 		{

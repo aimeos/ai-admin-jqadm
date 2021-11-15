@@ -513,7 +513,7 @@ abstract class Base
 	 *
 	 * @return \Aimeos\Admin\JQAdm\Iface Outmost object
 	 */
-	protected function getObject() : Iface
+	protected function object() : Iface
 	{
 		if( isset( $this->object ) ) {
 			return $this->object;

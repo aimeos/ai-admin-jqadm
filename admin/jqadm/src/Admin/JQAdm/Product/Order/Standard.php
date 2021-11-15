@@ -64,7 +64,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$view->orderBody = parent::get();
 
 		return $this->render( $view );

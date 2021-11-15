@@ -42,7 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$view->mediaData = $this->toArray( $view->item, true );
 		$view->mediaBody = parent::copy();
 
@@ -57,7 +57,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$siteid = $this->getContext()->getLocale()->getSiteId();
 
 		$itemData = $this->toArray( $view->item );
@@ -101,7 +101,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$view->mediaData = $this->toArray( $view->item );
 		$view->mediaBody = parent::get();
 

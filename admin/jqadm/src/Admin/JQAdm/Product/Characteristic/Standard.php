@@ -61,7 +61,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$view->characteristicBody = parent::copy();
 
 		return $this->render( $view );
@@ -75,7 +75,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$view->characteristicBody = parent::create();
 
 		return $this->render( $view );
@@ -89,7 +89,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$view->characteristicBody = parent::get();
 
 		return $this->render( $view );

@@ -62,7 +62,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$view->productBody = parent::copy();
 
 		return $this->render( $view );
@@ -76,7 +76,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 		$view->productBody = parent::create();
 
 		return $this->render( $view );
@@ -90,7 +90,7 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 
 		$total = 0;
 		$params = $this->storeFilter( $view->param( 'up', [] ), 'customerproduct' );

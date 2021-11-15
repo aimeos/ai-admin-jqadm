@@ -51,7 +51,7 @@ abstract class Base
 	 */
 	protected function copyBase( string $path ) : string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 
 		try
 		{
@@ -84,7 +84,7 @@ abstract class Base
 	 */
 	public function createBase( string $path ) : string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 
 		try
 		{
@@ -163,7 +163,7 @@ abstract class Base
 	 */
 	public function getBase( string $path ) : string
 	{
-		$view = $this->getObject()->data( $this->view() );
+		$view = $this->object()->data( $this->view() );
 
 		try
 		{
