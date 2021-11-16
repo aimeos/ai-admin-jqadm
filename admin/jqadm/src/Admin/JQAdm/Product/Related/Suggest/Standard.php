@@ -245,16 +245,13 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( isset( $listItems[$entry['product.lists.id']] ) ) {
-				$litem = $listItems[$entry['product.lists.id']];
-			} else {
-				$litem = $listManager->create()->setType( 'suggestion' );
-			}
+			$id = $this->getValue( $entry, 'product.lists.id' );
+			$refid = $this->getValue( $entry, 'product.lists.refid' );
 
-			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );
+			$litem = $listItems->pull( $id ) ?: $listManager->create()->setType( 'suggestion' );
+			$litem->setId( $id )->setRefId( $refid )->setPosition( $idx );
+
 			$item->addListItem( 'product', $litem, $litem->getRefItem() );
-
-			unset( $listItems[$litem->getId()] );
 		}
 
 		return $item->deleteListItems( $listItems->toArray() );

@@ -308,13 +308,11 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $listItem = $item->getListItem( 'price', $entry['attribute.lists.type'], $entry['price.id'], false ) ) === null ) {
-				$listItem = $listManager->create();
-			}
+			$id = $this->getValue( $entry, 'price.id', '' );
+			$type = $this->getValue( $entry, 'attribute.lists.type', 'default' );
 
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $priceManager->create();
-			}
+			$listItem = $item->getListItem( 'price', $type, $id, false ) ?: $listManager->create();
+			$refItem = $listItem->getRefItem() ?: $priceManager->create();
 
 			$refItem->fromArray( $entry, true );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );

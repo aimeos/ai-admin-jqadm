@@ -260,15 +260,10 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( ( $litem = $item->getListItem( 'product', 'default', $entry['product.id'], false ) ) === null ) {
-				$litem = $listManager->create()->setType( 'default' );
-			}
+			$id = $this->getValue( $entry, 'product.id', '' );
 
-			if( ( $refItem = $prodItems->get( $entry['product.id'] ) ) === null
-				&& ( $refItem = $litem->getRefItem() ) === null
-			) {
-				$refItem = $manager->create()->setType( 'default' );
-			}
+			$litem = $item->getListItem( 'product', 'default', $id, false ) ?: $listManager->create();
+			$refItem = $prodItems->get( $id ) ?: ( $litem->getRefItem() ?: $manager->create() );
 
 			$litem->fromArray( $entry, true )->setPosition( $idx );
 			$refItem->fromArray( $entry, true );

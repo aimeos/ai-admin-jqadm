@@ -361,15 +361,11 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$listType = $entry['product.lists.type'] ?? 'default';
+			$id = $this->getValue( $entry, 'media.id', '' );
+			$type = $this->getValue( $entry, 'product.lists.type', 'default' );
 
-			if( ( $listItem = $item->getListItem( 'media', $listType, $entry['media.id'] ?? '', false ) ) === null ) {
-				$listItem = $listManager->create();
-			}
-
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $mediaManager->create();
-			}
+			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $listManager->create();
+			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
 
 			$refItem->fromArray( $entry, true )->setDomain( 'product' );
 			$file = $this->getValue( $files, 'media/' . $idx . '/file' );

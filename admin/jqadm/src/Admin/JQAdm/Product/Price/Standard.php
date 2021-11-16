@@ -310,15 +310,11 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$listType = $entry['product.lists.type'] ?? 'default';
+			$id = $this->getValue( $entry, 'price.id', '' );
+			$type = $this->getValue( $entry, 'product.lists.type', 'default' );
 
-			if( ( $listItem = $item->getListItem( 'price', $listType, $entry['price.id'], false ) ) === null ) {
-				$listItem = $listManager->create();
-			}
-
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $priceManager->create();
-			}
+			$listItem = $item->getListItem( 'price', $type, $id, false ) ?: $listManager->create();
+			$refItem = $listItem->getRefItem() ?: $priceManager->create();
 
 			$refItem->fromArray( $entry, true );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );

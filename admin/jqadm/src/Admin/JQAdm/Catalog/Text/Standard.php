@@ -302,13 +302,11 @@ class Standard
 				continue;
 			}
 
-			if( ( $listItem = $item->getListItem( 'text', $entry['catalog.lists.type'], $entry['text.id'], false ) ) === null ) {
-				$listItem = $listManager->create();
-			}
+			$id = $this->getValue( $entry, 'text.id', '' );
+			$type = $this->getValue( $entry, 'catalog.lists.type', 'default' );
 
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $textManager->create();
-			}
+			$listItem = $item->getListItem( 'text', $type, $id, false ) ?: $listManager->create();
+			$refItem = $listItem->getRefItem() ?: $textManager->create();
 
 			$refItem->fromArray( $entry, true );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );

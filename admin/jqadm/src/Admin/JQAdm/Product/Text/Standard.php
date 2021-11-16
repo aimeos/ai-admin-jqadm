@@ -302,15 +302,11 @@ class Standard
 				continue;
 			}
 
-			$listType = $entry['product.lists.type'] ?? 'default';
+			$id = $this->getValue( $entry, 'text.id', '' );
+			$type = $this->getValue( $entry, 'product.lists.type', 'default' );
 
-			if( ( $listItem = $item->getListItem( 'text', $listType, $entry['text.id'] ?? null, false ) ) === null ) {
-				$listItem = $listManager->create();
-			}
-
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
-				$refItem = $textManager->create();
-			}
+			$listItem = $item->getListItem( 'text', $type, $id, false ) ?: $listManager->create();
+			$refItem = $listItem->getRefItem() ?: $textManager->create();
 
 			$refItem->fromArray( $entry, true );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );

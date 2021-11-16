@@ -304,15 +304,8 @@ class Standard
 		{
 			$listId = $this->getValue( $data, 'product.lists.id' );
 
-			if( isset( $listItems[$listId] ) ) {
-				$litem = $listItems[$listId]; unset( $listItems[$listId] );
-			} else {
-				$litem = $prodManager->createListItem()->setType( 'hidden' );
-			}
-
-			if( ( $refItem = $litem->getRefItem() ) === null ) {
-				$refItem = $attrManager->create()->setType( 'download' );
-			}
+			$litem = $listItems->pull( $listId ) ?: $prodManager->createListItem()->setType( 'hidden' );
+			$refItem = $litem->getRefItem() ?: $attrManager->create()->setType( 'download' );
 
 			$litem->fromArray( $data, true );
 			$refItem->fromArray( $data, true );
