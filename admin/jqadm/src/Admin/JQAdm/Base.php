@@ -396,7 +396,7 @@ abstract class Base
 	{
 		foreach( explode( '/', trim( $key, '/' ) ) as $part )
 		{
-			if( array_key_exists( $part, $values ) ) {
+			if( isset( $values[$part] ) ) {
 				$values = $values[$part];
 			} else {
 				return $default;
