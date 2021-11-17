@@ -335,12 +335,6 @@ Aimeos.Media = {
 				if(this.items[idx]) {
 					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
 				}
-			},
-
-
-			url: function(prefix, url) {
-				const str = url ? url.substr(0, 4) : '';
-				return (str === 'http' || str === 'data' || str === 'blob' ? url : prefix + url);
 			}
 		}
 	}
