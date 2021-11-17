@@ -91,7 +91,7 @@ $params = $this->get( 'pageParams', [] );
 									name="media[logo]" />
 								<?php if( $logos = $this->get( 'itemData/locale.site.logo' ) ) : ?>
 									<img class="item-preview"
-										src="<?= $enc->attr( $this->content( $this->config( 'resource/fs/baseurl' ) . '/' . end( $logos ) ) ) ?>" />
+										src="<?= $enc->attr( $this->content( end( $logos ) ) ) ?>" />
 								<?php else : ?>
 									<p class="item-preview">
 										<?= $enc->html( $this->translate( 'admin', 'Upload shop logo' ) ) ?>
@@ -110,7 +110,7 @@ $params = $this->get( 'pageParams', [] );
 									name="media[icon]" />
 								<?php if( $icon = $this->get( 'itemData/locale.site.icon' ) ) : ?>
 									<img class="item-preview"
-										src="<?= $enc->attr( $this->content( $this->config( 'resource/fs/baseurl' ) . '/' . $icon ) ) ?>" />
+										src="<?= $enc->attr( $this->content( $icon ) ) ?>" />
 								<?php else : ?>
 									<p class="item-preview">
 										<?= $enc->html( $this->translate( 'admin', 'Upload shop icon' ) ) ?>

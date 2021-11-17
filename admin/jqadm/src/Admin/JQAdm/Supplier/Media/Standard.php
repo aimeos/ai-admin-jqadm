@@ -403,6 +403,10 @@ class Standard
 				$list['media.id'] = null;
 			}
 
+			$list['media.previews'] = $this->view()->imageset( $refItem->getPreviews(), $refItem->getFileSystem() );
+			$list['media.preview'] = $this->view()->content( $refItem->getPreview(), $refItem->getFileSystem() );
+			$list['media.url'] = $this->view()->content( $refItem->getUrl(), $refItem->getFileSystem() );
+
 			$list['supplier.lists.datestart'] = str_replace( ' ', 'T', $list['supplier.lists.datestart'] );
 			$list['supplier.lists.dateend'] = str_replace( ' ', 'T', $list['supplier.lists.dateend'] );
 			$list['config'] = [];

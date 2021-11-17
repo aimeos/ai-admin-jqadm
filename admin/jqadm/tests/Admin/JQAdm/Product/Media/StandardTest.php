@@ -54,7 +54,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertStringContainsString( '&quot;media.preview&quot;:&quot;prod_114x95\/194_prod_114x95.jpg&quot;', $result );
+		$this->assertStringContainsString( '&quot;media.preview&quot;:&quot;\/prod_114x95\/194_prod_114x95.jpg&quot;', $result );
 	}
 
 
@@ -78,7 +78,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertStringContainsString( '&quot;media.preview&quot;:&quot;prod_114x95\/194_prod_114x95.jpg&quot;', $result );
+		$this->assertStringContainsString( '&quot;media.preview&quot;:&quot;\/prod_114x95\/194_prod_114x95.jpg&quot;', $result );
 	}
 
 
