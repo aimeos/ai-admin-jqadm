@@ -415,7 +415,8 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale' );
+		$context = $this->getContext();
+		$manager = \Aimeos\MShop::create( $context, 'locale' );
 
 		if( isset( $data['locale.id'] ) && $data['locale.id'] != '' ) {
 			$item = $manager->get( $data['locale.id'] );
@@ -423,7 +424,7 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$item->fromArray( $data, true );
+		$item->fromArray( $data, true )->set( 'site_id', $context->getLocale()->get( 'site_id' ) );
 
 		return $item;
 	}
