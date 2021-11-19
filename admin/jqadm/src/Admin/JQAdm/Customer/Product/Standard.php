@@ -319,7 +319,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Customer\Item\Iface $item, array $data ) : \Aimeos\MShop\Customer\Item\Iface
 	{
-		$listIds = $this->getValue( $data, 'customer.lists.id', [] );
+		$listIds = $this->val( $data, 'customer.lists.id', [] );
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'customer/lists' );
 
 		$search = $listManager->filter()->slice( 0, count( $listIds ) );
@@ -340,31 +340,31 @@ class Standard
 			$litem->setDomain( 'product' );
 
 			if( isset( $data['customer.lists.refid'][$idx] ) ) {
-				$litem->setRefId( $this->getValue( $data, 'customer.lists.refid/' . $idx ) );
+				$litem->setRefId( $this->val( $data, 'customer.lists.refid/' . $idx ) );
 			}
 
 			if( isset( $data['customer.lists.status'][$idx] ) ) {
-				$litem->setStatus( (int) $this->getValue( $data, 'customer.lists.status/' . $idx ) );
+				$litem->setStatus( (int) $this->val( $data, 'customer.lists.status/' . $idx ) );
 			}
 
 			if( isset( $data['customer.lists.type'][$idx] ) ) {
-				$litem->setType( $this->getValue( $data, 'customer.lists.type/' . $idx ) );
+				$litem->setType( $this->val( $data, 'customer.lists.type/' . $idx ) );
 			}
 
 			if( isset( $data['customer.lists.position'][$idx] ) ) {
-				$litem->setPosition( (int) $this->getValue( $data, 'customer.lists.position/' . $idx ) );
+				$litem->setPosition( (int) $this->val( $data, 'customer.lists.position/' . $idx ) );
 			}
 
 			if( isset( $data['customer.lists.datestart'][$idx] ) ) {
-				$litem->setDateStart( $this->getValue( $data, 'customer.lists.datestart/' . $idx ) );
+				$litem->setDateStart( $this->val( $data, 'customer.lists.datestart/' . $idx ) );
 			}
 
 			if( isset( $data['customer.lists.dateend'][$idx] ) ) {
-				$litem->setDateEnd( $this->getValue( $data, 'customer.lists.dateend/' . $idx ) );
+				$litem->setDateEnd( $this->val( $data, 'customer.lists.dateend/' . $idx ) );
 			}
 
 			if( isset( $data['customer.lists.config'][$idx] )
-				&& ( $conf = json_decode( $this->getValue( $data, 'customer.lists.config/' . $idx ), true ) ) !== null
+				&& ( $conf = json_decode( $this->val( $data, 'customer.lists.config/' . $idx ), true ) ) !== null
 			) {
 				$litem->setConfig( $conf );
 			}

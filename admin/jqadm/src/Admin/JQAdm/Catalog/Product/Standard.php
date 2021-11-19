@@ -324,7 +324,7 @@ class Standard
 	{
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
 		$listItem = $listManager->create()->setParentId( $item->getId() )->setDomain( 'product' );
-		$listIds = $this->getValue( $data, 'catalog.lists.id', [] );
+		$listIds = $this->val( $data, 'catalog.lists.id', [] );
 
 		if( !empty( $listIds ) ) {
 			$listItems = $listManager->search( $listManager->filter()->add( 'catalog.lists.id', '==', $listIds ) );
@@ -337,31 +337,31 @@ class Standard
 			$litem = $listItems->get( $listid ) ?: clone $listItem;
 
 			if( isset( $data['catalog.lists.type'][$idx] ) ) {
-				$litem->setType( $this->getValue( $data, 'catalog.lists.type/' . $idx ) );
+				$litem->setType( $this->val( $data, 'catalog.lists.type/' . $idx ) );
 			}
 
 			if( isset( $data['catalog.lists.refid'][$idx] ) ) {
-				$litem->setRefId( $this->getValue( $data, 'catalog.lists.refid/' . $idx ) );
+				$litem->setRefId( $this->val( $data, 'catalog.lists.refid/' . $idx ) );
 			}
 
 			if( isset( $data['catalog.lists.status'][$idx] ) ) {
-				$litem->setStatus( (int) $this->getValue( $data, 'catalog.lists.status/' . $idx ) );
+				$litem->setStatus( (int) $this->val( $data, 'catalog.lists.status/' . $idx ) );
 			}
 
 			if( isset( $data['catalog.lists.position'][$idx] ) ) {
-				$litem->setPosition( (int) $this->getValue( $data, 'catalog.lists.position/' . $idx ) );
+				$litem->setPosition( (int) $this->val( $data, 'catalog.lists.position/' . $idx ) );
 			}
 
 			if( isset( $data['catalog.lists.datestart'][$idx] ) ) {
-				$litem->setDateStart( $this->getValue( $data, 'catalog.lists.datestart/' . $idx ) );
+				$litem->setDateStart( $this->val( $data, 'catalog.lists.datestart/' . $idx ) );
 			}
 
 			if( isset( $data['catalog.lists.dateend'][$idx] ) ) {
-				$litem->setDateEnd( $this->getValue( $data, 'catalog.lists.dateend/' . $idx ) );
+				$litem->setDateEnd( $this->val( $data, 'catalog.lists.dateend/' . $idx ) );
 			}
 
 			if( isset( $data['catalog.lists.config'][$idx] )
-				&& ( $conf = json_decode( $this->getValue( $data, 'catalog.lists.config/' . $idx ), true ) ) !== null
+				&& ( $conf = json_decode( $this->val( $data, 'catalog.lists.config/' . $idx ), true ) ) !== null
 			) {
 				$litem->setConfig( $conf );
 			}

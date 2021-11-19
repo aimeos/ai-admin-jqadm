@@ -336,16 +336,14 @@ class Standard
 		$listItems = $this->getListItems( $item->getId() );
 		$list = [];
 
-		foreach( $data as $idx => $entry )
+		foreach( $data as $entry )
 		{
-			if( isset( $listItems[$entry['catalog.lists.id']] ) ) {
-				$litem = $listItems[$entry['catalog.lists.id']];
-			} else {
-				$litem = $manager->create();
-			}
+			$listid = $this->val( $entry, 'catalog.lists.id' );
+			$litem = $listItems->pull( $listid ) ?: $manager->create();
 
-			$list[] = $litem->setParentId( $this->getValue( $entry, 'catalog.id' ) )->setDomain( 'product' )
-				->setType( $this->getValue( $entry, 'catalog.lists.type' ) )->setRefId( $item->getId() );
+			$list[] = $litem->setDomain( 'product' )->setRefId( $item->getId() )
+				->setType( $this->val( $entry, 'catalog.lists.type' ) )
+				->setParentId( $this->val( $entry, 'catalog.id' ) );
 
 			unset( $listItems[$litem->getId()] );
 		}

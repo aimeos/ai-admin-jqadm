@@ -306,8 +306,8 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$id = $this->getValue( $entry, 'price.id', '' );
-			$type = $this->getValue( $entry, 'service.lists.type', 'default' );
+			$id = $this->val( $entry, 'price.id', '' );
+			$type = $this->val( $entry, 'service.lists.type', 'default' );
 
 			$listItem = $item->getListItem( 'price', $type, $id, false ) ?: $listManager->create();
 			$refItem = $listItem->getRefItem() ?: $priceManager->create();
@@ -315,7 +315,7 @@ class Standard
 			$refItem->fromArray( $entry, true );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );
 
-			foreach( (array) $this->getValue( $entry, 'config', [] ) as $cfg )
+			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
 				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
 					$listItem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );

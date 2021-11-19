@@ -436,7 +436,7 @@ class Standard
 
 		$item->fromArray( $data, true )->setConfig( [] );
 
-		foreach( (array) $this->getValue( $data, 'config', [] ) as $entry )
+		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
 		{
 			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' ) {
 				$item->setConfigValue( $key, trim( $entry['val'] ?? '' ) );

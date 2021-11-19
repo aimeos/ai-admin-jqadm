@@ -335,15 +335,15 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$id = $this->getValue( $entry, 'media.id', '' );
-			$type = $this->getValue( $entry, 'supplier.lists.type', 'default' );
+			$id = $this->val( $entry, 'media.id', '' );
+			$type = $this->val( $entry, 'supplier.lists.type', 'default' );
 
 			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $listManager->create();
 			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
 
 			$refItem->fromArray( $entry, true )->setDomain( 'supplier' );
-			$file = $this->getValue( $files, 'media/' . $idx . '/file' );
-			$preview = $this->getValue( $files, 'media/' . $idx . '/preview' );
+			$file = $this->val( $files, 'media/' . $idx . '/file' );
+			$preview = $this->val( $files, 'media/' . $idx . '/preview' );
 
 			if( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
 				$refItem = $cntl->copy( $refItem );
@@ -360,7 +360,7 @@ class Standard
 
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );
 
-			foreach( (array) $this->getValue( $entry, 'config', [] ) as $cfg )
+			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
 				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
 					$listItem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );

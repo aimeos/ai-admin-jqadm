@@ -245,8 +245,8 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$id = $this->getValue( $entry, 'product.lists.id' );
-			$refid = $this->getValue( $entry, 'product.lists.refid' );
+			$id = $this->val( $entry, 'product.lists.id' );
+			$refid = $this->val( $entry, 'product.lists.refid' );
 
 			$litem = $listItems->pull( $id ) ?: $listManager->create()->setType( 'variant' );
 			$litem->setId( $id )->setRefId( $refid )->setPosition( $idx );

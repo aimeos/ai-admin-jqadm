@@ -300,9 +300,9 @@ class Standard
 		$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
 		$listItems = $item->getListItems( 'attribute', 'hidden', 'download', false );
 
-		if( $this->getValue( $data, 'attribute.label' ) != '' )
+		if( $this->val( $data, 'attribute.label' ) != '' )
 		{
-			$listId = $this->getValue( $data, 'product.lists.id' );
+			$listId = $this->val( $data, 'product.lists.id' );
 
 			$litem = $listItems->pull( $listId ) ?: $prodManager->createListItem()->setType( 'hidden' );
 			$refItem = $litem->getRefItem() ?: $attrManager->create()->setType( 'download' );
@@ -310,10 +310,10 @@ class Standard
 			$litem->fromArray( $data, true );
 			$refItem->fromArray( $data, true );
 
-			if( ( $file = $this->getValue( (array) $this->view()->request()->getUploadedFiles(), 'download/file' ) ) !== null
+			if( ( $file = $this->val( (array) $this->view()->request()->getUploadedFiles(), 'download/file' ) ) !== null
 				&& $file->getError() === UPLOAD_ERR_OK
 			) {
-				$path = ( $this->getValue( $data, 'overwrite' ) == 1 ? $refItem->getCode() : null );
+				$path = ( $this->val( $data, 'overwrite' ) == 1 ? $refItem->getCode() : null );
 				$refItem->setCode( $this->storeFile( $file, $path ) );
 			}
 

@@ -329,7 +329,7 @@ class Standard
 	{
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
 		$listItem = $listManager->create()->setParentId( $item->getId() )->setDomain( 'product' );
-		$listIds = $this->getValue( $data, 'supplier.lists.id', [] );
+		$listIds = $this->val( $data, 'supplier.lists.id', [] );
 
 		if( !empty( $listIds ) ) {
 			$listItems = $listManager->search( $listManager->filter()->add( 'supplier.lists.id', '==', $listIds ) );
@@ -342,31 +342,31 @@ class Standard
 			$litem = $listItems->get( $listid ) ?: clone $listItem;
 
 			if( isset( $data['supplier.lists.refid'][$idx] ) ) {
-				$litem->setRefId( $this->getValue( $data, 'supplier.lists.refid/' . $idx ) );
+				$litem->setRefId( $this->val( $data, 'supplier.lists.refid/' . $idx ) );
 			}
 
 			if( isset( $data['supplier.lists.status'][$idx] ) ) {
-				$litem->setStatus( (int) $this->getValue( $data, 'supplier.lists.status/' . $idx ) );
+				$litem->setStatus( (int) $this->val( $data, 'supplier.lists.status/' . $idx ) );
 			}
 
 			if( isset( $data['supplier.lists.type'][$idx] ) ) {
-				$litem->setType( $this->getValue( $data, 'supplier.lists.type/' . $idx ) );
+				$litem->setType( $this->val( $data, 'supplier.lists.type/' . $idx ) );
 			}
 
 			if( isset( $data['supplier.lists.position'][$idx] ) ) {
-				$litem->setPosition( (int) $this->getValue( $data, 'supplier.lists.position/' . $idx ) );
+				$litem->setPosition( (int) $this->val( $data, 'supplier.lists.position/' . $idx ) );
 			}
 
 			if( isset( $data['supplier.lists.datestart'][$idx] ) ) {
-				$litem->setDateStart( $this->getValue( $data, 'supplier.lists.datestart/' . $idx ) );
+				$litem->setDateStart( $this->val( $data, 'supplier.lists.datestart/' . $idx ) );
 			}
 
 			if( isset( $data['supplier.lists.dateend'][$idx] ) ) {
-				$litem->setDateEnd( $this->getValue( $data, 'supplier.lists.dateend/' . $idx ) );
+				$litem->setDateEnd( $this->val( $data, 'supplier.lists.dateend/' . $idx ) );
 			}
 
 			if( isset( $data['supplier.lists.config'][$idx] )
-				&& ( $conf = json_decode( $this->getValue( $data, 'supplier.lists.config/' . $idx ), true ) ) !== null
+				&& ( $conf = json_decode( $this->val( $data, 'supplier.lists.config/' . $idx ), true ) ) !== null
 			) {
 				$litem->setConfig( $conf );
 			}

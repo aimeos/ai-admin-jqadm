@@ -336,16 +336,14 @@ class Standard
 		$listItems = $this->getListItems( $item->getId() );
 		$list = [];
 
-		foreach( $data as $idx => $entry )
+		foreach( $data as $entry )
 		{
-			$parentid = $this->getValue( $entry, 'supplier.id' );
-			$listid = $this->getValue( $entry, 'supplier.lists.id' );
-			$type = $this->getValue( $entry, 'supplier.lists.type' );
-
+			$listid = $this->val( $entry, 'supplier.lists.id' );
 			$litem = $listItems->pull( $listid ) ?: $manager->create();
 
-			$list[] = $litem->setParentId( $parentid )->setDomain( 'product' )
-				->setType( $type )->setRefId( $item->getId() )->setPosition( $idx );
+			$list[] = $litem->setDomain( 'product' )->setRefId( $item->getId() )
+				->setType( $this->val( $entry, 'supplier.lists.type' ) )
+				->setParentId( $this->val( $entry, 'supplier.id' ) );
 		}
 
 		$manager->delete( $listItems->toArray() );

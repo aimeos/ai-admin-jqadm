@@ -508,7 +508,7 @@ class Standard
 		$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
 		$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
 
-		$groupIds = $this->getValue( $data, 'customer.groups', [] );
+		$groupIds = $this->val( $data, 'customer.groups', [] );
 		$gids = array_keys( $this->getGroupItems( $item ) );
 
 		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )

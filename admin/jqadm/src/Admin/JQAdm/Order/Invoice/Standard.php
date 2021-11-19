@@ -272,7 +272,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Order\Item\Base\Iface $order, array $data )
 	{
-		$invoiceIds = $this->getValue( $data, 'order.id', [] );
+		$invoiceIds = $this->val( $data, 'order.id', [] );
 		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
 
 		$search = $manager->filter()->slice( 0, count( $invoiceIds ) );
@@ -289,15 +289,15 @@ class Standard
 				$item = $items[$id];
 			}
 
-			$pstatus = $this->getValue( $data, 'order.statuspayment/' . $idx );
-			$dstatus = $this->getValue( $data, 'order.statusdelivery/' . $idx );
+			$pstatus = $this->val( $data, 'order.statuspayment/' . $idx );
+			$dstatus = $this->val( $data, 'order.statusdelivery/' . $idx );
 
 			$item->setStatusPayment( is_numeric( $pstatus ) ? (int) $pstatus : null );
 			$item->setStatusDelivery( is_numeric( $dstatus ) ? (int) $dstatus : null );
-			$item->setType( $this->getValue( $data, 'order.type/' . $idx, $item->getType() ) );
-			$item->setDateDelivery( $this->getValue( $data, 'order.datedelivery/' . $idx ) );
-			$item->setDatePayment( $this->getValue( $data, 'order.datepayment/' . $idx ) );
-			$item->setRelatedId( $this->getValue( $data, 'order.relatedid/' . $idx ) );
+			$item->setType( $this->val( $data, 'order.type/' . $idx, $item->getType() ) );
+			$item->setDateDelivery( $this->val( $data, 'order.datedelivery/' . $idx ) );
+			$item->setDatePayment( $this->val( $data, 'order.datepayment/' . $idx ) );
+			$item->setRelatedId( $this->val( $data, 'order.relatedid/' . $idx ) );
 			$item->setBaseId( $order->getId() );
 
 			$manager->save( $item );

@@ -272,7 +272,7 @@ class Standard
 		{
 			$propItems = $refItem->getPropertyItems( null, false );
 
-			foreach( (array) $this->getValue( $data, $index . '/property', [] ) as $entry )
+			foreach( (array) $this->val( $data, $index . '/property', [] ) as $entry )
 			{
 				if( isset( $propItems[$entry['media.property.id']] ) )
 				{

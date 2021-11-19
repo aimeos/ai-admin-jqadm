@@ -260,7 +260,7 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			$id = $this->getValue( $entry, 'product.id', '' );
+			$id = $this->val( $entry, 'product.id', '' );
 
 			$litem = $item->getListItem( 'product', 'default', $id, false ) ?: $listManager->create();
 			$refItem = $prodItems->get( $id ) ?: ( $litem->getRefItem() ?: $manager->create() );

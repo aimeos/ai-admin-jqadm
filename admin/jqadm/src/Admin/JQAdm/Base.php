@@ -392,11 +392,11 @@ abstract class Base
 	 * @param mixed $default Returned value if no one for key is available
 	 * @return mixed Value from the array or default value if not present in array
 	 */
-	protected function getValue( array $values, $key, $default = null )
+	protected function val( array $values, $key, $default = null )
 	{
 		foreach( explode( '/', trim( $key, '/' ) ) as $part )
 		{
-			if( isset( $values[$part] ) ) {
+			if( is_array( $values ) && isset( $values[$part] ) ) {
 				$values = $values[$part];
 			} else {
 				return $default;

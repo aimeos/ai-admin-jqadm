@@ -298,12 +298,12 @@ class Standard
 
 		foreach( $data as $idx => $entry )
 		{
-			if( trim( $this->getValue( $entry, 'text.content', '' ) ) === '' ) {
+			if( trim( $this->val( $entry, 'text.content', '' ) ) === '' ) {
 				continue;
 			}
 
-			$id = $this->getValue( $entry, 'text.id', '' );
-			$type = $this->getValue( $entry, 'product.lists.type', 'default' );
+			$id = $this->val( $entry, 'text.id', '' );
+			$type = $this->val( $entry, 'product.lists.type', 'default' );
 
 			$listItem = $item->getListItem( 'text', $type, $id, false ) ?: $listManager->create();
 			$refItem = $listItem->getRefItem() ?: $textManager->create();
@@ -311,7 +311,7 @@ class Standard
 			$refItem->fromArray( $entry, true );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );
 
-			foreach( (array) $this->getValue( $entry, 'config', [] ) as $cfg )
+			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
 				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
 					$listItem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );

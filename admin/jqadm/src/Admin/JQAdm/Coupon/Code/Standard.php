@@ -316,7 +316,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Coupon\Item\Iface $item, array $data ) : \Aimeos\MShop\Coupon\Item\Iface
 	{
-		if( ( $ids = $this->getValue( $data, 'coupon.code.id', [] ) ) === [] ) {
+		if( ( $ids = $this->val( $data, 'coupon.code.id', [] ) ) === [] ) {
 			return $item;
 		}
 
@@ -334,11 +334,11 @@ class Standard
 
 			$citem->setId( $id );
 			$citem->setParentId( $item->getId() );
-			$citem->setCode( $this->getValue( $data, 'coupon.code.code/' . $idx, $citem->getCode() ) );
-			$citem->setCount( $this->getValue( $data, 'coupon.code.count/' . $idx, $citem->getCount() ) );
-			$citem->setDateStart( $this->getValue( $data, 'coupon.code.datestart/' . $idx, $citem->getDateStart() ) );
-			$citem->setDateEnd( $this->getValue( $data, 'coupon.code.dateend/' . $idx, $citem->getDateEnd() ) );
-			$citem->setRef( $this->getValue( $data, 'coupon.code.ref/' . $idx, $citem->getRef() ) );
+			$citem->setCode( $this->val( $data, 'coupon.code.code/' . $idx, $citem->getCode() ) );
+			$citem->setCount( $this->val( $data, 'coupon.code.count/' . $idx, $citem->getCount() ) );
+			$citem->setDateStart( $this->val( $data, 'coupon.code.datestart/' . $idx, $citem->getDateStart() ) );
+			$citem->setDateEnd( $this->val( $data, 'coupon.code.dateend/' . $idx, $citem->getDateEnd() ) );
+			$citem->setRef( $this->val( $data, 'coupon.code.ref/' . $idx, $citem->getRef() ) );
 
 			$manager->save( $citem, false );
 		}
@@ -355,7 +355,7 @@ class Standard
 	 */
 	protected function storeFile( \Aimeos\MShop\Coupon\Item\Iface $item, array $files )
 	{
-		$file = $this->getValue( $files, 'code/file' );
+		$file = $this->val( $files, 'code/file' );
 
 		if( $file == null || $file->getError() === UPLOAD_ERR_NO_FILE ) {
 			return;

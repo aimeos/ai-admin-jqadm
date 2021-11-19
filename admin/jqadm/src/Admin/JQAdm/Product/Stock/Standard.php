@@ -312,7 +312,7 @@ class Standard
 
 		foreach( $data as $entry )
 		{
-			$id = $this->getValue( $entry, 'stock.id' );
+			$id = $this->val( $entry, 'stock.id' );
 			$stockItem = $stocks->get( $id ) ?: $manager->create();
 			$stockItem->fromArray( $entry )->setProductId( $item->getId() );
 

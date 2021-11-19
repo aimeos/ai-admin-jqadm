@@ -273,7 +273,7 @@ class Standard
 	 */
 	protected function fromArrayIcon( \Aimeos\MShop\Locale\Item\Site\Iface $item, array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
-		$file = $this->getValue( $files, 'media/icon' );
+		$file = $this->val( $files, 'media/icon' );
 
 		if( $file && $file->getError() === UPLOAD_ERR_OK )
 		{
@@ -309,7 +309,7 @@ class Standard
 	 */
 	protected function fromArrayLogo( \Aimeos\MShop\Locale\Item\Site\Iface $item, array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
-		$file = $this->getValue( $files, 'media/logo' );
+		$file = $this->val( $files, 'media/logo' );
 
 		if( $file && $file->getError() === UPLOAD_ERR_OK )
 		{
