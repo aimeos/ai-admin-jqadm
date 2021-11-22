@@ -366,7 +366,7 @@ class Standard
 			}
 
 			if( isset( $data['supplier.lists.config'][$idx] )
-				&& ( $conf = json_decode( $this->val( $data, 'supplier.lists.config/' . $idx ), true ) ) !== null
+				&& ( $conf = json_decode( $this->val( $data, 'supplier.lists.config/' . $idx, '' ), true ) ) !== null
 			) {
 				$litem->setConfig( $conf );
 			}
