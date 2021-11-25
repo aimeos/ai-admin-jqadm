@@ -375,7 +375,7 @@ class Standard
 		}
 
 		$msg = $this->context()->translate( 'admin', 'Permission denied' );
-		throw new \Aimeos\Admin\JQAdm\Exception( $msg);
+		throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 	}
 
 
