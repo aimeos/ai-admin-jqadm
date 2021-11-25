@@ -87,7 +87,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
 		$manager->begin();
 
 		try
@@ -234,7 +234,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/order/invoice/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/order/invoice/subparts', [] );
 	}
 
 
@@ -248,7 +248,7 @@ class Standard
 	 */
 	protected function getOrderItems( \Aimeos\MShop\Order\Item\Base\Iface $order, array $params, &$total ) : \Aimeos\Map
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
 
 		$search = $manager->filter( false, true );
 		$search->setSortations( [$search->sort( '-', 'order.ctime' )] );
@@ -273,7 +273,7 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Order\Item\Base\Iface $order, array $data )
 	{
 		$invoiceIds = $this->val( $data, 'order.id', [] );
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
 
 		$search = $manager->filter()->slice( 0, count( $invoiceIds ) );
 		$search->setConditions( $search->compare( '==', 'order.id', $invoiceIds ) );

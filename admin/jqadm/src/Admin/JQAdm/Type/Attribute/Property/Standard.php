@@ -239,7 +239,7 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/type/attribute/property/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/type/attribute/property/subparts', [] );
 	}
 
 

@@ -45,13 +45,13 @@ class Standard
 	public function copy() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$context = $this->getContext();
+		$context = $this->context();
 
 		try
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -80,7 +80,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$context = $this->getContext();
+		$context = $this->context();
 
 		try
 		{
@@ -122,14 +122,14 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'subscription' );
 		$manager->begin();
 
 		try
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -166,7 +166,7 @@ class Standard
 	public function export() : ?string
 	{
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		try
 		{
@@ -204,13 +204,13 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$context = $this->getContext();
+		$context = $this->context();
 
 		try
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -240,7 +240,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'subscription' );
 		$manager->begin();
 
 		try
@@ -277,7 +277,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'subscription' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'subscription' );
 
 			$search = $manager->filter( false, true );
 			$search->setSortations( [$search->sort( '-', 'subscription.ctime' )] );
@@ -416,7 +416,7 @@ class Standard
 	protected function getOrderBaseItems( \Aimeos\Map $items ) : \Aimeos\Map
 	{
 		$baseIds = $items->getOrderBaseId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
 
 		$search = $manager->filter()->slice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
@@ -465,7 +465,7 @@ class Standard
 		 * @since 2018.04
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/subscription/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/subscription/subparts', [] );
 	}
 
 
@@ -477,7 +477,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Subscription\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'subscription' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'subscription' );
 
 		if( isset( $data['subscription.id'] ) && $data['subscription.id'] != '' ) {
 			$item = $manager->get( $data['subscription.id'] );
@@ -499,7 +499,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Subscription\Item\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 		$data = $item->toArray( true );
 
 		if( $copy === true )

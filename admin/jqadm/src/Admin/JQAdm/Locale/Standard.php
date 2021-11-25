@@ -31,8 +31,8 @@ class Standard
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$curmanager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
-		$langmanager = \Aimeos\MShop::create( $this->getContext(), 'locale/language' );
+		$curmanager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
+		$langmanager = \Aimeos\MShop::create( $this->context(), 'locale/language' );
 
 		$cursearch = $curmanager->filter( true );
 		$cursearch->setSortations( [$cursearch->sort( '+', 'locale.currency.id' )] );
@@ -63,11 +63,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'locale' );
 			$view->item = $manager->get( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -96,7 +96,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'locale' )->create();
 			}
 
 			$data['locale.siteid'] = $view->item->getSiteId();
@@ -122,14 +122,14 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'locale' );
 		$manager->begin();
 
 		try
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -171,11 +171,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'locale' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
@@ -199,7 +199,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'locale' );
 		$manager->begin();
 
 		try
@@ -236,7 +236,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'locale' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'locale' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
 			$view->items = $manager->search( $search, [], $total );
@@ -402,7 +402,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/locale/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/locale/subparts', [] );
 	}
 
 
@@ -415,7 +415,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'locale' );
 
 		if( isset( $data['locale.id'] ) && $data['locale.id'] != '' ) {
@@ -442,7 +442,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['locale.siteid'] = $this->getContext()->getLocale()->getSiteId();
+			$data['locale.siteid'] = $this->context()->getLocale()->getSiteId();
 			$data['locale.id'] = '';
 		}
 

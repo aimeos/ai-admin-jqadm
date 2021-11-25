@@ -49,11 +49,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 			$view->item = $manager->get( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -82,7 +82,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'locale/currency' )->create();
 			}
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
@@ -106,14 +106,14 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 		$manager->begin();
 
 		try
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -155,11 +155,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
@@ -183,7 +183,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 		$manager->begin();
 
 		try
@@ -220,7 +220,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'locale/currency' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 
 			$search = $manager->filter();
 			$search->setSortations( [$search->sort( '-', 'locale.currency.status' ), $search->sort( '+', 'locale.currency.id' )] );
@@ -389,7 +389,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/locale/currency/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/locale/currency/subparts', [] );
 	}
 
 
@@ -402,7 +402,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Currency\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 
 		if( isset( $data['locale.currency.id'] ) && $data['locale.currency.id'] != '' ) {
 			$item = $manager->get( $data['locale.currency.id'] );

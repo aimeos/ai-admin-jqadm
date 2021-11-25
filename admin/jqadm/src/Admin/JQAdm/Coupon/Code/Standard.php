@@ -93,7 +93,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'coupon/code' );
 		$manager->begin();
 
 		try
@@ -211,7 +211,7 @@ class Standard
 	{
 		if( $file->getError() !== UPLOAD_ERR_OK )
 		{
-			$ctx = $this->getContext();
+			$ctx = $this->context();
 
 			switch( $file->getError() )
 			{
@@ -247,7 +247,7 @@ class Standard
 	 */
 	protected function getCodeItems( \Aimeos\MShop\Coupon\Item\Iface $item, array $params = [], int &$total = null ) : \Aimeos\Map
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'coupon/code' );
 
 		$search = $manager->filter();
 		$search->setSortations( [$search->sort( '+', 'coupon.code.code' )] );
@@ -303,7 +303,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/coupon/code/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/coupon/code/subparts', [] );
 	}
 
 
@@ -320,7 +320,7 @@ class Standard
 			return $item;
 		}
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon/code' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'coupon/code' );
 		$filter = $manager->filter()->add( ['coupon.code.id' => $ids] )->slice( 0, count( $ids ) );
 		$items = $manager->search( $filter );
 
@@ -363,7 +363,7 @@ class Standard
 
 		$this->checkFileUpload( $file );
 
-		$context = $this->getContext();
+		$context = $this->context();
 		$fs = $context->getFilesystemManager()->get( 'fs-import' );
 		$dir = 'couponcode/' . $context->getLocale()->getSiteItem()->getCode();
 

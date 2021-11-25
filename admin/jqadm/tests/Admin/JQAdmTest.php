@@ -18,7 +18,7 @@ class JQAdmTest extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$this->aimeos = \TestHelperJqadm::getAimeos();
-		$this->context = \TestHelperJqadm::getContext();
+		$this->context = \TestHelperJqadm::context();
 		$this->context->setView( \TestHelperJqadm::view() );
 	}
 

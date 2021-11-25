@@ -57,7 +57,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'characteristic/property', [] );
 
 		foreach( $data as $idx => $entry ) {
@@ -198,7 +198,7 @@ class Standard
 	 */
 	protected function excludeItems( \Aimeos\Map $propItems ) : \Aimeos\Map
 	{
-		$excludes = $this->getContext()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
+		$excludes = $this->context()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
 
 		return $propItems->filter( function( $item ) use ( $excludes ) {
 			return !in_array( $item->getType(), $excludes );
@@ -246,7 +246,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/characteristic/property/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/characteristic/property/subparts', [] );
 	}
 
 
@@ -257,8 +257,8 @@ class Standard
 	 */
 	protected function getPropertyTypes() : \Aimeos\Map
 	{
-		$excludes = $this->getContext()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/property/type' );
+		$excludes = $this->context()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/property/type' );
 
 		$search = $manager->filter( true )->slice( 0, 10000 );
 		$search->setConditions( $search->compare( '!=', 'product.property.type.code', $excludes ) );
@@ -277,7 +277,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$propItems = $this->excludeItems( $item->getPropertyItems( null, false ) );
 
 		foreach( $data as $entry )
@@ -302,7 +302,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 		$data = [];
 
 		foreach( $this->excludeItems( $item->getPropertyItems( null, false ) ) as $item )

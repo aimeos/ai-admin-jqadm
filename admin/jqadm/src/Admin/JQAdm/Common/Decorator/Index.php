@@ -35,7 +35,7 @@ class Index extends Base
 
 		if( !empty( $prodIds ) )
 		{
-			$context = $this->getContext();
+			$context = $this->context();
 			$manager = \Aimeos\MShop::create( $context, 'product' );
 			$domains = $context->getConfig()->get( 'admin/jqadm/product/domains', [] );
 

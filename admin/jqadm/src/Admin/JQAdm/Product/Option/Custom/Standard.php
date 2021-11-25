@@ -56,7 +56,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'option/custom', [] );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
@@ -207,7 +207,7 @@ class Standard
 		 * @category Developer
 		 * @see admin/jqadm/product/option/custom/exclude
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/option/custom/exclude', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/option/custom/exclude', [] );
 	}
 
 
@@ -251,7 +251,7 @@ class Standard
 		 * @since 2017.03
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/option/custom/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/option/custom/subparts', [] );
 	}
 
 
@@ -264,7 +264,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
+		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
 		$excludes = $item->getListItems( 'attribute', 'custom', $this->getExcludedTypes(), false );
 		$listItems = $item->getListItems( 'attribute', 'custom', null, false );
 
@@ -293,7 +293,7 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = [];
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 		$excludes = $item->getListItems( 'attribute', 'custom', $this->getExcludedTypes(), false );
 
 		foreach( $item->getListItems( 'attribute', 'custom', null, false ) as $listItem )

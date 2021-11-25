@@ -239,7 +239,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/type/price/lists/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/type/price/lists/subparts', [] );
 	}
 
 

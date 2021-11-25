@@ -43,7 +43,7 @@ class Standard
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute/property/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'attribute/property/type' );
 
 		$search = $manager->filter( true )->slice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'attribute.property.type.position' )] );
@@ -77,7 +77,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'property', [] );
 
 		foreach( $data as $idx => $entry ) {
@@ -248,7 +248,7 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/attribute/property/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/attribute/property/subparts', [] );
 	}
 
 
@@ -261,7 +261,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Attribute\Item\Iface $item, array $data ) : \Aimeos\MShop\Attribute\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute/property' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'attribute/property' );
 
 		$propItems = $item->getPropertyItems( null, false );
 
@@ -294,7 +294,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Attribute\Item\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 		$data = [];
 
 		foreach( $item->getPropertyItems( null, false ) as $item )

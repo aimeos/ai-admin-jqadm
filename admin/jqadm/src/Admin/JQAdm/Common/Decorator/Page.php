@@ -31,7 +31,7 @@ class Page extends Base
 
 		// set first to be able to show errors occuring afterwards
 		$view->pageParams = $this->getClientParams();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$siteManager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );

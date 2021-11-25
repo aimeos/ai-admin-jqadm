@@ -19,7 +19,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$this->view = \TestHelperJqadm::view();
-		$this->context = \TestHelperJqadm::getContext();
+		$this->context = \TestHelperJqadm::context();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Dashboard\Setting\Standard( $this->context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );

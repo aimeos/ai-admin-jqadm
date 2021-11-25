@@ -41,11 +41,11 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		if( ( $id = $view->param( 'id' ) ) === null )
 		{
-			$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+			$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 		}
 
@@ -71,11 +71,11 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$context = $this->getContext();
+		$context = $this->context();
 
 		if( ( $id = $view->param( 'id' ) ) === null )
 		{
-			$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+			$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 		}
 
@@ -102,7 +102,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->view();
-		$manager = \Aimeos\MAdmin::create( $this->getContext(), 'job' );
+		$manager = \Aimeos\MAdmin::create( $this->context(), 'job' );
 
 		$search = $manager->filter();
 		$search->setSortations( [$search->sort( '-', 'job.ctime' ), $search->sort( '-', 'job.id' )] );
@@ -264,6 +264,6 @@ class Standard
 		 * @since 2017.08
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/dashboard/job/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/dashboard/job/subparts', [] );
 	}
 }

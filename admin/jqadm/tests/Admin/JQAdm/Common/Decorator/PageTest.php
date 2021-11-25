@@ -17,7 +17,7 @@ class PageTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$this->context = \TestHelperJqadm::getContext();
+		$this->context = \TestHelperJqadm::context();
 
 		$client = new \Aimeos\Admin\JQAdm\Product\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $client, $this->context );

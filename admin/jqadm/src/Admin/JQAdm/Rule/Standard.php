@@ -59,11 +59,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'rule' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item, true );
@@ -93,7 +93,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'rule' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'rule' )->create();
 			}
 
 			$data['rule.siteid'] = $view->item->getSiteId();
@@ -119,14 +119,14 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'rule' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 		$manager->begin();
 
 		try
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -168,11 +168,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'rule' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
@@ -197,7 +197,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'rule' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 		$manager->begin();
 
 		try
@@ -234,7 +234,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'rule' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'rule' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 
 			$search = $manager->filter();
 			$search->setSortations( [$search->sort( '+', 'rule.type' ), $search->sort( '+', 'rule.position' )] );
@@ -372,7 +372,7 @@ class Standard
 	 */
 	public function getConfigAttributes( \Aimeos\MShop\Rule\Item\Iface $item ) : array
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'rule' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 
 		try {
 			return $manager->getProvider( $item, $item->getType() )->getConfigBE();
@@ -422,7 +422,7 @@ class Standard
 		 * @since 2021.04
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/rule/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/rule/subparts', [] );
 	}
 
 
@@ -433,7 +433,7 @@ class Standard
 	 */
 	protected function getTypeItems() : \Aimeos\Map
 	{
-		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'rule/type' );
+		$typeManager = \Aimeos\MShop::create( $this->context(), 'rule/type' );
 
 		$search = $typeManager->filter( true )->slice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'rule.type.position' )] );
@@ -467,7 +467,7 @@ class Standard
 			}
 		}
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'rule' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 
 		if( isset( $data['rule.id'] ) && $data['rule.id'] != '' ) {
 			$item = $manager->get( $data['rule.id'] );
@@ -497,7 +497,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['rule.siteid'] = $this->getContext()->getLocale()->getSiteId();
+			$data['rule.siteid'] = $this->context()->getLocale()->getSiteId();
 			$data['rule.id'] = '';
 		}
 

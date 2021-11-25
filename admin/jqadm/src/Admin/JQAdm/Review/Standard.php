@@ -32,7 +32,7 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		if( !$view->access( ['super', 'admin', 'test'] ) )
 		{
@@ -89,11 +89,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'review' );
 
 			$view->item = $manager->get( $id );
 			$view->itemSubparts = $this->getSubClientNames();
@@ -118,7 +118,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'review' );
 		$manager->begin();
 
 		try
@@ -155,7 +155,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'review' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'review' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'review' );
 
 			$search = $manager->filter();
 			$search->setSortations( [$search->sort( '-', 'review.ctime' )] );
@@ -324,7 +324,7 @@ class Standard
 		 * @since 2020.10
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/review/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/review/subparts', [] );
 	}
 
 
@@ -336,7 +336,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Review\Item\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'review' );
 
 		if( ( $id = $data['review.id'] ?? null ) == null )
@@ -409,7 +409,7 @@ class Standard
 	 */
 	protected function update( array $items ) : \Aimeos\Admin\JQAdm\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'review' );
 
 		foreach( $items as $item )

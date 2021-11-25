@@ -197,7 +197,7 @@ class Standard
 		 * @since 2016.01
 		 * @order Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/order/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/order/subparts', [] );
 	}
 
 

@@ -50,11 +50,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
 			$view->item = $manager->get( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -83,7 +83,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'customer/group' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'customer/group' )->create();
 			}
 
 			$data['customer.group.siteid'] = $view->item->getSiteId();
@@ -109,14 +109,14 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
 		$manager->begin();
 
 		try
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -158,11 +158,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
@@ -186,7 +186,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
 		$manager->begin();
 
 		try
@@ -223,7 +223,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'group' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
 			$view->items = $manager->search( $search, [], $total );
@@ -389,7 +389,7 @@ class Standard
 		 * @since 2018.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/group/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/group/subparts', [] );
 	}
 
 
@@ -402,7 +402,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Customer\Item\Group\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'customer/group' );
 
 		if( isset( $data['customer.group.id'] ) && $data['customer.group.id'] != '' ) {
 			$item = $manager->get( $data['customer.group.id'] );
@@ -428,7 +428,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['customer.group.siteid'] = $this->getContext()->getLocale()->getSiteId();
+			$data['customer.group.siteid'] = $this->context()->getLocale()->getSiteId();
 			$data['customer.group.id'] = '';
 		}
 

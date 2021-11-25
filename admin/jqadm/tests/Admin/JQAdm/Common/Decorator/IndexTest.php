@@ -18,7 +18,7 @@ class IndexTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$this->context = \TestHelperJqadm::getContext();
+		$this->context = \TestHelperJqadm::context();
 
 		$this->mock = $this->getMockBuilder( 'Aimeos\Admin\JQAdm\Catalog\Product\Standard' )
 			->disableOriginalConstructor()

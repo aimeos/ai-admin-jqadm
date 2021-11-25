@@ -51,11 +51,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 			$view->item = $manager->get( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -84,7 +84,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'product' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'product' )->create();
 			}
 
 			$data['product.siteid'] = $view->item->getSiteId();
@@ -110,7 +110,7 @@ class Standard
 	{
 		$tags = ['product'];
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$manager = \Aimeos\MShop::create( $context, 'product' );
 		$manager->begin();
@@ -119,7 +119,7 @@ class Standard
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -165,11 +165,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
 			$view->item = $manager->get( $id, $this->getDomains() );
 			$view->itemData = $this->toArray( $view->item );
@@ -192,7 +192,7 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$manager = \Aimeos\MShop::create( $context, 'product' );
 		$manager->begin();
@@ -235,7 +235,7 @@ class Standard
 			$total = 0;
 			$domains = map( $this->getDomains() )->remove( 'product' );
 			$params = $this->storeFilter( $view->param(), 'product' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
 			$search = $manager->filter();
 			$search->setSortations( [$search->sort( '+', 'product.id' )] );
@@ -383,7 +383,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/domains', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/domains', [] );
 	}
 
 
@@ -427,7 +427,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/subparts', [] );
 	}
 
 
@@ -438,7 +438,7 @@ class Standard
 	 */
 	protected function getTypeItems() : \Aimeos\Map
 	{
-		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'product/type' );
+		$typeManager = \Aimeos\MShop::create( $this->context(), 'product/type' );
 
 		$search = $typeManager->filter( true )->slice( 0, 10000 );
 		$search->setSortations( [$search->sort( '+', 'product.type.position' )] );
@@ -455,7 +455,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
 		if( isset( $data['product.id'] ) && $data['product.id'] != '' ) {
 			$item = $manager->get( $data['product.id'], $this->getDomains() );
@@ -491,7 +491,7 @@ class Standard
 		{
 			$unique = substr( md5( microtime( true ) ), -5 );
 
-			$data['product.siteid'] = $this->getContext()->getLocale()->getSiteId();
+			$data['product.siteid'] = $this->context()->getLocale()->getSiteId();
 			$data['product.code'] = $data['product.code'] . '_' . $unique;
 			$data['product.url'] = $data['product.url'] . '-' . $unique;
 			$data['product.id'] = '';

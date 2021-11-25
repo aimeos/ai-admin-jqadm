@@ -43,7 +43,7 @@ class Standard
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'attribute/type' );
 
 		$search = $manager->filter( true )->slice( 0, 1000 );
 		$search->setSortations( [$search->sort( '+', 'attribute.type.position' )] );
@@ -236,7 +236,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/characteristic/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/characteristic/subparts', [] );
 	}
 
 

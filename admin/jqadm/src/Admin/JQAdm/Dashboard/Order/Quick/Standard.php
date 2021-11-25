@@ -42,7 +42,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'locale/currency' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 		$view->orderQuickBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/quick/template-list
@@ -197,6 +197,6 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/dashboard/order/quick/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/dashboard/order/quick/subparts', [] );
 	}
 }

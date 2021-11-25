@@ -43,7 +43,7 @@ class Standard
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists/type' );
 
 		$search = $manager->filter( true )->slice( 0, 0x7fffffff );
 		$search->setConditions( $search->compare( '==', 'supplier.lists.type.domain', 'product' ) );
@@ -114,7 +114,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
 		$manager->begin();
 
 		try
@@ -231,7 +231,7 @@ class Standard
 	 */
 	protected function getListItems( \Aimeos\MShop\Supplier\Item\Iface $item, array $params = [], &$total = null ) : \Aimeos\Map
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
 
 		$search = $manager->filter();
 		$search->setSortations( [
@@ -265,7 +265,7 @@ class Standard
 			$list[] = $listItem->getRefId();
 		}
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
 		$search = $manager->filter()->slice( 0, count( $list ) );
 		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
@@ -314,7 +314,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/supplier/product/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/supplier/product/subparts', [] );
 	}
 
 
@@ -327,7 +327,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Supplier\Item\Iface $item, array $data ) : \Aimeos\MShop\Supplier\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->getContext(), 'supplier/lists' );
+		$listManager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
 		$listItem = $listManager->create()->setParentId( $item->getId() )->setDomain( 'product' );
 		$listIds = $this->val( $data, 'supplier.lists.id', [] );
 

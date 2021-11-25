@@ -57,11 +57,11 @@ abstract class Base
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
+			$manager = \Aimeos\MShop::create( $this->context(), $path . '/type' );
 			$view->item = $manager->get( $id );
 
 			$view->itemData = $this->toArray( $path, $view->item, true );
@@ -91,7 +91,7 @@ abstract class Base
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), $path . '/type' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), $path . '/type' )->create();
 			}
 
 			$data[str_replace( '/', '.', $path ) . '.type.siteid'] = $view->item->getSiteId();
@@ -118,14 +118,14 @@ abstract class Base
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), $path . '/type' );
 		$manager->begin();
 
 		try
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -169,11 +169,11 @@ abstract class Base
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
+			$manager = \Aimeos\MShop::create( $this->context(), $path . '/type' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $path, $view->item );
@@ -198,7 +198,7 @@ abstract class Base
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), $path . '/type' );
 		$manager->begin();
 
 		try
@@ -236,7 +236,7 @@ abstract class Base
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'type/' . $path );
-			$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
+			$manager = \Aimeos\MShop::create( $this->context(), $path . '/type' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
 			$view->items = $manager->search( $search, [], $total );
@@ -264,7 +264,7 @@ abstract class Base
 	protected function fromArray( string $path, array $data ) : \Aimeos\MShop\Common\Item\Type\Iface
 	{
 		$key = str_replace( '/', '.', $path ) . '.type.id';
-		$manager = \Aimeos\MShop::create( $this->getContext(), $path . '/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), $path . '/type' );
 
 		if( isset( $data[$key] ) && $data[$key] != '' ) {
 			$item = $manager->get( $data[$key] );

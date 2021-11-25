@@ -36,7 +36,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'log' );
-			$manager = \Aimeos\MAdmin::create( $this->getContext(), 'log' );
+			$manager = \Aimeos\MAdmin::create( $this->context(), 'log' );
 
 			$search = $manager->filter();
 			$search->setSortations( [$search->sort( '-', 'log.timestamp' )] );
@@ -203,7 +203,7 @@ class Standard
 		 * @since 2018.04
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/log/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/log/subparts', [] );
 	}
 
 

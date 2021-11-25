@@ -43,7 +43,7 @@ class Standard
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'stock/type' );
+		$typeManager = \Aimeos\MShop::create( $this->context(), 'stock/type' );
 
 		$search = $typeManager->filter( true )->slice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'stock.type.domain', 'product' ) );
@@ -78,7 +78,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'stock', [] );
 
 		foreach( $view->value( $data, 'stock.id', [] ) as $idx => $value ) {
@@ -101,7 +101,7 @@ class Standard
 	{
 		parent::delete();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
 		$filter = $manager->filter()->add( ['stock.productid' => $this->view()->item->getId()] );
 		$manager->delete( $manager->search( $filter )->toArray() );
 
@@ -137,7 +137,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
 		$manager->begin();
 
 		try
@@ -287,7 +287,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/stock/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/stock/subparts', [] );
 	}
 
 
@@ -304,7 +304,7 @@ class Standard
 		$stockItems = [];
 
 		$ids = map( $data )->col( 'stock.id' )->filter();
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
 
 		if( !$ids->isEmpty() ) {
 			$stocks = $manager->search( $manager->filter()->add( ['stock.id' => $ids->all()] ) );
@@ -345,7 +345,7 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = [];
-		$context = $this->getContext();
+		$context = $this->context();
 		$siteId = $context->getLocale()->getSiteId();
 
 		$manager = \Aimeos\MShop::create( $context, 'stock' );

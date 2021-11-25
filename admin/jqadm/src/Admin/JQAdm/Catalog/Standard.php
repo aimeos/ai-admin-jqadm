@@ -50,11 +50,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'catalog' );
 			$view->item = $manager->get( $id, $this->getDomains() );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -84,7 +84,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'catalog' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'catalog' )->create();
 			}
 
 			$data['catalog.siteid'] = $view->item->getSiteId();
@@ -112,7 +112,7 @@ class Standard
 	{
 		$tags = ['catalog'];
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$manager = \Aimeos\MShop::create( $context, 'catalog' );
 		$manager->begin();
@@ -121,7 +121,7 @@ class Standard
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -166,11 +166,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'catalog' );
 
 			$view->item = $manager->get( $id, $this->getDomains() );
 			$view->itemData = $this->toArray( $view->item );
@@ -194,7 +194,7 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$manager = \Aimeos\MShop::create( $context, 'catalog' );
 		$manager->begin();
@@ -236,7 +236,7 @@ class Standard
 
 		try
 		{
-			$view->item = \Aimeos\MShop::create( $this->getContext(), 'catalog' )->create();
+			$view->item = \Aimeos\MShop::create( $this->context(), 'catalog' )->create();
 			$view->itemRootId = $this->getRootId();
 			$view->itemBody = parent::search();
 		}
@@ -353,7 +353,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/catalog/domains', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/catalog/domains', [] );
 	}
 
 
@@ -364,7 +364,7 @@ class Standard
 	 */
 	protected function getRootId() : ?string
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog' );
 
 		try {
 			return $manager->getTree( null, [], \Aimeos\MW\Tree\Manager\Base::LEVEL_ONE )->getId();
@@ -414,7 +414,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/catalog/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/catalog/subparts', [] );
 	}
 
 
@@ -426,7 +426,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Catalog\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog' );
 
 		if( isset( $data['catalog.id'] ) && $data['catalog.id'] != '' ) {
 			$item = $manager->get( $data['catalog.id'], $this->getDomains() );

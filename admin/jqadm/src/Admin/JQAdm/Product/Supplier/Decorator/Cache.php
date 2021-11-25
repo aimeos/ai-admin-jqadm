@@ -33,7 +33,7 @@ class Cache extends \Aimeos\Admin\JQAdm\Common\Decorator\Base
 			$tags[] = 'supplier-' . $entry['supplier.id'];
 		}
 
-		$this->getContext()->getCache()->deleteByTags( $tags );
+		$this->context()->getCache()->deleteByTags( $tags );
 
 		return $result;
 	}

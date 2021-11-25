@@ -43,7 +43,7 @@ class Standard
 	public function search() : ?string
 	{
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'order' );
 
 		$search = $manager->filter( false, true )->order( ['-order.ctime', '-order.id'] )->slice( 0, 10 );
@@ -203,6 +203,6 @@ class Standard
 		 * @since 2016.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/dashboard/order/latest/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/dashboard/order/latest/subparts', [] );
 	}
 }

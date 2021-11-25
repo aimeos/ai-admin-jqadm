@@ -58,7 +58,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$data['product.lists.siteid'] = $this->getContext()->getLocale()->getSiteId();
+		$data['product.lists.siteid'] = $this->context()->getLocale()->getSiteId();
 		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'download', [] ) );
 
 		$view->downloadData = $data;
@@ -78,7 +78,7 @@ class Standard
 		parent::delete();
 
 		$item = $this->view()->item;
-		$fs = $this->getContext()->getFilesystemManager()->get( 'fs-secure' );
+		$fs = $this->context()->getFilesystemManager()->get( 'fs-secure' );
 
 		foreach( $item->getListItems( 'attribute', 'hidden', 'download', false ) as $listItem )
 		{
@@ -252,7 +252,7 @@ class Standard
 		 * @since 2016.03
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/download/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/download/subparts', [] );
 	}
 
 
@@ -265,7 +265,7 @@ class Standard
 	 */
 	protected function storeFile( \Psr\Http\Message\UploadedFileInterface $file, string $path = null ) : string
 	{
-		$fs = $this->getContext()->getFilesystemManager()->get( 'fs-secure' );
+		$fs = $this->context()->getFilesystemManager()->get( 'fs-secure' );
 
 		if( $path === null )
 		{
@@ -293,7 +293,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 		$fs = $context->getFilesystemManager()->get( 'fs-secure' );
 
 		$prodManager = \Aimeos\MShop::create( $context, 'product' );
@@ -344,7 +344,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 		$data = ['product.lists.siteid' => $siteId];
 
 		foreach( $item->getListItems( 'attribute', 'hidden', 'download', false ) as $listItem )
@@ -365,7 +365,7 @@ class Standard
 
 			try
 			{
-				$fs = $this->getContext()->getFilesystemManager()->get( 'fs-secure' );
+				$fs = $this->context()->getFilesystemManager()->get( 'fs-secure' );
 
 				$data['time'] = $fs->time( $data['attribute.code'] );
 				$data['size'] = $fs->size( $data['attribute.code'] );

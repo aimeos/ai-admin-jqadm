@@ -58,7 +58,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 
 		$itemData = $this->toArray( $view->item );
 		$data = array_replace_recursive( $itemData, $view->param( 'media', [] ) );
@@ -219,7 +219,7 @@ class Standard
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$typeManager = \Aimeos\MShop::create( $context, 'media/type' );
 		$listTypeManager = \Aimeos\MShop::create( $context, 'catalog/lists/type' );
@@ -248,7 +248,7 @@ class Standard
 	 */
 	protected function deleteMediaItems( \Aimeos\MShop\Catalog\Item\Iface $item, array $listItems )
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 		$manager = \Aimeos\MShop::create( $context, 'catalog' );
 		$search = $manager->filter();
@@ -311,7 +311,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/catalog/media/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/catalog/media/subparts', [] );
 	}
 
 
@@ -324,7 +324,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Catalog\Item\Iface $item, array $data ) : \Aimeos\MShop\Catalog\Item\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
 		$listManager = \Aimeos\MShop::create( $context, 'catalog/lists' );
@@ -385,7 +385,7 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Catalog\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = [];
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 
 		foreach( $item->getListItems( 'media', null, null, false ) as $listItem )
 		{

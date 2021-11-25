@@ -34,7 +34,7 @@ class Standard
 	{
 		$codes = [];
 
-		foreach( $this->getContext()->config()->get( 'common/countries', [] ) as $code ) {
+		foreach( $this->context()->config()->get( 'common/countries', [] ) as $code ) {
 			$codes[$code] = $view->translate( 'country', $code );
 		}
 
@@ -59,11 +59,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
 			$view->item = $manager->load( $id );
 
 			$view->itemData = $this->toArray( $view->item, true );
@@ -92,7 +92,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'order/base' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'order/base' )->create();
 			}
 
 			$data['order.siteid'] = $view->item->getSiteId();
@@ -117,7 +117,7 @@ class Standard
 	public function export() : ?string
 	{
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		try
 		{
@@ -161,11 +161,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
 			$refs = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
 
 			$view->item = $manager->get( $id, $refs );
@@ -190,7 +190,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
 		$manager->begin();
 
 		try
@@ -226,7 +226,7 @@ class Standard
 		try
 		{
 			$total = 0;
-			$context = $this->getContext();
+			$context = $this->context();
 			$manager = \Aimeos\MShop::create( $context, 'order' );
 			$params = $this->storeFilter( $view->param(), 'order' );
 
@@ -367,7 +367,7 @@ class Standard
 	protected function getOrderBaseItems( \Aimeos\Map $orderItems ) : \Aimeos\Map
 	{
 		$baseIds = $orderItems->getBaseId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
 
 		$search = $manager->filter( false, true )->slice( 0, count( $baseIds ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
@@ -417,7 +417,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/order/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/order/subparts', [] );
 	}
 
 
@@ -429,8 +429,8 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Order\Item\Base\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
-		$attrManager = \Aimeos\MShop::create( $this->getContext(), 'order/base/service/attribute' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
+		$attrManager = \Aimeos\MShop::create( $this->context(), 'order/base/service/attribute' );
 		$domains = ['order/base/address', 'order/base/product', 'order/base/service'];
 
 		if( isset( $data['order.base.id'] ) ) {
@@ -518,12 +518,12 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Order\Item\Base\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 		$data = $item->toArray( true );
 
 		if( $item->getCustomerId() != '' )
 		{
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 
 			try {
 				$data += $manager->get( $item->getCustomerId() )->toArray();

@@ -197,6 +197,6 @@ class Standard
 		 * @since 2021.04
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/dashboard/order/quick/countcustomer/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/dashboard/order/quick/countcustomer/subparts', [] );
 	}
 }

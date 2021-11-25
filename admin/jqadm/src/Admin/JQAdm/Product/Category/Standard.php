@@ -59,7 +59,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'category', [] );
 
 		foreach( $view->value( $data, 'catalog.lists.id', [] ) as $idx => $value ) {
@@ -83,7 +83,7 @@ class Standard
 		parent::delete();
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog/lists' );
 
 		$search = $manager->filter();
 		$expr = array(
@@ -135,7 +135,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog/lists' );
 		$manager->begin();
 
 		try
@@ -281,7 +281,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/category/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/category/subparts', [] );
 	}
 
 
@@ -294,7 +294,7 @@ class Standard
 	protected function getCatalogItems( \Aimeos\Map $listItems ) : \Aimeos\Map
 	{
 		$ids = $listItems->getParentId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog' );
 
 		$search = $manager->filter();
 		$search->setConditions( $search->compare( '==', 'catalog.id', $ids ) );
@@ -311,7 +311,7 @@ class Standard
 	 */
 	protected function getListItems( string $prodid ) : \Aimeos\Map
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog/lists' );
 
 		$search = $manager->filter()->slice( 0, 0x7fffffff );
 		$expr = array(
@@ -332,7 +332,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog/lists' );
 		$listItems = $this->getListItems( $item->getId() );
 		$list = [];
 
@@ -362,7 +362,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 		$listItems = $this->getListItems( $item->getId() );
 		$catItems = $this->getCatalogItems( $listItems );
 		$data = [];

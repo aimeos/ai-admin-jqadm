@@ -43,7 +43,7 @@ class Standard
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$priceTypeManager = \Aimeos\MShop::create( $context, 'price/type' );
 		$listTypeManager = \Aimeos\MShop::create( $context, 'product/lists/type' );
@@ -95,7 +95,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'price', [] );
 
 		foreach( $data as $idx => $entry )
@@ -287,7 +287,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/price/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/price/subparts', [] );
 	}
 
 
@@ -300,7 +300,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$priceManager = \Aimeos\MShop::create( $context, 'price' );
 		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
@@ -344,7 +344,7 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = [];
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 
 		foreach( $item->getListItems( 'price', null, null, false ) as $listItem )
 		{
@@ -402,7 +402,7 @@ class Standard
 	 */
 	protected function setCustom( \Aimeos\MShop\Product\Item\Iface $item, $value ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 
 		try
 		{

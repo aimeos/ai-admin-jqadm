@@ -22,7 +22,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 			->disableOriginalConstructor()
 			->getMock();
 
-		$context = \TestHelperJqadm::getContext();
+		$context = \TestHelperJqadm::context();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->mock, $context );
 		$this->object->setAimeos( \TestHelperJqadm::getAimeos() );

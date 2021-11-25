@@ -31,7 +31,7 @@ class Standard
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$view->themes = $this->getContext()->config()->get( 'client/html/themes', [] );
+		$view->themes = $this->context()->config()->get( 'client/html/themes', [] );
 		$view->itemSubparts = $this->getSubClientNames();
 		return $view;
 	}
@@ -45,7 +45,7 @@ class Standard
 	public function save() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$manager = \Aimeos\MShop::create( $context, 'locale/site' );
 		$manager->begin();
@@ -96,7 +96,7 @@ class Standard
 
 		try
 		{
-			$view->item = $this->getContext()->getLocale()->getSiteItem();
+			$view->item = $this->context()->getLocale()->getSiteItem();
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'item', [] ) );
 			$view->itemBody = parent::search();
 		}
@@ -235,7 +235,7 @@ class Standard
 		 * @since 2021.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/settings/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/settings/subparts', [] );
 	}
 
 
@@ -247,7 +247,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
-		$item = $this->getContext()->getLocale()->getSiteItem();
+		$item = $this->context()->getLocale()->getSiteItem();
 
 		$config = $data['locale.site.config'] ?? [];
 		$config['resource']['email']['from-name'] = $data['locale.site.label'];
@@ -277,7 +277,7 @@ class Standard
 
 		if( $file && $file->getError() === UPLOAD_ERR_OK )
 		{
-			$context = $this->getContext();
+			$context = $this->context();
 			$siteId = $context->getLocale()->getSiteId();
 
 			$options = $context->getConfig()->get( 'controller/common/media/options', [] );
@@ -313,7 +313,7 @@ class Standard
 
 		if( $file && $file->getError() === UPLOAD_ERR_OK )
 		{
-			$context = $this->getContext();
+			$context = $this->context();
 			$siteId = $context->getLocale()->getSiteId();
 
 			$options = $context->getConfig()->get( 'controller/common/media/options', [] );

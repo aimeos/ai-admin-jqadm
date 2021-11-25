@@ -58,7 +58,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'physical', [] );
 
 		foreach( $view->value( $data, 'product.property.id', [] ) as $idx => $value ) {
@@ -229,7 +229,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/physical/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/physical/subparts', [] );
 	}
 
 
@@ -242,8 +242,8 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'product/property' );
-		$typeManager = \Aimeos\MShop::create( $this->getContext(), 'product/property/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/property' );
+		$typeManager = \Aimeos\MShop::create( $this->context(), 'product/property/type' );
 
 		foreach( $data as $type => $value )
 		{
@@ -295,7 +295,7 @@ class Standard
 		 * @param array List of product property type codes
 		 * @since 2021.07
 		 */
-		$types = $this->getContext()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
+		$types = $this->context()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
 
 		foreach( $item->getPropertyItems( $types, false ) as $item ) {
 			$data[$item->getType()] = $item->getValue();

@@ -54,11 +54,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'coupon' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item, true );
@@ -88,7 +88,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'coupon' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'coupon' )->create();
 			}
 
 			$data['coupon.siteid'] = $view->item->getSiteId();
@@ -114,14 +114,14 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'coupon' );
 		$manager->begin();
 
 		try
 		{
 			if( ( $ids = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
@@ -163,11 +163,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'coupon' );
 
 			$view->item = $manager->get( $id );
 			$view->itemData = $this->toArray( $view->item );
@@ -192,7 +192,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'coupon' );
 		$manager->begin();
 
 		try
@@ -229,7 +229,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'coupon' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'coupon' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
 			$view->items = $manager->search( $search, [], $total );
@@ -363,7 +363,7 @@ class Standard
 	 */
 	public function getConfigAttributes( \Aimeos\MShop\Coupon\Item\Iface $item ) : array
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'coupon' );
 
 		try {
 			return $manager->getProvider( $item, '' )->getConfigBE();
@@ -413,7 +413,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/coupon/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/coupon/subparts', [] );
 	}
 
 
@@ -442,7 +442,7 @@ class Standard
 			}
 		}
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'coupon' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'coupon' );
 
 		if( isset( $data['coupon.id'] ) && $data['coupon.id'] != '' ) {
 			$item = $manager->get( $data['coupon.id'] );
@@ -472,7 +472,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['coupon.siteid'] = $this->getContext()->getLocale()->getSiteId();
+			$data['coupon.siteid'] = $this->context()->getLocale()->getSiteId();
 			$data['coupon.id'] = '';
 		}
 

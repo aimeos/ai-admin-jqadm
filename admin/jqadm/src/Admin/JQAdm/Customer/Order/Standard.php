@@ -186,7 +186,7 @@ class Standard
 	protected function getOrderBaseItems( \Aimeos\Map $items ) : \Aimeos\Map
 	{
 		$ids = $items->getBaseId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
 
 		$search = $manager->filter()->slice( 0, count( $ids ) );
 		$search->setConditions( $search->compare( '==', 'order.base.id', $ids ) );
@@ -205,7 +205,7 @@ class Standard
 	 */
 	protected function getOrderItems( \Aimeos\MShop\Customer\Item\Iface $item, array $params = [], &$total = null ) : \Aimeos\Map
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'order' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
 
 		$search = $manager->filter();
 		$search->setSortations( [$search->sort( '-', 'order.ctime' )] );
@@ -261,7 +261,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/customer/order/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/customer/order/subparts', [] );
 	}
 
 

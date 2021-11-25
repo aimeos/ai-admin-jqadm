@@ -21,7 +21,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelperJqadm::view();
 		$this->view ->access( ['super', 'admin', 'test'] );
 
-		$this->context = \TestHelperJqadm::getContext();
+		$this->context = \TestHelperJqadm::context();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Review\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );

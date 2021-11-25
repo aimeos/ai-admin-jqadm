@@ -58,7 +58,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'selection', [] );
 
 		foreach( $data as $idx => $entry )
@@ -234,7 +234,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/selection/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/selection/subparts', [] );
 	}
 
 
@@ -247,7 +247,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'product' );
 		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
 
@@ -293,7 +293,7 @@ class Standard
 	 */
 	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $entry )
 	{
-		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
+		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
 		$litems = $refItem->getListItems( 'attribute', 'variant', null, false );
 		$pos = 0;
 
@@ -325,7 +325,7 @@ class Standard
 	 */
 	protected function fromArrayStocks( array $prodIds, array $data )
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'stock' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
 
 		$search = $manager->filter()->slice( 0, count( $prodIds ) )->add( [
 			'stock.productid' => $prodIds,
@@ -380,7 +380,7 @@ class Standard
 		}
 
 		$data = [];
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 
 
 		foreach( $item->getListItems( 'product', 'default', null, false ) as $id => $listItem )

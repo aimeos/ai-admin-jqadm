@@ -56,7 +56,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'related/suggest', [] );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
@@ -227,7 +227,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/related/suggest/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/related/suggest/subparts', [] );
 	}
 
 
@@ -240,7 +240,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->getContext(), 'product/lists' );
+		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
 		$listItems = $item->getListItems( 'product', 'suggestion', null, false );
 
 		foreach( $data as $idx => $entry )
@@ -268,7 +268,7 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = [];
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 
 		foreach( $item->getListItems( 'product', 'suggestion', null, false ) as $listItem )
 		{

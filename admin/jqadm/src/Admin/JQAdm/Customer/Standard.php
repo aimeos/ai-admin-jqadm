@@ -34,7 +34,7 @@ class Standard
 	{
 		$codes = [];
 
-		foreach( $this->getContext()->config()->get( 'common/countries', [] ) as $code ) {
+		foreach( $this->context()->config()->get( 'common/countries', [] ) as $code ) {
 			$codes[$code] = $view->translate( 'country', $code );
 		}
 
@@ -59,11 +59,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 			$view->item = $manager->get( $id, $this->getDomains() );
 
 			$view->itemGroups = $this->getGroupItems( $view->item );
@@ -93,7 +93,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->getContext(), 'customer' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'customer' )->create();
 			}
 
 			$data['customer.siteid'] = $view->item->getSiteId();
@@ -119,7 +119,7 @@ class Standard
 	public function delete() : ?string
 	{
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
 		$manager->begin();
@@ -186,11 +186,11 @@ class Standard
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->getContext()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 
 			$view->item = $manager->get( $id, $this->getDomains() );
 			$view->itemGroups = $this->getGroupItems( $view->item );
@@ -215,7 +215,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 		$manager->begin();
 
 		try
@@ -252,7 +252,7 @@ class Standard
 		{
 			$total = 0;
 			$params = $this->storeFilter( $view->param(), 'customer' );
-			$manager = \Aimeos\MShop::create( $this->getContext(), 'customer' );
+			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 			$search = $this->initCriteria( $manager->filter(), $params );
 
 			$view->items = $manager->search( $search, $this->getDomains(), $total );
@@ -396,7 +396,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/customer/domains', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/customer/domains', [] );
 	}
 
 
@@ -410,7 +410,7 @@ class Standard
 	{
 		$list = [];
 		$view = $this->view();
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$isSuper = $view->access( ['super'] );
 		$isAdmin = $view->access( ['admin'] );
@@ -482,7 +482,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/customer/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/customer/subparts', [] );
 	}
 
 
@@ -495,7 +495,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Customer\Item\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
 
 		if( isset( $data['customer.id'] ) && $data['customer.id'] != '' ) {
@@ -534,13 +534,13 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( $this->view()->access( ['super'] ) || $item->getId() === $this->getContext()->getUserId() ) {
+		if( $this->view()->access( ['super'] ) || $item->getId() === $this->context()->getUserId() ) {
 			$data['.modify'] = true;
 		}
 
 		if( $copy === true )
 		{
-			$data['customer.siteid'] = $this->getContext()->getLocale()->getSiteId();
+			$data['customer.siteid'] = $this->context()->getLocale()->getSiteId();
 			$data['customer.code'] = '';
 			$data['customer.id'] = '';
 		}

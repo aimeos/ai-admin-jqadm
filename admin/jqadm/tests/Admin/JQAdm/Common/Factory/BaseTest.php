@@ -16,7 +16,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$this->context = \TestHelperJqadm::getContext();
+		$this->context = \TestHelperJqadm::context();
 		$this->context->setView( \TestHelperJqadm::view() );
 
 		$config = $this->context->getConfig();

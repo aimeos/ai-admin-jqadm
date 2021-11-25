@@ -58,7 +58,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'subscription', [] );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
@@ -196,7 +196,7 @@ class Standard
 	 */
 	protected function getIntervalItems() : \Aimeos\Map
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'attribute' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'attribute' );
 
 		$search = $manager->filter();
 		$expr = [
@@ -250,7 +250,7 @@ class Standard
 		 * @since 2018.04
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/product/subscription/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/product/subscription/subparts', [] );
 	}
 
 
@@ -263,7 +263,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$context = $this->getContext();
+		$context = $this->context();
 
 		$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
 		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
@@ -305,7 +305,7 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = $map = [];
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 
 		foreach( $item->getListItems( 'attribute', 'config', 'interval', false ) as $listItem ) {
 			$map[$listItem->getRefId()] = $listItem;

@@ -43,7 +43,7 @@ class Standard
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog/lists/type' );
 
 		$search = $manager->filter( true )->slice( 0, 10000 );
 		$search->setConditions( $search->compare( '==', 'catalog.lists.type.domain', 'product' ) );
@@ -114,7 +114,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog/lists' );
 		$manager->begin();
 
 		try
@@ -231,7 +231,7 @@ class Standard
 	 */
 	protected function getListItems( \Aimeos\MShop\Catalog\Item\Iface $item, array $params = [], &$total = null ) : \Aimeos\Map
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'catalog/lists' );
 
 		$search = $manager->filter();
 		$search->setSortations( [
@@ -260,7 +260,7 @@ class Standard
 	protected function getProductItems( \Aimeos\Map $listItems ) : \Aimeos\Map
 	{
 		$list = $listItems->getRefId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'product' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
 		$search = $manager->filter()->slice( 0, count( $list ) );
 		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
@@ -309,7 +309,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/catalog/product/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/catalog/product/subparts', [] );
 	}
 
 
@@ -322,7 +322,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Catalog\Item\Iface $item, array $data ) : \Aimeos\MShop\Catalog\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
+		$listManager = \Aimeos\MShop::create( $this->context(), 'catalog/lists' );
 		$listItem = $listManager->create()->setParentId( $item->getId() )->setDomain( 'product' );
 		$listIds = $this->val( $data, 'catalog.lists.id', [] );
 

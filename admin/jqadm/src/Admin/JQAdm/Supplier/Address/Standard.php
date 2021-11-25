@@ -58,7 +58,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->getContext()->getLocale()->getSiteId();
+		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'address', [] );
 
 		foreach( $data as $idx => $entry ) {
@@ -229,7 +229,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->getContext()->getConfig()->get( 'admin/jqadm/supplier/address/subparts', [] );
+		return $this->context()->getConfig()->get( 'admin/jqadm/supplier/address/subparts', [] );
 	}
 
 
@@ -242,7 +242,7 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Supplier\Item\Iface $item, array $data ) : \Aimeos\MShop\Supplier\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->getContext(), 'supplier/address' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/address' );
 
 		$addrItems = $item->getAddressItems();
 
@@ -271,7 +271,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Supplier\Item\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->getContext()->getLocale()->getSiteId();
+		$siteId = $this->context()->getLocale()->getSiteId();
 		$data = [];
 
 		foreach( $item->getAddressItems() as $addrItem )

@@ -433,7 +433,7 @@ abstract class Base
 	 *
 	 * @return \Aimeos\MShop\Context\Item\Iface Context object
 	 */
-	protected function getContext() : \Aimeos\MShop\Context\Item\Iface
+	protected function context() : \Aimeos\MShop\Context\Item\Iface
 	{
 		return $this->context;
 	}
@@ -637,7 +637,7 @@ abstract class Base
 		string $method = null ) : ?string
 	{
 		$params = $this->getClientParams();
-		$context = $this->getContext();
+		$context = $this->context();
 		$view = $this->view();
 
 		$params['resource'] = $resource;
@@ -755,7 +755,7 @@ abstract class Base
 	protected function storeFilter( array $params, string $name ) : array
 	{
 		$key = 'aimeos/admin/jqadm/' . $name;
-		$session = $this->getContext()->getSession();
+		$session = $this->context()->getSession();
 
 		foreach( ['fields', 'filter', 'page', 'sort'] as $part )
 		{
