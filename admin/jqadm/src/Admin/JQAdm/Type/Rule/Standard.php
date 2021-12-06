@@ -239,7 +239,7 @@ class Standard
 		 * @since  2021.04
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/type/rule/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/type/rule/subparts', [] );
 	}
 
 

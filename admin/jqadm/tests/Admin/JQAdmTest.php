@@ -25,7 +25,7 @@ class JQAdmTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClient()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/resources', ['product'] );
+		$this->context->config()->set( 'admin/jqadm/resources', ['product'] );
 		$client = \Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, 'product' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
@@ -33,7 +33,7 @@ class JQAdmTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClientName()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/resources', ['product'] );
+		$this->context->config()->set( 'admin/jqadm/resources', ['product'] );
 		$client = \Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, 'product', 'Standard' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}
@@ -41,7 +41,7 @@ class JQAdmTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateSubClient()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/resources', ['type/attribute'] );
+		$this->context->config()->set( 'admin/jqadm/resources', ['type/attribute'] );
 		$client = \Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, 'type/attribute' );
 		$this->assertInstanceOf( '\\Aimeos\\Admin\\JQAdm\\Iface', $client );
 	}

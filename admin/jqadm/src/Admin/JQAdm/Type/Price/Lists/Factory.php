@@ -65,7 +65,7 @@ class Factory
 		 * @category Developer
 		 */
 		if( $name === null ) {
-			$name = $context->getConfig()->get( 'admin/jqadm/type/price/lists/name', 'Standard' );
+			$name = $context->config()->get( 'admin/jqadm/type/price/lists/name', 'Standard' );
 		}
 
 		$iface = '\\Aimeos\\Admin\\JQAdm\\Iface';

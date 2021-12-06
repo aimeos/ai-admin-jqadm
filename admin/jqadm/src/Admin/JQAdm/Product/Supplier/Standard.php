@@ -281,7 +281,7 @@ class Standard
 		 * @since 2020.04
 		 * @supplier Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/product/supplier/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/product/supplier/subparts', [] );
 	}
 
 

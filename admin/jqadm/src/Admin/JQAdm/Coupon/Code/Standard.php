@@ -303,7 +303,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/coupon/code/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/coupon/code/subparts', [] );
 	}
 
 

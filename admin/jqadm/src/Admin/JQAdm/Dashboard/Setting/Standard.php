@@ -195,6 +195,6 @@ class Standard
 		 * @since 2020.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/dashboard/setting/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/dashboard/setting/subparts', [] );
 	}
 }

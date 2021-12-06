@@ -65,7 +65,7 @@ class Factory
 		 * @category Developer
 		 */
 		if( $name === null ) {
-			$name = $context->getConfig()->get( 'admin/jqadm/group/name', 'Standard' );
+			$name = $context->config()->get( 'admin/jqadm/group/name', 'Standard' );
 		}
 
 		$iface = '\\Aimeos\\Admin\\JQAdm\\Iface';

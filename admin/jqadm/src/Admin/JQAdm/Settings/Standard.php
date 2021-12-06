@@ -235,7 +235,7 @@ class Standard
 		 * @since 2021.07
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/settings/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/settings/subparts', [] );
 	}
 
 
@@ -280,7 +280,7 @@ class Standard
 			$context = $this->context();
 			$siteId = $context->getLocale()->getSiteId();
 
-			$options = $context->getConfig()->get( 'controller/common/media/options', [] );
+			$options = $context->config()->get( 'controller/common/media/options', [] );
 			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
 			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 
@@ -316,7 +316,7 @@ class Standard
 			$context = $this->context();
 			$siteId = $context->getLocale()->getSiteId();
 
-			$options = $context->getConfig()->get( 'controller/common/media/options', [] );
+			$options = $context->config()->get( 'controller/common/media/options', [] );
 			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
 			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 			$filepaths = [];

@@ -422,7 +422,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/plugin/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/plugin/subparts', [] );
 	}
 
 

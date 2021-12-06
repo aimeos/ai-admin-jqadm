@@ -402,7 +402,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/locale/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/locale/subparts', [] );
 	}
 
 

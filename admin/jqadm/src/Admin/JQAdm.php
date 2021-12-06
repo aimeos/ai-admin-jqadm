@@ -36,7 +36,7 @@ class JQAdm
 		}
 
 		$view = $context->view();
-		$config = $context->getConfig();
+		$config = $context->config();
 		$parts = explode( '/', $path );
 
 		foreach( $parts as $idx => $part )

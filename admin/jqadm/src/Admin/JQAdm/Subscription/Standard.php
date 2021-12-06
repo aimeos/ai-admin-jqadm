@@ -465,7 +465,7 @@ class Standard
 		 * @since 2018.04
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/subscription/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/subscription/subparts', [] );
 	}
 
 

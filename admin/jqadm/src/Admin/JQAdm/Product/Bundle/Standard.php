@@ -234,7 +234,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/product/bundle/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/product/bundle/subparts', [] );
 	}
 
 

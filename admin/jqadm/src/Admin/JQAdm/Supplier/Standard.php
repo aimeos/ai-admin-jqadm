@@ -377,7 +377,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/supplier/domains', [] );
+		return $this->context()->config()->get( 'admin/jqadm/supplier/domains', [] );
 	}
 
 
@@ -421,7 +421,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/supplier/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/supplier/subparts', [] );
 	}
 
 

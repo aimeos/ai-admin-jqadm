@@ -91,7 +91,7 @@ class Base
 		}
 
 		$localClass = str_replace( '/', '\\', ucwords( $path, '/' ) );
-		$config = $context->getConfig();
+		$config = $context->config();
 
 		/** admin/jqadm/common/decorators/default
 		 * Configures the list of decorators applied to all jqadm clients

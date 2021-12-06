@@ -309,7 +309,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/catalog/product/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/catalog/product/subparts', [] );
 	}
 
 

@@ -251,7 +251,7 @@ class Standard
 		 * @since 2018.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/product/media/property/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/product/media/property/subparts', [] );
 	}
 
 

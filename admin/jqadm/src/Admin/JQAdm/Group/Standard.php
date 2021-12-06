@@ -389,7 +389,7 @@ class Standard
 		 * @since 2018.07
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/group/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/group/subparts', [] );
 	}
 
 

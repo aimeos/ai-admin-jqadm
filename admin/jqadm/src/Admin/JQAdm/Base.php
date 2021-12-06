@@ -332,7 +332,7 @@ abstract class Base
 		}
 
 		$localClass = str_replace( '/', '\\', ucwords( $path, '/' ) );
-		$config = $this->context->getConfig();
+		$config = $this->context->config();
 
 		$classprefix = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\';
 		$decorators = $config->get( 'admin/jqadm/' . $path . '/decorators/global', [] );
@@ -358,7 +358,7 @@ abstract class Base
 		$path = strtolower( $path );
 
 		if( $name === null ) {
-			$name = $this->context->getConfig()->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
+			$name = $this->context->config()->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
 		}
 
 		if( empty( $name ) || ctype_alnum( $name ) === false )

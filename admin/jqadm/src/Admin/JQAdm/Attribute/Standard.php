@@ -370,7 +370,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/attribute/domains', [] );
+		return $this->context()->config()->get( 'admin/jqadm/attribute/domains', [] );
 	}
 
 
@@ -414,7 +414,7 @@ class Standard
 		 * @since 2017.07
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/attribute/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/attribute/subparts', [] );
 	}
 
 

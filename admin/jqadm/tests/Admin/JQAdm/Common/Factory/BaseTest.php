@@ -19,7 +19,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 		$this->context = \TestHelperJqadm::context();
 		$this->context->setView( \TestHelperJqadm::view() );
 
-		$config = $this->context->getConfig();
+		$config = $this->context->config();
 		$config->set( 'admin/jqadm/common/decorators/default', [] );
 		$config->set( 'admin/jqadm/product/decorators/global', [] );
 		$config->set( 'admin/jqadm/product/decorators/local', [] );
@@ -91,8 +91,8 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
 	public function testAddClientDecoratorsExcludes()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/decorators/excludes', array( 'TestDecorator' ) );
-		$this->context->getConfig()->set( 'admin/jqadm/common/decorators/default', array( 'TestDecorator' ) );
+		$this->context->config()->set( 'admin/jqadm/decorators/excludes', array( 'TestDecorator' ) );
+		$this->context->config()->set( 'admin/jqadm/common/decorators/default', array( 'TestDecorator' ) );
 
 		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
 		\Aimeos\Admin\JQAdm\Product\Factory::create( $this->context, 'Standard' );

@@ -198,7 +198,7 @@ class Standard
 	 */
 	protected function excludeItems( \Aimeos\Map $propItems ) : \Aimeos\Map
 	{
-		$excludes = $this->context()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
+		$excludes = $this->context()->config()->get( 'admin/jqadm/product/physical/types', [] );
 
 		return $propItems->filter( function( $item ) use ( $excludes ) {
 			return !in_array( $item->getType(), $excludes );
@@ -246,7 +246,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/product/characteristic/property/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/product/characteristic/property/subparts', [] );
 	}
 
 
@@ -257,7 +257,7 @@ class Standard
 	 */
 	protected function getPropertyTypes() : \Aimeos\Map
 	{
-		$excludes = $this->context()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
+		$excludes = $this->context()->config()->get( 'admin/jqadm/product/physical/types', [] );
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/property/type' );
 
 		$search = $manager->filter( true )->slice( 0, 10000 );

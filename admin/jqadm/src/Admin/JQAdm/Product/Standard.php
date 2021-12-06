@@ -138,7 +138,7 @@ class Standard
 			$manager->commit();
 
 			\Aimeos\MShop::create( $context, 'index' )->delete( $items->toArray() );
-			$context->getCache()->deleteByTags( $tags );
+			$context->cache()->deleteByTags( $tags );
 
 			return $this->redirect( 'product', 'search', null, 'delete' );
 		}
@@ -207,7 +207,7 @@ class Standard
 			$manager->commit();
 
 			\Aimeos\MShop::create( $context, 'index' )->rebuild( [$item->getId() => $item] );
-			$context->getCache()->deleteByTags( ['product', 'product-' . $item->getId()] );
+			$context->cache()->deleteByTags( ['product', 'product-' . $item->getId()] );
 
 			return $this->redirect( 'product', $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
@@ -383,7 +383,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/product/domains', [] );
+		return $this->context()->config()->get( 'admin/jqadm/product/domains', [] );
 	}
 
 
@@ -427,7 +427,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/product/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/product/subparts', [] );
 	}
 
 

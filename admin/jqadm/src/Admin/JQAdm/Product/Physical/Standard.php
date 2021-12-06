@@ -229,7 +229,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/product/physical/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/product/physical/subparts', [] );
 	}
 
 
@@ -295,7 +295,7 @@ class Standard
 		 * @param array List of product property type codes
 		 * @since 2021.07
 		 */
-		$types = $this->context()->getConfig()->get( 'admin/jqadm/product/physical/types', [] );
+		$types = $this->context()->config()->get( 'admin/jqadm/product/physical/types', [] );
 
 		foreach( $item->getPropertyItems( $types, false ) as $item ) {
 			$data[$item->getType()] = $item->getValue();

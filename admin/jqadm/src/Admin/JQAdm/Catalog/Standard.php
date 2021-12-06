@@ -353,7 +353,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/catalog/domains', [] );
+		return $this->context()->config()->get( 'admin/jqadm/catalog/domains', [] );
 	}
 
 
@@ -414,7 +414,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/catalog/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/catalog/subparts', [] );
 	}
 
 

@@ -401,7 +401,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/service/domains', [] );
+		return $this->context()->config()->get( 'admin/jqadm/service/domains', [] );
 	}
 
 
@@ -445,7 +445,7 @@ class Standard
 		 * @since 2017.10
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/service/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/service/subparts', [] );
 	}
 
 

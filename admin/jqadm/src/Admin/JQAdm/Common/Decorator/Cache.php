@@ -35,7 +35,7 @@ class Cache extends Base
 			$tags[] = 'product-' . $id;
 		}
 
-		$this->context()->getCache()->deleteByTags( $tags );
+		$this->context()->cache()->deleteByTags( $tags );
 
 		return $result;
 	}
@@ -54,7 +54,7 @@ class Cache extends Base
 		if( $item->getId() !== null )
 		{
 			$idtag = 'product-' . $item->getId();
-			$this->context()->getCache()->deleteByTags( array( 'product', $idtag ) );
+			$this->context()->cache()->deleteByTags( array( 'product', $idtag ) );
 		}
 
 		return $result;

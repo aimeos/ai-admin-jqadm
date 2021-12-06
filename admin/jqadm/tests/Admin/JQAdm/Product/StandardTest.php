@@ -222,7 +222,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientDecorators()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/product/media/decorators/global', array( 'Page' ) );
+		$this->context->config()->set( 'admin/jqadm/product/media/decorators/global', array( 'Page' ) );
 
 		$result = $this->object->getSubClient( 'media' );
 		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );
@@ -231,7 +231,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClientDecoratorInvalid()
 	{
-		$this->context->getConfig()->set( 'admin/jqadm/product/media/decorators/global', array( 'Invalid' ) );
+		$this->context->config()->set( 'admin/jqadm/product/media/decorators/global', array( 'Invalid' ) );
 
 		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
 		$this->object->getSubClient( 'media' );
@@ -265,7 +265,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $this->context->getConfig() );
+		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $this->context->config() );
 		$view->addHelper( 'config', $helper );
 
 		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, [] );

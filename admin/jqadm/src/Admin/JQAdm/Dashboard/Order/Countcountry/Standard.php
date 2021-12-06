@@ -198,6 +198,6 @@ class Standard
 		 * @since 2021.04
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/dashboard/order/countcountry/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/dashboard/order/countcountry/subparts', [] );
 	}
 }

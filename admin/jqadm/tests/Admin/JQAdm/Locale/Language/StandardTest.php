@@ -221,7 +221,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['id' => $real ? 'de' : 'xx'] );
 		$view->addHelper( 'param', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $this->context->getConfig() );
+		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $this->context->config() );
 		$view->addHelper( 'config', $helper );
 
 		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, [] );

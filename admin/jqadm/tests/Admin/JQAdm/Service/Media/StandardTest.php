@@ -112,7 +112,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 
 		$name = 'AdminJQAdmServiceMediaSave';
-		$this->context->getConfig()->set( 'controller/common/media/name', $name );
+		$this->context->config()->set( 'controller/common/media/name', $name );
 
 		$cntlStub = $this->getMockBuilder( '\\Aimeos\\Controller\\Common\\Media\\Standard' )
 			->setConstructorArgs( array( $this->context ) )

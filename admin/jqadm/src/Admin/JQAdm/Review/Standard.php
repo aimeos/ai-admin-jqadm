@@ -324,7 +324,7 @@ class Standard
 		 * @since 2020.10
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/review/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/review/subparts', [] );
 	}
 
 

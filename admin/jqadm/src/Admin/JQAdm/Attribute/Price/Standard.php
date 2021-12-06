@@ -247,7 +247,7 @@ class Standard
 		 * @since 2016.01
 		 * @category Developer
 		 */
-		return $this->context()->getConfig()->get( 'admin/jqadm/attribute/price/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/attribute/price/subparts', [] );
 	}
 
 
