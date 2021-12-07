@@ -332,16 +332,15 @@ $params = $this->get( 'pageParams', [] );
 					<div class="form-group row mandatory">
 						<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ); ?></label>
 						<div class="col-sm-8">
-							<select class="form-control item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								v-bind:name="`<?= $enc->attr( $this->formparam( array( 'address', 'idx', 'customer.countryid' ) ) ) ?>`.replace('idx', idx)"
-								v-bind:readonly="items[idx]['customer.siteid'] != siteid"
-								v-model="items[idx]['customer.countryid']" />
+							<select class="form-control item-countryid" required="required" tabindex="1"
+								name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>"
+								<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
 								<option value="" disabled>
 									<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 								</option>
 
 								<?php foreach( $this->get( 'countries', [] ) as $code => $label ) : ?>
-									<option value="<?= $enc->attr( $code ) ?>" >
+									<option value="<?= $enc->attr( $code ) ?>" <?= $selected( $this->get( 'itemData/customer.countryid' ), $code ) ?> >
 										<?= $enc->html( $label ) ?>
 									</option>
 								<?php endforeach ?>
