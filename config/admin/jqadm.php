@@ -119,6 +119,7 @@ return [
 			'product' => 'product',
 			'product/property' => 'product/property',
 			'stock' => ['default'],
+			'supplier' => 'supplier',
 			'text' => 'text',
 		],
 		'subparts' => [

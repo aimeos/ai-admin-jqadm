@@ -62,52 +62,14 @@ class Standard
 		$siteid = $this->context()->getLocale()->getSiteId();
 		$data = $view->param( 'supplier', [] );
 
-		foreach( $view->value( $data, 'supplier.lists.id', [] ) as $idx => $value ) {
-			$data['supplier.lists.siteid'][$idx] = $siteid;
+		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
+			$data['product.lists.siteid'][$idx] = $siteid;
 		}
 
 		$view->supplierData = $data;
 		$view->supplierBody = parent::create();
 
 		return $this->render( $view );
-	}
-
-
-	/**
-	 * Deletes a resource
-	 *
-	 * @return string|null HTML output
-	 */
-	public function delete() : ?string
-	{
-		parent::delete();
-		$view = $this->view();
-
-		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
-
-		$search = $manager->filter();
-		$expr = array(
-			$search->compare( '==', 'supplier.lists.refid', $view->param( 'id' ) ),
-			$search->compare( '==', 'supplier.lists.domain', 'product' )
-		);
-		$search->setConditions( $search->and( $expr ) );
-		$search->slice( 0, 0x7fffffff );
-
-		$start = 0;
-
-		do
-		{
-			$search->slice( $start );
-
-			$result = $manager->search( $search );
-			$manager->delete( $result->toArray() );
-
-			$count = count( $result );
-			$start += $count;
-		}
-		while( $count >= $search->getLimit() );
-
-		return null;
 	}
 
 
@@ -135,21 +97,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
-		$manager->begin();
-
-		try
-		{
-			$this->fromArray( $view->item, $view->param( 'supplier', [] ) );
-			$view->supplierBody = parent::save();
-
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
-		}
+		$this->fromArray( $view->item, $view->param( 'supplier', [] ) );
+		$view->supplierBody = parent::save();
 
 		return null;
 	}
@@ -286,45 +235,6 @@ class Standard
 
 
 	/**
-	 * Returns the supplier items for the given supplier list items
-	 *
-	 * @param \Aimeos\Map $listItems List of items implementing \Aimeos\Common\Item\Lists\Iface
-	 * @return \Aimeos\Map List of supplier IDs as keys and items implementing \Aimeos\Catalog\Item\Iface
-	 */
-	protected function getSupplierItems( \Aimeos\Map $listItems ) : \Aimeos\Map
-	{
-		$ids = $listItems->getParentId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->context(), 'supplier' );
-
-		$search = $manager->filter();
-		$search->setConditions( $search->compare( '==', 'supplier.id', $ids ) );
-
-		return $manager->search( $search );
-	}
-
-
-	/**
-	 * Returns the supplier list items for the given product ID
-	 *
-	 * @param string $prodid Unique product ID
-	 * @return \Aimeos\Map Associative list of supplier list IDs as keys and list items as values
-	 */
-	protected function getListItems( string $prodid ) : \Aimeos\Map
-	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
-
-		$search = $manager->filter()->slice( 0, 0x7fffffff );
-		$expr = array(
-			$search->compare( '==', 'supplier.lists.refid', $prodid ),
-			$search->compare( '==', 'supplier.lists.domain', 'product' ),
-		);
-		$search->setConditions( $search->and( $expr ) );
-
-		return $manager->search( $search );
-	}
-
-
-	/**
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
@@ -332,22 +242,21 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
-		$listItems = $this->getListItems( $item->getId() );
-		$list = [];
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$listItems = $item->getListItems( 'supplier' );
 
 		foreach( $data as $entry )
 		{
-			$listid = $this->val( $entry, 'supplier.lists.id' );
-			$litem = $listItems->pull( $listid ) ?: $manager->create();
+			$listid = $this->val( $entry, 'product.lists.id' );
+			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
 
-			$list[] = $litem->setDomain( 'product' )->setRefId( $item->getId() )
-				->setType( $this->val( $entry, 'supplier.lists.type' ) )
-				->setParentId( $this->val( $entry, 'supplier.id' ) );
+			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
+				->setRefId( $this->val( $entry, 'supplier.id' ) );
+
+			$item->addListItem( 'supplier', $litem );
 		}
 
-		$manager->delete( $listItems->toArray() );
-		$manager->save( $list );
+		$item->deleteListItems( $listItems );
 	}
 
 
@@ -360,25 +269,21 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->context()->getLocale()->getSiteId();
-		$listItems = $this->getListItems( $item->getId() );
-		$supItems = $this->getSupplierItems( $listItems );
 		$data = [];
+		$siteId = $this->context()->getLocale()->getSiteId();
 
-		foreach( $listItems as $listItem )
+		foreach( $item->getListItems( 'supplier' ) as $listItem )
 		{
-			$catId = $listItem->getParentId();
-
-			if( ( $supItem = $supItems->get( $catId ) ) === null ) {
+			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
-			$list = $listItem->toArray( true ) + $supItem->toArray( true );
+			$list = $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true )
 			{
-				$list['supplier.lists.siteid'] = $siteId;
-				$list['supplier.lists.id'] = '';
+				$list['product.lists.siteid'] = $siteId;
+				$list['product.lists.id'] = '';
 			}
 
 			$data[] = $list;

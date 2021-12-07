@@ -50,7 +50,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->find( 'CNC' );
+		$this->view->item = $manager->find( 'CNC', ['supplier'] );
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -71,7 +71,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->find( 'CNC' );
+		$this->view->item = $manager->find( 'CNC', ['supplier'] );
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
@@ -81,37 +81,25 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'supplier' );
-		$productManager = \Aimeos\MShop::create( $this->context, 'product' );
-
-		$item = $manager->find( 'unitSupplier001' );
-		$item->setCode( 'jqadm-test-supplier' );
-		$item->setId( null );
-
-		$item = $manager->save( $item );
-
-
 		$param = array(
-			'site' => 'unittest',
 			'supplier' => [[
-				'supplier.lists.id' => '',
-				'supplier.lists.type' => 'default',
-				'supplier.id' => $item->getId(),
+				'product.lists.id' => '',
+				'product.lists.type' => 'default',
+				'supplier.id' => '-1',
 			]]
 		);
 
+		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+		$this->view->item = $manager->create()->setCode( 'jqadm:product/supplier' )->setId( -1 );
+
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
-		$this->view->item = $productManager->create()->setId( -1 );
 
 		$result = $this->object->save();
 
-		$item = $manager->get( $item->getId(), array( 'product' ) );
-		$manager->delete( $item->getId() );
-
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
-		$this->assertEquals( 1, count( $item->getListItems( 'product' ) ) );
+		$this->assertEquals( 1, count( $this->view->item->getListItems( 'supplier' ) ) );
 	}
 
 
