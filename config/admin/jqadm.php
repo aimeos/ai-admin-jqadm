@@ -43,11 +43,6 @@ return [
 				'property' => 'property',
 			],
 		],
-		'product' => [
-			'decorators' => [
-				'global' => ['Index'],
-			],
-		],
 	],
 	'common' => [
 		'decorators' => [
@@ -116,6 +111,7 @@ return [
 		],
 		'domains' => [
 			'attribute' => 'attribute',
+			'catalog' => 'catalog',
 			'media' => 'media',
 			'media/property' => 'media/property',
 			'price' => 'price',
