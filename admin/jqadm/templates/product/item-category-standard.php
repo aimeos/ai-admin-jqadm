@@ -9,7 +9,7 @@
 $enc = $this->encoder();
 
 $keys = [
-	'catalog.lists.id', 'catalog.lists.siteid', 'catalog.lists.type', 'catalog.lists.refid',
+	'product.lists.id', 'product.lists.siteid', 'product.lists.type', 'product.lists.refid',
 	'catalog.label', 'catalog.code', 'catalog.id'
 ];
 
