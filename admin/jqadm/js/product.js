@@ -336,7 +336,7 @@ Aimeos.Product.Catalog = {
 			},
 			methods: {
 				checkSite : function(idx) {
-					return this.items[idx]['catalog.lists.siteid'] && this.items[idx]['catalog.lists.siteid'] != this.siteid;
+					return this.items[idx]['product.lists.siteid'] && this.items[idx]['product.lists.siteid'] != this.siteid;
 				},
 
 
@@ -349,8 +349,8 @@ Aimeos.Product.Catalog = {
 						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 					}
 
-					this.$set(this.items[idx], 'catalog.lists.siteid', this.siteid);
-					this.$set(this.items[idx], 'catalog.lists.type', this.listtype);
+					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
+					this.$set(this.items[idx], 'product.lists.type', this.listtype);
 				},
 
 
@@ -386,10 +386,10 @@ Aimeos.Product.Catalog = {
 
 				update : function(ev) {
 
-					this.$set(this.items[ev.index], 'catalog.lists.id', '');
-					this.$set(this.items[ev.index], 'catalog.lists.type', this.listtype);
-					this.$set(this.items[ev.index], 'catalog.lists.siteid', this.siteid);
-					this.$set(this.items[ev.index], 'catalog.lists.refid', '');
+					this.$set(this.items[ev.index], 'product.lists.id', '');
+					this.$set(this.items[ev.index], 'product.lists.type', this.listtype);
+					this.$set(this.items[ev.index], 'product.lists.siteid', this.siteid);
+					this.$set(this.items[ev.index], 'product.lists.refid', '');
 					this.$set(this.items[ev.index], 'catalog.label', ev.label);
 					this.$set(this.items[ev.index], 'catalog.id', ev.value);
 					this.$set(this.items[ev.index], 'catalog.code', '');
@@ -398,7 +398,7 @@ Aimeos.Product.Catalog = {
 
 					for(idx in this.items) {
 
-						if(this.items[idx]['catalog.lists.type'] != this.listtype) {
+						if(this.items[idx]['product.lists.type'] != this.listtype) {
 							continue;
 						}
 
@@ -1075,7 +1075,7 @@ Aimeos.Product.Supplier = {
 			},
 			methods: {
 				checkSite : function(idx) {
-					return this.items[idx]['supplier.lists.siteid'] && this.items[idx]['supplier.lists.siteid'] != this.siteid;
+					return this.items[idx]['product.lists.siteid'] && this.items[idx]['product.lists.siteid'] != this.siteid;
 				},
 
 
@@ -1088,8 +1088,8 @@ Aimeos.Product.Supplier = {
 						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 					}
 
-					this.$set(this.items[idx], 'supplier.lists.siteid', this.siteid);
-					this.$set(this.items[idx], 'supplier.lists.type', this.listtype);
+					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
+					this.$set(this.items[idx], 'product.lists.type', this.listtype);
 				},
 
 
@@ -1125,10 +1125,10 @@ Aimeos.Product.Supplier = {
 
 				update : function(ev) {
 
-					this.$set(this.items[ev.index], 'supplier.lists.id', '');
-					this.$set(this.items[ev.index], 'supplier.lists.type', this.listtype);
-					this.$set(this.items[ev.index], 'supplier.lists.siteid', this.siteid);
-					this.$set(this.items[ev.index], 'supplier.lists.refid', '');
+					this.$set(this.items[ev.index], 'product.lists.id', '');
+					this.$set(this.items[ev.index], 'product.lists.type', this.listtype);
+					this.$set(this.items[ev.index], 'product.lists.siteid', this.siteid);
+					this.$set(this.items[ev.index], 'product.lists.refid', '');
 					this.$set(this.items[ev.index], 'supplier.label', ev.label);
 					this.$set(this.items[ev.index], 'supplier.id', ev.value);
 					this.$set(this.items[ev.index], 'supplier.code', '');
@@ -1137,7 +1137,7 @@ Aimeos.Product.Supplier = {
 
 					for(idx in this.items) {
 
-						if(this.items[idx]['supplier.lists.type'] != this.listtype) {
+						if(this.items[idx]['product.lists.type'] != this.listtype) {
 							continue;
 						}
 
