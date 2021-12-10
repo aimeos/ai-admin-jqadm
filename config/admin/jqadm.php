@@ -106,9 +106,6 @@ return [
 		],
 	],
 	'product' => [
-		'decorators' => [
-			'global' => ['Cache'],
-		],
 		'domains' => [
 			'attribute' => 'attribute',
 			'catalog' => 'catalog',
@@ -187,11 +184,6 @@ return [
 				'package-weight' => 'package-weight',
 			]
 		]
-	],
-	'product/category' => [
-		'decorators' => [
-			'local' => ['Cache'],
-		],
 	],
 	'service' => [
 		'domains' => [
