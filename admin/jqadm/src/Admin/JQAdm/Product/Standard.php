@@ -194,7 +194,7 @@ class Standard
 		$view = $this->view();
 		$context = $this->context();
 
-		$manager = \Aimeos\MShop::create( $context, 'product' );
+		$manager = \Aimeos\MShop::create( $context, 'index' );
 		$manager->begin();
 
 		try
@@ -205,9 +205,6 @@ class Standard
 
 			$item = $manager->save( clone $view->item );
 			$manager->commit();
-
-			\Aimeos\MShop::create( $context, 'index' )->rebuild( [$item->getId() => $item] );
-			$context->cache()->deleteByTags( ['product', 'product-' . $item->getId()] );
 
 			return $this->redirect( 'product', $view->param( 'next' ), $view->item->getId(), 'save' );
 		}
