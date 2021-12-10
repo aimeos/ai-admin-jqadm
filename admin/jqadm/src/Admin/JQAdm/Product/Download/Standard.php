@@ -78,7 +78,7 @@ class Standard
 		parent::delete();
 
 		$item = $this->view()->item;
-		$fs = $this->context()->getFilesystemManager()->get( 'fs-secure' );
+		$fs = $this->context()->fs( 'fs-secure' );
 
 		foreach( $item->getListItems( 'attribute', 'hidden', 'download', false ) as $listItem )
 		{
@@ -265,7 +265,7 @@ class Standard
 	 */
 	protected function storeFile( \Psr\Http\Message\UploadedFileInterface $file, string $path = null ) : string
 	{
-		$fs = $this->context()->getFilesystemManager()->get( 'fs-secure' );
+		$fs = $this->context()->fs( 'fs-secure' );
 
 		if( $path === null )
 		{
@@ -294,7 +294,7 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$context = $this->context();
-		$fs = $context->getFilesystemManager()->get( 'fs-secure' );
+		$fs = $context->fs( 'fs-secure' );
 
 		$prodManager = \Aimeos\MShop::create( $context, 'product' );
 		$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
@@ -365,7 +365,7 @@ class Standard
 
 			try
 			{
-				$fs = $this->context()->getFilesystemManager()->get( 'fs-secure' );
+				$fs = $this->context()->fs( 'fs-secure' );
 
 				$data['time'] = $fs->time( $data['attribute.code'] );
 				$data['size'] = $fs->size( $data['attribute.code'] );

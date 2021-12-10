@@ -364,7 +364,7 @@ class Standard
 		$this->checkFileUpload( $file );
 
 		$context = $this->context();
-		$fs = $context->getFilesystemManager()->get( 'fs-import' );
+		$fs = $context->fs( 'fs-import' );
 		$dir = 'couponcode/' . $context->getLocale()->getSiteItem()->getCode();
 
 		if( $fs->isdir( $dir ) === false ) {

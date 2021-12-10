@@ -291,7 +291,7 @@ class Standard
 			}
 
 			$filepath = $siteId . 'd/icon.' . $ext;
-			$context->getFilesystemManager()->get( 'fs-media' )->write( $filepath, $image->save() );
+			$context->fs( 'fs-media' )->write( $filepath, $image->save() );
 
 			$item->setIcon( $filepath );
 		}
@@ -333,7 +333,7 @@ class Standard
 				$h = $size['maxheight'] ?? null;
 
 				$filepath = $siteId . 'd/logo' . $w . '.' . $ext;
-				$context->getFilesystemManager()->get( 'fs-media' )->write( $filepath, $image->scale( $w, $h )->save() );
+				$context->fs( 'fs-media' )->write( $filepath, $image->scale( $w, $h )->save() );
 				$filepaths[(int) $w ?: 1] = $filepath;
 			}
 
