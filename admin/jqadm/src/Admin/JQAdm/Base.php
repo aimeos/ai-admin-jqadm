@@ -20,9 +20,9 @@ sprintf( 'type' ); // for translation
  * @subpackage JQAdm
  */
 abstract class Base
-	implements \Aimeos\Admin\JQAdm\Iface, \Aimeos\MW\Macro\Iface
+	implements \Aimeos\Admin\JQAdm\Iface, \Aimeos\Macro\Iface
 {
-	use \Aimeos\MW\Macro\Traits;
+	use \Aimeos\Macro\Macroable;
 
 
 	private $view;
