@@ -460,7 +460,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['supplier.siteid'] = $this->context()->getLocale()->getSiteId();
+			$data['supplier.siteid'] = $this->context()->locale()->getSiteId();
 			$data['supplier.code'] = $data['supplier.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data['supplier.id'] = '';
 		}

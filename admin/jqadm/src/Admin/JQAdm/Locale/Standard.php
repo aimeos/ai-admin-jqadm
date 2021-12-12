@@ -424,7 +424,7 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$item->fromArray( $data, true )->set( 'site_id', $context->getLocale()->get( 'site_id' ) );
+		$item->fromArray( $data, true )->set( 'site_id', $context->locale()->get( 'site_id' ) );
 
 		return $item;
 	}
@@ -442,7 +442,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['locale.siteid'] = $this->context()->getLocale()->getSiteId();
+			$data['locale.siteid'] = $this->context()->locale()->getSiteId();
 			$data['locale.id'] = '';
 		}
 

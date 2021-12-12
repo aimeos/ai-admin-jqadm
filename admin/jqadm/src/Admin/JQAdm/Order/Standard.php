@@ -122,7 +122,7 @@ class Standard
 		try
 		{
 			$params = $this->storeFilter( $view->param(), 'order' );
-			$msg = ['sitecode' => $context->getLocale()->getSiteItem()->getCode()];
+			$msg = ['sitecode' => $context->locale()->getSiteItem()->getCode()];
 
 			if( isset( $params['filter'] ) ) {
 				$msg['filter'] = $this->getCriteriaConditions( (array) $params['filter'] );
@@ -518,7 +518,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Order\Item\Base\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->context()->getLocale()->getSiteId();
+		$siteId = $this->context()->locale()->getSiteId();
 		$data = $item->toArray( true );
 
 		if( $item->getCustomerId() != '' )

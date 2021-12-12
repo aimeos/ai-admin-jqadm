@@ -701,7 +701,7 @@ abstract class Base
 	protected function report( \Exception $e, string $method ) : Iface
 	{
 		$view = $this->view;
-		$i18n = $this->context->getI18n();
+		$i18n = $this->context->i18n();
 
 		if( $e instanceof \Aimeos\Admin\JQAdm\Exception )
 		{
@@ -782,7 +782,7 @@ abstract class Base
 	protected function notify( array $errors ) : Iface
 	{
 		$list = [];
-		$i18n = $this->context->getI18n();
+		$i18n = $this->context->i18n();
 
 		foreach( $errors as $key => $error )
 		{

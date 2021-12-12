@@ -96,7 +96,7 @@ class Standard
 
 		try
 		{
-			$view->item = $this->context()->getLocale()->getSiteItem();
+			$view->item = $this->context()->locale()->getSiteItem();
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'item', [] ) );
 			$view->itemBody = parent::search();
 		}
@@ -247,7 +247,7 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
-		$item = $this->context()->getLocale()->getSiteItem();
+		$item = $this->context()->locale()->getSiteItem();
 
 		$config = $data['locale.site.config'] ?? [];
 		$config['resource']['email']['from-name'] = $data['locale.site.label'];
@@ -278,7 +278,7 @@ class Standard
 		if( $file && $file->getError() === UPLOAD_ERR_OK )
 		{
 			$context = $this->context();
-			$siteId = $context->getLocale()->getSiteId();
+			$siteId = $context->locale()->getSiteId();
 
 			$options = $context->config()->get( 'controller/common/media/options', [] );
 			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
@@ -314,7 +314,7 @@ class Standard
 		if( $file && $file->getError() === UPLOAD_ERR_OK )
 		{
 			$context = $this->context();
-			$siteId = $context->getLocale()->getSiteId();
+			$siteId = $context->locale()->getSiteId();
 
 			$options = $context->config()->get( 'controller/common/media/options', [] );
 			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );

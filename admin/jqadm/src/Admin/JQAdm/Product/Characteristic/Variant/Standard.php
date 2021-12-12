@@ -56,7 +56,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->context()->getLocale()->getSiteId();
+		$siteid = $this->context()->locale()->getSiteId();
 		$data = $view->param( 'characteristic/variant', [] );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
@@ -267,7 +267,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->context()->getLocale()->getSiteId();
+		$siteId = $this->context()->locale()->getSiteId();
 		$data = [];
 
 		foreach( $item->getListItems( 'attribute', 'variant', null, false ) as $listItem )

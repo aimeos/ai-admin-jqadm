@@ -58,7 +58,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->context()->getLocale()->getSiteId();
+		$siteid = $this->context()->locale()->getSiteId();
 		$data = $view->param( 'physical', [] );
 
 		foreach( $view->value( $data, 'product.property.id', [] ) as $idx => $value ) {

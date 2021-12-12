@@ -497,7 +497,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['rule.siteid'] = $this->context()->getLocale()->getSiteId();
+			$data['rule.siteid'] = $this->context()->locale()->getSiteId();
 			$data['rule.id'] = '';
 		}
 

@@ -472,7 +472,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['coupon.siteid'] = $this->context()->getLocale()->getSiteId();
+			$data['coupon.siteid'] = $this->context()->locale()->getSiteId();
 			$data['coupon.id'] = '';
 		}
 

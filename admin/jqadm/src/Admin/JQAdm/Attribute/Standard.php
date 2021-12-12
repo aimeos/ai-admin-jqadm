@@ -468,7 +468,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['attribute.siteid'] = $this->context()->getLocale()->getSiteId();
+			$data['attribute.siteid'] = $this->context()->locale()->getSiteId();
 			$data['attribute.code'] = $data['attribute.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data['attribute.id'] = '';
 		}

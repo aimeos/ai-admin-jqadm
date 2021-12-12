@@ -78,7 +78,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->context()->getLocale()->getSiteId();
+		$siteid = $this->context()->locale()->getSiteId();
 		$data = $view->param( 'stock', [] );
 
 		foreach( $view->value( $data, 'stock.id', [] ) as $idx => $value ) {
@@ -346,7 +346,7 @@ class Standard
 	{
 		$data = [];
 		$context = $this->context();
-		$siteId = $context->getLocale()->getSiteId();
+		$siteId = $context->locale()->getSiteId();
 
 		$manager = \Aimeos\MShop::create( $context, 'stock' );
 		$filter = $manager->filter()->add( ['stock.productid' => $item->getId()] )->order( 'stock.type' );

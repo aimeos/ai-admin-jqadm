@@ -540,7 +540,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['customer.siteid'] = $this->context()->getLocale()->getSiteId();
+			$data['customer.siteid'] = $this->context()->locale()->getSiteId();
 			$data['customer.code'] = '';
 			$data['customer.id'] = '';
 		}

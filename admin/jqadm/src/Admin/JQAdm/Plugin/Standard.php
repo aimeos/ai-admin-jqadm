@@ -497,7 +497,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['plugin.siteid'] = $this->context()->getLocale()->getSiteId();
+			$data['plugin.siteid'] = $this->context()->locale()->getSiteId();
 			$data['plugin.id'] = '';
 		}
 

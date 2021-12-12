@@ -59,7 +59,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->context()->getLocale()->getSiteId();
+		$siteid = $this->context()->locale()->getSiteId();
 		$data = $view->param( 'bundle', [] );
 
 		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
@@ -279,7 +279,7 @@ class Standard
 		}
 
 		$data = [];
-		$siteId = $this->context()->getLocale()->getSiteId();
+		$siteId = $this->context()->locale()->getSiteId();
 
 		foreach( $item->getListItems( 'product', 'default', null, false ) as $listItem )
 		{

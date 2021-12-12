@@ -58,7 +58,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$siteid = $this->context()->getLocale()->getSiteId();
+		$siteid = $this->context()->locale()->getSiteId();
 
 		$itemData = $this->toArray( $view->item );
 		$data = array_replace_recursive( $itemData, $view->param( 'media', [] ) );
@@ -385,7 +385,7 @@ class Standard
 	protected function toArray( \Aimeos\MShop\Catalog\Item\Iface $item, bool $copy = false ) : array
 	{
 		$data = [];
-		$siteId = $this->context()->getLocale()->getSiteId();
+		$siteId = $this->context()->locale()->getSiteId();
 
 		foreach( $item->getListItems( 'media', null, null, false ) as $listItem )
 		{

@@ -365,7 +365,7 @@ class Standard
 
 		$context = $this->context();
 		$fs = $context->fs( 'fs-import' );
-		$dir = 'couponcode/' . $context->getLocale()->getSiteItem()->getCode();
+		$dir = 'couponcode/' . $context->locale()->getSiteItem()->getCode();
 
 		if( $fs->isdir( $dir ) === false ) {
 			$fs->mkdir( $dir );

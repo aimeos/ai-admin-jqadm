@@ -366,10 +366,10 @@ $reasonList = [
 								<td class="order-base-sitecode"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->getSiteCode() ) : '' ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.base.languageid', $fields ) ) : ?>
-								<td class="order-base-languageid"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->getLocale()->getLanguageId() ) : '' ?></a></td>
+								<td class="order-base-languageid"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->locale()->getLanguageId() ) : '' ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.base.currencyid', $fields ) ) : ?>
-								<td class="order-base-currencyid"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->getLocale()->getCurrencyId() ) : '' ?></a></td>
+								<td class="order-base-currencyid"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $baseItem->locale()->getCurrencyId() ) : '' ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.base.taxflag', $fields ) ) : ?>
 								<td class="order-base-taxflag"><a class="items-field" href="<?= $url ?>"><?= $baseItem ? $enc->html( $statusList[$baseItem->getPrice()->getTaxFlag()] ) : '' ?></a></td>

@@ -200,7 +200,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 						</div>
 					</div>
 
-					<div class="col-xl-6 block <?= $this->site()->readonly( $basket->getLocale()->getSiteId() ) ?>">
+					<div class="col-xl-6 block <?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>">
 						<div class="box">
 							<div class="form-group row">
 								<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?></label>
@@ -238,13 +238,13 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 							<div class="form-group row">
 								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ) ?></label>
 								<div class="col-8">
-									<span class="form-control item-currencyid"><?= $enc->html( $basket->getLocale()->getCurrencyId() ) ?></span>
+									<span class="form-control item-currencyid"><?= $enc->html( $basket->locale()->getCurrencyId() ) ?></span>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
 								<div class="col-8">
-									<span class="form-control item-languageid"><?= $enc->html( $this->translate( 'language', $basket->getLocale()->getLanguageId() ) ) ?></span>
+									<span class="form-control item-languageid"><?= $enc->html( $this->translate( 'language', $basket->locale()->getLanguageId() ) ) ?></span>
 								</div>
 							</div>
 						</div>

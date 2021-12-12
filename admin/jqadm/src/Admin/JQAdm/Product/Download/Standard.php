@@ -58,7 +58,7 @@ class Standard
 	public function create() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-		$data['product.lists.siteid'] = $this->context()->getLocale()->getSiteId();
+		$data['product.lists.siteid'] = $this->context()->locale()->getSiteId();
 		$data = array_replace_recursive( $this->toArray( $view->item ), $view->param( 'download', [] ) );
 
 		$view->downloadData = $data;
@@ -344,7 +344,7 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
 	{
-		$siteId = $this->context()->getLocale()->getSiteId();
+		$siteId = $this->context()->locale()->getSiteId();
 		$data = ['product.lists.siteid' => $siteId];
 
 		foreach( $item->getListItems( 'attribute', 'hidden', 'download', false ) as $listItem )

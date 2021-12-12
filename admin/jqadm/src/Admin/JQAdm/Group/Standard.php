@@ -428,7 +428,7 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['customer.group.siteid'] = $this->context()->getLocale()->getSiteId();
+			$data['customer.group.siteid'] = $this->context()->locale()->getSiteId();
 			$data['customer.group.id'] = '';
 		}
 

@@ -44,7 +44,7 @@ class Standard
 	{
 		$view = $this->view();
 		$view->ordercountcountryBody = parent::search();
-		$view->ordercountcountryLabels = $this->context()->getI18n()->all( 'country' );
+		$view->ordercountcountryLabels = $this->context()->i18n()->all( 'country' );
 
 		/** admin/jqadm/dashboard/order/countcountry/template-item
 		 * Relative path to the HTML body template of the order per countcountry subpart for the dashboard.
