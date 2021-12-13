@@ -599,7 +599,7 @@ abstract class Base
 			$msg .= print_r( $e->getDetails(), true ) . PHP_EOL;
 		}
 
-		$this->context->getLogger()->log( $msg . $e->getTraceAsString(), \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
+		$this->context->logger()->log( $msg . $e->getTraceAsString(), \Aimeos\MW\Logger\Base::ERR, 'admin/jqadm' );
 
 		return $this;
 	}
