@@ -181,7 +181,7 @@ class Standard
 				$msg['sort'] = (array) $params['sort'];
 			}
 
-			$mq = $context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( 'subscription-export' );
+			$mq = $context->queue( 'mq-admin', 'subscription-export' );
 			$mq->add( json_encode( $msg ) );
 
 			$msg = $context->translate( 'admin', 'Your export will be available in a few minutes for download' );

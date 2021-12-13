@@ -125,7 +125,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->export();
 
-		$mq = $this->context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( 'order-export' );
+		$mq = $this->context->queue( 'mq-admin', 'order-export' );
 
 		$msg = $mq->get();
 		$this->assertNotNull( $msg );

@@ -133,7 +133,7 @@ class Standard
 			}
 
 			$queue = $view->param( 'queue', 'order-export' );
-			$mq = $context->getMessageQueueManager()->get( 'mq-admin' )->getQueue( $queue );
+			$mq = $context->queue( 'mq-admin', $queue );
 			$mq->add( json_encode( $msg ) );
 
 			$msg = $context->translate( 'admin', 'Your export will be available in a few minutes for download' );
