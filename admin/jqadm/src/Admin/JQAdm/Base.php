@@ -678,9 +678,9 @@ abstract class Base
 		switch( $method )
 		{
 			case 'save':
-				$context->getSession()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] ); break;
+				$context->session()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] ); break;
 			case 'delete':
-				$context->getSession()->set( 'info', [$context->translate( 'admin', 'Item deleted successfully' )] ); break;
+				$context->session()->set( 'info', [$context->translate( 'admin', 'Item deleted successfully' )] ); break;
 		}
 
 		$view->response()->withStatus( 302 );
@@ -755,7 +755,7 @@ abstract class Base
 	protected function storeFilter( array $params, string $name ) : array
 	{
 		$key = 'aimeos/admin/jqadm/' . $name;
-		$session = $this->context()->getSession();
+		$session = $this->context()->session();
 
 		foreach( ['fields', 'filter', 'page', 'sort'] as $part )
 		{
