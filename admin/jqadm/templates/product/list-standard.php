@@ -734,7 +734,7 @@ $columnList = [
 								<td class="product-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'product.editor', $fields ) ) : ?>
-								<td class="product-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a></td>
+								<td class="product-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'product.rating', $fields ) ) : ?>
 								<td class="product-rating"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRating() ) ?></a></td>

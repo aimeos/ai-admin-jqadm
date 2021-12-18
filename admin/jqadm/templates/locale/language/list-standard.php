@@ -214,7 +214,7 @@ $columnList = [
 								<td class="locale-language-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'locale.language.editor', $fields ) ) : ?>
-								<td class="locale-language-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a></td>
+								<td class="locale-language-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 
 							<td class="actions">

@@ -234,7 +234,7 @@ $columnList = [
 								<td class="catalog-type-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'catalog.lists.type.editor', $fields ) ) : ?>
-								<td class="catalog-type-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a></td>
+								<td class="catalog-type-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 
 							<td class="actions">

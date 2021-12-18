@@ -234,7 +234,7 @@ $columnList = [
 								<td class="price-type-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'price.property.type.editor', $fields ) ) : ?>
-								<td class="price-type-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getEditor() ) ?></a></td>
+								<td class="price-type-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 
 							<td class="actions">

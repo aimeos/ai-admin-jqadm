@@ -171,7 +171,7 @@ $paymentStatusList = [
 						</small>
 						<small>
 							<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>:
-							<span class="meta-value"><?= $enc->html( $basket->getEditor() ) ?></span>
+							<span class="meta-value"><?= $enc->html( $basket->editor() ) ?></span>
 						</small>
 					</div>
 

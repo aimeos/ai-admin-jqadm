@@ -362,7 +362,7 @@ class Standard
 			'locale.site.supplierid' => $item->getSupplierId(),
 			'locale.site.ctime' => $item->getTimeCreated(),
 			'locale.site.mtime' => $item->getTimeModified(),
-			'locale.site.editor' => $item->getEditor(),
+			'locale.site.editor' => $item->editor(),
 		];
 	}
 
