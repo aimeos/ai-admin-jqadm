@@ -430,7 +430,7 @@ class Standard
 			}
 
 			if( !$isSuper && !$isAdmin && $groupItem->getCode() === 'editor'
-				&& ( !$isEditor || $item === null || (string) $context->getUserId() !== (string) $item->getId() )
+				&& ( !$isEditor || $item === null || (string) $context->user() !== (string) $item->getId() )
 			) {
 				continue;
 			}
@@ -514,7 +514,7 @@ class Standard
 		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
 			->setGroups( array_intersect( $gids, $groupIds ) );
 
-		if( $this->view()->access( ['super'] ) || $item->getId() === $context->getUserId() )
+		if( $this->view()->access( ['super'] ) || $item->getId() === $context->user() )
 		{
 			!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
 			!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
@@ -534,7 +534,7 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( $this->view()->access( ['super'] ) || $item->getId() === $this->context()->getUserId() ) {
+		if( $this->view()->access( ['super'] ) || $item->getId() === $this->context()->user() ) {
 			$data['.modify'] = true;
 		}
 

@@ -37,7 +37,7 @@ class Page extends Base
 		$langManager = \Aimeos\MShop::create( $context, 'locale/language' );
 		$customerManager = \Aimeos\MShop::create( $context, 'customer' );
 
-		if( $userId = $context->getUserId() )
+		if( $userId = $context->user() )
 		{
 			$siteid = $customerManager->get( $userId )->getSiteId();
 

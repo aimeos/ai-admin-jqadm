@@ -389,7 +389,7 @@ class Standard
 		$context = $this->context();
 		$manager = \Aimeos\MShop::create( $context, 'customer' );
 
-		return $manager->get( $context->getUserId() )->getSiteId();
+		return $manager->get( $context->user() )->getSiteId();
 	}
 
 
