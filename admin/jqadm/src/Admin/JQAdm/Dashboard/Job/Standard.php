@@ -49,7 +49,7 @@ class Standard
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 		}
 
-		$fs = $context->getFileSystemManager()->get( 'fs-admin' );
+		$fs = $context->fs( 'fs-admin' );
 		$manager = \Aimeos\MAdmin::create( $context, 'job' );
 		$item = $manager->get( $id );
 
@@ -79,7 +79,7 @@ class Standard
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 		}
 
-		$fs = $context->getFileSystemManager()->get( 'fs-admin' );
+		$fs = $context->fs( 'fs-admin' );
 		$item = \Aimeos\MAdmin::create( $context, 'job' )->get( $id );
 
 		if( ( $path = $item->getPath() ) && $fs->has( $path ) )
