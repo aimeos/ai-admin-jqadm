@@ -358,8 +358,8 @@ class Standard
 				$list['text.id'] = null;
 			}
 
-			$list['product.lists.datestart'] = str_replace( ' ', 'T', $list['product.lists.datestart'] );
-			$list['product.lists.dateend'] = str_replace( ' ', 'T', $list['product.lists.dateend'] );
+			$list['product.lists.datestart'] = str_replace( ' ', 'T', $list['product.lists.datestart'] ?? '' );
+			$list['product.lists.dateend'] = str_replace( ' ', 'T', $list['product.lists.dateend'] ?? '' );
 			$list['config'] = [];
 
 			foreach( $listItem->getConfig() as $key => $value ) {
