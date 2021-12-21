@@ -198,7 +198,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 
 								<?php foreach( map( $navitem )->remove( '_' )->ksort() as $subresource ) : ?>
 										<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $subresource . '/groups', [] ) ) ) : ?>
-											<?php $key = $this->config( 'admin/jqadm/resource/' . $subresource . '/key' ) ?>
+											<?php $key = $this->config( 'admin/jqadm/resource/' . $subresource . '/key', '' ) ?>
 
 											<li class="menuitem-<?= str_replace( '/', '-', $subresource ) ?> <?= $subresource === $resource ? 'active' : '' ?>">
 												<a class="item-group" href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ) ?>"

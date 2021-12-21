@@ -361,7 +361,7 @@ class Standard
 				$list['stock.id'] = '';
 			}
 
-			$list['stock.dateback'] = str_replace( ' ', 'T', $list['stock.dateback'] );
+			$list['stock.dateback'] = str_replace( ' ', 'T', $list['stock.dateback'] ?? '' );
 
 			$data[] = $list;
 		}

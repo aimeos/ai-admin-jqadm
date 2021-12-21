@@ -354,8 +354,8 @@ class Standard
 				$list['text.id'] = null;
 			}
 
-			$list['service.lists.datestart'] = str_replace( ' ', 'T', $list['service.lists.datestart'] );
-			$list['service.lists.dateend'] = str_replace( ' ', 'T', $list['service.lists.dateend'] );
+			$list['service.lists.datestart'] = str_replace( ' ', 'T', $list['service.lists.datestart'] ?? '' );
+			$list['service.lists.dateend'] = str_replace( ' ', 'T', $list['service.lists.dateend'] ?? '' );
 			$list['config'] = [];
 
 			foreach( $listItem->getConfig() as $key => $value ) {
