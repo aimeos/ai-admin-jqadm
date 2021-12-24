@@ -14,26 +14,24 @@
  * within the administraiton interface.
  *
  * The names of the colums are in fact the search keys defined by the managers,
- * e.g. "supplier.lists.status" for the status value.
+ * e.g. "product.lists.status" for the status value.
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
  * @category Developer
  */
-$fields = ['supplier.lists.status', 'supplier.lists.type', 'supplier.lists.position', 'supplier.lists.refid'];
+$fields = ['product.lists.status', 'product.lists.type', 'product.lists.position', 'product.lists.refid'];
 $fields = $this->config( 'admin/jqadm/supplier/product/fields', $fields );
 
 
 ?>
-<div id="product" class="item-product tab-pane fade" role="tabpanel" aria-labelledby="product">
-	<div class="box">
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/productref', 'common/partials/productref-standard' ), [
-			'types' => $this->get( 'productListTypes', map() )->col( 'supplier.lists.type.label', 'supplier.lists.type.code' )->toArray(),
-			'siteid' => $this->site()->siteid(),
-			'parentid' => $this->param( 'id' ),
-			'resource' => 'supplier/lists',
-			'fields' => $fields,
-		] ) ?>
-	</div>
+<div id="product" class="item-product tab-pane fade box" role="tabpanel" aria-labelledby="product">
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/productlist', 'common/partials/productlist-standard' ), [
+		'types' => $this->get( 'productListTypes', map() )->col( 'product.lists.type.label', 'product.lists.type.code' )->toArray(),
+		'siteid' => $this->site()->siteid(),
+		'refid' => $this->param( 'id' ),
+		'resource' => 'product/lists',
+		'fields' => $fields,
+	] ) ?>
 </div>
 <?= $this->get( 'productBody' ) ?>

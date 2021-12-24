@@ -30,24 +30,24 @@ class Standard
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
-	 * @since 2017.10
+	 * @since 2017.07
 	 * @category Developer
 	 */
 
 
 	/**
-	 * Adds the required data used in the attribute template
+	 * Adds the required data used in the template
 	 *
 	 * @param \Aimeos\MW\View\Iface $view View object
 	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
 	 */
 	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists/type' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
 
-		$search = $manager->filter( true )->slice( 0, 0x7fffffff );
-		$search->setConditions( $search->compare( '==', 'supplier.lists.type.domain', 'product' ) );
-		$search->setSortations( [$search->sort( '+', 'supplier.lists.type.position' )] );
+		$search = $manager->filter( true )->slice( 0, 10000 )
+			->add( ['product.lists.type.domain' => 'supplier'] )
+			->order( 'product.lists.type.position' );
 
 		$view->productListTypes = $manager->search( $search );
 
@@ -90,15 +90,20 @@ class Standard
 	 */
 	public function get() : ?string
 	{
-		$view = $this->object()->data( $this->view() );
-
 		$total = 0;
-		$params = $this->storeFilter( $view->param( 'sp', [] ), 'supplierproduct' );
-		$listItems = $this->getListItems( $view->item, $params, $total );
+		$view = $this->object()->data( $this->view() );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
-		$view->productItems = $this->getProductItems( $listItems );
-		$view->productData = $this->toArray( $listItems );
-		$view->productBody = parent::search();
+		$filter = $manager->filter();
+		$func = $filter->make( 'product:has', ['supplier', ['default', 'promotion'], $view->item->getId()] );
+
+		$params = $this->storeFilter( $view->param( 'cp', [] ), 'supplierproduct' );
+		$filter = $this->initCriteria( $filter, $params, 'supplierproduct' )->add( $func, '!=', null );
+		$products = $manager->search( $filter, [], $total );
+
+		$view->productItems = $products;
+		$view->productData = $this->toArray( $view->item, $products );
+		$view->productBody = parent::get();
 		$view->productTotal = $total;
 
 		return $this->render( $view );
@@ -114,12 +119,12 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'index' );
 		$manager->begin();
 
 		try
 		{
-			$this->storeFilter( $view->param( 'sp', [] ), 'supplierproduct' );
+			$this->storeFilter( $view->param( 'cp', [] ), 'supplierproduct' );
 			$this->fromArray( $view->item, $view->param( 'product', [] ) );
 			$view->productBody = parent::save();
 
@@ -222,59 +227,6 @@ class Standard
 
 
 	/**
-	 * Returns the supplier list items referencing the products
-	 *
-	 * @param \Aimeos\MShop\Supplier\Item\Iface $item Supplier item object
-	 * @param array $params Associative list of GET/POST parameters
-	 * @param integer $total Value/result parameter that will contain the item total afterwards
-	 * @return \Aimeos\Map Supplier list items implementing \Aimeos\MShop\Common\Item\List\Iface referencing the products
-	 */
-	protected function getListItems( \Aimeos\MShop\Supplier\Item\Iface $item, array $params = [], &$total = null ) : \Aimeos\Map
-	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
-
-		$search = $manager->filter();
-		$search->setSortations( [
-			$search->sort( '+', 'supplier.lists.position' ),
-			$search->sort( '+', 'supplier.lists.refid' )
-		] );
-
-		$search = $this->initCriteria( $search, $params );
-		$expr = [
-			$search->getConditions(),
-			$search->compare( '==', 'supplier.lists.parentid', $item->getId() ),
-			$search->compare( '==', 'supplier.lists.domain', 'product' ),
-		];
-		$search->setConditions( $search->and( $expr ) );
-
-		return $manager->search( $search, [], $total );
-	}
-
-
-	/**
-	 * Returns the product items referenced by the given list items
-	 *
-	 * @param \Aimeos\Map $listItems Supplier list items implementing \Aimeos\MShop\Common\Item\List\Iface referencing the products
-	 * @return \Aimeos\Map List of product IDs as keys and items implementing \Aimeos\MShop\Product\Item\Iface
-	 */
-	protected function getProductItems( \Aimeos\Map $listItems ) : \Aimeos\Map
-	{
-		$list = [];
-
-		foreach( $listItems as $listItem ) {
-			$list[] = $listItem->getRefId();
-		}
-
-		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
-
-		$search = $manager->filter()->slice( 0, count( $list ) );
-		$search->setConditions( $search->compare( '==', 'product.id', $list ) );
-
-		return $manager->search( $search );
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -323,70 +275,51 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Supplier\Item\Iface $item Supplier item object without referenced domain items
 	 * @param array $data Data array
-	 * @return \Aimeos\MShop\Service\Item\Iface Modified supplier item
+	 * @return \Aimeos\MShop\Supplier\Item\Iface Modified supplier item
 	 */
 	protected function fromArray( \Aimeos\MShop\Supplier\Item\Iface $item, array $data ) : \Aimeos\MShop\Supplier\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'supplier/lists' );
-		$listItem = $listManager->create()->setParentId( $item->getId() )->setDomain( 'product' );
-		$listIds = $this->val( $data, 'supplier.lists.id', [] );
-
-		if( !empty( $listIds ) ) {
-			$listItems = $listManager->search( $listManager->filter()->add( 'supplier.lists.id', '==', $listIds ) );
-		} else {
-			$listItems = map();
+		if( empty( $prodIds = $this->val( $data, 'product.lists.parentid', [] ) ) ) {
+			return $item;
 		}
 
-		foreach( (array) $listIds as $idx => $listid )
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$filter = $manager->filter()->add( ['product.id' => $prodIds] )->slice( 0, count( $prodIds ) );
+		$products = $manager->search( $filter, ['supplier'] );
+
+		$id = $item->getId();
+		$listItem = $manager->createListItem()->setRefId( $id );
+		$listItems = $products->getListItems( 'supplier', null, $id )
+			->flat( 1 )->col( null, 'product.lists.id' );
+
+		foreach( (array) $prodIds as $idx => $prodId )
 		{
-			$litem = $listItems->get( $listid ) ?: clone $listItem;
-
-			if( isset( $data['supplier.lists.refid'][$idx] ) ) {
-				$litem->setRefId( $this->val( $data, 'supplier.lists.refid/' . $idx ) );
+			if( ( $product = $products->get( $prodId ) ) === null ) {
+				continue;
 			}
 
-			if( isset( $data['supplier.lists.status'][$idx] ) ) {
-				$litem->setStatus( (int) $this->val( $data, 'supplier.lists.status/' . $idx ) );
-			}
+			$conf = [];
+			$type = $this->val( $data, 'product.lists.type/' . $idx, 'default' );
+			$listItem = $product->getListItem( 'supplier', $type, $id ) ?: clone $listItem;
 
-			if( isset( $data['supplier.lists.type'][$idx] ) ) {
-				$litem->setType( $this->val( $data, 'supplier.lists.type/' . $idx ) );
-			}
-
-			if( isset( $data['supplier.lists.position'][$idx] ) ) {
-				$litem->setPosition( (int) $this->val( $data, 'supplier.lists.position/' . $idx ) );
-			}
-
-			if( isset( $data['supplier.lists.datestart'][$idx] ) ) {
-				$litem->setDateStart( $this->val( $data, 'supplier.lists.datestart/' . $idx ) );
-			}
-
-			if( isset( $data['supplier.lists.dateend'][$idx] ) ) {
-				$litem->setDateEnd( $this->val( $data, 'supplier.lists.dateend/' . $idx ) );
-			}
-
-			if( isset( $data['supplier.lists.config'][$idx] )
-				&& ( $conf = json_decode( $this->val( $data, 'supplier.lists.config/' . $idx, '' ), true ) ) !== null
-			) {
-				$litem->setConfig( $conf );
-			}
-
-			if( $litem->getId() === null && isset( $data['config'][$idx]['key'] ) )
+			foreach( (array) $this->val( $data, 'config/' . $idx . '/key', [] ) as $pos => $key )
 			{
-				$conf = [];
-
-				foreach( (array) $data['config'][$idx]['key'] as $pos => $key )
-				{
-					if( trim( $key ) !== '' && isset( $data['config'][$idx]['val'][$pos] ) ) {
-						$conf[$key] = $data['config'][$idx]['val'][$pos];
-					}
+				if( trim( $key ) !== '' && isset( $data['config'][$idx]['val'][$pos] ) ) {
+					$conf[$key] = $data['config'][$idx]['val'][$pos];
 				}
-
-				$litem->setConfig( $conf );
 			}
 
-			$listManager->save( $litem, false );
+			$listItem->setType( $type )->setConfig( $conf )
+				->setPosition( (int) $this->val( $data, 'product.lists.position/' . $idx, 0 ) )
+				->setStatus( (int) $this->val( $data, 'product.lists.status/' . $idx, 1 ) )
+				->setDateStart( $this->val( $data, 'product.lists.datestart/' . $idx ) )
+				->setDateEnd( $this->val( $data, 'product.lists.dateend/' . $idx ) );
+
+			$product->addListItem( 'supplier', $listItem );
+			$listItems->remove( $listItem->getId() );
 		}
+
+		\Aimeos\MShop::create( $this->context(), 'index' )->save( $products );
 
 		return $item;
 	}
@@ -398,11 +331,11 @@ class Standard
 	 * @param \Aimeos\Map $listItems Supplier list items implementing \Aimeos\MShop\Common\Item\Lists\Iface and referencing the products
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\Map $listItems )
+	protected function toArray( \Aimeos\MShop\Supplier\Item\Iface $item, \Aimeos\Map $products ) : array
 	{
 		$data = [];
 
-		foreach( $listItems as $listItem )
+		foreach( $products->getListItems( 'supplier', null, $item->getId() )->flat( 1 ) as $listItem )
 		{
 			foreach( $listItem->toArray( true ) as $key => $value ) {
 				$data[$key][] = $value;

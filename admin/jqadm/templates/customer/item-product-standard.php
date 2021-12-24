@@ -27,7 +27,7 @@ $fields = $this->config( 'admin/jqadm/customer/product/fields', $fields );
 ?>
 <div id="product" class="item-product tab-pane fade" role="tabpanel" aria-labelledby="product">
 	<div class="box">
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/productref', 'common/partials/productref-standard' ), [
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/productlist', 'common/partials/productlist-standard' ), [
 			'types' => $this->get( 'productListTypes', map() )->col( 'customer.lists.type.label', 'customer.lists.type.code' )->toArray(),
 			'siteid' => $this->site()->siteid(),
 			'parentid' => $this->param( 'id' ),
