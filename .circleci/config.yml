@@ -2,10 +2,10 @@
 #
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
-version: 2
+version: 2.1
 
 jobs:
-  "php-7.1 / mariadb-10":
+  "php71-mariadb10":
     docker:
       - image: aimeos/ci-php:7.1
       - image: circleci/mariadb:10
@@ -29,7 +29,7 @@ jobs:
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
 
-  "php-7.2 / mysql-5.7":
+  "php72-mysql57":
     docker:
       - image: aimeos/ci-php:7.2
       - image: circleci/mysql:5.7
@@ -53,7 +53,7 @@ jobs:
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext checkext
 
-  "php-7.3 / pgsql-13":
+  "php73-pgsql13":
     docker:
       - image: aimeos/ci-php:7.3
       - image: circleci/postgres:13
@@ -76,7 +76,7 @@ jobs:
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 5432 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
 
-  "php-7.4 / mysql-8.0":
+  "php74-mysql80":
     docker:
       - image: aimeos/ci-php:7.4
       - image: circleci/mysql:8.0
@@ -100,7 +100,7 @@ jobs:
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
 
-  "php-8.0 / mysql-8.0":
+  "php80-mysql80":
     docker:
       - image: aimeos/ci-php:8.0
       - image: circleci/mysql:8.0
@@ -124,7 +124,7 @@ jobs:
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext
 
-  "php-8.1 / mysql-8.0":
+  "php81-mysql80":
     docker:
       - image: aimeos/ci-php:8.1
       - image: circleci/mysql:8.0
@@ -153,9 +153,9 @@ workflows:
   version: 2
   unittest:
     jobs:
-      - "php-7.1 / mariadb-10"
-      - "php-7.2 / mysql-5.7"
-      - "php-7.3 / pgsql-13"
-      - "php-7.4 / mysql-8.0"
-      - "php-8.0 / mysql-8.0"
-      - "php-8.1 / mysql-8.0"
+      - "php71-mariadb10"
+      - "php72-mysql57"
+      - "php73-pgsql13"
+      - "php74-mysql80"
+      - "php80-mysql80"
+      - "php81-mysql80"
