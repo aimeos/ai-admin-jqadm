@@ -294,7 +294,7 @@ class Standard
 
 			$item->setStatusPayment( is_numeric( $pstatus ) ? (int) $pstatus : null );
 			$item->setStatusDelivery( is_numeric( $dstatus ) ? (int) $dstatus : null );
-			$item->setType( $this->val( $data, 'order.type/' . $idx, $item->getType() ) );
+			$item->setChannel( $this->val( $data, 'order.channel/' . $idx, $item->getChannel() ) );
 			$item->setDateDelivery( $this->val( $data, 'order.datedelivery/' . $idx ) );
 			$item->setDatePayment( $this->val( $data, 'order.datepayment/' . $idx ) );
 			$item->setRelatedId( $this->val( $data, 'order.relatedid/' . $idx ) );

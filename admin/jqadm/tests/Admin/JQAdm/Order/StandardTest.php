@@ -187,7 +187,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest', 'locale' => 'de',
 			'filter' => array(
-				'key' => array( 0 => 'order.type' ),
+				'key' => array( 0 => 'order.channel' ),
 				'op' => array( 0 => '==' ),
 				'val' => array( 0 => 'web' ),
 			),

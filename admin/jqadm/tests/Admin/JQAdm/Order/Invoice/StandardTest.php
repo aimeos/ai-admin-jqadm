@@ -73,7 +73,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'invoice' => array(
 				'order.id' => [''],
-				'order.type' => ['jqadmtst'],
+				'order.channel' => ['jqadmtst'],
 			),
 		);
 
@@ -85,7 +85,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->save();
 
 		$search = $manager->filter();
-		$search->setConditions( $search->compare( '==', 'order.type', 'jqadmtst' ) );
+		$search->setConditions( $search->compare( '==', 'order.channel', 'jqadmtst' ) );
 
 		if( ( $item = $manager->search( $search )->first() ) === null ) {
 			$this->fail( 'No saved order item found' );

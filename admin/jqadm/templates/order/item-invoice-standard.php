@@ -96,7 +96,7 @@ $statusList = [
 							'sort' => $this->session( 'aimeos/admin/jqadm/product/sort' ),
 							'data' => [
 								'order.id' => $this->translate( 'admin', 'Invoice' ),
-								'order.type' => $this->translate( 'admin', 'Type' ),
+								'order.channel' => $this->translate( 'admin', 'Channel' ),
 								'order.datepayment' => $this->translate( 'admin', 'Payment' ),
 								'order.statuspayment' => $this->translate( 'admin', 'Payment status' ),
 								'order.datedelivery' => $this->translate( 'admin', 'Delivery' ),
@@ -120,7 +120,7 @@ $statusList = [
 								'fields' => $fields, 'group' => 'oi', 'tabindex' => $this->get( 'tabindex' ),
 								'data' => [
 									'order.id' => $this->translate( 'admin', 'Invoice' ),
-									'order.type' => $this->translate( 'admin', 'Type' ),
+									'order.channel' => $this->translate( 'admin', 'Channel' ),
 									'order.datepayment' => $this->translate( 'admin', 'Payment' ),
 									'order.statuspayment' => $this->translate( 'admin', 'Payment status' ),
 									'order.datedelivery' => $this->translate( 'admin', 'Delivery' ),
@@ -142,7 +142,7 @@ $statusList = [
 						'fields' => $fields, 'group' => 'oi', 'tabindex' => $this->get( 'tabindex' ),
 						'data' => [
 							'order.id' => ['oi' => '==', 'type' => 'number'],
-							'order.type' => ['oi' => '~=', 'type' => 'select', 'val' => [
+							'order.channel' => ['oi' => '~=', 'type' => 'select', 'val' => [
 								'web' => $this->translate( 'mshop/code', 'order:web' ),
 								'phone' => $this->translate( 'mshop/code', 'order:phone' ),
 							]],
@@ -169,7 +169,7 @@ $statusList = [
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select class="form-select order-type" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.type', '' ) ) ) ?>" disabled="disabled">
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.channel', '' ) ) ) ?>" disabled="disabled">
 											<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 
 											<?php foreach( $types as $type ) : ?>
@@ -264,15 +264,15 @@ $statusList = [
 								<?= $enc->html( $orderId ) ?>
 							</td>
 						<?php endif ?>
-						<?php if( in_array( 'order.type', $fields ) ) : ?>
+						<?php if( in_array( 'order.channel', $fields ) ) : ?>
 							<td class="order-type">
 								<select class="form-select order-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.type', '' ) ) ) ?>"
-									value="<?= $enc->attr( $this->get( 'invoiceData/order.type/' . $idx ) ) ?>" disabled="disabled" />
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.channel', '' ) ) ) ?>"
+									value="<?= $enc->attr( $this->get( 'invoiceData/order.channel/' . $idx ) ) ?>" disabled="disabled" />
 									<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 
 									<?php foreach( $types as $type ) : ?>
-										<option value="<?= $enc->attr( $type ) ?>" <?= $selected( $this->get( 'invoiceData/order.type/' . $idx ), $type ) ?> >
+										<option value="<?= $enc->attr( $type ) ?>" <?= $selected( $this->get( 'invoiceData/order.channel/' . $idx ), $type ) ?> >
 											<?= $enc->html( $type ) ?>
 										</option>
 									<?php endforeach ?>

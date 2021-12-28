@@ -148,7 +148,7 @@ $baseItems = $this->get( 'baseItems', [] );
 
 $columnList = [
 	'order.id' => $this->translate( 'admin', 'Invoice' ),
-	'order.type' => $this->translate( 'admin', 'Type' ),
+	'order.channel' => $this->translate( 'admin', 'Type' ),
 	'order.statuspayment' => $this->translate( 'admin', 'Pay status' ),
 	'order.datepayment' => $this->translate( 'admin', 'Pay date' ),
 	'order.statusdelivery' => $this->translate( 'admin', 'Ship status' ),
@@ -326,7 +326,7 @@ $statusList = [
 							'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/order/filter', [] ),
 							'data' => [
 								'order.id' => ['op' => '=='],
-								'order.type' => [],
+								'order.channel' => [],
 								'order.statuspayment' => ['op' => '==', 'type' => 'select', 'val' => $paymentStatusList],
 								'order.datepayment' => ['op' => '-', 'type' => 'date'],
 								'order.statusdelivery' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
@@ -381,8 +381,8 @@ $statusList = [
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.type', $fields ) ) : ?>
-								<td class="order-type"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getType() ) ?></a></td>
+							<?php if( in_array( 'order.channel', $fields ) ) : ?>
+								<td class="order-type"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getChannel() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 								<td class="order-statuspayment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $paymentStatusList[$item->getStatusPayment()] ) ?></a></td>
