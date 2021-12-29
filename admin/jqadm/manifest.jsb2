@@ -50,8 +50,53 @@
 			"text": "ckeditor.js",
 			"path": "js/"
 		},{
-			"text": "vue-components.js",
-			"path": "js/"
+			"text": "auto-complete.js",
+			"path": "js/components/"
+		},{
+			"text": "catalog-tree.js",
+			"path": "js/components/"
+		},{
+			"text": "column-select.js",
+			"path": "js/components/"
+		},{
+			"text": "combo-box.js",
+			"path": "js/components/"
+		},{
+			"text": "config-table.js",
+			"path": "js/components/"
+		},{
+			"text": "confirm-delete.js",
+			"path": "js/components/"
+		},{
+			"text": "html-editor.js",
+			"path": "js/components/"
+		},{
+			"text": "input-map.js",
+			"path": "js/components/"
+		},{
+			"text": "nav-search.js",
+			"path": "js/components/"
+		},{
+			"text": "page-limit.js",
+			"path": "js/components/"
+		},{
+			"text": "page-offset.js",
+			"path": "js/components/"
+		},{
+			"text": "property-table.js",
+			"path": "js/components/"
+		},{
+			"text": "select-component.js",
+			"path": "js/components/"
+		},{
+			"text": "site-tree-items.js",
+			"path": "js/components/"
+		},{
+			"text": "site-tree.js",
+			"path": "js/components/"
+		},{
+			"text": "taxrates.js",
+			"path": "js/components/"
 		},{
 			"text": "admin.js",
 			"path": "js/"
