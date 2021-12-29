@@ -83,7 +83,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'product.lists.type' => [0 => 'promotion'],
 				'product.lists.datestart' => [0 => '2000-01-01 00:00:00'],
 				'product.lists.dateend' => [0 => '2100-01-01 00:00:00'],
-				'config' => [0 => ['key' => [0 => 'test'], 'val' => [0 => 'value']]],
+				'product.lists.config' => [0 => '{"test": "value"}'],
 			),
 		);
 
