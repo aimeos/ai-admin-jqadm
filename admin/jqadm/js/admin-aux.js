@@ -7,6 +7,7 @@
 
 $(function() {
 
+	Aimeos.ProductList.init();
 	Aimeos.ProductRef.init();
 	Aimeos.Address.init();
 	Aimeos.Media.init();
@@ -445,7 +446,7 @@ Aimeos.ProductList = {
 		if(node) {
 			Aimeos.components['productlist'] = new Vue({
 				'el': node,
-				'mixins': [Aimeos.ProductRef.mixins]
+				'mixins': [Aimeos.ProductList.mixins]
 			});
 		}
 
@@ -502,7 +503,7 @@ Aimeos.ProductList = {
 				this.types = JSON.parse(this.$el.dataset.types);
 				this.order = this.prefix + 'position';
 
-				const fieldkey = 'aimeos/jqadm/' + this.resource.replace('/', '') + '/fields';
+				const fieldkey = 'aimeos/jqadm/catalog' + this.resource.replace('/', '') + '/fields';
 				this.fields = this.columns(this.$el.dataset.fields || [], fieldkey);
 			} catch(e) {
 				console.log( '[Aimeos] Init referenced product list failed: ' + e);
@@ -622,7 +623,7 @@ Aimeos.ProductList = {
 					args['filter']['&&'].push(self.filter[key]);
 				}
 
-				if(this.fields.includes(this.prefix + 'refid')) {
+				if(this.fields.includes(this.prefix + 'parentid')) {
 					args.fields['product'] = ['product.id', 'product.code', 'product.label', 'product.status'];
 				}
 				args.fields[this.resource] = [self.prefix + 'id', self.prefix + 'siteid', ...self.fields];
@@ -707,8 +708,8 @@ Aimeos.ProductList = {
 				let str = '';
 
 				if(this.items[idx]) {
-					if(this.items[idx][this.prefix + 'refid']) {
-						str += this.items[idx][this.prefix + 'refid'];
+					if(this.items[idx][this.prefix + 'parentid']) {
+						str += this.items[idx][this.prefix + 'parentid'];
 					}
 
 					if(this.items[idx]['product.label']) {
@@ -748,7 +749,7 @@ Aimeos.ProductList = {
 				const domain = {};
 				const refid = {};
 
-				domain[this.prefix + 'domain'] = 'product';
+				domain[this.prefix + 'domain'] = 'catalog';
 				refid[this.prefix + 'refid'] = this.refid;
 
 				Object.assign(this.$data, {filter: {'base': {'&&': [{'==': refid}, {'==': domain}]}}});
@@ -780,24 +781,24 @@ Aimeos.ProductList = {
 				const self = this;
 				const args = {
 					'filter': {'||': [
-						{'==': {'product.id': input}},
-						{'=~': {'product.code': input}},
-						{'=~': {'product.label': input}}
+						{'==': {'catalog.id': input}},
+						{'=~': {'catalog.code': input}},
+						{'=~': {'catalog.label': input}}
 					]},
-					'fields': {'product': ['product.id', 'product.code', 'product.label']},
+					'fields': {'catalog': ['catalog.id', 'catalog.code', 'catalog.label']},
 					'page': {'offset': 0, 'limit': 25},
-					'sort': 'product.label'
+					'sort': 'catalog.label'
 				};
 
 				try {
 					loadfcn ? loadfcn(true) : null;
 
-					this.get('product', args, function(data) {
+					this.get('catalog', args, function(data) {
 						self.options = [];
 						(data.items || []).forEach(function(entry) {
 							self.options.push({
-								'id': entry['product.id'],
-								'label': entry['product.id'] + ' - ' + entry['product.label'] + ' (' + entry['product.code'] + ')'
+								'id': entry['catalog.id'],
+								'label': entry['catalog.id'] + ' - ' + entry['catalog.label'] + ' (' + entry['catalog.code'] + ')'
 							});
 						});
 					});
@@ -812,7 +813,7 @@ Aimeos.ProductList = {
 
 				if(window.sessionStorage) {
 					window.sessionStorage.setItem(
-						'aimeos/jqadm/' + this.resource.replace('/', '') + '/fields',
+						'aimeos/jqadm/catalog' + this.resource.replace('/', '') + '/fields',
 						JSON.stringify(this.fields)
 					);
 				}

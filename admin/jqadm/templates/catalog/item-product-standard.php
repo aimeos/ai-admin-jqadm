@@ -20,7 +20,7 @@
  * @since 2017.10
  * @category Developer
  */
-$fields = ['product.lists.status', 'product.lists.type', 'product.lists.position', 'product.lists.refid'];
+$fields = ['product.lists.status', 'product.lists.type', 'product.lists.position', 'product.lists.parentid'];
 $fields = $this->config( 'admin/jqadm/catalog/product/fields', $fields );
 
 

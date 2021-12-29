@@ -34,10 +34,10 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 
 <div class="productlist"
 	data-resource="<?= $enc->attr( $this->get( 'resource' ) ) ?>"
-	data-parentid="<?= $enc->attr( $this->get( 'parentid' ) ) ?>"
 	data-fields="<?= $enc->attr( $this->get( 'fields', [] ) ) ?>"
 	data-siteid="<?= $enc->attr( $this->get( 'siteid' ) ) ?>"
-	data-types="<?= $enc->attr( $this->get( 'types' ) ) ?>">
+	data-types="<?= $enc->attr( $this->get( 'types' ) ) ?>"
+	data-refid="<?= $enc->attr( $this->get( 'refid' ) ) ?>">
 
 	<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 		name="<?= $enc->attr( $this->formparam( ['fields', ''] ) ) ?>"
@@ -110,11 +110,6 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</th>
 
 					<th class="actions">
-						<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-on:click.prevent.stop="add()" href="#"
-							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
-							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
-						</a>
 						<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 							v-on:click.prevent.stop="colselect = true">
@@ -227,7 +222,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							{{ types[item[prefix + 'type']] || item[prefix + 'type'] }}
 						</div>
 					</td>
-					<td v-if="fields.includes(prefix + 'config')" v-on:click="edit(idx)" v-bind:class="css('config')">
+					<td v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
 						<input-map
 							v-bind:editable="siteid === item[prefix + 'siteid'] && item.edit"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-config', ''] ) ) ?>`.replace('-prefix-', prefix)"
@@ -239,7 +234,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-datestart', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-bind:value="value('datestart')"
+							v-bind:value="item[prefix + 'datestart']"
 							v-bind:config="Aimeos.flatpickr.datetime" />
 						<div v-else v-on:click="edit(idx)" class="items-field">
 							{{ item[prefix + 'datestart'] || '-' }}
@@ -249,7 +244,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						<input is="flat-pickr" v-if="item.edit" class="form-control novalidate custom-datetime" type="datetime-local"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-dateend', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-bind:value="value('dateend')"
+							v-bind:value="item[prefix + 'dateend']"
 							v-bind:config="Aimeos.flatpickr.datetime" />
 						<div v-else v-on:click="edit(idx)" class="items-field">
 							{{ item[prefix + 'dateend'] || '-' }}
@@ -271,8 +266,6 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 									</em>
 								</template>
 							</v-select>
-							<input type="hidden" v-model="item[prefix + 'parentid']"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-parentid', ''] ) ) ?>`.replace('-prefix-', prefix)" />
 						</div>
 						<a v-else class="items-field act-view" v-bind:class="'status-' + item['product.status']"
 							tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
@@ -281,8 +274,10 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						</a>
 					</td>
 					<td class="actions">
-						<input type="hidden" v-if="item.edit" v-bind:value="item[prefix + 'id']"
+						<input type="hidden" v-if="item.edit" v-model="item[prefix + 'id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-id', ''] ) ) ?>`.replace('-prefix-', prefix)" >
+						<input type="hidden" v-if="item.edit" v-model="item[prefix + 'parentid']"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-parentid', ''] ) ) ?>`.replace('-prefix-', prefix)" />
 						<a v-if="!item.edit" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"

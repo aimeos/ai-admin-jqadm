@@ -98,7 +98,7 @@ class Standard
 		$func = $filter->make( 'product:has', ['catalog', ['default', 'promotion'], $view->item->getId()] );
 
 		$params = $this->storeFilter( $view->param( 'cp', [] ), 'catalogproduct' );
-		$filter = $this->initCriteria( $filter, $params, 'catalogproduct' )->add( $func, '!=', null );
+		$filter = $this->initCriteria( $filter, $params )->add( $func, '!=', null );
 		$products = $manager->search( $filter, [], $total );
 
 		$view->productItems = $products;
@@ -289,7 +289,7 @@ class Standard
 
 		$id = $item->getId();
 		$listItem = $manager->createListItem()->setRefId( $id );
-		$listItems = $products->getListItems( 'catalog', null, $id )
+		$listItems = $products->getListItems( 'catalog', null, null, false )
 			->flat( 1 )->col( null, 'product.lists.id' );
 
 		foreach( (array) $prodIds as $idx => $prodId )
@@ -298,18 +298,11 @@ class Standard
 				continue;
 			}
 
-			$conf = [];
-			$type = $this->val( $data, 'product.lists.type/' . $idx, 'default' );
-			$listItem = $product->getListItem( 'catalog', $type, $id ) ?: clone $listItem;
+			$listId = $this->val( $data, 'product.lists.id/' . $idx );
+			$listItem = $listItems->get( $listId ) ?: clone $listItem;
 
-			foreach( (array) $this->val( $data, 'config/' . $idx . '/key', [] ) as $pos => $key )
-			{
-				if( trim( $key ) !== '' && isset( $data['config'][$idx]['val'][$pos] ) ) {
-					$conf[$key] = $data['config'][$idx]['val'][$pos];
-				}
-			}
-
-			$listItem->setType( $type )->setConfig( $conf )
+			$listItem->setType( $this->val( $data, 'product.lists.type/' . $idx, 'default' ) )
+				->setConfig( (array) json_decode( $this->val( $data, 'product.lists.config/' . $idx, '{}' ) ) )
 				->setPosition( (int) $this->val( $data, 'product.lists.position/' . $idx, 0 ) )
 				->setStatus( (int) $this->val( $data, 'product.lists.status/' . $idx, 1 ) )
 				->setDateStart( $this->val( $data, 'product.lists.datestart/' . $idx ) )
