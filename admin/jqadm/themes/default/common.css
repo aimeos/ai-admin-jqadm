@@ -417,6 +417,7 @@ body {
 
 .aimeos .list-items input {
 	text-align: center;
+	border: none;
 }
 
 .aimeos .table .list-item-new .actions .btn {
