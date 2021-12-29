@@ -1058,7 +1058,7 @@ Aimeos.Product.Subscription = {
 						+ (map['M'] > 0 ? map['M'] + 'M' : '')
 						+ (map['W'] > 0 ? map['W'] + 'W' : '')
 						+ (map['D'] > 0 ? map['D'] + 'D' : '')
-						+ (map['H'] > 0 ? map['H'] + 'H' : '');
+						+ (map['H'] > 0 ? 'T' + map['H'] + 'H' : '');
 				}
 			}
 		}
