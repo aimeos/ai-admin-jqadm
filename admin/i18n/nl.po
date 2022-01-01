@@ -10,14 +10,15 @@
 # Klaas Runia <info@sennik.nl>, 2015
 # Maikel Slot <maikelslot@msdesigns.nl>, 2017
 # Maurice Lourens <mlourens@gmail.com>, 2015,2017,2019
+# Niek Eichner, 2021
 # Sten Pelzer <pelzersten@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 13:50+0200\n"
-"PO-Revision-Date: 2021-10-25 11:50+0000\n"
-"Last-Translator: Klaas Runia <info@sennik.nl>\n"
+"POT-Creation-Date: 2021-12-30 16:31+0100\n"
+"PO-Revision-Date: 2021-12-30 15:35+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,7 +103,7 @@ msgid ""
 msgstr "(Internationaal) telefoonnummer zonder scheidingsteken, kan beginnen met \"+\""
 
 msgid "+ Tax"
-msgstr ""
+msgstr "Belasting"
 
 msgid "?"
 msgstr "?"
@@ -185,7 +186,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Alfanumerieke string dat de groep uniek kan identificeren"
 
 msgid "Apply"
-msgstr ""
+msgstr "Toepassen"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -237,7 +238,7 @@ msgstr "Beschikbare talen voor de huidige site"
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Gemiddelde productbeoordeling en totaal aantal beoordelingen per klant voor dit product"
 
 msgid "Back in stock"
 msgstr "Weer op voorraad"
@@ -289,6 +290,9 @@ msgid ""
 "pairs in the templates"
 msgstr "Categoriespecifieke configuratieopties, zullen beschikbaar zijn als sleutel/waarde set in de sjablonen"
 
+msgid "Channel"
+msgstr ""
+
 msgid "Choose file"
 msgstr "Kies bestand"
 
@@ -322,7 +326,7 @@ msgid "Comment"
 msgstr "Opmerking"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Bericht van de recensent"
 
 msgid "Communication"
 msgstr "Communicatie"
@@ -337,11 +341,11 @@ msgid "Company name (optional)"
 msgstr "Naam bedrijf (optioneel)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Afgeronde bestellingen"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Afgeronde bestellingen in de laatste zeven dagen in vergelijking tot de vorige periode"
 
 msgid "Config"
 msgstr "Configuratie"
@@ -401,7 +405,7 @@ msgid "Custom"
 msgstr "Aangepast"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Eigen domein of unieke code voor uw winkel"
 
 msgid "Customer"
 msgstr "Klant"
@@ -449,7 +453,7 @@ msgid "Data set"
 msgstr "Data set"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Gegevensset"
 
 msgid "Date of the last delivery status change"
 msgstr "Datum van de laatste wijziging in de status van levering"
@@ -473,13 +477,13 @@ msgid "Delete items?"
 msgstr "Verwijder items?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Verwijder geselecteerde opties"
 
 msgid "Delete this entry"
 msgstr "Verwijder deze ingave"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Beoordelingen verwijderen is niet toegestaan"
 
 msgid "Delivery"
 msgstr "Bezorging"
@@ -488,7 +492,7 @@ msgid "Delivery address"
 msgstr "Bezorg adres"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Geleverd in"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -498,7 +502,7 @@ msgid "Delivery status"
 msgstr "Bezorg status"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Tijdsbestek levering (optioneel)"
 
 msgid "Delivery types"
 msgstr "Leveringstypes"
@@ -524,7 +528,7 @@ msgid "Descritive name of the site"
 msgstr "Beschrijvende naam voor de site"
 
 msgid "Discount"
-msgstr ""
+msgstr "Korting"
 
 msgid "Display help texts"
 msgstr "Toon hulp teksten"
@@ -548,7 +552,7 @@ msgid "E-Mail address (required)"
 msgstr "E-mailadres (vereist)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "E-mail adres of account naam (verplicht)"
 
 msgid "E-Mail address used for sending shop related e-mails"
 msgstr ""

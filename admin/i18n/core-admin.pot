@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 13:50+0200\n"
+"POT-Creation-Date: 2021-12-30 16:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -265,6 +265,9 @@ msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
 
 msgid "Category specific configuration options, will be available as key/value pairs in the templates"
+msgstr ""
+
+msgid "Channel"
 msgstr ""
 
 msgid "Choose file"

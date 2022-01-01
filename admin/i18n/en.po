@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 13:50+0200\n"
+"POT-Creation-Date: 2021-12-30 16:31+0100\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -265,6 +265,9 @@ msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
 
 msgid "Category specific configuration options, will be available as key/value pairs in the templates"
+msgstr ""
+
+msgid "Channel"
 msgstr ""
 
 msgid "Choose file"
@@ -1858,6 +1861,7 @@ msgstr ""
 msgid "Zip code (optional)"
 msgstr ""
 
+#, php-format
 msgid "account"
 msgstr "Account"
 

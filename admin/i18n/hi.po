@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 13:50+0200\n"
+"POT-Creation-Date: 2021-12-30 16:31+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi (http://www.transifex.com/aimeos/aimeos-core/language/hi/)\n"
@@ -265,6 +265,9 @@ msgid "Categories the product will be shown for in the promotional section"
 msgstr ""
 
 msgid "Category specific configuration options, will be available as key/value pairs in the templates"
+msgstr ""
+
+msgid "Channel"
 msgstr ""
 
 msgid "Choose file"

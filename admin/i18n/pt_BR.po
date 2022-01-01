@@ -5,6 +5,7 @@
 # Translators:
 # Bruno Rodrigues <brunojti@gmail.com>, 2016
 # Cesar Devesa <unit.cesar@gmail.com>, 2020
+# Claudio Akerman <claudio.luiz.akerman@gmail.com>, 2021
 # Daniele Dantas <daniele@tcix.com.br>, 2020
 # Italo Thales <italo.thales@urca.br>, 2021
 # Jefferson Cardoso <jefferson.mcardoso@gmail.com>, 2019
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 13:50+0200\n"
-"PO-Revision-Date: 2021-10-25 11:50+0000\n"
-"Last-Translator: Bruno Rodrigues <brunojti@gmail.com>\n"
+"POT-Creation-Date: 2021-12-30 16:31+0100\n"
+"PO-Revision-Date: 2021-12-30 15:35+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,10 +110,10 @@ msgid "Account"
 msgstr "Conta"
 
 msgid "Active"
-msgstr ""
+msgstr "Ativo"
 
 msgid "Actual price"
-msgstr "Preço atual"
+msgstr "Preço real"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr ""
@@ -132,7 +133,7 @@ msgid "Additional information where the supplier's apartment can be found"
 msgstr ""
 
 msgid "Address 1"
-msgstr "Endereço 2"
+msgstr "Endereço 1"
 
 msgid "Address 2"
 msgstr "Endereço 2"
@@ -287,6 +288,9 @@ msgid ""
 "pairs in the templates"
 msgstr ""
 
+msgid "Channel"
+msgstr ""
+
 msgid "Choose file"
 msgstr ""
 
@@ -332,20 +336,20 @@ msgid "Company details"
 msgstr "Detalhes da empresa"
 
 msgid "Company name (optional)"
-msgstr "Nome da empresa"
+msgstr "Nome da empresa (opcional)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Pedidos concluídos"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Pedidos concluídos nos últimos sete dias em comparação com o período anterior"
 
 msgid "Config"
-msgstr ""
+msgstr "Configurar"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Configurável"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
@@ -459,7 +463,7 @@ msgid "Date the subscription ends"
 msgstr ""
 
 msgid "Days"
-msgstr ""
+msgstr "Dias"
 
 msgid "Default"
 msgstr "Padrão"
@@ -522,7 +526,7 @@ msgid "Descritive name of the site"
 msgstr ""
 
 msgid "Discount"
-msgstr ""
+msgstr "Desconto"
 
 msgid "Display help texts"
 msgstr ""
@@ -687,7 +691,7 @@ msgid "House number"
 msgstr "Nº da casa"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "Nº da casa (opcional)"
 
 msgid "How the customer is addressed in e-mails"
 msgstr ""
@@ -940,7 +944,7 @@ msgid "New"
 msgstr "Novo"
 
 msgid "New customers"
-msgstr ""
+msgstr "Clientes novos"
 
 msgid "New customers within the last seven days compared to the period before"
 msgstr ""
@@ -1054,7 +1058,7 @@ msgid "Ordered at"
 msgstr ""
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Pedidos por país"
 
 msgid "Orders by day"
 msgstr "Pedidos por dia"
@@ -1417,13 +1421,13 @@ msgid "SKU"
 msgstr ""
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "Vendas por dia da semana"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "Vendas dos últimos 30 dias"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "Vendas por mês"
 
 msgid "Salutation"
 msgstr "Saudação"
@@ -1489,7 +1493,7 @@ msgid "Service rebate"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
 msgid "Ship date"
 msgstr ""
@@ -1753,7 +1757,7 @@ msgid "Total"
 msgstr "Total"
 
 msgid "Total orders"
-msgstr ""
+msgstr "Total dos pedidos"
 
 msgid "Total orders within the last seven days compared to the period before"
 msgstr ""
@@ -1802,11 +1806,11 @@ msgid "Unable to call method \"%1$s\""
 msgstr "Incapaz de chamar o método \"%1$s\""
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "Pedidos não concluídos"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Pedidos não concluídos nos últimos sete dias em comparação com o período anterior"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
@@ -1980,7 +1984,7 @@ msgstr "Empresa"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "Configuração"
 
 #, php-format
 msgid "countcountry"
@@ -2104,7 +2108,7 @@ msgstr "Opções"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "Pedidos"
 
 msgid "order:phone"
 msgstr ""
@@ -2206,11 +2210,11 @@ msgstr ""
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "Vendas"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "Vendas por dia da semana"
 
 #, php-format
 msgid "selection"
@@ -2230,7 +2234,7 @@ msgstr ""
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "Ajustes"
 
 #, php-format
 msgid "special"

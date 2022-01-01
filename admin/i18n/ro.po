@@ -4,13 +4,14 @@
 # 
 # Translators:
 # iulian iulian <iulian.abc@gmail.com>, 2020
+# Yolo San, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 13:50+0200\n"
-"PO-Revision-Date: 2021-10-25 11:50+0000\n"
-"Last-Translator: Robert Patan <robert@bytepath.ro>\n"
+"POT-Creation-Date: 2021-12-30 16:31+0100\n"
+"PO-Revision-Date: 2021-12-30 15:35+0000\n"
+"Last-Translator: iulian iulian <iulian.abc@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/aimeos/aimeos-core/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -41,7 +42,7 @@ msgid ""
 "\t%17$s\n"
 "\t%18$s\n"
 "\t"
-msgstr ""
+msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -53,7 +54,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -78,24 +79,24 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "Număr (internațional) de fax fără caractere de separare, poate începe cu un \"+\"."
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr "(International) numarul de telefon fara caractere de separare, poate incepe cu \"+\""
+msgstr "(Internațional) numărul de telefon fără caractere de separare, poate începe cu \"+\""
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ Taxă"
 
 msgid "?"
 msgstr "?"
@@ -107,13 +108,13 @@ msgid "Active"
 msgstr "Activ"
 
 msgid "Actual price"
-msgstr "Pretul actual"
+msgstr "Prețul real"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr "Pretul actual la care clientii pot cumpara articolul de pe site"
+msgstr "Prețul real la care clienții pot achiziționa articolul de pe site"
 
 msgid "Add"
-msgstr "Adauga"
+msgstr "Adaugă"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -136,10 +137,10 @@ msgid "Address 3"
 msgstr "Adresa linia 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Identificatorul adresei casei clientului pentru livrare"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Identificatorul adresei de la domiciliul furnizorului pentru livrare"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
@@ -178,7 +179,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Șirul alfanumeric care poate identifica grupul în mod unic"
 
 msgid "Apply"
-msgstr ""
+msgstr "Aplică"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -230,7 +231,7 @@ msgstr "Limba disponibila pentru site-ul curent"
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Rating-ul mediu al produsului și numărul total de rating-uri acordate de clienți pentru acest produs"
 
 msgid "Back in stock"
 msgstr "Disponibil in stoc"
@@ -282,6 +283,9 @@ msgid ""
 "pairs in the templates"
 msgstr "Opțiunile de configurare specifice categoriei vor fi disponibile sub formă de perechi cheie / valoare în șabloane"
 
+msgid "Channel"
+msgstr "Canal"
+
 msgid "Choose file"
 msgstr "Alege fisierul"
 
@@ -315,7 +319,7 @@ msgid "Comment"
 msgstr "Comentariu"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Comentariul evaluatorului"
 
 msgid "Communication"
 msgstr "Comunicare"
@@ -330,11 +334,11 @@ msgid "Company name (optional)"
 msgstr "Numele companiei (optional)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Comenzi finalizate"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Comenzi finalizate în ultimele șapte zile, comparativ cu perioada anterioară"
 
 msgid "Config"
 msgstr "Configurare"
@@ -370,7 +374,7 @@ msgstr "Codul tarii (obligatoriu)"
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "Cota de TVA specifică țării pentru a calcula și afișa taxa inclusă (B2C) sau pentru a adăuga taxa, dacă este necesar (B2B)"
 
 msgid "Country state code (optional)"
 msgstr "Codul de stat al tarii (optional)"
@@ -379,7 +383,7 @@ msgid "Coupon"
 msgstr "Cupon / Voucher"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Numele de configurare al furnizorului de cupoane sau al decoratorului de cupoane"
 
 msgid "Created"
 msgstr "Creat"
@@ -394,7 +398,7 @@ msgid "Custom"
 msgstr "Personalizat"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Domeniul personalizat sau codul unic al magazinului dvs."
 
 msgid "Customer"
 msgstr "Client"
@@ -403,19 +407,19 @@ msgid "Customer ID"
 msgstr "ID-ul clientului"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Tip de liste de clienți"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Tipuri de liste de clienți"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Tip de proprietate a clientului"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Tipuri de proprietate a clientului"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Caracteristicile clientului care nu sunt împărtășite cu alți clienți"
 
 msgid "Customer comment (optional)"
 msgstr "Comentariul clientului (optional)"
@@ -427,7 +431,7 @@ msgid "Customer password"
 msgstr "Parola clientului"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Proprietăți ale clientului care nu sunt partajate cu alți clienți"
 
 msgid "Customer reference"
 msgstr "Referinta clientului"
@@ -439,16 +443,16 @@ msgid "Dashboard"
 msgstr "Panou de control"
 
 msgid "Data set"
-msgstr ""
+msgstr "Set de date"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Set de date"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Data ultimei modificări a stării de livrare"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Data ultimei modificări a stării de plată"
 
 msgid "Date the subscription ends"
 msgstr "Data subscriptiei se incheie"
@@ -466,13 +470,13 @@ msgid "Delete items?"
 msgstr "Sterge articolele?"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Ștergeți înregistrările selectate"
 
 msgid "Delete this entry"
 msgstr "Sterge aceasta intrare"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Nu este permisă ștergerea recenziilor"
 
 msgid "Delivery"
 msgstr "LIvrare"
@@ -481,7 +485,7 @@ msgid "Delivery address"
 msgstr "Adresa de livrare"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Livrare în"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -491,7 +495,7 @@ msgid "Delivery status"
 msgstr "Starea livrarii"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Termen de livrare (opțional)"
 
 msgid "Delivery types"
 msgstr "Tipul livrarii"
@@ -502,10 +506,10 @@ msgstr "Livrare în termen"
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "În funcție de setul de date selectat, lista de câmpuri afișate pentru produs va fi diferită"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "Descrierea conținutului textului dacă este într-o limbă străină"
 
 msgid "Descritive name of the currency"
 msgstr "Denumirea descriptivă a monedei"
@@ -517,7 +521,7 @@ msgid "Descritive name of the site"
 msgstr "Denumirea descriptivă a site-ului"
 
 msgid "Discount"
-msgstr ""
+msgstr "Reducere"
 
 msgid "Display help texts"
 msgstr "Afișează texte de ajutor"
@@ -541,10 +545,10 @@ msgid "E-Mail address (required)"
 msgstr "Adresa E-mail (obligatoriu)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "Adresa de e-mail sau numele contului (obligatoriu)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "Adresa de e-mail utilizată pentru trimiterea de e-mailuri legate de magazin"
 
 msgid "E-mail"
 msgstr "E-mail"
@@ -553,10 +557,10 @@ msgid "E-mail address (optional)"
 msgstr "Adresa E-mail (optional)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "Adresa de e-mail care aparține adresei"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN, SKU sau numărul articolului (obligatoriu)"
 
 msgid "Edit"
 msgstr "Editeaza"
@@ -583,37 +587,37 @@ msgid "Excl. tax"
 msgstr "Inclusiv taxe"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "Ordinea de execuție a plugin-urilor"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Ordinea de execuție a regulilor"
 
 msgid "Export"
-msgstr ""
+msgstr "Exportă"
 
 msgid "Facility"
-msgstr ""
+msgstr "Facilitate"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "Fax"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "Număr de fax (opțional)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Nu s-a reușit scrierea fișierului pe disc"
 
 msgid "File"
 msgstr "Fisier"
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Upload de fișier oprit de extensie"
 
 msgid "Find category"
 msgstr "Găsiți categoria"
 
 msgid "Find site"
-msgstr ""
+msgstr "Caută site"
 
 msgid "First"
 msgstr "Primul"
@@ -622,10 +626,10 @@ msgid "First name"
 msgstr "Prenume"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "Prenume (opțional)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "Prenumele persoanei, dacă este folosit în culturile în care sunt folosite"
 
 msgid "Floor"
 msgstr "Etaj"
@@ -640,22 +644,22 @@ msgid "Given rebate amount"
 msgstr "Valoarea discount-ului acordat"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Mergeți la panoul de atribute"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Mergeți la panoul de tip de proprietate"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Mergeți la lista de tipuri de atribute"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Bonificație acordată"
 
 msgid "Group"
 msgstr "Grup"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "Denumirea grupului care descrie pentru ce membri este destinat grupul"
 
 msgid "Height"
 msgstr "Inaltime"
@@ -664,16 +668,16 @@ msgid "Hidden attributes"
 msgstr "Atribute ascunse"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "Atributele ascunse ale produsului care sunt stocate împreună cu produsele comandate"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Furnizori evidențiați ai produsului"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "Titlu onorific (opțional)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "Titluri onorifice, cum ar fi Dr., Ph.D., etc."
 
 msgid "Hours"
 msgstr "Ore"
@@ -685,22 +689,22 @@ msgid "House number (optional)"
 msgstr "Numarul casei (optional)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "Modul în care clientul este adresat în e-mailuri"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "Modul în care furnizorul este adresat în e-mailuri"
 
 msgid "ID"
 msgstr "ID-ul"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "ID-ul unei facturi aferente, de exemplu, al unei facturi modificate sau rambursate"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "Codul ISO al monedei (obligatoriu)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "Codul ISO al limbii (obligatoriu)"
 
 msgid "Image"
 msgstr "Imagine"
@@ -708,13 +712,13 @@ msgstr "Imagine"
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "Imaginile vor fi afișate numai pentru limba respectivă, util dacă materialul conține text sau este specific limbii respective"
 
 msgid "Import"
 msgstr "Importa"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Importă/Exportă sarcini"
 
 msgid "Incl. tax"
 msgstr "Inclusiv taxe"
@@ -731,28 +735,28 @@ msgstr "Introduceți o nouă intrare (CTRL+I)"
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "Denumirea internă a articolului, va fi utilizată pe site-ul web și pentru căutare numai dacă nu există alte denumiri de produse în nici o limbă"
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "Denumirea internă a articolului, va fi utilizată pe site-ul web dacă nu există nici o denumire de produs pentru limba respectivă"
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Denumirea internă a atributului, care va fi utilizată pe site-ul web dacă nu este disponibilă nici o denumire pentru limba respectivă"
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "Denumirea internă a categoriei, care va fi utilizată pe site-ul web dacă nu este disponibilă o denumire pentru limba respectivă"
 
 msgid "Internal name (required)"
-msgstr ""
+msgstr "Denumire internă (obligatorie)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "Denumirea internă a tipului afișată în interfața de administrare"
 
 msgid "Interval"
 msgstr "Interval"
@@ -766,7 +770,7 @@ msgstr "Caracter invalid in numele clasei \"%1$s\""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "Caractere incorecte în numele clientului \"%1$s\""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
@@ -778,7 +782,7 @@ msgstr "Domeniu nevalid \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "Factory incorect \"%1$s\""
 
 msgid "Invoice"
 msgstr "Factura"
@@ -1366,7 +1370,7 @@ msgid "Response to the reviewer"
 msgstr ""
 
 msgid "Review"
-msgstr ""
+msgstr "Revizuiește"
 
 msgid "Reviewed item"
 msgstr ""
@@ -2073,7 +2077,7 @@ msgid "miss"
 msgstr "Domnișoară"
 
 msgid "mr"
-msgstr ""
+msgstr "Domnul"
 
 msgid "mrs"
 msgstr "Doamna"
