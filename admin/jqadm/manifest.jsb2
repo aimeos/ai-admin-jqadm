@@ -102,22 +102,22 @@
 			"path": "js/"
 		},{
 			"text": "address.js",
-			"path": "js/apps"
+			"path": "js/apps/"
 		},{
 			"text": "media.js",
-			"path": "js/apps"
+			"path": "js/apps/"
 		},{
 			"text": "price.js",
-			"path": "js/apps"
+			"path": "js/apps/"
 		},{
 			"text": "productlist.js",
-			"path": "js/apps"
+			"path": "js/apps/"
 		},{
 			"text": "productref.js",
-			"path": "js/apps"
+			"path": "js/apps/"
 		},{
 			"text": "text.js",
-			"path": "js/apps"
+			"path": "js/apps/"
 		},{
 			"text": "catalog.js",
 			"path": "js/"
