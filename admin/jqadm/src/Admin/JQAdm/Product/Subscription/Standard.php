@@ -327,7 +327,7 @@ class Standard
 			}
 
 			$matches = [];
-			$regex = '/^P(([0-9]+)Y)?(([0-9]+)M)?(([0-9]+)W)?(([0-9]+)D)?(([0-9]+)H)?$/';
+			$regex = '/^P(([0-9]+)Y)?(([0-9]+)M)?(([0-9]+)W)?(([0-9]+)D)?(T([0-9]+)H)?$/';
 
 			preg_match( $regex, $list['attribute.code'], $matches );
 

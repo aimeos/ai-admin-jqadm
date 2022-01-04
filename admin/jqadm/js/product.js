@@ -1054,11 +1054,11 @@ Aimeos.Product.Subscription = {
 
 				value: function(idx) {
 					const map = this.items[idx];
-					return 'P' + (map['Y'] > 0 ? map['Y'] + 'Y' : '')
-						+ (map['M'] > 0 ? map['M'] + 'M' : '')
-						+ (map['W'] > 0 ? map['W'] + 'W' : '')
-						+ (map['D'] > 0 ? map['D'] + 'D' : '')
-						+ (map['H'] > 0 ? 'T' + map['H'] + 'H' : '');
+					return 'P' + (map['Y'] > 0 ? parseInt( map['Y'] ) + 'Y' : '')
+						+ (map['M'] > 0 ? parseInt( map['M'] ) + 'M' : '')
+						+ (map['W'] > 0 ? parseInt( map['W'] ) + 'W' : '')
+						+ (map['D'] > 0 ? parseInt( map['D'] ) + 'D' : '')
+						+ (map['H'] > 0 ? 'T' + parseInt( map['H'] ) + 'H' : '');
 				}
 			}
 		}
