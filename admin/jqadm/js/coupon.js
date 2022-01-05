@@ -196,7 +196,7 @@ Aimeos.Coupon.Code = {
 						}
 
 						let url = new URL(response.meta.resources[resource]);
-						url.search = window.param(params);
+						url.search = url.search ? url.search + '&' + window.param(params) : '?' + window.param(params);
 
 						fetch(url, {
 							method: "DELETE"
