@@ -35,6 +35,9 @@
 		"file": "aimeos-core.js",
 		"isDebug": true,
 		"fileIncludes": [{
+			"text": "serialize.js",
+			"path": "js/"
+		},{
 			"text": "combo.jquery.js",
 			"path": "js/"
 		},{
