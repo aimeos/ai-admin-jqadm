@@ -183,17 +183,28 @@ Aimeos.Coupon.Code = {
 
 					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
 
-						const config = {'params': {}};
+						let params = {};
 
 						if(response.meta.prefix && response.meta.prefix) {
-							config['params'][response.meta.prefix] = {'id': id};
+							params[response.meta.prefix] = {'id': id};
 						} else {
-							config['params'] = {'id': id};
+							params = {'id': id};
 						}
 
-						axios.delete(response.meta.resources[resource], config).then(function(response) {
-							callback ? callback(response.data) : null;
+						if(response.meta.csrf) {
+							params[response.meta.csrf.name] = response.meta.csrf.value;
+						}
+
+						let url = new URL(response.meta.resources[resource]);
+						url.search = window.param(params);
+
+						fetch(url, {
+							method: "DELETE"
+						}).then(function(response) {
+							return response.json();
 						}).then(function() {
+							callback ? callback(response.data) : null;
+						}).finally(function() {
 							self.waiting(false);
 						});
 					}
