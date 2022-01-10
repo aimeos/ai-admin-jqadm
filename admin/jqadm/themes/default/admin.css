@@ -597,6 +597,23 @@
 	display: block;
 }
 
+.aimeos .item-order .item-product-list .upload-images {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1rem 0;
+}
+
+.aimeos .item-order .item-product-list .upload-image {
+	display: flex;
+	flex-direction: column;
+	margin-right: 1rem;
+}
+
+.aimeos .item-order .item-product-list .upload-image img {
+	max-height: 150px;
+	width: auto;
+}
+
 @media screen and (max-width: 575px) {
 	.aimeos .item-order .item-product-list .column-qtyopen .form-control-label,
 	.aimeos .item-order .item-product-list .column-sum .form-control-label,
