@@ -30,10 +30,10 @@ $sort = function( $sortcode, $code ) {
 
 $sortclass = function( $sortcode, $code ) {
 	if( $sortcode === $code ) {
-		return 'sort-desc';
+		return 'sort-asc';
 	}
 	if( $sortcode === '-' . $code ) {
-		return 'sort-asc';
+		return 'sort-desc';
 	}
 };
 
