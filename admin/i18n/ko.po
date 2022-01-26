@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# SangSun Go <ssgo@strastar.com>, 2022
 # Wonjin Choi <dwon97@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-30 16:31+0100\n"
-"PO-Revision-Date: 2021-12-30 15:35+0000\n"
-"Last-Translator: Aimeos\n"
+"PO-Revision-Date: 2022-01-25 14:13+0000\n"
+"Last-Translator: SangSun Go <ssgo@strastar.com>\n"
 "Language-Team: Korean (http://www.transifex.com/aimeos/aimeos-core/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,16 +102,16 @@ msgid "?"
 msgstr ""
 
 msgid "Account"
-msgstr ""
+msgstr "계정"
 
 msgid "Active"
 msgstr "활성"
 
 msgid "Actual price"
-msgstr ""
+msgstr "실제 가격"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "고객이 실제 가격으로 웹사이트에서 물품을 구매할 수 있습니다"
 
 msgid "Add"
 msgstr "추가"
@@ -127,26 +128,26 @@ msgid "Additional information where the supplier's apartment can be found"
 msgstr ""
 
 msgid "Address 1"
-msgstr ""
+msgstr "주소 1"
 
 msgid "Address 2"
-msgstr ""
+msgstr "주소 2"
 
 msgid "Address 3"
-msgstr ""
+msgstr "주소 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "고객에게 배송할 주소 구분"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "공급사가 배송할 주소 구분"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "고급"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
@@ -161,7 +162,7 @@ msgid "Aimeos object not available"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "모두"
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
@@ -178,7 +179,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "적용"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -186,7 +187,7 @@ msgid ""
 msgstr ""
 
 msgid "Attribute"
-msgstr ""
+msgstr "속성"
 
 msgid "Attribute Lists Type"
 msgstr ""
@@ -216,7 +217,7 @@ msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
-msgstr ""
+msgstr "속성"
 
 msgid "Available currency for the current site"
 msgstr ""
@@ -236,16 +237,16 @@ msgid "Back in stock"
 msgstr ""
 
 msgid "Basic"
-msgstr ""
+msgstr "기본"
 
 msgid "Basket"
-msgstr ""
+msgstr "바구니"
 
 msgid "Billing address"
 msgstr "청구지"
 
 msgid "Birthday"
-msgstr ""
+msgstr "생일"
 
 msgid "Birthday of the customer"
 msgstr ""
@@ -260,7 +261,7 @@ msgid "Cancel and return to list"
 msgstr ""
 
 msgid "Catalog"
-msgstr ""
+msgstr "목록"
 
 msgid "Catalog Lists Type"
 msgstr ""
@@ -269,7 +270,7 @@ msgid "Catalog Lists Types"
 msgstr ""
 
 msgid "Categories"
-msgstr ""
+msgstr "범주"
 
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
@@ -303,10 +304,10 @@ msgid "Class \"%1$s\" not found"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 msgid "Code"
-msgstr ""
+msgstr "코드"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
 msgstr ""
@@ -327,20 +328,20 @@ msgid "Company"
 msgstr "회사"
 
 msgid "Company details"
-msgstr ""
+msgstr "회사 설명"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "회사 이름 (선택)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "완료된 주문"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Config"
-msgstr ""
+msgstr "설정"
 
 msgid "Configurable"
 msgstr ""
@@ -350,25 +351,25 @@ msgid ""
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "복사"
 
 msgid "Copy this entry"
 msgstr ""
 
 msgid "Costs"
-msgstr ""
+msgstr "비용"
 
 msgid "Count"
-msgstr ""
+msgstr "수량"
 
 msgid "Country"
-msgstr ""
+msgstr "국가"
 
 msgid "Country ID"
-msgstr ""
+msgstr "국가 구분자"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "국가 코드 (필수)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
@@ -379,19 +380,19 @@ msgid "Country state code (optional)"
 msgstr ""
 
 msgid "Coupon"
-msgstr ""
+msgstr "쿠폰"
 
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
 
 msgid "Created"
-msgstr ""
+msgstr "생성됨"
 
 msgid "Currencies"
-msgstr ""
+msgstr "통화"
 
 msgid "Currency"
-msgstr ""
+msgstr "통화"
 
 msgid "Custom"
 msgstr ""
@@ -400,10 +401,10 @@ msgid "Custom domain or unique code of your shop"
 msgstr ""
 
 msgid "Customer"
-msgstr ""
+msgstr "고객"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "고객 아이디"
 
 msgid "Customer Lists Type"
 msgstr ""
@@ -424,22 +425,22 @@ msgid "Customer comment (optional)"
 msgstr ""
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "고객 이메일 주소"
 
 msgid "Customer password"
-msgstr ""
+msgstr "고객 비밀번호"
 
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
 msgid "Customer reference"
-msgstr ""
+msgstr "추천 고객"
 
 msgid "Customer reference (optional)"
 msgstr ""
 
 msgid "Dashboard"
-msgstr ""
+msgstr "데시보드"
 
 msgid "Data set"
 msgstr ""
@@ -463,7 +464,7 @@ msgid "Default"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "삭제"
 
 msgid "Delete items?"
 msgstr ""
@@ -478,10 +479,10 @@ msgid "Deleting reviews is not allowed"
 msgstr ""
 
 msgid "Delivery"
-msgstr ""
+msgstr "배송"
 
 msgid "Delivery address"
-msgstr ""
+msgstr "배송 주소"
 
 msgid "Delivery in"
 msgstr ""
@@ -491,7 +492,7 @@ msgid ""
 msgstr ""
 
 msgid "Delivery status"
-msgstr ""
+msgstr "배송 상태"
 
 msgid "Delivery timeframe (optional)"
 msgstr ""
@@ -520,7 +521,7 @@ msgid "Descritive name of the site"
 msgstr ""
 
 msgid "Discount"
-msgstr ""
+msgstr "할인"
 
 msgid "Display help texts"
 msgstr ""
@@ -529,10 +530,10 @@ msgid "Domain"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "저장"
 
 msgid "Download this file"
-msgstr ""
+msgstr "화일 저장"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
@@ -562,13 +563,13 @@ msgid "EAN, SKU or article number (required)"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "편집"
 
 msgid "Edit this entry"
 msgstr ""
 
 msgid "Editor"
-msgstr ""
+msgstr "편집기"
 
 msgid "Email"
 msgstr ""
@@ -598,7 +599,7 @@ msgid "Facility"
 msgstr ""
 
 msgid "Facsimile"
-msgstr ""
+msgstr "팩스"
 
 msgid "Facsimile number (optional)"
 msgstr ""
@@ -607,7 +608,7 @@ msgid "Failed to write file to disk"
 msgstr ""
 
 msgid "File"
-msgstr ""
+msgstr "파일"
 
 msgid "File upload stopped by extension"
 msgstr ""
@@ -619,10 +620,10 @@ msgid "Find site"
 msgstr ""
 
 msgid "First"
-msgstr ""
+msgstr "처음"
 
 msgid "First name"
-msgstr ""
+msgstr "이름"
 
 msgid "First name (optional)"
 msgstr ""
@@ -631,7 +632,7 @@ msgid "First name of the person if used in cultures where they are used"
 msgstr ""
 
 msgid "Floor"
-msgstr ""
+msgstr "층"
 
 msgid "Floor / Appartment"
 msgstr ""
@@ -655,13 +656,13 @@ msgid "Granted rebate"
 msgstr ""
 
 msgid "Group"
-msgstr ""
+msgstr "그룹"
 
 msgid "Group name describing for which members the group is for"
 msgstr ""
 
 msgid "Height"
-msgstr ""
+msgstr "높이"
 
 msgid "Hidden attributes"
 msgstr ""
@@ -679,7 +680,7 @@ msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
 
 msgid "Hours"
-msgstr ""
+msgstr "시간"
 
 msgid "House number"
 msgstr ""
@@ -694,7 +695,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "아이디"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr ""
@@ -706,7 +707,7 @@ msgid "ISO language code (required)"
 msgstr ""
 
 msgid "Image"
-msgstr ""
+msgstr "이미지"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -723,7 +724,7 @@ msgid "Incl. tax"
 msgstr ""
 
 msgid "Info"
-msgstr ""
+msgstr "정보"
 
 msgid "Insert new entry"
 msgstr ""
@@ -758,7 +759,7 @@ msgid "Internal type name shown in the administration interface"
 msgstr ""
 
 msgid "Interval"
-msgstr ""
+msgstr "간격"
 
 msgid "Interval (required)"
 msgstr ""
@@ -807,7 +808,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "언어"
 
 msgid "Language ID"
 msgstr ""
@@ -825,7 +826,7 @@ msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "성"
 
 msgid "Last name (optional)"
 msgstr ""
@@ -845,7 +846,7 @@ msgid "Latest orders"
 msgstr ""
 
 msgid "Length"
-msgstr ""
+msgstr "길이"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
@@ -871,7 +872,7 @@ msgid "Log"
 msgstr ""
 
 msgid "Map"
-msgstr ""
+msgstr "지도"
 
 msgid "Media Lists Type"
 msgstr ""
@@ -895,7 +896,7 @@ msgid "Media properties"
 msgstr ""
 
 msgid "Message"
-msgstr ""
+msgstr "메시지"
 
 msgid "Min. quantity"
 msgstr ""
@@ -907,7 +908,7 @@ msgid "Modifed"
 msgstr ""
 
 msgid "Modified"
-msgstr ""
+msgstr "수정됨"
 
 msgid "Months"
 msgstr ""
@@ -919,7 +920,7 @@ msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 msgid "Name in URL (optional)"
 msgstr ""
@@ -935,10 +936,10 @@ msgid "Name of your shop shown to your customers"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "신규"
 
 msgid "New customers"
-msgstr ""
+msgstr "신규 고객"
 
 msgid "New customers within the last seven days compared to the period before"
 msgstr ""
@@ -1487,7 +1488,7 @@ msgid "Service rebate"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 msgid "Ship date"
 msgstr ""
@@ -1496,7 +1497,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr ""
+msgstr "운송"
 
 msgid "Shipping / Payment costs"
 msgstr ""
@@ -1540,7 +1541,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "보기"
 
 msgid "Show entry"
 msgstr ""
@@ -1564,7 +1565,7 @@ msgid "Since when the product is available, used for sorting in the front-end"
 msgstr ""
 
 msgid "Site"
-msgstr ""
+msgstr "사이트"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
@@ -1577,7 +1578,7 @@ msgid "Sites"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "크기"
 
 msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
@@ -1592,10 +1593,10 @@ msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "상태"
 
 msgid "Status"
-msgstr ""
+msgstr "상태"
 
 msgid "Stock Type"
 msgstr ""
@@ -1616,7 +1617,7 @@ msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr ""
+msgstr "중간 합계"
 
 msgid "Subscription"
 msgstr ""
@@ -1630,10 +1631,10 @@ msgid "Suggested products"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "합"
 
 msgid "Supplier"
-msgstr ""
+msgstr "공급사"
 
 msgid "Supplier name or company"
 msgstr ""
@@ -1648,13 +1649,13 @@ msgid "Tag Types"
 msgstr ""
 
 msgid "Tax"
-msgstr ""
+msgstr "세금"
 
 msgid "Tax rate in %"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "전화"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1739,7 +1740,7 @@ msgid "Timestamp"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "제목"
 
 msgid "Toggle dropdown"
 msgstr ""
@@ -1748,10 +1749,10 @@ msgid "Top countries"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "총"
 
 msgid "Total orders"
-msgstr ""
+msgstr "총 주문"
 
 msgid "Total orders within the last seven days compared to the period before"
 msgstr ""
@@ -1944,14 +1945,14 @@ msgid "address"
 msgstr ""
 
 msgid "address:delivery"
-msgstr ""
+msgstr "배송 주소"
 
 msgid "address:payment"
 msgstr "청구지"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "속성"
 
 #, php-format
 msgid "bundle"
@@ -1959,11 +1960,11 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "범주"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "범주"
 
 #, php-format
 msgid "characteristic"
@@ -2006,7 +2007,7 @@ msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "데시보드"
 
 #, php-format
 msgid "day"
@@ -2022,7 +2023,7 @@ msgstr ""
 
 #, php-format
 msgid "goods"
-msgstr ""
+msgstr "카달로그"
 
 #, php-format
 msgid "group"
@@ -2050,7 +2051,7 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "통화"
 
 #, php-format
 msgid "locale/language"
@@ -2228,7 +2229,7 @@ msgstr ""
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "설정"
 
 #, php-format
 msgid "special"
@@ -2301,7 +2302,7 @@ msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "속성"
 
 #, php-format
 msgid "type/attribute/lists"
