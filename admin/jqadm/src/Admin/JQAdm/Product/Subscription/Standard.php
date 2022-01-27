@@ -372,7 +372,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/subscription/template-item';
-		$default = 'product/item-subscription-standard';
+		$default = 'product/item-subscription';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

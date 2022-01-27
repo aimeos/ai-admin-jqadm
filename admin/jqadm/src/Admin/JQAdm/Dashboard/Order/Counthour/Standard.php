@@ -65,7 +65,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/counthour/template-item';
-		$default = 'dashboard/item-order-counthour-standard';
+		$default = 'dashboard/item-order-counthour';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

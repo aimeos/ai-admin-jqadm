@@ -397,7 +397,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/service/text/template-item';
-		$default = 'service/item-text-standard';
+		$default = 'service/item-text';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

@@ -107,7 +107,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/type/price/property/template-list';
-		$default = 'type/price/property/list-standard';
+		$default = 'type/price/property/list';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -271,7 +271,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/type/price/property/template-item';
-		$default = 'type/price/property/item-standard';
+		$default = 'type/price/property/item';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

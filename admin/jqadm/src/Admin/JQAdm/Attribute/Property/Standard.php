@@ -342,7 +342,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/attribute/property/template-item';
-		$default = 'attribute/item-property-standard';
+		$default = 'attribute/item-property';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

@@ -229,7 +229,7 @@ class Standard
 		 * @order Developer
 		 */
 		$tplconf = 'admin/jqadm/product/order/template-item';
-		$default = 'product/item-order-standard';
+		$default = 'product/item-order';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

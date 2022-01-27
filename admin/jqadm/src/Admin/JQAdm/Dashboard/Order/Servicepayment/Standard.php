@@ -65,7 +65,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/servicepayment/template-item';
-		$default = 'dashboard/item-order-servicepayment-standard';
+		$default = 'dashboard/item-order-servicepayment';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

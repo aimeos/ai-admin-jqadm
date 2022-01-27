@@ -424,7 +424,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/coupon/code/template-item';
-		$default = 'coupon/item-code-standard';
+		$default = 'coupon/item-code';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

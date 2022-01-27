@@ -263,7 +263,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/coupon/template-list';
-		$default = 'coupon/list-standard';
+		$default = 'coupon/list';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -516,7 +516,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/coupon/template-item';
-		$default = 'coupon/item-standard';
+		$default = 'coupon/item';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

@@ -65,7 +65,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/quick/template-list';
-		$default = 'dashboard/item-order-quick-standard';
+		$default = 'dashboard/item-order-quick';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

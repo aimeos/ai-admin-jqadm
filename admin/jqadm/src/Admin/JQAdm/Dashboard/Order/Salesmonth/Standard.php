@@ -63,7 +63,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/salesmonth/template-item';
-		$default = 'dashboard/item-order-salesmonth-standard';
+		$default = 'dashboard/item-order-salesmonth';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

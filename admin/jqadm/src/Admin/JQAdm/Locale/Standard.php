@@ -270,7 +270,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/locale/template-list';
-		$default = 'locale/list-standard';
+		$default = 'locale/list';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -478,7 +478,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/locale/template-item';
-		$default = 'locale/item-standard';
+		$default = 'locale/item';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

@@ -319,7 +319,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/related/bought/template-item';
-		$default = 'product/item-related-bought-standard';
+		$default = 'product/item-related-bought';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

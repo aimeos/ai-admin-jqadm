@@ -315,7 +315,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/subscription/template-list';
-		$default = 'subscription/list-standard';
+		$default = 'subscription/list';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -540,7 +540,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/subscription/template-item';
-		$default = 'subscription/item-standard';
+		$default = 'subscription/item';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

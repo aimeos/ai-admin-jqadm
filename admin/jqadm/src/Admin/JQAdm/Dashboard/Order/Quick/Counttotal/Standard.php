@@ -65,7 +65,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/quick/counttotal/template-item';
-		$default = 'dashboard/item-order-quick-counttotal-standard';
+		$default = 'dashboard/item-order-quick-counttotal';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

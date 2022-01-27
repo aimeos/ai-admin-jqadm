@@ -450,7 +450,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/supplier/media/template-item';
-		$default = 'supplier/item-media-standard';
+		$default = 'supplier/item-media';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

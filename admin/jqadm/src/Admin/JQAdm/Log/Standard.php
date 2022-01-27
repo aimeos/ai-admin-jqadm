@@ -71,7 +71,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/log/template-list';
-		$default = 'log/list-standard';
+		$default = 'log/list';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -235,7 +235,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/log/template-item';
-		$default = 'log/item-standard';
+		$default = 'log/item';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

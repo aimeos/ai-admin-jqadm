@@ -330,7 +330,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/bundle/template-item';
-		$default = 'product/item-bundle-standard';
+		$default = 'product/item-bundle';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

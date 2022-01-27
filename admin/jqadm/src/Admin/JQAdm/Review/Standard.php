@@ -192,7 +192,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/review/template-list';
-		$default = 'review/list-standard';
+		$default = 'review/list';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
@@ -395,7 +395,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/review/template-item';
-		$default = 'review/item-standard';
+		$default = 'review/item';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

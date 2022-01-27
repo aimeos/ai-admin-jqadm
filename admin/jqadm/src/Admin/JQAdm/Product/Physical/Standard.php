@@ -289,7 +289,7 @@ class Standard
 		 * them in the product characteristics tab too, these types are excluded there.
 		 *
 		 * You can add new physical types by adding additional type codes and insert the
-		 * input fields for displaying and changing them in the product/item-physical-standard
+		 * input fields for displaying and changing them in the product/item-physical
 		 * template.
 		 *
 		 * @param array List of product property type codes
@@ -333,7 +333,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/physical/template-item';
-		$default = 'product/item-physical-standard';
+		$default = 'product/item-physical';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

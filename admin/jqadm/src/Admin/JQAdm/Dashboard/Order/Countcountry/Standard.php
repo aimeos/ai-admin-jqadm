@@ -66,7 +66,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/countcountry/template-item';
-		$default = 'dashboard/item-order-countcountry-standard';
+		$default = 'dashboard/item-order-countcountry';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

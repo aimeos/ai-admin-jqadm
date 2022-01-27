@@ -405,7 +405,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/download/template-item';
-		$default = 'product/item-download-standard';
+		$default = 'product/item-download';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

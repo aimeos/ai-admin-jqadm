@@ -65,7 +65,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/servicedelivery/template-item';
-		$default = 'dashboard/item-order-servicedelivery-standard';
+		$default = 'dashboard/item-order-servicedelivery';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

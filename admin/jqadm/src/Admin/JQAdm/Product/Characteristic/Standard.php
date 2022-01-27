@@ -268,7 +268,7 @@ class Standard
 		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/characteristic/template-item';
-		$default = 'product/item-characteristic-standard';
+		$default = 'product/item-characteristic';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}
