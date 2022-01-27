@@ -7,13 +7,14 @@
 # Mohammad Pakivand <mohammadpakivand@gmail.com>, 2019
 # mostafa arjmand <mitarjmand@gmail.com>, 2017
 # Nima Alipour <ni.alpr@gmail.com>, 2015
+# محمد مسعودزاده, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 13:50+0200\n"
-"PO-Revision-Date: 2021-10-25 11:50+0000\n"
-"Last-Translator: Mohammad Hossein Kiani Zahrani <org.kiani@gmail.com>\n"
+"POT-Creation-Date: 2021-12-30 16:31+0100\n"
+"PO-Revision-Date: 2021-12-30 15:35+0000\n"
+"Last-Translator: Aimeos\n"
 "Language-Team: Persian (http://www.transifex.com/aimeos/aimeos-core/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +23,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -44,7 +45,7 @@ msgid ""
 "\t%17$s\n"
 "\t%18$s\n"
 "\t"
-msgstr ""
+msgstr "%1$s\n\t%2$s%3$s%4$s%5$s\n\t%6$s%7$s\n\t%8$s\n\t%9$s%10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -56,7 +57,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s%3$s\n%5$s%4$s\n%7$s.%6$s\n%8$s.%9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -73,7 +74,7 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr ""
+msgstr "%1$s\n%2$s%3$s%4$s%5$s\n%6$s%7$s\n%8$s\n%9$s%10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
@@ -81,27 +82,27 @@ msgstr "%1$s %2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s%s%s%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "شماره فکس (بین المللی) بدون کاراکترهای جداکننده، می تواند با \"+\" شروع شود"
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "شماره تلفن (بین المللی) بدون کاراکترهای جداکننده، می تواند با \"+\" شروع شود."
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ مالیات"
 
 msgid "?"
-msgstr ""
+msgstr "؟"
 
 msgid "Account"
 msgstr "حساب کاربری"
@@ -110,10 +111,10 @@ msgid "Active"
 msgstr "فعال"
 
 msgid "Actual price"
-msgstr ""
+msgstr "قیمت واقعی"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "مشتریان با قیمت واقعی می توانند مقاله را در وب سایت خریداری کنند"
 
 msgid "Add"
 msgstr "اضافه کردن"
@@ -121,13 +122,13 @@ msgstr "اضافه کردن"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "هزینه های اضافی تحویل برای هر کالا، به عنوان مثال. 20 دلار برای یک کالای سنگین در مجموع 100 دلار برای پنج مورد آن خواهد بود"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "اطلاعات تکمیلی که در آن آپارتمان مشتری را می توان یافت"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "اطلاعات اضافی که در آن آپارتمان تامین کننده را می توان یافت"
 
 msgid "Address 1"
 msgstr "آدرس 1"
@@ -139,29 +140,29 @@ msgid "Address 3"
 msgstr "آدرس 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "شناسه آدرس منزل مشتری جهت تحویل"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "شناسه آدرس منزل تامین کننده جهت تحویل"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "نوع Admin JQAdm خالی است"
 
 msgid "Advanced"
 msgstr "پیشرفته"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "کش توسط \"%1$s\" غیر فعال شده است"
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "لاگ دیباگ توسط \"%1$s\" فعال شده است"
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "شی Aimeos موجود نیست"
 
 msgid "All"
 msgstr "همه"
@@ -169,74 +170,74 @@ msgstr "همه"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "همه خصوصیت هایی که به طور منحصر به فرد یک مقاله را تعریف می کنند، به عنوان مثال. عرض، طول و رنگ برای شلوار جین"
 
 msgid "Allow custom price"
-msgstr ""
+msgstr "اجازه قیمت سفارشی"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "به مشتریان اجازه دهید خودشان انتخاب کنند که چقدر می خواهند بپردازند"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "رشته الفبایی که می تواند گروه را به طور منحصر به فرد شناسایی کند"
 
 msgid "Apply"
-msgstr ""
+msgstr "اعمال کردن"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "گزینه های پیکربندی خاص مقاله، به صورت جفت کلید/مقدار در قالب ها در دسترس خواهند بود"
 
 msgid "Attribute"
 msgstr "خصوصیت"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "نوع لیست های خصوصیت"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "انواع لیست های خصوصیت"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "نوع ویژگی خصوصیت"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "انواع ویژگی خصوصیت"
 
 msgid "Attribute Type"
 msgstr "نوع خصوصیت"
 
 msgid "Attribute Types"
-msgstr "نوع خصوصیت ها"
+msgstr "انواع خصوصیت"
 
 msgid "Attribute position (optional)"
 msgstr "موقعیت خصوصیت (اختیاری)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "ویژگی های خصوصیتی که با سایر ویژگی ها مشترک نیستند"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "نوع خصوصیتی که لیست خصوصیت های موجود را محدود می کند"
 
 msgid "Attributes"
-msgstr "خصوصیت"
+msgstr "خصوصیت ها"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "ارز موجود برای سایت فعلی"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "فواصل موجود در فرانت اند"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "زبان موجود برای سایت فعلی"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "میانگین امتیاز محصول و تعداد کل رتبه‌بندی‌های مشتریان برای این محصول"
 
 msgid "Back in stock"
-msgstr ""
+msgstr "برگشت در انبار"
 
 msgid "Basic"
 msgstr "پایه"
@@ -251,10 +252,10 @@ msgid "Birthday"
 msgstr "تاریخ تولد"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "تولد مشتری"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "اشکال یا پیشنهاد؟"
 
 msgid "Cancel"
 msgstr "لغو کردن"
@@ -266,37 +267,40 @@ msgid "Catalog"
 msgstr "کاتالوگ"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "نوع لیست های کاتالوگ"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "انواع فهرست های کاتالوگ"
 
 msgid "Categories"
 msgstr "دسته بندی‌ها"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "دسته بندی های محصول را می توان توسط کاربر در وب سایت پیدا کرد"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "دسته بندی هایی که محصول برای آنها در بخش تبلیغاتی نمایش داده می شود"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
+msgstr "گزینه های پیکربندی خاص دسته، به صورت جفت کلید/مقدار در قالب ها در دسترس خواهند بود"
+
+msgid "Channel"
 msgstr ""
 
 msgid "Choose file"
-msgstr ""
+msgstr "انتخاب فایل"
 
 msgid "City"
 msgstr "شهر"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "نام شهر (الزامی)"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr "کلاس \"%1$s\" معتبر نمی‌باشد"
+msgstr "کلاس \"%1$s\" موجود نیست"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
@@ -309,51 +313,51 @@ msgid "Code"
 msgstr "کد"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "کد شناسایی منحصر به فرد سایت، تغییر نام خطرناک است!"
 
 msgid "Columns"
-msgstr ""
+msgstr "ستون ها"
 
 msgid "Comment"
 msgstr "نظر"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "نظر بازبین"
 
 msgid "Communication"
-msgstr ""
+msgstr "ارتباط"
 
 msgid "Company"
 msgstr "شرکت"
 
 msgid "Company details"
-msgstr ""
+msgstr "جزئیات شرکت"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "نام شرکت (اختیاری)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "سفارشات تکمیل شده"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "سفارشات تکمیل شده در هفت روز گذشته نسبت به دوره قبل"
 
 msgid "Config"
-msgstr ""
+msgstr "پیکربندی"
 
 msgid "Configurable"
-msgstr ""
+msgstr "قابل تنظیم"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "گزینه های پیکربندی، به صورت جفت کلید/مقدار در آیتم فهرست در دسترس خواهند بود"
 
 msgid "Copy"
 msgstr "کپی"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "این مدخل را کپی کنید"
 
 msgid "Costs"
 msgstr "هزینه ها"
@@ -365,102 +369,102 @@ msgid "Country"
 msgstr "کشور"
 
 msgid "Country ID"
-msgstr ""
+msgstr "شناسه کشور"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "کد کشور (الزامی)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "نرخ مالیات خاص کشور برای محاسبه و نمایش مالیات شامل (B2C) یا اضافه کردن مالیات در صورت لزوم (B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "کد کشور (اختیاری)"
 
 msgid "Coupon"
 msgstr "کوپن"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "نام پیکربندی ارائه دهنده یا دکوراتور کوپن"
 
 msgid "Created"
 msgstr "ساخته شد"
 
 msgid "Currencies"
-msgstr ""
+msgstr "ارزها"
 
 msgid "Currency"
 msgstr "واحد پول"
 
 msgid "Custom"
-msgstr ""
+msgstr "سفارشی"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "دامنه سفارشی یا کد منحصر به فرد فروشگاه شما"
 
 msgid "Customer"
 msgstr "مشتری"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "شناسه مشتری"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "نوع لیست مشتریان"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "انواع لیست مشتریان"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "نوع ویژگی مشتری"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "انواع ویژگی مشتری"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "مشخصات مشتری که با سایر مشتریان به اشتراک گذاشته نمی شود"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "نظر مشتری (اختیاری)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "آدرس ایمیل مشتری"
 
 msgid "Customer password"
-msgstr ""
+msgstr "رمز عبور مشتری"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "ویژگی های مشتری که با سایر مشتریان به اشتراک گذاشته نمی شود"
 
 msgid "Customer reference"
-msgstr ""
+msgstr "مرجع مشتری"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "مرجع مشتری (اختیاری)"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "داشبورد"
 
 msgid "Data set"
-msgstr ""
+msgstr "مجموعه داده ها"
 
 msgid "Dataset"
-msgstr ""
+msgstr "مجموعه داده"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "تاریخ آخرین تغییر وضعیت تحویل"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "تاریخ آخرین تغییر وضعیت پرداخت"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "تاریخ پایان اشتراک"
 
 msgid "Days"
-msgstr ""
+msgstr "روز"
 
 msgid "Default"
-msgstr ""
+msgstr "پیش فرض"
 
 msgid "Delete"
 msgstr "پاک کردن"
@@ -469,13 +473,13 @@ msgid "Delete items?"
 msgstr "آیتم ها پاک شود؟"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "حذف ورودی های انتخاب شده"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "این ورودی را حذف کنید"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "حذف بازبینی ها مجاز نیست"
 
 msgid "Delivery"
 msgstr "تحویل"
@@ -484,284 +488,284 @@ msgid "Delivery address"
 msgstr "آدرس تحویل"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "تحویل در"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "هزینه های تحویل یا پرداخت برای محصولات در سبد خرید مشتری"
 
 msgid "Delivery status"
 msgstr "وضعیت تحویل"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "بازه زمانی تحویل (اختیاری)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "انواع تحویل"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "تحویل در مدت"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "بسته به مجموعه داده انتخابی، لیست فیلدهای نشان داده شده برای محصول متفاوت خواهد بود"
 
 msgid "Description of the text content if it's in a foreign language"
-msgstr ""
+msgstr "توضیح محتوای متن اگر به زبان خارجی باشد"
 
 msgid "Descritive name of the currency"
-msgstr ""
+msgstr "نام توصیفی واحد پول"
 
 msgid "Descritive name of the language"
-msgstr ""
+msgstr "نام توصیفی زبان"
 
 msgid "Descritive name of the site"
-msgstr ""
+msgstr "نام توصیفی سایت"
 
 msgid "Discount"
-msgstr ""
+msgstr "تخفیف"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "نمایش متون راهنما"
 
 msgid "Domain"
 msgstr "دامنه"
 
 msgid "Download"
-msgstr ""
+msgstr "دانلود"
 
 msgid "Download this file"
-msgstr ""
+msgstr "این فایل را دانلود کنید"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "مدخل تکراری (Ctrl+D)"
 
 msgid "E-Mail"
 msgstr "پست الکترونیک"
 
 msgid "E-Mail address (required)"
-msgstr ""
+msgstr "آدرس ایمیل (الزامی)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "آدرس ایمیل یا نام حساب (الزامی)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "آدرس پست الکترونیکی مورد استفاده برای ارسال ایمیل های مربوط به فروشگاه"
 
 msgid "E-mail"
-msgstr ""
+msgstr "پست الکترونیک"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "آدرس ایمیل (اختیاری)"
 
 msgid "E-mail address that belongs to the address"
-msgstr ""
+msgstr "آدرس ایمیلی که متعلق به آدرس است"
 
 msgid "EAN, SKU or article number (required)"
-msgstr ""
+msgstr "EAN، SKU یا شماره مقاله (الزامی)"
 
 msgid "Edit"
 msgstr "ویرایش"
 
 msgid "Edit this entry"
-msgstr ""
+msgstr "این مدخل را ویرایش کنید"
 
 msgid "Editor"
 msgstr "ویرایش کننده"
 
 msgid "Email"
-msgstr ""
+msgstr "پست الکترونیک"
 
 msgid "End date"
 msgstr "تاریخ پایان"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "تاریخ پایان (اختیاری)"
 
 msgid "Error"
 msgstr "خطا"
 
 msgid "Excl. tax"
-msgstr ""
+msgstr "قیمت بدون احتساب مالیات"
 
 msgid "Execution order of the plugins"
-msgstr ""
+msgstr "ترتیب اجرای افزونه ها"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "دستور اجرای قوانین"
 
 msgid "Export"
 msgstr "صدور"
 
 msgid "Facility"
-msgstr ""
+msgstr "امکانات"
 
 msgid "Facsimile"
-msgstr ""
+msgstr "فاکس"
 
 msgid "Facsimile number (optional)"
-msgstr ""
+msgstr "شماره فاکس (اختیاری)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "نوشتن فایل روی دیسک انجام نشد"
 
 msgid "File"
-msgstr ""
+msgstr "فایل"
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "آپلود فایل با پسوند متوقف شد"
 
 msgid "Find category"
-msgstr ""
+msgstr "دسته بندی را پیدا کنید"
 
 msgid "Find site"
-msgstr ""
+msgstr "سایت را پیدا کنید"
 
 msgid "First"
-msgstr ""
+msgstr "اولین"
 
 msgid "First name"
 msgstr "نام"
 
 msgid "First name (optional)"
-msgstr ""
+msgstr "نام (اختیاری)"
 
 msgid "First name of the person if used in cultures where they are used"
-msgstr ""
+msgstr "نام شخص در فرهنگ هایی که از آنها استفاده می شود، استفاده شود."
 
 msgid "Floor"
-msgstr ""
+msgstr "طبقه"
 
 msgid "Floor / Appartment"
-msgstr ""
+msgstr "طبقه / آپارتمان"
 
 msgid "Floor and/or apartment (optional)"
-msgstr ""
+msgstr "طبقه و/یا آپارتمان (اختیاری)"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "با توجه به مبلغ تخفیف"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "به پنل ویژگی بروید"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "به پنل نوع خاصیت بروید"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "به لیست انواع ویژگی ها بروید"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "تخفیف داده شد"
 
 msgid "Group"
-msgstr ""
+msgstr "گروه"
 
 msgid "Group name describing for which members the group is for"
-msgstr ""
+msgstr "نام گروه که مشخص می کند گروه برای چه اعضایی است"
 
 msgid "Height"
-msgstr ""
+msgstr "ارتفاع"
 
 msgid "Hidden attributes"
-msgstr ""
+msgstr "ویژگی های پنهان"
 
 msgid "Hidden product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "ویژگی های محصول پنهان که با محصولات سفارش داده شده ذخیره می شود"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "تامین کنندگان برجسته محصول"
 
 msgid "Honorary title (optional)"
-msgstr ""
+msgstr "عنوان افتخاری (اختیاری)"
 
 msgid "Honorary titles like Dr., Ph.D, etc."
-msgstr ""
+msgstr "عناوین افتخاری مانند دکتر، دکتری و غیره."
 
 msgid "Hours"
-msgstr ""
+msgstr "ساعت"
 
 msgid "House number"
-msgstr ""
+msgstr "پلاک منزل"
 
 msgid "House number (optional)"
-msgstr ""
+msgstr "پلاک منزل (اختیاری)"
 
 msgid "How the customer is addressed in e-mails"
-msgstr ""
+msgstr "نحوه خطاب به مشتری در ایمیل ها"
 
 msgid "How the supplier is addressed in e-mails"
-msgstr ""
+msgstr "نحوه آدرس دهی تامین کننده در ایمیل ها"
 
 msgid "ID"
 msgstr "شناسه"
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
-msgstr ""
+msgstr "شناسه یک فاکتور مرتبط، به عنوان مثال از یک فاکتور تغییر یافته یا بازپرداخت شده"
 
 msgid "ISO currency code (required)"
-msgstr ""
+msgstr "کد ISO ارز (الزامی)"
 
 msgid "ISO language code (required)"
-msgstr ""
+msgstr "کد ISO زبان (الزامی)"
 
 msgid "Image"
-msgstr ""
+msgstr "تصویر"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
 "text or is language sepecific"
-msgstr ""
+msgstr "تصاویر فقط برای آن زبانی نشان داده می‌شوند، اگر رسانه حاوی متن باشد یا زبانی خاص باشد"
 
 msgid "Import"
 msgstr "وارد کردن"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "ورود/خروج شغل ها"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "قیمت با احتساب مالیات"
 
 msgid "Info"
-msgstr ""
+msgstr "اطلاعات"
 
 msgid "Insert new entry"
-msgstr ""
+msgstr "درج ورودی جدید"
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr ""
+msgstr "درج ورودی جدید (Ctrl+I)"
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
 "if no other product names in any language exist"
-msgstr ""
+msgstr "نام مقاله داخلی، تنها در صورتی که نام محصول دیگری به هیچ زبانی وجود نداشته باشد، در وب سایت و برای جستجو استفاده خواهد شد"
 
 msgid ""
 "Internal article name, will be used on the web site if no product name for "
 "the language is available"
-msgstr ""
+msgstr "اگر نام محصول برای زبان موجود نباشد، نام مقاله داخلی، در وب سایت استفاده می شود"
 
 msgid ""
 "Internal attribute name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "اگر نامی برای زبان موجود نباشد، نام ویژگی داخلی، در وب سایت استفاده خواهد شد"
 
 msgid ""
 "Internal category name, will be used on the web site if no name for the "
 "language is available"
-msgstr ""
+msgstr "اگر نامی برای زبان موجود نباشد، از نام دسته داخلی در وب سایت استفاده خواهد شد"
 
 msgid "Internal name (required)"
 msgstr "نام داخلی (ضروری)"
 
 msgid "Internal type name shown in the administration interface"
-msgstr ""
+msgstr "نام نوع داخلی در رابط مدیریت نشان داده شده است"
 
 msgid "Interval"
-msgstr ""
+msgstr "مدت وقفه"
 
 msgid "Interval (required)"
-msgstr ""
+msgstr "مدت وقفه (الزامی)"
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
@@ -784,301 +788,301 @@ msgid "Invalid factory \"%1$s\""
 msgstr "کارخانه‌ی \"%1$s\" معتبر نمی‌باشد"
 
 msgid "Invoice"
-msgstr ""
+msgstr "صورتحساب"
 
 msgid "Item deleted successfully"
-msgstr ""
+msgstr "مورد با موفقیت حذف شد"
 
 msgid "Item saved successfully"
-msgstr ""
+msgstr "مورد با موفقیت ذخیره شد"
 
 msgid ""
 "Item specific configuration options, will be available as key/value pairs in"
 " the templates"
-msgstr ""
+msgstr "گزینه های پیکربندی خاص مورد، به صورت جفت کلید/مقدار در قالب ها در دسترس خواهند بود"
 
 msgid "Label"
-msgstr ""
+msgstr "برچسب"
 
 msgid "Label (required)"
-msgstr ""
+msgstr "برچسب (الزامی)"
 
 msgid "Label describing the interval, will be used if no name is available"
-msgstr ""
+msgstr "اگر نامی در دسترس نباشد، از برچسبی که فاصله را توصیف می کند، استفاده می شود"
 
 msgid "Language"
 msgstr "زبان"
 
 msgid "Language ID"
-msgstr ""
+msgstr "شناسه زبان"
 
 msgid "Language of the entered text"
-msgstr ""
+msgstr "زبان متن وارد شده"
 
 msgid "Languages"
-msgstr ""
+msgstr "زبان ها"
 
 msgid "Last"
-msgstr ""
+msgstr "آخرین"
 
 msgid "Last delivery status of the order"
-msgstr ""
+msgstr "آخرین وضعیت تحویل سفارش"
 
 msgid "Last name"
 msgstr "نام خانوادگی"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "نام خانوادگی (اختیاری)"
 
 msgid "Last name (required)"
-msgstr ""
+msgstr "نام خانوادگی (الزامی)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
 "used"
-msgstr ""
+msgstr "نام خانوادگی شخص یا نام کامل در فرهنگ هایی که از نام کوچک استفاده نمی شود"
 
 msgid "Last payment status of the order"
-msgstr ""
+msgstr "آخرین وضعیت پرداخت سفارش"
 
 msgid "Latest orders"
-msgstr ""
+msgstr "آخرین سفارشات"
 
 msgid "Length"
-msgstr ""
+msgstr "طول"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
 "price"
-msgstr ""
+msgstr "فهرستی از مقالاتی که باید به عنوان یک محصول فروخته شوند، اغلب با قیمت کاهش یافته"
 
 msgid "List of products often bought together"
-msgstr ""
+msgstr "لیست محصولاتی که اغلب با هم خریداری می شوند"
 
 msgid "List of suggested products"
-msgstr ""
+msgstr "لیست محصولات پیشنهادی"
 
 msgid "List type"
-msgstr ""
+msgstr "نوع فهرست"
 
 msgid "Loading items ..."
-msgstr ""
+msgstr "در حال بارگیری موارد..."
 
 msgid "Locale"
-msgstr ""
+msgstr "محلی"
 
 msgid "Log"
-msgstr ""
+msgstr "ثبت کردن وقایع"
 
 msgid "Map"
-msgstr ""
+msgstr "نقشه"
 
 msgid "Media Lists Type"
-msgstr ""
+msgstr "نوع فهرست های رسانه ها"
 
 msgid "Media Lists Types"
-msgstr ""
+msgstr "انواع فهرست رسانه ها"
 
 msgid "Media Property Type"
-msgstr ""
+msgstr "نوع ویژگی رسانه"
 
 msgid "Media Property Types"
-msgstr ""
+msgstr "انواع ویژگی رسانه"
 
 msgid "Media Type"
-msgstr ""
+msgstr "نوع رسانه"
 
 msgid "Media Types"
-msgstr ""
+msgstr "انواع رسانه"
 
 msgid "Media properties"
-msgstr ""
+msgstr "ویژگی های رسانه"
 
 msgid "Message"
-msgstr ""
+msgstr "پیام"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "حداقل تعداد"
 
 msgid "Minimum quantity"
-msgstr ""
+msgstr "حداقل تعداد"
 
 msgid "Modifed"
-msgstr ""
+msgstr "اصلاح شده"
 
 msgid "Modified"
-msgstr ""
+msgstr "اصلاح شده"
 
 msgid "Months"
-msgstr ""
+msgstr "ماه"
 
 msgid "More"
-msgstr ""
+msgstr "بیشتر"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "این ورودی را به بالا/پایین حرکت دهید"
 
 msgid "Name"
 msgstr "نام"
 
 msgid "Name in URL (optional)"
-msgstr ""
+msgstr "نام در URL (اختیاری)"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
-msgstr ""
+msgstr "نام فایل دانلود شده زمانی که مشتریان فایل را در رایانه خود ذخیره می کنند"
 
 msgid "Name of the reviewer"
-msgstr ""
+msgstr "نام داور"
 
 msgid "Name of your shop shown to your customers"
-msgstr ""
+msgstr "نام فروشگاه شما به مشتریان شما نشان داده شده است"
 
 msgid "New"
-msgstr ""
+msgstr "جدید"
 
 msgid "New customers"
-msgstr ""
+msgstr "مشتریان جدید"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "مشتریان جدید در هفت روز گذشته نسبت به دوره قبل"
 
 msgid "Next"
 msgstr "بعدی"
 
 msgid "Next date"
-msgstr ""
+msgstr "تاریخ بعدی"
 
 msgid "Next date (optional)"
-msgstr ""
+msgstr "تاریخ بعدی (اختیاری)"
 
 msgid "Next date the subscription is renewed"
-msgstr ""
+msgstr "تاریخ بعدی اشتراک تمدید می شود"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "ارز موجود نیست. لطفا حداقل یک ارز را فعال کنید"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "هیچ فایلی آپلود نشد"
 
 msgid "No items found"
-msgstr ""
+msgstr "موردی یافت نشد"
 
 msgid "No product found"
-msgstr ""
+msgstr "محصولی یافت نشد"
 
 #, php-format
 msgid "No view available"
 msgstr "نمایشی موجود نمی‌باشد"
 
 msgid "No voucher"
-msgstr ""
+msgstr "بدون کوپن"
 
 msgid "Non-shared properties for the media item"
-msgstr ""
+msgstr "ویژگی های غیر مشترک برای مورد رسانه"
 
 msgid "Non-shared properties for the price item"
-msgstr ""
+msgstr "ویژگی های غیر مشترک برای آیتم قیمت"
 
 msgid "None"
-msgstr ""
+msgstr "هیچ یک"
 
 msgid "Not all items could be deleted"
-msgstr ""
+msgstr "همه موارد را نمی توان حذف کرد"
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr ""
+msgstr "اجازه دسترسی به سرویس گیرنده \"%1$s\" JQAdm وجود ندارد"
 
 msgid "Notes"
-msgstr ""
+msgstr "یادداشت"
 
 msgid "Notes (not shown to customer)"
-msgstr ""
+msgstr "یادداشت ها (به مشتری نشان داده نمی شود)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
-msgstr ""
+msgstr "تعداد مقالات موجود در انبار، برای تعداد نامحدود خالی بگذارید"
 
 msgid "OK"
-msgstr ""
+msgstr "خوب"
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
-msgstr ""
+msgstr "شناسه رسمی مالیات بر ارزش افزوده برای تعیین اینکه آیا مالیات باید در صورتحساب ها لحاظ شود یا خیر"
 
 msgid ""
 "One provider and zero or more decorator class names separated by commas"
-msgstr ""
+msgstr "یک ارائه دهنده و صفر یا چند نام کلاس دکوراتوربا کاما از هم جدا شده اند"
 
 msgid "Only super users and administrators can delete items"
-msgstr ""
+msgstr "فقط کاربران فوق العاده و مدیران می توانند موارد را حذف کنند"
 
 msgid "Open"
-msgstr ""
+msgstr "باز"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "تعداد دلخواه"
 
 msgid "Option"
-msgstr ""
+msgstr "گزینه"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
 " the product"
-msgstr ""
+msgstr "اجزای محصول اختیاری که می تواند توسط مشتری همراه با محصول انتخاب شود"
 
 msgid "Order"
-msgstr ""
+msgstr "سفارش"
 
 msgid "Order ID"
 msgstr "شناسه‌ی سفارش"
 
 msgid "Order number entered by the customer"
-msgstr ""
+msgstr "شماره سفارش وارد شده توسط مشتری"
 
 msgid "Order of the language/currency combinations"
-msgstr ""
+msgstr "ترتیب ترکیب‌های زبان/ارز"
 
 msgid "Order of the service options in the checkout process"
-msgstr ""
+msgstr "ترتیب گزینه های خدمات در فرآیند پرداخت"
 
 msgid "Order of the types in the frontend"
-msgstr ""
+msgstr "ترتیب انواع در جلو"
 
 msgid "Order totals"
-msgstr ""
+msgstr "مجموع سفارش"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "سفارش داده شده در"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "سفارشات بر اساس کشور"
 
 msgid "Orders by day"
-msgstr ""
+msgstr "سفارشات روزانه"
 
 msgid "Orders by hour"
-msgstr ""
+msgstr "سفارشات بر حسب ساعت"
 
 msgid "Orders by payment status"
-msgstr ""
+msgstr "سفارشات بر اساس وضعیت پرداخت"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
 "download the new content too"
-msgstr ""
+msgstr "فایل موجود را بازنویسی کنید و مشتریانی که در گذشته آن را خریداری کرده‌اند، می‌توانند محتوای جدید را نیز دانلود کنند"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is disabled"
-msgstr ""
+msgstr "تنظیم PHP \"%1$s\" غیرفعال است"
 
 #, php-format
 msgid "PHP setting \"%1$s\" is enabled"
-msgstr ""
+msgstr "تنظیم PHP \"%1$s\" فعال است"
 
 #, php-format
 msgid "PHP setting for \"%1$s\" is too low"
-msgstr ""
+msgstr "تنظیم PHP برای \"%1$s\" خیلی کم است"
 
 #, php-format
 msgid "Page %1$d of %2$d"
@@ -1088,16 +1092,16 @@ msgid "Password"
 msgstr "رمز عبور"
 
 msgid "Password (required)"
-msgstr ""
+msgstr "رمز عبور (الزامی)"
 
 msgid "Path"
-msgstr ""
+msgstr "مسیر"
 
 msgid "Pay date"
-msgstr ""
+msgstr "تاریخ پرداخت"
 
 msgid "Pay status"
-msgstr ""
+msgstr "وضعیت پرداخت"
 
 msgid "Payment"
 msgstr "پرداخت"
@@ -1106,59 +1110,59 @@ msgid "Payment status"
 msgstr "وضعیت پرداخت"
 
 msgid "Payment types"
-msgstr ""
+msgstr "انواع پرداخت"
 
 msgid "Periods"
-msgstr ""
+msgstr "دوره ها"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "اجازه رد شد"
 
 msgid "Personal data"
-msgstr ""
+msgstr "اطلاعات شخصی"
 
 msgid "Please select"
 msgstr "لطفا انتخاب نمایید"
 
 msgid "Plugin"
-msgstr ""
+msgstr "پلاگین"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "نوع پلاگین"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "انواع پلاگین"
 
 msgid "Plugin label for describing the configured plugin"
-msgstr ""
+msgstr "برچسب پلاگین برای توصیف پلاگین پیکربندی شده"
 
 msgid "Plugin position (required)"
-msgstr ""
+msgstr "موقعیت پلاگین (الزامی)"
 
 msgid "Plugin provider or plugin decorator configuration name"
-msgstr ""
+msgstr "نام پیکربندی ارائه دهنده پلاگین یا دکوراتور افزونه"
 
 msgid "Position"
-msgstr ""
+msgstr "موقعیت"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "موقعیت (الزامی)"
 
 msgid "Postal"
-msgstr ""
+msgstr "پستی"
 
 msgid "Postal code for delivery if used in the area the customer is living"
-msgstr ""
+msgstr "کد پستی برای تحویل در صورت استفاده در منطقه ای که مشتری در آن زندگی می کند"
 
 msgid "Postal code for delivery if used in the area the supplier is living"
-msgstr ""
+msgstr "کد پستی برای تحویل در صورت استفاده در منطقه ای که تامین کننده در آن زندگی می کند"
 
 msgid "Postition"
-msgstr ""
+msgstr "موقعیت"
 
 msgid "Potential problems"
-msgstr ""
+msgstr "مشکلات محتمل"
 
 msgid "Previous"
 msgstr "قبلی"
@@ -1167,464 +1171,464 @@ msgid "Price"
 msgstr "قیمت"
 
 msgid "Price Lists Type"
-msgstr ""
+msgstr "نوع لیست قیمت"
 
 msgid "Price Lists Types"
-msgstr ""
+msgstr "انواع لیست قیمت"
 
 msgid "Price Property Type"
-msgstr ""
+msgstr "نوع ویژگی قیمت"
 
 msgid "Price Property Types"
-msgstr ""
+msgstr "انواع ویژگی قیمت"
 
 msgid "Price Type"
-msgstr ""
+msgstr "نوع قیمت"
 
 msgid "Price Types"
-msgstr ""
+msgstr "انواع قیمت"
 
 msgid "Price properties"
-msgstr ""
+msgstr "ویژگی های قیمت"
 
 msgid "Priority"
-msgstr ""
+msgstr "اولویت"
 
 msgid "Problem"
-msgstr ""
+msgstr "مسئله"
 
 msgid "Product"
 msgstr "محصول"
 
 msgid "Product ID"
-msgstr ""
+msgstr "شناسه محصول"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "شناسه محصول، SKU یا برچسب"
 
 msgid "Product Lists Type"
-msgstr ""
+msgstr "نوع لیست محصولات"
 
 msgid "Product Lists Types"
-msgstr ""
+msgstr "انواع لیست محصولات"
 
 msgid "Product Property Type"
-msgstr ""
+msgstr "نوع ویژگی محصول"
 
 msgid "Product Property Types"
-msgstr ""
+msgstr "انواع ویژگی محصول"
 
 msgid "Product Type"
-msgstr ""
+msgstr "نوع محصول"
 
 msgid "Product Types"
-msgstr ""
+msgstr "انواع محصول"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr ""
+msgstr "ویژگی های محصول در سبد ذخیره می شود که مشتریان می توانند متون یا مقادیر خود را وارد کنند"
 
 msgid "Product attributes that are used by other products too"
-msgstr ""
+msgstr "ویژگی های محصول که توسط سایر محصولات نیز استفاده می شود"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr ""
+msgstr "ویژگی های محصول که با سایر محصولات مشترک نیست"
 
 msgid "Product code"
-msgstr ""
+msgstr "کد محصول"
 
 msgid "Product costs"
-msgstr ""
+msgstr "هزینه های محصول"
 
 msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "ارتفاع کالا، به عنوان مثال 20.0 (یارد، اینچ و غیره)"
 
 msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr ""
+msgstr "طول کالا، به عنوان مثال 30.0 (یارد، اینچ و غیره)"
 
 msgid "Product name"
-msgstr ""
+msgstr "نام محصول"
 
 msgid "Product payment"
-msgstr ""
+msgstr "پرداختی کالا"
 
 msgid "Product price"
-msgstr ""
+msgstr "قیمت کالا"
 
 msgid "Product quantity"
-msgstr ""
+msgstr "تعداد کالا"
 
 msgid "Product rebate"
-msgstr ""
+msgstr "تخفیف کالا"
 
 msgid "Product shipping"
-msgstr ""
+msgstr "حمل و نقل کالا"
 
 msgid "Product status"
-msgstr ""
+msgstr "وضعیت کالا"
 
 msgid "Product supplier"
-msgstr ""
+msgstr "تامین کننده کالا"
 
 msgid "Product tax"
-msgstr ""
+msgstr "مالیات کالا"
 
 msgid "Product type"
-msgstr ""
+msgstr "نوع کالا"
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr ""
+msgstr "وزن کالا، به عنوان مثال 1.25 (به پوند، اونس و غیره)"
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr ""
+msgstr "عرض کالا، به عنوان مثال 17.5 (به پوند، اونس و غیره)"
 
 msgid "Products"
-msgstr ""
+msgstr "کالاها"
 
 msgid "Products bought together"
-msgstr ""
+msgstr "محصولات خریداری شده با هم"
 
 msgid "Promotion"
-msgstr ""
+msgstr "ترویج"
 
 msgid "Properties"
 msgstr "مشخصات"
 
 msgid "Property value (required)"
-msgstr ""
+msgstr "مقدار ویژگی (الزامی)"
 
 msgid "Provider"
-msgstr ""
+msgstr "تامین کننده"
 
 msgid "Provider/decorator class names (required)"
-msgstr ""
+msgstr "نام کلاس ارائه دهنده/دکوراتور (الزامی)"
 
 msgid "Purchase"
-msgstr ""
+msgstr "خرید"
 
 msgid "Quantity"
 msgstr "مقدار"
 
 msgid "Quantity scale"
-msgstr ""
+msgstr "مقیاس تعداد"
 
 msgid "Rabate"
-msgstr ""
+msgstr "تخفیف"
 
 msgid "Rating"
-msgstr ""
+msgstr "رتبه بندی"
 
 msgid "Rating of the reviewer"
-msgstr ""
+msgstr "امتیاز بازبین"
 
 msgid "Reason"
-msgstr ""
+msgstr "دلیل"
 
 msgid "Rebate"
-msgstr ""
+msgstr "تخفیف"
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
 " cross price"
-msgstr ""
+msgstr "کاهش از قیمت اصلی، برای محاسبه تخفیف در درصد و قیمت متقاطع استفاده می شود"
 
 msgid "Reference"
-msgstr ""
+msgstr "ارجاع, رجوع, مراجعه"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "شناسه مرجع"
 
 msgid "Related ID"
-msgstr ""
+msgstr "شناسه مرتبط"
 
 msgid "Related order"
-msgstr ""
+msgstr "سفارش مرتبط"
 
 msgid "Renew"
-msgstr ""
+msgstr "تمدید کنید"
 
 msgid "Replace file"
-msgstr ""
+msgstr "فایل را جایگزین کنید"
 
 msgid "Request"
-msgstr ""
+msgstr "درخواست"
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
-msgstr ""
+msgstr "پارامتر مورد نیاز \"%1$s\" وجود ندارد"
 
 msgid ""
 "Required quantity of articles for block pricing, e.g. one article for $5.00,"
 " ten articles for $45.00"
-msgstr ""
+msgstr "تعداد مورد نیاز مقالات برای قیمت گذاری بلوکی، به عنوان مثال. یک مقاله به قیمت 5.00 دلار، ده مقاله به قیمت 45.00 دلار"
 
 msgid "Reset"
-msgstr ""
+msgstr "بازنشانی کنید"
 
 msgid "Response"
-msgstr ""
+msgstr "واکنش"
 
 msgid "Response to the reviewer"
-msgstr ""
+msgstr "پاسخ به بازبین"
 
 msgid "Review"
-msgstr ""
+msgstr "مرور"
 
 msgid "Reviewed item"
-msgstr ""
+msgstr "مورد بررسی شده"
 
 msgid "Reviewer name"
-msgstr ""
+msgstr "نام بازبین"
 
 msgid ""
 "Route name or page ID of the category page if this category should shown on "
 "a different page"
-msgstr ""
+msgstr "نام مسیر یا شناسه صفحه صفحه دسته اگر این دسته باید در صفحه دیگری نشان داده شود"
 
 msgid ""
 "Route name or page ID of the product detail page if this product should "
 "shown on a different page"
-msgstr ""
+msgstr "اگر این محصول باید در صفحه دیگری نشان داده شود، نام مسیر یا شناسه صفحه صفحه جزئیات محصول"
 
 msgid "Route or page ID (optional)"
-msgstr ""
+msgstr "شناسه مسیر یا صفحه (اختیاری)"
 
 msgid "Rule"
-msgstr ""
+msgstr "قانون"
 
 msgid "Rule Type"
-msgstr ""
+msgstr "نوع قانون"
 
 msgid "Rule Types"
-msgstr ""
+msgstr "انواع قوانین"
 
 msgid "Rule label for describing the configured rule"
-msgstr ""
+msgstr "برچسب قانون برای توصیف قانون پیکربندی شده"
 
 msgid "Rule position (required)"
-msgstr ""
+msgstr "موقعیت قانون (الزامی)"
 
 msgid "Rule provider or rule decorator configuration name"
-msgstr ""
+msgstr "نام پیکربندی ارائه‌دهنده قانون یا دکوراتور قانون"
 
 msgid "Rules"
-msgstr ""
+msgstr "قوانین"
 
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 msgid "Sales by weekday"
-msgstr ""
+msgstr "فروش در روزهای هفته"
 
 msgid "Sales of the last 30 days"
-msgstr ""
+msgstr "فروش 30 روز گذشته"
 
 msgid "Sales per month"
-msgstr ""
+msgstr "فروش هر ماه"
 
 msgid "Salutation"
 msgstr "پیشوند نام"
 
 msgid "Save"
-msgstr ""
+msgstr "ذخیره"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "ذخیره & بستن"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "ذخیره & کپی"
 
 msgid "Save & New"
-msgstr ""
+msgstr "ذخیره & جدید"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "ذخیره ورودی (Ctrl+S)"
 
 msgid "Search"
 msgstr "جستجو"
 
 msgid "Second level type for grouping items"
-msgstr ""
+msgstr "نوع سطح دوم برای گروه بندی اقلام"
 
 msgid "Select file"
-msgstr ""
+msgstr "انتخاب فایل"
 
 msgid "Service"
-msgstr ""
+msgstr "خدمت"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "نوع لیست خدمات"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "انواع لیست خدمات"
 
 msgid "Service Type"
-msgstr ""
+msgstr "نوع خدمت"
 
 msgid "Service Types"
-msgstr ""
+msgstr "انواع خدمت"
 
 msgid "Service attribute code"
-msgstr ""
+msgstr "کد ویژگی خدمت"
 
 msgid "Service costs"
-msgstr ""
+msgstr "هزینه های خدمت"
 
 msgid "Service name"
-msgstr ""
+msgstr "نام خدمت"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "موقعیت خدمت (الزامی)"
 
 msgid "Service price"
-msgstr ""
+msgstr "قیمت خدمت"
 
 msgid "Service provider or service decorator configuration name"
-msgstr ""
+msgstr "نام پیکربندی ارائه دهنده خدمت یا تزئین کننده خدمت"
 
 msgid "Service rebate"
-msgstr ""
+msgstr "تخفیف خدمت"
 
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 msgid "Ship date"
-msgstr ""
+msgstr "تاریخ ارسال"
 
 msgid "Ship status"
-msgstr ""
+msgstr "وضعیت ارسال"
 
 msgid "Shipping"
 msgstr "حمل و نقل"
 
 msgid "Shipping / Payment costs"
-msgstr ""
+msgstr "هزینه های حمل و نقل / پرداخت"
 
 msgid "Shipping costs/item"
-msgstr ""
+msgstr "هزینه های حمل و نقل/مورد"
 
 msgid "Shipping/Payment costs"
-msgstr ""
+msgstr "هزینه های حمل و نقل/پرداخت"
 
 msgid "Shipping/item"
-msgstr ""
+msgstr "حمل و نقل / مورد"
 
 msgid "Shop domain"
-msgstr ""
+msgstr "دامنه فروشگاه"
 
 msgid "Shop domain (required)"
-msgstr ""
+msgstr "دامنه فروشگاه (الزامی)"
 
 msgid "Shop e-mail"
-msgstr ""
+msgstr "خرید ایمیل"
 
 msgid "Shop e-mail address (required)"
-msgstr ""
+msgstr "آدرس ایمیل فروشگاه (الزامی)"
 
 msgid "Shop name"
-msgstr ""
+msgstr "نام مغازه"
 
 msgid "Shop name (required)"
-msgstr ""
+msgstr "نام فروشگاه (الزامی)"
 
 msgid "Shop theme"
-msgstr ""
+msgstr "موضوع خرید"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the customer is living"
-msgstr ""
+msgstr "کد ایالتی کوتاه (به عنوان مثال NY) اگر در کشوری که مشتری زندگی می کند استفاده شود"
 
 msgid ""
 "Short state code (e.g. NY) if used in the country the supplier is living"
-msgstr ""
+msgstr "کد ایالتی کوتاه (به عنوان مثال NY) در صورتی که در کشوری که تامین کننده زندگی می کند استفاده شود"
 
 msgid "Show"
 msgstr "نمایش بده"
 
 msgid "Show entry"
-msgstr ""
+msgstr "نمایش ورودی"
 
 msgid "Show search form"
-msgstr ""
+msgstr "نمایش فرم جستجو"
 
 msgid "Show/hide advanced data"
-msgstr ""
+msgstr "نمایش/پنهان کردن داده های پیشرفته"
 
 msgid "Show/hide navigation labels"
-msgstr ""
+msgstr "نمایش / پنهان کردن برچسب های ناوبری"
 
 msgid "Show/hide this entry"
-msgstr ""
+msgstr "نمایش/پنهان کردن این ورودی"
 
 msgid "Shown if the article reached a stock level of zero"
-msgstr ""
+msgstr "نشان داده می شود که آیا مقاله به سطح موجودی صفر رسیده است"
 
 msgid "Since when the product is available, used for sorting in the front-end"
-msgstr ""
+msgstr "از زمانی که محصول در دسترس است، برای مرتب سازی در قسمت جلویی استفاده می شود"
 
 msgid "Site"
-msgstr ""
+msgstr "سایت"
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
-msgstr ""
+msgstr "گزینه های پیکربندی خاص سایت، به صورت جفت کلید/مقدار در دسترس خواهند بود"
 
 msgid "Site the order was placed at"
-msgstr ""
+msgstr "سایتی که سفارش در آن انجام شد"
 
 msgid "Sites"
-msgstr ""
+msgstr "سایت ها"
 
 msgid "Size"
-msgstr ""
+msgstr "اندازه"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr ""
+msgstr "مرتب سازی ویژگی ها در یک نوع ویژگی"
 
 msgid "Source of the invoice, e.g. by web or phone"
-msgstr ""
+msgstr "منبع فاکتور، به عنوان مثال از طریق وب یا تلفن"
 
 msgid "Start date"
-msgstr ""
+msgstr "تاریخ شروع"
 
 msgid "Start typing ..."
-msgstr ""
+msgstr "شروع به تایپ کنید..."
 
 msgid "State"
 msgstr "استان"
 
 msgid "Status"
-msgstr ""
+msgstr "وضعیت"
 
 msgid "Stock Type"
-msgstr ""
+msgstr "نوع موجودی"
 
 msgid "Stock Types"
-msgstr ""
+msgstr "انواع موجودی"
 
 msgid "Stock level"
-msgstr ""
+msgstr "سطح موجودی"
 
 msgid "Stock type"
-msgstr ""
+msgstr "نوع موجودی"
 
 msgid "Street"
 msgstr "خیابان"
 
 msgid "Street name (optional)"
-msgstr ""
+msgstr "نام خیابان (اختیاری)"
 
 msgid "Sub-total"
 msgstr "زیر کل"
 
 msgid "Subscription"
-msgstr ""
+msgstr "اشتراک"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
 " for zero years, one month, two weeks and three days"
-msgstr ""
+msgstr "فاصله اشتراک با سال، ماه، هفته و روز، به عنوان مثال. \"P0Y1M2W3D\" برای سال صفر، یک ماه، دو هفته و سه روز"
 
 msgid "Suggested products"
 msgstr "محصولات پیشنهادی"
@@ -1633,311 +1637,311 @@ msgid "Sum"
 msgstr "مجموع"
 
 msgid "Supplier"
-msgstr ""
+msgstr "تامین کننده"
 
 msgid "Supplier name or company"
-msgstr ""
+msgstr "نام تامین کننده یا شرکت"
 
 msgid "Suppliers who manufacture the product"
-msgstr ""
+msgstr "تامین کنندگانی که محصول را تولید می کنند"
 
 msgid "Tag Type"
-msgstr ""
+msgstr "نوع برچسب"
 
 msgid "Tag Types"
-msgstr ""
+msgstr "انواع برچسب"
 
 msgid "Tax"
-msgstr ""
+msgstr "مالیات"
 
 msgid "Tax rate in %"
-msgstr ""
+msgstr "نرخ مالیات بر حسب درصد"
 
 msgid "Telephone"
 msgstr "تلفن"
 
 msgid "Telephone number (optional)"
-msgstr ""
+msgstr "شماره تلفن (اختیاری)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "پوشه موقت وجود ندارد"
 
 msgid "Text Lists Type"
-msgstr ""
+msgstr "نوع لیست های متنی"
 
 msgid "Text Lists Types"
-msgstr ""
+msgstr "انوع لیست های متنی"
 
 msgid "Text Type"
-msgstr ""
+msgstr "نوع متن"
 
 msgid "Text Types"
-msgstr ""
+msgstr "انواع متن"
 
 msgid ""
 "The article is only shown on the web site after that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "مقاله فقط پس از آن تاریخ و زمان در وب سایت نشان داده می شود، مقالات مفید یا فصلی"
 
 msgid ""
 "The article is only shown on the web site until that date and time, useful "
 "or seasonal articles"
-msgstr ""
+msgstr "مقاله فقط تا آن تاریخ و زمان در وب سایت نشان داده می شود، مقالات مفید یا فصلی"
 
 msgid "The item is only shown on the web site after that date and time"
-msgstr ""
+msgstr "مورد فقط پس از آن تاریخ و زمان در وب سایت نشان داده می شود"
 
 msgid "The item is only shown on the web site until that date and time"
-msgstr ""
+msgstr "مورد فقط تا آن تاریخ و زمان در وب سایت نشان داده می شود"
 
 msgid "The media title is used for the title tag of the media on the web site"
-msgstr ""
+msgstr "عنوان رسانه برای برچسب عنوان رسانه در وب سایت استفاده می شود"
 
 msgid ""
 "The name of the category shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "اگر بخش URL خاص زبان وجود نداشته باشد، از نام دسته نشان داده شده در URL استفاده خواهد شد"
 
 msgid ""
 "The name of the product shown in the URL, will be used if no language "
 "specific URL segment exists"
-msgstr ""
+msgstr "نام محصول نشان داده شده در URL، در صورتی که بخش URL خاص زبان وجود نداشته باشد، استفاده خواهد شد"
 
 msgid "The option is only shown on the web site after that date and time"
-msgstr ""
+msgstr "این گزینه فقط پس از آن تاریخ و زمان در وب سایت نشان داده می شود"
 
 msgid "The option is only shown on the web site until that date and time"
-msgstr ""
+msgstr "این گزینه فقط تا آن تاریخ و زمان در وب سایت نشان داده می شود"
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "این قانون فقط بعد از آن تاریخ و زمان استفاده می شود"
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "این قانون فقط تا آن تاریخ و زمان استفاده می شود"
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
-msgstr ""
+msgstr "مقدار مرحله مجاز برای مقادیر موجود در سبد، به عنوان مثال. \"0.1\" برای مقادیر کسری یا \"5\" برای مضربی از پنج مقاله"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "فایل آپلود شده از حداکثر بیشتر است. اندازه فایل مجاز"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "فایل آپلود شده فقط تا حدی آپلود شد"
 
 msgid "Theme to change the layout of your shop"
-msgstr ""
+msgstr "تم برای تغییر چیدمان فروشگاه شما"
 
 msgid "Three letter ISO currency code"
-msgstr ""
+msgstr "کد ارز ایزو سه حرفی"
 
 msgid "Time frame (optional)"
-msgstr ""
+msgstr "بازه زمانی (اختیاری)"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "مهر زمان"
 
 msgid "Title"
-msgstr ""
+msgstr "عنوان"
 
 msgid "Toggle dropdown"
-msgstr ""
+msgstr "تغییر وضعیت کشویی"
 
 msgid "Top countries"
-msgstr ""
+msgstr "کشورهای برتر"
 
 msgid "Total"
 msgstr "کل"
 
 msgid "Total orders"
-msgstr ""
+msgstr "کل سفارشات"
 
 msgid "Total orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "مجموع سفارشات در هفت روز گذشته نسبت به دوره قبل"
 
 msgid "Total ratings"
-msgstr ""
+msgstr "مجموع رتبه بندی ها"
 
 msgid "Translate text"
-msgstr ""
+msgstr "ترجمه متن"
 
 msgid "Two letter ISO country code"
-msgstr ""
+msgstr "کد ایزو کشور دو حرفی"
 
 msgid "Two letter ISO language code"
-msgstr ""
+msgstr "کد ایزو زبان دو حرفی"
 
 msgid "Type"
-msgstr ""
+msgstr "نوع"
 
 msgid "Type position (optional)"
-msgstr ""
+msgstr "نوع موقعیت (اختیاری)"
 
 msgid "Types for additional images like icons"
-msgstr ""
+msgstr "انواع تصاویر اضافی مانند نمادها"
 
 msgid "Types for additional prices like per one lb/kg or per month"
-msgstr ""
+msgstr "انواع برای قیمت های اضافی مانند هر پوند / کیلوگرم یا در هر ماه"
 
 msgid "Types for additional texts like per one lb/kg or per month"
-msgstr ""
+msgstr "انواع متون اضافی مانند هر پوند/کیلوگرم یا هر ماه"
 
 msgid "URL of the customer web site"
-msgstr ""
+msgstr "آدرس وب سایت مشتری"
 
 msgid "URL of the supplier web site"
-msgstr ""
+msgstr "آدرس وب سایت تامین کننده"
 
 msgid "URL segment"
-msgstr ""
+msgstr "بخش آدرس وب سایت"
 
 msgid "URL target"
-msgstr ""
+msgstr "هدف آدرس وب سایت"
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
 msgstr "صدا زدن متد \"%1$s\" غیرممکن می‌باشد"
 
 msgid "Unfinished orders"
-msgstr ""
+msgstr "سفارشات ناتمام"
 
 msgid ""
 "Unfinished orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "سفارشات ناتمام در هفت روز گذشته نسبت به دوره قبل"
 
 msgid ""
 "Unique article code related to stock levels, e.g. from the ERP system, an "
 "EAN/GTIN number or self invented"
-msgstr ""
+msgstr "کد مقاله منحصر به فرد مربوط به سطوح موجودی، به عنوان مثال. از سیستم ERP، یک شماره EAN/GTIN یا خود من درآردی"
 
 msgid "Unique attribute code (required)"
-msgstr ""
+msgstr "کد ویژگی منحصر به فرد (الزامی)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr ""
+msgstr "کد ویژگی منحصر به فرد، به عنوان مثال \"سبز\" برای ویژگی های نوع \"رنگ\""
 
 msgid "Unique category code (required)"
-msgstr ""
+msgstr "کد دسته منحصر به فرد (الزامی)"
 
 msgid "Unique category code, either from external system or self-invented"
-msgstr ""
+msgstr "کد دسته منحصر به فرد، یا از سیستم خارجی یا خود اختراع شده است"
 
 msgid "Unique code (required)"
-msgstr ""
+msgstr "کد منحصر به فرد (الزامی)"
 
 msgid "Unique code to identify the service, usually self-invented"
-msgstr ""
+msgstr "کد منحصر به فرد برای شناسایی سرویس، که معمولاً خود اختراع می شود"
 
 msgid "Unique customer account name"
-msgstr ""
+msgstr "نام منحصر به فرد حساب مشتری"
 
 msgid "Unique customer e-mail address"
-msgstr ""
+msgstr "آدرس ایمیل منحصر به فرد مشتری"
 
 msgid "Unique group code (required)"
-msgstr ""
+msgstr "کد گروه منحصر به فرد (الزامی)"
 
 msgid "Unique service code (required)"
-msgstr ""
+msgstr "کد خدمات منحصر به فرد (الزامی)"
 
 msgid "Unique site code (required)"
-msgstr ""
+msgstr "کد سایت منحصر به فرد (الزامی)"
 
 msgid "Unique supplier code"
-msgstr ""
+msgstr "کد تامین کننده منحصر به فرد"
 
 msgid "Unique type code"
-msgstr ""
+msgstr "کد نوع منحصر به فرد"
 
 msgid "Unique type code (required)"
-msgstr ""
+msgstr "کد نوع منحصر به فرد (الزامی)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr ""
+msgstr "کد نوع منحصر به فرد، به عنوان مثال \"رنگ\" برای ویژگی هایی مانند \"سبز\"، \"آبی\"، \"قرمز\""
 
 msgid "Unknown upload error"
-msgstr ""
+msgstr "خطای ناشناخته آپلود"
 
 msgid "Upload shop icon"
-msgstr ""
+msgstr "آپلود نماد فروشگاه"
 
 msgid "Upload shop logo"
-msgstr ""
+msgstr "لوگوی فروشگاه را بارگذاری کنید"
 
 msgid "Uploaded"
-msgstr ""
+msgstr "آپلود شد"
 
 msgid "User groups"
-msgstr ""
+msgstr "گروه های کاربری"
 
 msgid "Usual time frame for the delivery of the product"
-msgstr ""
+msgstr "بازه زمانی معمول برای تحویل محصول"
 
 msgid "VAT ID"
-msgstr ""
+msgstr "شناسه مالیات بر ارزش افزوده"
 
 msgid "Value"
-msgstr ""
+msgstr "مقدار"
 
 msgid "Value added tax identifier (optional)"
-msgstr ""
+msgstr "شناسه مالیات بر ارزش افزوده (اختیاری)"
 
 msgid "Variant attributes"
-msgstr ""
+msgstr "ویژگی های متفاوت"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr ""
+msgstr "ویژگی های محصول متفاوتی که با محصولات سفارش داده شده ذخیره می شوند"
 
 msgid "View details"
-msgstr ""
+msgstr "دیدن جزئیات"
 
 msgid "Voucher"
-msgstr ""
+msgstr "کوپن"
 
 msgid ""
 "Warehouse or local store if your articles are available at several locations"
-msgstr ""
+msgstr "انبار یا فروشگاه محلی اگر مقالات شما در چندین مکان موجود است"
 
 msgid "Web site"
 msgstr "وب‌سایت"
 
 msgid "Web site URL (optional)"
-msgstr ""
+msgstr "آدرس وب سایت (اختیاری)"
 
 msgid "Weeks"
-msgstr ""
+msgstr "هفته"
 
 msgid "Weight"
-msgstr ""
+msgstr "وزن"
 
 msgid "Width"
-msgstr ""
+msgstr "عرض"
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr ""
+msgstr "YYYY-MM-DD hh:mm:ss (اختیاری)"
 
 msgid "Years"
-msgstr ""
+msgstr "سال"
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr ""
+msgstr "شما می خواهید یک یا چند مورد را حذف کنید. آیا مایل به ادامه هستید؟"
 
 msgid "Your export will be available in a few minutes for download"
-msgstr ""
+msgstr "صادرات شما تا چند دقیقه دیگر برای دانلود در دسترس خواهد بود"
 
 msgid "Your response"
-msgstr ""
+msgstr "پاسخ شما"
 
 msgid "Zip code"
-msgstr ""
+msgstr "کد پستی"
 
 msgid "Zip code (optional)"
-msgstr ""
+msgstr "کد پستی (اختیاری)"
 
 #, php-format
 msgid "account"
-msgstr ""
+msgstr "حساب"
 
 #, php-format
 msgid "address"
@@ -1955,7 +1959,7 @@ msgstr "خصوصیت"
 
 #, php-format
 msgid "bundle"
-msgstr ""
+msgstr "بسته"
 
 #, php-format
 msgid "catalog"
@@ -1978,47 +1982,47 @@ msgstr "شرکت"
 
 #, php-format
 msgid "configuration"
-msgstr ""
+msgstr "پیکربندی"
 
 #, php-format
 msgid "countcountry"
-msgstr ""
+msgstr "کشور"
 
 #, php-format
 msgid "countday"
-msgstr ""
+msgstr "سفارشات روزانه"
 
 #, php-format
 msgid "counthour"
-msgstr ""
+msgstr "سفارشات بر حسب ساعت"
 
 #, php-format
 msgid "countpaystatus"
-msgstr ""
+msgstr "سفارشات بر اساس وضعیت پرداخت"
 
 #, php-format
 msgid "coupon"
-msgstr ""
+msgstr "کوپن"
 
 #, php-format
 msgid "customer"
-msgstr ""
+msgstr "مشتریان"
 
 #, php-format
 msgid "dashboard"
-msgstr ""
+msgstr "داشبورد"
 
 #, php-format
 msgid "day"
-msgstr ""
+msgstr "بر حسب روز"
 
 #, php-format
 msgid "deliverytype"
-msgstr ""
+msgstr "بر اساس نوع تحویل"
 
 #, php-format
 msgid "download"
-msgstr ""
+msgstr "دانلودهای پولی"
 
 #, php-format
 msgid "goods"
@@ -2026,19 +2030,19 @@ msgstr "کاتالوگ"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "گروه ها"
 
 #, php-format
 msgid "hour"
-msgstr ""
+msgstr "بر حسب ساعت"
 
 #, php-format
 msgid "image"
-msgstr ""
+msgstr "تصاویر"
 
 #, php-format
 msgid "invoice"
-msgstr ""
+msgstr "فاکتورها"
 
 #, php-format
 msgid "latest"
@@ -2046,55 +2050,55 @@ msgstr "آخرین"
 
 #, php-format
 msgid "locale"
-msgstr ""
+msgstr "محلی ها"
 
 #, php-format
 msgid "locale/currency"
-msgstr ""
+msgstr "ارزها"
 
 #, php-format
 msgid "locale/language"
-msgstr ""
+msgstr "زبان ها"
 
 #, php-format
 msgid "locale/site"
-msgstr ""
+msgstr "سایت ها"
 
 #, php-format
 msgid "log"
-msgstr ""
+msgstr "لاگ ها"
 
 #, php-format
 msgid "marketing"
-msgstr ""
+msgstr "بازار یابی"
 
 #, php-format
 msgid "media"
-msgstr ""
+msgstr "رسانه ها"
 
 msgid "miss"
-msgstr ""
+msgstr "دوشیزه"
 
 msgid "mr"
-msgstr ""
+msgstr "آقای"
 
 msgid "mrs"
-msgstr ""
+msgstr "خانم"
 
 msgid "ms"
-msgstr ""
+msgstr "میلی ثانیه"
 
 msgid "new"
-msgstr ""
+msgstr "جدید"
 
 msgid "no"
-msgstr ""
+msgstr "نه"
 
 msgid "none"
 msgstr "هیچ"
 
 msgid "not available any more"
-msgstr ""
+msgstr "دیگر در دسترس نیست"
 
 #, php-format
 msgid "option"
@@ -2102,64 +2106,64 @@ msgstr "گزینه‌ها"
 
 #, php-format
 msgid "order"
-msgstr ""
+msgstr "سفارشات"
 
 msgid "order:phone"
-msgstr ""
+msgstr "تلفن"
 
 msgid "order:web"
-msgstr ""
+msgstr "وب"
 
 msgid "pay:-1"
-msgstr ""
+msgstr "ناتمام"
 
 msgid "pay:0"
-msgstr ""
+msgstr "حذف شده"
 
 msgid "pay:1"
-msgstr ""
+msgstr "لغو شد"
 
 msgid "pay:2"
-msgstr ""
+msgstr "رد"
 
 msgid "pay:3"
-msgstr ""
+msgstr "بازپرداخت شد"
 
 msgid "pay:4"
-msgstr ""
+msgstr "انتظار"
 
 msgid "pay:5"
-msgstr ""
+msgstr "مجاز است"
 
 msgid "pay:6"
-msgstr ""
+msgstr "اخذ شده"
 
 msgid "pay:7"
-msgstr ""
+msgstr "پرداخت: 7"
 
 #, php-format
 msgid "paymentstatus"
-msgstr ""
+msgstr "بر اساس وضعیت پرداخت"
 
 #, php-format
 msgid "paymenttype"
-msgstr ""
+msgstr "بر اساس انواع پرداخت"
 
 #, php-format
 msgid "physical"
-msgstr ""
+msgstr "فیزیکی"
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "پلاگین ها"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "قیمت ها"
 
 #, php-format
 msgid "product"
-msgstr ""
+msgstr "کالاها"
 
 #, php-format
 msgid "property"
@@ -2167,52 +2171,52 @@ msgstr "مشخصات"
 
 #, php-format
 msgid "quick/countcompleted"
-msgstr ""
+msgstr "سریع/تکمیل شده"
 
 #, php-format
 msgid "quick/countcustomer"
-msgstr ""
+msgstr "سریع/مشتری"
 
 #, php-format
 msgid "quick/counttotal"
-msgstr ""
+msgstr "سریع / مجموع"
 
 #, php-format
 msgid "quick/countunfinished"
-msgstr ""
+msgstr "سریع / ناتمام"
 
 msgid "reason:-1"
-msgstr ""
+msgstr "ناموفق"
 
 msgid "reason:0"
-msgstr ""
+msgstr "به پایان رسید"
 
 msgid "reason:1"
-msgstr ""
+msgstr "لغو شد"
 
 #, php-format
 msgid "related"
-msgstr ""
+msgstr "کالاها"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "بررسی ها"
 
 #, php-format
 msgid "rule"
-msgstr ""
+msgstr "قوانین قیمت"
 
 #, php-format
 msgid "sales"
-msgstr ""
+msgstr "فروش"
 
 #, php-format
 msgid "salesweekday"
-msgstr ""
+msgstr "فروش در روزهای هفته"
 
 #, php-format
 msgid "selection"
-msgstr ""
+msgstr "انواع"
 
 #, php-format
 msgid "service"
@@ -2220,84 +2224,84 @@ msgstr "خدمات"
 
 #, php-format
 msgid "servicedelivery"
-msgstr ""
+msgstr "بر اساس انواع تحویل"
 
 #, php-format
 msgid "servicepayment"
-msgstr ""
+msgstr "بر اساس انواع پرداخت"
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "تنظیمات"
 
 #, php-format
 msgid "special"
-msgstr ""
+msgstr "خاص"
 
 msgid "stat:-1"
-msgstr ""
+msgstr "ناتمام"
 
 msgid "stat:0"
-msgstr ""
+msgstr "حذف شده"
 
 msgid "stat:1"
-msgstr ""
+msgstr "انتظار"
 
 msgid "stat:2"
-msgstr ""
+msgstr "در حال پیشرفت"
 
 msgid "stat:3"
-msgstr ""
+msgstr "اعزام شد"
 
 msgid "stat:4"
-msgstr ""
+msgstr "تحویل داده شده"
 
 msgid "stat:5"
-msgstr ""
+msgstr "مفقود"
 
 msgid "stat:6"
-msgstr ""
+msgstr "رد"
 
 msgid "stat:7"
-msgstr ""
+msgstr "بازگشت"
 
 msgid "status:-1"
-msgstr ""
+msgstr "بایگانی"
 
 msgid "status:-2"
-msgstr ""
+msgstr "مرور"
 
 msgid "status:0"
-msgstr ""
+msgstr "غیر فعال"
 
 msgid "status:1"
-msgstr ""
+msgstr "فعال"
 
 msgid "status:2"
-msgstr ""
+msgstr "مخفی"
 
 #, php-format
 msgid "stock"
-msgstr ""
+msgstr "موجودی ها"
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "اشتراک ها"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "تامین کنندگان"
 
 msgid "tag"
-msgstr ""
+msgstr "برچسب ها"
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "متن ها"
 
 #, php-format
 msgid "type"
-msgstr ""
+msgstr "نوع"
 
 #, php-format
 msgid "type/attribute"
@@ -2305,67 +2309,67 @@ msgstr "خصوصیت"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "لیست های ویژگی"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "ویژگی های صفت"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "لیست های کاتالوگ"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "لیست های مشتریان"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "خواص مشتری"
 
 #, php-format
 msgid "type/media"
-msgstr ""
+msgstr "رسانه ها"
 
 #, php-format
 msgid "type/media/lists"
-msgstr ""
+msgstr "فهرست های رسانه ها"
 
 #, php-format
 msgid "type/media/property"
-msgstr ""
+msgstr "ویژگی های رسانه"
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "پلاگین ها"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "قیمت"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "لیست های قیمت"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "نوع / قیمت / ویژگی"
 
 #, php-format
 msgid "type/product"
-msgstr ""
+msgstr "کالاها"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "لیست های محصولات"
 
 #, php-format
 msgid "type/product/property"
-msgstr ""
+msgstr "خواص محصول"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "نوع/قاعده"
 
 #, php-format
 msgid "type/service"
@@ -2373,27 +2377,27 @@ msgstr "خدمات"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "لیست خدمات"
 
 #, php-format
 msgid "type/stock"
-msgstr ""
+msgstr "موجودی ها"
 
 #, php-format
 msgid "type/tag"
-msgstr ""
+msgstr "برچسب ها"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "متن ها"
 
 #, php-format
 msgid "type/text/lists"
-msgstr ""
+msgstr "لیست های متنی"
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "کاربران"
 
 msgid "yes"
-msgstr ""
+msgstr "آره"
