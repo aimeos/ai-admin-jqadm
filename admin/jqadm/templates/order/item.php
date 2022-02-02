@@ -223,7 +223,7 @@ $paymentStatusList = [
 									<div class="col-8">
 										<span class="form-control item-customerid">
 											<?php if( $basket->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
-												<a class="btn fa act-view" target="_blank"
+												<a class="link fa act-view" target="_blank"
 													href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId(), 'locale' => $this->param( 'locale' )], [], $getConfig ) ) ?>">
 													<?= $enc->html( $basket->getCustomerId() ) ?>
 												</a>

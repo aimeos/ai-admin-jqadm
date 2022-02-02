@@ -216,7 +216,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 								<div class="col-8">
 									<span class="form-control item-customerid">
 										<?php if( $basket->getCustomerId() ) : ?>
-											<a class="btn fa act-view" target="_blank"
+											<a class="link fa act-view" target="_blank"
 												href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId()], [], $getConfig ) ) ?>">
 												<?= $enc->attr( $basket->getCustomerId() ) ?>
 											</a>
@@ -228,7 +228,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Order ID' ) ) ?></label>
 								<div class="col-8">
 									<span class="form-control item-orderid">
-										<a class="btn fa act-view" target="_blank"
+										<a class="link fa act-view" target="_blank"
 											href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $basket->getId()], [], $getConfig ) ) ?>">
 											<?= $enc->attr( $basket->getId() ) ?>
 										</a>

@@ -285,6 +285,14 @@ body {
 	padding: 1rem 0;
 }
 
+.aimeos .link.fa {
+	color: var(--bs-secondary, #505860);
+}
+
+.aimeos .link.fa:hover {
+	text-decoration: none;
+}
+
 .aimeos .btn.fa {
 	font-size: 90%;
 }
@@ -369,6 +377,7 @@ body {
 	color: inherit;
 }
 
+.aimeos .link.act-view.fa:before,
 .aimeos .btn.act-view.fa:before {
 	font: normal normal normal 14px/1 FontAwesome;
 	content: "\f06e";
