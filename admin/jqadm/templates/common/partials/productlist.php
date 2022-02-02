@@ -251,7 +251,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						</div>
 					</td>
 					<td v-if="fields.includes(prefix + 'parentid')" v-bind:class="css('parentid')">
-						<div v-if="item.edit && item[prefix + 'parentid'] == ''">
+						<div v-if="item.edit">
 							<v-select class="custom-combobox" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:options="options" v-bind:reduce="entry => entry.id" v-bind:filterable="false"
 								v-model="item[prefix + 'parentid']" v-on:search="suggest" v-on:search:focus="suggest"
