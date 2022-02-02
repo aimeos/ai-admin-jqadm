@@ -130,7 +130,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'item' => array(
 				'catalog.id' => '',
 				'catalog.parentid' => '',
-				'catalog.code' => 'jqadm catalog test',
+				'catalog.code' => 'jqadm-catalog-test',
 				'catalog.label' => 'test label',
 				'catalog.datestart' => null,
 				'catalog.dateend' => null,
@@ -147,7 +147,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->object->save();
 
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
-		$item = $manager->find( 'jqadm catalog test' );
+		$item = $manager->find( 'jqadm-catalog-test' );
 		$manager->delete( $item->getId() );
 
 		$this->assertEquals( ['test' => 'value'], $item->getConfig() );

@@ -70,7 +70,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'code' => array(
 				'coupon.code.id' => [''],
-				'coupon.code.code' => ['jqadm test code'],
+				'coupon.code.code' => ['jqadm-test-code'],
 				'coupon.code.count' => ['10'],
 				'coupon.code.datestart' => ['2000-01-01T00:00:00'],
 				'coupon.code.dateend' => ['2010-01-01T00:00'],
@@ -85,7 +85,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$result = $this->object->save();
 
-		$manager->delete( $manager->find( 'jqadm test code' )->getId() );
+		$manager->delete( $manager->find( 'jqadm-test-code' )->getId() );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertNull( $result );
