@@ -866,7 +866,7 @@ Aimeos.List = {
 
 				for(const key in this.items) {
 					if(this.items[key].checked) {
-						list[key] = this.items[key][this.domain + '.label'];
+						list[key] = this.items[key][this.domain + '.label'] || this.items[key][this.domain + '.code'];
 					}
 				}
 
