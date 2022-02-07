@@ -52,7 +52,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/subscription.siteid' ) ) ) ?></span>
 		</h1>
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions' ), ['params' => $params] ) ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'itemactions' ), ['params' => $params] ) ?>
 		</div>
 	</nav>
 
@@ -380,7 +380,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 		</div>
 
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions' ), ['params' => $params] ) ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'itemactions' ), ['params' => $params] ) ?>
 		</div>
 	</div>
 </form>
@@ -388,4 +388,4 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 <?php $this->block()->stop() ?>
 
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page' ) ) ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'page' ) ) ?>

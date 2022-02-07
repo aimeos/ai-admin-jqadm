@@ -22,4 +22,4 @@ $enc = $this->encoder();
 </div>
 <?php $this->block()->stop() ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page' ) ) ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'page' ) ) ?>

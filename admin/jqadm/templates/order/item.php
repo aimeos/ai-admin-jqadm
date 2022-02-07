@@ -882,7 +882,7 @@ $paymentStatusList = [
 			</div>
 
 			<div class="item-actions">
-				<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions' ), ['params' => $params] ) ?>
+				<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'itemactions' ), ['params' => $params] ) ?>
 			</div>
 		</div>
 	</form>
@@ -892,4 +892,4 @@ $paymentStatusList = [
 <?php $this->block()->stop() ?>
 
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page' ) ) ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'page' ) ) ?>

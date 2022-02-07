@@ -142,7 +142,7 @@ $deliveryStatusList = [
 <div id="order" class="item-order tab-pane fade" role="tabpanel" aria-labelledby="order">
 	<div class="box">
 		<?= $this->partial(
-				$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination' ),
+				$this->config( 'admin/jqadm/partial/pagination', 'pagination' ),
 				['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'orderTotal' ),
 				'group' => 'uo', 'action' => 'get', 'fragment' => 'order',
 				'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]
@@ -154,7 +154,7 @@ $deliveryStatusList = [
 				<thead class="list-header">
 					<tr>
 						<?= $this->partial(
-							$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead' ), [
+							$this->config( 'admin/jqadm/partial/listhead', 'listhead' ), [
 								'fields' => $fields, 'params' => $params, 'tabindex' => $this->get( 'tabindex' ),
 								'data' => $columns, 'group' => 'uo', 'action' => ( $this->param( 'id' ) ? 'get' : 'search' ),
 								'fragment' => 'order', 'sort' => $this->session( 'aimeos/admin/jqadm/customerorder/sort' ),
@@ -163,7 +163,7 @@ $deliveryStatusList = [
 
 						<th class="actions">
 							<?= $this->partial(
-								$this->config( 'admin/jqadm/partial/columns', 'common/partials/columns' ), [
+								$this->config( 'admin/jqadm/partial/columns', 'columns' ), [
 									'data' => $columns, 'fields' => $fields, 'group' => 'uo', 'tabindex' => $this->get( 'tabindex' ),
 								] );
 							?>
@@ -172,7 +172,7 @@ $deliveryStatusList = [
 				</thead>
 				<tbody>
 					<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch' ), [
+						$this->config( 'admin/jqadm/partial/listsearch', 'listsearch' ), [
 							'fields' => $fields, 'group' => 'uo', 'tabindex' => $this->get( 'tabindex' ),
 							'filter' => $this->session( 'aimeos/admin/jqadm/customerorder/filter', [] ),
 							'data' => [
@@ -274,7 +274,7 @@ $deliveryStatusList = [
 		<?php endif ?>
 
 		<?= $this->partial(
-				$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination' ),
+				$this->config( 'admin/jqadm/partial/pagination', 'pagination' ),
 				['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'orderTotal' ),
 				'group' => 'uo', 'action' => 'get', 'fragment' => 'order',
 				'page' =>$this->session( 'aimeos/admin/jqadm/customerorder/page', [] )]

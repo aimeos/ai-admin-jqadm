@@ -263,7 +263,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 	</nav>
 
 	<main class="main-content">
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'common/partials/info' ), [
+		<?= $this->partial( $this->config( 'admin/jqadm/partial/info', 'info' ), [
 			'info' => array_merge( $this->get( 'pageInfo', [] ), $this->get( 'info', [] ) ),
 			'error' => $this->get( 'errors', [] )
 		] ) ?>
@@ -277,7 +277,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 		</a>
 	</footer>
 
-	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'common/partials/confirm' ) ) ?>
-	<?= $this->partial( $this->config( 'admin/jqadm/partial/problem', 'common/partials/problem' ) ) ?>
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/confirm', 'confirm' ) ) ?>
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/problem', 'problem' ) ) ?>
 
 </div>

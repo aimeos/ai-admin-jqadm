@@ -42,7 +42,7 @@ $columnList = [
 ?>
 <div id="code" class="item-code tab-pane fade box" role="tabpanel" aria-labelledby="code">
 
-	<?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns' ) ) ?>
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'columns' ) ) ?>
 
 	<div class="coupon-code-list"
 		data-parentid="<?= $enc->attr( $this->param( 'id' ) ) ?>"

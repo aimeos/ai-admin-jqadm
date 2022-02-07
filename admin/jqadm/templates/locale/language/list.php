@@ -79,8 +79,8 @@ $columnList = [
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
-<?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'common/partials/navsearch' ) ) ?>
-<?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'common/partials/columns' ) ) ?>
+<?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'navsearch' ) ) ?>
+<?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'columns' ) ) ?>
 
 
 <div class="list-view"
@@ -110,7 +110,7 @@ $columnList = [
 	</nav-search>
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'pagination' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
 			'page' => $this->session( 'aimeos/admin/jqadm/locale/language/page', [] )]
 		);
@@ -143,7 +143,7 @@ $columnList = [
 						</th>
 
 						<?= $this->partial(
-								$this->config( 'admin/jqadm/partial/listhead', 'common/partials/listhead' ),
+								$this->config( 'admin/jqadm/partial/listhead', 'listhead' ),
 								['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/locale/language/sort' )]
 							);
 						?>
@@ -165,7 +165,7 @@ $columnList = [
 				<tbody>
 
 					<?= $this->partial(
-						$this->config( 'admin/jqadm/partial/listsearch', 'common/partials/listsearch' ), [
+						$this->config( 'admin/jqadm/partial/listsearch', 'listsearch' ), [
 							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/locale/language/filter', [] ),
 							'data' => [
 								'locale.language.id' => ['op' => '=='],
@@ -241,7 +241,7 @@ $columnList = [
 	</form>
 
 	<?= $this->partial(
-			$this->config( 'admin/jqadm/partial/pagination', 'common/partials/pagination' ),
+			$this->config( 'admin/jqadm/partial/pagination', 'pagination' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
 			'page' => $this->session( 'aimeos/admin/jqadm/locale/language/page', [] )]
 		);
@@ -254,4 +254,4 @@ $columnList = [
 </div>
 <?php $this->block()->stop() ?>
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page' ) ) ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'page' ) ) ?>

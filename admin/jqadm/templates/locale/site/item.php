@@ -47,7 +47,7 @@ $params = $this->get( 'pageParams', [] );
 			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/locale.site.label' ) ?: $this->translate( 'admin', 'New' ) ) ?></span>
 		</h1>
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions' ), ['params' => $params] ) ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'itemactions' ), ['params' => $params] ) ?>
 		</div>
 	</nav>
 
@@ -183,7 +183,7 @@ $params = $this->get( 'pageParams', [] );
 		</div>
 
 		<div class="item-actions">
-			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'common/partials/itemactions' ), ['params' => $params] ) ?>
+			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'itemactions' ), ['params' => $params] ) ?>
 		</div>
 	</div>
 </form>
@@ -191,4 +191,4 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->stop() ?>
 
 
-<?= $this->render( $this->config( 'admin/jqadm/template/page', 'common/page' ) ) ?>
+<?= $this->render( $this->config( 'admin/jqadm/template/page', 'page' ) ) ?>
