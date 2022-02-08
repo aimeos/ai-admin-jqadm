@@ -417,6 +417,9 @@ body {
 
 .aimeos .list-items input {
 	text-align: center;
+}
+
+.aimeos .list-items input:not([type="checkbox"]):not([type="radio"]) {
 	border: none;
 }
 
