@@ -254,8 +254,8 @@ class Standard
 
 		foreach( $attrListItems as $listItem )
 		{
-			if( ( $litem = $mediaItem->getListItem( 'attribute', $listItem->getType(), $listItem->getRefId(), false ) ) === null ) {
-				$mediaItem->addListItem( 'attribute', $listManager->create() );
+			if( ( $litem = $mediaItem->getListItem( 'attribute', 'variant', $listItem->getRefId(), false ) ) === null ) {
+				$mediaItem->addListItem( 'attribute', $listManager->create()->setType( 'variant' )->setRefId( $listItem->getRefId() ) );
 			} else {
 				unset( $listItems[$litem->getId()] );
 			}
