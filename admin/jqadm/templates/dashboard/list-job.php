@@ -36,30 +36,31 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 					</h2>
 				</div>
 				<div class="content collapse show">
-					<div class="table-responsive">
-						<table class="list-items table table-hover">
-							<tbody>
-								<?php foreach( $items as $id => $item ) : ?>
-									<tr>
-										<td class="job-label"><?= $enc->html( $item->getLabel() ) ?></td>
-										<td class="job-mtime"><?= $enc->html( $item->getTimeModified() ) ?></td>
-										<td class="actions">
-											<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-												<a class="btn act-delete fa" tabindex="1"
-													href="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $delConfig ) ) ?>"
+					<table class="list-items table table-hover">
+						<tbody>
+							<?php foreach( $items as $id => $item ) : ?>
+								<tr>
+									<td class="job-label"><?= $enc->html( $item->getLabel() ) ?></td>
+									<td class="job-mtime"><?= $enc->html( $item->getTimeModified() ) ?></td>
+									<td class="actions">
+										<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
+											<form method="POST" action="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $delConfig ) ) ?>">
+												<?= $this->csrf()->formfield() ?>
+												<button class="btn act-delete fa" tabindex="1"
 													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
-													aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"></a>
-											<?php endif ?>
-											<a class="btn act-download fa" tabindex="1"
-												href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $getConfig ) ) ?>"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Download this file' ) ) ?>"
-												aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ) ?>"></a>
-										</td>
-									</tr>
-								<?php endforeach ?>
-							</tbody>
-						</table>
-					</div>
+													aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
+												></button>
+											</form>
+										<?php endif ?>
+										<a class="btn act-download fa" tabindex="1"
+											href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $getConfig ) ) ?>"
+											title="<?= $enc->attr( $this->translate( 'admin', 'Download this file' ) ) ?>"
+											aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ) ?>"></a>
+									</td>
+								</tr>
+							<?php endforeach ?>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
