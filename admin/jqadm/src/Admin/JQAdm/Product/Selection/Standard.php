@@ -338,17 +338,10 @@ class Standard
 
 		foreach( $data as $entry )
 		{
-			if( !isset( $entry['stock.stocklevel'] ) ) {
-				continue;
-			}
-
-			if( ( $stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? null ) ) === null ) {
-				$stockItem = $manager->create();
-			}
-
+			$stockItem = $stockItems->get( $map[$entry['stock.productid']] ?? null ) ?: $manager->create();
 			$stockItem->fromArray( $entry, true )->setType( 'default' );
-			unset( $stockItems[$stockItem->getId()] );
 
+			unset( $stockItems[$stockItem->getId()] );
 			$list[] = $stockItem;
 		}
 
