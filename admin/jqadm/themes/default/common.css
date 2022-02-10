@@ -419,10 +419,6 @@ body {
 	text-align: center;
 }
 
-.aimeos .list-items input:not([type="checkbox"]):not([type="radio"]) {
-	border: none;
-}
-
 .aimeos .table .list-item-new .actions .btn {
 	color: var(--bs-menu, #FFFFFF);
 }
