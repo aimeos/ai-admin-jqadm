@@ -55,7 +55,7 @@ class TestHelperJqadm
 		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $config );
 		$view->addHelper( 'config', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Session\Standard( $view, new \Aimeos\MW\Session\None() );
+		$helper = new \Aimeos\MW\View\Helper\Session\Standard( $view, new \Aimeos\Base\Session\None() );
 		$view->addHelper( 'session', $helper );
 
 		$psr17Factory = new \Nyholm\Psr7\Factory\Psr17Factory();
@@ -142,7 +142,7 @@ class TestHelperJqadm
 		$ctx->setI18n( array( 'de' => $i18n ) );
 
 
-		$session = new \Aimeos\MW\Session\None();
+		$session = new \Aimeos\Base\Session\None();
 		$ctx->setSession( $session );
 
 
