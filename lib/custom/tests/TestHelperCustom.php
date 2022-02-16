@@ -112,7 +112,7 @@ class TestHelperCustom
 		$ctx->setDatabaseManager( $dbm );
 
 
-		$fs = new \Aimeos\MW\Filesystem\Manager\Standard( $conf );
+		$fs = new \Aimeos\Base\Filesystem\Manager\Standard( $conf->get( 'resource' ) );
 		$ctx->setFilesystemManager( $fs );
 
 
