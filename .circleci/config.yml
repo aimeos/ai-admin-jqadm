@@ -8,7 +8,7 @@ jobs:
   "php-7.1 / mariadb-10":
     docker:
       - image: aimeos/ci-php:7.1
-      - image: circleci/mariadb:10
+      - image: cimg/mariadb:10.3
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: aimeos
@@ -32,7 +32,7 @@ jobs:
   "php-7.2 / mysql-5.7":
     docker:
       - image: aimeos/ci-php:7.2
-      - image: circleci/mysql:5.7
+      - image: cimg/mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: aimeos
@@ -53,10 +53,10 @@ jobs:
       - run: for i in `seq 1 10`; do nc -z 127.0.0.1 3306 && echo OK && exit 0; echo -n .; sleep 1; done
       - run: ./vendor/bin/phing -Ddir=ext/ai-admin-jqadm setup testext checkext
 
-  "php-7.3 / pgsql-13":
+  "php-7.3 / pgsql-14":
     docker:
       - image: aimeos/ci-php:7.3
-      - image: circleci/postgres:13
+      - image: cimg/postgres:14.0
         environment:
           POSTGRES_PASSWORD: aimeos
           POSTGRES_USER: aimeos
@@ -79,7 +79,7 @@ jobs:
   "php-7.4 / mysql-8.0":
     docker:
       - image: aimeos/ci-php:7.4
-      - image: circleci/mysql:8.0
+      - image: cimg/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: aimeos
@@ -103,7 +103,7 @@ jobs:
   "php-8.0 / mysql-8.0":
     docker:
       - image: aimeos/ci-php:8.0
-      - image: circleci/mysql:8.0
+      - image: cimg/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: aimeos
@@ -127,7 +127,7 @@ jobs:
   "php-8.1 / mysql-8.0":
     docker:
       - image: aimeos/ci-php:8.1
-      - image: circleci/mysql:8.0
+      - image: cimg/mysql:8.0
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: aimeos
@@ -155,7 +155,7 @@ workflows:
     jobs:
       - "php-7.1 / mariadb-10"
       - "php-7.2 / mysql-5.7"
-      - "php-7.3 / pgsql-13"
+      - "php-7.3 / pgsql-14"
       - "php-7.4 / mysql-8.0"
       - "php-8.0 / mysql-8.0"
       - "php-8.1 / mysql-8.0"
