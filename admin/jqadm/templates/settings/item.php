@@ -157,7 +157,7 @@ $params = $this->get( 'pageParams', [] );
 										<div class="col-sm-8">
 											<select class="form-select item-theme" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.theme' ) ) ) ?>" >
-												<option value="">
+												<option value="default">
 													<?= $enc->html( $this->translate( 'admin', 'Default' ) ) ?>
 												</option>
 												<?php foreach( $this->get( 'themes', [] ) as $theme => $name ) : ?>
