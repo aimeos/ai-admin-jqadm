@@ -160,9 +160,10 @@
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">=": {"order.base.product.statuspayment": 5}}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.price", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [], date = startdate.clone();
@@ -174,7 +175,7 @@
 				do {
 					let day = date.toISOString().substr(0, 10);
 
-					data.push({x: date.toISOString(), y: entry['attributes'][day] || 0});
+					data.push({x: date.toISOString(), y: Number(entry['attributes'][day] || 0).toFixed()});
 					date.add(1, 'days');
 				} while(date.isBefore(enddate, 'day') || date.isSame(enddate, 'day'));
 
@@ -219,9 +220,10 @@
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">=": {"order.base.product.statuspayment": 5}}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", this.limit, "order.base.price", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", this.limit, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [], date = startdate.clone();
@@ -233,7 +235,7 @@
 				do {
 					let month = date.toISOString().substr(0, 7);
 
-					data.push({x: date.toISOString(), y: entry['attributes'][month] || 0});
+					data.push({x: date.toISOString(), y: Number(entry['attributes'][month] || 0).toFixed(2)});
 					date.add(1, 'months');
 				} while(date.isBefore(enddate, 'month') || date.isSame(enddate, 'month'));
 
@@ -281,9 +283,10 @@
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">=": {"order.base.product.statuspayment": 5}}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.price", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
@@ -293,7 +296,7 @@
 				let data = [];
 
 				for(const wday in [...Array(7).keys()]) {
-					data[wday] = entry['attributes'][wday] || 0;
+					data[wday] = Number(entry['attributes'][wday] || 0).toFixed(2);
 				}
 
 				dsets.push({
