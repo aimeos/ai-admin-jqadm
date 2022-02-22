@@ -160,7 +160,10 @@
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
-			{">=": {"order.base.product.statuspayment": 5}}
+			{"||": [
+				{"==": {"order.base.product.statuspayment": -1}},
+				{">=": {"order.base.product.statuspayment": 5}}
+			]}
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.total()", "sum").then(function(response) {
@@ -220,7 +223,10 @@
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
-			{">=": {"order.base.product.statuspayment": 5}}
+			{"||": [
+				{"==": {"order.base.product.statuspayment": -1}},
+				{">=": {"order.base.product.statuspayment": 5}}
+			]}
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", this.limit, "order.base.product.total()", "sum").then(function(response) {
@@ -283,7 +289,10 @@
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
-			{">=": {"order.base.product.statuspayment": 5}}
+			{"||": [
+				{"==": {"order.base.product.statuspayment": -1}},
+				{">=": {"order.base.product.statuspayment": 5}}
+			]}
 		]};
 
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.total()", "sum").then(function(response) {
