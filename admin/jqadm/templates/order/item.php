@@ -71,7 +71,6 @@ $serviceAttrCodes = [
 ];
 
 $deliveryStatusList = [
-	null => '',
 	'-1' => $this->translate( 'mshop/code', 'stat:-1' ),
 	'0' => $this->translate( 'mshop/code', 'stat:0' ),
 	'1' => $this->translate( 'mshop/code', 'stat:1' ),
@@ -84,7 +83,6 @@ $deliveryStatusList = [
 ];
 
 $paymentStatusList = [
-	null => '',
 	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
 	'0' => $this->translate( 'mshop/code', 'pay:0' ),
 	'1' => $this->translate( 'mshop/code', 'pay:1' ),

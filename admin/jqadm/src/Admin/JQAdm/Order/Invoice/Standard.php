@@ -289,11 +289,8 @@ class Standard
 				$item = $items[$id];
 			}
 
-			$pstatus = $this->val( $data, 'order.statuspayment/' . $idx );
-			$dstatus = $this->val( $data, 'order.statusdelivery/' . $idx );
-
-			$item->setStatusPayment( is_numeric( $pstatus ) ? (int) $pstatus : null );
-			$item->setStatusDelivery( is_numeric( $dstatus ) ? (int) $dstatus : null );
+			$item->setStatusPayment( $this->val( $data, 'order.statuspayment/' . $idx, -1 ) );
+			$item->setStatusDelivery( $this->val( $data, 'order.statusdelivery/' . $idx, -1 ) );
 			$item->setChannel( $this->val( $data, 'order.channel/' . $idx, $item->getChannel() ) );
 			$item->setDateDelivery( $this->val( $data, 'order.datedelivery/' . $idx ) );
 			$item->setDatePayment( $this->val( $data, 'order.datepayment/' . $idx ) );
