@@ -39,7 +39,7 @@ class TestHelperCustom
 		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
-		$trans = new \Aimeos\MW\Translation\None( 'de_DE' );
+		$trans = new \Aimeos\Base\Translation\None( 'de_DE' );
 		$helper = new \Aimeos\MW\View\Helper\Translate\Standard( $view, $trans );
 		$view->addHelper( 'translate', $helper );
 
@@ -124,7 +124,7 @@ class TestHelperCustom
 		$ctx->setCache( $cache );
 
 
-		$i18n = new \Aimeos\MW\Translation\None( 'de' );
+		$i18n = new \Aimeos\Base\Translation\None( 'de' );
 		$ctx->setI18n( array( 'de' => $i18n ) );
 
 
