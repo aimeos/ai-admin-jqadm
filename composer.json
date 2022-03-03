@@ -1,6 +1,6 @@
 {
 	"name": "aimeos/ai-admin-jqadm",
-	"description": "Aimeos Vue.js+Bootstrap admin interface",
+	"description": "Aimeos VueJS+Bootstrap admin backend",
 	"keywords": ["aimeos", "extension", "admin", "Vue.js", "Bootstrap"],
 	"homepage": "https://aimeos.org/",
 	"type": "aimeos-extension",
