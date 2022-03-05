@@ -9,21 +9,20 @@ return [
 		'config',
 	],
 	'include' => [
-		'admin/jqadm/src',
-		'lib/custom/src',
+		'src',
 	],
 	'i18n' => [
-		'admin' => 'admin/i18n',
-		'admin/ext' => 'admin/i18n/ext',
+		'admin' => 'i18n',
+		'admin/ext' => 'i18n/ext',
 	],
 	'custom' => [
 		'admin/jqadm' => [
-			'admin/jqadm/manifest.jsb2',
+			'manifest.jsb2',
 		],
 	],
 	'template' => [
 		'admin/jqadm/templates' => [
-			'admin/jqadm/templates',
+			'templates',
 		],
 	],
 ];

@@ -2,13 +2,13 @@
 host = https://www.transifex.com
 
 [aimeos-core.admin]
-file_filter = admin/i18n/<lang>.po
-source_file = admin/i18n/core-admin.pot
+file_filter = i18n/<lang>.po
+source_file = i18n/core-admin.pot
 source_lang = en
 type = PO
 
 [aimeos-core.admin-ext]
-file_filter = admin/i18n/ext/<lang>.po
-source_file = admin/i18n/ext/core-admin-ext.pot
+file_filter = i18n/ext/<lang>.po
+source_file = i18n/ext/core-admin-ext.pot
 source_lang = en
 type = PO
