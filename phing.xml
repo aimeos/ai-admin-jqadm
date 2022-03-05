@@ -51,7 +51,7 @@
 	</target>
 
 	<target name="build" description="Builds package for deployment">
-		<exec command="tx pull -a -f --minimum-perc=1" checkreturn="true" logoutput="true" />
+		<exec command="tx pull -a -f --minimum-perc=1" checkreturn="true" logoutput="true" passthru="true" />
 		<foreach param="po-fname" absparam="po-filename" target="build-mo">
             <fileset dir="./i18n">
                 <include name="**/*.po" />

@@ -22,7 +22,7 @@ return [
 	],
 	'template' => [
 		'admin/jqadm/templates' => [
-			'templates',
+			'templates/admin/jqadm',
 		],
 	],
 ];
