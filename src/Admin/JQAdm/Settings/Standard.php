@@ -359,7 +359,7 @@ class Standard
 			'locale.site.label' => $item->getLabel(),
 			'locale.site.theme' => $item->getTheme(),
 			'locale.site.config' => $item->getConfig(),
-			'locale.site.supplierid' => $item->getSupplierId(),
+			'locale.site.refid' => $item->getRefId(),
 			'locale.site.ctime' => $item->getTimeCreated(),
 			'locale.site.mtime' => $item->getTimeModified(),
 			'locale.site.editor' => $item->editor(),
