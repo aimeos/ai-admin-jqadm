@@ -546,11 +546,11 @@ abstract class Base
 	/**
 	 * Initializes the criteria object based on the given parameter
 	 *
-	 * @param \Aimeos\MW\Criteria\Iface $criteria Criteria object
+	 * @param \Aimeos\Base\Criteria\Iface $criteria Criteria object
 	 * @param array $params List of criteria data with condition, sorting and paging
-	 * @return \Aimeos\MW\Criteria\Iface Initialized criteria object
+	 * @return \Aimeos\Base\Criteria\Iface Initialized criteria object
 	 */
-	protected function initCriteria( \Aimeos\MW\Criteria\Iface $criteria, array $params ) : \Aimeos\MW\Criteria\Iface
+	protected function initCriteria( \Aimeos\Base\Criteria\Iface $criteria, array $params ) : \Aimeos\Base\Criteria\Iface
 	{
 		if( isset( $params['sort'] ) && !empty( $params['sort'] ) ) {
 			$criteria->order( $params['sort'] );
