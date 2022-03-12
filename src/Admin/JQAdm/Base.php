@@ -46,10 +46,10 @@ abstract class Base
 	/**
 	 * Adds the required data used in the attribute template
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
 	 */
-	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		return $view;
 	}
@@ -99,9 +99,9 @@ abstract class Base
 	/**
 	 * Returns the view object that will generate the admin output.
 	 *
-	 * @return \Aimeos\MW\View\Iface The view object which generates the admin output
+	 * @return \Aimeos\Base\View\Iface The view object which generates the admin output
 	 */
-	protected function view() : \Aimeos\MW\View\Iface
+	protected function view() : \Aimeos\Base\View\Iface
 	{
 		if( !isset( $this->view ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( $this->context->translate( 'admin', 'No view available' ) );
@@ -114,10 +114,10 @@ abstract class Base
 	/**
 	 * Sets the view object that will generate the admin output.
 	 *
-	 * @param \Aimeos\MW\View\Iface $view The view object which generates the admin output
+	 * @param \Aimeos\Base\View\Iface $view The view object which generates the admin output
 	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
 	 */
-	public function setView( \Aimeos\MW\View\Iface $view ) : \Aimeos\Admin\JQAdm\Iface
+	public function setView( \Aimeos\Base\View\Iface $view ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		$this->view = $view;
 		return $this;

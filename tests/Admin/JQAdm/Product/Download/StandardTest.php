@@ -20,7 +20,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->view = \TestHelper::view();
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
-		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
 		$this->context = \TestHelper::context();
@@ -114,10 +114,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			),
 		);
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request );
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request );
 		$this->view->addHelper( 'request', $helper );
 
 		$result = $this->object->save();

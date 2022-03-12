@@ -6,7 +6,7 @@
  */
 
 
-namespace Aimeos\MW\View\Helper\Site;
+namespace Aimeos\Base\View\Helper\Site;
 
 
 class StandardTest extends \PHPUnit\Framework\TestCase
@@ -16,10 +16,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function setUp() : void
 	{
-		$view = new \Aimeos\MW\View\Standard();
+		$view = new \Aimeos\Base\View\Standard();
 		$view->pageSiteItem = new TestSite( 1, 'label1' );
 
-		$this->object = new \Aimeos\MW\View\Helper\Site\Standard( $view );
+		$this->object = new \Aimeos\Base\View\Helper\Site\Standard( $view );
 	}
 
 
@@ -31,7 +31,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testTransform()
 	{
-		$this->assertInstanceOf( '\\Aimeos\\MW\\View\\Helper\\Site\\Iface', $this->object->transform() );
+		$this->assertInstanceOf( '\\Aimeos\\Base\\View\\Helper\\Site\\Iface', $this->object->transform() );
 	}
 
 

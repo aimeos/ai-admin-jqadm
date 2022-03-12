@@ -91,7 +91,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getViewNoRender()
 	{
-		return $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
+		return $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();

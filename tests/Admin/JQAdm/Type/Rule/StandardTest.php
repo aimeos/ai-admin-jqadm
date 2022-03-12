@@ -64,7 +64,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'rule/type' );
 
 		$param = ['type' => 'unittest', 'id' => $manager->find( 'catalog', [], 'rule' )->getId()];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->copy();
@@ -112,7 +112,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'rule/type' );
 
 		$param = ['type' => 'unittest', 'id' => $manager->find( 'catalog', [], 'rule' )->getId()];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->get();
@@ -152,7 +152,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			),
 		);
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->save();
@@ -191,7 +191,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			),
 			'sort' => array( '-rule.type.id' ),
 		);
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->search();
@@ -246,7 +246,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getViewNoRender( $real = true )
 	{
-		$view = $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
+		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render' ) )
 			->getMock();
@@ -254,13 +254,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'rule/type' );
 
 		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'catalog', [], 'rule' )->getId() : -1];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $this->context->config() );
+		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $this->context->config() );
 		$view->addHelper( 'config', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, [] );
+		$helper = new \Aimeos\Base\View\Helper\Access\Standard( $view, [] );
 		$view->addHelper( 'access', $helper );
 
 		return $view;

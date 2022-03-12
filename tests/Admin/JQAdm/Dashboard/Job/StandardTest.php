@@ -41,7 +41,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager->save( $item );
 
 		$param = ['site' => 'unittest', 'id' => $item->getId()];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->delete();
@@ -69,7 +69,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager->save( $item );
 
 		$param = ['site' => 'unittest', 'id' => $item->getId()];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->get();
@@ -92,16 +92,16 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getViewNoRender()
 	{
-		$view = $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
+		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();
 
 		$param = ['site' => 'unittest', 'id' => -1];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, [] );
+		$helper = new \Aimeos\Base\View\Helper\Access\Standard( $view, [] );
 		$view->addHelper( 'access', $helper );
 
 		return $view;

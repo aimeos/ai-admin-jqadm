@@ -38,10 +38,10 @@ class Standard
 	/**
 	 * Adds the required data used in the template
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
-	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
 	 */
-	public function data( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'attribute/property/type' );
 
@@ -317,10 +317,10 @@ class Standard
 	/**
 	 * Returns the rendered template including the view data
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
+	 * @param \Aimeos\Base\View\Iface $view View object with data assigned
 	 * @return string HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view ) : string
+	protected function render( \Aimeos\Base\View\Iface $view ) : string
 	{
 		/** admin/jqadm/attribute/property/template-item
 		 * Relative path to the HTML body template of the property subpart for attributes.

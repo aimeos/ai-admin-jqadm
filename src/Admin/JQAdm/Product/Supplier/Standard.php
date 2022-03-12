@@ -296,10 +296,10 @@ class Standard
 	/**
 	 * Returns the rendered template including the view data
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object with data assigned
+	 * @param \Aimeos\Base\View\Iface $view View object with data assigned
 	 * @return string HTML output
 	 */
-	protected function render( \Aimeos\MW\View\Iface $view ) : string
+	protected function render( \Aimeos\Base\View\Iface $view ) : string
 	{
 		/** admin/jqadm/product/supplier/template-item
 		 * Relative path to the HTML body template of the supplier subpart for products.

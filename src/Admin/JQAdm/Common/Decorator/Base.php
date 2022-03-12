@@ -156,10 +156,10 @@ abstract class Base
 	/**
 	 * Sets the view object that will generate the admin output.
 	 *
-	 * @param \Aimeos\MW\View\Iface $view The view object which generates the admin output
+	 * @param \Aimeos\Base\View\Iface $view The view object which generates the admin output
 	 * @return \Aimeos\Admin\JQAdm\Iface Reference to this object for fluent calls
 	 */
-	public function setView( \Aimeos\MW\View\Iface $view ) : \Aimeos\Admin\JQAdm\Iface
+	public function setView( \Aimeos\Base\View\Iface $view ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		parent::setView( $view );
 

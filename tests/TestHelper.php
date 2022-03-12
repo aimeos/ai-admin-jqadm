@@ -112,42 +112,42 @@ class TestHelper
 			$config = self::context( $site )->config();
 		}
 
-		$view = new \Aimeos\MW\View\Standard( self::getTemplatePaths() );
+		$view = new \Aimeos\Base\View\Standard( self::getTemplatePaths() );
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, ['site' => 'unittest'] );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, ['site' => 'unittest'] );
 		$view->addHelper( 'param', $helper );
 
 		$trans = new \Aimeos\Base\Translation\None( 'de_DE' );
-		$helper = new \Aimeos\MW\View\Helper\Translate\Standard( $view, $trans );
+		$helper = new \Aimeos\Base\View\Helper\Translate\Standard( $view, $trans );
 		$view->addHelper( 'translate', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Url\Standard( $view, 'http://baseurl' );
+		$helper = new \Aimeos\Base\View\Helper\Url\Standard( $view, 'http://baseurl' );
 		$view->addHelper( 'url', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Number\Standard( $view, '.', '' );
+		$helper = new \Aimeos\Base\View\Helper\Number\Standard( $view, '.', '' );
 		$view->addHelper( 'number', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Date\Standard( $view, 'Y-m-d' );
+		$helper = new \Aimeos\Base\View\Helper\Date\Standard( $view, 'Y-m-d' );
 		$view->addHelper( 'date', $helper );
 
 		$config = new \Aimeos\Base\Config\Decorator\Protect( $config, ['version', 'admin', 'resource/fs/baseurl', 'resource/fs-media/baseurl'] );
-		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $config );
+		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $config );
 		$view->addHelper( 'config', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Session\Standard( $view, new \Aimeos\Base\Session\None() );
+		$helper = new \Aimeos\Base\View\Helper\Session\Standard( $view, new \Aimeos\Base\Session\None() );
 		$view->addHelper( 'session', $helper );
 
 		$psr17Factory = new \Nyholm\Psr7\Factory\Psr17Factory();
-		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $view, $psr17Factory->createServerRequest( 'GET', 'https://aimeos.org' ) );
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $view, $psr17Factory->createServerRequest( 'GET', 'https://aimeos.org' ) );
 		$view->addHelper( 'request', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Response\Standard( $view, $psr17Factory->createResponse() );
+		$helper = new \Aimeos\Base\View\Helper\Response\Standard( $view, $psr17Factory->createResponse() );
 		$view->addHelper( 'response', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Csrf\Standard( $view, '_csrf_token', '_csrf_value' );
+		$helper = new \Aimeos\Base\View\Helper\Csrf\Standard( $view, '_csrf_token', '_csrf_value' );
 		$view->addHelper( 'csrf', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Access\All( $view );
+		$helper = new \Aimeos\Base\View\Helper\Access\All( $view );
 		$view->addHelper( 'access', $helper );
 
 		$view->pageSitePath = [];

@@ -96,7 +96,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 		$this->view->item = $manager->create()->setCode( 'jqadm:product/category' )->setId( -1 );
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->save();
@@ -120,7 +120,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 		$this->view->item = $manager->create()->setCode( 'jqadm:product/category' )->setId( -1 );
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->save();

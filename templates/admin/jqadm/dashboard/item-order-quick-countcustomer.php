@@ -10,7 +10,7 @@ $enc = $this->encoder();
 
 ?>
 <div class="quick order-quick-countcustomer col-sm-6 col-xl-3"
-	title="<?= $enc->attr( $this->translate( 'admin', 'New customers within the last seven days compared to the period before' ) ) ?>">
+	title="<?= $enc->attr( $this->translate( 'admin', 'New customers within the last seven days' ) ) ?>">
 	<dashboard-order-quick-countcustomer inline-template>
 		<div class="box row" v-bind:class="state">
 			<div class="col quick-start">

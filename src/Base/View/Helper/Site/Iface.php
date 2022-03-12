@@ -8,7 +8,7 @@
  */
 
 
-namespace Aimeos\MW\View\Helper\Site;
+namespace Aimeos\Base\View\Helper\Site;
 
 
 /**
@@ -17,14 +17,14 @@ namespace Aimeos\MW\View\Helper\Site;
  * @package MW
  * @subpackage View
  */
-interface Iface extends \Aimeos\MW\View\Helper\Iface
+interface Iface extends \Aimeos\Base\View\Helper\Iface
 {
 	/**
 	 * Returns the site view helper
 	 *
-	 * @return Aimeos\MW\View\Helper\Site\Iface Site view helper
+	 * @return Aimeos\Base\View\Helper\Site\Iface Site view helper
 	 */
-	public function transform() : \Aimeos\MW\View\Helper\Site\Iface;
+	public function transform() : \Aimeos\Base\View\Helper\Site\Iface;
 
 	/**
 	 * Returns the site label of the current site

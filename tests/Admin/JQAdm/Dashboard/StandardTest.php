@@ -20,7 +20,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$this->view = \TestHelper::view();
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
-		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
 		$this->context = \TestHelper::context();
@@ -80,7 +80,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getViewNoRender()
 	{
-		return $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
+		return $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();

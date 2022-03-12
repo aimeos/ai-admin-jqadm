@@ -57,7 +57,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			),
 		);
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
@@ -134,7 +134,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			),
 		);
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->save();

@@ -98,7 +98,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			]],
 		);
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$file = $this->getMockBuilder( \Psr\Http\Message\UploadedFileInterface::class )->getMock();
@@ -106,7 +106,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$request->expects( $this->any() )->method( 'getUploadedFiles' )
 			->will( $this->returnValue( ['media' => [0 => ['file' => $file]]] ) );
 
-		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
 
@@ -140,7 +140,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		}
 
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, ['site' => 'unittest', 'media' => []] );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, ['site' => 'unittest', 'media' => []] );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->save();

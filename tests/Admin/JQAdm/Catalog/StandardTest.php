@@ -22,7 +22,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->context = \TestHelper::context();
 
 		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
-		$helper = new \Aimeos\MW\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
 		$this->view ->addHelper( 'request', $helper );
 
 		$this->object = new \Aimeos\Admin\JQAdm\Catalog\Standard( $this->context );
@@ -43,7 +43,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
 		$param = ['site' => 'unittest', 'id' => $manager->find( 'cafe' )->getId()];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->copy();
@@ -103,7 +103,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
 		$param = ['site' => 'unittest', 'id' => $manager->find( 'cafe' )->getId()];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->get();
@@ -141,7 +141,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			),
 		);
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$this->object->save();
@@ -168,7 +168,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSearch()
 	{
 		$param = array( 'site' => 'unittest' );
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->search();
@@ -225,7 +225,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getViewNoRender( $real = true )
 	{
-		$view = $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
+		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render' ) )
 			->getMock();
@@ -233,13 +233,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );
 
 		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'cafe' )->getId() : -1];
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );
 		$view->addHelper( 'param', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Config\Standard( $view, $this->context->config() );
+		$helper = new \Aimeos\Base\View\Helper\Config\Standard( $view, $this->context->config() );
 		$view->addHelper( 'config', $helper );
 
-		$helper = new \Aimeos\MW\View\Helper\Access\Standard( $view, [] );
+		$helper = new \Aimeos\Base\View\Helper\Access\Standard( $view, [] );
 		$view->addHelper( 'access', $helper );
 
 		return $view;

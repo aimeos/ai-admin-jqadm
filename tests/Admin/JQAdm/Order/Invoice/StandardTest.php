@@ -77,7 +77,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			),
 		);
 
-		$helper = new \Aimeos\MW\View\Helper\Param\Standard( $this->view, $param );
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
 		$this->view->item = $this->getOrderBaseItem();
@@ -106,7 +106,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getViewNoRender()
 	{
-		$view = $this->getMockBuilder( \Aimeos\MW\View\Standard::class )
+		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
 			->setMethods( array( 'render', 'config' ) )
 			->getMock();

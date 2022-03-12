@@ -8,7 +8,7 @@
  */
 
 
-namespace Aimeos\MW\View\Helper\Datetime;
+namespace Aimeos\Base\View\Helper\Datetime;
 
 
 /**
@@ -17,7 +17,7 @@ namespace Aimeos\MW\View\Helper\Datetime;
  * @package MW
  * @subpackage View
  */
-interface Iface extends \Aimeos\MW\View\Helper\Iface
+interface Iface extends \Aimeos\Base\View\Helper\Iface
 {
 	/**
 	 * Returns the formatted date and time.

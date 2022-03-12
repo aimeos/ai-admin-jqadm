@@ -8,7 +8,7 @@
  */
 
 
-namespace Aimeos\MW\View\Helper\Site;
+namespace Aimeos\Base\View\Helper\Site;
 
 
 /**
@@ -17,7 +17,7 @@ namespace Aimeos\MW\View\Helper\Site;
  * @package MW
  * @subpackage View
  */
-class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
+class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 {
 	private $siteItem;
 
@@ -25,9 +25,9 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	/**
 	 * Initializes the view helper
 	 *
-	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @param \Aimeos\Base\View\Iface $view View object
 	 */
-	public function __construct( \Aimeos\MW\View\Iface $view )
+	public function __construct( \Aimeos\Base\View\Iface $view )
 	{
 		parent::__construct( $view );
 		$this->siteItem = $view->pageSiteItem;
@@ -37,9 +37,9 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	/**
 	 * Returns the site view helper
 	 *
-	 * @return Aimeos\MW\View\Helper\Site\Iface Site view helper
+	 * @return Aimeos\Base\View\Helper\Site\Iface Site view helper
 	 */
-	public function transform() : \Aimeos\MW\View\Helper\Site\Iface
+	public function transform() : \Aimeos\Base\View\Helper\Site\Iface
 	{
 		return $this;
 	}
