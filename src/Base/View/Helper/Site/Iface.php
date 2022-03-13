@@ -22,7 +22,7 @@ interface Iface extends \Aimeos\Base\View\Helper\Iface
 	/**
 	 * Returns the site view helper
 	 *
-	 * @return Aimeos\Base\View\Helper\Site\Iface Site view helper
+	 * @return \Aimeos\Base\View\Helper\Site\Iface Site view helper
 	 */
 	public function transform() : \Aimeos\Base\View\Helper\Site\Iface;
 
