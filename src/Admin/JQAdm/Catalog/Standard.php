@@ -465,6 +465,7 @@ class Standard
 		if( $copy === true )
 		{
 			$data['catalog.id'] = '';
+			$data['catalog.url'] = '';
 			$data['catalog.siteid'] = $item->getSiteId();
 			$data['catalog.code'] = $data['catalog.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 		}
