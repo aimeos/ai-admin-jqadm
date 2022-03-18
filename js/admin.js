@@ -209,12 +209,16 @@ Aimeos = {
 
 		Aimeos.options.done(function(data) {
 
-			var compare = {}, field = {}, list = {}, params = {}, param = {};
+			let field = {}, list = {}, params = {}, param = {};
+			let compare = {'||': []};
 
-			compare[key] = request.term;
-			list = criteria ? [{'=~': compare}, criteria] : [{'=~': compare}];
+			for(entry of Array.isArray(key) ? key : [key]) {
+				let term = {};
+				term[entry] = request.term;
+				compare['||'].push({'=~': term});
+			}
 
-			param['filter'] = {'&&': list};
+			param['filter'] = criteria ? {'&&': [compare, criteria]} : compare;
 			param['fields'] = field;
 			param['sort'] = sort;
 
@@ -289,8 +293,8 @@ Aimeos = {
 	},
 
 
-	getOptionsProducts : function(request, response, element, criteria) {
-		Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', criteria);
+	getOptionsProducts : function(request, response, element, criteria, labelFcn) {
+		Aimeos.getOptions(request, response, element, 'product', ['product.label', 'product.code'], 'product.label', criteria, labelFcn);
 	},
 
 

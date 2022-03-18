@@ -671,10 +671,9 @@ Aimeos.Product.Product = {
 
 					return function(request, response, element) {
 
-						var labelFcn = function(attr) {
+						Aimeos.getOptionsProducts(request, response, element, null, function(attr) {
 							return attr['product.label'] + ' (' + attr['product.code'] + ')';
-						}
-						Aimeos.getOptions(request, response, element, 'product', 'product.label', 'product.label', null, labelFcn);
+						});
 					}
 				},
 
