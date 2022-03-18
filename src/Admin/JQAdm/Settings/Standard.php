@@ -58,20 +58,14 @@ class Standard
 			$manager->save( clone $view->item );
 			$manager->commit();
 
-			$target = $view->config( 'admin/jqadm/url/search/target' );
-			$cntl = $view->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-			$action = $view->config( 'admin/jqadm/url/search/action', 'search' );
-			$conf = $view->config( 'admin/jqadm/url/search/config', [] );
-
 			$params = $this->getClientParams();
 			$params['site'] = $view->item->getCode();
-			$url = $view->url( $target, $cntl, $action, $params, [], $conf );
 
 			$context->session()->set( 'info', [$context->translate( 'admin', 'Item saved successfully' )] );
 
 			$view->response()->withStatus( 302 );
-			$view->response()->withHeader( 'Location', $url );
 			$view->response()->withHeader( 'Cache-Control', 'no-store' );
+			$view->response()->withHeader( 'Location', $view->link( 'admin/jqadm/url/search', $params ) );
 
 			return null;
 		}
