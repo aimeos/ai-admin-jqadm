@@ -3,12 +3,14 @@
  * @copyright Aimeos (aimeos.org), 2015-2022
  */
 
-
 /* Check for preferred theme mode (dark/light) */
-
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-if (prefersDark.matches && !document.cookie.includes('aimeos_backend_theme=light')) {
-	['light', 'dark'].map(cl => document.body.classList.toggle(cl));
+const setLight = document.cookie.includes('aimeos_backend_theme=light');
+
+//Light by default (based on View used) - checks for Dark preference (by browser, or cookie)
+if (prefersDark.matches && !setLight){
+	document.body.classList.remove('light');
+	document.body.classList.add('dark')
 }
 
 document.querySelectorAll(".btn-theme").forEach(item => {
