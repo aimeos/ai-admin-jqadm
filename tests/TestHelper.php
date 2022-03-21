@@ -85,7 +85,7 @@ class TestHelper
 		$ctx->setLogger( $logger );
 
 
-		$cache = new \Aimeos\MW\Cache\None();
+		$cache = new \Aimeos\Base\Cache\None();
 		$ctx->setCache( $cache );
 
 
