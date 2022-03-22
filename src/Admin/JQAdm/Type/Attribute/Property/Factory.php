@@ -24,12 +24,12 @@ class Factory
 	/**
 	 * Creates a attribute property type client object
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Shop context instance with necessary objects
+	 * @param \Aimeos\MShop\ContextIface $context Shop context instance with necessary objects
 	 * @param string|null $name Admin name (default: "Standard")
 	 * @return \Aimeos\Admin\JQAdm\Iface Filter part implementing \Aimeos\Admin\JQAdm\Iface
 	 * @throws \Aimeos\Admin\JQAdm\Exception If requested client implementation couldn't be found or initialisation fails
 	 */
-	public static function create( \Aimeos\MShop\Context\Item\Iface $context, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
+	public static function create( \Aimeos\MShop\ContextIface $context, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		/** admin/jqadm/type/attribute/property/name
 		 * Class name of the used account favorite client implementation

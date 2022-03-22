@@ -39,13 +39,13 @@ class Base
 	/**
 	 * Adds the decorators to the client object.
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context instance with necessary objects
+	 * @param \Aimeos\MShop\ContextIface $context Context instance with necessary objects
 	 * @param \Aimeos\Admin\JQAdm\Iface $client Admin object
 	 * @param array $decorators List of decorator name that should be wrapped around the client
 	 * @param string $classprefix Decorator class prefix, e.g. "\Aimeos\Admin\JQAdm\Catalog\Decorator\"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 */
-	protected static function addDecorators( \Aimeos\MShop\Context\Item\Iface $context,
+	protected static function addDecorators( \Aimeos\MShop\ContextIface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		foreach( $decorators as $name )
@@ -76,12 +76,12 @@ class Base
 	/**
 	 * Adds the decorators to the client object.
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context instance with necessary objects
+	 * @param \Aimeos\MShop\ContextIface $context Context instance with necessary objects
 	 * @param \Aimeos\Admin\JQAdm\Iface $client Admin object
 	 * @param string $path Path of the client in lower case, e.g. "catalog/detail"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 */
-	protected static function addClientDecorators( \Aimeos\MShop\Context\Item\Iface $context,
+	protected static function addClientDecorators( \Aimeos\MShop\ContextIface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		if( empty( $path ) )
@@ -143,13 +143,13 @@ class Base
 	/**
 	 * Creates a client object.
 	 *
-	 * @param \Aimeos\MShop\Context\Item\Iface $context Context instance with necessary objects
+	 * @param \Aimeos\MShop\ContextIface $context Context instance with necessary objects
 	 * @param string $classname Name of the client class
 	 * @param string $interface Name of the client interface
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 * @throws \Aimeos\Admin\JQAdm\Exception If client couldn't be found or doesn't implement the interface
 	 */
-	protected static function createAdmin( \Aimeos\MShop\Context\Item\Iface $context,
+	protected static function createAdmin( \Aimeos\MShop\ContextIface $context,
 		string $classname, string $interface ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		if( isset( self::$objects[$classname] ) ) {

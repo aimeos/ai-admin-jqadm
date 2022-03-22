@@ -119,19 +119,19 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 class TestAbstract
 	extends \Aimeos\Admin\JQAdm\Common\Factory\Base
 {
-	public static function addDecoratorsPublic( \Aimeos\MShop\Context\Item\Iface $context,
+	public static function addDecoratorsPublic( \Aimeos\MShop\ContextIface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		return self::addDecorators( $context, $client, $decorators, $classprefix );
 	}
 
-	public static function addClientDecoratorsPublic( \Aimeos\MShop\Context\Item\Iface $context,
+	public static function addClientDecoratorsPublic( \Aimeos\MShop\ContextIface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		return self::addClientDecorators( $context, $client, $path );
 	}
 
-	public static function createAdminPublic( \Aimeos\MShop\Context\Item\Iface $context,
+	public static function createAdminPublic( \Aimeos\MShop\ContextIface $context,
 		string $classname, string $interface ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		return self::createAdmin( $context, $classname, $interface );
