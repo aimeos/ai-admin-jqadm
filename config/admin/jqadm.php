@@ -69,6 +69,7 @@ return [
 	],
 	'dashboard' => [
 		'subparts' => [
+			'notify' => 'notify',
 			'setting' => 'setting',
 			'job' => 'job',
 			'order' => 'order',
