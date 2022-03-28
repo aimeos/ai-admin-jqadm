@@ -440,14 +440,6 @@ abstract class Base
 
 
 	/**
-	 * Returns the list of sub-client names configured for the client.
-	 *
-	 * @return array List of admin client names
-	 */
-	abstract protected function getSubClientNames() : array;
-
-
-	/**
 	 * Returns the available class names without namespace that are stored in the given path
 	 *
 	 * @param string $relpath Path relative to the include paths
@@ -524,6 +516,20 @@ abstract class Base
 
 
 	/**
+	 * Returns the sub-client given by its name.
+	 *
+	 * @param string $type Name of the client type
+	 * @param string|null $name Name of the sub-client (Default if null)
+	 * @return \Aimeos\Admin\JQAdm\Iface Sub-client object
+	 */
+	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
+	{
+		$msg = $this->context()->translate( 'admin', 'Not implemented' );
+		throw new \Aimeos\Admin\JQAdm\Exception( $msg );
+	}
+
+
+	/**
 	 * Returns the configured sub-clients or the ones named in the default parameter if none are configured.
 	 *
 	 * @return array List of sub-clients implementing \Aimeos\Admin\JQAdm\Iface ordered in the same way as the names
@@ -540,6 +546,17 @@ abstract class Base
 		}
 
 		return $this->subclients;
+	}
+
+
+	/**
+	 * Returns the list of sub-client names configured for the client.
+	 *
+	 * @return array List of admin client names
+	 */
+	protected function getSubClientNames() : array
+	{
+		return [];
 	}
 
 
