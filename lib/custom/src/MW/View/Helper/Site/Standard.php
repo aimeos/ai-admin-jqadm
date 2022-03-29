@@ -80,6 +80,10 @@ class Standard extends \Aimeos\MW\View\Helper\Base implements Iface
 	 */
 	public function readonly( string $siteid = null ) : ?string
 	{
+		if( !$siteid && $this->view()->access( ['super'] ) ) {
+			return null;
+		}
+
 		if( $this->siteItem->getSiteId() != $siteid ) {
 			return 'readonly';
 		}
