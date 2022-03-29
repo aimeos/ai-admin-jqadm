@@ -10,7 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Plugin;
 
-sprintf( 'settings' ); // for translation
+sprintf( 'setup' ); // for translation
 sprintf( 'plugin' ); // for translation
 
 

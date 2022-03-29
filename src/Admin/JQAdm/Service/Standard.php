@@ -10,7 +10,7 @@
 
 namespace Aimeos\Admin\JQAdm\Service;
 
-sprintf( 'configuration' ); // for translation
+sprintf( 'setup' ); // for translation
 sprintf( 'service' ); // for translation
 
 

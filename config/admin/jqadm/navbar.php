@@ -29,20 +29,20 @@ return [
 		20 => 'rule',
 		30 => 'review',
 	],
-	50 => [
-		'_' => 'configuration',
-		10 => 'settings',
+	50 => 'settings',
+	60 => [
+		'_' => 'setup',
 		20 => 'service',
 		30 => 'plugin',
 	],
-	60 => [
+	70 => [
 		'_' => 'locale',
 		10 => 'locale',
 		20 => 'locale/site',
 		30 => 'locale/language',
 		40 => 'locale/currency',
 	],
-	70 => [
+	80 => [
 		'_' => 'type',
 		10 => 'type/attribute',
 		20 => 'type/attribute/lists',
@@ -67,5 +67,5 @@ return [
 		210 => 'type/text',
 		220 => 'type/text/lists',
 	],
-	80 => 'log',
+	90 => 'log',
 ];
