@@ -354,7 +354,7 @@ class Standard
 	{
 		if( !$item->getConfigValue( 'resource/email/from-email' ) )
 		{
-			$context = $this->context();
+			$context = $this->getContext();
 			$user = \Aimeos\MShop::create( $context, 'customer' )->get( $context->user() );
 			$item->setConfigValue( 'resource/email/from-email', $user->getPaymentAddress()->getEmail() );
 		}
