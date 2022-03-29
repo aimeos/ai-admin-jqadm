@@ -346,6 +346,13 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Locale\Item\Site\Iface $item, bool $copy = false ) : array
 	{
+		if( !$item->getConfigValue( 'resource/email/from-email' ) )
+		{
+			$context = $this->context();
+			$user = \Aimeos\MShop::create( $context, 'customer' )->get( $context->user() );
+			$item->setConfigValue( 'resource/email/from-email', $user->getPaymentAddress()->getEmail() );
+		}
+
 		return [
 			'locale.site.code' => $item->getCode(),
 			'locale.site.icon' => $item->getIcon(),
