@@ -33,11 +33,7 @@ $name = function( \Aimeos\MShop\Order\Item\Iface $item )
 			return;
 		}
 
-		if( $address->getSalutation() !== \Aimeos\MShop\Common\Item\Address\Base::SALUTATION_COMPANY ) {
-			return $address->getFirstName() . ' ' . $address->getLastName();
-		} else {
-			return $address->getCompany();
-		}
+		return $address->getCompany() ?: $address->getFirstName() . ' ' . $address->getLastName();
 	}
 };
 
