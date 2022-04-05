@@ -7,13 +7,14 @@
 # jerzys <jerzy.skalski@gmail.com>, 2014
 # jerzys <jerzy.skalski@gmail.com>, 2014
 # Łukasz Sobiecki <lukasz@sobiecki.pl>, 2021
+# Rafał Morawiec, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-05 08:24+0100\n"
-"PO-Revision-Date: 2021-12-30 15:35+0000\n"
-"Last-Translator: Aimeos\n"
+"POT-Creation-Date: 2022-04-05 09:19+0200\n"
+"PO-Revision-Date: 2015-07-09 21:04+0000\n"
+"Last-Translator: Rafał Morawiec, 2022\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,7 +105,7 @@ msgid "?"
 msgstr "?"
 
 msgid "Account"
-msgstr ""
+msgstr "Konto"
 
 msgid "Active"
 msgstr "Aktywny"
@@ -113,7 +114,7 @@ msgid "Actual price"
 msgstr "Aktualna cena"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr ""
+msgstr "Rzeczywista cena, za którą klienci mogą kupić artykuł na stronie internetowej"
 
 msgid "Add"
 msgstr "Dodaj"
@@ -121,13 +122,13 @@ msgstr "Dodaj"
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr ""
+msgstr "Dodatkowe koszty dostawy dla każdego przedmiotu, np. 20 USD za jeden ciężki przedmiot to 100 USD łącznie za pięć przedmiotów"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr ""
+msgstr "Dodatkowe informacje gdzie znajduje się mieszkanie klienta"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr ""
+msgstr "Dodatkowe informacje, gdzie znajduje się mieszkanie dostawcy"
 
 msgid "Address 1"
 msgstr "Adres 1"
@@ -139,14 +140,14 @@ msgid "Address 3"
 msgstr "Adres 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr ""
+msgstr "Identyfikator adresu domu klienta dla dostawy"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Identyfikator adresu domu dostawcy dla dostawy"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Typ administratora JQAdm jest pusty"
 
 msgid "Advanced"
 msgstr "Zaawansowane"
@@ -161,7 +162,7 @@ msgstr "Tryb sprawdzania błędów w Aimeos został włączony przez \"%1$s\""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr ""
+msgstr "Obiekt Aimeos jest niedostępny"
 
 msgid "All"
 msgstr "Wszystko"
@@ -169,7 +170,7 @@ msgstr "Wszystko"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Wszystkie atrybuty, które jednoznacznie definiują artykuł, np. szerokość, długość i kolor dżinsów"
 
 msgid "Allow custom price"
 msgstr "Zezwól na niestandardową cenę"
@@ -186,54 +187,54 @@ msgstr "Zaaplikuj"
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Opcje konfiguracji specyficzne dla artykułu będą dostępne jako pary klucz/wartość w szablonach"
 
 msgid "Attribute"
 msgstr "Atrybut"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Typ listy atrybutów"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Typy list atrybutów"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Typ właściwości atrybutu"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Typy właściwości atrybutów"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Typ atrybutu"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Typy atrybutów"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Pozycja atrybutu (opcjonalnie)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Właściwości atrybutów, które nie są współdzielone z innymi atrybutami"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Typ atrybutu, który ogranicza listę dostępnych atrybutów"
 
 msgid "Attributes"
-msgstr ""
+msgstr "Atrybuty"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Dostępna waluta dla bieżącej strony"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Dostępne interwały we front-endzie"
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "Dostępny język dla bieżącej witryny"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Średnia ocena produktu i całkowita liczba ocen tego produktu przez klientów"
 
 msgid "Back in stock"
 msgstr "Wróć do magazynu"
@@ -251,51 +252,51 @@ msgid "Birthday"
 msgstr "Data urodzenia"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Urodziny klienta"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Błąd czy sugestia?"
 
 msgid "Cancel"
 msgstr "Rezygnuj"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Anuluj i wróć do listy"
 
 msgid "Catalog"
 msgstr "Katalog"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Typ listy katalogów"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Typy list katalogowych"
 
 msgid "Categories"
-msgstr ""
+msgstr "Kategorie"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Kategorie, w jakich produkt może zostać znaleziony przez użytkownika na stronie internetowej"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "Kategorie, dla których produkt będzie wyświetlany w sekcji promocyjnej"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "Opcje konfiguracji specyficzne dla kategorii będą dostępne jako pary klucz/wartość w szablonach"
 
 msgid "Channel"
-msgstr ""
+msgstr "Kanał"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Wybierz plik"
 
 msgid "City"
 msgstr "Miejscowość"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Miasto lub miejscowość (wymagane)"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -312,35 +313,35 @@ msgid "Code"
 msgstr "Kod"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Kod do jednoznacznej identyfikacji witryny, zmiana nazwy jest niebezpieczna!"
 
 msgid "Columns"
-msgstr ""
+msgstr "Kolumny"
 
 msgid "Comment"
 msgstr "Komentarz"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Comment of the reviewer"
 
 msgid "Communication"
-msgstr ""
+msgstr "Komunikacja"
 
 msgid "Company"
 msgstr "Firma"
 
 msgid "Company details"
-msgstr ""
+msgstr "Szczegóły firmy"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Nazwa firmy (opcjonalnie)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Zrealizowane zamówienia"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Zrealizowane zamówienia w ciągu ostatnich siedmiu dni w porównaniu do okresu poprzedniego"
 
 msgid "Config"
 msgstr "Konfiguracja"
@@ -350,7 +351,7 @@ msgstr "Konfigurowalny"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "Zrealizowane zamówienia w ciągu ostatnich siedmiu dni w porównaniu do okresu przed"
 
 msgid "Copy"
 msgstr "Kopia"
@@ -371,21 +372,21 @@ msgid "Country ID"
 msgstr "ID Kraju"
 
 msgid "Country code (required)"
-msgstr ""
+msgstr "Kod kraju (wymagane)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr ""
+msgstr "Stawka podatku właściwa dla kraju, aby obliczyć i wyświetlić wliczony podatek (B2C) lub dodać podatek, jeśli jest to wymagane (B2B)"
 
 msgid "Country state code (optional)"
-msgstr ""
+msgstr "Kod kraju (opcjonalnie)"
 
 msgid "Coupon"
 msgstr "Kupon"
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr ""
+msgstr "Nazwa konfiguracji dostawcy kuponu lub dekoratora kuponu"
 
 msgid "Created"
 msgstr "Utworzono"
@@ -397,7 +398,7 @@ msgid "Currency"
 msgstr "Waluta"
 
 msgid "Custom"
-msgstr ""
+msgstr "Zwyczaj"
 
 msgid "Custom domain or unique code of your shop"
 msgstr ""
@@ -1954,7 +1955,7 @@ msgstr "Adres płatnika"
 
 #, php-format
 msgid "attribute"
-msgstr ""
+msgstr "Atrybuty"
 
 #, php-format
 msgid "bundle"
@@ -1962,11 +1963,11 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Kategorie"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "Kategorie"
 
 #, php-format
 msgid "characteristic"
@@ -2304,7 +2305,7 @@ msgstr "Typ"
 
 #, php-format
 msgid "type/attribute"
-msgstr ""
+msgstr "Atrybuty"
 
 #, php-format
 msgid "type/attribute/lists"
