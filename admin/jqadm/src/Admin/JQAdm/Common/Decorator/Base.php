@@ -48,7 +48,7 @@ abstract class Base
 	 */
 	public function __call( string $name, array $param )
 	{
-		return @call_user_func_array( array( $this->client, $name ), $param );
+		return @call_user_func_array( [$this->client, $name], $param );
 	}
 
 
@@ -71,6 +71,18 @@ abstract class Base
 	public function create() : ?string
 	{
 		return $this->client->create();
+	}
+
+
+	/**
+	 * Adds the required data
+	 *
+	 * @param \Aimeos\MW\View\Iface $view View object
+	 * @return \Aimeos\MW\View\Iface View object with assigned parameters
+	 */
+	public function addData( \Aimeos\MW\View\Iface $view ) : \Aimeos\MW\View\Iface
+	{
+		return $this->client->addData( $view );
 	}
 
 
