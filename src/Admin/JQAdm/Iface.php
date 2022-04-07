@@ -41,6 +41,14 @@ interface Iface
 	public function delete() : ?string;
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
+	 */
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface;
+
+	/**
 	 * Exports a resource
 	 *
 	 * @return string Output to display or null for none
