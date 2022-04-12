@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-05 09:19+0200\n"
+"POT-Creation-Date: 2022-04-12 13:34+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: nzed <nemesreviz@gmail.com>, 2020-2022\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
@@ -945,6 +945,9 @@ msgstr "Új"
 msgid "New customers"
 msgstr "Új vevő"
 
+msgid "New customers within the last seven days"
+msgstr ""
+
 msgid "New customers within the last seven days compared to the period before"
 msgstr "Új ügyfelek az elmúlt hét napban az előző időszakhoz képest"
 
@@ -994,6 +997,9 @@ msgstr "Nem lehet minden elemet törölni"
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Nem engedélyezett a \"%1$s\" azonosítójú JQAdm ügyfél elérése"
+
+msgid "Not implemented"
+msgstr "Nincs implementálva"
 
 msgid "Notes"
 msgstr "Jegyzetek"
@@ -2234,6 +2240,10 @@ msgstr "Fizetési típusok szerint"
 #, php-format
 msgid "settings"
 msgstr "Beállítások"
+
+#, php-format
+msgid "setup"
+msgstr ""
 
 #, php-format
 msgid "special"

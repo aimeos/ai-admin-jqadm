@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-30 16:31+0100\n"
+"POT-Creation-Date: 2022-04-12 13:34+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -901,6 +901,9 @@ msgstr ""
 msgid "New customers"
 msgstr "Customers"
 
+msgid "New customers within the last seven days"
+msgstr ""
+
 msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
@@ -949,6 +952,9 @@ msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
+msgstr ""
+
+msgid "Not implemented"
 msgstr ""
 
 msgid "Notes"
@@ -1432,7 +1438,7 @@ msgid "Service rebate"
 msgstr ""
 
 msgid "Settings"
-msgstr "Settings"
+msgstr ""
 
 msgid "Ship date"
 msgstr ""
@@ -2156,6 +2162,10 @@ msgstr "Orders by payment"
 #, php-format
 msgid "settings"
 msgstr "Settings"
+
+#, php-format
+msgid "setup"
+msgstr "Setup"
 
 #, php-format
 msgid "special"
