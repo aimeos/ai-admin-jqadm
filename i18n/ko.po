@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-05 09:19+0200\n"
+"POT-Creation-Date: 2022-04-12 13:34+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: SangSun Go <ssgo@strastar.com>, 2022\n"
 "Language-Team: Korean (http://www.transifex.com/aimeos/aimeos-core/language/ko/)\n"
@@ -941,6 +941,9 @@ msgstr "신규"
 msgid "New customers"
 msgstr "신규 고객"
 
+msgid "New customers within the last seven days"
+msgstr ""
+
 msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
@@ -989,6 +992,9 @@ msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
+msgstr ""
+
+msgid "Not implemented"
 msgstr ""
 
 msgid "Notes"
@@ -2230,6 +2236,10 @@ msgstr ""
 #, php-format
 msgid "settings"
 msgstr "설정"
+
+#, php-format
+msgid "setup"
+msgstr ""
 
 #, php-format
 msgid "special"

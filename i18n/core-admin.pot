@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-05 09:19+0200\n"
+"POT-Creation-Date: 2022-04-12 13:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -901,6 +901,9 @@ msgstr ""
 msgid "New customers"
 msgstr ""
 
+msgid "New customers within the last seven days"
+msgstr ""
+
 msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
@@ -949,6 +952,9 @@ msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
+msgstr ""
+
+msgid "Not implemented"
 msgstr ""
 
 msgid "Notes"
@@ -2155,6 +2161,10 @@ msgstr "By payment types"
 #, php-format
 msgid "settings"
 msgstr "Settings"
+
+#, php-format
+msgid "setup"
+msgstr ""
 
 #, php-format
 msgid "special"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-05 09:19+0200\n"
+"POT-Creation-Date: 2022-04-12 13:34+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Gonzalo Rocha <gonzalo@positivonetworks.com>, 2021\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
@@ -949,6 +949,9 @@ msgstr "Nuevo"
 msgid "New customers"
 msgstr ""
 
+msgid "New customers within the last seven days"
+msgstr ""
+
 msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
@@ -998,6 +1001,9 @@ msgstr ""
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "No se permite acceder al cliente JQAdm \"%1$s\""
+
+msgid "Not implemented"
+msgstr "No implementado"
 
 msgid "Notes"
 msgstr ""
@@ -2237,6 +2243,10 @@ msgstr "Por tipos de pago"
 
 #, php-format
 msgid "settings"
+msgstr ""
+
+#, php-format
+msgid "setup"
 msgstr ""
 
 #, php-format
