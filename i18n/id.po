@@ -5,6 +5,7 @@
 # Translators:
 # Ranu Yulianto <vanarif@gmail.com>, 2018
 # Wira Sandy, 2021
+# Wira Sandy, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"

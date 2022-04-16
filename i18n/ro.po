@@ -5,6 +5,7 @@
 # Translators:
 # iulian iulian <iulian.abc@gmail.com>, 2020
 # Yolo San, 2021
+# Yolo San, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"

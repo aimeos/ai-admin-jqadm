@@ -11,7 +11,9 @@
 # Maikel Slot <maikelslot@msdesigns.nl>, 2017
 # Maurice Lourens <mlourens@gmail.com>, 2015,2017,2019
 # Niek Eichner, 2021
+# Niek Eichner, 2021
 # Sten Pelzer <pelzersten@gmail.com>, 2015
+# Victor Oomens, 2022
 # Victor Oomens, 2022
 msgid ""
 msgstr ""

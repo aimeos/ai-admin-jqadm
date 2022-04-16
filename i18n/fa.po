@@ -8,6 +8,7 @@
 # mostafa arjmand <mitarjmand@gmail.com>, 2017
 # Nima Alipour <ni.alpr@gmail.com>, 2015
 # محمد مسعودزاده, 2021
+# محمد مسعودزاده, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
