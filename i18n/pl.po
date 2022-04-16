@@ -8,6 +8,7 @@
 # jerzys <jerzy.skalski@gmail.com>, 2014
 # Łukasz Sobiecki <lukasz@sobiecki.pl>, 2021
 # Rafał Morawiec, 2022
+# Rafał Morawiec, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
