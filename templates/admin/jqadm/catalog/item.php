@@ -83,7 +83,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 			<?php if( isset( $this->itemData ) ) : ?>
 				<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'itemactions' ), ['params' => $params] ) ?>
 			<?php else : ?>
-				<span class="placeholder">&nbsp;</span>
+				<span class="placeholder"></span>
 			<?php endif ?>
 		</div>
 	</nav>
