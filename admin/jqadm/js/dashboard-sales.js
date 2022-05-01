@@ -218,7 +218,7 @@
 		const self = this;
 		const ctx = this.context('.order-salesmonth');
 		const keys = "order.base.currencyid,order.cmonth";
-		const startdate = moment().utc().startOf('day').subtract(12, 'months');
+		const startdate = moment().utc().startOf('month').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
