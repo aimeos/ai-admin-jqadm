@@ -219,7 +219,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.countryid' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
 										v-model="entry['supplier.address.countryid']" />
-										<option value="" disabled>
+										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
 
