@@ -350,7 +350,7 @@ $params = $this->get( 'pageParams', [] );
 											<select class="form-select item-countryid" required="required" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>"
 												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
-												<option value="" disabled>
+												<option value="">
 													<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 												</option>
 
