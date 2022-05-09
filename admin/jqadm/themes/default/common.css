@@ -35,14 +35,14 @@ body .table {
 
 body.dark {
 	--bs-bg: #404474;
-	--bs-bg-dark: #202844;
+	--bs-bg-dark: #30345C;
 	--bs-bg-light: #182038;
 	--bs-line: #7075A0;
 	--bs-line-light: #8085B0;
 	--bs-menu: #D0D8F0;
 	--bs-menu-bg: #404474;
 	--bs-menu-alt: #D0D8F0;
-	--bs-menu-alt-bg: #202844;
+	--bs-menu-alt-bg: #30345C;
 	--bs-primary: #404474;
 	--bs-primary-light: #58608B;
 	--bs-primary-dark: #202844;
