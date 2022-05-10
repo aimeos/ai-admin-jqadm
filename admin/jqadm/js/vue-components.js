@@ -287,7 +287,9 @@ Vue.component('html-editor', {
 
 			const event = this.debounce(ev => {
 				this.content = editor.getData();
-				if(this.content.match(/<p>/g).length === 1 && this.content.startsWith('<p>') && this.content.endsWith('</p>')) {
+				const matches = this.content.match(/<p>/g);
+
+				if(matches && matches.length === 1 && this.content.startsWith('<p>') && this.content.endsWith('</p>')) {
 					this.content = this.content.replace(/^<p>/, '').replace(/<\/p>$/, '');
 				}
 				this.$emit('input', this.content, ev, editor);
