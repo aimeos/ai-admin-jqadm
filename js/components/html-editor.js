@@ -47,7 +47,7 @@ Vue.component('html-editor', {
 
 			const event = this.debounce(ev => {
 				this.content = editor.getData();
-        const tagMatches = this.content.match(/<p>/g);
+        			const tagMatches = this.content.match(/<p>/g);
 				if(tagMatches && tagMatches.length === 1 && this.content.startsWith('<p>') && this.content.endsWith('</p>')) {
 					this.content = this.content.replace(/^<p>/, '').replace(/<\/p>$/, '');
 				}
