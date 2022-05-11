@@ -5,9 +5,6 @@
 
 
 Vue.component('dashboard-order-quick-counttotal', {
-	props: {
-		limit: {type: Number, default: 10000},
-	},
 
 	data() {
 		return {
@@ -53,7 +50,7 @@ Vue.component('dashboard-order-quick-counttotal', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.cdate", self.limit).then(function(response) {
+			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.cdate").then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
@@ -80,9 +77,6 @@ Vue.component('dashboard-order-quick-counttotal', {
 
 
 Vue.component('dashboard-order-quick-countcompleted', {
-	props: {
-		limit: {type: Number, default: 10000},
-	},
 
 	data() {
 		return {
@@ -129,7 +123,7 @@ Vue.component('dashboard-order-quick-countcompleted', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.cdate", self.limit).then(function(response) {
+			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.cdate").then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
@@ -156,9 +150,6 @@ Vue.component('dashboard-order-quick-countcompleted', {
 
 
 Vue.component('dashboard-order-quick-countunfinished', {
-	props: {
-		limit: {type: Number, default: 10000},
-	},
 
 	data() {
 		return {
@@ -205,7 +196,7 @@ Vue.component('dashboard-order-quick-countunfinished', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.cdate", self.limit).then(function(response) {
+			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.cdate").then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
@@ -232,9 +223,6 @@ Vue.component('dashboard-order-quick-countunfinished', {
 
 
 Vue.component('dashboard-order-quick-countcustomer', {
-	props: {
-		limit: {type: Number, default: 10000},
-	},
 
 	data() {
 		return {
@@ -275,7 +263,7 @@ Vue.component('dashboard-order-quick-countcustomer', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("customer", "customer.status", self.criteria(), "-customer.ctime", self.limit).then(function(response) {
+			Aimeos.Dashboard.getData("customer", "customer.status", self.criteria(), "-customer.ctime").then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';

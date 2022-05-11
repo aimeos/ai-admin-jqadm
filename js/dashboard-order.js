@@ -17,7 +17,6 @@
 	},
 	paystatusColor: ['#d3d3d3', '#e15759', '#f28e2b', '#edc948', '#5bb3e6', '#30a0e0', '#00ccbb', '#00b0a0'],
 	dayCellSize: 15,
-	limit: 10000,
 	topLimit: 5,
 	rtl: false,
 
@@ -122,7 +121,7 @@
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate").then(function(response) {
 
 			const data = [], map = {}, date = startdate.clone();
 			let max = 0;
@@ -252,7 +251,7 @@
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate").then(function(response) {
 
 			const dset = [], map = {};
 
@@ -338,7 +337,7 @@
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate").then(function(response) {
 
 			const dsets = [], entries = {};
 
@@ -451,7 +450,7 @@
 			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate").then(function(response) {
 
 			let max = 1;
 			const map = {};

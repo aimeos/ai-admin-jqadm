@@ -30,8 +30,6 @@
 		},
 	},
 
-	limit: 10000,
-
 
 	addLegend: function(chart, selector) {
 		const legend = chart.generateLegend();
@@ -147,7 +145,7 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", this.limit).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
 
 			let num = 0;
 			const data = [], labels = [];
@@ -203,7 +201,7 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", this.limit).then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
 
 			let num = 0;
 			const data = [], labels = [];

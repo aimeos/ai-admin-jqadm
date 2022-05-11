@@ -50,8 +50,6 @@
 		}
 	},
 
-	limit: 10000,
-
 
 	addLegend: function(chart, selector) {
 		const legend = chart.generateLegend();
@@ -166,7 +164,7 @@
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", null, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [], date = startdate.clone();
@@ -229,7 +227,7 @@
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", this.limit, "order.base.product.total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", null, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [], date = startdate.clone();
@@ -295,7 +293,7 @@
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", this.limit, "order.base.product.total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", null, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
