@@ -31,9 +31,8 @@ class Standard
 	{
 		$context = $this->context();
 		$site = $context->locale()->getSiteItem();
-		$theme = $site->getTheme() ?: 'default';
+		$site->setConfigValue( 'theme', $this->view()->param( 'theme', [] ) );
 
-		$site->setConfigValue( 'theme/' . $theme, $this->view()->param( 'theme', [] ) );
 		return null;
 	}
 
@@ -47,10 +46,9 @@ class Standard
 	{
 		$context = $this->context();
 		$site = $context->locale()->getSiteItem();
-		$theme = $site->getTheme() ?: 'default';
 
-		$themeData = $context->config()->get( 'client/html/theme-presets/' . $theme, [] );
-		$themeData = array_replace_recursive( $themeData, $site->getConfigValue( 'theme/' . $theme, [] ) );
+		$themeData = $context->config()->get( 'client/html/theme-presets', [] );
+		$themeData = array_replace_recursive( $themeData, $site->getConfigValue( 'theme', [] ) );
 
 		$view = $this->object()->data( $this->view() );
 		$view->themeData = $themeData;
