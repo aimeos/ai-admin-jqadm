@@ -22,9 +22,9 @@ $enc = $this->encoder();
 				<?php foreach( $this->get( 'themeData', [] ) as $key => $value ) : ?>
 					
 					<div class="form-group row mandatory">
-						<label class="col-sm-4 form-control-label"><?= $enc->html( $key ) ?></label>
-						<div class="col-sm-8">
-							<input class="form-control" type="<?= strncmp( $value, '#', 1 ) ? 'color' : 'text' ?>"
+						<label class="col-sm-8 form-control-label"><?= $enc->html( $key ) ?></label>
+						<div class="col-sm-4">
+							<input class="form-control" type="<?= !strncmp( $value, '#', 1 ) ? 'color' : 'text' ?>"
 								required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								name="<?= $enc->attr( $this->formparam( ['theme', $key] ) ) ?>"
 								value="<?= $enc->attr( $value ) ?>"
@@ -33,6 +33,10 @@ $enc = $this->encoder();
 					</div>
 
 				<?php endforeach ?>
+
+				<?php if( empty( $this->get( 'themeData', [] ) ) ) : ?>
+					<?= $enc->html( $this->translate( 'admin', 'No theme options available' ) ) ?>
+				<?php endif ?>
 
 			</div>
 			<div class="col-lg-6"></div>

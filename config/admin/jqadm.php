@@ -210,6 +210,11 @@ return [
 			],
 		],
 	],
+	'settings' => [
+		'subparts' => [
+			'theme' => 'theme',
+		],
+	],
 	'supplier' => [
 		'domains' => [
 			'media' => 'media',
