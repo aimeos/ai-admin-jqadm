@@ -219,7 +219,7 @@ td.is-invalid .form-select {
 }
 
 .form-control.is-valid, .was-validated .form-control:valid {
-	padding-right: initial;
+	padding-right: inherit;
 	background-image: none;
 }
 
