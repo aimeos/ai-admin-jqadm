@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-12 13:34+0200\n"
+"POT-Creation-Date: 2022-05-21 09:57+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Hans He, 2022\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -974,6 +974,9 @@ msgstr "找不到項目"
 
 msgid "No product found"
 msgstr "找不到產品"
+
+msgid "No theme options available"
+msgstr ""
 
 #, php-format
 msgid "No view available"
@@ -2309,6 +2312,10 @@ msgstr "標籤"
 #, php-format
 msgid "text"
 msgstr "文本"
+
+#, php-format
+msgid "theme"
+msgstr ""
 
 #, php-format
 msgid "type"

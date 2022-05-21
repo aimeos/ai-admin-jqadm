@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-12 13:34+0200\n"
+"POT-Creation-Date: 2022-05-21 09:57+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -929,6 +929,9 @@ msgid "No items found"
 msgstr ""
 
 msgid "No product found"
+msgstr ""
+
+msgid "No theme options available"
 msgstr ""
 
 #, php-format
@@ -2232,6 +2235,10 @@ msgstr "Tags"
 #, php-format
 msgid "text"
 msgstr "Texts"
+
+#, php-format
+msgid "theme"
+msgstr ""
 
 #, php-format
 msgid "type"

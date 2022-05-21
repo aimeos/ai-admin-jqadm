@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-12 13:34+0200\n"
+"POT-Creation-Date: 2022-05-21 09:57+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Stephan Kellermayr <stephan.kellermayr@gmail.com>, 2021\n"
+"Last-Translator: Aimeos, 2015-2022\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -973,6 +973,9 @@ msgstr "Keine Einträge gefunden"
 
 msgid "No product found"
 msgstr "Kein Produkt gefunden"
+
+msgid "No theme options available"
+msgstr "Keine Themen-Konfigurationen verfügbar"
 
 #, php-format
 msgid "No view available"
@@ -2308,6 +2311,10 @@ msgstr "Schlagwörter"
 #, php-format
 msgid "text"
 msgstr "Texte"
+
+#, php-format
+msgid "theme"
+msgstr "Themen"
 
 #, php-format
 msgid "type"

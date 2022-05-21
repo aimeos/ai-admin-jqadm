@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-12 13:34+0200\n"
+"POT-Creation-Date: 2022-05-21 09:57+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Oleksandr Kropyvko <akropivko@gmail.com>, 2021\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
@@ -970,6 +970,9 @@ msgstr "Елементи не знайдені"
 
 msgid "No product found"
 msgstr "Товари не знайдені"
+
+msgid "No theme options available"
+msgstr ""
 
 #, php-format
 msgid "No view available"
@@ -2305,6 +2308,10 @@ msgstr "тег"
 #, php-format
 msgid "text"
 msgstr "Текст"
+
+#, php-format
+msgid "theme"
+msgstr ""
 
 #, php-format
 msgid "type"

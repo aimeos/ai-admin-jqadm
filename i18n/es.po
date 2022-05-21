@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-12 13:34+0200\n"
+"POT-Creation-Date: 2022-05-21 09:57+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Rodolfo Ruival <ruileo1977@yahoo.com>, 2020\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
@@ -978,6 +978,9 @@ msgid "No items found"
 msgstr "No se encontraron artículos"
 
 msgid "No product found"
+msgstr ""
+
+msgid "No theme options available"
 msgstr ""
 
 #, php-format
@@ -2314,6 +2317,10 @@ msgstr "Etiquetas"
 #, php-format
 msgid "text"
 msgstr "Textos"
+
+#, php-format
+msgid "theme"
+msgstr ""
 
 #, php-format
 msgid "type"
