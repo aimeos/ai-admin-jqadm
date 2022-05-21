@@ -21,7 +21,7 @@ $enc = $this->encoder();
 
 			<div class="col-lg-6">
 				<div class="box">
-					<h2 class="item-header"><?= $enc->html( $name ) ?></h2>
+					<h2 class="item-header"><?= $enc->html( $this->config( 'client/html/themes/' . $name, $name ) ) ?></h2>
 
 					<?php foreach( $values as $key => $value ) : ?>
 
