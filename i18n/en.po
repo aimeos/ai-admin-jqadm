@@ -2238,7 +2238,7 @@ msgstr "Texts"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "Theme"
 
 #, php-format
 msgid "type"
