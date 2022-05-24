@@ -233,14 +233,14 @@ return [
 		 */
 		'key' => 'R',
 	],
-	'configuration' => [
-		/** admin/jqadm/resource/configuration/groups
-		 * List of user groups that are allowed to access the configuration menu
+	'setup' => [
+		/** admin/jqadm/resource/setup/groups
+		 * List of user groups that are allowed to access the setup menu
 		 *
 		 * @param array List of user group names
 		 * @since 2021.04
 		 */
-		'groups' => ['admin', 'editor', 'super'],
+		'groups' => ['admin', 'super'],
 	],
 	'settings' => [
 		/** admin/jqadm/resource/settings/groups
