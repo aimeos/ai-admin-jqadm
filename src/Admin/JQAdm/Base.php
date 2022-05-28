@@ -664,33 +664,13 @@ abstract class Base
 		switch( $action )
 		{
 			case 'search':
-				$target = $view->config( 'admin/jqadm/url/search/target' );
-				$cntl = $view->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-				$action = $view->config( 'admin/jqadm/url/search/action', 'search' );
-				$conf = $view->config( 'admin/jqadm/url/search/config', [] );
-				$url = $view->url( $target, $cntl, $action, $params, [], $conf );
-				break;
+				$url = $view->link( 'admin/jqadm/url/search', $params ); break;
 			case 'create':
-				$params['parentid'] = $id;
-				$target = $view->config( 'admin/jqadm/url/create/target' );
-				$cntl = $view->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
-				$action = $view->config( 'admin/jqadm/url/create/action', 'create' );
-				$conf = $view->config( 'admin/jqadm/url/create/config', [] );
-				$url = $view->url( $target, $cntl, $action, $params, [], $conf );
-				break;
+				$url = $view->link( 'admin/jqadm/url/create', ['parentid' => $id] + $params ); break;
 			case 'copy':
-				$target = $view->config( 'admin/jqadm/url/copy/target' );
-				$cntl = $view->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
-				$action = $view->config( 'admin/jqadm/url/copy/action', 'copy' );
-				$conf = $view->config( 'admin/jqadm/url/copy/config', [] );
-				$url = $view->url( $target, $cntl, $action, ['id' => $id] + $params, [], $conf );
-				break;
+				$url = $view->link( 'admin/jqadm/url/copy', ['id' => $id] + $params ); break;
 			default:
-				$target = $view->config( 'admin/jqadm/url/get/target' );
-				$cntl = $view->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-				$action = $view->config( 'admin/jqadm/url/get/action', 'get' );
-				$conf = $view->config( 'admin/jqadm/url/get/config', [] );
-				$url = $view->url( $target, $cntl, $action, ['id' => $id] + $params, [], $conf );
+				$url = $view->link( 'admin/jqadm/url/get', ['id' => $id] + $params );
 		}
 
 		switch( $method )
