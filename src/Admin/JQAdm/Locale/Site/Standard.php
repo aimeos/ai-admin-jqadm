@@ -202,7 +202,7 @@ class Standard
 			$manager->save( clone $view->item );
 			$manager->commit();
 
-			return $this->redirect( 'locale/site', $view->param( 'next' ), $view->item->getId(), 'save' );
+			return $this->redirect( 'locale/site', $view->param( 'next' ), $view->item->getId(), 'save', ['site' => $item->getCode()] );
 		}
 		catch( \Exception $e )
 		{

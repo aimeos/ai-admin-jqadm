@@ -647,13 +647,14 @@ abstract class Base
 	 * @param string $resource Resource name
 	 * @param string|null $action Next action
 	 * @param string|null $id ID of the next resource item
-	 * @param string|null $act Current action name
+	 * @param string|null $method Current method name
+	 * @param array $params URL parameters to use
 	 * @return string|null Returns value for the actions
 	 */
 	protected function redirect( string $resource, ?string $action, string $id = null,
-		string $method = null ) : ?string
+		string $method = null, array $params = [] ) : ?string
 	{
-		$params = $this->getClientParams();
+		$params += $this->getClientParams();
 		$context = $this->context();
 		$view = $this->view();
 
