@@ -16,6 +16,7 @@ namespace Aimeos\Admin\JQAdm\Common\Factory;
  *
  * @package Admin
  * @subpackage JQAdm
+ * @deprecated 2023.01
  */
 interface Iface
 {
