@@ -66,6 +66,12 @@ class JQAdm
 		$interface = '\\Aimeos\\Admin\JQAdm\\Iface';
 		$classname = '\\Aimeos\\Admin\\JQAdm\\' . implode( '\\', $parts ) . '\\' . $name;
 
+		if( ctype_alnum( $name ) === false )
+		{
+			$msg = $context->translate( 'admin', 'Invalid characters in class name "%1$s"' );
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
+		}
+
 		if( class_exists( $classname ) === false )
 		{
 			$msg = $context->translate( 'admin', 'Class "%1$s" not available' );
