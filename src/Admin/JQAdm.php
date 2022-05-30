@@ -35,51 +35,29 @@ class JQAdm
 	public static function create( \Aimeos\MShop\ContextIface $context, \Aimeos\Bootstrap $aimeos, $path, $name = null )
 	{
 		if( empty( $path ) ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( $context->translate( 'admin', 'Admin JQAdm type is empty' ) );
+			throw new \Aimeos\Admin\JQAdm\Exception( 'Component path is empty', 400 );
 		}
 
 		$view = $context->view();
 		$config = $context->config();
-		$parts = explode( '/', $path );
 
-		foreach( $parts as $idx => $part )
-		{
-			if( ctype_alnum( $part ) === false )
-			{
-				$msg = $context->translate( 'admin', 'Invalid characters in client name "%1$s"' );
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $path ) );
-			}
-
-			$parts[$idx] = ucwords( $part );
-		}
-
-		if( $view->access( $config->get( 'admin/jqadm/resource/' . $path . '/groups', [] ) ) !== true )
-		{
-			$msg = $context->translate( 'admin', 'Not allowed to access JQAdm "%1$s" client' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $path ) );
+		if( $view->access( $config->get( 'admin/jqadm/resource/' . $path . '/groups', [] ) ) !== true ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Not allowed to access JQAdm "%1$s" client', $path ), 403 );
 		}
 
 		if( empty( $name ) ) {
-			$name = $context->config()->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
+			$name = $config->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
 		}
 
 		$interface = '\\Aimeos\\Admin\JQAdm\\Iface';
-		$classname = '\\Aimeos\\Admin\\JQAdm\\' . implode( '\\', $parts ) . '\\' . $name;
+		$classname = '\\Aimeos\\Admin\\JQAdm\\' . str_replace( '/', '\\', ucwords( $path, '/' ) ) . '\\' . $name;
 
-		if( ctype_alnum( $name ) === false )
-		{
-			$msg = $context->translate( 'admin', 'Invalid characters in class name "%1$s"' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
+		if( class_exists( $classname ) === false ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ), 404 );
 		}
 
-		if( class_exists( $classname ) === false )
-		{
-			$msg = $context->translate( 'admin', 'Class "%1$s" not available' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
-		}
-
-		$client = self::createAdmin( $context, $classname, $interface );
-		$client = self::addClientDecorators( $context, $client, $path );
+		$client = self::createComponent( $context, $classname, $interface );
+		$client = self::addComponentDecorators( $context, $client, $path );
 
 		return $client->setAimeos( $aimeos )->setView( $view )->setObject( $client );
 	}
@@ -93,51 +71,9 @@ class JQAdm
 	 * @param string $classname Full name of the class for which the object should be returned
 	 * @param \Aimeos\Admin\JQAdm\Iface|null $client ExtJS client object
 	 */
-	public static function injectClient( string $classname, \Aimeos\Admin\JQAdm\Iface $client = null )
+	public static function inject( string $classname, \Aimeos\Admin\JQAdm\Iface $client = null )
 	{
-		self::$objects[$classname] = $client;
-	}
-
-
-	/**
-	 * Adds the decorators to the client object.
-	 *
-	 * @param \Aimeos\MShop\ContextIface $context Context instance with necessary objects
-	 * @param \Aimeos\Admin\JQAdm\Iface $client Admin object
-	 * @param array $decorators List of decorator name that should be wrapped around the client
-	 * @param string $classprefix Decorator class prefix, e.g. "\Aimeos\Admin\JQAdm\Catalog\Decorator\"
-	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
-	 */
-	protected static function addDecorators( \Aimeos\MShop\ContextIface $context,
-		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
-	{
-		foreach( $decorators as $name )
-		{
-			$classname = $classprefix . $name;
-
-			if( ctype_alnum( $name ) === false )
-			{
-				$msg = $context->translate( 'admin', 'Invalid class name "%1$s"' );
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
-			}
-
-			if( class_exists( $classname ) === false )
-			{
-				$msg = $context->translate( 'admin', 'Class "%1$s" not found' );
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
-			}
-
-			$client = new $classname( $client, $context );
-			$interface = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface';
-
-			if( !( $client instanceof $interface ) )
-			{
-				$msg = $context->translate( 'admin', 'Class "%1$s" does not implement "%2$s"' );
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname, $interface ) );
-			}
-		}
-
-		return $client;
+		self::$objects['\\' . ltrim( $classname, '\\' )] = $client;
 	}
 
 
@@ -149,15 +85,9 @@ class JQAdm
 	 * @param string $path Path of the client in lower case, e.g. "catalog/detail"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 */
-	protected static function addClientDecorators( \Aimeos\MShop\ContextIface $context,
+	protected static function addComponentDecorators( \Aimeos\MShop\ContextIface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
-		if( empty( $path ) )
-		{
-			$msg = $context->translate( 'admin', 'Invalid domain "%1$s"' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $path ) );
-		}
-
 		$localClass = str_replace( '/', '\\', ucwords( $path, '/' ) );
 		$config = $context->config();
 
@@ -209,6 +139,44 @@ class JQAdm
 
 
 	/**
+	 * Adds the decorators to the client object.
+	 *
+	 * @param \Aimeos\MShop\ContextIface $context Context instance with necessary objects
+	 * @param \Aimeos\Admin\JQAdm\Iface $client Admin object
+	 * @param array $decorators List of decorator name that should be wrapped around the client
+	 * @param string $classprefix Decorator class prefix, e.g. "\Aimeos\Admin\JQAdm\Catalog\Decorator\"
+	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
+	 */
+	protected static function addDecorators( \Aimeos\MShop\ContextIface $context,
+		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
+	{
+		foreach( $decorators as $name )
+		{
+			$classname = $classprefix . $name;
+
+			if( ctype_alnum( $name ) === false ) {
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid class name "%1$s"', $classname ), 400 );
+			}
+
+			if( class_exists( $classname ) === false ) {
+				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ), 404 );
+			}
+
+			$client = new $classname( $client, $context );
+			$interface = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface';
+
+			if( !( $client instanceof $interface ) )
+			{
+				$msg = sprintf( 'Class "%1$s" does not implement "%2$s"', $classname, $interface );
+				throw new \Aimeos\Admin\JQAdm\Exception( $msg, 400 );
+			}
+		}
+
+		return $client;
+	}
+
+
+	/**
 	 * Creates a client object.
 	 *
 	 * @param \Aimeos\MShop\ContextIface $context Context instance with necessary objects
@@ -217,25 +185,23 @@ class JQAdm
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 * @throws \Aimeos\Admin\JQAdm\Exception If client couldn't be found or doesn't implement the interface
 	 */
-	protected static function createAdmin( \Aimeos\MShop\ContextIface $context,
+	protected static function createComponent( \Aimeos\MShop\ContextIface $context,
 		string $classname, string $interface ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		if( isset( self::$objects[$classname] ) ) {
 			return self::$objects[$classname];
 		}
 
-		if( class_exists( $classname ) === false )
-		{
-			$msg = $context->translate( 'admin', 'Class "%1$s" not available' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
+		if( class_exists( $classname ) === false ) {
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ), 404 );
 		}
 
 		$client = new $classname( $context );
 
 		if( !( $client instanceof $interface ) )
 		{
-			$msg = $context->translate( 'admin', 'Class "%1$s" does not implement "%2$s"' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname, $interface ) );
+			$msg = 'Class "%1$s" does not implement "%2$s"';
+			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname, $interface ), 400 );
 		}
 
 		return $client;
