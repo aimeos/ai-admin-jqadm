@@ -32,7 +32,8 @@ class JQAdm
 	 * @return \Aimeos\Admin\JQAdm\Iface admin client implementing \Aimeos\Admin\JQAdm\Iface
 	 * @throws \Aimeos\Admin\JQAdm\Exception If requested client implementation couldn't be found or initialisation fails
 	 */
-	public static function create( \Aimeos\MShop\ContextIface $context, \Aimeos\Bootstrap $aimeos, $path, $name = null )
+	public static function create( \Aimeos\MShop\ContextIface $context, \Aimeos\Bootstrap $aimeos,
+		string $path, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		if( empty( $path ) ) {
 			throw new \Aimeos\Admin\JQAdm\Exception( 'Component path is empty', 400 );
