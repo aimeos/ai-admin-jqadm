@@ -57,8 +57,7 @@ class JQAdm
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ), 404 );
 		}
 
-		$client = self::createComponent( $context, $classname, $interface );
-		$client = self::addComponentDecorators( $context, $client, $path );
+		$client = self::createComponent( $context, $classname, $interface, $path );
 
 		return $client->setAimeos( $aimeos )->setView( $view )->setObject( $client );
 	}
@@ -183,11 +182,12 @@ class JQAdm
 	 * @param \Aimeos\MShop\ContextIface $context Context instance with necessary objects
 	 * @param string $classname Name of the client class
 	 * @param string $interface Name of the client interface
+	 * @param string $path Type of the client, e.g 'product' for \Aimeos\Admin\JQAdm\Product\Standard
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
 	 * @throws \Aimeos\Admin\JQAdm\Exception If client couldn't be found or doesn't implement the interface
 	 */
 	protected static function createComponent( \Aimeos\MShop\ContextIface $context,
-		string $classname, string $interface ) : \Aimeos\Admin\JQAdm\Iface
+		string $classname, string $interface, string $path ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		if( isset( self::$objects[$classname] ) ) {
 			return self::$objects[$classname];
@@ -205,6 +205,6 @@ class JQAdm
 			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname, $interface ), 400 );
 		}
 
-		return $client;
+		return self::addComponentDecorators( $context, $client, $path );
 	}
 }
