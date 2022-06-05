@@ -102,7 +102,7 @@ class TestHelper
 		$ctx->setLocale( $locale );
 
 
-		return $ctx->setEditor( 'ai-admin-jqadm:admin/jqadm' );
+		return $ctx->setEditor( 'ai-admin-jqadm' );
 	}
 
 
