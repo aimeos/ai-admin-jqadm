@@ -125,6 +125,17 @@ abstract class Base
 
 
 	/**
+	 * Batch update of a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function batch() : ?string
+	{
+		return $this->redirect( 'attribute', 'search', null, 'save' );
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null Output to display
