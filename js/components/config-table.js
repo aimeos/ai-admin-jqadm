@@ -4,7 +4,7 @@
  */
 
 
-Vue.component('config-table', {
+ Vue.component('config-table', {
 	template: '<table class="item-config table"> \
 		<thead> \
 			<tr> \
@@ -17,7 +17,7 @@ Vue.component('config-table', {
 				<th class="config-row-value">{{ i18n.value || \'Value\' }}</th> \
 				<th class="actions"> \
 					<div v-if="!readonly" class="btn act-add fa" v-bind:tabindex="tabindex" v-on:click="add()" \
-						title="i18n.insert || \'Insert new entry (Ctrl+I)\'"></div> \
+						v-bind:title="i18n.insert || \'Insert new entry (Ctrl+I)\'"></div> \
 				</th> \
 			</tr> \
 		</thead> \
@@ -36,7 +36,7 @@ Vue.component('config-table', {
 				</td> \
 				<td class="actions"> \
 					<div v-if="!readonly" class="btn act-delete fa" v-bind:tabindex="tabindex" v-on:click="remove(pos)" \
-						title="i18n.delete || \'Delete this entry\'"></div> \
+						v-bind:title="i18n.delete || \'Delete this entry\'"></div> \
 				</td> \
 			</tr> \
 		</tbody> \
