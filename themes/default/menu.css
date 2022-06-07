@@ -29,16 +29,16 @@
 }
 
 .app-menu .menu:before {
-	font: normal normal normal 14px/1 FontAwesome;
+	font: 1rem bootstrap-icons;
 	vertical-align: top;
-	content: "\f0c9";
+	content: "\F479";
 	font-size: 100%;
 }
 
 .app-menu.open .menu:before {
-	font: normal normal normal 14px/1 FontAwesome;
+	font: 1rem bootstrap-icons;
 	vertical-align: top;
-	content: "\f00d";
+	content: "\F659";
 	font-size: 100%;
 }
 
@@ -130,7 +130,7 @@
 
 .aimeos .main-sidebar .icon {
 	display: inline-block;
-	font: normal normal normal 14px/1 FontAwesome;
+	font: 1rem bootstrap-icons;
 	font-size: 100%;
 }
 
@@ -343,8 +343,8 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-header .close:before {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: "\f00d";
+	font: 1rem bootstrap-icons;
+	content: "\F659";
 }
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .filter {
@@ -415,22 +415,22 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-open,
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-close,
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-loading {
-	font: normal normal normal 14px/1 FontAwesome;
+	font: 1rem bootstrap-icons;
 	padding: 0.5rem;
 	font-size: 80%;
 	width: 2rem;
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-open:before {
-	content: "\f078";
+	content: "\F282";
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-close:before {
-	content: "\f077";
+	content: "\F286";
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .icon-loading:before {
-	content: "\f110";
+	content: "\F130";
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0,
@@ -443,20 +443,20 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0:before,
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1:before,
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2:before {
-	font: normal normal normal 14px/1 FontAwesome;
+	font: 1rem bootstrap-icons;
 	margin-right: 0.5rem;
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0:before {
-	content: "\f05e";
+	content: "\F2E6";
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1:before {
-	content: "\f06e";
+	content: "\F33E";
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2:before {
-	content: "\f187";
+	content: "\F10C";
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .name {
@@ -491,123 +491,119 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 /* Fontawesome Icons */
 
 .aimeos .main-sidebar .menuitem-site i.icon:before {
-	content: "\f233"
+	content: "\F40E"
 }
 
 .aimeos .main-sidebar .menuitem-dashboard i.icon:before {
-	content: "\f0e4"
+	content: "\F57F"
 }
 
 .aimeos .main-sidebar .menuitem-sales i.icon:before {
-	content: "\f0d6"
+	content: "\F246"
 }
 
 .aimeos .main-sidebar .menuitem-order i.icon:before {
-	content: "\f07a"
+	content: "\F245"
 }
 
 .aimeos .main-sidebar .menuitem-subscription i.icon:before {
-	content: "\f073"
+	content: "\F214"
 }
 
 .aimeos .main-sidebar .menuitem-users i.icon:before {
-	content: "\f0c0"
+	content: "\F4DA"
 }
 
 .aimeos .main-sidebar .menuitem-customer i.icon:before {
-	content: "\f007"
+	content: "\F4E1"
 }
 
 .aimeos .main-sidebar .menuitem-group i.icon:before {
-	content: "\f0c0"
+	content: "\F4CF"
 }
 
 .aimeos .main-sidebar .menuitem-goods i.icon:before {
-	content: "\f1b3"
+	content: "\F685"
 }
 
 .aimeos .main-sidebar .menuitem-product i.icon:before {
-	content: "\f1b2"
+	content: "\F1C8"
 }
 
 .aimeos .main-sidebar .menuitem-catalog i.icon:before {
-	content: "\f0e8"
+	content: "\F2ED"
 }
 
 .aimeos .main-sidebar .menuitem-attribute i.icon:before {
-	content: "\f02c"
+	content: "\F5B1"
 }
 
 .aimeos .main-sidebar .menuitem-supplier i.icon:before {
-	content: "\f275"
+	content: "\F1DD"
 }
 
 .aimeos .main-sidebar .menuitem-marketing i.icon:before {
-	content: "\f0a1"
+	content: "\F483"
 }
 
 .aimeos .main-sidebar .menuitem-coupon i.icon:before {
-	content: "\f295"
+	content: "\F4D1"
 }
 
 .aimeos .main-sidebar .menuitem-review i.icon:before {
-	content: "\f086"
+	content: "\F266"
 }
 
 .aimeos .main-sidebar .menuitem-rule i.icon:before {
-	content: "\f1ec"
+	content: "\F1DF"
 }
 
 .aimeos .main-sidebar .menuitem-settings i.icon:before {
-	content: "\f013"
+	content: "\F3E2"
 }
 
 .aimeos .main-sidebar .menuitem-setup i.icon:before {
-	content: "\f085"
-}
-
-.aimeos .main-sidebar .menuitem-configuration i.icon:before {
-	content: "\f085"
+	content: "\F56B"
 }
 
 .aimeos .main-sidebar .menuitem-service i.icon:before {
-	content: "\f09d"
+	content: "\F2DC"
 }
 
 .aimeos .main-sidebar .menuitem-service i.icon:after {
-	content: "\f0d1"
+	content: "\F5EA"
 }
 
 .aimeos .main-sidebar .menuitem-plugin i.icon:before {
-	content: "\f1e6"
+	content: "\F77D"
 }
 
 .aimeos .main-sidebar .menuitem-type i.icon:before {
-	content: "\f02b"
+	content: "\F5AF"
 }
 
 .aimeos .main-sidebar .menuitem-locale i.icon:before {
-	content: "\f0ac"
+	content: "\F3EE"
 }
 
 .aimeos .main-sidebar .menuitem-locale-site i.icon:before {
-	content: "\f233"
+	content: "\F40E"
 }
 
 .aimeos .main-sidebar .menuitem-locale-language i.icon:before {
-	content: "\f1ab"
+	content: "\F658"
 }
 
 .aimeos .main-sidebar .menuitem-locale-currency i.icon:before {
-	content: "\f155"
+	content: "\F636"
 }
 
 .aimeos .main-sidebar .menuitem-log i.icon:before {
-	content: "\f187"
+	content: "\F10C"
 }
 
 .aimeos .main-sidebar .menuitem-language i.icon:before {
-	content: "\f1ab"
+	content: "\F658"
 }
 
 

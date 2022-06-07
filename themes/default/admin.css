@@ -93,11 +93,11 @@
 }
 
 .aimeos .tree-toolbar .btn.expand-all:before {
-	content: "\f065";
+	content: "\F14A";
 }
 
 .aimeos .tree-toolbar .btn.collapse-all:before {
-	content: "\f066";
+	content: "\F149";
 }
 
 .aimeos .tree-toolbar .search-input {
@@ -106,11 +106,11 @@
 }
 
 .aimeos .tree-toolbar .btn.act-add:before {
-	content: "\f067";
+	content: "\F64D";
 }
 
 .aimeos .tree-toolbar .btn.act-delete:before {
-	content: "\f068";
+	content: "\F63B";
 }
 
 
@@ -225,29 +225,29 @@
 }
 
 .aimeos .list-items .sort-asc:after {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: " \f176";
+	font: 1rem bootstrap-icons;
+	content: " \F57A";
 }
 
 .aimeos .list-items .sort-desc:after {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: " \f175";
+	font: 1rem bootstrap-icons;
+	content: " \F574";
 }
 
 .aimeos .list-items .status-1:before {
-	content: "\f00c";
+	content: "\F26E";
 }
 
 .aimeos .list-items .status-0:before {
-	content: "\f00d";
+	content: "\F659";
 }
 
 .aimeos .list-items .status--1:before {
-	content: "\f06e";
+	content: "\F33E";
 }
 
 .aimeos .list-items .status--2:before {
-	content: "\f187";
+	content: "\F10C";
 }
 
 .aimeos .list-items .config-item {
@@ -266,8 +266,8 @@
 }
 
 .aimeos .list-items a.items-field.act-view:before {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: "\f06e";
+	font: 1rem bootstrap-icons;
+	content: "\F33E";
 }
 
 .aimeos table .list-item-new .actions .btn.act-close {
@@ -574,7 +574,7 @@
 }
 
 .aimeos .item-order .item-product-list .column-subscription .btn-subscription:before {
-	content: "\f073";
+	content: "\F214";
 }
 
 .aimeos .item-order .item-product-list .column-sum,
@@ -642,8 +642,8 @@
 }
 
 .aimeos .item-order .item-address .address-edit:before {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: "\f040";
+	font: 1rem bootstrap-icons;
+	content: "\F4C9";
 	cursor: pointer;
 }
 

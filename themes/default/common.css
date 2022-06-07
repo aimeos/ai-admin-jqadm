@@ -4,6 +4,13 @@
  */
 
 
+/* Icons */
+
+@font-face {
+	font-family: 'bootstrap-icons';
+	src: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/fonts/bootstrap-icons.woff2') format('woff2');
+}
+
 /* Theme colors */
 
 body {
@@ -198,7 +205,7 @@ body {
 
 .aimeos .more,
 .aimeos .less {
-	font: normal normal normal 14px/1 FontAwesome;
+	font: 1rem bootstrap-icons;
 	font-weight: normal;
 	font-size: 125%;
 	cursor: pointer;
@@ -210,11 +217,11 @@ body {
 }
 
 .aimeos .more:before {
-	content: "\f141";
+	content: "\F5D4";
 }
 
 .aimeos .less:before {
-	content: "\f106";
+	content: "\F281";
 }
 
 .aimeos .box {
@@ -298,78 +305,78 @@ body {
 }
 
 .aimeos .btn.act-reset.fa:before {
-	content: "\f00d";
+	content: "\F659";
 }
 
 .aimeos .btn.act-search.fa:before {
-	content: "\f002";
+	content: "\F52A";
 }
 
 .aimeos .advanced .btn.act-show.fa:before,
 .aimeos .header .btn.act-show.fa:before {
-	content: "\f077";
+	content: "\F286";
 }
 
 .aimeos .main-navbar .btn.act-show.fa:before,
 .aimeos .advanced.collapsed .btn.act-show.fa:before,
 .aimeos .header .btn.act-show.fa.collapsed:before {
-	content: "\f078";
+	content: "\F282";
 }
 
 .aimeos .btn.act-add.fa:before {
-	content: "\f067";
+	content: "\F64D";
 }
 
 .aimeos .btn.act-close.fa:before {
-	content: "\f00d";
+	content: "\F659";
 }
 
 .aimeos .btn.act-columns.fa:before {
-	content: "\f0db";
+	content: "\F465";
 }
 
 .aimeos .btn.act-copy.fa:before {
-	content: "\f0c5";
+	content: "\F447";
 }
 
 .aimeos .btn.act-delete.fa:before {
-	content: "\f00d";
+	content: "\F659";
 }
 
 .aimeos .btn.act-download.fa:before {
-	content: "\f019";
+	content: "\F30A";
 }
 
 .aimeos .btn.act-edit.fa:before {
-	content: "\f040";
+	content: "\F4C9";
 }
 
 .aimeos .btn.act-import.fa:before {
-	content: "\f093";
+	content: "\F603";
 }
 
 .aimeos .btn.act-list.fa:before {
-	content: "\f0ca";
+	content: "\F478";
 }
 
 .aimeos .btn.act-menu.fa:before {
-	content: "\f067";
+	content: "\F64D";
 }
 
 .aimeos .btn.act-move.fa:before {
-	content: "\f047";
+	content: "\F14E";
 }
 
 .aimeos .btn.act-save.fa:before {
-	content: "\f0c7";
+	content: "\F524";
 }
 
 .aimeos .btn.act-show.fa:before {
-	content: "\f078";
+	content: "\F282";
 }
 
 .aimeos .btn.act-translate.fa:before {
-	content: "\f1ab";
+	content: "\F658";
 }
 
 .aimeos .item-refid.btn.act-view.fa {
@@ -379,8 +386,8 @@ body {
 
 .aimeos .link.act-view.fa:before,
 .aimeos .btn.act-view.fa:before {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: "\f06e";
+	font: 1rem bootstrap-icons;
+	content: "\F33E";
 }
 
 .aimeos .card-tools-start,
