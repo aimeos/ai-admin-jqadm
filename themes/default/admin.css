@@ -189,6 +189,7 @@
 .aimeos .list-items .btn.fa {
 	margin: 0 0.25rem;
 	padding: 0.5rem;
+	width: 2rem;
 }
 
 .aimeos .list-items th {
@@ -242,11 +243,13 @@
 
 .aimeos .list-items .sort-asc:after {
 	font: 1rem bootstrap-icons;
+	vertical-align: middle;
 	content: " \F57A";
 }
 
 .aimeos .list-items .sort-desc:after {
 	font: 1rem bootstrap-icons;
+	vertical-align: middle;
 	content: " \F574";
 }
 
@@ -255,7 +258,7 @@
 }
 
 .aimeos .list-items .status-0:before {
-	content: "\F659";
+	content: "\F62A";
 }
 
 .aimeos .list-items .status--1:before {
@@ -283,6 +286,7 @@
 
 .aimeos .list-items a.items-field.act-view:before {
 	font: 1rem bootstrap-icons;
+	vertical-align: middle;
 	content: "\F33E";
 }
 
@@ -659,6 +663,7 @@
 
 .aimeos .item-order .item-address .address-edit:before {
 	font: 1rem bootstrap-icons;
+	vertical-align: middle;
 	content: "\F4C9";
 	cursor: pointer;
 }

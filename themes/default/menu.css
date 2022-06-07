@@ -30,14 +30,12 @@
 
 .app-menu .menu:before {
 	font: 1rem bootstrap-icons;
-	vertical-align: top;
 	content: "\F479";
 	font-size: 100%;
 }
 
 .app-menu.open .menu:before {
 	font: 1rem bootstrap-icons;
-	vertical-align: top;
 	content: "\F659";
 	font-size: 100%;
 }
@@ -129,9 +127,9 @@
 }
 
 .aimeos .main-sidebar .icon {
-	display: inline-block;
 	font: 1rem bootstrap-icons;
 	vertical-align: middle;
+	display: inline-block;
 	font-size: 100%;
 }
 
@@ -345,6 +343,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 
 .aimeos .sidebar-menu li .tree-menu-wrapper .menu-header .close:before {
 	font: 1rem bootstrap-icons;
+	vertical-align: middle;
 	content: "\F659";
 }
 

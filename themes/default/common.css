@@ -14,6 +14,7 @@
 .fa {
 	font: 1rem bootstrap-icons;
 	vertical-align: middle;
+	margin: auto;
 	width: 1rem;
 }
 
@@ -217,11 +218,11 @@ body {
 	font-weight: normal;
 	font-size: 125%;
 	cursor: pointer;
-	color: var(--bs-secondary-light, #9098a0);
 	display: block;
+	padding: 1rem 0;
 	text-align: center;
 	border: transparent;
-	padding: 1rem 0;
+	color: var(--bs-secondary-light, #9098a0);
 }
 
 .aimeos .more:before {
@@ -310,6 +311,7 @@ body {
 
 .aimeos .btn.fa {
 	font-size: 90%;
+	width: 2.5rem;
 }
 
 .aimeos .btn.act-reset.fa:before {
@@ -344,7 +346,7 @@ body {
 }
 
 .aimeos .btn.act-copy.fa:before {
-	content: "\F447";
+	content: "\F3C2";
 }
 
 .aimeos .btn.act-delete.fa:before {
@@ -395,6 +397,7 @@ body {
 .aimeos .link.act-view.fa:before,
 .aimeos .btn.act-view.fa:before {
 	font: 1rem bootstrap-icons;
+	vertical-align: middle;
 	content: "\F33E";
 }
 

@@ -42,6 +42,11 @@
 	height: 35px;
 }
 
+.aimeos .main-navbar .act-search {
+	margin: 0;
+}
+
+
 @media (min-width: 992px) {
 	.aimeos .main-navbar {
 		position: sticky;
