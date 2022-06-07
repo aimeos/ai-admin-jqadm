@@ -129,7 +129,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 
 
 ?>
-<div class="aimeos" lang="<?= $this->param( 'locale' ) ?>" data-url="<?= $enc->attr( $this->link( 'admin/jsonadm/url', array( 'site' => $site ) ) ) ?>">
+<div class="aimeos" lang="<?= $this->param( 'locale' ) ?>" data-url="<?= $enc->attr( $this->link( 'admin/jsonadm/url/options', array( 'site' => $site ) ) ) ?>">
 
 	<nav class="main-sidebar">
 		<div class="sidebar-wrapper">

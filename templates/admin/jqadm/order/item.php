@@ -94,7 +94,7 @@ $paymentStatusList = [
 			<div class="item-actions">
 				<a class="btn btn-secondary act-cancel"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list' ) ) ?>"
-					href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search' ) ) ?>">
+					href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>">
 					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ) ?>
 				</a>
 

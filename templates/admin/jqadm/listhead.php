@@ -50,14 +50,14 @@ $group = $this->get( 'group' );
 if( $this->get( 'action' ) === 'get' )
 {
 	if( isset( $params['id'] ) ) {
-		$key = 'admin/jqadm/url/get';
+		$cfgkey = 'admin/jqadm/url/get';
 	} else {
-		$key = 'admin/jqadm/url/create';
+		$cfgkey = 'admin/jqadm/url/create';
 	}
 }
 else
 {
-	$key = 'admin/jqadm/url/search';
+	$cfgkey = 'admin/jqadm/url/search';
 }
 
 
@@ -67,7 +67,7 @@ else
 		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ) ?>">
 			<?php if( $name !== null ) : ?>
 				<a class="<?= $sortclass( $sortcode, $key ) ?>" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-					href="<?= $enc->attr( $this->link( $key, $nest( $group, ['sort' => $sort( $sortcode, $key )] ) + $params, [], $fragment ) ) ?>">
+					href="<?= $enc->attr( $this->link( $cfgkey, $nest( $group, ['sort' => $sort( $sortcode, $key )] ) + $params, [], $fragment ) ) ?>">
 					<?= $enc->html( $name ) ?>
 				</a>
 			<?php endif ?>
