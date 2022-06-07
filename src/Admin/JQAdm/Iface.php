@@ -20,16 +20,23 @@ namespace Aimeos\Admin\JQAdm;
 interface Iface
 {
 	/**
+	 * Batch update of a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function batch() : ?string;
+
+	/**
 	 * Copies a resource
 	 *
-	 * @return string Output to display
+	 * @return string|null Output to display
 	 */
 	public function copy() : ?string;
 
 	/**
 	 * Creates a new resource
 	 *
-	 * @return string Output to display
+	 * @return string|null Output to display
 	 */
 	public function create() : ?string;
 
@@ -51,14 +58,14 @@ interface Iface
 	/**
 	 * Exports a resource
 	 *
-	 * @return string Output to display or null for none
+	 * @return string|null Output to display or null for none
 	 */
 	public function export() : ?string;
 
 	/**
 	 * Returns a single resource
 	 *
-	 * @return string Output to display
+	 * @return string|null Output to display
 	 */
 	public function get() : ?string;
 
@@ -79,7 +86,7 @@ interface Iface
 	/**
 	 * Returns a list of resource according to the conditions
 	 *
-	 * @return string Output to display
+	 * @return string|null Output to display
 	 */
 	public function search() : ?string;
 
