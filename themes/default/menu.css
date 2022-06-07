@@ -131,6 +131,7 @@
 .aimeos .main-sidebar .icon {
 	display: inline-block;
 	font: 1rem bootstrap-icons;
+	vertical-align: middle;
 	font-size: 100%;
 }
 

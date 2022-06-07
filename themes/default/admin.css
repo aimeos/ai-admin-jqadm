@@ -30,6 +30,22 @@
 	margin: .5rem;
 }
 
+.aimeos .list-page .pagination .fa.first::before {
+	content: "\F551"
+}
+
+.aimeos .list-page .pagination .fa.prev::before {
+	content: "\F22D"
+}
+
+.aimeos .list-page .pagination .fa.next::before {
+	content: "\F231"
+}
+
+.aimeos .list-page .pagination .fa.last::before {
+	content: "\F55D"
+}
+
 .aimeos .list-page {
 	display: block;
 	margin-bottom: 0.5rem;

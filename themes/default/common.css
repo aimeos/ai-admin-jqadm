@@ -11,6 +11,13 @@
 	src: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/fonts/bootstrap-icons.woff2') format('woff2');
 }
 
+.fa {
+	font: 1rem bootstrap-icons;
+	vertical-align: middle;
+	width: 1rem;
+}
+
+
 /* Theme colors */
 
 body {
@@ -108,6 +115,7 @@ body {
 	background: radial-gradient(farthest-side ellipse at max(85%, calc(100% - 12rem)) 0, var(--bs-bg, #F8FAFC), var(--bs-bg-dark, #F4F8FB));
 }
 
+.aimeos .sr-only,
 .aimeos .hidden {
 	display: none;
 }
@@ -221,7 +229,7 @@ body {
 }
 
 .aimeos .less:before {
-	content: "\F281";
+	content: "\F27C";
 }
 
 .aimeos .box {
