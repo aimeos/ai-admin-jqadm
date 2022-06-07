@@ -10,7 +10,8 @@ $selected = function( $key, $code ) {
 };
 
 
-$enc = $this->encoder();$params = $this->get( 'pageParams', [] );
+$enc = $this->encoder();
+$params = $this->get( 'pageParams', [] );
 
 
 ?>
