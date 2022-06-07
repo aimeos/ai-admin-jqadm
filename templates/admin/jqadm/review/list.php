@@ -8,22 +8,6 @@
 $enc = $this->encoder();
 
 
-$target = $this->config( 'admin/jqadm/url/search/target' );
-$controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$config = $this->config( 'admin/jqadm/url/search/config', [] );
-
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
-$delTarget = $this->config( 'admin/jqadm/url/delete/target' );
-$delCntl = $this->config( 'admin/jqadm/url/delete/controller', 'Jqadm' );
-$delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
-$delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
-
-
 /** admin/jqadm/review/domains
  * List of domain names reviews can be assigend to
  *
@@ -123,8 +107,8 @@ $columnList = [
 	?>
 
 	<form ref="form" class="list list-review" method="POST"
-		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>"
-		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ) ?>">
+		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>"
+		data-deleteurl="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
 
 		<?= $this->csrf()->formfield() ?>
 
@@ -189,7 +173,7 @@ $columnList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
+						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getName() ) ?>">
 							<td class="select">
 								<input class="form-check-input" type="checkbox" tabindex="1"

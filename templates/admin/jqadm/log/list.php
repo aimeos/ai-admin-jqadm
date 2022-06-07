@@ -8,12 +8,6 @@
 $enc = $this->encoder();
 
 
-$target = $this->config( 'admin/jqadm/url/search/target' );
-$controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$config = $this->config( 'admin/jqadm/url/search/config', [] );
-
-
 /** admin/jqadm/log/fields
  * List of log columns that should be displayed in the list view
  *
@@ -67,7 +61,7 @@ $columnList = [
 		);
 	?>
 
-	<form class="list list-log" method="POST" action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>">
+	<form class="list list-log" method="POST" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>">
 		<?= $this->csrf()->formfield() ?>
 
 		<column-select tabindex="<?= $this->get( 'tabindex', 1 ) ?>"

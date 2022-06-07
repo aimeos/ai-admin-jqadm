@@ -15,13 +15,6 @@ $selected = function( $key, $code ) {
 };
 
 $enc = $this->encoder();
-
-
-$target = $this->config( 'admin/jqadm/url/save/target' );
-$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
-$config = $this->config( 'admin/jqadm/url/save/config', [] );
-
 $attributes = $this->get( 'itemAttributes', [] );
 $params = $this->get( 'pageParams', [] );
 
@@ -29,7 +22,7 @@ $params = $this->get( 'pageParams', [] );
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
-<form class="item item-coupon form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>">
+<form class="item item-coupon form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/coupon.id' ) ) ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
 	<?= $this->csrf()->formfield() ?>

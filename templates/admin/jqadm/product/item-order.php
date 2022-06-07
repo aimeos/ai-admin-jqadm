@@ -8,11 +8,6 @@
 
 $enc = $this->encoder();
 
-$target = $this->config( 'admin/jqadm/url/get/target' );
-$cntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$config = $this->config( 'admin/jqadm/url/get/config', [] );
-
 
 /** admin/jqadm/product/order/fields
  * List of list and order columns that should be displayed in the product order view
@@ -559,137 +554,137 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 
 					<tr v-for="(item, idx) in items" class="list-item">
 						<td v-if="fields.includes('order.base.id')" class="order-base-id">
-							<a class="items-field" v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field" v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.id'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.sitecode')" class="order-base-sitecode">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.sitecode'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.languageid')" class="order-base-languageid">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.languageid'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.currencyid')" class="order-base-currencyid">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.currencyid'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.price')" class="order-base-price">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.price'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.costs')" class="order-base-costs">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.costs'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.rebate')" class="order-base-rebate">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.rebate'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.tax')" class="order-base-tax">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.tax'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.customerref')" class="order-base-customerref">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.customerref'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.comment')" class="order-base-comment">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'order', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.id)">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.id)">
 								{{ item.attributes['order.base.comment'] }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.company')" class="order-base-address-company">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.company') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.vatid')" class="order-base-address-vatid">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.vatid') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.salutation')" class="order-base-address-salutation">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.salutation') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.title')" class="order-base-address-title">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.title') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.firstname')" class="order-base-address-firstname">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.firstname') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.lastname')" class="order-base-address-lastname">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.lastname') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.address1')" class="order-base-address-address1">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.address1') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.address2')" class="order-base-address-address2">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.address2') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.address3')" class="order-base-address-address3">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.address3') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.postal')" class="order-base-address-postal">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.postal') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.city')" class="order-base-address-city">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.city') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.state')" class="order-base-address-state">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.state') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.countryid')" class="order-base-address-countryid">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.countryid') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.telephone')" class="order-base-address-telephone">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.telephone') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.telefax')" class="order-base-address-telefax">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.telefax') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.email')" class="order-base-address-email">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.email') }}
 							</a>
 						</td>
 						<td v-if="fields.includes('order.base.address.website')" class="order-base-address-website">
-							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['resource' => 'customer', 'id' => '_id_'], [], $config ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
+							<a class="items-field"  v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => '_id_'] ) ) ?>`.replace('_id_', item.attributes['order.base.customerid'])">
 								{{ related(item, 'order/base/address', 'order.base.address.website') }}
 							</a>
 						</td>

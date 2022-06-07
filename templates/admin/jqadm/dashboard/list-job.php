@@ -9,16 +9,6 @@ $enc = $this->encoder();
 $params = $this->param();
 $items = $this->get( 'jobItems', map() );
 
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
-$delTarget = $this->config( 'admin/jqadm/url/delete/target' );
-$delCntl = $this->config( 'admin/jqadm/url/delete/controller', 'Jqadm' );
-$delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
-$delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
-
 
 ?>
 <?php if( !$items->isEmpty() ) : ?>
@@ -44,7 +34,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 									<td class="job-mtime"><?= $enc->html( $item->getTimeModified() ) ?></td>
 									<td class="actions">
 										<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
-											<form method="POST" action="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $delConfig ) ) ?>">
+											<form method="POST" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', ['resource' => 'dashboard', 'id' => $id] + $params ) ) ?>">
 												<?= $this->csrf()->formfield() ?>
 												<button class="btn act-delete fa" tabindex="1"
 													title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
@@ -53,7 +43,7 @@ $delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 											</form>
 										<?php endif ?>
 										<a class="btn act-download fa" tabindex="1"
-											href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'dashboard', 'id' => $id] + $params, [], $getConfig ) ) ?>"
+											href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'dashboard', 'id' => $id] + $params ) ) ?>"
 											title="<?= $enc->attr( $this->translate( 'admin', 'Download this file' ) ) ?>"
 											aria-label="<?= $enc->attr( $this->translate( 'admin', 'Download' ) ) ?>"></a>
 									</td>

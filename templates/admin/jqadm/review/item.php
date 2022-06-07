@@ -9,19 +9,7 @@ $selected = function( $key, $code ) {
 	return ( $key == $code ? 'selected="selected"' : '' );
 };
 
-
-$target = $this->config( 'admin/jqadm/url/save/target' );
-$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
-$config = $this->config( 'admin/jqadm/url/save/config', [] );
-
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
 $params = $this->get( 'pageParams', [] );
-
 $enc = $this->encoder();
 
 
@@ -29,7 +17,7 @@ $enc = $this->encoder();
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-review form-horizontal container-fluid" method="POST" enctype="multipart/form-data"
-	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>">
+	action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'review.id' ) ) ) ?>"
 		value="<?= $enc->attr( $this->get( 'itemData/review.id' ) ) ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
@@ -170,7 +158,7 @@ $enc = $this->encoder();
 									<div class="col-sm-8">
 										<span class="form-control item-refid">
 											<a class="btn fa act-view" target="_blank"
-												href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => $this->item->getDomain(), 'id' => $this->item->getRefId()], [], $getConfig ) ) ?>">
+												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => $this->item->getDomain(), 'id' => $this->item->getRefId()] ) ) ?>">
 												<?= $enc->html( $this->item->getDomain() ) ?>: <?= $enc->html( $this->item->getRefId() ) ?>
 											</a>
 										</span>

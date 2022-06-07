@@ -12,28 +12,6 @@ $selected = function( $key, $code ) {
 
 $enc = $this->encoder();
 
-
-$target = $this->config( 'admin/jqadm/url/save/target' );
-$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
-$config = $this->config( 'admin/jqadm/url/save/config', [] );
-
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
-$listTarget = $this->config( 'admin/jqadm/url/search/target' );
-$listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
-
-$newTarget = $this->config( 'admin/jqadm/url/create/target' );
-$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
-$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
-$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
-
-
 $searchParams = $params = $this->get( 'pageParams', [] );
 unset( $searchParams['id'] );
 
@@ -101,7 +79,7 @@ $paymentStatusList = [
 <?php if( isset( $this->item ) ) : ?>
 	<?php $basket = $this->item; $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() ) ?>
 
-	<form class="item item-order form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>">
+	<form class="item item-order form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 		<input id="item-baseid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'order.base.id' ) ) ) ?>" value="<?= $enc->attr( $basket->getId() ) ?>" />
 		<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
 		<?= $this->csrf()->formfield() ?>
@@ -116,7 +94,7 @@ $paymentStatusList = [
 			<div class="item-actions">
 				<a class="btn btn-secondary act-cancel"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list' ) ) ?>"
-					href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $searchParams, [], $listConfig ) ) ?>">
+					href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search' ) ) ?>">
 					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ) ?>
 				</a>
 
@@ -222,7 +200,7 @@ $paymentStatusList = [
 										<span class="form-control item-customerid">
 											<?php if( $basket->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
 												<a class="link fa act-view" target="_blank"
-													href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId(), 'locale' => $this->param( 'locale' )], [], $getConfig ) ) ?>">
+													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $basket->getCustomerId(), 'locale' => $this->param( 'locale' )] ) ) ?>">
 													<?= $enc->html( $basket->getCustomerId() ) ?>
 												</a>
 											<?php endif ?>
@@ -284,7 +262,7 @@ $paymentStatusList = [
 																];
 															?>
 															<a class="btn btn-subscription fa"
-																href="<?= $this->url( $newTarget, $newCntl, $newAction, $newParams, [], $newConfig ) ?>"
+																href="<?= $this->link( 'admin/jqadm/url/create', $newParams ) ?>"
 																title="<?= $enc->html( $this->translate( 'admin', 'Renew' ) ) ?>"></a>
 														</div>
 													</div>

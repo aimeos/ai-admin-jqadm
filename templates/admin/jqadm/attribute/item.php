@@ -10,25 +10,13 @@ $selected = function( $key, $code ) {
 };
 
 $enc = $this->encoder();
-
-
-$target = $this->config( 'admin/jqadm/url/save/target' );
-$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
-$config = $this->config( 'admin/jqadm/url/save/config', [] );
-
-$starget = $this->config( 'admin/jqadm/url/search/target' );
-$scntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$saction = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
-
 $params = $this->get( 'pageParams', [] );
 
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
-<form class="item item-attribute form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>">
+<form class="item item-attribute form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/attribute.id' ) ) ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
 	<?= $this->csrf()->formfield() ?>
@@ -155,7 +143,7 @@ $params = $this->get( 'pageParams', [] );
 											<td class="actions">
 												<a class="btn act-add fa" tabindex="1" target="_blank"
 													title="<?= $enc->attr( $this->translate( 'admin', 'Go to the list of attribute types' ) ) ?>"
-													href="<?= $enc->attr( $this->url( $starget, $scntl, $saction, ['resource' => 'type/attribute'] + $params, [], $sconfig ) ) ?>">
+													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['resource' => 'type/attribute'] + $params ) ) ?>">
 												</a>
 											</td>
 										</tr>

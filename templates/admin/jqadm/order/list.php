@@ -8,21 +8,6 @@
 $enc = $this->encoder();
 
 
-$target = $this->config( 'admin/jqadm/url/search/target' );
-$controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$config = $this->config( 'admin/jqadm/url/search/config', [] );
-
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
-$copyTarget = $this->config( 'admin/jqadm/url/copy/target' );
-$copyCntl = $this->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
-$copyAction = $this->config( 'admin/jqadm/url/copy/action', 'copy' );
-$copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
-
 /** admin/jqadm/order/actions
  * Actions available in the list view of the order panel
  *
@@ -56,7 +41,6 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
  * @see admin/jqadm/url/export/action
  * @see admin/jqadm/url/export/config
  */
-$expTarget = $this->config( 'admin/jqadm/url/export/target' );
 
 /** admin/jqadm/url/export/controller
  * Name of the controller whose action should be called
@@ -72,7 +56,6 @@ $expTarget = $this->config( 'admin/jqadm/url/export/target' );
  * @see admin/jqadm/url/export/action
  * @see admin/jqadm/url/export/config
  */
-$expCntl = $this->config( 'admin/jqadm/url/export/controller', 'Jqadm' );
 
 /** admin/jqadm/url/export/action
  * Name of the action that should create the output
@@ -88,7 +71,6 @@ $expCntl = $this->config( 'admin/jqadm/url/export/controller', 'Jqadm' );
  * @see admin/jqadm/url/export/controller
  * @see admin/jqadm/url/export/config
  */
-$expAction = $this->config( 'admin/jqadm/url/export/action', 'export' );
 
 /** admin/jqadm/url/export/config
  * Associative list of configuration options used for generating the URL
@@ -110,7 +92,6 @@ $expAction = $this->config( 'admin/jqadm/url/export/action', 'export' );
  * @see admin/jqadm/url/export/controller
  * @see admin/jqadm/url/export/action
  */
-$expConfig = $this->config( 'admin/jqadm/url/export/config', [] );
 
 
 /** admin/jqadm/order/fields
@@ -266,7 +247,7 @@ $statusList = [
 	?>
 
 	<form ref="form" class="list list-order" method="POST"
-		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>">
+		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>">
 
 		<?= $this->csrf()->formfield() ?>
 
@@ -300,7 +281,7 @@ $statusList = [
 										<?php foreach( $actions as $code ) : ?>
 											<li class="dropdown-item">
 												<a class="btn fa act-download" tabindex="1"
-													href="<?= $enc->attr( $this->url( $expTarget, $expCntl, $expAction, $params + ['queue' => $code], [], $expConfig ) ) ?>"
+													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/export', $params + ['queue' => $code] ) ) ?>"
 													aria-label="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>"
 													title="<?= $enc->attr( $this->translate( 'admin/ext', $code ) ) ?>">
 													<?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?>
@@ -376,7 +357,7 @@ $statusList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $item->getBaseId()] + $params, [], $getConfig ) ) ?>
+						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $item->getBaseId()] + $params ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>">
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
@@ -572,7 +553,7 @@ $statusList = [
 
 							<td class="actions">
 								<a class="btn act-copy fa"
-									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $item->getBaseId()] + $params, [], $copyConfig ) ) ?>"
+									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $item->getBaseId()] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>

@@ -22,7 +22,6 @@ $enc = $this->encoder();
  * @see admin/jqadm/url/search/action
  * @see admin/jqadm/url/search/config
  */
-$target = $this->config( 'admin/jqadm/url/search/target' );
 
 /** admin/jqadm/url/search/controller
  * Name of the controller whose action should be called
@@ -38,7 +37,6 @@ $target = $this->config( 'admin/jqadm/url/search/target' );
  * @see admin/jqadm/url/search/action
  * @see admin/jqadm/url/search/config
  */
-$controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
 
 /** admin/jqadm/url/search/action
  * Name of the action that should create the output
@@ -54,7 +52,6 @@ $controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
  * @see admin/jqadm/url/search/controller
  * @see admin/jqadm/url/search/config
  */
-$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
 
 /** admin/jqadm/url/search/config
  * Associative list of configuration options used for generating the URL
@@ -76,7 +73,6 @@ $action = $this->config( 'admin/jqadm/url/search/action', 'search' );
  * @see admin/jqadm/url/search/controller
  * @see admin/jqadm/url/search/action
  */
-$config = $this->config( 'admin/jqadm/url/search/config', [] );
 
 
 /** admin/jqadm/url/create/target
@@ -93,7 +89,6 @@ $config = $this->config( 'admin/jqadm/url/search/config', [] );
  * @see admin/jqadm/url/create/action
  * @see admin/jqadm/url/create/config
  */
-$newTarget = $this->config( 'admin/jqadm/url/create/target' );
 
 /** admin/jqadm/url/create/controller
  * Name of the controller whose action should be called
@@ -109,7 +104,6 @@ $newTarget = $this->config( 'admin/jqadm/url/create/target' );
  * @see admin/jqadm/url/create/action
  * @see admin/jqadm/url/create/config
  */
-$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
 
 /** admin/jqadm/url/create/action
  * Name of the action that should create the output
@@ -125,7 +119,6 @@ $newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
  * @see admin/jqadm/url/create/controller
  * @see admin/jqadm/url/create/config
  */
-$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
 
 /** admin/jqadm/url/create/config
  * Associative list of configuration options used for generating the URL
@@ -147,7 +140,6 @@ $newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
  * @see admin/jqadm/url/create/controller
  * @see admin/jqadm/url/create/action
  */
-$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
 
 
 /** admin/jqadm/url/get/target
@@ -164,7 +156,6 @@ $newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
  * @see admin/jqadm/url/get/action
  * @see admin/jqadm/url/get/config
  */
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
 
 /** admin/jqadm/url/get/controller
  * Name of the controller whose action should be called
@@ -180,7 +171,6 @@ $getTarget = $this->config( 'admin/jqadm/url/get/target' );
  * @see admin/jqadm/url/get/action
  * @see admin/jqadm/url/get/config
  */
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
 
 /** admin/jqadm/url/get/action
  * Name of the action that should create the output
@@ -196,7 +186,6 @@ $getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
  * @see admin/jqadm/url/get/controller
  * @see admin/jqadm/url/get/config
  */
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
 
 /** admin/jqadm/url/get/config
  * Associative list of configuration options used for generating the URL
@@ -218,7 +207,6 @@ $getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
  * @see admin/jqadm/url/get/controller
  * @see admin/jqadm/url/get/action
  */
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
 
 
 /** admin/jqadm/url/copy/target
@@ -235,7 +223,6 @@ $getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
  * @see admin/jqadm/url/copy/action
  * @see admin/jqadm/url/copy/config
  */
-$copyTarget = $this->config( 'admin/jqadm/url/copy/target' );
 
 /** admin/jqadm/url/copy/controller
  * Name of the controller whose action should be called
@@ -251,7 +238,6 @@ $copyTarget = $this->config( 'admin/jqadm/url/copy/target' );
  * @see admin/jqadm/url/copy/action
  * @see admin/jqadm/url/copy/config
  */
-$copyCntl = $this->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
 
 /** admin/jqadm/url/copy/action
  * Name of the action that should create the output
@@ -267,7 +253,6 @@ $copyCntl = $this->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
  * @see admin/jqadm/url/copy/controller
  * @see admin/jqadm/url/copy/config
  */
-$copyAction = $this->config( 'admin/jqadm/url/copy/action', 'copy' );
 
 /** admin/jqadm/url/copy/config
  * Associative list of configuration options used for generating the URL
@@ -289,7 +274,6 @@ $copyAction = $this->config( 'admin/jqadm/url/copy/action', 'copy' );
  * @see admin/jqadm/url/copy/controller
  * @see admin/jqadm/url/copy/action
  */
-$copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
 
 
 /** admin/jqadm/url/delete/target
@@ -306,7 +290,6 @@ $copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
  * @see admin/jqadm/url/delete/action
  * @see admin/jqadm/url/delete/config
  */
-$delTarget = $this->config( 'admin/jqadm/url/delete/target' );
 
 /** admin/jqadm/url/delete/controller
  * Name of the controller whose action should be called
@@ -322,7 +305,6 @@ $delTarget = $this->config( 'admin/jqadm/url/delete/target' );
  * @see admin/jqadm/url/delete/action
  * @see admin/jqadm/url/delete/config
  */
-$delCntl = $this->config( 'admin/jqadm/url/delete/controller', 'Jqadm' );
 
 /** admin/jqadm/url/delete/action
  * Name of the action that should create the output
@@ -338,7 +320,6 @@ $delCntl = $this->config( 'admin/jqadm/url/delete/controller', 'Jqadm' );
  * @see admin/jqadm/url/delete/controller
  * @see admin/jqadm/url/delete/config
  */
-$delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
 
 /** admin/jqadm/url/delete/config
  * Associative list of configuration options used for generating the URL
@@ -360,7 +341,6 @@ $delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
  * @see admin/jqadm/url/delete/controller
  * @see admin/jqadm/url/delete/action
  */
-$delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
 
 
 /** admin/jqadm/partial/columns
@@ -590,8 +570,8 @@ $columnList = [
 	?>
 
 	<form ref="form" class="list list-product" method="POST"
-		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>"
-		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ) ?>">
+		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>"
+		data-deleteurl="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
 
 		<?= $this->csrf()->formfield() ?>
 
@@ -624,7 +604,7 @@ $columnList = [
 
 						<th class="actions">
 							<a class="btn fa act-add" tabindex="1"
-								href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ) ?>"
+								href="<?= $enc->attr( $this->link( 'admin/jqadm/url/create', $params ) ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
@@ -670,7 +650,7 @@ $columnList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
+						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
 							<td class="select">
 								<input class="form-check-input" type="checkbox" tabindex="1"
@@ -745,7 +725,7 @@ $columnList = [
 
 							<td class="actions">
 								<a class="btn act-copy fa" tabindex="1"
-									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ) ?>"
+									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $id] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>

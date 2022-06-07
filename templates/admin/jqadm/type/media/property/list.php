@@ -8,32 +8,6 @@
 $enc = $this->encoder();
 
 
-$target = $this->config( 'admin/jqadm/url/search/target' );
-$controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$config = $this->config( 'admin/jqadm/url/search/config', [] );
-
-$newTarget = $this->config( 'admin/jqadm/url/create/target' );
-$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
-$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
-$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
-
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
-$copyTarget = $this->config( 'admin/jqadm/url/copy/target' );
-$copyCntl = $this->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
-$copyAction = $this->config( 'admin/jqadm/url/copy/action', 'copy' );
-$copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
-
-$delTarget = $this->config( 'admin/jqadm/url/delete/target' );
-$delCntl = $this->config( 'admin/jqadm/url/delete/controller', 'Jqadm' );
-$delAction = $this->config( 'admin/jqadm/url/delete/action', 'delete' );
-$delConfig = $this->config( 'admin/jqadm/url/delete/config', [] );
-
-
 /** admin/jqadm/type/media/property/fields
  * List of media list type columns that should be displayed in the list view
  *
@@ -119,8 +93,8 @@ $columnList = [
 	?>
 
 	<form ref="form" class="list list-media-property-type" method="POST"
-		action="<?= $enc->attr( $this->url( $target, $controller, $action, $searchParams, [], $config ) ) ?>"
-		data-deleteurl="<?= $enc->attr( $this->url( $delTarget, $delCntl, $delAction, $params, [], $delConfig ) ) ?>">
+		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>"
+		data-deleteurl="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
 
 		<?= $this->csrf()->formfield() ?>
 
@@ -152,7 +126,7 @@ $columnList = [
 
 						<th class="actions">
 							<a class="btn fa act-add" tabindex="1"
-								href="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, $params, [], $newConfig ) ) ?>"
+								href="<?= $enc->attr( $this->link( 'admin/jqadm/url/create', $params ) ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
 							</a>
@@ -199,7 +173,7 @@ $columnList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['id' => $id] + $params, [], $getConfig ) ) ?>
+						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
 							<td class="select">
 								<input class="form-check-input" type="checkbox" tabindex="1"
@@ -239,7 +213,7 @@ $columnList = [
 
 							<td class="actions">
 								<a class="btn act-copy fa" tabindex="1"
-									href="<?= $enc->attr( $this->url( $copyTarget, $copyCntl, $copyAction, ['id' => $id] + $params, [], $copyConfig ) ) ?>"
+									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $id] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 								</a>

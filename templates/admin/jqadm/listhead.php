@@ -49,27 +49,15 @@ $group = $this->get( 'group' );
 
 if( $this->get( 'action' ) === 'get' )
 {
-	if( isset( $params['id'] ) )
-	{
-		$target = $this->config( 'admin/jqadm/url/get/target' );
-		$controller = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-		$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
-		$config = $this->config( 'admin/jqadm/url/get/config', [] );
-	}
-	else
-	{
-		$target = $this->config( 'admin/jqadm/url/create/target' );
-		$controller = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
-		$action = $this->config( 'admin/jqadm/url/create/action', 'create' );
-		$config = $this->config( 'admin/jqadm/url/create/config', [] );
+	if( isset( $params['id'] ) ) {
+		$key = 'admin/jqadm/url/get';
+	} else {
+		$key = 'admin/jqadm/url/create';
 	}
 }
 else
 {
-	$target = $this->config( 'admin/jqadm/url/search/target' );
-	$controller = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-	$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
-	$config = $this->config( 'admin/jqadm/url/search/config', [] );
+	$key = 'admin/jqadm/url/search';
 }
 
 
@@ -79,7 +67,7 @@ else
 		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ) ?>">
 			<?php if( $name !== null ) : ?>
 				<a class="<?= $sortclass( $sortcode, $key ) ?>" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
-					href="<?= $enc->attr( $this->url( $target, $controller, $action, $nest( $group, ['sort' => $sort( $sortcode, $key )] ) + $params, $fragment, $config ) ) ?>">
+					href="<?= $enc->attr( $this->link( $key, $nest( $group, ['sort' => $sort( $sortcode, $key )] ) + $params, [], $fragment ) ) ?>">
 					<?= $enc->html( $name ) ?>
 				</a>
 			<?php endif ?>

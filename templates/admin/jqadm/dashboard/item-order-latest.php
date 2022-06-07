@@ -61,12 +61,6 @@ $status = function( array $list, $key )
 };
 
 
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
-
 $enc = $this->encoder();
 $params = $this->param();
 /// price format with value (%1$s) and currency (%2$s)
@@ -104,7 +98,7 @@ $statuslist = array(
 					<table class="list-items table table-hover">
 						<tbody>
 							<?php foreach( $this->get( 'orderlatestItems', [] ) as $item ) : ?>
-								<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ) ?>
+								<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getBaseId()] + $params ) ) ?>
 								<tr>
 									<td class="order-id">
 										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a>

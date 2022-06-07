@@ -13,13 +13,6 @@ $attr = function( $list, $key, $code ) {
 $selected = function( $key, $code ) {
 	return ( $key == $code ? 'selected="selected"' : '' );
 };
-
-
-$target = $this->config( 'admin/jqadm/url/save/target' );
-$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
-$config = $this->config( 'admin/jqadm/url/save/config', [] );
-
 $attributes = $this->get( 'itemAttributes', [] );
 $params = $this->get( 'pageParams', [] );
 
@@ -30,7 +23,7 @@ $enc = $this->encoder();
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-rule form-horizontal container-fluid" method="POST" enctype="multipart/form-data"
-	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>">
+	action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.id' ) ) ) ?>"
 		value="<?= $enc->attr( $this->get( 'itemData/rule.id' ) ) ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />

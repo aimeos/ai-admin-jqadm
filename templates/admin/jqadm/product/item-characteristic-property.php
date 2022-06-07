@@ -8,11 +8,6 @@
 
 $enc = $this->encoder();
 
-$starget = $this->config( 'admin/jqadm/url/search/target' );
-$scntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$saction = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
-
 
 ?>
 <div class="col-xl-12 vue" data-key="characteristic/property"

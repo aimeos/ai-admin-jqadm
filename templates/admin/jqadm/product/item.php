@@ -26,7 +26,6 @@ $enc = $this->encoder();
  * @see admin/jqadm/url/save/action
  * @see admin/jqadm/url/save/config
  */
-$target = $this->config( 'admin/jqadm/url/save/target' );
 
 /** admin/jqadm/url/save/controller
  * Name of the controller whose action should be called
@@ -42,7 +41,6 @@ $target = $this->config( 'admin/jqadm/url/save/target' );
  * @see admin/jqadm/url/save/action
  * @see admin/jqadm/url/save/config
  */
-$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
 
 /** admin/jqadm/url/save/action
  * Name of the action that should create the output
@@ -58,7 +56,6 @@ $cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
  * @see admin/jqadm/url/save/controller
  * @see admin/jqadm/url/save/config
  */
-$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
 
 /** admin/jqadm/url/save/config
  * Associative list of configuration options used for generating the URL
@@ -80,7 +77,6 @@ $action = $this->config( 'admin/jqadm/url/save/action', 'save' );
  * @see admin/jqadm/url/save/controller
  * @see admin/jqadm/url/save/action
  */
-$config = $this->config( 'admin/jqadm/url/save/config', [] );
 
 
 /** admin/jqadm/product/item/config/suggest
@@ -226,7 +222,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
-<form class="item item-product form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>">
+<form class="item item-product form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/product.id' ) ) ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
 	<?= $this->csrf()->formfield() ?>

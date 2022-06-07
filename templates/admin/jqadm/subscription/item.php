@@ -12,16 +12,6 @@ $selected = function( $key, $code ) {
 
 $enc = $this->encoder();
 
-$target = $this->config( 'admin/jqadm/url/save/target' );
-$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
-$config = $this->config( 'admin/jqadm/url/save/config', [] );
-
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
 $params = $this->get( 'pageParams', [] );
 $basket = $this->itemBase;
 
@@ -33,7 +23,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
-<form class="item item-subscription form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>">
+<form class="item item-subscription form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/subscription.id' ) ) ?>" />
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
 	<?= $this->csrf()->formfield() ?>
@@ -217,7 +207,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 									<span class="form-control item-customerid">
 										<?php if( $basket->getCustomerId() ) : ?>
 											<a class="link fa act-view" target="_blank"
-												href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'customer', 'id' => $basket->getCustomerId()], [], $getConfig ) ) ?>">
+												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $basket->getCustomerId()] ) ) ?>">
 												<?= $enc->attr( $basket->getCustomerId() ) ?>
 											</a>
 										<?php endif ?>
@@ -229,7 +219,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 								<div class="col-8">
 									<span class="form-control item-orderid">
 										<a class="link fa act-view" target="_blank"
-											href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $basket->getId()], [], $getConfig ) ) ?>">
+											href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $basket->getId()] ) ) ?>">
 											<?= $enc->attr( $basket->getId() ) ?>
 										</a>
 									</span>

@@ -7,12 +7,6 @@
 
 $enc = $this->encoder();
 
-$target = $this->request()->getTarget();
-$searchTarget = $this->config( 'admin/jqadm/url/search/target' );
-$cntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$config = $this->config( 'admin/jqadm/url/search/config', [] ) + ['absoluteUri' => true];
-
 
 /** admin/jsonadm/url/options/target
  * Destination of the URL where the controller specified in the URL is known
@@ -28,7 +22,6 @@ $config = $this->config( 'admin/jqadm/url/search/config', [] ) + ['absoluteUri' 
  * @see admin/jsonadm/url/options/action
  * @see admin/jsonadm/url/options/config
  */
-$jsonTarget = $this->config( 'admin/jsonadm/url/options/target' );
 
 /** admin/jsonadm/url/options/controller
  * Name of the controller whose action should be called
@@ -44,7 +37,6 @@ $jsonTarget = $this->config( 'admin/jsonadm/url/options/target' );
  * @see admin/jsonadm/url/options/action
  * @see admin/jsonadm/url/options/config
  */
-$jsonCntl = $this->config( 'admin/jsonadm/url/options/controller', 'Jsonadm' );
 
 /** admin/jsonadm/url/options/action
  * Name of the action that should create the output
@@ -60,7 +52,6 @@ $jsonCntl = $this->config( 'admin/jsonadm/url/options/controller', 'Jsonadm' );
  * @see admin/jsonadm/url/options/controller
  * @see admin/jsonadm/url/options/config
  */
-$jsonAction = $this->config( 'admin/jsonadm/url/options/action', 'options' );
 
 /** admin/jsonadm/url/options/config
  * Associative list of configuration options used for generating the URL
@@ -82,7 +73,6 @@ $jsonAction = $this->config( 'admin/jsonadm/url/options/action', 'options' );
  * @see admin/jsonadm/url/options/controller
  * @see admin/jsonadm/url/options/action
  */
-$jsonConfig = $this->config( 'admin/jsonadm/url/options/config', [] );
 
 
 /** admin/jqadm/navbar
@@ -139,7 +129,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 
 
 ?>
-<div class="aimeos" lang="<?= $this->param( 'locale' ) ?>" data-url="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, array( 'site' => $site ), [], $jsonConfig ) ) ?>">
+<div class="aimeos" lang="<?= $this->param( 'locale' ) ?>" data-url="<?= $enc->attr( $this->link( 'admin/jsonadm/url', array( 'site' => $site ) ) ) ?>">
 
 	<nav class="main-sidebar">
 		<div class="sidebar-wrapper">
@@ -169,7 +159,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 									current="<?= $enc->attr( $this->pageSiteItem->getId() ) ?>"
 									parent="<?= $enc->attr( $this->pageSitePath->getParentId()->first( '0' ) ) ?>"
 									placeholder="<?= $enc->attr( $this->translate( 'admin', 'Find site' ) ) ?>"
-									url="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'site' => '_code_' ) + $params, [], $config ) ) ?>">
+									url="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['site' => '_code_'] + $params ) ) ?>">
 								</site-tree>
 							</div>
 						</div>
@@ -201,7 +191,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 											<?php $key = $this->config( 'admin/jqadm/resource/' . $subresource . '/key', '' ) ?>
 
 											<li class="menuitem-<?= str_replace( '/', '-', $subresource ) ?> <?= $subresource === $resource ? 'active' : '' ?>">
-												<a class="item-group" href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, ['resource' => $subresource] + $params, [], $config ) ) ?>"
+												<a class="item-group" href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['resource' => $subresource] + $params ) ) ?>"
 													title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $subresource ), $key ) ) ?>"
 													data-ctrlkey="<?= $enc->attr( strtolower( $key ) ) ?>">
 													<i class="icon"></i>
@@ -219,7 +209,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 						<?php $key = $this->config( 'admin/jqadm/resource/' . $navitem . '/key' ) ?>
 
 						<li class="menuitem-<?= $enc->attr( $navitem ) ?> <?= $navitem === $before ? 'before' : '' ?> <?= !strncmp( $resource, $navitem, strlen( $navitem ) ) ? 'active' : '' ?> <?= $navitem === $after ? 'after' : '' ?>">
-							<a class="item-group" href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'resource' => $navitem ) + $params, [], $config ) ) ?>"
+							<a class="item-group" href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['resource' => $navitem] + $params ) ) ?>"
 								title="<?= $enc->attr( sprintf( $this->translate( 'admin', '%1$s (Ctrl+Alt+%2$s)' ), $this->translate( 'admin', $navitem ), $key ) ) ?>"
 								data-ctrlkey="<?= $enc->attr( strtolower( $key ) ) ?>">
 								<i class="icon"></i>
@@ -245,7 +235,7 @@ $after = is_array( $after ) ? $after['_'] ?? reset( $after ) : $after;
 							<ul class="tree-menu">
 								<?php foreach( $this->get( 'pageI18nList', [] ) as $langid ) : ?>
 									<li class="menuitem-language-<?= $enc->attr( $langid ) ?>">
-										<a href="<?= $enc->attr( $this->url( $searchTarget, $cntl, $action, array( 'locale' => $langid ) + $params, [], $config ) ) ?>">
+										<a href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['locale' => $langid] + $params ) ) ?>">
 											<span class="name"><?= $enc->html( $this->translate( 'language', $langid ) ) ?> (<?= $langid ?>)</span>
 										</a>
 									</li>

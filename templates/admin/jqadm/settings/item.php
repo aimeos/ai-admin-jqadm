@@ -10,21 +10,14 @@ $selected = function( $key, $code ) {
 };
 
 
-$enc = $this->encoder();
-
-$target = $this->config( 'admin/jqadm/url/save/target' );
-$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
-$config = $this->config( 'admin/jqadm/url/save/config', [] );
-
-$params = $this->get( 'pageParams', [] );
+$enc = $this->encoder();$params = $this->get( 'pageParams', [] );
 
 
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-settings form-horizontal container-fluid" method="POST" enctype="multipart/form-data"
-	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>"
+	action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>"
 	data-data="<?= $enc->attr( $this->get( 'data', [] ) ) ?>" >
 
 	<?= $this->csrf()->formfield() ?>

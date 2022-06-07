@@ -11,32 +11,6 @@ $selected = function( $key, $code ) {
 
 
 $enc = $this->encoder();
-
-$target = $this->config( 'admin/jqadm/url/save/target' );
-$cntl = $this->config( 'admin/jqadm/url/save/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/save/action', 'save' );
-$config = $this->config( 'admin/jqadm/url/save/config', [] );
-
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
-$listTarget = $this->config( 'admin/jqadm/url/search/target' );
-$listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
-
-$newTarget = $this->config( 'admin/jqadm/url/create/target' );
-$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
-$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
-$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
-
-$jsonTarget = $this->config( 'admin/jsonadm/url/target' );
-$jsonCntl = $this->config( 'admin/jsonadm/url/controller', 'Jsonadm' );
-$jsonAction = $this->config( 'admin/jsonadm/url/action', 'get' );
-$jsonConfig = $this->config( 'admin/jsonadm/url/config', [] );
-
 $params = $this->get( 'pageParams', [] );
 
 
@@ -58,11 +32,11 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-catalog item-tree form-horizontal container-fluid" method="POST" enctype="multipart/form-data"
-	action="<?= $enc->attr( $this->url( $target, $cntl, $action, $params, [], $config ) ) ?>"
+	action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>"
 	data-rootid="<?= $enc->attr( $this->get( 'itemRootId' ) ) ?>"
-	data-geturl="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'catalog', 'id' => '_ID_'] + $params, [], $getConfig ) ) ?>"
-	data-createurl="<?= $enc->attr( $this->url( $newTarget, $newCntl, $newAction, ['resource' => 'catalog', 'id' => '_ID_'] + $params, [], $newConfig ) ) ?>"
-	data-jsonurl="<?= $enc->attr( $this->url( $jsonTarget, $jsonCntl, $jsonAction, ['resource' => 'catalog', 'id' => ''] + $params, [], $jsonConfig ) ) ?>"
+	data-geturl="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'catalog', 'id' => '_ID_'] + $params ) ) ?>"
+	data-createurl="<?= $enc->attr( $this->link( 'admin/jqadm/url/create', ['resource' => 'catalog', 'id' => '_ID_'] + $params ) ) ?>"
+	data-jsonurl="<?= $enc->attr( $this->link( 'admin/jsonadm/url', ['resource' => 'catalog', 'id' => ''] + $params ) ) ?>"
 	data-idname="<?= $this->formparam( 'id' ) ?>" >
 
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.id' ) ) ) ?>"

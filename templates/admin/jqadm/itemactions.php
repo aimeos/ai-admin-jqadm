@@ -13,11 +13,6 @@
  * - actions: List of possible save actions (e.g. "search", "copy", "create")
  */
 
-$listTarget = $this->config( 'admin/jqadm/url/search/target' );
-$listCntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$listAction = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$listConfig = $this->config( 'admin/jqadm/url/search/config', [] );
-
 $actions = $this->get( 'actions', ['search', 'copy', 'create'] );
 $params = $this->get( 'params', [] );
 unset( $params['id'] );
@@ -32,7 +27,7 @@ $enc = $this->encoder();
 
 <a class="btn btn-secondary act-cancel"
 	title="<?= $enc->attr( $this->translate( 'admin', 'Cancel and return to list' ) ) ?>"
-	href="<?= $enc->attr( $this->url( $listTarget, $listCntl, $listAction, $params, [], $listConfig ) ) ?>">
+	href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $params ) ) ?>">
 	<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ) ?>
 </a>
 

@@ -7,16 +7,6 @@
 
 $enc = $this->encoder();
 
-$target = $this->config( 'admin/jqadm/url/get/target' );
-$cntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$action = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$config = $this->config( 'admin/jqadm/url/get/config', [] );
-
-$starget = $this->config( 'admin/jqadm/url/search/target' );
-$scntl = $this->config( 'admin/jqadm/url/search/controller', 'Jqadm' );
-$saction = $this->config( 'admin/jqadm/url/search/action', 'search' );
-$sconfig = $this->config( 'admin/jqadm/url/search/config', [] );
-
 $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'product.label', 'product.code', 'product.status', 'stock.id', 'stock.stocklevel'];
 
 
@@ -42,7 +32,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 						<span class="item-label header-label">{{ getLabel(idx) }}</span>
 						<div class="card-tools-end">
 							<a v-if="item['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ) ?>"
-								v-bind:href="`<?= $enc->js( $this->url( $target, $cntl, $action, ['id' => '_ID_'] + $this->get( 'pageParams', [] ), [], $config ) ) ?>`.replace('_ID_', item['product.id'])"
+								v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['id' => '_ID_'] + $this->get( 'pageParams', [] ) ) ) ?>`.replace('_ID_', item['product.id'])"
 								title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ) ?>"></a>
 
 							<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
@@ -177,7 +167,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										<th class="actions">
 											<a class="btn act-list fa" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Go to attribute panel' ) ) ?>"
-												href="<?= $enc->attr( $this->url( $starget, $scntl, $saction, ['resource' => 'attribute'] + $this->get( 'pageParams', [] ), [], $sconfig ) ) ?>">
+												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', ['resource' => 'attribute'] + $this->get( 'pageParams', [] ) ) ) ?>">
 											</a>
 											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"

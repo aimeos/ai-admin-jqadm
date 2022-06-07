@@ -63,22 +63,6 @@ $baseItems = $this->get( 'orderBaseItems', [] );
 $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
 
 
-$getTarget = $this->config( 'admin/jqadm/url/get/target' );
-$getCntl = $this->config( 'admin/jqadm/url/get/controller', 'Jqadm' );
-$getAction = $this->config( 'admin/jqadm/url/get/action', 'get' );
-$getConfig = $this->config( 'admin/jqadm/url/get/config', [] );
-
-$newTarget = $this->config( 'admin/jqadm/url/create/target' );
-$newCntl = $this->config( 'admin/jqadm/url/create/controller', 'Jqadm' );
-$newAction = $this->config( 'admin/jqadm/url/create/action', 'create' );
-$newConfig = $this->config( 'admin/jqadm/url/create/config', [] );
-
-$copyTarget = $this->config( 'admin/jqadm/url/copy/target' );
-$copyCntl = $this->config( 'admin/jqadm/url/copy/controller', 'Jqadm' );
-$copyAction = $this->config( 'admin/jqadm/url/copy/action', 'copy' );
-$copyConfig = $this->config( 'admin/jqadm/url/copy/config', [] );
-
-
 /** admin/jqadm/customer/order/fields
  * List of order columns that should be displayed in the customer order view
  *
@@ -192,7 +176,7 @@ $deliveryStatusList = [
 					?>
 
 					<?php foreach( $this->get( 'orderItems', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ) ?>
+						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getBaseId()] + $params ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>">
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id">
@@ -260,7 +244,7 @@ $deliveryStatusList = [
 
 							<td class="actions">
 								<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
-									href="<?= $enc->attr( $this->url( $getTarget, $getCntl, $getAction, ['resource' => 'order', 'id' => $item->getBaseId()] + $params, [], $getConfig ) ) ?>"
+									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getBaseId()] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ) ?>"></a>
 							</td>
 						</tr>
