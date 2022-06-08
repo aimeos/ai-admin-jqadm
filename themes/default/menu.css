@@ -491,7 +491,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 /* Fontawesome Icons */
 
 .aimeos .main-sidebar .menuitem-site i.icon:before {
-	content: "\F40E"
+	content: "\F40F"
 }
 
 .aimeos .main-sidebar .menuitem-dashboard i.icon:before {
@@ -511,7 +511,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .main-sidebar .menuitem-users i.icon:before {
-	content: "\F4DA"
+	content: "\F4E1"
 }
 
 .aimeos .main-sidebar .menuitem-customer i.icon:before {
@@ -519,7 +519,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .main-sidebar .menuitem-group i.icon:before {
-	content: "\F4CF"
+	content: "\F4D0"
 }
 
 .aimeos .main-sidebar .menuitem-goods i.icon:before {
@@ -531,11 +531,11 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .main-sidebar .menuitem-catalog i.icon:before {
-	content: "\F2ED"
+	content: "\F2EE"
 }
 
 .aimeos .main-sidebar .menuitem-attribute i.icon:before {
-	content: "\F5B1"
+	content: "\F5B2"
 }
 
 .aimeos .main-sidebar .menuitem-supplier i.icon:before {
@@ -543,7 +543,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .main-sidebar .menuitem-marketing i.icon:before {
-	content: "\F483"
+	content: "\F484"
 }
 
 .aimeos .main-sidebar .menuitem-coupon i.icon:before {
@@ -551,19 +551,19 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .main-sidebar .menuitem-review i.icon:before {
-	content: "\F266"
+	content: "\F267"
 }
 
 .aimeos .main-sidebar .menuitem-rule i.icon:before {
-	content: "\F1DF"
+	content: "\F1E0"
 }
 
 .aimeos .main-sidebar .menuitem-settings i.icon:before {
-	content: "\F3E2"
+	content: "\F56B"
 }
 
 .aimeos .main-sidebar .menuitem-setup i.icon:before {
-	content: "\F56B"
+	content: "\F3E5"
 }
 
 .aimeos .main-sidebar .menuitem-service i.icon:before {
@@ -579,7 +579,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .main-sidebar .menuitem-type i.icon:before {
-	content: "\F5AF"
+	content: "\F5B2"
 }
 
 .aimeos .main-sidebar .menuitem-locale i.icon:before {
@@ -587,7 +587,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .main-sidebar .menuitem-locale-site i.icon:before {
-	content: "\F40E"
+	content: "\F40F"
 }
 
 .aimeos .main-sidebar .menuitem-locale-language i.icon:before {
@@ -599,7 +599,7 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 }
 
 .aimeos .main-sidebar .menuitem-log i.icon:before {
-	content: "\F10C"
+	content: "\F10D"
 }
 
 .aimeos .main-sidebar .menuitem-language i.icon:before {
