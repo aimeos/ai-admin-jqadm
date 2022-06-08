@@ -73,14 +73,14 @@ $enc = $this->encoder();
 				<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 					href="<?php $pOffset['offset'] = $first; echo $enc->attr( $this->link( $key, $pgroup( $pOffset, $group ) + $params, [], $fragment ) ) ?>"
 					aria-label="<?= $enc->attr( $this->translate( 'admin', 'First' ) ) ?>">
-					<span class="fa first" aria-hidden="true"></span>
+					<span class="fa icon-first" aria-hidden="true"></span>
 				</a>
 			</li><!--
 			--><li class="page-item <?= ( $prev === null ? 'disabled' : '' ) ?>">
 				<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 					href="<?php $pOffset['offset'] = $prev; echo $enc->attr( $this->link( $key, $pgroup( $pOffset, $group ) + $params, [], $fragment ) ) ?>"
 					aria-label="<?= $enc->attr( $this->translate( 'admin', 'Previous' ) ) ?>">
-					<span class="fa prev" aria-hidden="true"></span>
+					<span class="fa icon-prev" aria-hidden="true"></span>
 				</a>
 			</li><!--
 			--><li class="page-item disabled">
@@ -93,14 +93,14 @@ $enc = $this->encoder();
 				<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 					href="<?php $pOffset['offset'] = $next; echo $enc->attr( $this->link( $key, $pgroup( $pOffset, $group ) + $params, [], $fragment ) ) ?>"
 					aria-label="<?= $enc->attr( $this->translate( 'admin', 'Next' ) ) ?>">
-					<span class="fa next" aria-hidden="true"></span>
+					<span class="fa icon-next" aria-hidden="true"></span>
 				</a>
 			</li><!--
 			--><li class="page-item <?= ( $last === null ? 'disabled' : '' ) ?>">
 				<a class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 					href="<?php $pOffset['offset'] = $last; echo $enc->attr( $this->link( $key, $pgroup( $pOffset, $group ) + $params, [], $fragment ) ) ?>"
 					aria-label="<?= $enc->attr( $this->translate( 'admin', 'Last' ) ) ?>">
-					<span class="fa last" aria-hidden="true"></span>
+					<span class="fa icon-last" aria-hidden="true"></span>
 				</a>
 			</li>
 		</ul>

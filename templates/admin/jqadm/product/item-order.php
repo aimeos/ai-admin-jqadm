@@ -702,13 +702,13 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 				<li v-bind:class="{disabled: first === null}" class="page-item">
 					<button v-on:click.prevent="offset = first" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'First' ) ) ?>">
-						<span class="fa fa-fast-backward" aria-hidden="true"></span>
+						<span class="fa icon-first" aria-hidden="true"></span>
 					</button>
 				</li><!--
 				--><li v-bind:class="{disabled: prev === null}" class="page-item">
 					<button v-on:click.prevent="offset = prev" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Previous' ) ) ?>">
-						<span class="fa fa-step-backward" aria-hidden="true"></span>
+						<span class="fa icon-prev" aria-hidden="true"></span>
 					</button>
 				</li><!--
 				--><li class="page-item disabled">
@@ -719,13 +719,13 @@ $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
 				--><li v-bind:class="{disabled: next === null}" class="page-item">
 					<button v-on:click.prevent="offset = next" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Next' ) ) ?>">
-						<span class="fa fa-step-forward" aria-hidden="true"></span>
+						<span class="fa icon-next" aria-hidden="true"></span>
 					</button>
 				</li><!--
 				--><li v-bind:class="{disabled: last === null}" class="page-item">
 					<button v-on:click.prevent="offset = last" class="page-link" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 						aria-label="<?= $enc->attr( $this->translate( 'admin', 'Last' ) ) ?>">
-						<span class="fa fa-fast-forward" aria-hidden="true"></span>
+						<span class="fa icon-last" aria-hidden="true"></span>
 					</button>
 				</li>
 			</ul>

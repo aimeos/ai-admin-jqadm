@@ -11,11 +11,21 @@
 	src: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/fonts/bootstrap-icons.woff2') format('woff2');
 }
 
-.fa {
-	font: 1rem bootstrap-icons;
-	vertical-align: middle;
+.fa::before,
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+	font-family: bootstrap-icons !important;
+	font-weight: normal !important;
+	font-style: normal;
+	font-display: block;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	vertical-align: -.125em;
+	display: inline-block;
+	line-height: 1;
 	margin: auto;
-	width: 1rem;
 }
 
 
@@ -202,6 +212,10 @@ body {
 	margin: 0.5rem;
 	padding: 0;
 	border: none;
+}
+
+.aimeos .toast-icon .icon-attention {
+	content: "\F333";
 }
 
 .aimeos .info .toast-icon {

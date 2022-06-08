@@ -1,6 +1,6 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2018
+ * @copyright Aimeos (aimeos.org), 2015-2022
  */
 
 
@@ -19,6 +19,7 @@
 /* Pagination */
 
 .aimeos .list-page {
+	display: block;
 	text-align: center;
 	margin-bottom: 0.5rem;
 }
@@ -28,27 +29,6 @@
 	vertical-align: middle;
 	display: inline-flex;
 	margin: .5rem;
-}
-
-.aimeos .list-page .pagination .fa.first::before {
-	content: "\F551"
-}
-
-.aimeos .list-page .pagination .fa.prev::before {
-	content: "\F22D"
-}
-
-.aimeos .list-page .pagination .fa.next::before {
-	content: "\F231"
-}
-
-.aimeos .list-page .pagination .fa.last::before {
-	content: "\F55D"
-}
-
-.aimeos .list-page {
-	display: block;
-	margin-bottom: 0.5rem;
 }
 
 .aimeos .list-page .page-item {
@@ -71,27 +51,43 @@
 	color: var(--bs-bg-light, #ffffff);
 }
 
-.page-limit .dropdown-menu {
+.aimeos .pagination .icon-first::before {
+	content: "\F551"
+}
+
+.aimeos .pagination .icon-prev::before {
+	content: "\F22D"
+}
+
+.aimeos .pagination .icon-next::before {
+	content: "\F231"
+}
+
+.aimeos .pagination .icon-last::before {
+	content: "\F55D"
+}
+
+.aimeos .page-limit .dropdown-menu {
 	min-width: 5rem;
 }
 
-.page-limit .dropdown-menu .dropdown-item {
+.aimeos .page-limit .dropdown-menu .dropdown-item {
 	text-align: center
 }
 
-.page-limit .dropdown-link {
+.aimeos .page-limit .dropdown-link {
 	display: inline-block;
 	padding: .25rem 0rem;
 	color: var(--bs-secondary, #707880);
 	width: 100%;
 }
 
-.page-limit .dropdown-link:focus,
-.page-limit .dropdown-link:active {
+.aimeos .page-limit .dropdown-link:focus,
+.aimeos .page-limit .dropdown-link:active {
 	text-decoration: none;
 }
 
-.page-limit .dropdown-link:active {
+.aimeos .page-limit .dropdown-link:active {
 	background-color: var(--bs-menu-bg, #30a0e0);
 	color: var(--bs-menu, #ffffff);
 }
@@ -752,8 +748,12 @@
 }
 
 
-.aimeos .item-coupon .actions .label.fa-upload {
+.aimeos .item-coupon .actions .label {
 	position: relative;
+}
+
+.aimeos .item-coupon .actions .icon-upload {
+	content: "\F603";
 }
 
 .aimeos .item-coupon .actions input.fileupload {
