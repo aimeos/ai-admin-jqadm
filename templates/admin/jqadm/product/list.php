@@ -588,11 +588,22 @@ $columnList = [
 				<thead class="list-header">
 					<tr>
 						<th class="select">
-							<a href="#" class="btn act-delete fa" tabindex="1"
-								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
-							</a>
+							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="btn" v-on:click.prevent="batch = true" href="#" tabindex="1">
+										<?= $enc->html( $this->translate( 'admin', 'Edit' ) ) ?>
+									</a>
+								</li>
+								<li>
+									<a class="btn" v-on:click.prevent="askDelete(null, $event)" tabindex="1"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Delete' ) ) ?>
+									</a>
+								</li>
+							</ul>
 						</th>
 
 						<?= $this->partial(
@@ -648,6 +659,163 @@ $columnList = [
 							]
 						] );
 					?>
+
+					<tr class="batch" style="display: none" v-show="batch">
+						<td colspan="<?= count( $fields ) + 2 ?>">
+							<div class="batch-header">
+								<div class="intro">
+									<span class="name"><?= $enc->html( $this->translate( 'admin', 'Bulk edit' ) ) ?></span>
+									<span class="count">{{ selected }} <?= $enc->html( $this->translate( 'admin', 'selected' ) ) ?></span>
+								</div>
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<span><?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?></span>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'attribute'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+
+											<?php if( !empty( $datasets = $this->config( 'admin/jqadm/dataset/product', [] ) ) ) : ?>
+												<div class="row">
+													<div class="col-1">
+														<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.dataset')" />
+													</div>
+													<label class="col-4 form-control-label">
+														<?= $enc->html( $this->translate( 'admin', 'Data set' ) ) ?>
+													</label>
+													<div class="col-7">
+														<select class="form-select" v-bind:disabled="state('item/product.dataset')"
+															name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dataset' ) ) ) ?>">
+															<option value=""></option>
+															<?php foreach( $datasets as $name ) : ?>
+																<option value="<?= $enc->attr( $name ) ?>">
+																	<?= $enc->html( $name ) ?>
+																</option>
+															<?php endforeach ?>
+														</select>
+													</div>
+												</div>
+											<?php endif ?>
+
+											<div class="row">
+												<div class="col-1">
+													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.status')" />
+												</div>
+												<label class="col-4 form-control-label">
+													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select" v-bind:disabled="state('item/product.status')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.status' ) ) ) ?>">
+														<option value=""></option>
+														<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?></option>
+														<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?></option>
+														<option value="-1"><?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?></option>
+														<option value="-2"><?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?></option>
+													</select>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-1">
+													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.type')" />
+												</div>
+												<label class="col-4 form-control-label">
+													<?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select" v-bind:disabled="state('item/product.type')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.type' ) ) ) ?>">
+														<option value=""></option>
+														<?php foreach( $this->get( 'itemTypes', [] ) as $item ) : ?>
+															<option value="<?= $enc->attr( $item->getCode() ) ?>">
+																<?= $enc->html( $item->getLabel() ) ?>
+															</option>
+														<?php endforeach ?>
+													</select>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-1">
+													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.scale')" />
+												</div>
+												<label class="col-4 form-control-label">
+													<?= $enc->html( $this->translate( 'admin', 'Quantity scale' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="number" min="0.001" step="0.001" v-bind:disabled="state('item/product.scale')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.scale' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.datestart')" />
+												</div>
+												<label class="col-4 form-control-label">
+													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
+														v-bind:disabled="state('item/product.datestart')"
+														v-bind:config="Aimeos.flatpickr.datetime" />
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-1">
+													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.dateend')" />
+												</div>
+												<label class="col-4 form-control-label">
+													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
+														v-bind:disabled="state('item/product.dateend')"
+														v-bind:config="Aimeos.flatpickr.datetime" />
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-1">
+													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.ctime')" />
+												</div>
+												<label class="col-4 form-control-label">
+													<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ) ?>"
+														v-bind:disabled="state('item/product.ctime')"
+														v-bind:config="Aimeos.flatpickr.datetime" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="batch-footer">
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'attribute'] ) ) ?>">
+									<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+								</button>
+							</div>
+						</td>
+					</tr>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
