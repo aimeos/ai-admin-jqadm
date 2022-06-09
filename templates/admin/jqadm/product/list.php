@@ -674,7 +674,7 @@ $columnList = [
 							<div class="card">
 								<div class="card-header">
 									<span><?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?></span>
-									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'attribute'] ) ) ?>">
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'product'] ) ) ?>">
 										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 									</button>
 								</div>
@@ -778,7 +778,7 @@ $columnList = [
 													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.dateend')" />
 												</div>
 												<label class="col-4 form-control-label">
-													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
+													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
@@ -810,7 +810,7 @@ $columnList = [
 								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
 									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
 								</a>
-								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'attribute'] ) ) ?>">
+								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'product'] ) ) ?>">
 									<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 								</button>
 							</div>

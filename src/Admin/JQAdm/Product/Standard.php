@@ -80,7 +80,7 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'attribute' );
+		return $this->batchBase( 'product' );
 	}
 
 
