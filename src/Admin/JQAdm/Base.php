@@ -358,6 +358,35 @@ abstract class Base
 
 
 	/**
+	 * Modifiy several items at once
+	 *
+	 * @param string $domain Data domain of the items
+	 * @return string|null Output to display
+	 */
+	protected function batchBase( string $domain ) : ?string
+	{
+		$view = $this->view();
+
+		if( !empty( $ids = $view->param( 'id' ) ) )
+		{
+			$manager = \Aimeos\MShop::create( $this->context(), $domain );
+			$filter = $manager->filter()->add( [$domain . '.id' => $ids] )->slice( 0, count( $ids ) );
+			$items = $manager->search( $filter );
+
+			$data = $view->param( 'item', [] );
+
+			foreach( $items as $item ) {
+				$temp = $data; $item->fromArray( $temp );
+			}
+
+			$manager->save( $items );
+		}
+
+		return $this->redirect( $domain, 'search', null, 'save' );
+	}
+
+
+	/**
 	 * Returns the sub-client given by its name.
 	 *
 	 * @param string $path Name of the sub-part in lower case (can contain a path like catalog/filter/tree)
