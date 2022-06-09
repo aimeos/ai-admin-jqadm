@@ -38,6 +38,31 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testBatch()
+	{
+		$manager = \Aimeos\MShop::create( $this->context, 'attribute' );
+
+		$param = array(
+			'site' => 'unittest',
+			'item' => array(
+				'attribute.domain' => 'product',
+				'attribute.type' => 'color',
+				'attribute.position' => 1,
+				'attribute.status' => -1,
+			),
+			'id' => [-1, -2]
+		);
+
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->batch();
+
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertNull( $result );
+	}
+
+
 	public function testCreate()
 	{
 		$result = $this->object->create();

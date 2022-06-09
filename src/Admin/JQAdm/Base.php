@@ -131,7 +131,7 @@ abstract class Base
 	 */
 	public function batch() : ?string
 	{
-		return $this->redirect( 'attribute', 'search', null, 'save' );
+		return null;
 	}
 
 

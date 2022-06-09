@@ -196,11 +196,19 @@
 	background-color: var(--bs-primary-light, #5BB3E6);
 }
 
+.aimeos .list-items th .icon-menu::before {
+	content: "\F48B";
+}
+
 .aimeos .list-items th a {
 	color: var(--bs-menu, #ffffff);
 	white-space: nowrap;
 	font-weight: normal;
 	margin: auto;
+}
+
+.aimeos .list-items th .dropdown-menu a {
+	color: var(--bs-secondary-dark, #101820);
 }
 
 .aimeos .list-items th .btn:hover {
@@ -289,6 +297,56 @@
 	color: var(--bs-light, #9098a0);
 }
 
+/* Bulk edit */
+
+.aimeos .list-items .batch td {
+	padding: 2rem 0;
+}
+
+.aimeos .list-items .batch .btn-primary,
+.aimeos .list-items .batch .btn-secondary {
+	min-width: 6.25rem;
+}
+
+.aimeos .list-items .batch-header {
+	justify-content: space-between;
+	align-items: center;
+	display: flex;
+	padding: 1rem;
+}
+
+.aimeos .list-items .batch-header .intro {
+	font-size: 125%;
+}
+
+.aimeos .list-items .batch-header .intro .name::after {
+	content: ":";
+}
+
+.aimeos .list-items .batch .card {
+	padding: 0 0.5rem;
+	margin: 1rem 0;
+}
+
+.aimeos .list-items .batch .card-header {
+	justify-content: space-between;
+	align-items: center;
+	display: flex;
+	padding: 0.5rem;
+}
+
+.aimeos .list-items .batch .form-check-input {
+	vertical-align: -webkit-baseline-middle
+}
+
+.aimeos .list-items .batch .form-control-label {
+	justify-content: start;
+}
+
+.aimeos .list-items .batch-footer {
+	display: inline-block;
+	padding: 1rem 0;
+}
 
 
 /* Detail view */

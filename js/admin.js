@@ -839,13 +839,15 @@ Aimeos.List = {
 		data: function() {
 			return {
 				all: false,
+				batch: false,
 				columns: false,
 				dialog: false,
 				items: {},
 				filter: {},
 				domain: null,
 				search: false,
-				siteid: null
+				siteid: null,
+				states: {}
 			}
 		},
 		beforeMount: function() {
@@ -867,6 +869,18 @@ Aimeos.List = {
 			}
 		},
 		computed: {
+			selected() {
+				let count = 0;
+
+				for(const key in this.items) {
+					if(this.items[key].checked) {
+						count++;
+					}
+				}
+
+				return count;
+			},
+
 			unconfirmed: function() {
 				let list = {};
 
@@ -930,6 +944,14 @@ Aimeos.List = {
 						this.$set(this.filter['val'], idx, '');
 					}
 				}
+			},
+
+			setState(key) {
+				this.$set(this.states, key, !this.states[key]);
+			},
+
+			state(key) {
+				return !(this.states[key] || false);
 			},
 
 			toggle: function(id) {

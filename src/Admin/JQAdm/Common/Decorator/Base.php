@@ -53,6 +53,17 @@ abstract class Base
 
 
 	/**
+	 * Batch update of resources
+	 *
+	 * @return string|null HTML output
+	 */
+	public function batch() : ?string
+	{
+		return $this->client->batch();
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output

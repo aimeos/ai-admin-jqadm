@@ -75,6 +75,34 @@ class Standard
 
 
 	/**
+	 * Batch update of a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function batch() : ?string
+	{
+		$view = $this->view();
+
+		if( !empty( $ids = $view->param( 'id' ) ) )
+		{
+			$manager = \Aimeos\MShop::create( $this->context(), 'attribute' );
+			$filter = $manager->filter()->add( ['attribute.id' => $ids] )->slice( 0, count( $ids ) );
+			$items = $manager->search( $filter );
+
+			$data = $view->param( 'item', [] );
+
+			foreach( $items as $item ) {
+				$temp = $data; $item->fromArray( $temp );
+			}
+
+			$manager->save( $items );
+		}
+
+		return $this->redirect( 'attribute', 'search', null, 'save' );
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
