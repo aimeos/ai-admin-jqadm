@@ -364,7 +364,7 @@ body {
 }
 
 .aimeos .btn.act-delete.fa:before {
-	content: "\F659";
+	content: "\F5DE";
 }
 
 .aimeos .btn.act-download.fa:before {
@@ -461,6 +461,7 @@ body {
 }
 
 .aimeos .list-items input {
+	vertical-align: middle;
 	text-align: center;
 }
 

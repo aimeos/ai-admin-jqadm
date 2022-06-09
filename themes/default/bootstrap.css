@@ -195,7 +195,8 @@ a, a:hover {
 	background-color: var(--bs-danger, #dc3545);
 }
 
-.card {
+.card,
+.card-header {
 	background-color: var(--bs-bg-light, #ffffff);
 }
 
@@ -270,7 +271,7 @@ td.is-invalid .form-select {
 .form-control[readonly],
 .form-select[disabled],
 .form-select[readonly] {
-	background-color: var(--bs-bg-light, #FFFFFF);
+	background-color: var(--bs-bg, #F8FAFC);
 	color: var(--bs-secondary-light, #9098A0);
 }
 

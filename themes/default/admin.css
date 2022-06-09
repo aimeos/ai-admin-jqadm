@@ -185,7 +185,6 @@
 .aimeos .list-items .btn.fa {
 	margin: 0 0.25rem;
 	padding: 0.5rem;
-	width: 2rem;
 }
 
 .aimeos .list-items th {
@@ -250,11 +249,11 @@
 }
 
 .aimeos .list-items .status-1:before {
-	content: "\F26E";
+	content: "\F633";
 }
 
 .aimeos .list-items .status-0:before {
-	content: "\F62A";
+	content: "\F659";
 }
 
 .aimeos .list-items .status--1:before {
