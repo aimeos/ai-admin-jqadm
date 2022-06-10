@@ -361,16 +361,17 @@ abstract class Base
 	 * Modifiy several items at once
 	 *
 	 * @param string $domain Data domain of the items
+	 * @param string|null $resource Resource name or null for domain name
 	 * @return string|null Output to display
 	 */
-	protected function batchBase( string $domain ) : ?string
+	protected function batchBase( string $domain, string $resource = null ) : ?string
 	{
 		$view = $this->view();
 
 		if( !empty( $ids = $view->param( 'id' ) ) )
 		{
 			$manager = \Aimeos\MShop::create( $this->context(), $domain );
-			$filter = $manager->filter()->add( [$domain . '.id' => $ids] )->slice( 0, count( $ids ) );
+			$filter = $manager->filter()->add( [str_replace( '/', '.', $domain ) . '.id' => $ids] )->slice( 0, count( $ids ) );
 			$items = $manager->search( $filter );
 
 			$data = $view->param( 'item', [] );
@@ -382,7 +383,7 @@ abstract class Base
 			$manager->save( $items );
 		}
 
-		return $this->redirect( $domain, 'search', null, 'save' );
+		return $this->redirect( $resource ?: $domain, 'search', null, 'save' );
 	}
 
 
