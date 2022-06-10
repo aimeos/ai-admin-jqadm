@@ -193,9 +193,9 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input class="form-check-input" type="checkbox" v-on:click="setState('item/supplier.status')" />
+													<input id="batch-supplier-status" class="form-check-input" type="checkbox" v-on:click="setState('item/supplier.status')" />
 												</div>
-												<label class="col-4 form-control-label">
+												<label class="col-4 form-control-label" for="batch-supplier-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
 												</label>
 												<div class="col-7">

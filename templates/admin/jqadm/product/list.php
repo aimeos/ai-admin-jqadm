@@ -685,9 +685,9 @@ $columnList = [
 											<?php if( !empty( $datasets = $this->config( 'admin/jqadm/dataset/product', [] ) ) ) : ?>
 												<div class="row">
 													<div class="col-1">
-														<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.dataset')" />
+														<input id="batch-product-dataset" class="form-check-input" type="checkbox" v-on:click="setState('item/product.dataset')" />
 													</div>
-													<label class="col-4 form-control-label">
+													<label class="col-4 form-control-label" for="batch-product-dataset">
 														<?= $enc->html( $this->translate( 'admin', 'Data set' ) ) ?>
 													</label>
 													<div class="col-7">
@@ -706,9 +706,9 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.status')" />
+													<input id="batch-product-status" class="form-check-input" type="checkbox" v-on:click="setState('item/product.status')" />
 												</div>
-												<label class="col-4 form-control-label">
+												<label class="col-4 form-control-label" for="batch-product-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
 												</label>
 												<div class="col-7">
@@ -725,9 +725,9 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.type')" />
+													<input id="batch-product-type" class="form-check-input" type="checkbox" v-on:click="setState('item/product.type')" />
 												</div>
-												<label class="col-4 form-control-label">
+												<label class="col-4 form-control-label" for="batch-product-type">
 													<?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?>
 												</label>
 												<div class="col-7">
@@ -745,9 +745,9 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.scale')" />
+													<input id="batch-product-scale" class="form-check-input" type="checkbox" v-on:click="setState('item/product.scale')" />
 												</div>
-												<label class="col-4 form-control-label">
+												<label class="col-4 form-control-label" for="batch-product-scale">
 													<?= $enc->html( $this->translate( 'admin', 'Quantity scale' ) ) ?>
 												</label>
 												<div class="col-7">
@@ -760,9 +760,9 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.datestart')" />
+													<input id="batch-product-datestart" class="form-check-input" type="checkbox" v-on:click="setState('item/product.datestart')" />
 												</div>
-												<label class="col-4 form-control-label">
+												<label class="col-4 form-control-label" for="batch-product-datestart">
 													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 												</label>
 												<div class="col-7">
@@ -775,9 +775,9 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.dateend')" />
+													<input id="batch-product-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/product.dateend')" />
 												</div>
-												<label class="col-4 form-control-label">
+												<label class="col-4 form-control-label" for="batch-product-dateend">
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 												</label>
 												<div class="col-7">
@@ -790,9 +790,9 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input class="form-check-input" type="checkbox" v-on:click="setState('item/product.ctime')" />
+													<input id="batch-product-ctime" class="form-check-input" type="checkbox" v-on:click="setState('item/product.ctime')" />
 												</div>
-												<label class="col-4 form-control-label">
+												<label class="col-4 form-control-label" for="batch-product-ctime">
 													<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>
 												</label>
 												<div class="col-7">
