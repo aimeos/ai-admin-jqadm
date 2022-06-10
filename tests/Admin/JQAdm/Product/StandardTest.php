@@ -40,8 +40,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testBatch()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'product' );
-
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
