@@ -247,13 +247,13 @@
 .aimeos .list-items .sort-asc:after {
 	font: 1rem bootstrap-icons;
 	vertical-align: middle;
-	content: " \F57A";
+	content: " \F57B";
 }
 
 .aimeos .list-items .sort-desc:after {
 	font: 1rem bootstrap-icons;
 	vertical-align: middle;
-	content: " \F574";
+	content: " \F575";
 }
 
 .aimeos .list-items .status-1:before {
