@@ -76,6 +76,7 @@ class Standard
 		asort( $codes );
 
 		$view->itemSubparts = $this->getSubClientNames();
+		$view->itemGroups = $this->getGroupItems();
 		$view->countries = $codes;
 		return $view;
 	}
@@ -88,7 +89,34 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'customer' );
+		$view = $this->view();
+
+		if( !empty( $ids = $view->param( 'id' ) ) )
+		{
+			$context = $this->context();
+			$manager = \Aimeos\MShop::create( $context, 'customer' );
+			$filter = $manager->filter()->add( ['customer.id' => $ids] )->slice( 0, count( $ids ) );
+			$items = $manager->search( $filter );
+
+			$data = $view->param( 'item', [] );
+
+			foreach( $items as $item )
+			{
+				if( $view->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
+				{
+					!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
+					!isset( $data['customer.groups'] ) ?: $item->setGroups( (array) $data['customer.groups'] );
+				}
+
+				!isset( $data['customer.status'] ) ?: $item->setStatus( $data['customer.status'] );
+
+				$temp = $data; $item->fromArray( $temp );
+			}
+
+			$manager->save( $items );
+		}
+
+		return $this->redirect( 'customer', 'search', null, 'save' );
 	}
 
 
@@ -112,7 +140,6 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 			$view->item = $manager->get( $id, $this->getDomains() );
 
-			$view->itemGroups = $this->getGroupItems( $view->item );
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -145,7 +172,6 @@ class Standard
 			$data['customer.siteid'] = $view->item->getSiteId();
 
 			$view->itemData = array_replace_recursive( $this->toArray( $view->item ), $data );
-			$view->itemGroups = $this->getGroupItems( $view->item );
 			$view->itemBody = parent::create();
 		}
 		catch( \Exception $e )
@@ -239,7 +265,6 @@ class Standard
 			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
 
 			$view->item = $manager->get( $id, $this->getDomains() );
-			$view->itemGroups = $this->getGroupItems( $view->item );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -292,7 +317,7 @@ class Standard
 	 */
 	public function search() : ?string
 	{
-		$view = $this->view();
+		$view = $this->object()->data( $this->view() );
 
 		try
 		{
