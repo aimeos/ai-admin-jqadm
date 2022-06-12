@@ -554,13 +554,17 @@ class Standard
 		$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
 		$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
 
-		$groupIds = $this->val( $data, 'customer.groups', [] );
-		$gids = array_keys( $this->getGroupItems( $item ) );
+		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 );
 
-		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
-			->setGroups( array_intersect( $gids, $groupIds ) );
+		if( $this->view()->access( ['super', 'admin'] ) )
+		{
+			$groupIds = $this->val( $data, 'customer.groups', [] );
+			$gids = array_keys( $this->getGroupItems( $item ) );
 
-		if( $this->view()->access( ['super'] ) || $item->getId() === $context->user() )
+			$item->setGroups( array_intersect( $gids, $groupIds ) );
+		}
+
+		if( $this->view()->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
 		{
 			!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
 			!isset( $data['customer.code'] ) ?: $item->setCode( $data['customer.code'] );
