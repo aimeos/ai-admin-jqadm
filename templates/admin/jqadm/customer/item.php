@@ -204,9 +204,6 @@ $params = $this->get( 'pageParams', [] );
 												<option value="" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), '' ) ?> >
 													<?= $enc->html( $this->translate( 'admin', 'none' ) ) ?>
 												</option>
-												<option value="company" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'company' ) ?> >
-													<?= $enc->html( $this->translate( 'mshop/code', 'company' ) ) ?>
-												</option>
 												<option value="mr" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), 'mr' ) ?> >
 													<?= $enc->html( $this->translate( 'mshop/code', 'mr' ) ) ?>
 												</option>
