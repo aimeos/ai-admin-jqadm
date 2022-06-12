@@ -377,7 +377,7 @@ abstract class Base
 			$data = $view->param( 'item', [] );
 
 			foreach( $items as $item ) {
-				$temp = $data; $item->fromArray( $temp );
+				$temp = $data; $item->fromArray( $temp, true );
 			}
 
 			$manager->save( $items );

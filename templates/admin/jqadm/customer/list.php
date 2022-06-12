@@ -287,7 +287,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Groups' ) ) ?>
 												</label>
 												<div class="col-7">
-													<select class="form-select item-groups" tabindex="1" size="7" multiple
+													<select class="form-select item-groups" tabindex="1" size="5" multiple v-bind:disabled="state('item/customer.groups')"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ) ?>">
 
 														<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>
@@ -393,9 +393,9 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control select" type="date" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.birthday' ) ) ) ?>"
-														v-bind:disabled="state('item/product.birthday')"
+													<input is="flat-pickr" class="form-control select" type="date"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ) ?>"
+														v-bind:disabled="state('item/customer.birthday')"
 														v-bind:config="Aimeos.flatpickr.date" />
 												</div>
 											</div>
@@ -487,7 +487,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'State' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input class="form-control" type="text" v-bind:disabled="state('item/customer.postatestal')"
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.state')"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.state' ) ) ) ?>" />
 												</div>
 											</div>

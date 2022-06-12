@@ -335,8 +335,9 @@
 	padding: 0.5rem;
 }
 
-.aimeos .list-items .batch .form-check-input {
-	vertical-align: -webkit-baseline-middle
+.aimeos .list-items .batch .col-1 {
+    display: flex;
+    align-items: center;
 }
 
 .aimeos .list-items .batch .form-control-label {
