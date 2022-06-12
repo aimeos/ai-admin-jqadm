@@ -321,7 +321,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?>
 												</label>
 												<div class="col-7">
-													<select class="form-select item-languageid" v-bind:disabled="state('item/customer.status')"
+													<select class="form-select item-languageid" v-bind:disabled="state('item/customer.languageid')"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ) ?>" >
 														<option value=""></option>
 
