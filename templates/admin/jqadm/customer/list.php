@@ -115,8 +115,7 @@ $columnList = [
 	?>
 
 	<form ref="form" class="list list-customer" method="POST"
-		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>"
-		data-deleteurl="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
+		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>">
 
 		<?= $this->csrf()->formfield() ?>
 
@@ -133,11 +132,22 @@ $columnList = [
 				<thead class="list-header">
 					<tr>
 						<th class="select">
-							<a href="#" class="btn act-delete fa" tabindex="1"
-								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
-							</a>
+							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="btn" v-on:click.prevent="batch = true" href="#" tabindex="1">
+										<?= $enc->html( $this->translate( 'admin', 'Edit' ) ) ?>
+									</a>
+								</li>
+								<li>
+									<a class="btn" v-on:click.prevent="askDelete(null, $event)" tabindex="1"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Delete' ) ) ?>
+									</a>
+								</li>
+							</ul>
 						</th>
 
 						<?= $this->partial(
@@ -202,6 +212,394 @@ $columnList = [
 							]
 						] );
 					?>
+
+					<tr class="batch" style="display: none" v-show="batch">
+						<td colspan="<?= count( $fields ) + 2 ?>">
+							<div class="batch-header">
+								<div class="intro">
+									<span class="name"><?= $enc->html( $this->translate( 'admin', 'Bulk edit' ) ) ?></span>
+									<span class="count">{{ selected }} <?= $enc->html( $this->translate( 'admin', 'selected' ) ) ?></span>
+								</div>
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+							</div>
+
+							<div class="card">
+								<div class="card-header">
+									<span><?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?></span>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'customer'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-status" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.status')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-status">
+													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select" v-bind:disabled="state('item/customer.status')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.status' ) ) ) ?>">
+														<option value=""></option>
+														<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?></option>
+														<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?></option>
+														<option value="-1"><?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?></option>
+														<option value="-2"><?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?></option>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-label" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.label')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-label">
+													<?= $enc->html( $this->translate( 'admin', 'Label' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.label')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.label' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-password" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.password')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-password">
+													<?= $enc->html( $this->translate( 'admin', 'Password' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="password" v-bind:disabled="state('item/customer.password')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-groups" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.groups')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-groups">
+													<?= $enc->html( $this->translate( 'admin', 'Groups' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select item-groups" tabindex="1" size="7" multiple
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ) ?>">
+
+														<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>
+															<option value="<?= $enc->attr( $groupId ) ?>" >
+																<?= $enc->html( $groupItem->getLabel() . ' (' . $groupItem->getCode() . ')' ) ?>
+															</option>
+														<?php endforeach ?>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card">
+								<div class="card-header">
+									<span><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></span>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'customer'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-languageid" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.languageid')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-languageid">
+													<?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select item-languageid" v-bind:disabled="state('item/customer.status')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ) ?>" >
+														<option value=""></option>
+
+														<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
+															<option value="<?= $enc->attr( $langId ) ?>">
+																<?= $enc->html( $this->translate( 'language', $langId ) ) ?>
+															</option>
+														<?php endforeach ?>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-salutation" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.salutation')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-salutation">
+													<?= $enc->html( $this->translate( 'admin', 'Salutation' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select item-salutation" v-bind:disabled="state('item/customer.salutation')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.salutation' ) ) ) ?>" >
+														<option value=""></option>
+														<option value="mr"><?= $enc->html( $this->translate( 'mshop/code', 'mr' ) ) ?></option>
+														<option value="ms"><?= $enc->html( $this->translate( 'mshop/code', 'ms' ) ) ?></option>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-title" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.title')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-title">
+													<?= $enc->html( $this->translate( 'admin', 'Title' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.title')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.title' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-lastname" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.lastname')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-lastname">
+													<?= $enc->html( $this->translate( 'admin', 'Last name' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.lastname')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.lastname' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-firstname" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.firstname')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-firstname">
+													<?= $enc->html( $this->translate( 'admin', 'First name' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.firstname')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.firstname' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-birthday" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.birthday')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-birthday">
+													<?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input is="flat-pickr" class="form-control select" type="date" tabindex="1"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.birthday' ) ) ) ?>"
+														v-bind:disabled="state('item/product.birthday')"
+														v-bind:config="Aimeos.flatpickr.date" />
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-address1" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.address1')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-address1">
+													<?= $enc->html( $this->translate( 'admin', 'Street' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.address1')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address1' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-address2" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.address2')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-address2">
+													<?= $enc->html( $this->translate( 'admin', 'House number' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.address2')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address2' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-address3" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.address3')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-address3">
+													<?= $enc->html( $this->translate( 'admin', 'Floor / Appartment' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.address3')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address3' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-postal" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.postal')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-postal">
+													<?= $enc->html( $this->translate( 'admin', 'Zip code' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.postal')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.postal' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-city" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.city')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-city">
+													<?= $enc->html( $this->translate( 'admin', 'City' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.city')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.city' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-countryid" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.countryid')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-countryid">
+													<?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select item-countryid" v-bind:disabled="state('item/customer.countryid')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>">
+														<option value=""></option>
+
+														<?php foreach( $this->get( 'countries', [] ) as $code => $label ) : ?>
+															<option value="<?= $enc->attr( $code ) ?>"><?= $enc->html( $label ) ?></option>
+														<?php endforeach ?>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-state" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.state')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-state">
+													<?= $enc->html( $this->translate( 'admin', 'State' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.postatestal')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.state' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card">
+								<div class="card-header">
+									<span><?= $enc->html( $this->translate( 'admin', 'Communication' ) ) ?></span>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'customer'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-telephone" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.telephone')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-telephone">
+													<?= $enc->html( $this->translate( 'admin', 'Telephone' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.telephone')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.telephone' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-telefax" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.telefax')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-telefax">
+													<?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.telefax')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.telefax' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-website" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.website')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-website">
+													<?= $enc->html( $this->translate( 'admin', 'Web site' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.website')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.website' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card">
+								<div class="card-header">
+									<span><?= $enc->html( $this->translate( 'admin', 'Company details' ) ) ?></span>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'customer'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-company" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.company')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-company">
+													<?= $enc->html( $this->translate( 'admin', 'Company' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.company')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.company' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-vatid" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.vatid')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-vatid">
+													<?= $enc->html( $this->translate( 'admin', 'VAT ID' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/customer.vatid')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.vatid' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="batch-footer">
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'customer'] ) ) ?>">
+									<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+								</button>
+							</div>
+						</td>
+					</tr>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $address = $item->getPaymentAddress() ?>
