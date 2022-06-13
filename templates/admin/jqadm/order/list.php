@@ -263,6 +263,19 @@ $statusList = [
 			<table class="list-items table table-hover table-striped">
 				<thead class="list-header">
 					<tr>
+						<th class="select">
+							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="btn" v-on:click.prevent="batch = true" href="#" tabindex="1">
+										<?= $enc->html( $this->translate( 'admin', 'Edit' ) ) ?>
+									</a>
+								</li>
+							</ul>
+						</th>
+
 						<?= $this->partial(
 								$this->config( 'admin/jqadm/partial/listhead', 'listhead' ),
 								['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/order/sort' )]
@@ -356,14 +369,147 @@ $statusList = [
 						] );
 					?>
 
+					<tr class="batch" style="display: none" v-show="batch">
+						<td colspan="<?= count( $fields ) + 2 ?>">
+							<div class="batch-header">
+								<div class="intro">
+									<span class="name"><?= $enc->html( $this->translate( 'admin', 'Bulk edit' ) ) ?></span>
+									<span class="count">{{ selected }} <?= $enc->html( $this->translate( 'admin', 'selected' ) ) ?></span>
+								</div>
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<span><?= $enc->html( $this->translate( 'admin', 'Invoice' ) ) ?></span>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'order'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-order-statuspayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statuspayment')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-order-statuspayment">
+													<?= $enc->html( $this->translate( 'admin', 'Payment status' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select" v-bind:disabled="state('item/order.statuspayment')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.statuspayment' ) ) ) ?>">
+														<option value=""></option>
+														<option value="-1"><?= $enc->html( $this->translate( 'mshop/code', 'pay:-1' ) ) ?></option>
+														<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'pay:0' ) ) ?></option>
+														<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'pay:1' ) ) ?></option>
+														<option value="2"><?= $enc->html( $this->translate( 'mshop/code', 'pay:2' ) ) ?></option>
+														<option value="3"><?= $enc->html( $this->translate( 'mshop/code', 'pay:3' ) ) ?></option>
+														<option value="4"><?= $enc->html( $this->translate( 'mshop/code', 'pay:4' ) ) ?></option>
+														<option value="5"><?= $enc->html( $this->translate( 'mshop/code', 'pay:5' ) ) ?></option>
+														<option value="6"><?= $enc->html( $this->translate( 'mshop/code', 'pay:6' ) ) ?></option>
+														<option value="7"><?= $enc->html( $this->translate( 'mshop/code', 'pay:7' ) ) ?></option>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-order-datepayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.datepayment')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-order-datepayment">
+													<?= $enc->html( $this->translate( 'admin', 'Payment' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input is="flat-pickr" class="form-control" type="date"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
+														v-bind:disabled="state('item/order.datepayment')"
+														v-bind:config="Aimeos.flatpickr.date" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-order-channel" class="form-check-input" type="checkbox" v-on:click="setState('item/order.channel')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-order-channel">
+													<?= $enc->html( $this->translate( 'admin', 'Channel' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/order.channel')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.channel' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-order-statusdelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statusdelivery')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-order-statusdelivery">
+													<?= $enc->html( $this->translate( 'admin', 'Delivery status' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select" v-bind:disabled="state('item/order.statusdelivery')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.statusdelivery' ) ) ) ?>">
+														<option value=""></option>
+														<option value="-1"><?= $enc->html( $this->translate( 'mshop/code', 'stat:-1' ) ) ?></option>
+														<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'stat:0' ) ) ?></option>
+														<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'stat:1' ) ) ?></option>
+														<option value="2"><?= $enc->html( $this->translate( 'mshop/code', 'stat:2' ) ) ?></option>
+														<option value="3"><?= $enc->html( $this->translate( 'mshop/code', 'stat:3' ) ) ?></option>
+														<option value="4"><?= $enc->html( $this->translate( 'mshop/code', 'stat:4' ) ) ?></option>
+														<option value="5"><?= $enc->html( $this->translate( 'mshop/code', 'stat:5' ) ) ?></option>
+														<option value="6"><?= $enc->html( $this->translate( 'mshop/code', 'stat:6' ) ) ?></option>
+														<option value="7"><?= $enc->html( $this->translate( 'mshop/code', 'stat:7' ) ) ?></option>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-order-datedelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.datedelivery')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-order-datedelivery">
+													<?= $enc->html( $this->translate( 'admin', 'Delivery' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input is="flat-pickr" class="form-control" type="date"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
+														v-bind:disabled="state('item/order.datedelivery')"
+														v-bind:config="Aimeos.flatpickr.date" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-order-relatedid" class="form-check-input" type="checkbox" v-on:click="setState('item/order.relatedid')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-order-relatedid">
+													<?= $enc->html( $this->translate( 'admin', 'Related ID' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/order.relatedid')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.relatedid' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="batch-footer">
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'order'] ) ) ?>">
+									<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+								</button>
+							</div>
+						</td>
+					</tr>
+
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $item->getBaseId()] + $params ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>">
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
-							<?php endif ?>
-							<?php if( in_array( 'order.channel', $fields ) ) : ?>
-								<td class="order-type"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getChannel() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 								<td class="order-statuspayment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $paymentStatusList[$item->getStatusPayment()] ) ?></a></td>
@@ -376,6 +522,9 @@ $statusList = [
 							<?php endif ?>
 							<?php if( in_array( 'order.datedelivery', $fields ) ) : ?>
 								<td class="order-datedelivery"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateDelivery() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.channel', $fields ) ) : ?>
+								<td class="order-channel"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getChannel() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.relatedid', $fields ) ) : ?>
 								<td class="order-relatedid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRelatedId() ) ?></a></td>
