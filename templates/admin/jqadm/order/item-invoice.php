@@ -28,7 +28,7 @@ $params = $this->get( 'pageParams', [] );
  * @since 2017.07
  * @category Developer
  */
-$default = ['order.id', 'order.datepayment', 'order.statuspayment', 'order.statusdelivery'];
+$default = ['order.id', 'order.datepayment', 'order.statuspayment', 'order.statusdelivery', 'order.datedelivery'];
 $default = $this->config( 'admin/jqadm/order/invoice/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/orderinvoice/fields', $default );
 
