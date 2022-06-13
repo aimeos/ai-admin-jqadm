@@ -172,8 +172,7 @@ $reasonList = [
 	?>
 
 	<form ref="form" class="list list-subscription" method="POST"
-		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>"
-		data-deleteurl="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
+		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>">
 
 		<?= $this->csrf()->formfield() ?>
 
@@ -209,9 +208,10 @@ $reasonList = [
 						</th>
 
 						<?= $this->partial(
-								$this->config( 'admin/jqadm/partial/listhead', 'listhead' ),
-								['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/subscription/sort' )]
-							);
+							$this->config( 'admin/jqadm/partial/listhead', 'listhead' ), [
+								'fields' => $fields, 'params' => $params, 'data' => $columnList,
+								'sort' => $this->session( 'aimeos/admin/jqadm/subscription/sort' )
+							] );
 						?>
 
 						<th class="actions">
