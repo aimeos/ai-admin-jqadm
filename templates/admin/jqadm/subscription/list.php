@@ -367,7 +367,7 @@ $reasonList = [
 													<input id="batch-subscription-datenext" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.datenext')" />
 												</div>
 												<label class="col-4 form-control-label" for="batch-subscription-datenext">
-													<?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?>
+													<?= $enc->html( $this->translate( 'admin', 'Next date' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input is="flat-pickr" class="form-control" type="date"
@@ -381,7 +381,7 @@ $reasonList = [
 													<input id="batch-subscription-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.dateend')" />
 												</div>
 												<label class="col-4 form-control-label" for="batch-subscription-dateend">
-													<?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?>
+													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input is="flat-pickr" class="form-control" type="date"
