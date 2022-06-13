@@ -289,6 +289,7 @@ $columnList = [
 												<div class="col-7">
 													<select class="form-select item-groups" tabindex="1" size="5" multiple v-bind:disabled="state('item/customer.groups')"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ) ?>">
+														<option value=""><?= $enc->html( $this->translate( 'admin', 'None' ) ) ?></option>
 
 														<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>
 															<option value="<?= $enc->attr( $groupId ) ?>" >

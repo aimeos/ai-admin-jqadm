@@ -105,7 +105,7 @@ class Standard
 				if( $view->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
 				{
 					!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
-					!isset( $data['customer.groups'] ) ?: $item->setGroups( (array) $data['customer.groups'] );
+					!isset( $data['customer.groups'] ) ?: $item->setGroups( array_filter( (array) $data['customer.groups'] ) );
 				}
 
 				!isset( $data['customer.status'] ) ?: $item->setStatus( $data['customer.status'] );

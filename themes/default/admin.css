@@ -340,6 +340,10 @@
     align-items: center;
 }
 
+.aimeos .list-items .batch .form-check-input {
+	margin: 0;
+}
+
 .aimeos .list-items .batch .form-control-label {
 	justify-content: start;
 }
