@@ -316,7 +316,7 @@ $statusList = [
 
 					<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listsearch', 'listsearch' ), [
-							'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/order/filter', [] ),
+							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/order/filter', [] ),
 							'data' => [
 								'order.id' => ['op' => '=='],
 								'order.channel' => [],
@@ -395,7 +395,7 @@ $statusList = [
 													<input id="batch-order-statuspayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statuspayment')" />
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-statuspayment">
-													<?= $enc->html( $this->translate( 'admin', 'Payment status' ) ) ?>
+													<?= $enc->html( $this->translate( 'admin', 'Pay status' ) ) ?>
 												</label>
 												<div class="col-7">
 													<select class="form-select" v-bind:disabled="state('item/order.statuspayment')"
@@ -418,7 +418,7 @@ $statusList = [
 													<input id="batch-order-datepayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.datepayment')" />
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-datepayment">
-													<?= $enc->html( $this->translate( 'admin', 'Payment' ) ) ?>
+													<?= $enc->html( $this->translate( 'admin', 'Pay date' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input is="flat-pickr" class="form-control" type="date"
@@ -446,7 +446,7 @@ $statusList = [
 													<input id="batch-order-statusdelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statusdelivery')" />
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-statusdelivery">
-													<?= $enc->html( $this->translate( 'admin', 'Delivery status' ) ) ?>
+													<?= $enc->html( $this->translate( 'admin', 'Ship status' ) ) ?>
 												</label>
 												<div class="col-7">
 													<select class="form-select" v-bind:disabled="state('item/order.statusdelivery')"
@@ -469,7 +469,7 @@ $statusList = [
 													<input id="batch-order-datedelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.datedelivery')" />
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-datedelivery">
-													<?= $enc->html( $this->translate( 'admin', 'Delivery' ) ) ?>
+													<?= $enc->html( $this->translate( 'admin', 'Ship date' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input is="flat-pickr" class="form-control" type="date"
@@ -508,6 +508,14 @@ $statusList = [
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $item->getBaseId()] + $params ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>">
+							<td class="select">
+								<input class="form-check-input" type="checkbox" tabindex="1"
+									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
+									value="<?= $enc->attr( $item->getId() ) ?>"
+									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
+									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+							</td>
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
