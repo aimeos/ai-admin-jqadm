@@ -142,6 +142,19 @@ $params = $this->get( 'pageParams', [] );
 									</div>
 								</div>
 							<?php endif ?>
+							<div class="form-group row">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Verified' ) ) ?></label>
+								<div class="col-sm-8">
+									<input is="flat-pickr" class="form-control item-dateverified" type="date" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
+										v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.dateverified' ) ) ?>`"
+										v-bind:config="Aimeos.flatpickr.date"
+										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'When the account and e-mail address has been verified' ) ) ?>
+								</div>
+							</div>
 						</div>
 					</div>
 
@@ -150,7 +163,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ) ?></label>
 								<div class="col-sm-8">
-									<select class="form-select item-groups" tabindex="1" size="7" multiple
+									<select class="form-select item-groups" tabindex="1" size="8" multiple
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ) ?>"
 										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
 

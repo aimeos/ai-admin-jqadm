@@ -108,6 +108,7 @@ class Standard
 					!isset( $data['customer.groups'] ) ?: $item->setGroups( array_filter( (array) $data['customer.groups'] ) );
 				}
 
+				!isset( $data['customer.dateverified'] ) ?: $item->setDateVerified( $data['customer.dateverified'] );
 				!isset( $data['customer.status'] ) ?: $item->setStatus( $data['customer.status'] );
 
 				$temp = $data; $item->fromArray( $temp );
@@ -579,7 +580,8 @@ class Standard
 		$label = ( $addr->getFirstname() ? $addr->getFirstname() . ' ' : '' ) . $addr->getLastname();
 		$label .= ( $addr->getCompany() ? ' (' . $addr->getCompany() . ')' : '' );
 
-		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 );
+		$item->setLabel( $label )->setStatus( $data['customer.status'] ?? 0 )
+			->setDateVerified( $data['customer.dateverified'] ?? null );
 
 		if( $this->view()->access( ['super', 'admin'] ) )
 		{

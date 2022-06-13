@@ -67,6 +67,7 @@ $columnList = [
 	'customer.email' => $this->translate( 'admin', 'Email' ),
 	'customer.website' => $this->translate( 'admin', 'Web site' ),
 	'customer.birthday' => $this->translate( 'admin', 'Birthday' ),
+	'customer.dateverified' => $this->translate( 'admin', 'Verified' ),
 	'customer.ctime' => $this->translate( 'admin', 'Created' ),
 	'customer.mtime' => $this->translate( 'admin', 'Modified' ),
 	'customer.editor' => $this->translate( 'admin', 'Editor' ),
@@ -206,6 +207,7 @@ $columnList = [
 								'customer.email' => [],
 								'customer.website' => [],
 								'customer.birthday' => ['op' => '-', 'type' => 'date'],
+								'customer.dateverified' => ['op' => '-', 'type' => 'date'],
 								'customer.ctime' => ['op' => '-', 'type' => 'datetime-local'],
 								'customer.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 								'customer.editor' => [],
@@ -277,6 +279,20 @@ $columnList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ) ?>" />
 												</div>
 											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-dateverified" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.dateverified')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-dateverified">
+													<?= $enc->html( $this->translate( 'admin', 'Verified' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input is="flat-pickr" class="form-control" type="date"
+															name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
+															v-bind:disabled="state('item/customer.dateverified')"
+															v-bind:config="Aimeos.flatpickr.date" />
+												</div>
+											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="row">
@@ -287,7 +303,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Groups' ) ) ?>
 												</label>
 												<div class="col-7">
-													<select class="form-select item-groups" tabindex="1" size="5" multiple v-bind:disabled="state('item/customer.groups')"
+													<select class="form-select item-groups" tabindex="1" size="6" multiple v-bind:disabled="state('item/customer.groups')"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ) ?>">
 														<option value=""><?= $enc->html( $this->translate( 'admin', 'None' ) ) ?></option>
 
@@ -394,7 +410,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control select" type="date"
+													<input is="flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ) ?>"
 														v-bind:disabled="state('item/customer.birthday')"
 														v-bind:config="Aimeos.flatpickr.date" />
@@ -682,6 +698,9 @@ $columnList = [
 							<?php endif ?>
 							<?php if( in_array( 'customer.birthday', $fields ) ) : ?>
 								<td class="customer-birthday"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $address->getBirthday() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'customer.dateverified', $fields ) ) : ?>
+								<td class="customer-dateverified"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateVerified() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'customer.ctime', $fields ) ) : ?>
 								<td class="customer-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
