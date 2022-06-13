@@ -190,11 +190,22 @@ $reasonList = [
 				<thead class="list-header">
 					<tr>
 						<th class="select">
-							<a href="#" class="btn act-delete fa" tabindex="1"
-								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
-							</a>
+							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="btn" v-on:click.prevent="batch = true" href="#" tabindex="1">
+										<?= $enc->html( $this->translate( 'admin', 'Edit' ) ) ?>
+									</a>
+								</li>
+								<li>
+									<a class="btn" v-on:click.prevent="askDelete(null, $event)" tabindex="1"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Delete' ) ) ?>
+									</a>
+								</li>
+							</ul>
 						</th>
 
 						<?= $this->partial(
@@ -280,6 +291,119 @@ $reasonList = [
 							]
 						] );
 					?>
+
+					<tr class="batch" style="display: none" v-show="batch">
+						<td colspan="<?= count( $fields ) + 2 ?>">
+							<div class="batch-header">
+								<div class="intro">
+									<span class="name"><?= $enc->html( $this->translate( 'admin', 'Bulk edit' ) ) ?></span>
+									<span class="count">{{ selected }} <?= $enc->html( $this->translate( 'admin', 'selected' ) ) ?></span>
+								</div>
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<span><?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?></span>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'subscription'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-subscription-status" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.status')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-subscription-status">
+													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select" v-bind:disabled="state('item/subscription.status')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.status' ) ) ) ?>">
+														<option value=""></option>
+														<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?></option>
+														<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?></option>
+														<option value="-1"><?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?></option>
+														<option value="-2"><?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?></option>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-subscription-interval" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.interval')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-subscription-interval">
+													<?= $enc->html( $this->translate( 'admin', 'Interval' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="text" v-bind:disabled="state('item/subscription.interval')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.interval' ) ) ) ?>" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-subscription-reason" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.reason')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-subscription-reason">
+													<?= $enc->html( $this->translate( 'admin', 'Reason' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select" v-bind:disabled="state('item/subscription.reason')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.reason' ) ) ) ?>">
+														<option value=""></option>
+														<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'reason:1' ) ) ?></option>
+														<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'reason:0' ) ) ?></option>
+														<option value="-1"><?= $enc->html( $this->translate( 'mshop/code', 'reason:-1' ) ) ?></option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-subscription-datenext" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.datenext')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-subscription-datenext">
+													<?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input is="flat-pickr" class="form-control" type="date"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ) ?>"
+														v-bind:disabled="state('item/subscription.datenext')"
+														v-bind:config="Aimeos.flatpickr.date" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-subscription-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.dateend')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-subscription-dateend">
+													<?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input is="flat-pickr" class="form-control" type="date"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ) ?>"
+														v-bind:disabled="state('item/subscription.dateend')"
+														v-bind:config="Aimeos.flatpickr.date" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="batch-footer">
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'subscription'] ) ) ?>">
+									<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+								</button>
+							</div>
+						</td>
+					</tr>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>

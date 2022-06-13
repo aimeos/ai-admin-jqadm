@@ -173,7 +173,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.reason' ) ) ) ?>"
 										<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) ?> >
 										<option value="">
-											<?= $enc->attr( $this->translate( 'admin', 'None' ) ) ?>
+											<?= $enc->html( $this->translate( 'admin', 'None' ) ) ?>
 										</option>
 										<option value="1" <?= $selected( $this->get( 'itemData/subscription.reason' ), 1 ) ?> >
 											<?= $enc->html( $this->translate( 'mshop/code', 'reason:1' ) ) ?>
