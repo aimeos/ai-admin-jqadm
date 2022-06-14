@@ -220,8 +220,9 @@ $columnList = [
 										title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
 									</a>
-									<a class="btn act-delete fa" tabindex="1" href="#"
-										v-on:click.prevent.stop="askDelete(`<?= $enc->js( $id ) ?>`)"
+									<a class="btn act-delete fa" tabindex="1"
+										v-on:click.prevent.stop="askDelete(`<?= $enc->js( $id ) ?>`, $event)"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', ['id' => $id] + $params ) ) ?>"
 										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
 									</a>
