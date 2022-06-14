@@ -889,12 +889,13 @@ Aimeos.List = {
 			}
 		},
 		methods: {
-			askDelete: function(id) {
+			askDelete: function(id, ev) {
 				if(id) {
 					this.clear(false);
 					this.$set(this.items[id], 'checked', true);
 				}
 
+				this.deleteUrl = ev.target.href;
 				this.dialog = true;
 			},
 
@@ -904,11 +905,11 @@ Aimeos.List = {
 
 			confirmDelete: function(val) {
 				if(val) {
-					if(this.$refs.form && this.$refs.form.dataset && this.$refs.form.dataset.deleteurl) {
-						this.$refs.form.action = this.$refs.form.dataset.deleteurl;
+					if(this.$refs.form && this.deleteUrl) {
+						this.$refs.form.action = this.deleteUrl;
 						this.$refs.form.submit();
 					} else {
-						console.log('[Aimeos] Missing form reference or data-deleteurl');
+						console.log('[Aimeos] Missing form reference or deleteUrl');
 					}
 				}
 
