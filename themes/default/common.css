@@ -214,7 +214,7 @@ body {
 	border: none;
 }
 
-.aimeos .toast-icon .icon-attention {
+.aimeos .toast-icon .icon-attention::before {
 	content: "\F333";
 }
 
