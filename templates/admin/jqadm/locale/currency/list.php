@@ -169,7 +169,7 @@ $columnList = [
 						] );
 					?>
 
-<tr class="batch" style="display: none" v-show="batch">
+					<tr class="batch" style="display: none" v-show="batch">
 						<td colspan="<?= count( $fields ) + 2 ?>">
 							<div class="batch-header">
 								<div class="intro">
@@ -233,8 +233,7 @@ $columnList = [
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
-									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)" />
 							</td>
 							<?php if( in_array( 'locale.currency.id', $fields ) ) : ?>
 								<td class="locale-currency-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>

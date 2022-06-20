@@ -923,7 +923,7 @@ Aimeos.List = {
 			clear: function(val) {
 				this.all = val;
 				for(const key in this.items) {
-					if(this.items[key][this.domain + '.siteid'] === this.siteid) {
+					if([this.siteid, ''].includes(this.items[key][this.domain + '.siteid'])) {
 						this.$set(this.items[key], 'checked', val);
 					}
 				};
