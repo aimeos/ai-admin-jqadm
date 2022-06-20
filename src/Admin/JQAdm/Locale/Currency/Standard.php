@@ -72,6 +72,17 @@ class Standard
 
 
 	/**
+	 * Batch update of a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function batch() : ?string
+	{
+		return $this->batchBase( 'locale/currency' );
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
