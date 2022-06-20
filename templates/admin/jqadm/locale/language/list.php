@@ -233,8 +233,7 @@ $columnList = [
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
-									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)" />
 							</td>
 							<?php if( in_array( 'locale.language.id', $fields ) ) : ?>
 								<td class="locale-language-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>

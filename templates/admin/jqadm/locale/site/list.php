@@ -242,11 +242,7 @@ $columnList = [
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
-									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									<?php if( !$this->access( 'super' ) ) : ?>
-										v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)"
-									<?php endif ?>
-								 />
+									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)" />
 							</td>
 							<?php endif ?>
 							<?php if( in_array( 'locale.site.id', $fields ) ) : ?>
