@@ -111,11 +111,22 @@ $columnList = [
 					<tr>
 						<?php if( $this->access( 'super' ) ) : ?>
 							<th class="select">
-								<a href="#" class="btn act-delete fa" tabindex="1"
-								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
-							</a>
+								<button class="btn icon-menu" type="button" data-bs-toggle="dropdown"
+									aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
+								</button>
+								<ul class="dropdown-menu">
+									<li>
+										<a class="btn" v-on:click.prevent="batch = true" href="#" tabindex="1">
+											<?= $enc->html( $this->translate( 'admin', 'Edit' ) ) ?>
+										</a>
+									</li>
+									<li>
+										<a class="btn" v-on:click.prevent="askDelete(null, $event)" tabindex="1"
+											href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
+											<?= $enc->html( $this->translate( 'admin', 'Delete' ) ) ?>
+										</a>
+									</li>
+								</ul>
 							</th>
 						<?php endif ?>
 
@@ -163,6 +174,64 @@ $columnList = [
 							]
 						] );
 					?>
+
+					<?php if( $this->access( 'super' ) ) : ?>
+						<tr class="batch" style="display: none" v-show="batch">
+							<td colspan="<?= count( $fields ) + 2 ?>">
+								<div class="batch-header">
+									<div class="intro">
+										<span class="name"><?= $enc->html( $this->translate( 'admin', 'Bulk edit' ) ) ?></span>
+										<span class="count">{{ selected }} <?= $enc->html( $this->translate( 'admin', 'selected' ) ) ?></span>
+									</div>
+									<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+										<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+									</a>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<span><?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?></span>
+										<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'locale/site'] ) ) ?>">
+											<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+										</button>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="row">
+													<div class="col-1">
+														<input id="batch-locale-site-status" class="form-check-input" type="checkbox" v-on:click="setState('item/locale.site.status')" />
+													</div>
+													<label class="col-4 form-control-label" for="batch-locale-site-status">
+														<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
+													</label>
+													<div class="col-7">
+														<select class="form-select" v-bind:disabled="state('item/locale.site.status')"
+															name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.status' ) ) ) ?>">
+															<option value=""></option>
+															<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?></option>
+															<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?></option>
+															<option value="-1"><?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?></option>
+															<option value="-2"><?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?></option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="batch-footer">
+									<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+										<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+									</a>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'locale/site'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+							</td>
+						</tr>
+					<?php endif ?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
