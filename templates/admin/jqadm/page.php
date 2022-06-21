@@ -99,7 +99,7 @@ $navlist = map( $this->config( 'admin/jqadm/navbar', [] ) )->ksort();
 
 foreach( $navlist as $key => $navitem )
 {
-	$name = is_array( $navitem ) ? ( $navitem['_'] ?? current( $nav ) ) : $navitem;
+	$name = is_array( $navitem ) ? ( $navitem['_'] ?? current( $navitem ) ) : $navitem;
 
 	if( !$this->access( $this->config( 'admin/jqadm/resource/' . $name . '/groups', [] ) ) ) {
 		$navlist->remove( $key );
