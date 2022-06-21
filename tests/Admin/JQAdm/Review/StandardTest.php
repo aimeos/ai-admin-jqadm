@@ -36,6 +36,26 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testBatch()
+	{
+		$param = array(
+			'site' => 'unittest',
+			'item' => array(
+				'review.status' => -1,
+			),
+			'id' => [-1, -2]
+		);
+
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->batch();
+
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertNull( $result );
+	}
+
+
 	public function testDelete()
 	{
 		$this->assertEmpty( $this->getClientMock( ['redirect'], false )->delete() );
