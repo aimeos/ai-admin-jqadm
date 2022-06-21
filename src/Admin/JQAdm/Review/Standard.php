@@ -69,7 +69,7 @@ class Standard
 		$view = $this->view();
 		$context = $this->context();
 
-		if( !$view->access( ['super', 'admin', 'test'] ) )
+		if( !$view->access( ['super', 'admin'] ) )
 		{
 			$msg = $context->translate( 'admin', 'Deleting reviews is not allowed' );
 			throw new \Aimeos\Admin\JQAdm\Exception( $msg );
