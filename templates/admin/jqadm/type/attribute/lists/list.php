@@ -200,7 +200,7 @@ $domains = [
 							<div class="card">
 								<div class="card-header">
 									<span><?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?></span>
-									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'attribute/lists/type'] ) ) ?>">
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'type/attribute/lists'] ) ) ?>">
 										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 									</button>
 								</div>
@@ -266,7 +266,7 @@ $domains = [
 								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
 									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
 								</a>
-								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'attribute/lists/type'] ) ) ?>">
+								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'type/attribute/lists'] ) ) ?>">
 									<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 								</button>
 							</div>

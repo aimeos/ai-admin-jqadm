@@ -30,7 +30,7 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'attribute/lists' );
+		return $this->batchBase( 'attribute/lists', 'type/attribute/lists' );
 	}
 
 
