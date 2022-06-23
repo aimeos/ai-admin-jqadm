@@ -24,6 +24,17 @@ class Standard
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
 	/**
+	 * Batch update of a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function batch() : ?string
+	{
+		return $this->batchBase( 'attribute/property' );
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
