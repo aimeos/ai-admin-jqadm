@@ -44,6 +44,19 @@ abstract class Base
 
 
 	/**
+	 * Modifiy several items at once
+	 *
+	 * @param string $domain Data domain of the items
+	 * @param string|null $resource Resource name or null for domain name
+	 * @return string|null Output to display
+	 */
+	protected function batchBase( string $domain, string $resource = null ) : ?string
+	{
+		return parent::batchBase( $domain . '/type', 'type/' . $domain );
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @param string $path Path name like "attribute/lists" without "/type" postfix
