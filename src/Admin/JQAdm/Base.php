@@ -131,6 +131,10 @@ abstract class Base
 	 */
 	public function batch() : ?string
 	{
+		foreach( $this->getSubClients() as $client ) {
+			$client->batch();
+		}
+
 		return null;
 	}
 
@@ -378,6 +382,12 @@ abstract class Base
 
 			foreach( $items as $item ) {
 				$temp = $data; $item->fromArray( $temp, true );
+			}
+
+			$view->items = $items;
+
+			foreach( $this->getSubClients() as $client ) {
+				$client->batch();
 			}
 
 			$manager->save( $items );
