@@ -856,7 +856,7 @@ Aimeos.List = {
 					this.filter = JSON.parse(this.$el.dataset.filter);
 				}
 				if(this.$el.dataset.domain) {
-					this.domain = this.$el.dataset.domain.replace('/', '.');
+					this.domain = this.$el.dataset.domain.replace(/\//g, '.');
 				}
 				if(this.$el.dataset.siteid) {
 					this.siteid = this.$el.dataset.siteid;
