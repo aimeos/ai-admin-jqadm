@@ -51,6 +51,10 @@ $columnList = [
 	'customer.property.type.editor' => $this->translate( 'admin', 'Editor' ),
 ];
 
+$domains = [
+	'customer' => $this->translate( 'admin', 'customer' ),
+];
+
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
@@ -111,11 +115,22 @@ $columnList = [
 				<thead class="list-header">
 					<tr>
 						<th class="select">
-							<a href="#" class="btn act-delete fa" tabindex="1"
-								v-on:click.prevent.stop="askDelete()"
-								title="<?= $enc->attr( $this->translate( 'admin', 'Delete selected entries' ) ) ?>"
-								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
-							</a>
+							<button class="btn icon-menu" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false" title="<?= $enc->attr( $this->translate( 'admin', 'Menu' ) ) ?>">
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="btn" v-on:click.prevent="batch = true" href="#" tabindex="1">
+										<?= $enc->html( $this->translate( 'admin', 'Edit' ) ) ?>
+									</a>
+								</li>
+								<li>
+									<a class="btn" v-on:click.prevent="askDelete(null, $event)" tabindex="1"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Delete' ) ) ?>
+									</a>
+								</li>
+							</ul>
 						</th>
 
 						<?= $this->partial(
@@ -145,17 +160,7 @@ $columnList = [
 							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/type/customer/property/filter', [] ),
 							'data' => [
 								'customer.property.type.id' => ['op' => '=='],
-								'customer.property.type.domain' => ['op' => '==', 'type' => 'select', 'val' => [
-									'customer' => $this->translate( 'admin', 'customer' ),
-									'catalog' => $this->translate( 'admin', 'catalog' ),
-									'customer' => $this->translate( 'admin', 'customer' ),
-									'media' => $this->translate( 'admin', 'media' ),
-									'price' => $this->translate( 'admin', 'price' ),
-									'product' => $this->translate( 'admin', 'product' ),
-									'service' => $this->translate( 'admin', 'service' ),
-									'supplier' => $this->translate( 'admin', 'supplier' ),
-									'text' => $this->translate( 'admin', 'text' ),
-								]],
+								'customer.property.type.domain' => ['op' => '==', 'type' => 'select', 'val' => $domains],
 								'customer.property.type.status' => ['op' => '==', 'type' => 'select', 'val' => [
 									'1' => $this->translate( 'mshop/code', 'status:1' ),
 									'0' => $this->translate( 'mshop/code', 'status:0' ),
@@ -172,6 +177,93 @@ $columnList = [
 						] );
 					?>
 
+					<tr class="batch" style="display: none" v-show="batch">
+						<td colspan="<?= count( $fields ) + 2 ?>">
+							<div class="batch-header">
+								<div class="intro">
+									<span class="name"><?= $enc->html( $this->translate( 'admin', 'Bulk edit' ) ) ?></span>
+									<span class="count">{{ selected }} <?= $enc->html( $this->translate( 'admin', 'selected' ) ) ?></span>
+								</div>
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<span><?= $enc->html( $this->translate( 'admin', 'Basic' ) ) ?></span>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'type/customer/property'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-property-type-status" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.property.type.status')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-property-type-status">
+													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select" v-bind:disabled="state('item/customer.property.type.status')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.property.type.status' ) ) ) ?>">
+														<option value=""></option>
+														<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?></option>
+														<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?></option>
+														<option value="-1"><?= $enc->html( $this->translate( 'mshop/code', 'status:-1' ) ) ?></option>
+														<option value="-2"><?= $enc->html( $this->translate( 'mshop/code', 'status:-2' ) ) ?></option>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-property-type-domain" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.property.type.domain')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-property-type-domain">
+													<?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?>
+												</label>
+												<div class="col-7">
+													<select class="form-select" v-bind:disabled="state('item/customer.property.type.domain')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.property.type.domain' ) ) ) ?>">
+														<option value=""></option>
+														<?php foreach( $domains as $domain => $label ) : ?>
+															<option value="<?= $enc->attr( $domain ) ?>">
+																<?= $enc->html( $label ) ?>
+															</option>
+														<?php endforeach ?>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-customer-property-type-position" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.property.type.position')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-customer-property-type-position">
+													<?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="number" v-bind:disabled="state('item/customer.property.type.position')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.property.type.position' ) ) ) ?>" />
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="batch-footer">
+								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
+									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>
+								</a>
+								<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'type/customer/property'] ) ) ?>">
+									<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+								</button>
+							</div>
+						</td>
+					</tr>
+
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['id' => $id] + $params ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>" data-label="<?= $enc->attr( $item->getLabel() ) ?>">
@@ -186,11 +278,11 @@ $columnList = [
 							<?php if( in_array( 'customer.property.type.id', $fields ) ) : ?>
 								<td class="customer-type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'customer.property.type.domain', $fields ) ) : ?>
-								<td class="customer-type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
-							<?php endif ?>
 							<?php if( in_array( 'customer.property.type.status', $fields ) ) : ?>
 								<td class="customer-type-status"><a class="items-field" href="<?= $url ?>"><div class="fa status-<?= $enc->attr( $item->getStatus() ) ?>"></div></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'customer.property.type.domain', $fields ) ) : ?>
+								<td class="customer-type-domain"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDomain() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'customer.property.type.code', $fields ) ) : ?>
 								<td class="customer-type-code"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getCode() ) ?></a></td>

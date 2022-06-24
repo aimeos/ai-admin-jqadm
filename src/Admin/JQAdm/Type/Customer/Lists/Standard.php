@@ -57,6 +57,18 @@ class Standard
 	 * @category Developer
 	 */
 
+
+	/**
+	 * Batch update of a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function batch() : ?string
+	{
+		return $this->batchBase( 'customer/lists' );
+	}
+
+
 	/**
 	 * Copies a resource
 	 *
