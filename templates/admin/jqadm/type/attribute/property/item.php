@@ -87,15 +87,9 @@ $params = $this->get( 'pageParams', [] );
 									<select class="form-select item-domain" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.property.type.domain' ) ) ) ?>"
 										<?= $this->site()->readonly( $this->get( 'itemData/attribute.property.type.siteid' ) ) ?> >
-										<option value="">
-											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
+										<option value="attribute" selected >
+											<?= $enc->html( $this->translate( 'admin', 'attribute' ) ) ?>
 										</option>
-
-										<?php foreach( ['attribute', 'catalog', 'customer', 'media', 'price', 'product', 'service', 'supplier', 'text'] as $domain ) : ?>
-											<option value="<?= $enc->attr( $domain ) ?>" <?= $selected( $this->get( 'itemData/attribute.property.type.domain', 'customer' ), $domain ) ?> >
-												<?= $enc->html( $this->translate( 'admin', $domain ) ) ?>
-											</option>
-										<?php endforeach ?>
 									</select>
 								</div>
 							</div>

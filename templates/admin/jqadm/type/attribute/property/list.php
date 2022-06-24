@@ -178,7 +178,7 @@ $domains = [
 						] );
 					?>
 
-<tr class="batch" style="display: none" v-show="batch">
+					<tr class="batch" style="display: none" v-show="batch">
 						<td colspan="<?= count( $fields ) + 2 ?>">
 							<div class="batch-header">
 								<div class="intro">
