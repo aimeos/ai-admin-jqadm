@@ -34,6 +34,28 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testBatch()
+	{
+		$param = array(
+			'site' => 'unittest',
+			'item' => array(
+				'media.type.domain' => 'product',
+				'media.type.position' => 1,
+				'media.type.status' => -1,
+			),
+			'id' => [-1, -2]
+		);
+
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->batch();
+
+		$this->assertEmpty( $this->view->get( 'errors' ) );
+		$this->assertNull( $result );
+	}
+
+
 	public function testCreate()
 	{
 		$result = $this->object->create();
