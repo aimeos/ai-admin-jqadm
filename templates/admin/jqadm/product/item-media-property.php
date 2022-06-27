@@ -19,7 +19,7 @@ $types = $this->get( 'propertyTypes', map() )->col( 'media.property.type.label',
 			v-bind:index="idx" v-bind:domain="'media'"
 			v-bind:types="<?= $enc->attr( $types ) ?>"
 			v-bind:siteid="`<?= $enc->js( $this->site()->siteid() ) ?>`" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-			v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>"
+			v-bind:languages="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->unshift( $this->translate( 'admin', '<hidden>' ), 'xx' )->all() ) ?>"
 			v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'property', '_propidx_', '_key_'] ) ) ?>`"
 			v-bind:items="item['property']" v-on:update:property="item['property'] = $event"
 			v-bind:i18n="{
