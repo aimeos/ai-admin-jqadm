@@ -9,11 +9,11 @@ Vue.component('page-offset', {
 		<ul class="page-offset pagination"> \
 			<li v-bind:class="{disabled: first === null}" class="page-item"> \
 				<button v-on:click.prevent="$emit(\'input\', first)" class="page-link" v-bind:tabindex="tabindex" aria-label="First"> \
-					<span class="fa fa-fast-backward" aria-hidden="true"></span> \
+					<span class="fa icon-first" aria-hidden="true"></span> \
 				</button> \
 			</li><li v-bind:class="{disabled: prev === null}" class="page-item"> \
 				<button v-on:click.prevent="$emit(\'input\', prev)" class="page-link" v-bind:tabindex="tabindex" aria-label="Previous"> \
-					<span class="fa fa-step-backward" aria-hidden="true"></span> \
+					<span class="fa icon-prev" aria-hidden="true"></span> \
 				</button> \
 			</li><li class="page-item disabled"> \
 				<button class="page-link" v-bind:tabindex="tabindex""> \
@@ -21,11 +21,11 @@ Vue.component('page-offset', {
 				</button> \
 			</li><li v-bind:class="{disabled: next === null}" class="page-item"> \
 				<button v-on:click.prevent="$emit(\'input\', next)" class="page-link" v-bind:tabindex="tabindex" aria-label="Next"> \
-					<span class="fa fa-step-forward" aria-hidden="true"></span> \
+					<span class="fa icon-next" aria-hidden="true"></span> \
 				</button> \
 			</li><li v-bind:class="{disabled: last === null}" class="page-item"> \
 				<button v-on:click.prevent="$emit(\'input\', last)" class="page-link" v-bind:tabindex="tabindex" aria-label="Last"> \
-					<span class="fa fa-fast-forward" aria-hidden="true"></span> \
+					<span class="fa icon-last" aria-hidden="true"></span> \
 				</button> \
 			</li> \
 		</ul> \
