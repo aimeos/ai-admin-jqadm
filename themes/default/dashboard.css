@@ -3,8 +3,12 @@
  * @copyright Aimeos (aimeos.org), 2016-2022
  */
 
- .dashboard h3 {
+.dashboard h3 {
 	font-size: 1.25rem;
+}
+
+.dashboard .table-responsive {
+	min-height: auto;
 }
 
 .dashboard .card-block {
