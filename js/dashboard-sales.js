@@ -4,7 +4,7 @@
  */
 
 
- Aimeos.Dashboard.Sales = {
+Aimeos.Dashboard.Sales = {
 
 	theme: 'light',
 	colors: ['#30a0e0', '#00b0a0', '#ff7f0e', '#e03028', '#00c8f0', '#00d0b0', '#c8d830', '#f8b820'],
@@ -167,11 +167,12 @@
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", null, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
-			const dsets = [], date = startdate.clone();
+			const dsets = [];
 			const data = response.data.length ? response.data : [{id: '', attributes: {}}];
 
 			for(const entry of data) {
 				let data = [];
+				let date = startdate.clone();
 
 				do {
 					let day = date.toISOString().substr(0, 10);
@@ -230,11 +231,12 @@
 		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", null, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
-			const dsets = [], date = startdate.clone();
+			const dsets = [];
 			const data = response.data.length ? response.data : [{id: '', attributes: {}}];
 
 			for(const entry of data) {
 				let data = [];
+				let date = startdate.clone();
 
 				do {
 					let month = date.toISOString().substr(0, 7);
