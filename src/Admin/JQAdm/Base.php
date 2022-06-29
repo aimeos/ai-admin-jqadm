@@ -376,7 +376,7 @@ abstract class Base
 		{
 			$manager = \Aimeos\MShop::create( $this->context(), $domain );
 			$filter = $manager->filter()->add( [str_replace( '/', '.', $domain ) . '.id' => $ids] )->slice( 0, count( $ids ) );
-			$items = $manager->search( $filter );
+			$items = $manager->search( $filter, $this->getDomains() );
 
 			$data = $view->param( 'item', [] );
 
@@ -476,6 +476,17 @@ abstract class Base
 		}
 
 		return $list;
+	}
+
+
+	/**
+	 * Returns the domain names whose items should be fetched too
+	 *
+	 * @return string[] List of domain names
+	 */
+	protected function getDomains() : array
+	{
+		return [];
 	}
 
 
