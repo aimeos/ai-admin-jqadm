@@ -863,14 +863,20 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-price-taxrate" class="form-check-input" type="checkbox" v-on:click="setState('price/price.taxrate')" />
+													<input id="batch-price-taxrates" class="form-check-input" type="checkbox" v-on:click="setState('price/price.taxrates')" />
 												</div>
-												<label class="col-4 form-control-label" for="batch-price-taxrate">
+												<label class="col-4 form-control-label" for="batch-price-taxrates">
 													<?= $enc->html( $this->translate( 'admin', 'Tax rate' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input class="form-control" type="number" min="0.01" step="0.01" v-bind:disabled="state('price/price.taxrate')"
-														name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrate' ) ) ) ?>" />
+													<div is="taxrates" tabindex="1"
+														name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrates' ) ) ) ?>"
+														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Tax rate in %' ) ) ?>"
+														v-bind:types="<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>"
+														v-bind:disabled="state('price/price.taxrates')"
+														v-bind:taxrates='{"tax": 0}'
+														v-bind:readonly="false"
+													></div>
 												</div>
 											</div>
 

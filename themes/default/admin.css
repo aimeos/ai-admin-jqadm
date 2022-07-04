@@ -299,7 +299,7 @@
 
 /* Bulk edit */
 
-.aimeos .list-items .batch td {
+.aimeos .list-items .batch > td {
 	padding: 2rem 0;
 }
 
