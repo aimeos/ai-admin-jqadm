@@ -34,6 +34,35 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testBatch()
+	{
+		$this->view->items = map( \Aimeos\MShop::create( $this->context, 'product' )->find( 'CNC', ['price'] ) );
+
+		$param = array(
+			'site' => 'unittest',
+			'price' => array(
+				'price.taxrate' => '15',
+				'rebatepercent' => 10,
+				'valuepercent' => 10,
+				'costspercent' => '5'
+			),
+		);
+
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
+
+		$result = $this->object->batch();
+
+		$prices = $this->view->items->first()->getRefItems( 'price' );
+
+		$this->assertEquals( 2, count( $prices ) );
+		$this->assertEquals( '15.00', $prices->getTaxrate()->first() );
+		$this->assertEquals( '0.00', $prices->getRebate()->first() );
+		$this->assertEquals( '660.00', $prices->getValue()->first() );
+		$this->assertEquals( '31.50', $prices->getCosts()->first() );
+	}
+
+
 	public function testCreate()
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );

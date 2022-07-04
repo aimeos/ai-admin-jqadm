@@ -805,6 +805,76 @@ $columnList = [
 									</div>
 								</div>
 							</div>
+							<div class="card">
+								<div class="card-header">
+									<span><?= $enc->html( $this->translate( 'admin', 'Price' ) ) ?></span>
+									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'product'] ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
+									</button>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-6">
+
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-price-valuepercent" class="form-check-input" type="checkbox" v-on:click="setState('price/valuepercent')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-price-valuepercent">
+													<?= $enc->html( $this->translate( 'admin', 'Change value in %' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="number" min="0.01" step="0.01" v-bind:disabled="state('price/valuepercent')"
+														name="<?= $enc->attr( $this->formparam( array( 'price', 'valuepercent' ) ) ) ?>" />
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-price-rebatepercent" class="form-check-input" type="checkbox" v-on:click="setState('price/rebatepercent')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-price-rebatepercent">
+													<?= $enc->html( $this->translate( 'admin', 'Change rebate in %' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="number" min="0.01" step="0.01" v-bind:disabled="state('price/rebatepercent')"
+														name="<?= $enc->attr( $this->formparam( array( 'price', 'rebatepercent' ) ) ) ?>" />
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-price-costspercent" class="form-check-input" type="checkbox" v-on:click="setState('price/costspercent')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-price-costspercent">
+													<?= $enc->html( $this->translate( 'admin', 'Change costs/item in %' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="number" min="0.01" step="0.01" v-bind:disabled="state('price/costspercent')"
+														name="<?= $enc->attr( $this->formparam( array( 'price', 'costspercent' ) ) ) ?>" />
+												</div>
+											</div>
+
+										</div>
+										<div class="col-lg-6">
+
+											<div class="row">
+												<div class="col-1">
+													<input id="batch-price-taxrate" class="form-check-input" type="checkbox" v-on:click="setState('price/price.taxrate')" />
+												</div>
+												<label class="col-4 form-control-label" for="batch-price-taxrate">
+													<?= $enc->html( $this->translate( 'admin', 'Tax rate' ) ) ?>
+												</label>
+												<div class="col-7">
+													<input class="form-control" type="number" min="0.01" step="0.01" v-bind:disabled="state('price/price.taxrate')"
+														name="<?= $enc->attr( $this->formparam( array( 'price', 'price.taxrate' ) ) ) ?>" />
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
 							<div class="batch-footer">
 								<a class="btn btn-secondary" href="#" v-on:click.prevent="batch = false">
 									<?= $enc->html( $this->translate( 'admin', 'Close' ) ) ?>

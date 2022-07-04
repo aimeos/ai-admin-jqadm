@@ -72,6 +72,40 @@ class Standard
 
 
 	/**
+	 * Batch update of a resource
+	 *
+	 * @return string|null Output to display
+	 */
+	public function batch() : ?string
+	{
+		$view = $this->view();
+		$data = $view->param( 'price', [] );
+
+		foreach( $view->get( 'items', [] ) as $item )
+		{
+			foreach( $item->getRefItems( 'price' ) as $price )
+			{
+				$temp = $data; $price->fromArray( $temp, true );
+
+				if( isset( $data['valuepercent'] ) ) {
+					$price->setValue( $price->getValue() + $price->getValue() * $data['valuepercent'] / 100 );
+				}
+
+				if( isset( $data['rebatepercent'] ) ) {
+					$price->setRebate( $price->getRebate() + $price->getRebate() * $data['rebatepercent'] / 100 );
+				}
+
+				if( isset( $data['costspercent'] ) ) {
+					$price->setCosts( $price->getCosts() + $price->getCosts() * $data['costspercent'] / 100 );
+				}
+			}
+		}
+
+		return null;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
