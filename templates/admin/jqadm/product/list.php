@@ -768,7 +768,8 @@ $columnList = [
 													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
 														v-bind:disabled="state('item/product.datestart')"
-														v-bind:config="Aimeos.flatpickr.datetime" />
+														v-bind:config="Aimeos.flatpickr.datetime"
+														value="" />
 												</div>
 											</div>
 
@@ -783,7 +784,8 @@ $columnList = [
 													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/product.dateend')"
-														v-bind:config="Aimeos.flatpickr.datetime" />
+														v-bind:config="Aimeos.flatpickr.datetime"
+														value="" />
 												</div>
 											</div>
 
@@ -798,7 +800,8 @@ $columnList = [
 													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ) ?>"
 														v-bind:disabled="state('item/product.ctime')"
-														v-bind:config="Aimeos.flatpickr.datetime" />
+														v-bind:config="Aimeos.flatpickr.datetime"
+														value="" />
 												</div>
 											</div>
 										</div>
