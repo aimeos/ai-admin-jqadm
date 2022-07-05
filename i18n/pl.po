@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Rafał Morawiec, 2022\n"
 "Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
@@ -101,6 +101,9 @@ msgstr ""
 
 msgid "+ Tax"
 msgstr "+ VAT"
+
+msgid "<hidden>"
+msgstr ""
 
 msgid "?"
 msgstr "?"
@@ -258,6 +261,9 @@ msgstr "Urodziny klienta"
 msgid "Bug or suggestion?"
 msgstr "Błąd czy sugestia?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Rezygnuj"
 
@@ -287,6 +293,15 @@ msgid ""
 "pairs in the templates"
 msgstr "Opcje konfiguracji specyficzne dla kategorii będą dostępne jako pary klucz/wartość w szablonach"
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr "Kanał"
 
@@ -298,6 +313,10 @@ msgstr "Miejscowość"
 
 msgid "City or town name (required)"
 msgstr "Miasto lub miejscowość (wymagane)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "W klasie \"%1$s\" nie zaimplementowano \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -665,6 +684,9 @@ msgstr ""
 msgid "Group name describing for which members the group is for"
 msgstr ""
 
+msgid "Groups"
+msgstr ""
+
 msgid "Height"
 msgstr ""
 
@@ -897,6 +919,9 @@ msgid "Media Types"
 msgstr ""
 
 msgid "Media properties"
+msgstr ""
+
+msgid "Menu"
 msgstr ""
 
 msgid "Message"
@@ -1664,6 +1689,9 @@ msgstr ""
 msgid "Tax"
 msgstr ""
 
+msgid "Tax rate"
+msgstr "Stawka podatkowa"
+
 msgid "Tax rate in %"
 msgstr "Stawka podatkowa w %"
 
@@ -1903,6 +1931,9 @@ msgstr ""
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr ""
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr ""
 
@@ -1923,6 +1954,9 @@ msgid "Weeks"
 msgstr ""
 
 msgid "Weight"
+msgstr ""
+
+msgid "When the account and e-mail address has been verified"
 msgstr ""
 
 msgid "Width"
@@ -1947,6 +1981,9 @@ msgid "Zip code"
 msgstr ""
 
 msgid "Zip code (optional)"
+msgstr ""
+
+msgid "__hidden__"
 msgstr ""
 
 #, php-format
@@ -2222,6 +2259,9 @@ msgstr ""
 
 #, php-format
 msgid "salesweekday"
+msgstr ""
+
+msgid "selected"
 msgstr ""
 
 #, php-format

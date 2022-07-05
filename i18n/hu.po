@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Csaba Balazs <support@webstergeek.eu>, 2022\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
@@ -103,6 +103,9 @@ msgstr "(Nemzetközi) telefonszám elválasztó karakterek nélkül, kezdődhet 
 
 msgid "+ Tax"
 msgstr "+ ÁFA"
+
+msgid "<hidden>"
+msgstr ""
 
 msgid "?"
 msgstr "?"
@@ -260,6 +263,9 @@ msgstr "Vásárló születésnapja"
 msgid "Bug or suggestion?"
 msgstr "Hiba vagy javaslat?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -289,6 +295,15 @@ msgid ""
 "pairs in the templates"
 msgstr "Termékkörre vonatkozó beállítási lehetőségek, a sablonokban kulcs-érték párokként lesznek elérhetők"
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr "Csatorna"
 
@@ -300,6 +315,10 @@ msgstr "Város"
 
 msgid "City or town name (required)"
 msgstr "Település neve (kötelező)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "\"%1$s\" osztályban nincs létrehozva \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -667,6 +686,9 @@ msgstr "Csoport"
 msgid "Group name describing for which members the group is for"
 msgstr "Csoport neve, ami leírja, hogy mely tagoké a csoport"
 
+msgid "Groups"
+msgstr "Csoportok"
+
 msgid "Height"
 msgstr "Magasság"
 
@@ -900,6 +922,9 @@ msgstr "Médiatípusok"
 
 msgid "Media properties"
 msgstr "A média tulajdonságai"
+
+msgid "Menu"
+msgstr ""
 
 msgid "Message"
 msgstr "Üzenet"
@@ -1666,6 +1691,9 @@ msgstr "Címke típusok"
 msgid "Tax"
 msgstr "Adó"
 
+msgid "Tax rate"
+msgstr "Adókulcs"
+
 msgid "Tax rate in %"
 msgstr "Adókulcs %-ban"
 
@@ -1905,6 +1933,9 @@ msgstr "Jellemző változat"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Változatos termékattribútumok, amelyeket a megrendelt termékekkel együtt tárolnak"
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr "Részletek megjelenítése"
 
@@ -1926,6 +1957,9 @@ msgstr "Hetek"
 
 msgid "Weight"
 msgstr "Súly"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "Szélesség"
@@ -1950,6 +1984,9 @@ msgstr "Irányítószám"
 
 msgid "Zip code (optional)"
 msgstr "Irányítószám (opcionális)"
+
+msgid "__hidden__"
+msgstr ""
 
 #, php-format
 msgid "account"
@@ -2225,6 +2262,9 @@ msgstr "Értékesítés"
 #, php-format
 msgid "salesweekday"
 msgstr "Értékesítések hétköznap"
+
+msgid "selected"
+msgstr ""
 
 #, php-format
 msgid "selection"

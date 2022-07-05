@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2022\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
@@ -96,6 +96,9 @@ msgstr "Ayırma karakterleri olmaksızın telefon numarası (uluslararası), \"+
 
 msgid "+ Tax"
 msgstr "+ Vergi"
+
+msgid "<hidden>"
+msgstr ""
 
 msgid "?"
 msgstr "?"
@@ -253,6 +256,9 @@ msgstr "Müşterinin doğum tarihi"
 msgid "Bug or suggestion?"
 msgstr "Hata veya öneri?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "İptal"
 
@@ -282,6 +288,15 @@ msgid ""
 "pairs in the templates"
 msgstr "Kategoriye özel yapılandırma seçenekleri, şablonlarda anahtar/değer çifti olarak bulunacaktır"
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr "Kanal"
 
@@ -293,6 +308,10 @@ msgstr "İlçe"
 
 msgid "City or town name (required)"
 msgstr "İlçe veya kasaba adı (gerekli)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "Class \"%1$s\" \"%2$s\" uygulamıyor"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -660,6 +679,9 @@ msgstr "Grup"
 msgid "Group name describing for which members the group is for"
 msgstr "Grubun hangi üyeler için olduğunu tanımlayan grup adı"
 
+msgid "Groups"
+msgstr "Gruplar"
+
 msgid "Height"
 msgstr "Yükseklik"
 
@@ -894,6 +916,9 @@ msgstr "Medya Türleri"
 msgid "Media properties"
 msgstr "Medya özellikleri"
 
+msgid "Menu"
+msgstr ""
+
 msgid "Message"
 msgstr "Mesaj"
 
@@ -971,7 +996,7 @@ msgid "No product found"
 msgstr "Ürün bulunamadı"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Tema seçenekleri mevcut değil"
 
 #, php-format
 msgid "No view available"
@@ -1659,6 +1684,9 @@ msgstr "Etiket Türleri"
 msgid "Tax"
 msgstr "Vergi"
 
+msgid "Tax rate"
+msgstr "Vergi oranı"
+
 msgid "Tax rate in %"
 msgstr "% vergi oranı"
 
@@ -1898,6 +1926,9 @@ msgstr "Değişken nitelikleri"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Sipariş edilen ürünlerle birlikte saklanan değişken ürün nitellikleri"
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr "Ayrıntıları görüntüle"
 
@@ -1919,6 +1950,9 @@ msgstr "Haftalar"
 
 msgid "Weight"
 msgstr "Ağırlık"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "Genişlik"
@@ -1943,6 +1977,9 @@ msgstr "Posta kodu"
 
 msgid "Zip code (optional)"
 msgstr "Posta kodu (isteğe bağlı)"
+
+msgid "__hidden__"
+msgstr ""
 
 #, php-format
 msgid "account"
@@ -2219,6 +2256,9 @@ msgstr "Satış"
 msgid "salesweekday"
 msgstr "İş gününe göre satışlar"
 
+msgid "selected"
+msgstr ""
+
 #, php-format
 msgid "selection"
 msgstr "Değişkenler"
@@ -2241,7 +2281,7 @@ msgstr "Ayarlar"
 
 #, php-format
 msgid "setup"
-msgstr "ayar"
+msgstr "Kurulum"
 
 #, php-format
 msgid "special"

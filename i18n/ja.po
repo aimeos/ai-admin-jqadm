@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
@@ -97,6 +97,9 @@ msgid ""
 msgstr "(国際)電話番号は分離文字なし、\"+\"で始めることができます。"
 
 msgid "+ Tax"
+msgstr ""
+
+msgid "<hidden>"
 msgstr ""
 
 msgid "?"
@@ -255,6 +258,9 @@ msgstr "顧客の誕生日"
 msgid "Bug or suggestion?"
 msgstr "バグや提案?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -284,6 +290,15 @@ msgid ""
 "pairs in the templates"
 msgstr "カテゴリ固有の設定オプションは、テンプレートのキーと値のペアとして使用できます"
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr ""
 
@@ -295,6 +310,10 @@ msgstr "都市"
 
 msgid "City or town name (required)"
 msgstr "市または町の名前（必須）"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "クラス\"%1$s\"は、\"%2$s\"を実行しません"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -662,6 +681,9 @@ msgstr "グループ"
 msgid "Group name describing for which members the group is for"
 msgstr "グループが属するメンバーを記述するグループ名"
 
+msgid "Groups"
+msgstr ""
+
 msgid "Height"
 msgstr "高さ"
 
@@ -895,6 +917,9 @@ msgstr "メディアタイプ"
 
 msgid "Media properties"
 msgstr "メディアプロパティ"
+
+msgid "Menu"
+msgstr ""
 
 msgid "Message"
 msgstr "メッセージ"
@@ -1661,6 +1686,9 @@ msgstr "タグタイプ"
 msgid "Tax"
 msgstr "税金"
 
+msgid "Tax rate"
+msgstr "税率"
+
 msgid "Tax rate in %"
 msgstr "税率　％"
 
@@ -1900,6 +1928,9 @@ msgstr "バリアント属性"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "注文商品に格納されているバリアント商品属性"
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr "詳細を見る"
 
@@ -1921,6 +1952,9 @@ msgstr "週"
 
 msgid "Weight"
 msgstr "重量"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "幅"
@@ -1945,6 +1979,9 @@ msgstr "郵便番号"
 
 msgid "Zip code (optional)"
 msgstr "郵便番号 (オプション)"
+
+msgid "__hidden__"
+msgstr ""
 
 #, php-format
 msgid "account"
@@ -2220,6 +2257,9 @@ msgstr ""
 #, php-format
 msgid "salesweekday"
 msgstr "平日の売上"
+
+msgid "selected"
+msgstr ""
 
 #, php-format
 msgid "selection"

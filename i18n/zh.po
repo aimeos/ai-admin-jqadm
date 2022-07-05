@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Hans He, 2022\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -101,6 +101,9 @@ msgstr "沒有分隔字元的（國際）電話號碼，可以以 “+” 開頭
 
 msgid "+ Tax"
 msgstr "+稅"
+
+msgid "<hidden>"
+msgstr ""
 
 msgid "?"
 msgstr "?"
@@ -258,6 +261,9 @@ msgstr "客戶生日"
 msgid "Bug or suggestion?"
 msgstr "問題或建議？"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "取消"
 
@@ -287,6 +293,15 @@ msgid ""
 "pairs in the templates"
 msgstr "类别特定的配置选项，将在模板中作为键/值对提供"
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr "路線"
 
@@ -298,6 +313,10 @@ msgstr "市"
 
 msgid "City or town name (required)"
 msgstr "城市或城鎮名稱（必填）"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "class \"%1$s\" 沒有實裝 \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -665,6 +684,9 @@ msgstr "群組"
 msgid "Group name describing for which members the group is for"
 msgstr "分组名描述该分组对应哪些会员"
 
+msgid "Groups"
+msgstr "分组"
+
 msgid "Height"
 msgstr "高度"
 
@@ -898,6 +920,9 @@ msgstr "媒體類別"
 
 msgid "Media properties"
 msgstr "媒體資源"
+
+msgid "Menu"
+msgstr ""
 
 msgid "Message"
 msgstr "訊息"
@@ -1664,6 +1689,9 @@ msgstr "标签类型"
 msgid "Tax"
 msgstr "稅"
 
+msgid "Tax rate"
+msgstr "稅率"
+
 msgid "Tax rate in %"
 msgstr "稅率 %"
 
@@ -1903,6 +1931,9 @@ msgstr "變量屬性"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "与下单产品一起存储的变体产品属性"
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr "查看详细"
 
@@ -1924,6 +1955,9 @@ msgstr "週"
 
 msgid "Weight"
 msgstr "重量"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "寬度"
@@ -1948,6 +1982,9 @@ msgstr "Zip code"
 
 msgid "Zip code (optional)"
 msgstr "郵遞區號（可不填）"
+
+msgid "__hidden__"
+msgstr ""
 
 #, php-format
 msgid "account"
@@ -2223,6 +2260,9 @@ msgstr "销售"
 #, php-format
 msgid "salesweekday"
 msgstr "按工作日業績排序"
+
+msgid "selected"
+msgstr ""
 
 #, php-format
 msgid "selection"

@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Rodolfo Ruival <ruileo1977@yahoo.com>, 2020\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid " "
 msgstr ""
@@ -106,6 +106,9 @@ msgstr "(Cód.Internacional) número de teléfono sin caracteres de separación,
 
 msgid "+ Tax"
 msgstr "+ Impuesto"
+
+msgid "<hidden>"
+msgstr ""
 
 msgid "?"
 msgstr "?"
@@ -263,6 +266,9 @@ msgstr "Cumpleaños del Cliente"
 msgid "Bug or suggestion?"
 msgstr "¿Algún error o sugerencia?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -292,6 +298,15 @@ msgid ""
 "pairs in the templates"
 msgstr ""
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr "Canal"
 
@@ -303,6 +318,10 @@ msgstr "Ciudad"
 
 msgid "City or town name (required)"
 msgstr "Nombre de la ciudad o localidad (obligatorio)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "La clase \"%1$s\" no implementa \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -670,6 +689,9 @@ msgstr "Grupo"
 msgid "Group name describing for which members the group is for"
 msgstr ""
 
+msgid "Groups"
+msgstr "Grupos"
+
 msgid "Height"
 msgstr "Altura"
 
@@ -902,6 +924,9 @@ msgid "Media Types"
 msgstr ""
 
 msgid "Media properties"
+msgstr ""
+
+msgid "Menu"
 msgstr ""
 
 msgid "Message"
@@ -1669,6 +1694,9 @@ msgstr ""
 msgid "Tax"
 msgstr "Impuesto"
 
+msgid "Tax rate"
+msgstr "Tasa impositiva"
+
 msgid "Tax rate in %"
 msgstr "Tasa de impuesto en %"
 
@@ -1908,6 +1936,9 @@ msgstr "Atributos variantes"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr ""
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr "Ver detalles"
 
@@ -1929,6 +1960,9 @@ msgstr "Semanas"
 
 msgid "Weight"
 msgstr "Peso"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "Ancho"
@@ -1953,6 +1987,9 @@ msgstr "Código postal"
 
 msgid "Zip code (optional)"
 msgstr "Código postal (opcional)"
+
+msgid "__hidden__"
+msgstr ""
 
 #, php-format
 msgid "account"
@@ -2228,6 +2265,9 @@ msgstr ""
 #, php-format
 msgid "salesweekday"
 msgstr "Ventas de días laborables"
+
+msgid "selected"
+msgstr ""
 
 #, php-format
 msgid "selection"
