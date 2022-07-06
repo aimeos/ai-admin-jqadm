@@ -346,7 +346,7 @@ class Standard
 			$preview = $this->val( $files, 'media/' . $idx . '/preview' );
 
 			if( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
-				$refItem = $cntl->copy( $refItem );
+				$refItem = $mediaManager->copy( $refItem );
 			}
 
 			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE )
