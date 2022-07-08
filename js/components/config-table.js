@@ -30,7 +30,7 @@
 						v-model="entry.key" /> \
 				</td> \
 				<td class="config-row-value"> \
-					<input class="form-control" v-bind:tabindex="tabindex" v-bind:readonly="readonly" \
+					<textarea rows="1" class="form-control" v-bind:tabindex="tabindex" v-bind:readonly="readonly" \
 						v-bind:name="fname(\'val\', pos)" \
 						v-model="entry.val" /> \
 				</td> \
