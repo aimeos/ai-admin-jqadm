@@ -98,7 +98,7 @@ msgid "+ Tax"
 msgstr "+ Vergi"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<hidden>"
 
 msgid "?"
 msgstr "?"
@@ -257,7 +257,7 @@ msgid "Bug or suggestion?"
 msgstr "Hata veya öneri?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Toplu düzenleme"
 
 msgid "Cancel"
 msgstr "İptal"
@@ -289,13 +289,13 @@ msgid ""
 msgstr "Kategoriye özel yapılandırma seçenekleri, şablonlarda anahtar/değer çifti olarak bulunacaktır"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Maliyetleri/ürünleri % olarak değiştir"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "İndirimi % olarak değiştir"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Değeri % olarak değiştir"
 
 msgid "Channel"
 msgstr "Kanal"
@@ -917,7 +917,7 @@ msgid "Media properties"
 msgstr "Medya özellikleri"
 
 msgid "Menu"
-msgstr ""
+msgstr "Menü"
 
 msgid "Message"
 msgstr "Mesaj"
@@ -1927,7 +1927,7 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Sipariş edilen ürünlerle birlikte saklanan değişken ürün nitellikleri"
 
 msgid "Verified"
-msgstr ""
+msgstr "Doğrulandı"
 
 msgid "View details"
 msgstr "Ayrıntıları görüntüle"
@@ -1952,7 +1952,7 @@ msgid "Weight"
 msgstr "Ağırlık"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Hesap ve e-posta adresi doğrulandığında"
 
 msgid "Width"
 msgstr "Genişlik"
@@ -1979,7 +1979,7 @@ msgid "Zip code (optional)"
 msgstr "Posta kodu (isteğe bağlı)"
 
 msgid "__hidden__"
-msgstr ""
+msgstr "__gizli__"
 
 #, php-format
 msgid "account"
@@ -2257,7 +2257,7 @@ msgid "salesweekday"
 msgstr "İş gününe göre satışlar"
 
 msgid "selected"
-msgstr ""
+msgstr "Seçilmiş"
 
 #, php-format
 msgid "selection"
@@ -2350,7 +2350,7 @@ msgstr "Metinler"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "Tema"
 
 #, php-format
 msgid "type"
