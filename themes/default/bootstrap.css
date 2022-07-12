@@ -267,8 +267,7 @@ td.is-invalid .form-select {
 }
 
 .form-control:read-only,
-.form-control[readonly],
-.form-select[readonly] {
+.form-control[readonly] {
 	background-color: var(--bs-bg-light, #FFFFFF);
 	color: var(--bs-secondary-light, #9098A0);
 }
@@ -279,6 +278,7 @@ td.is-invalid .form-select {
 	color: var(--bs-secondary-light, #9098A0);
 }
 
+.form-select[readonly],
 .block:not(.readonly) .form-control[readonly].select {
 	color: var(--bs-secondary, #505860);
 }
