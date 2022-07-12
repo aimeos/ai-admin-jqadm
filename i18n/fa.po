@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: محمد مسعودزاده, 2021\n"
 "Language-Team: Persian (http://www.transifex.com/aimeos/aimeos-core/language/fa/)\n"
@@ -101,6 +101,9 @@ msgstr "شماره تلفن (بین المللی) بدون کاراکترهای 
 
 msgid "+ Tax"
 msgstr "+ مالیات"
+
+msgid "<hidden>"
+msgstr ""
 
 msgid "?"
 msgstr "؟"
@@ -258,6 +261,9 @@ msgstr "تولد مشتری"
 msgid "Bug or suggestion?"
 msgstr "اشکال یا پیشنهاد؟"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "لغو کردن"
 
@@ -287,8 +293,17 @@ msgid ""
 "pairs in the templates"
 msgstr "گزینه های پیکربندی خاص دسته، به صورت جفت کلید/مقدار در قالب ها در دسترس خواهند بود"
 
-msgid "Channel"
+msgid "Change costs/item in %"
 msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
+msgid "Channel"
+msgstr "کانال"
 
 msgid "Choose file"
 msgstr "انتخاب فایل"
@@ -298,6 +313,10 @@ msgstr "شهر"
 
 msgid "City or town name (required)"
 msgstr "نام شهر (الزامی)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "کلاس \"%1$s\"  کلاس \"%2$s\"را  پیاده سازی نمیکند"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -665,6 +684,9 @@ msgstr "گروه"
 msgid "Group name describing for which members the group is for"
 msgstr "نام گروه که مشخص می کند گروه برای چه اعضایی است"
 
+msgid "Groups"
+msgstr "گروه ها"
+
 msgid "Height"
 msgstr "ارتفاع"
 
@@ -898,6 +920,9 @@ msgstr "انواع رسانه"
 
 msgid "Media properties"
 msgstr "ویژگی های رسانه"
+
+msgid "Menu"
+msgstr ""
 
 msgid "Message"
 msgstr "پیام"
@@ -1664,6 +1689,9 @@ msgstr "انواع برچسب"
 msgid "Tax"
 msgstr "مالیات"
 
+msgid "Tax rate"
+msgstr ""
+
 msgid "Tax rate in %"
 msgstr "نرخ مالیات بر حسب درصد"
 
@@ -1903,6 +1931,9 @@ msgstr "ویژگی های متفاوت"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "ویژگی های محصول متفاوتی که با محصولات سفارش داده شده ذخیره می شوند"
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr "دیدن جزئیات"
 
@@ -1924,6 +1955,9 @@ msgstr "هفته"
 
 msgid "Weight"
 msgstr "وزن"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "عرض"
@@ -1948,6 +1982,9 @@ msgstr "کد پستی"
 
 msgid "Zip code (optional)"
 msgstr "کد پستی (اختیاری)"
+
+msgid "__hidden__"
+msgstr ""
 
 #, php-format
 msgid "account"
@@ -2223,6 +2260,9 @@ msgstr "فروش"
 #, php-format
 msgid "salesweekday"
 msgstr "فروش در روزهای هفته"
+
+msgid "selected"
+msgstr ""
 
 #, php-format
 msgid "selection"

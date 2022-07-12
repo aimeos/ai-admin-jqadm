@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Goran Sabo <info@noaset.pro>, 2020\n"
 "Language-Team: Slovenian (http://www.transifex.com/aimeos/aimeos-core/language/sl/)\n"
@@ -97,6 +97,9 @@ msgstr "(International) telephone number without separation characters, can star
 
 msgid "+ Tax"
 msgstr "+ Tax"
+
+msgid "<hidden>"
+msgstr ""
 
 msgid "?"
 msgstr "?"
@@ -254,6 +257,9 @@ msgstr "Birthday of the customer"
 msgid "Bug or suggestion?"
 msgstr "Bug or suggestion?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -283,6 +289,15 @@ msgid ""
 "pairs in the templates"
 msgstr "Category specific configuration options, will be available as key/value pairs in the templates"
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr "Kanal"
 
@@ -294,6 +309,10 @@ msgstr "City"
 
 msgid "City or town name (required)"
 msgstr "City or town name (required)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "Class \"%1$s\" does not implement \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -661,6 +680,9 @@ msgstr "Group"
 msgid "Group name describing for which members the group is for"
 msgstr "Group name describing for which members the group is for"
 
+msgid "Groups"
+msgstr "Groups"
+
 msgid "Height"
 msgstr "Height"
 
@@ -894,6 +916,9 @@ msgstr "Media Types"
 
 msgid "Media properties"
 msgstr "Media properties"
+
+msgid "Menu"
+msgstr ""
 
 msgid "Message"
 msgstr "Message"
@@ -1660,6 +1685,9 @@ msgstr "Tag Types"
 msgid "Tax"
 msgstr "Tax"
 
+msgid "Tax rate"
+msgstr ""
+
 msgid "Tax rate in %"
 msgstr "Tax rate in %"
 
@@ -1899,6 +1927,9 @@ msgstr "Variant attributes"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Variant product attributes that are stored with the ordered products"
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr "View details"
 
@@ -1920,6 +1951,9 @@ msgstr "Weeks"
 
 msgid "Weight"
 msgstr "Weight"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "Width"
@@ -1944,6 +1978,9 @@ msgstr "Zip code"
 
 msgid "Zip code (optional)"
 msgstr "Zip code (optional)"
+
+msgid "__hidden__"
+msgstr ""
 
 #, php-format
 msgid "account"
@@ -2219,6 +2256,9 @@ msgstr ""
 #, php-format
 msgid "salesweekday"
 msgstr "Sales by weekday"
+
+msgid "selected"
+msgstr ""
 
 #, php-format
 msgid "selection"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Вячеслав Васильев <uverst@gmail.com>, 2019\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
@@ -100,6 +100,9 @@ msgid ""
 msgstr "(международный) номер телефона без символов разделения, может начинаться с \"+\""
 
 msgid "+ Tax"
+msgstr ""
+
+msgid "<hidden>"
 msgstr ""
 
 msgid "?"
@@ -258,6 +261,9 @@ msgstr "День рождения покупателя"
 msgid "Bug or suggestion?"
 msgstr "Ошибка или предложение?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -287,6 +293,15 @@ msgid ""
 "pairs in the templates"
 msgstr "Определенные опции конфигурации товара, будут доступны в шаблонах парно в виде ключ/значение"
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr ""
 
@@ -298,6 +313,10 @@ msgstr "Город"
 
 msgid "City or town name (required)"
 msgstr "Название города (обязательно)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "Класс \"%1$s\" не реализует \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -665,6 +684,9 @@ msgstr "Группа"
 msgid "Group name describing for which members the group is for"
 msgstr "Название группы, описывающее, для каких участников предназначена группа"
 
+msgid "Groups"
+msgstr "Группы"
+
 msgid "Height"
 msgstr "Высота"
 
@@ -898,6 +920,9 @@ msgstr "Типы Мультимедиа"
 
 msgid "Media properties"
 msgstr "Свойства Мультимедиа"
+
+msgid "Menu"
+msgstr ""
 
 msgid "Message"
 msgstr "Сообщение"
@@ -1664,6 +1689,9 @@ msgstr "Типы Тегов"
 msgid "Tax"
 msgstr "Налог"
 
+msgid "Tax rate"
+msgstr "Налоговая ставка"
+
 msgid "Tax rate in %"
 msgstr "Налоговая ставка в %"
 
@@ -1903,6 +1931,9 @@ msgstr "Вариант атрибутов"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Варианты атрибутов товара, которые хранятся вместе с заказными товарами"
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr "Посмотреть детали"
 
@@ -1924,6 +1955,9 @@ msgstr "Недели"
 
 msgid "Weight"
 msgstr "Вес"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "Ширина"
@@ -1948,6 +1982,9 @@ msgstr "Индекс"
 
 msgid "Zip code (optional)"
 msgstr "Почтовый код (необязательно)"
+
+msgid "__hidden__"
+msgstr ""
 
 #, php-format
 msgid "account"
@@ -2223,6 +2260,9 @@ msgstr ""
 #, php-format
 msgid "salesweekday"
 msgstr "Продажи по дням недели"
+
+msgid "selected"
+msgstr ""
 
 #, php-format
 msgid "selection"

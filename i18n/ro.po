@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Yolo San, 2021\n"
 "Language-Team: Romanian (http://www.transifex.com/aimeos/aimeos-core/language/ro/)\n"
@@ -98,6 +98,9 @@ msgstr "(Internațional) numărul de telefon fără caractere de separare, poate
 
 msgid "+ Tax"
 msgstr "+ Taxă"
+
+msgid "<hidden>"
+msgstr ""
 
 msgid "?"
 msgstr "?"
@@ -255,6 +258,9 @@ msgstr "Ziua de nastere a clientului"
 msgid "Bug or suggestion?"
 msgstr "Probleme si sugestii?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Anulare"
 
@@ -284,6 +290,15 @@ msgid ""
 "pairs in the templates"
 msgstr "Opțiunile de configurare specifice categoriei vor fi disponibile sub formă de perechi cheie / valoare în șabloane"
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr "Canal"
 
@@ -295,6 +310,10 @@ msgstr "Oras"
 
 msgid "City or town name (required)"
 msgstr "Numele orasului (obligatoriu)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "Clasa \"%1$s\" nu implementeaza \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -662,6 +681,9 @@ msgstr "Grup"
 msgid "Group name describing for which members the group is for"
 msgstr "Denumirea grupului care descrie pentru ce membri este destinat grupul"
 
+msgid "Groups"
+msgstr ""
+
 msgid "Height"
 msgstr "Inaltime"
 
@@ -894,6 +916,9 @@ msgid "Media Types"
 msgstr ""
 
 msgid "Media properties"
+msgstr ""
+
+msgid "Menu"
 msgstr ""
 
 msgid "Message"
@@ -1661,6 +1686,9 @@ msgstr ""
 msgid "Tax"
 msgstr "Impozit"
 
+msgid "Tax rate"
+msgstr ""
+
 msgid "Tax rate in %"
 msgstr "Rata impozitului in %"
 
@@ -1900,6 +1928,9 @@ msgstr ""
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr ""
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr ""
 
@@ -1921,6 +1952,9 @@ msgstr "Saptamani"
 
 msgid "Weight"
 msgstr "Greutate"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "Latime"
@@ -1944,6 +1978,9 @@ msgid "Zip code"
 msgstr ""
 
 msgid "Zip code (optional)"
+msgstr ""
+
+msgid "__hidden__"
 msgstr ""
 
 #, php-format
@@ -2219,6 +2256,9 @@ msgstr ""
 
 #, php-format
 msgid "salesweekday"
+msgstr ""
+
+msgid "selected"
 msgstr ""
 
 #, php-format

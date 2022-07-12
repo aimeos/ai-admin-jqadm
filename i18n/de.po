@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Aimeos, 2015-2022\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
@@ -100,6 +100,9 @@ msgstr "(Internationale) Telefonnummer ohne Trennzeichen, kann mit einem \"+\" b
 
 msgid "+ Tax"
 msgstr "+ USt."
+
+msgid "<hidden>"
+msgstr ">hidden<"
 
 msgid "?"
 msgstr "?"
@@ -257,6 +260,9 @@ msgstr "Geburtstag des Kunden"
 msgid "Bug or suggestion?"
 msgstr "Fehler oder Vorschlag?"
 
+msgid "Bulk edit"
+msgstr "Mehrfachänderungen"
+
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -286,6 +292,15 @@ msgid ""
 "pairs in the templates"
 msgstr "Kategorien-spezifische Konfigurationsoptionen, sind in den Templates als Schlüssel/Wert Paare verfügbar"
 
+msgid "Change costs/item in %"
+msgstr "Änderung Kosten/Stück in %"
+
+msgid "Change rebate in %"
+msgstr "Änderung Rabatt in %"
+
+msgid "Change value in %"
+msgstr "Änderung Preis in %"
+
 msgid "Channel"
 msgstr "Kanal"
 
@@ -297,6 +312,10 @@ msgstr "Ort"
 
 msgid "City or town name (required)"
 msgstr "Stadt (benötigt)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "Die Klasse \"%1$s\" implementiert nicht \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -664,6 +683,9 @@ msgstr "Gruppe"
 msgid "Group name describing for which members the group is for"
 msgstr "Aussagekräftiger Name der Gruppe"
 
+msgid "Groups"
+msgstr "Gruppen"
+
 msgid "Height"
 msgstr "Höhe"
 
@@ -897,6 +919,9 @@ msgstr "Medientypen"
 
 msgid "Media properties"
 msgstr "Medieneigenschaften"
+
+msgid "Menu"
+msgstr "Menü"
 
 msgid "Message"
 msgstr "Nachricht"
@@ -1663,6 +1688,9 @@ msgstr "Schlagworttypen"
 msgid "Tax"
 msgstr "Steuer"
 
+msgid "Tax rate"
+msgstr "Steuersatz"
+
 msgid "Tax rate in %"
 msgstr "Steuersatz in %"
 
@@ -1902,6 +1930,9 @@ msgstr "Variantenattribute"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Variantenattribute, die zusammen mit den bestellten Produkten gespeichert werden"
 
+msgid "Verified"
+msgstr "Bestätigt"
+
 msgid "View details"
 msgstr "Details anzeigen"
 
@@ -1923,6 +1954,9 @@ msgstr "Wochen"
 
 msgid "Weight"
 msgstr "Gewicht"
+
+msgid "When the account and e-mail address has been verified"
+msgstr "Wann das Konto und die E-Mail Adresse bestätigt wurden"
 
 msgid "Width"
 msgstr "Breite"
@@ -1947,6 +1981,9 @@ msgstr "Postleitzahl"
 
 msgid "Zip code (optional)"
 msgstr "Postleitzahl (optional)"
+
+msgid "__hidden__"
+msgstr "__versteckt__"
 
 #, php-format
 msgid "account"
@@ -2223,6 +2260,9 @@ msgstr "Verkäufe"
 msgid "salesweekday"
 msgstr "Umsatz nach Wochentagen"
 
+msgid "selected"
+msgstr "ausgewählt"
+
 #, php-format
 msgid "selection"
 msgstr "Varianten"
@@ -2314,7 +2354,7 @@ msgstr "Texte"
 
 #, php-format
 msgid "theme"
-msgstr "Themen"
+msgstr "Thema"
 
 #, php-format
 msgid "type"

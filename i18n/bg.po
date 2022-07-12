@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Plamen Petkov <mcplamen@gmail.com>, 2016,2019\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
@@ -96,6 +96,9 @@ msgid ""
 msgstr "Международните телефонни номера без знак за отделяне, могат да започнат с \"+\""
 
 msgid "+ Tax"
+msgstr ""
+
+msgid "<hidden>"
 msgstr ""
 
 msgid "?"
@@ -254,6 +257,9 @@ msgstr "Рожден ден на клиента"
 msgid "Bug or suggestion?"
 msgstr "Грешка или предложение?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Отмяна"
 
@@ -283,6 +289,15 @@ msgid ""
 "pairs in the templates"
 msgstr ""
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr ""
 
@@ -294,6 +309,10 @@ msgstr "Град"
 
 msgid "City or town name (required)"
 msgstr "Град (задължителен)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "Класът \"%1$s\" не се изпълнява \"%2$s\""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -661,6 +680,9 @@ msgstr "Група"
 msgid "Group name describing for which members the group is for"
 msgstr ""
 
+msgid "Groups"
+msgstr ""
+
 msgid "Height"
 msgstr "Височина"
 
@@ -893,6 +915,9 @@ msgid "Media Types"
 msgstr ""
 
 msgid "Media properties"
+msgstr ""
+
+msgid "Menu"
 msgstr ""
 
 msgid "Message"
@@ -1660,6 +1685,9 @@ msgstr ""
 msgid "Tax"
 msgstr ""
 
+msgid "Tax rate"
+msgstr "Данъчна ставка"
+
 msgid "Tax rate in %"
 msgstr "Данъчна ставка в %"
 
@@ -1899,6 +1927,9 @@ msgstr "Видове атрибути"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr ""
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr ""
 
@@ -1920,6 +1951,9 @@ msgstr ""
 
 msgid "Weight"
 msgstr "Тегло"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "Ширина"
@@ -1943,6 +1977,9 @@ msgid "Zip code"
 msgstr "Пощенски код"
 
 msgid "Zip code (optional)"
+msgstr ""
+
+msgid "__hidden__"
 msgstr ""
 
 #, php-format
@@ -2218,6 +2255,9 @@ msgstr ""
 
 #, php-format
 msgid "salesweekday"
+msgstr ""
+
+msgid "selected"
 msgstr ""
 
 #, php-format

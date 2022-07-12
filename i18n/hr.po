@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Miro Sertić <miro.sertic0606@gmail.com>, 2018\n"
 "Language-Team: Croatian (http://www.transifex.com/aimeos/aimeos-core/language/hr/)\n"
@@ -95,6 +95,9 @@ msgid ""
 msgstr ""
 
 msgid "+ Tax"
+msgstr ""
+
+msgid "<hidden>"
 msgstr ""
 
 msgid "?"
@@ -253,6 +256,9 @@ msgstr ""
 msgid "Bug or suggestion?"
 msgstr ""
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Poništi"
 
@@ -282,6 +288,15 @@ msgid ""
 "pairs in the templates"
 msgstr ""
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr ""
 
@@ -292,6 +307,10 @@ msgid "City"
 msgstr "Grad"
 
 msgid "City or town name (required)"
+msgstr ""
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
 msgstr ""
 
 #, php-format
@@ -660,6 +679,9 @@ msgstr "Grupa"
 msgid "Group name describing for which members the group is for"
 msgstr ""
 
+msgid "Groups"
+msgstr ""
+
 msgid "Height"
 msgstr "Visina"
 
@@ -892,6 +914,9 @@ msgid "Media Types"
 msgstr ""
 
 msgid "Media properties"
+msgstr ""
+
+msgid "Menu"
 msgstr ""
 
 msgid "Message"
@@ -1659,6 +1684,9 @@ msgstr ""
 msgid "Tax"
 msgstr "Porez"
 
+msgid "Tax rate"
+msgstr "Vrijednost poreza"
+
 msgid "Tax rate in %"
 msgstr "Vrijednost poreza u %"
 
@@ -1898,6 +1926,9 @@ msgstr ""
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr ""
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr ""
 
@@ -1919,6 +1950,9 @@ msgstr "Tjedni"
 
 msgid "Weight"
 msgstr "Težina"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "Širina"
@@ -1942,6 +1976,9 @@ msgid "Zip code"
 msgstr "Poštanski broj"
 
 msgid "Zip code (optional)"
+msgstr ""
+
+msgid "__hidden__"
 msgstr ""
 
 #, php-format
@@ -2218,6 +2255,9 @@ msgstr ""
 #, php-format
 msgid "salesweekday"
 msgstr "Prodaja po tjednu"
+
+msgid "selected"
+msgstr ""
 
 #, php-format
 msgid "selection"

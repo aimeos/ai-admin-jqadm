@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 09:57+0200\n"
+"POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Victor Oomens, 2022\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
@@ -107,6 +107,9 @@ msgstr "(Internationaal) telefoonnummer zonder scheidingsteken, kan beginnen met
 
 msgid "+ Tax"
 msgstr "Belasting"
+
+msgid "<hidden>"
+msgstr ""
 
 msgid "?"
 msgstr "?"
@@ -264,6 +267,9 @@ msgstr "Verjaardag van de klant"
 msgid "Bug or suggestion?"
 msgstr "Bug of suggestie?"
 
+msgid "Bulk edit"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Annuleer"
 
@@ -293,6 +299,15 @@ msgid ""
 "pairs in the templates"
 msgstr "Categoriespecifieke configuratieopties, zullen beschikbaar zijn als sleutel/waarde set in de sjablonen"
 
+msgid "Change costs/item in %"
+msgstr ""
+
+msgid "Change rebate in %"
+msgstr ""
+
+msgid "Change value in %"
+msgstr ""
+
 msgid "Channel"
 msgstr ""
 
@@ -304,6 +319,10 @@ msgstr "Stad"
 
 msgid "City or town name (required)"
 msgstr "Stad of plaats (vereist)"
+
+#, php-format
+msgid "Class \"%1$s\" does not implement \"%2$s\""
+msgstr "\"%2$s\" wordt niet geïmplementeerd door Class \"%1$s\" "
 
 #, php-format
 msgid "Class \"%1$s\" not available"
@@ -671,6 +690,9 @@ msgstr "Groep"
 msgid "Group name describing for which members the group is for"
 msgstr "Groep naam dat beschrijft voor welke leden de groep is"
 
+msgid "Groups"
+msgstr "Groepen"
+
 msgid "Height"
 msgstr "Hoogte"
 
@@ -904,6 +926,9 @@ msgstr "Media Typen"
 
 msgid "Media properties"
 msgstr "Media eigenschappen"
+
+msgid "Menu"
+msgstr ""
 
 msgid "Message"
 msgstr "Bericht"
@@ -1670,6 +1695,9 @@ msgstr "Tag Types"
 msgid "Tax"
 msgstr "Belasting"
 
+msgid "Tax rate"
+msgstr "BTW"
+
 msgid "Tax rate in %"
 msgstr "BTW %"
 
@@ -1909,6 +1937,9 @@ msgstr "Variant attributen"
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Variante productkenmerken die worden opgeslagen bij de bestelde producten"
 
+msgid "Verified"
+msgstr ""
+
 msgid "View details"
 msgstr "Toon details"
 
@@ -1930,6 +1961,9 @@ msgstr "Weken"
 
 msgid "Weight"
 msgstr "Gewicht"
+
+msgid "When the account and e-mail address has been verified"
+msgstr ""
 
 msgid "Width"
 msgstr "Breedte"
@@ -1954,6 +1988,9 @@ msgstr "Postcode"
 
 msgid "Zip code (optional)"
 msgstr "Postcode (optioneel)"
+
+msgid "__hidden__"
+msgstr ""
 
 #, php-format
 msgid "account"
@@ -2229,6 +2266,9 @@ msgstr "Verkopen"
 #, php-format
 msgid "salesweekday"
 msgstr "Verkopen per dag van de week"
+
+msgid "selected"
+msgstr ""
 
 #, php-format
 msgid "selection"
