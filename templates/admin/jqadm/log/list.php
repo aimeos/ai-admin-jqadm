@@ -29,6 +29,16 @@ $fields = $this->session( 'aimeos/admin/jqadm/log/fields', $default );
 $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
 
+$searchAttributes = map( $this->get( 'filterAttributes', [] ) )->filter( function( $item, $key ) {
+	return $item->isPublic() && $key !== 'log.id';
+} )->call( 'toArray' )->each( function( &$val ) {
+	$val = $this->translate( 'admin/ext', $val['label'] ?? ' ' );
+} )->all();
+
+$operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( function( $val, $key ) {
+	return $this->translate( 'admin/ext', $key );
+} )->all();
+
 $columnList = [
 	'log.timestamp' => $this->translate( 'admin', 'Timestamp' ),
 	'log.facility' => $this->translate( 'admin', 'Facility' ),
@@ -41,17 +51,34 @@ $columnList = [
 ?>
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
+<?= $this->partial( $this->config( 'admin/jqadm/partial/navsearch', 'navsearch' ) ) ?>
 <?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'columns' ) ) ?>
 
 
-<div class="list-view">
+<div class="list-view"
+	data-domain="log"
+	data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/log/filter', new \stdClass ) ) ?>">
 
 	<nav class="main-navbar log">
 		<span class="navbar-brand">
 			<?= $enc->html( $this->translate( 'admin', 'Log' ) ) ?>
 			<span class="navbar-secondary">(<?= $enc->html( $this->site()->label() ) ?>)</span>
 		</span>
+
+		<div class="btn fa act-search" v-on:click="search = true"
+			title="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>"
+			aria-label="<?= $enc->attr( $this->translate( 'admin', 'Show search form' ) ) ?>">
+		</div>
 	</nav>
+
+	<nav-search v-bind:show="search" v-on:close="search = false"
+		v-bind:url="`<?= $enc->js( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>`"
+		v-bind:filter="<?= $enc->attr( (object) $this->session( 'aimeos/admin/jqadm/log/filter', new \stdClass ) ) ?>"
+		v-bind:operators="<?= $enc->attr( $operators ) ?>"
+		v-bind:name="`<?= $enc->js( $this->formparam( ['filter', '_key_', '0'] ) ) ?>`"
+		v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
+	</nav-search>
 
 
 	<?= $this->partial(
@@ -93,6 +120,19 @@ $columnList = [
 					</tr>
 				</thead>
 				<tbody>
+
+					<?= $this->partial(
+						$this->config( 'admin/jqadm/partial/listsearch', 'listsearch' ), [
+							'fields' => $fields, 'filter' => $this->session( 'aimeos/admin/jqadm/log/filter', [] ),
+							'data' => [
+								'log.timestamp' => ['op' => '-', 'type' => 'datetime-local'],
+								'log.facility' => [],
+								'log.priority' => ['op' => '<=', 'type' => 'number'],
+								'log.request' => [],
+								'log.message' => [],
+							]
+						] );
+					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
 						<tr class="<?= $this->site()->readonly( $item->getSiteId() ) ?>">

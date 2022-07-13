@@ -78,6 +78,8 @@ class Standard
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );
+			$view->filterAttributes = $manager->getSearchAttributes( true );
+			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();
 			$view->total = $total;
 		}

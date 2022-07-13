@@ -38,6 +38,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$param = array(
 			'site' => 'unittest', 'locale' => 'de',
+			'filter' => array(
+				'key' => array( 0 => 'log.facility' ),
+				'op' => array( 0 => '==' ),
+				'val' => array( 0 => 'unittest facility' ),
+			),
 			'sort' => array( '-log.timestamp' ),
 		);
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
