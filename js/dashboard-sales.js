@@ -177,7 +177,7 @@ Aimeos.Dashboard.Sales = {
 				do {
 					let day = date.toISOString().substr(0, 10);
 
-					data.push({x: date.toISOString(), y: Number(entry['attributes'][day] || 0).toFixed()});
+					data.push({x: date.toISOString(), y: Number(entry['attributes'][day] || 0).toFixed(2)});
 					date.add(1, 'days');
 				} while(date.isBefore(enddate, 'day') || date.isSame(enddate, 'day'));
 
