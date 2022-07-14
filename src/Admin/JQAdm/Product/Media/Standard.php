@@ -434,7 +434,6 @@ class Standard
 
 			$list['media.previews'] = $this->view()->imageset( $refItem->getPreviews(), $refItem->getFileSystem() );
 			$list['media.preview'] = $this->view()->content( $refItem->getPreview(), $refItem->getFileSystem() );
-			$list['media.url'] = $this->view()->content( $refItem->getUrl(), $refItem->getFileSystem() );
 
 			$list['product.lists.datestart'] = str_replace( ' ', 'T', $list['product.lists.datestart'] ?? '' );
 			$list['product.lists.dateend'] = str_replace( ' ', 'T', $list['product.lists.dateend'] ?? '' );
