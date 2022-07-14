@@ -106,8 +106,7 @@ $domains = [
 	?>
 
 	<form ref="form" class="list list-service-lists-type" method="POST"
-		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>"
-		data-deleteurl="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
+		action="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>">
 
 		<?= $this->csrf()->formfield() ?>
 
