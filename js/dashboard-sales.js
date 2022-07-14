@@ -156,15 +156,15 @@ Aimeos.Dashboard.Sales = {
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
-			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 			{"||": [
 				{"==": {"order.base.product.statuspayment": -1}},
 				{">=": {"order.base.product.statuspayment": 5}}
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", null, "order.base.product.total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
@@ -220,8 +220,8 @@ Aimeos.Dashboard.Sales = {
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
-			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 			{"||": [
 				{"==": {"order.base.product.statuspayment": -1}},
 				{">=": {"order.base.product.statuspayment": 5}}
@@ -287,15 +287,15 @@ Aimeos.Dashboard.Sales = {
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},
-			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 			{"||": [
 				{"==": {"order.base.product.statuspayment": -1}},
 				{">=": {"order.base.product.statuspayment": 5}}
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate", null, "order.base.product.total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.base.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];

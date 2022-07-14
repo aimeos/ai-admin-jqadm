@@ -117,11 +117,11 @@
 		const startdate = moment().utc().startOf('day').subtract(weeks, 'weeks');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
 
 			const data = [], map = {}, date = startdate.clone();
 			let max = 0;
@@ -247,11 +247,11 @@
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
 
 			const dset = [], map = {};
 
@@ -333,11 +333,11 @@
 		const startdate = moment().utc().startOf('day').subtract(30, 'days');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
 
 			const dsets = [], entries = {};
 
@@ -446,11 +446,11 @@
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{">": {"order.cdate": startdate.toISOString().substr(0, 19)}},
-			{"<=": {"order.cdate": enddate.toISOString().substr(0, 19)}},
+			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
+			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cdate").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
 
 			let max = 1;
 			const map = {};

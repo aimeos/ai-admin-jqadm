@@ -41,8 +41,8 @@ Vue.component('dashboard-order-quick-counttotal', {
 	methods: {
 		criteria() {
 			return {"&&": [
-				{">": {"order.cdate": this.lastdate.toISOString().substr(0, 10)}},
-				{"<=": {"order.cdate": this.enddate.toISOString().substr(0, 10)}},
+				{">": {"order.ctime": this.lastdate.toISOString().substr(0, 19)}},
+				{"<=": {"order.ctime": this.enddate.toISOString().substr(0, 19)}},
 			]};
 		},
 
@@ -50,7 +50,7 @@ Vue.component('dashboard-order-quick-counttotal', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.cdate").then(function(response) {
+			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime").then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
@@ -113,8 +113,8 @@ Vue.component('dashboard-order-quick-countcompleted', {
 	methods: {
 		criteria() {
 			return {"&&": [
-				{">": {"order.cdate": this.lastdate.toISOString().substr(0, 10)}},
-				{"<=": {"order.cdate": this.enddate.toISOString().substr(0, 10)}},
+				{">": {"order.ctime": this.lastdate.toISOString().substr(0, 19)}},
+				{"<=": {"order.ctime": this.enddate.toISOString().substr(0, 19)}},
 				{"==": {"order.statuspayment": {0: 4, 1: 5, 2:6}}},
 			]};
 		},
@@ -123,7 +123,7 @@ Vue.component('dashboard-order-quick-countcompleted', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.cdate").then(function(response) {
+			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime").then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
@@ -186,8 +186,8 @@ Vue.component('dashboard-order-quick-countunfinished', {
 	methods: {
 		criteria() {
 			return {"&&": [
-				{">": {"order.cdate": this.lastdate.toISOString().substr(0, 10)}},
-				{"<=": {"order.cdate": this.enddate.toISOString().substr(0, 10)}},
+				{">": {"order.ctime": this.lastdate.toISOString().substr(0, 19)}},
+				{"<=": {"order.ctime": this.enddate.toISOString().substr(0, 19)}},
 				{"==": {"order.statuspayment": -1}},
 			]};
 		},
@@ -196,7 +196,7 @@ Vue.component('dashboard-order-quick-countunfinished', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.cdate").then(function(response) {
+			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime").then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
