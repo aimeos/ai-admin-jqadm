@@ -405,7 +405,6 @@ class Standard
 
 			$list['media.previews'] = $this->view()->imageset( $refItem->getPreviews(), $refItem->getFileSystem() );
 			$list['media.preview'] = $this->view()->content( $refItem->getPreview(), $refItem->getFileSystem() );
-			$list['media.url'] = $this->view()->content( $refItem->getUrl(), $refItem->getFileSystem() );
 
 			$list['service.lists.datestart'] = str_replace( ' ', 'T', $list['service.lists.datestart'] ?? '' );
 			$list['service.lists.dateend'] = str_replace( ' ', 'T', $list['service.lists.dateend'] ?? '' );
