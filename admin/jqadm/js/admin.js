@@ -1122,12 +1122,11 @@ $(function() {
 	Vue.component('flat-pickr', VueFlatpickr);
 	Vue.component('v-select', VueSelect.VueSelect);
 
-	Aimeos.lazy('.vue', function(el) {
-		const target = el || '.vue';
-		const key = $(el).data('key') || Math.floor(Math.random() * 1000);
+	$('.vue').each(function(el) {
+		var key = $(this).data('key');
 
 		Aimeos.components[key] = new Vue({
-			el: target,
+			el: this,
 			data: function() {
 				return {
 					data: null

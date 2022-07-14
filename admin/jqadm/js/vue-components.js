@@ -706,7 +706,7 @@ Vue.component('site-tree-items', {
 						'icon-loading fa-pulse': item.isLoading
 					}">
 				</span>
-				<site-tree-items v-if="isAvailable(item) && item.isOpen"
+				<site-tree-items v-if="isAvailable(item) && ( item.isOpen || typeof item.isOpen === 'undefined' )"
 					v-on="$listeners"
 					v-on:loading="loading(id, $event)"
 					v-bind:initial="item.children || {}"
@@ -847,7 +847,7 @@ Vue.component('site-tree-items', {
 		},
 
 		toggle(id) {
-			this.$set(this.items[id], 'isOpen', !this.items[id].isOpen);
+			this.$set(this.items[id], 'isOpen', typeof this.items[id].isOpen !== 'undefined' ? !this.items[id].isOpen : false);
 		}
 	},
 

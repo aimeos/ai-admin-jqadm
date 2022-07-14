@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-12 21:20+0000\n"
+"POT-Creation-Date: 2021-08-18 13:26+0200\n"
+"PO-Revision-Date: 2021-08-20 16:28+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -468,6 +468,9 @@ msgstr "Seçili girişleri sil"
 msgid "Delete this entry"
 msgstr "Bu girişi sil"
 
+msgid "Deleting reviews is not allowed"
+msgstr "Yorumların silinmesine izin verilmiyor"
+
 msgid "Delivery"
 msgstr "Teslimat"
 
@@ -591,8 +594,14 @@ msgstr "Faks"
 msgid "Facsimile number (optional)"
 msgstr "Faks numarası (isteğe bağlı)"
 
+msgid "Failed to write file to disk"
+msgstr "Dosya diske yazılamadı"
+
 msgid "File"
 msgstr "Dosya"
+
+msgid "File upload stopped by extension"
+msgstr "Dosya yüklemesi eklenti tarafından durduruldu"
 
 msgid "Find category"
 msgstr "Kategori bul"
@@ -852,6 +861,9 @@ msgstr "Yerel"
 msgid "Log"
 msgstr "Günlük"
 
+msgid "Map"
+msgstr "Harita"
+
 msgid "Media Lists Type"
 msgstr "Medya Liste Türleri"
 
@@ -934,6 +946,12 @@ msgstr "Sonraki tarih (opsiyonel)"
 msgid "Next date the subscription is renewed"
 msgstr "Aboneliğin yenileneceği bir sonraki tarih"
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr "Hiç bir para birimi mevcut değil. Lütfen en az bir para birimini etkinleştirin"
+
+msgid "No file was uploaded"
+msgstr "Hiçbir dosya yüklenmedi"
+
 msgid "No items found"
 msgstr "Hiç bir öğe bulunamadı"
 
@@ -956,12 +974,18 @@ msgstr "Fiyat öğesi için paylaşılmayan mülkler"
 msgid "None"
 msgstr "Hiçbiri"
 
+msgid "Not all items could be deleted"
+msgstr "Tüm ürünler silinemedi"
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "JQAdm \"%1$s\" istemcisine erişime izin verilmedi"
 
 msgid "Notes"
 msgstr "Notlar"
+
+msgid "Notes (not shown to customer)"
+msgstr "Notlar (müşteriye gösterilmez)"
 
 msgid ""
 "Number of articles currently in stock, leave empty for an unlimited quantity"
@@ -977,8 +1001,14 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Virgüllerle ayrılmış bir sağlayıcı ve sıfır veya daha fazla dekatör sınıfı isimleri"
 
+msgid "Only super users and administrators can delete items"
+msgstr "Ürünleri sadece süper kullanıcılar ve yöneticiler silebilir"
+
 msgid "Open"
 msgstr "Aç"
+
+msgid "Open Qty"
+msgstr "Açık Miktar"
 
 msgid "Option"
 msgstr "Seçenek"
@@ -1207,6 +1237,9 @@ msgstr "Ürün uzunluğu, örn: 30.0 (yard, inç, vb.)"
 msgid "Product name"
 msgstr "Ürün adı"
 
+msgid "Product payment"
+msgstr "Ürün ödemesi"
+
 msgid "Product price"
 msgstr "Ürün fiyatı"
 
@@ -1215,6 +1248,9 @@ msgstr "Ürün miktarı"
 
 msgid "Product rebate"
 msgstr "Ürün indirimi"
+
+msgid "Product shipping"
+msgstr "Ürün nakliyesi"
 
 msgid "Product status"
 msgstr "Ürün durumu"
@@ -1614,6 +1650,9 @@ msgstr "Telefon"
 msgid "Telephone number (optional)"
 msgstr "Telefon numarası (isteğe bağlı)"
 
+msgid "Temporary folder is missing"
+msgstr "Geçici klasör eksik"
+
 msgid "Text Lists Type"
 msgstr "Metin Liste Türleri"
 
@@ -1671,6 +1710,12 @@ msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "Sepetteki miktarlar için izin verilen basamak değeri, örn: kesirli miktarlar için \"0.1\" veya beşin katları için \"5\""
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr "Yüklenen dosya izin verilen maksimum dosya boyutunu aşıyor"
+
+msgid "The uploaded file was only partially uploaded"
+msgstr "Yüklenmek istene dosya kısmen yüklenebildi"
 
 msgid "Theme to change the layout of your shop"
 msgstr "Mağazanızın düzenini değiştirmek için tema"
@@ -1798,6 +1843,9 @@ msgstr "Benzersiz tür kodu (gerekli)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Benzersiz tür kodu, örn: \"yeşil\", \"mavi\", \"kırmızı\" gibi nitelikler için \"renk\""
+
+msgid "Unknown upload error"
+msgstr "Bilinmeyen yükleme hatası"
 
 msgid "Upload shop icon"
 msgstr "Mağaza simgesi yükle"

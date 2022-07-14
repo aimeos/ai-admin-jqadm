@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 09:42+0200\n"
-"PO-Revision-Date: 2021-07-06 07:44+0000\n"
+"POT-Creation-Date: 2021-08-18 13:26+0200\n"
+"PO-Revision-Date: 2021-08-14 07:10+0000\n"
 "Last-Translator: Aimeos\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -475,6 +475,9 @@ msgstr ""
 msgid "Delete this entry"
 msgstr "Verwijder deze ingave"
 
+msgid "Deleting reviews is not allowed"
+msgstr ""
+
 msgid "Delivery"
 msgstr "Bezorging"
 
@@ -598,8 +601,14 @@ msgstr "Fax"
 msgid "Facsimile number (optional)"
 msgstr "Fax-nummer (optioneel)"
 
+msgid "Failed to write file to disk"
+msgstr ""
+
 msgid "File"
 msgstr "Bestand"
+
+msgid "File upload stopped by extension"
+msgstr ""
 
 msgid "Find category"
 msgstr "Vind categorie"
@@ -859,6 +868,9 @@ msgstr "Locale"
 msgid "Log"
 msgstr "Log"
 
+msgid "Map"
+msgstr ""
+
 msgid "Media Lists Type"
 msgstr "Media Lijsttype"
 
@@ -941,6 +953,12 @@ msgstr "Volgende datum (optioneel)"
 msgid "Next date the subscription is renewed"
 msgstr "Volgende datum dat de aanmelding wordt vernieuwd"
 
+msgid "No currencies available. Please enable at least one currency"
+msgstr ""
+
+msgid "No file was uploaded"
+msgstr ""
+
 msgid "No items found"
 msgstr "Geen items gevonden"
 
@@ -963,11 +981,17 @@ msgstr "Niet-gedeelde eigenschappen voor het prijs-item"
 msgid "None"
 msgstr "Geen"
 
+msgid "Not all items could be deleted"
+msgstr ""
+
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
 msgstr "Toegang tot JQAdm voor klant \"%1$s\" niet toegestaan."
 
 msgid "Notes"
+msgstr ""
+
+msgid "Notes (not shown to customer)"
 msgstr ""
 
 msgid ""
@@ -984,7 +1008,13 @@ msgid ""
 "One provider and zero or more decorator class names separated by commas"
 msgstr "Een provider en nul of meer decorator klassenamen, gescheiden door komma"
 
+msgid "Only super users and administrators can delete items"
+msgstr ""
+
 msgid "Open"
+msgstr ""
+
+msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
@@ -1214,6 +1244,9 @@ msgstr "Product lengte, bijv. 30.0 (in meters, inch, etc.)"
 msgid "Product name"
 msgstr "Product naam"
 
+msgid "Product payment"
+msgstr ""
+
 msgid "Product price"
 msgstr "Product prijs"
 
@@ -1222,6 +1255,9 @@ msgstr "Product aantal"
 
 msgid "Product rebate"
 msgstr "Product korting"
+
+msgid "Product shipping"
+msgstr ""
 
 msgid "Product status"
 msgstr "Product status"
@@ -1621,6 +1657,9 @@ msgstr "Telefoon"
 msgid "Telephone number (optional)"
 msgstr "Telefoonnummer (optioneel)"
 
+msgid "Temporary folder is missing"
+msgstr ""
+
 msgid "Text Lists Type"
 msgstr "Tekst Lijsttype"
 
@@ -1678,6 +1717,12 @@ msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
 "fractional quantities or \"5\" for multiple of five articles"
 msgstr "De stapwaarde die is toegestaan voor hoeveelheden in het winkelmandje, bijvoorbeeld \"0,1\" voor fractionele hoeveelheden of \"5\" voor veelvoud van vijf artikelen"
+
+msgid "The uploaded file exceeds the max. allowed filesize"
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
 
 msgid "Theme to change the layout of your shop"
 msgstr ""
@@ -1805,6 +1850,9 @@ msgstr "Unieke typecode (vereist)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Uniek type code, bijvoorbeeld \"kleur\" voor attributen zoals \"groen\", \"blauw\", \"rood\""
+
+msgid "Unknown upload error"
+msgstr ""
 
 msgid "Upload shop icon"
 msgstr ""

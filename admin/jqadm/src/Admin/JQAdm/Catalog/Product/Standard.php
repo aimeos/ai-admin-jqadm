@@ -323,16 +323,22 @@ class Standard
 	protected function fromArray( \Aimeos\MShop\Catalog\Item\Iface $item, array $data ) : \Aimeos\MShop\Catalog\Item\Iface
 	{
 		$listManager = \Aimeos\MShop::create( $this->getContext(), 'catalog/lists' );
+		$listItem = $listManager->create()->setParentId( $item->getId() )->setDomain( 'product' );
+		$listIds = $this->getValue( $data, 'catalog.lists.id', [] );
 
-		$listItem = $listManager->create();
-		$listItem->setParentId( $item->getId() );
-		$listItem->setDomain( 'product' );
+		if( !empty( $listIds ) ) {
+			$listItems = $listManager->search( $listManager->filter()->add( 'catalog.lists.id', '==', $listIds ) );
+		} else {
+			$listItems = map();
+		}
 
-
-		foreach( (array) $this->getValue( $data, 'catalog.lists.id', [] ) as $idx => $listid )
+		foreach( (array) $listIds as $idx => $listid )
 		{
-			$litem = clone $listItem;
-			$litem->setId( $listid ?: null );
+			$litem = $listItems->get( $listid ) ?: clone $listItem;
+
+			if( isset( $data['catalog.lists.type'][$idx] ) ) {
+				$litem->setType( $this->getValue( $data, 'catalog.lists.type/' . $idx ) );
+			}
 
 			if( isset( $data['catalog.lists.refid'][$idx] ) ) {
 				$litem->setRefId( $this->getValue( $data, 'catalog.lists.refid/' . $idx ) );
@@ -340,10 +346,6 @@ class Standard
 
 			if( isset( $data['catalog.lists.status'][$idx] ) ) {
 				$litem->setStatus( (int) $this->getValue( $data, 'catalog.lists.status/' . $idx ) );
-			}
-
-			if( isset( $data['catalog.lists.type'][$idx] ) ) {
-				$litem->setType( $this->getValue( $data, 'catalog.lists.type/' . $idx ) );
 			}
 
 			if( isset( $data['catalog.lists.position'][$idx] ) ) {
