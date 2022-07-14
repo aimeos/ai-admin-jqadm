@@ -520,6 +520,7 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
+	width: 90%;
 }
 
 .aimeos .item-media .media-preview img {
