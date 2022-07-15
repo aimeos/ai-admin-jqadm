@@ -313,7 +313,7 @@ class Standard
 			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
 			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 
-			if( !in_array( $image->getMimetype(), ['image/jpeg', 'image/png', 'image/gif'] ) )
+			if( !in_array( $image->getMimetype(), ['image/webp', 'image/jpeg', 'image/png', 'image/gif'] ) )
 			{
 				$msg = $context->i18n()->dt( 'admin', 'Only .jpg, .png and .gif are allowed for icons' );
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
