@@ -350,7 +350,7 @@ class Standard
 			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 			$filepaths = [];
 
-			if( !in_array( $image->getMimetype(), ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'] ) )
+			if( !in_array( $image->getMimetype(), ['image/webp', 'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'] ) )
 			{
 				$msg = $context->i18n()->dt( 'admin', 'Only .jpg, .png, .gif or .svg are allowed for logos' );
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
