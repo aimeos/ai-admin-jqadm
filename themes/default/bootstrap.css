@@ -141,6 +141,10 @@ a, a:hover {
 	min-height: 49vh;
 }
 
+.table {
+	width: 100%;
+}
+
 .table:not(.list-items) {
 	margin: 0.75rem 0;
 }
