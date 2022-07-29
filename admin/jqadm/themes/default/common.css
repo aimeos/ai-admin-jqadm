@@ -101,6 +101,10 @@ body {
 	background: radial-gradient(farthest-side ellipse at max(85%, calc(100% - 12rem)) 0, var(--bs-bg, #F8FAFC), var(--bs-bg-dark, #F4F8FB));
 }
 
+.fa {
+	font-family: 'FontAwesome';
+}
+
 .aimeos .hidden {
 	display: none;
 }
