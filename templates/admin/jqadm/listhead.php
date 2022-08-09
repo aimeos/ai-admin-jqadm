@@ -65,7 +65,7 @@ else
 <?php foreach( $this->get( 'data', [] ) as $key => $name ) : ?>
 	<?php if( in_array( $key, $fields ) ) : ?>
 		<th class="<?= $enc->attr( str_replace( '.', '-', $key ) ) ?>">
-			<?php if( strpos( $name, '.' ) !== false ) : ?>
+			<?php if( strpos( $key, '.' ) !== false ) : ?>
 				<a class="<?= $sortclass( $sortcode, $key ) ?>" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 					href="<?= $enc->attr( $this->link( $cfgkey, $nest( $group, ['sort' => $sort( $sortcode, $key )] ) + $params, [], $fragment ) ) ?>">
 					<?= $enc->html( $name ) ?>
