@@ -40,7 +40,7 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 } )->all();
 
 $columnList = [
-	'image' => null, // no label and no sorting
+	'image' => $this->translate( 'admin', 'Image' ),
 	'supplier.id' => $this->translate( 'admin', 'ID' ),
 	'supplier.status' => $this->translate( 'admin', 'Status' ),
 	'supplier.code' => $this->translate( 'admin', 'Code' ),

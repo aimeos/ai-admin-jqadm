@@ -489,7 +489,8 @@ $enc = $this->encoder();
  * @since 2016.04
  * @category Developer
  */
-$default = $this->config( 'admin/jqadm/product/fields', ['image', 'product.id', 'product.status', 'product.type', 'product.code', 'product.label'] );
+$default = ['image', 'product.id', 'product.status', 'product.type', 'product.code', 'product.label'];
+$default = $this->config( 'admin/jqadm/product/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/product/fields', $default );
 
 $searchParams = $params = $this->get( 'pageParams', [] );
@@ -508,7 +509,7 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 $typeList = $this->get( 'itemTypes', map() )->col( 'product.type.code', 'product.type.code' )->all();
 
 $columnList = [
-	'image' => null, // no label and no sorting
+	'image' => $this->translate( 'admin', 'Image' ),
 	'product.id' => $this->translate( 'admin', 'ID' ),
 	'product.status' => $this->translate( 'admin', 'Status' ),
 	'product.type' => $this->translate( 'admin', 'Type' ),
