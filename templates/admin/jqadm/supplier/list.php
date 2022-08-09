@@ -22,7 +22,7 @@ $enc = $this->encoder();
  * @since 2017.10
  * @category Developer
  */
-$default = ['supplier.status', 'supplier.code', 'supplier.label'];
+$default = ['image', 'supplier.status', 'supplier.code', 'supplier.label'];
 $default = $this->config( 'admin/jqadm/supplier/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/supplier/fields', $default );
 
@@ -40,6 +40,7 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 } )->all();
 
 $columnList = [
+	'image' => null, // no label and no sorting
 	'supplier.id' => $this->translate( 'admin', 'ID' ),
 	'supplier.status' => $this->translate( 'admin', 'Status' ),
 	'supplier.code' => $this->translate( 'admin', 'Code' ),
@@ -153,6 +154,7 @@ $columnList = [
 						$this->config( 'admin/jqadm/partial/listsearch', 'listsearch' ), [
 							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/supplier/filter', [] ),
 							'data' => [
+								'image' => null,
 								'supplier.id' => ['op' => '=='],
 								'supplier.status' => ['op' => '==', 'type' => 'select', 'val' => [
 									'1' => $this->translate( 'mshop/code', 'status:1' ),
@@ -236,6 +238,9 @@ $columnList = [
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
 									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
 							</td>
+							<?php if( in_array( 'image', $fields ) ) : $mediaItem = $item->getRefItems( 'media', 'default', 'default' )->first() ?>
+								<td class="image"><a class="items-field" href="<?= $url ?>" tabindex="1"><img class="image" src="<?= $mediaItem ? $enc->attr( $this->content( $mediaItem->getPreview(), $mediaItem->getFileSystem() ) ) : '' ?>" /></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'supplier.id', $fields ) ) : ?>
 								<td class="supplier-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
