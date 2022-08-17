@@ -404,11 +404,11 @@ Aimeos.Product.Catalog = {
 
 						this.items[idx]['css'] = '';
 
-						if(ids.indexOf(this.items[idx]['catalog.id']) !== -1) {
+						if(ids.indexOf(this.items[idx]['product.lists.siteid'] + '-' + this.items[idx]['catalog.id']) !== -1) {
 							this.items[idx]['css'] = 'is-invalid';
 						}
 
-						ids.push(this.items[idx]['catalog.id']);
+						ids.push(this.items[idx]['product.lists.siteid'] + '-' + this.items[idx]['catalog.id']);
 					}
 				}
 			}
