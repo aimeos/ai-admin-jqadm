@@ -45,6 +45,7 @@ $columnList = [
 	'supplier.status' => $this->translate( 'admin', 'Status' ),
 	'supplier.code' => $this->translate( 'admin', 'Code' ),
 	'supplier.label' => $this->translate( 'admin', 'Label' ),
+	'supplier.position' => $this->translate( 'admin', 'Position' ),
 	'supplier.ctime' => $this->translate( 'admin', 'Created' ),
 	'supplier.mtime' => $this->translate( 'admin', 'Modified' ),
 	'supplier.editor' => $this->translate( 'admin', 'Editor' ),
@@ -164,6 +165,7 @@ $columnList = [
 								]],
 								'supplier.code' => [],
 								'supplier.label' => [],
+								'supplier.position' => ['op' => '>=', 'type' => 'number'],
 								'supplier.ctime' => ['op' => '-', 'type' => 'datetime-local'],
 								'supplier.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 								'supplier.editor' => [],
@@ -252,6 +254,9 @@ $columnList = [
 							<?php endif ?>
 							<?php if( in_array( 'supplier.label', $fields ) ) : ?>
 								<td class="supplier-label"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getLabel() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'supplier.position', $fields ) ) : ?>
+								<td class="supplier-position"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPosition() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'supplier.ctime', $fields ) ) : ?>
 								<td class="supplier-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>

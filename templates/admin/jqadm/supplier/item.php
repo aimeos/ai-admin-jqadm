@@ -132,6 +132,19 @@ $params = $this->get( 'pageParams', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Supplier name or company' ) ) ?>
 								</div>
 							</div>
+							<div class="form-group row mandatory">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?></label>
+								<div class="col-sm-8">
+									<input class="form-control item-position" type="number" required="required" tabindex="1"
+										name="<?= $this->formparam( array( 'item', 'supplier.position' ) ) ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Supplier position (required)' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/supplier.position' ) ) ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) ?> />
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Sorting of the suppliers' ) ) ?>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
