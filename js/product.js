@@ -216,11 +216,6 @@ Aimeos.Product.Attribute = {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				checkSite : function(key, idx) {
-					return this.items[idx][key] && this.items[idx][key] != this.siteid;
-				},
-
-
 				add : function(data) {
 
 					var idx = (this.items || []).length;
@@ -234,8 +229,13 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				remove : function(idx) {
-					this.items.splice(idx, 1);
+				can : function(idx) {
+					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				},
+
+
+				checkSite : function(key, idx) {
+					return this.items[idx][key] && this.items[idx][key] != this.siteid;
 				},
 
 
@@ -275,6 +275,11 @@ Aimeos.Product.Attribute = {
 					return function(request, response, element) {
 						Aimeos.getOptions(request, response, element, 'attribute/type', 'attribute.type.code', 'attribute.type.code', criteria);
 					};
+				},
+
+
+				remove : function(idx) {
+					this.items.splice(idx, 1);
 				},
 
 
@@ -335,11 +340,6 @@ Aimeos.Product.Catalog = {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				checkSite : function(idx) {
-					return this.items[idx]['product.lists.siteid'] && this.items[idx]['product.lists.siteid'] != this.siteid;
-				},
-
-
 				add : function(data) {
 
 					var idx = (this.items || []).length;
@@ -354,8 +354,13 @@ Aimeos.Product.Catalog = {
 				},
 
 
-				remove : function(idx) {
-					this.items.splice(idx, 1);
+				can : function(idx) {
+					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				},
+
+
+				checkSite : function(idx) {
+					return this.items[idx]['product.lists.siteid'] && this.items[idx]['product.lists.siteid'] != this.siteid;
 				},
 
 
@@ -381,6 +386,11 @@ Aimeos.Product.Catalog = {
 					}
 
 					return label;
+				},
+
+
+				remove : function(idx) {
+					this.items.splice(idx, 1);
 				},
 
 
@@ -644,11 +654,6 @@ Aimeos.Product.Product = {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				checkSite : function(key, idx) {
-					return this.items[idx][key] && this.items[idx][key] != this.siteid;
-				},
-
-
 				add : function(data) {
 
 					var idx = (this.items || []).length;
@@ -662,8 +667,13 @@ Aimeos.Product.Product = {
 				},
 
 
-				remove : function(idx) {
-					this.items.splice(idx, 1);
+				can : function(idx) {
+					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				},
+
+
+				checkSite : function(key, idx) {
+					return this.items[idx][key] && this.items[idx][key] != this.siteid;
 				},
 
 
@@ -687,6 +697,11 @@ Aimeos.Product.Product = {
 					}
 
 					return label;
+				},
+
+
+				remove : function(idx) {
+					this.items.splice(idx, 1);
 				},
 
 
@@ -737,16 +752,6 @@ Aimeos.Product.Selection = {
 			},
 			methods: {
 
-				checkSite : function(key, idx, attridx) {
-
-					if(attridx) {
-						return this.items[idx]['attr'][attridx][key] && this.items[idx]['attr'][attridx][key] != this.siteid;
-					}
-
-					return this.items[idx][key] && this.items[idx][key] != this.siteid;
-				},
-
-
 				add : function(data) {
 
 					var idx = this.items.length;
@@ -761,6 +766,26 @@ Aimeos.Product.Selection = {
 					this.$set(this.items[idx], 'product.status', 1);
 					this.$set(this.items[idx], 'product.id', '');
 					this.$set(this.items[idx], 'attr', []);
+				},
+
+
+				can : function(idx, attridx) {
+
+					if(attridx) {
+						return this.items[idx]['attr'][attridx]['product.lists.siteid'] && (new String(this.items[idx]['attr'][attridx]['product.lists.siteid'])).startsWith(this.siteid);
+					}
+
+					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				},
+
+
+				checkSite : function(key, idx, attridx) {
+
+					if(attridx) {
+						return this.items[idx]['attr'][attridx][key] && this.items[idx]['attr'][attridx][key] != this.siteid;
+					}
+
+					return this.items[idx][key] && this.items[idx][key] != this.siteid;
 				},
 
 
@@ -967,6 +992,29 @@ Aimeos.Product.Stock = {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
+				add : function(data) {
+
+					var idx = (this.items || []).length;
+					this.$set(this.items, idx, {});
+
+					for(var key in this.keys) {
+						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+					}
+
+					this.$set(this.items[idx], 'stock.siteid', this.siteid);
+				},
+
+
+				can : function(idx) {
+					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				},
+
+
+				checked : function(idx) {
+					return this.items[idx].checked || this.items[idx].checked === undefined && this.items[idx]['stock.stocklevel'] !== null;
+				},
+
+
 				checkSite : function(idx) {
 					return this.items[idx]['stock.siteid'] && this.items[idx]['stock.siteid'] != this.siteid;
 				},
@@ -984,24 +1032,6 @@ Aimeos.Product.Stock = {
 
 						types.push(this.items[idx]['stock.type']);
 					}
-				},
-
-
-				checked : function(idx) {
-					return this.items[idx].checked || this.items[idx].checked === undefined && this.items[idx]['stock.stocklevel'] !== null;
-				},
-
-
-				add : function(data) {
-
-					var idx = (this.items || []).length;
-					this.$set(this.items, idx, {});
-
-					for(var key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
-					}
-
-					this.$set(this.items[idx], 'stock.siteid', this.siteid);
 				},
 
 
@@ -1073,11 +1103,6 @@ Aimeos.Product.Supplier = {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				checkSite : function(idx) {
-					return this.items[idx]['product.lists.siteid'] && this.items[idx]['product.lists.siteid'] != this.siteid;
-				},
-
-
 				add : function(data) {
 
 					var idx = (this.items || []).length;
@@ -1092,8 +1117,13 @@ Aimeos.Product.Supplier = {
 				},
 
 
-				remove : function(idx) {
-					this.items.splice(idx, 1);
+				can : function(idx) {
+					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				},
+
+
+				checkSite : function(idx) {
+					return this.items[idx]['product.lists.siteid'] && this.items[idx]['product.lists.siteid'] != this.siteid;
 				},
 
 
@@ -1119,6 +1149,11 @@ Aimeos.Product.Supplier = {
 					}
 
 					return label;
+				},
+
+
+				remove : function(idx) {
+					this.items.splice(idx, 1);
 				},
 
 

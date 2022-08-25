@@ -102,7 +102,7 @@ $keys = [
 							class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 						</div>
-						<div v-if="!checkSite('product.lists.siteid', idx)"
+						<div v-if="can(idx)"
 							class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 							v-on:click.stop="remove(idx)">

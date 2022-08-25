@@ -118,7 +118,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 									value="<?= $enc->attr( $stockTypes->getCode()->first() ) ?>" />
 							<?php endif ?>
 
-							<div v-if="!checkSite(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<div v-if="can(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">
 							</div>

@@ -45,7 +45,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
 
-							<div v-if="!checkSite('product.lists.siteid', idx)"
+							<div v-if="can(idx)"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">
@@ -209,7 +209,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 												class="btn act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 											</div>
-											<div v-if="!checkSite('product.lists.siteid', idx, attridx)"
+											<div v-if="can(idx, attridx)"
 												class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 												v-on:click.stop="removeAttributeItem(idx, attridx)">

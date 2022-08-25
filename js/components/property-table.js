@@ -48,7 +48,7 @@ Vue.component('property-table', {
 						v-model="propdata[domain + \'.property.value\']" > \
 				</td> \
 				<td class="actions"> \
-					<div v-if="!readonly(propidx)" class="btn act-delete fa" v-bind:tabindex="tabindex" \
+					<div v-if="can(propidx)" class="btn act-delete fa" v-bind:tabindex="tabindex" \
 						v-bind:title="i18n.delete || \'Delete this entry\'" v-on:click.stop="remove(propidx)"> \
 					</div> \
 				</td> \
@@ -81,6 +81,10 @@ Vue.component('property-table', {
 			let list = this.items;
 			list.push(Object.assign(entry, data));
 			this.$emit('update:property', list);
+		},
+
+		can : function(idx) {
+			return this.items[idx][this.domain + '.property.siteid'] && (new String(this.items[idx][this.domain + '.property.siteid'])).startsWith(this.siteid);
 		},
 
 		fname: function(key, idx) {
