@@ -71,6 +71,11 @@ Aimeos.Media = {
 			},
 
 
+			can : function(idx) {
+				return this.items[idx][this.domain + '.lists.siteid'] && (new String(this.items[idx][this.domain + '.lists.siteid'])).startsWith(this.siteid);
+			},
+
+
 			create: function(ev) {
 				const self = this;
 				const len = ev.target.files.length;
