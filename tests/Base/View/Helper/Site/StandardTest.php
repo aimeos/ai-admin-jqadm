@@ -17,7 +17,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$view = new \Aimeos\Base\View\Standard();
-		$view->pageSiteItem = new TestSite( 1, 'label1' );
+		$view->pageSiteItem = new TestSite( '1.', 'label1' );
 
 		$this->object = new \Aimeos\Base\View\Helper\Site\Standard( $view );
 	}
@@ -35,6 +35,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testCan()
+	{
+		$this->assertEquals( true, $this->object->transform()->can( '1.' ) );
+		$this->assertEquals( true, $this->object->transform()->can( '1.2.' ) );
+		$this->assertEquals( false, $this->object->transform()->can( '3.' ) );
+	}
+
+
 	public function testLabel()
 	{
 		$this->assertEquals( 'label1', $this->object->transform()->label() );
@@ -43,19 +51,19 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testMatch()
 	{
-		$this->assertEquals( 'label1', $this->object->transform()->match( 1 ) );
+		$this->assertEquals( 'label1', $this->object->transform()->match( '1.' ) );
 	}
 
 
 	public function testReadonly()
 	{
-		$this->assertEquals( 'readonly', $this->object->transform()->readonly( 2 ) );
+		$this->assertEquals( 'readonly', $this->object->transform()->readonly( '1.2.' ) );
 	}
 
 
 	public function testSiteid()
 	{
-		$this->assertEquals( 1, $this->object->transform()->siteid() );
+		$this->assertEquals( '1.', $this->object->transform()->siteid() );
 	}
 }
 

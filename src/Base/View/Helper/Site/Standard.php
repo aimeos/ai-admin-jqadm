@@ -46,6 +46,28 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 
 
 	/**
+	 * Checks if the item can be deleted or modified
+	 *
+	 * @param string $siteid ID of a site item
+	 * @return bool TRUE if the item can be deleted/modified
+	 */
+	public function can( string $siteid ) : ?bool
+	{
+		if( $this->view()->access( ['super'] ) ) {
+			return true;
+		}
+
+		$current = $this->siteItem->getSiteId();
+
+		if( !strncmp( $current, $siteid, strlen( $current ) ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+
+	/**
 	 * Returns the site label of the current site
 	 *
 	 * @return string|null Label of the site item or null if not available
