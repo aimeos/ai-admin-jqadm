@@ -44,9 +44,7 @@ class Standard
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'attribute/type' );
-
-		$search = $manager->filter( true )->slice( 0, 1000 );
-		$search->setSortations( [$search->sort( '+', 'attribute.type.position' )] );
+		$search = $manager->filter( true )->order( ['attribute.type.position', 'attribute.type.label'] )->slice( 0, 1000 );
 
 		$view->attributeTypes = $manager->search( $search );
 
