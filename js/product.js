@@ -285,7 +285,7 @@ Aimeos.Product.Attribute = {
 					var criteria = {'>': {'attribute.type.status': 0}};
 
 					return function(request, response, element) {
-						Aimeos.getOptions(request, response, element, 'attribute/type', 'attribute.type.code', 'attribute.type.code', criteria);
+						Aimeos.getOptions(request, response, element, 'attribute/type', 'attribute.type.code', 'attribute.type.label', criteria);
 					};
 				},
 
