@@ -72,7 +72,7 @@ $keys = [
 								</select>
 							</td>
 							<td class="actions">
-								<div v-if="can(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<div v-if="can(idx, 'delete')" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 									v-on:click.stop="remove(idx)">
 								</div>
@@ -139,7 +139,7 @@ $keys = [
 								</select>
 							</td>
 							<td class="actions">
-								<div v-if="can(idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
+								<div v-if="can(idx, 'delete')" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 									v-on:click.stop="remove(idx)">
 								</div>

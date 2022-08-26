@@ -40,12 +40,12 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								v-on:click.stop="copyItem(idx)">
 							</div>
 
-							<div v-if="!checkSite('product.lists.siteid', idx) && item['product.lists.id'] != ''"
+							<div v-if="can(idx, 'move')"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
 
-							<div v-if="can(idx)"
+							<div v-if="can(idx, 'delete')"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">
@@ -205,11 +205,11 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											</select>
 										</td>
 										<td class="actions">
-											<div v-if="!checkSite('product.lists.siteid', idx, attridx)"
+											<div v-if="can(idx, 'move', attridx)"
 												class="btn act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 											</div>
-											<div v-if="can(idx, attridx)"
+											<div v-if="can(idx, 'delete', attridx)"
 												class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 												v-on:click.stop="removeAttributeItem(idx, attridx)">

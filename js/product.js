@@ -229,8 +229,20 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				can : function(idx) {
-					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				can : function(idx, action) {
+					if(!this.items[idx]['product.lists.siteid']) {
+						return false;
+					}
+
+					if(action === 'delete') {
+						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+					}
+
+					if(action === 'move') {
+						return this.items[idx]['product.lists.siteid'] === this.siteid && this.items[idx]['product.lists.id'] != '';
+					}
+
+					return false;
 				},
 
 
@@ -354,8 +366,20 @@ Aimeos.Product.Catalog = {
 				},
 
 
-				can : function(idx) {
-					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				can : function(idx, action) {
+					if(!this.items[idx]['product.lists.siteid']) {
+						return false;
+					}
+
+					if(action === 'delete') {
+						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+					}
+
+					if(action === 'move') {
+						return this.items[idx]['product.lists.siteid'] === this.siteid && this.items[idx]['product.lists.id'] != '';
+					}
+
+					return false;
 				},
 
 
@@ -667,8 +691,20 @@ Aimeos.Product.Product = {
 				},
 
 
-				can : function(idx) {
-					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				can : function(idx, action) {
+					if(!this.items[idx]['product.lists.siteid']) {
+						return false;
+					}
+
+					if(action === 'delete') {
+						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+					}
+
+					if(action === 'move') {
+						return this.items[idx]['product.lists.siteid'] === this.siteid && this.items[idx]['product.lists.id'] != '';
+					}
+
+					return false;
 				},
 
 
@@ -769,13 +805,25 @@ Aimeos.Product.Selection = {
 				},
 
 
-				can : function(idx, attridx) {
+				can : function(idx, action, attridx) {
 
-					if(attridx) {
-						return this.items[idx]['attr'][attridx]['product.lists.siteid'] && (new String(this.items[idx]['attr'][attridx]['product.lists.siteid'])).startsWith(this.siteid);
+					if(action === 'delete') {
+						if(attridx) {
+							return this.items[idx]['attr'][attridx]['product.lists.siteid'] && (new String(this.items[idx]['attr'][attridx]['product.lists.siteid'])).startsWith(this.siteid);
+						} else {
+							return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+						}
 					}
 
-					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+					if(action === 'move') {
+						if(attridx) {
+							return this.items[idx]['attr'][attridx]['product.lists.siteid'] === this.siteid;
+						} else {
+							return this.items[idx]['product.lists.siteid'] === this.siteid && this.items[idx]['product.lists.id'] != '';
+						}
+					}
+
+					return false;
 				},
 
 
@@ -1005,8 +1053,16 @@ Aimeos.Product.Stock = {
 				},
 
 
-				can : function(idx) {
-					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				can : function(idx, action) {
+					if(!this.items[idx]['product.lists.siteid']) {
+						return false;
+					}
+
+					if(action === 'delete') {
+						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+					}
+
+					return false;
 				},
 
 
@@ -1117,8 +1173,16 @@ Aimeos.Product.Supplier = {
 				},
 
 
-				can : function(idx) {
-					return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+				can : function(idx, action) {
+					if(!this.items[idx]['product.lists.siteid']) {
+						return false;
+					}
+
+					if(action === 'delete') {
+						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+					}
+
+					return false;
 				},
 
 
