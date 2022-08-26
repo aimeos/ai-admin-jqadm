@@ -44,11 +44,11 @@ $enc = $this->encoder();
 						</div>
 						<span class="item-label header-label" v-bind:class="{disabled: !active(idx)}">{{ label(idx) }}</span>
 						<div class="card-tools-end">
-							<div v-if="item['service.lists.siteid'] == siteid && !item['_nosort']"
+							<div v-if="can(idx, 'move')"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
-							<div v-if="can(idx)"
+							<div v-if="can(idx, 'delete')"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">
