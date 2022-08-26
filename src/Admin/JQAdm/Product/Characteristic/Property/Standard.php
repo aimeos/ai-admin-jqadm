@@ -260,9 +260,9 @@ class Standard
 		$excludes = $this->context()->config()->get( 'admin/jqadm/product/physical/types', [] );
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/property/type' );
 
-		$search = $manager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '!=', 'product.property.type.code', $excludes ) );
-		$search->setSortations( [$search->sort( '+', 'product.property.type.position' )] );
+		$search = $manager->filter( true )->slice( 0, 10000 )
+			->add( 'product.property.type.code', '!=', $excludes )
+			->order( ['product.property.type.position', 'product.property.type.label'] );
 
 		return $manager->search( $search );
 	}
