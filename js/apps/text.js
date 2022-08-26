@@ -80,6 +80,8 @@ Aimeos.Text = {
 				if(action === 'move') {
 					return this.items[idx][this.domain + '.lists.siteid'] === this.siteid  && !this.items[idx]['_nosort'];
 				}
+
+				return false;
 			},
 
 
