@@ -68,6 +68,21 @@ Aimeos.Text = {
 			},
 
 
+			can : function(idx, action) {
+				if(!this.items[idx][this.domain + '.lists.siteid']) {
+					return false;
+				}
+
+				if(action === 'delete') {
+					return (new String(this.items[idx][this.domain + '.lists.siteid'])).startsWith(this.siteid);
+				}
+
+				if(action === 'move') {
+					return this.items[idx][this.domain + '.lists.siteid'] === this.siteid  && !this.items[idx]['_nosort'];
+				}
+			},
+
+
 			label: function(idx) {
 				let label = '';
 

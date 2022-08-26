@@ -55,11 +55,11 @@ $enc = $this->encoder();
 									<?php endforeach ?>
 								</div>
 							</div>
-							<div v-if="item['attribute.lists.siteid'] == siteid && !item['_nosort']"
+							<div v-if="can(idx, 'move')"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
-							<div v-if="item['attribute.lists.siteid'] == siteid"
+							<div v-if="can(idx, 'delete')"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">
