@@ -3,30 +3,27 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Cao Anh Nhat <anhnhata8cool@gmail.com>, 2018
-# hh hh <minhtrung.4791@gmail.com>, 2020
-# Tuan Anh <fancyfree.t@gmail.com>, 2021
-# Van Nguyen <van.webmasters@gmail.com>, 2020
+# Jeremy Flammang, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-05 12:22+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Van Nguyen <van.webmasters@gmail.com>, 2020\n"
-"Language-Team: Vietnamese (http://www.transifex.com/aimeos/aimeos-core/language/vi/)\n"
+"Last-Translator: Jeremy Flammang, 2022\n"
+"Language-Team: Luxembourgish (http://www.transifex.com/aimeos/aimeos-core/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: lb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -44,7 +41,7 @@ msgid ""
 "\t%17$s\n"
 "\t%18$s\n"
 "\t"
-msgstr ""
+msgstr "%1$s\n\t%2$s %3$s %4$s %5$s\n\t%6$s %7$s\n\t%8$s\n\t%9$s %10$s\n\t%11$s\n\t%12$s\n\t%13$s\n\t%14$s\n\t%15$s\n\t%16$s\n\t%17$s\n\t%18$s\n\t"
 
 #, php-format
 msgid ""
@@ -56,7 +53,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s %3$s\n%5$s %4$s\n%7$s, %6$s\n%8$s, %9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -73,53 +70,53 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr ""
+msgstr "%1$s\n%2$s%3$s%4$s%5$s\n%6$s%7$s\n%8$s\n%9$s%10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr "%1$s %2$s"
+msgstr "%1$s%2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(International) Faxnummer ouni Trennzeechen, kann mat engem \"+\" ufänken"
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(International) Telefonsnummer ouni Trennzeechen, kann mat engem \"+\" ufänken"
 
 msgid "+ Tax"
-msgstr "+ Thuế"
+msgstr "+ TVA"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<hidden>"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "Account"
-msgstr ""
+msgstr "Benotzerkonto"
 
 msgid "Active"
-msgstr "Kích hoạt"
+msgstr "Aktiv"
 
 msgid "Actual price"
-msgstr "Giá bán"
+msgstr ""
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr "Giá bán mà khách hàng có thể mua sản phẩm trên website"
+msgstr ""
 
 msgid "Add"
-msgstr "Thêm"
+msgstr "Dobäisetzen"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
@@ -133,26 +130,26 @@ msgid "Additional information where the supplier's apartment can be found"
 msgstr ""
 
 msgid "Address 1"
-msgstr "Địa chỉ 1"
+msgstr "Adress 1"
 
 msgid "Address 2"
-msgstr "Địa chỉ 2"
+msgstr "Adress 2"
 
 msgid "Address 3"
-msgstr "Địa chỉ 3"
+msgstr "Adress 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr "Địa chỉ khách hàng nhận hàng"
+msgstr ""
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr "Địa chỉ khách hàng nhận hàng"
+msgstr ""
 
 #, php-format
 msgid "Admin JQAdm type is empty"
 msgstr ""
 
 msgid "Advanced"
-msgstr "Nâng cao"
+msgstr ""
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
@@ -164,10 +161,10 @@ msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr "Đối tượng không khả dụng"
+msgstr ""
 
 msgid "All"
-msgstr "Tất cả"
+msgstr ""
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
@@ -175,13 +172,13 @@ msgid ""
 msgstr ""
 
 msgid "Allow custom price"
-msgstr "Chấp nhận giá tùy chỉnh"
+msgstr ""
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr "Cho phép khách hạng chọn số tiền phải trả"
+msgstr ""
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr "Chuỗi ký tự để xác định nhóm duy nhất"
+msgstr ""
 
 msgid "Apply"
 msgstr ""
@@ -192,28 +189,28 @@ msgid ""
 msgstr ""
 
 msgid "Attribute"
-msgstr "Thuộc tính"
+msgstr ""
 
 msgid "Attribute Lists Type"
-msgstr "Thuộc tính loại danh sách"
+msgstr ""
 
 msgid "Attribute Lists Types"
-msgstr "Thuộc tính loại danh sách"
+msgstr ""
 
 msgid "Attribute Property Type"
-msgstr "Thuộc tính loại tài sản"
+msgstr ""
 
 msgid "Attribute Property Types"
-msgstr "Thuộc tính loại tài sản"
+msgstr ""
 
 msgid "Attribute Type"
-msgstr "Loại thuộc tính"
+msgstr ""
 
 msgid "Attribute Types"
-msgstr "Loại thuộc tính"
+msgstr ""
 
 msgid "Attribute position (optional)"
-msgstr "Vị trí thuộc tính (tùy chọn)"
+msgstr ""
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
@@ -222,7 +219,7 @@ msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
-msgstr "Các thuộc tính"
+msgstr "Attributen"
 
 msgid "Available currency for the current site"
 msgstr ""
@@ -239,46 +236,46 @@ msgid ""
 msgstr ""
 
 msgid "Back in stock"
-msgstr "Đã có hàng"
+msgstr ""
 
 msgid "Basic"
-msgstr "Cơ bản"
+msgstr ""
 
 msgid "Basket"
-msgstr "Giỏ hàng"
+msgstr "Käddi"
 
 msgid "Billing address"
-msgstr "Địa chỉ hóa đơn"
+msgstr "Rechnungsadress"
 
 msgid "Birthday"
-msgstr "Ngày sinh"
+msgstr "Gebuertsdaag"
 
 msgid "Birthday of the customer"
-msgstr "Ngày sinh khách hàng"
+msgstr ""
 
 msgid "Bug or suggestion?"
-msgstr "Lỗi hoặc gợi ý khác?"
+msgstr ""
 
 msgid "Bulk edit"
 msgstr ""
 
 msgid "Cancel"
-msgstr "Hủy bỏ"
+msgstr "Ofbriechen"
 
 msgid "Cancel and return to list"
-msgstr "Hủy bỏ và trở lại danh sách"
+msgstr ""
 
 msgid "Catalog"
-msgstr "Danh mục"
+msgstr ""
 
 msgid "Catalog Lists Type"
-msgstr "Loại danh mục"
+msgstr ""
 
 msgid "Catalog Lists Types"
-msgstr "Loại danh mục"
+msgstr ""
 
 msgid "Categories"
-msgstr ""
+msgstr "Kategorien"
 
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
@@ -301,16 +298,16 @@ msgid "Change value in %"
 msgstr ""
 
 msgid "Channel"
-msgstr ""
+msgstr "Kanal"
 
 msgid "Choose file"
-msgstr "Chọn tập tin"
+msgstr ""
 
 msgid "City"
-msgstr "Thành phố"
+msgstr "Stadt"
 
 msgid "City or town name (required)"
-msgstr "Thành phố (bắt buộc)"
+msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
@@ -325,34 +322,34 @@ msgid "Class \"%1$s\" not found"
 msgstr ""
 
 msgid "Close"
-msgstr "Đóng lại"
+msgstr ""
 
 msgid "Code"
-msgstr "Mã"
+msgstr ""
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr "Mã là duy nhất, thay đổi sẽ dẫn đến lỗi!"
+msgstr ""
 
 msgid "Columns"
-msgstr "Cột"
+msgstr ""
 
 msgid "Comment"
-msgstr "Bình luận"
+msgstr ""
 
 msgid "Comment of the reviewer"
-msgstr "Lời bình luận của người đánh giá"
+msgstr ""
 
 msgid "Communication"
-msgstr "Trao đổi"
+msgstr ""
 
 msgid "Company"
-msgstr "Công ty"
+msgstr ""
 
 msgid "Company details"
-msgstr "Chi tiết công ty"
+msgstr ""
 
 msgid "Company name (optional)"
-msgstr "Tên công ty (tùy chọn)"
+msgstr ""
 
 msgid "Completed orders"
 msgstr ""
@@ -362,35 +359,35 @@ msgid ""
 msgstr ""
 
 msgid "Config"
-msgstr "Cấu hình"
+msgstr ""
 
 msgid "Configurable"
-msgstr "Có thể cấu hình"
+msgstr ""
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
 
 msgid "Copy"
-msgstr "Sao chép"
+msgstr ""
 
 msgid "Copy this entry"
-msgstr "Sao chép thông tin này"
+msgstr ""
 
 msgid "Costs"
-msgstr "Chi phí"
+msgstr ""
 
 msgid "Count"
-msgstr "Số lượng"
+msgstr ""
 
 msgid "Country"
-msgstr "Quốc gia"
+msgstr ""
 
 msgid "Country ID"
-msgstr "ID quốc gia"
+msgstr ""
 
 msgid "Country code (required)"
-msgstr "Mã quốc gia (bắt buộc)"
+msgstr ""
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
@@ -398,112 +395,112 @@ msgid ""
 msgstr ""
 
 msgid "Country state code (optional)"
-msgstr "Mã tỉnh (tùy chọn)"
+msgstr ""
 
 msgid "Coupon"
-msgstr "Phiếu giảm giá"
+msgstr ""
 
 msgid "Coupon provider or coupon decorator configuration name"
-msgstr "Nhà cung cấp phiếu giảm giá"
+msgstr ""
 
 msgid "Created"
-msgstr "Tạo bởi"
+msgstr ""
 
 msgid "Currencies"
-msgstr "Tiền tệ"
+msgstr ""
 
 msgid "Currency"
-msgstr "Tiền tệ"
+msgstr ""
 
 msgid "Custom"
-msgstr "Tùy chỉnh"
+msgstr ""
 
 msgid "Custom domain or unique code of your shop"
 msgstr ""
 
 msgid "Customer"
-msgstr "Khách hàng"
+msgstr ""
 
 msgid "Customer ID"
-msgstr "ID khách hàng"
+msgstr ""
 
 msgid "Customer Lists Type"
-msgstr "Loại khách hàng"
+msgstr ""
 
 msgid "Customer Lists Types"
-msgstr "Loại khách hàng"
+msgstr ""
 
 msgid "Customer Property Type"
-msgstr "Loại tài sản khách hàng"
+msgstr ""
 
 msgid "Customer Property Types"
-msgstr "Loại tài sản khách hàng"
+msgstr ""
 
 msgid "Customer characteristics that are not shared with other customers"
 msgstr ""
 
 msgid "Customer comment (optional)"
-msgstr "KH bình luần (tùy chọn)"
+msgstr ""
 
 msgid "Customer e-mail address"
-msgstr "Email khách hàng"
+msgstr ""
 
 msgid "Customer password"
-msgstr "Mật khẩu"
+msgstr ""
 
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
 msgid "Customer reference"
-msgstr "Tham chiếu"
+msgstr ""
 
 msgid "Customer reference (optional)"
-msgstr "Tham chiếu (tùy chọn)"
+msgstr ""
 
 msgid "Dashboard"
-msgstr "Bảng điều khiển"
+msgstr ""
 
 msgid "Data set"
-msgstr "Tập dữ liệu"
+msgstr ""
 
 msgid "Dataset"
 msgstr ""
 
 msgid "Date of the last delivery status change"
-msgstr "NGày đổi trạng thái giao nhận cuối"
+msgstr ""
 
 msgid "Date of the last payment status change"
-msgstr "Ngày đổi trạng thái thanh toán cuối"
+msgstr ""
 
 msgid "Date the subscription ends"
-msgstr "Ngày kết thúc gói đăng ký"
+msgstr ""
 
 msgid "Days"
-msgstr "Ngày"
+msgstr ""
 
 msgid "Default"
-msgstr "Mặc định"
+msgstr ""
 
 msgid "Delete"
-msgstr "Xóa"
+msgstr ""
 
 msgid "Delete items?"
-msgstr "Xóa bản ghi?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr ""
 
 msgid "Delete this entry"
-msgstr "Xóa bản chi này"
+msgstr ""
 
 msgid "Deleting reviews is not allowed"
 msgstr ""
 
 msgid "Delivery"
-msgstr "Vận chuyển"
+msgstr ""
 
 msgid "Delivery address"
-msgstr "Địa chỉ nhận"
+msgstr ""
 
 msgid "Delivery in"
 msgstr ""
@@ -513,16 +510,16 @@ msgid ""
 msgstr ""
 
 msgid "Delivery status"
-msgstr "Trạng thái giao nhận"
+msgstr ""
 
 msgid "Delivery timeframe (optional)"
 msgstr ""
 
 msgid "Delivery types"
-msgstr "Loại giao nhận"
+msgstr ""
 
 msgid "Delivery within"
-msgstr "Giao nhận bao gồm"
+msgstr ""
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -533,13 +530,13 @@ msgid "Description of the text content if it's in a foreign language"
 msgstr ""
 
 msgid "Descritive name of the currency"
-msgstr "Tên mô tả của tiền tệ"
+msgstr ""
 
 msgid "Descritive name of the language"
-msgstr "Tên mô tả của ngôn ngữ"
+msgstr ""
 
 msgid "Descritive name of the site"
-msgstr "Tên mô tả của trang"
+msgstr ""
 
 msgid "Discount"
 msgstr ""
@@ -548,22 +545,22 @@ msgid "Display help texts"
 msgstr ""
 
 msgid "Domain"
-msgstr "Miền"
+msgstr ""
 
 msgid "Download"
-msgstr "Tải xuống"
+msgstr ""
 
 msgid "Download this file"
-msgstr "Tải xuống file này"
+msgstr ""
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr "Nhân đôi bản ghi (Ctrl+D)"
+msgstr ""
 
 msgid "E-Mail"
-msgstr "Email"
+msgstr ""
 
 msgid "E-Mail address (required)"
-msgstr "Email (bắt buộc)"
+msgstr ""
 
 msgid "E-Mail address or account name (required)"
 msgstr ""
@@ -572,10 +569,10 @@ msgid "E-Mail address used for sending shop related e-mails"
 msgstr ""
 
 msgid "E-mail"
-msgstr "Email"
+msgstr ""
 
 msgid "E-mail address (optional)"
-msgstr "Email (tùy chọn)"
+msgstr ""
 
 msgid "E-mail address that belongs to the address"
 msgstr ""
@@ -584,31 +581,31 @@ msgid "EAN, SKU or article number (required)"
 msgstr ""
 
 msgid "Edit"
-msgstr "Chỉnh sửa"
+msgstr ""
 
 msgid "Edit this entry"
-msgstr "Chỉnh sửa"
+msgstr ""
 
 msgid "Editor"
-msgstr "Người sửa"
+msgstr ""
 
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 msgid "End date"
-msgstr "Ngày kết thúc"
+msgstr ""
 
 msgid "End date (optional)"
-msgstr "Ngày kết thúc (tùy chọn)"
+msgstr ""
 
 msgid "Error"
-msgstr "Lỗi"
+msgstr ""
 
 msgid "Excl. tax"
-msgstr "Không bao gồm thuế"
+msgstr ""
 
 msgid "Execution order of the plugins"
-msgstr "Thực hiện yêu cầu của trình cắm"
+msgstr ""
 
 msgid "Execution order of the rules"
 msgstr ""
@@ -617,25 +614,25 @@ msgid "Export"
 msgstr ""
 
 msgid "Facility"
-msgstr "Cơ sở"
+msgstr ""
 
 msgid "Facsimile"
-msgstr "Cơ sở"
+msgstr ""
 
 msgid "Facsimile number (optional)"
-msgstr "Số cơ sỏ (tùy chọn)"
+msgstr ""
 
 msgid "Failed to write file to disk"
 msgstr ""
 
 msgid "File"
-msgstr "Tập tin"
+msgstr ""
 
 msgid "File upload stopped by extension"
 msgstr ""
 
 msgid "Find category"
-msgstr "Tìm chuyên mục"
+msgstr ""
 
 msgid "Find site"
 msgstr ""
@@ -644,7 +641,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr "Tên"
+msgstr ""
 
 msgid "First name (optional)"
 msgstr ""
@@ -653,10 +650,10 @@ msgid "First name of the person if used in cultures where they are used"
 msgstr ""
 
 msgid "Floor"
-msgstr "Tầng"
+msgstr ""
 
 msgid "Floor / Appartment"
-msgstr "Tầng / Tòa nhà"
+msgstr ""
 
 msgid "Floor and/or apartment (optional)"
 msgstr ""
@@ -832,7 +829,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr "Ngôn ngữ"
+msgstr ""
 
 msgid "Language ID"
 msgstr ""
@@ -850,7 +847,7 @@ msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr "Họ"
+msgstr ""
 
 msgid "Last name (optional)"
 msgstr ""
@@ -947,7 +944,7 @@ msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Name"
-msgstr "Tên"
+msgstr ""
 
 msgid "Name in URL (optional)"
 msgstr ""
@@ -975,7 +972,7 @@ msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Next"
-msgstr "Tiếp theo"
+msgstr ""
 
 msgid "Next date"
 msgstr ""
@@ -1003,7 +1000,7 @@ msgstr ""
 
 #, php-format
 msgid "No view available"
-msgstr "Hiện không hiển thị được"
+msgstr ""
 
 msgid "No voucher"
 msgstr ""
@@ -1068,7 +1065,7 @@ msgid "Order"
 msgstr ""
 
 msgid "Order ID"
-msgstr "Số hiệu hóa đơn"
+msgstr ""
 
 msgid "Order number entered by the customer"
 msgstr ""
@@ -1119,7 +1116,7 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr "Trang %1$d của %2$d"
+msgstr ""
 
 msgid "Password"
 msgstr ""
@@ -1137,10 +1134,10 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr "Chi trả"
+msgstr ""
 
 msgid "Payment status"
-msgstr "Trạng thái chi trả"
+msgstr ""
 
 msgid "Payment types"
 msgstr ""
@@ -1198,10 +1195,10 @@ msgid "Potential problems"
 msgstr ""
 
 msgid "Previous"
-msgstr "Trước"
+msgstr ""
 
 msgid "Price"
-msgstr "Giá"
+msgstr ""
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1341,7 +1338,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr "Số lượng"
+msgstr ""
 
 msgid "Quantity scale"
 msgstr ""
@@ -1397,7 +1394,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr "Đặt lại"
+msgstr ""
 
 msgid "Response"
 msgstr ""
@@ -1406,7 +1403,7 @@ msgid "Response to the reviewer"
 msgstr ""
 
 msgid "Review"
-msgstr "review"
+msgstr ""
 
 msgid "Reviewed item"
 msgstr ""
@@ -1461,7 +1458,7 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr "Lời chào mừng"
+msgstr ""
 
 msgid "Save"
 msgstr ""
@@ -1479,7 +1476,7 @@ msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
-msgstr "Tìm kiếm"
+msgstr ""
 
 msgid "Second level type for grouping items"
 msgstr ""
@@ -1533,7 +1530,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr "Chuyển hàng"
+msgstr ""
 
 msgid "Shipping / Payment costs"
 msgstr ""
@@ -1577,7 +1574,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr "Hiển thị"
+msgstr ""
 
 msgid "Show entry"
 msgstr ""
@@ -1629,7 +1626,7 @@ msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr "Bang"
+msgstr ""
 
 msgid "Status"
 msgstr ""
@@ -1647,13 +1644,13 @@ msgid "Stock type"
 msgstr ""
 
 msgid "Street"
-msgstr "Tên đường"
+msgstr ""
 
 msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr "Tiền tổng cộng"
+msgstr ""
 
 msgid "Subscription"
 msgstr ""
@@ -1667,7 +1664,7 @@ msgid "Suggested products"
 msgstr ""
 
 msgid "Sum"
-msgstr "Tổng"
+msgstr ""
 
 msgid "Supplier"
 msgstr ""
@@ -1694,7 +1691,7 @@ msgid "Tax rate in %"
 msgstr ""
 
 msgid "Telephone"
-msgstr "Số điện thoại"
+msgstr ""
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1788,7 +1785,7 @@ msgid "Top countries"
 msgstr ""
 
 msgid "Total"
-msgstr "Tổng cộng"
+msgstr ""
 
 msgid "Total orders"
 msgstr ""
@@ -1943,7 +1940,7 @@ msgid ""
 msgstr ""
 
 msgid "Web site"
-msgstr "Trang web"
+msgstr ""
 
 msgid "Web site URL (optional)"
 msgstr ""
@@ -1990,17 +1987,17 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "Các địa chỉ"
+msgstr "Adressen"
 
 msgid "address:delivery"
-msgstr "Địa chỉ nhận"
+msgstr ""
 
 msgid "address:payment"
-msgstr "Địa chỉ hóa đơn"
+msgstr "Rechnungsadress"
 
 #, php-format
 msgid "attribute"
-msgstr "Các thuộc tính"
+msgstr "Attributen"
 
 #, php-format
 msgid "bundle"
@@ -2008,22 +2005,22 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr ""
+msgstr "Kategorien"
 
 #, php-format
 msgid "category"
-msgstr ""
+msgstr "Kategorien"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "Characteristiken"
 
 #, php-format
 msgid "code"
 msgstr ""
 
 msgid "company"
-msgstr "Công ty"
+msgstr ""
 
 #, php-format
 msgid "configuration"
@@ -2055,7 +2052,7 @@ msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr "Bảng điều khiển"
+msgstr ""
 
 #, php-format
 msgid "day"
@@ -2071,7 +2068,7 @@ msgstr ""
 
 #, php-format
 msgid "goods"
-msgstr "Danh mục"
+msgstr ""
 
 #, php-format
 msgid "group"
@@ -2099,7 +2096,7 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr "Tiền tệ"
+msgstr ""
 
 #, php-format
 msgid "locale/language"
@@ -2140,14 +2137,14 @@ msgid "no"
 msgstr ""
 
 msgid "none"
-msgstr ""
+msgstr "keng"
 
 msgid "not available any more"
 msgstr ""
 
 #, php-format
 msgid "option"
-msgstr "Tùy chọn"
+msgstr ""
 
 #, php-format
 msgid "order"
@@ -2268,7 +2265,7 @@ msgstr ""
 
 #, php-format
 msgid "service"
-msgstr "Dịch vụ"
+msgstr ""
 
 #, php-format
 msgid "servicedelivery"
@@ -2361,7 +2358,7 @@ msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr "Các thuộc tính"
+msgstr "Attributen"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2429,7 +2426,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr "Dịch vụ"
+msgstr ""
 
 #, php-format
 msgid "type/service/lists"
