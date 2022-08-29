@@ -38,21 +38,18 @@ Aimeos = {
 		},
 		language: $('html').attr('lang'),
 		mediaEmbed: {
-			previewsInData: true,
+			previewsInData: true
 		},
-		toolbar: {
-			items: [
-				'link', '|',
-				'bold', 'italic', 'underline', 'strikethrough', '|',
-				'undo', 'redo', '|',
-				'specialCharacters', 'removeFormat', '|',
-				'bulletedList', 'numberedList', '|',
-				'outdent', 'indent', '|',
-				'blockQuote', '|',
-				'insertTable', 'mediaEmbed', '|',
-				'sourceEditing'
-			]
-		}
+		toolbar: [
+			'link', '|',
+			'bold', 'italic', '|',
+			'undo', 'redo', '|',
+			'specialCharacters', 'removeFormat', '|',
+			'bulletedList', 'numberedList', '|',
+			'blockQuote', '|',
+			'insertTable', 'mediaEmbed', '|',
+			'sourceEditing'
+		]
 	},
 
 	flatpickr : {

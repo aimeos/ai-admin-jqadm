@@ -43,7 +43,12 @@ Vue.component('html-editor', {
 
 		this.editor.create(this.$el, config).then(editor => {
 			this.instance = editor;
-			editor.isReadOnly = this.readonly;
+
+			if(this.readonly) {
+				editor.enableReadOnlyMode('html-editor');
+			} else {
+				editor.disableReadOnlyMode('html-editor');
+			}
 
 			const event = this.debounce(ev => {
 				this.content = editor.getData();
@@ -68,7 +73,11 @@ Vue.component('html-editor', {
 		},
 
 		readonly(val) {
-			this.instance.isReadOnly = val;
+			if(val) {
+				this.instance.enableReadOnlyMode('html-editor');
+			} else {
+				this.instance.disableReadOnlyMode('html-editor');
+			}
 		}
 	}
 });
