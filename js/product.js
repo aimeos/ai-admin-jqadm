@@ -280,6 +280,14 @@ Aimeos.Product.Attribute = {
 				},
 
 
+				getTitle : function(idx) {
+					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
+						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
+						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
+						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+				},
+
+
 				getTypeItems : function() {
 
 					var criteria = {'>': {'attribute.type.status': 0}};
@@ -410,6 +418,14 @@ Aimeos.Product.Catalog = {
 					}
 
 					return label;
+				},
+
+
+				getTitle : function(idx) {
+					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
+						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
+						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
+						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
 				},
 
 
@@ -733,6 +749,14 @@ Aimeos.Product.Product = {
 					}
 
 					return label;
+				},
+
+
+				getTitle : function(idx) {
+					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
+						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
+						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
+						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
 				},
 
 
@@ -1213,6 +1237,14 @@ Aimeos.Product.Supplier = {
 					}
 
 					return label;
+				},
+
+
+				getTitle : function(idx) {
+					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
+						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
+						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
+						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
 				},
 
 
