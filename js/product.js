@@ -413,12 +413,6 @@ Aimeos.Product.Catalog = {
 				},
 
 
-				getTitle : function(idx) {
-					var siteid = this.items[idx]['product.lists.siteid'];
-					return this.sites[siteid] ? this.sites[siteid] : '';
-				},
-
-
 				remove : function(idx) {
 					this.items.splice(idx, 1);
 				},
