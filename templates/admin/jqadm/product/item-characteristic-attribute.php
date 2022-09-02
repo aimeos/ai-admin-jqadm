@@ -90,7 +90,7 @@ $keys = [
 							v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 							v-bind:label="item['attribute.label']"
-							v-bind:title="getTitle(idx)"
+							v-bind:title="title(idx)"
 							v-bind:required="'required'"
 							v-bind:getfcn="getItems"
 							v-bind:index="idx"

@@ -280,14 +280,6 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				getTitle : function(idx) {
-					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
-						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
-						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
-						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
-				},
-
-
 				getTypeItems : function() {
 
 					var criteria = {'>': {'attribute.type.status': 0}};
@@ -300,6 +292,14 @@ Aimeos.Product.Attribute = {
 
 				remove : function(idx) {
 					this.items.splice(idx, 1);
+				},
+
+
+				title(idx) {
+					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
+						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
+						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
+						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
 				},
 
 
@@ -421,16 +421,16 @@ Aimeos.Product.Catalog = {
 				},
 
 
-				getTitle : function(idx) {
+				remove : function(idx) {
+					this.items.splice(idx, 1);
+				},
+
+
+				title(idx) {
 					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
 						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
 						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
 						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
-				},
-
-
-				remove : function(idx) {
-					this.items.splice(idx, 1);
 				},
 
 
@@ -752,16 +752,16 @@ Aimeos.Product.Product = {
 				},
 
 
-				getTitle : function(idx) {
+				remove : function(idx) {
+					this.items.splice(idx, 1);
+				},
+
+
+				title(idx) {
 					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
 						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
 						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
 						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
-				},
-
-
-				remove : function(idx) {
-					this.items.splice(idx, 1);
 				},
 
 
@@ -1240,16 +1240,16 @@ Aimeos.Product.Supplier = {
 				},
 
 
-				getTitle : function(idx) {
+				remove : function(idx) {
+					this.items.splice(idx, 1);
+				},
+
+
+				title(idx) {
 					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
 						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
 						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
 						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
-				},
-
-
-				remove : function(idx) {
-					this.items.splice(idx, 1);
 				},
 
 
