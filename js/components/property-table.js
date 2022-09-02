@@ -20,7 +20,7 @@ Vue.component('property-table', {
 			</tr> \
 		</thead> \
 		<tbody> \
-			<tr v-for="(propdata, propidx) in items" v-bind:key="propidx" v-bind:class="{readonly: readonly(propidx)}"> \
+			<tr v-for="(propdata, propidx) in items" v-bind:key="propidx" v-bind:class="{readonly: readonly(propidx)}" v-bind:title="title(propidx)"> \
 				<td class="property-type"> \
 					<input type="hidden" v-model="propdata[domain + \'.property.id\']" v-bind:name="fname(\'id\', propidx)" /> \
 					<select is="select-component" required class="form-select item-type" v-bind:tabindex="tabindex" \
@@ -99,6 +99,13 @@ Vue.component('property-table', {
 			let list = this.items;
 			list.splice(idx, 1);
 			this.$emit('update:property', list);
+		},
+
+		title(idx) {
+			return 'Site ID: ' + this.items[idx][this.domain + '.property.siteid'] + "\n"
+				+ 'Editor: ' + this.items[idx][this.domain + '.property.editor'] + "\n"
+				+ 'Created: ' + this.items[idx][this.domain + '.property.ctime'] + "\n"
+				+ 'Modified: ' + this.items[idx][this.domain + '.property.mtime'];
 		}
 	}
 });
