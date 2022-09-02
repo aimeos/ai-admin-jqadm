@@ -36,6 +36,22 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
+	 */
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
+	{
+		if( $item = $view->get( 'item' ) ) {
+			$view->categorySites = $this->getSites( $item );
+		}
+
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
@@ -101,6 +117,23 @@ class Standard
 		$view->categoryBody = parent::save();
 
 		return null;
+	}
+
+
+	/**
+	 * Returns the site items for the site IDs used in the list items
+	 *
+	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item
+	 * @return \Aimeos\Map List of site items
+	 */
+	protected function getSites( \Aimeos\MShop\Product\Item\Iface $item ) : \Aimeos\Map
+	{
+		$siteIds = $item->getListItems( 'catalog' )->getSiteId();
+
+		$manager = \Aimeos\MShop::create( $this->context(), 'locale/site' );
+		$filter = $manager->filter()->add( 'locale.site.siteid', '==', $siteIds );
+
+		return $manager->search( $filter )->col( 'locale.site.label', 'locale.site.siteid' );
 	}
 
 

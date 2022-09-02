@@ -22,6 +22,7 @@ $keys = [
 			<div class="box">
 				<table class="category-list table table-default"
 					data-items="<?= $enc->attr( $this->get( 'categoryData', [] ) ) ?>"
+					data-sites="<?= $enc->attr( $this->get( 'categorySites', [] ) ) ?>"
 					data-keys="<?= $enc->attr( $keys ) ?>"
 					data-siteid="<?= $this->site()->siteid() ?>"
 					data-listtype="default">
@@ -65,6 +66,7 @@ $keys = [
 									v-bind:readonly="checkSite(idx) || item['product.lists.id'] != ''"
 									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 									v-bind:label="getLabel(idx)"
+									v-bind:title="getTitle(idx)"
 									v-bind:required="'required'"
 									v-bind:getfcn="getItems"
 									v-bind:index="idx"
@@ -91,6 +93,7 @@ $keys = [
 			<div class="box">
 				<table class="category-list table table-default"
 					data-items="<?= $enc->attr( $this->get( 'categoryData', [] ) ) ?>"
+					data-sites="<?= $enc->attr( $this->get( 'categorySites', [] ) ) ?>"
 					data-keys="<?= $enc->attr( $keys ) ?>"
 					data-siteid="<?= $this->site()->siteid() ?>"
 					data-listtype="promotion">
@@ -134,6 +137,7 @@ $keys = [
 									v-bind:readonly="checkSite(idx) || item['product.lists.id'] != ''"
 									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 									v-bind:label="getLabel(idx)"
+									v-bind:title="getTitle(idx)"
 									v-bind:required="'required'"
 									v-bind:getfcn="getItems"
 									v-bind:index="idx"
