@@ -357,7 +357,7 @@ td.is-invalid .form-select {
 
 .input-group-text {
 	background-color: var(--bs-bg);
-    color: var(--bs-secondary);
+	color: var(--bs-secondary);
 	border: none;
 }
 
