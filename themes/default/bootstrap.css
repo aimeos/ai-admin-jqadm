@@ -351,6 +351,16 @@ td.is-invalid .form-select {
 	}
 }
 
+.input-group-append {
+	border-bottom: 1px solid var(--bs-line, #bbb);
+}
+
+.input-group-text {
+	background-color: var(--bs-bg);
+    color: var(--bs-secondary);
+	border: none;
+}
+
 
 .toast {
 	background-color: #FFFFFFB0;
