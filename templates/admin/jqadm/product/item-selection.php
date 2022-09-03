@@ -198,6 +198,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 												v-bind:readonly="checkSite('product.lists.siteid', idx, attridx) || attr['product.lists.id'] != ''"
 												v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 												v-bind:label="getAttributeLabel(idx, attridx)"
+												v-bind:title=title(idx,attridx)"
 												v-bind:required="'required'"
 												v-bind:getfcn="getAttributeItems"
 												v-on:select="updateAttributeItem($event, idx, attridx)"

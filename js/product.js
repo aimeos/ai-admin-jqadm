@@ -968,6 +968,14 @@ Aimeos.Product.Selection = {
 				},
 
 
+				title(idx, attridx) {
+					return 'Site ID: ' + this.items[idx]['attr'][attridx]['product.lists.siteid'] + "\n"
+						+ 'Editor: ' + this.items[idx]['attr'][attridx]['product.lists.editor'] + "\n"
+						+ 'Created: ' + this.items[idx]['attr'][attridx]['product.lists.ctime'] + "\n"
+						+ 'Modified: ' + this.items[idx]['attr'][attridx]['product.lists.mtime'];
+				},
+
+
 				updateProductItem : function(idx, ev, item) {
 
 					if(item) {
