@@ -271,20 +271,12 @@ td.is-invalid .form-select {
 }
 
 .form-control:read-only,
-.form-control[readonly] {
+.form-control:disabled,
+.form-control[readonly],
+.form-select[disabled],
+.form-select[readonly] {
 	background-color: var(--bs-bg-light, #FFFFFF);
 	color: var(--bs-secondary-light, #9098A0);
-}
-
-.form-control:disabled,
-.form-select[disabled] {
-	background-color: var(--bs-bg, #F8FAFC);
-	color: var(--bs-secondary-light, #9098A0);
-}
-
-.form-select[readonly],
-.block:not(.readonly) .form-control[readonly].select {
-	color: var(--bs-secondary, #505860);
 }
 
 .form-inline label {
