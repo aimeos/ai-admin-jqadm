@@ -315,7 +315,7 @@ Aimeos.Product.Attribute = {
 					for(idx in this.items) {
 						this.items[idx]['css'] = '';
 
-						if(ids.indexOf(this.items[idx]['product.lists.refid']) !== -1) {
+						if(ids.indexOf(this.items[idx]['product.lists.siteid'] + '-' + this.items[idx]['attribute.id']) !== -1) {
 							this.items[idx]['css'] = 'is-invalid';
 						}
 
