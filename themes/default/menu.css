@@ -433,9 +433,9 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 	content: "\F130";
 }
 
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0,
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1,
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2 {
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0 span,
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1 span,
+.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2 span {
 	text-decoration: line-through;
 }
 
@@ -444,19 +444,16 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1:before,
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2:before {
 	font: 1rem bootstrap-icons;
+	vertical-align: middle;
 	margin-right: 0.5rem;
 }
 
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0:before {
-	content: "\F2E6";
-}
-
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1:before {
-	content: "\F33E";
+	content: "\F341";
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2:before {
-	content: "\F10C";
+	content: "\F10D";
 }
 
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .name {
