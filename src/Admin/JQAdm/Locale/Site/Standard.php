@@ -403,7 +403,7 @@ class Standard
 		 * @see admin/jqadm/locale/site/decorators/excludes
 		 * @see admin/jqadm/locale/site/decorators/global
 		 */
-		return $this->createSubClient( 'locale/site' . $type, $name );
+		return $this->createSubClient( 'locale/site/' . $type, $name );
 	}
 
 
