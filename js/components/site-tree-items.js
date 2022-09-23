@@ -104,7 +104,7 @@ Vue.component('site-tree-items', {
 
 				param['fields'] = {'locale/site': 'locale.site.siteid,locale.site.code,locale.site.label,locale.site.status,locale.site.hasChildren'};
 				param['page'] = {'offset': self.offset, 'limit': self.limit};
-				param['sort'] = 'locale.site.id';
+				param['sort'] = 'locale.site.position';
 
 				const config = {
 					'paramsSerializer': function(params) {
