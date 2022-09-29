@@ -480,9 +480,7 @@ class Standard
 	protected function getTypeItems() : \Aimeos\Map
 	{
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'rule/type' );
-
-		$search = $typeManager->filter( true )->slice( 0, 10000 );
-		$search->setSortations( [$search->sort( '+', 'rule.type.position' )] );
+		$search = $typeManager->filter( true )->slice( 0, 10000 )->order( ['rule.type.position', 'rule.type.code'] );
 
 		return $typeManager->search( $search );
 	}

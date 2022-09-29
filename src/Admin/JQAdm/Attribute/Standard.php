@@ -472,9 +472,7 @@ class Standard
 	protected function getTypeItems() : \Aimeos\Map
 	{
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'attribute/type' );
-
-		$search = $typeManager->filter( true )->slice( 0, 10000 );
-		$search->setSortations( [$search->sort( '+', 'attribute.type.label' )] );
+		$search = $typeManager->filter( true )->slice( 0, 10000 )->order( ['attribute.type.position', 'attribute.type.code'] );
 
 		return $typeManager->search( $search );
 	}

@@ -503,9 +503,7 @@ class Standard
 	protected function getTypeItems() : \Aimeos\Map
 	{
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'service/type' );
-
-		$search = $typeManager->filter( true )->slice( 0, 10000 );
-		$search->setSortations( [$search->sort( '+', 'service.type.position' )] );
+		$search = $typeManager->filter( true )->slice( 0, 10000 )->order( ['service.type.position', 'service.type.code'] );
 
 		return $typeManager->search( $search );
 	}
