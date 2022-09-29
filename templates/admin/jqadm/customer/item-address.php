@@ -82,6 +82,7 @@ $enc = $this->encoder();
 									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.languageid' ) ) ) ?>`.replace('idx', idx)"
 									value="<?= $enc->attr( $languages->getCode()->first() ) ?>" />
 							<?php endif ?>
+
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ) ?></label>
 								<div class="col-sm-8">

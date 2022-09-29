@@ -183,11 +183,11 @@ $params = $this->get( 'pageParams', [] );
 							<div class="row">
 								<div class="col-xl-6">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
-									<div class="form-group row mandatory">
-										<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
-										<div class="col-sm-8">
 
-											<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
+									<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
+										<div class="form-group row mandatory">
+											<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
+											<div class="col-sm-8">
 												<select class="form-select item-languageid" required="required" tabindex="1"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ) ?>"
 													<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
@@ -201,13 +201,14 @@ $params = $this->get( 'pageParams', [] );
 														</option>
 													<?php endforeach ?>
 												</select>
-											<?php else : ?>
-												<input class="item-languageid" type="hidden"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ) ?>"
-													value="<?= $enc->attr( $languages->getCode()->first() ) ?>" />
-											<?php endif ?>
+											</div>
 										</div>
-									</div>
+									<?php else : ?>
+										<input class="item-languageid" type="hidden"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ) ?>"
+											value="<?= $enc->attr( $languages->getCode()->first() ) ?>" />
+									<?php endif ?>
+
 									<div class="form-group row optional">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ) ?></label>
 										<div class="col-sm-8">
