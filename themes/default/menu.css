@@ -433,29 +433,6 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 	content: "\F130";
 }
 
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0 span,
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1 span,
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2 span {
-	text-decoration: line-through;
-}
-
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-1:before,
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status-0:before,
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1:before,
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2:before {
-	font: 1rem bootstrap-icons;
-	vertical-align: middle;
-	margin-right: 0.5rem;
-}
-
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--1:before {
-	content: "\F341";
-}
-
-.aimeos .sidebar-menu li.menuitem-site .tree-menu .status--2:before {
-	content: "\F10D";
-}
-
 .aimeos .sidebar-menu li.menuitem-site .tree-menu .name {
 	font-size: 90%;
 }

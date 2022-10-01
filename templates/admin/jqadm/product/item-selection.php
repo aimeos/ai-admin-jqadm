@@ -29,7 +29,9 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								tabindex="<?= $this->get( 'tabindex' ) ?>" title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>">
 							</div>
 						</div>
-						<span class="item-label header-label" v-bind:class="'status-' + item['product.status']">{{ item['product.label'] }}</span>
+						<div class="item-label header-label" v-bind:class="'status-' + item['product.status']">
+							<span>{{ item['product.label'] }}</span>
+						</div>
 						<div class="card-tools-end">
 							<a v-if="item['product.id']" class="btn btn-card-header act-view fa" target="_blank" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:href="`<?= $enc->js( $this->link( 'admin/jqadm/url/get', ['id' => '_ID_'] + $this->get( 'pageParams', [] ) ) ) ?>`.replace('_ID_', item['product.id'])"
