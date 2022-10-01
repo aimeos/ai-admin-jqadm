@@ -289,6 +289,10 @@
 	content: " \F575";
 }
 
+.aimeos .list-items .status-1:before {
+	content: "\F633";
+}
+
 .aimeos .list-items .config-item {
 	white-space: nowrap;
 	text-align: start;
