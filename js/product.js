@@ -901,15 +901,9 @@ Aimeos.Product.Selection = {
 				},
 
 
+				/** @deprecated 2023.01 */
 				getLabel : function(idx) {
-
-					var label = this.items[idx]['product.label'];
-
-					if(this.items[idx]['product.status'] < 1) {
-						label = '<s>' + label + '</s>';
-					}
-
-					return label;
+					return this.items[idx]['product.label'];
 				},
 
 
