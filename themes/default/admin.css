@@ -33,7 +33,7 @@
 }
 
 .aimeos .status-2:before {
-	content: "\F33F";
+	content: "\F340";
 }
 
 .aimeos .status-0:before {
@@ -41,11 +41,11 @@
 }
 
 .aimeos .status--1:before {
-	content: "\F33E";
+	content: "\F333";
 }
 
 .aimeos .status--2:before {
-	content: "\F10C";
+	content: "\F10D";
 }
 
 
