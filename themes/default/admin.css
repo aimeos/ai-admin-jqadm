@@ -15,6 +15,12 @@
 	text-decoration-skip-ink: all;
 }
 
+.aimeos .btn:first-child:hover,
+.aimeos :not(.btn-check)+.btn:hover {
+	background-color: var(--bs-primary-alt-light);
+	border-color: var(--bs-primary-alt-light);
+}
+
 .aimeos .status-0 span,
 .aimeos .status--1 span,
 .aimeos .status--2 span {
