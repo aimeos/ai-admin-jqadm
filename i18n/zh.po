@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Hans He, 2022\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -1621,6 +1621,9 @@ msgstr "尺寸"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr "同一属性类型的属性排序"
 
+msgid "Sorting of the suppliers"
+msgstr ""
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "发票来源，例如网站或手机"
 
@@ -1676,6 +1679,9 @@ msgstr "供應商"
 
 msgid "Supplier name or company"
 msgstr "供应商名称或公司"
+
+msgid "Supplier position (required)"
+msgstr ""
 
 msgid "Suppliers who manufacture the product"
 msgstr "产品制造商"

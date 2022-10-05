@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Aimeos, 2015-2022\n"
 "Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
@@ -1620,6 +1620,9 @@ msgstr "Grösse"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr "Sortierung der Attribute innerhalb des gleichen Attributtyps"
 
+msgid "Sorting of the suppliers"
+msgstr "Sortierung der Lieferanten"
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "Ursprung der Bestellung, z.B. Internet oder Telefon"
 
@@ -1675,6 +1678,9 @@ msgstr "Lieferant"
 
 msgid "Supplier name or company"
 msgstr "Lieferantenname oder Firma"
+
+msgid "Supplier position (required)"
+msgstr "Lieferantenposition (erforderlich)"
 
 msgid "Suppliers who manufacture the product"
 msgstr "Lieferanten, die das Produkt anbieten"

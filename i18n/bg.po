@@ -5,13 +5,14 @@
 # Translators:
 # Bistra Kumanova <b.kumanova@creato.bg>, 2015
 # Plamen Petkov <mcplamen@gmail.com>, 2016,2019
+# Stefan Taskov, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Plamen Petkov <mcplamen@gmail.com>, 2016,2019\n"
+"Last-Translator: Stefan Taskov, 2022\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -111,7 +112,7 @@ msgid "Active"
 msgstr "Активен"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Актуална цена"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "Актуалната цена на продукта за купувачи на сайта"
@@ -1617,6 +1618,9 @@ msgstr "Размер"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
 
+msgid "Sorting of the suppliers"
+msgstr ""
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr ""
 
@@ -1671,6 +1675,9 @@ msgid "Supplier"
 msgstr "Доставчик"
 
 msgid "Supplier name or company"
+msgstr ""
+
+msgid "Supplier position (required)"
 msgstr ""
 
 msgid "Suppliers who manufacture the product"

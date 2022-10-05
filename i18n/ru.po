@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Aleksei Pirogov, 2022
 # Emiliya Adigozalova <emiliyaadigozalova@gmail.com>, 2021
 # Roman Krutovoy <serveri.minecraft@gmail.com>, 2018
 # Вячеслав Васильев <uverst@gmail.com>, 2019
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Вячеслав Васильев <uverst@gmail.com>, 2019\n"
+"Last-Translator: Aleksei Pirogov, 2022\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -115,7 +116,7 @@ msgid "Active"
 msgstr "Активно"
 
 msgid "Actual price"
-msgstr ""
+msgstr "Текущая цена"
 
 msgid "Actual price customers can buy the article for on the web site"
 msgstr "Фактическая цена покупателей, по которой можно приобретать товар на сайте"
@@ -158,7 +159,7 @@ msgstr "Расширенный"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Кеш Aimeos выключен \"%1$s\""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
@@ -186,7 +187,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Буквенно-цифровая строка, которая может идентифицировать группу однозначно"
 
 msgid "Apply"
-msgstr ""
+msgstr "Применить"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -221,7 +222,7 @@ msgid "Attribute properties that are not shared with other attributes"
 msgstr "Свойства атрибута, которые не используются совместно с другими атрибутами"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Тип атрибута, который ограничивает список доступных атрибутов"
 
 msgid "Attributes"
 msgstr "Атрибуты"
@@ -238,7 +239,7 @@ msgstr "Доступный язык для текущего сайта"
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Средняя оценка продукта и общее количество оценок этого продукта покупателями"
 
 msgid "Back in stock"
 msgstr "Восполнение на складе"
@@ -262,7 +263,7 @@ msgid "Bug or suggestion?"
 msgstr "Ошибка или предложение?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Массовое редактирование"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -297,10 +298,10 @@ msgid "Change costs/item in %"
 msgstr ""
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "Изменить скидку в %"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Изменить значение в %"
 
 msgid "Channel"
 msgstr ""
@@ -342,7 +343,7 @@ msgid "Comment"
 msgstr "Комментарий"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Комментарий рецензента"
 
 msgid "Communication"
 msgstr "Взаимодействие"
@@ -357,11 +358,11 @@ msgid "Company name (optional)"
 msgstr "Название компании (необязательно)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Выполненные заказы"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Выполненные заказы за последние 7 дней по сравнению с предыдущим периодом"
 
 msgid "Config"
 msgstr "Конфиг"
@@ -421,7 +422,7 @@ msgid "Custom"
 msgstr "Пользовательский"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Пользовательский домен или уникальный код вашего магазина"
 
 msgid "Customer"
 msgstr "Покупатель"
@@ -442,7 +443,7 @@ msgid "Customer Property Types"
 msgstr "Типы Свойств Клиента"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Характеристики клиента, которые не являются общими с другими клиентами"
 
 msgid "Customer comment (optional)"
 msgstr "Комментарий клиента (необязательно)"
@@ -460,16 +461,16 @@ msgid "Customer reference"
 msgstr "Рекомендация покупателей"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Ссылка на клиента (необязательно)"
 
 msgid "Dashboard"
 msgstr "Панель"
 
 msgid "Data set"
-msgstr ""
+msgstr "Набор данных"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Набор данных"
 
 msgid "Date of the last delivery status change"
 msgstr "Дата последнего изменения статуса доставки"
@@ -493,13 +494,13 @@ msgid "Delete items?"
 msgstr "Подтвердите удаление"
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Удалить выбранные записи"
 
 msgid "Delete this entry"
 msgstr "Удалить эту запись"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "Удаление отзывов запрещено"
 
 msgid "Delivery"
 msgstr "Доставка"
@@ -508,28 +509,28 @@ msgid "Delivery address"
 msgstr "Адрес доставки"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Доставка в "
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
-msgstr ""
+msgstr "Стоимость доставки или оплаты товаров в корзине покупателя"
 
 msgid "Delivery status"
 msgstr "Статус доставки"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Срок доставки (необязательно)"
 
 msgid "Delivery types"
 msgstr "Типы Доставки"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Доставка в течение"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
 " will be different"
-msgstr ""
+msgstr "В зависимости от выбранного набора данных список отображаемых полей для товара будет разным"
 
 msgid "Description of the text content if it's in a foreign language"
 msgstr "Описание текстового контента, если он на иностранном языке"
@@ -544,10 +545,10 @@ msgid "Descritive name of the site"
 msgstr "Наглядное представление сайта"
 
 msgid "Discount"
-msgstr ""
+msgstr "Скидка"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Отображать справочные тексты"
 
 msgid "Domain"
 msgstr "Принадлежность"
@@ -568,10 +569,10 @@ msgid "E-Mail address (required)"
 msgstr "Адрес эл. почты (обязательно)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "Адрес электронной почты или имя учетной записи (обязательно)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "Адрес электронной почты, используемый для отправки электронных писем, связанных с магазином"
 
 msgid "E-mail"
 msgstr "Эл. почта"
@@ -613,7 +614,7 @@ msgid "Execution order of the plugins"
 msgstr "Порядок выполнения плагинов"
 
 msgid "Execution order of the rules"
-msgstr ""
+msgstr "Порядок выполнения правил"
 
 msgid "Export"
 msgstr "Экспорт"
@@ -628,19 +629,19 @@ msgid "Facsimile number (optional)"
 msgstr "Номер факса (необязательно)"
 
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Не удалось записать файл на диск"
 
 msgid "File"
 msgstr "Файл"
 
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Загрузка файла остановлена расширением"
 
 msgid "Find category"
 msgstr "Найти категорию"
 
 msgid "Find site"
-msgstr ""
+msgstr "Найти сайт"
 
 msgid "First"
 msgstr "Первый"
@@ -664,19 +665,19 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Этаж и/или квартира (необязательно)"
 
 msgid "Given rebate amount"
-msgstr ""
+msgstr "Указанная сумма скидки"
 
 msgid "Go to attribute panel"
-msgstr ""
+msgstr "Перейти на панель атрибутов"
 
 msgid "Go to property type panel"
-msgstr ""
+msgstr "Перейти к панели типов свойств"
 
 msgid "Go to the list of attribute types"
-msgstr ""
+msgstr "Перейти к списку типов атрибутов"
 
 msgid "Granted rebate"
-msgstr ""
+msgstr "Предоставленная скидка"
 
 msgid "Group"
 msgstr "Группа"
@@ -697,7 +698,7 @@ msgid "Hidden product attributes that are stored with the ordered products"
 msgstr "Скрытые атрибуты товара, которые хранятся вместе с заказанными товарами"
 
 msgid "Highlighted suppliers of the product"
-msgstr ""
+msgstr "Выделенные поставщики продукта"
 
 msgid "Honorary title (optional)"
 msgstr "Почетное звание (необязательно)"
@@ -706,7 +707,7 @@ msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr "Почетные звания, такие как доктор, магистр и т. д."
 
 msgid "Hours"
-msgstr ""
+msgstr "Часы"
 
 msgid "House number"
 msgstr "Номер дома"
@@ -733,7 +734,7 @@ msgid "ISO language code (required)"
 msgstr "Код языка ISO (обязательно)"
 
 msgid "Image"
-msgstr ""
+msgstr "Изображение"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -822,7 +823,7 @@ msgstr "Элемент успешно сохранен"
 msgid ""
 "Item specific configuration options, will be available as key/value pairs in"
 " the templates"
-msgstr ""
+msgstr "Параметры конфигурации, специфичные для элемента, будут доступны в виде пар ключ/значение в шаблонах"
 
 msgid "Label"
 msgstr "Надпись"
@@ -855,7 +856,7 @@ msgid "Last name"
 msgstr "Фамилия"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Фамилия (необязательно)"
 
 msgid "Last name (required)"
 msgstr "Фамилия (обязательно)"
@@ -889,7 +890,7 @@ msgid "List type"
 msgstr "Тип списка"
 
 msgid "Loading items ..."
-msgstr ""
+msgstr "Загрузка элементов ..."
 
 msgid "Locale"
 msgstr "Локаль"
@@ -898,7 +899,7 @@ msgid "Log"
 msgstr "Лог журнал"
 
 msgid "Map"
-msgstr ""
+msgstr "Карта"
 
 msgid "Media Lists Type"
 msgstr "Тип Списков Мультимедиа"
@@ -928,7 +929,7 @@ msgid "Message"
 msgstr "Сообщение"
 
 msgid "Min. quantity"
-msgstr ""
+msgstr "Мин. количество"
 
 msgid "Minimum quantity"
 msgstr "Минимальное количество"
@@ -946,7 +947,7 @@ msgid "More"
 msgstr "Еще"
 
 msgid "Move this entry up/down"
-msgstr ""
+msgstr "Переместить эту запись вниз/вверх"
 
 msgid "Name"
 msgstr "названию"
@@ -1621,6 +1622,9 @@ msgstr "Размер"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr "Сортировка атрибутов в пределах одного типа атрибута"
 
+msgid "Sorting of the suppliers"
+msgstr ""
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "Источник счетов, например, через интернет или по телефону"
 
@@ -1676,6 +1680,9 @@ msgstr "Поставщик"
 
 msgid "Supplier name or company"
 msgstr "Название поставщика или компании"
+
+msgid "Supplier position (required)"
+msgstr ""
 
 msgid "Suppliers who manufacture the product"
 msgstr ""

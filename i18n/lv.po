@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Martins Nav <mveisis1@gmail.com>, 2021\n"
 "Language-Team: Latvian (http://www.transifex.com/aimeos/aimeos-core/language/lv/)\n"
@@ -1617,6 +1617,9 @@ msgstr "Izmērs"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
 
+msgid "Sorting of the suppliers"
+msgstr ""
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr ""
 
@@ -1671,6 +1674,9 @@ msgid "Supplier"
 msgstr ""
 
 msgid "Supplier name or company"
+msgstr ""
+
+msgid "Supplier position (required)"
 msgstr ""
 
 msgid "Suppliers who manufacture the product"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Oleksandr Kropyvko <akropivko@gmail.com>, 2021\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
@@ -1617,6 +1617,9 @@ msgstr "Розмір"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr "Сортування атрибутів в межах того ж типу атрибута"
 
+msgid "Sorting of the suppliers"
+msgstr ""
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "Джерело рахунків, наприклад, через інтернет або по телефону"
 
@@ -1672,6 +1675,9 @@ msgstr "Постачальник"
 
 msgid "Supplier name or company"
 msgstr "Назва постачальника або компанії"
+
+msgid "Supplier position (required)"
+msgstr ""
 
 msgid "Suppliers who manufacture the product"
 msgstr "Постачальники, які виробляють товар"

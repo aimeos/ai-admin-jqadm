@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
@@ -1618,6 +1618,9 @@ msgstr "サイズ"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr "同じ属性タイプ内の属性のソート"
 
+msgid "Sorting of the suppliers"
+msgstr ""
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "請求書の送信元。 例　ウェブまたは電話で"
 
@@ -1673,6 +1676,9 @@ msgstr "サプライヤー"
 
 msgid "Supplier name or company"
 msgstr "サプライヤーの名前または会社"
+
+msgid "Supplier position (required)"
+msgstr ""
 
 msgid "Suppliers who manufacture the product"
 msgstr ""

@@ -5,6 +5,7 @@
 # Translators:
 # Csaba Balazs <support@webstergeek.eu>, 2022
 # Csernus Zoltan <d3v3lop3r1@gmail.com>, 2022
+# Dávid Komjáti, 2022
 # György Szikinger <gyorgyszikinger@gmail.com>, 2019
 # nzed <nemesreviz@gmail.com>, 2020-2022
 # Nóra Antal <nora1984antal@gmail.com>, 2016
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Csaba Balazs <support@webstergeek.eu>, 2022\n"
+"Last-Translator: Dávid Komjáti, 2022\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1623,6 +1624,9 @@ msgstr "Méret"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr "Az attribútumok rendezése ugyanazon attribútumtípuson belül"
 
+msgid "Sorting of the suppliers"
+msgstr ""
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "A számla forrása, pl. weben vagy telefonon"
 
@@ -1678,6 +1682,9 @@ msgstr "Szállító"
 
 msgid "Supplier name or company"
 msgstr "Támogató cég neve"
+
+msgid "Supplier position (required)"
+msgstr ""
 
 msgid "Suppliers who manufacture the product"
 msgstr "Szállítók, akik a terméket gyártják"

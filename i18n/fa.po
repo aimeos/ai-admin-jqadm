@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: محمد مسعودزاده, 2021\n"
 "Language-Team: Persian (http://www.transifex.com/aimeos/aimeos-core/language/fa/)\n"
@@ -1621,6 +1621,9 @@ msgstr "اندازه"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr "مرتب سازی ویژگی ها در یک نوع ویژگی"
 
+msgid "Sorting of the suppliers"
+msgstr ""
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "منبع فاکتور، به عنوان مثال از طریق وب یا تلفن"
 
@@ -1676,6 +1679,9 @@ msgstr "تامین کننده"
 
 msgid "Supplier name or company"
 msgstr "نام تامین کننده یا شرکت"
+
+msgid "Supplier position (required)"
+msgstr ""
 
 msgid "Suppliers who manufacture the product"
 msgstr "تامین کنندگانی که محصول را تولید می کنند"

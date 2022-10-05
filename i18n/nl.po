@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 12:22+0200\n"
+"POT-Creation-Date: 2022-10-05 07:41+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Victor Oomens, 2022\n"
 "Language-Team: Dutch (http://www.transifex.com/aimeos/aimeos-core/language/nl/)\n"
@@ -1627,6 +1627,9 @@ msgstr "Grootte"
 msgid "Sorting of the attributes within the same attribute type"
 msgstr "Sortering van de attributen binnen hetzelfde attribuuttype"
 
+msgid "Sorting of the suppliers"
+msgstr ""
+
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "Bron van de factuur, bijvoorbeeld via website of telefonisch"
 
@@ -1682,6 +1685,9 @@ msgstr "Leverancier"
 
 msgid "Supplier name or company"
 msgstr "Naam leverancier of bedrijf"
+
+msgid "Supplier position (required)"
+msgstr ""
 
 msgid "Suppliers who manufacture the product"
 msgstr "Leveranciers die het product produceren"
