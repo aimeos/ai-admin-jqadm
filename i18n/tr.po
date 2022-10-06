@@ -1617,7 +1617,7 @@ msgid "Sorting of the attributes within the same attribute type"
 msgstr "Aynı nitelik türü içinde niteliklerin sıralanması"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "Tedarikçilerin sıralanması"
 
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "Faturanın kaynağı, örn; web veya telefon aracılığıyla"
@@ -1676,7 +1676,7 @@ msgid "Supplier name or company"
 msgstr "Tedarikçi adı veya şirketi"
 
 msgid "Supplier position (required)"
-msgstr ""
+msgstr "Tedarikçi pozisyonu (gerekli)"
 
 msgid "Suppliers who manufacture the product"
 msgstr "Ürünü üreten tedarikçiler"
