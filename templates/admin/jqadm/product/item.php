@@ -468,6 +468,19 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<?= $enc->html( $this->translate( 'admin', 'Since when the product is available, used for sorting in the front-end' ) ) ?>
 								</div>
 							</div>
+							<div class="form-group row optional advanced">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Boost factor' ) ) ?></label>
+								<div class="col-sm-8">
+									<input class="form-control item-boost" type="number" min="0" max="10" step="0.1" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.boost' ) ) ) ?>"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Boost factor (optional)' ) ) ?>"
+										value="<?= $enc->attr( $this->get( 'itemData/product.boost' ) ) ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?> />
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)' ) ) ?>
+								</div>
+							</div>
 							<div class="form-group row optional advanced warning">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'URL target' ) ) ?></label>
 								<div class="col-sm-8">
