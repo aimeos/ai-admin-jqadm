@@ -283,9 +283,11 @@ class Standard
 			return $item;
 		}
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$context = $this->context();
+		$manager = \Aimeos\MShop::create( $context, 'product' );
+
 		$filter = $manager->filter()->add( ['product.id' => $prodIds] )->slice( 0, count( $prodIds ) );
-		$products = $manager->search( $filter, ['supplier'] );
+		$products = $manager->search( $filter, $context->config()->get( 'mshop/index/manager/domains', ['supplier'] ) );
 
 		$id = $item->getId();
 		$listItem = $manager->createListItem()->setRefId( $id );
@@ -312,7 +314,7 @@ class Standard
 			$listItems->remove( $listItem->getId() );
 		}
 
-		\Aimeos\MShop::create( $this->context(), 'index' )->save( $products );
+		\Aimeos\MShop::create( $context, 'index' )->save( $products );
 
 		return $item;
 	}
