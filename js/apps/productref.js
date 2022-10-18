@@ -209,7 +209,7 @@ Aimeos.ProductRef = {
 				if(this.fields.includes(this.prefix + 'refid')) {
 					args.fields['product'] = ['product.id', 'product.code', 'product.label', 'product.status'];
 				}
-				args.fields[this.resource] = [self.prefix + 'id', self.prefix + 'siteid', ...self.fields];
+				args.fields[this.resource] = [self.prefix + 'id', self.prefix + 'siteid', self.prefix + 'editor', self.prefix + 'ctime', self.prefix + 'mtime', ...self.fields];
 
 				this.get(self.resource, args, function(data) {
 					self.total = data.total || 0;
@@ -388,6 +388,14 @@ Aimeos.ProductRef = {
 				} finally {
 					loadfcn ? loadfcn(false) : null;
 				}
+			},
+
+
+			title(idx) {
+				return 'Site ID: ' + this.items[idx][this.prefix + 'siteid'] + "\n"
+					+ 'Editor: ' + this.items[idx][this.prefix + 'editor'] + "\n"
+					+ 'Created: ' + this.items[idx][this.prefix + 'ctime'] + "\n"
+					+ 'Modified: ' + this.items[idx][this.prefix + 'mtime'];
 			},
 
 
