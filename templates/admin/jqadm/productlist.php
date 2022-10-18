@@ -184,7 +184,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</td>
 				</tr>
 
-				<tr v-for="(item, idx) in items" v-bind:key="idx" class="list-item">
+				<tr v-for="(item, idx) in items" v-bind:key="idx" class="list-item" v-bind:title="title(idx)">
 					<td class="select">
 						<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-model="item['checked']" />
