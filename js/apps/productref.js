@@ -112,6 +112,15 @@ Aimeos.ProductRef = {
 			},
 
 
+			can : function(idx, action) {
+				if(!this.items[idx][this.prefix + 'siteid']) {
+					return false;
+				}
+
+				return (new String(this.items[idx][this.prefix + 'siteid'])).startsWith(this.siteid);
+			},
+
+
 			columns: function(json, key) {
 				let list = [];
 				try {
