@@ -205,7 +205,7 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-review-status" class="form-check-input" type="checkbox" v-on:click="setState('item/review.status')" />
+													<input id="batch-review-status" class="form-check-input" type="checkbox" v-on:click="setState('item/review.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-review-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -247,7 +247,7 @@ $columnList = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'review.id', $fields ) ) : ?>
 								<td class="review-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>

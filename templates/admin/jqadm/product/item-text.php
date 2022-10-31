@@ -90,7 +90,7 @@ $enc = $this->encoder();
 						v-bind:aria-labelledby="'item-text-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['text.id']"
-							v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.id' ) ) ) ?>`.replace('_idx_', idx)" />
+							v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.id' ) ) ) ?>`.replace('_idx_', idx)">
 
 						<div class="col-xl-6">
 
@@ -157,7 +157,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="text-langid" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.languageid' ) ) ) ?>`.replace('_idx_', idx)"
-									value="<?= $enc->attr( $languages->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $languages->getCode()->first() ) ?>">
 							<?php endif ?>
 
 							<?php if( ( $textTypes = $this->get( 'textTypes', map() ) )->count() !== 1 ) : ?>
@@ -179,7 +179,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="item-type" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.type' ) ) ) ?>`.replace('_idx_', idx)"
-									value="<?= $enc->attr( $textTypes->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $textTypes->getCode()->first() ) ?>">
 							<?php endif ?>
 
 							<div class="form-group row optional">
@@ -189,7 +189,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.label' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label' ) ) ?>"
 										v-bind:readonly="item['text.siteid'] != siteid"
-										v-model="item['text.label']" />
+										v-model="item['text.label']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Description of the text content if it\'s in a foreign language' ) ) ?>
@@ -229,7 +229,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'product.lists.type' ) ) ) ?>`.replace('_idx_', idx)"
-									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>">
 							<?php endif ?>
 
 							<div class="form-group row optional">
@@ -240,7 +240,7 @@ $enc = $this->encoder();
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
-										v-model="item['product.lists.datestart']" />
+										v-model="item['product.lists.datestart']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ) ?>
@@ -254,7 +254,7 @@ $enc = $this->encoder();
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
-										v-model="item['product.lists.dateend']" />
+										v-model="item['product.lists.dateend']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ) ?>

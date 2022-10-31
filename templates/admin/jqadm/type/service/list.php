@@ -208,7 +208,7 @@ $domains = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-service-type-status" class="form-check-input" type="checkbox" v-on:click="setState('item/service.type.status')" />
+													<input id="batch-service-type-status" class="form-check-input" type="checkbox" v-on:click="setState('item/service.type.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-service-type-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -226,7 +226,7 @@ $domains = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-service-type-domain" class="form-check-input" type="checkbox" v-on:click="setState('item/service.type.domain')" />
+													<input id="batch-service-type-domain" class="form-check-input" type="checkbox" v-on:click="setState('item/service.type.domain')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-service-type-domain">
 													<?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?>
@@ -245,14 +245,14 @@ $domains = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-service-type-position" class="form-check-input" type="checkbox" v-on:click="setState('item/service.type.position')" />
+													<input id="batch-service-type-position" class="form-check-input" type="checkbox" v-on:click="setState('item/service.type.position')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-service-type-position">
 													<?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="number" v-bind:disabled="state('item/service.type.position')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'service.type.position' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'service.type.position' ) ) ) ?>">
 												</div>
 											</div>
 										</div>
@@ -281,7 +281,7 @@ $domains = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'service.type.id', $fields ) ) : ?>
 								<td class="service-type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>

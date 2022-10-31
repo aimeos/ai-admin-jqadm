@@ -17,8 +17,8 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-customer form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>" autocomplete="off">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/customer.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/customer.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -116,7 +116,7 @@ $params = $this->get( 'pageParams', [] );
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.code' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address or account name (required)' ) ) ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/customer.code' ) ) ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+											<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 									<?php else : ?>
 										<span class="form-control item-code">
 											<?= $enc->html( $this->get( 'itemData/customer.code' ) ) ?>
@@ -135,7 +135,7 @@ $params = $this->get( 'pageParams', [] );
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Password (required)' ) ) ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/customer.password' ) ) ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+											<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'Customer password' ) ) ?>
@@ -149,7 +149,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.dateverified' ) ) ?>`"
 										v-bind:config="Aimeos.flatpickr.date"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'When the account and e-mail address has been verified' ) ) ?>
@@ -206,7 +206,7 @@ $params = $this->get( 'pageParams', [] );
 									<?php else : ?>
 										<input class="item-languageid" type="hidden"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ) ?>"
-											value="<?= $enc->attr( $languages->getCode()->first() ) ?>" />
+											value="<?= $enc->attr( $languages->getCode()->first() ) ?>">
 									<?php endif ?>
 
 									<div class="form-group row optional">
@@ -237,7 +237,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.title' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.title' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Honorary titles like Dr., Ph.D, etc.' ) ) ?>
@@ -250,7 +250,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.lastname' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.lastname' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Last name of the person or full name in cultures where no first names are used' ) ) ?>
@@ -263,7 +263,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.firstname' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.firstname' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -276,7 +276,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ) ?>"
 												v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.birthday' ) ) ?>`"
 												v-bind:config="Aimeos.flatpickr.date"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Birthday of the customer' ) ) ?>
@@ -293,7 +293,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address1' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.address1' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -306,7 +306,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address2' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.address2' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Address identifier of the customer\'s house for delivery' ) ) ?>
@@ -319,7 +319,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address3' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.address3' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s apartment can be found' ) ) ?>
@@ -332,7 +332,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.postal' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.postal' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Postal code for delivery if used in the area the customer is living' ) ) ?>
@@ -345,7 +345,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.city' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.city' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 									</div>
 									<div class="form-group row mandatory">
@@ -376,7 +376,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.state' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.state' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ) ?>
@@ -394,7 +394,7 @@ $params = $this->get( 'pageParams', [] );
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.email' ) ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address (required)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/customer.email' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+													<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 											<?php else : ?>
 												<span class="form-control item-email">
 													<?= $enc->html( $this->get( 'itemData/customer.email' ) ) ?>
@@ -412,7 +412,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.telephone' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.telephone' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ) ?>
@@ -425,7 +425,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.telefax' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.telefax' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', '(International) facsimilie number without separation characters, can start with a "+"' ) ) ?>
@@ -438,7 +438,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.website' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.website' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'URL of the customer web site' ) ) ?>
@@ -455,7 +455,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.company' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.company' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 									</div>
 									<div class="form-group row optional">
@@ -465,7 +465,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.vatid' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.vatid' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> />
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Official VAT ID to determine if the tax needs to be billed in invoices' ) ) ?>

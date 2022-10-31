@@ -205,7 +205,7 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-service-status" class="form-check-input" type="checkbox" v-on:click="setState('item/service.status')" />
+													<input id="batch-service-status" class="form-check-input" type="checkbox" v-on:click="setState('item/service.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-service-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -223,7 +223,7 @@ $columnList = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-service-datestart" class="form-check-input" type="checkbox" v-on:click="setState('item/service.datestart')" />
+													<input id="batch-service-datestart" class="form-check-input" type="checkbox" v-on:click="setState('item/service.datestart')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-service-datestart">
 													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
@@ -232,12 +232,12 @@ $columnList = [
 													<input is="flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'service.datestart' ) ) ) ?>"
 														v-bind:disabled="state('item/service.datestart')"
-														v-bind:config="Aimeos.flatpickr.datetime" />
+														v-bind:config="Aimeos.flatpickr.datetime">
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-service-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/service.dateend')" />
+													<input id="batch-service-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/service.dateend')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-service-dateend">
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
@@ -246,7 +246,7 @@ $columnList = [
 													<input is="flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'service.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/service.dateend')"
-														v-bind:config="Aimeos.flatpickr.datetime" />
+														v-bind:config="Aimeos.flatpickr.datetime">
 												</div>
 											</div>
 										</div>
@@ -275,7 +275,7 @@ $columnList = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'service.id', $fields ) ) : ?>
 								<td class="service-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
@@ -310,7 +310,7 @@ $columnList = [
 										<?php foreach( $item->getConfig() as $key => $value ) : ?>
 											<span class="config-key"><?= $enc->html( $key ) ?></span>
 											<span class="config-value"><?= $enc->html( $value ) ?></span>
-											<br/>
+											<br>
 										<?php endforeach ?>
 									</a>
 								</td>

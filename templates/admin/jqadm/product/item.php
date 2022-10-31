@@ -223,8 +223,8 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-product form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/product.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'product.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/product.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -357,7 +357,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<?php else : ?>
 								<input class="item-type" type="hidden"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'product.type' ) ) ) ?>"
-									value="<?= $enc->attr( $types->firstKey() ) ?>" />
+									value="<?= $enc->attr( $types->firstKey() ) ?>">
 							<?php endif ?>
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ) ?></label>
@@ -366,7 +366,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ) ?>
@@ -379,7 +379,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $this->formparam( array( 'item', 'product.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site and for searching only if no other product names in any language exist' ) ) ?>
@@ -408,7 +408,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $this->formparam( array( 'item', 'product.url' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Name in URL (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.url' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The name of the product shown in the URL, will be used if no language specific URL segment exists' ) ) ?>
@@ -420,7 +420,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<input class="form-control item-scale" type="number" tabindex="1" min="0.001" step="0.001"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.scale' ) ) ) ?>"
 										value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.scale', 1 ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The step value allowed for quantities in the basket, e.g. "0.1" for fractional quantities or "5" for multiple of five articles' ) ) ?>
@@ -434,7 +434,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.datestart' ) ) ) ?>`"
 										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) ?>` !== ''"
-										v-bind:config="Aimeos.flatpickr.datetime" />
+										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site after that date and time, useful or seasonal articles' ) ) ?>
@@ -448,7 +448,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.dateend' ) ) ) ?>`"
 										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) ?>` !== ''"
-										v-bind:config="Aimeos.flatpickr.datetime" />
+										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ) ?>
@@ -462,7 +462,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.ctime' ) ) ) ?>`"
 										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) ?>` !== ''"
-										v-bind:config="Aimeos.flatpickr.datetime" />
+										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Since when the product is available, used for sorting in the front-end' ) ) ?>
@@ -475,7 +475,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.boost' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Boost factor (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.boost' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)' ) ) ?>
@@ -488,7 +488,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.target' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Route or page ID (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.target' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Route name or page ID of the product detail page if this product should shown on a different page' ) ) ?>

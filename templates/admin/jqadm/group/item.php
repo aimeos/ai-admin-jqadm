@@ -17,8 +17,8 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-group form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.group.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/customer.group.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.group.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/customer.group.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -89,7 +89,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.group.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique group code (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/customer.group.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Alphanumeric string that can identify the group uniquely' ) ) ?>
@@ -102,7 +102,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'customer.group.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/customer.group.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Group name describing for which members the group is for' ) ) ?>

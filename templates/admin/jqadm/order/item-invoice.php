@@ -145,7 +145,7 @@ $statusList = [
 						<div class="row">
 							<div class="col-xl-6">
 								<input class="order-id" type="hidden" value="" disabled="disabled"
-									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ) ?>" />
+									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ) ?>">
 
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Pay status' ) ) ?></label>
@@ -165,7 +165,7 @@ $statusList = [
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Pay date' ) ) ?></label>
 									<div class="col-sm-8">
 										<input class="form-control order-datepayment" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ) ?>" disabled="disabled" />
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ) ?>" disabled="disabled">
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'Date of the last payment status change' ) ) ?>
@@ -207,7 +207,7 @@ $statusList = [
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Ship date' ) ) ?></label>
 									<div class="col-sm-8">
 										<input class="form-control order-datedelivery" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datedelivery', '' ) ) ) ?>" disabled="disabled" />
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datedelivery', '' ) ) ) ?>" disabled="disabled">
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'Date of the last delivery status change' ) ) ?>
@@ -217,7 +217,7 @@ $statusList = [
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Related ID' ) ) ?></label>
 									<div class="col-sm-8">
 										<input class="form-control order-relatedid" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.relatedid', '' ) ) ) ?>" disabled="disabled" />
+											name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.relatedid', '' ) ) ) ?>" disabled="disabled">
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'ID of a related invoice, e.g. of a changed or refunded invoice' ) ) ?>
@@ -242,7 +242,7 @@ $statusList = [
 							<td class="order-id">
 								<input class="order-id" type="hidden"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.id', '' ) ) ) ?>"
-									value="<?= $enc->attr( $orderId ) ?>" disabled="disabled" />
+									value="<?= $enc->attr( $orderId ) ?>" disabled="disabled">
 								<?= $enc->html( $orderId ) ?>
 							</td>
 						<?php endif ?>
@@ -264,14 +264,14 @@ $statusList = [
 								<input class="form-control order-datepayment" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datepayment', '' ) ) ) ?>"
 									value="<?= $enc->attr( $this->datetime( $this->get( 'invoiceData/order.datepayment/' . $idx ) ) ) ?>"
-									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" />
+									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled">
 							</td>
 						<?php endif ?>
 						<?php if( in_array( 'order.channel', $fields ) ) : ?>
 							<td class="order-channel">
 								<select class="form-select order-type" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.channel', '' ) ) ) ?>"
-									value="<?= $enc->attr( $this->get( 'invoiceData/order.channel/' . $idx ) ) ?>" disabled="disabled" />
+									value="<?= $enc->attr( $this->get( 'invoiceData/order.channel/' . $idx ) ) ?>" disabled="disabled">
 									<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 
 									<?php foreach( $types as $type ) : ?>
@@ -300,7 +300,7 @@ $statusList = [
 								<input class="form-control order-datedelivery" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.datedelivery', '' ) ) ) ?>"
 									value="<?= $enc->attr( $this->datetime( $this->get( 'invoiceData/order.datedelivery/' . $idx ) ) ) ?>"
-									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" />
+									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled">
 							</td>
 						<?php endif ?>
 						<?php if( in_array( 'order.relatedid', $fields ) ) : ?>
@@ -308,7 +308,7 @@ $statusList = [
 								<input class="form-control order-relatedid" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( array( 'invoice', 'order.relatedid', '' ) ) ) ?>"
 									value="<?= $enc->attr( $this->get( 'invoiceData/order.relatedid/' . $idx ) ) ?>"
-									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled" />
+									<?= $this->site()->readonly( $siteId ) ?> disabled="disabled">
 							</td>
 						<?php endif ?>
 						<?php if( in_array( 'order.ctime', $fields ) ) : ?>

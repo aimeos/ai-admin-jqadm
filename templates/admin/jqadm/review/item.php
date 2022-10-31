@@ -19,8 +19,8 @@ $enc = $this->encoder();
 <form class="item item-review form-horizontal container-fluid" method="POST" enctype="multipart/form-data"
 	action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'review.id' ) ) ) ?>"
-		value="<?= $enc->attr( $this->get( 'itemData/review.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+		value="<?= $enc->attr( $this->get( 'itemData/review.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -121,7 +121,7 @@ $enc = $this->encoder();
 										name="<?= $this->formparam( array( 'item', 'review.name' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Reviewer name' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/review.name' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Name of the reviewer' ) ) ?>

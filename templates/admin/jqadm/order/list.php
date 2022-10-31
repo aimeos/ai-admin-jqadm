@@ -392,7 +392,7 @@ $statusList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-order-statuspayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statuspayment')" />
+													<input id="batch-order-statuspayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statuspayment')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-statuspayment">
 													<?= $enc->html( $this->translate( 'admin', 'Pay status' ) ) ?>
@@ -415,7 +415,7 @@ $statusList = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-order-datepayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.datepayment')" />
+													<input id="batch-order-datepayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.datepayment')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-datepayment">
 													<?= $enc->html( $this->translate( 'admin', 'Pay date' ) ) ?>
@@ -424,26 +424,26 @@ $statusList = [
 													<input is="flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
 														v-bind:disabled="state('item/order.datepayment')"
-														v-bind:config="Aimeos.flatpickr.date" />
+														v-bind:config="Aimeos.flatpickr.date">
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-order-channel" class="form-check-input" type="checkbox" v-on:click="setState('item/order.channel')" />
+													<input id="batch-order-channel" class="form-check-input" type="checkbox" v-on:click="setState('item/order.channel')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-channel">
 													<?= $enc->html( $this->translate( 'admin', 'Channel' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="text" v-bind:disabled="state('item/order.channel')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.channel' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.channel' ) ) ) ?>">
 												</div>
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-order-statusdelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statusdelivery')" />
+													<input id="batch-order-statusdelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statusdelivery')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-statusdelivery">
 													<?= $enc->html( $this->translate( 'admin', 'Ship status' ) ) ?>
@@ -466,7 +466,7 @@ $statusList = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-order-datedelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.datedelivery')" />
+													<input id="batch-order-datedelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.datedelivery')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-datedelivery">
 													<?= $enc->html( $this->translate( 'admin', 'Ship date' ) ) ?>
@@ -475,19 +475,19 @@ $statusList = [
 													<input is="flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
 														v-bind:disabled="state('item/order.datedelivery')"
-														v-bind:config="Aimeos.flatpickr.date" />
+														v-bind:config="Aimeos.flatpickr.date">
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-order-relatedid" class="form-check-input" type="checkbox" v-on:click="setState('item/order.relatedid')" />
+													<input id="batch-order-relatedid" class="form-check-input" type="checkbox" v-on:click="setState('item/order.relatedid')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-order-relatedid">
 													<?= $enc->html( $this->translate( 'admin', 'Related ID' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="text" v-bind:disabled="state('item/order.relatedid')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.relatedid' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.relatedid' ) ) ) ?>">
 												</div>
 											</div>
 										</div>
@@ -514,7 +514,7 @@ $statusList = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
@@ -645,7 +645,7 @@ $statusList = [
 							<?php if( in_array( 'order.base.coupon.code', $fields ) ) : ?>
 								<td class="order-base-coupon-code"><a class="items-field" href="<?= $url ?>">
 									<?php foreach( $coupons as $code => $orderProducts ) : ?>
-										<?= $enc->html( $code ) ?><br/>
+										<?= $enc->html( $code ) ?><br>
 									<?php endforeach ?>
 								</a></td>
 							<?php endif ?>

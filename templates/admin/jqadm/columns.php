@@ -41,7 +41,7 @@ $names = array_merge( (array) $this->get( 'group', [] ), ['fields', ''] );
 									v-bind:name="name"
 									v-bind:value="key"
 									v-on:click="toggle(key)"
-								/>
+								>
 								{{ title }}
 							</label>
 						</li>

@@ -17,8 +17,8 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-locale form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/locale.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/locale.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -161,7 +161,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.position' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Position (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/locale.position' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Order of the language/currency combinations' ) ) ?>

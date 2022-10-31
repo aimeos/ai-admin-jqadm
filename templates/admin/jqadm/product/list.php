@@ -685,7 +685,7 @@ $columnList = [
 											<?php if( !empty( $datasets = $this->config( 'admin/jqadm/dataset/product', [] ) ) ) : ?>
 												<div class="row">
 													<div class="col-1">
-														<input id="batch-product-dataset" class="form-check-input" type="checkbox" v-on:click="setState('item/product.dataset')" />
+														<input id="batch-product-dataset" class="form-check-input" type="checkbox" v-on:click="setState('item/product.dataset')">
 													</div>
 													<label class="col-4 form-control-label" for="batch-product-dataset">
 														<?= $enc->html( $this->translate( 'admin', 'Data set' ) ) ?>
@@ -706,7 +706,7 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-product-status" class="form-check-input" type="checkbox" v-on:click="setState('item/product.status')" />
+													<input id="batch-product-status" class="form-check-input" type="checkbox" v-on:click="setState('item/product.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-product-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -725,7 +725,7 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-product-type" class="form-check-input" type="checkbox" v-on:click="setState('item/product.type')" />
+													<input id="batch-product-type" class="form-check-input" type="checkbox" v-on:click="setState('item/product.type')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-product-type">
 													<?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?>
@@ -745,14 +745,14 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-product-scale" class="form-check-input" type="checkbox" v-on:click="setState('item/product.scale')" />
+													<input id="batch-product-scale" class="form-check-input" type="checkbox" v-on:click="setState('item/product.scale')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-product-scale">
 													<?= $enc->html( $this->translate( 'admin', 'Quantity scale' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="number" min="0.001" step="0.001" v-bind:disabled="state('item/product.scale')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.scale' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.scale' ) ) ) ?>">
 												</div>
 											</div>
 										</div>
@@ -760,7 +760,7 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-product-datestart" class="form-check-input" type="checkbox" v-on:click="setState('item/product.datestart')" />
+													<input id="batch-product-datestart" class="form-check-input" type="checkbox" v-on:click="setState('item/product.datestart')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-product-datestart">
 													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
@@ -770,13 +770,13 @@ $columnList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
 														v-bind:disabled="state('item/product.datestart')"
 														v-bind:config="Aimeos.flatpickr.datetime"
-														value="" />
+														value="">
 												</div>
 											</div>
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-product-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/product.dateend')" />
+													<input id="batch-product-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/product.dateend')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-product-dateend">
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
@@ -786,13 +786,13 @@ $columnList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/product.dateend')"
 														v-bind:config="Aimeos.flatpickr.datetime"
-														value="" />
+														value="">
 												</div>
 											</div>
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-product-ctime" class="form-check-input" type="checkbox" v-on:click="setState('item/product.ctime')" />
+													<input id="batch-product-ctime" class="form-check-input" type="checkbox" v-on:click="setState('item/product.ctime')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-product-ctime">
 													<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>
@@ -802,7 +802,7 @@ $columnList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ) ?>"
 														v-bind:disabled="state('item/product.ctime')"
 														v-bind:config="Aimeos.flatpickr.datetime"
-														value="" />
+														value="">
 												</div>
 											</div>
 										</div>
@@ -822,40 +822,40 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-price-valuepercent" class="form-check-input" type="checkbox" v-on:click="setState('price/valuepercent')" />
+													<input id="batch-price-valuepercent" class="form-check-input" type="checkbox" v-on:click="setState('price/valuepercent')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-price-valuepercent">
 													<?= $enc->html( $this->translate( 'admin', 'Change value in %' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="number" min="0.01" step="0.01" v-bind:disabled="state('price/valuepercent')"
-														name="<?= $enc->attr( $this->formparam( array( 'price', 'valuepercent' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'price', 'valuepercent' ) ) ) ?>">
 												</div>
 											</div>
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-price-rebatepercent" class="form-check-input" type="checkbox" v-on:click="setState('price/rebatepercent')" />
+													<input id="batch-price-rebatepercent" class="form-check-input" type="checkbox" v-on:click="setState('price/rebatepercent')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-price-rebatepercent">
 													<?= $enc->html( $this->translate( 'admin', 'Change rebate in %' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="number" min="0.01" step="0.01" v-bind:disabled="state('price/rebatepercent')"
-														name="<?= $enc->attr( $this->formparam( array( 'price', 'rebatepercent' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'price', 'rebatepercent' ) ) ) ?>">
 												</div>
 											</div>
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-price-costspercent" class="form-check-input" type="checkbox" v-on:click="setState('price/costspercent')" />
+													<input id="batch-price-costspercent" class="form-check-input" type="checkbox" v-on:click="setState('price/costspercent')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-price-costspercent">
 													<?= $enc->html( $this->translate( 'admin', 'Change costs/item in %' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="number" min="0.01" step="0.01" v-bind:disabled="state('price/costspercent')"
-														name="<?= $enc->attr( $this->formparam( array( 'price', 'costspercent' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'price', 'costspercent' ) ) ) ?>">
 												</div>
 											</div>
 
@@ -864,7 +864,7 @@ $columnList = [
 
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-price-taxrates" class="form-check-input" type="checkbox" v-on:click="setState('price/price.taxrates')" />
+													<input id="batch-price-taxrates" class="form-check-input" type="checkbox" v-on:click="setState('price/price.taxrates')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-price-taxrates">
 													<?= $enc->html( $this->translate( 'admin', 'Tax rate' ) ) ?>
@@ -905,10 +905,10 @@ $columnList = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'image', $fields ) ) : $mediaItem = $item->getRefItems( 'media', 'default', 'default' )->first() ?>
-								<td class="image"><a class="items-field" href="<?= $url ?>" tabindex="1"><img class="image" src="<?= $mediaItem ? $enc->attr( $this->content( $mediaItem->getPreview(), $mediaItem->getFileSystem() ) ) : '' ?>" /></a></td>
+								<td class="image"><a class="items-field" href="<?= $url ?>" tabindex="1"><img class="image" src="<?= $mediaItem ? $enc->attr( $this->content( $mediaItem->getPreview(), $mediaItem->getFileSystem() ) ) : '' ?>"></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'product.id', $fields ) ) : ?>
 								<td class="product-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
@@ -949,7 +949,7 @@ $columnList = [
 										<?php foreach( $item->getConfig() as $key => $value ) : ?>
 											<span class="config-key"><?= $enc->html( $key ) ?></span>
 											<span class="config-value"><?= $enc->html( $value ) ?></span>
-											<br/>
+											<br>
 										<?php endforeach ?>
 									</a>
 								</td>

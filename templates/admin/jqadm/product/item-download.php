@@ -21,12 +21,12 @@ $enc = $this->encoder();
 					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'File' ) ) ?></label>
 					<div class="col-sm-8">
 						<input class="item-siteid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.siteid' ) ) ) ?>"
-							value="<?= $enc->attr( $this->get( 'downloadData/product.lists.siteid' ) ) ?>" />
+							value="<?= $enc->attr( $this->get( 'downloadData/product.lists.siteid' ) ) ?>">
 						<input class="item-listid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'product.lists.id' ) ) ) ?>"
-							value="<?= $enc->attr( $this->get( 'downloadData/product.lists.id' ) ) ?>" />
+							value="<?= $enc->attr( $this->get( 'downloadData/product.lists.id' ) ) ?>">
 						<input class="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.id' ) ) ) ?>"
-							value="<?= $enc->attr( $this->get( 'downloadData/attribute.id' ) ) ?>" />
-						<input id="download-file" class="form-control fileupload" type="file" name="download[file]" tabindex="<?= $this->get( 'tabindex' ) ?>" />
+							value="<?= $enc->attr( $this->get( 'downloadData/attribute.id' ) ) ?>">
+						<input id="download-file" class="form-control fileupload" type="file" name="download[file]" tabindex="<?= $this->get( 'tabindex' ) ?>">
 					</div>
 				</div>
 				<div class="form-group row optional">
@@ -56,7 +56,7 @@ $enc = $this->encoder();
 						<input class="form-control item-label" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'download', 'attribute.label' ) ) ) ?>"
 							value="<?= $enc->attr( $this->get( 'downloadData/attribute.label' ) ) ?>"
-							<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ) ?> />
+							<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ) ?>>
 					</div>
 					<div class="col-sm-12 form-text text-muted help-text">
 						<?= $enc->html( $this->translate( 'admin', 'Name of the downloaded file when customers saves the file on their computers' ) ) ?>
@@ -68,7 +68,7 @@ $enc = $this->encoder();
 						<input class="form-check-input item-overwrite" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							name="<?= $enc->attr( $this->formparam( array( 'download', 'overwrite' ) ) ) ?>" value="1"
 							<?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ) ?>
-							<?= $selected( $this->get( 'downloadData/overwrite' ), 1 ) ?> />
+							<?= $selected( $this->get( 'downloadData/overwrite' ), 1 ) ?>>
 					</div>
 					<div class="col-sm-12 form-text text-muted help-text">
 						<?= $enc->html( $this->translate( 'admin', 'Overwrite the existing file and customers bought it in the past can then download the new content too' ) ) ?>

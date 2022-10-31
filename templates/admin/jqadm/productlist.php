@@ -120,17 +120,17 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 			<tbody>
 				<tr class="list-search">
 					<td class="select">
-						<input v-model="checked" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
+						<input v-model="checked" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>">
 					</td>
 					<td v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
 						<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:change="find($event, 'id')"
-							v-bind:value="value('id')" />
+							v-bind:value="value('id')">
 					</td>
 					<td v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
 						<input type="number" step="1" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:change="find($event, 'position', '=~')"
-							v-bind:value="value('position')" />
+							v-bind:value="value('position')">
 					</td>
 					<td v-if="fields.includes(prefix + 'status')" v-bind:class="css('status')">
 						<select class="form-select novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
@@ -153,24 +153,24 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					<td v-if="fields.includes(prefix + 'config')" v-bind:class="css('config')">
 						<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:change="find($event, 'config', '~=')"
-							v-bind:value="value('config')" />
+							v-bind:value="value('config')">
 					</td>
 					<td v-if="fields.includes(prefix + 'datestart')" v-bind:class="css('datestart')">
 						<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('datestart')"
 							v-on:input="find($event, 'datestart')"
-							v-bind:config="Aimeos.flatpickr.datetimerange" />
+							v-bind:config="Aimeos.flatpickr.datetimerange">
 					</td>
 					<td v-if="fields.includes(prefix + 'dateend')" v-bind:class="css('dateend')">
 						<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="value('dateend')"
 							v-on:input="find($event, 'dateend')"
-							v-bind:config="Aimeos.flatpickr.datetimerange" />
+							v-bind:config="Aimeos.flatpickr.datetimerange">
 					</td>
 					<td v-if="fields.includes(prefix + 'parentid')" v-bind:class="css('parentid')">
 						<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-on:change="find($event, 'parentid')"
-							v-bind:value="value('parentid')" />
+							v-bind:value="value('parentid')">
 					</td>
 
 					<td class="actions">
@@ -187,7 +187,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 				<tr v-for="(item, idx) in items" v-bind:key="idx" class="list-item" v-bind:title="title(idx)">
 					<td class="select">
 						<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"
-							v-model="item['checked']" />
+							v-model="item['checked']">
 					</td>
 					<td v-if="fields.includes(prefix + 'id')" v-bind:class="css('id')">
 						<div class="items-field">{{ item[prefix + 'id'] }}</div>
@@ -195,7 +195,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					<td v-if="fields.includes(prefix + 'position')" v-bind:class="css('position')">
 						<input type="number" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-position', ''] ) ) ?>`.replace('-prefix-', prefix)"
-							v-if="item.edit" v-model="item[prefix + 'position']" />
+							v-if="item.edit" v-model="item[prefix + 'position']">
 						<div v-else v-on:click="edit(idx)" class="items-field">
 							{{ item[prefix + 'position'] }}
 						</div>
@@ -235,7 +235,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-datestart', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="item[prefix + 'datestart']"
-							v-bind:config="Aimeos.flatpickr.datetime" />
+							v-bind:config="Aimeos.flatpickr.datetime">
 						<div v-else v-on:click="edit(idx)" class="items-field">
 							{{ item[prefix + 'datestart'] || '-' }}
 						</div>
@@ -245,7 +245,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-dateend', ''] ) ) ?>`.replace('-prefix-', prefix)"
 							tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:value="item[prefix + 'dateend']"
-							v-bind:config="Aimeos.flatpickr.datetime" />
+							v-bind:config="Aimeos.flatpickr.datetime">
 						<div v-else v-on:click="edit(idx)" class="items-field">
 							{{ item[prefix + 'dateend'] || '-' }}
 						</div>
@@ -277,7 +277,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						<input type="hidden" v-if="item.edit" v-model="item[prefix + 'id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-id', ''] ) ) ?>`.replace('-prefix-', prefix)" >
 						<input type="hidden" v-if="item.edit" v-model="item[prefix + 'parentid']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-parentid', ''] ) ) ?>`.replace('-prefix-', prefix)" />
+							v-bind:name="`<?= $enc->js( $this->formparam( ['product', '-prefix-parentid', ''] ) ) ?>`.replace('-prefix-', prefix)">
 
 						<a v-if="!item.edit" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"

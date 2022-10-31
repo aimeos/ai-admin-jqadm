@@ -24,8 +24,8 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-subscription form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/subscription.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/subscription.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -94,9 +94,9 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 				data-data="<?= $enc->attr( $this->get( 'subscriptionData' ) ) ?>">
 
 				<input class="item-ordbaseid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.ordbaseid' ) ) ) ?>"
-					value="<?= $enc->attr( $this->param( 'subscription.ordbaseid', $this->get( 'itemData/subscription.ordbaseid' ) ) ) ?>" />
+					value="<?= $enc->attr( $this->param( 'subscription.ordbaseid', $this->get( 'itemData/subscription.ordbaseid' ) ) ) ?>">
 				<input class="item-ordprodid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.ordprodid' ) ) ) ?>"
-					value="<?= $enc->attr( $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) ?>" />
+					value="<?= $enc->attr( $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) ?>">
 
 				<div class="row">
 					<div class="col-xl-6 <?= $readonly ?>">
@@ -132,7 +132,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.interval' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Interval (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/subscription.interval', 'P1Y0M0W0D' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Subscription interval with years, months, weeks and days, e.g. "P0Y1M2W3D" for zero years, one month, two weeks and three days' ) ) ?>
@@ -146,7 +146,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Next date (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/subscription.datenext' ) ) ?>`"
 										v-bind:config="Aimeos.flatpickr.date"
-										<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Next date the subscription is renewed' ) ) ?>
@@ -160,7 +160,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'End date (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/subscription.dateend' ) ) ?>`"
 										v-bind:config="Aimeos.flatpickr.date"
-										<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Date the subscription ends' ) ) ?>
@@ -315,7 +315,7 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 													\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MS,
 												);
 
-												echo preg_replace( "/\n+/m", "<br/>", trim( $enc->html( sprintf(
+												echo preg_replace( "/\n+/m", "<br>", trim( $enc->html( sprintf(
 													/// Address format with company (%1$s), salutation (%2$s), title (%3$s), first name (%4$s), last name (%5$s),
 													/// address part one (%6$s, e.g street), address part two (%7$s, e.g house number), address part three (%8$s, e.g additional information),
 													/// postal/zip code (%9$s), city (%10$s), state (%11$s), country (%12$s), language (%13$s),

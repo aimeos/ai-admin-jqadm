@@ -199,7 +199,7 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-plugin-status" class="form-check-input" type="checkbox" v-on:click="setState('item/plugin.status')" />
+													<input id="batch-plugin-status" class="form-check-input" type="checkbox" v-on:click="setState('item/plugin.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-plugin-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -241,7 +241,7 @@ $columnList = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'plugin.id', $fields ) ) : ?>
 								<td class="plugin-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
@@ -267,7 +267,7 @@ $columnList = [
 										<?php foreach( $item->getConfig() as $key => $value ) : ?>
 											<span class="config-key"><?= $enc->html( $key ) ?></span>
 											<span class="config-value"><?= $enc->html( $value ) ?></span>
-											<br/>
+											<br>
 										<?php endforeach ?>
 									</a>
 								</td>

@@ -172,7 +172,7 @@ $columnList = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'coupon.id', $fields ) ) : ?>
 								<td class="coupon-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
@@ -198,7 +198,7 @@ $columnList = [
 										<?php foreach( $item->getConfig() as $key => $value ) : ?>
 											<span class="config-key"><?= $enc->html( $key ) ?></span>
 											<span class="config-value"><?= $enc->html( $value ) ?></span>
-											<br/>
+											<br>
 										<?php endforeach ?>
 									</a>
 								</td>

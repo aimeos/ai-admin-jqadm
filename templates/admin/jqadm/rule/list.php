@@ -203,7 +203,7 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-rule-status" class="form-check-input" type="checkbox" v-on:click="setState('item/rule.status')" />
+													<input id="batch-rule-status" class="form-check-input" type="checkbox" v-on:click="setState('item/rule.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-rule-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -221,7 +221,7 @@ $columnList = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-rule-datestart" class="form-check-input" type="checkbox" v-on:click="setState('item/rule.datestart')" />
+													<input id="batch-rule-datestart" class="form-check-input" type="checkbox" v-on:click="setState('item/rule.datestart')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-rule-datestart">
 													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
@@ -230,12 +230,12 @@ $columnList = [
 													<input is="flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.datestart' ) ) ) ?>"
 														v-bind:disabled="state('item/rule.datestart')"
-														v-bind:config="Aimeos.flatpickr.datetime" />
+														v-bind:config="Aimeos.flatpickr.datetime">
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-rule-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/rule.dateend')" />
+													<input id="batch-rule-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/rule.dateend')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-rule-dateend">
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
@@ -244,7 +244,7 @@ $columnList = [
 													<input is="flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/rule.dateend')"
-														v-bind:config="Aimeos.flatpickr.datetime" />
+														v-bind:config="Aimeos.flatpickr.datetime">
 												</div>
 											</div>
 										</div>
@@ -273,7 +273,7 @@ $columnList = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'rule.id', $fields ) ) : ?>
 								<td class="rule-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
@@ -305,7 +305,7 @@ $columnList = [
 										<?php foreach( $item->getConfig() as $key => $value ) : ?>
 											<span class="config-key"><?= $enc->html( $key ) ?></span>
 											<span class="config-value"><?= $enc->html( $value ) ?></span>
-											<br/>
+											<br>
 										<?php endforeach ?>
 									</a>
 								</td>

@@ -315,7 +315,7 @@ $reasonList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-subscription-status" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.status')" />
+													<input id="batch-subscription-status" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-subscription-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -333,19 +333,19 @@ $reasonList = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-subscription-interval" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.interval')" />
+													<input id="batch-subscription-interval" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.interval')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-subscription-interval">
 													<?= $enc->html( $this->translate( 'admin', 'Interval' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="text" v-bind:disabled="state('item/subscription.interval')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.interval' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.interval' ) ) ) ?>">
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-subscription-reason" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.reason')" />
+													<input id="batch-subscription-reason" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.reason')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-subscription-reason">
 													<?= $enc->html( $this->translate( 'admin', 'Reason' ) ) ?>
@@ -364,7 +364,7 @@ $reasonList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-subscription-datenext" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.datenext')" />
+													<input id="batch-subscription-datenext" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.datenext')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-subscription-datenext">
 													<?= $enc->html( $this->translate( 'admin', 'Next date' ) ) ?>
@@ -373,12 +373,12 @@ $reasonList = [
 													<input is="flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.datenext' ) ) ) ?>"
 														v-bind:disabled="state('item/subscription.datenext')"
-														v-bind:config="Aimeos.flatpickr.date" />
+														v-bind:config="Aimeos.flatpickr.date">
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-subscription-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.dateend')" />
+													<input id="batch-subscription-dateend" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.dateend')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-subscription-dateend">
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
@@ -387,7 +387,7 @@ $reasonList = [
 													<input is="flat-pickr" class="form-control" type="date"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/subscription.dateend')"
-														v-bind:config="Aimeos.flatpickr.date" />
+														v-bind:config="Aimeos.flatpickr.date">
 												</div>
 											</div>
 										</div>
@@ -414,7 +414,7 @@ $reasonList = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'subscription.id', $fields ) ) : ?>
 								<td class="subscription-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>

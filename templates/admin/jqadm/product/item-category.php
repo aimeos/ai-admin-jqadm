@@ -49,16 +49,16 @@ $keys = [
 							v-bind:class="checkSite(idx) ? 'readonly' : ''">
 							<td v-bind:class="item['css'] || ''">
 								<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', idx )">
 
 								<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )">
 
 								<input class="item-label" type="hidden" v-model="item['catalog.code']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.code'] ) ) ?>`.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.code'] ) ) ?>`.replace( 'idx', idx )">
 
 								<input class="item-label" type="hidden" v-model="item['catalog.label']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.label'] ) ) ?>`.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.label'] ) ) ?>`.replace( 'idx', idx )">
 
 								<select is="combo-box" class="form-select item-id"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.id'] ) ) ?>`.replace( 'idx', idx )"
@@ -119,16 +119,16 @@ $keys = [
 							v-bind:class="checkSite(idx) ? 'readonly' : ''">
 							<td v-bind:class="item['css'] || ''">
 								<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', idx )">
 
 								<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )">
 
 								<input class="item-label" type="hidden" v-model="item['catalog.code']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.code'] ) ) ?>`.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.code'] ) ) ?>`.replace( 'idx', idx )">
 
 								<input class="item-label" type="hidden" v-model="item['catalog.label']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.label'] ) ) ?>`.replace( 'idx', idx )" />
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.label'] ) ) ?>`.replace( 'idx', idx )">
 
 								<select is="combo-box" class="form-select item-id"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.id'] ) ) ?>`.replace( 'idx', idx )"

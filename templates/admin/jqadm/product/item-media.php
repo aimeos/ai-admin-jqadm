@@ -60,22 +60,22 @@ $enc = $this->encoder();
 						v-bind:aria-labelledby="'item-media-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['media.id']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.id'] ) ) ?>`.replace('_idx_', idx)" />
+							v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.id'] ) ) ?>`.replace('_idx_', idx)">
 
 						<div class="col-xl-6">
 
 							<div class="form-group media-preview">
-								<input ref="preview" class="d-none" type="file" v-bind:name="'media[_idx_][preview]'.replace('_idx_', idx)" />
+								<input ref="preview" class="d-none" type="file" v-bind:name="'media[_idx_][preview]'.replace('_idx_', idx)">
 								<input ref="file" class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									v-bind:name="'media[_idx_][file]'.replace('_idx_', idx)"
 									v-bind:readonly="item['media.siteid'] != siteid"
-									v-on:change="files(idx, $event.target.files)" />
+									v-on:change="files(idx, $event.target.files)">
 								<input class="item-url" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.url'] ) ) ?>`.replace('_idx_', idx)"
-									v-model="item['media.url']" />
+									v-model="item['media.url']">
 								<img v-if="item['media.preview']" class="item-preview"
 									v-bind:src="item['media.preview']"
-									v-bind:alt="item['media.label']" />
+									v-bind:alt="item['media.label']">
 								<p v-else class="item-preview">
 									{{ item['media.label'] || `<?= $enc->js( $this->translate( 'admin', 'Select file' ) ) ?>` }}
 								</p>
@@ -127,7 +127,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="item-type" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.type'] ) ) ?>`.replace('_idx_', idx)"
-									value="<?= $enc->attr( $mediaTypes->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $mediaTypes->getCode()->first() ) ?>">
 							<?php endif ?>
 
 							<div class="form-group row mandatory">
@@ -137,7 +137,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.label'] ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Title' ) ) ?>"
 										v-bind:readonly="item['media.siteid'] != siteid"
-										v-model="item['media.label']" />
+										v-model="item['media.label']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The media title is used for the title tag of the media on the web site' ) ) ?>
@@ -192,7 +192,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'product.lists.type'] ) ) ?>`.replace('_idx_', idx)"
-									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>">
 							<?php endif ?>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
@@ -202,7 +202,7 @@ $enc = $this->encoder();
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
-										v-model="item['product.lists.datestart']" />
+										v-model="item['product.lists.datestart']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ) ?>
@@ -216,7 +216,7 @@ $enc = $this->encoder();
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
-										v-model="item['product.lists.dateend']" />
+										v-model="item['product.lists.dateend']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ) ?>
@@ -250,7 +250,7 @@ $enc = $this->encoder();
 				<div class="btn btn-primary btn-card-more act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 					title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
 					v-on:click="$refs.add.click()" >
-					<input ref="add" class="d-none" type="file" multiple v-on:change="create($event)" />
+					<input ref="add" class="d-none" type="file" multiple v-on:change="create($event)">
 				</div>
 			</div>
 		</div>

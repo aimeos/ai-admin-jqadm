@@ -171,7 +171,7 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-locale-language-status" class="form-check-input" type="checkbox" v-on:click="setState('item/locale.language.status')" />
+													<input id="batch-locale-language-status" class="form-check-input" type="checkbox" v-on:click="setState('item/locale.language.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-locale-language-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -232,7 +232,7 @@ $columnList = [
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
-									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'locale.language.id', $fields ) ) : ?>
 								<td class="locale-language-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>

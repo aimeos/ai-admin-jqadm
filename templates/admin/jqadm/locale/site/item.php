@@ -29,8 +29,8 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-locale-site form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/locale.site.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/locale.site.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -120,7 +120,7 @@ $params = $this->get( 'pageParams', [] );
 									<input class="form-control item-code" required="required" tabindex="1" autocomplete="off"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique site code (required)' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ) ?>" />
+										value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ) ?>">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Code to uniquely identify the site, renaming is dangerous!' ) ) ?>
@@ -132,7 +132,7 @@ $params = $this->get( 'pageParams', [] );
 									<input class="form-control item-label" required="required" tabindex="1" autocomplete="off"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.label' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label (required)' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/locale.site.label' ) ) ?>" />
+										value="<?= $enc->attr( $this->get( 'itemData/locale.site.label' ) ) ?>">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Descritive name of the site' ) ) ?>

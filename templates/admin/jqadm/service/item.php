@@ -25,8 +25,8 @@ $enc = $this->encoder();
 <form class="item item-service form-horizontal container-fluid" method="POST" enctype="multipart/form-data"
 	action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'service.id' ) ) ) ?>"
-		value="<?= $enc->attr( $this->get( 'itemData/service.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+		value="<?= $enc->attr( $this->get( 'itemData/service.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -135,7 +135,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="item-type" type="hidden"
 									name="<?= $enc->attr( $this->formparam( array( 'item', 'service.type' ) ) ) ?>"
-									value="<?= $enc->attr( $types->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $types->getCode()->first() ) ?>">
 							<?php endif ?>
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ) ?></label>
@@ -144,7 +144,7 @@ $enc = $this->encoder();
 										name="<?= $this->formparam( array( 'item', 'service.code' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique service code (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/service.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique code to identify the service, usually self-invented' ) ) ?>
@@ -157,7 +157,7 @@ $enc = $this->encoder();
 										name="<?= $this->formparam( array( 'item', 'service.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/service.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ) ?>
@@ -173,7 +173,7 @@ $enc = $this->encoder();
 											value="<?= $enc->attr( $this->get( 'itemData/service.provider' ) ) ?>"
 											data-delivery="<?= implode( ',', $this->get( 'itemProviders/delivery', [] ) ) ?>"
 											data-payment="<?= implode( ',', $this->get( 'itemProviders/payment', [] ) ) ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?> />
+											<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?>>
 										<div class="dropdown input-group-append">
 											<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
 											<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="decoratorButton">
@@ -195,7 +195,7 @@ $enc = $this->encoder();
 										name="<?= $this->formparam( array( 'item', 'service.position' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Service position (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/service.position' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Order of the service options in the checkout process' ) ) ?>
@@ -212,7 +212,7 @@ $enc = $this->encoder();
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/service.datestart' ) ) ) ?>`"
 										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ) ?>` !== ''"
-										v-bind:config="Aimeos.flatpickr.datetime" />
+										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The option is only shown on the web site after that date and time' ) ) ?>
@@ -226,7 +226,7 @@ $enc = $this->encoder();
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/service.dateend' ) ) ) ?>`"
 										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ) ?>` !== ''"
-										v-bind:config="Aimeos.flatpickr.datetime"/>
+										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The option is only shown on the web site until that date and time' ) ) ?>
@@ -264,7 +264,7 @@ $enc = $this->encoder();
 												<input type="text" class="config-key form-control" tabindex="1"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?> />
+													<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?>>
 												<div class="form-text text-muted help-text"></div>
 											</td>
 											<td class="config-row-value">
@@ -272,7 +272,7 @@ $enc = $this->encoder();
 												<input type="text" class="config-value form-control config-type" tabindex="1"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>"
 													value="<?= $enc->attr( $cfgval ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?> />
+													<?= $this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ?>>
 											</td>
 											<td class="actions">
 												<?php if( !$this->site()->readonly( $this->get( 'itemData/service.siteid' ) ) ) : ?>
@@ -287,14 +287,14 @@ $enc = $this->encoder();
 									<tr class="config-item prototype">
 										<td class="config-row-key">
 											<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ) ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ) ?>">
 											<div class="form-text text-muted help-text"></div>
 										</td>
 										<td class="config-row-value">
 
 											<div class="config-type config-type-map">
 												<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" />
+													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
 
 												<table class="table config-map-table">
 													<tr class="config-map-row prototype-map">
@@ -304,10 +304,10 @@ $enc = $this->encoder();
 															</div>
 														</td>
 														<td class="config-map-row-key">
-															<input type="text" class="config-map-key form-control" tabindex="1" disabled="disabled" name="" />
+															<input type="text" class="config-map-key form-control" tabindex="1" disabled="disabled" name="">
 														</td>
 														<td class="config-map-row-value">
-															<input type="text" class="config-map-value form-control" tabindex="1" disabled="disabled" name="" />
+															<input type="text" class="config-map-value form-control" tabindex="1" disabled="disabled" name="">
 														</td>
 													</tr>
 													<tr class="config-map-actions">
@@ -337,22 +337,22 @@ $enc = $this->encoder();
 											</select>
 
 											<input type="text" class="config-value form-control config-type config-type-string" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
 
 											<input type="number" class="config-value form-control config-type config-type-number" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" step="0.01" />
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" step="0.01">
 
 											<input type="number" class="config-value form-control config-type config-type-integer" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
 
 											<input type="date" class="config-value form-control config-type config-type-date" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
 
 											<input type="datetime-local" class="config-value form-control config-type config-type-datetime" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
 
 											<input type="time" class="config-value form-control config-type config-type-time" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" />
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
 										</td>
 										<td class="actions">
 											<div class="btn act-delete fa" tabindex="1"

@@ -32,7 +32,7 @@ $enc = $this->encoder();
 									required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									name="<?= $enc->attr( $this->formparam( ['theme', $name, $key] ) ) ?>"
 									value="<?= $enc->attr( $value ) ?>"
-								/>
+								>
 							</div>
 						</div>
 

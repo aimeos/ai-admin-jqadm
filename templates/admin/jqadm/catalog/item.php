@@ -40,10 +40,10 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 	data-idname="<?= $this->formparam( 'id' ) ?>" >
 
 	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.id' ) ) ) ?>"
-		value="<?= $enc->attr( $this->get( 'itemData/catalog.id' ) ) ?>" />
+		value="<?= $enc->attr( $this->get( 'itemData/catalog.id' ) ) ?>">
 	<input id="item-parentid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.parentid' ) ) ) ?>"
-		value="<?= $enc->attr( $this->get( 'itemData/catalog.parentid', $this->param( 'parentid', $this->param( 'id', $this->get( 'itemRootId' ) ) ) ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+		value="<?= $enc->attr( $this->get( 'itemData/catalog.parentid', $this->param( 'parentid', $this->param( 'id', $this->get( 'itemRootId' ) ) ) ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -162,7 +162,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.code' ) ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique category code (required)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/catalog.code' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?> />
+													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>>
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
 												<?= $enc->html( $this->translate( 'admin', 'Unique category code, either from external system or self-invented' ) ) ?>
@@ -175,7 +175,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													name="<?= $this->formparam( array( 'item', 'catalog.label' ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/catalog.label' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?> />
+													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>>
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
 												<?= $enc->html( $this->translate( 'admin', 'Internal category name, will be used on the web site if no name for the language is available' ) ) ?>
@@ -191,7 +191,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													name="<?= $this->formparam( array( 'item', 'catalog.url' ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Name in URL (optional)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/catalog.url' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?> />
+													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>>
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
 												<?= $enc->html( $this->translate( 'admin', 'The name of the category shown in the URL, will be used if no language specific URL segment exists' ) ) ?>
@@ -204,7 +204,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'catalog.target' ) ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'Route or page ID (optional)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/catalog.target' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?> />
+													<?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>>
 											</div>
 											<div class="col-sm-12 form-text text-muted help-text">
 												<?= $enc->html( $this->translate( 'admin', 'Route name or page ID of the category page if this category should shown on a different page' ) ) ?>

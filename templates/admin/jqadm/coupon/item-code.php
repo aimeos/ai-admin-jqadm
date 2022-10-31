@@ -127,7 +127,7 @@ $columnList = [
 
 						<th class="actions">
 							<button class="btn fa icon-upload label">
-								<input class="fileupload act-import" type="file" name="code[file]" tabindex="<?= $this->get( 'tabindex' ) ?>" />
+								<input class="fileupload act-import" type="file" name="code[file]" tabindex="<?= $this->get( 'tabindex' ) ?>">
 							</button>
 							<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-on:click="add()" href="#"
@@ -144,56 +144,56 @@ $columnList = [
 				<tbody>
 					<tr class="list-search">
 						<td class="select">
-							<input v-model="checked" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" />
+							<input v-model="checked" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>">
 						</td>
 						<td v-if="fields.includes('coupon.code.id')" v-bind:class="css('id')">
 							<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-on:change="find($event, 'id')"
-								v-bind:value="value('id')" />
+								v-bind:value="value('id')">
 						</td>
 						<td v-if="fields.includes('coupon.code.code')" v-bind:class="css('code')">
 							<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-on:change="find($event, 'code', '=~')"
-								v-bind:value="value('code')" />
+								v-bind:value="value('code')">
 						</td>
 						<td v-if="fields.includes('coupon.code.count')" v-bind:class="css('count')">
 							<input type="number" step="1" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-on:change="find($event, 'count', '<=')"
-								v-bind:value="value('count')" />
+								v-bind:value="value('count')">
 						</td>
 						<td v-if="fields.includes('coupon.code.datestart')" v-bind:class="css('datestart')">
 							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('datestart')"
 								v-on:input="find($event, 'datestart')"
-								v-bind:config="Aimeos.flatpickr.datetimerange" />
+								v-bind:config="Aimeos.flatpickr.datetimerange">
 						</td>
 						<td v-if="fields.includes('coupon.code.dateend')" v-bind:class="css('dateend')">
 							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('dateend')"
 								v-on:input="find($event, 'dateend')"
-								v-bind:config="Aimeos.flatpickr.datetimerange" />
+								v-bind:config="Aimeos.flatpickr.datetimerange">
 						</td>
 						<td v-if="fields.includes('coupon.code.ref')" v-bind:class="css('ref')">
 							<input class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-on:change="find($event, 'ref')"
-								v-bind:value="value('ref')" />
+								v-bind:value="value('ref')">
 						</td>
 						<td v-if="fields.includes('coupon.code.ctime')" v-bind:class="css('ctime')">
 							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('ctime')"
 								v-on:input="find($event, 'ctime')"
-								v-bind:config="Aimeos.flatpickr.datetimerange" />
+								v-bind:config="Aimeos.flatpickr.datetimerange">
 						</td>
 						<td v-if="fields.includes('coupon.code.mtime')" v-bind:class="css('mtime')">
 							<input is="flat-pickr" class="form-control novalidate custom-datetime" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('mtime')"
 								v-on:input="find($event, 'mtime')"
-								v-bind:config="Aimeos.flatpickr.datetimerange" />
+								v-bind:config="Aimeos.flatpickr.datetimerange">
 						</td>
 						<td v-if="fields.includes('coupon.code.editor')" v-bind:class="css('editor')">
 							<input type="number" step="1" class="form-control novalidate" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-on:change="find($event, 'editor', '=~')"
-								v-bind:value="value('editor')" />
+								v-bind:value="value('editor')">
 						</td>
 
 						<td class="actions">
@@ -209,7 +209,7 @@ $columnList = [
 
 					<tr v-for="(item, idx) in items" v-bind:key="idx" class="list-item">
 						<td class="select">
-							<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" v-model="item['checked']" />
+							<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" v-model="item['checked']">
 						</td>
 						<td v-if="fields.includes('coupon.code.id')" v-bind:class="css('id')">
 							<div class="items-field">{{ item['coupon.code.id'] }}</div>
@@ -240,7 +240,7 @@ $columnList = [
 								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.datestart', ''] ) ) ?>`"
 								tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('datestart')"
-								v-bind:config="Aimeos.flatpickr.datetime" />
+								v-bind:config="Aimeos.flatpickr.datetime">
 							<div v-else v-on:click="edit(idx)" class="items-field">
 								{{ item['coupon.code.datestart'] || '-' }}
 							</div>
@@ -250,7 +250,7 @@ $columnList = [
 								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.dateend', ''] ) ) ?>`"
 								tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:value="value('dateend')"
-								v-bind:config="Aimeos.flatpickr.datetime" />
+								v-bind:config="Aimeos.flatpickr.datetime">
 							<div v-else v-on:click="edit(idx)" class="items-field">
 								{{ item['coupon.code.dateend'] || '-' }}
 							</div>

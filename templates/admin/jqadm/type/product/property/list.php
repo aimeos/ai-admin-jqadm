@@ -200,7 +200,7 @@ $domains = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-product-property-type-status" class="form-check-input" type="checkbox" v-on:click="setState('item/product.property.type.status')" />
+													<input id="batch-product-property-type-status" class="form-check-input" type="checkbox" v-on:click="setState('item/product.property.type.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-product-property-type-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -218,7 +218,7 @@ $domains = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-product-property-type-domain" class="form-check-input" type="checkbox" v-on:click="setState('item/product.property.type.domain')" />
+													<input id="batch-product-property-type-domain" class="form-check-input" type="checkbox" v-on:click="setState('item/product.property.type.domain')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-product-property-type-domain">
 													<?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?>
@@ -237,14 +237,14 @@ $domains = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-product-property-type-position" class="form-check-input" type="checkbox" v-on:click="setState('item/product.property.type.position')" />
+													<input id="batch-product-property-type-position" class="form-check-input" type="checkbox" v-on:click="setState('item/product.property.type.position')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-product-property-type-position">
 													<?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="number" v-bind:disabled="state('item/product.property.type.position')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.property.type.position' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.property.type.position' ) ) ) ?>">
 												</div>
 											</div>
 										</div>
@@ -273,7 +273,7 @@ $domains = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'product.property.type.id', $fields ) ) : ?>
 								<td class="product-type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>

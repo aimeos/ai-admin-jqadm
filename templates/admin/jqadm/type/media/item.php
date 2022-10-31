@@ -17,8 +17,8 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-media-type form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/media.type.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/media.type.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -130,7 +130,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.type.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique type code (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/media.type.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique type code' ) ) ?>
@@ -143,7 +143,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'media.type.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/media.type.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal type name shown in the administration interface' ) ) ?>
@@ -156,7 +156,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'media.type.position' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/media.type.position' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Type position (optional)' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/media.type.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Order of the types in the frontend' ) ) ?>

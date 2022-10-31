@@ -17,8 +17,8 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-attribute form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/attribute.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/attribute.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -161,7 +161,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'attribute.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique attribute code (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/attribute.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique attribute code, e.g. "green" for attributes of type "color"' ) ) ?>
@@ -174,7 +174,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'attribute.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/attribute.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal attribute name, will be used on the web site if no name for the language is available' ) ) ?>
@@ -187,7 +187,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'attribute.position' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Attribute position (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/attribute.position' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Sorting of the attributes within the same attribute type' ) ) ?>

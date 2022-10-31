@@ -17,8 +17,8 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-supplier form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'supplier.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/supplier.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'supplier.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/supplier.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -113,7 +113,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'supplier.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique code (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/supplier.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique supplier code' ) ) ?>
@@ -126,7 +126,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'supplier.label' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/supplier.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Supplier name or company' ) ) ?>
@@ -139,7 +139,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'supplier.position' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Supplier position (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/supplier.position' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) ?> />
+										<?= $this->site()->readonly( $this->get( 'itemData/supplier.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Sorting of the suppliers' ) ) ?>

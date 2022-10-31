@@ -59,7 +59,7 @@ $enc = $this->encoder();
 						v-bind:aria-labelledby="'item-price-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['price.id']"
-							v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.id' ) ) ) ?>`.replace('idx', idx)" />
+							v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.id' ) ) ) ?>`.replace('idx', idx)">
 
 						<div class="col-xl-6">
 
@@ -86,7 +86,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.value' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual price' ) ) ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
-										v-model="item['price.value']" />
+										v-model="item['price.value']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Actual price customers can buy the article for on the web site' ) ) ?>
@@ -99,7 +99,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.rebate' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Granted rebate' ) ) ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
-										v-model="item['price.rebate']" />
+										v-model="item['price.rebate']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Reduction from the original price, used to calculate the rebate in % and the cross price' ) ) ?>
@@ -112,7 +112,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.costs' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping/item' ) ) ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
-										v-model="item['price.costs']" />
+										v-model="item['price.costs']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Additional delivery costs for each item, e.g. $20 for one heavy item will be $100 for five items it total' ) ) ?>
@@ -163,7 +163,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="item-currencyid" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.currencyid' ) ) ) ?>`.replace('idx', idx)"
-									value="<?= $enc->attr( $currencies->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $currencies->getCode()->first() ) ?>">
 							<?php endif ?>
 
 							<?php if( ( $priceTypes = $this->get( 'priceTypes', map() ) )->count() !== 1 ) : ?>
@@ -185,7 +185,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="item-type" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.type' ) ) ) ?>`.replace('idx', idx)"
-									value="<?= $enc->attr( $priceTypes->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $priceTypes->getCode()->first() ) ?>">
 							<?php endif ?>
 
 							<div class="form-group row mandatory">
@@ -195,7 +195,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.quantity' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Min. quantity' ) ) ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
-										v-model="item['price.quantity']" />
+										v-model="item['price.quantity']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Required quantity of articles for block pricing, e.g. one article for $5.00, ten articles for $45.00' ) ) ?>
@@ -235,7 +235,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'attribute.lists.type' ) ) ) ?>`.replace('idx', idx)"
-									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>">
 							<?php endif ?>
 
 							<div class="form-group row optional">
@@ -246,7 +246,7 @@ $enc = $this->encoder();
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['attribute.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
-										v-model="item['attribute.lists.datestart']" />
+										v-model="item['attribute.lists.datestart']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site after that date and time' ) ) ?>
@@ -260,7 +260,7 @@ $enc = $this->encoder();
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['attribute.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
-										v-model="item['attribute.lists.dateend']" />
+										v-model="item['attribute.lists.dateend']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The item is only shown on the web site until that date and time' ) ) ?>

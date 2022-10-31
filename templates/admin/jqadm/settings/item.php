@@ -82,10 +82,10 @@ $params = $this->get( 'pageParams', [] );
 
 							<div class="form-group media-preview">
 								<input class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-									name="media[logo]" />
+									name="media[logo]">
 								<?php if( $logos = $this->get( 'itemData/locale.site.logo' ) ) : ?>
 									<img class="item-preview"
-										src="<?= $enc->attr( $this->content( end( $logos ) ) ) ?>" />
+										src="<?= $enc->attr( $this->content( end( $logos ) ) ) ?>">
 								<?php else : ?>
 									<p class="item-preview">
 										<?= $enc->html( $this->translate( 'admin', 'Upload shop logo' ) ) ?>
@@ -101,10 +101,10 @@ $params = $this->get( 'pageParams', [] );
 
 							<div class="form-group media-preview">
 								<input class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex', 1 ); ?>"
-									name="media[icon]" />
+									name="media[icon]">
 								<?php if( $icon = $this->get( 'itemData/locale.site.icon' ) ) : ?>
 									<img class="item-preview"
-										src="<?= $enc->attr( $this->content( $icon ) ) ?>" />
+										src="<?= $enc->attr( $this->content( $icon ) ) ?>">
 								<?php else : ?>
 									<p class="item-preview">
 										<?= $enc->html( $this->translate( 'admin', 'Upload shop icon' ) ) ?>
@@ -125,7 +125,7 @@ $params = $this->get( 'pageParams', [] );
 											<input class="form-control item-email-address" type="text" required="required" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.label' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop name (required)' ) ) ?>"
-												value="<?= $enc->attr( $this->get( 'itemData/locale.site.label' ) ) ?>" />
+												value="<?= $enc->attr( $this->get( 'itemData/locale.site.label' ) ) ?>">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Name of your shop shown to your customers' ) ) ?>
@@ -137,7 +137,7 @@ $params = $this->get( 'pageParams', [] );
 											<input class="form-control item-email-address" type="email" required="required" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.config', 'resource', 'email', 'from-email' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop e-mail address (required)' ) ) ?>"
-												value="<?= $enc->attr( $this->get( 'itemData/locale.site.config/resource/email/from-email' ) ) ?>" />
+												value="<?= $enc->attr( $this->get( 'itemData/locale.site.config/resource/email/from-email' ) ) ?>">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'E-Mail address used for sending shop related e-mails' ) ) ?>
@@ -178,7 +178,7 @@ $params = $this->get( 'pageParams', [] );
 										pattern="^[a-z0-9\-]+(\.[a-z0-9\-]+)*$"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shop domain (required)' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ) ?>" />
+										value="<?= $enc->attr( $this->get( 'itemData/locale.site.code' ) ) ?>">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Custom domain or unique code of your shop' ) ) ?>

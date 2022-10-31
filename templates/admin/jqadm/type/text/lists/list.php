@@ -208,7 +208,7 @@ $domains = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-text-lists-type-status" class="form-check-input" type="checkbox" v-on:click="setState('item/text.lists.type.status')" />
+													<input id="batch-text-lists-type-status" class="form-check-input" type="checkbox" v-on:click="setState('item/text.lists.type.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-text-lists-type-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -226,7 +226,7 @@ $domains = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-text-lists-type-domain" class="form-check-input" type="checkbox" v-on:click="setState('item/text.lists.type.domain')" />
+													<input id="batch-text-lists-type-domain" class="form-check-input" type="checkbox" v-on:click="setState('item/text.lists.type.domain')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-text-lists-type-domain">
 													<?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?>
@@ -245,14 +245,14 @@ $domains = [
 											</div>
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-text-lists-type-position" class="form-check-input" type="checkbox" v-on:click="setState('item/text.lists.type.position')" />
+													<input id="batch-text-lists-type-position" class="form-check-input" type="checkbox" v-on:click="setState('item/text.lists.type.position')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-text-lists-type-position">
 													<?= $enc->html( $this->translate( 'admin', 'Position' ) ) ?>
 												</label>
 												<div class="col-7">
 													<input class="form-control" type="number" v-bind:disabled="state('item/text.lists.type.position')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'text.lists.type.position' ) ) ) ?>" />
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'text.lists.type.position' ) ) ) ?>">
 												</div>
 											</div>
 										</div>
@@ -281,7 +281,7 @@ $domains = [
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
-									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php if( in_array( 'text.lists.type.id', $fields ) ) : ?>
 								<td class="text-type-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>

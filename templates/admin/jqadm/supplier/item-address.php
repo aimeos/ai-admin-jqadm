@@ -54,7 +54,7 @@ $enc = $this->encoder();
 
 							<input class="item-id" type="hidden"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.id' ) ) ) ?>`.replace('idx', idx)"
-								v-bind:value="entry['supplier.address.id']" />
+								v-bind:value="entry['supplier.address.id']">
 
 							<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row optional">
@@ -80,7 +80,7 @@ $enc = $this->encoder();
 							<?php else : ?>
 								<input class="item-languageid" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.languageid' ) ) ) ?>`.replace('idx', idx)"
-									value="<?= $enc->attr( $languages->getCode()->first() ) ?>" />
+									value="<?= $enc->attr( $languages->getCode()->first() ) ?>">
 							<?php endif ?>
 
 							<div class="form-group row optional">
@@ -115,7 +115,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.title' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.title']" />
+										v-model="entry['supplier.address.title']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Honorary titles like Dr., Ph.D, etc.' ) ) ?>
@@ -128,7 +128,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.lastname' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.lastname']" />
+										v-model="entry['supplier.address.lastname']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Last name of the person or full name in cultures where no first names are used' ) ) ?>
@@ -141,7 +141,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.firstname' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.firstname']" />
+										v-model="entry['supplier.address.firstname']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -158,7 +158,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.address1' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.address1']" />
+										v-model="entry['supplier.address.address1']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -171,7 +171,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.address2' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.address2']" />
+										v-model="entry['supplier.address.address2']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Address identifier of the supplier\'s house for delivery' ) ) ?>
@@ -184,7 +184,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.address3' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.address3']" />
+										v-model="entry['supplier.address.address3']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Additional information where the supplier\'s apartment can be found' ) ) ?>
@@ -197,7 +197,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.postal' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.postal']" />
+										v-model="entry['supplier.address.postal']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Postal code for delivery if used in the area the supplier is living' ) ) ?>
@@ -210,7 +210,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.city' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.city']" />
+										v-model="entry['supplier.address.city']">
 								</div>
 							</div>
 							<div class="form-group row mandatory">
@@ -219,7 +219,7 @@ $enc = $this->encoder();
 									<select class="form-select item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.countryid' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.countryid']" />
+										v-model="entry['supplier.address.countryid']">
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
@@ -242,7 +242,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.state' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.state']" />
+										v-model="entry['supplier.address.state']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the supplier is living' ) ) ?>
@@ -259,7 +259,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.telephone' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.telephone']" />
+										v-model="entry['supplier.address.telephone']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ) ?>
@@ -272,7 +272,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.telefax' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.telefax']" />
+										v-model="entry['supplier.address.telefax']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', '(International) facsimilie number without separation characters, can start with a "+"' ) ) ?>
@@ -285,7 +285,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.email' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-mail address (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.email']" />
+										v-model="entry['supplier.address.email']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'E-mail address that belongs to the address' ) ) ?>
@@ -298,7 +298,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.website' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.website']" />
+										v-model="entry['supplier.address.website']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'URL of the supplier web site' ) ) ?>
@@ -315,7 +315,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.company' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.company']" />
+										v-model="entry['supplier.address.company']">
 								</div>
 							</div>
 							<div class="form-group row optional">
@@ -325,7 +325,7 @@ $enc = $this->encoder();
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.vatid' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ) ?>"
 										v-bind:readonly="entry['supplier.address.siteid'] != siteid"
-										v-model="entry['supplier.address.vatid']" />
+										v-model="entry['supplier.address.vatid']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Official VAT ID to determine if the tax needs to be billed in invoices' ) ) ?>
@@ -337,9 +337,9 @@ $enc = $this->encoder();
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Map' ) ) ?></h2>
 							<div class="osm-map">
 								<input type="hidden" v-bind:value="entry['supplier.address.latitude']"
-									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.latitude' ) ) ) ?>`.replace('idx', idx)" />
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.latitude' ) ) ) ?>`.replace('idx', idx)">
 								<input type="hidden" v-bind:value="entry['supplier.address.longitude']"
-									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.longitude' ) ) ) ?>`.replace('idx', idx)" />
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'supplier.address.longitude' ) ) ) ?>`.replace('idx', idx)">
 								<l-map ref="map" v-if="show" :center="point(entry)" :zoom="zoom(idx)" @click="setPoint(idx, $event)">
 									<l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors"></l-tile-layer>
 									<l-marker v-if="entry['supplier.address.latitude'] && entry['supplier.address.longitude']" :lat-lng="point(entry)"></l-marker>

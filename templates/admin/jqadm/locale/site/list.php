@@ -198,7 +198,7 @@ $columnList = [
 											<div class="col-lg-6">
 												<div class="row">
 													<div class="col-1">
-														<input id="batch-locale-site-status" class="form-check-input" type="checkbox" v-on:click="setState('item/locale.site.status')" />
+														<input id="batch-locale-site-status" class="form-check-input" type="checkbox" v-on:click="setState('item/locale.site.status')">
 													</div>
 													<label class="col-4 form-control-label" for="batch-locale-site-status">
 														<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
@@ -241,7 +241,7 @@ $columnList = [
 									name="<?= $enc->attr( $this->formparam( ['id', ''] ) ) ?>"
 									value="<?= $enc->attr( $item->getId() ) ?>"
 									v-on:click="toggle(`<?= $enc->js( $id ) ?>`)"
-									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)" />
+									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)">
 							</td>
 							<?php endif ?>
 							<?php if( in_array( 'locale.site.id', $fields ) ) : ?>
@@ -262,7 +262,7 @@ $columnList = [
 										<?php foreach( $item->getConfig() as $key => $value ) : ?>
 											<span class="config-key"><?= $enc->html( $key ) ?></span>
 											<span class="config-value"><?= $enc->html( $value ) ?></span>
-											<br/>
+											<br>
 										<?php endforeach ?>
 									</a>
 								</td>

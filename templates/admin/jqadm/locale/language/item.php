@@ -17,8 +17,8 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-locale form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.language.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/locale.language.id' ) ) ?>" />
-	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get" />
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.language.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/locale.language.id' ) ) ?>">
+	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
@@ -108,7 +108,7 @@ $params = $this->get( 'pageParams', [] );
 									<input class="form-control item-code" required="required" tabindex="1" autocomplete="off"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.language.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'ISO language code (required)' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/locale.language.code' ) ) ?>" />
+										value="<?= $enc->attr( $this->get( 'itemData/locale.language.code' ) ) ?>">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Two letter ISO language code' ) ) ?>
@@ -120,7 +120,7 @@ $params = $this->get( 'pageParams', [] );
 									<input class="form-control item-label" required="required" tabindex="1" autocomplete="off"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.language.label' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label (required)' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/locale.language.label' ) ) ?>" />
+										value="<?= $enc->attr( $this->get( 'itemData/locale.language.label' ) ) ?>">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Descritive name of the language' ) ) ?>

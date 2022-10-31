@@ -34,7 +34,7 @@ $enc = $this->encoder();
 <tr class="list-search">
 	<?php if( in_array( 'select', $fields ) ) : ?>
 		<td class="select">
-			<input v-on:click="toggleAll()" v-model="all" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>" />
+			<input v-on:click="toggleAll()" v-model="all" class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex', 1 ) ?>">
 		</td>
 	<?php endif ?>
 	<?php foreach( $this->get( 'data', [] ) as $key => $list ) : $idx++ ?>
@@ -42,9 +42,9 @@ $enc = $this->encoder();
 			<td class="<?= str_replace( '.', '-', $key ) ?>">
 				<?php if( $list !== null ) : $type = $this->value( $list, 'type', 'text' ) ?>
 					<input type="hidden" value="<?= $enc->attr( $key ) ?>"
-						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'key', $idx] ) ) ) ?>" />
+						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'key', $idx] ) ) ) ?>">
 					<input type="hidden" value="<?= $enc->attr( $this->value( $list, 'op', '=~' ) ) ?>"
-						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ) ?>" />
+						name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'op', $idx] ) ) ) ?>">
 
 					<?php if( $type === 'select' ) : ?>
 						<select class="form-select" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
@@ -62,16 +62,16 @@ $enc = $this->encoder();
 						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
 							v-model="value(`<?= $enc->js( $idx ) ?>`)"
-							v-bind:config="Aimeos.flatpickr.datetimerange" />
+							v-bind:config="Aimeos.flatpickr.datetimerange">
 					<?php elseif( $this->value( $list, 'op', '==' ) === '-' && $type === 'date' ) : ?>
 						<input is="flat-pickr" class="form-control" type="text" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
 							v-model="value(`<?= $enc->js( $idx ) ?>`)"
-							v-bind:config="Aimeos.flatpickr.daterange" />
+							v-bind:config="Aimeos.flatpickr.daterange">
 					<?php else : ?>
 						<input class="form-control" type="<?= $enc->attr( $type ) ?>" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							name="<?= $enc->attr( $this->formparam( array_merge( $group, ['filter', 'val', $idx] ) ) ) ?>"
-							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)" />
+							v-bind:value="value(`<?= $enc->js( $idx ) ?>`)">
 					<?php endif ?>
 				<?php endif ?>
 			</td>

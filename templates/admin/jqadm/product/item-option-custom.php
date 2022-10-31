@@ -69,10 +69,10 @@ $keys = [
 					</td>
 					<td v-bind:class="item['css'] || ''">
 						<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'custom', 'idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'custom', 'idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )">
 
 						<input class="item-label" type="hidden" v-model="item['attribute.label']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'custom', 'idx', 'attribute.label'] ) ) ?>`.replace( 'idx', idx )" />
+							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'custom', 'idx', 'attribute.label'] ) ) ?>`.replace( 'idx', idx )">
 
 						<select is="combo-box" class="form-select item-refid"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'custom', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )"
