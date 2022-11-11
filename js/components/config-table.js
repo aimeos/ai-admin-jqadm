@@ -42,7 +42,7 @@
 		</tbody> \
 	</table>',
 	props: {
-		'i18n': {type: Object, default: {}},
+		'i18n': {type: Object, default: () => ({})},
 		'items': {type: Array, required: true},
 		'keys': {type: Array, default: []},
 		'name': {type: String, required: true},

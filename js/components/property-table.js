@@ -58,7 +58,7 @@ Vue.component('property-table', {
 
 	props: {
 		'domain': {type: String, required: true},
-		'i18n': {type: Object, default: {}},
+		'i18n': {type: Object, default: () => ({})},
 		'index': {type: Number, default: 0},
 		'items': {type: Array, required: true},
 		'name': {type: String, required: true},
