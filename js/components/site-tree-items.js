@@ -41,7 +41,7 @@ Vue.component('site-tree-items', {
 		url: {type: String, required: true},
 		tree: {type: Boolean, default: false},
 		promise: {type: Object, required: true},
-		initial: {type: Object, default: {}},
+		initial: {type: Object, default: () => ({})},
 		current: {type: String, default: ''},
 		parent: {type: String, default: '0'},
 		filter: {type: String, default: ''},
