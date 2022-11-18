@@ -242,10 +242,10 @@ class Standard
 		try
 		{
 			$item = $this->fromArray( $view->param( 'item', [] ) );
-			$view->item = $item->getId() ? $item : $manager->store( clone $item );
+			$view->item = $item->getId() ? $item : $manager->save( clone $item );
 			$view->itemBody = parent::save();
 
-			$manager->store( clone $view->item );
+			$manager->save( clone $view->item );
 			$manager->commit();
 
 			return $this->redirect( 'order', $view->param( 'next' ), $view->item->getId(), 'save' );
