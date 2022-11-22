@@ -66,6 +66,7 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
+		$view->themes = $this->context()->config()->get( 'client/html/themes', [] );
 		$view->itemSubparts = $this->getSubClientNames();
 		return $view;
 	}
