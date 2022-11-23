@@ -321,7 +321,9 @@ class Standard
 			}
 
 			if( $stockItem->getStockLevel() > 0 || $stockItem->getStockLevel() === null ) {
-				$item->inStock( 1 );
+				$item->setInStock( 1 );
+			} else {
+				$item->setInStock( 0 );
 			}
 
 			$stockItems[] = $stockItem;
