@@ -27,7 +27,7 @@ $paymentStatusList = [
 
 	<h2><?= $enc->html( $this->translate( 'admin', 'Refunds' ) ) ?></h2>
 
-	<?php foreach( $this->item->getServices( 'payment') as $service ) : ?>
+	<?php foreach( $this->item->getService( 'payment') as $service ) : ?>
 
 		<h3><?= $enc->html( $service->getName() ) ?></h3>
 
