@@ -31,6 +31,7 @@ $fields = $this->config( 'admin/jqadm/catalog/product/fields', $fields );
 		'siteid' => $this->site()->siteid(),
 		'refid' => $this->param( 'id' ),
 		'resource' => 'product/lists',
+		'domain' => 'catalog',
 		'fields' => $fields,
 	] ) ?>
 </div>

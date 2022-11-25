@@ -36,6 +36,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 	data-resource="<?= $enc->attr( $this->get( 'resource' ) ) ?>"
 	data-fields="<?= $enc->attr( $this->get( 'fields', [] ) ) ?>"
 	data-siteid="<?= $enc->attr( $this->get( 'siteid' ) ) ?>"
+	data-domain="<?= $enc->attr( $this->get( 'domain' ) ) ?>"
 	data-types="<?= $enc->attr( $this->get( 'types' ) ) ?>"
 	data-refid="<?= $enc->attr( $this->get( 'refid' ) ) ?>">
 
