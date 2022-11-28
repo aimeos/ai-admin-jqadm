@@ -662,6 +662,10 @@
 	background-color: var(--bs-bg-dark, #F4F8FB);
 }
 
+.aimeos .item-order .item-product-list .item-column {
+	margin: 0.5rem 0;
+}
+
 .aimeos .item-order .item-product-list .form-control-label {
 	justify-content: flex-start;
 }
@@ -795,6 +799,27 @@
 .aimeos .item-order .item-total .total-value {
 	font-weight: bold;
 }
+
+
+/* Order transactions */
+
+.aimeos .item-order .item-transaction-list .list-item {
+    padding: 0.5rem;
+}
+.aimeos .item-order .item-transaction-list .list-item:nth-of-type(odd) {
+    background-color: var(--bs-bg-dark, #F4F8FB);
+}
+
+.aimeos .item-order .item-transaction-list .item-column {
+	margin: 0.5rem 0;
+}
+
+.aimeos .item-order .item-transaction-list .form-control-label {
+    justify-content: flex-start;
+}
+
+
+/* Subscriptions */
 
 .aimeos .item-subscription .item-product-list .column-desc {
 	text-align: start;
