@@ -363,8 +363,8 @@
 }
 
 .aimeos .list-items .batch .col-1 {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .aimeos .list-items .batch .form-check-input {
@@ -804,10 +804,12 @@
 /* Order transactions */
 
 .aimeos .item-order .item-transaction-list .list-item {
-    padding: 0.5rem;
+	background-color: var(--bs-bg-dark);
+	padding: 0.5rem;
 }
-.aimeos .item-order .item-transaction-list .list-item:nth-of-type(odd) {
-    background-color: var(--bs-bg-dark, #F4F8FB);
+
+.aimeos .item-order .item-transaction-list .list-item:nth-of-type(even) {
+	background-color: var(--bs-bg-light);
 }
 
 .aimeos .item-order .item-transaction-list .item-column {
@@ -815,7 +817,26 @@
 }
 
 .aimeos .item-order .item-transaction-list .form-control-label {
-    justify-content: flex-start;
+	justify-content: flex-start;
+}
+
+.aimeos .item-order .item-transaction-list .form-control[type="number"] {
+	text-align: right;
+}
+
+.aimeos .item-order .item-transaction-list .transaction-currencyid > .row {
+	align-items: flex-start;
+	height: 100%;
+}
+
+.aimeos .item-order .item-transaction-list .transaction-create > .row {
+	align-items: end;
+	height: 100%;
+}
+
+.aimeos .item-order .item-transaction-list .transaction-create .btn {
+	display: block;
+	margin: auto;
 }
 
 

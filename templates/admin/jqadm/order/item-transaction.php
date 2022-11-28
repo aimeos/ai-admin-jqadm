@@ -96,7 +96,44 @@ $paymentStatusList = [
 
 			<?php endforeach ?>
 
-			<a class="btn btn-primary" href="#"><?= $enc->html( $this->translate( 'admin', 'Create refund' ) ) ?></a>
+			<div class="list-item">
+				<div class="row">
+					<div class="col-sm-3 item-column transaction-currencyid">
+						<div class="row">
+							<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ) ?></label>
+							<div class="col-7 col-sm-12">
+								<input type="hidden" name="<?= $enc->attr( $this->formparam( array( 'transaction', $service->getId(), 'order.base.service.transaction.currencyid' ) ) ) ?>">
+								<?= $enc->html( $service->getPrice()->getCurrencyId() ) ?>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 item-column transaction-price">
+						<div class="row">
+							<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Price' ) ) ?></label>
+							<div class="col-7 col-sm-12">
+								<input type="number" step="0.01" class="form-control"
+									name="<?= $enc->attr( $this->formparam( array( 'transaction', $service->getId(), 'order.base.service.transaction.price' ) ) ) ?>">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 item-column transaction-costs">
+						<div class="row">
+							<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Costs' ) ) ?></label>
+							<div class="col-7 col-sm-12">
+								<input type="number" step="0.01" class="form-control"
+									name="<?= $enc->attr( $this->formparam( array( 'transaction', $service->getId(), 'order.base.service.transaction.costs' ) ) ) ?>">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 item-column transaction-create">
+						<div class="row">
+							<div class="col-sm-12">
+								<button class="btn btn-primary"><?= $enc->html( $this->translate( 'admin', 'Refund' ) ) ?></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	<?php endforeach ?>
