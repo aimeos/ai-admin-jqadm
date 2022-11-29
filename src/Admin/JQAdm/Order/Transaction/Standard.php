@@ -228,12 +228,11 @@ class Standard
 
 		foreach( $data as $serviceId => $entry )
 		{
-			if( array_sum( $entry ) === 0 || !isset( $services[$serviceId] ) ) {
+			if( array_sum( $entry ) === 0 || ( $service = $services->get( $serviceId ) ) === null ) {
 				continue;
 			}
 
 			$context = $this->context();
-			$service = $services[$serviceId];
 
 			$price = \Aimeos\MShop::create( $context, 'price' )->create()
 				->setValue( -$entry['order.base.service.transaction.value'] ?? 0 )
@@ -252,7 +251,7 @@ class Standard
 				$manager = \Aimeos\MShop::create( $context, 'order' );
 				$filter = $manager->filter()->add( 'order.baseid', '==', $order->getId() );
 
-				if( $order = $manager->search( $filter )->first() ) {
+				if( $order = $manager->search( $filter, ['order/base', 'order/base/service'] )->first() ) {
 					$manager->save( $provider->refund( $order, $price ) );
 				}
 			}
