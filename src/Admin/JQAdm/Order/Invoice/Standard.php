@@ -87,22 +87,9 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
-		$manager->begin();
-
-		try
-		{
-			$this->storeFilter( $view->param( 'oi', [] ), 'orderinvoice' );
-			$this->fromArray( $view->item, $view->param( 'invoice', [] ) );
-			$view->invoiceBody = parent::save();
-
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
-		}
+		$this->storeFilter( $view->param( 'oi', [] ), 'orderinvoice' );
+		$this->fromArray( $view->item, $view->param( 'invoice', [] ) );
+		$view->invoiceBody = parent::save();
 
 		return null;
 	}
