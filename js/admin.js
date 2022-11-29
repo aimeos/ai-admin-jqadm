@@ -155,48 +155,6 @@ Aimeos = {
 	},
 
 
-	/**
-	 * @deprecated 2022.01
-	 */
-	getCountries : function(request, response, element) {
-
-		if(request.term.length == 0) {
-			var url = 'https://restcountries.eu/rest/v2/all';
-		} else if(request.term.length > 1) {
-			var url = 'https://restcountries.eu/rest/v2/name/' + request.term;
-		} else {
-			return;
-		}
-
-		$.ajax({
-			url: url,
-			dataType: "json",
-			data: 'fields=alpha2Code;name',
-			success: function(result) {
-				var list = result || [];
-
-				$("option", element).remove();
-
-				response( list.map(function(obj) {
-
-					var opt = $("<option/>");
-
-					opt.attr("value", obj.alpha2Code);
-					opt.text(obj.alpha2Code);
-					opt.appendTo(element);
-
-					return {
-						label: obj.name || obj.alpha2Code,
-						value: obj.alpha2Code,
-						option: opt
-					};
-				}));
-			}
-		});
-
-	},
-
-
 	getOptions : function(request, response, element, domain, key, sort, criteria, labelFcn) {
 
 		Aimeos.options.done(function(data) {
