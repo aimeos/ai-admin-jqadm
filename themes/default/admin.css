@@ -821,7 +821,7 @@
 }
 
 .aimeos .item-order .item-transaction-list .form-control[type="number"] {
-	text-align: right;
+	text-align: center;
 }
 
 .aimeos .item-order .item-transaction-list .transaction-currencyid > .row {

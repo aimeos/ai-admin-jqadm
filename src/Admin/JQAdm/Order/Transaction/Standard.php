@@ -79,21 +79,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
-		$manager->begin();
-
-		try
-		{
-			$this->fromArray( $view->item, $view->param( 'transaction', [] ) );
-			$view->transactionBody = parent::save();
-
-			$manager->commit();
-		}
-		catch( \Exception $e )
-		{
-			$manager->rollback();
-			throw $e;
-		}
+		$this->fromArray( $view->item, $view->param( 'transaction', [] ) );
+		$view->transactionBody = parent::save();
 
 		return null;
 	}
@@ -237,6 +224,45 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Order\Item\Base\Iface $order, array $data )
 	{
+		$services = map( $order->getService( 'payment' ) )->col( null, 'order.base.service.id' );
+
+		foreach( $data as $serviceId => $entry )
+		{
+			if( array_sum( $entry ) === 0 || !isset( $services[$serviceId] ) ) {
+				continue;
+			}
+
+			$context = $this->context();
+			$service = $services[$serviceId];
+
+			$price = \Aimeos\MShop::create( $context, 'price' )->create()
+				->setValue( -$entry['order.base.service.transaction.value'] ?? 0 )
+				->setCosts( -$entry['order.base.service.transaction.costs'] ?? 0 )
+				->setCurrencyId( $service->getPrice()->getCurrencyId() );
+
+			$txItem = \Aimeos\MShop::create( $context, 'order/base/service' )->createTransaction()
+				->setType( 'payment' )->setPrice( $price )->setStatus( \Aimeos\MShop\Order\Item\Base::PAY_REFUND );
+
+			$serviceItem = \Aimeos\MShop::create( $context, 'service' )->get( $service->getServiceId() );
+
+			$provider = \Aimeos\MShop::create( $context, 'service' )->getProvider( $serviceItem, 'payment' );
+
+			if( $provider->isImplemented( \Aimeos\MShop\Service\Provider\Payment\Base::FEAT_REFUND ) )
+			{
+				$manager = \Aimeos\MShop::create( $context, 'order' );
+				$filter = $manager->filter()->add( 'order.baseid', '==', $order->getId() );
+
+				if( $order = $manager->search( $filter )->first() ) {
+					$manager->save( $provider->refund( $order, $price ) );
+				}
+			}
+			else
+			{
+				$txItem->setConfigValue( 'info', $context->translate( 'admin', 'Manual transfer' ) );
+			}
+
+			$service->addTransaction( $txItem );
+		}
 	}
 
 
