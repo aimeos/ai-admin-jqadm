@@ -242,10 +242,10 @@ class Standard
 		try
 		{
 			$item = $this->fromArray( $view->param( 'item', [] ) );
-			$view->item = $item->getId() ? $item : $manager->store( clone $item );
+			$view->item = $item->getId() ? $item : $manager->save( clone $item );
 			$view->itemBody = parent::save();
 
-			$manager->store( clone $view->item );
+			$manager->save( clone $view->item );
 			$manager->commit();
 
 			return $this->redirect( 'order', $view->param( 'next' ), $view->item->getId(), 'save' );
@@ -298,7 +298,7 @@ class Standard
 		 * The template file contains the HTML code and processing instructions
 		 * to generate the result shown in the body of the frontend. The
 		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
+		 * to the templates directory (usually in templates/admin/jqadm).
 		 *
 		 * You can overwrite the template file configuration in extensions and
 		 * provide alternative templates. These alternative templates should be
@@ -641,7 +641,7 @@ class Standard
 		 * The template file contains the HTML code and processing instructions
 		 * to generate the result shown in the body of the frontend. The
 		 * configuration string is the path to the template file relative
-		 * to the templates directory (usually in admin/jqadm/templates).
+		 * to the templates directory (usually in templates/admin/jqadm).
 		 *
 		 * You can overwrite the template file configuration in extensions and
 		 * provide alternative templates. These alternative templates should be

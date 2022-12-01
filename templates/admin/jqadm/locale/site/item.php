@@ -138,6 +138,33 @@ $params = $this->get( 'pageParams', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Descritive name of the site' ) ) ?>
 								</div>
 							</div>
+							<div class="form-group row optional">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shop theme' ) ) ?></label>
+								<div class="col-sm-8">
+									<select class="form-select item-theme" tabindex="1"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'locale.site.theme' ) ) ) ?>" >
+										<?php foreach( $this->get( 'themes', [] ) as $theme => $name ) : ?>
+											<option value="<?= $enc->attr( $theme ) ?>" <?= $selected( $this->get( 'itemData/locale.site.theme' ), $theme ) ?> >
+												<?= $enc->html( $name ) ?>
+											</option>
+										<?php endforeach ?>
+									</select>
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Theme to change the layout of your shop' ) ) ?>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Rating' ) ) ?></label>
+								<div class="col-sm-8">
+									<span class="form-control item-rating">
+										<?= $enc->html( $this->get( 'itemData/locale.site.rating' ) ) ?> / <?= $enc->html( $this->get( 'itemData/locale.site.ratings' ) ) ?>
+									</span>
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', 'Rating and number of ratings for the merchant' ) ) ?>
+								</div>
+							</div>
 						</div><!--
 
 						--><div class="col-xl-6 vue"

@@ -69,15 +69,15 @@ class TestHelper
 		$ctx->setConfig( $conf );
 
 
-		$dbm = \Aimeos\Base\DB\Factory::create( $conf, 'PDO' );
+		$dbm = new \Aimeos\Base\DB\Manager\Standard( $conf->get( 'resource', [] ), 'PDO' );
 		$ctx->setDatabaseManager( $dbm );
 
 
-		$fs = new \Aimeos\Base\Filesystem\Manager\Standard( $conf->get( 'resource' ) );
+		$fs = new \Aimeos\Base\Filesystem\Manager\Standard( $conf->get( 'resource', [] ) );
 		$ctx->setFilesystemManager( $fs );
 
 
-		$mq = new \Aimeos\Base\MQueue\Manager\Standard( $conf );
+		$mq = new \Aimeos\Base\MQueue\Manager\Standard( $conf->get( 'resource', [] ) );
 		$ctx->setMessageQueueManager( $mq );
 
 

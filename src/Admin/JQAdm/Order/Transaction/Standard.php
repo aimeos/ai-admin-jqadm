@@ -2,19 +2,19 @@
 
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2015-2022
+ * @copyright Aimeos (aimeos.org), 2022
  * @package Admin
  * @subpackage JQAdm
  */
 
 
-namespace Aimeos\Admin\JQAdm\Product\Bundle;
+namespace Aimeos\Admin\JQAdm\Order\Transaction;
 
-sprintf( 'bundle' ); // for translation
+sprintf( 'transaction' ); // for translation
 
 
 /**
- * Default implementation of product bundle JQAdm client.
+ * Default implementation of order transaction JQAdm client.
  *
  * @package Admin
  * @subpackage JQAdm
@@ -23,14 +23,14 @@ class Standard
 	extends \Aimeos\Admin\JQAdm\Common\Admin\Factory\Base
 	implements \Aimeos\Admin\JQAdm\Common\Admin\Factory\Iface
 {
-	/** admin/jqadm/product/bundle/name
-	 * Name of the bundle subpart used by the JQAdm product implementation
+	/** admin/jqadm/order/transaction/name
+	 * Name of the transaction subpart used by the JQAdm order implementation
 	 *
-	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Product\Bundle\Myname".
+	 * Use "Myname" if your class is named "\Aimeos\Admin\Jqadm\Order\Transaction\Myname".
 	 * The name is case-sensitive and you should avoid camel case names like "MyName".
 	 *
 	 * @param string Last part of the JQAdm class name
-	 * @since 2016.04
+	 * @since 2023.01
 	 * @category Developer
 	 */
 
@@ -42,12 +42,7 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
-		$view = $this->object()->data( $this->view() );
-
-		$view->bundleData = $this->toArray( $view->item, true );
-		$view->bundleBody = parent::copy();
-
-		return $this->render( $view );
+		return $this->get();
 	}
 
 
@@ -58,18 +53,7 @@ class Standard
 	 */
 	public function create() : ?string
 	{
-		$view = $this->object()->data( $this->view() );
-		$siteid = $this->context()->locale()->getSiteId();
-		$data = $view->param( 'bundle', [] );
-
-		foreach( $view->value( $data, 'product.lists.id', [] ) as $idx => $value ) {
-			$data[$idx]['product.lists.siteid'] = $siteid;
-		}
-
-		$view->bundleData = $data;
-		$view->bundleBody = parent::create();
-
-		return $this->render( $view );
+		return $this->get();
 	}
 
 
@@ -81,9 +65,6 @@ class Standard
 	public function get() : ?string
 	{
 		$view = $this->object()->data( $this->view() );
-
-		$view->bundleData = $this->toArray( $view->item );
-		$view->bundleBody = parent::get();
 
 		return $this->render( $view );
 	}
@@ -98,11 +79,8 @@ class Standard
 	{
 		$view = $this->view();
 
-		if( $view->item->getType() === 'bundle' )
-		{
-			$this->fromArray( $view->item, $view->param( 'bundle', [] ) );
-			$view->bundleBody = parent::save();
-		}
+		$this->fromArray( $view->item, $view->param( 'transaction', [] ) );
+		$view->transactionBody = parent::save();
 
 		return null;
 	}
@@ -117,8 +95,8 @@ class Standard
 	 */
 	public function getSubClient( string $type, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
-		/** admin/jqadm/product/bundle/decorators/excludes
-		 * Excludes decorators added by the "common" option from the product JQAdm client
+		/** admin/jqadm/order/transaction/decorators/excludes
+		 * Excludes decorators added by the "common" option from the order JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
 		 * (e.g. log what is currently done), executing the methods of the underlying
@@ -129,22 +107,22 @@ class Standard
 		 * "admin/jqadm/common/decorators/default" before they are wrapped
 		 * around the JQAdm client.
 		 *
-		 *  admin/jqadm/product/bundle/decorators/excludes = array( 'decorator1' )
+		 *  admin/jqadm/order/transaction/decorators/excludes = array( 'decorator1' )
 		 *
 		 * This would remove the decorator named "decorator1" from the list of
 		 * common decorators ("\Aimeos\Admin\JQAdm\Common\Decorator\*") added via
 		 * "admin/jqadm/common/decorators/default" to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2016.01
+		 * @since 2023.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/product/bundle/decorators/global
-		 * @see admin/jqadm/product/bundle/decorators/local
+		 * @see admin/jqadm/order/transaction/decorators/global
+		 * @see admin/jqadm/order/transaction/decorators/local
 		 */
 
-		/** admin/jqadm/product/bundle/decorators/global
-		 * Adds a list of globally available decorators only to the product JQAdm client
+		/** admin/jqadm/order/transaction/decorators/global
+		 * Adds a list of globally available decorators only to the order JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
 		 * (e.g. log what is currently done), executing the methods of the underlying
@@ -154,21 +132,21 @@ class Standard
 		 * This option allows you to wrap global decorators
 		 * ("\Aimeos\Admin\JQAdm\Common\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/product/bundle/decorators/global = array( 'decorator1' )
+		 *  admin/jqadm/order/transaction/decorators/global = array( 'decorator1' )
 		 *
 		 * This would add the decorator named "decorator1" defined by
 		 * "\Aimeos\Admin\JQAdm\Common\Decorator\Decorator1" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2016.01
+		 * @since 2023.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/product/bundle/decorators/excludes
-		 * @see admin/jqadm/product/bundle/decorators/local
+		 * @see admin/jqadm/order/transaction/decorators/excludes
+		 * @see admin/jqadm/order/transaction/decorators/local
 		 */
 
-		/** admin/jqadm/product/bundle/decorators/local
-		 * Adds a list of local decorators only to the product JQAdm client
+		/** admin/jqadm/order/transaction/decorators/local
+		 * Adds a list of local decorators only to the order JQAdm client
 		 *
 		 * Decorators extend the functionality of a class by adding new aspects
 		 * (e.g. log what is currently done), executing the methods of the underlying
@@ -176,21 +154,21 @@ class Standard
 		 * modify what is returned to the caller.
 		 *
 		 * This option allows you to wrap local decorators
-		 * ("\Aimeos\Admin\JQAdm\Product\Decorator\*") around the JQAdm client.
+		 * ("\Aimeos\Admin\JQAdm\Order\Decorator\*") around the JQAdm client.
 		 *
-		 *  admin/jqadm/product/bundle/decorators/local = array( 'decorator2' )
+		 *  admin/jqadm/order/transaction/decorators/local = array( 'decorator2' )
 		 *
 		 * This would add the decorator named "decorator2" defined by
-		 * "\Aimeos\Admin\JQAdm\Product\Decorator\Decorator2" only to the JQAdm client.
+		 * "\Aimeos\Admin\JQAdm\Order\Decorator\Decorator2" only to the JQAdm client.
 		 *
 		 * @param array List of decorator names
-		 * @since 2016.01
+		 * @since 2023.01
 		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
-		 * @see admin/jqadm/product/bundle/decorators/excludes
-		 * @see admin/jqadm/product/bundle/decorators/global
+		 * @see admin/jqadm/order/transaction/decorators/excludes
+		 * @see admin/jqadm/order/transaction/decorators/global
 		 */
-		return $this->createSubClient( 'product/bundle/' . $type, $name );
+		return $this->createSubClient( 'order/transaction/' . $type, $name );
 	}
 
 
@@ -201,8 +179,8 @@ class Standard
 	 */
 	protected function getSubClientNames() : array
 	{
-		/** admin/jqadm/product/bundle/subparts
-		 * List of JQAdm sub-clients rendered within the product bundle section
+		/** admin/jqadm/order/transaction/subparts
+		 * List of JQAdm sub-clients rendered within the order transaction section
 		 *
 		 * The output of the frontend is composed of the code generated by the JQAdm
 		 * clients. Each JQAdm client can consist of serveral (or none) sub-clients
@@ -212,13 +190,13 @@ class Standard
 		 * the output that is placed inside the container of its parent.
 		 *
 		 * At first, always the JQAdm code generated by the parent is printed, then
-		 * the JQAdm code of its sub-clients. The order of the JQAdm sub-clients
-		 * determines the order of the output of these sub-clients inside the parent
+		 * the JQAdm code of its sub-clients. The transaction of the JQAdm sub-clients
+		 * determines the transaction of the output of these sub-clients inside the parent
 		 * container. If the configured list of clients is
 		 *
 		 *  array( "subclient1", "subclient2" )
 		 *
-		 * you can easily change the order of the output by reordering the subparts:
+		 * you can easily change the transaction of the output by retransactioning the subparts:
 		 *
 		 *  admin/jqadm/<clients>/subparts = array( "subclient1", "subclient2" )
 		 *
@@ -227,78 +205,63 @@ class Standard
 		 *  admin/jqadm/<clients>/subparts = array( "subclient1" )
 		 *
 		 * As the clients only generates structural JQAdm, the layout defined via CSS
-		 * should support adding, removing or reordering content by a fluid like
+		 * should support adding, removing or retransactioning content by a fluid like
 		 * design.
 		 *
 		 * @param array List of sub-client names
-		 * @since 2016.01
+		 * @since 2023.01
 		 * @category Developer
 		 */
-		return $this->context()->config()->get( 'admin/jqadm/product/bundle/subparts', [] );
+		return $this->context()->config()->get( 'admin/jqadm/order/transaction/subparts', [] );
 	}
 
 
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
+	 * @param \Aimeos\MShop\Order\Item\Base\Iface $order Order base item object
 	 * @param array $data Data array
-	 * @return \Aimeos\MShop\Product\Item\Iface Modified product item
 	 */
-	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
+	protected function fromArray( \Aimeos\MShop\Order\Item\Base\Iface $order, array $data )
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
+		$services = map( $order->getService( 'payment' ) )->col( null, 'order.base.service.id' );
 
-		$listItem = $listManager->create()->setType( 'default' );
-		$listItems = $item->getListItems( 'product', 'default', null, false );
-
-		foreach( $data as $idx => $entry )
+		foreach( $data as $serviceId => $entry )
 		{
-			$litem = $listItems->get( $entry['product.lists.id'] ?? null ) ?: clone $listItem;
-			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );
-			$item->addListItem( 'product', $litem, $litem->getRefItem() );
-
-			unset( $listItems[$litem->getId()] );
-		}
-
-		return $item->deleteListItems( $listItems->toArray() );
-	}
-
-
-	/**
-	 * Constructs the data array for the view from the given item
-	 *
-	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object including referenced domain items
-	 * @param bool $copy True if items should be copied, false if not
-	 * @return string[] Multi-dimensional associative list of item data
-	 */
-	protected function toArray( \Aimeos\MShop\Product\Item\Iface $item, bool $copy = false ) : array
-	{
-		if( $item->getType() !== 'bundle' ) {
-			return [];
-		}
-
-		$data = [];
-		$siteId = $this->context()->locale()->getSiteId();
-
-		foreach( $item->getListItems( 'product', 'default', null, false ) as $listItem )
-		{
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+			if( array_sum( $entry ) === 0 || ( $service = $services->get( $serviceId ) ) === null ) {
 				continue;
 			}
 
-			$list = $listItem->toArray( true ) + $refItem->toArray( true );
+			$context = $this->context();
 
-			if( $copy === true )
+			$price = \Aimeos\MShop::create( $context, 'price' )->create()
+				->setValue( -$entry['order.base.service.transaction.value'] ?? 0 )
+				->setCosts( -$entry['order.base.service.transaction.costs'] ?? 0 )
+				->setCurrencyId( $service->getPrice()->getCurrencyId() );
+
+			$txItem = \Aimeos\MShop::create( $context, 'order/base/service' )->createTransaction()
+				->setType( 'payment' )->setPrice( $price )->setStatus( \Aimeos\MShop\Order\Item\Base::PAY_REFUND );
+
+			$serviceItem = \Aimeos\MShop::create( $context, 'service' )->get( $service->getServiceId() );
+
+			$provider = \Aimeos\MShop::create( $context, 'service' )->getProvider( $serviceItem, 'payment' );
+
+			if( $provider->isImplemented( \Aimeos\MShop\Service\Provider\Payment\Base::FEAT_REFUND ) )
 			{
-				$list['product.lists.siteid'] = $siteId;
-				$list['product.lists.id'] = '';
+				$manager = \Aimeos\MShop::create( $context, 'order' );
+				$filter = $manager->filter()->add( 'order.baseid', '==', $order->getId() );
+
+				if( $order = $manager->search( $filter, ['order/base', 'order/base/service'] )->first() ) {
+					$manager->save( $provider->refund( $order, $price ) );
+				}
+			}
+			else
+			{
+				$txItem->setConfigValue( 'info', $context->translate( 'admin', 'Manual transfer' ) );
 			}
 
-			$data[] = $list;
+			$service->addTransaction( $txItem );
 		}
-
-		return $data;
 	}
 
 
@@ -310,8 +273,8 @@ class Standard
 	 */
 	protected function render( \Aimeos\Base\View\Iface $view ) : string
 	{
-		/** admin/jqadm/product/bundle/template-item
-		 * Relative path to the HTML body template of the bundle subpart for products.
+		/** admin/jqadm/order/transaction/template-item
+		 * Relative path to the HTML body template of the transaction subpart for orders.
 		 *
 		 * The template file contains the HTML code and processing instructions
 		 * to generate the result shown in the body of the frontend. The
@@ -329,8 +292,8 @@ class Standard
 		 * @since 2016.04
 		 * @category Developer
 		 */
-		$tplconf = 'admin/jqadm/product/bundle/template-item';
-		$default = 'product/item-bundle';
+		$tplconf = 'admin/jqadm/order/transaction/template-item';
+		$default = 'order/item-transaction';
 
 		return $view->render( $view->config( $tplconf, $default ) );
 	}

@@ -104,6 +104,7 @@ return [
 		],
 		'subparts' => [
 			'invoice' => 'invoice',
+			'transaction' => 'transaction',
 		],
 	],
 	'product' => [
