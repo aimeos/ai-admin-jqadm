@@ -14,9 +14,11 @@ $(function() {
 Aimeos.Price = {
 
 	init: function() {
+		const el = '#item-price-group'
+		if (!document.querySelector(el)) return false;
 
 		Aimeos.components['price'] = new Vue({
-			el: '#item-price-group',
+			el: el,
 			data: {
 				items: [],
 				siteid: null,

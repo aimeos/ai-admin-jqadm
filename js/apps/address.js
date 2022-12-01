@@ -14,9 +14,11 @@ $(function() {
 Aimeos.Address = {
 
 	init: function() {
+		const el = '#item-address-group'
+		if (!document.querySelector(el)) return false;
 
 		Aimeos.components['address'] = new Vue({
-			el: '#item-address-group',
+			el: el,
 			data: {
 				items: [],
 				siteid: null,

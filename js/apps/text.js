@@ -12,9 +12,11 @@ $(function() {
 Aimeos.Text = {
 
 	init: function() {
+		const el = '#item-text-group'
+		if (!document.querySelector(el)) return false;
 
 		Aimeos.components['text'] = new Vue({
-			el: '#item-text-group',
+			el: el,
 			data: {
 				items: [],
 				siteid: null,
