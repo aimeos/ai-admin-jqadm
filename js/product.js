@@ -187,14 +187,11 @@ Aimeos.Product = {
 			}
 		]
 		for (const component of components) {
-			const el = component.el;
-			if (document.querySelector(el)) {
-				Aimeos.components[component.name] = new Vue({
-					'el': el,
-					'data': component.data,
-					'mixins': component.mixins
-				});
-			}
+			Aimeos.components[component.name] = new Vue({
+				'el': document.querySelector(component.el),
+				'data': component.data,
+				'mixins': component.mixins
+			});
 		}
 	},
 
