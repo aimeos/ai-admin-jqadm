@@ -21,170 +21,178 @@ Aimeos.Product = {
 
 	components : function() {
 
-		Aimeos.components['characteristic/attribute'] =  new Vue({
-			'el': '.item-characteristic-attribute .attribute-list',
-			'data': {
-				'items': $(".item-characteristic-attribute .attribute-list").data("items"),
-				'keys': $(".item-characteristic-attribute .attribute-list").data("keys"),
-				'prefix': $(".item-characteristic-attribute .attribute-list").data("prefix"),
-				'siteid': $(".item-characteristic-attribute .attribute-list").data("siteid")
+		const components = [
+			{
+				name: 'characteristic/attribute',
+				data: {
+					items: $(".item-characteristic-attribute .attribute-list").data("items"),
+					keys: $(".item-characteristic-attribute .attribute-list").data("keys"),
+					prefix: $(".item-characteristic-attribute .attribute-list").data("prefix"),
+					siteid: $(".item-characteristic-attribute .attribute-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
-
-		Aimeos.components['characteristic/hidden'] = new Vue({
-			'el': '.item-characteristic-hidden .attribute-list',
-			'data': {
-				'items': $(".item-characteristic-hidden .attribute-list").data("items"),
-				'keys': $(".item-characteristic-hidden .attribute-list").data("keys"),
-				'prefix': $(".item-characteristic-hidden .attribute-list").data("prefix"),
-				'siteid': $(".item-characteristic-hidden .attribute-list").data("siteid")
+			{
+				name: 'characteristic/hidden',
+				el: '.item-characteristic-hidden .attribute-list',
+				data: {
+					items: $(".item-characteristic-hidden .attribute-list").data("items"),
+					keys: $(".item-characteristic-hidden .attribute-list").data("keys"),
+					prefix: $(".item-characteristic-hidden .attribute-list").data("prefix"),
+					siteid: $(".item-characteristic-hidden .attribute-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
-
-		Aimeos.components['characteristic/variant'] = new Vue({
-			'el': '.item-characteristic-variant .attribute-list',
-			'data': {
-				'items': $(".item-characteristic-variant .attribute-list").data("items"),
-				'keys': $(".item-characteristic-variant .attribute-list").data("keys"),
-				'prefix': $(".item-characteristic-variant .attribute-list").data("prefix"),
-				'siteid': $(".item-characteristic-variant .attribute-list").data("siteid")
+			{
+				name: 'characteristic/variant',
+				el: '.item-characteristic-variant .attribute-list',
+				data: {
+					items: $(".item-characteristic-variant .attribute-list").data("items"),
+					keys: $(".item-characteristic-variant .attribute-list").data("keys"),
+					prefix: $(".item-characteristic-variant .attribute-list").data("prefix"),
+					siteid: $(".item-characteristic-variant .attribute-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
-
-
-		Aimeos.components['option/config'] = new Vue({
-			'el': '.item-option-config .attribute-list',
-			'data': {
-				'items': $(".item-option-config .attribute-list").data("items"),
-				'keys': $(".item-option-config .attribute-list").data("keys"),
-				'prefix': $(".item-option-config .attribute-list").data("prefix"),
-				'siteid': $(".item-option-config .attribute-list").data("siteid")
+			{
+				name: 'option/config',
+				el: '.item-option-config .attribute-list',
+				data: {
+					items: $(".item-option-config .attribute-list").data("items"),
+					keys: $(".item-option-config .attribute-list").data("keys"),
+					prefix: $(".item-option-config .attribute-list").data("prefix"),
+					siteid: $(".item-option-config .attribute-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
-
-		Aimeos.components['option/custom'] = new Vue({
-			'el': '.item-option-custom .attribute-list',
-			'data': {
-				'items': $(".item-option-custom .attribute-list").data("items"),
-				'keys': $(".item-option-custom .attribute-list").data("keys"),
-				'prefix': $(".item-option-custom .attribute-list").data("prefix"),
-				'siteid': $(".item-option-custom .attribute-list").data("siteid")
+			{
+				name: 'option/custom',
+				el: '.item-option-custom .attribute-list',
+				data: {
+					items: $(".item-option-custom .attribute-list").data("items"),
+					keys: $(".item-option-custom .attribute-list").data("keys"),
+					prefix: $(".item-option-custom .attribute-list").data("prefix"),
+					siteid: $(".item-option-custom .attribute-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Attribute.mixins.bind(this)()]
-		});
-
-		Aimeos.components['catalog/default'] = new Vue({
-			'el': '.item-category .catalog-default .category-list',
-			'data': {
-				'items': $(".item-category .catalog-default .category-list").data("items"),
-				'keys': $(".item-category .catalog-default .category-list").data("keys"),
-				'listtype': $(".item-category .catalog-default .category-list").data("listtype"),
-				'siteid': $(".item-category .catalog-default .category-list").data("siteid")
+			{
+				name: 'catalog/default',
+				el: '.item-category .catalog-default .category-list',
+				data: {
+					items: $(".item-category .catalog-default .category-list").data("items"),
+					keys: $(".item-category .catalog-default .category-list").data("keys"),
+					listtype: $(".item-category .catalog-default .category-list").data("listtype"),
+					siteid: $(".item-category .catalog-default .category-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Catalog.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Catalog.mixins.bind(this)()]
-		});
-
-		Aimeos.components['catalog/promotion'] = new Vue({
-			'el': '.item-category .catalog-promotion .category-list',
-			'data': {
-				'items': $(".item-category .catalog-promotion .category-list").data("items"),
-				'keys': $(".item-category .catalog-promotion .category-list").data("keys"),
-				'listtype': $(".item-category .catalog-promotion .category-list").data("listtype"),
-				'siteid': $(".item-category .catalog-promotion .category-list").data("siteid")
+			{
+				name: 'catalog/promotion',
+				el: '.item-category .catalog-promotion .category-list',
+				data: {
+					items: $(".item-category .catalog-promotion .category-list").data("items"),
+					keys: $(".item-category .catalog-promotion .category-list").data("keys"),
+					listtype: $(".item-category .catalog-promotion .category-list").data("listtype"),
+					siteid: $(".item-category .catalog-promotion .category-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Catalog.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Catalog.mixins.bind(this)()]
-		});
-
-		Aimeos.components['supplier/default'] = new Vue({
-			'el': '.item-supplier .supplier-default .supplier-list',
-			'data': {
-				'items': $(".item-supplier .supplier-default .supplier-list").data("items"),
-				'keys': $(".item-supplier .supplier-default .supplier-list").data("keys"),
-				'listtype': $(".item-supplier .supplier-default .supplier-list").data("listtype"),
-				'siteid': $(".item-supplier .supplier-default .supplier-list").data("siteid")
+			{
+				name: 'supplier/default',
+				el: '.item-supplier .supplier-default .supplier-list',
+				data: {
+					items: $(".item-supplier .supplier-default .supplier-list").data("items"),
+					keys: $(".item-supplier .supplier-default .supplier-list").data("keys"),
+					listtype: $(".item-supplier .supplier-default .supplier-list").data("listtype"),
+					siteid: $(".item-supplier .supplier-default .supplier-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Supplier.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Supplier.mixins.bind(this)()]
-		});
-
-		Aimeos.components['supplier/promotion'] = new Vue({
-			'el': '.item-supplier .supplier-promotion .supplier-list',
-			'data': {
-				'items': $(".item-supplier .supplier-promotion .supplier-list").data("items"),
-				'keys': $(".item-supplier .supplier-promotion .supplier-list").data("keys"),
-				'listtype': $(".item-supplier .supplier-promotion .supplier-list").data("listtype"),
-				'siteid': $(".item-supplier .supplier-promotion .supplier-list").data("siteid")
+			{
+				name: 'supplier/promotion',
+				el: '.item-supplier .supplier-promotion .supplier-list',
+				data: {
+					items: $(".item-supplier .supplier-promotion .supplier-list").data("items"),
+					keys: $(".item-supplier .supplier-promotion .supplier-list").data("keys"),
+					listtype: $(".item-supplier .supplier-promotion .supplier-list").data("listtype"),
+					siteid: $(".item-supplier .supplier-promotion .supplier-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Supplier.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Supplier.mixins.bind(this)()]
-		});
-
-		Aimeos.components['related/bought'] = new Vue({
-			'el': '.item-related-bought .product-list',
-			'data': {
-				'items': $(".item-related-bought .product-list").data("items"),
-				'keys': $(".item-related-bought .product-list").data("keys"),
-				'prefix': $(".item-related-bought .product-list").data("prefix"),
-				'siteid': $(".item-related-bought .product-list").data("siteid")
+			{
+				name: 'related/bought',
+				el: '.item-related-bought .product-list',
+				data: {
+					items: $(".item-related-bought .product-list").data("items"),
+					keys: $(".item-related-bought .product-list").data("keys"),
+					prefix: $(".item-related-bought .product-list").data("prefix"),
+					siteid: $(".item-related-bought .product-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Product.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Product.mixins.bind(this)()]
-		});
-
-		Aimeos.components['related/suggest'] = new Vue({
-			'el': '.item-related-suggest .product-list',
-			'data': {
-				'items': $(".item-related-suggest .product-list").data("items"),
-				'keys': $(".item-related-suggest .product-list").data("keys"),
-				'prefix': $(".item-related-suggest .product-list").data("prefix"),
-				'siteid': $(".item-related-suggest .product-list").data("siteid")
+			{
+				name: 'related/suggest',
+				el: '.item-related-suggest .product-list',
+				data: {
+					items: $(".item-related-suggest .product-list").data("items"),
+					keys: $(".item-related-suggest .product-list").data("keys"),
+					prefix: $(".item-related-suggest .product-list").data("prefix"),
+					siteid: $(".item-related-suggest .product-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Product.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Product.mixins.bind(this)()]
-		});
-
-		Aimeos.components['bundle'] = new Vue({
-			'el': '.item-bundle .product-list',
-			'data': {
-				'items': $(".item-bundle .product-list").data("items"),
-				'keys': $(".item-bundle .product-list").data("keys"),
-				'prefix': $(".item-bundle .product-list").data("prefix"),
-				'siteid': $(".item-bundle .product-list").data("siteid")
+			{
+				name: 'bundle',
+				el: '.item-bundle .product-list',
+				data: {
+					items: $(".item-bundle .product-list").data("items"),
+					keys: $(".item-bundle .product-list").data("keys"),
+					prefix: $(".item-bundle .product-list").data("prefix"),
+					siteid: $(".item-bundle .product-list").data("siteid")
+				},
+				mixins: [Aimeos.Product.Product.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Product.mixins.bind(this)()]
-		});
-
-		Aimeos.components['selection'] = new Vue({
-			'el': '#item-selection-group',
-			'data': {
-				'items': $("#item-selection-group").data("items"),
-				'keys': $("#item-selection-group").data("keys"),
-				'siteid': $("#item-selection-group").data("siteid")
+			{
+				name: 'selection',
+				el: '#item-selection-group',
+				data: {
+					items: $("#item-selection-group").data("items"),
+					keys: $("#item-selection-group").data("keys"),
+					siteid: $("#item-selection-group").data("siteid")
+				},
+				mixins: [Aimeos.Product.Selection.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Selection.mixins.bind(this)()]
-		});
-
-		Aimeos.components['stock'] = new Vue({
-			'el': '.item-stock .stock-list',
-			'data': {
-				'items': $(".item-stock .stock-list").data("items"),
-				'keys': $(".item-stock .stock-list").data("keys"),
-				'siteid': $(".item-stock .stock-list").data("siteid"),
-				'numtypes': $(".item-stock .stock-list").data("numtypes")
+			{
+				name: 'stock',
+				el: '.item-stock .stock-list',
+				data: {
+					items: $(".item-stock .stock-list").data("items"),
+					keys: $(".item-stock .stock-list").data("keys"),
+					siteid: $(".item-stock .stock-list").data("siteid"),
+					numtypes: $(".item-stock .stock-list").data("numtypes")
+				},
+				mixins: [Aimeos.Product.Stock.mixins.bind(this)()]
 			},
-			'mixins': [Aimeos.Product.Stock.mixins.bind(this)()]
-		});
+			{
+				name: 'subscription',
+				el: '.item-subscription .subscription-list',
+				data: {
+					items: $(".item-subscription .subscription-list").data("items"),
+					keys: $(".item-subscription .subscription-list").data("keys"),
+					siteid: $(".item-subscription .subscription-list").data("siteid")
 
-		Aimeos.components['subscription'] = new Vue({
-			'el': '.item-subscription .subscription-list',
-			'data': {
-				'items': $(".item-subscription .subscription-list").data("items"),
-				'keys': $(".item-subscription .subscription-list").data("keys"),
-				'siteid': $(".item-subscription .subscription-list").data("siteid")
-
-			},
-			'mixins': [Aimeos.Product.Subscription.mixins.bind(this)()]
-		});
+				},
+				mixins: [Aimeos.Product.Subscription.mixins.bind(this)()]
+			}
+		]
+		for (const component of components) {
+			Aimeos.components[component.name] = new Vue({
+				'el': document.querySelector(component.el),
+				'data': component.data,
+				'mixins': component.mixins
+			});
+		}
 	},
 
 

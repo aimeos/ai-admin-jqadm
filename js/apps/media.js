@@ -14,9 +14,8 @@ $(function() {
 Aimeos.Media = {
 
 	init: function() {
-
 		Aimeos.components['media'] = new Vue({
-			el: '#item-media-group',
+			el: document.querySelector('#item-media-group'),
 			data: {
 				items: [],
 				siteid: null,
