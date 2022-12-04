@@ -135,12 +135,12 @@
 	chartDelivery : function() {
 
 		const self = this;
-		const keys = "order.base.service.code";
+		const keys = "order.service.code";
 		const ctx = this.context('.order-servicedelivery');
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{"==": {"order.base.service.type": "delivery"}},
+			{"==": {"order.service.type": "delivery"}},
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
@@ -191,12 +191,12 @@
 	chartPayment : function() {
 
 		const self = this;
-		const keys = "order.base.service.code";
+		const keys = "order.service.code";
 		const ctx = this.context('.order-servicepayment');
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
-			{"==": {"order.base.service.type": "payment"}},
+			{"==": {"order.service.type": "payment"}},
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};

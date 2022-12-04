@@ -69,10 +69,8 @@ class Standard
 		$total = 0;
 		$params = $this->storeFilter( $view->param( 'uo', [] ), 'customerorder' );
 		$orderItems = $this->getOrderItems( $view->item, $params, $total );
-		$baseItems = $this->getOrderBaseItems( $orderItems );
 
 		$view->orderItems = $orderItems;
-		$view->orderBaseItems = $baseItems;
 		$view->orderBody = parent::get();
 		$view->orderTotal = $total;
 
@@ -178,24 +176,6 @@ class Standard
 
 
 	/**
-	 * Returns the basket items for the given orders
-	 *
-	 * @param \Aimeos\Map $items Order items implementing \Aimeos\MShop\Order\Item\Iface
-	 * @return \Aimeos\Map Basket items implementing \Aimeos\MShop\Order\Item\Base\Iface
-	 */
-	protected function getOrderBaseItems( \Aimeos\Map $items ) : \Aimeos\Map
-	{
-		$ids = $items->getBaseId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
-
-		$search = $manager->filter()->slice( 0, count( $ids ) );
-		$search->setConditions( $search->compare( '==', 'order.base.id', $ids ) );
-
-		return $manager->search( $search );
-	}
-
-
-	/**
 	 * Returns the order items of the customer
 	 *
 	 * @param \Aimeos\MShop\Customer\Item\Iface $item Customer item object
@@ -207,15 +187,8 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
 
-		$search = $manager->filter();
-		$search->setSortations( [$search->sort( '-', 'order.ctime' )] );
-
-		$search = $this->initCriteria( $search, $params );
-		$expr = [
-			$search->compare( '==', 'order.base.customerid', $item->getId() ),
-			$search->getConditions(),
-		];
-		$search->setConditions( $search->and( $expr ) );
+		$search = $manager->filter()->order( '-order.ctime' );
+		$search = $this->initCriteria( $search, $params )->add( 'order.customerid', '==', $item->getId() );
 
 		return $manager->search( $search, [], $total );
 	}

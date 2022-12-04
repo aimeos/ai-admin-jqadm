@@ -111,7 +111,7 @@ $paymentStatusList = [
 							<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Price' ) ) ?></label>
 							<div class="col-7 col-sm-12">
 								<input type="number" min="0" step="0.01" class="form-control"
-									name="<?= $enc->attr( $this->formparam( array( 'transaction', $service->getId(), 'order.base.service.transaction.value' ) ) ) ?>">
+									name="<?= $enc->attr( $this->formparam( array( 'transaction', $service->getId(), 'order.service.transaction.value' ) ) ) ?>">
 							</div>
 						</div>
 					</div>
@@ -120,7 +120,7 @@ $paymentStatusList = [
 							<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Costs' ) ) ?></label>
 							<div class="col-7 col-sm-12">
 								<input type="number" step="0.01" class="form-control"
-									name="<?= $enc->attr( $this->formparam( array( 'transaction', $service->getId(), 'order.base.service.transaction.costs' ) ) ) ?>">
+									name="<?= $enc->attr( $this->formparam( array( 'transaction', $service->getId(), 'order.service.transaction.costs' ) ) ) ?>">
 							</div>
 						</div>
 					</div>

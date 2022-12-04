@@ -7,51 +7,41 @@
 
 $price = function( \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
 {
-	if( $order = $item->getBaseItem() )
+	$price = 0;
+
+	foreach( $item->getProducts() as $product )
 	{
-		$price = 0;
-
-		foreach( $order->getProducts() as $product )
-		{
-			if( strncmp( $this->site()->siteid(), $product->getSiteId(), strlen( $this->site()->siteid() ) ) === 0 ) {
-				$price += $product->getPrice()->getValue() * $product->getQuantity();
-			}
+		if( strncmp( $this->site()->siteid(), $product->getSiteId(), strlen( $this->site()->siteid() ) ) === 0 ) {
+			$price += $product->getPrice()->getValue() * $product->getQuantity();
 		}
-
-		return sprintf( $priceFormat, $price, $order->getPrice()->getCurrencyId() );
 	}
+
+	return sprintf( $priceFormat, $price, $item->getPrice()->getCurrencyId() );
 };
 
 
 $name = function( \Aimeos\MShop\Order\Item\Iface $item )
 {
-	if( $order = $item->getBaseItem() )
-	{
-		$type = \Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT;
+	$type = \Aimeos\MShop\Order\Item\Address\Base::TYPE_PAYMENT;
 
-		if( ( $address = current( $order->getAddress( $type ) ) ) === false ) {
-			return;
-		}
-
-		return $address->getCompany() ?: $address->getFirstName() . ' ' . $address->getLastName();
+	if( ( $address = current( $item->getAddress( $type ) ) ) === false ) {
+		return;
 	}
+
+	return $address->getCompany() ?: $address->getFirstName() . ' ' . $address->getLastName();
 };
 
 
 $payment = function( \Aimeos\MShop\Order\Item\Iface $item )
 {
-	if( $order = $item->getBaseItem() )
-	{
-		$type = \Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT;
-		$services = $order->getService( $type );
-		$codes = [];
+	$codes = [];
+	$type = \Aimeos\MShop\Order\Item\Service\Base::TYPE_PAYMENT;
 
-		foreach( $services as $service ) {
-			$codes[] = $service->getCode();
-		}
-
-		return implode( ', ', $codes );
+	foreach( $item->getService( $type ) as $service ) {
+		$codes[] = $service->getCode();
 	}
+
+	return implode( ', ', $codes );
 };
 
 
@@ -98,15 +88,15 @@ $statuslist = array(
 					<table class="list-items table table-hover">
 						<tbody>
 							<?php foreach( $this->get( 'orderlatestItems', [] ) as $item ) : ?>
-								<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getBaseId()] + $params ) ) ?>
+								<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getId()] + $params ) ) ?>
 								<tr>
 									<td class="order-id">
 										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a>
 									</td>
-									<td class="order-base-address-name">
+									<td class="order-address-name">
 										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $name( $item ) ) ?></a>
 									</td>
-									<td class="order-base-product-price">
+									<td class="order-product-price">
 										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $price( $item, $priceFormat ) ) ?></a>
 									</td>
 									<td class="order-datepayment">
@@ -115,7 +105,7 @@ $statuslist = array(
 									<td class="order-statuspayment">
 										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $status( $statuslist, $item->getStatusPayment() ) ) ?></a>
 									</td>
-									<td class="order-base-service-payment">
+									<td class="order-service-payment">
 										<a class="items-field" href="<?= $url ?>"><?= $enc->html( $payment( $item ) ) ?></a>
 									</td>
 								</tr>

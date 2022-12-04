@@ -73,8 +73,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'transaction' => [
 				$serviceId => [
-					'order.base.service.transaction.value' => 10,
-					'order.base.service.transaction.costs' => 1,
+					'order.service.transaction.value' => 10,
+					'order.service.transaction.costs' => 1,
 				]
 			],
 		];
@@ -97,8 +97,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'transaction' => [
 				$serviceId => [
-					'order.base.service.transaction.value' => 10,
-					'order.base.service.transaction.costs' => 1,
+					'order.service.transaction.value' => 10,
+					'order.service.transaction.costs' => 1,
 				]
 			],
 		];
@@ -133,10 +133,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getOrderBaseItem( $value = '672.00' )
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'order/base' );
-		$search = $manager->filter()->add( 'order.base.price', '==', $value );
+		$manager = \Aimeos\MShop::create( $this->context, 'order' );
+		$search = $manager->filter()->add( 'order.price', '==', $value );
 
-		return $manager->search( $search, ['order/base/service'] )
-			->first( new \RuntimeException( 'No order base item found' ) );
+		return $manager->search( $search, ['order/service'] )
+			->first( new \RuntimeException( 'No order item found' ) );
 	}
 }

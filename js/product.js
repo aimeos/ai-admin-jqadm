@@ -509,7 +509,7 @@ Aimeos.Product.Order = {
 				'offset': 0,
 				'limit': 25,
 				'total': 0,
-				'sort': '-order.base.id',
+				'sort': '-order.id',
 			},
 			beforeMount: function() {
 				this.Aimeos = Aimeos;
@@ -517,7 +517,7 @@ Aimeos.Product.Order = {
 				if(this.$el.dataset && this.$el.dataset.id) {
 					this.id = this.$el.dataset.id;
 				}
-				this.filter['order.base.product.productid'] = {'==':{'order.base.product.productid': this.id}};
+				this.filter['order.product.productid'] = {'==':{'order.product.productid': this.id}};
 
 				let list = [];
 				try {
@@ -561,7 +561,7 @@ Aimeos.Product.Order = {
 					this.fetch();
 				},
 				reset : function() {
-					Object.assign(this.$data, {filter: {'order.base.product.productid': {'==':{'order.base.product.productid': this.id}}}});
+					Object.assign(this.$data, {filter: {'order.product.productid': {'==':{'order.product.productid': this.id}}}});
 				},
 				find : function(ev, key, op) {
 					if(ev.target.value !== '') {
@@ -578,15 +578,15 @@ Aimeos.Product.Order = {
 
 					Aimeos.options.done(function(response) {
 
-						if(response.meta && response.meta.resources && response.meta.resources['order/base'] ) {
+						if(response.meta && response.meta.resources && response.meta.resources['order'] ) {
 
 							let args = {
 								'filter': {'&&': []},
 								'fields': {
-									'order/base': self.fields.join(',') + ',order.base.customerid',
-									'order/base/address': self.fields.join(',') + ',order.base.address.type',
+									'order': self.fields.join(',') + ',order.customerid',
+									'order/address': self.fields.join(',') + ',order.address.type',
 								},
-								'include': 'order/base/address',
+								'include': 'order/address',
 								'page': {
 									'offset': self.offset,
 									'limit': self.limit
@@ -611,7 +611,7 @@ Aimeos.Product.Order = {
 								config['params'] = args;
 							}
 
-							axios.get(response.meta.resources['order/base'], config).then(response => {
+							axios.get(response.meta.resources['order'], config).then(response => {
 
 								if(response.data) {
 									self.total = response.data.meta && response.data.meta.total || 0;
@@ -642,7 +642,7 @@ Aimeos.Product.Order = {
 
 					(item['relationships'] && item['relationships'][type] && item['relationships'][type]['data'] || []).forEach(function(addr) {
 						if(addr.data && addr.data.id && self.included[type] && self.included[type][addr.data.id]
-							&& self.included[type][addr.data.id]['attributes']['order.base.address.type'] === 'payment'
+							&& self.included[type][addr.data.id]['attributes']['order.address.type'] === 'payment'
 						) {
 							id = addr.data.id;
 						}

@@ -221,37 +221,37 @@ body.dark .dashboard .quick-percent.negative {
 }
 
 .dashboard .order-latest .order-id,
-.dashboard .order-latest .order-base-product-price,
+.dashboard .order-latest .order-product-price,
 .dashboard .order-latest .order-statuspayment {
 	text-align: end;
 }
 
-.dashboard .order-latest .order-base-address-name,
-.dashboard .order-latest .order-base-service-payment {
+.dashboard .order-latest .order-address-name,
+.dashboard .order-latest .order-service-payment {
 	text-align: start;
 }
 
 .dashboard .order-latest .order-statuspayment,
-.dashboard .order-latest .order-base-product-price {
+.dashboard .order-latest .order-product-price {
 	font-weight: bold;
 }
 
-.dashboard .order-latest .order-base-service-payment:before {
+.dashboard .order-latest .order-service-payment:before {
 	content: "(";
 }
 
-.dashboard .order-latest .order-base-service-payment:after {
+.dashboard .order-latest .order-service-payment:after {
 	content: ")";
 }
 
 @media (max-width: 768px) {
-	.dashboard .order-latest .order-base-service-payment {
+	.dashboard .order-latest .order-service-payment {
 		display: none;
 	}
 }
 
 @media (max-width: 640px) {
-	.dashboard .order-latest .order-base-address-name {
+	.dashboard .order-latest .order-address-name {
 		display: none;
 	}
 }

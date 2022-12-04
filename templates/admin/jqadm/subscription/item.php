@@ -11,13 +11,7 @@ $selected = function( $key, $code ) {
 
 
 $enc = $this->encoder();
-
 $params = $this->get( 'pageParams', [] );
-$basket = $this->itemBase;
-
-/// Price format with price value (%1$s) and currency (%2$s)
-$priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
-$currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() );
 
 
 ?>
@@ -93,8 +87,8 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 			<div id="basic" class="item-basic vue tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
 				data-data="<?= $enc->attr( $this->get( 'subscriptionData' ) ) ?>">
 
-				<input class="item-ordbaseid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.ordbaseid' ) ) ) ?>"
-					value="<?= $enc->attr( $this->param( 'subscription.ordbaseid', $this->get( 'itemData/subscription.ordbaseid' ) ) ) ?>">
+				<input class="item-orderid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.orderid' ) ) ) ?>"
+					value="<?= $enc->attr( $this->param( 'subscription.orderid', $this->get( 'itemData/subscription.orderid' ) ) ) ?>">
 				<input class="item-ordprodid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.ordprodid' ) ) ) ?>"
 					value="<?= $enc->attr( $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) ?>">
 
@@ -190,179 +184,187 @@ $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() )
 						</div>
 					</div>
 
-					<div class="col-xl-6 block <?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>">
-						<div class="box">
-							<div class="form-group row">
-								<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?></label>
-								<div class="col-8">
-									<span class="form-control item-sitecode"><?= $enc->html( $basket->getSiteCode() ) ?></span>
-								</div>
-								<div class="col-12 form-text text-muted help-text">
-									<?= $enc->html( $this->translate( 'admin', 'Site the order was placed at' ) ) ?>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>
-								<div class="col-8">
-									<span class="form-control item-customerid">
-										<?php if( $basket->getCustomerId() ) : ?>
-											<a class="link fa act-view" target="_blank"
-												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $basket->getCustomerId()] ) ) ?>">
-												<?= $enc->attr( $basket->getCustomerId() ) ?>
-											</a>
-										<?php endif ?>
-									</span>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Order ID' ) ) ?></label>
-								<div class="col-8">
-									<span class="form-control item-orderid">
-										<a class="link fa act-view" target="_blank"
-											href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $basket->getId()] ) ) ?>">
-											<?= $enc->attr( $basket->getId() ) ?>
-										</a>
-									</span>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ) ?></label>
-								<div class="col-8">
-									<span class="form-control item-currencyid"><?= $enc->html( $basket->locale()->getCurrencyId() ) ?></span>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
-								<div class="col-8">
-									<span class="form-control item-languageid"><?= $enc->html( $this->translate( 'language', $basket->locale()->getLanguageId() ) ) ?></span>
-								</div>
-							</div>
-						</div>
-					</div>
+					<?php if( $order = $this->item->getOrderItem() ) : ?>
+						<?php
+							/// Price format with price value (%1$s) and currency (%2$s)
+							$priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
+							$currency = $this->translate( 'currency', $order->getPrice()->getCurrencyId() );
+						?>
 
-					<div class="col-sm-12">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="box">
-									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?></h2>
-									<div class="table-responsive">
-										<table class="item-product-list table table-striped">
-											<thead>
-												<tr>
-													<th class="item-column column-desc"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></th>
-													<th class="item-column column-quantity"><?= $enc->html( $this->translate( 'admin', 'Quantity' ) ) ?></th>
-													<th class="item-column column-price"><?= $enc->html( $this->translate( 'admin', 'Price' ) ) ?></th>
-													<th class="item-column column-sum"><?= $enc->html( $this->translate( 'admin', 'Sum' ) ) ?></th>
-												</tr>
-											</thead>
-											<tbody>
-
-												<?php foreach( $basket->getProducts() as $pos => $orderProduct ) : ?>
-													<?php if( $orderProduct->getId() == $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) : ?>
-														<tr class="list-item">
-															<td class="item-column column-desc">
-																<span class="product-name"><?= $enc->html( $orderProduct->getName() ) ?></span>
-																<span class="product-attr">
-																	<?php foreach( $orderProduct->getAttributeItems() as $attrItem ) : ?>
-																		<span class="attr-code"><?= $enc->html( $attrItem->getCode() ) ?></span>
-																		<span class="attr-value">
-																			<?php if( $attrItem->getQuantity() > 1 ) : ?>
-																				<?= $enc->html( $attrItem->getQuantity() ) ?>×
-																			<?php endif ?>
-																			<?= $enc->html( $attrItem->getValue() ) ?>
-																		</span>
-																	<?php endforeach ?>
-																</span>
-																<span class="product-sku"><?= $enc->html( $orderProduct->getProductCode() ) ?></span>
-															</td>
-															<td class="item-column column-quantity">
-																<span class="product-quantity"><?= $enc->html( $orderProduct->getQuantity() ) ?></span>
-															</td>
-															<td class="item-column column-price">
-																<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getValue(), $currency ) ) ?></span>
-																<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getCosts(), $currency ) ) ?></span>
-																<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getRebate(), $currency ) ) ?></span>
-															</td>
-															<td class="item-column column-sum">
-																<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
-																<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getCosts() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
-																<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
-															</td>
-														</tr>
-													<?php endif ?>
-												<?php endforeach ?>
-
-											</tbody>
-										</table>
+						<div class="col-xl-6 block <?= $this->site()->readonly( $order->locale()->getSiteId() ) ?>">
+							<div class="box">
+								<div class="form-group row">
+									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?></label>
+									<div class="col-8">
+										<span class="form-control item-sitecode"><?= $enc->html( $order->getSiteCode() ) ?></span>
+									</div>
+									<div class="col-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Site the order was placed at' ) ) ?>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-
-					<?php foreach( $basket->getAddresses()->krsort() as $type => $list ) : $code = 'address:' . $type ?>
-
-						<div class="col-xl-6 item-address">
-							<div class="box">
-								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
-
-								<?php foreach( $list as $addr ) : ?>
-									<div class="address-short">
-										<span class="address-text">
-											<?php
-												$salutations = array(
-													\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MR,
-													\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MS,
-												);
-
-												echo preg_replace( "/\n+/m", "<br>", trim( $enc->html( sprintf(
-													/// Address format with company (%1$s), salutation (%2$s), title (%3$s), first name (%4$s), last name (%5$s),
-													/// address part one (%6$s, e.g street), address part two (%7$s, e.g house number), address part three (%8$s, e.g additional information),
-													/// postal/zip code (%9$s), city (%10$s), state (%11$s), country (%12$s), language (%13$s),
-													/// e-mail (%14$s), phone (%15$s), facsimile/telefax (%16$s), web site (%17$s), vatid (%18$s)
-													$this->translate( 'client', '%1$s
-	%2$s %3$s %4$s %5$s
-	%6$s %7$s
-	%8$s
-	%9$s %10$s
-	%11$s
-	%12$s
-	%13$s
-	%14$s
-	%15$s
-	%16$s
-	%17$s
-	%18$s
-	'
-													),
-													$addr->getCompany(),
-													( in_array( $addr->getSalutation(), $salutations ) ? $this->translate( 'mshop/code', $addr->getSalutation() ) : '' ),
-													$addr->getTitle(),
-													$addr->getFirstName(),
-													$addr->getLastName(),
-													$addr->getAddress1(),
-													$addr->getAddress2(),
-													$addr->getAddress3(),
-													$addr->getPostal(),
-													$addr->getCity(),
-													$addr->getState(),
-													$this->translate( 'country', $addr->getCountryId() ),
-													$this->translate( 'language', $addr->getLanguageId() ),
-													$addr->getEmail(),
-													$addr->getTelephone(),
-													$addr->getTelefax(),
-													$addr->getWebsite(),
-													$addr->getVatID()
-												) ) ) );
-											?>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>
+									<div class="col-8">
+										<span class="form-control item-customerid">
+											<?php if( $order->getCustomerId() ) : ?>
+												<a class="link fa act-view" target="_blank"
+													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $order->getCustomerId()] ) ) ?>">
+													<?= $enc->attr( $order->getCustomerId() ) ?>
+												</a>
+											<?php endif ?>
 										</span>
 									</div>
 								</div>
-
-							<?php endforeach ?>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Order ID' ) ) ?></label>
+									<div class="col-8">
+										<span class="form-control item-orderid">
+											<a class="link fa act-view" target="_blank"
+												href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $order->getId()] ) ) ?>">
+												<?= $enc->attr( $order->getId() ) ?>
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Currency' ) ) ?></label>
+									<div class="col-8">
+										<span class="form-control item-currencyid"><?= $enc->html( $order->locale()->getCurrencyId() ) ?></span>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
+									<div class="col-8">
+										<span class="form-control item-languageid"><?= $enc->html( $this->translate( 'language', $order->locale()->getLanguageId() ) ) ?></span>
+									</div>
+								</div>
+							</div>
 						</div>
 
-					<?php endforeach ?>
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="box">
+										<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?></h2>
+										<div class="table-responsive">
+											<table class="item-product-list table table-striped">
+												<thead>
+													<tr>
+														<th class="item-column column-desc"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></th>
+														<th class="item-column column-quantity"><?= $enc->html( $this->translate( 'admin', 'Quantity' ) ) ?></th>
+														<th class="item-column column-price"><?= $enc->html( $this->translate( 'admin', 'Price' ) ) ?></th>
+														<th class="item-column column-sum"><?= $enc->html( $this->translate( 'admin', 'Sum' ) ) ?></th>
+													</tr>
+												</thead>
+												<tbody>
+
+													<?php foreach( $order->getProducts() as $pos => $orderProduct ) : ?>
+														<?php if( $orderProduct->getId() == $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) : ?>
+															<tr class="list-item">
+																<td class="item-column column-desc">
+																	<span class="product-name"><?= $enc->html( $orderProduct->getName() ) ?></span>
+																	<span class="product-attr">
+																		<?php foreach( $orderProduct->getAttributeItems() as $attrItem ) : ?>
+																			<span class="attr-code"><?= $enc->html( $attrItem->getCode() ) ?></span>
+																			<span class="attr-value">
+																				<?php if( $attrItem->getQuantity() > 1 ) : ?>
+																					<?= $enc->html( $attrItem->getQuantity() ) ?>×
+																				<?php endif ?>
+																				<?= $enc->html( $attrItem->getValue() ) ?>
+																			</span>
+																		<?php endforeach ?>
+																	</span>
+																	<span class="product-sku"><?= $enc->html( $orderProduct->getProductCode() ) ?></span>
+																</td>
+																<td class="item-column column-quantity">
+																	<span class="product-quantity"><?= $enc->html( $orderProduct->getQuantity() ) ?></span>
+																</td>
+																<td class="item-column column-price">
+																	<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getValue(), $currency ) ) ?></span>
+																	<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getCosts(), $currency ) ) ?></span>
+																	<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $orderProduct->getPrice()->getRebate(), $currency ) ) ?></span>
+																</td>
+																<td class="item-column column-sum">
+																	<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
+																	<span class="product-costs"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getCosts() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
+																	<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
+																</td>
+															</tr>
+														<?php endif ?>
+													<?php endforeach ?>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<?php foreach( $order->getAddresses()->krsort() as $type => $list ) : $code = 'address:' . $type ?>
+
+							<div class="col-xl-6 item-address">
+								<div class="box">
+									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
+
+									<?php foreach( $list as $addr ) : ?>
+										<div class="address-short">
+											<span class="address-text">
+												<?php
+													$salutations = array(
+														\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MR,
+														\Aimeos\MShop\Common\Item\Address\Base::SALUTATION_MS,
+													);
+
+													echo preg_replace( "/\n+/m", "<br>", trim( $enc->html( sprintf(
+														/// Address format with company (%1$s), salutation (%2$s), title (%3$s), first name (%4$s), last name (%5$s),
+														/// address part one (%6$s, e.g street), address part two (%7$s, e.g house number), address part three (%8$s, e.g additional information),
+														/// postal/zip code (%9$s), city (%10$s), state (%11$s), country (%12$s), language (%13$s),
+														/// e-mail (%14$s), phone (%15$s), facsimile/telefax (%16$s), web site (%17$s), vatid (%18$s)
+														$this->translate( 'client', '%1$s
+%2$s %3$s %4$s %5$s
+%6$s %7$s
+%8$s
+%9$s %10$s
+%11$s
+%12$s
+%13$s
+%14$s
+%15$s
+%16$s
+%17$s
+%18$s
+'
+														),
+														$addr->getCompany(),
+														( in_array( $addr->getSalutation(), $salutations ) ? $this->translate( 'mshop/code', $addr->getSalutation() ) : '' ),
+														$addr->getTitle(),
+														$addr->getFirstName(),
+														$addr->getLastName(),
+														$addr->getAddress1(),
+														$addr->getAddress2(),
+														$addr->getAddress3(),
+														$addr->getPostal(),
+														$addr->getCity(),
+														$addr->getState(),
+														$this->translate( 'country', $addr->getCountryId() ),
+														$this->translate( 'language', $addr->getLanguageId() ),
+														$addr->getEmail(),
+														$addr->getTelephone(),
+														$addr->getTelefax(),
+														$addr->getWebsite(),
+														$addr->getVatID()
+													) ) ) );
+												?>
+											</span>
+										</div>
+									</div>
+
+								<?php endforeach ?>
+							</div>
+						<?php endforeach ?>
+
+					<?php endif ?>
 				</div>
 
 			<?= $this->get( 'itemBody' ) ?>

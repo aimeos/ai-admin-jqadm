@@ -103,7 +103,6 @@ return [
 			'order-export' => 'order-export'
 		],
 		'subparts' => [
-			'invoice' => 'invoice',
 			'transaction' => 'transaction',
 		],
 	],

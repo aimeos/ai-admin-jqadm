@@ -109,9 +109,10 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
-			$view->item = $manager->load( $id );
+			$manager = \Aimeos\MShop::create( $this->context(), 'order' );
+			$domains = ['order/address', 'order/coupon', 'order/product', 'order/service'];
 
+			$view->item = $manager->get( $id, $domains );
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -138,7 +139,7 @@ class Standard
 			$data = $view->param( 'item', [] );
 
 			if( !isset( $view->item ) ) {
-				$view->item = \Aimeos\MShop::create( $this->context(), 'order/base' )->create();
+				$view->item = \Aimeos\MShop::create( $this->context(), 'order' )->create();
 			}
 
 			$data['order.siteid'] = $view->item->getSiteId();
@@ -211,8 +212,8 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
-			$refs = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
+			$manager = \Aimeos\MShop::create( $this->context(), 'order' );
+			$refs = ['order/address', 'order/coupon', 'order/product', 'order/service'];
 
 			$view->item = $manager->get( $id, $refs );
 			$view->itemData = $this->toArray( $view->item );
@@ -236,7 +237,7 @@ class Standard
 	{
 		$view = $this->view();
 
-		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
 		$manager->begin();
 
 		try
@@ -276,12 +277,12 @@ class Standard
 			$manager = \Aimeos\MShop::create( $context, 'order' );
 			$params = $this->storeFilter( $view->param(), 'order' );
 
-			$search = $manager->filter( false, true );
-			$search->setSortations( [$search->sort( '-', 'order.id' )] );
+			$search = $manager->filter( false, true )->order( '-order.id' );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->search( $search, [], $total );
-			$view->baseItems = $this->getOrderBaseItems( $view->items );
+			$domains = ['order/address', 'order/coupon', 'order/product', 'order/service'];
+
+			$view->items = $manager->search( $search, $domains, $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();
@@ -405,25 +406,6 @@ class Standard
 
 
 	/**
-	 * Returns the base order items (baskets) for the given order items (invoices)
-	 *
-	 * @param \Aimeos\Map $orderItems List of order items implementing \Aimeos\MShop\Order\Item\Iface
-	 * @return \Aimeos\Map List of order base items implementing \Aimeos\MShop\Order\Item\Base\Iface
-	 */
-	protected function getOrderBaseItems( \Aimeos\Map $orderItems ) : \Aimeos\Map
-	{
-		$baseIds = $orderItems->getBaseId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
-
-		$search = $manager->filter( false, true )->slice( 0, count( $baseIds ) );
-		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
-
-		$domains = ['order/base/address', 'order/base/coupon', 'order/base/product', 'order/base/service'];
-		return $manager->search( $search, $domains );
-	}
-
-
-	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -471,27 +453,27 @@ class Standard
 	 * Creates new and updates existing items using the data array
 	 *
 	 * @param array $data Data array
-	 * @return \Aimeos\MShop\Order\Item\Base\Iface New order item object
+	 * @return \Aimeos\MShop\Order\Item\Iface New order item object
 	 */
-	protected function fromArray( array $data ) : \Aimeos\MShop\Order\Item\Base\Iface
+	protected function fromArray( array $data ) : \Aimeos\MShop\Order\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
-		$attrManager = \Aimeos\MShop::create( $this->context(), 'order/base/service/attribute' );
-		$domains = ['order/base/address', 'order/base/product', 'order/base/service'];
+		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
+		$attrManager = \Aimeos\MShop::create( $this->context(), 'order/service/attribute' );
+		$domains = ['order/address', 'order/product', 'order/service'];
 
-		if( isset( $data['order.base.id'] ) ) {
-			$basket = $manager->get( $data['order.base.id'], $domains )->off();
+		if( isset( $data['order.id'] ) ) {
+			$basket = $manager->get( $data['order.id'], $domains )->off();
 		} else {
 			$basket = $manager->create()->off();
 		}
 
 		$basket->fromArray( $data, true );
 		$allowed = array_flip( [
-			'order.base.product.statusdelivery',
-			'order.base.product.statuspayment',
-			'order.base.product.qtyopen',
-			'order.base.product.timeframe',
-			'order.base.product.notes',
+			'order.product.statusdelivery',
+			'order.product.statuspayment',
+			'order.product.qtyopen',
+			'order.product.timeframe',
+			'order.product.notes',
 		] );
 
 		foreach( $basket->getProducts() as $pos => $product )
@@ -531,10 +513,10 @@ class Standard
 
 					foreach( $list as $array )
 					{
-						if( isset( $attrItems[$array['order.base.service.attribute.id']] ) )
+						if( isset( $attrItems[$array['order.service.attribute.id']] ) )
 						{
-							$attrItem = $attrItems[$array['order.base.service.attribute.id']];
-							unset( $attrItems[$array['order.base.service.attribute.id']] );
+							$attrItem = $attrItems[$array['order.service.attribute.id']];
+							unset( $attrItems[$array['order.service.attribute.id']] );
 						}
 						else
 						{
@@ -559,10 +541,10 @@ class Standard
 	/**
 	 * Constructs the data array for the view from the given item
 	 *
-	 * @param \Aimeos\MShop\Order\Item\Base\Iface $item Order base item object
+	 * @param \Aimeos\MShop\Order\Item\Iface $item Order item object
 	 * @return string[] Multi-dimensional associative list of item data
 	 */
-	protected function toArray( \Aimeos\MShop\Order\Item\Base\Iface $item, bool $copy = false ) : array
+	protected function toArray( \Aimeos\MShop\Order\Item\Iface $item, bool $copy = false ) : array
 	{
 		$siteId = $this->context()->locale()->getSiteId();
 		$data = $item->toArray( true );
@@ -579,8 +561,8 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['order.base.siteid'] = $siteId;
-			$data['order.base.id'] = '';
+			$data['order.siteid'] = $siteId;
+			$data['order.id'] = '';
 		}
 
 		foreach( $item->getAddresses() as $type => $addresses )
@@ -595,8 +577,8 @@ class Standard
 
 				if( $copy === true )
 				{
-					$data['address'][$type][$pos]['order.base.address.siteid'] = $siteId;
-					$data['address'][$type][$pos]['order.base.address.id'] = '';
+					$data['address'][$type][$pos]['order.address.siteid'] = $siteId;
+					$data['address'][$type][$pos]['order.address.id'] = '';
 				}
 			}
 		}

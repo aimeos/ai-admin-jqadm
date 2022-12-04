@@ -149,13 +149,13 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->context, 'order' );
 		$this->view->item = $manager->create();
 
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
-				'order.base.comment' => 'jqadm test comment',
+				'order.comment' => 'jqadm test comment',
 			),
 		);
 
@@ -191,7 +191,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'op' => array( 0 => '==' ),
 				'val' => array( 0 => 'web' ),
 			),
-			'sort' => array( '-order.base.id' ),
+			'sort' => array( '-order.id' ),
 		);
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
@@ -215,7 +215,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$result = $this->object->getSubClient( 'invoice' );
+		$result = $this->object->getSubClient( 'transaction' );
 		$this->assertInstanceOf( \Aimeos\Admin\JQAdm\Iface::class, $result );
 	}
 
@@ -275,15 +275,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	protected function getOrderBaseItem( $comment = 'This is another comment.' )
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'order/base' );
+		$manager = \Aimeos\MShop::create( $this->context, 'order' );
+		$search = $manager->filter()->add( 'order.comment', '==', $comment );
 
-		$search = $manager->filter();
-		$search->setConditions( $search->compare( '==', 'order.base.comment', $comment ) );
-
-		if( ( $item = $manager->search( $search )->first() ) === null ) {
-			throw new \RuntimeException( 'No order base item found' );
-		}
-
-		return $item;
+		return $manager->search( $search )->first( new \RuntimeException( 'No order item found' ) );
 	}
 }

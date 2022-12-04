@@ -102,10 +102,8 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $context, 'subscription' );
-			$baseManager = \Aimeos\MShop::create( $context, 'order/base' );
 
-			$view->item = $manager->get( $id );
-			$view->itemBase = $baseManager->get( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
+			$view->item = $manager->get( $id, ['order', 'order/address', 'order/product'] );
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -136,13 +134,13 @@ class Standard
 				$view->item = \Aimeos\MShop::create( $context, 'subscription' )->create();
 			}
 
-			$baseManager = \Aimeos\MShop::create( $context, 'order/base' );
-			$baseId = ( $view->item->getOrderBaseId() ?: $view->param( 'item/subscription.ordbaseid' ) );
+			$manager = \Aimeos\MShop::create( $context, 'order' );
+			$orderId = ( $view->item->getOrderId() ?: $view->param( 'item/subscription.orderid' ) );
 
-			if( $baseId ) {
-				$view->itemBase = $baseManager->get( $baseId, ['order/base/address', 'order/base/product'] );
+			if( $orderId ) {
+				$view->itemOrder = $manager->get( $orderId, ['order/address', 'order/product'] );
 			} else {
-				$view->itemBase = $baseManager->create();
+				$view->itemOrder = $manager->create();
 			}
 
 			$data['subscription.siteid'] = $view->item->getSiteId();
@@ -261,10 +259,8 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $context, 'subscription' );
-			$baseManager = \Aimeos\MShop::create( $context, 'order/base' );
 
-			$view->item = $manager->get( $id );
-			$view->itemBase = $baseManager->get( $view->item->getOrderBaseId(), ['order/base/address', 'order/base/product'] );
+			$view->item = $manager->get( $id, ['order', 'order/address', 'order/product'] );
 			$view->itemData = $this->toArray( $view->item );
 			$view->itemBody = parent::get();
 		}
@@ -329,8 +325,7 @@ class Standard
 			$search->setSortations( [$search->sort( '-', 'subscription.ctime' )] );
 			$search = $this->initCriteria( $search, $params );
 
-			$view->items = $manager->search( $search, [], $total );
-			$view->baseItems = $this->getOrderBaseItems( $view->items );
+			$view->items = $manager->search( $search, ['order', 'order/address', 'order/product'], $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();
@@ -450,24 +445,6 @@ class Standard
 		 * @see admin/jqadm/subscription/decorators/global
 		 */
 		return $this->createSubClient( 'subscription/' . $type, $name );
-	}
-
-
-	/**
-	 * Returns the base order items (baskets) for the given subscription items
-	 *
-	 * @param \Aimeos\Map $items List of subscription items implementing \Aimeos\MShop\Subscription\Item\Iface
-	 * @return \Aimeos\Map List of order base items implementing \Aimeos\MShop\Order\Item\Base\Iface
-	 */
-	protected function getOrderBaseItems( \Aimeos\Map $items ) : \Aimeos\Map
-	{
-		$baseIds = $items->getOrderBaseId()->toArray();
-		$manager = \Aimeos\MShop::create( $this->context(), 'order/base' );
-
-		$search = $manager->filter()->slice( 0, count( $baseIds ) );
-		$search->setConditions( $search->compare( '==', 'order.base.id', $baseIds ) );
-
-		return $manager->search( $search, ['order/base/address', 'order/base/product'] );
 	}
 
 

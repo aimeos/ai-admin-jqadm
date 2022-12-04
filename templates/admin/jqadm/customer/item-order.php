@@ -5,46 +5,37 @@
  * @copyright Aimeos (aimeos.org), 2017-2022
  */
 
-$price = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
+$price = function( \Aimeos\MShop\Order\Item\Iface $item, $priceFormat )
 {
-	if( isset( $orders[$item->getBaseId()] ) )
-	{
-		$price = $orders[$item->getBaseId()]->getPrice();
-		return sprintf( $priceFormat, $price->getValue(), $price->getCurrencyId() );
+	$price = $item->getPrice();
+	return sprintf( $priceFormat, $price->getValue(), $price->getCurrencyId() );
+};
+
+
+$name = function( \Aimeos\MShop\Order\Item\Iface $item )
+{
+	$addresses = $item->getAddresses();
+
+	if( !isset( $addresses[\Aimeos\MShop\Order\Item\Address\Base::TYPE_PAYMENT] ) ) {
+		return;
+	}
+
+	$address = $addresses[\Aimeos\MShop\Order\Item\Address\Base::TYPE_PAYMENT];
+
+	if( $address->getSalutation() !== \Aimeos\MShop\Common\Item\Address\Base::SALUTATION_COMPANY ) {
+		return $address->getFirstName() . ' ' . $address->getLastName();
+	} else {
+		return $address->getCompany();
 	}
 };
 
 
-$name = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
+$payment = function( \Aimeos\MShop\Order\Item\Iface $item )
 {
-	if( isset( $orders[$item->getBaseId()] ) )
-	{
-		$addresses = $orders[$item->getBaseId()]->getAddresses();
+	$services = $item->getServices();
 
-		if( !isset( $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT] ) ) {
-			return;
-		}
-
-		$address = $addresses[\Aimeos\MShop\Order\Item\Base\Address\Base::TYPE_PAYMENT];
-
-		if( $address->getSalutation() !== \Aimeos\MShop\Common\Item\Address\Base::SALUTATION_COMPANY ) {
-			return $address->getFirstName() . ' ' . $address->getLastName();
-		} else {
-			return $address->getCompany();
-		}
-	}
-};
-
-
-$payment = function( array $orders, \Aimeos\MShop\Order\Item\Iface $item )
-{
-	if( isset( $orders[$item->getBaseId()] ) )
-	{
-		$services = $orders[$item->getBaseId()]->getServices();
-
-		if( isset( $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT] ) ) {
-			return $services[\Aimeos\MShop\Order\Item\Base\Service\Base::TYPE_PAYMENT]->getCode();
-		}
+	if( isset( $services[\Aimeos\MShop\Order\Item\Service\Base::TYPE_PAYMENT] ) ) {
+		return $services[\Aimeos\MShop\Order\Item\Service\Base::TYPE_PAYMENT]->getCode();
 	}
 };
 
@@ -57,7 +48,6 @@ $status = function( $list, $key )
 
 $enc = $this->encoder();
 $params = $this->get( 'pageParams', [] );
-$baseItems = $this->get( 'orderBaseItems', [] );
 
 /// price format with value (%1$s) and currency (%2$s)
 $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
@@ -77,7 +67,7 @@ $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
  * @since 2017.10
  * @category Developer
  */
-$default = ['order.id', 'order.datepayment', 'order.statuspayment', 'order.baseid'];
+$default = ['order.id', 'order.datepayment', 'order.statuspayment', 'order.currencyid', 'order.price'];
 $default = $this->config( 'admin/jqadm/customer/order/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/customerorder/fields', $default );
 
@@ -89,14 +79,23 @@ $columns = [
 	'order.datedelivery' => $this->translate( 'admin', 'Delivery' ),
 	'order.statusdelivery' => $this->translate( 'admin', 'Ship status' ),
 	'order.relatedid' => $this->translate( 'admin', 'Related ID' ),
+	'order.customerid' => $this->translate( 'admin', 'Customer ID' ),
+	'order.sitecode' => $this->translate( 'admin', 'Site' ),
+	'order.languageid' => $this->translate( 'admin', 'Language' ),
+	'order.currencyid' => $this->translate( 'admin', 'Currency' ),
+	'order.price' => $this->translate( 'admin', 'Price' ),
+	'order.costs' => $this->translate( 'admin', 'Costs' ),
+	'order.rebate' => $this->translate( 'admin', 'Rebate' ),
+	'order.taxvalue' => $this->translate( 'admin', 'Tax' ),
+	'order.taxflag' => $this->translate( 'admin', 'Incl. tax' ),
+	'order.customerref' => $this->translate( 'admin', 'Reference' ),
+	'order.comment' => $this->translate( 'admin', 'Comment' ),
 	'order.ctime' => $this->translate( 'admin', 'Created' ),
 	'order.mtime' => $this->translate( 'admin', 'Modifed' ),
 	'order.editor' => $this->translate( 'admin', 'Editor' ),
-	'order.baseid' => $this->translate( 'admin', 'Basket' ),
 ];
 
 $paymentStatusList = [
-	null => '',
 	'-1' => $this->translate( 'mshop/code', 'pay:-1' ),
 	'0' => $this->translate( 'mshop/code', 'pay:0' ),
 	'1' => $this->translate( 'mshop/code', 'pay:1' ),
@@ -109,7 +108,6 @@ $paymentStatusList = [
 ];
 
 $deliveryStatusList = [
-	null => '',
 	'-1' => $this->translate( 'mshop/code', 'stat:-1' ),
 	'0' => $this->translate( 'mshop/code', 'stat:0' ),
 	'1' => $this->translate( 'mshop/code', 'stat:1' ),
@@ -119,6 +117,11 @@ $deliveryStatusList = [
 	'5' => $this->translate( 'mshop/code', 'stat:5' ),
 	'6' => $this->translate( 'mshop/code', 'stat:6' ),
 	'7' => $this->translate( 'mshop/code', 'stat:7' ),
+];
+
+$taxflagList = [
+	0 => $this->translate( 'mshop/code', 'tax:0' ),
+	1 => $this->translate( 'mshop/code', 'tax:1' ),
 ];
 
 
@@ -167,16 +170,26 @@ $deliveryStatusList = [
 								'order.datedelivery' => ['op' => '-', 'type' => 'datetime-local'],
 								'order.statusdelivery' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
 								'order.relatedid' => ['op' => '=='],
+								'order.customerid' => ['op' => '=='],
+								'order.sitecode' => ['op' => '=~'],
+								'order.languageid' => ['op' => '=='],
+								'order.currencyid' => ['op' => '=='],
+								'order.price' => ['op' => '=='],
+								'order.costs' => ['op' => '=='],
+								'order.rebate' => ['op' => '=='],
+								'order.taxvalue' => ['op' => '=='],
+								'order.taxflag' => ['op' => '==', 'type' => 'select', 'val' => $taxflagList],
+								'order.customerref' => ['op' => '=~'],
+								'order.comment' => ['op' => '~='],
 								'order.ctime' => ['op' => '-', 'type' => 'datetime-local'],
 								'order.mtime' => ['op' => '-', 'type' => 'datetime-local'],
 								'order.editor' => ['op' => '=~'],
-								'order.baseid' => ['op' => '=='],
 							]
 						] );
 					?>
 
 					<?php foreach( $this->get( 'orderItems', [] ) as $id => $item ) : ?>
-						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getBaseId()] + $params ) ) ?>
+						<?php $url = $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getId()] + $params ) ) ?>
 						<tr class="list-item <?= $this->site()->readonly( $item->getSiteId() ) ?>">
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id">
@@ -213,6 +226,62 @@ $deliveryStatusList = [
 									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRelatedId() ) ?></a>
 								</td>
 							<?php endif ?>
+							<?php if( in_array( 'order.customerid', $fields ) ) : ?>
+								<td class="order-customerid">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getCustomerId() ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.sitecode', $fields ) ) : ?>
+								<td class="order-sitecode">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getSiteCode() ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.languageid', $fields ) ) : ?>
+								<td class="order-languageid">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getLanguageId() ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.currencyid', $fields ) ) : ?>
+								<td class="order-currencyid">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPrice()->getCurrencyId() ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.price', $fields ) ) : ?>
+								<td class="order-price">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPrice()->getValue() ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.costs', $fields ) ) : ?>
+								<td class="order-costs">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPrice()->getCosts() ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.rebate', $fields ) ) : ?>
+								<td class="order-rebate">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPrice()->getRebate() ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.taxvalue', $fields ) ) : ?>
+								<td class="order-taxvalue">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPrice()->getTaxValue() ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.taxflag', $fields ) ) : ?>
+								<td class="order-taxflag">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $taxflagList[$item->getPrice()->getTaxFlag()] ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.customerref', $fields ) ) : ?>
+								<td class="order-customerref">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPrice()->getCustomerReference() ) ?></a>
+								</td>
+							<?php endif ?>
+							<?php if( in_array( 'order.comment', $fields ) ) : ?>
+								<td class="order-comment">
+									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getPrice()->getComment() ) ?></a>
+								</td>
+							<?php endif ?>
+
 							<?php if( in_array( 'order.ctime', $fields ) ) : ?>
 								<td class="order-ctime">
 									<a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a>
@@ -229,22 +298,9 @@ $deliveryStatusList = [
 								</td>
 							<?php endif ?>
 
-							<?php $baseItem = ( isset( $baseItems[$item->getBaseId()] ) ? $baseItems[$item->getBaseId()] : null ) ?>
-
-							<?php if( in_array( 'order.baseid', $fields ) ) : ?>
-								<td class="order-baseid">
-									<a class="items-field" href="<?= $url ?>">
-										<?= $enc->html( $item->getBaseId() ) ?>
-										<?php if( $baseItem ) : ?>
-											- <?= $enc->html( $baseItem->getPrice()->getValue() . '+' . $baseItem->getPrice()->getCosts() . ' ' . $baseItem->getPrice()->getCurrencyId() ) ?>
-										<?php endif ?>
-									</a>
-								</td>
-							<?php endif ?>
-
 							<td class="actions">
 								<a class="btn act-view fa" tabindex="<?= $this->get( 'tabindex' ) ?>" target="_blank"
-									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getBaseId()] + $params ) ) ?>"
+									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'order', 'id' => $item->getId()] + $params ) ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'View details' ) ) ?>"></a>
 							</td>
 						</tr>

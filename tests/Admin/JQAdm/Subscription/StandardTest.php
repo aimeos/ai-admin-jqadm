@@ -124,7 +124,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'order/base/product' );
+		$manager = \Aimeos\MShop::create( $this->context, 'order/product' );
 		$search = $manager->filter()->slice( 0, 1 );
 
 		if( ( $item = $manager->search( $search )->first() ) === null ) {
@@ -137,7 +137,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'site' => 'unittest',
 			'item' => array(
 				'subscription.id' => '',
-				'subscription.ordbaseid' => $item->getBaseId(),
+				'subscription.orderid' => $item->getParentId(),
 				'subscription.ordprodid' => $item->getId(),
 				'subscription.interval' => 'P100Y100M100W100D',
 				'subscription.datenext' => '2005-05-05',

@@ -441,7 +441,7 @@
 	chartCountry : function() {
 
 		const self = this;
-		const keys = "order.base.address.countryid";
+		const keys = "order.address.countryid";
 		const ctx = this.context('.order-countcountry');
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');

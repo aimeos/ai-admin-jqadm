@@ -48,7 +48,7 @@ class Standard
 
 		$search = $manager->filter( false, true )->order( ['-order.ctime', '-order.id'] )->slice( 0, 10 );
 
-		$view->orderlatestItems = $manager->search( $search, ['order/base', 'order/base/address', 'order/base/product', 'order/base/service'] );
+		$view->orderlatestItems = $manager->search( $search, ['order', 'order/address', 'order/product', 'order/service'] );
 		$view->orderlatestBody = parent::search();
 
 		/** admin/jqadm/dashboard/order/latest/template-item

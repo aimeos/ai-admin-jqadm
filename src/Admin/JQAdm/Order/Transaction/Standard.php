@@ -219,12 +219,14 @@ class Standard
 	/**
 	 * Creates new and updates existing items using the data array
 	 *
-	 * @param \Aimeos\MShop\Order\Item\Base\Iface $order Order base item object
+	 * @param \Aimeos\MShop\Order\Item\Iface $order Order item object
 	 * @param array $data Data array
 	 */
-	protected function fromArray( \Aimeos\MShop\Order\Item\Base\Iface $order, array $data )
+	protected function fromArray( \Aimeos\MShop\Order\Item\Iface $order, array $data )
 	{
-		$services = map( $order->getService( 'payment' ) )->col( null, 'order.base.service.id' );
+		$context = $this->context();
+		$manager = \Aimeos\MShop::create( $context, 'order' );
+		$services = map( $order->getService( 'payment' ) )->col( null, 'order.service.id' );
 
 		foreach( $data as $serviceId => $entry )
 		{
@@ -232,31 +234,21 @@ class Standard
 				continue;
 			}
 
-			$context = $this->context();
-
 			$price = \Aimeos\MShop::create( $context, 'price' )->create()
-				->setValue( -$entry['order.base.service.transaction.value'] ?? 0 )
-				->setCosts( -$entry['order.base.service.transaction.costs'] ?? 0 )
+				->setValue( -$entry['order.service.transaction.value'] ?? 0 )
+				->setCosts( -$entry['order.service.transaction.costs'] ?? 0 )
 				->setCurrencyId( $service->getPrice()->getCurrencyId() );
 
-			$txItem = \Aimeos\MShop::create( $context, 'order/base/service' )->createTransaction()
+			$txItem = \Aimeos\MShop::create( $context, 'order/service' )->createTransaction()
 				->setType( 'payment' )->setPrice( $price )->setStatus( \Aimeos\MShop\Order\Item\Base::PAY_REFUND );
 
 			$serviceItem = \Aimeos\MShop::create( $context, 'service' )->get( $service->getServiceId() );
 
 			$provider = \Aimeos\MShop::create( $context, 'service' )->getProvider( $serviceItem, 'payment' );
 
-			if( $provider->isImplemented( \Aimeos\MShop\Service\Provider\Payment\Base::FEAT_REFUND ) )
-			{
-				$manager = \Aimeos\MShop::create( $context, 'order' );
-				$filter = $manager->filter()->add( 'order.baseid', '==', $order->getId() );
-
-				if( $order = $manager->search( $filter, ['order/base', 'order/base/service'] )->first() ) {
+			if( $provider->isImplemented( \Aimeos\MShop\Service\Provider\Payment\Base::FEAT_REFUND ) ) {
 					$manager->save( $provider->refund( $order, $price ) );
-				}
-			}
-			else
-			{
+			} else {
 				$txItem->setConfigValue( 'info', $context->translate( 'admin', 'Manual transfer' ) );
 			}
 

@@ -151,7 +151,7 @@ Aimeos.Dashboard.Sales = {
 
 		const self = this;
 		const ctx = this.context('.order-salesday');
-		const keys = "order.base.currencyid,order.cdate";
+		const keys = "order.currencyid,order.cdate";
 		const startdate = moment().utc().startOf('day').subtract(30, 'days');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
@@ -159,12 +159,12 @@ Aimeos.Dashboard.Sales = {
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 			{"||": [
-				{"==": {"order.base.product.statuspayment": -1}},
-				{">=": {"order.base.product.statuspayment": 5}}
+				{"==": {"order.product.statuspayment": -1}},
+				{">=": {"order.product.statuspayment": 5}}
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.base.product.total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
@@ -215,7 +215,7 @@ Aimeos.Dashboard.Sales = {
 
 		const self = this;
 		const ctx = this.context('.order-salesmonth');
-		const keys = "order.base.currencyid,order.cmonth";
+		const keys = "order.currencyid,order.cmonth";
 		const startdate = moment().utc().startOf('month').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
@@ -223,12 +223,12 @@ Aimeos.Dashboard.Sales = {
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 			{"||": [
-				{"==": {"order.base.product.statuspayment": -1}},
-				{">=": {"order.base.product.statuspayment": 5}}
+				{"==": {"order.product.statuspayment": -1}},
+				{">=": {"order.product.statuspayment": 5}}
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", null, "order.base.product.total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", null, "order.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
@@ -282,7 +282,7 @@ Aimeos.Dashboard.Sales = {
 
 		const self = this;
 		const ctx = this.context('.order-salesweekday');
-		const keys = "order.base.currencyid,order.cwday";
+		const keys = "order.currencyid,order.cwday";
 		const startdate = moment().utc().startOf('day').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
@@ -290,12 +290,12 @@ Aimeos.Dashboard.Sales = {
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 			{"||": [
-				{"==": {"order.base.product.statuspayment": -1}},
-				{">=": {"order.base.product.statuspayment": 5}}
+				{"==": {"order.product.statuspayment": -1}},
+				{">=": {"order.product.statuspayment": 5}}
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.base.product.total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.product.total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
