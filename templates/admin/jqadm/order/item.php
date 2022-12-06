@@ -77,19 +77,19 @@ $paymentStatusList = [
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <?php if( isset( $this->item ) ) : ?>
-	<?php $basket = $this->item; $currency = $this->translate( 'currency', $basket->getPrice()->getCurrencyId() ) ?>
+	<?php $currency = $this->translate( 'currency', $this->item->getPrice()->getCurrencyId() ) ?>
 
 	<form class="item item-order form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-		<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'order.id' ) ) ) ?>" value="<?= $enc->attr( $basket->getId() ) ?>">
+		<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'order.id' ) ) ) ?>" value="<?= $enc->attr( $this->item->getId() ) ?>">
 		<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 		<?= $this->csrf()->formfield() ?>
 
 		<nav class="main-navbar">
 			<h1 class="navbar-brand">
 				<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Order' ) ) ?></span>
-				<span class="navbar-id"><?= $enc->html( $basket->getId() ) ?></span>
-				<span class="navbar-label"><?= $enc->html( $this->number( $basket->getPrice()->getValue() ) ) ?> <?= $enc->html( $basket->getPrice()->getCurrencyId() ) ?></span>
-				<span class="navbar-site"><?= $enc->html( $this->site()->match( $basket->locale()->getSiteId() ) ) ?></span>
+				<span class="navbar-id"><?= $enc->html( $this->item->getId() ) ?></span>
+				<span class="navbar-label"><?= $enc->html( $this->number( $this->item->getPrice()->getValue() ) ) ?> <?= $enc->html( $this->item->getPrice()->getCurrencyId() ) ?></span>
+				<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->item->locale()->getSiteId() ) ) ?></span>
 			</h1>
 			<div class="item-actions">
 				<a class="btn btn-secondary act-cancel"
@@ -139,15 +139,15 @@ $paymentStatusList = [
 					<div class="item-meta text-muted">
 						<small>
 							<?= $enc->html( $this->translate( 'admin', 'Modified' ) ) ?>:
-							<span class="meta-value"><?= $enc->html( $basket->getTimeModified() ) ?></span>
+							<span class="meta-value"><?= $enc->html( $this->item->getTimeModified() ) ?></span>
 						</small>
 						<small>
 							<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>:
-							<span class="meta-value"><?= $enc->html( $basket->getTimeCreated() ) ?></span>
+							<span class="meta-value"><?= $enc->html( $this->item->getTimeCreated() ) ?></span>
 						</small>
 						<small>
 							<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>:
-							<span class="meta-value"><?= $enc->html( $basket->editor() ) ?></span>
+							<span class="meta-value"><?= $enc->html( $this->item->editor() ) ?></span>
 						</small>
 					</div>
 
@@ -157,18 +157,146 @@ $paymentStatusList = [
 
 			<div class="col-xl-9 item-content tab-content">
 
-				<div id="order" class="item-order tab-pane fade show active" role="tabpanel" aria-labelledby="order">
+				<div id="order" class="item-order tab-pane fade show active vue" role="tabpanel" aria-labelledby="order">
 
 					<div class="row item-base">
-						<div class="col-xl-6 block <?= $this->site()->readonly( $basket->getSiteId() ) ?>">
+						<div class="col-xl-6 block <?= $this->site()->readonly( $this->item->getSiteId() ) ?>">
 							<div class="box">
 								<div class="form-group row">
 									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?></label>
 									<div class="col-8">
-										<span class="form-control item-sitecode"><?= $enc->html( $basket->getSiteCode() ) ?></span>
+										<span class="form-control item-sitecode"><?= $enc->html( $this->item->getSiteCode() ) ?></span>
 									</div>
 									<div class="col-12 form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'Site the order was placed at' ) ) ?>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Channel' ) ) ?></label>
+									<div class="col-8">
+										<span class="form-control item-sitecode"><?= $enc->html( $this->item->getChannel() ) ?></span>
+									</div>
+									<div class="col-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Channel the order has been placed' ) ) ?>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Payment' ) ) ?></label>
+									<div class="col-8">
+										<select class="form-select item-statuspayment" required="required" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.statuspayment' ) ) ) ?>"
+											<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
+											<?php foreach( $paymentStatusList as $status => $name ) : ?>
+												<option value="<?= $enc->attr( $status ) ?>" <?= $selected( $this->item->getStatusPayment(), $status ) ?> >
+													<?= $enc->html( $name ) ?>
+												</option>
+											<?php endforeach ?>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Payment date' ) ) ?></label>
+									<div class="col-8">
+										<input is="flat-pickr" class="form-control item-datepayment select" type="datetime-local" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
+											v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/order.datepayment' ) ) ) ?>`"
+											v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/order.siteid' ) ) ) ?>` !== ''"
+											v-bind:config="Aimeos.flatpickr.datetime">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Delivery' ) ) ?></label>
+									<div class="col-8">
+										<select class="form-select item-statusdelivery" required="required" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.statusdelivery' ) ) ) ?>"
+											<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
+											<?php foreach( $deliveryStatusList as $status => $name ) : ?>
+												<option value="<?= $enc->attr( $status ) ?>" <?= $selected( $this->item->getStatusDelivery(), $status ) ?> >
+													<?= $enc->html( $name ) ?>
+												</option>
+											<?php endforeach ?>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Delivery date' ) ) ?></label>
+									<div class="col-8">
+										<input is="flat-pickr" class="form-control item-datedelivery select" type="datetime-local" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
+											v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/order.datedelivery' ) ) ) ?>`"
+											v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/order.siteid' ) ) ) ?>` !== ''"
+											v-bind:config="Aimeos.flatpickr.datetime">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-6 block <?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>">
+							<div class="box">
+								<div class="form-group row">
+									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Invoice No.' ) ) ?></label>
+									<div class="col-8">
+										<span class="form-control item-sitecode"><?= $enc->html( $this->item->getInvoiceNumber() ) ?></span>
+									</div>
+									<div class="col-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Invoice number for the order' ) ) ?>
+									</div>
+								</div>
+								<?php if( strncmp( $this->site()->siteid(), $this->item->getSiteId(), strlen( $this->site()->siteid() ) ) === 0 ) : ?>
+									<div class="form-group row">
+										<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Related ID' ) ) ?></label>
+										<div class="col-8">
+											<input class="form-control item-relatedid" type="text" tabindex="1"
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'order.relatedid' ) ) ) ?>"
+												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Related order ID (optional)' ) ) ?>"
+												value="<?= $enc->attr( $this->get( 'itemData/order.relatedid' ) ) ?>"
+												<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+										</div>
+										<div class="col-12 form-text text-muted help-text">
+											<?= $enc->html( $this->translate( 'admin', 'Order number entered by the customer' ) ) ?>
+										</div>
+									</div>
+								<?php endif ?>
+								<div class="form-group row">
+									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>
+									<div class="col-8">
+										<span class="form-control item-customerid">
+											<?php if( $this->item->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
+												<a class="link fa act-view" target="_blank"
+													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $this->item->getCustomerId(), 'locale' => $this->param( 'locale' )] ) ) ?>">
+													<?= $enc->html( $this->item->getCustomerId() ) ?>
+												</a>
+											<?php endif ?>
+										</span>
+									</div>
+								</div>
+								<?php if( $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
+									<div class="form-group row">
+										<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer' ) ) ?></label>
+										<div class="col-8">
+											<select class="form-select combobox item-customer" tabindex="1"
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'order.customerid' ) ) ) ?>"
+												<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+												<option value="<?= $enc->attr( $this->get( 'itemData/order.customerid' ) ) ?>" >
+													<?= $enc->html( $this->get( 'itemData/customer.code' ) ) ?>
+												</option>
+											</select>
+										</div>
+									</div>
+								<?php endif ?>
+								<div class="form-group row">
+									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Customer reference' ) ) ?></label>
+									<div class="col-8">
+										<input class="form-control item-customerref" type="text" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.customerref' ) ) ) ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Customer reference (optional)' ) ) ?>"
+											value="<?= $enc->attr( $this->get( 'itemData/order.customerref' ) ) ?>"
+											<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+									</div>
+									<div class="col-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Order number entered by the customer' ) ) ?>
 									</div>
 								</div>
 								<div class="form-group row mandatory">
@@ -176,62 +304,17 @@ $paymentStatusList = [
 									<div class="col-8">
 										<select class="form-select item-languageid" required="required" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.languageid' ) ) ) ?>"
-											<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?> >
+											<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
 											<option value="">
 												<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 											</option>
 
 											<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-												<option value="<?= $enc->attr( $langId ) ?>" <?= $selected( $basket->locale()->getLanguageId(), $langId ) ?> >
+												<option value="<?= $enc->attr( $langId ) ?>" <?= $selected( $this->item->locale()->getLanguageId(), $langId ) ?> >
 													<?= $enc->html( $this->translate( 'language', $langId ) ) ?>
 												</option>
 											<?php endforeach ?>
 										</select>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-6 block <?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>">
-							<div class="box">
-								<div class="form-group row">
-									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>
-									<div class="col-8">
-										<span class="form-control item-customerid">
-											<?php if( $basket->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
-												<a class="link fa act-view" target="_blank"
-													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $basket->getCustomerId(), 'locale' => $this->param( 'locale' )] ) ) ?>">
-													<?= $enc->html( $basket->getCustomerId() ) ?>
-												</a>
-											<?php endif ?>
-										</span>
-									</div>
-									<?php if( $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
-										<div class="form-group row">
-											<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer' ) ) ?></label>
-											<div class="col-8">
-												<select class="form-select combobox item-customer" tabindex="1"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'order.customerid' ) ) ) ?>"
-													<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
-													<option value="<?= $enc->attr( $this->get( 'itemData/order.customerid' ) ) ?>" >
-														<?= $enc->html( $this->get( 'itemData/customer.code' ) ) ?>
-													</option>
-												</select>
-											</div>
-										</div>
-									<?php endif ?>
-									<div class="form-group row optional">
-										<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Customer reference' ) ) ?></label>
-										<div class="col-8">
-											<input class="form-control item-customerref" type="text" tabindex="1"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'order.customerref' ) ) ) ?>"
-												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Customer reference (optional)' ) ) ?>"
-												value="<?= $enc->attr( $this->get( 'itemData/order.customerref' ) ) ?>"
-												<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
-										</div>
-										<div class="col-12 form-text text-muted help-text">
-											<?= $enc->html( $this->translate( 'admin', 'Order number entered by the customer' ) ) ?>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -245,7 +328,7 @@ $paymentStatusList = [
 							<div class="col-sm-12">
 								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Products' ) ) ?></h2>
 
-								<?php foreach( $basket->getProducts() as $pos => $orderProduct ) : ?>
+								<?php foreach( $this->item->getProducts() as $pos => $orderProduct ) : ?>
 									<?php if( strncmp( $this->site()->siteid(), $orderProduct->getSiteId(), strlen( $this->site()->siteid() ) ) === 0 ) : ?>
 
 										<div class="list-item">
@@ -255,7 +338,7 @@ $paymentStatusList = [
 														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Renew' ) ) ?></label>
 														<div class="col-7 col-sm-12">
 															<?php $newParams = [
-																	'item' => ['subscription.orderid' => $basket->getId(), 'subscription.ordprodid' => $orderProduct->getId()],
+																	'item' => ['subscription.orderid' => $this->item->getId(), 'subscription.ordprodid' => $orderProduct->getId()],
 																	'site' => $this->param( 'site' ),
 																	'locale' => $this->param( 'locale' ),
 																	'resource' => 'subscription'
@@ -304,7 +387,7 @@ $paymentStatusList = [
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.product.qtyopen' ) ) ) ?>"
 																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Open' ) ) ?>"
 																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.product.qtyopen' ) ) ?>"
-																<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>
+																<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>
 															> / <span class="product-quantity"><?= $enc->html( $orderProduct->getQuantity() ) ?></span>
 														</div>
 													</div>
@@ -353,7 +436,7 @@ $paymentStatusList = [
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.product.timeframe' ) ) ) ?>"
 																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Delivery timeframe (optional)' ) ) ?>"
 																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.product.timeframe' ) ) ?>"
-																<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+																<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 														</div>
 													</div>
 												</div>
@@ -367,7 +450,7 @@ $paymentStatusList = [
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'product', $pos, 'order.product.notes' ) ) ) ?>"
 																placeholder="<?= $enc->attr( $this->translate( 'admin', 'Notes (not shown to customer)' ) ) ?>"
 																value="<?= $enc->attr( $this->get( 'itemData/product/' . $pos . '/order.product.notes' ) ) ?>"
-																<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+																<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 														</div>
 													</div>
 												</div>
@@ -387,8 +470,8 @@ $paymentStatusList = [
 						<div class="col-xl-6">
 							<div class="box">
 								<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Coupon' ) ) ?></h2>
-								<?php if( !$basket->getCoupons()->isEmpty() ) : ?>
-									<?php foreach( $basket->getCoupons() as $code => $product ) : ?>
+								<?php if( !$this->item->getCoupons()->isEmpty() ) : ?>
+									<?php foreach( $this->item->getCoupons() as $code => $product ) : ?>
 										<div class="form-group row">
 											<label class="col-sm-4"><?= $enc->html( $this->translate( 'admin', 'Code' ) ) ?></label>
 											<div class="col-sm-8"><span class="item-coupon"><?= $enc->attr( $code ) ?></span></div>
@@ -407,8 +490,8 @@ $paymentStatusList = [
 									<textarea class="form-control item-title" type="text" tabindex="1" rows="3"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'order.comment' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Customer comment (optional)' ) ) ?>"
-										<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>
-									><?= $enc->html( $basket->getComment() ) ?></textarea>
+										<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>
+									><?= $enc->html( $this->item->getComment() ) ?></textarea>
 								</div>
 							</div>
 						</div>
@@ -416,7 +499,7 @@ $paymentStatusList = [
 
 
 					<div class="row">
-						<?php foreach( $basket->getAddresses()->krsort() as $type => $addresses ) : $code = 'address:' . $type ?>
+						<?php foreach( $this->item->getAddresses()->krsort() as $type => $addresses ) : $code = 'address:' . $type ?>
 
 							<div class="col-xl-6 item-address">
 								<div class="box">
@@ -441,7 +524,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.email' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address (required)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.email' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Customer e-mail address' ) ) ?>
@@ -452,7 +535,7 @@ $paymentStatusList = [
 												<div class="col-sm-8">
 													<select class="form-select item-languageid" tabindex="1" data-field="languageid"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.languageid' ) ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?> >
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
 														<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 
 														<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
@@ -468,7 +551,7 @@ $paymentStatusList = [
 												<div class="col-sm-8">
 													<select class="form-select item-salutation" tabindex="1" data-field="salutation"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.salutation' ) ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?> >
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
 														<option value="" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.salutation' ), '' ) ?> >
 															<?= $enc->html( $this->translate( 'admin', 'none' ) ) ?>
 														</option>
@@ -494,7 +577,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.title' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.title' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Honorary titles like Dr., Ph.D, etc.' ) ) ?>
@@ -507,7 +590,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.lastname' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.lastname' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Last name of the person or full name in cultures where no first names are used' ) ) ?>
@@ -520,7 +603,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.firstname' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.firstname' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -533,7 +616,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.address1' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.address1' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -546,7 +629,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.address2' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.address2' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Address identifier of the customer\'s house for delivery' ) ) ?>
@@ -559,7 +642,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.address3' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.address3' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s apartment can be found' ) ) ?>
@@ -572,7 +655,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.postal' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.postal' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Postal code for delivery if used in the area the customer is living' ) ) ?>
@@ -585,7 +668,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.city' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.city' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 											</div>
 											<div class="form-group row optional">
@@ -593,7 +676,7 @@ $paymentStatusList = [
 												<div class="col-sm-8">
 													<select class="form-select item-countryid" required="required" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.countryid' ) ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 														<option value="" disabled>
 															<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 														</option>
@@ -616,7 +699,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.state' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.state' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ) ?>
@@ -629,7 +712,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.telephone' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.telephone' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ) ?>
@@ -642,7 +725,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.telefax' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.telefax' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', '(International) facsimilie number without separation characters, can start with a "+"' ) ) ?>
@@ -655,7 +738,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.website' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.website' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'URL of the customer web site' ) ) ?>
@@ -668,7 +751,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.company' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.company' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 											</div>
 											<div class="form-group row optional">
@@ -678,7 +761,7 @@ $paymentStatusList = [
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.vatid' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ) ?>"
 														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.vatid' ) ) ?>"
-														<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Official VAT ID to determine if the tax needs to be billed in invoices' ) ) ?>
@@ -694,7 +777,7 @@ $paymentStatusList = [
 					</div>
 
 					<div class="row">
-						<?php foreach( $basket->getServices()->krsort() as $type => $services ) : $code = 'service:' . $type ?>
+						<?php foreach( $this->item->getServices()->krsort() as $type => $services ) : $code = 'service:' . $type ?>
 							<?php foreach( $services as $serviceItem ) : $serviceId = $serviceItem->getServiceId() ?>
 
 								<div class="col-xl-6 item-service">
@@ -727,7 +810,7 @@ $paymentStatusList = [
 														<?= $enc->html( $this->translate( 'admin', 'Value' ) ) ?>
 													</th>
 													<th class="actions">
-														<?php if( !$this->site()->readonly( $basket->locale()->getSiteId() ) ) : ?>
+														<?php if( !$this->site()->readonly( $this->item->locale()->getSiteId() ) ) : ?>
 															<div class="btn act-add fa" tabindex="1"
 																title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>">
 															</div>
@@ -757,16 +840,16 @@ $paymentStatusList = [
 															<input type="text" class="service-attr-code form-control" tabindex="1"
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, $serviceId, 'order.service.attribute.code', '' ) ) ) ?>"
 																value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.service.attribute.code/' . $idx ) ) ?>"
-																<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+																<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 														</td>
 														<td>
 															<input type="text" class="service-attr-value form-control" tabindex="1"
 																name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, $serviceId, 'order.service.attribute.value', '' ) ) ) ?>"
 																value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.service.attribute.value/' . $idx ) ) ?>"
-																<?= $this->site()->readonly( $basket->locale()->getSiteId() ) ?>>
+																<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
 														</td>
 														<td class="actions">
-															<?php if( !$this->site()->readonly( $basket->locale()->getSiteId() ) ) : ?>
+															<?php if( !$this->site()->readonly( $this->item->locale()->getSiteId() ) ) : ?>
 																<div class="btn act-delete fa" tabindex="1"
 																	title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
 																</div>
@@ -795,7 +878,7 @@ $paymentStatusList = [
 															name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, '_id_', 'order.service.attribute.value', '' ) ) ) ?>">
 													</td>
 													<td class="actions">
-														<?php if( !$this->site()->readonly( $basket->locale()->getSiteId() ) ) : ?>
+														<?php if( !$this->site()->readonly( $this->item->locale()->getSiteId() ) ) : ?>
 															<div class="btn act-delete fa" tabindex="1"
 																title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
 															</div>
@@ -811,39 +894,39 @@ $paymentStatusList = [
 						<?php endforeach ?>
 					</div>
 
-					<?php if( $this->site()->siteid() == $basket->getSiteId() ) : ?>
+					<?php if( $this->site()->siteid() == $this->item->getSiteId() ) : ?>
 						<div class="row item-summary justify-content-end">
 							<div class="col-xl-6 item-total">
 								<div class="box">
 									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Order totals' ) ) ?></h2>
 									<div class="form-group row total-subtotal">
 										<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Sub-total' ) ) ?></div>
-										<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() ), $currency ) ) ?></div>
+										<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $this->item->getPrice()->getValue() ), $currency ) ) ?></div>
 									</div>
 									<div class="form-group row total-shipping">
 										<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Shipping' ) ) ?></div>
-										<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getCosts() ), $currency ) ) ?></div>
+										<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $this->item->getPrice()->getCosts() ), $currency ) ) ?></div>
 									</div>
-									<?php if( $basket->getPrice()->getTaxFlag() === true ) : ?>
+									<?php if( $this->item->getPrice()->getTaxFlag() === true ) : ?>
 										<div class="form-group row total-value">
 											<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Total' ) ) ?></div>
-											<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() ), $currency ) ) ?></div>
+											<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $this->item->getPrice()->getValue() + $this->item->getPrice()->getCosts() ), $currency ) ) ?></div>
 										</div>
 									<?php endif ?>
 									<div class="form-group row total-tax">
 										<div class="col-6 name">
-											<?php if( $basket->getPrice()->getTaxFlag() ) : ?>
+											<?php if( $this->item->getPrice()->getTaxFlag() ) : ?>
 												<?= $enc->html( $this->translate( 'admin', 'Incl. tax' ) ) ?>
 											<?php else : ?>
 												<?= $enc->html( $this->translate( 'admin', '+ Tax' ) ) ?>
 											<?php endif ?>
 										</div>
-										<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getTaxValue() ), $currency ) ) ?></div>
+										<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $this->item->getPrice()->getTaxValue() ), $currency ) ) ?></div>
 									</div>
-									<?php if( $basket->getPrice()->getTaxFlag() === false ) : ?>
+									<?php if( $this->item->getPrice()->getTaxFlag() === false ) : ?>
 										<div class="form-group row total-value">
 											<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Total' ) ) ?></div>
-											<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $basket->getPrice()->getValue() + $basket->getPrice()->getCosts() + $basket->getPrice()->getTaxValue() ), $currency ) ) ?></div>
+											<div class="col-6 value"><?= $enc->html( sprintf( $priceFormat, $this->number( $this->item->getPrice()->getValue() + $this->item->getPrice()->getCosts() + $this->item->getPrice()->getTaxValue() ), $currency ) ) ?></div>
 										</div>
 									<?php endif ?>
 								</div>
