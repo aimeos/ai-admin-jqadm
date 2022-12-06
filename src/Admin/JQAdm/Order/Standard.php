@@ -99,20 +99,21 @@ class Standard
 	 */
 	public function copy() : ?string
 	{
+		$context = $this->context();
 		$view = $this->object()->data( $this->view() );
 
 		try
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $context->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->context(), 'order' );
-			$domains = ['order/address', 'order/coupon', 'order/product', 'order/service'];
+			$manager = \Aimeos\MShop::create( $context, 'order' );
+			$refs = $context->config()->get( 'mshop/order/manager/submanagers', [] );
 
-			$view->item = $manager->get( $id, $domains );
+			$view->item = $manager->get( $id, $refs );
 			$view->itemData = $this->toArray( $view->item, true );
 			$view->itemBody = parent::copy();
 		}
@@ -202,18 +203,19 @@ class Standard
 	 */
 	public function get() : ?string
 	{
+		$context = $this->context();
 		$view = $this->object()->data( $this->view() );
 
 		try
 		{
 			if( ( $id = $view->param( 'id' ) ) === null )
 			{
-				$msg = $this->context()->translate( 'admin', 'Required parameter "%1$s" is missing' );
+				$msg = $context->translate( 'admin', 'Required parameter "%1$s" is missing' );
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$manager = \Aimeos\MShop::create( $this->context(), 'order' );
-			$refs = ['order/address', 'order/coupon', 'order/product', 'order/service'];
+			$manager = \Aimeos\MShop::create( $context, 'order' );
+			$refs = $context->config()->get( 'mshop/order/manager/submanagers', [] );
 
 			$view->item = $manager->get( $id, $refs );
 			$view->itemData = $this->toArray( $view->item );
@@ -457,12 +459,14 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Order\Item\Iface
 	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'order' );
-		$attrManager = \Aimeos\MShop::create( $this->context(), 'order/service/attribute' );
-		$domains = ['order/address', 'order/product', 'order/service'];
+		$context = $this->context();
+
+		$manager = \Aimeos\MShop::create( $context, 'order' );
+		$attrManager = \Aimeos\MShop::create( $context, 'order/service/attribute' );
 
 		if( isset( $data['order.id'] ) ) {
-			$basket = $manager->get( $data['order.id'], $domains )->off();
+			$refs = $context->config()->get( 'mshop/order/manager/submanagers', [] );
+			$basket = $manager->get( $data['order.id'], $refs )->off();
 		} else {
 			$basket = $manager->create()->off();
 		}
