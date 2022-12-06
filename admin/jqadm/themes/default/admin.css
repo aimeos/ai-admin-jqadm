@@ -731,16 +731,25 @@
 }
 
 
-.aimeos .item-coupon .actions .label.fa-upload {
+.aimeos .item-coupon .actions .icon-upload {
+	display: inline-block;
 	position: relative;
+	padding: 0;
 }
 
-.aimeos .item-coupon .actions input.fileupload {
-	position: absolute;
+.aimeos .item-coupon .actions .icon-upload::before {
+	color: var(--bs-menu, #ffffff);
+	text-align: center;
 	width: 100%;
-	padding: 0;
-	opacity: 0;
-	left: 0;
+}
+
+.aimeos .item-coupon .actions .icon-upload:hover::before {
+	color: var(--bs-secondary-dark, #101820);
+}
+
+.aimeos .item-coupon .actions input.fileupload::file-selector-button {
+	padding: 0.4375rem 0;
+	width: 100%;
 }
 
 .aimeos .item-review .item-response {
