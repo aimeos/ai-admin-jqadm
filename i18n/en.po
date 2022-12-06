@@ -484,7 +484,7 @@ msgid "Delivery address"
 msgstr ""
 
 msgid "Delivery in"
-msgstr "By delivery type"
+msgstr ""
 
 msgid "Delivery or payment costs for the products in the basket of the customer"
 msgstr ""
