@@ -126,9 +126,8 @@ $columnList = [
 						</th>
 
 						<th class="actions">
-							<button class="btn fa icon-upload label">
-								<input class="fileupload act-import" type="file" name="code[file]" tabindex="<?= $this->get( 'tabindex' ) ?>" />
-							</button>
+							<input class="btn fa icon-upload fileupload act-import" type="file" name="code[file]"
+								tabindex="<?= $this->get( 'tabindex' ) ?>">
 							<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-on:click="add()" href="#"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
