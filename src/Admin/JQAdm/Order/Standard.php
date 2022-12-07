@@ -111,7 +111,7 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $context, 'order' );
-			$refs = $context->config()->get( 'mshop/order/manager/submanagers', [] );
+			$refs = $context->config()->get( 'mshop/order/manager/subdomains', [] );
 
 			$view->item = $manager->get( $id, $refs );
 			$view->itemData = $this->toArray( $view->item, true );
@@ -215,7 +215,7 @@ class Standard
 			}
 
 			$manager = \Aimeos\MShop::create( $context, 'order' );
-			$refs = $context->config()->get( 'mshop/order/manager/submanagers', [] );
+			$refs = $context->config()->get( 'mshop/order/manager/subdomains', [] );
 
 			$view->item = $manager->get( $id, $refs );
 			$view->itemData = $this->toArray( $view->item );
@@ -276,15 +276,15 @@ class Standard
 		{
 			$total = 0;
 			$context = $this->context();
+			$refs = $context->config()->get( 'mshop/order/manager/subdomains', [] );
+
 			$manager = \Aimeos\MShop::create( $context, 'order' );
 			$params = $this->storeFilter( $view->param(), 'order' );
 
 			$search = $manager->filter( false, true )->order( '-order.id' );
 			$search = $this->initCriteria( $search, $params );
 
-			$domains = ['order/address', 'order/coupon', 'order/product', 'order/service'];
-
-			$view->items = $manager->search( $search, $domains, $total );
+			$view->items = $manager->search( $search, $refs, $total );
 			$view->filterAttributes = $manager->getSearchAttributes( true );
 			$view->filterOperators = $search->getOperators();
 			$view->itemBody = parent::search();
@@ -465,7 +465,7 @@ class Standard
 		$attrManager = \Aimeos\MShop::create( $context, 'order/service/attribute' );
 
 		if( isset( $data['order.id'] ) ) {
-			$refs = $context->config()->get( 'mshop/order/manager/submanagers', [] );
+			$refs = $context->config()->get( 'mshop/order/manager/subdomains', [] );
 			$basket = $manager->get( $data['order.id'], $refs )->off();
 		} else {
 			$basket = $manager->create()->off();
