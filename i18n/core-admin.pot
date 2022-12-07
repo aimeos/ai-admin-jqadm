@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -240,6 +240,12 @@ msgstr ""
 msgid "Birthday of the customer"
 msgstr ""
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr ""
 
@@ -283,6 +289,9 @@ msgid "Change value in %"
 msgstr ""
 
 msgid "Channel"
+msgstr ""
+
+msgid "Channel the order has been placed"
 msgstr ""
 
 msgid "Choose file"
@@ -441,6 +450,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr ""
 
@@ -481,6 +493,9 @@ msgid "Delivery"
 msgstr ""
 
 msgid "Delivery address"
+msgstr ""
+
+msgid "Delivery date"
 msgstr ""
 
 msgid "Delivery in"
@@ -598,6 +613,9 @@ msgid "Facsimile"
 msgstr ""
 
 msgid "Facsimile number (optional)"
+msgstr ""
+
+msgid "Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)"
 msgstr ""
 
 msgid "Failed to write file to disk"
@@ -776,6 +794,12 @@ msgstr ""
 msgid "Invoice"
 msgstr ""
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr ""
 
@@ -852,6 +876,9 @@ msgid "Locale"
 msgstr ""
 
 msgid "Log"
+msgstr ""
+
+msgid "Manual transfer"
 msgstr ""
 
 msgid "Map"
@@ -1091,6 +1118,9 @@ msgstr ""
 msgid "Payment"
 msgstr ""
 
+msgid "Payment date"
+msgstr ""
+
 msgid "Payment status"
 msgstr ""
 
@@ -1302,6 +1332,9 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr ""
 
@@ -1320,10 +1353,16 @@ msgstr ""
 msgid "Reference ID"
 msgstr ""
 
+msgid "Refund"
+msgstr ""
+
 msgid "Related ID"
 msgstr ""
 
 msgid "Related order"
+msgstr ""
+
+msgid "Related order ID (optional)"
 msgstr ""
 
 msgid "Renew"
@@ -2276,6 +2315,12 @@ msgstr "Suppliers"
 msgid "tag"
 msgstr "Tags"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "Texts"
@@ -2283,6 +2328,10 @@ msgstr "Texts"
 #, php-format
 msgid "theme"
 msgstr "Theme"
+
+#, php-format
+msgid "transaction"
+msgstr ""
 
 #, php-format
 msgid "type"

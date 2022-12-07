@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Stefan Taskov, 2022\n"
 "Language-Team: Bulgarian (http://www.transifex.com/aimeos/aimeos-core/language/bg/)\n"
@@ -255,6 +255,12 @@ msgstr "Рожден ден"
 msgid "Birthday of the customer"
 msgstr "Рожден ден на клиента"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "Грешка или предложение?"
 
@@ -300,6 +306,9 @@ msgid "Change value in %"
 msgstr ""
 
 msgid "Channel"
+msgstr ""
+
+msgid "Channel the order has been placed"
 msgstr ""
 
 msgid "Choose file"
@@ -462,6 +471,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr ""
 
@@ -503,6 +515,9 @@ msgstr "Доставка"
 
 msgid "Delivery address"
 msgstr "Адрес на доставка"
+
+msgid "Delivery date"
+msgstr "Дата на доставка"
 
 msgid "Delivery in"
 msgstr ""
@@ -622,6 +637,11 @@ msgid "Facsimile"
 msgstr ""
 
 msgid "Facsimile number (optional)"
+msgstr ""
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
 msgstr ""
 
 msgid "Failed to write file to disk"
@@ -810,6 +830,12 @@ msgstr "Невалидна фабрика \"%1$s\""
 msgid "Invoice"
 msgstr "Фактура"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr ""
 
@@ -892,6 +918,9 @@ msgid "Locale"
 msgstr "Локално"
 
 msgid "Log"
+msgstr ""
+
+msgid "Manual transfer"
 msgstr ""
 
 msgid "Map"
@@ -1138,6 +1167,9 @@ msgstr ""
 msgid "Payment"
 msgstr "Заплащане"
 
+msgid "Payment date"
+msgstr "Дата на плащане"
+
 msgid "Payment status"
 msgstr "Статус на плащане"
 
@@ -1351,6 +1383,9 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr ""
 
@@ -1371,10 +1406,16 @@ msgstr ""
 msgid "Reference ID"
 msgstr ""
 
+msgid "Refund"
+msgstr "плащане:възстановяване"
+
 msgid "Related ID"
 msgstr ""
 
 msgid "Related order"
+msgstr ""
+
+msgid "Related order ID (optional)"
 msgstr ""
 
 msgid "Renew"
@@ -2352,12 +2393,22 @@ msgstr "Доставчици"
 msgid "tag"
 msgstr "Тагове"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "Текстове"
 
 #, php-format
 msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
 msgstr ""
 
 #, php-format

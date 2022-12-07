@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
 "Language-Team: Japanese (http://www.transifex.com/aimeos/aimeos-core/language/ja/)\n"
@@ -255,6 +255,12 @@ msgstr "お誕生日"
 msgid "Birthday of the customer"
 msgstr "顧客の誕生日"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "バグや提案?"
 
@@ -300,6 +306,9 @@ msgid "Change value in %"
 msgstr ""
 
 msgid "Channel"
+msgstr ""
+
+msgid "Channel the order has been placed"
 msgstr ""
 
 msgid "Choose file"
@@ -462,6 +471,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr ""
 
@@ -503,6 +515,9 @@ msgstr "配達"
 
 msgid "Delivery address"
 msgstr "配信先住所"
+
+msgid "Delivery date"
+msgstr "配達日"
 
 msgid "Delivery in"
 msgstr ""
@@ -623,6 +638,11 @@ msgstr "ファクシミリ"
 
 msgid "Facsimile number (optional)"
 msgstr "ファクシミリ番号（オプション）"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr ""
 
 msgid "Failed to write file to disk"
 msgstr ""
@@ -810,6 +830,12 @@ msgstr "無効なファクトリ \"%1$s\""
 msgid "Invoice"
 msgstr "請求書"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr "項目が正常に削除された"
 
@@ -893,6 +919,9 @@ msgstr "ロケール"
 
 msgid "Log"
 msgstr "ログ"
+
+msgid "Manual transfer"
+msgstr ""
 
 msgid "Map"
 msgstr ""
@@ -1138,6 +1167,9 @@ msgstr "支払い状況"
 msgid "Payment"
 msgstr "支払い"
 
+msgid "Payment date"
+msgstr "支払期日"
+
 msgid "Payment status"
 msgstr "支払い状況"
 
@@ -1351,6 +1383,9 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr ""
 
@@ -1371,11 +1406,17 @@ msgstr ""
 msgid "Reference ID"
 msgstr ""
 
+msgid "Refund"
+msgstr "払い戻し"
+
 msgid "Related ID"
 msgstr "関連ID"
 
 msgid "Related order"
 msgstr "関連注文"
+
+msgid "Related order ID (optional)"
+msgstr ""
 
 msgid "Renew"
 msgstr "更新"
@@ -2352,12 +2393,22 @@ msgstr "サプライヤー"
 msgid "tag"
 msgstr "タグ"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "テキスト"
 
 #, php-format
 msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
 msgstr ""
 
 #, php-format

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Dávid Komjáti, 2022\n"
 "Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
@@ -261,6 +261,12 @@ msgstr "Születésnap"
 msgid "Birthday of the customer"
 msgstr "Vásárló születésnapja"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "Hiba vagy javaslat?"
 
@@ -307,6 +313,9 @@ msgstr ""
 
 msgid "Channel"
 msgstr "Csatorna"
+
+msgid "Channel the order has been placed"
+msgstr ""
 
 msgid "Choose file"
 msgstr "Válassza ki az állományt"
@@ -468,6 +477,9 @@ msgstr "Vásárlói ajánlás (nem kötelező)"
 msgid "Dashboard"
 msgstr "Vezérlőpult"
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr "Adatállomány"
 
@@ -509,6 +521,9 @@ msgstr "Szállítás"
 
 msgid "Delivery address"
 msgstr "Szállítási cím"
+
+msgid "Delivery date"
+msgstr "Szállítási dátum"
 
 msgid "Delivery in"
 msgstr "Beszállítás"
@@ -629,6 +644,11 @@ msgstr "Távmásoló"
 
 msgid "Facsimile number (optional)"
 msgstr "Fax száma (nem kötelező)"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr ""
 
 msgid "Failed to write file to disk"
 msgstr "Fájlok lemezre írása sikertelen"
@@ -816,6 +836,12 @@ msgstr "Érvénytelen gyártó: \"%1$s\""
 msgid "Invoice"
 msgstr "Számla"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr "A tétel törlése sikerült"
 
@@ -899,6 +925,9 @@ msgstr "Helyi beállítás"
 
 msgid "Log"
 msgstr "Napló"
+
+msgid "Manual transfer"
+msgstr ""
 
 msgid "Map"
 msgstr "Térkép"
@@ -1144,6 +1173,9 @@ msgstr "Fizetési státusz"
 msgid "Payment"
 msgstr "Fizetés"
 
+msgid "Payment date"
+msgstr "Fizetési nap"
+
 msgid "Payment status"
 msgstr "Fizetési státusz"
 
@@ -1357,6 +1389,9 @@ msgstr "Árengedmény"
 msgid "Rating"
 msgstr "Besorolás"
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr "Véleményező besorolása"
 
@@ -1377,11 +1412,17 @@ msgstr "Referencia"
 msgid "Reference ID"
 msgstr "Referencia azonosító"
 
+msgid "Refund"
+msgstr "fizetés:visszatérítés"
+
 msgid "Related ID"
 msgstr "Referencia azonosító"
 
 msgid "Related order"
 msgstr "Kapcsolódó rendelés"
+
+msgid "Related order ID (optional)"
+msgstr ""
 
 msgid "Renew"
 msgstr "Megújít"
@@ -2358,12 +2399,22 @@ msgstr "Szállítók"
 msgid "tag"
 msgstr "Címkék"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "Szövegek"
 
 #, php-format
 msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
 msgstr ""
 
 #, php-format
