@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Hans He, 2022\n"
 "Language-Team: Chinese (http://www.transifex.com/aimeos/aimeos-core/language/zh/)\n"
@@ -258,6 +258,12 @@ msgstr "生日"
 msgid "Birthday of the customer"
 msgstr "客戶生日"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "問題或建議？"
 
@@ -304,6 +310,9 @@ msgstr ""
 
 msgid "Channel"
 msgstr "路線"
+
+msgid "Channel the order has been placed"
+msgstr ""
 
 msgid "Choose file"
 msgstr "選擇檔案"
@@ -465,6 +474,9 @@ msgstr "客戶參考 (可選擇的)"
 msgid "Dashboard"
 msgstr "儀表板"
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr "資料集"
 
@@ -506,6 +518,9 @@ msgstr "運送"
 
 msgid "Delivery address"
 msgstr "配送地址"
+
+msgid "Delivery date"
+msgstr "配送日期"
 
 msgid "Delivery in"
 msgstr "交货"
@@ -626,6 +641,11 @@ msgstr "傳真"
 
 msgid "Facsimile number (optional)"
 msgstr "傳真號碼（可不填）"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr ""
 
 msgid "Failed to write file to disk"
 msgstr "文件写入磁盘失败"
@@ -813,6 +833,12 @@ msgstr "無效的factory \"%1$s\""
 msgid "Invoice"
 msgstr "發票"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr "刪除項目成功"
 
@@ -896,6 +922,9 @@ msgstr "區域"
 
 msgid "Log"
 msgstr "日誌"
+
+msgid "Manual transfer"
+msgstr ""
 
 msgid "Map"
 msgstr "映射"
@@ -1141,6 +1170,9 @@ msgstr "支付状态"
 msgid "Payment"
 msgstr "支付"
 
+msgid "Payment date"
+msgstr "支付日期"
+
 msgid "Payment status"
 msgstr "支付狀態"
 
@@ -1354,6 +1386,9 @@ msgstr "折扣 Rabate"
 msgid "Rating"
 msgstr "評分"
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr "评论人等级"
 
@@ -1374,11 +1409,17 @@ msgstr "參考"
 msgid "Reference ID"
 msgstr "参考编号"
 
+msgid "Refund"
+msgstr "支付：已退款"
+
 msgid "Related ID"
 msgstr "關聯的 ID"
 
 msgid "Related order"
 msgstr "關聯的訂單"
+
+msgid "Related order ID (optional)"
+msgstr ""
 
 msgid "Renew"
 msgstr "續訂"
@@ -2355,12 +2396,22 @@ msgstr "供應商"
 msgid "tag"
 msgstr "標籤"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "文本"
 
 #, php-format
 msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
 msgstr ""
 
 #, php-format

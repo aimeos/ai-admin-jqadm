@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Aleksei Pirogov, 2022\n"
 "Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
@@ -259,6 +259,12 @@ msgstr "День рождения"
 msgid "Birthday of the customer"
 msgstr "День рождения покупателя"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "Ошибка или предложение?"
 
@@ -304,6 +310,9 @@ msgid "Change value in %"
 msgstr "Изменить значение в %"
 
 msgid "Channel"
+msgstr ""
+
+msgid "Channel the order has been placed"
 msgstr ""
 
 msgid "Choose file"
@@ -466,6 +475,9 @@ msgstr "Ссылка на клиента (необязательно)"
 msgid "Dashboard"
 msgstr "Панель"
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr "Набор данных"
 
@@ -507,6 +519,9 @@ msgstr "Доставка"
 
 msgid "Delivery address"
 msgstr "Адрес доставки"
+
+msgid "Delivery date"
+msgstr "Дата доставки"
 
 msgid "Delivery in"
 msgstr "Доставка в "
@@ -627,6 +642,11 @@ msgstr "Факс"
 
 msgid "Facsimile number (optional)"
 msgstr "Номер факса (необязательно)"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr ""
 
 msgid "Failed to write file to disk"
 msgstr "Не удалось записать файл на диск"
@@ -814,6 +834,12 @@ msgstr "Недопустимое предприятие \"%1$s\""
 msgid "Invoice"
 msgstr "Счёт"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr "Элемент успешно удален"
 
@@ -897,6 +923,9 @@ msgstr "Локаль"
 
 msgid "Log"
 msgstr "Лог журнал"
+
+msgid "Manual transfer"
+msgstr ""
 
 msgid "Map"
 msgstr "Карта"
@@ -1142,6 +1171,9 @@ msgstr "Статус оплаты"
 msgid "Payment"
 msgstr "Оплата"
 
+msgid "Payment date"
+msgstr "Дата платежа"
+
 msgid "Payment status"
 msgstr "Статус оплаты"
 
@@ -1355,6 +1387,9 @@ msgstr ""
 msgid "Rating"
 msgstr "Оценка"
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr ""
 
@@ -1375,11 +1410,17 @@ msgstr "Рекомендация"
 msgid "Reference ID"
 msgstr ""
 
+msgid "Refund"
+msgstr "оплата:возврат"
+
 msgid "Related ID"
 msgstr "Связанный ID"
 
 msgid "Related order"
 msgstr "Связанный заказ"
+
+msgid "Related order ID (optional)"
+msgstr ""
 
 msgid "Renew"
 msgstr "Возобновить"
@@ -2356,12 +2397,22 @@ msgstr "Поставщики"
 msgid "tag"
 msgstr "Метки"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "Тексты"
 
 #, php-format
 msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
 msgstr ""
 
 #, php-format

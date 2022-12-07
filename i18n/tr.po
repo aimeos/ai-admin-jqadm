@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2022\n"
 "Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
@@ -253,6 +253,12 @@ msgstr "Doğum günü"
 msgid "Birthday of the customer"
 msgstr "Müşterinin doğum tarihi"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "Hata veya öneri?"
 
@@ -299,6 +305,9 @@ msgstr "Değeri % olarak değiştir"
 
 msgid "Channel"
 msgstr "Kanal"
+
+msgid "Channel the order has been placed"
+msgstr ""
 
 msgid "Choose file"
 msgstr "Dosya seçin"
@@ -460,6 +469,9 @@ msgstr "Müşteri referans numarası (isteğe bağlı)"
 msgid "Dashboard"
 msgstr "Gösterge Paneli"
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr "Veri kümesi"
 
@@ -501,6 +513,9 @@ msgstr "Teslimat"
 
 msgid "Delivery address"
 msgstr "Teslimat adresi"
+
+msgid "Delivery date"
+msgstr "Teslimat tarihi"
 
 msgid "Delivery in"
 msgstr "Teslimat"
@@ -621,6 +636,11 @@ msgstr "Faks"
 
 msgid "Facsimile number (optional)"
 msgstr "Faks numarası (isteğe bağlı)"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr ""
 
 msgid "Failed to write file to disk"
 msgstr "Dosya diske yazılamadı"
@@ -808,6 +828,12 @@ msgstr "Geçersiz üretici \"%1$s\""
 msgid "Invoice"
 msgstr "Fatura"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr "Öğe başarıyla silindi"
 
@@ -891,6 +917,9 @@ msgstr "Yerel"
 
 msgid "Log"
 msgstr "Günlük"
+
+msgid "Manual transfer"
+msgstr ""
 
 msgid "Map"
 msgstr "Harita"
@@ -1136,6 +1165,9 @@ msgstr "Ödeme durumu"
 msgid "Payment"
 msgstr "Ödeme"
 
+msgid "Payment date"
+msgstr "Ödeme tarihi"
+
 msgid "Payment status"
 msgstr "Ödeme durumu"
 
@@ -1349,6 +1381,9 @@ msgstr "İndirim"
 msgid "Rating"
 msgstr "Puanlama"
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr "Değerlendirenin oyu"
 
@@ -1369,11 +1404,17 @@ msgstr "Referans"
 msgid "Reference ID"
 msgstr "Referans numarası"
 
+msgid "Refund"
+msgstr "Geri ödeme"
+
 msgid "Related ID"
 msgstr "İlgili kimlik numarası"
 
 msgid "Related order"
 msgstr "İlgili sipariş"
+
+msgid "Related order ID (optional)"
+msgstr ""
 
 msgid "Renew"
 msgstr "Yenile"
@@ -2350,6 +2391,12 @@ msgstr "Tedarikçiler"
 msgid "tag"
 msgstr "Etiketler"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "Metinler"
@@ -2357,6 +2404,10 @@ msgstr "Metinler"
 #, php-format
 msgid "theme"
 msgstr "Tema"
+
+#, php-format
+msgid "transaction"
+msgstr ""
 
 #, php-format
 msgid "type"

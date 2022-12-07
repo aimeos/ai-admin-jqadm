@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Goran Sabo <info@noaset.pro>, 2020\n"
 "Language-Team: Slovenian (http://www.transifex.com/aimeos/aimeos-core/language/sl/)\n"
@@ -254,6 +254,12 @@ msgstr "Birthday"
 msgid "Birthday of the customer"
 msgstr "Birthday of the customer"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "Bug or suggestion?"
 
@@ -300,6 +306,9 @@ msgstr ""
 
 msgid "Channel"
 msgstr "Kanal"
+
+msgid "Channel the order has been placed"
+msgstr ""
 
 msgid "Choose file"
 msgstr "Choose file"
@@ -461,6 +470,9 @@ msgstr "Customer reference (optional)"
 msgid "Dashboard"
 msgstr "Dashboard"
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr "Data set"
 
@@ -502,6 +514,9 @@ msgstr "Delivery"
 
 msgid "Delivery address"
 msgstr "Delivery address"
+
+msgid "Delivery date"
+msgstr ""
 
 msgid "Delivery in"
 msgstr ""
@@ -622,6 +637,11 @@ msgstr "Facsimile"
 
 msgid "Facsimile number (optional)"
 msgstr "Facsimile number (optional)"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr ""
 
 msgid "Failed to write file to disk"
 msgstr ""
@@ -809,6 +829,12 @@ msgstr "Invalid factory \"%1$s\""
 msgid "Invoice"
 msgstr "Invoice"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr "Item deleted successfully"
 
@@ -892,6 +918,9 @@ msgstr "Locale"
 
 msgid "Log"
 msgstr "Log"
+
+msgid "Manual transfer"
+msgstr ""
 
 msgid "Map"
 msgstr ""
@@ -1137,6 +1166,9 @@ msgstr "Pay status"
 msgid "Payment"
 msgstr "Payment"
 
+msgid "Payment date"
+msgstr ""
+
 msgid "Payment status"
 msgstr "Payment status"
 
@@ -1350,6 +1382,9 @@ msgstr "Rabate"
 msgid "Rating"
 msgstr "Rating"
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr "Rating of the reviewer"
 
@@ -1370,11 +1405,17 @@ msgstr "Referenca"
 msgid "Reference ID"
 msgstr "Reference ID"
 
+msgid "Refund"
+msgstr ""
+
 msgid "Related ID"
 msgstr "Related ID"
 
 msgid "Related order"
 msgstr "Related order"
+
+msgid "Related order ID (optional)"
+msgstr ""
 
 msgid "Renew"
 msgstr "Renew"
@@ -2351,12 +2392,22 @@ msgstr "Suppliers"
 msgid "tag"
 msgstr "Tags"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "Texts"
 
 #, php-format
 msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
 msgstr ""
 
 #, php-format

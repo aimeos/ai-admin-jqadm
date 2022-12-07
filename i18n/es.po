@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Rodolfo Ruival <ruileo1977@yahoo.com>, 2020\n"
 "Language-Team: Spanish (http://www.transifex.com/aimeos/aimeos-core/language/es/)\n"
@@ -263,6 +263,12 @@ msgstr "Cumpleaños"
 msgid "Birthday of the customer"
 msgstr "Cumpleaños del Cliente"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "¿Algún error o sugerencia?"
 
@@ -309,6 +315,9 @@ msgstr ""
 
 msgid "Channel"
 msgstr "Canal"
+
+msgid "Channel the order has been placed"
+msgstr ""
 
 msgid "Choose file"
 msgstr "Elija el archivo"
@@ -470,6 +479,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Tablero"
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr ""
 
@@ -511,6 +523,9 @@ msgstr "Entrega"
 
 msgid "Delivery address"
 msgstr "Dirección de Entrega"
+
+msgid "Delivery date"
+msgstr "Fecha de entrega"
 
 msgid "Delivery in"
 msgstr ""
@@ -631,6 +646,11 @@ msgstr "Fax"
 
 msgid "Facsimile number (optional)"
 msgstr "Numero de Fax (opcional)"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr ""
 
 msgid "Failed to write file to disk"
 msgstr ""
@@ -818,6 +838,12 @@ msgstr "Constructor no válido \"%1$s\""
 msgid "Invoice"
 msgstr "Factura"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr "Artículo eliminado exitosamente"
 
@@ -901,6 +927,9 @@ msgstr "Configuración regional"
 
 msgid "Log"
 msgstr "Registro"
+
+msgid "Manual transfer"
+msgstr ""
 
 msgid "Map"
 msgstr ""
@@ -1146,6 +1175,9 @@ msgstr "Estado del pago"
 msgid "Payment"
 msgstr "Pago"
 
+msgid "Payment date"
+msgstr "Fecha del pago"
+
 msgid "Payment status"
 msgstr "Estado del pago"
 
@@ -1359,6 +1391,9 @@ msgstr ""
 msgid "Rating"
 msgstr "Clasificación"
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr ""
 
@@ -1379,11 +1414,17 @@ msgstr "Referencia"
 msgid "Reference ID"
 msgstr "ID de referencia"
 
+msgid "Refund"
+msgstr "reembolsado"
+
 msgid "Related ID"
 msgstr "Identificación relacionada"
 
 msgid "Related order"
 msgstr "Pedido relacionado"
+
+msgid "Related order ID (optional)"
+msgstr ""
 
 msgid "Renew"
 msgstr "Renovar"
@@ -2360,12 +2401,22 @@ msgstr "Proveedores"
 msgid "tag"
 msgstr "Etiquetas"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "Textos"
 
 #, php-format
 msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
 msgstr ""
 
 #, php-format

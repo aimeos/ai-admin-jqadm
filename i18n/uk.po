@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Oleksandr Kropyvko <akropivko@gmail.com>, 2021\n"
 "Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
@@ -254,6 +254,12 @@ msgstr "День народження"
 msgid "Birthday of the customer"
 msgstr "День народження покупця"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "Помилка чи пропозиція?"
 
@@ -300,6 +306,9 @@ msgstr ""
 
 msgid "Channel"
 msgstr "Канал"
+
+msgid "Channel the order has been placed"
+msgstr ""
 
 msgid "Choose file"
 msgstr "Вибрати файл"
@@ -461,6 +470,9 @@ msgstr "Довідка клієнта (необов’язково)"
 msgid "Dashboard"
 msgstr "Статистика"
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr "Набір даних"
 
@@ -502,6 +514,9 @@ msgstr "Доставка"
 
 msgid "Delivery address"
 msgstr "Адреса доставки"
+
+msgid "Delivery date"
+msgstr ""
 
 msgid "Delivery in"
 msgstr ""
@@ -622,6 +637,11 @@ msgstr "Факс"
 
 msgid "Facsimile number (optional)"
 msgstr "Номер факсу (опціонально)"
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
+msgstr ""
 
 msgid "Failed to write file to disk"
 msgstr ""
@@ -809,6 +829,12 @@ msgstr "Неприпустиме підприємство \"%1$s\""
 msgid "Invoice"
 msgstr "Рахунок"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr "Елемент успішно видалений"
 
@@ -892,6 +918,9 @@ msgstr "Локаль"
 
 msgid "Log"
 msgstr "Лог журнал"
+
+msgid "Manual transfer"
+msgstr ""
 
 msgid "Map"
 msgstr ""
@@ -1137,6 +1166,9 @@ msgstr "Статус оплати"
 msgid "Payment"
 msgstr "Оплата"
 
+msgid "Payment date"
+msgstr ""
+
 msgid "Payment status"
 msgstr "Статус платежу"
 
@@ -1350,6 +1382,9 @@ msgstr "Знижка"
 msgid "Rating"
 msgstr "Рейтинг"
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr "Рейтинг оглядача"
 
@@ -1370,11 +1405,17 @@ msgstr "Посилання"
 msgid "Reference ID"
 msgstr "ID Посилання"
 
+msgid "Refund"
+msgstr ""
+
 msgid "Related ID"
 msgstr "Зв`язаний ID"
 
 msgid "Related order"
 msgstr "Зв`язане замовлення"
+
+msgid "Related order ID (optional)"
+msgstr ""
 
 msgid "Renew"
 msgstr "Відновити"
@@ -2351,12 +2392,22 @@ msgstr "Постачальник"
 msgid "tag"
 msgstr "тег"
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr "Текст"
 
 #, php-format
 msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
 msgstr ""
 
 #, php-format

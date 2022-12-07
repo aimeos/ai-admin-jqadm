@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-05 07:41+0200\n"
+"POT-Creation-Date: 2022-12-07 11:38+0100\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Martins Nav <mveisis1@gmail.com>, 2021\n"
 "Language-Team: Latvian (http://www.transifex.com/aimeos/aimeos-core/language/lv/)\n"
@@ -254,6 +254,12 @@ msgstr "Dzimšanas diena"
 msgid "Birthday of the customer"
 msgstr "Klienta dzimšanas diena"
 
+msgid "Boost factor"
+msgstr ""
+
+msgid "Boost factor (optional)"
+msgstr ""
+
 msgid "Bug or suggestion?"
 msgstr "Kļūda vai ieteikums?"
 
@@ -300,6 +306,9 @@ msgstr ""
 
 msgid "Channel"
 msgstr "Kanāls"
+
+msgid "Channel the order has been placed"
+msgstr ""
 
 msgid "Choose file"
 msgstr "Izvēlēties failu"
@@ -461,6 +470,9 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
+msgid "Data"
+msgstr ""
+
 msgid "Data set"
 msgstr ""
 
@@ -502,6 +514,9 @@ msgstr "Piegāde"
 
 msgid "Delivery address"
 msgstr "Piegādes adrese"
+
+msgid "Delivery date"
+msgstr ""
 
 msgid "Delivery in"
 msgstr ""
@@ -621,6 +636,11 @@ msgid "Facsimile"
 msgstr ""
 
 msgid "Facsimile number (optional)"
+msgstr ""
+
+msgid ""
+"Factor to boost product in user search over other products (>1.0 positive "
+"boost, <1.0 negative boost)"
 msgstr ""
 
 msgid "Failed to write file to disk"
@@ -809,6 +829,12 @@ msgstr ""
 msgid "Invoice"
 msgstr "Rēķins"
 
+msgid "Invoice No."
+msgstr ""
+
+msgid "Invoice number for the order"
+msgstr ""
+
 msgid "Item deleted successfully"
 msgstr ""
 
@@ -891,6 +917,9 @@ msgid "Locale"
 msgstr ""
 
 msgid "Log"
+msgstr ""
+
+msgid "Manual transfer"
 msgstr ""
 
 msgid "Map"
@@ -1137,6 +1166,9 @@ msgstr ""
 msgid "Payment"
 msgstr "Apmaksa"
 
+msgid "Payment date"
+msgstr ""
+
 msgid "Payment status"
 msgstr "Maksājuma statuss"
 
@@ -1350,6 +1382,9 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
+msgid "Rating and number of ratings for the merchant"
+msgstr ""
+
 msgid "Rating of the reviewer"
 msgstr ""
 
@@ -1370,10 +1405,16 @@ msgstr ""
 msgid "Reference ID"
 msgstr ""
 
+msgid "Refund"
+msgstr ""
+
 msgid "Related ID"
 msgstr ""
 
 msgid "Related order"
+msgstr ""
+
+msgid "Related order ID (optional)"
 msgstr ""
 
 msgid "Renew"
@@ -2351,12 +2392,22 @@ msgstr ""
 msgid "tag"
 msgstr ""
 
+msgid "tax:0"
+msgstr ""
+
+msgid "tax:1"
+msgstr ""
+
 #, php-format
 msgid "text"
 msgstr ""
 
 #, php-format
 msgid "theme"
+msgstr ""
+
+#, php-format
+msgid "transaction"
 msgstr ""
 
 #, php-format
