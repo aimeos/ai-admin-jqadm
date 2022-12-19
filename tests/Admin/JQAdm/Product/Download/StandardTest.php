@@ -62,7 +62,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertStringContainsString( 'product/download/testurl', $result );
+		$this->assertStringNotContainsString( 'product/download/testurl', $result );
 	}
 
 

@@ -349,15 +349,11 @@ class Standard
 
 		foreach( $item->getListItems( 'attribute', 'hidden', 'download', false ) as $listItem )
 		{
-			if( ( $refItem = $listItem->getRefItem() ) === null ) {
+			if( $copy || ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;
 			}
 
 			$list = $listItem->toArray( true ) + $refItem->toArray( true );
-
-			if( $copy === true ) {
-				$list['product.lists.id'] = '';
-			}
 
 			foreach( $list as $key => $value ) {
 				$data[$key] = $value;
