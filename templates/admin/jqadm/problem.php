@@ -33,7 +33,7 @@ $enc = $this->encoder();
 
 $bytes = function( $value ) {
 
-	$result = substr( $value, 0, -1 );
+	$result = (int) substr( $value, 0, -1 );
 
 	switch( substr( $value, -1 ) )
 	{
