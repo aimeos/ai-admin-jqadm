@@ -2156,9 +2156,8 @@ msgstr "authorized"
 msgid "pay:6"
 msgstr "received"
 
-#, fuzzy
 msgid "pay:7"
-msgstr "deleted"
+msgstr "transferred"
 
 #, php-format
 msgid "paymentstatus"
