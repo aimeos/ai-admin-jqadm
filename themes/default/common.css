@@ -399,6 +399,10 @@ body {
 	content: "\F282";
 }
 
+.aimeos .btn.act-generate.fa:before {
+	content: "\F24A";
+}
+
 .aimeos .btn.act-translate.fa:before {
 	content: "\F658";
 }
