@@ -85,6 +85,50 @@ Aimeos.Text = {
 			},
 
 
+			generate: function(idx) {
+
+				if(!this.items[idx]) {
+					return;
+				}
+
+				if(!this.$el.dataset.openai) {
+					alert('No OpenAI API key configured in "admin/jqadm/api/openai" setting');
+					return;
+				}
+
+				if(!(this.items[idx]['text.content'] || '').trim().length) {
+					this.items[idx]['text.content'] = this.$el.dataset.openaiprompt;
+					return;
+				}
+
+				const self = this;
+				const params = {
+					'model': 'text-davinci-003',
+					'prompt' : this.items[idx]['text.content'],
+					'max_tokens': 4050 - Math.round(this.items[idx]['text.content'].length / 3 + 1)
+				};
+
+				this.$set(this.items[idx], 'loading', true);
+
+				fetch('https://api.openai.com/v1/completions', {
+					body: JSON.stringify(params),
+					headers: {
+						'Content-Type': 'application/json',
+						'Authorization': 'Bearer ' + this.$el.dataset.openai
+					},
+					method: 'POST'
+				}).then(response => {
+					return response.json();
+				}).then(data => {
+					self.items[idx]['text.content'] = (data['choices'] && data['choices'][0] && data['choices'][0]['text'] || '').trim().replace(/\n/g, "<br>");
+				}).finally(() => {
+					self.$set(this.items[idx], 'loading', false);
+				}).catch((error) => {
+					alert(error);
+				});
+			},
+
+
 			label: function(idx) {
 				let label = '';
 

@@ -625,6 +625,16 @@
 }
 
 
+/** Text */
+
+.group-item.loading .ck-content {
+	background-image: url('https://aimeos.org/aimeos-spinner.gif') !important;
+	background-repeat: no-repeat !important;
+	background-position: center !important;
+	background-size: 128px !important;
+}
+
+
 /** Order */
 
 .aimeos .list-order .list-header .actions .act-add {
