@@ -44,6 +44,8 @@ $enc = $this->encoder();
 <div id="text" class="item-text tab-pane fade" role="tablist" aria-labelledby="text">
 
 	<div id="item-text-group"
+		data-openaiprompt="<?= $enc->attr( $this->translate( 'admin', 'Please insert the description of the text that should be generated here' ) ) ?>"
+		data-openai="<?= $enc->attr( $this->config( 'admin/jqadm/api/openai' ) ) ?>"
 		data-translate="<?= $enc->attr( $this->config( 'admin/jqadm/api/translate', [] ) ) ?>"
 		data-items="<?= $enc->attr( $this->get( 'textData', [] ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
@@ -51,7 +53,7 @@ $enc = $this->encoder();
 
 		<div class="group-list" role="tablist" aria-multiselectable="true">
 			<div is="draggable" v-model="items" group="text" handle=".act-move">
-				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card">
+				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card" v-bind:class="{loading: item['loading']}">
 
 					<div v-bind:id="'item-text-group-item-' + idx" class="card-header header">
 						<div class="card-tools-start">
@@ -63,6 +65,9 @@ $enc = $this->encoder();
 						</div>
 						<span class="item-label header-label" v-bind:class="{disabled: !active(idx)}">{{ label(idx) }}</span>
 						<div class="card-tools-end">
+							<a class="btn btn-card-header act-generate fa" href="#" v-on:click.prevent="generate(idx)"
+								title="<?= $enc->attr( $this->translate( 'admin', 'Generate text' ) ) ?>">
+							</a>
 							<div class="dropdown">
 								<a v-bind:id="'translate-menu-' + idx" class="btn btn-card-header act-translate fa dropdown-toggle" href="#"
 									tabindex="<?= $this->get( 'tabindex' ) ?>" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
