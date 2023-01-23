@@ -74,8 +74,8 @@ $enc = $this->encoder();
 									title="<?= $enc->attr( $this->translate( 'admin', 'Translate text' ) ) ?>">
  								</a>
 								<div class="dropdown-menu dropdown-menu-end" v-bind:aria-labelledby="'translate-menu-' + idx">
-									<?php foreach( ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt', 'ru'] as $lang ) : ?>
-										<a class="dropdown-item" href="#" v-on:click="translate(idx, `<?= strtoupper( $lang ) ?>`)"><?= $enc->html( $this->translate( 'language', $lang ) ) ?></a>
+									<?php foreach( ['bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'fi', 'fr', 'hu', 'id', 'it', 'ja', 'lt', 'lv', 'nl', 'pl', 'pt', 'pt_BR', 'ro', 'ru', 'sk', 'sl', 'sv', 'tr', 'uk', 'zh'] as $lang ) : ?>
+										<a class="dropdown-item" href="#" v-on:click="translate(idx, `<?= $lang ?>`)"><?= $enc->html( $this->translate( 'language', $lang ) ) ?></a>
 									<?php endforeach ?>
 								</div>
 							</div>
