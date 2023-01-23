@@ -90,8 +90,10 @@ Aimeos.Text = {
 					return;
 				}
 
-				if(!this.$el.dataset.openai) {
-					alert('No OpenAI API key configured in "admin/jqadm/api/openai" setting');
+				const config = JSON.parse(this.$el.dataset.openai || '{}');
+
+				if(!config['key']) {
+					alert('No OpenAI API key configured in "admin/jqadm/api/openai/key" setting');
 					return;
 				}
 
@@ -104,7 +106,7 @@ Aimeos.Text = {
 				const params = {
 					'model': 'text-davinci-003',
 					'prompt' : this.items[idx]['text.content'],
-					'max_tokens': 4050 - Math.round(this.items[idx]['text.content'].length / 3 + 1)
+					'max_tokens': 4000 - Math.round(this.items[idx]['text.content'].length / 3 + 1)
 				};
 
 				this.$set(this.items[idx], 'loading', true);
@@ -113,7 +115,7 @@ Aimeos.Text = {
 					body: JSON.stringify(params),
 					headers: {
 						'Content-Type': 'application/json',
-						'Authorization': 'Bearer ' + this.$el.dataset.openai
+						'Authorization': 'Bearer ' + config['key']
 					},
 					method: 'POST'
 				}).then(response => {
@@ -168,35 +170,29 @@ Aimeos.Text = {
 					return;
 				}
 
-				if(!this.$el.dataset.translate) {
+				const config = JSON.parse(this.$el.dataset.translate || '{}');
+
+				if(!config['key']) {
 					alert('No DeepL API key configured in "admin/jqadm/api/translate/key" setting');
 					return;
 				}
 
-				config = JSON.parse(this.$el.dataset.translate);
-				url = config['url'] || 'https://api-free.deepl.com/v2/';
-
-				if(!config['key']) {
-					alert('No translation credentials for DeepL configured');
-					return;
-				}
-
 				const self = this;
-				const data = {
+				const url = config['url'] || 'https://api-free.deepl.com/v2';
+				const params = {
 					'auth_key': config['key'],
 					'text' : this.items[idx]['text.content'],
 					'target_lang' : langid.toUpperCase().replace(/_/g, '-')
 				};
 
 				if(this.items[idx]['text.languageid']) {
-					data['source_lang'] = this.items[idx]['text.languageid'].toUpperCase();
+					params['source_lang'] = this.items[idx]['text.languageid'].toUpperCase().replace(/_/g, '-');
 				}
 
-
-				$.getJSON(url + '/translate', data).done(function(data) {
+				$.getJSON(url + '/translate', params).done(function(data) {
 					self.add({
 						'text.content': data['translations'] && data['translations'][0] && data['translations'][0]['text'] || '',
-						'text.languageid': langid.toLowerCase()
+						'text.languageid': langid.toLowerCase().replace(/-/g, '_')
 					});
 				}).fail(function(jqxhr, status, error) {
 					let msg = '';
