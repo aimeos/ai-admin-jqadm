@@ -170,16 +170,12 @@ Aimeos.Text = {
 				}
 
 				if(!this.$el.dataset.translate) {
-					alert('No translation service configured');
+					alert('No DeepL API key configured in "admin/jqadm/api/translate/key" setting');
 					return;
 				}
 
 				config = JSON.parse(this.$el.dataset.translate);
-
-				if(!config['url']) {
-					alert('No translation URL for DeepL configured');
-					return;
-				}
+				url = config['url'] || 'https://api-free.deepl.com/v2/';
 
 				if(!config['key']) {
 					alert('No translation credentials for DeepL configured');
@@ -198,7 +194,7 @@ Aimeos.Text = {
 				}
 
 
-				$.getJSON(config['url'] + '/translate', data).done(function(data) {
+				$.getJSON(url + '/translate', data).done(function(data) {
 					self.add({
 						'text.content': data['translations'] && data['translations'][0] && data['translations'][0]['text'] || '',
 						'text.languageid': langid.toLowerCase()
