@@ -189,7 +189,7 @@ Aimeos.Text = {
 				const data = {
 					'auth_key': config['key'],
 					'text' : this.items[idx]['text.content'],
-					'target_lang' : langid.toUpperCase()
+					'target_lang' : langid.toUpperCase().replace(/_/g, '-')
 				};
 
 				if(this.items[idx]['text.languageid']) {
