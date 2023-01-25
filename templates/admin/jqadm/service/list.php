@@ -230,14 +230,14 @@ $columnList = [
 												</label>
 												<div class="col-7">
 													<input
-                                                        is="flat-pickr"
-                                                        class="form-control"
-                                                        type="date"
-                                                        name="<?= $enc->attr( $this->formparam( array( 'item', 'service.datestart' ) ) ) ?>"
-                                                        v-bind:disabled="state('item/service.datestart')"
-                                                        v-bind:config="Aimeos.flatpickr.datetime"
-                                                        v-bind:value="`<?= $enc->js( $this->get( 'itemData/service.datestart' ) ) ?>`"
-                                                    >
+													   is="flat-pickr"
+													   class="form-control"
+													   type="date"
+													   name="<?= $enc->attr( $this->formparam( array( 'item', 'service.datestart' ) ) ) ?>"
+													   v-bind:disabled="state('item/service.datestart')"
+													   v-bind:config="Aimeos.flatpickr.datetime"
+													   v-bind:value="`<?= $enc->js( $this->get( 'itemData/service.datestart' ) ) ?>`"
+													>
 												</div>
 											</div>
 											<div class="row">
@@ -249,14 +249,14 @@ $columnList = [
 												</label>
 												<div class="col-7">
 													<input
-                                                        is="flat-pickr"
-                                                        class="form-control"
-                                                        type="date"
-                                                        name="<?= $enc->attr( $this->formparam( array( 'item', 'service.dateend' ) ) ) ?>"
-                                                        v-bind:disabled="state('item/service.dateend')"
-                                                        v-bind:config="Aimeos.flatpickr.datetime"
-                                                        v-bind:value="`<?= $enc->js( $this->get( 'itemData/service.dateend' ) ) ?>`"
-                                                    >
+													   is="flat-pickr"
+													   class="form-control"
+													   type="date"
+													   name="<?= $enc->attr( $this->formparam( array( 'item', 'service.dateend' ) ) ) ?>"
+													   v-bind:disabled="state('item/service.dateend')"
+													   v-bind:config="Aimeos.flatpickr.datetime"
+													   v-bind:value="`<?= $enc->js( $this->get( 'itemData/service.dateend' ) ) ?>`"
+													>
 												</div>
 											</div>
 										</div>
