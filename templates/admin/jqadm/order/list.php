@@ -419,10 +419,15 @@ $statusList = [
 													<?= $enc->html( $this->translate( 'admin', 'Pay date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
-														v-bind:disabled="state('item/order.datepayment')"
-														v-bind:config="Aimeos.flatpickr.date">
+													<input
+                                                        is="flat-pickr"
+                                                        class="form-control"
+                                                        type="date"
+                                                        name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
+                                                        v-bind:disabled="state('item/order.datepayment')"
+                                                        v-bind:config="Aimeos.flatpickr.date"
+                                                        v-bind:value="`<?= $enc->js( $this->get( 'itemData/order.datepayment' ) ) ?>`"
+                                                    >
 												</div>
 											</div>
 											<div class="row">
@@ -470,10 +475,15 @@ $statusList = [
 													<?= $enc->html( $this->translate( 'admin', 'Ship date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control" type="date"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
-														v-bind:disabled="state('item/order.datedelivery')"
-														v-bind:config="Aimeos.flatpickr.date">
+													<input
+                                                        is="flat-pickr"
+                                                        class="form-control"
+                                                        type="date"
+                                                        name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
+                                                        v-bind:disabled="state('item/order.datedelivery')"
+                                                        v-bind:config="Aimeos.flatpickr.date"
+                                                        v-bind:value="`<?= $enc->js( $this->get( 'itemData/order.datedelivery' ) ) ?>`"
+                                                    >
 												</div>
 											</div>
 											<div class="row">
