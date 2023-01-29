@@ -287,14 +287,11 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Verified' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input
-													    is="flat-pickr"
-													    class="form-control"
-													    type="date"
-													    name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
-													    v-bind:disabled="state('item/customer.dateverified')"
-													    v-bind:config="Aimeos.flatpickr.date"
-													    v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.dateverified' ) ) ?>`"
+													<input is="flat-pickr" class="form-control" type="date"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
+														v-bind:disabled="state('item/customer.dateverified')"
+														v-bind:config="Aimeos.flatpickr.date"
+														v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.dateverified' ) ) ?>`"
 													>
 												</div>
 											</div>
@@ -415,14 +412,11 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Birthday' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input
-													    is="flat-pickr"
-													    class="form-control"
-													    type="date"
-													    name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ) ?>"
-													    v-bind:disabled="state('item/customer.birthday')"
-													    v-bind:config="Aimeos.flatpickr.date"
-													    v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.birthday' ) ) ?>`"
+													<input is="flat-pickr" class="form-control" type="date"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ) ?>"
+														v-bind:disabled="state('item/customer.birthday')"
+														v-bind:config="Aimeos.flatpickr.date"
+														v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.birthday' ) ) ?>`"
 													>
 												</div>
 											</div>
