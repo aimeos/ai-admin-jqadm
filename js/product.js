@@ -909,12 +909,6 @@ Aimeos.Product.Selection = {
 				},
 
 
-				/** @deprecated 2023.01 */
-				getLabel : function(idx) {
-					return this.items[idx]['product.label'];
-				},
-
-
 				getArticles : function(request, response) {
 
 					Aimeos.options.done(function(data) {
