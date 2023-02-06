@@ -12,7 +12,6 @@ Aimeos.Product = {
 		Aimeos.Product.Bundle.init();
 		Aimeos.Product.Download.init();
 		Aimeos.Product.Selection.init();
-		Aimeos.Product.Order.init();
 
 		this.components();
 		this.dataset();
@@ -184,6 +183,22 @@ Aimeos.Product = {
 
 				},
 				mixins: [Aimeos.Product.Subscription.mixins.bind(this)()]
+			},
+			{
+				name: 'order',
+				el: '.item-order .order-list',
+				data: {
+					'id': null,
+					'items': [],
+					'fields': [],
+					'filter': {},
+					'included': {},
+					'offset': 0,
+					'limit': 25,
+					'total': 0,
+					'sort': '-order.id',
+				},
+				mixins: [Aimeos.Product.Order.mixins.bind(this)()]
 			}
 		]
 		for (const component of components) {
@@ -492,25 +507,9 @@ Aimeos.Product.Download = {
 
 
 Aimeos.Product.Order = {
-	init : function() {
 
-		if(!document.querySelector('.item-order .order-list')) {
-			return;
-		}
-
-		this.instance = new Vue({
-			'el': '.item-order .order-list',
-			'data': {
-				'id': null,
-				'items': [],
-				'fields': [],
-				'filter': {},
-				'included': {},
-				'offset': 0,
-				'limit': 25,
-				'total': 0,
-				'sort': '-order.id',
-			},
+	mixins : function() {
+		return {
 			beforeMount: function() {
 				this.Aimeos = Aimeos;
 
@@ -688,7 +687,7 @@ Aimeos.Product.Order = {
 					this.fetch();
 				}
 			}
-		});
+		};
 	}
 };
 
