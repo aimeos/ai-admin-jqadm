@@ -1122,18 +1122,18 @@ Aimeos.Product.Stock = {
 
 Aimeos.Product.Subscription = {
 
-	mixins : function() {
+	mixins() {
 		return {
 			beforeMount() {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				add : function(data) {
+				add(data) {
 
-					var idx = this.items.length;
+					const idx = this.items.length;
 					this.$set(this.items, idx, {});
 
-					for(var key in this.keys) {
+					for(let key in this.keys) {
 						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 					}
 
@@ -1141,17 +1141,24 @@ Aimeos.Product.Subscription = {
 				},
 
 
-				readonly: function(idx) {
-					return this.items[idx]['attribute.id'] != '' && this.items[idx]['attribute.id'] != null;
+				can(idx, action) {
+					if(this.items[idx]['product.lists.siteid']) {
+						switch(action) {
+							case 'create': return !this.items[idx]['attribute.id'];
+							case 'change': return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+						}
+					}
+
+					return false;
 				},
 
 
-				remove : function(idx) {
+				remove(idx) {
 					this.items.splice(idx, 1);
 				},
 
 
-				value: function(idx) {
+				value(idx) {
 					const map = this.items[idx];
 					return 'P' + (map['Y'] > 0 ? parseInt( map['Y'] ) + 'Y' : '')
 						+ (map['M'] > 0 ? parseInt( map['M'] ) + 'M' : '')
