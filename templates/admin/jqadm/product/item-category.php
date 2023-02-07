@@ -46,7 +46,7 @@ $keys = [
 					<tbody>
 
 						<tr v-for="(item, idx) in items" v-if="item['product.lists.type'] == listtype" v-bind:key="idx"
-							v-bind:class="checkSite(idx) ? 'readonly' : ''">
+							v-bind:class="{'readonly': !can(idx, 'change')}">
 							<td v-bind:class="item['css'] || ''">
 								<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', idx )">
@@ -62,12 +62,12 @@ $keys = [
 
 								<select is="combo-box" class="form-select item-id"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.id'] ) ) ?>`.replace( 'idx', idx )"
-									v-bind:readonly="checkSite(idx) || item['product.lists.id'] != ''"
 									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-									v-bind:label="getLabel(idx)"
+									v-bind:readonly="!can(idx, 'change')"
+									v-bind:label="label(idx)"
 									v-bind:title="title(idx)"
 									v-bind:required="'required'"
-									v-bind:getfcn="getItems"
+									v-bind:getfcn="itemFcn"
 									v-bind:index="idx"
 									v-on:select="update"
 									v-model="item['catalog.id']" >
@@ -116,7 +116,7 @@ $keys = [
 					<tbody>
 
 					<tr v-for="(item, idx) in items" v-if="item['product.lists.type'] == listtype" v-bind:key="idx"
-							v-bind:class="checkSite(idx) ? 'readonly' : ''">
+							v-bind:class="{'readonly': !can(idx, 'change')}">
 							<td v-bind:class="item['css'] || ''">
 								<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', idx )">
@@ -132,12 +132,12 @@ $keys = [
 
 								<select is="combo-box" class="form-select item-id"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.id'] ) ) ?>`.replace( 'idx', idx )"
-									v-bind:readonly="checkSite(idx) || item['product.lists.id'] != ''"
 									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-									v-bind:label="getLabel(idx)"
+									v-bind:readonly="!can(idx, 'change')"
+									v-bind:label="label(idx)"
 									v-bind:title="title(idx)"
 									v-bind:required="'required'"
-									v-bind:getfcn="getItems"
+									v-bind:getfcn="itemFcn"
 									v-bind:index="idx"
 									v-on:select="update"
 									v-model="item['catalog.id']" >
