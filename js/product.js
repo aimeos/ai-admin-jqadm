@@ -695,18 +695,18 @@ Aimeos.Product.Order = {
 
 Aimeos.Product.Product = {
 
-	mixins : function() {
+	mixins() {
 		return {
 			beforeMount() {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				add : function(data) {
+				add(data) {
 
-					var idx = (this.items || []).length;
+					let idx = (this.items || []).length;
 					this.$set(this.items, idx, {});
 
-					for(var key in this.keys) {
+					for(let key in this.keys) {
 						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
 					}
 
@@ -714,29 +714,23 @@ Aimeos.Product.Product = {
 				},
 
 
-				can : function(idx, action) {
-					if(!this.items[idx]['product.lists.siteid']) {
-						return false;
-					}
+				can(idx, action) {
 
-					if(action === 'delete') {
-						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-					}
+					if(this.items[idx]['product.lists.siteid']) {
+						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
 
-					if(action === 'move') {
-						return this.items[idx]['product.lists.siteid'] === this.siteid && this.items[idx]['product.lists.id'] != '';
+						switch(action) {
+							case 'delete': return allow;
+							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
+							case 'move': return allow && this.items[idx]['product.lists.id'] != '';
+						}
 					}
 
 					return false;
 				},
 
 
-				checkSite : function(key, idx) {
-					return this.items[idx][key] && this.items[idx][key] != this.siteid;
-				},
-
-
-				getItems : function() {
+				itemFcn() {
 
 					return function(request, response, element) {
 
@@ -747,9 +741,9 @@ Aimeos.Product.Product = {
 				},
 
 
-				getLabel : function(idx) {
+				label(idx) {
 
-					var label = this.items[idx]['product.label'];
+					let label = this.items[idx]['product.label'];
 
 					if(this.items[idx]['product.code']) {
 						label += ' (' + this.items[idx]['product.code'] + ')';
@@ -759,7 +753,7 @@ Aimeos.Product.Product = {
 				},
 
 
-				remove : function(idx) {
+				remove(idx) {
 					this.items.splice(idx, 1);
 				},
 
@@ -772,7 +766,7 @@ Aimeos.Product.Product = {
 				},
 
 
-				update : function(ev) {
+				update(ev) {
 
 					this.$set(this.items[ev.index], this.prefix + 'id', '');
 					this.$set(this.items[ev.index], this.prefix + 'siteid', this.siteid);
@@ -780,7 +774,7 @@ Aimeos.Product.Product = {
 					this.$set(this.items[ev.index], 'product.label', ev.label);
 					this.$set(this.items[ev.index], 'product.code', '');
 
-					var ids = [];
+					let ids = [];
 
 					for(idx in this.items) {
 						this.items[idx]['css'] = '';
