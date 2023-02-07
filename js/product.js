@@ -1048,13 +1048,13 @@ Aimeos.Product.Selection = {
 
 Aimeos.Product.Stock = {
 
-	mixins : function() {
+	mixins() {
 		return {
 			beforeMount() {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				add : function(data) {
+				add(data) {
 
 					var idx = (this.items || []).length;
 					this.$set(this.items, idx, {});
@@ -1067,30 +1067,26 @@ Aimeos.Product.Stock = {
 				},
 
 
-				can : function(idx, action) {
-					if(!this.items[idx]['product.lists.siteid']) {
-						return false;
-					}
+				can(idx, action) {
+					if(this.items[idx]['stock.siteid']) {
+						let allow = (new String(this.items[idx]['stock.siteid'])).startsWith(this.siteid);
 
-					if(action === 'delete') {
-						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+						switch(action) {
+							case 'delete': return allow;
+							case 'change': return allow || this.items[idx]['stock.id'] == '';
+						}
 					}
 
 					return false;
 				},
 
 
-				checked : function(idx) {
+				checked(idx) {
 					return this.items[idx].checked || this.items[idx].checked === undefined && this.items[idx]['stock.stocklevel'] !== null;
 				},
 
 
-				checkSite : function(idx) {
-					return this.items[idx]['stock.siteid'] && this.items[idx]['stock.siteid'] != this.siteid;
-				},
-
-
-				checkType : function() {
+				checkType() {
 					var types = [];
 
 					for(idx in this.items) {
@@ -1105,12 +1101,12 @@ Aimeos.Product.Stock = {
 				},
 
 
-				remove : function(idx) {
+				remove(idx) {
 					this.items.splice(idx, 1);
 				},
 
 
-				toggle : function(idx) {
+				toggle(idx) {
 					this.$set(this.items[idx], 'checked', !this.checked(idx));
 				}
 			}

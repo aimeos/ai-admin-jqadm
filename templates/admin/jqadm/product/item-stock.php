@@ -68,7 +68,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 									v-bind:items="<?= $enc->attr( $stockTypes->col( 'stock.type.label', 'stock.type.code' )->toArray() ) ?>"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.type'] ) ) ?>`.replace( 'idx', idx )"
 									v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
-									v-bind:readonly="checkSite(idx)"
+									v-bind:readonly="!can(idx, 'change')"
 									v-model="item['stock.type']" >
 								</select>
 							</td>
@@ -77,20 +77,23 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 							<div class="item-stockflag">
 								<input class="form-check-input" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.stockflag'] ) ) ?>`.replace( 'idx', idx )"
-									v-on:click="toggle(idx)" v-bind:checked="checked(idx)" v-bind:readonly="checkSite(idx)">
+									v-bind:readonly="!can(idx, 'change')"
+									v-bind:checked="checked(idx)"
+									v-on:click="toggle(idx)">
 							</div><!--
 							--><div v-if="!checked(idx)" class="form-control item-stocklevel">
 								&infin;
 								<input type="hidden" value=""
 									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.stocklevel'] ) ) ?>`.replace( 'idx', idx )"
-									v-bind:readonly="checkSite(idx)">
+									v-bind:readonly="!can(idx, 'change')">
 							</div><!--
 							--><div v-else class="form-control item-stocklevel">
 								<span class="item-stocklevel-value">{{ item['stock.stocklevel'] || 0 }} +</span>
 								<input class="item-stocklevel-diff" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.stockdiff'] ) ) ?>`.replace( 'idx', idx )"
-									v-bind:readonly="checkSite(idx)"
-									v-bind:value="0">
+									v-bind:readonly="!can(idx, 'change')"
+									v-bind:value="item['stock.stockdiff'] || 0"
+									v-on:input="item['stock.stockdiff'] = $event.target.value">
 							</div>
 						</td>
 						<td class="stock-dateback optional">
@@ -98,14 +101,14 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 								v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.dateback'] ) ) ?>`.replace( 'idx', idx )"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 								v-bind:config="Aimeos.flatpickr.datetime"
-								v-bind:disabled="checkSite(idx)"
+								v-bind:disabled="!can(idx, 'change')"
 								v-model="item['stock.dateback']">
 						</td>
 						<td class="stock-timeframe optional">
 							<input class="form-control item-timeframe" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['stock', 'idx', 'stock.timeframe'] ) ) ?>`.replace( 'idx', idx )"
 								placeholder="<?= $enc->attr( $this->translate( 'admin', 'Time frame (optional)' ) ) ?>"
-								v-bind:readonly="checkSite(idx)"
+								v-bind:readonly="!can(idx, 'change')"
 								v-model="item['stock.timeframe']">
 						</td>
 						<td class="actions">

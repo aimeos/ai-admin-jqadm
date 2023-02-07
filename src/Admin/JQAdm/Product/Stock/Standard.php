@@ -326,8 +326,8 @@ class Standard
 			$stocks->remove( $id );
 		}
 
-		$manager->save( $stockItems, false );
 		$manager->delete( $stocks );
+		$manager->save( $stockItems, false );
 
 		return $item;
 	}
