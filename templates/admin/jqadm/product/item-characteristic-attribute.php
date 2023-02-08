@@ -54,11 +54,11 @@ $keys = [
 			<tbody is="draggable" v-model="items" group="characteristic-attribute" handle=".act-move" tag="tbody">
 
 				<tr v-for="(item, idx) in items" v-bind:key="idx"
-					v-bind:class="item['product.lists.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>` ? 'readonly' : ''">
+					v-bind:class="{readonly: !can(idx, 'change')}">
 					<td v-bind:class="item['css'] || ''">
 						<select class="form-select item-type" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							v-bind:name="`<?= $enc->js( $this->formparam( array( 'characteristic', 'attribute', 'idx', 'attribute.type' ) ) ) ?>`.replace('idx', idx)"
-							v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
+							v-bind:readonly="!can(idx, 'change')"
 							v-model="item['attribute.type']" >
 
 							<option v-if="item['product.lists.id'] == ''" value="" disabled="disabled">
@@ -82,17 +82,14 @@ $keys = [
 						<input class="item-label" type="hidden" v-model="item['attribute.label']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'attribute.label'] ) ) ?>`.replace( 'idx', idx )">
 
-						<input class="item-type" type="hidden" v-model="item['attribute.type']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'attribute.type'] ) ) ?>`.replace( 'idx', idx )">
-
 						<select is="combo-box" class="form-select item-refid"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )"
-							v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
+							v-bind:readonly="!can(idx, 'change')"
 							v-bind:label="item['attribute.label']"
 							v-bind:title="title(idx)"
 							v-bind:required="'required'"
-							v-bind:getfcn="getItems"
+							v-bind:getfcn="itemFcn"
 							v-bind:index="idx"
 							v-on:select="update"
 							v-model="item['product.lists.refid']" >

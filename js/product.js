@@ -23,6 +23,7 @@ Aimeos.Product = {
 		const components = [
 			{
 				name: 'characteristic/attribute',
+				el: '.item-characteristic-attribute .attribute-list',
 				data: {
 					items: $(".item-characteristic-attribute .attribute-list").data("items"),
 					keys: $(".item-characteristic-attribute .attribute-list").data("keys"),
@@ -233,79 +234,57 @@ Aimeos.Product = {
 
 Aimeos.Product.Attribute = {
 
-	mixins: function() {
+	mixins() {
 		return {
 			beforeMount() {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				add : function(data) {
+				add(data) {
 
-					var idx = (this.items || []).length;
+					const idx = (this.items || []).length;
 					this.$set(this.items, idx, {});
 
-					for(var key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+					for(let key of this.keys) {
+						this.$set(this.items[idx], key, data && data[key] || '');
 					}
 
 					this.$set(this.items[idx], this.prefix + 'siteid', this.siteid);
 				},
 
 
-				can : function(idx, action) {
-					if(!this.items[idx]['product.lists.siteid']) {
-						return false;
-					}
+				can(idx, action) {
+					if(this.items[idx]['product.lists.siteid']) {
+						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
 
-					if(action === 'delete') {
-						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-					}
-
-					if(action === 'move') {
-						return this.items[idx]['product.lists.siteid'] === this.siteid && this.items[idx]['product.lists.id'] != '';
+						switch(action) {
+							case 'delete': return allow;
+							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
+							case 'move': return allow && this.items[idx]['product.lists.id'] != '';
+						}
 					}
 
 					return false;
 				},
 
 
-				checkSite : function(key, idx) {
-					return this.items[idx][key] && this.items[idx][key] != this.siteid;
-				},
+				itemFcn(idx) {
 
-
-				getItems : function(idx) {
-
-					var self = this;
+					const self = this;
 
 					return function(request, response, element) {
 
-						var type = self.items[idx] && self.items[idx]['attribute.type'] || null;
-						var criteria = type ? {'==': {'attribute.type': type}} : {};
+						const type = self.items[idx] && self.items[idx]['attribute.type'] || null;
+						const criteria = type ? {'==': {'attribute.type': type}} : {};
 
 						Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', criteria);
 					};
 				},
 
 
-				/**
-				 * @deprecated 2020.01 Use item['attribute.label'] instead
-				 */
-				getLabel : function(idx) {
+				typeFcn() {
 
-					var label = this.items[idx]['attribute.label'];
-
-					if(this.items[idx]['attribute.type']) {
-						label += ' (' + this.items[idx]['attribute.type'] + ')';
-					}
-
-					return label;
-				},
-
-
-				getTypeItems : function() {
-
-					var criteria = {'>': {'attribute.type.status': 0}};
+					const criteria = {'>': {'attribute.type.status': 0}};
 
 					return function(request, response, element) {
 						Aimeos.getOptions(request, response, element, 'attribute/type', 'attribute.type.code', 'attribute.type.label', criteria);
@@ -313,7 +292,7 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				remove : function(idx) {
+				remove(idx) {
 					this.items.splice(idx, 1);
 				},
 
@@ -326,14 +305,14 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				update : function(ev) {
+				update(ev) {
 
 					this.$set(this.items[ev.index], this.prefix + 'id', '');
 					this.$set(this.items[ev.index], this.prefix + 'siteid', this.siteid);
 					this.$set(this.items[ev.index], this.prefix + 'refid', ev.value);
 					this.$set(this.items[ev.index], 'attribute.label', ev.label);
 
-					var ids = [];
+					const ids = [];
 
 					for(idx in this.items) {
 						this.items[idx]['css'] = '';
@@ -347,7 +326,7 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				updateType : function(ev) {
+				updateType(ev) {
 
 					this.$set(this.items[ev.index], this.prefix + 'id', '');
 					this.$set(this.items[ev.index], this.prefix + 'refid', '');
