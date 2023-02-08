@@ -273,10 +273,7 @@ Aimeos.Product.Attribute = {
 					const self = this;
 
 					return function(request, response, element) {
-
-						const type = self.items[idx] && self.items[idx]['attribute.type'] || null;
-						const criteria = type ? {'==': {'attribute.type': type}} : {};
-
+						const criteria = {'==': {'attribute.type': self.items[idx] && self.items[idx]['attribute.type'] || ''}};
 						Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', criteria);
 					};
 				},

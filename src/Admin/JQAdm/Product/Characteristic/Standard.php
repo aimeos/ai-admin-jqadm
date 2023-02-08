@@ -36,23 +36,6 @@ class Standard
 
 
 	/**
-	 * Adds the required data used in the template
-	 *
-	 * @param \Aimeos\Base\View\Iface $view View object
-	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
-	 */
-	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
-	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'attribute/type' );
-		$search = $manager->filter( true )->order( ['attribute.type.position', 'attribute.type.label'] )->slice( 0, 1000 );
-
-		$view->attributeTypes = $manager->search( $search );
-
-		return $view;
-	}
-
-
-	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
