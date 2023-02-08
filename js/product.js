@@ -363,9 +363,9 @@ Aimeos.Product.Attribute = {
 
 Aimeos.Product.Bundle = {
 
-	init : function()  {
+	init()  {
 
-		var tab = $(".item-navbar .bundle");
+		let tab = $(".item-navbar .bundle");
 		$(".item-basic .item-type").val() === 'bundle' ? tab.show() : tab.hide();
 
 		$(".item-basic .item-type").on("change", function() {
@@ -486,10 +486,10 @@ Aimeos.Product.Catalog = {
 
 Aimeos.Product.Download = {
 
-	init : function() {
+	init() {
 
 		$(".item-download").on("change", ".fileupload", function(ev) {
-			$(this.files).each( function(idx, file) {
+			$(this.files).each(function(idx, file) {
 				$("input.item-label", ev.delegateTarget).val(file.name);
 				$(".custom-file-label", ev.delegateTarget).text(file.name);
 			});
@@ -501,9 +501,9 @@ Aimeos.Product.Download = {
 
 Aimeos.Product.Order = {
 
-	mixins : function() {
+	mixins() {
 		return {
-			beforeMount: function() {
+			beforeMount() {
 				this.Aimeos = Aimeos;
 
 				if(this.$el.dataset && this.$el.dataset.id) {
@@ -525,37 +525,37 @@ Aimeos.Product.Order = {
 				this.fields = list;
 			},
 			computed : {
-				first : function() {
+				first() {
 					return this.offset > 0 ? 0 : null;
 				},
-				prev : function() {
+				prev() {
 					return this.offset - this.limit >= 0 ? this.offset - this.limit : null;
 				},
-				next : function() {
+				next() {
 					return this.offset + this.limit < this.total ? this.offset + this.limit : null;
 				},
-				last : function() {
+				last() {
 					return Math.floor((this.total - 1) / this.limit) * this.limit > this.offset ? Math.floor((this.total - 1) / this.limit ) * this.limit : null;
 				},
-				current : function() {
+				current() {
 					return Math.floor( this.offset / this.limit ) + 1;
 				},
-				pages : function() {
+				pages() {
 					return this.total != 0 ? Math.ceil(this.total / this.limit) : 1;
 				}
 			},
 			methods : {
-				value : function(key) {
+				value(key) {
 					let op = Object.keys(this.filter[key] || {}).pop();
 					return this.filter[key] && this.filter[key][op][key] || '';
 				},
-				submit : function() {
+				submit() {
 					this.fetch();
 				},
-				reset : function() {
+				reset() {
 					Object.assign(this.$data, {filter: {'order.product.productid': {'==':{'order.product.productid': this.id}}}});
 				},
-				find : function(ev, key, op) {
+				find(ev, key, op) {
 					if(ev.target.value !== '') {
 						let expr = {};
 						expr[op || '=='] = {};
@@ -565,7 +565,7 @@ Aimeos.Product.Order = {
 						this.$delete(this.filter, key);
 					}
 				},
-				fetch : function() {
+				fetch() {
 					let self = this;
 
 					Aimeos.options.done(function(response) {
@@ -628,7 +628,7 @@ Aimeos.Product.Order = {
 						}
 					});
 				},
-				related : function(item, type, key) {
+				related(item, type, key) {
 					let id = null;
 					let self = this;
 
@@ -642,16 +642,16 @@ Aimeos.Product.Order = {
 
 					return this.included[type] && this.included[type][id] ? this.included[type][id]['attributes'][key] : '';
 				},
-				pagecnt : function(str) {
+				pagecnt(str) {
 					return sprintf(str, this.current, this.pages);
 				},
-				orderby : function(key) {
+				orderby(key) {
 					this.sort = this.sort === key ? '-' + key : key;
 				},
-				sortclass : function(key) {
+				sortclass(key) {
 					return this.sort === key ? 'sort-desc' : (this.sort === '-' + key ? 'sort-asc' : '');
 				},
-				toggleField : function(key) {
+				toggleField(key) {
 					let idx = this.fields.indexOf(key);
 					idx !== -1 ? this.fields.splice(idx, 1) : this.fields.push(key);
 
@@ -661,22 +661,22 @@ Aimeos.Product.Order = {
 				}
 			},
 			watch: {
-				fields : function() {
+				fields() {
 					this.fetch();
 				},
 				filter : {
-					handler: function() {
+					handler() {
 						this.fetch();
 					},
 					deep: true
 				},
-				limit : function() {
+				limit() {
 					this.fetch();
 				},
-				offset : function() {
+				offset() {
 					this.fetch();
 				},
-				sort : function() {
+				sort() {
 					this.fetch();
 				}
 			}
