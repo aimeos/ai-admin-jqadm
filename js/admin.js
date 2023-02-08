@@ -257,7 +257,7 @@ Aimeos = {
 	},
 
 
-	lazy : function(selector, renderFcn) {
+	lazy(selector, renderFcn) {
 
 		if('IntersectionObserver' in window) {
 
@@ -785,7 +785,7 @@ Aimeos.List = {
 	instance : null,
 
 
-	init : function() {
+	init() {
 
 		let node = document.querySelector(".list-view");
 		if(node) {
@@ -795,7 +795,7 @@ Aimeos.List = {
 
 
 	mixins : {
-		data: function() {
+		data() {
 			return {
 				all: false,
 				batch: false,
@@ -809,7 +809,7 @@ Aimeos.List = {
 				states: {}
 			}
 		},
-		beforeMount: function() {
+		beforeMount() {
 			this.Aimeos = Aimeos;
 
 			if(this.$el.dataset) {
@@ -840,7 +840,7 @@ Aimeos.List = {
 				return count;
 			},
 
-			unconfirmed: function() {
+			unconfirmed() {
 				let list = {};
 
 				for(const key in this.items) {
@@ -853,7 +853,7 @@ Aimeos.List = {
 			}
 		},
 		methods: {
-			askDelete: function(id, ev) {
+			askDelete(id, ev) {
 				if(id) {
 					this.clear(false);
 					this.$set(this.items[id], 'checked', true);
@@ -863,11 +863,11 @@ Aimeos.List = {
 				this.dialog = true;
 			},
 
-			checked: function(id) {
+			checked(id) {
 				return this.items[id] && this.items[id].checked;
 			},
 
-			confirmDelete: function(val) {
+			confirmDelete(val) {
 				if(val) {
 					if(this.$refs.form && this.deleteUrl) {
 						this.$refs.form.action = this.deleteUrl;
@@ -884,7 +884,7 @@ Aimeos.List = {
 				this.dialog = false;
 			},
 
-			clear: function(val) {
+			clear(val) {
 				this.all = val;
 				for(const key in this.items) {
 					if([this.siteid, ''].includes(this.items[key][this.domain + '.siteid'])) {
@@ -893,11 +893,11 @@ Aimeos.List = {
 				};
 			},
 
-			readonly: function(id) {
+			readonly(id) {
 				return !(this.items[id] && this.items[id][this.domain + '.siteid'] == this.siteid);
 			},
 
-			reset: function() {
+			reset() {
 				if(this.filter['val'])
 				{
 					for(let idx of Object.keys(this.filter['val'])) {
@@ -914,22 +914,22 @@ Aimeos.List = {
 				return !(this.states[key] || false);
 			},
 
-			toggle: function(id) {
+			toggle(id) {
 				this.$set(this.items[id], 'checked', !this.items[id].checked);
 			},
 
-			toggleAll: function() {
+			toggleAll() {
 				this.clear(this.all = !this.all);
 			},
 
-			value: function(idx) {
+			value(idx) {
 				return this.filter['val'] && this.filter['val'][idx] || null;
 			}
 		}
 	},
 
 
-	confirmDelete : function() {
+	confirmDelete() {
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
 
