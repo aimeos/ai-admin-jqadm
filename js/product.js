@@ -788,9 +788,9 @@ Aimeos.Product.Product = {
 
 Aimeos.Product.Selection = {
 
-	init : function() {
+	init() {
 
-		var tab = $(".item-navbar .selection");
+		const tab = $(".item-navbar .selection");
 		['group', 'select'].includes($(".item-basic .item-type").val()) ? tab.show() : tab.hide();
 
 		$(".item-product").on("change", ".item-basic .item-type", function() {
@@ -799,20 +799,20 @@ Aimeos.Product.Selection = {
 	},
 
 
-	mixins : function() {
+	mixins() {
 		return {
 			beforeMount() {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
 
-				add : function(data) {
+				add(data) {
 
-					var idx = this.items.length;
+					const idx = this.items.length;
 					this.$set(this.items, idx, {});
 
-					for(var key in this.keys) {
-						key = this.keys[key]; this.$set(this.items[idx], key, data && data[key] || '');
+					for(let key of this.keys) {
+						this.$set(this.items[idx], key, data && data[key] || '');
 					}
 
 					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
@@ -823,21 +823,25 @@ Aimeos.Product.Selection = {
 				},
 
 
-				can : function(idx, action, attridx) {
+				can(idx, action, attridx) {
 
-					if(action === 'delete') {
-						if(attridx) {
-							return this.items[idx]['attr'][attridx]['product.lists.siteid'] && (new String(this.items[idx]['attr'][attridx]['product.lists.siteid'])).startsWith(this.siteid);
-						} else {
-							return this.items[idx]['product.lists.siteid'] && (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+					if(attridx && this.items[idx]['attr'][attridx]['product.lists.siteid']) {
+						const allow = (new String(this.items[idx]['attr'][attridx]['product.lists.siteid'])).startsWith(this.siteid);
+
+						switch(action) {
+							case 'delete': return allow;
+							case 'change': return allow || this.items[idx]['attr'][attridx]['product.lists.id'] == '';
+							case 'move': return allow  && this.items[idx]['attr'][attridx]['product.lists.id'] != '';
 						}
 					}
 
-					if(action === 'move') {
-						if(attridx) {
-							return this.items[idx]['attr'][attridx]['product.lists.siteid'] === this.siteid;
-						} else {
-							return this.items[idx]['product.lists.siteid'] === this.siteid && this.items[idx]['product.lists.id'] != '';
+					if(this.items[idx]['product.lists.siteid']) {
+						const allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
+
+						switch(action) {
+							case 'delete': return allow;
+							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
+							case 'move': return allow  && this.items[idx]['product.lists.id'] != '';
 						}
 					}
 
@@ -845,22 +849,12 @@ Aimeos.Product.Selection = {
 				},
 
 
-				checkSite : function(key, idx, attridx) {
+				copy(idx) {
 
-					if(attridx) {
-						return this.items[idx]['attr'][attridx][key] && this.items[idx]['attr'][attridx][key] != this.siteid;
-					}
-
-					return this.items[idx][key] && this.items[idx][key] != this.siteid;
-				},
-
-
-				copyItem : function(idx) {
-
-					var len = this.items.length;
+					const len = this.items.length;
 					this.$set(this.items, len, {});
 
-					for(var key in this.items[idx]) {
+					for(let key in this.items[idx]) {
 						this.$set(this.items[len], key, this.items[idx][key]);
 					}
 
@@ -871,10 +865,10 @@ Aimeos.Product.Selection = {
 					this.$set(this.items[len], 'product.lists.siteid', this.siteid);
 					this.$set(this.items[len], 'product.lists.id', '');
 
-					for(var attridx in this.items[idx]['attr']) {
+					for(let attridx in this.items[idx]['attr']) {
 						this.$set(this.items[len]['attr'], attridx, {});
 
-						for(var key in this.items[idx]['attr'][attridx]) {
+						for(let key in this.items[idx]['attr'][attridx]) {
 							this.$set(this.items[len]['attr'][attridx], key, this.items[idx]['attr'][attridx][key]);
 						}
 
@@ -884,18 +878,18 @@ Aimeos.Product.Selection = {
 				},
 
 
-				remove : function(idx) {
-					this.items.splice(idx, 1);
-				},
-
-
-				getCss : function(idx) {
-					return ( idx !== 0 && this.items[idx]['product.id'] &&
+				css(idx) {
+					return ( idx !== 0 && this.items[idx]['product.lists.id'] &&
 						this.items[idx]['attr'] && this.items[idx]['attr'].length ? 'collapsed' : 'show' );
 				},
 
 
-				getArticles : function(request, response) {
+				editable(idx) {
+					return this.items[idx]['product.siteid'] && (new String(this.items[idx]['product.siteid'])).startsWith(this.siteid);
+				},
+
+
+				getArticles(request, response) {
 
 					Aimeos.options.done(function(data) {
 
@@ -903,10 +897,10 @@ Aimeos.Product.Selection = {
 							return;
 						}
 
-						var params = {}, param = {};
+						let params = {}, param = {};
 
-						param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type': 'default'}}]};
-						param['fields'] = {'product': 'product.id,product.code,product.label'};
+						param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type': ['default', 'event', 'voucher']}}]};
+						param['fields'] = {'product': 'product.id,product.type,product.code,product.label'};
 						param['include'] = 'attribute';
 						param['sort'] = 'product.code';
 
@@ -921,14 +915,14 @@ Aimeos.Product.Selection = {
 							url: data.meta.resources['product'],
 							data: params,
 							success: function(result) {
-								var map = {};
+								const map = {};
 
 								(result.included || []).forEach(function(item) {
 									map[item.id] = item.attributes;
 								});
 
 								response( (result.data || []).map(function(obj) {
-									var list = [];
+									const list = [];
 
 									(obj.relationships.attribute && obj.relationships.attribute.data || []).forEach(function(item) {
 										if(item.attributes && item.attributes['product.lists.type'] === 'variant') {
@@ -938,6 +932,7 @@ Aimeos.Product.Selection = {
 
 									return {
 										id: obj.id || null,
+										type: obj.attributes['product.type'] || null,
 										code: obj.attributes['product.code'] || null,
 										label: obj.attributes['product.label'] || null,
 										stock: false,
@@ -950,63 +945,51 @@ Aimeos.Product.Selection = {
 				},
 
 
-				title(idx, attridx) {
-					return 'Site ID: ' + this.items[idx]['attr'][attridx]['product.lists.siteid'] + "\n"
-						+ 'Editor: ' + this.items[idx]['attr'][attridx]['product.lists.editor'] + "\n"
-						+ 'Created: ' + this.items[idx]['attr'][attridx]['product.lists.ctime'] + "\n"
-						+ 'Modified: ' + this.items[idx]['attr'][attridx]['product.lists.mtime'];
+				remove(idx) {
+					this.items.splice(idx, 1);
 				},
 
 
-				updateProductItem : function(idx, ev, item) {
+				update(idx, ev, item) {
 
 					if(item) {
 						this.$set(this.items[idx], 'product.id', item.id);
 						this.$set(this.items[idx], 'product.code', item.code);
 						this.$set(this.items[idx], 'product.label', item.label);
+						this.$set(this.items[idx], 'product.type', item.type);
 						this.$set(this.items[idx], 'stock', item.stock);
 						this.$set(this.items[idx], 'attr', item.attr);
 					}
 				},
 
 
-				addAttributeItem : function(idx) {
+				addAttribute(idx) {
 
 					if(!this.items[idx]['attr']) {
 						this.$set(this.items[idx], 'attr', []);
 					}
 
-					var len = this.items[idx]['attr'].length;
+					const len = this.items[idx]['attr'].length;
 
 					if(!this.items[idx]['attr'][len]) {
 						this.$set(this.items[idx]['attr'], len, {});
 					}
 
-					var keys = ['product.lists.id', 'product.lists.refid', 'attribute.label'];
+					const keys = ['product.lists.id', 'product.lists.refid', 'attribute.label'];
 
-					for(key in keys) {
-						key = keys[key]; this.$set(this.items[idx]['attr'][len], key, '');
+					for(let key of keys) {
+						this.$set(this.items[idx]['attr'][len], key, '');
 					}
 
 					this.$set(this.items[idx]['attr'][len], 'product.lists.siteid', this.siteid);
 				},
 
 
-				getAttributeData : function(idx) {
-
-					if(this.items[idx] && this.items[idx]['attr']) {
-						return this.items[idx]['attr'];
-					}
-
-					return [];
-				},
-
-
-				getAttributeItems : function() {
+				getAttributes() {
 
 					return function(request, response, element) {
 
-						var labelFcn = function(attr) {
+						const labelFcn = function(attr) {
 							return attr['attribute.label'] + ' (' + attr['attribute.type'] + ')';
 						}
 						Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', null, labelFcn);
@@ -1014,9 +997,9 @@ Aimeos.Product.Selection = {
 				},
 
 
-				getAttributeLabel : function(idx, attridx) {
+				label(idx, attridx) {
 
-					var label = this.items[idx]['attr'][attridx]['attribute.label'];
+					let label = this.items[idx]['attr'][attridx]['attribute.label'];
 
 					if(this.items[idx]['attr'][attridx]['attribute.type']) {
 						label += ' (' + this.items[idx]['attr'][attridx]['attribute.type'] + ')';
@@ -1026,18 +1009,26 @@ Aimeos.Product.Selection = {
 				},
 
 
-				removeAttributeItem : function(idx, attridx) {
+				removeAttribute(idx, attridx) {
 					this.items[idx]['attr'].splice(attridx, 1);
 				},
 
 
-				updateAttributeItem : function(ev, idx, listidx) {
+				title(idx, attridx) {
+					return 'Site ID: ' + this.items[idx]['attr'][attridx]['product.lists.siteid'] + "\n"
+						+ 'Editor: ' + this.items[idx]['attr'][attridx]['product.lists.editor'] + "\n"
+						+ 'Created: ' + this.items[idx]['attr'][attridx]['product.lists.ctime'] + "\n"
+						+ 'Modified: ' + this.items[idx]['attr'][attridx]['product.lists.mtime'];
+				},
 
-					this.$set(this.items[idx]['attr'][listidx], 'product.lists.id', '');
-					this.$set(this.items[idx]['attr'][listidx], 'product.lists.siteid', this.siteid);
-					this.$set(this.items[idx]['attr'][listidx], 'product.lists.refid', ev.value);
-					this.$set(this.items[idx]['attr'][listidx], 'attribute.label', ev.label);
-					this.$set(this.items[idx]['attr'][listidx], 'attribute.type', '');
+
+				updateAttribute(ev, idx, attridx) {
+
+					this.$set(this.items[idx]['attr'][attridx], 'product.lists.id', '');
+					this.$set(this.items[idx]['attr'][attridx], 'product.lists.siteid', this.siteid);
+					this.$set(this.items[idx]['attr'][attridx], 'product.lists.refid', ev.value);
+					this.$set(this.items[idx]['attr'][attridx], 'attribute.label', ev.label);
+					this.$set(this.items[idx]['attr'][attridx], 'attribute.type', '');
 				}
 			}
 		}
