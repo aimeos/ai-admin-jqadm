@@ -14,7 +14,7 @@ Vue.component('nav-search', {
 		'show': {type: Boolean, default: false},
 		'url': {type: String, required: true},
 	},
-	data: function() {
+	data() {
 		return {
 			'key': null,
 			'op': null,
@@ -29,12 +29,12 @@ Vue.component('nav-search', {
 			'type': 'text',
 		}
 	},
-	beforeMount: function() {
+	beforeMount() {
 		this.key = this.filter['key'] && this.filter['key'][0] || Object.keys(this.attributes).shift();
 		this.op = this.filter['op'] && this.filter['op'][0] || null;
 	},
 	computed: {
-		oplist: function() {
+		oplist() {
 			const type = this.key && this.attributes[this.key] && this.attributes[this.key]['type'] || 'string';
 			let entries = {};
 
@@ -46,7 +46,7 @@ Vue.component('nav-search', {
 		}
 	},
 	watch: {
-		key: function(key) {
+		key(key) {
 			const type = this.attributes[key] && this.attributes[key]['type'] || 'string';
 
 			switch(type) {

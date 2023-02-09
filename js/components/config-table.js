@@ -51,17 +51,17 @@
 	},
 
 	methods: {
-		add: function() {
+		add() {
 			let list = this.items;
 			list.push({key: '', val: ''});
 			this.$emit('update:config', list);
 		},
 
-		fname: function(key, idx) {
+		fname(key, idx) {
 			return this.name.replace('_pos_', idx).replace('_key_', key);
 		},
 
-		remove: function(idx) {
+		remove(idx) {
 			let list = [...this.items];
 			list.splice(idx, 1);
 			this.$emit('update:config', list);

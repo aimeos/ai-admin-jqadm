@@ -51,7 +51,7 @@ Aimeos.Dashboard.Sales = {
 	},
 
 
-	addLegend: function(chart, selector) {
+	addLegend(chart, selector) {
 		const legend = chart.generateLegend();
 		document.querySelector(selector + ' .chart-legend').appendChild(legend);
 
@@ -68,11 +68,11 @@ Aimeos.Dashboard.Sales = {
 		});
 	},
 
-	color: function(index) {
+	color(index) {
 		return this.colors[index % this.colors.length];
 	},
 
-	context: function(selector) {
+	context(selector) {
 		const canvas = document.querySelector(selector + ' .chart canvas');
 		if(!canvas) {
 			throw "Unable to create canvas for " + selector + " .chart canvas";
@@ -80,13 +80,13 @@ Aimeos.Dashboard.Sales = {
 		return canvas.getContext('2d');
 	},
 
-	done: function(selector) {
+	done(selector) {
 		document.querySelectorAll(selector + ' .loading').forEach(function(el) {
 			el.classList.remove('loading');
 		});
 	},
 
-	gradient: function(ctx, index) {
+	gradient(ctx, index) {
 		const gradient = ctx.createLinearGradient(0,0 , 0,280);
 
 		gradient.addColorStop(0, Color(this.color(index)).alpha(0.5).rgbaString());
@@ -96,7 +96,7 @@ Aimeos.Dashboard.Sales = {
 		return gradient;
 	},
 
-	legend: function(chart) {
+	legend(chart) {
 		const legend = document.createElement('div');
 		legend.classList.add('legend');
 
@@ -123,7 +123,7 @@ Aimeos.Dashboard.Sales = {
 	},
 
 
-	init: function() {
+	init() {
 
 		if(document.documentElement && document.documentElement.getAttribute('dir') === 'rtl') {
 			this.config.options.scales.yAxes[0].position = 'right';
@@ -147,7 +147,7 @@ Aimeos.Dashboard.Sales = {
 	},
 
 
-	chartDay : function() {
+	chartDay() {
 
 		const self = this;
 		const ctx = this.context('.order-salesday');
@@ -211,7 +211,7 @@ Aimeos.Dashboard.Sales = {
 	},
 
 
-	chartMonth : function() {
+	chartMonth() {
 
 		const self = this;
 		const ctx = this.context('.order-salesmonth');
@@ -278,7 +278,7 @@ Aimeos.Dashboard.Sales = {
 	},
 
 
-	chartWeekday : function() {
+	chartWeekday() {
 
 		const self = this;
 		const ctx = this.context('.order-salesweekday');

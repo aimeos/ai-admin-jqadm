@@ -13,7 +13,7 @@ $(function() {
 
 Aimeos.Price = {
 
-	init: function() {
+	init() {
 		Aimeos.components['price'] = new Vue({
 			el: document.querySelector('#item-price-group'),
 			data: {
@@ -21,7 +21,7 @@ Aimeos.Price = {
 				siteid: null,
 				domain: null
 			},
-			mounted: function() {
+			mounted() {
 				this.Aimeos = Aimeos;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
@@ -37,12 +37,12 @@ Aimeos.Price = {
 
 	mixins: {
 		methods: {
-			active: function(idx) {
+			active(idx) {
 				return this.items[idx] && this.items[idx]['price.status'] > 0;
 			},
 
 
-			add: function(data) {
+			add(data) {
 				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
@@ -72,7 +72,7 @@ Aimeos.Price = {
 			},
 
 
-			can : function(idx, action) {
+			can(idx, action) {
 				if(!this.items[idx][this.domain + '.lists.siteid']) {
 					return false;
 				}
@@ -89,7 +89,7 @@ Aimeos.Price = {
 			},
 
 
-			label: function(idx) {
+			label(idx) {
 				let label = '';
 
 				if(this.items[idx]) {
@@ -104,12 +104,12 @@ Aimeos.Price = {
 			},
 
 
-			remove: function(idx) {
+			remove(idx) {
 				this.items.splice(idx, 1);
 			},
 
 
-			toggle: function(what, idx) {
+			toggle(what, idx) {
 				if(this.items[idx]) {
 					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
 				}

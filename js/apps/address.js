@@ -13,7 +13,7 @@ $(function() {
 
 Aimeos.Address = {
 
-	init: function() {
+	init() {
 		Aimeos.components['address'] = new Vue({
 			el: document.querySelector('#item-address-group'),
 			data: {
@@ -22,7 +22,7 @@ Aimeos.Address = {
 				domain: null,
 				show: false
 			},
-			mounted: function() {
+			mounted() {
 				this.Aimeos = Aimeos;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
@@ -44,7 +44,7 @@ Aimeos.Address = {
 
 	mixins: {
 		methods: {
-			add : function() {
+			add() {
 				const entry = {};
 
 				entry[this.domain + '.address.siteid'] = this.siteid;
@@ -77,26 +77,26 @@ Aimeos.Address = {
 
 
 			/* @deprecated 2022.01 */
-			countries : function() {
+			countries() {
 				return Aimeos.getCountries;
 			},
 
 
-			duplicate : function(idx) {
+			duplicate(idx) {
 				if(this.items[idx]) {
 					this.$set(this.items, this.items.length, JSON.parse(JSON.stringify(this.items[idx])));
 				}
 			},
 
 
-			remove : function(idx) {
+			remove(idx) {
 				if(this.items[idx]) {
 					this.items.splice(idx, 1);
 				}
 			},
 
 
-			label : function(idx) {
+			label(idx) {
 				let label = '', addr = '';
 
 				if(this.items[idx]) {
@@ -115,7 +115,7 @@ Aimeos.Address = {
 			},
 
 
-			toggle: function(what, idx) {
+			toggle(what, idx) {
 				if(this.items[idx]) {
 					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
 				}

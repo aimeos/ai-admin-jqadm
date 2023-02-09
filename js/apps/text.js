@@ -11,7 +11,7 @@ $(function() {
 
 Aimeos.Text = {
 
-	init: function() {
+	init() {
 		Aimeos.components['text'] = new Vue({
 			el: document.querySelector('#item-text-group'),
 			data: {
@@ -19,7 +19,7 @@ Aimeos.Text = {
 				siteid: null,
 				domain: null
 			},
-			mounted: function() {
+			mounted() {
 				this.Aimeos = Aimeos;
 				this.CKEditor = ClassicEditor;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
@@ -36,12 +36,12 @@ Aimeos.Text = {
 
 	mixins: {
 		methods: {
-			active: function(idx) {
+			active(idx) {
 				return this.items[idx] && this.items[idx]['text.status'] > 0;
 			},
 
 
-			add: function(data) {
+			add(data) {
 				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
@@ -67,7 +67,7 @@ Aimeos.Text = {
 			},
 
 
-			can : function(idx, action) {
+			can(idx, action) {
 				if(!this.items[idx][this.domain + '.lists.siteid']) {
 					return false;
 				}
@@ -84,7 +84,7 @@ Aimeos.Text = {
 			},
 
 
-			generate: function(idx) {
+			generate(idx) {
 
 				if(!this.items[idx]) {
 					return;
@@ -130,7 +130,7 @@ Aimeos.Text = {
 			},
 
 
-			label: function(idx) {
+			label(idx) {
 				let label = '';
 
 				if(this.items[idx]) {
@@ -150,21 +150,21 @@ Aimeos.Text = {
 			},
 
 
-			remove: function(idx) {
+			remove(idx) {
 				if(this.items[idx]) {
 					this.items.splice(idx, 1);
 				}
 			},
 
 
-			toggle: function(what, idx) {
+			toggle(what, idx) {
 				if(this.items[idx]) {
 					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
 				}
 			},
 
 
-			translate : function(idx, langid) {
+			translate(idx, langid) {
 
 				if(!this.items[idx]) {
 					return;

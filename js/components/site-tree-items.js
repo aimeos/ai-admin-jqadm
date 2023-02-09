@@ -107,7 +107,7 @@ Vue.component('site-tree-items', {
 				param['sort'] = 'locale.site.position';
 
 				const config = {
-					'paramsSerializer': function(params) {
+					'paramsSerializer': (params) => {
 						return jQuery.param(params); // workaround, Axios and QS fail on [==]
 					},
 					'params': {}

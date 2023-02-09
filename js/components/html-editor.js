@@ -8,14 +8,14 @@ Vue.component('html-editor', {
 	template: `<input type="hidden" v-bind:id="id" v-bind:name="name" v-bind:value="value" />`,
 	props: ['config', 'editor', 'id', 'name', 'value', 'placeholder', 'readonly', 'tabindex'],
 
-	beforeDestroy: function() {
+	beforeDestroy() {
 		if(this.instance) {
 			this.instance.destroy();
 			this.instance = null;
 		}
 	},
 
-	data: function() {
+	data() {
 		return {
 			instance: null,
 			content: null
@@ -34,7 +34,7 @@ Vue.component('html-editor', {
 		}
 	},
 
-	mounted: function() {
+	mounted() {
 		const config = Object.assign({}, this.config);
 
 		if(this.value) {

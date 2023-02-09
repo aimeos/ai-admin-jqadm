@@ -13,7 +13,7 @@ $(function() {
 
 Aimeos.ProductRef = {
 
-	init: function() {
+	init() {
 
 		const node = document.querySelector('.item-product .productref-list');
 
@@ -31,7 +31,7 @@ Aimeos.ProductRef = {
 
 
 	mixins: {
-		'data': function() {
+		'data'() {
 			return {
 				'parentid': null,
 				'siteid': '',
@@ -52,7 +52,7 @@ Aimeos.ProductRef = {
 		},
 
 
-		beforeMount: function() {
+		beforeMount() {
 			this.Aimeos = Aimeos;
 			try {
 				if(!this.$el.dataset) {
@@ -86,14 +86,14 @@ Aimeos.ProductRef = {
 
 
 		computed: {
-			prefix : function() {
+			prefix() {
 				return this.resource.replace('/', '.') + '.';
 			}
 		},
 
 
 		methods: {
-			add: function() {
+			add() {
 				const obj = {};
 
 				obj[this.prefix + 'id'] = null;
@@ -112,7 +112,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			can : function(idx, action) {
+			can(idx, action) {
 				if(!this.items[idx][this.prefix + 'siteid']) {
 					return false;
 				}
@@ -121,7 +121,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			columns: function(json, key) {
+			columns(json, key) {
 				let list = [];
 				try {
 					if(window.sessionStorage) {
@@ -137,12 +137,12 @@ Aimeos.ProductRef = {
 			},
 
 
-			css: function(key) {
+			css(key) {
 				return this.resource.replace('/', '-') + '-' + key;
 			},
 
 
-			delete: function(resource, id, callback) {
+			delete(resource, id, callback) {
 
 				const self = this;
 				self.waiting(true);
@@ -171,7 +171,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			edit: function(idx) {
+			edit(idx) {
 				if(this.siteid === this.items[idx][this.prefix + 'siteid']) {
 					this.$set(this.items[idx], 'edit', true);
 				}
@@ -179,7 +179,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			find: function(ev, key, op) {
+			find(ev, key, op) {
 				const value = ev.target ? ev.target.value : ev;
 				if(value) {
 					const expr = {};
@@ -193,7 +193,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			fetch: function() {
+			fetch() {
 				const self = this;
 				const args = {
 					'filter': {'&&': []},
@@ -220,7 +220,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			get: function(resource, args, callback) {
+			get(resource, args, callback) {
 
 				const self = this;
 				self.waiting(true);
@@ -239,7 +239,7 @@ Aimeos.ProductRef = {
 						}
 
 						const config = {
-							'paramsSerializer': function(params) {
+							'paramsSerializer': (params) => {
 								return jQuery.param(params); // workaround, Axios and QS fail on [==]
 							},
 							'params': {}
@@ -287,7 +287,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			label: function(idx) {
+			label(idx) {
 				let str = '';
 
 				if(this.items[idx]) {
@@ -308,7 +308,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			remove: function(idx) {
+			remove(idx) {
 				const self = this;
 				this.checked = false;
 
@@ -328,7 +328,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			reset: function() {
+			reset() {
 				const domain = {};
 				const parentid = {};
 
@@ -340,27 +340,27 @@ Aimeos.ProductRef = {
 			},
 
 
-			sort: function(key) {
+			sort(key) {
 				this.order = this.order === this.prefix + key ? '-' + this.prefix + key : this.prefix + key;
 				return this.fetch();
 			},
 
 
-			sortclass: function(key) {
+			sortclass(key) {
 				return this.order === this.prefix + key ? 'sort-desc' : (this.order === '-' + this.prefix + key ? 'sort-asc' : '');
 			},
 
 
-			status: function(map, val) {
+			status(map, val) {
 				return map[val] || val;
 			},
 
-			stringify: function(value) {
+			stringify(value) {
 				return typeof value === 'object' || typeof value === 'array' ? JSON.stringify(value) : value;
 			},
 
 
-			suggest: function(input, loadfcn) {
+			suggest(input, loadfcn) {
 				const self = this;
 				const args = {
 					'filter': {'||': [
@@ -399,7 +399,7 @@ Aimeos.ProductRef = {
 			},
 
 
-			toggle: function(fields) {
+			toggle(fields) {
 				this.fields = fields;
 
 				if(window.sessionStorage) {
@@ -413,13 +413,13 @@ Aimeos.ProductRef = {
 			},
 
 
-			value: function(key) {
+			value(key) {
 				const op = Object.keys(this.filter[this.prefix + key] || {}).pop();
 				return this.filter[this.prefix + key] && this.filter[this.prefix + key][op][this.prefix + key] || '';
 			},
 
 
-			waiting: function(val) {
+			waiting(val) {
 				this.loading = val;
 				return this;
 			}
@@ -427,19 +427,19 @@ Aimeos.ProductRef = {
 
 
 		watch: {
-			checked: function() {
+			checked() {
 				for(let item of this.items) {
 					this.$set(item, 'checked', this.checked);
 				}
 			},
 
 
-			limit: function() {
+			limit() {
 				this.fetch();
 			},
 
 
-			offset: function() {
+			offset() {
 				this.fetch();
 			}
 		}

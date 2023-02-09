@@ -69,7 +69,7 @@ Vue.component('property-table', {
 	},
 
 	methods: {
-		add: function(data) {
+		add(data) {
 			let entry = {};
 
 			entry[this.domain + '.property.id'] = null;
@@ -83,19 +83,19 @@ Vue.component('property-table', {
 			this.$emit('update:property', list);
 		},
 
-		can : function(idx) {
+		can(idx) {
 			return this.items[idx][this.domain + '.property.siteid'] && (new String(this.items[idx][this.domain + '.property.siteid'])).startsWith(this.siteid);
 		},
 
-		fname: function(key, idx) {
+		fname(key, idx) {
 			return this.name.replace('_idx_', this.index).replace('_propidx_', idx).replace('_key_', this.domain + '.property.' + key);
 		},
 
-		readonly: function(idx) {
+		readonly(idx) {
 			return this.items[idx][this.domain + '.property.siteid'] != this.siteid;
 		},
 
-		remove: function(idx) {
+		remove(idx) {
 			let list = this.items;
 			list.splice(idx, 1);
 			this.$emit('update:property', list);

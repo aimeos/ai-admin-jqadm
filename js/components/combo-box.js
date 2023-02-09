@@ -12,12 +12,12 @@ Vue.component('combo-box', {
 	',
 	props: ['index', 'name', 'value', 'label', 'readonly', 'tabindex', 'getfcn'],
 
-	beforeDestroy: function() {
+	beforeDestroy() {
 		this.destroy();
 	},
 
 	methods: {
-		create: function() {
+		create() {
 			this.instance = $(this.$el).combobox({
 				getfcn: this.getfcn(this.index),
 				select: this.select
@@ -25,7 +25,7 @@ Vue.component('combo-box', {
 			return this.instance;
 		},
 
-		destroy: function() {
+		destroy() {
 			if(this.instance) {
 				this.instance.off().combobox('destroy');
 				this.instance = null;
@@ -33,18 +33,18 @@ Vue.component('combo-box', {
 			return this;
 		},
 
-		select: function(ev, ui) {
+		select(ev, ui) {
 			this.$emit('select',  {index: this.index, value: ui.item[0].value, label: ui.item[0].label});
 		}
 	},
 
-	mounted: function() {
+	mounted() {
 		if(!this.readonly) {
 			this.create();
 		}
 	},
 
-	updated : function() {
+	updated() {
 		if(this.readonly && this.instance) {
 			return this.destroy();
 		}

@@ -7,7 +7,7 @@
 
 Aimeos.Product = {
 
-	init : function() {
+	init() {
 
 		Aimeos.Product.Bundle.init();
 		Aimeos.Product.Download.init();
@@ -17,7 +17,7 @@ Aimeos.Product = {
 	},
 
 
-	components : function() {
+	components() {
 
 		const components = [
 			{
@@ -590,7 +590,7 @@ Aimeos.Product.Order = {
 							}
 
 							let config = {
-								'paramsSerializer': function(params) {
+								'paramsSerializer': (params) => {
 									return jQuery.param(params); // workaround, Axios and QS fail on [==]
 								},
 								'params': {}

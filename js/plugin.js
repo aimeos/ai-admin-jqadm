@@ -7,7 +7,7 @@
 
 Aimeos.Plugin = {
 
-	init : function() {
+	init() {
 
 		this.setupConfig();
 		this.setupDecorator();
@@ -15,7 +15,7 @@ Aimeos.Plugin = {
 	},
 
 
-	setupConfig : function() {
+	setupConfig() {
 
 		var delegate = $(".aimeos .item-plugin .item-basic");
 
@@ -29,7 +29,7 @@ Aimeos.Plugin = {
 	},
 
 
-	setupDecorator : function() {
+	setupDecorator() {
 
 		$(".aimeos .item-plugin .item-provider").parent().on("click", ".dropdown .decorator-name", function(ev) {
 
@@ -44,7 +44,7 @@ Aimeos.Plugin = {
 	},
 
 
-	setupProvider : function() {
+	setupProvider() {
 
 		$(".aimeos .item-plugin").on("focus", ".item-provider", function(ev) {
 

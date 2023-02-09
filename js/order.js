@@ -213,7 +213,7 @@
 
 Aimeos.Order = {
 
-	init : function() {
+	init() {
 
 		this.addServcieAttributeLine();
 		this.deleteServcieAttributeLine();
@@ -227,14 +227,14 @@ Aimeos.Order = {
 	},
 
 
-	selectCustomer: function(ev, ui) {
+	selectCustomer(ev, ui) {
 
 		var node = $(ev.delegateTarget);
 		node.closest("form-group").find("select.item-customerid").val(node.val());
 	},
 
 
-	setupCustomer : function() {
+	setupCustomer() {
 
 		$(".item-order .item-customer.combobox").combobox({
 			getfcn: Aimeos.getOptionsCustomers,
@@ -243,7 +243,7 @@ Aimeos.Order = {
 	},
 
 
-	addServiceSuggest : function(input, node) {
+	addServiceSuggest(input, node) {
 
 		$(input).autocomplete({
 			source: node.data("codes").split(','),
@@ -253,7 +253,7 @@ Aimeos.Order = {
 	},
 
 
-	addServcieAttributeLine : function() {
+	addServcieAttributeLine() {
 
 		var self = this;
 		$(".aimeos .item-order .service-attr").on("click", ".act-add", function(ev) {
@@ -269,7 +269,7 @@ Aimeos.Order = {
 	},
 
 
-	deleteServcieAttributeLine : function() {
+	deleteServcieAttributeLine() {
 
 		$(".aimeos .item-order .service-attr").on("click", ".act-delete", function(ev) {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
@@ -277,7 +277,7 @@ Aimeos.Order = {
 	},
 
 
-	setupServiceCodeSuggest : function() {
+	setupServiceCodeSuggest() {
 
 		var node = $(".aimeos .item-order .service-attr");
 
@@ -291,7 +291,7 @@ Aimeos.Order = {
 	},
 
 
-	createShortAddress : function() {
+	createShortAddress() {
 
 		$(".aimeos .item-order .item-address").each(function() {
 
@@ -322,7 +322,7 @@ Aimeos.Order = {
 	},
 
 
-	toggleAddressForm : function() {
+	toggleAddressForm() {
 
 		$(".aimeos .item-order .item-address").on("click", ".address-short", function(ev) {
 			$(".address-form", ev.delegateTarget).slideToggle();
@@ -330,7 +330,7 @@ Aimeos.Order = {
 	},
 
 
-	updateShortAddress : function() {
+	updateShortAddress() {
 
 		$(".aimeos .item-order .item-address").on("change", "input,select", function(ev) {
 			$(".address-text ." + $(this).data("field"), ev.delegateTarget).text($(this).val());
@@ -342,14 +342,14 @@ Aimeos.Order = {
 
 Aimeos.Order.Invoice = {
 
-	init : function() {
+	init() {
 
 		this.addItem();
 		this.closeItem();
 	},
 
 
-	addItem : function() {
+	addItem() {
 
 		$(".aimeos .item-order .item-invoice").on("click", ".list-header .act-add", function(ev) {
 			Aimeos.addClone($(".list-item-new.prototype", ev.delegateTarget));
@@ -357,7 +357,7 @@ Aimeos.Order.Invoice = {
 	},
 
 
-	closeItem : function() {
+	closeItem() {
 
 		$(".aimeos .item-order .item-invoice").on("click", ".act-close", function(ev) {
 			$(this).closest("tr").remove();

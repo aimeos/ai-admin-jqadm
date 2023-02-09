@@ -71,7 +71,7 @@ Aimeos.Catalog = {
 	instance: null,
 
 
-	init : function() {
+	init() {
 
 		this.askDelete();
 		this.confirmDelete();
@@ -107,7 +107,7 @@ Aimeos.Catalog = {
 				window.location = $(".aimeos .item-catalog").data("createurl").replace("_ID_", (node ? node.id : ''));
 			},
 
-			confirm: function(val) {
+			confirm(val) {
 				if(val && this.selected) {
 					Aimeos.Catalog.deleteNode(this.selected.id, this.selected.parentid || null);
 				}
@@ -146,7 +146,7 @@ Aimeos.Catalog = {
 	},
 
 
-	createTree : function(root) {
+	createTree(root) {
 
 		const rtl = document.documentElement && document.documentElement.getAttribute('dir') === 'rtl' ? true : false;
 
@@ -158,7 +158,7 @@ Aimeos.Catalog = {
 			"saveState": true,
 			"slide": false,
 			"rtl": rtl,
-			"dataFilter": function(result) {
+			"dataFilter"(result) {
 				var list = [];
 
 				for(var i in result.included) {
@@ -175,7 +175,7 @@ Aimeos.Catalog = {
 
 				return list;
 			},
-			"dataUrl": function(node) {
+			"dataUrl"(node) {
 
 				var params = {};
 
@@ -198,13 +198,13 @@ Aimeos.Catalog = {
 
 				return result;
 			},
-			"onCanMoveTo": function(node, target, position) {
+			"onCanMoveTo"(node, target, position) {
 				if(target === tree.tree('getTree').children[0] && position !== 'inside') {
 					return false;
 				}
 				return true;
 			},
-			"onCreateLi": function(node, li, isselected) {
+			"onCreateLi"(node, li, isselected) {
 				$(".jqtree-toggler", li).attr("tabindex", 1);
 				$(".jqtree-title", li).attr("tabindex", 1);
 			}
@@ -214,12 +214,12 @@ Aimeos.Catalog = {
 	},
 
 
-	onClick : function(event) {
+	onClick(event) {
 		window.location = $(".aimeos .item-catalog").data("geturl").replace("_ID_", event.node.id);
 	},
 
 
-	onMove : function(event) {
+	onMove(event) {
 		event.preventDefault();
 
 		Aimeos.options.done(function(result) {
@@ -283,7 +283,7 @@ Aimeos.Catalog = {
 	},
 
 
-	transformNodes : function(result) {
+	transformNodes(result) {
 
 		root = {
 			id: result.data.id,
@@ -317,7 +317,7 @@ Aimeos.Catalog = {
 	},
 
 
-	askDelete : function() {
+	askDelete() {
 		var self = this;
 
 		$(".aimeos .item-catalog").on("click", ".tree-toolbar .act-delete", function(ev) {
@@ -337,7 +337,7 @@ Aimeos.Catalog = {
 	},
 
 
-	confirmDelete : function() {
+	confirmDelete() {
 		var self = this;
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
@@ -348,7 +348,7 @@ Aimeos.Catalog = {
 	},
 
 
-	deleteNode : function(nodeid, parentid) {
+	deleteNode(nodeid, parentid) {
 
 		Aimeos.options.done(function(result) {
 
@@ -386,7 +386,7 @@ Aimeos.Catalog = {
 	},
 
 
-	setupAdd : function() {
+	setupAdd() {
 
 		$(".aimeos .item-catalog").on("click", ".tree-toolbar .act-add", function(ev) {
 
@@ -402,7 +402,7 @@ Aimeos.Catalog = {
 	},
 
 
-	setupSearch : function() {
+	setupSearch() {
 
 		$(".aimeos .catalog-tree .tree-toolbar").on("input", ".search-input", function() {
 			var name = $(this).val();

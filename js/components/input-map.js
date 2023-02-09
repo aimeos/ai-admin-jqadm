@@ -46,20 +46,20 @@ Vue.component('input-map', {
 		}
 	},
 
-	created: function() {
+	created() {
 		this.list = this.toList(this.value);
 	},
 
 	methods: {
-		add: function() {
+		add() {
 			this.list.push({key: '', val: ''});
 		},
 
-		remove: function(idx) {
+		remove(idx) {
 			this.list.splice(idx, 1);
 		},
 
-		toList: function(obj) {
+		toList(obj) {
 			let list = [];
 			for(let key in obj) {
 				list.push({"key": key, "val": obj[key]});
@@ -67,7 +67,7 @@ Vue.component('input-map', {
 			return list;
 		},
 
-		toObject: function(list) {
+		toObject(list) {
 			let obj = {};
 			for(let entry of list) {
 				obj[entry.key] = entry.val;
@@ -75,18 +75,18 @@ Vue.component('input-map', {
 			return obj;
 		},
 
-		toString: function(value) {
+		toString(value) {
 			return typeof value === 'object' || typeof value === 'array' ? JSON.stringify(value) : value;
 		},
 
-		update: function(idx, key, val) {
+		update(idx, key, val) {
 			this.$set(this.list[idx], key, val);
 			this.$emit('input', this.toObject(this.list));
 		}
 	},
 
 	watch: {
-		value: function() {
+		value() {
 			this.list = this.toList(this.value);
 		}
 	}

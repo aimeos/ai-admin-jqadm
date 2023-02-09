@@ -21,7 +21,7 @@
 	rtl: false,
 
 
-	addLegend: function(chart, selector) {
+	addLegend(chart, selector) {
 		const legend = chart.generateLegend();
 		document.querySelector(selector + ' .chart-legend').appendChild(legend);
 
@@ -39,7 +39,7 @@
 	},
 
 
-	context: function(selector) {
+	context(selector) {
 		const canvas = document.querySelector(selector + ' .chart canvas');
 		if(!canvas) {
 			throw "Unable to create canvas for " + selector + " .chart canvas";
@@ -47,13 +47,13 @@
 		return canvas.getContext('2d');
 	},
 
-	done: function(selector) {
+	done(selector) {
 		document.querySelectorAll(selector + ' .loading').forEach(function(el) {
 			el.classList.remove('loading');
 		});
 	},
 
-	gradient: function(color, alpha, ctx) {
+	gradient(color, alpha, ctx) {
 		const gradient = ctx.createLinearGradient(0,0 , 0,280);
 
 		gradient.addColorStop(0, Color(color).alpha(alpha).rgbaString());
@@ -62,7 +62,7 @@
 		return gradient;
 	},
 
-	legend: function(chart) {
+	legend(chart) {
 		const legend = document.createElement('div');
 		legend.classList.add('legend');
 
@@ -89,7 +89,7 @@
 	},
 
 
-	init : function() {
+	init() {
 
 		if(document.documentElement && document.documentElement.getAttribute('dir') === 'rtl') {
 			this.rtl = true;
@@ -104,7 +104,7 @@
 	},
 
 
-	chartDay : function() {
+	chartDay() {
 
 		const self = this;
 		const ctx = this.context('.order-countday');
@@ -148,10 +148,10 @@
 				data: {
 					datasets: [{
 						data: data,
-						backgroundColor: function(ctx) {
+						backgroundColor: (ctx) => {
 							return self.colorScale[self.theme][(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
 						},
-						borderColor: function(ctx) {
+						borderColor: (ctx) => {
 							return self.colorScale[self.theme][(ctx.dataset.data[ctx.dataIndex].v / max * 9).toFixed()];
 						},
 						borderWidth: 1,
@@ -174,8 +174,8 @@
 					tooltips: {
 						displayColors: false,
 						callbacks: {
-							title: function() { return '';},
-							label: function(item, data) {
+							title: () => { return '';},
+							label: (item, data) => {
 								const entry = data.datasets[item.datasetIndex].data[item.index] || {};
 								return [moment(entry.x).format('ll') + ": " + entry.v];
 							}
@@ -239,7 +239,7 @@
 	},
 
 
-	chartHour : function() {
+	chartHour() {
 
 		const self = this;
 		const keys = "order.chour";
@@ -308,7 +308,7 @@
 							position: self.rtl ? 'right' : 'left',
 							ticks: {
 								min: 0,
-								callback: function(value) {
+								callback: (value) => {
 									return Number.isInteger(value) ? value : '';
 								},
 								fontColor: self.colorsText[self.theme]
@@ -324,7 +324,7 @@
 	},
 
 
-	chartPaymentStatus : function() {
+	chartPaymentStatus() {
 
 		const self = this;
 		const keys = "order.statuspayment,order.cdate";
@@ -418,7 +418,7 @@
 							stacked: true,
 							ticks: {
 								min: 0,
-								callback: function(value) {
+								callback: (value) => {
 									return Number.isInteger(value) ? value : '';
 								},
 								fontColor: self.colorsText[self.theme]
@@ -438,7 +438,7 @@
 	},
 
 
-	chartCountry : function() {
+	chartCountry() {
 
 		const self = this;
 		const keys = "order.address.countryid";
@@ -470,7 +470,7 @@
 					datasets: [{
 						outline: countries,
 						data: countries.map((c) => ({feature: c, value: map[c.id] || 0})),
-						backgroundColor: function(ctx) {
+						backgroundColor: (ctx) => {
 							const v = ctx.dataIndex && ctx.dataset.data[ctx.dataIndex].value || 0;
 							return self.colorScale[self.theme][(v / max * 9).toFixed()];
 						},

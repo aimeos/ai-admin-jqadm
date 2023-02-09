@@ -7,7 +7,7 @@
 
 Aimeos.Coupon = {
 
-	init : function() {
+	init() {
 
 		this.setupConfig();
 		this.setupDecorator();
@@ -17,7 +17,7 @@ Aimeos.Coupon = {
 	},
 
 
-	setupConfig : function() {
+	setupConfig() {
 
 		const delegate = $(".aimeos .item-coupon .item-basic");
 		const input = $(".block:not(.readonly) input.item-provider", delegate);
@@ -32,7 +32,7 @@ Aimeos.Coupon = {
 	},
 
 
-	setupDecorator : function() {
+	setupDecorator() {
 
 		$(".aimeos .item-coupon").on("click", ".block:not(.readonly) .provider .dropdown .decorator-name", function() {
 
@@ -47,14 +47,14 @@ Aimeos.Coupon = {
 	},
 
 
-	setupProvider : function() {
+	setupProvider() {
 
 		$(".aimeos .item-coupon").on("focus click", ".block:not(.readonly) input.item-provider", function() {
 			const self = $(this);
 
 			self.autocomplete({
 				source: self.data("names").split(","),
-				select: function(ev, ui) {
+				select(ev, ui) {
 					self.val(ui.item.value);
 					self.trigger('change');
 				},
@@ -74,7 +74,7 @@ Aimeos.Coupon = {
 
 Aimeos.Coupon.Code = {
 
-	init: function() {
+	init() {
 
 		const node = document.querySelector('.item-coupon .coupon-code-list');
 
@@ -92,7 +92,7 @@ Aimeos.Coupon.Code = {
 
 
 	mixins: {
-		'data': function() {
+		'data'() {
 			return {
 				'parentid': null,
 				'siteid': '',
@@ -110,7 +110,7 @@ Aimeos.Coupon.Code = {
 		},
 
 
-		beforeMount: function() {
+		beforeMount() {
 			this.Aimeos = Aimeos;
 			try {
 				if(!this.$el.dataset) {
@@ -136,7 +136,7 @@ Aimeos.Coupon.Code = {
 
 
 		methods: {
-			add: function() {
+			add() {
 				const obj = {};
 
 				obj['coupon.code.id'] = null;
@@ -153,7 +153,7 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			columns: function(json, key) {
+			columns(json, key) {
 				let list = [];
 				try {
 					if(window.sessionStorage) {
@@ -169,12 +169,12 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			css: function(key) {
+			css(key) {
 				return 'coupon-code-' + key;
 			},
 
 
-			delete: function(resource, id, callback) {
+			delete(resource, id, callback) {
 
 				const self = this;
 				self.waiting(true);
@@ -214,7 +214,7 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			edit: function(idx) {
+			edit(idx) {
 				if(this.siteid === this.items[idx]['coupon.code.siteid']) {
 					this.$set(this.items[idx], 'edit', true);
 				}
@@ -222,7 +222,7 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			find: function(ev, key, op) {
+			find(ev, key, op) {
 				const value = ev.target ? ev.target.value : ev;
 				if(value) {
 					const expr = {};
@@ -237,7 +237,7 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			fetch: function() {
+			fetch() {
 				const self = this;
 				const args = {
 					'filter': {'&&': []},
@@ -259,7 +259,7 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			get: function(resource, args, callback) {
+			get(resource, args, callback) {
 
 				const self = this;
 				self.waiting(true);
@@ -278,7 +278,7 @@ Aimeos.Coupon.Code = {
 						}
 
 						const config = {
-							'paramsSerializer': function(params) {
+							'paramsSerializer': (params) => {
 								return jQuery.param(params); // workaround, Axios and QS fail on [==]
 							},
 							'params': {}
@@ -326,7 +326,7 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			remove: function(idx) {
+			remove(idx) {
 				const self = this;
 				this.checked = false;
 
@@ -347,19 +347,19 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			reset: function() {
+			reset() {
 				Object.assign(this.$data, {filter: {'base': {'==': {'coupon.code.parentid': this.parentid}}}});
 				return this.fetch();
 			},
 
 
-			sort: function(key) {
+			sort(key) {
 				this.order = this.order === 'coupon.code.' + key ? '-' + 'coupon.code.' + key : 'coupon.code.' + key;
 				return this.fetch();
 			},
 
 
-			sortclass: function(key) {
+			sortclass(key) {
 				return this.order === 'coupon.code.' + key ? 'sort-desc' : (this.order === '-' + 'coupon.code.' + key ? 'sort-asc' : '');
 			},
 
@@ -378,13 +378,13 @@ Aimeos.Coupon.Code = {
 			},
 
 
-			value: function(key) {
+			value(key) {
 				const op = Object.keys(this.filter['coupon.code.' + key] || {}).pop();
 				return this.filter['coupon.code.' + key] && this.filter['coupon.code.' + key][op]['coupon.code.' + key] || '';
 			},
 
 
-			waiting: function(val) {
+			waiting(val) {
 				this.loading = val;
 				return this;
 			}
@@ -392,19 +392,19 @@ Aimeos.Coupon.Code = {
 
 
 		watch: {
-			checked: function() {
+			checked() {
 				for(let item of this.items) {
 					this.$set(item, 'checked', this.checked);
 				}
 			},
 
 
-			limit: function() {
+			limit() {
 				this.fetch();
 			},
 
 
-			offset: function() {
+			offset() {
 				this.fetch();
 			}
 		}

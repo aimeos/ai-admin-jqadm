@@ -13,7 +13,7 @@ Aimeos.Dashboard = {
 	 * @param array data List of labels for the legend
 	 * @param function colorScale D3js scale for the color of the legend squares
 	 */
-	addLegend : function(selector, data, colorScale) {
+	addLegend(selector, data, colorScale) {
 
 		var legendItem = d3.select(selector)
 			.append("div")
@@ -45,7 +45,7 @@ Aimeos.Dashboard = {
 	 * @param string|null type Type of aggregation like "sum" or "avg" (default: null for count)
 	 * @return jQuery promise object
 	 */
-	getData : function(resource, key, criteria, sort, limit, value, type) {
+	getData(resource, key, criteria, sort, limit, value, type) {
 
 		return $.when( Aimeos.options ).then(function(data) {
 

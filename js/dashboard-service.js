@@ -31,7 +31,7 @@
 	},
 
 
-	addLegend: function(chart, selector) {
+	addLegend(chart, selector) {
 		const legend = chart.generateLegend();
 		document.querySelector(selector + ' .chart-legend').appendChild(legend);
 
@@ -53,11 +53,11 @@
 		});
 	},
 
-	color: function(index) {
+	color(index) {
 		return this.colors[index % this.colors.length];
 	},
 
-	context: function(selector) {
+	context(selector) {
 		const canvas = document.querySelector(selector + ' .chart canvas');
 		if(!canvas) {
 			throw "Unable to create canvas for " + selector + " .chart canvas";
@@ -65,13 +65,13 @@
 		return canvas.getContext('2d');
 	},
 
-	done: function(selector) {
+	done(selector) {
 		document.querySelectorAll(selector + ' .loading').forEach(function(el) {
 			el.classList.remove('loading');
 		});
 	},
 
-	gradient: function(alpha, context) {
+	gradient(alpha, context) {
 		const chartArea = context.chart.chartArea;
 		const ctx = context.chart.ctx;
 
@@ -90,7 +90,7 @@
 		return gradient;
 	},
 
-	legend: function(chart) {
+	legend(chart) {
 		const self = this;
 		const labels = chart.config.data.labels || [];
 
@@ -122,7 +122,7 @@
 	},
 
 
-	init : function() {
+	init() {
 
 		this.theme = document.querySelector('body.dark') ? 'dark' : 'light';
 
@@ -132,7 +132,7 @@
 
 
 
-	chartDelivery : function() {
+	chartDelivery() {
 
 		const self = this;
 		const keys = "order.service.code";
@@ -188,7 +188,7 @@
 
 
 
-	chartPayment : function() {
+	chartPayment() {
 
 		const self = this;
 		const keys = "order.service.code";

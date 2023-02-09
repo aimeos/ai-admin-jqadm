@@ -10,7 +10,7 @@ Vue.component('auto-complete', {
 	props: ['keys', 'name', 'value', 'readonly', 'required', 'tabindex'],
 
 	methods: {
-		create: function() {
+		create() {
 			var instance = $(this.$el).autocomplete({
 				source: this.keys || [],
 				change: this.select,
@@ -24,25 +24,25 @@ Vue.component('auto-complete', {
 			});
 		},
 
-		destroy: function() {
+		destroy() {
 			if(this.instance) {
 				this.instance.off().autocomplete('destroy');
 				this.instance = null;
 			}
 		},
 
-		select: function(ev, ui) {
+		select(ev, ui) {
 			this.$emit('input', $(ev.currentTarget).val(), ui.item);
 		}
 	},
 
-	mounted: function() {
+	mounted() {
 		if(!this.readonly) {
 			this.create();
 		}
 	},
 
-	beforeDestroy: function() {
+	beforeDestroy() {
 		this.destroy();
 	}
 });
