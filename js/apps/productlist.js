@@ -117,7 +117,7 @@ Aimeos.ProductList = {
 			},
 
 
-			can(idx, action) {
+			can(action, idx) {
 				if(!this.items[idx][this.prefix + 'siteid']) {
 					return false;
 				}

@@ -72,7 +72,7 @@ Aimeos.Price = {
 			},
 
 
-			can(idx, action) {
+			can(action, idx) {
 				if(!this.items[idx][this.domain + '.lists.siteid']) {
 					return false;
 				}
