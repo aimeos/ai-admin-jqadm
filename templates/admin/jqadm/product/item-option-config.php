@@ -54,12 +54,12 @@ $keys = [
 			<tbody is="draggable" v-model="items" group="option-config" handle=".act-move" tag="tbody">
 
 				<tr v-for="(item, idx) in items" v-bind:key="idx"
-					v-bind:class="{readonly: !can(idx, 'change')}">
+					v-bind:class="{readonly: !can('change', idx)}">
 					<td v-bind:class="item['css'] || ''">
 						<select is="combo-box" class="form-select item-type"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'config', 'idx', 'attribute.type'] ) ) ?>`.replace( 'idx', idx )"
 							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-							v-bind:readonly="!can(idx, 'change')"
+							v-bind:readonly="!can('change', idx)"
 							v-bind:label="item['attribute.type']"
 							v-bind:title="title(idx)"
 							v-bind:required="'required'"
@@ -79,7 +79,7 @@ $keys = [
 						<select is="combo-box" class="form-select item-refid"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['option', 'config', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )"
 							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-							v-bind:readonly="!can(idx, 'change')"
+							v-bind:readonly="!can('change', idx)"
 							v-bind:label="item['attribute.label']"
 							v-bind:required="'required'"
 							v-bind:getfcn="itemFcn"
@@ -89,11 +89,11 @@ $keys = [
 						</select>
 					</td>
 					<td class="actions">
-						<div v-if="can(idx, 'move')"
+						<div v-if="can('move', idx)"
 							class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 						</div>
-						<div v-if="can(idx, 'delete')"
+						<div v-if="can('delete', idx)"
 							class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 							v-on:click.stop="remove(idx)">

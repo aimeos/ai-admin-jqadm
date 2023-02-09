@@ -79,11 +79,11 @@ $enc = $this->encoder();
 									<?php endforeach ?>
 								</div>
 							</div>
-							<div v-if="can(idx, 'move')"
+							<div v-if="can('move', idx)"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
-							<div v-if="can(idx, 'delete')"
+							<div v-if="can('delete', idx)"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">

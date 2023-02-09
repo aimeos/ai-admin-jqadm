@@ -42,12 +42,12 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								v-on:click.stop="copy(idx)">
 							</div>
 
-							<div v-if="can(idx, 'move')"
+							<div v-if="can('move', idx)"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
 
-							<div v-if="can(idx, 'delete')"
+							<div v-if="can('delete', idx)"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">
@@ -198,7 +198,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											<select is="combo-box" class="form-select item-attr-refid"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)"
 												v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-												v-bind:readonly="!can(idx, 'change', attridx)"
+												v-bind:readonly="!can('change', idx, attridx)"
 												v-bind:label="label(idx, attridx)"
 												v-bind:title="title(idx, attridx)"
 												v-bind:required="'required'"
@@ -208,11 +208,11 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											</select>
 										</td>
 										<td class="actions">
-											<div v-if="can(idx, 'move', attridx)"
+											<div v-if="can('move', idx, attridx)"
 												class="btn act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 											</div>
-											<div v-if="can(idx, 'delete', attridx)"
+											<div v-if="can('delete', idx, attridx)"
 												class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 												v-on:click.stop="removeAttribute(idx, attridx)">

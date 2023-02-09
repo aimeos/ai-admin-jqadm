@@ -276,7 +276,7 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				can(idx, action) {
+				can(action, idx) {
 					if(this.items[idx]['product.lists.siteid']) {
 						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
 
@@ -396,7 +396,7 @@ Aimeos.Product.Catalog = {
 				},
 
 
-				can(idx, action) {
+				can(action, idx) {
 					if(this.items[idx]['product.lists.siteid']) {
 						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
 
@@ -706,7 +706,7 @@ Aimeos.Product.Product = {
 				},
 
 
-				can(idx, action) {
+				can(action, idx) {
 
 					if(this.items[idx]['product.lists.siteid']) {
 						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
@@ -822,7 +822,7 @@ Aimeos.Product.Selection = {
 				},
 
 
-				can(idx, action, attridx) {
+				can(action, idx, attridx) {
 
 					if(attridx && this.items[idx]['attr'][attridx]['product.lists.siteid']) {
 						const allow = (new String(this.items[idx]['attr'][attridx]['product.lists.siteid'])).startsWith(this.siteid);
@@ -1063,7 +1063,7 @@ Aimeos.Product.Stock = {
 				},
 
 
-				can(idx, action) {
+				can(action, idx) {
 					if(this.items[idx]['stock.siteid']) {
 						let allow = (new String(this.items[idx]['stock.siteid'])).startsWith(this.siteid);
 
@@ -1133,7 +1133,7 @@ Aimeos.Product.Subscription = {
 				},
 
 
-				can(idx, action) {
+				can(action, idx) {
 					if(this.items[idx]['product.lists.siteid']) {
 						switch(action) {
 							case 'create': return !this.items[idx]['attribute.id'];
@@ -1186,7 +1186,7 @@ Aimeos.Product.Supplier = {
 				},
 
 
-				can(idx, action) {
+				can(action, idx) {
 					if(this.items[idx]['product.lists.siteid']) {
 						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
 

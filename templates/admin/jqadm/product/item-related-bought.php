@@ -56,7 +56,7 @@ $keys = [
 						<select is="combo-box" class="form-select item-refid"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )"
 							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-							v-bind:readonly="!can(idx, 'change')"
+							v-bind:readonly="!can('change', idx)"
 							v-bind:label="label(idx)"
 							v-bind:title="title(idx)"
 							v-bind:required="'required'"
@@ -67,11 +67,11 @@ $keys = [
 						</select>
 					</td>
 					<td class="actions">
-						<div v-if="can(idx, 'move')"
+						<div v-if="can('move', idx)"
 							class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 						</div>
-						<div v-if="can(idx, 'delete')"
+						<div v-if="can('delete', idx)"
 							class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 							v-on:click.stop="remove(idx)">
