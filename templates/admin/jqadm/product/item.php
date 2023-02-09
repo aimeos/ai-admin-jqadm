@@ -362,7 +362,9 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.code' ) ) ?>"
-										v-bind:readonly="!can('modify')">
+										v-bind:class="{'is-invalid': duplicate}"
+										v-bind:readonly="!can('modify')"
+										v-on:change="exists($event)">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ) ?>
