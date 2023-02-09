@@ -812,13 +812,7 @@ Aimeos.Product.Selection = {
 					}
 
 					if(this.items[idx]['product.lists.siteid']) {
-						const allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-
-						switch(action) {
-							case 'delete': return allow;
-							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
-							case 'move': return allow  && this.items[idx]['product.lists.id'] != '';
-						}
+						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
 					}
 
 					return false;
@@ -867,56 +861,68 @@ Aimeos.Product.Selection = {
 
 				getArticles(request, response) {
 
-					Aimeos.options.done(function(data) {
-
-						if(!data.meta.resources['product']) {
-							return;
-						}
-
-						let params = {}, param = {};
-
-						param['filter'] = {'&&': [{'=~': {'product.code': request.term}}, {'==': {'product.type': ['default', 'event', 'voucher']}}]};
-						param['fields'] = {'product': 'product.id,product.type,product.code,product.label'};
-						param['include'] = 'attribute';
-						param['sort'] = 'product.code';
-
-						if( data.meta && data.meta.prefix ) {
-							params[data.meta.prefix] = param;
-						} else {
-							params = param;
-						}
-
-						$.ajax({
-							dataType: "json",
-							url: data.meta.resources['product'],
-							data: params,
-							success: function(result) {
-								const map = {};
-
-								(result.included || []).forEach(function(item) {
-									map[item.id] = item.attributes;
-								});
-
-								response( (result.data || []).map(function(obj) {
-									const list = [];
-
-									(obj.relationships.attribute && obj.relationships.attribute.data || []).forEach(function(item) {
-										if(item.attributes && item.attributes['product.lists.type'] === 'variant') {
-											list.push(Object.assign({}, item.attributes, map[item.id] || {}));
-										}
-									});
-
-									return {
-										id: obj.id || null,
-										type: obj.attributes['product.type'] || null,
-										code: obj.attributes['product.code'] || null,
-										label: obj.attributes['product.label'] || null,
-										stock: false,
-										attr: list
-									};
-								}));
+					const filter = {'&&': [
+						{'=~': {'product.code': request.term}},
+						{'==': {'product.type': ['default', 'event', 'voucher']}}
+					]};
+					const fstr = JSON.stringify(filter).replace(/"/g, '\\"');
+					const body = JSON.stringify({'query': `query {
+						searchProducts(filter: "` + fstr + `", include: ["attribute"], sort: ["product.code"]) {
+							id
+							type
+							code
+							label
+							lists {
+								attribute(listtype: "variant") {
+									id
+									siteid
+									refid
+									editor
+									ctime
+									mtime
+									item {
+										type
+										code
+										label
+									}
+								}
 							}
-						});
+						}
+					}`});
+
+					fetch($('.aimeos').data('graphql'), {
+						method: 'POST',
+						credentials: 'same-origin',
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						},
+						body: body
+					}).then(response => {
+						return response.json();
+					}).then(result => {
+						response((result.data.searchProducts || []).map(function(item) {
+							return {
+								id: item.id || null,
+								type: item.type || null,
+								code: item.code || null,
+								label: item.label || null,
+								stock: false,
+								attr: (item.lists.attribute || []).map((entry) => {
+									return {
+										'product.lists.id': entry.id,
+										'product.lists.siteid': entry.siteid,
+										'product.lists.refid': entry.refid,
+										'product.lists.editor': entry.editor,
+										'product.lists.ctime': entry.ctime,
+										'product.lists.mtime': entry.mtime,
+										'attribute.id': entry.item.id,
+										'attribute.type': entry.item.type,
+										'attribute.code': entry.item.code,
+										'attribute.label': entry.item.label
+									}
+								})
+							};
+						}));
 					});
 				},
 
