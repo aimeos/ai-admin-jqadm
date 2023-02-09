@@ -14,13 +14,22 @@ Aimeos.Product = {
 		Aimeos.Product.Selection.init();
 
 		this.components();
-		this.dataset();
 	},
 
 
 	components : function() {
 
 		const components = [
+			{
+				name: 'basic',
+				el: '.item-basic .box',
+				data: {
+					item: $(".item-basic [data-data]").data("data") || {},
+					siteid: $(".item-basic [data-siteid]").data("siteid"),
+					datasets: $(".item-basic [data-datasets]").data("datasets") || {}
+				},
+				mixins: [Aimeos.Product.Basic.mixins.bind(this)()]
+			},
 			{
 				name: 'characteristic/attribute',
 				el: '.item-characteristic-attribute .attribute-list',
@@ -209,27 +218,41 @@ Aimeos.Product = {
 				'mixins': component.mixins
 			});
 		}
-	},
+	}
+};
 
 
-	dataset : function() {
 
-		$(".item-basic .item-set").on("change", function() {
-			var config = $("option:selected", this).data("config");
+Aimeos.Product.Basic = {
 
-			for(var name in config) {
-				if(Aimeos.components[name]) {
-					for(var key in config[name]) {
+	mixins() {
+		return {
+			beforeMount() {
+				this.Aimeos = Aimeos;
+			},
+			methods: {
+				can() {
+					return (new String(this.item['product.siteid'])).startsWith(this.siteid);
+				},
+
+
+				dataset(ev) {
+					const config = this.datasets[ev.target.value] || [];
+
+					for(const name in config) {
 						if(Aimeos.components[name]) {
-							Aimeos.components[name].add(config[name][key]);
+							for(const key in config[name]) {
+								if(Aimeos.components[name]) {
+									Aimeos.components[name].add(config[name][key]);
+								}
+							}
 						}
 					}
 				}
 			}
-		});
+		}
 	}
-};
-
+}
 
 
 Aimeos.Product.Attribute = {
