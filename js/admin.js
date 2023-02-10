@@ -38,7 +38,8 @@ Aimeos = {
 		},
 		language: $('html').attr('lang'),
 		mediaEmbed: {
-			previewsInData: true
+			previewsInData: true,
+			toolbar: ['|']
 		},
 		toolbar: [
 			'link', '|',
