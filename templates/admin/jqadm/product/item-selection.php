@@ -202,7 +202,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 												v-bind:label="label(idx, attridx)"
 												v-bind:title="title(idx, attridx)"
 												v-bind:required="'required'"
-												v-bind:getfcn="getAttributes"
+												v-bind:getfcn="get"
 												v-on:select="updateAttribute($event, idx, attridx)"
 												v-model="attr['product.lists.refid']" >
 											</select>

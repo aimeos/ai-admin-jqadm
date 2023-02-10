@@ -912,7 +912,7 @@ Aimeos.Product.Selection = {
 				},
 
 
-				getArticles(request, response) {
+				get(request, response) {
 
 					const filter = {'&&': [
 						{'=~': {'product.code': request.term}},
@@ -955,10 +955,10 @@ Aimeos.Product.Selection = {
 					}).then(result => {
 						response((result.data.searchProducts || []).map(function(item) {
 							return {
-								id: item.id || null,
-								type: item.type || null,
-								code: item.code || null,
-								label: item.label || null,
+								id: item.id,
+								type: item.type,
+								code: item.code,
+								label: item.label,
 								stock: false,
 								attr: (item.lists.attribute || []).map((entry) => {
 									return {
