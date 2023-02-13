@@ -45,29 +45,20 @@ class Base
 	 * @param array $decorators List of decorator name that should be wrapped around the client
 	 * @param string $classprefix Decorator class prefix, e.g. "\Aimeos\Admin\JQAdm\Catalog\Decorator\"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
+	 * @throws \LogicException If class can't be instantiated
 	 */
 	protected static function addDecorators( \Aimeos\MShop\ContextIface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
 	{
+		$interface = \Aimeos\Admin\JQAdm\Common\Decorator\Iface::class;
+
 		foreach( $decorators as $name )
 		{
-			$classname = $classprefix . $name;
-
-			if( ctype_alnum( $name ) === false )
-			{
-				$msg = $context->translate( 'admin', 'Invalid class name "%1$s"' );
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
+			if( ctype_alnum( $name ) === false ) {
+				throw new \LogicException( sprintf( 'Invalid class name "%1$s"', $name ), 400 );
 			}
 
-			if( class_exists( $classname ) === false )
-			{
-				$msg = $context->translate( 'admin', 'Class "%1$s" not found' );
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
-			}
-
-			$client = new $classname( $client, $context );
-
-			\Aimeos\MW\Common\Base::checkClass( '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface', $client );
+			$client = \Aimeos\Utils::create( $classprefix . $name, [$client, $context], $interface );
 		}
 
 		return $client;
@@ -157,16 +148,6 @@ class Base
 			return self::$objects[$classname];
 		}
 
-		if( class_exists( $classname ) === false )
-		{
-			$msg = $context->translate( 'admin', 'Class "%1$s" not available' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
-		}
-
-		$client = new $classname( $context );
-
-		\Aimeos\MW\Common\Base::checkClass( $interface, $client );
-
-		return $client;
+		return \Aimeos\Utils::create( $classname, [$context], $interface );
 	}
 }

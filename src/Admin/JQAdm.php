@@ -54,7 +54,7 @@ class JQAdm
 		$classname = '\\Aimeos\\Admin\\JQAdm\\' . str_replace( '/', '\\', ucwords( $path, '/' ) ) . '\\' . $name;
 
 		if( class_exists( $classname ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ), 404 );
+			throw new \LogicException( sprintf( 'Class "%1$s" not found', $classname ), 404 );
 		}
 
 		$client = self::createComponent( $context, $classname, $interface, $path );
@@ -146,30 +146,20 @@ class JQAdm
 	 * @param array $decorators List of decorator name that should be wrapped around the client
 	 * @param string $classprefix Decorator class prefix, e.g. "\Aimeos\Admin\JQAdm\Catalog\Decorator\"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
+	 * @throws \LogicException If class can't be instantiated
 	 */
 	protected static function addDecorators( \Aimeos\MShop\ContextIface $context,
 		\Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
 	{
+		$interface = \Aimeos\Admin\JQAdm\Common\Decorator\Iface::class;
+
 		foreach( $decorators as $name )
 		{
-			$classname = $classprefix . $name;
-
 			if( ctype_alnum( $name ) === false ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Invalid class name "%1$s"', $classname ), 400 );
+				throw new \LogicException( sprintf( 'Invalid class name "%1$s"', $name ), 400 );
 			}
 
-			if( class_exists( $classname ) === false ) {
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ), 404 );
-			}
-
-			$client = new $classname( $client, $context );
-			$interface = '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface';
-
-			if( !( $client instanceof $interface ) )
-			{
-				$msg = sprintf( 'Class "%1$s" does not implement "%2$s"', $classname, $interface );
-				throw new \Aimeos\Admin\JQAdm\Exception( $msg, 400 );
-			}
+			$client = \Aimeos\Utils::create( $classprefix . $name, [$client, $context], $interface );
 		}
 
 		return $client;
@@ -193,17 +183,7 @@ class JQAdm
 			return self::$objects[$classname];
 		}
 
-		if( class_exists( $classname ) === false ) {
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( 'Class "%1$s" not found', $classname ), 404 );
-		}
-
-		$client = new $classname( $context );
-
-		if( !( $client instanceof $interface ) )
-		{
-			$msg = 'Class "%1$s" does not implement "%2$s"';
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname, $interface ), 400 );
-		}
+		$client = \Aimeos\Utils::create( $classname, [$context], $interface );
 
 		return self::addComponentDecorators( $context, $client, $path );
 	}
