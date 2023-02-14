@@ -120,8 +120,14 @@ Aimeos.Text = {
 					},
 					method: 'POST'
 				}).then(response => {
+					if(!response.ok) {
+						throw new Error('ChatGPT server: ' + response.statusText);
+					}
 					return response.json();
 				}).then(data => {
+					if(data.error) {
+						throw new Error('ChatGPT error: ' + (data.error.message || JSON.stringify(data)));
+					}
 					self.items[idx]['text.content'] = (data['choices'] && data['choices'][0] && data['choices'][0]['text'] || '').trim().replace(/\n/g, "<br>");
 				}).finally(() => {
 					self.$set(this.items[idx], 'loading', false);
