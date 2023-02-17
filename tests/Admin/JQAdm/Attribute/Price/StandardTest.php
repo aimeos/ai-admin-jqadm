@@ -168,7 +168,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Attribute\Media\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( [$method] )
+			->onlyMethods( [$method] )
 			->getMock();
 
 		$view = \TestHelper::view();

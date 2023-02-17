@@ -170,7 +170,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Selection\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
+			->onlyMethods( array( 'fromArray' ) )
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'fromArray' )
@@ -190,7 +190,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Selection\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
+			->onlyMethods( array( 'fromArray' ) )
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'fromArray' )

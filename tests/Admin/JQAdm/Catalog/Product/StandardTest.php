@@ -118,7 +118,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Catalog\Product\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
+			->onlyMethods( array( 'fromArray' ) )
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'fromArray' )
@@ -142,7 +142,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->setMethods( array( 'render', 'config' ) )
+			->onlyMethods( array( 'render' ) )
 			->getMock();
 
 		$manager = \Aimeos\MShop::create( $this->context, 'catalog' );

@@ -68,7 +68,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( [$method] )
+			->onlyMethods( [$method] )
 			->getMock();
 
 		$object->setAimeos( \TestHelper::getAimeos() );
@@ -82,7 +82,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		return $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->setMethods( array( 'render', 'config' ) )
+			->onlyMethods( ['render'] )->addMethods( ['config'] )
 			->getMock();
 	}
 }

@@ -221,7 +221,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Locale\Language\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( (array) $methods )
+			->onlyMethods( (array) $methods )
 			->getMock();
 
 		$object->setAimeos( \TestHelper::getAimeos() );
@@ -235,7 +235,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->setMethods( array( 'render' ) )
+			->onlyMethods( array( 'render' ) )
 			->getMock();
 
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, ['id' => $real ? 'de' : 'xx'] );

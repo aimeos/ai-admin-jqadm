@@ -122,7 +122,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$view = $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->setMethods( array( 'render', 'config' ) )
+			->onlyMethods( ['render'] )->addMethods( ['config'] )
 			->getMock();
 
 		$view->item = $this->getOrderBaseItem();
