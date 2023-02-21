@@ -1,6 +1,7 @@
 tests/tmp
-tests/coveralls.json
 .phpunit.result.cache
+.phpunit.cache
+coveralls.json
+coverage.xml
 *.log
 *.ser
-.idea
