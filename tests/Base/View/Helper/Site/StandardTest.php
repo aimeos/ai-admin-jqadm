@@ -17,7 +17,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$view = new \Aimeos\Base\View\Standard();
-		$view->pageSiteItem = new TestSite( '1.', 'label1' );
+		$view->pageSiteItem = new \Aimeos\MShop\Locale\Item\Site\Standard( [
+			'locale.site.siteid' => '1.',
+			'locale.site.label' => 'label1'
+		] );
 
 		$this->object = new \Aimeos\Base\View\Helper\Site\Standard( $view );
 	}
@@ -64,28 +67,5 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	public function testSiteid()
 	{
 		$this->assertEquals( '1.', $this->object->transform()->siteid() );
-	}
-}
-
-
-class TestSite
-{
-	private $id;
-	private $label;
-
-	public function __construct( $id, $label )
-	{
-		$this->id = $id;
-		$this->label = $label;
-	}
-
-	public function getSiteId()
-	{
-		return $this->id;
-	}
-
-	public function getLabel()
-	{
-		return $this->label;
 	}
 }

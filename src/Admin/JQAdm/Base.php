@@ -25,11 +25,11 @@ abstract class Base
 	use \Aimeos\Macro\Macroable;
 
 
-	private $view;
-	private $aimeos;
-	private $context;
-	private $subclients;
-	private $object;
+	private \Aimeos\MShop\ContextIface $context;
+	private ?\Aimeos\Admin\JQAdm\Iface $object = null;
+	private ?\Aimeos\Base\View\Iface $view = null;
+	private ?\Aimeos\Bootstrap $aimeos = null;
+	private ?array $subclients = null;
 
 
 	/**

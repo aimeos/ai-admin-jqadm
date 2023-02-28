@@ -19,7 +19,7 @@ namespace Aimeos\Base\View\Helper\Site;
  */
 class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 {
-	private $siteItem;
+	private \Aimeos\MShop\Locale\Item\Site\Iface $siteItem;
 
 
 	/**
