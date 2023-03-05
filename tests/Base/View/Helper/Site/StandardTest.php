@@ -18,7 +18,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$view = new \Aimeos\Base\View\Standard();
 		$view->pageSiteItem = new \Aimeos\MShop\Locale\Item\Site\Standard( [
-			'locale.site.siteid' => '1.',
+			'locale.site.siteid' => '0.',
 			'locale.site.label' => 'label1'
 		] );
 
@@ -40,8 +40,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCan()
 	{
-		$this->assertEquals( true, $this->object->transform()->can( '1.' ) );
-		$this->assertEquals( true, $this->object->transform()->can( '1.2.' ) );
+		$this->assertEquals( true, $this->object->transform()->can( '0.' ) );
+		$this->assertEquals( true, $this->object->transform()->can( '0.2.' ) );
 		$this->assertEquals( false, $this->object->transform()->can( '3.' ) );
 	}
 
@@ -54,18 +54,18 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testMatch()
 	{
-		$this->assertEquals( 'label1', $this->object->transform()->match( '1.' ) );
+		$this->assertEquals( 'label1', $this->object->transform()->match( '0.' ) );
 	}
 
 
 	public function testReadonly()
 	{
-		$this->assertEquals( 'readonly', $this->object->transform()->readonly( '1.2.' ) );
+		$this->assertEquals( 'readonly', $this->object->transform()->readonly( '0.2.' ) );
 	}
 
 
 	public function testSiteid()
 	{
-		$this->assertEquals( '1.', $this->object->transform()->siteid() );
+		$this->assertEquals( '0.', $this->object->transform()->siteid() );
 	}
 }
