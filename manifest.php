@@ -8,9 +8,6 @@ return [
 	'config' => [
 		'config',
 	],
-	'include' => [
-		'src',
-	],
 	'i18n' => [
 		'admin' => 'i18n',
 		'admin/ext' => 'i18n/ext',
