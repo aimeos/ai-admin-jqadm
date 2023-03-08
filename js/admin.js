@@ -16,8 +16,12 @@ if (prefersDark.matches && !setLight){
 document.querySelectorAll(".btn-theme").forEach(item => {
 	item.addEventListener("click", function() {
 		['light', 'dark'].map(cl => document.body.classList.toggle(cl));
+		const cookieName = "aimeos_backend_theme"
 		const theme = document.body.classList.contains("dark") ? "dark" : "light";
-		document.cookie = "aimeos_backend_theme=" + theme + ";path=/";
+		const d = new Date();
+		d.setTime(d.getTime() + (7*24*60*60*1000)); // 7 days (Safari does not allow for more)
+		const expires = "expires="+ d.toUTCString();
+		document.cookie = cookieName + "=" + theme + ";" + expires + ";path=/";
 	});
 });
 
