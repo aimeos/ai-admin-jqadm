@@ -18,9 +18,7 @@ document.querySelectorAll(".btn-theme").forEach(item => {
 		['light', 'dark'].map(cl => document.body.classList.toggle(cl));
 		const cookieName = "aimeos_backend_theme"
 		const theme = document.body.classList.contains("dark") ? "dark" : "light";
-		const d = new Date();
-		d.setTime(d.getTime() + (7*24*60*60*1000)); // 7 days (Safari does not allow for more)
-		const expires = "expires="+ d.toUTCString();
+		const expires = "expires=" + (new Date()).setTime(d.getTime() + (7*84600000)).toUTCString(); // 7 days (Safari does not allow for more)
 		document.cookie = cookieName + "=" + theme + ";" + expires + ";path=/";
 	});
 });
