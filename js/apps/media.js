@@ -108,7 +108,7 @@ Aimeos.Media = {
 			},
 
 
-			files(idx, files) {
+			async files(idx, files) {
 
 				if(!files.length) {
 					return;
@@ -122,7 +122,8 @@ Aimeos.Media = {
 
 					if(files[i].type.startsWith('image/')) {
 						self.$set(self.items[idx], 'media.preview', URL.createObjectURL(files[i]));
-					} else if(files[i].type.startsWith('video/')) {
+					} 
+					else if(files[i].type.startsWith('video/')) {
 						const video = document.createElement('video');
 
 						video.addEventListener('canplay', function(e) {
@@ -153,6 +154,22 @@ Aimeos.Media = {
 
 						video.src = URL.createObjectURL(files[i]);
 						video.load();
+					}
+					else if(files[i].type.startsWith('audio/')) {
+
+						const audioUrl = URL.createObjectURL(files[i])
+						let audioBlob = await fetch(audioUrl).then(r => r.blob())
+						
+						self.$set(self.items[idx], 'media.preview', audioUrl);
+
+						const container = new DataTransfer();
+						const preview = self.$refs.preview[idx];
+
+						container.items.add(new File([audioBlob], files[i].name, {
+							type: audioBlob.type, lastModified: new Date().getTime()
+						}));
+
+						preview.files = container.files;
 					}
 
 					sum += files[i].size;
