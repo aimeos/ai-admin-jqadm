@@ -73,9 +73,21 @@ $enc = $this->encoder();
 								<input class="item-url" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.url'] ) ) ?>`.replace('_idx_', idx)"
 									v-model="item['media.url']">
-								<img v-if="item['media.preview']" class="item-preview"
+								<img v-if="item['media.preview'] && (item['media.mimetype'].startsWith('image') || item['media.mimetype'].startsWith('video'))" class="item-preview"
 									v-bind:src="item['media.preview']"
 									v-bind:alt="item['media.label']">
+								<div v-else-if="item['media.mimetype'] === 'audio/mpeg'" class="audio-player">
+									<div v-if="item['media.url']">
+										<audio controls 
+											v-bind:src="'/uploads/tx_aimeos/' + item['media.url']"
+											v-bind:alt="item['media.label']" />
+									</div>
+									<div v-else>
+										<audio controls 
+											v-bind:src="item['media.preview']"
+											v-bind:alt="item['media.label']" />
+									</div>
+								</div>
 								<p v-else class="item-preview">
 									{{ item['media.label'] || `<?= $enc->js( $this->translate( 'admin', 'Select file' ) ) ?>` }}
 								</p>

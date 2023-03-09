@@ -570,6 +570,22 @@
 	z-index: 1;
 }
 
+.aimeos .item-media .media-preview .audio-player {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	z-index: 100;
+	border: 1px solid silver;
+	border-radius: 1rem;
+	box-sizing: border-box;
+	margin: .25rem;
+	padding-top: .25rem;
+	padding-bottom: .25rem;
+	background-color: rgba(192, 192, 192, .25);
+}
+
 
 /** Selection */
 
