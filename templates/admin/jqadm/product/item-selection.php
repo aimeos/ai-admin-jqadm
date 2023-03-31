@@ -75,6 +75,9 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										<option value="1" v-bind:selected="item['product.status'] == 1" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
 										</option>
+                                        					<option value="2" v-bind:selected="item['product.status'] == 2" >
+                                            						<?= $enc->html( $this->translate( 'mshop/code', 'status:2' ) ) ?>
+                                        					</option>
 										<option value="0" v-bind:selected="item['product.status'] == 0" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
 										</option>
