@@ -3,9 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chriz See, 2023
 # Jan Konieczny <whooof@outlook.com>, 2020
 # jerzys <jerzy.skalski@gmail.com>, 2014
 # jerzys <jerzy.skalski@gmail.com>, 2014
+# Kamil Kośmider, 2023
 # Łukasz Sobiecki <lukasz@sobiecki.pl>, 2021
 # Rafał Morawiec, 2022
 # Rafał Morawiec, 2022
@@ -13,10 +15,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 11:38+0100\n"
+"POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Rafał Morawiec, 2022\n"
-"Language-Team: Polish (http://www.transifex.com/aimeos/aimeos-core/language/pl/)\n"
+"Last-Translator: Chriz See, 2023\n"
+"Language-Team: Polish (http://app.transifex.com/aimeos/aimeos-core/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -97,7 +99,7 @@ msgstr ""
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(międzynarodowy) numer telefonu bez znaków specjalnych i odstępów, może zaczynać się od \"+\""
 
 msgid "+ Tax"
 msgstr "+ VAT"
@@ -430,40 +432,40 @@ msgid "Custom"
 msgstr "Zwyczaj"
 
 msgid "Custom domain or unique code of your shop"
-msgstr ""
+msgstr "Własna domena lub unikalny kod sklepu"
 
 msgid "Customer"
 msgstr "Klient"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "ID Klienta"
 
 msgid "Customer Lists Type"
-msgstr ""
+msgstr "Typ list klienta"
 
 msgid "Customer Lists Types"
-msgstr ""
+msgstr "Typy list klienta"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Typ właściwości klienta"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Typy właściwości klienta"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Charakterystyki klienta, które nie są współdzielone z innymi klientami"
 
 msgid "Customer comment (optional)"
-msgstr ""
+msgstr "Komentarz klienta (opcjonalny)"
 
 msgid "Customer e-mail address"
-msgstr ""
+msgstr "Adres e-mail klienta"
 
 msgid "Customer password"
 msgstr "Hasło klienta"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Właściwości klienta, które nie są współdzielone z innymi klientami"
 
 msgid "Customer reference"
 msgstr ""
@@ -475,25 +477,25 @@ msgid "Dashboard"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Dane"
 
 msgid "Data set"
-msgstr ""
+msgstr "Zestaw danych"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Zestaw danych"
 
 msgid "Date of the last delivery status change"
-msgstr ""
+msgstr "Data ostatniej zmiany statusu dostawy"
 
 msgid "Date of the last payment status change"
-msgstr ""
+msgstr "Data ostatniej zmiany statusu opłaty"
 
 msgid "Date the subscription ends"
-msgstr ""
+msgstr "Data końca subskrypcji"
 
 msgid "Days"
-msgstr ""
+msgstr "Dni"
 
 msgid "Default"
 msgstr "Domyślne"
@@ -508,7 +510,7 @@ msgid "Delete selected entries"
 msgstr "Usuń wybrane elementy"
 
 msgid "Delete this entry"
-msgstr ""
+msgstr "Usuń pozycję"
 
 msgid "Deleting reviews is not allowed"
 msgstr ""
@@ -523,7 +525,7 @@ msgid "Delivery date"
 msgstr "Data dostawy"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Dostawa za"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -533,13 +535,13 @@ msgid "Delivery status"
 msgstr "Status dostawy"
 
 msgid "Delivery timeframe (optional)"
-msgstr ""
+msgstr "Szacowany czas dostawy (opcjonalny)"
 
 msgid "Delivery types"
-msgstr ""
+msgstr "Typy dostaw"
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Dostawa w ciągu"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -571,7 +573,7 @@ msgid "Download"
 msgstr "Pobierz"
 
 msgid "Download this file"
-msgstr ""
+msgstr "Pobierz ten plik"
 
 msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
@@ -589,10 +591,10 @@ msgid "E-Mail address used for sending shop related e-mails"
 msgstr ""
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "E-mail address (optional)"
-msgstr ""
+msgstr "Adres e-mail (opcjonalne)"
 
 msgid "E-mail address that belongs to the address"
 msgstr ""
@@ -681,6 +683,9 @@ msgid "Floor / Appartment"
 msgstr ""
 
 msgid "Floor and/or apartment (optional)"
+msgstr ""
+
+msgid "Generate text"
 msgstr ""
 
 msgid "Given rebate amount"
@@ -994,7 +999,7 @@ msgid "Name of your shop shown to your customers"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Nowy"
 
 msgid "New customers"
 msgstr ""
@@ -1153,7 +1158,7 @@ msgid "Page %1$d of %2$d"
 msgstr "Strona %1$d z %2$d"
 
 msgid "Password"
-msgstr ""
+msgstr "Hasło"
 
 msgid "Password (required)"
 msgstr ""
@@ -1187,6 +1192,10 @@ msgid "Permission denied"
 msgstr ""
 
 msgid "Personal data"
+msgstr ""
+
+msgid ""
+"Please insert the description of the text that should be generated here"
 msgstr ""
 
 msgid "Please select"
@@ -1360,7 +1369,7 @@ msgid "Promotion"
 msgstr ""
 
 msgid "Properties"
-msgstr ""
+msgstr "Właściwości"
 
 msgid "Property value (required)"
 msgstr ""
@@ -1440,7 +1449,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Resetuj"
 
 msgid "Response"
 msgstr ""
@@ -1510,16 +1519,16 @@ msgid "Save"
 msgstr "Zapisz"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Zapisz i wyjdź"
 
 msgid "Save & Copy"
-msgstr ""
+msgstr "Zapisz i kopiuj"
 
 msgid "Save & New"
-msgstr ""
+msgstr "Zapisz i utwórz nowy"
 
 msgid "Save entry (Ctrl+S)"
-msgstr ""
+msgstr "Zapisz wpis (Ctrl+S)"
 
 msgid "Search"
 msgstr "Szukaj"
@@ -1528,37 +1537,37 @@ msgid "Second level type for grouping items"
 msgstr ""
 
 msgid "Select file"
-msgstr ""
+msgstr "Wybierz plik"
 
 msgid "Service"
 msgstr "Usługa"
 
 msgid "Service Lists Type"
-msgstr ""
+msgstr "Typ list usług"
 
 msgid "Service Lists Types"
-msgstr ""
+msgstr "Typy list usług"
 
 msgid "Service Type"
-msgstr ""
+msgstr "Typ usługi"
 
 msgid "Service Types"
-msgstr ""
+msgstr "Typy usług"
 
 msgid "Service attribute code"
 msgstr ""
 
 msgid "Service costs"
-msgstr ""
+msgstr "Koszt usługi"
 
 msgid "Service name"
-msgstr ""
+msgstr "Nazwa usługi"
 
 msgid "Service position (required)"
-msgstr ""
+msgstr "Pozycja usługi (wymagane)"
 
 msgid "Service price"
-msgstr ""
+msgstr "Cena usługi"
 
 msgid "Service provider or service decorator configuration name"
 msgstr ""
@@ -1567,7 +1576,7 @@ msgid "Service rebate"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 msgid "Ship date"
 msgstr ""
@@ -1702,7 +1711,7 @@ msgid "Sub-total"
 msgstr "Podsuma"
 
 msgid "Subscription"
-msgstr ""
+msgstr "Subskrypcja"
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
@@ -1734,7 +1743,7 @@ msgid "Tag Types"
 msgstr ""
 
 msgid "Tax"
-msgstr ""
+msgstr "Podatek"
 
 msgid "Tax rate"
 msgstr "Stawka podatkowa"
@@ -1964,7 +1973,7 @@ msgid "Usual time frame for the delivery of the product"
 msgstr ""
 
 msgid "VAT ID"
-msgstr ""
+msgstr "Numer NIP"
 
 msgid "Value"
 msgstr "Wartość"
@@ -2001,7 +2010,7 @@ msgid "Weeks"
 msgstr ""
 
 msgid "Weight"
-msgstr ""
+msgstr "Waga"
 
 msgid "When the account and e-mail address has been verified"
 msgstr ""
@@ -2013,7 +2022,7 @@ msgid "YYYY-MM-DD hh:mm:ss (optional)"
 msgstr "YYYY-MM-DD hh:mm:ss (opcjonalnie)"
 
 msgid "Years"
-msgstr ""
+msgstr "Lata"
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
 msgstr "Zamierzasz usunąć jedną bądź kilka pozycji. Jesteś tego pewny?"
@@ -2249,11 +2258,11 @@ msgstr ""
 
 #, php-format
 msgid "plugin"
-msgstr ""
+msgstr "Pluginy"
 
 #, php-format
 msgid "price"
-msgstr ""
+msgstr "Ceny"
 
 #, php-format
 msgid "product"
@@ -2261,7 +2270,7 @@ msgstr "Produkty"
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "Właściwości"
 
 #, php-format
 msgid "quick/countcompleted"
@@ -2294,7 +2303,7 @@ msgstr "Produkty"
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Opinie"
 
 #, php-format
 msgid "rule"
@@ -2329,7 +2338,7 @@ msgstr ""
 
 #, php-format
 msgid "settings"
-msgstr ""
+msgstr "Ustawienia"
 
 #, php-format
 msgid "setup"
@@ -2387,7 +2396,7 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Subskrypcje"
 
 #, php-format
 msgid "supplier"
@@ -2404,15 +2413,15 @@ msgstr ""
 
 #, php-format
 msgid "text"
-msgstr ""
+msgstr "Teksty"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "Motyw"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "transakcja"
 
 #, php-format
 msgid "type"
@@ -2424,23 +2433,23 @@ msgstr "Atrybuty"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr ""
+msgstr "Listy atrybutów"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr ""
+msgstr "Właściwości atrybutów"
 
 #, php-format
 msgid "type/catalog/lists"
-msgstr ""
+msgstr "Listy katalogów"
 
 #, php-format
 msgid "type/customer/lists"
-msgstr ""
+msgstr "Listy klientów"
 
 #, php-format
 msgid "type/customer/property"
-msgstr ""
+msgstr "Właściwości klientów"
 
 #, php-format
 msgid "type/media"
@@ -2456,19 +2465,19 @@ msgstr ""
 
 #, php-format
 msgid "type/plugin"
-msgstr ""
+msgstr "Pluginy"
 
 #, php-format
 msgid "type/price"
-msgstr ""
+msgstr "Ceny"
 
 #, php-format
 msgid "type/price/lists"
-msgstr ""
+msgstr "Lista cen"
 
 #, php-format
 msgid "type/price/property"
-msgstr ""
+msgstr "typ/cena/właściwość"
 
 #, php-format
 msgid "type/product"
@@ -2476,7 +2485,7 @@ msgstr "Produkty"
 
 #, php-format
 msgid "type/product/lists"
-msgstr ""
+msgstr "Listy produktów"
 
 #, php-format
 msgid "type/product/property"
@@ -2484,7 +2493,7 @@ msgstr "Właściwości produktu"
 
 #, php-format
 msgid "type/rule"
-msgstr ""
+msgstr "typ/zasada"
 
 #, php-format
 msgid "type/service"
@@ -2492,7 +2501,7 @@ msgstr "Usługi"
 
 #, php-format
 msgid "type/service/lists"
-msgstr ""
+msgstr "Listy usług"
 
 #, php-format
 msgid "type/stock"
@@ -2504,7 +2513,7 @@ msgstr "Tagi"
 
 #, php-format
 msgid "type/text"
-msgstr ""
+msgstr "Teksty"
 
 #, php-format
 msgid "type/text/lists"
@@ -2512,7 +2521,7 @@ msgstr ""
 
 #, php-format
 msgid "users"
-msgstr ""
+msgstr "Użytkownicy"
 
 msgid "yes"
 msgstr "tak"

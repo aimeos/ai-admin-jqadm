@@ -12,14 +12,15 @@
 # Patrik Szakos <szakos0208@gmail.com>, 2021
 # Péter Kozma <kopegrafika@gmail.com>, 2016
 # György Szikinger <gyorgyszikinger@gmail.com>, 2019
+# Zoltán Csordás, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 11:38+0100\n"
+"POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Dávid Komjáti, 2022\n"
-"Language-Team: Hungarian (http://www.transifex.com/aimeos/aimeos-core/language/hu/)\n"
+"Last-Translator: Zoltán Csordás, 2023\n"
+"Language-Team: Hungarian (http://app.transifex.com/aimeos/aimeos-core/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,7 +107,7 @@ msgid "+ Tax"
 msgstr "+ ÁFA"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "<hidden>"
 
 msgid "?"
 msgstr "?"
@@ -271,7 +272,7 @@ msgid "Bug or suggestion?"
 msgstr "Hiba vagy javaslat?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Csoportos szerkesztés"
 
 msgid "Cancel"
 msgstr "Mégse"
@@ -303,19 +304,19 @@ msgid ""
 msgstr "Termékkörre vonatkozó beállítási lehetőségek, a sablonokban kulcs-érték párokként lesznek elérhetők"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Költség/tétel módosítása %-ban"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "Árengedmény módosítása %-ban"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Érték módosítása %-ban"
 
 msgid "Channel"
 msgstr "Csatorna"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Csatorna, amin keresztül a rendelés történt"
 
 msgid "Choose file"
 msgstr "Válassza ki az állományt"
@@ -478,7 +479,7 @@ msgid "Dashboard"
 msgstr "Vezérlőpult"
 
 msgid "Data"
-msgstr ""
+msgstr "Adat"
 
 msgid "Data set"
 msgstr "Adatállomány"
@@ -686,6 +687,9 @@ msgstr "Emelet / Lakás"
 msgid "Floor and/or apartment (optional)"
 msgstr "Emelet és/vagy lakás (nem kötelező) "
 
+msgid "Generate text"
+msgstr ""
+
 msgid "Given rebate amount"
 msgstr "Adott összegű kedvezmény"
 
@@ -837,10 +841,10 @@ msgid "Invoice"
 msgstr "Számla"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Számlaszám"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "A rendelés számlaszáma"
 
 msgid "Item deleted successfully"
 msgstr "A tétel törlése sikerült"
@@ -927,7 +931,7 @@ msgid "Log"
 msgstr "Napló"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Kézi átvitel"
 
 msgid "Map"
 msgstr "Térkép"
@@ -954,7 +958,7 @@ msgid "Media properties"
 msgstr "A média tulajdonságai"
 
 msgid "Menu"
-msgstr ""
+msgstr "Menü"
 
 msgid "Message"
 msgstr "Üzenet"
@@ -1033,7 +1037,7 @@ msgid "No product found"
 msgstr "Nem található termék"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Nincsenek elérhető témák"
 
 #, php-format
 msgid "No view available"
@@ -1191,6 +1195,10 @@ msgstr "Engedély megtagadva"
 
 msgid "Personal data"
 msgstr "Személyes adatok"
+
+msgid ""
+"Please insert the description of the text that should be generated here"
+msgstr ""
 
 msgid "Please select"
 msgstr "Válasszon"
@@ -1390,7 +1398,7 @@ msgid "Rating"
 msgstr "Besorolás"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "A kereskedő értékelése és értékeléseinek száma"
 
 msgid "Rating of the reviewer"
 msgstr "Véleményező besorolása"
@@ -1422,7 +1430,7 @@ msgid "Related order"
 msgstr "Kapcsolódó rendelés"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "Kapcsolódó rendelés azonosító (opcionális)"
 
 msgid "Renew"
 msgstr "Megújít"
@@ -1666,7 +1674,7 @@ msgid "Sorting of the attributes within the same attribute type"
 msgstr "Az attribútumok rendezése ugyanazon attribútumtípuson belül"
 
 msgid "Sorting of the suppliers"
-msgstr ""
+msgstr "A beszállítók rendezése"
 
 msgid "Source of the invoice, e.g. by web or phone"
 msgstr "A számla forrása, pl. weben vagy telefonon"
@@ -1982,7 +1990,7 @@ msgid "Variant product attributes that are stored with the ordered products"
 msgstr "Változatos termékattribútumok, amelyeket a megrendelt termékekkel együtt tárolnak"
 
 msgid "Verified"
-msgstr ""
+msgstr "Hitelesített"
 
 msgid "View details"
 msgstr "Részletek megjelenítése"
@@ -2007,7 +2015,7 @@ msgid "Weight"
 msgstr "Súly"
 
 msgid "When the account and e-mail address has been verified"
-msgstr ""
+msgstr "Amikor a felhasználói fiók és az e-mail cím hitelesítve lett"
 
 msgid "Width"
 msgstr "Szélesség"
@@ -2312,7 +2320,7 @@ msgid "salesweekday"
 msgstr "Értékesítések hétköznap"
 
 msgid "selected"
-msgstr ""
+msgstr "kiválasztott"
 
 #, php-format
 msgid "selection"
@@ -2400,10 +2408,10 @@ msgid "tag"
 msgstr "Címkék"
 
 msgid "tax:0"
-msgstr ""
+msgstr "adó:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "adó:1"
 
 #, php-format
 msgid "text"
@@ -2411,11 +2419,11 @@ msgstr "Szövegek"
 
 #, php-format
 msgid "theme"
-msgstr ""
+msgstr "Téma"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "tranzakció"
 
 #, php-format
 msgid "type"

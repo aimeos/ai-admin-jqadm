@@ -5,6 +5,7 @@
 # Translators:
 # Aleksei Pirogov, 2022
 # Emiliya Adigozalova <emiliyaadigozalova@gmail.com>, 2021
+# Not Yourbuisness, 2023
 # Roman Krutovoy <serveri.minecraft@gmail.com>, 2018
 # Вячеслав Васильев <uverst@gmail.com>, 2019
 # Yakov Vladimirov <yakov_255@mail.ru>, 2019
@@ -14,10 +15,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 11:38+0100\n"
+"POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Aleksei Pirogov, 2022\n"
-"Language-Team: Russian (http://www.transifex.com/aimeos/aimeos-core/language/ru/)\n"
+"Last-Translator: Not Yourbuisness, 2023\n"
+"Language-Team: Russian (http://app.transifex.com/aimeos/aimeos-core/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -684,6 +685,9 @@ msgstr "Этаж / Квартира"
 msgid "Floor and/or apartment (optional)"
 msgstr "Этаж и/или квартира (необязательно)"
 
+msgid "Generate text"
+msgstr ""
+
 msgid "Given rebate amount"
 msgstr "Указанная сумма скидки"
 
@@ -952,7 +956,7 @@ msgid "Media properties"
 msgstr "Свойства Мультимедиа"
 
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 msgid "Message"
 msgstr "Сообщение"
@@ -998,13 +1002,13 @@ msgid "New"
 msgstr "Новый"
 
 msgid "New customers"
-msgstr ""
+msgstr "Новые клиенты"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Новые клиенты в течение последних семи дней"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Новые клиенты в течение последних семи дней по сравнению с ранним периодом"
 
 msgid "Next"
 msgstr "Далее"
@@ -1019,19 +1023,19 @@ msgid "Next date the subscription is renewed"
 msgstr "Очередная дата продления подписки"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Нет доступных валют. Пожалуйста, включите хотя бы одну валюту."
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Файл не был загружен"
 
 msgid "No items found"
 msgstr "Элементы не найдены"
 
 msgid "No product found"
-msgstr ""
+msgstr "Продукт не найден"
 
 msgid "No theme options available"
-msgstr ""
+msgstr "Нет доступных опций темы"
 
 #, php-format
 msgid "No view available"
@@ -1189,6 +1193,10 @@ msgstr "Доступ запрещен"
 
 msgid "Personal data"
 msgstr "Личные данные"
+
+msgid ""
+"Please insert the description of the text that should be generated here"
+msgstr ""
 
 msgid "Please select"
 msgstr "Пожалуйста выберите"
