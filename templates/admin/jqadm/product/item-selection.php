@@ -120,7 +120,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ) ?>`.replace('idx', idx)"
 										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 										v-bind:readonly="!editable(idx) || item['product.lists.id'] != ''"
-										v-bind:keys="getArticles"
+										v-bind:keys="get"
 										v-bind:required="'required'"
 										v-on:input="update(idx, ...arguments)">
 								</div>
@@ -205,7 +205,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 												v-bind:label="label(idx, attridx)"
 												v-bind:title="title(idx, attridx)"
 												v-bind:required="'required'"
-												v-bind:getfcn="get"
+												v-bind:getfcn="getAttributes"
 												v-on:select="updateAttribute($event, idx, attridx)"
 												v-model="attr['product.lists.refid']" >
 											</select>
