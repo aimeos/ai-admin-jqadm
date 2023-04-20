@@ -14,11 +14,10 @@
  *
  * @param string List of suggested config keys
  * @since 2020.01
- * @category Developer
  */
 
 
-/** admin/jqadm/api/translate
+/** admin/jqadm/api/openai
  * Configuration for realtime online translation service
  *
  * Contains the required settings for configuring the online translation service.
@@ -31,8 +30,6 @@
  *  ]
  *
  * @param array Associative list of key/value pairs
- * @category Developer
- * @category User
  * @since 2019.10
  */
 

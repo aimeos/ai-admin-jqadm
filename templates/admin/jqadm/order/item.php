@@ -28,8 +28,7 @@ $serviceAttrCodes = [
 	 *
 	 * @param string List of suggested config keys
 	 * @since 2017.10
-	 * @category Developer
-	 * @see admin/jqadm/order/service/payment/attribute/suggest
+		 * @see admin/jqadm/order/service/payment/attribute/suggest
 	 */
 	'delivery' => $this->config( 'admin/jqadm/order/service/delivery/attribute/suggest', ['trackingid'] ),
 
@@ -42,8 +41,7 @@ $serviceAttrCodes = [
 	 *
 	 * @param string List of suggested config keys
 	 * @since 2017.10
-	 * @category Developer
-	 * @see admin/jqadm/order/service/delivery/attribute/suggest
+		 * @see admin/jqadm/order/service/delivery/attribute/suggest
 	 */
 	'payment' => $this->config( 'admin/jqadm/order/service/payment/attribute/suggest', [] ),
 ];

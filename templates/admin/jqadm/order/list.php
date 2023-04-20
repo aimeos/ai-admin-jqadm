@@ -36,7 +36,6 @@ $enc = $this->encoder();
  *
  * @param string Destination of the URL
  * @since 2017.10
- * @category Developer
  * @see admin/jqadm/url/export/controller
  * @see admin/jqadm/url/export/action
  * @see admin/jqadm/url/export/config
@@ -51,7 +50,6 @@ $enc = $this->encoder();
  *
  * @param string Name of the controller
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/export/target
  * @see admin/jqadm/url/export/action
  * @see admin/jqadm/url/export/config
@@ -66,7 +64,6 @@ $enc = $this->encoder();
  *
  * @param string Name of the action
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/export/target
  * @see admin/jqadm/url/export/controller
  * @see admin/jqadm/url/export/config
@@ -87,10 +84,23 @@ $enc = $this->encoder();
  *
  * @param string Associative list of configuration options
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/export/target
  * @see admin/jqadm/url/export/controller
  * @see admin/jqadm/url/export/action
+ */
+
+/** admin/jqadm/url/export/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2016.04
+ * @see admin/jqadm/url/export/target
+ * @see admin/jqadm/url/export/controller
+ * @see admin/jqadm/url/export/action
+ * @see admin/jqadm/url/export/config
  */
 
 
@@ -106,7 +116,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.07
- * @category Developer
  */
 $default = $this->config( 'admin/jqadm/order/fields', ['order.id', 'order.ctime', 'order.statuspayment', 'order.address.lastname'] );
 $fields = $this->session( 'aimeos/admin/jqadm/order/fields', $default );

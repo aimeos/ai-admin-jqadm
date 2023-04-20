@@ -14,7 +14,6 @@
  *
  * @param string List of suggested config keys
  * @since 2017.10
- * @category Developer
  */
 
 $selected = function( $key, $code ) {

@@ -55,7 +55,6 @@ class Standard
 	 *
 	 * @param string Last part of the class name
 	 * @since 2017.07
-	 * @category Developer
 	 */
 
 
@@ -316,7 +315,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2016.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/service/template-list';
 		$default = 'service/list';
@@ -354,7 +352,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.10
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/decorators/global
 		 * @see admin/jqadm/service/decorators/local
@@ -378,7 +375,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.10
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/decorators/excludes
 		 * @see admin/jqadm/service/decorators/local
@@ -402,7 +398,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.10
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/service/decorators/excludes
 		 * @see admin/jqadm/service/decorators/global
@@ -445,7 +440,6 @@ class Standard
 		 *
 		 * @param array List of domain names
 		 * @since 2017.10
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/service/domains', [] );
 	}
@@ -489,7 +483,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2017.10
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/service/subparts', [] );
 	}
@@ -606,7 +599,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2016.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/service/template-item';
 		$default = 'service/item';

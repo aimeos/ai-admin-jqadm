@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
- * @category Developer
  */
 $default = ['image', 'supplier.status', 'supplier.code', 'supplier.label'];
 $default = $this->config( 'admin/jqadm/supplier/fields', $default );

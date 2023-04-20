@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.07
- * @category Developer
  */
 $default = ['service.status', 'service.type', 'service.label', 'service.provider'];
 $default = $this->config( 'admin/jqadm/service/fields', $default );

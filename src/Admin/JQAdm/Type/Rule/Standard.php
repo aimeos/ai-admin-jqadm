@@ -54,7 +54,6 @@ class Standard
 	 *
 	 * @param string Last part of the class name
 	 * @since  2021.04
-	 * @category Developer
 	 */
 
 
@@ -150,7 +149,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2021.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/type/rule/template-list';
 		$default = 'type/rule/list';
@@ -188,7 +186,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since  2021.04
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/type/rule/decorators/global
 		 * @see admin/jqadm/type/rule/decorators/local
@@ -212,7 +209,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since  2021.04
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/type/rule/decorators/excludes
 		 * @see admin/jqadm/type/rule/decorators/local
@@ -236,7 +232,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since  2021.04
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/type/rule/decorators/excludes
 		 * @see admin/jqadm/type/rule/decorators/global
@@ -283,7 +278,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since  2021.04
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/type/rule/subparts', [] );
 	}
@@ -314,7 +308,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since  2021.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/type/rule/template-item';
 		$default = 'type/rule/item';

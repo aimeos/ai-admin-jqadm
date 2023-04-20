@@ -54,7 +54,6 @@ class Standard
 	 *
 	 * @param string Last part of the class name
 	 * @since 2017.10
-	 * @category Developer
 	 */
 
 
@@ -300,7 +299,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2016.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/locale/currency/template-list';
 		$default = 'locale/currency/list';
@@ -338,7 +336,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.10
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/currency/decorators/global
 		 * @see admin/jqadm/locale/currency/decorators/local
@@ -362,7 +359,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.10
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/currency/decorators/excludes
 		 * @see admin/jqadm/locale/currency/decorators/local
@@ -386,7 +382,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.10
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/locale/currency/decorators/excludes
 		 * @see admin/jqadm/locale/currency/decorators/global
@@ -433,7 +428,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2017.10
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/locale/currency/subparts', [] );
 	}
@@ -507,7 +501,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2017.10
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/locale/currency/template-item';
 		$default = 'locale/currency/item';

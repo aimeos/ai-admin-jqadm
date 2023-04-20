@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2018.04
- * @category Developer
  */
 $default = ['log.timestamp', 'log.facility', 'log.priority', 'log.message'];
 $default = $this->config( 'admin/jqadm/log/fields', $default );

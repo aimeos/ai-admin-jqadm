@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
- * @category Developer
  */
 $default = ['media.property.type.domain', 'media.property.type.status', 'media.property.type.code', 'media.property.type.label'];
 $default = $this->config( 'admin/jqadm/type/media/property/fields', $default );

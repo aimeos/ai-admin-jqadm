@@ -105,7 +105,6 @@ class Base
 		 *
 		 * @param array List of decorator names
 		 * @since 2014.03
-		 * @category Developer
 		 */
 		$decorators = $config->get( 'admin/jqadm/common/decorators/default', [] );
 		$excludes = $config->get( 'admin/jqadm/' . $path . '/decorators/excludes', [] );

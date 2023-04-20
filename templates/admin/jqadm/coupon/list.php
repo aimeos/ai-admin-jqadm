@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.07
- * @category Developer
  */
 $default = ['coupon.status', 'coupon.label', 'coupon.provider'];
 $default = $this->config( 'admin/jqadm/coupon/fields', $default );

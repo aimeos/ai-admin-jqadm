@@ -65,7 +65,6 @@ $priceFormat = $this->translate( 'admin', '%1$s %2$s' );
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
- * @category Developer
  */
 $default = ['order.id', 'order.datepayment', 'order.statuspayment', 'order.currencyid', 'order.price'];
 $default = $this->config( 'admin/jqadm/customer/order/fields', $default );

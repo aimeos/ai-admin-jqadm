@@ -21,7 +21,6 @@ $enc = $this->encoder();
  *
  * @param string Destination of the URL
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/save/controller
  * @see admin/jqadm/url/save/action
  * @see admin/jqadm/url/save/config
@@ -36,7 +35,6 @@ $enc = $this->encoder();
  *
  * @param string Name of the controller
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/save/target
  * @see admin/jqadm/url/save/action
  * @see admin/jqadm/url/save/config
@@ -51,7 +49,6 @@ $enc = $this->encoder();
  *
  * @param string Name of the action
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/save/target
  * @see admin/jqadm/url/save/controller
  * @see admin/jqadm/url/save/config
@@ -72,7 +69,6 @@ $enc = $this->encoder();
  *
  * @param string Associative list of configuration options
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/save/target
  * @see admin/jqadm/url/save/controller
  * @see admin/jqadm/url/save/action
@@ -87,7 +83,6 @@ $enc = $this->encoder();
  *
  * @param string List of suggested config keys
  * @since 2017.10
- * @category Developer
  * @see admin/jqadm/catalog/item/config/suggest
  */
 $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] );
@@ -103,7 +98,6 @@ $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-cl
  *
  * @param integer Number of product sub-part links
  * @since 2020.10
- * @category Developer
  * @see admin/jqadm/navbar-limit
  */
 $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
@@ -126,7 +120,6 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  *
  * @param string Relative path to the partial creating the HTML code
  * @since 2017.10
- * @category Developer
  */
 
 
@@ -202,7 +195,6 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  * e.g. for product variants and bundles.
  *
  * @param array Associative list of name/configuration pairs
- * @category Developer
  * @since 2019.10
  */
 

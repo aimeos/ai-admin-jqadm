@@ -14,7 +14,6 @@
  *
  * @param string List of suggested config keys
  * @since 2020.01
- * @category Developer
  */
 
 

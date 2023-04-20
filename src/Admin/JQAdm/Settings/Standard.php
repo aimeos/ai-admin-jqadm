@@ -54,7 +54,6 @@ class Standard
 	 *
 	 * @param string Last part of the class name
 	 * @since 2021.07
-	 * @category Developer
 	 */
 
 
@@ -167,7 +166,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2021.07
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/decorators/global
 		 * @see admin/jqadm/settings/decorators/local
@@ -191,7 +189,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2021.07
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/decorators/excludes
 		 * @see admin/jqadm/settings/decorators/local
@@ -215,7 +212,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2021.07
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/settings/decorators/excludes
 		 * @see admin/jqadm/settings/decorators/global
@@ -262,7 +258,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2021.07
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/settings/subparts', [] );
 	}
@@ -429,7 +424,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2021.07
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/settings/template-item';
 		$default = 'settings/item';

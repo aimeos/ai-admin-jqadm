@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.07
- * @category Developer
  */
 $default = ['customer.code', 'customer.lastname', 'customer.postal', 'customer.city'];
 $default = $this->config( 'admin/jqadm/customer/fields', $default );

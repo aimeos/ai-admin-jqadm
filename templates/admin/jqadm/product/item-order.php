@@ -21,7 +21,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2019.10
- * @category Developer
  */
 $fields = ['order.id', 'order.currencyid', 'order.price', 'order.address.firstname', 'order.address.lastname', 'order.address.city'];
 $fields = $this->config( 'admin/jqadm/product/order/fields', $fields );
