@@ -17,7 +17,7 @@
  */
 
 
-/** admin/jqadm/api/openai
+/** admin/jqadm/api/translate
  * Configuration for realtime online translation service
  *
  * Contains the required settings for configuring the online translation service.
@@ -31,6 +31,20 @@
  *
  * @param array Associative list of key/value pairs
  * @since 2019.10
+ */
+
+/** admin/jqadm/api/openai
+ * Configuration for ChatGPT API to generate texts
+ *
+ * Contains the required settings for configuring the ChatGPT API.
+ * The necessary settings for ChatGPT are:
+ *
+ *  [
+ *    'key' => '<your-OpenAI-API-key>',
+ *  ]
+ *
+ * @param array Associative list of key/value pairs
+ * @since 2022.10
  */
 
 

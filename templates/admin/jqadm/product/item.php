@@ -74,6 +74,20 @@ $enc = $this->encoder();
  * @see admin/jqadm/url/save/action
  */
 
+/** admin/jqadm/url/save/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2022.10
+ * @see admin/jqadm/url/save/target
+ * @see admin/jqadm/url/save/controller
+ * @see admin/jqadm/url/save/action
+ * @see admin/jqadm/url/save/config
+ */
+
 
 /** admin/jqadm/product/item/config/suggest
  * List of suggested configuration keys in product item panel
