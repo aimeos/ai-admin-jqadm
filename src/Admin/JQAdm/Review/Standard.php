@@ -467,7 +467,7 @@ class Standard
 				'review.status' => 1
 			] );
 
-			$rateManager = \Aimeos\MShop::create( $context, $domain );
+			$rateManager = \Aimeos\MShop::create( $context, $domain === 'product' ? 'index' : $domain );
 			$entry = $manager->aggregate( $filter, 'review.refid', 'review.rating', 'rate' )->first( [] );
 
 			if( !empty( $cnt = current( $entry ) ) ) {
