@@ -14,7 +14,6 @@
  *
  * @param string List of suggested config keys
  * @since 2020.01
- * @category Developer
  */
 
 
@@ -43,11 +42,11 @@ $enc = $this->encoder();
 						</div>
 						<span class="item-label header-label" v-bind:class="{disabled: !active(idx)}">{{ label(idx) }}</span>
 						<div class="card-tools-end">
-							<div v-if="can(idx, 'move')"
+							<div v-if="can('move', idx)"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
-							<div v-if="can(idx, 'delete')"
+							<div v-if="can('delete', idx)"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">

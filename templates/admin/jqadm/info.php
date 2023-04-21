@@ -22,7 +22,6 @@
  *
  * @param string Relative path to the partial creating the HTML code
  * @since 2017.10
- * @category Developer
  * @see admin/jqadm/partial/confirm
  * @see admin/jqadm/partial/error
  * @see admin/jqadm/partial/problem

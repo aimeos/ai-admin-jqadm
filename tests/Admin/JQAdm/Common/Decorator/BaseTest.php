@@ -18,7 +18,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 	protected function setUp() : void
 	{
 		$this->mock = $this->getMockBuilder( 'Aimeos\Admin\JQAdm\Product\Standard' )
-			->setMethods( array( 'copy', 'create', 'delete', 'get', 'save', 'search', 'getSubClient' ) )
+			->onlyMethods( array( 'copy', 'create', 'delete', 'get', 'save', 'search', 'getSubClient' ) )
 			->disableOriginalConstructor()
 			->getMock();
 

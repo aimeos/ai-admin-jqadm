@@ -58,23 +58,23 @@ $keys = [
 
 								<select is="combo-box" class="form-select item-refid"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )"
-									v-bind:readonly="checkSite('product.lists.siteid', idx) || item['product.lists.id'] != ''"
 									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-									v-bind:label="getLabel(idx)"
+									v-bind:readonly="!can('change', idx)"
+									v-bind:label="label(idx)"
 									v-bind:title="title(idx)"
 									v-bind:required="'required'"
-									v-bind:getfcn="getItems"
+									v-bind:getfcn="itemFcn"
 									v-bind:index="idx"
 									v-on:select="update"
 									v-model="item['product.lists.refid']" >
 								</select>
 							</td>
 							<td class="actions">
-								<div v-if="can(idx, 'move')"
+								<div v-if="can('move', idx)"
 									class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 								</div>
-								<div v-if="can(idx, 'delete')"
+								<div v-if="can('delete', idx)"
 									class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 									v-on:click.stop="remove(idx)">

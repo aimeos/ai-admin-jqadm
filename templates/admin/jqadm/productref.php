@@ -287,13 +287,13 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 						<a v-if="!item.edit" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"
-							v-if="can(idx, 'edit')"
+							v-if="can('edit', idx)"
 							v-on:click.prevent.stop="edit(idx)" >
 						</a>
 						<a class="btn act-delete fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
-							v-if="can(idx, 'delete')"
+							v-if="can('delete', idx)"
 							v-on:click.prevent.stop="remove(idx)" >
 						</a>
 					</td>

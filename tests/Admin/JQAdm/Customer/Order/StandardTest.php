@@ -84,7 +84,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \LogicException::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 
@@ -93,7 +93,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		return $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->setMethods( array( 'render', 'config' ) )
+			->onlyMethods( ['render'] )->addMethods( ['config'] )
 			->getMock();
 	}
 }

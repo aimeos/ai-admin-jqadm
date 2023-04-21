@@ -14,7 +14,6 @@
  *
  * @param string List of suggested config keys
  * @since 2020.01
- * @category Developer
  */
 
 
@@ -31,9 +30,21 @@
  *  ]
  *
  * @param array Associative list of key/value pairs
- * @category Developer
- * @category User
  * @since 2019.10
+ */
+
+/** admin/jqadm/api/openai
+ * Configuration for ChatGPT API to generate texts
+ *
+ * Contains the required settings for configuring the ChatGPT API.
+ * The necessary settings for ChatGPT are:
+ *
+ *  [
+ *    'key' => '<your-OpenAI-API-key>',
+ *  ]
+ *
+ * @param array Associative list of key/value pairs
+ * @since 2022.10
  */
 
 
@@ -79,11 +90,11 @@ $enc = $this->encoder();
 									<?php endforeach ?>
 								</div>
 							</div>
-							<div v-if="can(idx, 'move')"
+							<div v-if="can('move', idx)"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
-							<div v-if="can(idx, 'delete')"
+							<div v-if="can('delete', idx)"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">

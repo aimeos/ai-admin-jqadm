@@ -25,11 +25,11 @@ abstract class Base
 	use \Aimeos\Macro\Macroable;
 
 
-	private $view;
-	private $aimeos;
-	private $context;
-	private $subclients;
-	private $object;
+	private \Aimeos\MShop\ContextIface $context;
+	private ?\Aimeos\Admin\JQAdm\Iface $object = null;
+	private ?\Aimeos\Base\View\Iface $view = null;
+	private ?\Aimeos\Bootstrap $aimeos = null;
+	private ?array $subclients = null;
 
 
 	/**
@@ -303,9 +303,12 @@ abstract class Base
 	 * @param array $decorators List of decorator name that should be wrapped around the client
 	 * @param string $classprefix Decorator class prefix, e.g. "\Aimeos\Admin\JQAdm\Catalog\Decorator\"
 	 * @return \Aimeos\Admin\JQAdm\Iface Admin object
+	 * @throws \LogicException If class can't be instantiated
 	 */
 	protected function addDecorators( \Aimeos\Admin\JQAdm\Iface $client, array $decorators, string $classprefix ) : \Aimeos\Admin\JQAdm\Iface
 	{
+		$interface = \Aimeos\Admin\JQAdm\Common\Decorator\Iface::class;
+
 		foreach( $decorators as $name )
 		{
 			$classname = $classprefix . $name;
@@ -316,15 +319,7 @@ abstract class Base
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
 			}
 
-			if( class_exists( $classname ) === false )
-			{
-				$msg = $this->context->translate( 'admin', 'Class "%1$s" not found' );
-				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
-			}
-
-			$client = new $classname( $client, $this->context );
-
-			\Aimeos\MW\Common\Base::checkClass( '\\Aimeos\\Admin\\JQAdm\\Common\\Decorator\\Iface', $client );
+			$client = \Aimeos\Utils::create( $classname, [$client, $this->context], $interface );
 		}
 
 		return $client;
@@ -403,32 +398,22 @@ abstract class Base
 	 * @param string $path Name of the sub-part in lower case (can contain a path like catalog/filter/tree)
 	 * @param string|null $name Name of the implementation, will be from configuration (or Default) if null
 	 * @return \Aimeos\Admin\JQAdm\Iface Sub-part object
+	 * @throws \LogicException If class can't be instantiated
 	 */
 	protected function createSubClient( string $path, string $name = null ) : \Aimeos\Admin\JQAdm\Iface
 	{
 		$path = strtolower( $path );
+		$name = $name ?: $this->context->config()->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
 
-		if( $name === null ) {
-			$name = $this->context->config()->get( 'admin/jqadm/' . $path . '/name', 'Standard' );
-		}
-
-		if( empty( $name ) || ctype_alnum( $name ) === false )
-		{
-			$msg = $this->context->translate( 'admin', 'Invalid characters in client name "%1$s"' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $name ) );
+		if( empty( $name ) || ctype_alnum( $name ) === false ) {
+			throw new \LogicException( sprintf( 'Invalid characters in client name "%1$s"', $name ), 400 );
 		}
 
 		$subnames = str_replace( '/', '\\', ucwords( $path, '/' ) );
 		$classname = '\\Aimeos\\Admin\\JQAdm\\' . $subnames . '\\' . $name;
+		$interface = \Aimeos\Admin\JQAdm\Iface::class;
 
-		if( class_exists( $classname ) === false )
-		{
-			$msg = $this->context->translate( 'admin', 'Class "%1$s" not available' );
-			throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, $classname ) );
-		}
-
-		$object = new $classname( $this->context );
-		$object = \Aimeos\MW\Common\Base::checkClass( '\\Aimeos\\Admin\\JQAdm\\Iface', $object );
+		$object = \Aimeos\Utils::create( $classname, [$this->context], $interface );
 		$object = $this->addClientDecorators( $object, $path );
 
 		return $object->setObject( $object )->setAimeos( $this->aimeos )->setView( $this->view );

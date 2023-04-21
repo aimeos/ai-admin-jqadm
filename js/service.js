@@ -7,7 +7,7 @@
 
 Aimeos.Service = {
 
-	init : function() {
+	init() {
 
 		this.setupConfig();
 		this.setupDecorator();
@@ -15,7 +15,7 @@ Aimeos.Service = {
 	},
 
 
-	setupConfig : function() {
+	setupConfig() {
 
 		var delegate = $(".aimeos .item-service .item-basic");
 
@@ -31,7 +31,7 @@ Aimeos.Service = {
 	},
 
 
-	setupDecorator : function() {
+	setupDecorator() {
 
 		$(".aimeos .item-service .item-provider").parent().on("click", ".dropdown .decorator-name", function(ev) {
 
@@ -46,7 +46,7 @@ Aimeos.Service = {
 	},
 
 
-	setupProvider : function() {
+	setupProvider() {
 
 		var input = $(".aimeos .item-service").on("focus", ".item-provider", function(ev) {
 

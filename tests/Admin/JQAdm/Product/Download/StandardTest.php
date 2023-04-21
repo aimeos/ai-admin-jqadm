@@ -27,7 +27,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$this->object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Download\Standard::class )
 			->setConstructorArgs( array( $this->context ) )
-			->setMethods( array( 'storeFile' ) )
+			->onlyMethods( array( 'storeFile' ) )
 			->getMock();
 
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
@@ -136,7 +136,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Download\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
+			->onlyMethods( array( 'fromArray' ) )
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'fromArray' )
@@ -156,7 +156,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Download\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
+			->onlyMethods( array( 'fromArray' ) )
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'fromArray' )
@@ -180,7 +180,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \LogicException::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 }

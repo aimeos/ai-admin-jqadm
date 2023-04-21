@@ -23,7 +23,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 
 					<div v-bind:id="'item-selection-group-item-' + idx" class="card-header header">
 						<div class="card-tools-start">
-							<div class="btn btn-card-header act-show fa" v-bind:class="getCss(idx)"
+							<div class="btn btn-card-header act-show fa" v-bind:class="css(idx)"
 								v-bind:aria-controls="'item-selection-group-data-' + idx" aria-expanded="false"
 								data-bs-toggle="collapse" v-bind:data-bs-target="'#item-selection-group-data-' + idx"
 								tabindex="<?= $this->get( 'tabindex' ) ?>" title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide this entry' ) ) ?>">
@@ -39,15 +39,15 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 
 							<div class="btn btn-card-header act-copy fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Duplicate entry (Ctrl+D)' ) ) ?>"
-								v-on:click.stop="copyItem(idx)">
+								v-on:click.stop="copy(idx)">
 							</div>
 
-							<div v-if="can(idx, 'move')"
+							<div v-if="can('move', idx)"
 								class="btn btn-card-header act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 							</div>
 
-							<div v-if="can(idx, 'delete')"
+							<div v-if="can('delete', idx)"
 								class="btn btn-card-header act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								v-on:click.stop="remove(idx)">
@@ -55,7 +55,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 						</div>
 					</div>
 
-					<div v-bind:id="'item-selection-group-data-' + idx" v-bind:class="getCss(idx)"
+					<div v-bind:id="'item-selection-group-data-' + idx" v-bind:class="css(idx)"
 						v-bind:aria-labelledby="'item-selection-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['product.id']"
@@ -70,11 +70,14 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.status' ) ) ) ?>`.replace('idx', idx)"
-										v-bind:readonly="checkSite('product.siteid', idx)"
+										v-bind:readonly="!editable(idx)"
 										v-model="item['product.status']" >
 										<option value="1" v-bind:selected="item['product.status'] == 1" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
 										</option>
+                                        					<option value="2" v-bind:selected="item['product.status'] == 2" >
+                                            						<?= $enc->html( $this->translate( 'mshop/code', 'status:2' ) ) ?>
+                                        					</option>
 										<option value="0" v-bind:selected="item['product.status'] == 0" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
 										</option>
@@ -92,7 +95,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" class="form-select item-type" required
-											v-bind:readonly="checkSite('product.siteid', idx)"
+											v-bind:readonly="!editable(idx)"
 											v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>`.replace('idx', idx)"
 											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
@@ -115,11 +118,11 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										v-model="item['product.code']"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ) ?>`.replace('idx', idx)"
-										v-bind:readonly="checkSite('product.siteid', idx) || item['product.lists.id'] != ''"
 										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-										v-bind:keys="getArticles"
+										v-bind:readonly="!editable(idx) || item['product.lists.id'] != ''"
+										v-bind:keys="get"
 										v-bind:required="'required'"
-										v-on:input="updateProductItem(idx, ...arguments)">
+										v-on:input="update(idx, ...arguments)">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ) ?>
@@ -131,7 +134,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.label' ) ) ) ?>`.replace('idx', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
-										v-bind:readonly="checkSite('product.siteid', idx)"
+										v-bind:readonly="!editable(idx)"
 										v-model="item['product.label']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -145,7 +148,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'stock.id'] ) ) ?>`.replace('idx', idx)">
 									<input class="form-control item-stocklevel" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'stock.stocklevel' ) ) ) ?>`.replace('idx', idx)"
-										v-bind:readonly="checkSite('product.siteid', idx)"
+										v-bind:readonly="!editable(idx)"
 										v-bind:disabled="item['stock'] === false"
 										v-model="item['stock.stocklevel']">
 								</div>
@@ -173,7 +176,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											</a>
 											<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
-												v-on:click.stop="addAttributeItem(idx)">
+												v-on:click.stop="addAttribute(idx)">
 											</div>
 										</th>
 									</tr>
@@ -197,25 +200,25 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 
 											<select is="combo-box" class="form-select item-attr-refid"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)"
-												v-bind:readonly="checkSite('product.lists.siteid', idx, attridx) || attr['product.lists.id'] != ''"
 												v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-												v-bind:label="getAttributeLabel(idx, attridx)"
-												v-bind:title="title(idx,attridx)"
+												v-bind:readonly="!can('change', idx, attridx)"
+												v-bind:label="label(idx, attridx)"
+												v-bind:title="title(idx, attridx)"
 												v-bind:required="'required'"
-												v-bind:getfcn="getAttributeItems"
-												v-on:select="updateAttributeItem($event, idx, attridx)"
+												v-bind:getfcn="getAttributes"
+												v-on:select="updateAttribute($event, idx, attridx)"
 												v-model="attr['product.lists.refid']" >
 											</select>
 										</td>
 										<td class="actions">
-											<div v-if="can(idx, 'move', attridx)"
+											<div v-if="can('move', idx, attridx)"
 												class="btn act-move fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Move this entry up/down' ) ) ?>">
 											</div>
-											<div v-if="can(idx, 'delete', attridx)"
+											<div v-if="can('delete', idx, attridx)"
 												class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
-												v-on:click.stop="removeAttributeItem(idx, attridx)">
+												v-on:click.stop="removeAttribute(idx, attridx)">
 											</div>
 										</td>
 									</tr>

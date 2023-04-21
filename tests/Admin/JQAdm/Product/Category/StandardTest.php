@@ -54,9 +54,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
 	}
 
 
@@ -77,9 +77,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
-		$this->assertRegexp( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
 	}
 
 
@@ -135,7 +135,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Category\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
+			->onlyMethods( array( 'fromArray' ) )
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'fromArray' )
@@ -155,7 +155,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Category\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( array( 'fromArray' ) )
+			->onlyMethods( array( 'fromArray' ) )
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'fromArray' )
@@ -179,7 +179,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \LogicException::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 }

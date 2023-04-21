@@ -31,25 +31,7 @@ class Standard
 	 *
 	 * @param string Last part of the JQAdm class name
 	 * @since 2016.04
-	 * @category Developer
 	 */
-
-
-	/**
-	 * Adds the required data used in the template
-	 *
-	 * @param \Aimeos\Base\View\Iface $view View object
-	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
-	 */
-	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
-	{
-		$manager = \Aimeos\MShop::create( $this->context(), 'attribute/type' );
-		$search = $manager->filter( true )->order( ['attribute.type.position', 'attribute.type.label'] )->slice( 0, 1000 );
-
-		$view->attributeTypes = $manager->search( $search );
-
-		return $view;
-	}
 
 
 	/**
@@ -137,7 +119,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2016.01
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/characteristic/decorators/global
 		 * @see admin/jqadm/product/characteristic/decorators/local
@@ -161,7 +142,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2016.01
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/characteristic/decorators/excludes
 		 * @see admin/jqadm/product/characteristic/decorators/local
@@ -185,7 +165,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2016.01
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/characteristic/decorators/excludes
 		 * @see admin/jqadm/product/characteristic/decorators/global
@@ -232,7 +211,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2016.01
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/product/characteristic/subparts', [] );
 	}
@@ -263,7 +241,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2016.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/characteristic/template-item';
 		$default = 'product/item-characteristic';

@@ -22,7 +22,6 @@ $params = $this->get( 'pageParams', [] );
  *
  * @param string List of suggested config keys
  * @since 2017.10
- * @category Developer
  * @see admin/jqadm/product/item/config/suggest
  */
 $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-class'] );

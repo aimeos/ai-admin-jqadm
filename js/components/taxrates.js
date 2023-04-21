@@ -32,20 +32,20 @@ Vue.component('taxrates', {
 	',
 	props: ['name', 'placeholder', 'disabled', 'readonly', 'tabindex', 'taxrates', 'types'],
 
-	created: function() {
+	created() {
 		delete this.types[''];
 	},
 
 	methods: {
-		add: function(type, val) {
+		add(type, val) {
 			this.$set(this.taxrates, type, val);
 		},
 
-		remove: function(type) {
+		remove(type) {
 			this.$delete(this.taxrates, type);
 		},
 
-		update: function(type, val) {
+		update(type, val) {
 			this.$set(this.taxrates, type, val);
 		}
 	}

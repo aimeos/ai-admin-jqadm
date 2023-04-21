@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Aimeos\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 11:35+0100\n"
+"POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2014-01-29 12:00+0100\n"
 "Last-Translator: Norbert Sendetzky <n.sendetzky@metaways.de>\n"
 "Language-Team: English (http://www.transifex.com/projects/p/aimeos/language/en/)\n"
@@ -655,6 +655,9 @@ msgstr ""
 msgid "Floor and/or apartment (optional)"
 msgstr ""
 
+msgid "Generate text"
+msgstr ""
+
 msgid "Given rebate amount"
 msgstr ""
 
@@ -1139,6 +1142,9 @@ msgid "Permission denied"
 msgstr ""
 
 msgid "Personal data"
+msgstr ""
+
+msgid "Please insert the description of the text that should be generated here"
 msgstr ""
 
 msgid "Please select"

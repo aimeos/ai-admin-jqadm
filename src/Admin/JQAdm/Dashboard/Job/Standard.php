@@ -29,7 +29,6 @@ class Standard
 	 *
 	 * @param string Last part of the JQAdm class name
 	 * @since 2017.08
-	 * @category Developer
 	 */
 
 
@@ -129,7 +128,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2017.08
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/job/template-list';
 		$default = 'dashboard/list-job';
@@ -167,7 +165,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.08
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/dashboard/job/decorators/global
 		 * @see admin/jqadm/dashboard/job/decorators/local
@@ -191,7 +188,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.08
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/dashboard/job/decorators/excludes
 		 * @see admin/jqadm/dashboard/job/decorators/local
@@ -215,7 +211,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.08
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/dashboard/job/decorators/excludes
 		 * @see admin/jqadm/dashboard/job/decorators/global
@@ -262,7 +257,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2017.08
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/dashboard/job/subparts', [] );
 	}

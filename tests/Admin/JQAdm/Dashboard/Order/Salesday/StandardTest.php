@@ -46,7 +46,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->onlyMethods( array( 'getSubClients' ) )
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
@@ -62,7 +62,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Dashboard\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( array( 'getSubClients' ) )
+			->onlyMethods( array( 'getSubClients' ) )
 			->getMock();
 
 		$object->expects( $this->once() )->method( 'getSubClients' )
@@ -76,7 +76,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \LogicException::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 
@@ -85,7 +85,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		return $this->getMockBuilder( \Aimeos\Base\View\Standard::class )
 			->setConstructorArgs( array( [] ) )
-			->setMethods( array( 'render', 'config' ) )
+			->onlyMethods( ['render'] )->addMethods( ['config'] )
 			->getMock();
 	}
 }

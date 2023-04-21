@@ -39,25 +39,25 @@ Vue.component('page-offset', {
 	},
 
 	computed: {
-		first : function() {
+		first() {
 			return this.value > 0 ? 0 : null;
 		},
-		prev : function() {
+		prev() {
 			return this.value - this.limit >= 0 ? this.value - this.limit : null;
 		},
-		next : function() {
+		next() {
 			return this.value + this.limit < this.total ? this.value + this.limit : null;
 		},
-		last : function() {
+		last() {
 			return Math.floor((this.total - 1) / this.limit) * this.limit > this.value ? Math.floor((this.total - 1) / this.limit ) * this.limit : null;
 		},
-		current : function() {
+		current() {
 			return Math.floor( this.value / this.limit ) + 1;
 		},
-		pages : function() {
+		pages() {
 			return this.total != 0 ? Math.ceil(this.total / this.limit) : 1;
 		},
-		string: function() {
+		string() {
 			return sprintf(this.text, this.current, this.pages);
 		}
 	}

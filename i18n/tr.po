@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Metal <meteoramic@yahoo.com>, 2015-2022
+# Metal <meteoramic@yahoo.com>, 2015-2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 11:38+0100\n"
+"POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2022\n"
-"Language-Team: Turkish (http://www.transifex.com/aimeos/aimeos-core/language/tr/)\n"
+"Last-Translator: Metal <meteoramic@yahoo.com>, 2015-2023\n"
+"Language-Team: Turkish (http://app.transifex.com/aimeos/aimeos-core/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -254,10 +254,10 @@ msgid "Birthday of the customer"
 msgstr "Müşterinin doğum tarihi"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Yükseltme faktörü"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Yükseltme faktörü (isteğe bağlı)"
 
 msgid "Bug or suggestion?"
 msgstr "Hata veya öneri?"
@@ -307,7 +307,7 @@ msgid "Channel"
 msgstr "Kanal"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Siparişin verildiği kanal"
 
 msgid "Choose file"
 msgstr "Dosya seçin"
@@ -470,7 +470,7 @@ msgid "Dashboard"
 msgstr "Gösterge Paneli"
 
 msgid "Data"
-msgstr ""
+msgstr "Veri"
 
 msgid "Data set"
 msgstr "Veri kümesi"
@@ -640,7 +640,7 @@ msgstr "Faks numarası (isteğe bağlı)"
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "Kullanıcı aramasında ürünü diğer ürünlere göre öne çıkaran faktör (>1,0 pozitif artış, <1,0 negatif artış)"
 
 msgid "Failed to write file to disk"
 msgstr "Dosya diske yazılamadı"
@@ -677,6 +677,9 @@ msgstr "Kat/Daire"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Kat ve/veya daire (opsiyonel)"
+
+msgid "Generate text"
+msgstr ""
 
 msgid "Given rebate amount"
 msgstr "Belirlenmiş indirim tutarı"
@@ -829,10 +832,10 @@ msgid "Invoice"
 msgstr "Fatura"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Fatura Numarası"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Siparişe ait fatura numarası"
 
 msgid "Item deleted successfully"
 msgstr "Öğe başarıyla silindi"
@@ -919,7 +922,7 @@ msgid "Log"
 msgstr "Günlük"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Manuel transfer"
 
 msgid "Map"
 msgstr "Harita"
@@ -1184,6 +1187,10 @@ msgstr "İzin reddedildi"
 msgid "Personal data"
 msgstr "Kişisel veri"
 
+msgid ""
+"Please insert the description of the text that should be generated here"
+msgstr ""
+
 msgid "Please select"
 msgstr "Lütfen seçiniz"
 
@@ -1382,7 +1389,7 @@ msgid "Rating"
 msgstr "Puanlama"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Satıcı için puan ve puanlama sayısı"
 
 msgid "Rating of the reviewer"
 msgstr "Değerlendirenin oyu"
@@ -1414,7 +1421,7 @@ msgid "Related order"
 msgstr "İlgili sipariş"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "İlgili sipariş kimliği (isteğe bağlı)"
 
 msgid "Renew"
 msgstr "Yenile"
@@ -2392,10 +2399,10 @@ msgid "tag"
 msgstr "Etiketler"
 
 msgid "tax:0"
-msgstr ""
+msgstr "vergi:0"
 
 msgid "tax:1"
-msgstr ""
+msgstr "vergi:1"
 
 #, php-format
 msgid "text"
@@ -2407,7 +2414,7 @@ msgstr "Tema"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "işlem"
 
 #, php-format
 msgid "type"

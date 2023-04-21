@@ -17,10 +17,10 @@ $enc = $this->encoder();
  *
  * @param string Destination of the URL
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/search/controller
  * @see admin/jqadm/url/search/action
  * @see admin/jqadm/url/search/config
+ * @see admin/jqadm/url/search/filter
  */
 
 /** admin/jqadm/url/search/controller
@@ -32,10 +32,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the controller
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/search/target
  * @see admin/jqadm/url/search/action
  * @see admin/jqadm/url/search/config
+ * @see admin/jqadm/url/search/filter
  */
 
 /** admin/jqadm/url/search/action
@@ -47,10 +47,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the action
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/search/target
  * @see admin/jqadm/url/search/controller
  * @see admin/jqadm/url/search/config
+ * @see admin/jqadm/url/search/filter
  */
 
 /** admin/jqadm/url/search/config
@@ -68,10 +68,24 @@ $enc = $this->encoder();
  *
  * @param string Associative list of configuration options
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/search/target
  * @see admin/jqadm/url/search/controller
  * @see admin/jqadm/url/search/action
+ * @see admin/jqadm/url/search/filter
+ */
+
+/** admin/jqadm/url/search/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2016.04
+ * @see admin/jqadm/url/search/target
+ * @see admin/jqadm/url/search/controller
+ * @see admin/jqadm/url/search/action
+ * @see admin/jqadm/url/search/config
  */
 
 
@@ -84,10 +98,10 @@ $enc = $this->encoder();
  *
  * @param string Destination of the URL
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/create/controller
  * @see admin/jqadm/url/create/action
  * @see admin/jqadm/url/create/config
+ * @see admin/jqadm/url/create/filter
  */
 
 /** admin/jqadm/url/create/controller
@@ -99,10 +113,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the controller
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/create/target
  * @see admin/jqadm/url/create/action
  * @see admin/jqadm/url/create/config
+ * @see admin/jqadm/url/create/filter
  */
 
 /** admin/jqadm/url/create/action
@@ -114,10 +128,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the action
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/create/target
  * @see admin/jqadm/url/create/controller
  * @see admin/jqadm/url/create/config
+ * @see admin/jqadm/url/create/filter
  */
 
 /** admin/jqadm/url/create/config
@@ -135,10 +149,24 @@ $enc = $this->encoder();
  *
  * @param string Associative list of configuration options
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/create/target
  * @see admin/jqadm/url/create/controller
  * @see admin/jqadm/url/create/action
+ * @see admin/jqadm/url/create/filter
+ */
+
+/** admin/jqadm/url/create/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2016.04
+ * @see admin/jqadm/url/create/target
+ * @see admin/jqadm/url/create/controller
+ * @see admin/jqadm/url/create/action
+ * @see admin/jqadm/url/create/config
  */
 
 
@@ -151,10 +179,10 @@ $enc = $this->encoder();
  *
  * @param string Destination of the URL
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/get/controller
  * @see admin/jqadm/url/get/action
  * @see admin/jqadm/url/get/config
+ * @see admin/jqadm/url/get/filter
  */
 
 /** admin/jqadm/url/get/controller
@@ -166,10 +194,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the controller
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/get/target
  * @see admin/jqadm/url/get/action
  * @see admin/jqadm/url/get/config
+ * @see admin/jqadm/url/get/filter
  */
 
 /** admin/jqadm/url/get/action
@@ -181,10 +209,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the action
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/get/target
  * @see admin/jqadm/url/get/controller
  * @see admin/jqadm/url/get/config
+ * @see admin/jqadm/url/get/filter
  */
 
 /** admin/jqadm/url/get/config
@@ -202,10 +230,24 @@ $enc = $this->encoder();
  *
  * @param string Associative list of configuration options
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/get/target
  * @see admin/jqadm/url/get/controller
  * @see admin/jqadm/url/get/action
+ * @see admin/jqadm/url/get/filter
+ */
+
+/** admin/jqadm/url/get/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2016.04
+ * @see admin/jqadm/url/get/target
+ * @see admin/jqadm/url/get/controller
+ * @see admin/jqadm/url/get/action
+ * @see admin/jqadm/url/get/config
  */
 
 
@@ -218,10 +260,10 @@ $enc = $this->encoder();
  *
  * @param string Destination of the URL
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/copy/controller
  * @see admin/jqadm/url/copy/action
  * @see admin/jqadm/url/copy/config
+ * @see admin/jqadm/url/copy/filter
  */
 
 /** admin/jqadm/url/copy/controller
@@ -233,10 +275,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the controller
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/copy/target
  * @see admin/jqadm/url/copy/action
  * @see admin/jqadm/url/copy/config
+ * @see admin/jqadm/url/copy/filter
  */
 
 /** admin/jqadm/url/copy/action
@@ -248,10 +290,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the action
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/copy/target
  * @see admin/jqadm/url/copy/controller
  * @see admin/jqadm/url/copy/config
+ * @see admin/jqadm/url/copy/filter
  */
 
 /** admin/jqadm/url/copy/config
@@ -269,10 +311,24 @@ $enc = $this->encoder();
  *
  * @param string Associative list of configuration options
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/copy/target
  * @see admin/jqadm/url/copy/controller
  * @see admin/jqadm/url/copy/action
+ * @see admin/jqadm/url/copy/filter
+ */
+
+/** admin/jqadm/url/copy/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2016.04
+ * @see admin/jqadm/url/copy/target
+ * @see admin/jqadm/url/copy/controller
+ * @see admin/jqadm/url/copy/action
+ * @see admin/jqadm/url/copy/config
  */
 
 
@@ -285,10 +341,10 @@ $enc = $this->encoder();
  *
  * @param string Destination of the URL
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/delete/controller
  * @see admin/jqadm/url/delete/action
  * @see admin/jqadm/url/delete/config
+ * @see admin/jqadm/url/delete/filter
  */
 
 /** admin/jqadm/url/delete/controller
@@ -300,10 +356,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the controller
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/delete/target
  * @see admin/jqadm/url/delete/action
  * @see admin/jqadm/url/delete/config
+ * @see admin/jqadm/url/delete/filter
  */
 
 /** admin/jqadm/url/delete/action
@@ -315,10 +371,10 @@ $enc = $this->encoder();
  *
  * @param string Name of the action
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/delete/target
  * @see admin/jqadm/url/delete/controller
  * @see admin/jqadm/url/delete/config
+ * @see admin/jqadm/url/delete/filter
  */
 
 /** admin/jqadm/url/delete/config
@@ -336,10 +392,105 @@ $enc = $this->encoder();
  *
  * @param string Associative list of configuration options
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/delete/target
  * @see admin/jqadm/url/delete/controller
  * @see admin/jqadm/url/delete/action
+ * @see admin/jqadm/url/delete/filter
+ */
+
+/** admin/jqadm/url/delete/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2016.04
+ * @see admin/jqadm/url/delete/target
+ * @see admin/jqadm/url/delete/controller
+ * @see admin/jqadm/url/delete/action
+ * @see admin/jqadm/url/delete/config
+ */
+
+
+/** admin/jqadm/url/batch/target
+ * Destination of the URL where the controller specified in the URL is known
+ *
+ * The destination can be a page ID like in a content management system or the
+ * module of a software development framework. This "target" must contain or know
+ * the controller that should be called by the generated URL.
+ *
+ * @param string Destination of the URL
+ * @since 2022.10
+ * @see admin/jqadm/url/batch/controller
+ * @see admin/jqadm/url/batch/action
+ * @see admin/jqadm/url/batch/config
+ * @see admin/jqadm/url/batch/filter
+ */
+
+/** admin/jqadm/url/batch/controller
+ * Name of the controller whose action should be called
+ *
+ * In Model-View-Controller (MVC) applications, the controller contains the methods
+ * that create parts of the output displayed in the generated HTML page. Controller
+ * names are usually alpha-numeric.
+ *
+ * @param string Name of the controller
+ * @since 2022.10
+ * @see admin/jqadm/url/batch/target
+ * @see admin/jqadm/url/batch/action
+ * @see admin/jqadm/url/batch/config
+ * @see admin/jqadm/url/batch/filter
+ */
+
+/** admin/jqadm/url/batch/action
+ * Name of the action that should create the output
+ *
+ * In Model-View-Controller (MVC) applications, actions are the methods of a
+ * controller that create parts of the output displayed in the generated HTML page.
+ * Action names are usually alpha-numeric.
+ *
+ * @param string Name of the action
+ * @since 2022.10
+ * @see admin/jqadm/url/batch/target
+ * @see admin/jqadm/url/batch/controller
+ * @see admin/jqadm/url/batch/config
+ * @see admin/jqadm/url/batch/filter
+ */
+
+/** admin/jqadm/url/batch/config
+ * Associative list of configuration options used for generating the URL
+ *
+ * You can specify additional options as key/value pairs used when generating
+ * the URLs, like
+ *
+ *  admin/jqadm/url/batch/config = ['absoluteUri' => true]
+ *
+ * The available key/value pairs depend on the application that embeds the e-commerce
+ * framework. This is because the infrastructure of the application is used for
+ * generating the URLs. The full list of available config options is referenced
+ * in the "see also" section of this page.
+ *
+ * @param string Associative list of configuration options
+ * @since 2022.10
+ * @see admin/jqadm/url/batch/target
+ * @see admin/jqadm/url/batch/controller
+ * @see admin/jqadm/url/batch/action
+ * @see admin/jqadm/url/batch/filter
+ */
+
+/** admin/jqadm/url/batch/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2022.10
+ * @see admin/jqadm/url/batch/target
+ * @see admin/jqadm/url/batch/controller
+ * @see admin/jqadm/url/batch/action
+ * @see admin/jqadm/url/batch/config
  */
 
 
@@ -360,7 +511,6 @@ $enc = $this->encoder();
  *
  * @param string Relative path to the partial creating the HTML code
  * @since 2017.07
- * @category Developer
  * @see admin/jqadm/partial/confirm
  * @see admin/jqadm/partial/error
  */
@@ -382,7 +532,6 @@ $enc = $this->encoder();
  *
  * @param string Relative path to the partial creating the HTML code
  * @since 2017.07
- * @category Developer
  * @see admin/jqadm/partial/confirm
  * @see admin/jqadm/partial/error
  */
@@ -404,7 +553,6 @@ $enc = $this->encoder();
  *
  * @param string Relative path to the partial creating the HTML code
  * @since 2017.07
- * @category Developer
  * @see admin/jqadm/partial/confirm
  * @see admin/jqadm/partial/error
  */
@@ -426,7 +574,6 @@ $enc = $this->encoder();
  *
  * @param string Relative path to the partial creating the HTML code
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/partial/confirm
  * @see admin/jqadm/partial/error
  */
@@ -448,7 +595,6 @@ $enc = $this->encoder();
  *
  * @param string Relative path to the partial creating the HTML code
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/partial/navsearch
  * @see admin/jqadm/partial/confirm
  * @see admin/jqadm/partial/error
@@ -471,7 +617,6 @@ $enc = $this->encoder();
  *
  * @param string Relative path to the partial creating the HTML code
  * @since 2016.04
- * @category Developer
  */
 
 
@@ -487,7 +632,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2016.04
- * @category Developer
  */
 $default = ['image', 'product.id', 'product.status', 'product.type', 'product.code', 'product.label'];
 $default = $this->config( 'admin/jqadm/product/fields', $default );

@@ -21,7 +21,6 @@ $enc = $this->encoder();
  *
  * @param string Destination of the URL
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/save/controller
  * @see admin/jqadm/url/save/action
  * @see admin/jqadm/url/save/config
@@ -36,7 +35,6 @@ $enc = $this->encoder();
  *
  * @param string Name of the controller
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/save/target
  * @see admin/jqadm/url/save/action
  * @see admin/jqadm/url/save/config
@@ -51,7 +49,6 @@ $enc = $this->encoder();
  *
  * @param string Name of the action
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/save/target
  * @see admin/jqadm/url/save/controller
  * @see admin/jqadm/url/save/config
@@ -72,10 +69,23 @@ $enc = $this->encoder();
  *
  * @param string Associative list of configuration options
  * @since 2016.04
- * @category Developer
  * @see admin/jqadm/url/save/target
  * @see admin/jqadm/url/save/controller
  * @see admin/jqadm/url/save/action
+ */
+
+/** admin/jqadm/url/save/filter
+ * Removes parameters for the detail page before generating the URL
+ *
+ * This setting removes the listed parameters from the URLs. Keep care to
+ * remove no required parameters!
+ *
+ * @param array List of parameter names to remove
+ * @since 2022.10
+ * @see admin/jqadm/url/save/target
+ * @see admin/jqadm/url/save/controller
+ * @see admin/jqadm/url/save/action
+ * @see admin/jqadm/url/save/config
  */
 
 
@@ -87,7 +97,6 @@ $enc = $this->encoder();
  *
  * @param string List of suggested config keys
  * @since 2017.10
- * @category Developer
  * @see admin/jqadm/catalog/item/config/suggest
  */
 $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] );
@@ -103,7 +112,6 @@ $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-cl
  *
  * @param integer Number of product sub-part links
  * @since 2020.10
- * @category Developer
  * @see admin/jqadm/navbar-limit
  */
 $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
@@ -126,7 +134,6 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  *
  * @param string Relative path to the partial creating the HTML code
  * @since 2017.10
- * @category Developer
  */
 
 
@@ -142,14 +149,12 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  *
  *  [
  *    'T-Shirt' => [
- *      'characteristic' => [
- *        'variant' => [['attribute.type' => 'color'], ['attribute.type' => 'size']],
- *        'attribute' => [['attribute.type' => 'material']],
- *      ],
- *      'option' => [
- *        'config' => [['attribute.type' => 'sticker']],
- *        'custom' => [['attribute.type' => 'print']],
- *      ],
+ *      'characteristic/variant' => [['attribute.type' => 'color'], ['attribute.type' => 'size']],
+ *      'characteristic/attribute' => [['attribute.type' => 'material']],
+ *      'option/config' => [['attribute.type' => 'sticker']],
+ *      'option/custom' => [['attribute.type' => 'print']],
+ *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '19.00']]],
+ *      'stock' => [['stock.type' => 'default']],
  *      'price' => [['price.currencyid' => 'EUR', 'price.taxrates' => ['' => '19.00']]],
  *      'stock' => [['stock.type' => 'default']],
  *    ],
@@ -169,17 +174,11 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  *
  *  [
  *    'Book' => [
- *      'characteristic' => [
- *        'attribute' => [['attribute.type' => 'binding']],
- *        'property' => [['product.property.type' => 'isbn']],
- *      ],
- *      'related' => [
- *        'suggest' => [[], []],
- *      ],
- *      'catalog' => [
- *        'default' => [[]],
- *        'promotion' => [[]],
- *      ],
+ *      'characteristic/attribute' => [['attribute.type' => 'binding']],
+ *      'characteristic/property' => [['product.property.type' => 'isbn']],
+ *      'related/suggest' => [[], []],
+ *      'catalog/default' => [[]],
+ *      'catalog/promotion' => [[]],
  *      'media' => [['media.type' => 'default'], ['media.type' => 'download']],
  *      'text' => [
  *        ['text.type' => 'name', 'text.languageid' => 'en'],
@@ -210,7 +209,6 @@ $navlimit = $this->config( 'admin/jqadm/product/item/navbar-limit', 7 );
  * e.g. for product variants and bundles.
  *
  * @param array Associative list of name/configuration pairs
- * @category Developer
  * @since 2019.10
  */
 
@@ -282,10 +280,13 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 
 			<div id="basic" class="item-basic tab-pane fade show active g-0" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box">
+				<div class="box"
+					data-siteid="<?= $this->site()->siteid() ?>"
+					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>"
+					data-datasets="<?= $enc->attr( (object) $this->config( 'admin/jqadm/dataset/product', [] ) ) ?>">
+
 					<div class="row">
-						<div class="col-xl-6 block vue <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>"
-							data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
+						<div class="col-xl-6 block" v-bind:class="{readonly: !can('modify')}">
 
 							<?php if( $this->config( 'admin/jqadm/dataset/product', [] ) !== [] ) : ?>
 								<div class="form-group row optional">
@@ -293,14 +294,15 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<div class="col-sm-8">
 										<select class="form-select item-set" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dataset' ) ) ) ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?> >
+											v-bind:readonly="!can('modify')"
+											v-on:change="dataset($event)">
+
 											<option value="">
 												<?= $enc->html( $this->translate( 'admin', 'None' ) ) ?>
 											</option>
 
 											<?php foreach( $this->config( 'admin/jqadm/dataset/product', [] ) as $name => $config ) : ?>
-												<option value="<?= $enc->attr( $name ) ?>" <?= $selected( $this->get( 'itemData/product.dataset' ), $name ) ?>
-													data-config="<?= $enc->attr( $config ) ?>" >
+												<option value="<?= $enc->attr( $name ) ?>" <?= $selected( $this->get( 'itemData/product.dataset' ), $name ) ?> >
 													<?= $enc->html( $name ) ?>
 												</option>
 											<?php endforeach ?>
@@ -316,7 +318,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.status' ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?> >
+										v-bind:readonly="!can('modify')" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
@@ -343,11 +345,11 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" class="form-select item-type" required v-bind:tabindex="'1'"
-											v-bind:readonly="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) ?>` ? true : false"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['item', 'product.type'] ) ) ?>`"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
-											v-model="data['product.type']" >
+											v-bind:readonly="!can('modify')"
+											v-model="item['product.type']" >
 											<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
 												<?= $enc->html( $types[$this->get( 'itemData/product.type', '' )] ?? $this->translate( 'admin', 'Please select' ) ) ?>
 											</option>
@@ -366,7 +368,9 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
+										v-bind:class="{'is-invalid': duplicate}"
+										v-bind:readonly="!can('modify')"
+										v-on:change="exists($event)">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ) ?>
@@ -379,7 +383,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $this->formparam( array( 'item', 'product.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
+										v-bind:readonly="!can('modify')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site and for searching only if no other product names in any language exist' ) ) ?>
@@ -408,7 +412,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $this->formparam( array( 'item', 'product.url' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Name in URL (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.url' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
+										v-bind:readonly="!can('modify')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The name of the product shown in the URL, will be used if no language specific URL segment exists' ) ) ?>
@@ -420,7 +424,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 									<input class="form-control item-scale" type="number" tabindex="1" min="0.001" step="0.001"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.scale' ) ) ) ?>"
 										value="<?= $enc->attr( $this->datetime( $this->get( 'itemData/product.scale', 1 ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
+										v-bind:readonly="!can('modify')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The step value allowed for quantities in the basket, e.g. "0.1" for fractional quantities or "5" for multiple of five articles' ) ) ?>
@@ -433,7 +437,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.datestart' ) ) ) ?>`"
-										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) ?>` !== ''"
+										v-bind:disabled="!can('modify')"
 										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -447,7 +451,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.dateend' ) ) ) ?>`"
-										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) ?>` !== ''"
+										v-bind:disabled="!can('modify')"
 										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -461,7 +465,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/product.ctime' ) ) ) ?>`"
-										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ) ?>` !== ''"
+										v-bind:disabled="!can('modify')"
 										v-bind:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -475,7 +479,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.boost' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Boost factor (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.boost' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
+										v-bind:readonly="!can('modify')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Factor to boost product in user search over other products (>1.0 positive boost, <1.0 negative boost)' ) ) ?>
@@ -488,22 +492,21 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'product.target' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Route or page ID (optional)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/product.target' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>>
+										v-bind:readonly="!can('modify')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Route name or page ID of the product detail page if this product should shown on a different page' ) ) ?>
 								</div>
 							</div>
-						</div><!--
+						</div>
 
-						--><div class="col-xl-6 block vue <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>"
-							data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
+						<div class="col-xl-6 block" v-bind:class="{readonly: !can('modify')}">
 
-							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
+							<config-table tabindex="1"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
-								v-bind:readonly="data['product.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>`"
-								v-bind:items="data['config']" v-on:change="data['config'] = $event"
+								v-bind:items="item['config']" v-on:change="item['config'] = $event"
+								v-bind:readonly="!can('modify')"
 								v-bind:i18n="{
 									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
 									option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,

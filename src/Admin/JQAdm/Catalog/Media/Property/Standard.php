@@ -31,7 +31,6 @@ class Standard
 	 *
 	 * @param string Last part of the JQAdm class name
 	 * @since 2018.04
-	 * @category Developer
 	 */
 
 
@@ -135,7 +134,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2018.01
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/catalog/media/property/decorators/global
 		 * @see admin/jqadm/catalog/media/property/decorators/local
@@ -159,7 +157,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2018.01
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/catalog/media/property/decorators/excludes
 		 * @see admin/jqadm/catalog/media/property/decorators/local
@@ -183,7 +180,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2018.01
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/catalog/media/property/decorators/excludes
 		 * @see admin/jqadm/catalog/media/property/decorators/global
@@ -250,7 +246,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2018.01
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/catalog/media/property/subparts', [] );
 	}
@@ -365,7 +360,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2016.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/catalog/media/property/template-item';
 		$default = 'catalog/item-media-property';

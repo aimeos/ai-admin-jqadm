@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 11:38+0100\n"
+"POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -654,6 +654,9 @@ msgstr ""
 msgid "Floor and/or apartment (optional)"
 msgstr ""
 
+msgid "Generate text"
+msgstr ""
+
 msgid "Given rebate amount"
 msgstr ""
 
@@ -1135,6 +1138,9 @@ msgid "Permission denied"
 msgstr ""
 
 msgid "Personal data"
+msgstr ""
+
+msgid "Please insert the description of the text that should be generated here"
 msgstr ""
 
 msgid "Please select"

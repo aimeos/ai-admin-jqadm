@@ -16,8 +16,10 @@ if (prefersDark.matches && !setLight){
 document.querySelectorAll(".btn-theme").forEach(item => {
 	item.addEventListener("click", function() {
 		['light', 'dark'].map(cl => document.body.classList.toggle(cl));
+		const cookieName = "aimeos_backend_theme"
 		const theme = document.body.classList.contains("dark") ? "dark" : "light";
-		document.cookie = "aimeos_backend_theme=" + theme + ";path=/";
+		const expires = "expires=" + (new Date()).setTime(d.getTime() + (7*84600000)).toUTCString(); // 7 days (Safari does not allow for more)
+		document.cookie = cookieName + "=" + theme + ";" + expires + ";path=/";
 	});
 });
 
@@ -38,7 +40,8 @@ Aimeos = {
 		},
 		language: $('html').attr('lang'),
 		mediaEmbed: {
-			previewsInData: true
+			previewsInData: true,
+			toolbar: ['|']
 		},
 		toolbar: [
 			'link', '|',
@@ -109,7 +112,7 @@ Aimeos = {
 		}
 	},
 
-	addClone : function(node, getfcn, selectfn, after) {
+	addClone(node, getfcn, selectfn, after) {
 
 		var clone = node.clone().removeClass("prototype");
 		var combo = $(".combobox-prototype", clone);
@@ -150,7 +153,7 @@ Aimeos = {
 	},
 
 
-	focusBefore : function(node) {
+	focusBefore(node) {
 
 		var elem = $(":focus", node);
 		var elements = $(".aimeos [tabindex=" + elem.attr("tabindex") + "]:visible");
@@ -164,7 +167,7 @@ Aimeos = {
 	},
 
 
-	getOptions : function(request, response, element, domain, key, sort, criteria, labelFcn) {
+	getOptions(request, response, element, domain, key, sort, criteria, labelFcn) {
 
 		Aimeos.options.done(function(data) {
 
@@ -191,7 +194,7 @@ Aimeos = {
 				dataType: "json",
 				url: data.meta.resources[domain] || null,
 				data: params,
-				success: function(result) {
+				success: (result) => {
 					var list = result.data || [];
 
 					if(!labelFcn) {
@@ -222,42 +225,42 @@ Aimeos = {
 	},
 
 
-	getOptionsAttributes : function(request, response, element, criteria, labelFcn) {
+	getOptionsAttributes(request, response, element, criteria, labelFcn) {
 		Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', criteria, labelFcn);
 	},
 
 
-	getOptionsCategories : function(request, response, element, criteria, labelFcn) {
+	getOptionsCategories(request, response, element, criteria, labelFcn) {
 		Aimeos.getOptions(request, response, element, 'catalog', 'catalog.label', 'catalog.label', criteria, labelFcn);
 	},
 
 
-	getOptionsCustomers : function(request, response, element, criteria, labelFcn) {
+	getOptionsCustomers(request, response, element, criteria, labelFcn) {
 		Aimeos.getOptions(request, response, element, 'customer', 'customer.code', 'customer.code', criteria, labelFcn);
 	},
 
 
-	getOptionsCurrencies : function(request, response, element, criteria, labelFcn) {
+	getOptionsCurrencies(request, response, element, criteria, labelFcn) {
 		Aimeos.getOptions(request, response, element, 'locale/currency', 'locale.currency.id', '-locale.currency.status,locale.currency.id', criteria, labelFcn);
 	},
 
 
-	getOptionsLanguages : function(request, response, element, criteria, labelFcn) {
+	getOptionsLanguages(request, response, element, criteria, labelFcn) {
 		Aimeos.getOptions(request, response, element, 'locale/language', 'locale.language.id', '-locale.language.status,locale.language.id', criteria, labelFcn);
 	},
 
 
-	getOptionsSites : function(request, response, element, criteria, labelFcn) {
+	getOptionsSites(request, response, element, criteria, labelFcn) {
 		Aimeos.getOptions(request, response, element, 'locale/site', 'locale.site.label', '-locale.site.status,locale.site.label', criteria, labelFcn);
 	},
 
 
-	getOptionsProducts : function(request, response, element, criteria, labelFcn) {
+	getOptionsProducts(request, response, element, criteria, labelFcn) {
 		Aimeos.getOptions(request, response, element, 'product', ['product.label', 'product.code'], 'product.label', criteria, labelFcn);
 	},
 
 
-	lazy : function(selector, renderFcn) {
+	lazy(selector, renderFcn) {
 
 		if('IntersectionObserver' in window) {
 
@@ -283,26 +286,26 @@ Aimeos = {
 	vue(node) {
 		return new Vue({
 			el: node,
-			data: function() {
+			data() {
 				return {
 					data: null
 				}
 			},
-			beforeMount: function() {
+			beforeMount() {
 				this.Aimeos = Aimeos;
 				if(this.$el.dataset && this.$el.dataset.data) {
 					this.data = JSON.parse(this.$el.dataset.data);
 				}
 			},
 			methods: {
-				add: function(data) {
+				add(data) {
 					this.$refs[key].add(data);
 				},
-				remove: function(idx) {
+				remove(idx) {
 					this.$refs[key].remove(idx);
 				}
 			},
-			provide: function() {
+			provide() {
 				return {
 					Aimeos: Aimeos
 				};
@@ -315,7 +318,7 @@ Aimeos = {
 
 Aimeos.Config = {
 
-	init : function() {
+	init() {
 
 		this.addConfigLine();
 		this.deleteConfigLine();
@@ -333,7 +336,7 @@ Aimeos.Config = {
 	},
 
 
-	setup : function(resource, provider, target, type) {
+	setup(resource, provider, target, type) {
 
 		if(!provider) {
 			return;
@@ -421,7 +424,7 @@ Aimeos.Config = {
 	},
 
 
-	addConfigLine : function() {
+	addConfigLine() {
 
 		$(".aimeos .item .tab-pane").on("click", ".item-config .actions .act-add", function(ev) {
 
@@ -454,7 +457,7 @@ Aimeos.Config = {
 	},
 
 
-	deleteConfigLine : function() {
+	deleteConfigLine() {
 
 		$(".aimeos .item .tab-pane").on("click", ".item-config .config-item .actions .act-delete", function(ev) {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
@@ -462,7 +465,7 @@ Aimeos.Config = {
 	},
 
 
-	configComplete : function() {
+	configComplete() {
 
 		var node = $(".aimeos .item-config");
 		$(".config-item .config-key", node).autocomplete({
@@ -477,7 +480,7 @@ Aimeos.Config = {
 	},
 
 
-	addConfigListLine : function() {
+	addConfigListLine() {
 
 		$(".aimeos .item-config").on("click", ".config-list-table .config-list-actions .act-add", function(ev) {
 
@@ -492,7 +495,7 @@ Aimeos.Config = {
 	},
 
 
-	addConfigMapLine : function() {
+	addConfigMapLine() {
 
 		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-add", function(ev) {
 
@@ -507,7 +510,7 @@ Aimeos.Config = {
 	},
 
 
-	deleteConfigListLine : function() {
+	deleteConfigListLine() {
 
 		$(".aimeos .item-config").on("click", ".config-list-table .config-list-actions .act-delete", function(ev) {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
@@ -515,7 +518,7 @@ Aimeos.Config = {
 	},
 
 
-	deleteConfigMapLine : function() {
+	deleteConfigMapLine() {
 
 		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-delete", function(ev) {
 			Aimeos.focusBefore($(this).closest("tr")).remove();
@@ -523,7 +526,7 @@ Aimeos.Config = {
 	},
 
 
-	hideConfigList : function() {
+	hideConfigList() {
 
 		$(".aimeos .item-config").on("click", ".config-list-table .config-list-actions .act-update", function(ev) {
 
@@ -545,7 +548,7 @@ Aimeos.Config = {
 	},
 
 
-	hideConfigMap : function() {
+	hideConfigMap() {
 
 		$(".aimeos .item-config").on("click", ".config-map-table .config-map-actions .act-update", function(ev) {
 
@@ -567,7 +570,7 @@ Aimeos.Config = {
 	},
 
 
-	showConfigList : function() {
+	showConfigList() {
 
 		$(".aimeos .item-config").on("focus", ".config-value", function() {
 
@@ -594,7 +597,7 @@ Aimeos.Config = {
 	},
 
 
-	showConfigMap : function() {
+	showConfigMap() {
 
 		$(".aimeos .item-config").on("focus", ".config-value", function() {
 
@@ -626,7 +629,7 @@ Aimeos.Config = {
 
 Aimeos.Form = {
 
-	init : function() {
+	init() {
 
 		this.checkFields();
 		this.checkSubmit();
@@ -638,7 +641,7 @@ Aimeos.Form = {
 	},
 
 
-	checkFields : function() {
+	checkFields() {
 
 		$(".aimeos form .readonly").on("change", "input,select", function(ev) {
 			$(this).addClass("is-invalid");
@@ -660,7 +663,7 @@ Aimeos.Form = {
 	},
 
 
-	checkSubmit : function() {
+	checkSubmit() {
 
 		$(".aimeos form").each(function() {
 			this.noValidate = true;
@@ -725,7 +728,7 @@ Aimeos.Form = {
 	},
 
 
-	editFields : function() {
+	editFields() {
 
 		$(".aimeos .list-item").on("click", ".act-edit", function(ev) {
 			$("[disabled=disabled]", ev.delegateTarget).removeAttr("disabled");
@@ -734,7 +737,7 @@ Aimeos.Form = {
 	},
 
 
-	noedit : function() {
+	noedit() {
 
 		$("input.noedit, select.noedit").on('keydown paste', function(ev){
 			if(ev.which != 9) return false; // ignore tab
@@ -742,7 +745,7 @@ Aimeos.Form = {
 	},
 
 
-	setupNext : function() {
+	setupNext() {
 
 		$(".aimeos .item").on("click", ".next-action", function(ev) {
 			$("#item-next", ev.delegateTarget).val($(this).data('next'));
@@ -752,7 +755,7 @@ Aimeos.Form = {
 	},
 
 
-	showErrors : function() {
+	showErrors() {
 
 		$(".aimeos .error-list .error-item").each(function() {
 			$(".aimeos ." + $(this).data("key") + " .header").addClass("is-invalid");
@@ -760,7 +763,7 @@ Aimeos.Form = {
 	},
 
 
-	toggleHelp : function() {
+	toggleHelp() {
 
 		$(".aimeos").on("click", ".help", function(ev) {
 			var list = $(this).closest("table.item-config");
@@ -785,7 +788,7 @@ Aimeos.List = {
 	instance : null,
 
 
-	init : function() {
+	init() {
 
 		let node = document.querySelector(".list-view");
 		if(node) {
@@ -795,7 +798,7 @@ Aimeos.List = {
 
 
 	mixins : {
-		data: function() {
+		data() {
 			return {
 				all: false,
 				batch: false,
@@ -809,7 +812,7 @@ Aimeos.List = {
 				states: {}
 			}
 		},
-		beforeMount: function() {
+		beforeMount() {
 			this.Aimeos = Aimeos;
 
 			if(this.$el.dataset) {
@@ -840,7 +843,7 @@ Aimeos.List = {
 				return count;
 			},
 
-			unconfirmed: function() {
+			unconfirmed() {
 				let list = {};
 
 				for(const key in this.items) {
@@ -853,7 +856,7 @@ Aimeos.List = {
 			}
 		},
 		methods: {
-			askDelete: function(id, ev) {
+			askDelete(id, ev) {
 				if(id) {
 					this.clear(false);
 					this.$set(this.items[id], 'checked', true);
@@ -863,11 +866,11 @@ Aimeos.List = {
 				this.dialog = true;
 			},
 
-			checked: function(id) {
+			checked(id) {
 				return this.items[id] && this.items[id].checked;
 			},
 
-			confirmDelete: function(val) {
+			confirmDelete(val) {
 				if(val) {
 					if(this.$refs.form && this.deleteUrl) {
 						this.$refs.form.action = this.deleteUrl;
@@ -884,7 +887,7 @@ Aimeos.List = {
 				this.dialog = false;
 			},
 
-			clear: function(val) {
+			clear(val) {
 				this.all = val;
 				for(const key in this.items) {
 					if([this.siteid, ''].includes(this.items[key][this.domain + '.siteid'])) {
@@ -893,11 +896,11 @@ Aimeos.List = {
 				};
 			},
 
-			readonly: function(id) {
+			readonly(id) {
 				return !(this.items[id] && this.items[id][this.domain + '.siteid'] == this.siteid);
 			},
 
-			reset: function() {
+			reset() {
 				if(this.filter['val'])
 				{
 					for(let idx of Object.keys(this.filter['val'])) {
@@ -914,22 +917,22 @@ Aimeos.List = {
 				return !(this.states[key] || false);
 			},
 
-			toggle: function(id) {
+			toggle(id) {
 				this.$set(this.items[id], 'checked', !this.items[id].checked);
 			},
 
-			toggleAll: function() {
+			toggleAll() {
 				this.clear(this.all = !this.all);
 			},
 
-			value: function(idx) {
+			value(idx) {
 				return this.filter['val'] && this.filter['val'][idx] || null;
 			}
 		}
 	},
 
 
-	confirmDelete : function() {
+	confirmDelete() {
 
 		$("#confirm-delete").on("click", ".btn-danger", function(e) {
 
@@ -946,7 +949,7 @@ Aimeos.List = {
 
 Aimeos.Nav = {
 
-	init : function() {
+	init() {
 
 		this.addShortcuts();
 		this.hoverMenu();
@@ -956,7 +959,7 @@ Aimeos.Nav = {
 	},
 
 
-	addShortcuts : function() {
+	addShortcuts() {
 
 		$(document).bind('keydown', function(ev) {
 			if(ev.ctrlKey || ev.metaKey) {
@@ -1005,7 +1008,7 @@ Aimeos.Nav = {
 	},
 
 
-	hoverMenu : function() {
+	hoverMenu() {
 
 		let active = document.querySelector(".aimeos .main-sidebar .sidebar-menu > li.active");
 
@@ -1030,7 +1033,7 @@ Aimeos.Nav = {
 	},
 
 
-	toggleNavItems : function() {
+	toggleNavItems() {
 
 		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/item/navbar') == 1) {
 			$(".aimeos .item-navbar .navbar-content .more").removeClass("more").addClass("less");
@@ -1055,7 +1058,7 @@ Aimeos.Nav = {
 	},
 
 
-	toggleFormItems : function() {
+	toggleFormItems() {
 
 		if(window.sessionStorage && window.sessionStorage.getItem('aimeos/jqadm/item/form') == 1) {
 			$(".aimeos .item-content .separator .more").removeClass("more").addClass("less");
@@ -1080,7 +1083,7 @@ Aimeos.Nav = {
 	},
 
 
-	toggleSubmenu : function() {
+	toggleSubmenu() {
 
 		document.querySelectorAll(".aimeos .main-sidebar .sidebar-menu>li:not(.none)").forEach(function(item) {
 			item.addEventListener("click", function(ev) {
@@ -1101,14 +1104,14 @@ Aimeos.Nav = {
 
 Aimeos.Tabs = {
 
-	init : function() {
+	init() {
 
 		this.setPanelHeight();
 		this.setupTabSwitch();
 	},
 
 
-	setPanelHeight : function() {
+	setPanelHeight() {
 
 		$(".aimeos .tab-pane").on("click", ".filter-columns", function(ev) {
 			// CSS class "show" will be added afterwards, thus it's reversed
@@ -1118,7 +1121,7 @@ Aimeos.Tabs = {
 	},
 
 
-	setupTabSwitch : function() {
+	setupTabSwitch() {
 
 		var hash = '';
 		var url = document.location.toString();
@@ -1160,13 +1163,13 @@ Aimeos.Log = {
 	time : null,
 
 
-	init : function() {
+	init() {
 
 		this.toggleItem();
 	},
 
 
-	toggleItem : function() {
+	toggleItem() {
 
 		$(".aimeos .list-log .log-message").on("mousedown", function(ev) {
 			this.time = (new Date()).getTime();
@@ -1192,7 +1195,7 @@ Aimeos.Log = {
 
 
 Aimeos.Menu = {
-	init: function() {
+	init() {
 		$("body").on("click", ".app-menu .menu", function(ev) {
 			$(".main-sidebar").addClass("open");
 			$(".app-menu").addClass("open");

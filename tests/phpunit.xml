@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<phpunit bootstrap="bootstrap.php">
-	<testsuites>
-		<testsuite name="JQAdm admin suite">
-			<directory>Admin/</directory>
-		</testsuite>
-		<testsuite name="MW suite">
-			<directory>MW/</directory>
-		</testsuite>
-	</testsuites>
-	<filter>
-		<whitelist>
-			<directory suffix=".php">../src</directory>
-		</whitelist>
-	</filter>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="bootstrap.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" cacheDirectory=".phpunit.cache">
+  <coverage>
+    <include>
+      <directory suffix=".php">../src</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="Base suite">
+      <directory>Base/</directory>
+    </testsuite>
+    <testsuite name="JQAdm admin suite">
+      <directory>Admin/</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>

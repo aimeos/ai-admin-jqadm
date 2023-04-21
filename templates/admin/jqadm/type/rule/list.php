@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
- * @category Developer
  */
 $default = ['rule.type.domain', 'rule.type.status', 'rule.type.code', 'rule.type.label'];
 $default = $this->config( 'admin/jqadm/type/rule/fields', $default );

@@ -18,7 +18,6 @@
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
- * @category Developer
  */
 $fields = ['customer.lists.status', 'customer.lists.type', 'customer.lists.position', 'customer.lists.refid'];
 $fields = $this->config( 'admin/jqadm/customer/product/fields', $fields );

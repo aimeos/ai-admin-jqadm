@@ -55,7 +55,6 @@ class Standard
 	 *
 	 * @param string Last part of the class name
 	 * @since 2017.07
-	 * @category Developer
 	 */
 
 
@@ -303,7 +302,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2017.07
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/attribute/template-list';
 		$default = 'attribute/list';
@@ -341,7 +339,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.07
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/attribute/decorators/global
 		 * @see admin/jqadm/attribute/decorators/local
@@ -365,7 +362,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.07
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/attribute/decorators/excludes
 		 * @see admin/jqadm/attribute/decorators/local
@@ -389,7 +385,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2017.07
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/attribute/decorators/excludes
 		 * @see admin/jqadm/attribute/decorators/global
@@ -414,7 +409,6 @@ class Standard
 		 *
 		 * @param array List of domain names
 		 * @since 2017.07
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/attribute/domains', [] );
 	}
@@ -458,7 +452,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2017.07
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/attribute/subparts', [] );
 	}
@@ -546,7 +539,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2017.07
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/attribute/template-item';
 		$default = 'attribute/item';

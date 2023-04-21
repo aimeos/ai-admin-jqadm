@@ -21,7 +21,7 @@ abstract class Base
 	extends \Aimeos\Admin\JQAdm\Base
 	implements \Aimeos\Admin\JQAdm\Common\Decorator\Iface
 {
-	private $client;
+	private \Aimeos\Admin\JQAdm\Iface $client;
 
 
 	/**

@@ -7,7 +7,7 @@
 
 Aimeos.Supplier = {
 
-	init : function() {
+	init() {
 	}
 };
 

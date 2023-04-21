@@ -14,10 +14,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 11:38+0100\n"
+"POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Ali y, 2022\n"
-"Language-Team: Persian (http://www.transifex.com/aimeos/aimeos-core/language/fa/)\n"
+"Language-Team: Persian (http://app.transifex.com/aimeos/aimeos-core/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -684,6 +684,9 @@ msgstr "طبقه / آپارتمان"
 msgid "Floor and/or apartment (optional)"
 msgstr "طبقه و/یا آپارتمان (اختیاری)"
 
+msgid "Generate text"
+msgstr ""
+
 msgid "Given rebate amount"
 msgstr "با توجه به مبلغ تخفیف"
 
@@ -1189,6 +1192,10 @@ msgstr "اجازه رد شد"
 
 msgid "Personal data"
 msgstr "اطلاعات شخصی"
+
+msgid ""
+"Please insert the description of the text that should be generated here"
+msgstr ""
 
 msgid "Please select"
 msgstr "لطفا انتخاب نمایید"

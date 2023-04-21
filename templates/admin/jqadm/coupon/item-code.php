@@ -21,7 +21,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
- * @category Developer
  */
 $default = $this->config( 'admin/jqadm/coupon/code/fields', ['coupon.code.code', 'coupon.code.count'] );
 $fields = $this->session( 'aimeos/admin/jqadm/couponcode/fields', $default );

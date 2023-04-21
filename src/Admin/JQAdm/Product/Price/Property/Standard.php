@@ -31,7 +31,6 @@ class Standard
 	 *
 	 * @param string Last part of the JQAdm class name
 	 * @since 2019.07
-	 * @category Developer
 	 */
 
 
@@ -155,7 +154,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2019.07
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/price/property/decorators/global
 		 * @see admin/jqadm/product/price/property/decorators/local
@@ -179,7 +177,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2019.07
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/price/property/decorators/excludes
 		 * @see admin/jqadm/product/price/property/decorators/local
@@ -203,7 +200,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2019.07
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/product/price/property/decorators/excludes
 		 * @see admin/jqadm/product/price/property/decorators/global
@@ -250,7 +246,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2019.07
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/product/price/property/subparts', [] );
 	}
@@ -358,7 +353,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2019.07
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/product/price/property/template-item';
 		$default = 'product/item-price-property';

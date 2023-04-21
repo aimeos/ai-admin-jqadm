@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 11:38+0100\n"
+"POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Oleksandr Kropyvko <akropivko@gmail.com>, 2021\n"
-"Language-Team: Ukrainian (http://www.transifex.com/aimeos/aimeos-core/language/uk/)\n"
+"Language-Team: Ukrainian (http://app.transifex.com/aimeos/aimeos-core/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -679,6 +679,9 @@ msgstr "Поверх / Квартира"
 msgid "Floor and/or apartment (optional)"
 msgstr "Поверх і/або квартира (опціонально)"
 
+msgid "Generate text"
+msgstr ""
+
 msgid "Given rebate amount"
 msgstr "Cума знижки"
 
@@ -1184,6 +1187,10 @@ msgstr "Доступ заборонений"
 
 msgid "Personal data"
 msgstr "Особисті дані"
+
+msgid ""
+"Please insert the description of the text that should be generated here"
+msgstr ""
 
 msgid "Please select"
 msgstr "Будь ласка, оберіть"

@@ -13,7 +13,7 @@ $(function() {
 
 Aimeos.Media = {
 
-	init: function() {
+	init() {
 		Aimeos.components['media'] = new Vue({
 			el: document.querySelector('#item-media-group'),
 			data: {
@@ -21,7 +21,7 @@ Aimeos.Media = {
 				siteid: null,
 				domain: null
 			},
-			mounted: function() {
+			mounted() {
 				this.Aimeos = Aimeos;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
 				this.siteid = this.$el.dataset.siteid;
@@ -37,12 +37,12 @@ Aimeos.Media = {
 
 	mixins: {
 		methods: {
-			active: function(idx) {
+			active(idx) {
 				return this.items[idx] && this.items[idx]['media.status'] > 0;
 			},
 
 
-			add: function() {
+			add() {
 				const entry = {};
 
 				entry[this.domain + '.lists.id'] = null;
@@ -70,7 +70,7 @@ Aimeos.Media = {
 			},
 
 
-			can : function(idx, action) {
+			can(action, idx) {
 				if(!this.items[idx][this.domain + '.lists.siteid']) {
 					return false;
 				}
@@ -87,7 +87,7 @@ Aimeos.Media = {
 			},
 
 
-			create: function(ev) {
+			create(ev) {
 				const self = this;
 				const len = ev.target.files.length;
 
@@ -108,7 +108,7 @@ Aimeos.Media = {
 			},
 
 
-			files: function(idx, files) {
+			files(idx, files) {
 
 				if(!files.length) {
 					return;
@@ -185,7 +185,7 @@ Aimeos.Media = {
 			},
 
 
-			label: function(idx) {
+			label(idx) {
 				let label = '';
 
 				if(this.items[idx]) {
@@ -198,14 +198,14 @@ Aimeos.Media = {
 			},
 
 
-			remove: function(idx) {
+			remove(idx) {
 				if(this.items[idx]) {
 					this.items.splice(idx, 1);
 				}
 			},
 
 
-			toggle: function(what, idx) {
+			toggle(what, idx) {
 				if(this.items[idx]) {
 					this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
 				}

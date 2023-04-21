@@ -31,7 +31,6 @@ class Standard
 	 *
 	 * @param string Last part of the JQAdm class name
 	 * @since 2021.04
-	 * @category Developer
 	 */
 
 
@@ -62,7 +61,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2021.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/dashboard/order/quick/countcustomer/template-item';
 		$default = 'dashboard/item-order-quick-countcustomer';
@@ -100,7 +98,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2021.04
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/dashboard/order/quick/countcustomer/decorators/global
 		 * @see admin/jqadm/dashboard/order/quick/countcustomer/decorators/local
@@ -124,7 +121,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2021.04
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/dashboard/order/quick/countcustomer/decorators/excludes
 		 * @see admin/jqadm/dashboard/order/quick/countcustomer/decorators/local
@@ -148,7 +144,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2021.04
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/dashboard/order/quick/countcustomer/decorators/excludes
 		 * @see admin/jqadm/dashboard/order/quick/countcustomer/decorators/global
@@ -195,7 +190,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2021.04
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/dashboard/order/quick/countcustomer/subparts', [] );
 	}

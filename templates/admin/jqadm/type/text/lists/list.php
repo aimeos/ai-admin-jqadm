@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
- * @category Developer
  */
 $default = ['text.lists.type.domain', 'text.lists.type.status', 'text.lists.type.code', 'text.lists.type.label'];
 $default = $this->config( 'admin/jqadm/type/text/lists/fields', $default );

@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2018.07
- * @category Developer
  */
 $default = ['customer.group.status', 'customer.group.label', 'customer.group.code'];
 $default = $this->config( 'admin/jqadm/group/fields', $default );

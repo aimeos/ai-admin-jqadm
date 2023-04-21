@@ -7,7 +7,7 @@
 
  Aimeos.Rule = {
 
-	init : function() {
+	init() {
 
 		this.setupConfig();
 		this.setupDecorator();
@@ -15,7 +15,7 @@
 	},
 
 
-	setupConfig : function() {
+	setupConfig() {
 
 		var delegate = $(".aimeos .item-rule .item-basic");
 
@@ -29,7 +29,7 @@
 	},
 
 
-	setupDecorator : function() {
+	setupDecorator() {
 
 		$(".aimeos .item-rule .item-provider").parent().on("click", ".dropdown .decorator-name", function(ev) {
 
@@ -44,7 +44,7 @@
 	},
 
 
-	setupProvider : function() {
+	setupProvider() {
 
 		$(".aimeos .item-rule").on("focus", ".item-provider", function(ev) {
 

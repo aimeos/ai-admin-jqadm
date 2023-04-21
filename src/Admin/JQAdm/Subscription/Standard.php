@@ -55,7 +55,6 @@ class Standard
 	 *
 	 * @param string Last part of the class name
 	 * @since 2018.04
-	 * @category Developer
 	 */
 
 
@@ -353,7 +352,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2016.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/subscription/template-list';
 		$default = 'subscription/list';
@@ -391,7 +389,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2018.04
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/subscription/decorators/global
 		 * @see admin/jqadm/subscription/decorators/local
@@ -415,7 +412,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2018.04
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/subscription/decorators/excludes
 		 * @see admin/jqadm/subscription/decorators/local
@@ -439,7 +435,6 @@ class Standard
 		 *
 		 * @param array List of decorator names
 		 * @since 2018.04
-		 * @category Developer
 		 * @see admin/jqadm/common/decorators/default
 		 * @see admin/jqadm/subscription/decorators/excludes
 		 * @see admin/jqadm/subscription/decorators/global
@@ -486,7 +481,6 @@ class Standard
 		 *
 		 * @param array List of sub-client names
 		 * @since 2018.04
-		 * @category Developer
 		 */
 		return $this->context()->config()->get( 'admin/jqadm/subscription/subparts', [] );
 	}
@@ -560,7 +554,6 @@ class Standard
 		 *
 		 * @param string Relative path to the template creating the HTML code
 		 * @since 2016.04
-		 * @category Developer
 		 */
 		$tplconf = 'admin/jqadm/subscription/template-item';
 		$default = 'subscription/item';

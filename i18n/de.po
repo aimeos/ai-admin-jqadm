@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aimeos, 2015-2022
+# Aimeos, 2015-2023
 # Cris <cristoph@berane.eu>, 2018
 # Michael Spahn <michael@spahn.me>, 2014
 # nsendetzky, 2014
@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 11:38+0100\n"
+"POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Aimeos, 2015-2022\n"
-"Language-Team: German (http://www.transifex.com/aimeos/aimeos-core/language/de/)\n"
+"Last-Translator: Aimeos, 2015-2023\n"
+"Language-Team: German (http://app.transifex.com/aimeos/aimeos-core/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -258,10 +258,10 @@ msgid "Birthday of the customer"
 msgstr "Geburtstag des Kunden"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Verstärkungsfaktor"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Verstärkungsfaktor (optional)"
 
 msgid "Bug or suggestion?"
 msgstr "Fehler oder Vorschlag?"
@@ -311,7 +311,7 @@ msgid "Channel"
 msgstr "Kanal"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Kanal über den bestellt wurde"
 
 msgid "Choose file"
 msgstr "Datei auswählen"
@@ -474,7 +474,7 @@ msgid "Dashboard"
 msgstr "Übersicht"
 
 msgid "Data"
-msgstr ""
+msgstr "Daten"
 
 msgid "Data set"
 msgstr "Datensatz"
@@ -644,7 +644,7 @@ msgstr "Faxnummer (optional)"
 msgid ""
 "Factor to boost product in user search over other products (>1.0 positive "
 "boost, <1.0 negative boost)"
-msgstr ""
+msgstr "Faktor mit dem die Relevanz von Produkten in der Volltextsuche verändert werden (>1.0 relevanter, <1.0 weniger relevant)"
 
 msgid "Failed to write file to disk"
 msgstr "Speichern der Datei fehlgeschlagen"
@@ -681,6 +681,9 @@ msgstr "Etage / Wohnung"
 
 msgid "Floor and/or apartment (optional)"
 msgstr "Etage und/oder Wohnung (optional)"
+
+msgid "Generate text"
+msgstr "Text generieren"
 
 msgid "Given rebate amount"
 msgstr "Abgezogener Rabattbetrag"
@@ -833,10 +836,10 @@ msgid "Invoice"
 msgstr "Rechnung"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Rechnungsnummer"
 
 msgid "Invoice number for the order"
-msgstr ""
+msgstr "Rechnungsnummer der Bestellung"
 
 msgid "Item deleted successfully"
 msgstr "Eintrag erfolgreich gelöscht"
@@ -923,7 +926,7 @@ msgid "Log"
 msgstr "Protokoll"
 
 msgid "Manual transfer"
-msgstr ""
+msgstr "Manuelle Überweisung"
 
 msgid "Map"
 msgstr "Karte"
@@ -1188,6 +1191,10 @@ msgstr "Zugriff verweigert"
 msgid "Personal data"
 msgstr "Persönliche Daten"
 
+msgid ""
+"Please insert the description of the text that should be generated here"
+msgstr "Bitte geben Sie die Beschreibung des Textes ein, der generiert werden soll"
+
 msgid "Please select"
 msgstr "Bitte wählen"
 
@@ -1386,7 +1393,7 @@ msgid "Rating"
 msgstr "Bewertung"
 
 msgid "Rating and number of ratings for the merchant"
-msgstr ""
+msgstr "Bewertung und Anzahl der Händlerbewertungen"
 
 msgid "Rating of the reviewer"
 msgstr "Bewertung des Rezensenten"
@@ -1418,7 +1425,7 @@ msgid "Related order"
 msgstr "Zugehörige Bestellung"
 
 msgid "Related order ID (optional)"
-msgstr ""
+msgstr "Zugehörige Bestellnummer (optional)"
 
 msgid "Renew"
 msgstr "Erneuern"
@@ -2396,10 +2403,10 @@ msgid "tag"
 msgstr "Schlagwörter"
 
 msgid "tax:0"
-msgstr ""
+msgstr "Nettopreise"
 
 msgid "tax:1"
-msgstr ""
+msgstr "Bruttopreise"
 
 #, php-format
 msgid "text"
@@ -2411,7 +2418,7 @@ msgstr "Thema"
 
 #, php-format
 msgid "transaction"
-msgstr ""
+msgstr "Transaktion"
 
 #, php-format
 msgid "type"

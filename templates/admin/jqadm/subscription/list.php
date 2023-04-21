@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2018.04
- * @category Developer
  */
 $default = ['subscription.id', 'subscription.status', 'subscription.datenext', 'subscription.dateend', 'subscription.interval'];
 $default = $this->config( 'admin/jqadm/subscription/fields', $default );

@@ -32,7 +32,6 @@ $domains = array_combine( $domains, $domains );
  *
  * @param array List of field names, i.e. search keys
  * @since 2020.10
- * @category Developer
  */
 $fields = ['review.status', 'review.rating', 'review.comment', 'review.response', 'review.ctime'];
 $fields = $this->config( 'admin/jqadm/review/fields', $fields );

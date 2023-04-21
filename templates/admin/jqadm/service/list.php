@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.07
- * @category Developer
  */
 $default = ['service.status', 'service.type', 'service.label', 'service.provider'];
 $default = $this->config( 'admin/jqadm/service/fields', $default );
@@ -229,10 +228,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input
-													   is="flat-pickr"
-													   class="form-control"
-													   type="date"
+													<input is="flat-pickr" class="form-control" type="date"
 													   name="<?= $enc->attr( $this->formparam( array( 'item', 'service.datestart' ) ) ) ?>"
 													   v-bind:disabled="state('item/service.datestart')"
 													   v-bind:config="Aimeos.flatpickr.datetime"
@@ -248,10 +244,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input
-													   is="flat-pickr"
-													   class="form-control"
-													   type="date"
+													<input is="flat-pickr" class="form-control" type="date"
 													   name="<?= $enc->attr( $this->formparam( array( 'item', 'service.dateend' ) ) ) ?>"
 													   v-bind:disabled="state('item/service.dateend')"
 													   v-bind:config="Aimeos.flatpickr.datetime"

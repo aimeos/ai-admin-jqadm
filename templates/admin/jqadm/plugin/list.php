@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.07
- * @category Developer
  */
 $default = ['plugin.status', 'plugin.label', 'plugin.provider', 'plugin.position'];
 $default = $this->config( 'admin/jqadm/plugin/fields', $default );

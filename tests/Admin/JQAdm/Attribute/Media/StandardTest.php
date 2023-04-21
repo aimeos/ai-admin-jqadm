@@ -116,7 +116,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 		$cntlStub = $this->getMockBuilder( '\\Aimeos\\Controller\\Common\\Media\\Standard' )
 			->setConstructorArgs( array( $this->context ) )
-			->setMethods( array( 'add' ) )
+			->onlyMethods( array( 'add' ) )
 			->getMock();
 
 		\Aimeos\Controller\Common\Media\Factory::inject( '\\Aimeos\\Controller\\Common\\Media\\' . $name, $cntlStub );
@@ -184,7 +184,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGetSubClient()
 	{
-		$this->expectException( \Aimeos\Admin\JQAdm\Exception::class );
+		$this->expectException( \LogicException::class );
 		$this->object->getSubClient( 'unknown' );
 	}
 
@@ -193,7 +193,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Attribute\Media\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->setMethods( [$method] )
+			->onlyMethods( [$method] )
 			->getMock();
 
 		$view = \TestHelper::view();

@@ -56,14 +56,14 @@ class JQAdmTest extends \PHPUnit\Framework\TestCase
 
 	public function testCreateClientNameInvalid()
 	{
-		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( \LogicException::class );
 		\Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, '%^unknown' );
 	}
 
 
 	public function testCreateClientNameNotFound()
 	{
-		$this->expectException( '\\Aimeos\\Admin\\JQAdm\\Exception' );
+		$this->expectException( \LogicException::class );
 		\Aimeos\Admin\JQAdm::create( $this->context, $this->aimeos, 'unknown' );
 	}
 

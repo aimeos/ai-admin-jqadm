@@ -17,7 +17,6 @@ $enc = $this->encoder();
  *
  * @param string Destination of the URL
  * @since 2016.04
- * @category Developer
  * @see admin/jsonadm/url/options/controller
  * @see admin/jsonadm/url/options/action
  * @see admin/jsonadm/url/options/config
@@ -32,7 +31,6 @@ $enc = $this->encoder();
  *
  * @param string Name of the controller
  * @since 2016.04
- * @category Developer
  * @see admin/jsonadm/url/options/target
  * @see admin/jsonadm/url/options/action
  * @see admin/jsonadm/url/options/config
@@ -47,7 +45,6 @@ $enc = $this->encoder();
  *
  * @param string Name of the action
  * @since 2016.04
- * @category Developer
  * @see admin/jsonadm/url/options/target
  * @see admin/jsonadm/url/options/controller
  * @see admin/jsonadm/url/options/config
@@ -68,7 +65,6 @@ $enc = $this->encoder();
  *
  * @param string Associative list of configuration options
  * @since 2016.04
- * @category Developer
  * @see admin/jsonadm/url/options/target
  * @see admin/jsonadm/url/options/controller
  * @see admin/jsonadm/url/options/action
@@ -92,7 +88,6 @@ $enc = $this->encoder();
  *
  * @param array List of resource client names
  * @since 2017.10
- * @category Developer
  * @see admin/jqadm/navbar-limit
  */
 $navlist = map( $this->config( 'admin/jqadm/navbar', [] ) )->ksort();

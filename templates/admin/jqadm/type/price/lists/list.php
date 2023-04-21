@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
- * @category Developer
  */
 $default = ['price.lists.type.domain', 'price.lists.type.status', 'price.lists.type.code', 'price.lists.type.label'];
 $default = $this->config( 'admin/jqadm/type/price/lists/fields', $default );

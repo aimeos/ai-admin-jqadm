@@ -20,7 +20,6 @@ $enc = $this->encoder();
  *
  * @param array List of field names, i.e. search keys
  * @since 2017.10
- * @category Developer
  */
 $default = ['locale.status', 'locale.languageid', 'locale.currencyid', 'locale.position'];
 $default = $this->config( 'admin/jqadm/locale/fields', $default );
