@@ -158,6 +158,7 @@ Aimeos.Dashboard.Sales = {
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
+			{"==": {"order.product.orderproductid": null}},
 			{"||": [
 				{"==": {"order.product.statuspayment": -1}},
 				{">=": {"order.product.statuspayment": 5}}
@@ -222,6 +223,7 @@ Aimeos.Dashboard.Sales = {
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
+			{"==": {"order.product.orderproductid": null}},
 			{"||": [
 				{"==": {"order.product.statuspayment": -1}},
 				{">=": {"order.product.statuspayment": 5}}
@@ -289,6 +291,7 @@ Aimeos.Dashboard.Sales = {
 			{">=": {"order.statuspayment": 5}},
 			{">": {"order.ctime": startdate.toISOString().substr(0, 19)}},
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
+			{"==": {"order.product.orderproductid": null}},
 			{"||": [
 				{"==": {"order.product.statuspayment": -1}},
 				{">=": {"order.product.statuspayment": 5}}
