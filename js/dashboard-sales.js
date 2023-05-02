@@ -165,7 +165,7 @@ Aimeos.Dashboard.Sales = {
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.product:total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000, "order.product:total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
@@ -230,7 +230,7 @@ Aimeos.Dashboard.Sales = {
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", null, "order.product:total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.cmonth", 10000, "order.product:total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
@@ -298,7 +298,7 @@ Aimeos.Dashboard.Sales = {
 			]}
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", null, "order.product:total()", "sum").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000, "order.product:total()", "sum").then(function(response) {
 
 			let num = 0;
 			const dsets = [];
