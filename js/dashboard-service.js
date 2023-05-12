@@ -145,7 +145,7 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
 
 			let num = 0;
 			const data = [], labels = [];
@@ -201,7 +201,7 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
 
 			let num = 0;
 			const data = [], labels = [];
