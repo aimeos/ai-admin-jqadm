@@ -121,7 +121,7 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
 
 			const data = [], map = {}, date = startdate.clone();
 			let max = 0;
@@ -251,7 +251,7 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
 
 			const dset = [], map = {};
 
@@ -337,7 +337,7 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
 
 			const dsets = [], entries = {};
 
@@ -450,7 +450,7 @@
 			{"<=": {"order.ctime": enddate.toISOString().substr(0, 19)}},
 		]};
 
-		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime").then(function(response) {
+		Aimeos.Dashboard.getData("order", keys, criteria, "-order.ctime", 10000).then(function(response) {
 
 			let max = 1;
 			const map = {};
