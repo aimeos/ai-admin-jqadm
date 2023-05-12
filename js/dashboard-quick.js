@@ -50,7 +50,7 @@ Vue.component('dashboard-order-quick-counttotal', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime").then(function(response) {
+			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
@@ -123,7 +123,7 @@ Vue.component('dashboard-order-quick-countcompleted', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime").then(function(response) {
+			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
@@ -196,7 +196,7 @@ Vue.component('dashboard-order-quick-countunfinished', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime").then(function(response) {
+			Aimeos.Dashboard.getData("order", "order.cdate", self.criteria(), "-order.ctime", 10000).then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
@@ -263,7 +263,7 @@ Vue.component('dashboard-order-quick-countcustomer', {
 			const self = this;
 			self.state = 'load';
 
-			Aimeos.Dashboard.getData("customer", "customer.status", self.criteria(), "-customer.ctime").then(function(response) {
+			Aimeos.Dashboard.getData("customer", "customer.status", self.criteria(), "-customer.ctime", 10000).then(function(response) {
 				self.update(response.data);
 			}).then(function() {
 				self.state = 'done';
