@@ -32,6 +32,7 @@ $fields = $this->config( 'admin/jqadm/customer/product/fields', $fields );
 			'siteid' => $this->site()->siteid(),
 			'parentid' => $this->param( 'id' ),
 			'resource' => 'customer/lists',
+			'domain' => 'product',
 			'fields' => $fields,
 		] ) ?>
 	</div>
