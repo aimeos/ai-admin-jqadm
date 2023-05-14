@@ -273,6 +273,10 @@
 	height: 5rem;
 }
 
+.aimeos .list-items .select {
+	width: 1%;
+}
+
 .aimeos .list-items img.image {
 	max-height: 5rem;
 	max-width: 5rem;
