@@ -24,16 +24,14 @@ $fields = $this->config( 'admin/jqadm/customer/product/fields', $fields );
 
 
 ?>
-<div id="product" class="item-product tab-pane fade" role="tabpanel" aria-labelledby="product">
-	<div class="box">
-		<?= $this->partial( $this->config( 'admin/jqadm/partial/productlist', 'productlist' ), [
-			'types' => $this->get( 'productListTypes', map() )->col( 'customer.lists.type.label', 'customer.lists.type.code' )->toArray(),
-			'siteid' => $this->site()->siteid(),
-			'parentid' => $this->param( 'id' ),
-			'resource' => 'customer/lists',
-			'domain' => 'product',
-			'fields' => $fields,
-		] ) ?>
-	</div>
+<div id="product" class="item-product tab-pane fade box" role="tabpanel" aria-labelledby="product">
+	<?= $this->partial( $this->config( 'admin/jqadm/partial/productlist', 'productlist' ), [
+		'types' => $this->get( 'productListTypes', map() )->col( 'customer.lists.type.label', 'customer.lists.type.code' )->toArray(),
+		'siteid' => $this->site()->siteid(),
+		'refid' => $this->param( 'id' ),
+		'resource' => 'customer/lists',
+		'domain' => 'product',
+		'fields' => $fields,
+	] ) ?>
 </div>
 <?= $this->get( 'productBody' ) ?>
