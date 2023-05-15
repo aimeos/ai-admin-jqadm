@@ -332,9 +332,6 @@ $statusList = [
 								'order.statusdelivery' => ['op' => '==', 'type' => 'select', 'val' => $deliveryStatusList],
 								'order.datedelivery' => ['op' => '-', 'type' => 'date'],
 								'order.relatedid' => ['op' => '=='],
-								'order.ctime' => ['op' => '-', 'type' => 'date'],
-								'order.mtime' => ['op' => '-', 'type' => 'date'],
-								'order.editor' => [],
 								'order.customerid' => ['op' => '=='],
 								'order.sitecode' => ['op' => '=='],
 								'order.languageid' => ['op' => '=='],
@@ -346,6 +343,9 @@ $statusList = [
 								'order.taxflag' => ['op' => '==', 'type' => 'select', 'val' => $statusList],
 								'order.customerref' => [],
 								'order.comment' => [],
+								'order.ctime' => ['op' => '-', 'type' => 'date'],
+								'order.mtime' => ['op' => '-', 'type' => 'date'],
+								'order.editor' => [],
 								'order.address.salutation' => ['op' => '==', 'type' => 'select', 'val' => [
 									'' => 'none', 'company' => 'company', 'mr' => 'mr', 'ms' => 'ms'
 								]],
@@ -530,6 +530,9 @@ $statusList = [
 							<?php if( in_array( 'order.id', $fields ) ) : ?>
 								<td class="order-id"><a class="items-field" href="<?= $url ?>" tabindex="1"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
+							<?php if( in_array( 'order.channel', $fields ) ) : ?>
+								<td class="order-channel"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getChannel() ) ?></a></td>
+							<?php endif ?>
 							<?php if( in_array( 'order.statuspayment', $fields ) ) : ?>
 								<td class="order-statuspayment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $paymentStatusList[$item->getStatusPayment()] ) ?></a></td>
 							<?php endif ?>
@@ -542,20 +545,8 @@ $statusList = [
 							<?php if( in_array( 'order.datedelivery', $fields ) ) : ?>
 								<td class="order-datedelivery"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getDateDelivery() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.channel', $fields ) ) : ?>
-								<td class="order-channel"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getChannel() ) ?></a></td>
-							<?php endif ?>
 							<?php if( in_array( 'order.relatedid', $fields ) ) : ?>
 								<td class="order-relatedid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getRelatedId() ) ?></a></td>
-							<?php endif ?>
-							<?php if( in_array( 'order.ctime', $fields ) ) : ?>
-								<td class="order-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
-							<?php endif ?>
-							<?php if( in_array( 'order.mtime', $fields ) ) : ?>
-								<td class="order-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
-							<?php endif ?>
-							<?php if( in_array( 'order.editor', $fields ) ) : ?>
-								<td class="order-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.customerid', $fields ) ) : ?>
 								<td class="order-customerid"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getCustomerId() ) ?></a></td>
@@ -589,6 +580,15 @@ $statusList = [
 							<?php endif ?>
 							<?php if( in_array( 'order.comment', $fields ) ) : ?>
 								<td class="order-comment"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getComment() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.ctime', $fields ) ) : ?>
+								<td class="order-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.mtime', $fields ) ) : ?>
+								<td class="order-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.editor', $fields ) ) : ?>
+								<td class="order-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 
 							<?php $addrItem = ( $item ? current( $item->getAddress( \Aimeos\MShop\Order\Item\Address\Base::TYPE_PAYMENT ) ) : null ) ?>
