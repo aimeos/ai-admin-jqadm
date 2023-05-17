@@ -112,7 +112,7 @@ $enc = $this->encoder();
 
 							<div class="form-group row mandatory">
 								<div class="col-sm-12">
-									<textarea is="html-editor" class="form-control item-content" required="required"
+									<textarea is="html-editor" v-if="item['_show']" class="form-control item-content" required="required"
 										tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 										v-bind:key="idx"
 										v-bind:id="'cke-' + idx"
