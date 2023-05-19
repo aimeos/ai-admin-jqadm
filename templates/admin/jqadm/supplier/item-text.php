@@ -91,6 +91,9 @@ $enc = $this->encoder();
 										v-bind:readonly="item['text.siteid'] != siteid"
 										v-model="item['text.content']"
 									></textarea>
+									<textarea v-else v-bind:key="idx" class="form-control item-content" readonly
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ) ?>`.replace('_idx_', idx)"
+									>{{ item['text.content'] }}</textarea>
 								</div>
 							</div>
 
