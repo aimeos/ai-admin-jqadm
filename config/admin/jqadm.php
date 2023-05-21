@@ -129,7 +129,6 @@ return [
 			'stock' => 'stock',
 			'category' => 'category',
 			'characteristic' => 'characteristic',
-			'option' => 'option',
 			'related' => 'related',
 			'supplier' => 'supplier',
 			'physical' => 'physical',
@@ -140,30 +139,12 @@ return [
 		'characteristic' => [
 			'subparts' => [
 				'property' => 'property',
-				'variant' => 'variant',
 				'attribute' => 'attribute',
-				'hidden' => 'hidden',
 			],
 		],
 		'media' => [
 			'subparts' => [
 				'property' => 'property'
-			],
-		],
-		'option' => [
-			'config' => [
-				'exclude' => [
-					'interval' => 'interval',
-				],
-			],
-			'custom' => [
-				'exclude' => [
-					'price' => 'price',
-				],
-			],
-			'subparts' => [
-				'config' => 'config',
-				'custom' => 'custom',
 			],
 		],
 		'price' => [

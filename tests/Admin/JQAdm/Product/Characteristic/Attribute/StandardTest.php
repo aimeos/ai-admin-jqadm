@@ -90,6 +90,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'attribute' => [[
 					'product.lists.id' => '',
 					'product.lists.refid' => '123',
+					'product.lists.type' => 'default',
 				]],
 			],
 		);

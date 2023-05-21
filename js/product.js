@@ -32,61 +32,6 @@ Aimeos.Product = {
 				mixins: [Aimeos.Product.Basic.mixins.bind(this)()]
 			},
 			{
-				name: 'characteristic/attribute',
-				el: '.item-characteristic-attribute .attribute-list',
-				data: {
-					items: $(".item-characteristic-attribute .attribute-list").data("items"),
-					keys: $(".item-characteristic-attribute .attribute-list").data("keys"),
-					prefix: $(".item-characteristic-attribute .attribute-list").data("prefix"),
-					siteid: $(".item-characteristic-attribute .attribute-list").data("siteid")
-				},
-				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
-			},
-			{
-				name: 'characteristic/hidden',
-				el: '.item-characteristic-hidden .attribute-list',
-				data: {
-					items: $(".item-characteristic-hidden .attribute-list").data("items"),
-					keys: $(".item-characteristic-hidden .attribute-list").data("keys"),
-					prefix: $(".item-characteristic-hidden .attribute-list").data("prefix"),
-					siteid: $(".item-characteristic-hidden .attribute-list").data("siteid")
-				},
-				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
-			},
-			{
-				name: 'characteristic/variant',
-				el: '.item-characteristic-variant .attribute-list',
-				data: {
-					items: $(".item-characteristic-variant .attribute-list").data("items"),
-					keys: $(".item-characteristic-variant .attribute-list").data("keys"),
-					prefix: $(".item-characteristic-variant .attribute-list").data("prefix"),
-					siteid: $(".item-characteristic-variant .attribute-list").data("siteid")
-				},
-				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
-			},
-			{
-				name: 'option/config',
-				el: '.item-option-config .attribute-list',
-				data: {
-					items: $(".item-option-config .attribute-list").data("items"),
-					keys: $(".item-option-config .attribute-list").data("keys"),
-					prefix: $(".item-option-config .attribute-list").data("prefix"),
-					siteid: $(".item-option-config .attribute-list").data("siteid")
-				},
-				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
-			},
-			{
-				name: 'option/custom',
-				el: '.item-option-custom .attribute-list',
-				data: {
-					items: $(".item-option-custom .attribute-list").data("items"),
-					keys: $(".item-option-custom .attribute-list").data("keys"),
-					prefix: $(".item-option-custom .attribute-list").data("prefix"),
-					siteid: $(".item-option-custom .attribute-list").data("siteid")
-				},
-				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
-			},
-			{
 				name: 'catalog/default',
 				el: '.item-category .catalog-default .category-list',
 				data: {
@@ -212,7 +157,24 @@ Aimeos.Product = {
 				mixins: [Aimeos.Product.Order.mixins.bind(this)()]
 			}
 		]
-		for (const component of components) {
+
+		for(entry of $('.item-characteristic-attribute .attribute-list')) {
+			const name = $(entry).attr('id');
+			components.push({
+				name: name.replace(/-/, '/'),
+				el: '#' + name,
+				data: {
+					items: $(entry).data("items"),
+					keys: $(entry).data("keys"),
+					prefix: $(entry).data("prefix"),
+					siteid: $(entry).data("siteid"),
+					listtype: $(entry).data("listtype")
+				},
+				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
+			})
+		}
+
+		for(const component of components) {
 			Aimeos.components[component.name] = new Vue({
 				'el': document.querySelector(component.el),
 				'data': component.data,
@@ -303,6 +265,7 @@ Aimeos.Product.Attribute = {
 					}
 
 					this.$set(this.items[idx], this.prefix + 'siteid', this.siteid);
+					this.$set(this.items[idx], this.prefix + 'type', this.listtype);
 				},
 
 

@@ -33,6 +33,23 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
+	 */
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
+		$filter = $manager->filter()->add( 'product.lists.type.domain', '==', 'attribute' )
+			->order( 'product.lists.type.code' );
+
+		$view->attributeTypes = $manager->search( $filter )->getCode();
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
@@ -235,16 +252,18 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
-		$listItems = $item->getListItems( 'attribute', 'default', null, false );
+		$idx = 0;
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$listItems = $item->getListItems( 'attribute', null, null, false );
 
-		foreach( $data as $idx => $entry )
+		foreach( $data as $entry )
 		{
 			$id = $this->val( $entry, 'product.lists.id' );
 			$refid = $this->val( $entry, 'product.lists.refid' );
+			$type = $this->val( $entry, 'product.lists.type' );
 
-			$litem = $listItems->pull( $id ) ?: $listManager->create()->setType( 'default' );
-			$litem->setId( $id )->setRefId( $refid )->setPosition( $idx );
+			$litem = $listItems->pull( $id ) ?: $manager->createListItem();
+			$litem->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setType( $type );
 
 			$item->addListItem( 'attribute', $litem, $litem->getRefItem() );
 		}
@@ -265,7 +284,7 @@ class Standard
 		$data = [];
 		$siteId = $this->context()->locale()->getSiteId();
 
-		foreach( $item->getListItems( 'attribute', 'default', null, false ) as $listItem )
+		foreach( $item->getListItems( 'attribute', null, null, false ) as $listItem )
 		{
 			if( ( $refItem = $listItem->getRefItem() ) === null ) {
 				continue;

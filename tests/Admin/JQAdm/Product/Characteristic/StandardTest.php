@@ -96,6 +96,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'characteristic' => [
 				'attribute' => [[
 					'product.lists.id' => '',
+					'product.lists.type' => 'default',
 					'product.lists.refid' => $attrManager->find( 'xs', [], 'product', 'size' )->getId(),
 				]],
 			],
