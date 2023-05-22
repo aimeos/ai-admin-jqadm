@@ -566,6 +566,7 @@
 
 .aimeos .item-media .media-preview .fileupload {
 	height: calc(12.25rem - 4px);
+	background-color: #F0F0F0;
 	position: absolute;
 	overflow: hidden;
 	cursor: pointer;
