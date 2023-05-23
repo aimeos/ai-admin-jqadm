@@ -3,30 +3,27 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# David Haška <dhaska93@gmail.com>, 2018
-# Jaroslav Klimcik <jerry.klimcik@gmail.com>, 2020
-# Martin Vyšohlíd <vysohlidm@gmail.com>, 2016
-# Vlastimil Vaněk <vlastimil.vanek@gmail.com>, 2016,2022
+# Ayshe Sammiyeva, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Vlastimil Vaněk <vlastimil.vanek@gmail.com>, 2016,2022\n"
-"Language-Team: Czech (http://app.transifex.com/aimeos/aimeos-core/language/cs/)\n"
+"Last-Translator: Ayshe Sammiyeva, 2023\n"
+"Language-Team: Turkmen (http://app.transifex.com/aimeos/aimeos-core/language/tk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Language: tk\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr ""
+msgstr "%1$d/%2$d"
 
 #, php-format
 msgid ""
@@ -44,7 +41,7 @@ msgid ""
 "\t%17$s\n"
 "\t%18$s\n"
 "\t"
-msgstr ""
+msgstr "%1$s\n%2$s%3$s%4$s%5$s\n%6$s%7$s\n%8$s\n%9$s%10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s"
 
 #, php-format
 msgid ""
@@ -56,7 +53,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr ""
+msgstr "%1$s\n%2$s%3$s\n%5$s%4$s\n%7$s%6$s\n%8$s%9$s\n%10$s\n%11$s\n%12$s"
 
 #, php-format
 msgid ""
@@ -73,395 +70,395 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
+msgstr "%1$s\n%2$s%3$s%4$s%5$s\n%6$s%7$s\n%8$s\n%9$s%10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr "%1$s %2$s"
+msgstr "%1$s%2$s"
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr ""
+msgstr "%1$s (Ctrl+Alt+%2$s)"
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr ""
+msgstr "%s/%s/%s.%s"
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Halkara) faks belgisi bölmek nyşanlary bolmazdan \"+\" bilen başlap biler"
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr ""
+msgstr "(Halkara) telefon belgisi bölmek nyşanlary bolmazdan \"+\" bilen başlap biler"
 
 msgid "+ Tax"
-msgstr ""
+msgstr "+ Salgyt"
 
 msgid "<hidden>"
-msgstr ""
+msgstr "1"
 
 msgid "?"
-msgstr ""
+msgstr "?"
 
 msgid "Account"
-msgstr "Účet"
+msgstr "Hasap"
 
 msgid "Active"
-msgstr "Aktivní"
+msgstr "Işjeň"
 
 msgid "Actual price"
-msgstr "Aktuální cena"
+msgstr "Häzirki bahasy"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr "Skutečná cena, za kterou si zákazníci mohou zboží zakoupit na webových stránkách"
+msgstr "Müşderileriň web sahypasyndan satyn alyp biljekleri harydyň häzirki bahasy"
 
 msgid "Add"
-msgstr "Přidat"
+msgstr "Goşmak"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr "Dodatečné náklady na doručení každé položky, např. 20 Kč za jednu těžkou položku bude 100 Kč za pět položek celkem."
+msgstr "Her haryt üçin goşmaça eltip bermek bahasy goşulýar, meselem: 1 agyr haryt üçin 20TMT, bolsa 5 haryt üçin jemi 100TMT bolýar"
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr "Další informace o tom, kde se nachází bydliště zákazníka"
+msgstr "Müşderiniň ýerleşýän ýeri barada goşmaça maglumat"
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr "Další informace o tom, kde lze nalézt adresu dodavatele"
+msgstr "Üpjün edijiniň ýerleşýän ýeri barada goşmaça maglumat"
 
 msgid "Address 1"
-msgstr "Adresa 1"
+msgstr "Salgy 1"
 
 msgid "Address 2"
-msgstr "Adresa 2"
+msgstr "Salgy 2"
 
 msgid "Address 3"
-msgstr "Adresa 3"
+msgstr "Salgy 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr "Identifikátor adresy zákazníkova domu pro doručení"
+msgstr "Eltip bermek üçin müşderiniň öý salgysy"
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr ""
+msgstr "Eltip bermek üçin üpjün edijiniň öý salgysy"
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr ""
+msgstr "Admin JQAdm görnüşi boş"
 
 msgid "Advanced"
-msgstr "Pokročilé"
+msgstr "Ösen"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos ýatda saklanmagy \"%1$s\" tarapyndan ýatyryldy"
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr ""
+msgstr "Aimeos düzediş ýazgysy \"%1$s\" tarapyndan işjeňleşdirildi"
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr "Aimeos objekt není k dispozici"
+msgstr "Aimeos obýekti elýeterli däl"
 
 msgid "All"
-msgstr "Vše"
+msgstr "Hemmesi"
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr ""
+msgstr "Harydyň özboluşlylygyny kesgitleýän ähli häsiýetler, meselem: jynsy üçin ini, uzynlygy, reňki"
 
 msgid "Allow custom price"
-msgstr "Povolit vlastní cenu"
+msgstr "Aýratyn baha bermäge rugsat bermek"
 
 msgid "Allow customers to choose themselves how much they want to pay"
-msgstr ""
+msgstr "Müşderilere näçe tölemek isleýändiklerini saýlamaga rugsat bermek"
 
 msgid "Alphanumeric string that can identify the group uniquely"
-msgstr ""
+msgstr "Topary özboluşly kesgitläp bilýän harp sanlary"
 
 msgid "Apply"
-msgstr "Použít"
+msgstr "Giriş"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
 " in the templates"
-msgstr ""
+msgstr "Harydyň aýratynlyk görnüşleri, şablonlarda açar/baha jübütleri hökmünde elýeterli bolar"
 
 msgid "Attribute"
-msgstr "Atribut"
+msgstr "Aýratynlyk"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Aýratynlyk Sanawlarynyň Görnüşi"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Aýratynlyk Sanawlarynyň Görnüşleri"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Aýratynlyk Häsiýetiniň Görnüşi"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Aýratynlyk Häsiýetiniň Görnüşleri"
 
 msgid "Attribute Type"
-msgstr ""
+msgstr "Aýratynlyk Görnüşi"
 
 msgid "Attribute Types"
-msgstr ""
+msgstr "Aýratynlyk Görnüşleri"
 
 msgid "Attribute position (optional)"
-msgstr ""
+msgstr "Aýratynlyk ýagdaýy (islege görä)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr ""
+msgstr "Beýleki aýratynlyklar bilen paýlaşylmadyk aýratynlyk häsiýetleri"
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr ""
+msgstr "Bar bolan aýratynlyklaryň sanawyny çäklendirýän aýratynlyk görnüşi"
 
 msgid "Attributes"
-msgstr "Atributy"
+msgstr "Aýratynlyklar"
 
 msgid "Available currency for the current site"
-msgstr ""
+msgstr "Häzirki sahypa üçin bar bolan walýutalar"
 
 msgid "Available intervals in the front-end"
-msgstr ""
+msgstr "Front-enddäki elýeterli aralyklar "
 
 msgid "Available language for the current site"
-msgstr ""
+msgstr "Häzirki sahypa üçin bar bolan diller"
 
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Bu önüm üçin müşderileriň ortaça bahalandyrmasy we bahalarynyň umumy sany"
 
 msgid "Back in stock"
-msgstr "zpět do obchodu"
+msgstr "Täzeden stokda"
 
 msgid "Basic"
-msgstr "Základní"
+msgstr "Ýönekeý"
 
 msgid "Basket"
-msgstr "Košík"
+msgstr "Sebet"
 
 msgid "Billing address"
-msgstr "Fakturační adresa"
+msgstr "Hasaplaşyk salgysy"
 
 msgid "Birthday"
-msgstr "Datum narození"
+msgstr "Doglan gün"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Müşderiniň doglan güni"
 
 msgid "Boost factor"
-msgstr ""
+msgstr "Güýçlendiriji faktor"
 
 msgid "Boost factor (optional)"
-msgstr ""
+msgstr "Güýçlendiriji faktor (islege görä)"
 
 msgid "Bug or suggestion?"
-msgstr ""
+msgstr "Ýalňyşlyk ýa-da teklip?"
 
 msgid "Bulk edit"
-msgstr ""
+msgstr "Köpçülikleýin düzediş"
 
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr "Ýatyrmak"
 
 msgid "Cancel and return to list"
-msgstr ""
+msgstr "Ýatyrmak we sanawa dolanmak"
 
 msgid "Catalog"
 msgstr "Katalog"
 
 msgid "Catalog Lists Type"
-msgstr ""
+msgstr "Katalog Sanawlarynyň Görnüşi"
 
 msgid "Catalog Lists Types"
-msgstr ""
+msgstr "Katalog Sanawlarynyň Görnüşleri"
 
 msgid "Categories"
-msgstr "Kategorie"
+msgstr "Kategoriýalar"
 
 msgid "Categories the product can be found in by the user on the web site"
-msgstr ""
+msgstr "Ulanyjy tarapyndan web sahypasynda önüm tapyp boljak kategoriýalar"
 
 msgid "Categories the product will be shown for in the promotional section"
-msgstr ""
+msgstr "Mahabat bölüminde görkeziljek harytlaryň kategoriýalary"
 
 msgid ""
 "Category specific configuration options, will be available as key/value "
 "pairs in the templates"
-msgstr ""
+msgstr "Kategoriýanyň aýratynlyk görnüşleri, şablonlarda açar/baha jübütleri hökmünde elýeterli bolar"
 
 msgid "Change costs/item in %"
-msgstr ""
+msgstr "Çykdaýjylar/haryt bahasyny % -de üýtgetmek"
 
 msgid "Change rebate in %"
-msgstr ""
+msgstr "Arzanladyşy % -de üýtgetmek"
 
 msgid "Change value in %"
-msgstr ""
+msgstr "Bahany % -de üýtgetmek"
 
 msgid "Channel"
-msgstr ""
+msgstr "Kanal"
 
 msgid "Channel the order has been placed"
-msgstr ""
+msgstr "Sargydyň ýerleşdirilen kanaly"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Faýly saýlamak"
 
 msgid "City"
-msgstr "Město"
+msgstr "Şäher"
 
 msgid "City or town name (required)"
-msgstr ""
+msgstr "Şäheriň ýa-da şäherçäniň ady (hökmäny)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr "Třída \"%1$s\" neimplementuje \"%2$s\""
+msgstr "\"%1$s\" klasy \"%2$s\"-y amala aşyrmaýar"
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr "Třída \"%1$s\" není k dispozici"
+msgstr "\"%1$s\" klas elýeterli däl"
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr "Třída \"%1$s\" nenalezena"
+msgstr "Klas \"%1$s\" tapylmady"
 
 msgid "Close"
-msgstr "Zavřít"
+msgstr "Ýapmak"
 
 msgid "Code"
-msgstr "Kód"
+msgstr "Kody"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
-msgstr ""
+msgstr "Sahypany özboluşly kesgitlemek üçin kod, adyny üýtgetmek howply!"
 
 msgid "Columns"
-msgstr "Sloupce"
+msgstr "Sütünler"
 
 msgid "Comment"
-msgstr "Komentář"
+msgstr "Teswir"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Synçynyň teswiri"
 
 msgid "Communication"
-msgstr ""
+msgstr "Aragatnaşyk"
 
 msgid "Company"
-msgstr "Společnost"
+msgstr "Kompaniýa"
 
 msgid "Company details"
-msgstr ""
+msgstr "Kompaniýanyň maglumatlary"
 
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Kompaniýanyň ady (islege görä)"
 
 msgid "Completed orders"
-msgstr ""
+msgstr "Tamamlanan sargytlar"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
-msgstr ""
+msgstr "Öňkiler bilen deňeşdirilende soňky ýedi günüň içinde tamamlanan sargytlar"
 
 msgid "Config"
-msgstr ""
+msgstr "Sazlamak"
 
 msgid "Configurable"
-msgstr ""
+msgstr "Sazlap bolýan"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
-msgstr ""
+msgstr "Sazlama görnüşleri, sanaw elementinde açar/baha jübütleri hökmünde elýeterli bolar"
 
 msgid "Copy"
-msgstr "Kopírovat"
+msgstr "Göçürmek"
 
 msgid "Copy this entry"
-msgstr ""
+msgstr "Bu ýazgyny göçürip almak"
 
 msgid "Costs"
-msgstr "Náklady"
+msgstr "Çykdajylar"
 
 msgid "Count"
-msgstr "Počítadlo"
+msgstr "Sanamak"
 
 msgid "Country"
-msgstr "Země"
+msgstr "Ýurt"
 
 msgid "Country ID"
-msgstr "ID země"
+msgstr "Ýurt ID"
 
 msgid "Country code (required)"
-msgstr "Kód země (povinný)"
+msgstr "Ýurt kody (hökmany)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
 " add the tax if required (B2B)"
-msgstr "Specifická daňová sazba ke kalkulaci a k zobrazení daně (pro B2C) nebo přidání daně když je nutné (pro B2B)"
-
-msgid "Country state code (optional)"
 msgstr ""
 
+msgid "Country state code (optional)"
+msgstr "Döwlet kody (islege görä)"
+
 msgid "Coupon"
-msgstr "Kupón"
+msgstr "Kupon"
 
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
 
 msgid "Created"
-msgstr "Vytvořeno"
+msgstr "Döredildi"
 
 msgid "Currencies"
-msgstr "Měny"
+msgstr "Walýutalar"
 
 msgid "Currency"
-msgstr "Měna"
+msgstr "Walýuta"
 
 msgid "Custom"
-msgstr "Vlastní"
+msgstr "Hususy"
 
 msgid "Custom domain or unique code of your shop"
 msgstr ""
 
 msgid "Customer"
-msgstr "Zákazník"
+msgstr "Müşderi"
 
 msgid "Customer ID"
-msgstr "ID zákazníka"
+msgstr "Müşderiniň ID"
 
 msgid "Customer Lists Type"
-msgstr "Typ seznamu zákazníků"
+msgstr "Müşderi Sanawlarynyň Görnüşi"
 
 msgid "Customer Lists Types"
-msgstr "Typy seznamů zákazníků"
+msgstr "Müşderi Sanawlarynyň Görnüşleri"
 
 msgid "Customer Property Type"
-msgstr ""
+msgstr "Müşderiniň Häsiýetiniň Görnüşi"
 
 msgid "Customer Property Types"
-msgstr ""
+msgstr "Müşderiniň Häsiýetiniň Görnüşleri"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr ""
+msgstr "Müşderiniň başga müşderiler bilen paýlaşylmadyk häsiýetleri"
 
 msgid "Customer comment (optional)"
-msgstr "Komentář zákazníka (volitelný)"
+msgstr "Müşderi teswiri (islege görä)"
 
 msgid "Customer e-mail address"
-msgstr "Email zákazníka"
+msgstr "Müşderiniň elektron poçta salgysy"
 
 msgid "Customer password"
-msgstr "Heslo zákazníka"
+msgstr "Müşderiniň açarsözi"
 
 msgid "Customer properties that are not shared with other customers"
-msgstr ""
+msgstr "Müşderiniň başga müşderiler bilen paýlaşylmadyk häsiýetleri"
 
 msgid "Customer reference"
 msgstr ""
@@ -470,10 +467,10 @@ msgid "Customer reference (optional)"
 msgstr ""
 
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Maglumat"
 
 msgid "Data set"
 msgstr ""
@@ -491,31 +488,31 @@ msgid "Date the subscription ends"
 msgstr ""
 
 msgid "Days"
-msgstr "Dny"
+msgstr "Günler"
 
 msgid "Default"
-msgstr "Výchozí"
+msgstr ""
 
 msgid "Delete"
-msgstr "Smazat"
+msgstr ""
 
 msgid "Delete items?"
-msgstr "Smazat položky?"
+msgstr ""
 
 msgid "Delete selected entries"
 msgstr ""
 
 msgid "Delete this entry"
-msgstr "Smazat tento záznam"
+msgstr ""
 
 msgid "Deleting reviews is not allowed"
 msgstr ""
 
 msgid "Delivery"
-msgstr "Doručení"
+msgstr "Eltip bermek"
 
 msgid "Delivery address"
-msgstr "Doručovací adresa"
+msgstr "Eltip beriş salgysy"
 
 msgid "Delivery date"
 msgstr ""
@@ -575,7 +572,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr "E-mail"
+msgstr ""
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -664,7 +661,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr "Křestní jméno"
+msgstr ""
 
 msgid "First name (optional)"
 msgstr ""
@@ -813,23 +810,23 @@ msgstr ""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr "Zakázané znaky ve jméně třídy \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr "Neplatné znaky ve jménu zákazníka \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr "Chybné jméno třídy \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr "Neplatná doména \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr "Neplatná továrna \"%1$s\""
+msgstr ""
 
 msgid "Invoice"
 msgstr ""
@@ -861,7 +858,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr "Jazyk"
+msgstr ""
 
 msgid "Language ID"
 msgstr ""
@@ -879,7 +876,7 @@ msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr "Příjmení"
+msgstr ""
 
 msgid "Last name (optional)"
 msgstr ""
@@ -899,7 +896,7 @@ msgid "Latest orders"
 msgstr ""
 
 msgid "Length"
-msgstr "Délka"
+msgstr ""
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
@@ -979,7 +976,7 @@ msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Name"
-msgstr "Jméno"
+msgstr ""
 
 msgid "Name in URL (optional)"
 msgstr ""
@@ -1007,7 +1004,7 @@ msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Next"
-msgstr "Další"
+msgstr ""
 
 msgid "Next date"
 msgstr ""
@@ -1035,7 +1032,7 @@ msgstr ""
 
 #, php-format
 msgid "No view available"
-msgstr "Žádný náhled k dispozici"
+msgstr ""
 
 msgid "No voucher"
 msgstr ""
@@ -1089,7 +1086,7 @@ msgid "Open Qty"
 msgstr ""
 
 msgid "Option"
-msgstr "Možnost"
+msgstr ""
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
@@ -1100,7 +1097,7 @@ msgid "Order"
 msgstr ""
 
 msgid "Order ID"
-msgstr "ID objednávky"
+msgstr ""
 
 msgid "Order number entered by the customer"
 msgstr ""
@@ -1151,10 +1148,10 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr "Strana %1$d z %2$d"
+msgstr ""
 
 msgid "Password"
-msgstr "Heslo"
+msgstr ""
 
 msgid "Password (required)"
 msgstr ""
@@ -1169,13 +1166,13 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr "Platba"
+msgstr ""
 
 msgid "Payment date"
 msgstr ""
 
 msgid "Payment status"
-msgstr "Stav platby"
+msgstr ""
 
 msgid "Payment types"
 msgstr ""
@@ -1195,7 +1192,7 @@ msgid ""
 msgstr ""
 
 msgid "Please select"
-msgstr "Vyberte prosím"
+msgstr ""
 
 msgid "Plugin"
 msgstr ""
@@ -1237,10 +1234,10 @@ msgid "Potential problems"
 msgstr ""
 
 msgid "Previous"
-msgstr "Předchozí"
+msgstr ""
 
 msgid "Price"
-msgstr "Cena"
+msgstr ""
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1270,7 +1267,7 @@ msgid "Problem"
 msgstr ""
 
 msgid "Product"
-msgstr "Produkt"
+msgstr ""
 
 msgid "Product ID"
 msgstr ""
@@ -1365,7 +1362,7 @@ msgid "Promotion"
 msgstr ""
 
 msgid "Properties"
-msgstr "Vlastnosti"
+msgstr ""
 
 msgid "Property value (required)"
 msgstr ""
@@ -1380,7 +1377,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr "Množství"
+msgstr ""
 
 msgid "Quantity scale"
 msgstr ""
@@ -1415,7 +1412,7 @@ msgid "Reference ID"
 msgstr ""
 
 msgid "Refund"
-msgstr "pay:refund"
+msgstr ""
 
 msgid "Related ID"
 msgstr ""
@@ -1454,7 +1451,7 @@ msgid "Response to the reviewer"
 msgstr ""
 
 msgid "Review"
-msgstr "status:review"
+msgstr ""
 
 msgid "Reviewed item"
 msgstr ""
@@ -1509,7 +1506,7 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr "Oslovení"
+msgstr ""
 
 msgid "Save"
 msgstr ""
@@ -1527,7 +1524,7 @@ msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
-msgstr "Vyhledávání"
+msgstr ""
 
 msgid "Second level type for grouping items"
 msgstr ""
@@ -1581,7 +1578,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr "Doprava"
+msgstr ""
 
 msgid "Shipping / Payment costs"
 msgstr ""
@@ -1625,7 +1622,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr "Zobrazit"
+msgstr ""
 
 msgid "Show entry"
 msgstr ""
@@ -1662,7 +1659,7 @@ msgid "Sites"
 msgstr ""
 
 msgid "Size"
-msgstr "Velikost"
+msgstr ""
 
 msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
@@ -1680,7 +1677,7 @@ msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr "Země"
+msgstr ""
 
 msgid "Status"
 msgstr ""
@@ -1698,13 +1695,13 @@ msgid "Stock type"
 msgstr ""
 
 msgid "Street"
-msgstr "Ulice"
+msgstr ""
 
 msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr "Mezisoučet"
+msgstr ""
 
 msgid "Subscription"
 msgstr ""
@@ -1715,10 +1712,10 @@ msgid ""
 msgstr ""
 
 msgid "Suggested products"
-msgstr "Doporučené produkty"
+msgstr ""
 
 msgid "Sum"
-msgstr "Součet"
+msgstr ""
 
 msgid "Supplier"
 msgstr ""
@@ -1748,7 +1745,7 @@ msgid "Tax rate in %"
 msgstr ""
 
 msgid "Telephone"
-msgstr "Telefon"
+msgstr ""
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1842,7 +1839,7 @@ msgid "Top countries"
 msgstr ""
 
 msgid "Total"
-msgstr "Celkem"
+msgstr ""
 
 msgid "Total orders"
 msgstr ""
@@ -1891,7 +1888,7 @@ msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr "Nelze nazvat metodu \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr ""
@@ -1997,7 +1994,7 @@ msgid ""
 msgstr ""
 
 msgid "Web site"
-msgstr "Webová stránka"
+msgstr ""
 
 msgid "Web site URL (optional)"
 msgstr ""
@@ -2006,22 +2003,22 @@ msgid "Weeks"
 msgstr ""
 
 msgid "Weight"
-msgstr "Váha"
+msgstr ""
 
 msgid "When the account and e-mail address has been verified"
 msgstr ""
 
 msgid "Width"
-msgstr "Šířka"
+msgstr ""
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr "RRRR-MM-DD hh:mm:ss (volitelné)"
+msgstr ""
 
 msgid "Years"
 msgstr ""
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Chystáte se odstranit jednu nebo více položek. Chcete opravdu pokračovat?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr ""
@@ -2030,7 +2027,7 @@ msgid "Your response"
 msgstr ""
 
 msgid "Zip code"
-msgstr "PSČ"
+msgstr ""
 
 msgid "Zip code (optional)"
 msgstr ""
@@ -2044,17 +2041,17 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "Adresy"
+msgstr "Salgylar"
 
 msgid "address:delivery"
-msgstr "Doručovací adresa"
+msgstr "Eltip beriş salgysy"
 
 msgid "address:payment"
-msgstr "Fakturační adresa"
+msgstr "Hasaplaşyk salgysy"
 
 #, php-format
 msgid "attribute"
-msgstr "Atributy"
+msgstr "Aýratynlyklar"
 
 #, php-format
 msgid "bundle"
@@ -2062,22 +2059,22 @@ msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr "Kategorie"
+msgstr "Kategoriýalar"
 
 #, php-format
 msgid "category"
-msgstr "Kategorie"
+msgstr "Kategoriýalar"
 
 #, php-format
 msgid "characteristic"
-msgstr "Vlastnosti"
+msgstr ""
 
 #, php-format
 msgid "code"
-msgstr "Kódy"
+msgstr ""
 
 msgid "company"
-msgstr "Společnost"
+msgstr "Kompanýa"
 
 #, php-format
 msgid "configuration"
@@ -2109,7 +2106,7 @@ msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr "Dashboard"
+msgstr ""
 
 #, php-format
 msgid "day"
@@ -2153,7 +2150,7 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr "Měny"
+msgstr "Walýutalar"
 
 #, php-format
 msgid "locale/language"
@@ -2176,32 +2173,32 @@ msgid "media"
 msgstr ""
 
 msgid "miss"
-msgstr "Slečna"
+msgstr ""
 
 msgid "mr"
-msgstr "Pan"
+msgstr ""
 
 msgid "mrs"
-msgstr "Paní"
+msgstr ""
 
 msgid "ms"
 msgstr ""
 
 msgid "new"
-msgstr "nový"
+msgstr ""
 
 msgid "no"
 msgstr ""
 
 msgid "none"
-msgstr "žádný"
+msgstr ""
 
 msgid "not available any more"
 msgstr ""
 
 #, php-format
 msgid "option"
-msgstr "Možnosti"
+msgstr ""
 
 #, php-format
 msgid "order"
@@ -2214,28 +2211,28 @@ msgid "order:web"
 msgstr ""
 
 msgid "pay:-1"
-msgstr "nedokončeno"
+msgstr ""
 
 msgid "pay:0"
-msgstr "odstraněno"
+msgstr ""
 
 msgid "pay:1"
-msgstr "zrušeno"
+msgstr ""
 
 msgid "pay:2"
-msgstr "odmítnuto"
+msgstr ""
 
 msgid "pay:3"
-msgstr "vráceno"
+msgstr ""
 
 msgid "pay:4"
-msgstr "nevyřízeno"
+msgstr ""
 
 msgid "pay:5"
-msgstr "autorizováno"
+msgstr ""
 
 msgid "pay:6"
-msgstr "obdrženo"
+msgstr ""
 
 msgid "pay:7"
 msgstr ""
@@ -2266,7 +2263,7 @@ msgstr ""
 
 #, php-format
 msgid "property"
-msgstr "Vlastnosti"
+msgstr ""
 
 #, php-format
 msgid "quick/countcompleted"
@@ -2291,7 +2288,7 @@ msgid "reason:0"
 msgstr ""
 
 msgid "reason:1"
-msgstr "zrušeno"
+msgstr ""
 
 #, php-format
 msgid "related"
@@ -2318,11 +2315,11 @@ msgstr ""
 
 #, php-format
 msgid "selection"
-msgstr "Varianty"
+msgstr ""
 
 #, php-format
 msgid "service"
-msgstr "Služby"
+msgstr ""
 
 #, php-format
 msgid "servicedelivery"
@@ -2345,31 +2342,31 @@ msgid "special"
 msgstr ""
 
 msgid "stat:-1"
-msgstr "nedokončeno"
+msgstr ""
 
 msgid "stat:0"
-msgstr "odstraněno"
+msgstr ""
 
 msgid "stat:1"
-msgstr "nevyřízeno"
+msgstr ""
 
 msgid "stat:2"
-msgstr "probíhá"
+msgstr ""
 
 msgid "stat:3"
-msgstr "odesláno"
+msgstr ""
 
 msgid "stat:4"
-msgstr "doručeno"
+msgstr ""
 
 msgid "stat:5"
-msgstr "ztraceno"
+msgstr ""
 
 msgid "stat:6"
-msgstr "odmítnuto"
+msgstr ""
 
 msgid "stat:7"
-msgstr "vráceno"
+msgstr ""
 
 msgid "status:-1"
 msgstr ""
@@ -2425,7 +2422,7 @@ msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr "Atributy"
+msgstr "Aýratynlyklar"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2493,7 +2490,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr "Služby"
+msgstr ""
 
 #, php-format
 msgid "type/service/lists"

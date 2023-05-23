@@ -679,7 +679,7 @@ msgid "Floor and/or apartment (optional)"
 msgstr "Kat ve/veya daire (opsiyonel)"
 
 msgid "Generate text"
-msgstr ""
+msgstr "Metin oluştur"
 
 msgid "Given rebate amount"
 msgstr "Belirlenmiş indirim tutarı"
@@ -1189,7 +1189,7 @@ msgstr "Kişisel veri"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Lütfen burada oluşturulması gereken metnin açıklamasını girin"
 
 msgid "Please select"
 msgstr "Lütfen seçiniz"

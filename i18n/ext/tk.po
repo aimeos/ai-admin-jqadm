@@ -3,56 +3,55 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Martin Vyšohlíd <vysohlidm@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 23:29+0200\n"
 "PO-Revision-Date: 2015-07-09 20:33+0000\n"
-"Last-Translator: Martin Vyšohlíd <vysohlidm@gmail.com>, 2016\n"
-"Language-Team: Czech (http://app.transifex.com/aimeos/aimeos-core/language/cs/)\n"
+"Last-Translator: Aimeos <aimeos@aimeos.org>\n"
+"Language-Team: Turkmen (http://app.transifex.com/aimeos/aimeos-core/language/tk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Language: tk\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "!="
-msgstr "není rovno"
+msgstr ""
 
 msgid "<"
-msgstr "před"
+msgstr ""
 
 msgid "<="
-msgstr "před (včetně)"
+msgstr ""
 
 msgid "=="
-msgstr "je rovno"
+msgstr ""
 
 msgid "=~"
-msgstr "začíná na"
+msgstr ""
 
 msgid ">"
-msgstr "po"
+msgstr ""
 
 msgid ">="
 msgstr ""
 
 msgid "Search"
-msgstr "Vyhledávání"
+msgstr ""
 
 msgid "~="
 msgstr ""
 
 msgid "address:delivery"
-msgstr "Doručovací adresa"
+msgstr "Eltip beriş salgysy"
 
 msgid "address:payment"
-msgstr "Fakturační adresa"
+msgstr "Hasaplaşyk salgysy"
 
 msgid "service:delivery"
-msgstr "Doručení"
+msgstr "Eltip bermek"
 
 msgid "service:payment"
-msgstr "Platba"
+msgstr ""
