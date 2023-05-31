@@ -96,10 +96,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Coupon\Code\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->onlyMethods( array( 'getSubClients' ) )
+			->onlyMethods( array( 'storeFilter' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'storeFilter' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$object->setView( $this->getViewNoRender() );
