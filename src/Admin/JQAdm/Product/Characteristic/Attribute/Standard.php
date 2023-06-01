@@ -268,7 +268,7 @@ class Standard
 			$item->addListItem( 'attribute', $litem, $litem->getRefItem() );
 		}
 
-		return $item->deleteListItems( $listItems->toArray() );
+		return $item->deleteListItems( $listItems );
 	}
 
 

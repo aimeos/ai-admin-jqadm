@@ -265,7 +265,7 @@ class Standard
 
 		$listItems = $item->getListItems( 'attribute', 'config', 'interval', false );
 
-		foreach( $data as $idx => $entry )
+		foreach( $data as $entry )
 		{
 			if( !array_key_exists( 'attribute.id', $entry ) ) {
 				continue;
@@ -283,7 +283,7 @@ class Standard
 
 			unset( $listItems[$listItem->getId()] );
 
-			$item->addListItem( 'attribute', $listItem->setPosition( $idx ), $refItem );
+			$item->addListItem( 'attribute', $listItem, $refItem );
 		}
 
 		return $item->deleteListItems( $listItems->toArray() );
