@@ -92,7 +92,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.datestart'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.datestart'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
@@ -106,7 +106,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.dateend'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.dateend'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['product.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
@@ -119,13 +119,13 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 						</td>
 						<td v-bind:class="item['css'] || ''">
 							<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )">
+								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.id'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )">
 
 							<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )">
+								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.type'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )">
 
 							<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )">
+								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.refid'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )">
 
 							<Multiselect v-if="item['attribute.type']" class="item-refid"
 								placeholder="Enter attribute ID, code or label"
@@ -149,7 +149,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							></Multiselect>
 							<config-table v-show="item['_ext']" v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/characteristic/attribute/config/suggest', [] ) ) ?>"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'config', '_pos_', '_key_'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )"
 								v-bind:index="idx"
 								v-bind:items="item['config']"
 								v-bind:readonly="!can('change', idx)"

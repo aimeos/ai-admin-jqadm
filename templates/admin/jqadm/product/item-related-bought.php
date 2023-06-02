@@ -45,16 +45,16 @@ $keys = [
 					v-bind:class="item['product.lists.siteid'] != `<?= $enc->js( $this->site()->siteid() ) ?>` ? 'readonly' : ''">
 					<td v-bind:class="(item['css'] || '')">
 						<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', 'idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )">
+							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.lists.id'] ) ) ?>`.replace( '_idx_', idx )">
 
 						<input class="item-label" type="hidden" v-model="item['product.label']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', 'idx', 'product.label'] ) ) ?>`.replace( 'idx', idx )">
+							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.label'] ) ) ?>`.replace( '_idx_', idx )">
 
 						<input class="item-code" type="hidden" v-model="item['product.code']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', 'idx', 'product.code'] ) ) ?>`.replace( 'idx', idx )">
+							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.code'] ) ) ?>`.replace( '_idx_', idx )">
 
 						<select is="combo-box" class="form-select item-refid"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )"
+							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.lists.refid'] ) ) ?>`.replace( '_idx_', idx )"
 							v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 							v-bind:readonly="!can('change', idx)"
 							v-bind:label="label(idx)"

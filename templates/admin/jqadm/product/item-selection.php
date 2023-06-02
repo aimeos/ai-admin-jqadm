@@ -59,9 +59,9 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 						v-bind:aria-labelledby="'item-selection-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['product.id']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'product.id'] ) ) ?>`.replace('idx', idx)">
+							v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'product.id'] ) ) ?>`.replace('_idx_', idx)">
 						<input type="hidden" v-model="item['product.lists.id']"
-							v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'product.lists.id'] ) ) ?>`.replace('idx', idx)">
+							v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'product.lists.id'] ) ) ?>`.replace('_idx_', idx)">
 
 						<div class="col-xl-6">
 
@@ -69,7 +69,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.status' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.status' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:readonly="!editable(idx)"
 										v-model="item['product.status']" >
 										<option value="1" v-bind:selected="item['product.status'] == 1" >
@@ -97,7 +97,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										<select is="select-component" class="form-select item-type" required
 											v-bind:readonly="!editable(idx)"
 											v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-											v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>`.replace('idx', idx)"
+											v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.type' ) ) ) ?>`.replace('_idx_', idx)"
 											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
 											v-model="item['product.type']" >
 											<option value="<?= $enc->attr( $this->get( 'itemData/product.type' ) ) ?>">
@@ -108,7 +108,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								</div>
 							<?php else : ?>
 								<input class="item-type" type="hidden"
-									v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.type' ) ) ) ?>`.replace('idx', idx)"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.type' ) ) ) ?>`.replace('_idx_', idx)"
 									value="<?= $enc->attr( $types->firstKey() ) ?>">
 							<?php endif ?>
 							<div class="form-group row mandatory">
@@ -117,7 +117,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									<input is="auto-complete"
 										v-model="item['product.code']"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.code' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.code' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 										v-bind:readonly="!editable(idx) || item['product.lists.id'] != ''"
 										v-bind:keys="get"
@@ -132,7 +132,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ) ?></label>
 								<div class="col-lg-8">
 									<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'product.label' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.label' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										v-bind:readonly="!editable(idx)"
 										v-model="item['product.label']">
@@ -145,9 +145,9 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Stock level' ) ) ?></label>
 								<div class="col-lg-8">
 									<input type="hidden" v-bind:disabled="item['stock'] === false" v-model="item['stock.id']"
-										v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'stock.id'] ) ) ?>`.replace('idx', idx)">
+										v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'stock.id'] ) ) ?>`.replace('_idx_', idx)">
 									<input class="form-control item-stocklevel" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', 'idx', 'stock.stocklevel' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'stock.stocklevel' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:readonly="!editable(idx)"
 										v-bind:disabled="item['stock'] === false"
 										v-model="item['stock.stocklevel']">
@@ -187,19 +187,19 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									<tr v-for="(attr, attridx) in (item['attr'] || [])">
 										<td>
 											<input class="item-attr-listid" type="hidden" v-model="attr['product.lists.id']"
-												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.id'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)">
+												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'product.lists.id'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
 
 											<input class="item-attr-siteid" type="hidden" v-model="attr['product.lists.siteid']"
-												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.siteid'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)">
+												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'product.lists.siteid'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
 
 											<input class="item-attr-type" type="hidden" v-model="attr['attribute.type']"
-												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.type'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)">
+												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'attribute.type'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
 
 											<input class="item-attr-label" type="hidden" v-model="attr['attribute.label']"
-												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'attribute.label'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)">
+												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'attribute.label'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
 
 											<select is="combo-box" class="form-select item-attr-refid"
-												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', 'idx', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>`.replace('idx', idx).replace('attridx', attridx)"
+												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)"
 												v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 												v-bind:readonly="!can('change', idx, attridx)"
 												v-bind:label="label(idx, attridx)"

@@ -58,7 +58,7 @@ $enc = $this->encoder();
 						v-bind:aria-labelledby="'item-price-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<input type="hidden" v-model="item['price.id']"
-							v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.id' ) ) ) ?>`.replace('idx', idx)">
+							v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.id' ) ) ) ?>`.replace('_idx_', idx)">
 
 						<div class="col-xl-6">
 
@@ -66,7 +66,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ) ?></label>
 								<div class="col-sm-8">
 									<div is="taxrates" v-bind:key="idx" class="item-taxrate"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.taxrates' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.taxrates' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:types="<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>"
 										v-bind:placeholder="`<?= $enc->js( $this->translate( 'admin', 'Tax rate in %' ) ) ?>`"
 										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
@@ -82,7 +82,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Shipping / Payment costs' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-costs" type="number" step="<?= $this->pageNumberStep ?>" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.costs' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.costs' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping / Payment costs' ) ) ?>"
 										v-bind:readonly="item['price.siteid'] != siteid"
 										v-model="item['price.costs']">
@@ -100,7 +100,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.status' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.status' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:readonly="item['price.siteid'] != siteid"
 										v-model="item['price.status']" >
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
@@ -126,7 +126,7 @@ $enc = $this->encoder();
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-select item-currencyid" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 											v-bind:items="<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.id' )->toArray() ) ?>"
-											v-bind:name="`<?= $enc->js( $this->formparam( ['price', 'idx', 'price.currencyid'] ) ) ?>`.replace('idx', idx)"
+											v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'price.currencyid'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 											v-bind:readonly="item['price.siteid'] != siteid"
 											v-model="item['price.currencyid']" >
@@ -135,7 +135,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="item-currencyid" type="hidden"
-									v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.currencyid' ) ) ) ?>`.replace('idx', idx)"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.currencyid' ) ) ) ?>`.replace('_idx_', idx)"
 									value="<?= $enc->attr( $currencies->getCode()->first() ) ?>">
 							<?php endif ?>
 
@@ -145,7 +145,7 @@ $enc = $this->encoder();
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 											v-bind:items="<?= $enc->attr( $priceTypes->col( 'price.type.label', 'price.type.code' )->toArray() ) ?>"
-											v-bind:name="`<?= $enc->js( $this->formparam( ['price', 'idx', 'price.type'] ) ) ?>`.replace('idx', idx)"
+											v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'price.type'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 											v-bind:readonly="item['price.siteid'] != siteid"
 											v-model="item['price.type']" >
@@ -157,7 +157,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="item-type" type="hidden"
-									v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'price.type' ) ) ) ?>`.replace('idx', idx)"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.type' ) ) ) ?>`.replace('_idx_', idx)"
 									value="<?= $enc->attr( $priceTypes->getCode()->first() ) ?>">
 							<?php endif ?>
 
@@ -181,7 +181,7 @@ $enc = $this->encoder();
 									<div class="col-sm-8">
 										<select is="select-component" required class="form-select listitem-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
 											v-bind:items="<?= $enc->attr( $listTypes->col( 'service.lists.type.label', 'service.lists.type.code' )->toArray() ) ?>"
-											v-bind:name="`<?= $enc->js( $this->formparam( ['price', 'idx', 'service.lists.type'] ) ) ?>`.replace('idx', idx)"
+											v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'service.lists.type'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 											v-bind:readonly="item['service.lists.siteid'] != siteid"
 											v-model="item['service.lists.type']" >
@@ -193,7 +193,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="listitem-type" type="hidden"
-									v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'service.lists.type' ) ) ) ?>`.replace('idx', idx)"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'service.lists.type' ) ) ) ?>`.replace('_idx_', idx)"
 									value="<?= $enc->attr( $listTypes->getCode()->first() ) ?>">
 							<?php endif ?>
 
@@ -201,7 +201,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-datestart select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'service.lists.datestart' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'service.lists.datestart' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['service.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"
@@ -215,7 +215,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?></label>
 								<div class="col-sm-8">
 									<input is="flat-pickr" class="form-control listitem-dateend select" type="datetime-local" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', 'idx', 'service.lists.dateend' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'service.lists.dateend' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
 										v-bind:disabled="item['service.lists.siteid'] != siteid"
 										v-bind:config="Aimeos.flatpickr.datetime"

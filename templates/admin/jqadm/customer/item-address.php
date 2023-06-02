@@ -53,7 +53,7 @@ $enc = $this->encoder();
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
 
 							<input class="item-id" type="hidden"
-								v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.id' ) ) ) ?>`.replace('idx', idx)"
+								v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.id' ) ) ) ?>`.replace('_idx_', idx)"
 								v-bind:value="entry['customer.address.id']">
 
 							<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
@@ -61,7 +61,7 @@ $enc = $this->encoder();
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
 									<div class="col-sm-8">
 										<select class="form-select item-languageid" tabindex="<?= $this->get( 'tabindex' ) ?>"
-											v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.languageid' ) ) ) ?>`.replace('idx', idx)"
+											v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.languageid' ) ) ) ?>`.replace('_idx_', idx)"
 											v-bind:readonly="entry['customer.address.siteid'] != siteid"
 											v-model="entry['customer.address.languageid']" >
 
@@ -79,7 +79,7 @@ $enc = $this->encoder();
 								</div>
 							<?php else : ?>
 								<input class="item-languageid" type="hidden"
-									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.languageid' ) ) ) ?>`.replace('idx', idx)"
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.languageid' ) ) ) ?>`.replace('_idx_', idx)"
 									value="<?= $enc->attr( $languages->getCode()->first() ) ?>">
 							<?php endif ?>
 
@@ -87,7 +87,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-salutation" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.salutation' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.salutation' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.salutation']" >
 										<option value="" v-bind:selected="entry['customer.address.salutation'] == ''" >
@@ -112,7 +112,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-title" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.title' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.title' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.title']">
@@ -125,7 +125,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Last name' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-lastname" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.lastname' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.lastname' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.lastname']">
@@ -138,7 +138,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'First name' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-firstname" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.firstname' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.firstname' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.firstname']">
@@ -155,7 +155,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-address1" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.address1' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.address1' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.address1']">
@@ -168,7 +168,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'House number' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-address2" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.address2' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.address2' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.address2']">
@@ -181,7 +181,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor / Appartment' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-address3" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.address3' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.address3' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.address3']">
@@ -194,7 +194,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Zip code' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-postal" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.postal' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.postal' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.postal']">
@@ -207,7 +207,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'City' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-city" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.city' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.city' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.city']">
@@ -217,7 +217,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-countryid" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.countryid' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.countryid' ) ) ) ?>`.replace('_idx_', idx)"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.countryid']">
 										<option value="">
@@ -239,7 +239,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'State' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-state" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.state' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.state' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.state']">
@@ -256,7 +256,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-telephone" type="tel" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.telephone' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.telephone' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.telephone']">
@@ -269,7 +269,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-telefax" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.telefax' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.telefax' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.telefax']">
@@ -282,7 +282,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-mail' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-email" type="email" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.email' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.email' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-mail address (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.email']">
@@ -295,7 +295,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Web site' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-website" type="url" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.website' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.website' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.website']">
@@ -312,7 +312,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-company" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.company' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.company' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.company']">
@@ -322,7 +322,7 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'VAT ID' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-vatid" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.vatid' ) ) ) ?>`.replace('idx', idx)"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.vatid' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ) ?>"
 										v-bind:readonly="entry['customer.address.siteid'] != siteid"
 										v-model="entry['customer.address.vatid']">
@@ -337,9 +337,9 @@ $enc = $this->encoder();
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Map' ) ) ?></h2>
 							<div class="osm-map">
 								<input type="hidden" v-bind:value="entry['customer.address.latitude']"
-									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.latitude' ) ) ) ?>`.replace('idx', idx)">
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.latitude' ) ) ) ?>`.replace('_idx_', idx)">
 								<input type="hidden" v-bind:value="entry['customer.address.longitude']"
-									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', 'idx', 'customer.address.longitude' ) ) ) ?>`.replace('idx', idx)">
+									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.longitude' ) ) ) ?>`.replace('_idx_', idx)">
 								<l-map ref="map" v-if="show" :center="point(entry)" :zoom="zoom(idx)" @click="setPoint(idx, $event)">
 									<l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors"></l-tile-layer>
 									<l-marker v-if="entry['customer.address.latitude'] && entry['customer.address.longitude']" :lat-lng="point(entry)"></l-marker>
