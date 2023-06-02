@@ -678,6 +678,39 @@ body {
 }
 
 
+/* 3rd party multiselect component */
+
+.multiselect {
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid var(--bs-line, #bbb);
+	min-height: calc(var(--ms-font-size, 1rem)*var(--ms-line-height, 1.375) + var(--ms-py, .5rem)*2);
+}
+
+.multiselect.is-active {
+	border: none;
+	box-shadow: none;
+	border-bottom: 1px solid var(--bs-line, #bbb);
+}
+
+.multiselect.is-disabled {
+	background: var(--bs-bg-light, #fff);
+}
+
+.multiselect.is-disabled .multiselect-caret {
+	display: none;
+}
+
+.multiselect-option.is-selected,
+.multiselect-option.is-selected.is-pointed {
+	background: var(--bs-menu-bg)
+}
+
+.multiselect-wrapper {
+	min-height: auto;
+}
+
+
 /* 3rd party flatpickr component */
 
 span.flatpickr-weekday,

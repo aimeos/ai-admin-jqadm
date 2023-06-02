@@ -10,7 +10,7 @@ $enc = $this->encoder();
 
 $keys = [
 	'product.lists.id', 'product.lists.siteid', 'product.lists.refid', 'product.lists.type',
-	'attribute.label', 'attribute.type'
+	'attribute.label'
 ];
 
 $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' );
@@ -58,21 +58,29 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 
 				<tbody is="draggable" v-model="items" group="characteristic-attribute" handle=".act-move" tag="tbody">
 
-					<tr v-for="(item, idx) in items" v-bind:key="idx"
-						v-bind:class="{readonly: !can('change', idx)}">
+					<tr v-for="(item, idx) in items" v-bind:key="idx" v-bind:class="{readonly: !can('change', idx)}">
 						<td v-bind:class="item['css'] || ''">
-							<select is="combo-box" class="form-select item-type"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'attribute.type'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )"
-								v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-								v-bind:readonly="!can('change', idx)"
-								v-bind:label="item['attribute.type']"
-								v-bind:title="title(idx)"
-								v-bind:required="'required'"
-								v-bind:getfcn="typeFcn"
-								v-bind:index="idx"
-								v-on:select="updateType"
-								v-model="item['attribute.type']" >
-							</select>
+							<Multiselect class="item-type"
+								placeholder="Enter attribute type ID, code or label"
+								value-prop="attribute.type"
+								track-by="attribute.type"
+								label="attribute.type"
+								@open="load"
+								@input="useType(idx, $event)"
+								:value="item"
+								:options="async function(query) {return await attrTypes(query)}"
+								:disabled="item['attribute.type'] || false"
+								:resolve-on-load="false"
+								:filter-results="false"
+								:can-deselect="false"
+								:allow-absent="true"
+								:searchable="true"
+								:can-clear="false"
+								:required="true"
+								:min-chars="1"
+								:object="true"
+								:delay="300"
+							/>
 						</td>
 						<td v-bind:class="item['css'] || ''">
 							<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
@@ -81,21 +89,29 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )">
 
-							<input class="item-label" type="hidden" v-model="item['attribute.label']"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'attribute.label'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )">
+							<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
+								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )">
 
-							<select is="combo-box" class="form-select item-refid"
-								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', 'idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', listtype + '-' + idx )"
-								v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-								v-bind:readonly="!can('change', idx)"
-								v-bind:label="item['attribute.label']"
-								v-bind:title="title(idx)"
-								v-bind:required="'required'"
-								v-bind:getfcn="itemFcn"
-								v-bind:index="idx"
-								v-on:select="update"
-								v-model="item['product.lists.refid']" >
-							</select>
+							<Multiselect v-if="item['attribute.type']" class="item-refid"
+								placeholder="Enter attribute ID, code or label"
+								value-prop="attribute.id"
+								track-by="attribute.id"
+								label="attribute.label"
+								@open="load"
+								@input="use(idx, $event)"
+								:value="item"
+								:options="async function(query) {return await attr(query, idx)}"
+								:resolve-on-load="false"
+								:filter-results="false"
+								:can-deselect="false"
+								:allow-absent="true"
+								:searchable="true"
+								:can-clear="false"
+								:required="true"
+								:min-chars="1"
+								:object="true"
+								:delay="300"
+							/>
 						</td>
 						<td class="actions">
 							<div v-if="can('move', idx)"

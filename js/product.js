@@ -269,14 +269,62 @@ Aimeos.Product.Attribute = {
 				},
 
 
+				attr(input, idx) {
+					const filter = {
+						'&&': [
+							{'==': {'attribute.type': this.items[idx]['attribute.type']}},
+							{'||': [
+								{'=~': {'attribute.label': input}},
+								{'=~': {'attribute.code': input}},
+								{'==': {'attribute.id': input}}
+							]}
+						]
+					}
+
+					return Aimeos.query(`query {
+						searchAttributes(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
+						  id
+						  label
+						}
+					  }
+					`).then(result => {
+						return (result?.data?.searchAttributes || []).map(item => {
+							return {'attribute.id': item.id, 'attribute.label': item.label}
+						})
+					})
+				},
+
+
+				attrTypes(input) {
+					const filter = {
+						'||': [
+							{'=~': {'attribute.type.label': input}},
+							{'=~': {'attribute.type.code': input}},
+							{'==': {'attribute.type.id': input}}
+						]
+					}
+
+					return Aimeos.query(`query {
+						searchAttributeTypes(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
+						  code
+						}
+					  }
+					`).then(result => {
+						return (result?.data?.searchAttributeTypes || []).map(item => {
+							return {'attribute.type': item.code}
+						})
+					})
+				},
+
+
 				can(action, idx) {
 					if(this.items[idx]['product.lists.siteid']) {
 						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
 
 						switch(action) {
 							case 'delete': return allow;
-							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
-							case 'move': return allow && this.items[idx]['product.lists.id'] != '';
+							case 'change': return allow;
+							case 'move': return allow;
 						}
 					}
 
@@ -284,24 +332,8 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				itemFcn(idx) {
-
-					const self = this;
-
-					return function(request, response, element) {
-						const criteria = {'==': {'attribute.type': self.items[idx] && self.items[idx]['attribute.type'] || ''}};
-						Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', criteria);
-					};
-				},
-
-
-				typeFcn() {
-
-					const criteria = {'>': {'attribute.type.status': 0}};
-
-					return function(request, response, element) {
-						Aimeos.getOptions(request, response, element, 'attribute/type', 'attribute.type.code', 'attribute.type.label', criteria);
-					};
+				load(select) {
+					select.refreshOptions()
 				},
 
 
@@ -318,34 +350,15 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				update(ev) {
-
-					this.$set(this.items[ev.index], this.prefix + 'id', '');
-					this.$set(this.items[ev.index], this.prefix + 'siteid', this.siteid);
-					this.$set(this.items[ev.index], this.prefix + 'refid', ev.value);
-					this.$set(this.items[ev.index], 'attribute.label', ev.label);
-
-					const ids = [];
-
-					for(idx in this.items) {
-						this.items[idx]['css'] = '';
-
-						if(ids.indexOf(this.items[idx]['product.lists.siteid'] + '-' + this.items[idx]['attribute.id']) !== -1) {
-							this.items[idx]['css'] = 'is-invalid';
-						}
-
-						ids.push(this.items[idx]['product.lists.refid']);
-					}
+				use(idx, ev) {
+					this.$set(this.items[idx], this.prefix + 'refid', ev['attribute.id']);
+					this.$set(this.items[idx], 'attribute.label', ev['attribute.label']);
+					this.$set(this.items[idx], 'attribute.id', ev['attribute.id']);
 				},
 
 
-				updateType(ev) {
-
-					this.$set(this.items[ev.index], this.prefix + 'id', '');
-					this.$set(this.items[ev.index], this.prefix + 'refid', '');
-					this.$set(this.items[ev.index], this.prefix + 'siteid', this.siteid);
-					this.$set(this.items[ev.index], 'attribute.type', ev.label);
-					this.$set(this.items[ev.index], 'attribute.label', '');
+				useType(idx, ev) {
+					this.$set(this.items[idx], 'attribute.type', ev['attribute.type']);
 				}
 			}
 		}

@@ -283,6 +283,28 @@ Aimeos = {
 	},
 
 
+	query(gql) {
+		return fetch($('.aimeos').data('graphql'), {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: { // Laravel only
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]')?.attr('content')
+			},
+			body: JSON.stringify({'query': gql})
+		}).then(response => {
+			if(!response.ok) {
+				throw new Error(response.statusText)
+			}
+			return response.json();
+		}).then(result => {
+			if(result.errors) {
+				throw new Error(result.errors)
+			}
+			return result
+		})
+	},
+
+
 	vue(node) {
 		return new Vue({
 			el: node,
@@ -1222,6 +1244,7 @@ $(function() {
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);
 	Vue.component('flat-pickr', VueFlatpickr);
 	Vue.component('v-select', VueSelect.VueSelect);
+	Vue.component('multiselect', VueformMultiselect);
 	Vue.component('l-map', window.Vue2Leaflet.LMap);
 	Vue.component('l-marker', window.Vue2Leaflet.LMarker);
 	Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
