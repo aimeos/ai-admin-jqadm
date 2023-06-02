@@ -266,6 +266,7 @@ Aimeos.Product.Attribute = {
 
 					this.$set(this.items[idx], this.prefix + 'siteid', this.siteid);
 					this.$set(this.items[idx], this.prefix + 'type', this.listtype);
+					this.$set(this.items[idx], 'config', []);
 				},
 
 
@@ -347,6 +348,13 @@ Aimeos.Product.Attribute = {
 						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
 						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
 						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+				},
+
+
+				toggle(what, idx) {
+					if(this.items[idx]) {
+						this.$set(this.items[idx], what, (!this.items[idx][what] ? true : false));
+					}
 				},
 
 

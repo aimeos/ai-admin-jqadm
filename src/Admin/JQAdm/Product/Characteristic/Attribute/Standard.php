@@ -259,11 +259,16 @@ class Standard
 		foreach( $data as $entry )
 		{
 			$id = $this->val( $entry, 'product.lists.id' );
-			$refid = $this->val( $entry, 'product.lists.refid' );
-			$type = $this->val( $entry, 'product.lists.type' );
 
 			$litem = $listItems->pull( $id ) ?: $manager->createListItem();
-			$litem->setId( $id )->setRefId( $refid )->setPosition( $idx++ )->setType( $type );
+			$litem->fromArray( $entry, true )->setId( $id )->setPosition( $idx++ )->setConfig( [] );
+
+			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
+			{
+				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
+					$litem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );
+				}
+			}
 
 			$item->addListItem( 'attribute', $litem, $litem->getRefItem() );
 		}
@@ -296,6 +301,12 @@ class Standard
 			{
 				$list['product.lists.siteid'] = $siteId;
 				$list['product.lists.id'] = '';
+			}
+
+			$list['config'] = [];
+
+			foreach( $listItem->getConfig() as $key => $value ) {
+				$list['config'][] = ['key' => $key, 'val' => $value];
 			}
 
 			$data[] = $list;

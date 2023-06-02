@@ -450,6 +450,11 @@ body {
 	height: 2.5rem;
 }
 
+.aimeos .table:not(.list-items) th,
+.aimeos .table:not(.list-items) td {
+	vertical-align: top;
+}
+
 .aimeos .table .actions {
 	white-space: nowrap;
 	text-align: end;
