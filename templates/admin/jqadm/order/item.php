@@ -291,8 +291,7 @@ $paymentStatusList = [
 												:min-chars="1"
 												:object="true"
 												:delay="300"
-											>
-												<select class="form-select"></select>
+											><select class="form-select"></select>
 											</Multiselect>
 										</div>
 									</div>
@@ -516,26 +515,30 @@ $paymentStatusList = [
 								<div class="box">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
 
-									<?php foreach( $addresses as $pos => $addrItem ) : ?>
-										<div class="address-short">
-											<?php
-												/// short order address with company (%1$s), first name (%2$s), last name (%3$s), street (%4$s), house number (%5$s),
-												/// zip code (%6$s), city (%7$s),state (%8$s), countryid (%9$s), e-mail (%10$s), telephone (%11$s), VAT ID  (%12$s)
-												$addrFormat = $this->translate( 'admin', "%1\$s\n%2\$s %3\$s\n%5\$s %4\$s\n%7\$s, %6\$s\n%8\$s, %9\$s\n%10\$s\n%11\$s\n%12\$s" );
-											?>
-											<span class="address-text" data-format="<?= $enc->attr( $addrFormat ) ?>"><!-- inserted by order.js --></span>
+									<div v-for="(addr, idx) in (item?.address?.<?= $enc->attr( $type ) ?> || [])" :key="idx">
+										<div class="address-short" @click="$set(addr, '_edit', !addr['_edit'])">
+											<span class="address-text">
+												{{ addr['order.address.company'] }}<br>
+												{{ addr['order.address.firstname'] }} {{ addr['order.address.lastname'] }}<br>
+												{{ addr['order.address.address1'] }} {{ addr['order.address.address2'] }}<br>
+												{{ addr['order.address.postal'] }} {{ addr['order.address.city'] }}<br>
+												{{ addr['order.address.countryid'] }} {{ addr['order.address.state'] }}<br>
+												{{ addr['order.address.email'] }}<br>
+												{{ addr['order.address.telephone'] }}<br>
+												{{ addr['order.address.vatid'] }}
+											</span>
 											<span class="address-edit"></span>
 										</div>
 
-										<fieldset class="address-form">
+										<fieldset v-show="addr['_edit']" class="address-form">
 											<div class="form-group row mandatory">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-email" type="email" tabindex="1" data-field="email"
+													<input class="form-control item-email" type="email" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.email' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address (required)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.email' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.email']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Customer e-mail address' ) ) ?>
@@ -544,9 +547,10 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
 												<div class="col-sm-8">
-													<select class="form-select item-languageid" tabindex="1" data-field="languageid"
+													<select class="form-select item-languageid" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.languageid' ) ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
+														:value="addr['order.address.languageid']"
+														:readonly="!can('change')">
 														<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 
 														<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
@@ -560,9 +564,10 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ) ?></label>
 												<div class="col-sm-8">
-													<select class="form-select item-salutation" tabindex="1" data-field="salutation"
+													<select class="form-select item-salutation" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.salutation' ) ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
+														:value="addr['order.address.salutation']"
+														:readonly="!can('change')">
 														<option value="" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.salutation' ), '' ) ?> >
 															<?= $enc->html( $this->translate( 'admin', 'none' ) ) ?>
 														</option>
@@ -584,11 +589,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-title" type="text" tabindex="1" data-field="title"
+													<input class="form-control item-title" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.title' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.title' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.title']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Honorary titles like Dr., Ph.D, etc.' ) ) ?>
@@ -597,11 +602,11 @@ $paymentStatusList = [
 											<div class="form-group row mandatory">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Last name' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-lastname" type="text" required="required" tabindex="1" data-field="lastname"
+													<input class="form-control item-lastname" type="text" required="required" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.lastname' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.lastname' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.lastname']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Last name of the person or full name in cultures where no first names are used' ) ) ?>
@@ -610,11 +615,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'First name' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-firstname" type="text" tabindex="1" data-field="firstname"
+													<input class="form-control item-firstname" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.firstname' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.firstname' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.firstname']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -623,11 +628,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-address1" type="text" tabindex="1" data-field="address1"
+													<input class="form-control item-address1" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.address1' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.address1' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.address1']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -636,11 +641,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'House number' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-address2" type="text" tabindex="1" data-field="address2"
+													<input class="form-control item-address2" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.address2' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.address2' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.address2']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Address identifier of the customer\'s house for delivery' ) ) ?>
@@ -649,11 +654,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor / Appartment' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-address3" type="text" tabindex="1" data-field="address3"
+													<input class="form-control item-address3" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.address3' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.address3' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.address3']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s apartment can be found' ) ) ?>
@@ -662,11 +667,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Zip code' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-postal" type="text" tabindex="1" data-field="postal"
+													<input class="form-control item-postal" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.postal' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.postal' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.postal']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Postal code for delivery if used in the area the customer is living' ) ) ?>
@@ -675,11 +680,11 @@ $paymentStatusList = [
 											<div class="form-group row mandatory">
 												<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'City' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-city" type="text" required="required" tabindex="1" data-field="city"
+													<input class="form-control item-city" type="text" required="required" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.city' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.city' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.city']"
+														:readonly="!can('change')">
 												</div>
 											</div>
 											<div class="form-group row optional">
@@ -687,7 +692,8 @@ $paymentStatusList = [
 												<div class="col-sm-8">
 													<select class="form-select item-countryid" required="required" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.countryid' ) ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.countryid']"
+														:readonly="!can('change')">
 														<option value="" disabled>
 															<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 														</option>
@@ -706,11 +712,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'State' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-state" type="text" tabindex="1" data-field="state"
+													<input class="form-control item-state" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.state' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.state' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.state']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ) ?>
@@ -719,11 +725,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-telephone" type="tel" tabindex="1" data-field="telephone"
+													<input class="form-control item-telephone" type="tel" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.telephone' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.telephone' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.telephone']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ) ?>
@@ -732,11 +738,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-telefax" type="text" tabindex="1" data-field="telefax"
+													<input class="form-control item-telefax" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.telefax' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.telefax' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.telefax']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', '(International) facsimilie number without separation characters, can start with a "+"' ) ) ?>
@@ -745,11 +751,11 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Web site' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-website" type="url" tabindex="1" data-field="website"
+													<input class="form-control item-website" type="url" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.website' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.website' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.website']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'URL of the customer web site' ) ) ?>
@@ -758,21 +764,21 @@ $paymentStatusList = [
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-company" type="text" tabindex="1" data-field="company"
+													<input class="form-control item-company" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.company' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.company' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.company']"
+														:readonly="!can('change')">
 												</div>
 											</div>
 											<div class="form-group row optional">
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'VAT ID' ) ) ?></label>
 												<div class="col-sm-8">
-													<input class="form-control item-vatid" type="text" tabindex="1" data-field="vatid"
+													<input class="form-control item-vatid" type="text" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.vatid' ) ) ) ?>"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ) ?>"
-														value="<?= $enc->attr( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.vatid' ) ) ?>"
-														<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+														:value="addr['order.address.vatid']"
+														:readonly="!can('change')">
 												</div>
 												<div class="col-sm-12 form-text text-muted help-text">
 													<?= $enc->html( $this->translate( 'admin', 'Official VAT ID to determine if the tax needs to be billed in invoices' ) ) ?>
@@ -780,7 +786,7 @@ $paymentStatusList = [
 											</div>
 										</fieldset>
 
-									<?php endforeach ?>
+									</div>
 								</div>
 							</div>
 
