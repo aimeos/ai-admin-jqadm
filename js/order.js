@@ -214,6 +214,19 @@
 Aimeos.Order = {
 
 	init() {
+		Aimeos.components['order'] = new Vue({
+			el: document.querySelector('#order'),
+			data: {
+				item: {},
+				siteid: null,
+			},
+			mounted() {
+				this.Aimeos = Aimeos;
+				this.item = JSON.parse(this.$el.dataset.item || '{}');
+				this.siteid = this.$el.dataset.siteid;
+			},
+			mixins: [this.mixins]
+		});
 
 		this.addServcieAttributeLine();
 		this.deleteServcieAttributeLine();
@@ -221,25 +234,51 @@ Aimeos.Order = {
 		this.createShortAddress();
 		this.toggleAddressForm();
 		this.updateShortAddress();
-		this.setupCustomer();
-
-		Aimeos.Order.Invoice.init();
 	},
 
 
-	selectCustomer(ev, ui) {
+	mixins: {
+		methods: {
+			can(action) {
+				if(this.item['order.siteid']) {
+					let allow = (new String(this.item['order.siteid'])).startsWith(this.siteid);
 
-		var node = $(ev.delegateTarget);
-		node.closest("form-group").find("select.item-customerid").val(node.val());
-	},
+					switch(action) {
+						case 'change': return allow;
+					}
+				}
+
+				return false;
+			},
+
+			customer(input) {
+				const filter = {
+					'||': [
+						{'=~': {'customer.label': input}},
+						{'=~': {'customer.code': input}},
+						{'==': {'customer.id': input}}
+					]
+				}
+
+				return Aimeos.query(`query {
+					searchCustomers(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
+					  id
+					  code
+					}
+				  }
+				`).then(result => {
+					return (result?.data?.searchCustomers || []).map(item => {
+						return {'customer.id': item.id, 'customer.code': item.code}
+					})
+				})
+			},
 
 
-	setupCustomer() {
-
-		$(".item-order .item-customer.combobox").combobox({
-			getfcn: Aimeos.getOptionsCustomers,
-			select: Aimeos.Order.selectCustomer
-		});
+			useCustomer(ev) {
+				this.$set(this.item, 'customer.code', ev['customer.code']);
+				this.$set(this.item, 'customer.id', ev['customer.id']);
+			},
+		}
 	},
 
 
@@ -334,33 +373,6 @@ Aimeos.Order = {
 
 		$(".aimeos .item-order .item-address").on("change", "input,select", function(ev) {
 			$(".address-text ." + $(this).data("field"), ev.delegateTarget).text($(this).val());
-		});
-	}
-};
-
-
-
-Aimeos.Order.Invoice = {
-
-	init() {
-
-		this.addItem();
-		this.closeItem();
-	},
-
-
-	addItem() {
-
-		$(".aimeos .item-order .item-invoice").on("click", ".list-header .act-add", function(ev) {
-			Aimeos.addClone($(".list-item-new.prototype", ev.delegateTarget));
-		});
-	},
-
-
-	closeItem() {
-
-		$(".aimeos .item-order .item-invoice").on("click", ".act-close", function(ev) {
-			$(this).closest("tr").remove();
 		});
 	}
 };

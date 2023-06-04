@@ -549,10 +549,8 @@ class Standard
 
 		if( $item->getCustomerId() != '' )
 		{
-			$manager = \Aimeos\MShop::create( $this->context(), 'customer' );
-
 			try {
-				$data += $manager->get( $item->getCustomerId() )->toArray();
+				$data += \Aimeos\MShop::create( $this->context(), 'customer' )->get( $item->getCustomerId() )->toArray();
 			} catch( \Exception $e ) {};
 		}
 
@@ -567,11 +565,7 @@ class Standard
 		{
 			foreach( $addresses as $pos => $addrItem )
 			{
-				$list = $addrItem->toArray( true );
-
-				foreach( $list as $key => $value ) {
-					$data['address'][$type][$pos][$key] = $value;
-				}
+				$data['address'][$type][$pos] = $addrItem->toArray( true );
 
 				if( $copy === true )
 				{
@@ -581,26 +575,22 @@ class Standard
 			}
 		}
 
-		if( $copy !== true )
+		foreach( $item->getServices() as $type => $services )
 		{
-			foreach( $item->getServices() as $type => $services )
+			foreach( $services as $pos => $serviceItem )
 			{
-				foreach( $services as $serviceItem )
-				{
-					$serviceId = $serviceItem->getServiceId();
+				$data['service'][$type][$pos] = $serviceItem->toArray( true );
 
-					foreach( $serviceItem->getAttributeItems() as $attrItem )
-					{
-						foreach( $attrItem->toArray( true ) as $key => $value ) {
-							$data['service'][$type][$serviceId][$key][] = $value;
-						}
-					}
+				foreach( $serviceItem->getAttributeItems() as $attrItem ) {
+					$data['service'][$type][$pos]['attributes'][] = $attrItem->toArray( true );
+				}
+
+				if( $copy === true )
+				{
+					$data['service'][$type][$pos]['order.service.siteid'] = $siteId;
+					$data['service'][$type][$pos]['order.service.id'] = '';
 				}
 			}
-		}
-
-		foreach( $item->getProducts() as $pos => $productItem ) {
-			$data['product'][$pos] = $productItem->toArray();
 		}
 
 		return $data;

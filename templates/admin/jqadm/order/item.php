@@ -155,10 +155,12 @@ $paymentStatusList = [
 
 			<div class="col-xl-9 item-content tab-content">
 
-				<div id="order" class="item-order tab-pane fade show active vue" role="tabpanel" aria-labelledby="order">
+				<div id="order" class="item-order tab-pane fade show active" role="tabpanel" aria-labelledby="order"
+					data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+					data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
 					<div class="row item-base">
-						<div class="col-xl-6 block <?= $this->site()->readonly( $this->item->getSiteId() ) ?>">
+						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
 							<div class="box">
 								<div class="form-group row">
 									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?></label>
@@ -183,7 +185,7 @@ $paymentStatusList = [
 									<div class="col-8">
 										<select class="form-select item-statuspayment" required="required" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.statuspayment' ) ) ) ?>"
-											<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
+											:readonly="!can('change')">
 											<?php foreach( $paymentStatusList as $status => $name ) : ?>
 												<option value="<?= $enc->attr( $status ) ?>" <?= $selected( $this->item->getStatusPayment(), $status ) ?> >
 													<?= $enc->html( $name ) ?>
@@ -198,9 +200,9 @@ $paymentStatusList = [
 										<input is="flat-pickr" class="form-control item-datepayment select" type="datetime-local" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datepayment' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-											v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/order.datepayment' ) ) ) ?>`"
-											v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/order.siteid' ) ) ) ?>` !== ''"
-											v-bind:config="Aimeos.flatpickr.datetime">
+											:value="item['order.datepayment']"
+											:disabled="!can('change')"
+											:config="Aimeos.flatpickr.datetime">
 									</div>
 								</div>
 								<div class="form-group row">
@@ -208,7 +210,7 @@ $paymentStatusList = [
 									<div class="col-8">
 										<select class="form-select item-statusdelivery" required="required" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.statusdelivery' ) ) ) ?>"
-											<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
+											:readonly="!can('change')">
 											<?php foreach( $deliveryStatusList as $status => $name ) : ?>
 												<option value="<?= $enc->attr( $status ) ?>" <?= $selected( $this->item->getStatusDelivery(), $status ) ?> >
 													<?= $enc->html( $name ) ?>
@@ -223,15 +225,15 @@ $paymentStatusList = [
 										<input is="flat-pickr" class="form-control item-datedelivery select" type="datetime-local" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.datedelivery' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-											v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/order.datedelivery' ) ) ) ?>`"
-											v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/order.siteid' ) ) ) ?>` !== ''"
-											v-bind:config="Aimeos.flatpickr.datetime">
+											:value="item['order.datedelivery']"
+											:disabled="!can('change')"
+											:config="Aimeos.flatpickr.datetime">
 									</div>
 								</div>
 							</div>
 						</div>
 
-						<div class="col-xl-6 block <?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>">
+						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
 							<div class="box">
 								<div class="form-group row">
 									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Invoice No.' ) ) ?></label>
@@ -242,21 +244,19 @@ $paymentStatusList = [
 										<?= $enc->html( $this->translate( 'admin', 'Invoice number for the order' ) ) ?>
 									</div>
 								</div>
-								<?php if( strncmp( $this->site()->siteid(), $this->item->getSiteId(), strlen( $this->site()->siteid() ) ) === 0 ) : ?>
-									<div class="form-group row">
-										<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Related ID' ) ) ?></label>
-										<div class="col-8">
-											<input class="form-control item-relatedid" type="text" tabindex="1"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'order.relatedid' ) ) ) ?>"
-												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Related order ID (optional)' ) ) ?>"
-												value="<?= $enc->attr( $this->get( 'itemData/order.relatedid' ) ) ?>"
-												<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
-										</div>
-										<div class="col-12 form-text text-muted help-text">
-											<?= $enc->html( $this->translate( 'admin', 'Order number entered by the customer' ) ) ?>
-										</div>
+								<div class="form-group row">
+									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Related ID' ) ) ?></label>
+									<div class="col-8">
+										<input class="form-control item-relatedid" type="text" tabindex="1"
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.relatedid' ) ) ) ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Related order ID (optional)' ) ) ?>"
+											value="<?= $enc->attr( $this->get( 'itemData/order.relatedid' ) ) ?>"
+											:readonly="!can('change')">
 									</div>
-								<?php endif ?>
+									<div class="col-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Related order of the customer' ) ) ?>
+									</div>
+								</div>
 								<div class="form-group row">
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>
 									<div class="col-8">
@@ -274,13 +274,26 @@ $paymentStatusList = [
 									<div class="form-group row">
 										<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer' ) ) ?></label>
 										<div class="col-8">
-											<select class="form-select combobox item-customer" tabindex="1"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'order.customerid' ) ) ) ?>"
-												<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
-												<option value="<?= $enc->attr( $this->get( 'itemData/order.customerid' ) ) ?>" >
-													<?= $enc->html( $this->get( 'itemData/customer.code' ) ) ?>
-												</option>
-											</select>
+											<Multiselect class="item-customer"
+												value-prop="customer.id"
+												track-by="customer.id"
+												label="customer.code"
+												@input="useCustomer($event)"
+												:value="item"
+												:options="async function(query) {return await customer(query)}"
+												:resolve-on-load="false"
+												:filter-results="false"
+												:can-deselect="false"
+												:allow-absent="true"
+												:searchable="true"
+												:can-clear="false"
+												:required="true"
+												:min-chars="1"
+												:object="true"
+												:delay="300"
+											>
+												<select class="form-select"></select>
+											</Multiselect>
 										</div>
 									</div>
 								<?php endif ?>
@@ -291,7 +304,7 @@ $paymentStatusList = [
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.customerref' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Customer reference (optional)' ) ) ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/order.customerref' ) ) ?>"
-											<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
+											:readonly="!can('change')">
 									</div>
 									<div class="col-12 form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'Order number entered by the customer' ) ) ?>
@@ -302,7 +315,7 @@ $paymentStatusList = [
 									<div class="col-8">
 										<select class="form-select item-languageid" required="required" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.languageid' ) ) ) ?>"
-											<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?> >
+											:readonly="!can('change')">
 											<option value="">
 												<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 											</option>
