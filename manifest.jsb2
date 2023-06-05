@@ -41,6 +41,9 @@
 			"text": "serialize.js",
 			"path": "js/"
 		},{
+			"text": "sprintf.js",
+			"path": "js/"
+		},{
 			"text": "combo.jquery.js",
 			"path": "js/"
 		},{
