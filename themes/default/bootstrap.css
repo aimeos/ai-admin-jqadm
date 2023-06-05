@@ -351,6 +351,10 @@ td.is-invalid .form-select {
 	}
 }
 
+.input-group {
+	flex-wrap: nowrap;
+}
+
 .input-group-append {
 	border-bottom: 1px solid var(--bs-line, #bbb);
 }

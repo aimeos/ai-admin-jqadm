@@ -1,6 +1,6 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2018
+ * @copyright Aimeos (aimeos.org), 2017-2023
  */
 
 
@@ -8,12 +8,52 @@
 Aimeos.Coupon = {
 
 	init() {
+		Aimeos.components['coupon'] = new Vue({
+			el: document.querySelector('.item-coupon #basic'),
+			data: {
+				item: {},
+				decorators: [],
+				providers: [],
+				siteid: null,
+			},
+			mounted() {
+				console.log(this.$el)
+				this.Aimeos = Aimeos;
+				this.decorators = JSON.parse(this.$el.dataset.decorators || '[]');
+				this.providers = JSON.parse(this.$el.dataset.providers || '[]');
+				this.item = JSON.parse(this.$el.dataset.item || '{}');
+				this.siteid = this.$el.dataset.siteid;
+			},
+			mixins: [this.mixins]
+		});
 
 		this.setupConfig();
-		this.setupDecorator();
-		this.setupProvider();
 
 		Aimeos.Coupon.Code.init();
+	},
+
+
+	mixins: {
+		methods: {
+			can(action) {
+				if(this.item['coupon.siteid']) {
+					let allow = (new String(this.item['coupon.siteid'])).startsWith(this.siteid);
+
+					switch(action) {
+						case 'change': return allow;
+					}
+				}
+
+				return false;
+			},
+
+
+			decorate(name) {
+				if(!(new String(this.item['coupon.provider'])).includes(name)) {
+					this.item['coupon.provider'] = this.item['coupon.provider'] + ',' + name
+				}
+			},
+		},
 	},
 
 
@@ -29,53 +69,14 @@ Aimeos.Coupon = {
 				Aimeos.Config.setup('coupon/config', $(this).val(), ev.delegateTarget);
 			});
 		}
-	},
-
-
-	setupDecorator() {
-
-		$(".aimeos .item-coupon").on("click", ".block:not(.readonly) .provider .dropdown .decorator-name", function() {
-
-			var name = $(this).data("name");
-			var input = $(this).closest(".provider").find('input.item-provider');
-
-			if(input.val().indexOf(name) === -1) {
-				input.val(input.val() + ',' + name);
-				input.trigger('change');
-			}
-		});
-	},
-
-
-	setupProvider() {
-
-		$(".aimeos .item-coupon").on("focus click", ".block:not(.readonly) input.item-provider", function() {
-			const self = $(this);
-
-			self.autocomplete({
-				source: self.data("names").split(","),
-				select(ev, ui) {
-					self.val(ui.item.value);
-					self.trigger('change');
-				},
-				minLength: 0,
-				delay: 0
-			});
-
-			self.autocomplete("search", "");
-		});
 	}
 };
-
-
-
 
 
 
 Aimeos.Coupon.Code = {
 
 	init() {
-
 		const node = document.querySelector('.item-coupon .coupon-code-list');
 
 		if(node) {
@@ -414,6 +415,5 @@ Aimeos.Coupon.Code = {
 
 
 $(function() {
-
 	Aimeos.Coupon.init();
 });

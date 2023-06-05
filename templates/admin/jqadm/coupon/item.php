@@ -82,17 +82,21 @@ $params = $this->get( 'pageParams', [] );
 
 		<div class="col-xl-9 item-content tab-content">
 
-			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
+				data-decorators="<?= $enc->attr( $this->get( 'itemDecorators', [] ) ) ?>"
+				data-providers="<?= $enc->attr( $this->get( 'itemProviders', [] ) ) ?>"
+				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+				data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
 				<div class="box">
 					<div class="row">
-						<div class="col-xl-6 vue block <?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ?>">
+						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.status' ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ?> >
+										:readonly="!can('change')">
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
@@ -118,7 +122,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'coupon.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/coupon.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ?>>
+										:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ) ?>
@@ -128,18 +132,25 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
 								<div class="col-sm-8">
 									<div class="input-group provider">
-										<input class="form-control combobox select item-provider noedit" type="text" required="required" tabindex="1"
-											name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.provider' ) ) ) ?>"
-											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ) ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/coupon.provider' ) ) ?>"
-											data-names="<?= implode( ',', $this->get( 'itemProviders', [] ) ) ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ?>>
-										<div class="dropdown input-group-end">
+										<Multiselect class="item-provider"
+											v-model="item['coupon.provider']"
+											:title="item['coupon.provider']"
+											:readonly="!can('change')"
+											:native-support="true"
+											:can-deselect="false"
+											:options="providers"
+											:can-clear="false"
+											:allow-absent="true"
+											:required="true"
+											:caret="false"
+										><input class="form-control">
+										</Multiselect>
+										<div v-if="can('change')" class="dropdown input-group-end">
 											<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
 											<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="decoratorButton">
-												<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
-													<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ) ?>"><?= $enc->html( $name ) ?></a></li>
-												<?php endforeach ?>
+												<li v-for="(name, idx) in decorators" :key="idx" class="dropdown-item">
+													<a class="decorator-name" href="#" @click="decorate(name)">{{ name }}</a>
+												</li>
 											</ul>
 										</div>
 									</div>
@@ -154,9 +165,9 @@ $params = $this->get( 'pageParams', [] );
 									<input is="flat-pickr" class="form-control item-datestart select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.datestart' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/coupon.datestart' ) ) ) ?>`"
-										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ) ?>` !== ''"
-										v-bind:config="Aimeos.flatpickr.datetime">
+										:value="item['coupon.datestart']"
+										:disabled="!can('change')"
+										:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site after that date and time, useful or seasonal articles' ) ) ?>
@@ -168,9 +179,9 @@ $params = $this->get( 'pageParams', [] );
 									<input is="flat-pickr" class="form-control item-dateend select" type="datetime-local" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'coupon.dateend' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'YYYY-MM-DD hh:mm:ss (optional)' ) ) ?>"
-										v-bind:value="`<?= $enc->js( $this->datetime( $this->get( 'itemData/coupon.dateend' ) ) ) ?>`"
-										v-bind:disabled="`<?= $enc->js( $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ) ?>` !== ''"
-										v-bind:config="Aimeos.flatpickr.datetime">
+										:value="item['coupon.dateend']"
+										:disabled="!can('change')"
+										:config="Aimeos.flatpickr.datetime">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'The article is only shown on the web site until that date and time, useful or seasonal articles' ) ) ?>
@@ -178,7 +189,7 @@ $params = $this->get( 'pageParams', [] );
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/coupon.siteid' ) ) ?>">
+						--><div class="col-xl-6 block" :class="{readonly: !can('change')}">
 							<table class="item-config table">
 								<thead>
 									<tr>
