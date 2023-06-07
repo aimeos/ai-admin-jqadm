@@ -215,31 +215,16 @@ Aimeos.Product.Basic = {
 
 
 				exists(ev) {
+					const filter = {'==': {'product.code': ev.target.value}}
 
-					const self = this;
-					const filter = {'==': {'product.code': ev.target.value}};
-					const fstr = JSON.stringify(filter).replace(/"/g, '\\"');
-					const body = JSON.stringify({'query': `query {
-						searchProducts(filter: "` + fstr + `") {
+					Aimeos.query(`query {
+						searchProducts(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
 							id
 						}
-					}`});
-
-					fetch($('.aimeos').data('graphql'), {
-						method: 'POST',
-						credentials: 'same-origin',
-						headers: {
-							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-						},
-						body: body
-					}).then(response => {
-						return response.json();
-					}).then(result => {
-						self.duplicate = (result.data
-							&& result.data.searchProducts
-							&& result.data.searchProducts[0]
-							&& result.data.searchProducts[0]['id'] || this.item['product.id']) !== this.item['product.id'];
-					});
+					}`).then(result => {
+						this.duplicate = result?.searchProducts?.length > 0
+							&& result?.searchProducts[0]?.id !== this.item['product.id']
+					})
 				}
 			}
 		}
