@@ -57,7 +57,7 @@ Aimeos.Order = {
 					}
 				  }
 				`).then(result => {
-					return (result?.data?.searchCustomers || []).map(item => {
+					return (result?.searchCustomers || []).map(item => {
 						return {'customer.id': item.id, 'customer.code': item.code}
 					})
 				})

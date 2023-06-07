@@ -274,7 +274,7 @@ Aimeos.Product.Attribute = {
 						}
 					  }
 					`).then(result => {
-						return (result?.data?.searchAttributes || []).map(item => {
+						return (result?.searchAttributes || []).map(item => {
 							return {'attribute.id': item.id, 'attribute.label': item.label}
 						})
 					})
@@ -296,7 +296,7 @@ Aimeos.Product.Attribute = {
 						}
 					  }
 					`).then(result => {
-						return (result?.data?.searchAttributeTypes || []).map(item => {
+						return (result?.searchAttributeTypes || []).map(item => {
 							return {'attribute.type': item.code}
 						})
 					})

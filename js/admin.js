@@ -300,7 +300,7 @@ Aimeos = {
 			if(result.errors) {
 				throw new Error(result.errors)
 			}
-			return result
+			return result?.data
 		})
 	},
 
