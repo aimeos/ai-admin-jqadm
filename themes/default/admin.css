@@ -16,7 +16,9 @@
 }
 
 .aimeos .btn:first-child:hover,
-.aimeos :not(.btn-check)+.btn:hover {
+.aimeos .btn:first-child:focus,
+.aimeos :not(.btn-check)+.btn:hover,
+.aimeos :not(.btn-check)+.btn:focus {
 	background-color: var(--bs-primary-alt-light);
 	border-color: var(--bs-primary-alt-light);
 }
