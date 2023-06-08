@@ -293,12 +293,14 @@ Aimeos = {
 			body: JSON.stringify({'query': gql})
 		}).then(response => {
 			if(!response.ok) {
+				console.error(response)
 				throw new Error(response.statusText)
 			}
 			return response.json();
 		}).then(result => {
 			if(result.errors) {
-				throw new Error(result.errors)
+				console.error(result)
+				throw new Error('GraphQL query failed')
 			}
 			return result?.data
 		})
