@@ -133,6 +133,7 @@ $params = $this->get( 'pageParams', [] );
 								<div class="col-sm-8">
 									<div class="input-group provider">
 										<Multiselect class="item-provider"
+											name="<?= $this->formparam( array( 'item', 'coupon.provider' ) ) ?>"
 											v-model="item['coupon.provider']"
 											:title="item['coupon.provider']"
 											:readonly="!can('change')"
@@ -142,7 +143,6 @@ $params = $this->get( 'pageParams', [] );
 											:can-clear="false"
 											:allow-absent="true"
 											:required="true"
-											:caret="false"
 										><input class="form-control">
 										</Multiselect>
 										<div v-if="can('change')" class="dropdown input-group-end">
