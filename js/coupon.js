@@ -17,7 +17,6 @@ Aimeos.Coupon = {
 				siteid: null,
 			},
 			mounted() {
-				console.log(this.$el)
 				this.Aimeos = Aimeos;
 				this.decorators = JSON.parse(this.$el.dataset.decorators || '[]');
 				this.providers = JSON.parse(this.$el.dataset.providers || '[]');
@@ -26,8 +25,6 @@ Aimeos.Coupon = {
 			},
 			mixins: [this.mixins]
 		});
-
-		this.setupConfig();
 
 		Aimeos.Coupon.Code.init();
 	},
@@ -48,26 +45,29 @@ Aimeos.Coupon = {
 			},
 
 
+			config(provider) {
+				if(!provider) return []
+
+				return Aimeos.query(`query {
+					getCouponConfig(provider: "` + String(provider).replace(/"/g, '\\"') + `") {
+						code
+						label
+						type
+					}
+				}`).then(result => {
+					return (result?.getCouponConfig || []).map(entry => {
+						entry.key = entry.code
+						return entry
+					})
+				})
+			},
+
+
 			decorate(name) {
 				if(!(new String(this.item['coupon.provider'])).includes(name)) {
 					this.item['coupon.provider'] = this.item['coupon.provider'] + ',' + name
 				}
 			},
-		},
-	},
-
-
-	setupConfig() {
-
-		const delegate = $(".aimeos .item-coupon .item-basic");
-		const input = $(".block:not(.readonly) input.item-provider", delegate);
-
-		if(input.length > 0 ) {
-			Aimeos.Config.setup('coupon/config', input.val(), delegate);
-
-			delegate.on("change", "input.item-provider", function(ev) {
-				Aimeos.Config.setup('coupon/config', $(this).val(), ev.delegateTarget);
-			});
 		}
 	}
 };
