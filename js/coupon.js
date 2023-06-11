@@ -16,7 +16,7 @@ Aimeos.Coupon = {
 				providers: [],
 				siteid: null,
 			},
-			mounted() {
+			beforeMount() {
 				this.Aimeos = Aimeos;
 				this.decorators = JSON.parse(this.$el.dataset.decorators || '[]');
 				this.providers = JSON.parse(this.$el.dataset.providers || '[]');

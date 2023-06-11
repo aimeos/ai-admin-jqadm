@@ -62,6 +62,9 @@
 			"text": "ckeditor.js",
 			"path": "js/"
 		},{
+			"text": "admin.js",
+			"path": "js/"
+		},{
 			"text": "auto-complete.js",
 			"path": "js/components/"
 		},{
@@ -109,9 +112,6 @@
 		},{
 			"text": "taxrates.js",
 			"path": "js/components/"
-		},{
-			"text": "admin.js",
-			"path": "js/"
 		},{
 			"text": "address.js",
 			"path": "js/apps/"

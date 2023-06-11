@@ -4,7 +4,7 @@
  */
 
 
-const AimeosMapComponent = Vue.component('map', {
+const AimeosMapComponent = Vue.component('aimeos-map', {
 
 	template: `<table class="table">
 		<tbody>
@@ -193,7 +193,7 @@ Vue.component('config-table', {
 	</table>`,
 
 	props: {
-		'keys': {type: Object, default: () => (Promise.resolve([]))},
+		'keys': {default: []},
 		'i18n': {type: Object, default: () => ({})},
 		'items': {type: Array, required: true},
 		'name': {type: String, required: true},
