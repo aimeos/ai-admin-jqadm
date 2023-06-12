@@ -33,7 +33,7 @@ const AimeosMapComponent = Vue.component('aimeos-map', {
 					<div class="btn act-add fa" :tabindex="tabindex" @click="add()"></div>
 				</td>
 				<td class="config-map-action-update" colspan="2">
-					<div class="btn btn-primary act-update" :tabindex="tabindex" @click="update()">OK</div>
+					<div class="btn btn-primary act-check fa" :tabindex="tabindex" @click="update()"></div>
 				</td>
 			</tr>
 		</tbody>

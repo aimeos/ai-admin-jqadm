@@ -351,6 +351,10 @@ body {
 	content: "\F64D";
 }
 
+.aimeos .btn.act-check.fa:before {
+	content: "\F633";
+}
+
 .aimeos .btn.act-close.fa:before {
 	content: "\F659";
 }
