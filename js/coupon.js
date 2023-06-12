@@ -11,7 +11,8 @@ Aimeos.Coupon = {
 		Aimeos.components['coupon'] = new Vue({
 			el: document.querySelector('.item-coupon #basic'),
 			data: {
-				item: {},
+				item: null,
+				cache: {},
 				decorators: [],
 				providers: [],
 				siteid: null,
@@ -47,8 +48,9 @@ Aimeos.Coupon = {
 
 			config(provider) {
 				if(!provider) return []
+				if(this.cache[provider]) return this.cache[provider]
 
-				return Aimeos.query(`query {
+				return this.cache[provider] = Aimeos.query(`query {
 					getCouponConfig(provider: "` + String(provider).replace(/"/g, '\\"') + `") {
 						code
 						label
