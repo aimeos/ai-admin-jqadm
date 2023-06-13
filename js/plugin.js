@@ -44,12 +44,15 @@ Aimeos.Plugin = {
 			},
 
 
-			config(provider) {
+			config(provider, type) {
 				if(!provider) return []
 				if(this.cache[provider]) return this.cache[provider]
 
+				provider = String(provider).replace(/"/g, '\\"')
+				type = String(type).replace(/"/g, '\\"')
+
 				return this.cache[provider] = Aimeos.query(`query {
-					getPluginConfig(provider: "` + String(provider).replace(/"/g, '\\"') + `") {
+					getPluginConfig(provider: "` + provider + `", type: "` + type + `") {
 						code
 						label
 						type

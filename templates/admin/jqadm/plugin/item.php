@@ -205,7 +205,7 @@ $enc = $this->encoder();
 								@update:items="item['config'] = $event"
 								v-bind:items="item['config'] || []"
 								v-bind:readonly="!can('change')"
-								v-bind:keys="config(item['plugin.provider'])"
+								v-bind:keys="config(item['plugin.provider'], item['plugin.type'])"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
 								v-bind:i18n="{
 									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
