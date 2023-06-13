@@ -84,7 +84,11 @@ $enc = $this->encoder();
 
 		<div class="col-xl-9 item-content tab-content">
 
-			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
+				data-decorators="<?= $enc->attr( $this->get( 'itemDecorators', [] ) ) ?>"
+				data-providers="<?= $enc->attr( $this->get( 'itemProviders', [] ) ) ?>"
+				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+				data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
 				<div class="box">
 					<div class="row">
