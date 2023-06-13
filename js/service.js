@@ -8,60 +8,70 @@
 Aimeos.Service = {
 
 	init() {
-
-		this.setupConfig();
-		this.setupDecorator();
-		this.setupProvider();
+		Aimeos.components['service'] = new Vue({
+			el: document.querySelector('.item-service #basic'),
+			data: {
+				item: null,
+				cache: {},
+				decorators: [],
+				providers: [],
+				siteid: null,
+			},
+			beforeMount() {
+				this.Aimeos = Aimeos;
+				this.decorators = JSON.parse(this.$el.dataset.decorators || '[]');
+				this.providers = JSON.parse(this.$el.dataset.providers || '[]');
+				this.item = JSON.parse(this.$el.dataset.item || '{}');
+				this.siteid = this.$el.dataset.siteid;
+			},
+			mixins: [this.mixins]
+		});
 	},
 
 
-	setupConfig() {
+	mixins: {
+		methods: {
+			can(action) {
+				if(this.item['service.siteid']) {
+					let allow = (new String(this.item['service.siteid'])).startsWith(this.siteid);
 
-		var delegate = $(".aimeos .item-service .item-basic");
+					switch(action) {
+						case 'change': return allow;
+					}
+				}
 
-		if(delegate.length > 0 ) {
-			var type = $(".item-type option:selected", delegate).val();
-			Aimeos.Config.setup('service/config', $("input.item-provider", delegate).val(), delegate, type);
+				return false;
+			},
+
+
+			config(provider, type) {
+				if(!provider) return []
+				if(this.cache[provider]) return this.cache[provider]
+
+				provider = String(provider).replace(/"/g, '\\"')
+				type = String(type).replace(/"/g, '\\"')
+
+				return this.cache[provider] = Aimeos.query(`query {
+					getServiceConfig(provider: "` + provider + `", type: "` + type + `") {
+						code
+						label
+						type
+					}
+				}`).then(result => {
+					return (result?.getServiceConfig || []).map(entry => {
+						entry.key = entry.code
+						return entry
+					})
+				})
+			},
+
+
+			decorate(name) {
+				if(!(new String(this.item['service.provider'])).includes(name)) {
+					this.item['service.provider'] = this.item['service.provider'] + ',' + name
+				}
+			},
 		}
-
-		delegate.on("change input blur", "input.item-provider", function(ev) {
-			var type = $(".item-type option:selected", delegate).val();
-			Aimeos.Config.setup('service/config', $(ev.currentTarget).val(), ev.delegateTarget, type);
-		});
-	},
-
-
-	setupDecorator() {
-
-		$(".aimeos .item-service .item-provider").parent().on("click", ".dropdown .decorator-name", function(ev) {
-
-			var name = $(this).data("name");
-			var input = $("input.item-provider", ev.delegateTarget);
-
-			if(input.val().indexOf(name) === -1) {
-				input.val(input.val() + ',' + name);
-				input.trigger("change");
-			}
-		});
-	},
-
-
-	setupProvider() {
-
-		var input = $(".aimeos .item-service").on("focus", ".item-provider", function(ev) {
-
-			var type = $(".item-type option:selected", ev.delegateTarget).val();
-
-			if(type) {
-				$(this).autocomplete({
-					source: $(this).data(type).split(","),
-					minLength: 0,
-					delay: 0
-				});
-
-				$(this).autocomplete("search", "");
-			}
-		});
 	}
 };
 
