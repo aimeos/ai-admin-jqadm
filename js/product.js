@@ -194,7 +194,7 @@ Aimeos.Product.Basic = {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				can() {
+				can(what) {
 					return (new String(this.item['product.siteid'])).startsWith(this.siteid);
 				},
 

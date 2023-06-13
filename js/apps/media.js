@@ -71,16 +71,13 @@ Aimeos.Media = {
 
 
 			can(action, idx) {
-				if(!this.items[idx][this.domain + '.lists.siteid']) {
-					return false;
-				}
+				if(this.items[idx][this.domain + '.lists.siteid']) {
+					const allow = (new String(this.items[idx][this.domain + '.lists.siteid'])).startsWith(this.siteid);
 
-				if(action === 'delete') {
-					return (new String(this.items[idx][this.domain + '.lists.siteid'])).startsWith(this.siteid);
-				}
-
-				if(action === 'move') {
-					return this.items[idx][this.domain + '.lists.siteid'] === this.siteid  && !this.items[idx]['_nosort'];
+					switch(action) {
+						case 'delete': return allow;
+						case 'move': return allow  && !this.items[idx]['_nosort'];
+					}
 				}
 
 				return false;
