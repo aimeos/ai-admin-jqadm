@@ -389,7 +389,7 @@ class Standard
 	 * Returns the backend configuration attributes of the provider and decorators
 	 *
 	 * @param \Aimeos\MShop\Coupon\Item\Iface $item Coupon item incl. provider/decorator property
-	 * @return \Aimeos\MW\Common\Critera\Attribute\Iface[] List of configuration attributes
+	 * @return \Aimeos\Base\Critera\Attribute\Iface[] List of configuration attributes
 	 */
 	public function getConfigAttributes( \Aimeos\MShop\Coupon\Item\Iface $item ) : array
 	{
