@@ -477,10 +477,9 @@ class Standard
 			}
 		}
 
-		$item->setConfig( $conf );
 		$this->notify( $manager->getProvider( $item, '' )->checkConfigBE( $conf ) );
 
-		return $item;
+		return $item->setConfig( $conf );
 	}
 
 

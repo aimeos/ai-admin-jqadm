@@ -1,6 +1,6 @@
 /**
  * @license LGPLv3, http://opensource.org/licenses/LGPL-3.0
- * @copyright Aimeos (aimeos.org), 2017-2018
+ * @copyright Aimeos (aimeos.org), 2017-2023
  */
 
 
@@ -8,56 +8,67 @@
 Aimeos.Plugin = {
 
 	init() {
-
-		this.setupConfig();
-		this.setupDecorator();
-		this.setupProvider();
+		Aimeos.components['plugin'] = new Vue({
+			el: document.querySelector('.item-plugin #basic'),
+			data: {
+				item: null,
+				cache: {},
+				decorators: [],
+				providers: [],
+				siteid: null,
+			},
+			beforeMount() {
+				this.Aimeos = Aimeos;
+				this.decorators = JSON.parse(this.$el.dataset.decorators || '[]');
+				this.providers = JSON.parse(this.$el.dataset.providers || '[]');
+				this.item = JSON.parse(this.$el.dataset.item || '{}');
+				this.siteid = this.$el.dataset.siteid;
+			},
+			mixins: [this.mixins]
+		});
 	},
 
 
-	setupConfig() {
+	mixins: {
+		methods: {
+			can(action) {
+				if(this.item['plugin.siteid']) {
+					let allow = (new String(this.item['plugin.siteid'])).startsWith(this.siteid);
 
-		var delegate = $(".aimeos .item-plugin .item-basic");
+					switch(action) {
+						case 'change': return allow;
+					}
+				}
 
-		if(delegate.length > 0 ) {
-			Aimeos.Config.setup('plugin/config', $("input.item-provider", delegate).val(), delegate);
+				return false;
+			},
+
+
+			config(provider) {
+				if(!provider) return []
+				if(this.cache[provider]) return this.cache[provider]
+
+				return this.cache[provider] = Aimeos.query(`query {
+					getPluginConfig(provider: "` + String(provider).replace(/"/g, '\\"') + `") {
+						code
+						label
+						type
+					}
+				}`).then(result => {
+					return (result?.getPluginConfig || []).map(entry => {
+						entry.key = entry.code
+						return entry
+					})
+				})
+			},
+
+
+			decorate(name) {
+				if(!(new String(this.item['plugin.provider'])).includes(name)) {
+					this.item['plugin.provider'] = this.item['plugin.provider'] + ',' + name
+				}
+			},
 		}
-
-		delegate.on("change input blur", "input.item-provider", function(ev) {
-			Aimeos.Config.setup('plugin/config', $(ev.currentTarget).val(), ev.delegateTarget);
-		});
-	},
-
-
-	setupDecorator() {
-
-		$(".aimeos .item-plugin .item-provider").parent().on("click", ".dropdown .decorator-name", function(ev) {
-
-			var name = $(this).data("name");
-			var input = $("input.item-provider", ev.delegateTarget);
-
-			if(input.val().indexOf(name) === -1) {
-				input.val(input.val() + ',' + name);
-				input.trigger("change");
-			}
-		});
-	},
-
-
-	setupProvider() {
-
-		$(".aimeos .item-plugin").on("focus", ".item-provider", function(ev) {
-
-			var type = $(".item-type option:selected", ev.delegateTarget).val() || 'order';
-
-			$(this).autocomplete({
-				source: $(this).data(type).split(","),
-				minLength: 0,
-				delay: 0
-			});
-
-			$(this).autocomplete("search", "");
-		});
 	}
 };
 

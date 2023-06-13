@@ -84,7 +84,11 @@ $enc = $this->encoder();
 
 		<div class="col-xl-9 item-content tab-content">
 
-			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
+				data-decorators="<?= $enc->attr( $this->get( 'itemDecorators', [] ) ) ?>"
+				data-providers="<?= $enc->attr( $this->get( 'itemProviders', [] ) ) ?>"
+				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+				data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
 				<div class="box">
 					<div class="row">
@@ -154,18 +158,25 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
 								<div class="col-sm-8">
 									<div class="input-group">
-										<input class="form-control combobox select item-provider noedit" type="text" required="required" tabindex="1"
-											name="<?= $enc->attr( $this->formparam( array( 'item', 'plugin.provider' ) ) ) ?>"
-											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ) ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/plugin.provider' ) ) ?>"
-											data-order="<?= implode( ',', $this->get( 'itemProviders/order', [] ) ) ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>>
-										<div class="dropdown">
+									<Multiselect class="item-provider"
+											name="<?= $this->formparam( array( 'item', 'plugin.provider' ) ) ?>"
+											v-model="item['plugin.provider']"
+											:title="item['plugin.provider']"
+											:readonly="!can('change')"
+											:native-support="true"
+											:can-deselect="false"
+											:options="providers[item['plugin.type']] || []"
+											:can-clear="false"
+											:allow-absent="true"
+											:required="true"
+										><input class="form-control">
+										</Multiselect>
+										<div v-if="can('change')" class="dropdown input-group-end">
 											<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
 											<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="decoratorButton">
-												<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
-													<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ) ?>"><?= $enc->html( $name ) ?></a></li>
-												<?php endforeach ?>
+												<li v-for="(name, idx) in decorators" :key="idx" class="dropdown-item">
+													<a class="decorator-name" href="#" @click="decorate(name)">{{ name }}</a>
+												</li>
 											</ul>
 										</div>
 									</div>
@@ -190,163 +201,29 @@ $enc = $this->encoder();
 						</div><!--
 
 						--><div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>">
-							<table class="item-config table">
-								<thead>
-									<tr>
-										<th class="config-row-key">
-											<span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ) ?></span>
-											<div class="form-text text-muted help-text">
-												<?= $enc->html( $this->translate( 'admin', 'Plugin provider or plugin decorator configuration name' ) ) ?>
-											</div>
-										</th>
-										<th>
-											<?= $enc->html( $this->translate( 'admin', 'Value' ) ) ?>
-										</th class="config-row-value">
-										<th class="actions">
-											<?php if( !$this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ) : ?>
-												<div class="btn act-add fa" tabindex="1"
-													title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>">
-												</div>
-											<?php endif ?>
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-
-									<?php foreach( (array) $this->get( 'itemData/config/key', [] ) as $idx => $key ) : ?>
-										<tr class="config-item">
-											<td class="config-row-key">
-												<input type="text" class="config-key form-control" tabindex="1"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ) ?>"
-													value="<?= $enc->attr( $this->get( 'itemData/config/key/' . $idx, $key ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>>
-												<div class="form-text text-muted help-text"></div>
-											</td>
-											<td class="config-row-value">
-												<?php $cfgval = $this->get( 'itemData/config/val/' . $idx ) ?>
-												<input type="text" class="config-value form-control config-type" tabindex="1"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>"
-													value="<?= $enc->attr( $cfgval ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>>
-											</td>
-											<td class="actions">
-												<?php if( !$this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ) : ?>
-													<div class="btn act-delete fa" tabindex="1"
-														title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
-													</div>
-												<?php endif ?>
-											</td>
+							<config-table tabindex="1"
+								@update:items="item['config'] = $event"
+								v-bind:items="item['config'] || []"
+								v-bind:readonly="!can('change')"
+								v-bind:keys="config(item['plugin.provider'])"
+								v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
+								v-bind:i18n="{
+									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
+									option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
+									help: `<?= $enc->js( $this->translate( 'admin', 'Plugin provider or plugin decorator configuration name' ) ) ?>`,
+									insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
+									delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
+								}">
+								<table class="item-config table">
+									<thead>
+										<tr>
+											<th class="config-row-key"><span class="help"><?= $enc->html( $this->translate( 'admin', 'Option' ) ) ?></span></th>
+											<th class="config-row-value"><?= $enc->html( $this->translate( 'admin', 'Value' ) ) ?></th>
+											<th class="actions"><div class="btn act-add fa"></div></th>
 										</tr>
-									<?php endforeach ?>
-
-									<tr class="config-item prototype">
-										<td class="config-row-key">
-											<input type="text" class="config-key form-control" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'key', '' ) ) ) ?>">
-											<div class="form-text text-muted help-text"></div>
-										</td>
-										<td class="config-row-value">
-
-											<div class="config-type config-type-map">
-												<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
-
-												<table class="table config-map-table">
-													<tr class="config-map-row prototype-map">
-														<td class="config-map-actions">
-															<div class="btn act-delete fa" tabindex="1"
-																title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
-															</div>
-														</td>
-														<td class="config-map-row-key">
-															<input type="text" class="config-map-key form-control" tabindex="1" disabled="disabled">
-														</td>
-														<td class="config-map-row-value">
-															<input type="text" class="config-map-value form-control" tabindex="1" disabled="disabled">
-														</td>
-													</tr>
-													<tr class="config-map-actions">
-														<td class="config-map-action-add">
-															<div class="btn act-add fa" tabindex="1"
-																title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry' ) ) ?>">
-															</div>
-														</td>
-														<td class="config-map-action-update" colspan="2">
-															<div class="btn btn-primary act-update" tabindex="1">
-																<?= $enc->attr( $this->translate( 'admin', 'OK' ) ) ?>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-
-											<div class="config-type config-type-list">
-												<input type="text" class="config-value form-control" tabindex="1" disabled="disabled"
-													name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
-
-												<table class="table config-list-table">
-													<tr class="config-list-row prototype-list">
-														<td class="config-list-actions">
-															<div class="btn act-delete fa" tabindex="1"
-																title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
-															</div>
-														</td>
-														<td class="config-list-row-value">
-															<input type="text" class="config-list-value form-control" tabindex="1" disabled="disabled">
-														</td>
-													</tr>
-													<tr class="config-list-actions">
-														<td class="config-list-action-add">
-															<div class="btn act-add fa" tabindex="1"
-																title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry' ) ) ?>">
-															</div>
-														</td>
-														<td class="config-list-action-update">
-															<div class="btn btn-primary act-update" tabindex="1">
-																<?= $enc->attr( $this->translate( 'admin', 'OK' ) ) ?>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-
-											<select class="config-value form-select config-type config-type-select" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" >
-											</select>
-
-											<select class="config-value form-select config-type config-type-boolean" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" >
-												<option value=""></option>
-												<option value="0"><?= $enc->html( $this->translate( 'client', 'no' ) ) ?></option>
-												<option value="1"><?= $enc->html( $this->translate( 'client', 'yes' ) ) ?></option>
-											</select>
-
-											<input type="text" class="config-value form-control config-type config-type-string" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
-
-											<input type="number" class="config-value form-control config-type config-type-number" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>" step="0.01">
-
-											<input type="number" class="config-value form-control config-type config-type-integer" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
-
-											<input type="date" class="config-value form-control config-type config-type-date" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
-
-											<input type="datetime-local" class="config-value form-control config-type config-type-datetime" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
-
-											<input type="time" class="config-value form-control config-type config-type-time" tabindex="1" disabled="disabled"
-												name="<?= $enc->attr( $this->formparam( array( 'item', 'config', 'val', '' ) ) ) ?>">
-										</td>
-										<td class="actions">
-											<div class="btn act-delete fa" tabindex="1"
-												title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+									</thead>
+								</table>
+							</config-table>
 						</div>
 
 					</div>
