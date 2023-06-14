@@ -494,7 +494,7 @@ msgid "Default"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Pozuň"
 
 msgid "Delete items?"
 msgstr ""
@@ -534,7 +534,7 @@ msgid "Delivery types"
 msgstr ""
 
 msgid "Delivery within"
-msgstr ""
+msgstr "Içinde eltip bermek"
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -572,7 +572,7 @@ msgid "Duplicate entry (Ctrl+D)"
 msgstr ""
 
 msgid "E-Mail"
-msgstr ""
+msgstr "E-Mail"
 
 msgid "E-Mail address (required)"
 msgstr ""
@@ -608,7 +608,7 @@ msgid "Email"
 msgstr ""
 
 msgid "End date"
-msgstr ""
+msgstr "Ahyrky senesi"
 
 msgid "End date (optional)"
 msgstr ""
@@ -661,7 +661,7 @@ msgid "First"
 msgstr ""
 
 msgid "First name"
-msgstr ""
+msgstr "Ady"
 
 msgid "First name (optional)"
 msgstr ""
@@ -803,30 +803,30 @@ msgid "Internal type name shown in the administration interface"
 msgstr ""
 
 msgid "Interval"
-msgstr ""
+msgstr "Aralyk"
 
 msgid "Interval (required)"
 msgstr ""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr ""
+msgstr "\"%1$s\" klass adynda nädogry nyşanlar bar"
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr ""
+msgstr "\"%1$s\" müşderiniň adynda nädogry nyşanlar bar"
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr ""
+msgstr "\"%1$s\" nädogry klass ady"
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr ""
+msgstr "Nädogry domen \"%1$s\""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr ""
+msgstr "Nädogry fabrika \"%1$s\""
 
 msgid "Invoice"
 msgstr ""
@@ -858,7 +858,7 @@ msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "Dil"
 
 msgid "Language ID"
 msgstr ""
@@ -876,7 +876,7 @@ msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr ""
+msgstr "Familýasy"
 
 msgid "Last name (optional)"
 msgstr ""
@@ -976,7 +976,7 @@ msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Ady"
 
 msgid "Name in URL (optional)"
 msgstr ""
@@ -992,7 +992,7 @@ msgid "Name of your shop shown to your customers"
 msgstr ""
 
 msgid "New"
-msgstr ""
+msgstr "Täze"
 
 msgid "New customers"
 msgstr ""
@@ -1004,7 +1004,7 @@ msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Indiki"
 
 msgid "Next date"
 msgstr ""
@@ -1032,7 +1032,7 @@ msgstr ""
 
 #, php-format
 msgid "No view available"
-msgstr ""
+msgstr "Görnüş ýok"
 
 msgid "No voucher"
 msgstr ""
@@ -1094,10 +1094,10 @@ msgid ""
 msgstr ""
 
 msgid "Order"
-msgstr ""
+msgstr "Sargyt"
 
 msgid "Order ID"
-msgstr ""
+msgstr "Sargyt ID"
 
 msgid "Order number entered by the customer"
 msgstr ""
@@ -1148,10 +1148,10 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr ""
+msgstr "%2$dyň %1$d-nji(y) sahypasy"
 
 msgid "Password"
-msgstr ""
+msgstr "Açar sözi"
 
 msgid "Password (required)"
 msgstr ""
@@ -1166,13 +1166,13 @@ msgid "Pay status"
 msgstr ""
 
 msgid "Payment"
-msgstr ""
+msgstr "Töleg"
 
 msgid "Payment date"
 msgstr ""
 
 msgid "Payment status"
-msgstr ""
+msgstr "Töleg ýagdaýy"
 
 msgid "Payment types"
 msgstr ""
@@ -1192,7 +1192,7 @@ msgid ""
 msgstr ""
 
 msgid "Please select"
-msgstr ""
+msgstr "Saýlaň"
 
 msgid "Plugin"
 msgstr ""
@@ -1234,10 +1234,10 @@ msgid "Potential problems"
 msgstr ""
 
 msgid "Previous"
-msgstr ""
+msgstr "Öňki"
 
 msgid "Price"
-msgstr ""
+msgstr "Bahasy"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1267,7 +1267,7 @@ msgid "Problem"
 msgstr ""
 
 msgid "Product"
-msgstr ""
+msgstr "Haryt"
 
 msgid "Product ID"
 msgstr ""
@@ -1362,7 +1362,7 @@ msgid "Promotion"
 msgstr ""
 
 msgid "Properties"
-msgstr ""
+msgstr "Aýratynlyklary"
 
 msgid "Property value (required)"
 msgstr ""
@@ -1377,7 +1377,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr ""
+msgstr "Mukdar"
 
 msgid "Quantity scale"
 msgstr ""
@@ -1386,7 +1386,7 @@ msgid "Rabate"
 msgstr ""
 
 msgid "Rating"
-msgstr ""
+msgstr "Bahalandyrma"
 
 msgid "Rating and number of ratings for the merchant"
 msgstr ""
@@ -1406,7 +1406,7 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
-msgstr ""
+msgstr "Salgylanma"
 
 msgid "Reference ID"
 msgstr ""
@@ -1442,7 +1442,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Täzeden düzmek"
 
 msgid "Response"
 msgstr ""
@@ -1506,10 +1506,10 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr ""
+msgstr "Gutlag"
 
 msgid "Save"
-msgstr ""
+msgstr "Ýatda sakla"
 
 msgid "Save & Close"
 msgstr ""
@@ -1524,7 +1524,7 @@ msgid "Save entry (Ctrl+S)"
 msgstr ""
 
 msgid "Search"
-msgstr ""
+msgstr "Gözlemek"
 
 msgid "Second level type for grouping items"
 msgstr ""
@@ -1578,7 +1578,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr ""
+msgstr "Eltip bermek"
 
 msgid "Shipping / Payment costs"
 msgstr ""
@@ -1622,7 +1622,7 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr ""
+msgstr "Görkez"
 
 msgid "Show entry"
 msgstr ""
@@ -1677,10 +1677,10 @@ msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr ""
+msgstr "Ýagdaý"
 
 msgid "Status"
-msgstr ""
+msgstr "Ýagdaý"
 
 msgid "Stock Type"
 msgstr ""
@@ -1695,13 +1695,13 @@ msgid "Stock type"
 msgstr ""
 
 msgid "Street"
-msgstr ""
+msgstr "Köçe"
 
 msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr ""
+msgstr "Jemi"
 
 msgid "Subscription"
 msgstr ""
@@ -1712,10 +1712,10 @@ msgid ""
 msgstr ""
 
 msgid "Suggested products"
-msgstr ""
+msgstr "Teklip edilýän önümler"
 
 msgid "Sum"
-msgstr ""
+msgstr "Jemi"
 
 msgid "Supplier"
 msgstr ""
@@ -1745,7 +1745,7 @@ msgid "Tax rate in %"
 msgstr ""
 
 msgid "Telephone"
-msgstr ""
+msgstr "Telefon"
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1839,7 +1839,7 @@ msgid "Top countries"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Jemi"
 
 msgid "Total orders"
 msgstr ""
@@ -1888,7 +1888,7 @@ msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr ""
+msgstr "\"%1$s\" metodyny işledip bolmaýar"
 
 msgid "Unfinished orders"
 msgstr ""
@@ -1994,7 +1994,7 @@ msgid ""
 msgstr ""
 
 msgid "Web site"
-msgstr ""
+msgstr "Web sahypa"
 
 msgid "Web site URL (optional)"
 msgstr ""
@@ -2067,7 +2067,7 @@ msgstr "Kategoriýalar"
 
 #, php-format
 msgid "characteristic"
-msgstr ""
+msgstr "Häsiýetleri"
 
 #, php-format
 msgid "code"
@@ -2142,7 +2142,7 @@ msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr ""
+msgstr "Iň soňky"
 
 #, php-format
 msgid "locale"
@@ -2191,14 +2191,14 @@ msgid "no"
 msgstr ""
 
 msgid "none"
-msgstr ""
+msgstr "hijisi"
 
 msgid "not available any more"
 msgstr ""
 
 #, php-format
 msgid "option"
-msgstr ""
+msgstr "Görnüşler"
 
 #, php-format
 msgid "order"
@@ -2263,7 +2263,7 @@ msgstr ""
 
 #, php-format
 msgid "property"
-msgstr ""
+msgstr "Aýratynlyklary"
 
 #, php-format
 msgid "quick/countcompleted"
@@ -2296,7 +2296,7 @@ msgstr ""
 
 #, php-format
 msgid "review"
-msgstr ""
+msgstr "Synlar"
 
 #, php-format
 msgid "rule"
@@ -2319,7 +2319,7 @@ msgstr ""
 
 #, php-format
 msgid "service"
-msgstr ""
+msgstr "Hyzmatlar"
 
 #, php-format
 msgid "servicedelivery"
@@ -2389,11 +2389,11 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr ""
+msgstr "Abunalar"
 
 #, php-format
 msgid "supplier"
-msgstr ""
+msgstr "Üpjün edijiler"
 
 msgid "tag"
 msgstr ""
@@ -2490,7 +2490,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr ""
+msgstr "Hyzmatlar"
 
 #, php-format
 msgid "type/service/lists"
