@@ -5,10 +5,10 @@
 
 /* Check for preferred theme mode (dark/light) */
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-const setLight = document.cookie.includes('aimeos_backend_theme=light');
+const isLight = document.cookie.includes('aimeos_backend_theme=light');
 
 //Light by default (based on View used) - checks for Dark preference (by browser, or cookie)
-if (prefersDark.matches && !setLight){
+if (prefersDark.matches && !isLight){
 	document.body.classList.remove('light');
 	document.body.classList.add('dark')
 }
@@ -16,9 +16,10 @@ if (prefersDark.matches && !setLight){
 document.querySelectorAll(".btn-theme").forEach(item => {
 	item.addEventListener("click", function() {
 		['light', 'dark'].map(cl => document.body.classList.toggle(cl));
+		const d = new Date();
 		const cookieName = "aimeos_backend_theme"
 		const theme = document.body.classList.contains("dark") ? "dark" : "light";
-		const expires = "expires=" + (new Date()).setTime(d.getTime() + (7*84600000)).toUTCString(); // 7 days (Safari does not allow for more)
+		const expires = "expires=" + d.setTime(d.getTime() + (7*84600000)).toUTCString(); // 7 days (Safari does not allow for more)
 		document.cookie = cookieName + "=" + theme + ";" + expires + ";path=/";
 	});
 });
