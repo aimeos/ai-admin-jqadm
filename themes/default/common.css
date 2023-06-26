@@ -54,7 +54,8 @@ body {
 }
 
 body .table {
-	--bs-table-striped-bg: #F8FAFC;
+	--bs-table-striped-bg: var(--bs-bg);
+	--bs-table-hover-color: var(--bs-secondary);
 	--bs-table-hover-bg: rgba(232, 240, 255, 0.15);
 }
 
