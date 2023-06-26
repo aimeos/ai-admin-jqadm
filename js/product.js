@@ -22,7 +22,7 @@ Aimeos.Product = {
 		const components = [
 			{
 				name: 'basic',
-				el: '.item-basic .box',
+				el: '.item-product .item-basic .box',
 				data: {
 					duplicate: false,
 					item: $(".item-basic [data-data]").data("data") || {},
@@ -33,7 +33,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'characteristic/attribute',
-				el: '.item-characteristic-attribute .attribute-list',
+				el: '.item-product .item-characteristic-attribute .attribute-list',
 				data: {
 					items: $(".item-characteristic-attribute .attribute-list").data("items"),
 					keys: $(".item-characteristic-attribute .attribute-list").data("keys"),
@@ -44,7 +44,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'characteristic/hidden',
-				el: '.item-characteristic-hidden .attribute-list',
+				el: '.item-product .item-characteristic-hidden .attribute-list',
 				data: {
 					items: $(".item-characteristic-hidden .attribute-list").data("items"),
 					keys: $(".item-characteristic-hidden .attribute-list").data("keys"),
@@ -55,7 +55,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'characteristic/variant',
-				el: '.item-characteristic-variant .attribute-list',
+				el: '.item-product .item-characteristic-variant .attribute-list',
 				data: {
 					items: $(".item-characteristic-variant .attribute-list").data("items"),
 					keys: $(".item-characteristic-variant .attribute-list").data("keys"),
@@ -66,7 +66,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'option/config',
-				el: '.item-option-config .attribute-list',
+				el: '.item-product .item-option-config .attribute-list',
 				data: {
 					items: $(".item-option-config .attribute-list").data("items"),
 					keys: $(".item-option-config .attribute-list").data("keys"),
@@ -77,7 +77,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'option/custom',
-				el: '.item-option-custom .attribute-list',
+				el: '.item-product .item-option-custom .attribute-list',
 				data: {
 					items: $(".item-option-custom .attribute-list").data("items"),
 					keys: $(".item-option-custom .attribute-list").data("keys"),
@@ -88,7 +88,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'catalog/default',
-				el: '.item-category .catalog-default .category-list',
+				el: '.item-product .item-category .catalog-default .category-list',
 				data: {
 					items: $(".item-category .catalog-default .category-list").data("items"),
 					keys: $(".item-category .catalog-default .category-list").data("keys"),
@@ -99,7 +99,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'catalog/promotion',
-				el: '.item-category .catalog-promotion .category-list',
+				el: '.item-product .item-category .catalog-promotion .category-list',
 				data: {
 					items: $(".item-category .catalog-promotion .category-list").data("items"),
 					keys: $(".item-category .catalog-promotion .category-list").data("keys"),
@@ -110,7 +110,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'supplier/default',
-				el: '.item-supplier .supplier-default .supplier-list',
+				el: '.item-product .item-supplier .supplier-default .supplier-list',
 				data: {
 					items: $(".item-supplier .supplier-default .supplier-list").data("items"),
 					keys: $(".item-supplier .supplier-default .supplier-list").data("keys"),
@@ -121,7 +121,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'supplier/promotion',
-				el: '.item-supplier .supplier-promotion .supplier-list',
+				el: '.item-product .item-supplier .supplier-promotion .supplier-list',
 				data: {
 					items: $(".item-supplier .supplier-promotion .supplier-list").data("items"),
 					keys: $(".item-supplier .supplier-promotion .supplier-list").data("keys"),
@@ -132,7 +132,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'related/bought',
-				el: '.item-related-bought .product-list',
+				el: '.item-product .item-related-bought .product-list',
 				data: {
 					items: $(".item-related-bought .product-list").data("items"),
 					keys: $(".item-related-bought .product-list").data("keys"),
@@ -143,7 +143,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'related/suggest',
-				el: '.item-related-suggest .product-list',
+				el: '.item-product .item-related-suggest .product-list',
 				data: {
 					items: $(".item-related-suggest .product-list").data("items"),
 					keys: $(".item-related-suggest .product-list").data("keys"),
@@ -154,7 +154,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'bundle',
-				el: '.item-bundle .product-list',
+				el: '.item-product .item-bundle .product-list',
 				data: {
 					items: $(".item-bundle .product-list").data("items"),
 					keys: $(".item-bundle .product-list").data("keys"),
@@ -165,7 +165,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'selection',
-				el: '#item-selection-group',
+				el: '.item-product #item-selection-group',
 				data: {
 					items: $("#item-selection-group").data("items"),
 					keys: $("#item-selection-group").data("keys"),
@@ -175,7 +175,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'stock',
-				el: '.item-stock .stock-list',
+				el: '.item-product .item-stock .stock-list',
 				data: {
 					items: $(".item-stock .stock-list").data("items"),
 					keys: $(".item-stock .stock-list").data("keys"),
@@ -186,7 +186,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'subscription',
-				el: '.item-subscription .subscription-list',
+				el: '.item-product .item-subscription .subscription-list',
 				data: {
 					items: $(".item-subscription .subscription-list").data("items"),
 					keys: $(".item-subscription .subscription-list").data("keys"),
@@ -197,7 +197,7 @@ Aimeos.Product = {
 			},
 			{
 				name: 'order',
-				el: '.item-order .order-list',
+				el: '.item-product .item-order .order-list',
 				data: {
 					'id': null,
 					'items': [],
