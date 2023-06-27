@@ -135,7 +135,7 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 
 
 $columnList = [
-	'order.id' => $this->translate( 'admin', 'Invoice' ),
+	'order.id' => $this->translate( 'admin', 'ID' ),
 	'order.channel' => $this->translate( 'admin', 'Type' ),
 	'order.statuspayment' => $this->translate( 'admin', 'Pay status' ),
 	'order.datepayment' => $this->translate( 'admin', 'Pay date' ),
@@ -389,7 +389,7 @@ $statusList = [
 							</div>
 							<div class="card">
 								<div class="card-header">
-									<span><?= $enc->html( $this->translate( 'admin', 'Invoice' ) ) ?></span>
+									<span><?= $enc->html( $this->translate( 'admin', 'Order' ) ) ?></span>
 									<button class="btn btn-primary" formaction="<?= $enc->attr( $this->link( 'admin/jqadm/url/batch', ['resource' => 'order'] ) ) ?>">
 										<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
 									</button>
