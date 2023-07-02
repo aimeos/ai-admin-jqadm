@@ -611,7 +611,10 @@ class Standard
 	{
 		$data = $item->toArray( true );
 
-		if( $this->view()->access( ['super'] ) || $item->getId() === $this->context()->user() ) {
+		if( $this->view()->access( ['super', 'admin'] )
+			|| $this->view()->access( ['editor'] ) && $item->getId() === null
+			|| $item->getId() === $this->context()->user()
+		) {
 			$data['.modify'] = true;
 		}
 
