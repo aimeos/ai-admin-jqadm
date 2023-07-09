@@ -148,8 +148,8 @@ Vue.component('config-table', {
 						:name="fname(\'val\', pos)"
 						v-model="entry.val">
 						<option value=""></option>
-						<option value="0">{{ i18n.yes || 'yes' }}</option>
-						<option value="1">{{ i18n.no || 'no' }}</option>
+						<option value="0">{{ i18n.no || 'no' }}</option>
+						<option value="1">{{ i18n.yes || 'yes' }}</option>
 					</select>
 
 					<input v-if="entry.type === 'integer'" type="number" class="config-value form-control config-type config-type-integer"
