@@ -311,7 +311,6 @@ class Standard
 
 			$options = $context->config()->get( 'controller/common/media/options', [] );
 			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
-			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 
 			if( !in_array( $image->getMimetype(), ['image/webp', 'image/jpeg', 'image/png', 'image/gif'] ) )
 			{
@@ -319,7 +318,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 
-			$filepath = $siteId . 'd/icon.' . $ext;
+			$filepath = $siteId . 'd/icon.' . $this->extension( $image->getMimetype() );
 			$context->fs( 'fs-media' )->write( $filepath, $image->save() );
 
 			$item->setIcon( $filepath );
@@ -347,7 +346,6 @@ class Standard
 
 			$options = $context->config()->get( 'controller/common/media/options', [] );
 			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
-			$ext = pathinfo( $file->getClientFilename(), PATHINFO_EXTENSION );
 			$filepaths = [];
 
 			if( !in_array( $image->getMimetype(), ['image/webp', 'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'] ) )
@@ -361,7 +359,7 @@ class Standard
 				$w = $size['maxwidth'] ?? null;
 				$h = $size['maxheight'] ?? null;
 
-				$filepath = $siteId . 'd/logo' . $w . '.' . $ext;
+				$filepath = $siteId . 'd/logo' . $w . '.' . $this->extension( $image->getMimetype() );
 				$context->fs( 'fs-media' )->write( $filepath, $image->scale( $w, $h )->save() );
 				$filepaths[(int) $w ?: 1] = $filepath;
 			}
@@ -370,6 +368,27 @@ class Standard
 		}
 
 		return $item;
+	}
+
+
+	/**
+	 * Returns the file extension for the passed mime type
+	 *
+	 * @param string $mimetype Mime type, e.g. "image/svg+xml"
+	 * @return string File extension
+	 */
+	protected function extension( string $mimetype ) : string
+	{
+		switch( $mimetype )
+		{
+			case 'image/webp': return 'webp';
+			case 'image/jpeg': return 'jpg';
+			case 'image/png': return 'png';
+			case 'image/gif': return 'gif';
+			case 'image/svg+xml': return 'svg';
+		}
+
+		return 'txt';
 	}
 
 
