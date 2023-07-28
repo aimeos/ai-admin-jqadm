@@ -4,6 +4,72 @@
  */
 
 
+const AimeosListComponent = Vue.component('aimeos-list', {
+
+	template: `<table class="table">
+		<tbody>
+			<tr v-for="(entry, idx) in entries" :key="idx" class="config-item">
+				<td class="actions">
+					<div v-if="!readonly" class="btn act-delete fa"
+						:tabindex="tabindex"
+						@click="remove(idx)">
+					</div>
+				</td>
+				<td class="config-row-value">
+					<input class="form-control"
+						:tabindex="tabindex"
+						:readonly="readonly"
+						v-model="entries[idx]">
+				</td>
+			</tr>
+			<tr class="config-map-actions">
+				<td class="config-map-action-add">
+					<div class="btn act-add fa" :tabindex="tabindex" @click="add()"></div>
+				</td>
+				<td class="config-map-action-update" colspan="2">
+					<div class="btn btn-primary act-check fa" :tabindex="tabindex" @click="update()"></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>`,
+
+	props: {
+		'list': {type: Array, required: true},
+		'readonly': {type: Boolean, default: true},
+		'tabindex': {type: String, default: '1'}
+	},
+
+	data() {
+		return {
+			entries: []
+		}
+	},
+
+	methods: {
+		add() {
+			this.entries.push('');
+		},
+
+		remove(idx) {
+			this.entries.splice(idx, 1);
+		},
+
+		update() {
+			this.$emit('update', this.entries)
+		}
+	},
+
+	watch: {
+		list: {
+			immediate: true,
+			handler() {
+				this.entries = this.list
+			}
+		}
+	}
+});
+
+
 const AimeosMapComponent = Vue.component('aimeos-map', {
 
 	template: `<table class="table">
@@ -90,6 +156,7 @@ const AimeosMapComponent = Vue.component('aimeos-map', {
 Vue.component('config-table', {
 
 	components: {
+		AimeosListComponent,
 		AimeosMapComponent
 	},
 
@@ -127,6 +194,20 @@ Vue.component('config-table', {
 						:readonly="readonly"
 						:name="fname(\'val\', pos)"
 						v-model="entry.val" />
+
+					<div v-if="entry.type === 'list'">
+						<input class="form-control" readonly
+							:tabindex="tabindex"
+							:name="fname(\'val\', pos)"
+							:value="JSON.stringify(entry.val || [])"
+							@click="$set(entry, 'show', true)">
+						<AimeosListComponent v-if="entry.show"
+							:tabindex="tabindex"
+							:readonly="readonly"
+							:list="entry.val || []"
+							@update="$set(entry, 'val', $event); $set(entry, 'show', false)"
+						></AimeosMapComponent>
+					</div>
 
 					<div v-if="entry.type === 'map'">
 						<input class="form-control" readonly
