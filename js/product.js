@@ -1173,7 +1173,7 @@ Aimeos.Product.Supplier = {
 						switch(action) {
 							case 'delete': return allow;
 							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
-							case 'move': return allow && this.items[idx]['product.lists.id'] != '';
+							case 'move': return allow;
 						}
 					}
 
@@ -1181,28 +1181,31 @@ Aimeos.Product.Supplier = {
 				},
 
 
-				itemFcn() {
-
-					return function(request, response, element) {
-
-						let labelFcn = function(attr) {
-							return attr['supplier.label'] + ' (' + attr['supplier.code'] + ')';
-						}
-
-						Aimeos.getOptions(request, response, element, 'supplier', 'supplier.label', 'supplier.label', null, labelFcn);
+				fetch(input, idx) {
+					const filter = {
+						'||': [
+							{'=~': {'supplier.label': input}},
+							{'=~': {'supplier.code': input}},
+							{'==': {'supplier.id': input}}
+						]
 					}
+
+					return Aimeos.query(`query {
+						searchSuppliers(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
+						  id
+						  label
+						}
+					  }
+					`).then(result => {
+						return (result?.searchSuppliers || []).map(item => {
+							return {'supplier.id': item.id, 'supplier.label': item.label}
+						})
+					})
 				},
 
 
-				label(idx) {
-
-					let label = this.items[idx]['supplier.label'];
-
-					if(this.items[idx]['supplier.code']) {
-						label += ' (' + this.items[idx]['supplier.code'] + ')';
-					}
-
-					return label;
+				load(select) {
+					select.refreshOptions()
 				},
 
 
@@ -1219,33 +1222,11 @@ Aimeos.Product.Supplier = {
 				},
 
 
-				update(ev) {
-
-					this.$set(this.items[ev.index], 'product.lists.id', '');
-					this.$set(this.items[ev.index], 'product.lists.type', this.listtype);
-					this.$set(this.items[ev.index], 'product.lists.siteid', this.siteid);
-					this.$set(this.items[ev.index], 'product.lists.refid', '');
-					this.$set(this.items[ev.index], 'supplier.label', ev.label);
-					this.$set(this.items[ev.index], 'supplier.id', ev.value);
-					this.$set(this.items[ev.index], 'supplier.code', '');
-
-					let ids = [];
-
-					for(idx in this.items) {
-
-						if(this.items[idx]['product.lists.type'] != this.listtype) {
-							continue;
-						}
-
-						this.items[idx]['css'] = '';
-
-						if(ids.indexOf(this.items[idx]['supplier.id']) !== -1) {
-							this.items[idx]['css'] = 'is-invalid';
-						}
-
-						ids.push(this.items[idx]['supplier.id']);
-					}
-				}
+				use(idx, ev) {
+					this.$set(this.items[idx], 'product.lists.refid', ev['supplier.id']);
+					this.$set(this.items[idx], 'supplier.label', ev['supplier.label']);
+					this.$set(this.items[idx], 'supplier.id', ev['supplier.id']);
+				},
 			}
 		};
 	}
