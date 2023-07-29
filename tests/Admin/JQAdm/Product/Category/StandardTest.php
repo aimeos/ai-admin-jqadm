@@ -89,7 +89,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'category' => [[
 				'product.lists.id' => '',
 				'product.lists.type' => 'default',
-				'catalog.id' => '-1',
+				'product.lists.refid' => '-1',
 			]]
 		);
 
@@ -113,7 +113,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'category' => [[
 				'product.lists.id' => '',
 				'product.lists.type' => 'promotion',
-				'catalog.id' => '-1',
+				'product.lists.refid' => '-1',
 			]]
 		);
 
