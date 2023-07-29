@@ -85,7 +85,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			'supplier' => [[
 				'product.lists.id' => '',
 				'product.lists.type' => 'default',
-				'supplier.id' => '-1',
+				'product.lists.refid' => '-1',
 			]]
 		);
 

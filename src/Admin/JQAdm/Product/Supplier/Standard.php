@@ -239,8 +239,9 @@ class Standard
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $item Product item object without referenced domain items
 	 * @param array $data Data array
+	 * @return \Aimeos\MShop\Product\Item\Iface Modified product item
 	 */
-	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data )
+	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'supplier' );
@@ -251,12 +252,12 @@ class Standard
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
 
 			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
-				->setRefId( $this->val( $entry, 'supplier.id' ) );
+				->setRefId( $this->val( $entry, 'product.lists.refid' ) );
 
 			$item->addListItem( 'supplier', $litem );
 		}
 
-		$item->deleteListItems( $listItems );
+		return $item->deleteListItems( $listItems );
 	}
 
 
