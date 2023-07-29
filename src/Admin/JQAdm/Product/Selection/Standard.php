@@ -286,7 +286,7 @@ class Standard
 	 * @param array $entry Associative list of key/values for product attribute references
 	 * @return \Aimeos\MShop\Product\Item\Iface Updated artice item object
 	 */
-	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $entry )
+	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $entry ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
 		$litems = $refItem->getListItems( 'attribute', 'variant', null, false );
