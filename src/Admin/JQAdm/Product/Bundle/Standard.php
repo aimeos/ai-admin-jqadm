@@ -242,21 +242,19 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
-
-		$listItem = $listManager->create()->setType( 'default' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'product', 'default', null, false );
 
 		foreach( $data as $idx => $entry )
 		{
-			$litem = $listItems->get( $entry['product.lists.id'] ?? null ) ?: clone $listItem;
-			$litem->setId( $entry['product.lists.id'] )->setRefId( $entry['product.lists.refid'] )->setPosition( $idx );
-			$item->addListItem( 'product', $litem, $litem->getRefItem() );
+			$listid = $this->val( $entry, 'product.lists.id' );
+			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+			$litem->setRefId( $this->val( $entry, 'product.lists.refid' ) )->setPosition( $idx );
 
-			unset( $listItems[$litem->getId()] );
+			$item->addListItem( 'product', $litem );
 		}
 
-		return $item->deleteListItems( $listItems->toArray() );
+		return $item->deleteListItems( $listItems );
 	}
 
 

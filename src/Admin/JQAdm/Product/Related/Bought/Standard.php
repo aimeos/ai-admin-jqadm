@@ -235,21 +235,19 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'product', 'bought-together', null, false );
 
 		foreach( $data as $idx => $entry )
 		{
-			$id = $this->val( $entry, 'product.lists.id' );
-			$refid = $this->val( $entry, 'product.lists.refid' );
+			$listid = $this->val( $entry, 'product.lists.id' );
+			$litem = $listItems->pull( $listid ) ?: $manager->createListItem()->setType( 'bought-together' );
+			$litem->setRefId( $this->val( $entry, 'product.lists.refid' ) )->setPosition( $idx );
 
-			$litem = $listItems->pull( $id ) ?: $listManager->create()->setType( 'bought-together' );
-			$litem->setId( $id )->setRefId( $refid )->setPosition( $idx );
-
-			$item->addListItem( 'product', $litem, $litem->getRefItem() );
+			$item->addListItem( 'product', $litem );
 		}
 
-		return $item->deleteListItems( $listItems->toArray() );
+		return $item->deleteListItems( $listItems );
 	}
 
 
