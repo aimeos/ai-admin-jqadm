@@ -694,7 +694,7 @@ Aimeos.Product.Product = {
 						switch(action) {
 							case 'delete': return allow;
 							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
-							case 'move': return allow && this.items[idx]['product.lists.id'] != '';
+							case 'move': return allow;
 						}
 					}
 
@@ -702,26 +702,31 @@ Aimeos.Product.Product = {
 				},
 
 
-				itemFcn() {
-
-					return function(request, response, element) {
-
-						Aimeos.getOptionsProducts(request, response, element, null, function(attr) {
-							return attr['product.label'] + ' (' + attr['product.code'] + ')';
-						});
+				fetch(input, idx) {
+					const filter = {
+						'||': [
+							{'=~': {'product.label': input}},
+							{'=~': {'product.code': input}},
+							{'==': {'product.id': input}}
+						]
 					}
+
+					return Aimeos.query(`query {
+						searchProducts(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
+						  id
+						  label
+						}
+					  }
+					`).then(result => {
+						return (result?.searchProducts || []).map(item => {
+							return {'product.id': item.id, 'product.label': item.label}
+						})
+					})
 				},
 
 
-				label(idx) {
-
-					let label = this.items[idx]['product.label'];
-
-					if(this.items[idx]['product.code']) {
-						label += ' (' + this.items[idx]['product.code'] + ')';
-					}
-
-					return label;
+				load(select) {
+					select.refreshOptions()
 				},
 
 
@@ -738,26 +743,11 @@ Aimeos.Product.Product = {
 				},
 
 
-				update(ev) {
-
-					this.$set(this.items[ev.index], this.prefix + 'id', '');
-					this.$set(this.items[ev.index], this.prefix + 'siteid', this.siteid);
-					this.$set(this.items[ev.index], this.prefix + 'refid', ev.value);
-					this.$set(this.items[ev.index], 'product.label', ev.label);
-					this.$set(this.items[ev.index], 'product.code', '');
-
-					let ids = [];
-
-					for(idx in this.items) {
-						this.items[idx]['css'] = '';
-
-						if(ids.indexOf(this.items[idx]['product.lists.refid']) !== -1) {
-							this.items[idx]['css'] = 'is-invalid';
-						}
-
-						ids.push(this.items[idx]['product.lists.refid']);
-					}
-				}
+				use(idx, ev) {
+					this.$set(this.items[idx], 'product.lists.refid', ev['product.id']);
+					this.$set(this.items[idx], 'product.label', ev['product.label']);
+					this.$set(this.items[idx], 'product.id', ev['product.id']);
+				},
 			}
 		};
 	}

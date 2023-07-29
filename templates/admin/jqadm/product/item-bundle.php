@@ -50,24 +50,31 @@ $keys = [
 								<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.lists.id'] ) ) ?>`.replace( '_idx_', idx )">
 
-								<input class="item-label" type="hidden" v-model="item['product.label']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.label'] ) ) ?>`.replace( '_idx_', idx )">
+								<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
+									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.lists.refid'] ) ) ?>`.replace( '_idx_', idx )">
 
-								<input class="item-code" type="hidden" v-model="item['product.code']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.code'] ) ) ?>`.replace( '_idx_', idx )">
-
-								<select is="combo-box" class="form-select item-refid"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['bundle', '_idx_', 'product.lists.refid'] ) ) ?>`.replace( '_idx_', idx )"
-									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-									v-bind:readonly="!can('change', idx)"
-									v-bind:label="label(idx)"
-									v-bind:title="title(idx)"
-									v-bind:required="'required'"
-									v-bind:getfcn="itemFcn"
-									v-bind:index="idx"
-									v-on:select="update"
-									v-model="item['product.lists.refid']" >
-								</select>
+								<Multiselect class="item-id"
+									placeholder="Enter product ID, code or label"
+									value-prop="product.id"
+									track-by="product.id"
+									label="product.label"
+									@open="load"
+									@input="use(idx, $event)"
+									:value="item"
+									:title="title(idx)"
+									:readonly="!can('change', idx)"
+									:options="async function(query) {return await fetch(query, idx)}"
+									:resolve-on-load="false"
+									:filter-results="false"
+									:can-deselect="false"
+									:allow-absent="true"
+									:searchable="true"
+									:can-clear="false"
+									:required="true"
+									:min-chars="1"
+									:object="true"
+									:delay="300"
+								></Multiselect>
 							</td>
 							<td class="actions">
 								<div v-if="can('move', idx)"
