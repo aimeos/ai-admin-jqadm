@@ -54,24 +54,31 @@ $keys = [
 								<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )">
 
-								<input class="item-label" type="hidden" v-model="item['catalog.code']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.code'] ) ) ?>`.replace( 'idx', idx )">
+								<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )">
 
-								<input class="item-label" type="hidden" v-model="item['catalog.label']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.label'] ) ) ?>`.replace( 'idx', idx )">
-
-								<select is="combo-box" class="form-select item-id"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'default-idx', 'catalog.id'] ) ) ?>`.replace( 'idx', idx )"
-									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-									v-bind:readonly="!can('change', idx)"
-									v-bind:label="label(idx)"
-									v-bind:title="title(idx)"
-									v-bind:required="'required'"
-									v-bind:getfcn="itemFcn"
-									v-bind:index="idx"
-									v-on:select="update"
-									v-model="item['catalog.id']" >
-								</select>
+								<Multiselect class="item-id"
+									placeholder="Enter catalog ID, code or label"
+									value-prop="catalog.id"
+									track-by="catalog.id"
+									label="catalog.label"
+									@open="load"
+									@input="use(idx, $event)"
+									:value="item"
+									:title="title(idx)"
+									:readonly="!can('change', idx)"
+									:options="async function(query) {return await fetch(query, idx)}"
+									:resolve-on-load="false"
+									:filter-results="false"
+									:can-deselect="false"
+									:allow-absent="true"
+									:searchable="true"
+									:can-clear="false"
+									:required="true"
+									:min-chars="1"
+									:object="true"
+									:delay="300"
+								></Multiselect>
 							</td>
 							<td class="actions">
 								<div v-if="can('delete', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
@@ -124,24 +131,31 @@ $keys = [
 								<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'product.lists.id'] ) ) ?>`.replace( 'idx', idx )">
 
-								<input class="item-label" type="hidden" v-model="item['catalog.code']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.code'] ) ) ?>`.replace( 'idx', idx )">
+								<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
+									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )">
 
-								<input class="item-label" type="hidden" v-model="item['catalog.label']"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.label'] ) ) ?>`.replace( 'idx', idx )">
-
-								<select is="combo-box" class="form-select item-id"
-									v-bind:name="`<?= $enc->js( $this->formparam( ['category', 'promotion-idx', 'catalog.id'] ) ) ?>`.replace( 'idx', idx )"
-									v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-									v-bind:readonly="!can('change', idx)"
-									v-bind:label="label(idx)"
-									v-bind:title="title(idx)"
-									v-bind:required="'required'"
-									v-bind:getfcn="itemFcn"
-									v-bind:index="idx"
-									v-on:select="update"
-									v-model="item['catalog.id']" >
-								</select>
+								<Multiselect class="item-id"
+									placeholder="Enter catalog ID, code or label"
+									value-prop="catalog.id"
+									track-by="catalog.id"
+									label="catalog.label"
+									@open="load"
+									@input="use(idx, $event)"
+									:value="item"
+									:title="title(idx)"
+									:readonly="!can('change', idx)"
+									:options="async function(query) {return await fetch(query, idx)}"
+									:resolve-on-load="false"
+									:filter-results="false"
+									:can-deselect="false"
+									:allow-absent="true"
+									:searchable="true"
+									:can-clear="false"
+									:required="true"
+									:min-chars="1"
+									:object="true"
+									:delay="300"
+								></Multiselect>
 							</td>
 							<td class="actions">
 								<div v-if="can('delete', idx)" class="btn act-delete fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
