@@ -70,14 +70,14 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.status' ) ) ) ?>`.replace('_idx_', idx)"
-										v-bind:readonly="!editable(idx)"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['product.status']" >
 										<option value="1" v-bind:selected="item['product.status'] == 1" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?>
 										</option>
-                                        					<option value="2" v-bind:selected="item['product.status'] == 2" >
-                                            						<?= $enc->html( $this->translate( 'mshop/code', 'status:2' ) ) ?>
-                                        					</option>
+										<option value="2" v-bind:selected="item['product.status'] == 2" >
+												<?= $enc->html( $this->translate( 'mshop/code', 'status:2' ) ) ?>
+										</option>
 										<option value="0" v-bind:selected="item['product.status'] == 0" >
 											<?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?>
 										</option>
@@ -95,7 +95,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Type' ) ) ?></label>
 									<div class="col-sm-8">
 										<select is="select-component" class="form-select item-type" required
-											v-bind:readonly="!editable(idx)"
+											v-bind:readonly="!can('change', idx)"
 											v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 											v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.type' ) ) ) ?>`.replace('_idx_', idx)"
 											v-bind:items="<?= $enc->attr( $types->toArray() ) ?>"
@@ -114,15 +114,30 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 							<div class="form-group row mandatory">
 								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ) ?></label>
 								<div class="col-lg-8">
-									<input is="auto-complete"
-										v-model="item['product.code']"
+									<input class="item-attr-refid" type="hidden" v-model="item['product.code']"
+										v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'product.code'] ) ) ?>`.replace('_idx_', idx)">
+
+									<Multiselect class="item-id"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
-										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.code' ) ) ) ?>`.replace('_idx_', idx)"
-										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-										v-bind:readonly="!editable(idx) || item['product.lists.id'] != ''"
-										v-bind:keys="get"
-										v-bind:required="'required'"
-										v-on:input="update(idx, ...arguments)">
+										value-prop="product.code"
+										track-by="product.code"
+										label="product.code"
+										@open="function(select) {return select.refreshOptions()}"
+										@input="use(idx, $event)"
+										:value="item"
+										:readonly="!can('change', idx)"
+										:options="async function(query) {return await fetch(query)}"
+										:resolve-on-load="false"
+										:filter-results="false"
+										:can-deselect="false"
+										:allow-absent="true"
+										:searchable="true"
+										:can-clear="false"
+										:required="true"
+										:min-chars="1"
+										:object="true"
+										:delay="300"
+									></Multiselect>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique article code related to stock levels, e.g. from the ERP system, an EAN/GTIN number or self invented' ) ) ?>
@@ -134,7 +149,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'product.label' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
-										v-bind:readonly="!editable(idx)"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['product.label']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -148,7 +163,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'stock.id'] ) ) ?>`.replace('_idx_', idx)">
 									<input class="form-control item-stocklevel" type="number" step="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'selection', '_idx_', 'stock.stocklevel' ) ) ) ?>`.replace('_idx_', idx)"
-										v-bind:readonly="!editable(idx)"
+										v-bind:readonly="!can('change', idx)"
 										v-bind:disabled="item['stock'] === false"
 										v-model="item['stock.stocklevel']">
 								</div>

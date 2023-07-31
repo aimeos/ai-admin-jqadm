@@ -832,15 +832,10 @@ Aimeos.Product.Selection = {
 				},
 
 
-				editable(idx) {
-					return this.items[idx]['product.siteid'] && (new String(this.items[idx]['product.siteid'])).startsWith(this.siteid);
-				},
-
-
-				get(request, response) {
+				fetch(input) {
 
 					const filter = {'&&': [
-						{'=~': {'product.code': request.term}},
+						{'=~': {'product.code': input}},
 						{'==': {'product.type': ['default', 'event', 'voucher']}}
 					]};
 
@@ -867,12 +862,12 @@ Aimeos.Product.Selection = {
 							}
 						}
 					}`).then(result => {
-						response((result.data.searchProducts || []).map(function(item) {
+						return (result.searchProducts || []).map(function(item) {
 							return {
-								id: item.id,
-								type: item.type,
-								code: item.code,
-								label: item.label,
+								'product.id': item.id,
+								'product.type': item.type,
+								'product.code': item.code,
+								'product.label': item.label,
 								stock: false,
 								attr: (item.lists.attribute || []).map((entry) => {
 									return {
@@ -889,7 +884,7 @@ Aimeos.Product.Selection = {
 									}
 								})
 							};
-						}));
+						});
 					});
 				},
 
@@ -899,16 +894,8 @@ Aimeos.Product.Selection = {
 				},
 
 
-				update(idx, ev, item) {
-
-					if(item) {
-						this.$set(this.items[idx], 'product.id', item.id);
-						this.$set(this.items[idx], 'product.code', item.code);
-						this.$set(this.items[idx], 'product.label', item.label);
-						this.$set(this.items[idx], 'product.type', item.type);
-						this.$set(this.items[idx], 'stock', item.stock);
-						this.$set(this.items[idx], 'attr', item.attr);
-					}
+				use(idx, ev) {
+					this.$set(this.items[idx], ev);
 				},
 
 
