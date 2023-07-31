@@ -283,32 +283,25 @@ class Standard
 	 * Updates the variant attributes of the given product item
 	 *
 	 * @param \Aimeos\MShop\Product\Item\Iface $refItem Article item object
-	 * @param array $entry Associative list of key/values for product attribute references
+	 * @param array $data Associative list of key/values for product attribute references
 	 * @return \Aimeos\MShop\Product\Item\Iface Updated artice item object
 	 */
-	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $entry ) : \Aimeos\MShop\Product\Item\Iface
+	protected function fromArrayAttributes( \Aimeos\MShop\Product\Item\Iface $refItem, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$listManager = \Aimeos\MShop::create( $this->context(), 'product/lists' );
-		$litems = $refItem->getListItems( 'attribute', 'variant', null, false );
+		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
+		$listItems = $refItem->getListItems( 'attribute', 'variant', null, false );
 		$pos = 0;
 
-		foreach( $entry as $attr )
+		foreach( $data as $attr )
 		{
-			if( !isset( $attr['product.lists.refid'] ) || $attr['product.lists.refid'] == '' ) {
-				continue;
-			}
+			$listid = $this->val( $attr, 'product.lists.id' );
+			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
+			$litem->setRefId( $this->val( $attr, 'product.lists.refid' ) )->setType( 'variant' )->setPosition( $pos++ );
 
-			if( ( $litem = $refItem->getListItem( 'attribute', 'variant', $attr['product.lists.refid'], false ) ) === null ) {
-				$litem = $listManager->create()->setType( 'variant' );
-			}
-
-			$litem = $litem->fromArray( $attr, true )->setPosition( $pos++ );
-
-			$refItem->addListItem( 'attribute', $litem, $litem->getRefItem() );
-			unset( $litems[$litem->getId()] );
+			$refItem->addListItem( 'attribute', $litem );
 		}
 
-		return $refItem->deleteListItems( $litems->toArray() );
+		return $refItem->deleteListItems( $listItems );
 	}
 
 

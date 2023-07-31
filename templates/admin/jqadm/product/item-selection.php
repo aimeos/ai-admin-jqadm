@@ -184,31 +184,36 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 
 								<tbody is="draggable" handle=".act-move" tag="tbody">
 
-									<tr v-for="(attr, attridx) in (item['attr'] || [])">
+									<tr v-for="(attr, attridx) in (item['attr'] || [])" :key="attridx">
 										<td>
 											<input class="item-attr-listid" type="hidden" v-model="attr['product.lists.id']"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'product.lists.id'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
 
-											<input class="item-attr-siteid" type="hidden" v-model="attr['product.lists.siteid']"
-												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'product.lists.siteid'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
+											<input class="item-attr-refid" type="hidden" v-model="attr['product.lists.refid']"
+												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
 
-											<input class="item-attr-type" type="hidden" v-model="attr['attribute.type']"
-												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'attribute.type'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
-
-											<input class="item-attr-label" type="hidden" v-model="attr['attribute.label']"
-												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'attribute.label'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
-
-											<select is="combo-box" class="form-select item-attr-refid"
-												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)"
-												v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-												v-bind:readonly="!can('change', idx, attridx)"
-												v-bind:label="label(idx, attridx)"
-												v-bind:title="title(idx, attridx)"
-												v-bind:required="'required'"
-												v-bind:getfcn="getAttributes"
-												v-on:select="updateAttribute($event, idx, attridx)"
-												v-model="attr['product.lists.refid']" >
-											</select>
+											<Multiselect class="item-id"
+												placeholder="Enter attribute ID, code or label"
+												value-prop="attribute.id"
+												track-by="attribute.id"
+												label="attribute.label"
+												@open="function(select) {return select.refreshOptions()}"
+												@input="useAttribute(idx, attridx, $event)"
+												:value="attr"
+												:title="title(idx, attridx)"
+												:readonly="!can('change', idx, attridx)"
+												:options="async function(query) {return await fetchAttribute(query)}"
+												:resolve-on-load="false"
+												:filter-results="false"
+												:can-deselect="false"
+												:allow-absent="true"
+												:searchable="true"
+												:can-clear="false"
+												:required="true"
+												:min-chars="1"
+												:object="true"
+												:delay="300"
+											></Multiselect>
 										</td>
 										<td class="actions">
 											<div v-if="can('move', idx, attridx)"

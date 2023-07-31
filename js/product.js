@@ -800,7 +800,7 @@ Aimeos.Product.Selection = {
 						switch(action) {
 							case 'delete': return allow;
 							case 'change': return allow || this.items[idx]['attr'][attridx]['product.lists.id'] == '';
-							case 'move': return allow  && this.items[idx]['attr'][attridx]['product.lists.id'] != '';
+							case 'move': return allow;
 						}
 					}
 
@@ -858,9 +858,9 @@ Aimeos.Product.Selection = {
 						{'=~': {'product.code': request.term}},
 						{'==': {'product.type': ['default', 'event', 'voucher']}}
 					]};
-					const fstr = JSON.stringify(filter).replace(/"/g, '\\"');
-					const body = JSON.stringify({'query': `query {
-						searchProducts(filter: "` + fstr + `", include: ["attribute"], sort: ["product.code"]) {
+
+					return Aimeos.query(`query {
+						searchProducts(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `", include: ["attribute"], sort: ["product.code"]) {
 							id
 							type
 							code
@@ -881,18 +881,7 @@ Aimeos.Product.Selection = {
 								}
 							}
 						}
-					}`});
-
-					fetch($('.aimeos').data('graphql'), {
-						method: 'POST',
-						credentials: 'same-origin',
-						headers: {
-							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-						},
-						body: body
-					}).then(response => {
-						return response.json();
-					}).then(result => {
+					}`).then(result => {
 						response((result.data.searchProducts || []).map(function(item) {
 							return {
 								id: item.id,
@@ -950,9 +939,7 @@ Aimeos.Product.Selection = {
 						this.$set(this.items[idx]['attr'], len, {});
 					}
 
-					const keys = ['product.lists.id', 'product.lists.refid', 'attribute.label'];
-
-					for(let key of keys) {
+					for(let key of ['product.lists.id', 'product.lists.refid', 'attribute.label']) {
 						this.$set(this.items[idx]['attr'][len], key, '');
 					}
 
@@ -960,27 +947,26 @@ Aimeos.Product.Selection = {
 				},
 
 
-				getAttributes() {
+				fetchAttribute(input) {
+					const filter = {
+						'||': [
+							{'=~': {'attribute.label': input}},
+							{'=~': {'attribute.code': input}},
+							{'==': {'attribute.id': input}}
+						]
+					}
 
-					return function(request, response, element) {
-
-						const labelFcn = function(attr) {
-							return attr['attribute.label'] + ' (' + attr['attribute.type'] + ')';
+					return Aimeos.query(`query {
+						searchAttributes(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
+						  id
+						  label
 						}
-						Aimeos.getOptions(request, response, element, 'attribute', 'attribute.label', 'attribute.label', null, labelFcn);
-					}
-				},
-
-
-				label(idx, attridx) {
-
-					let label = this.items[idx]['attr'][attridx]['attribute.label'];
-
-					if(this.items[idx]['attr'][attridx]['attribute.type']) {
-						label += ' (' + this.items[idx]['attr'][attridx]['attribute.type'] + ')';
-					}
-
-					return label;
+					  }
+					`).then(result => {
+						return (result?.searchAttributes || []).map(item => {
+							return {'attribute.id': item.id, 'attribute.label': item.label}
+						})
+					})
 				},
 
 
@@ -997,13 +983,10 @@ Aimeos.Product.Selection = {
 				},
 
 
-				updateAttribute(ev, idx, attridx) {
-
-					this.$set(this.items[idx]['attr'][attridx], 'product.lists.id', '');
-					this.$set(this.items[idx]['attr'][attridx], 'product.lists.siteid', this.siteid);
-					this.$set(this.items[idx]['attr'][attridx], 'product.lists.refid', ev.value);
-					this.$set(this.items[idx]['attr'][attridx], 'attribute.label', ev.label);
-					this.$set(this.items[idx]['attr'][attridx], 'attribute.type', '');
+				useAttribute(idx, attridx, ev) {
+					this.$set(this.items[idx]['attr'][attridx], 'product.lists.refid', ev['attribute.id']);
+					this.$set(this.items[idx]['attr'][attridx], 'attribute.label', ev['attribute.label']);
+					this.$set(this.items[idx]['attr'][attridx], 'attribute.id', ev['attribute.id']);
 				}
 			}
 		}
