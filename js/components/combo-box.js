@@ -4,6 +4,9 @@
  */
 
 
+/**
+ * @deprecated Removed in 2024.01
+ */
 Vue.component('combo-box', {
 	template: '\
 		<select required class="template" v-bind:name="name" v-bind:readonly="readonly" v-bind:tabindex="tabindex">\
