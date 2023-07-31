@@ -318,11 +318,6 @@ Aimeos.Product.Attribute = {
 				},
 
 
-				load(select) {
-					select.refreshOptions()
-				},
-
-
 				remove(idx) {
 					this.items.splice(idx, 1);
 				},
@@ -430,11 +425,6 @@ Aimeos.Product.Catalog = {
 							return {'catalog.id': item.id, 'catalog.label': item.label}
 						})
 					})
-				},
-
-
-				load(select) {
-					select.refreshOptions()
 				},
 
 
@@ -722,11 +712,6 @@ Aimeos.Product.Product = {
 							return {'product.id': item.id, 'product.label': item.label}
 						})
 					})
-				},
-
-
-				load(select) {
-					select.refreshOptions()
 				},
 
 
@@ -1174,11 +1159,6 @@ Aimeos.Product.Supplier = {
 							return {'supplier.id': item.id, 'supplier.label': item.label}
 						})
 					})
-				},
-
-
-				load(select) {
-					select.refreshOptions()
 				},
 
 
