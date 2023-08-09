@@ -266,6 +266,19 @@ $enc = $this->encoder();
 								</div>
 							</div>
 							<div class="form-group row optional">
+								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Mobile' ) ) ?></label>
+								<div class="col-sm-8">
+									<input class="form-control item-mobile" type="tel" tabindex="<?= $this->get( 'tabindex' ) ?>"
+										v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'customer.address.mobile' ) ) ) ?>`.replace('_idx_', idx)"
+										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Mobile number (optional)' ) ) ?>"
+										v-bind:readonly="entry['customer.address.siteid'] != siteid"
+										v-model="entry['customer.address.mobile']">
+								</div>
+								<div class="col-sm-12 form-text text-muted help-text">
+									<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ) ?>
+								</div>
+							</div>
+							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-telefax" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"

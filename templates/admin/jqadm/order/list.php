@@ -172,6 +172,7 @@ $columnList = [
 	'order.address.languageid' => $this->translate( 'admin', 'Language' ),
 	'order.address.telephone' => $this->translate( 'admin', 'Telephone' ),
 	'order.address.telefax' => $this->translate( 'admin', 'Facsimile' ),
+	'order.address.mobile' => $this->translate( 'admin', 'Mobile' ),
 	'order.address.email' => $this->translate( 'admin', 'E-Mail' ),
 	'order.address.website' => $this->translate( 'admin', 'Web site' ),
 	'order.coupon.code' => $this->translate( 'admin', 'Coupon' ),
@@ -364,6 +365,7 @@ $statusList = [
 								'order.address.languageid' => ['op' => '=='],
 								'order.address.telephone' => [],
 								'order.address.telefax' => [],
+								'order.address.mobile' => [],
 								'order.address.email' => [],
 								'order.address.website' => [],
 								'order.coupon.code' => ['op' => '=~'],
@@ -640,6 +642,9 @@ $statusList = [
 							<?php endif ?>
 							<?php if( in_array( 'order.address.telefax', $fields ) ) : ?>
 								<td class="order-address-telefax"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getTelefax() ) : '' ?></a></td>
+							<?php endif ?>
+							<?php if( in_array( 'order.address.mobile', $fields ) ) : ?>
+								<td class="order-address-mobile"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getMobile() ) : '' ?></a></td>
 							<?php endif ?>
 							<?php if( in_array( 'order.address.email', $fields ) ) : ?>
 								<td class="order-address-email"><a class="items-field" href="<?= $url ?>"><?= $addrItem ? $enc->html( $addrItem->getEmail() ) : '' ?></a></td>

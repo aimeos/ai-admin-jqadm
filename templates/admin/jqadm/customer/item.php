@@ -419,6 +419,19 @@ $params = $this->get( 'pageParams', [] );
 										</div>
 									</div>
 									<div class="form-group row optional">
+										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Mobile number' ) ) ?></label>
+										<div class="col-sm-8">
+											<input class="form-control item-mobile" type="tel" tabindex="1"
+												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.mobile' ) ) ) ?>"
+												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Mobile number (optional)' ) ) ?>"
+												value="<?= $enc->attr( $this->get( 'itemData/customer.mobile' ) ) ?>"
+												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+										</div>
+										<div class="col-sm-12 form-text text-muted help-text">
+											<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ) ?>
+										</div>
+									</div>
+									<div class="form-group row optional">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ) ?></label>
 										<div class="col-sm-8">
 											<input class="form-control item-telefax" type="text" tabindex="1"
