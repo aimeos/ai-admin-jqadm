@@ -536,7 +536,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-email" type="email" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.email' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.email' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address (required)' ) ) ?>"
 														:value="addr['order.address.email']"
 														:readonly="!can('change')">
@@ -549,13 +549,13 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Language' ) ) ?></label>
 												<div class="col-sm-8">
 													<select class="form-select item-languageid" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.languageid' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.languageid' ) ) ) ?>`.replace('idx', idx)"
 														:value="addr['order.address.languageid']"
 														:readonly="!can('change')">
 														<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 
 														<?php foreach( $this->get( 'pageLangItems', [] ) as $langId => $langItem ) : ?>
-															<option value="<?= $enc->attr( $langId ) ?>" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.languageid' ), $langId ) ?> >
+															<option value="<?= $enc->attr( $langId ) ?>" :selected="addr['order.address.languageid'] === `<?= $langId ?>`" >
 																<?= $enc->html( $this->translate( 'language', $langId ) ) ?>
 															</option>
 														<?php endforeach ?>
@@ -566,19 +566,19 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Salutation' ) ) ?></label>
 												<div class="col-sm-8">
 													<select class="form-select item-salutation" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.salutation' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.salutation' ) ) ) ?>`.replace('idx', idx)"
 														:value="addr['order.address.salutation']"
 														:readonly="!can('change')">
-														<option value="" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.salutation' ), '' ) ?> >
+														<option value="" :selected="addr['order.address.salutation'] === ''" >
 															<?= $enc->html( $this->translate( 'admin', 'none' ) ) ?>
 														</option>
-														<option value="company" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.salutation' ), 'company' ) ?> >
+														<option value="company" :selected="addr['order.address.salutation'] === 'company'" >
 															<?= $enc->html( $this->translate( 'client/code', 'company' ) ) ?>
 														</option>
-														<option value="mr" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.salutation' ), 'mr' ) ?> >
+														<option value="mr" :selected="addr['order.address.salutation'] === 'mr'" >
 															<?= $enc->html( $this->translate( 'client/code', 'mr' ) ) ?>
 														</option>
-														<option value="ms" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.salutation' ), 'ms' ) ?> >
+														<option value="ms" :selected="addr['order.address.salutation'] === 'ms'" >
 															<?= $enc->html( $this->translate( 'client/code', 'ms' ) ) ?>
 														</option>
 													</select>
@@ -591,7 +591,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Title' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-title" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.title' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.title' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ) ?>"
 														:value="addr['order.address.title']"
 														:readonly="!can('change')">
@@ -604,7 +604,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Last name' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-lastname" type="text" required="required" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.lastname' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.lastname' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ) ?>"
 														:value="addr['order.address.lastname']"
 														:readonly="!can('change')">
@@ -617,7 +617,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'First name' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-firstname" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.firstname' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.firstname' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ) ?>"
 														:value="addr['order.address.firstname']"
 														:readonly="!can('change')">
@@ -630,7 +630,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-address1" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.address1' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.address1' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ) ?>"
 														:value="addr['order.address.address1']"
 														:readonly="!can('change')">
@@ -643,7 +643,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'House number' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-address2" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.address2' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.address2' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ) ?>"
 														:value="addr['order.address.address2']"
 														:readonly="!can('change')">
@@ -656,7 +656,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Floor / Appartment' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-address3" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.address3' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.address3' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ) ?>"
 														:value="addr['order.address.address3']"
 														:readonly="!can('change')">
@@ -669,7 +669,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Zip code' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-postal" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.postal' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.postal' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ) ?>"
 														:value="addr['order.address.postal']"
 														:readonly="!can('change')">
@@ -682,7 +682,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'City' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-city" type="text" required="required" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.city' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.city' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ) ?>"
 														:value="addr['order.address.city']"
 														:readonly="!can('change')">
@@ -692,7 +692,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Country' ) ) ?></label>
 												<div class="col-sm-8">
 													<select class="form-select item-countryid" required="required" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.countryid' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.countryid' ) ) ) ?>`.replace('idx', idx)"
 														:value="addr['order.address.countryid']"
 														:readonly="!can('change')">
 														<option value="" disabled>
@@ -700,7 +700,7 @@ $paymentStatusList = [
 														</option>
 
 														<?php foreach( $this->get( 'countries', [] ) as $code => $label ) : ?>
-															<option value="<?= $enc->attr( $code ) ?>" <?= $selected( $this->get( 'itemData/address/' . $type . '/' . $pos . '/order.address.countryid' ), $code ) ?> >
+															<option value="<?= $enc->attr( $code ) ?>" :selected="addr['order.address.countryid'] === `<?= $code ?>`" >
 																<?= $enc->html( $label ) ?>
 															</option>
 														<?php endforeach ?>
@@ -714,7 +714,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'State' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-state" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.state' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.state' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ) ?>"
 														:value="addr['order.address.state']"
 														:readonly="!can('change')">
@@ -727,7 +727,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-telephone" type="tel" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.telephone' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.telephone' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ) ?>"
 														:value="addr['order.address.telephone']"
 														:readonly="!can('change')">
@@ -740,7 +740,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Mobile' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-mobile" type="tel" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.mobile' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.mobile' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Mobile number (optional)' ) ) ?>"
 														:value="addr['order.address.mobile']"
 														:readonly="!can('change')">
@@ -753,7 +753,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Facsimile' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-telefax" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.telefax' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.telefax' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ) ?>"
 														:value="addr['order.address.telefax']"
 														:readonly="!can('change')">
@@ -766,7 +766,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Web site' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-website" type="url" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.website' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.website' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ) ?>"
 														:value="addr['order.address.website']"
 														:readonly="!can('change')">
@@ -779,7 +779,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-company" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.company' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.company' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ) ?>"
 														:value="addr['order.address.company']"
 														:readonly="!can('change')">
@@ -789,7 +789,7 @@ $paymentStatusList = [
 												<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'VAT ID' ) ) ?></label>
 												<div class="col-sm-8">
 													<input class="form-control item-vatid" type="text" tabindex="1"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'address', $type, $pos, 'order.address.vatid' ) ) ) ?>"
+														:name="`<?= $enc->js( $this->formparam( array( 'item', 'address', $type, 'idx', 'order.address.vatid' ) ) ) ?>`.replace('idx', idx)"
 														placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ) ?>"
 														:value="addr['order.address.vatid']"
 														:readonly="!can('change')">
