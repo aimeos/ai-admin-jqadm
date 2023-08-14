@@ -102,7 +102,7 @@ class Standard
 			$manager->save( $items );
 		}
 
-		return $this->redirect( $resource ?: 'product', 'search', null, 'save' );
+		return $this->redirect( 'product', 'search', null, 'save' );
 	}
 
 
