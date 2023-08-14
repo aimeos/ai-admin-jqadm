@@ -79,7 +79,30 @@ class Standard
 	 */
 	public function batch() : ?string
 	{
-		return $this->batchBase( 'product' );
+		$view = $this->view();
+
+		if( !empty( $ids = $view->param( 'id' ) ) )
+		{
+			$manager = \Aimeos\MShop::create( $this->context(), 'index' );
+			$filter = $manager->filter()->add( ['product.id' => $ids] )->slice( 0, count( $ids ) );
+			$items = $manager->search( $filter, $this->getDomains() );
+
+			$data = $view->param( 'item', [] );
+
+			foreach( $items as $item ) {
+				$temp = $data; $item->fromArray( $temp, true );
+			}
+
+			$view->items = $items;
+
+			foreach( $this->getSubClients() as $client ) {
+				$client->batch();
+			}
+
+			$manager->save( $items );
+		}
+
+		return $this->redirect( $resource ?: 'product', 'search', null, 'save' );
 	}
 
 
