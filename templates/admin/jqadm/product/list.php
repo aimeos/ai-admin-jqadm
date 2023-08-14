@@ -910,7 +910,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Start date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
+													<input is="flat-pickr" class="form-control" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.datestart' ) ) ) ?>"
 														v-bind:disabled="state('item/product.datestart')"
 														v-bind:config="Aimeos.flatpickr.datetime"
@@ -926,7 +926,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'End date' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
+													<input is="flat-pickr" class="form-control" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.dateend' ) ) ) ?>"
 														v-bind:disabled="state('item/product.dateend')"
 														v-bind:config="Aimeos.flatpickr.datetime"
@@ -942,7 +942,7 @@ $columnList = [
 													<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>
 												</label>
 												<div class="col-7">
-													<input is="flat-pickr" class="form-control select" type="datetime-local" tabindex="1"
+													<input is="flat-pickr" class="form-control" type="datetime-local" tabindex="1"
 														name="<?= $enc->attr( $this->formparam( array( 'item', 'product.ctime' ) ) ) ?>"
 														v-bind:disabled="state('item/product.ctime')"
 														v-bind:config="Aimeos.flatpickr.datetime"
