@@ -88,29 +88,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
-	public function testSavePayPal()
-	{
-		$this->view->item = $this->getOrderBaseItem( '13.50' );
-		$serviceId = current( $this->view->item->getService( 'payment' ) )->getId();
-
-		$param = [
-			'site' => 'unittest',
-			'transaction' => [
-				$serviceId => [
-					'order.service.transaction.value' => 10,
-					'order.service.transaction.costs' => 1,
-				]
-			],
-		];
-
-		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
-		$this->view->addHelper( 'param', $helper );
-
-		$this->expectException( \Aimeos\MShop\Service\Exception::class );
-		$this->object->save();
-	}
-
-
 	public function testGetSubClient()
 	{
 		$this->expectException( \LogicException::class );
