@@ -150,10 +150,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'rule.provider' => 'Percent',
 				'rule.label' => 'test label',
 				'rule.position' => '2',
-				'config' => array(
-					'key' => array( 0 => 'percent' ),
-					'val' => array( 0 => '-10' ),
-				),
+				'config' => [
+					['key' => 'percent', 'val' => '-10'],
+				],
 			),
 		);
 

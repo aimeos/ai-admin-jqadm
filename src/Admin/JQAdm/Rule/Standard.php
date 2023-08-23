@@ -486,23 +486,6 @@ class Standard
 	 */
 	protected function fromArray( array $data ) : \Aimeos\MShop\Rule\Item\Iface
 	{
-		$conf = [];
-
-		if( isset( $data['config']['key'] ) )
-		{
-			foreach( (array) $data['config']['key'] as $idx => $key )
-			{
-				if( trim( $key ) !== '' && isset( $data['config']['val'][$idx] ) )
-				{
-					if( ( $val = json_decode( $data['config']['val'][$idx], true ) ) === null ) {
-						$conf[$key] = $data['config']['val'][$idx];
-					} else {
-						$conf[$key] = $val;
-					}
-				}
-			}
-		}
-
 		$manager = \Aimeos\MShop::create( $this->context(), 'rule' );
 
 		if( isset( $data['rule.id'] ) && $data['rule.id'] != '' ) {
@@ -511,11 +494,24 @@ class Standard
 			$item = $manager->create();
 		}
 
-		$item = $item->fromArray( $data, true )->setConfig( $conf );
+		$item = $item->fromArray( $data, true );
+		$conf = [];
+
+		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
+		{
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' )
+			{
+				if( ( $val = json_decode( trim( $entry['val'] ?? '' ), true ) ) === null ) {
+					$conf[$key] = trim( $entry['val'] ?? '' );
+				} else {
+					$conf[$key] = $val;
+				}
+			}
+		}
 
 		$this->notify( $manager->getProvider( $item, $item->getType() )->checkConfigBE( $conf ) );
 
-		return $item;
+		return $item->setConfig( $conf );
 	}
 
 
@@ -527,22 +523,23 @@ class Standard
 	 */
 	protected function toArray( \Aimeos\MShop\Rule\Item\Iface $item, bool $copy = false ) : array
 	{
-		$config = $item->getConfig();
 		$data = $item->toArray( true );
 		$data['config'] = [];
+
+		$config = $item->getConfig();
+		ksort( $config );
+		$idx = 0;
+
+		foreach( $config as $key => $value )
+		{
+			$data['config'][$idx]['key'] = $key;
+			$data['config'][$idx++]['val'] = $value;
+		}
 
 		if( $copy === true )
 		{
 			$data['rule.siteid'] = $this->context()->locale()->getSiteId();
 			$data['rule.id'] = '';
-		}
-
-		ksort( $config );
-
-		foreach( $config as $key => $value )
-		{
-			$data['config']['key'][] = $key;
-			$data['config']['val'][] = $value;
 		}
 
 		return $data;
