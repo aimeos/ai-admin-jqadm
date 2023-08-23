@@ -84,7 +84,11 @@ $enc = $this->encoder();
 
 		<div class="col-xl-9 item-content tab-content">
 
-			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
+			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
+				data-decorators="<?= $enc->attr( $this->get( 'itemDecorators', [] ) ) ?>"
+				data-providers="<?= $enc->attr( $this->get( 'itemProviders', [] ) ) ?>"
+				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+				data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
 				<div class="box">
 					<div class="row">
@@ -155,18 +159,25 @@ $enc = $this->encoder();
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
 								<div class="col-sm-8">
 									<div class="input-group">
-										<input class="form-control combobox select item-provider noedit" type="text" required="required" tabindex="1"
-											name="<?= $enc->attr( $this->formparam( array( 'item', 'rule.provider' ) ) ) ?>"
-											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Provider/decorator class names (required)' ) ) ?>"
-											value="<?= $enc->attr( $this->get( 'itemData/rule.provider' ) ) ?>"
-											data-catalog="<?= implode( ',', $this->get( 'itemProviders/catalog', [] ) ) ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ) ?>>
-										<div class="dropdown">
+										<Multiselect class="item-provider"
+											name="<?= $this->formparam( array( 'item', 'rule.provider' ) ) ?>"
+											v-model="item['rule.provider']"
+											:title="item['rule.provider']"
+											:readonly="!can('change')"
+											:native-support="true"
+											:can-deselect="false"
+											:options="providers[item['rule.type']] || []"
+											:can-clear="false"
+											:allow-absent="true"
+											:required="true"
+										><input class="form-control">
+										</Multiselect>
+										<div v-if="can('change')" class="dropdown input-group-end">
 											<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
 											<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="decoratorButton">
-												<?php foreach( $this->get( 'itemDecorators', [] ) as $name ) : ?>
-													<li class="dropdown-item"><a class="decorator-name" href="#" data-name="<?= $enc->attr( $name ) ?>"><?= $enc->html( $name ) ?></a></li>
-												<?php endforeach ?>
+												<li v-for="(name, idx) in decorators" :key="idx" class="dropdown-item">
+													<a class="decorator-name" href="#" @click="decorate(name)">{{ name }}</a>
+												</li>
 											</ul>
 										</div>
 									</div>
