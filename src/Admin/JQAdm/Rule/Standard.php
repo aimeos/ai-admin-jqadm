@@ -66,11 +66,9 @@ class Standard
 	 */
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
-		$ds = DIRECTORY_SEPARATOR;
-
-		$view->itemDecorators = $this->getClassNames( 'MShop' . $ds . 'Rule' . $ds . 'Provider' . $ds . 'Catalog' . $ds . 'Decorator' );
+		$view->itemDecorators = $this->getClassNames( 'MShop/Rule/Provider/Catalog/Decorator' );
 		$view->itemProviders = [
-			'catalog' => $this->getClassNames( 'MShop' . $ds . 'Rule' . $ds . 'Provider' . $ds . 'Catalog' )
+			'catalog' => $this->getClassNames( 'MShop/Rule/Provider/Catalog' )
 		];
 
 		$view->itemSubparts = $this->getSubClientNames();
