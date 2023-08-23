@@ -163,10 +163,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 				'service.datestart' => null,
 				'service.dateend' => null,
 				'service.position' => '2',
-				'config' => array(
-					'key' => array( 0 => 'test key' ),
-					'val' => array( 0 => 'test value' ),
-				),
+				'config' => [
+					['key' => 'test key', 'val' => 'test value'],
+				],
 			),
 		);
 
