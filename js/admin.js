@@ -340,6 +340,9 @@ Aimeos = {
 
 
 
+/**
+ * @deprecated Removed in 2024.01
+ */
 Aimeos.Config = {
 
 	init() {
