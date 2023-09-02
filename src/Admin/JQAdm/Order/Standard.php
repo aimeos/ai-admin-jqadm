@@ -575,6 +575,24 @@ class Standard
 			}
 		}
 
+		foreach( $item->getProducts() as $pos => $services )
+		{
+			foreach( $item->getProducts() as $pos => $productItem )
+			{
+				$data['product'][$pos] = $productItem->toArray( true );
+
+				foreach( $productItem->getAttributeItems() as $attrItem ) {
+					$data['product'][$pos]['attributes'][] = $attrItem->toArray( true );
+				}
+
+				if( $copy === true )
+				{
+					$data['product'][$pos]['order.product.siteid'] = $siteId;
+					$data['product'][$pos]['order.product.id'] = '';
+				}
+			}
+		}
+
 		foreach( $item->getServices() as $type => $services )
 		{
 			foreach( $services as $pos => $serviceItem )
