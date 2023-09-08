@@ -20,11 +20,13 @@ Vue.component('nav-search', {
 			'op': null,
 			'ops': {
 				'string': ['=~', '~=', '==', '!='],
+				'int': ['==', '!=', '>', '<', '>=', '<='],
 				'integer': ['==', '!=', '>', '<', '>=', '<='],
 				'datetime': ['>', '<', '>=', '<=', '==', '!='],
 				'date': ['>', '<', '>=', '<=', '==', '!='],
 				'float': ['>', '<', '>=', '<=', '==', '!='],
-				'boolean': ['==', '!=']
+				'boolean': ['==', '!='],
+				'bool': ['==', '!=']
 			},
 			'type': 'text',
 		}
@@ -50,8 +52,11 @@ Vue.component('nav-search', {
 			const type = this.attributes[key] && this.attributes[key]['type'] || 'string';
 
 			switch(type) {
+				case 'bool':
 				case 'boolean':
+				case 'decimal':
 				case 'integer':
+				case 'int':
 				case 'float':
 					this.type = 'number'; break;
 				case 'date':
