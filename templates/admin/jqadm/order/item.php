@@ -155,7 +155,7 @@ $paymentStatusList = [
 
 			<div class="col-xl-9 item-content tab-content">
 
-				<div id="order" class="item-order tab-pane fade show active" role="tabpanel" aria-labelledby="order"
+				<div id="order" class="order-item tab-pane fade show active" role="tabpanel" aria-labelledby="order"
 					data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
 					data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
