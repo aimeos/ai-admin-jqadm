@@ -8,7 +8,7 @@ Aimeos.Order = {
 
 	init() {
 		Aimeos.components['order'] = new Vue({
-			el: document.querySelector('#order'),
+			el: document.querySelector('.item-order .order-item'),
 			data: {
 				item: {},
 				siteid: null,
