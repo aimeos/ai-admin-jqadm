@@ -484,6 +484,10 @@ body:not(.dark) .aimeos .main-sidebar .sidebar-menu>li:hover:not(.none) {
 	content: "\F214"
 }
 
+.aimeos .main-sidebar .menuitem-basket i.icon:before {
+	content: "\F180"
+}
+
 .aimeos .main-sidebar .menuitem-users i.icon:before {
 	content: "\F4E1"
 }
