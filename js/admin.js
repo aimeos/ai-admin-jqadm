@@ -872,10 +872,9 @@ Aimeos.List = {
 
 			unconfirmed() {
 				let list = {};
-
 				for(const key in this.items) {
 					if(this.items[key].checked) {
-						list[key] = this.items[key][this.domain + '.label'] || this.items[key][this.domain + '.code'];
+						list[key] = this.items[key][this.domain + '.label'] || this.items[key][this.domain + '.code'] || this.items[key][this.domain + '.id'];
 					}
 				}
 

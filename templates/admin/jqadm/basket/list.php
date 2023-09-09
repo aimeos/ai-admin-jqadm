@@ -8,116 +8,20 @@
 $enc = $this->encoder();
 
 
-/** admin/jqadm/order/actions
- * Actions available in the list view of the order panel
+/** admin/jqadm/basket/fields
+ * List of basket columns that should be displayed in the list view
  *
- * List of actions, the editor can select from in the list header of the order
- * panel. You can dynamically extend the available actions like exporting the
- * selected orders in CSV format and translate the action names using the
- * "admin/ext" translation domain.
- *
- * The action names will be passed as "queue" parameter to the export method
- * of the JQADM order class, which will create an entry for the message queue
- * from the selected filter criteria. You have to implement a suitable controller
- * which must fetch the entries from the message queue and generate the appropriate
- * files. If files should be offered for download in the dashboard, a new job
- * entry must be created using the MAdmin Job manager.
- *
- * @param array List of action queue names
- * @since 2023.10
- */
-
-/** admin/jqadm/url/export/target
- * Destination of the URL where the controller specified in the URL is known
- *
- * The destination can be a page ID like in a content management system or the
- * module of a software development framework. This "target" must contain or know
- * the controller that should be called by the generated URL.
- *
- * @param string Destination of the URL
- * @since 2023.10
- * @see admin/jqadm/url/export/controller
- * @see admin/jqadm/url/export/action
- * @see admin/jqadm/url/export/config
- */
-
-/** admin/jqadm/url/export/controller
- * Name of the controller whose action should be called
- *
- * In Model-View-Controller (MVC) applications, the controller contains the methods
- * that create parts of the output displayed in the generated HTML page. Controller
- * names are usually alpha-numeric.
- *
- * @param string Name of the controller
- * @since 2023.10
- * @see admin/jqadm/url/export/target
- * @see admin/jqadm/url/export/action
- * @see admin/jqadm/url/export/config
- */
-
-/** admin/jqadm/url/export/action
- * Name of the action that should create the output
- *
- * In Model-View-Controller (MVC) applications, actions are the methods of a
- * controller that create parts of the output displayed in the generated HTML page.
- * Action names are usually alpha-numeric.
- *
- * @param string Name of the action
- * @since 2023.10
- * @see admin/jqadm/url/export/target
- * @see admin/jqadm/url/export/controller
- * @see admin/jqadm/url/export/config
- */
-
-/** admin/jqadm/url/export/config
- * Associative list of configuration options used for generating the URL
- *
- * You can specify additional options as key/value pairs used when generating
- * the URLs, like
- *
- *  admin/jqadm/url/export/config = ['absoluteUri' => true )
- *
- * The available key/value pairs depend on the application that embeds the e-commerce
- * framework. This is because the infrastructure of the application is used for
- * generating the URLs. The full list of available config options is referenced
- * in the "see also" section of this page.
- *
- * @param string Associative list of configuration options
- * @since 2023.10
- * @see admin/jqadm/url/export/target
- * @see admin/jqadm/url/export/controller
- * @see admin/jqadm/url/export/action
- */
-
-/** admin/jqadm/url/export/filter
- * Removes parameters for the detail page before generating the URL
- *
- * This setting removes the listed parameters from the URLs. Keep care to
- * remove no required parameters!
- *
- * @param array List of parameter names to remove
- * @since 2023.10
- * @see admin/jqadm/url/export/target
- * @see admin/jqadm/url/export/controller
- * @see admin/jqadm/url/export/action
- * @see admin/jqadm/url/export/config
- */
-
-
-/** admin/jqadm/order/fields
- * List of order columns that should be displayed in the list view
- *
- * Changes the list of order columns shown by default in the order list view.
+ * Changes the list of basket columns shown by default in the basket list view.
  * The columns can be changed by the editor as required within the administraiton
  * interface.
  *
  * The names of the colums are in fact the search keys defined by the managers,
- * e.g. "order.id" for the order ID.
+ * e.g. "order.basket.id" for the order basket ID.
  *
  * @param array List of field names, i.e. search keys
  * @since 2023.10
  */
-$default = $this->config( 'admin/jqadm/order/fields', ['order.basket.id', 'order.basket.customerid', 'order.basket.name', 'order.basket.ctime'] );
+$default = $this->config( 'admin/jqadm/basket/fields', ['order.basket.id', 'order.basket.customerid', 'order.basket.name', 'order.basket.ctime'] );
 $fields = $this->session( 'aimeos/admin/jqadm/orderbasket/fields', $default );
 
 $searchParams = $params = $this->get( 'pageParams', [] );
@@ -209,8 +113,9 @@ $columnList = [
 							</button>
 							<ul class="dropdown-menu">
 								<li>
-									<a class="btn" v-on:click.prevent="batch = true" href="#" tabindex="1">
-										<?= $enc->html( $this->translate( 'admin', 'Edit' ) ) ?>
+									<a class="btn" v-on:click.prevent="askDelete(null, $event)" tabindex="1"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>">
+										<?= $enc->html( $this->translate( 'admin', 'Delete' ) ) ?>
 									</a>
 								</li>
 							</ul>
@@ -278,7 +183,16 @@ $columnList = [
 								<td class="order-basket-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 
-							<td class="actions"></td>
+							<td class="actions">
+								<?php if( !$this->site()->readonly( $item->getSiteId() ) ) : ?>
+									<a class="btn act-delete fa" tabindex="1"
+										v-on:click.prevent.stop="askDelete(`<?= $enc->js( $id ) ?>`, $event)"
+										href="<?= $enc->attr( $this->link( 'admin/jqadm/url/delete', $params ) ) ?>"
+										title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
+										aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>">
+									</a>
+								<?php endif ?>
+							</td>
 						</tr>
 					<?php endforeach ?>
 				</tbody>
@@ -296,6 +210,10 @@ $columnList = [
 			'page' => $this->session( 'aimeos/admin/jqadm/orderbasket/page', [] )]
 		);
 	?>
+
+	<confirm-delete v-bind:items="unconfirmed" v-bind:show="dialog"
+		v-on:close="confirmDelete(false)" v-on:confirm="confirmDelete(true)">
+	</confirm-delete>
 
 </div>
 <?php $this->block()->stop() ?>
