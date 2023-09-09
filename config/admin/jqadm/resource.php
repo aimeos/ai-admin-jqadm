@@ -68,6 +68,23 @@ return [
 		 * @param string Single character in upper case
 		 * @since 2018.04
 		 */
+		'key' => 'X',
+	],
+	'basket' => [
+		/** admin/jqadm/resource/basket/groups
+		 * List of user groups that are allowed to access the basket panel
+		 *
+		 * @param array List of user group names
+		 * @since 2017.10
+		 */
+		'groups' => ['admin', 'editor', 'super'],
+
+		/** admin/jqadm/resource/basket/key
+		 * Shortcut key to switch to the basket panel by using the keyboard
+		 *
+		 * @param string Single character in upper case
+		 * @since 2023.10
+		 */
 		'key' => 'B',
 	],
 	'users' => [

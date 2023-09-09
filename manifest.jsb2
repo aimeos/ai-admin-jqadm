@@ -152,6 +152,9 @@
 			"text": "dashboard-service.js",
 			"path": "js/"
 		},{
+			"text": "basket.js",
+			"path": "js/"
+		},{
 			"text": "order.js",
 			"path": "js/"
 		},{

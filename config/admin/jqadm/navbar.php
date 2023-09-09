@@ -6,6 +6,7 @@ return [
 		'_' => 'sales',
 		10 => 'order',
 		20 => 'subscription',
+		30 => 'basket',
 	],
 	20 => [
 		'_' => 'goods',
