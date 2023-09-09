@@ -160,12 +160,20 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 														</div>
 													</div>
 												</div>
-												<div class="col-sm-4 item-column column-sum">
+												<div class="col-sm-2 item-column column-qtyopen">
 													<div class="row">
-														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Sum' ) ) ?></label>
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Quantity' ) ) ?></label>
 														<div class="col-7 col-sm-12">
-															<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
-															<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() * $orderProduct->getQuantity() ), $currency ) ) ?></span>
+															<span class="product-quantity"><?= $enc->html( $orderProduct->getQuantity() ) ?></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-2 item-column column-sum">
+													<div class="row">
+														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Unit price' ) ) ?></label>
+														<div class="col-7 col-sm-12">
+															<span class="product-price"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getValue() ), $currency ) ) ?></span>
+															<span class="product-rebate"><?= $enc->html( sprintf( $priceFormat, $this->number( $orderProduct->getPrice()->getRebate() ), $currency ) ) ?></span>
 														</div>
 													</div>
 												</div>
