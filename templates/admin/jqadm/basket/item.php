@@ -25,7 +25,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 <?php if( isset( $this->item ) ) : ?>
 	<?php $currency = $this->translate( 'currency', $this->item->getItem()->getPrice()->getCurrencyId() ) ?>
 
-	<form class="item item-basket form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
+	<form class="item item-basket item-order form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
 		<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'order.basket.id' ) ) ) ?>" value="<?= $enc->attr( $this->item->getId() ) ?>">
 		<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 		<?= $this->csrf()->formfield() ?>
@@ -34,7 +34,6 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 			<h1 class="navbar-brand">
 				<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Basket' ) ) ?></span>
 				<span class="navbar-id"><?= $enc->html( $this->item->getId() ) ?></span>
-				<span class="navbar-label"><?= $enc->html( $this->number( $this->item->getName() ) ) ?></span>
 				<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->item->getSiteId() ) ) ?></span>
 			</h1>
 			<div class="item-actions">
@@ -43,20 +42,6 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 					href="<?= $enc->attr( $this->link( 'admin/jqadm/url/search', $searchParams ) ) ?>">
 					<?= $enc->html( $this->translate( 'admin', 'Cancel' ) ) ?>
 				</a>
-
-				<div class="btn-group">
-					<button type="submit" class="btn btn-primary act-save"
-						title="<?= $enc->attr( $this->translate( 'admin', 'Save entry (Ctrl+S)' ) ) ?>">
-						<?= $enc->html( $this->translate( 'admin', 'Save' ) ) ?>
-					</button>
-					<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
-						<span class="sr-only"><?= $enc->html( $this->translate( 'admin', 'Toggle dropdown' ) ) ?></span>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-end">
-						<li class="dropdown-item"><a class="next-action" href="#" data-next="search"><?= $enc->html( $this->translate( 'admin', 'Save & Close' ) ) ?></a></li>
-					</ul>
-				</div>
 			</div>
 		</nav>
 
@@ -111,20 +96,6 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
 							<div class="box">
 								<div class="form-group row">
-									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></label>
-									<div class="col-8">
-										<span class="form-control item-name"><?= $enc->html( $this->item->getName() ) ?></span>
-									</div>
-									<div class="col-12 form-text text-muted help-text">
-										<?= $enc->html( $this->translate( 'admin', 'Name of the basket' ) ) ?>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
-							<div class="box">
-								<div class="form-group row">
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>
 									<div class="col-8">
 										<span class="form-control item-customerid">
@@ -133,8 +104,24 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $this->item->getCustomerId(), 'locale' => $this->param( 'locale' )] ) ) ?>">
 													<?= $enc->html( $this->item->getCustomerId() ) ?>
 												</a>
+											<?php else : ?>
+												&nbsp
 											<?php endif ?>
 										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
+							<div class="box">
+								<div class="form-group row">
+									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></label>
+									<div class="col-8">
+										<span class="form-control item-name"><?= $enc->html( $this->item->getName() ) ?: '&nbsp' ?></span>
+									</div>
+									<div class="col-12 form-text text-muted help-text">
+										<?= $enc->html( $this->translate( 'admin', 'Name of the basket' ) ) ?>
 									</div>
 								</div>
 							</div>
@@ -153,7 +140,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 
 										<div class="list-item">
 											<div class="row">
-												<div class="col-sm-9 item-column column-desc">
+												<div class="col-sm-8 item-column column-desc">
 													<div class="row">
 														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></label>
 														<div class="col-7 col-sm-12">
@@ -173,7 +160,7 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 														</div>
 													</div>
 												</div>
-												<div class="col-sm-3 item-column column-sum">
+												<div class="col-sm-4 item-column column-sum">
 													<div class="row">
 														<label class="col-5 col-sm-12 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Sum' ) ) ?></label>
 														<div class="col-7 col-sm-12">

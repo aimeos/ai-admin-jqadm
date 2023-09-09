@@ -36,8 +36,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'order/basket' );
-
 		$param = ['site' => 'unittest', 'id' => $this->getBasketId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
@@ -79,8 +77,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'order/basket' );
-
 		$param = ['site' => 'unittest', 'id' => $this->getBasketId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
@@ -167,8 +163,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->setConstructorArgs( array( [] ) )
 			->onlyMethods( array( 'render' ) )
 			->getMock();
-
-		$manager = \Aimeos\MShop::create( $this->context, 'order/basket' );
 
 		$param = ['site' => 'unittest', 'id' => $real ? $this->getBasketId() : -1];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );

@@ -174,7 +174,7 @@ $paymentStatusList = [
 								<div class="form-group row">
 									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Channel' ) ) ?></label>
 									<div class="col-8">
-										<span class="form-control item-sitecode"><?= $enc->html( $this->item->getChannel() ) ?></span>
+										<span class="form-control item-channel"><?= $enc->html( $this->item->getChannel() ) ?></span>
 									</div>
 									<div class="col-12 form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'Channel the order has been placed' ) ) ?>

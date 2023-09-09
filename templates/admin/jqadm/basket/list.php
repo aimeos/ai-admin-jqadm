@@ -268,23 +268,17 @@ $columnList = [
 							<?php if( in_array( 'order.basket.name', $fields ) ) : ?>
 								<td class="order-basket-name"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getName() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.ctime', $fields ) ) : ?>
+							<?php if( in_array( 'order.basket.ctime', $fields ) ) : ?>
 								<td class="order-basket-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.mtime', $fields ) ) : ?>
+							<?php if( in_array( 'order.basket.mtime', $fields ) ) : ?>
 								<td class="order-basket-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'order.editor', $fields ) ) : ?>
+							<?php if( in_array( 'order.basket.editor', $fields ) ) : ?>
 								<td class="order-basket-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 
-							<td class="actions">
-								<a class="btn act-copy fa"
-									href="<?= $enc->attr( $this->link( 'admin/jqadm/url/copy', ['id' => $item->getId()] + $params ) ) ?>"
-									title="<?= $enc->attr( $this->translate( 'admin', 'Copy this entry' ) ) ?>"
-									aria-label="<?= $enc->attr( $this->translate( 'admin', 'Copy' ) ) ?>">
-								</a>
-							</td>
+							<td class="actions"></td>
 						</tr>
 					<?php endforeach ?>
 				</tbody>
