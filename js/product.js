@@ -826,6 +826,12 @@ Aimeos.Product.Selection = {
 				},
 
 
+				create(idx, option) {
+					this.$set(this.items[idx], 'product.code', option['product.code'])
+					return true
+				},
+
+
 				css(idx) {
 					return ( idx !== 0 && this.items[idx]['product.lists.id'] &&
 						this.items[idx]['attr'] && this.items[idx]['attr'].length ? 'collapsed' : 'show' );
