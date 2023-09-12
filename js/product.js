@@ -886,7 +886,7 @@ Aimeos.Product.Selection = {
 										'attribute.id': entry.item.id,
 										'attribute.type': entry.item.type,
 										'attribute.code': entry.item.code,
-										'attribute.label': entry.item.label
+										'attribute.label': entry.item.label + ' (' + entry.item.type + ')'
 									}
 								})
 							};
@@ -935,14 +935,15 @@ Aimeos.Product.Selection = {
 					}
 
 					return Aimeos.query(`query {
-						searchAttributes(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
+						searchAttributes(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `", sort: ["attribute.type", "attribute.code"]) {
 						  id
+						  type
 						  label
 						}
 					  }
 					`).then(result => {
 						return (result?.searchAttributes || []).map(item => {
-							return {'attribute.id': item.id, 'attribute.label': item.label}
+							return {'attribute.id': item.id, 'attribute.label': item.label + ' (' + item.type + ')'}
 						})
 					})
 				},
@@ -963,7 +964,7 @@ Aimeos.Product.Selection = {
 
 				useAttribute(idx, attridx, ev) {
 					this.$set(this.items[idx]['attr'][attridx], 'product.lists.refid', ev['attribute.id']);
-					this.$set(this.items[idx]['attr'][attridx], 'attribute.label', ev['attribute.label']);
+					this.$set(this.items[idx]['attr'][attridx], 'attribute.label', ev['attribute.label'] + ' (' + ev['attribute.label'] + ')');
 					this.$set(this.items[idx]['attr'][attridx], 'attribute.id', ev['attribute.id']);
 				}
 			}

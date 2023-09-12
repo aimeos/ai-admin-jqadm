@@ -385,8 +385,10 @@ class Standard
 
 			foreach( $refItem->getListItems( 'attribute', 'variant', null, false ) as $litem )
 			{
-				if( ( $attrItem = $litem->getRefItem() ) !== null ) {
-					$list['attr'][$idx++] = $litem->toArray( true ) + $attrItem->toArray( true );
+				if( ( $attrItem = $litem->getRefItem() ) !== null )
+				{
+					$label = $attrItem->getLabel() . ' (' . $attrItem->getType() . ')';
+					$list['attr'][$idx++] = ['attribute.label' => $label] + $litem->toArray( true ) + $attrItem->toArray( true );
 				}
 			}
 
