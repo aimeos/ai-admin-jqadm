@@ -417,12 +417,13 @@ Aimeos.Product.Catalog = {
 					return Aimeos.query(`query {
 						searchCatalogs(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
 						  id
+						  code
 						  label
 						}
 					  }
 					`).then(result => {
 						return (result?.searchCatalogs || []).map(item => {
-							return {'catalog.id': item.id, 'catalog.label': item.label}
+							return {'catalog.id': item.id, 'catalog.label': item.label + ' (' + item.code + ')'}
 						})
 					})
 				},
@@ -443,7 +444,7 @@ Aimeos.Product.Catalog = {
 
 				use(idx, ev) {
 					this.$set(this.items[idx], 'product.lists.refid', ev['catalog.id']);
-					this.$set(this.items[idx], 'catalog.label', ev['catalog.label']);
+					this.$set(this.items[idx], 'catalog.label', ev['catalog.label'] + ' (' + ev['catalog.code'] + ')');
 					this.$set(this.items[idx], 'catalog.id', ev['catalog.id']);
 				},
 			}
@@ -704,12 +705,13 @@ Aimeos.Product.Product = {
 					return Aimeos.query(`query {
 						searchProducts(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
 						  id
+						  code
 						  label
 						}
 					  }
 					`).then(result => {
 						return (result?.searchProducts || []).map(item => {
-							return {'product.id': item.id, 'product.label': item.label}
+							return {'product.id': item.id, 'product.label': item.label + ' (' + item.code + ')'}
 						})
 					})
 				},
@@ -730,7 +732,7 @@ Aimeos.Product.Product = {
 
 				use(idx, ev) {
 					this.$set(this.items[idx], 'product.lists.refid', ev['product.id']);
-					this.$set(this.items[idx], 'product.label', ev['product.label']);
+					this.$set(this.items[idx], 'product.label', ev['product.label'] + ' (' + ev['product.code'] + ')');
 					this.$set(this.items[idx], 'product.id', ev['product.id']);
 				},
 			}
@@ -1145,12 +1147,13 @@ Aimeos.Product.Supplier = {
 					return Aimeos.query(`query {
 						searchSuppliers(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
 						  id
+						  code
 						  label
 						}
 					  }
 					`).then(result => {
 						return (result?.searchSuppliers || []).map(item => {
-							return {'supplier.id': item.id, 'supplier.label': item.label}
+							return {'supplier.id': item.id, 'supplier.label': item.label + ' (' + item.code + ')'}
 						})
 					})
 				},
@@ -1171,7 +1174,7 @@ Aimeos.Product.Supplier = {
 
 				use(idx, ev) {
 					this.$set(this.items[idx], 'product.lists.refid', ev['supplier.id']);
-					this.$set(this.items[idx], 'supplier.label', ev['supplier.label']);
+					this.$set(this.items[idx], 'supplier.label', ev['supplier.label'] + ' (' + ev['supplier.label'] + ')');
 					this.$set(this.items[idx], 'supplier.id', ev['supplier.id']);
 				},
 			}

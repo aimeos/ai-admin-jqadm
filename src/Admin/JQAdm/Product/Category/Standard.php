@@ -274,7 +274,8 @@ class Standard
 				continue;
 			}
 
-			$list = $listItem->toArray( true ) + $refItem->toArray( true );
+			$label = $refItem->getLabel() . ' (' . $refItem->getCode() . ')';
+			$list = ['catalog.label' => $label] + $listItem->toArray( true ) + $refItem->toArray( true );
 
 			if( $copy === true )
 			{
