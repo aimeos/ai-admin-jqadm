@@ -85,8 +85,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB03_', $result );
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB04_', $result );
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB05_', $result );
-		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/30&quot;', $result );
-		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/32&quot;', $result );
+		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/30 (length)&quot;', $result );
+		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/32 (length)&quot;', $result );
 	}
 
 
@@ -103,8 +103,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB03&quot;', $result );
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB04&quot;', $result );
 		$this->assertStringContainsString( '&quot;product.code&quot;:&quot;U:TESTSUB05&quot;', $result );
-		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/30&quot;', $result );
-		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/32&quot;', $result );
+		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/30 (length)&quot;', $result );
+		$this->assertStringContainsString( '&quot;attribute.label&quot;:&quot;product\/length\/32 (length)&quot;', $result );
 	}
 
 
