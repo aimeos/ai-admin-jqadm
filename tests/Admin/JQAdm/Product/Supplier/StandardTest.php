@@ -54,7 +54,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertMatchesRegularExpression( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001 \(unitSupplier001\)&quot;/', $result );
 	}
 
 
@@ -75,7 +75,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertMatchesRegularExpression( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;supplier.label&quot;:&quot;Unit Supplier 001 \(unitSupplier001\)&quot;/', $result );
 	}
 
 

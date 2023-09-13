@@ -54,9 +54,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet \(internet\)&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee \(cafe\)&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu \(new\)&quot;/', $result );
 	}
 
 
@@ -77,9 +77,9 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet&quot;/', $result );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee&quot;/', $result );
-		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Internet \(internet\)&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Kaffee \(cafe\)&quot;/', $result );
+		$this->assertMatchesRegularExpression( '/&quot;catalog.label&quot;:&quot;Neu \(new\)&quot;/', $result );
 	}
 
 
