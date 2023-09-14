@@ -4,10 +4,12 @@
 # 
 # Translators:
 # a270031086f2a0d3514bc0cb507b48f6, 2019
+# Nicolas Capsias, 2023
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Helmi Trabelsi <trabelsihelmi@gmail.com>, 2018
 # Laurent Georget <laurent@lgeorget.eu>, 2020-2021
 # Medzo Zeng <medzozeng@hotmail.fr>, 2019
+# Nicolas Capsias, 2023
 # Nicolas Lapointe (ComradeNixco) <nixcocpp@gmail.com>, 2018
 # nsendetzky, 2014
 # Sacha Zacaropoulos <sacha@unimi.fr>, 2019
@@ -18,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-04 11:12+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Six byNine <wwinx@hotmail.com>, 2018\n"
+"Last-Translator: Nicolas Capsias, 2023\n"
 "Language-Team: French (http://app.transifex.com/aimeos/aimeos-core/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,7 +123,7 @@ msgid "Actual price"
 msgstr "Prix réel"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr "Prix actuel pour lequel les clients peuvent acheter le produit sur le site web"
+msgstr "Prix réel auquel les clients peuvent acheter le produit sur le site web"
 
 msgid "Add"
 msgstr "Ajouter"
@@ -177,7 +179,7 @@ msgstr "Tout"
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
 " for jeans"
-msgstr "Tous les attributs qui défini de manière unique un article, par exemple: la largeur, la longueur et la couleur pour une paire de jeans"
+msgstr "Toutes les caractéristiques qui définissent de manière unique un article, par exemple: la largeur, la longueur et la couleur pour une paire de jeans"
 
 msgid "Allow custom price"
 msgstr "Permettre un prix personnalisé"
@@ -189,7 +191,7 @@ msgid "Alphanumeric string that can identify the group uniquely"
 msgstr "Chaîne alphanumérique pouvant identifier le groupe de manière unique"
 
 msgid "Apply"
-msgstr ""
+msgstr "Appliquer"
 
 msgid ""
 "Article specific configuration options, will be available as key/value pairs"
@@ -215,16 +217,16 @@ msgid "Attribute Type"
 msgstr "Type de caractéristique"
 
 msgid "Attribute Types"
-msgstr "Types de caractéristique"
+msgstr "Types de caractéristiques"
 
 msgid "Attribute position (optional)"
 msgstr "Position de la caractéristique (optionnel)"
 
 msgid "Attribute properties that are not shared with other attributes"
-msgstr "Propriétés de caractéristique qui ne sont pas partagées avec les autres attributs "
+msgstr "Propriétés de caractéristique qui ne sont pas partagées avec les autres caractéristiques "
 
 msgid "Attribute type that limits the list of available attributes"
-msgstr "Type d'attribut limitant la liste des attributs disponibles"
+msgstr "Type de caractéristique limitant la liste des caractéristiques disponibles"
 
 msgid "Attributes"
 msgstr "Caractéristiques"
@@ -241,7 +243,7 @@ msgstr "Langues disponibles pour le site actuel"
 msgid ""
 "Average product rating and total number of ratings by customers for this "
 "product"
-msgstr ""
+msgstr "Evaluation moyenne du produit et nombre total d'évaluations par les clients pour ce produit"
 
 msgid "Back in stock"
 msgstr "Stock réapprovisionné"
@@ -454,7 +456,7 @@ msgid "Customer Property Types"
 msgstr "Types de propriété du client"
 
 msgid "Customer characteristics that are not shared with other customers"
-msgstr "Caractéristiques du client qui ne sont pas partagés avec d'autres clients"
+msgstr "Attributs du client qui ne sont pas partagés avec d'autres clients"
 
 msgid "Customer comment (optional)"
 msgstr "Commentaire du client (optionnel)"
@@ -484,7 +486,7 @@ msgid "Data set"
 msgstr "Jeu de données"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Ensemble de données"
 
 msgid "Date of the last delivery status change"
 msgstr "Date de la dernière modification à l'état de livraison"
@@ -526,7 +528,7 @@ msgid "Delivery date"
 msgstr "Date de livraison"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Delivery in"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
@@ -562,7 +564,7 @@ msgid "Descritive name of the site"
 msgstr "Nom descriptif du site"
 
 msgid "Discount"
-msgstr ""
+msgstr "Remise"
 
 msgid "Display help texts"
 msgstr "Afficher les textes d'aide"
@@ -586,10 +588,10 @@ msgid "E-Mail address (required)"
 msgstr "Adresse électronique (obligatoire)"
 
 msgid "E-Mail address or account name (required)"
-msgstr ""
+msgstr "Adresse électronique ou nom de compte (obligatoire)"
 
 msgid "E-Mail address used for sending shop related e-mails"
-msgstr ""
+msgstr "Adresse électronique utilisée pour l'envoi de courriels en rapport avec l'e-commerce"
 
 msgid "E-mail"
 msgstr "Adresse électronique"
@@ -693,13 +695,13 @@ msgid "Given rebate amount"
 msgstr "Montant de la remise accordée"
 
 msgid "Go to attribute panel"
-msgstr "Aller à la page des attributs"
+msgstr "Aller à la page des caractéristiques"
 
 msgid "Go to property type panel"
 msgstr "Aller à la page des types de propriétés"
 
 msgid "Go to the list of attribute types"
-msgstr "Aller à la liste des types d'attributs"
+msgstr "Aller à la liste des types de caractéristiques"
 
 msgid "Granted rebate"
 msgstr "Remise accordée"
@@ -1003,13 +1005,13 @@ msgid "New"
 msgstr "Nouveau"
 
 msgid "New customers"
-msgstr ""
+msgstr "Nouveaux clients"
 
 msgid "New customers within the last seven days"
-msgstr ""
+msgstr "Nouveaux clients au cours des sept derniers jours"
 
 msgid "New customers within the last seven days compared to the period before"
-msgstr ""
+msgstr "Nouveaux clients au cours des sept derniers jours par rapport à la période précédente"
 
 msgid "Next"
 msgstr "Suivant"
@@ -1024,10 +1026,10 @@ msgid "Next date the subscription is renewed"
 msgstr "Prochaine date de renouvellement de l'abonnement"
 
 msgid "No currencies available. Please enable at least one currency"
-msgstr ""
+msgstr "Aucune devise n'est disponible. Veuillez en activer au moins une"
 
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Aucun fichier n'a été transmis"
 
 msgid "No items found"
 msgstr "Aucunes entrées trouvées"
@@ -1085,7 +1087,7 @@ msgid ""
 msgstr "Un fournisseur et zéro ou plusieurs noms de classe de décorateur séparés par des virgules"
 
 msgid "Only super users and administrators can delete items"
-msgstr ""
+msgstr "Seuls les super utilisateurs et les administrateurs peuvent supprimer des éléments"
 
 msgid "Open"
 msgstr ""
@@ -1197,7 +1199,7 @@ msgstr "Données personnelles"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
-msgstr ""
+msgstr "Veuillez insérer ici la description du texte qui doit être généré."
 
 msgid "Please select"
 msgstr "Merci de choisir"
@@ -1304,13 +1306,13 @@ msgstr "Types de produit"
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
 "texts or values"
-msgstr "Attributs stockés dans le panier où les clients peuvent également encoder leurs propres textes ou valeurs"
+msgstr "Caractéristiques stockés dans le panier où les clients peuvent également encoder leurs propres textes ou valeurs"
 
 msgid "Product attributes that are used by other products too"
-msgstr "Attributs produits utilisés également par d'autres produits"
+msgstr "Caractéristiques produits utilisés également par d'autres produits"
 
 msgid "Product characteristics that are not shared with other products"
-msgstr "Caractéristiques du produit non partagées avec d'autres produits"
+msgstr "Attributs du produit non partagées avec d'autres produits"
 
 msgid "Product code"
 msgstr "Code produit"
@@ -1670,7 +1672,7 @@ msgid "Size"
 msgstr "Taille"
 
 msgid "Sorting of the attributes within the same attribute type"
-msgstr "Ordre des attributs au sein d'un type d'attribut donné"
+msgstr "Ordre des caractéristiques au sein d'un type de caractéristique donné"
 
 msgid "Sorting of the suppliers"
 msgstr ""
@@ -1759,7 +1761,7 @@ msgid "Telephone number (optional)"
 msgstr "Numéro de téléphone (optionnel)"
 
 msgid "Temporary folder is missing"
-msgstr ""
+msgstr "Dossier temporaire manquant"
 
 msgid "Text Lists Type"
 msgstr "Type de liste de texte"
@@ -1809,10 +1811,10 @@ msgid "The option is only shown on the web site until that date and time"
 msgstr "Cette option ne sera affichée sur le site uniquement jusqu'à cette date et heure"
 
 msgid "The rule is only used after that date and time"
-msgstr ""
+msgstr "La règle n'est utilisée qu'après cette date et cette heure"
 
 msgid "The rule is only used until that date and time"
-msgstr ""
+msgstr "La règle n'est utilisée que jusqu'à cette date et heure"
 
 msgid ""
 "The step value allowed for quantities in the basket, e.g. \"0.1\" for "
@@ -1820,10 +1822,10 @@ msgid ""
 msgstr "La valeur d'incrément autorisée pour modifier la quantité dans le panier, par exemple \"0.1\" pour des quantités fractionnelles ou \"5\" pour des articles commandés cinq par cinq"
 
 msgid "The uploaded file exceeds the max. allowed filesize"
-msgstr ""
+msgstr "Le fichier téléchargé dépasse la taille maximale autorisée"
 
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Le fichier téléchargé n'a été que partiellement téléchargé"
 
 msgid "Theme to change the layout of your shop"
 msgstr ""
@@ -1911,10 +1913,10 @@ msgid ""
 msgstr "Code unique pour l'article lié au niveaux du stock, par. ex. de votre ERP, un code barre EAN/GTIN ou un autre code au choix."
 
 msgid "Unique attribute code (required)"
-msgstr "Code unique de l'attribut (requis)"
+msgstr "Code unique de caractéristique (requis)"
 
 msgid "Unique attribute code, e.g. \"green\" for attributes of type \"color\""
-msgstr "Code unique de l'attribut, par. ex. \"vert\" pour les attributs de type \"couleur\""
+msgstr "Code unique de la caractéristique, par. ex. \"vert\" pour les caractéristiques de type \"couleur\""
 
 msgid "Unique category code (required)"
 msgstr "Code unique pour la catégorie (requis)"
@@ -1953,7 +1955,7 @@ msgid "Unique type code (required)"
 msgstr "Code unique pour le type (requis)"
 
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
-msgstr "Code unique pour le type d'attribut, par. ex. \"couleur\" pour les attributs \"vert\", \"bleu\", \"rouge\""
+msgstr "Code unique de type, par exemple \"couleur\" pour des caractéristiques telles que \"vert\", \"bleu\" ou \"rouge\"."
 
 msgid "Unknown upload error"
 msgstr ""
@@ -1983,10 +1985,10 @@ msgid "Value added tax identifier (optional)"
 msgstr "Identifiant taxe sur la valeur ajoutée (facultatif)"
 
 msgid "Variant attributes"
-msgstr "Attributs de la variante"
+msgstr "Caractéristiques de la variante"
 
 msgid "Variant product attributes that are stored with the ordered products"
-msgstr "Attributs de produits variantes stockés avec les produits commandés"
+msgstr "Caractéristiques de produits variantes stockés avec les produits commandés"
 
 msgid "Verified"
 msgstr ""
@@ -2075,7 +2077,7 @@ msgstr "Catégories"
 
 #, php-format
 msgid "characteristic"
-msgstr "Caractéristiques"
+msgstr "Attributs"
 
 #, php-format
 msgid "code"
@@ -2434,11 +2436,11 @@ msgstr "Caractéristiques"
 
 #, php-format
 msgid "type/attribute/lists"
-msgstr "Listes d'attributs"
+msgstr "Listes de caractéristique"
 
 #, php-format
 msgid "type/attribute/property"
-msgstr "Propriétés d'attribut"
+msgstr "Propriétés de caractéristique"
 
 #, php-format
 msgid "type/catalog/lists"
@@ -2474,7 +2476,7 @@ msgstr "Prix"
 
 #, php-format
 msgid "type/price/lists"
-msgstr "Listes prix"
+msgstr "Listes de prix"
 
 #, php-format
 msgid "type/price/property"
