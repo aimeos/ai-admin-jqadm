@@ -59,6 +59,7 @@ class Standard
 		$view->priceTypes = $priceTypeManager->search( $search );
 		$view->priceListTypes = $listTypeManager->search( $listSearch );
 		$view->priceCurrencies = $currencyManager->search( $currencyManager->filter( true )->slice( 0, 10000 ) );
+		$view->priceCustomItem = $this->getAttributeItem();
 
 		if( $view->priceCurrencies->isEmpty() )
 		{
@@ -278,6 +279,23 @@ class Standard
 
 
 	/**
+	 * Returns the custom price attribute item
+	 *
+	 * @return \Aimeos\MShop\Attribute\Item\Iface Custom price attribute item
+	 */
+	protected function getAttributeItem() : \Aimeos\MShop\Attribute\Item\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'attribute' );
+
+		try {
+			return $manager->find( 'custom', [], 'product', 'price' );
+		} catch( \Aimeos\MShop\Exception $e ) {
+			return $manager->save( $manager->create()->setDomain( 'product' )->setType( 'price' )->setCode( 'custom' ) );
+		}
+	}
+
+
+	/**
 	 * Returns the list of sub-client names configured for the client.
 	 *
 	 * @return array List of JQAdm client names
@@ -431,24 +449,13 @@ class Standard
 	 */
 	protected function setCustom( \Aimeos\MShop\Product\Item\Iface $item, $value ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$context = $this->context();
-
-		try
-		{
-			$attrManager = \Aimeos\MShop::create( $context, 'attribute' );
-			$attrItem = $attrManager->find( 'custom', [], 'product', 'price' );
-		}
-		catch( \Aimeos\MShop\Exception $e )
-		{
-			$attrItem = $attrManager->create()->setDomain( 'product' )->setType( 'price' )->setCode( 'custom' );
-			$attrItem = $attrManager->save( $attrItem );
-		}
+		$attrItem = $this->getAttributeItem();
 
 		if( $value )
 		{
 			if( $item->getListItem( 'attribute', 'custom', $attrItem->getId(), false ) === null )
 			{
-				$listItem = \Aimeos\MShop::create( $context, 'product' )->createListItem();
+				$listItem = \Aimeos\MShop::create( $this->context(), 'product' )->createListItem();
 				$item = $item->addListItem( 'attribute', $listItem->setType( 'custom' ), $attrItem );
 			}
 		}

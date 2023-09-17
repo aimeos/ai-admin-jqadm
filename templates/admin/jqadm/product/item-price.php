@@ -28,6 +28,7 @@ $enc = $this->encoder();
 			<div class="col-1">
 				<input class="form-check-input item-pricecustom" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
 					name="<?= $enc->attr( $this->formparam( array( 'pricecustom' ) ) ) ?>"
+					data-attr="<?= $enc->attr( $this->priceCustomItem ) ?>"
 					<?= $this->get( 'priceCustom' ) ? 'checked="checked"' : '' ?>
 				>
 			</div>

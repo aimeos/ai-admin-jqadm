@@ -9,6 +9,7 @@ Aimeos.Product = {
 
 	init() {
 
+		Aimeos.Product.Price.init();
 		Aimeos.Product.Bundle.init();
 		Aimeos.Product.Download.init();
 		Aimeos.Product.Selection.init();
@@ -357,7 +358,6 @@ Aimeos.Product.Attribute = {
 Aimeos.Product.Bundle = {
 
 	init()  {
-
 		let tab = $(".item-navbar .bundle");
 		$(".item-basic .item-type").val() === 'bundle' ? tab.show() : tab.hide();
 
@@ -654,6 +654,34 @@ Aimeos.Product.Order = {
 	}
 };
 
+
+
+Aimeos.Product.Price = {
+
+	init()  {
+		$(".item-price .item-pricecustom").on("change", function(ev) {
+			const item = $(ev.target).data('attr')
+			item['product.lists.refid'] = item['attribute.id']
+
+			if(Aimeos.components['characteristics/custom']) {
+				const items = Aimeos.components['characteristics/custom'].items || []
+
+				for(const key in items) {
+					if(items[key]['attribute.type'] === 'price' && items[key]['attribute.code'] === 'custom') {
+						if(!ev.target.checked) {
+							Aimeos.components['characteristics/custom'].remove(key)
+							return
+						} else {
+							return
+						}
+					}
+				}
+
+				Aimeos.components['characteristics/custom'].add(item)
+			}
+		});
+	}
+};
 
 
 Aimeos.Product.Product = {
