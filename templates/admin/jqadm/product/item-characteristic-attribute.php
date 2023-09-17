@@ -10,7 +10,7 @@ $enc = $this->encoder();
 
 $keys = [
 	'product.lists.id', 'product.lists.siteid', 'product.lists.refid', 'product.lists.type',
-	'attribute.label'
+	'attribute.id', 'attribute.type', 'attribute.code', 'attribute.label'
 ];
 
 $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' );
