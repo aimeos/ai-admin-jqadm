@@ -546,7 +546,9 @@ class Standard
 
 		if( $copy === true )
 		{
-			$data['product.code'] = $data['product.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+			$hash = substr( md5( microtime( true ) ), -5 );
+			$data['product.code'] = $data['product.code'] . '_' . $hash;
+			$data['product.label'] = $data['product.label'] . '_' . $hash;
 			$data['product.siteid'] = $this->context()->locale()->getSiteId();
 			$data['product.ctime'] = '';
 			$data['product.url'] = '';
