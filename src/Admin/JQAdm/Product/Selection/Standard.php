@@ -386,6 +386,12 @@ class Standard
 				$list['product.siteid'] = $siteId;
 				$list['product.id'] = '';
 				$list['product.code'] = $list['product.code'] . '_' . substr( md5( microtime( true ) ), -5 );
+
+				$list['stock.stocklevel'] = 0;
+			}
+			else
+			{
+				$list = array_merge( $list, $refItem->getStockItems( 'default' )->first( map() )->toArray() );
 			}
 
 			$idx = 0;
@@ -396,8 +402,6 @@ class Standard
 					$list['attr'][$idx++] = $litem->toArray( true ) + $attrItem->toArray( true );
 				}
 			}
-
-			$list = array_merge( $list, $refItem->getStockItems( 'default' )->first( map() )->toArray() );
 
 			$data[] = $list;
 		}
