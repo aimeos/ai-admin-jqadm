@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Darshan Sampat <darshan@usindia.com>, 2018\n"
 "Language-Team: Japanese (http://app.transifex.com/aimeos/aimeos-core/language/ja/)\n"
@@ -962,6 +962,15 @@ msgstr ""
 msgid "Minimum quantity"
 msgstr "最小数量"
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr "変更された"
 
@@ -981,6 +990,9 @@ msgid "Name"
 msgstr "名前"
 
 msgid "Name in URL (optional)"
+msgstr ""
+
+msgid "Name of the basket"
 msgstr ""
 
 msgid ""
@@ -1425,6 +1437,9 @@ msgstr "関連注文"
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr "更新"
 
@@ -1634,6 +1649,9 @@ msgstr ""
 
 msgid "Show/hide advanced data"
 msgstr "高度なデータの表示/非表示"
+
+msgid "Show/hide details"
+msgstr ""
 
 msgid "Show/hide navigation labels"
 msgstr ""
@@ -1949,6 +1967,9 @@ msgstr "一意のタイプコード（必須）"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "一意のタイプコード。 \"緑\"、 \"青\"、 \"赤\"などの属性の \"色\""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr ""
 
@@ -2054,6 +2075,10 @@ msgstr "請求先住所"
 #, php-format
 msgid "attribute"
 msgstr "属性"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

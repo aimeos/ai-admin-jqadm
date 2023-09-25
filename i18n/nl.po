@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Victor Oomens, 2022\n"
 "Language-Team: Dutch (http://app.transifex.com/aimeos/aimeos-core/language/nl/)\n"
@@ -971,6 +971,15 @@ msgstr ""
 msgid "Minimum quantity"
 msgstr "Minimum aantal"
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Aangepast"
 
@@ -991,6 +1000,9 @@ msgstr "Naam"
 
 msgid "Name in URL (optional)"
 msgstr "Naam in URL (optioneel)"
+
+msgid "Name of the basket"
+msgstr ""
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1434,6 +1446,9 @@ msgstr "Gerelateerde order"
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr "Vernieuwen"
 
@@ -1643,6 +1658,9 @@ msgstr ""
 
 msgid "Show/hide advanced data"
 msgstr "Toon/verberg uitgebreide data"
+
+msgid "Show/hide details"
+msgstr ""
 
 msgid "Show/hide navigation labels"
 msgstr "Tonen/verbergen navigatielabels"
@@ -1958,6 +1976,9 @@ msgstr "Unieke typecode (vereist)"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Uniek type code, bijvoorbeeld \"kleur\" voor attributen zoals \"groen\", \"blauw\", \"rood\""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr ""
 
@@ -2063,6 +2084,10 @@ msgstr "Factuur adres"
 #, php-format
 msgid "attribute"
 msgstr "Kenmerken"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

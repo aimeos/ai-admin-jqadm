@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Ali y, 2022\n"
 "Language-Team: Persian (http://app.transifex.com/aimeos/aimeos-core/language/fa/)\n"
@@ -966,6 +966,15 @@ msgstr "حداقل تعداد"
 msgid "Minimum quantity"
 msgstr "حداقل تعداد"
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr "اصلاح شده"
 
@@ -986,6 +995,9 @@ msgstr "نام"
 
 msgid "Name in URL (optional)"
 msgstr "نام در URL (اختیاری)"
+
+msgid "Name of the basket"
+msgstr ""
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1429,6 +1441,9 @@ msgstr "سفارش مرتبط"
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr "تمدید کنید"
 
@@ -1638,6 +1653,9 @@ msgstr "نمایش فرم جستجو"
 
 msgid "Show/hide advanced data"
 msgstr "نمایش/پنهان کردن داده های پیشرفته"
+
+msgid "Show/hide details"
+msgstr ""
 
 msgid "Show/hide navigation labels"
 msgstr "نمایش / پنهان کردن برچسب های ناوبری"
@@ -1953,6 +1971,9 @@ msgstr "کد نوع منحصر به فرد (الزامی)"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "کد نوع منحصر به فرد، به عنوان مثال \"رنگ\" برای ویژگی هایی مانند \"سبز\"، \"آبی\"، \"قرمز\""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr "خطای ناشناخته آپلود"
 
@@ -2058,6 +2079,10 @@ msgstr "آدرس صورتحساب"
 #, php-format
 msgid "attribute"
 msgstr "خصوصیت"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

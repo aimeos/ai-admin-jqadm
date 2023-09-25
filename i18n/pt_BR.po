@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Keite Clembet, 2022\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/aimeos/aimeos-core/language/pt_BR/)\n"
@@ -967,6 +967,15 @@ msgstr "Qtd. mínima"
 msgid "Minimum quantity"
 msgstr "Qualidade mínima"
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Modificado"
 
@@ -987,6 +996,9 @@ msgstr "Nome"
 
 msgid "Name in URL (optional)"
 msgstr "Nome na URL (opcional)"
+
+msgid "Name of the basket"
+msgstr ""
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1430,6 +1442,9 @@ msgstr "Pedido relacionado"
 msgid "Related order ID (optional)"
 msgstr ""
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr "Renovar"
 
@@ -1639,6 +1654,9 @@ msgstr "Exibir formulário de pesquisa"
 
 msgid "Show/hide advanced data"
 msgstr "Exibir/Ocultar dados avançados"
+
+msgid "Show/hide details"
+msgstr ""
 
 msgid "Show/hide navigation labels"
 msgstr "Exibir/Ocultar rótulos de navegação"
@@ -1954,6 +1972,9 @@ msgstr "Código único do tipo (obrigatório)"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Código único do tipo, por exemplo \"cor\" para atributos como \"verde\", \"azul\", \"vermelho\""
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr "Erro de upload desconhecido"
 
@@ -2059,6 +2080,10 @@ msgstr "Endereço de cobrança"
 #, php-format
 msgid "attribute"
 msgstr "Atributos"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"

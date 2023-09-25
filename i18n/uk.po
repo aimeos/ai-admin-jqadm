@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-04 11:12+0200\n"
+"POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
 "Last-Translator: Ruslan Melnychenko, 2023\n"
 "Language-Team: Ukrainian (http://app.transifex.com/aimeos/aimeos-core/language/uk/)\n"
@@ -962,6 +962,15 @@ msgstr "Мін. кількість"
 msgid "Minimum quantity"
 msgstr "Мінімальна кількість"
 
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile number"
+msgstr ""
+
+msgid "Mobile number (optional)"
+msgstr ""
+
 msgid "Modifed"
 msgstr "Змінено"
 
@@ -982,6 +991,9 @@ msgstr "Назва"
 
 msgid "Name in URL (optional)"
 msgstr "Назва в URL (опціонально)"
+
+msgid "Name of the basket"
+msgstr ""
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1425,6 +1437,9 @@ msgstr "Зв`язане замовлення"
 msgid "Related order ID (optional)"
 msgstr "Пов'язаний ідентифікатор замовлення (необов'язково)"
 
+msgid "Related order of the customer"
+msgstr ""
+
 msgid "Renew"
 msgstr "Відновити"
 
@@ -1634,6 +1649,9 @@ msgstr "Показати форму пошуку"
 
 msgid "Show/hide advanced data"
 msgstr "Показати/приховати розширені дані"
+
+msgid "Show/hide details"
+msgstr ""
 
 msgid "Show/hide navigation labels"
 msgstr "Показати/приховати навігаційні метки"
@@ -1949,6 +1967,9 @@ msgstr "Унікальний тип коду (обов`язково)"
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr "Унікальний тип коду, наприклад «колір» для таких атрибутів, як «зелений», «синій», «червоний»"
 
+msgid "Unit price"
+msgstr ""
+
 msgid "Unknown upload error"
 msgstr "Невідома помилка завантаження"
 
@@ -2054,6 +2075,10 @@ msgstr "Платіжна адреса"
 #, php-format
 msgid "attribute"
 msgstr "Атрибути"
+
+#, php-format
+msgid "basket"
+msgstr ""
 
 #, php-format
 msgid "bundle"
