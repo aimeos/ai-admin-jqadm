@@ -482,6 +482,13 @@
 	width: 2%;
 }
 
+.aimeos .translations th.head {
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 90%;
+	width: 100%;
+}
+
 .aimeos .attribute-list th:not(.actions) {
 	width: 49%;
 }

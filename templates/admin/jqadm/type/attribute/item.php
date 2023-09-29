@@ -78,8 +78,9 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box">
+				<div class="box vue">
 					<div class="row">
+
 						<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/attribute.type.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
@@ -162,6 +163,20 @@ $params = $this->get( 'pageParams', [] );
 									<?= $enc->html( $this->translate( 'admin', 'Order of the types in the frontend' ) ) ?>
 								</div>
 							</div>
+						</div>
+
+						<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/attribute.type.siteid' ) ) ?>">
+							<translations tabindex="1"
+								:value="<?= $enc->attr( $this->get( 'itemData/attribute.type.i18n', new \stdClass ) ) ?>"
+								:name="`<?= $enc->js( $this->formparam( array( 'item', 'attribute.type.i18n' ) ) ) ?>`"
+								:readonly="`<?= $this->site()->readonly( $this->get( 'itemData/attribute.type.siteid' ) ) ?>` ? true : false"
+								:langs="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' ) ) ?>"
+								:i18n="{
+									header: `<?= $enc->js( $this->translate( 'admin', 'Translations' ) ) ?>`,
+									insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
+									delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
+								}">
+							</translations>
 						</div>
 
 					</div>

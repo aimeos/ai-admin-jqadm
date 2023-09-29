@@ -276,7 +276,9 @@ abstract class Base
 	 */
 	protected function fromArray( string $path, array $data ) : \Aimeos\MShop\Common\Item\Type\Iface
 	{
-		$key = str_replace( '/', '.', $path ) . '.type.id';
+		$prefix = str_replace( '/', '.', $path );
+		$key = $prefix . '.type.id';
+
 		$manager = \Aimeos\MShop::create( $this->context(), $path . '/type' );
 
 		if( isset( $data[$key] ) && $data[$key] != '' ) {
@@ -285,6 +287,7 @@ abstract class Base
 			$item = $manager->create();
 		}
 
+		$data[$prefix . '.type.i18n'] = json_decode( $data[$prefix . '.type.i18n'] ?? '{}', true );
 		$item->fromArray( $data, true );
 
 		return $item;

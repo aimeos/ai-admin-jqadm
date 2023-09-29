@@ -113,6 +113,9 @@
 			"text": "taxrates.js",
 			"path": "js/components/"
 		},{
+			"text": "translations.js",
+			"path": "js/components/"
+		},{
 			"text": "address.js",
 			"path": "js/apps/"
 		},{
