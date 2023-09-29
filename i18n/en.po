@@ -97,9 +97,8 @@ msgstr ""
 msgid "?"
 msgstr ""
 
-#, fuzzy
 msgid "Account"
-msgstr "By day"
+msgstr ""
 
 msgid "Active"
 msgstr ""
@@ -495,9 +494,8 @@ msgstr ""
 msgid "Delivery address"
 msgstr ""
 
-#, fuzzy
 msgid "Delivery date"
-msgstr "By delivery type"
+msgstr ""
 
 msgid "Delivery in"
 msgstr ""
@@ -679,9 +677,8 @@ msgstr ""
 msgid "Group name describing for which members the group is for"
 msgstr ""
 
-#, fuzzy
 msgid "Groups"
-msgstr "Groups"
+msgstr ""
 
 msgid "Height"
 msgstr ""
@@ -799,9 +796,8 @@ msgstr ""
 msgid "Invoice"
 msgstr ""
 
-#, fuzzy
 msgid "Invoice No."
-msgstr "Invoices"
+msgstr ""
 
 msgid "Invoice number for the order"
 msgstr ""
@@ -1136,9 +1132,8 @@ msgstr ""
 msgid "Payment"
 msgstr ""
 
-#, fuzzy
 msgid "Payment date"
-msgstr "Orders by payment type"
+msgstr ""
 
 msgid "Payment status"
 msgstr ""
@@ -1375,9 +1370,8 @@ msgstr ""
 msgid "Reference ID"
 msgstr ""
 
-#, fuzzy
 msgid "Refund"
-msgstr "refund"
+msgstr ""
 
 msgid "Related ID"
 msgstr ""
@@ -1894,9 +1888,8 @@ msgstr ""
 msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\", \"red\""
 msgstr ""
 
-#, fuzzy
 msgid "Unit price"
-msgstr "Prices"
+msgstr ""
 
 msgid "Unknown upload error"
 msgstr ""
@@ -2005,7 +1998,7 @@ msgstr "Attributes"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "Baskets"
 
 #, php-format
 msgid "bundle"
@@ -2034,9 +2027,8 @@ msgstr "Company"
 msgid "configuration"
 msgstr "Configuration"
 
-#, fuzzy, php-format
 msgid "countcountry"
-msgstr "By hour"
+msgstr "By country"
 
 #, php-format
 msgid "countday"
@@ -2231,9 +2223,8 @@ msgstr ""
 msgid "quick/counttotal"
 msgstr ""
 
-#, fuzzy, php-format
 msgid "quick/countunfinished"
-msgstr "unfinished"
+msgstr ""
 
 msgid "reason:-1"
 msgstr ""
@@ -2264,9 +2255,8 @@ msgstr "Sales"
 msgid "salesweekday"
 msgstr "Sales by weekday"
 
-#, fuzzy
 msgid "selected"
-msgstr "Variants"
+msgstr ""
 
 #, php-format
 msgid "selection"
@@ -2335,9 +2325,8 @@ msgstr "disabled"
 msgid "status:1"
 msgstr "enabled"
 
-#, fuzzy
 msgid "status:2"
-msgstr "archive"
+msgstr "hidden"
 
 #, php-format
 msgid "stock"
@@ -2368,9 +2357,9 @@ msgstr "Texts"
 msgid "theme"
 msgstr "Theme"
 
-#, fuzzy, php-format
+#, php-format
 msgid "transaction"
-msgstr "Variants"
+msgstr "Transactions"
 
 #, php-format
 msgid "type"
@@ -2440,9 +2429,9 @@ msgstr "Product lists"
 msgid "type/product/property"
 msgstr "Product properties"
 
-#, fuzzy, php-format
+#, php-format
 msgid "type/rule"
-msgstr "Prices"
+msgstr "Rules"
 
 #, php-format
 msgid "type/service"
