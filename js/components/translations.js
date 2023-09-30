@@ -96,8 +96,11 @@ Vue.component('translations', {
 	},
 
 	watch: {
-		list() {
-			this.value = this.toObject(this.list);
+		list: {
+			deep: true,
+			handler: function() {
+				this.value = this.toObject(this.list)
+			}
 		}
 	}
 });
