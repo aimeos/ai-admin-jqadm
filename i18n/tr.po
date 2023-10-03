@@ -961,13 +961,13 @@ msgid "Minimum quantity"
 msgstr "Minimum miktar"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Cep telefonu"
 
 msgid "Mobile number"
-msgstr ""
+msgstr "Cep telefonu numarası"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Cep telefonu numarası (isteğe bağlı)"
 
 msgid "Modifed"
 msgstr "Değiştirildi"
@@ -991,7 +991,7 @@ msgid "Name in URL (optional)"
 msgstr "URL'deki ad (isteğe bağlı)"
 
 msgid "Name of the basket"
-msgstr ""
+msgstr "Sepet ismi"
 
 msgid ""
 "Name of the downloaded file when customers saves the file on their computers"
@@ -1436,7 +1436,7 @@ msgid "Related order ID (optional)"
 msgstr "İlgili sipariş kimliği (isteğe bağlı)"
 
 msgid "Related order of the customer"
-msgstr ""
+msgstr "Müşterinin ilgili siparişi"
 
 msgid "Renew"
 msgstr "Yenile"
@@ -1649,7 +1649,7 @@ msgid "Show/hide advanced data"
 msgstr "Gelişmiş verileri göster/gizle"
 
 msgid "Show/hide details"
-msgstr ""
+msgstr "Detayları göster/gizle"
 
 msgid "Show/hide navigation labels"
 msgstr "Gezinme etiketlerini göster/gizle"
@@ -1966,7 +1966,7 @@ msgid "Unique type code, e.g. \"color\" for attributes like \"green\", \"blue\",
 msgstr "Benzersiz tür kodu, örn: \"yeşil\", \"mavi\", \"kırmızı\" gibi nitelikler için \"renk\""
 
 msgid "Unit price"
-msgstr ""
+msgstr "Birim fiyat"
 
 msgid "Unknown upload error"
 msgstr "Bilinmeyen yükleme hatası"
@@ -2076,7 +2076,7 @@ msgstr "Nitelikler"
 
 #, php-format
 msgid "basket"
-msgstr ""
+msgstr "sepet"
 
 #, php-format
 msgid "bundle"
