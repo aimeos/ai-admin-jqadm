@@ -6,6 +6,18 @@
  */
 
 
+/** admin/jqadm/product/item/characteristic/attribute/config/suggest
+ * Suggested keys for attribute configuration in product characteristics
+ *
+ * The names of the keys that are suggested in the product characteristics
+ * sub-panel for the configuration key/value pairs.
+ *
+ * @param array List of key names
+ * @since 2023.10
+ * @see admin/jqadm/product/item/config/suggest
+ * @see admin/jqadm/catalog/item/config/suggest
+ */
+
 $enc = $this->encoder();
 
 $keys = [

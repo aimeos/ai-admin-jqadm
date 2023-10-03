@@ -98,6 +98,7 @@ $enc = $this->encoder();
  * @param string List of suggested config keys
  * @since 2017.10
  * @see admin/jqadm/catalog/item/config/suggest
+ * @see admin/jqadm/product/item/characteristic/attribute/config/suggest
  */
 $cfgSuggest = $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] );
 
