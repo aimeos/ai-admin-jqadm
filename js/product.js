@@ -730,10 +730,13 @@ Aimeos.Product.Product = {
 
 				fetch(input, idx) {
 					const filter = {
-						'||': [
-							{'=~': {'product.label': input}},
-							{'=~': {'product.code': input}},
-							{'==': {'product.id': input}}
+						'&&': [
+							{'>': {'product.status': 0}},
+							{'||': [
+								{'=~': {'product.label': input}},
+								{'=~': {'product.code': input}},
+								{'==': {'product.id': input}}
+							]}
 						]
 					}
 
