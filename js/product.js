@@ -260,6 +260,7 @@ Aimeos.Product.Attribute = {
 					const filter = {
 						'&&': [
 							{'==': {'attribute.type': this.items[idx]['attribute.type']}},
+							{'>': {'attribute.status': 0}},
 							{'||': [
 								{'=~': {'attribute.label': input}},
 								{'=~': {'attribute.code': input}},
@@ -284,10 +285,13 @@ Aimeos.Product.Attribute = {
 
 				attrTypes(input) {
 					const filter = {
-						'||': [
-							{'=~': {'attribute.type.label': input}},
-							{'=~': {'attribute.type.code': input}},
-							{'==': {'attribute.type.id': input}}
+						'&&': [
+							{'>': {'attribute.type.status': 0}},
+							{'||': [
+								{'=~': {'attribute.type.label': input}},
+								{'=~': {'attribute.type.code': input}},
+								{'==': {'attribute.type.id': input}}
+							]}
 						]
 					}
 
@@ -407,10 +411,13 @@ Aimeos.Product.Catalog = {
 
 				fetch(input, idx) {
 					const filter = {
-						'||': [
-							{'=~': {'catalog.label': input}},
-							{'=~': {'catalog.code': input}},
-							{'==': {'catalog.id': input}}
+						'&&': [
+							{'>': {'catalog.status': 0}},
+							{'||': [
+								{'=~': {'catalog.label': input}},
+								{'=~': {'catalog.code': input}},
+								{'==': {'catalog.id': input}}
+							]}
 						]
 					}
 
@@ -872,7 +879,8 @@ Aimeos.Product.Selection = {
 
 					const filter = {'&&': [
 						{'=~': {'product.code': input}},
-						{'==': {'product.type': ['default', 'event', 'voucher']}}
+						{'==': {'product.type': ['default', 'event', 'voucher']}},
+						{'>': {'product.status': 0}}
 					]};
 
 					return Aimeos.query(`query {
@@ -957,10 +965,13 @@ Aimeos.Product.Selection = {
 
 				fetchAttribute(input) {
 					const filter = {
-						'||': [
-							{'=~': {'attribute.label': input}},
-							{'=~': {'attribute.code': input}},
-							{'==': {'attribute.id': input}}
+						'&&': [
+							{'>': {'attribute.status': 0}},
+							{'||': [
+								{'=~': {'attribute.label': input}},
+								{'=~': {'attribute.code': input}},
+								{'==': {'attribute.id': input}}
+							]}
 						]
 					}
 
@@ -1165,10 +1176,13 @@ Aimeos.Product.Supplier = {
 
 				fetch(input, idx) {
 					const filter = {
-						'||': [
-							{'=~': {'supplier.label': input}},
-							{'=~': {'supplier.code': input}},
-							{'==': {'supplier.id': input}}
+						'&&': [
+							{'>': {'supplier.status': 0}},
+							{'||': [
+								{'=~': {'supplier.label': input}},
+								{'=~': {'supplier.code': input}},
+								{'==': {'supplier.id': input}}
+							]}
 						]
 					}
 
