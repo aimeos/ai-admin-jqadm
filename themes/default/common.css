@@ -79,10 +79,15 @@ body.dark {
 	--bs-secondary-dark: #FFFFFF;
 	--bs-secondary-light: #90A8C0;
 	--bs-shadow:  0px 5px 9px 0px #00000060;
+	--bs-body-color: var(--bs-secondary);
+
+	--ms-empty-color: var(--bs-secondary);
+	--ms-dropdown-bg: var(--bs-bg);
+	--ms-bg: var(--bs-bg-light);
 }
 
 body.dark .table {
-	--bs-table-striped-bg: #202844;
+	--bs-table-striped-bg: var(--bs-primary-dark);
 	--bs-table-hover-bg: rgba(232, 240, 255, 0.15);
 }
 
