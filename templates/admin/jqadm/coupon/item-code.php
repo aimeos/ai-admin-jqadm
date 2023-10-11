@@ -217,7 +217,6 @@ $columnList = [
 								v-if="item.edit"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.code', ''] ) ) ?>`"
 								v-model="item['coupon.code.code']">
-							</select>
 							<div v-else v-on:click="edit(idx)" class="items-field">
 								{{ item['coupon.code.code'] }}
 							</div>
