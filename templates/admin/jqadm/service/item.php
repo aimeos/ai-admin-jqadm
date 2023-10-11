@@ -98,7 +98,7 @@ $enc = $this->encoder();
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'service.status' ) ) ) ?>"
-										:readonly="can('change')" >
+										:readonly="!can('change')" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
@@ -124,7 +124,7 @@ $enc = $this->encoder();
 										<select class="form-select item-type" required="required" tabindex="1"
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'service.type' ) ) ) ?>"
 											v-model="item['service.type']"
-											:readonly="can('change')" >
+											:readonly="!can('change')" >
 											<option value="">
 												<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 											</option>
@@ -149,7 +149,7 @@ $enc = $this->encoder();
 										name="<?= $this->formparam( array( 'item', 'service.code' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique service code (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/service.code' ) ) ?>"
-										:readonly="can('change')" >
+										:readonly="!can('change')" >
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique code to identify the service, usually self-invented' ) ) ?>
@@ -162,7 +162,7 @@ $enc = $this->encoder();
 										name="<?= $this->formparam( array( 'item', 'service.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/service.label' ) ) ?>"
-										:readonly="can('change')" >
+										:readonly="!can('change')" >
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal article name, will be used on the web site if no product name for the language is available' ) ) ?>
@@ -206,7 +206,7 @@ $enc = $this->encoder();
 										name="<?= $this->formparam( array( 'item', 'service.position' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Service position (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/service.position' ) ) ?>"
-										:readonly="can('change')" >
+										:readonly="!can('change')" >
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Order of the service options in the checkout process' ) ) ?>
