@@ -223,7 +223,7 @@ Vue.component('config-table', {
 						></AimeosMapComponent>
 					</div>
 
-					<select v-if="entry.type === 'boolean'" class="form-select config-type config-type-boolean"
+					<select v-if="entry.type === 'boolean' || entry.type === 'bool'" class="form-select config-type config-type-boolean"
 						:tabindex="tabindex"
 						:readonly="readonly"
 						:name="fname(\'val\', pos)"
@@ -233,7 +233,7 @@ Vue.component('config-table', {
 						<option value="1">{{ i18n.yes || 'yes' }}</option>
 					</select>
 
-					<input v-if="entry.type === 'integer'" type="number" class="config-value form-control config-type config-type-integer"
+					<input v-if="entry.type === 'integer' || entry.type === 'int'" type="number" class="config-value form-control config-type config-type-integer"
 						:tabindex="tabindex"
 						:readonly="readonly"
 						:name="fname(\'val\', pos)"
