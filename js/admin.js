@@ -67,7 +67,7 @@ Aimeos = {
 			plugins: [new confirmDatePlugin({})],
 			position: 'below',
 			time_24hr: true,
-			wrap: false
+			wrap: true
 		},
 		datetime: {
 			// altFormat: 'M j, Y H:i K',
@@ -77,7 +77,7 @@ Aimeos = {
 			plugins: [new confirmDatePlugin({})],
 			position: 'below',
 			time_24hr: true,
-			wrap: false
+			wrap: true
 		},
 		daterange: {
 			defaultDate: null,
@@ -86,7 +86,7 @@ Aimeos = {
 			},
 			mode: "range",
 			position: 'below',
-			wrap: false,
+			wrap: true,
 			dateFormat: "Y-m-d H:i:S",
 			onChange: function (selectedDates, datestr) {
 				if( typeof selectedDates[1] !== 'undefined' ) {
@@ -101,14 +101,14 @@ Aimeos = {
 			// altFormat: 'M j, Y',
 			defaultDate: null,
 			position: 'below',
-			wrap: false
+			wrap: true
 		},
 		time: {
 			defaultHour: 0,
 			enableTime: true,
 			time_24hr: true,
 			position: 'below',
-			wrap: false
+			wrap: true
 		}
 	},
 
