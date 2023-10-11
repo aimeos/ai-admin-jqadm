@@ -323,10 +323,10 @@ Aimeos = {
 			},
 			methods: {
 				add(data) {
-					this.$refs[key].add(data);
+					this.$set(this.data, idx, data);
 				},
 				remove(idx) {
-					this.$refs[key].remove(idx);
+					this.$delete(this.data, idx);
 				}
 			},
 			provide() {
