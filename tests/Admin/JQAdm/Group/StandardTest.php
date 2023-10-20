@@ -39,7 +39,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'site' => 'unittest',
 			'item' => array(
-				'customer.group.status' => -1,
+				'group.status' => -1,
 			),
 			'id' => [-1, -2]
 		);
@@ -81,7 +81,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testCopy()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context, 'group' );
 
 		$param = ['type' => 'unittest', 'id' => $manager->find( 'unitgroup' )->getId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
@@ -129,7 +129,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testGet()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context, 'group' );
 
 		$param = ['type' => 'unittest', 'id' => $manager->find( 'unitgroup' )->getId()];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
@@ -159,14 +159,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testSave()
 	{
-		$manager = \Aimeos\MShop::create( $this->context, 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context, 'group' );
 
 		$param = array(
 			'type' => 'unittest',
 			'item' => array(
-				'customer.group.id' => '',
-				'customer.group.code' => 'jqadm@test',
-				'customer.group.label' => 'jqadm test',
+				'group.id' => '',
+				'group.code' => 'jqadm@test',
+				'group.label' => 'jqadm test',
 			),
 		);
 
@@ -203,11 +203,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$param = array(
 			'type' => 'unittest', 'locale' => 'de',
 			'filter' => array(
-				'key' => array( 0 => 'customer.group.code' ),
+				'key' => array( 0 => 'group.code' ),
 				'op' => array( 0 => '==' ),
 				'val' => array( 0 => 'unitgroup' ),
 			),
-			'sort' => array( '-customer.group.id' ),
+			'sort' => array( '-group.id' ),
 		);
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
@@ -269,7 +269,7 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 			->onlyMethods( array( 'render' ) )
 			->getMock();
 
-		$manager = \Aimeos\MShop::create( $this->context, 'customer/group' );
+		$manager = \Aimeos\MShop::create( $this->context, 'group' );
 
 		$param = ['site' => 'unittest', 'id' => $real ? $manager->find( 'unitgroup' )->getId() : -1];
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $view, $param );

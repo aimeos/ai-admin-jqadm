@@ -17,16 +17,16 @@ $params = $this->get( 'pageParams', [] );
 <?php $this->block()->start( 'jqadm_content' ) ?>
 
 <form class="item item-group form-horizontal container-fluid" method="POST" enctype="multipart/form-data" action="<?= $enc->attr( $this->link( 'admin/jqadm/url/save', $params ) ) ?>">
-	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.group.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/customer.group.id' ) ) ?>">
+	<input id="item-id" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'group.id' ) ) ) ?>" value="<?= $enc->attr( $this->get( 'itemData/group.id' ) ) ?>">
 	<input id="item-next" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'next' ) ) ) ?>" value="get">
 	<?= $this->csrf()->formfield() ?>
 
 	<nav class="main-navbar">
 		<h1 class="navbar-brand">
 			<span class="navbar-title"><?= $enc->html( $this->translate( 'admin', 'Group' ) ) ?></span>
-			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/customer.group.id' ) ) ?></span>
-			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/customer.group.label' ) ?: $this->translate( 'admin', 'New' ) ) ?></span>
-			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/customer.group.siteid' ) ) ) ?></span>
+			<span class="navbar-id"><?= $enc->html( $this->get( 'itemData/group.id' ) ) ?></span>
+			<span class="navbar-label"><?= $enc->html( $this->get( 'itemData/group.label' ) ?: $this->translate( 'admin', 'New' ) ) ?></span>
+			<span class="navbar-site"><?= $enc->html( $this->site()->match( $this->get( 'itemData/group.siteid' ) ) ) ?></span>
 		</h1>
 		<div class="item-actions">
 			<?= $this->partial( $this->config( 'admin/jqadm/partial/itemactions', 'itemactions' ), ['params' => $params] ) ?>
@@ -58,15 +58,15 @@ $params = $this->get( 'pageParams', [] );
 				<div class="item-meta text-muted">
 					<small>
 						<?= $enc->html( $this->translate( 'admin', 'Modified' ) ) ?>:
-						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/customer.group.mtime' ) ) ?></span>
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/group.mtime' ) ) ?></span>
 					</small>
 					<small>
 						<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>:
-						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/customer.group.ctime' ) ) ?></span>
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/group.ctime' ) ) ?></span>
 					</small>
 					<small>
 						<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>:
-						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/customer.group.editor' ) ) ?></span>
+						<span class="meta-value"><?= $enc->html( $this->get( 'itemData/group.editor' ) ) ?></span>
 					</small>
 				</div>
 
@@ -75,7 +75,7 @@ $params = $this->get( 'pageParams', [] );
 		</div>
 
 		<div class="col-xl-9 item-content tab-content">
-			<?php $readonly = ( $this->access( ['admin', 'super'] ) === false ? $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ) : '' ) ?>
+			<?php $readonly = ( $this->access( ['admin', 'super'] ) === false ? $this->site()->readonly( $this->get( 'itemData/group.siteid' ) ) : '' ) ?>
 
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
@@ -86,10 +86,10 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-code" type="text" required="required" tabindex="1"
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.group.code' ) ) ) ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'group.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique group code (required)' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/customer.group.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ) ?>>
+										value="<?= $enc->attr( $this->get( 'itemData/group.code' ) ) ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/group.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Alphanumeric string that can identify the group uniquely' ) ) ?>
@@ -99,10 +99,10 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Label' ) ) ?></label>
 								<div class="col-sm-8">
 									<input class="form-control item-label" type="text" required="required" tabindex="1"
-										name="<?= $this->formparam( array( 'item', 'customer.group.label' ) ) ?>"
+										name="<?= $this->formparam( array( 'item', 'group.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
-										value="<?= $enc->attr( $this->get( 'itemData/customer.group.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.group.siteid' ) ) ?>>
+										value="<?= $enc->attr( $this->get( 'itemData/group.label' ) ) ?>"
+										<?= $this->site()->readonly( $this->get( 'itemData/group.siteid' ) ) ?>>
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Group name describing for which members the group is for' ) ) ?>

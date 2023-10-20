@@ -104,7 +104,7 @@ class Standard
 				if( $view->access( ['super', 'admin'] ) || $item->getId() === $context->user() )
 				{
 					!isset( $data['customer.password'] ) ?: $item->setPassword( $data['customer.password'] );
-					!isset( $data['customer.groups'] ) ?: $item->setGroups( array_filter( (array) $data['customer.groups'] ) );
+					!isset( $data['groups'] ) ?: $item->setGroups( array_filter( (array) $data['groups'] ) );
 				}
 
 				!isset( $data['customer.dateverified'] ) ?: $item->setDateVerified( $data['customer.dateverified'] );
@@ -482,8 +482,8 @@ class Standard
 		$isAdmin = $view->access( ['admin'] );
 		$isEditor = $view->access( ['editor'] );
 
-		$manager = \Aimeos\MShop::create( $context, 'customer/group' );
-		$search = $manager->filter( true )->slice( 0, 10000 )->order( 'customer.group.label' );
+		$manager = \Aimeos\MShop::create( $context, 'group' );
+		$search = $manager->filter( true )->slice( 0, 10000 )->order( 'group.label' );
 
 		foreach( $manager->search( $search ) as $groupId => $groupItem )
 		{
@@ -578,7 +578,7 @@ class Standard
 
 		if( $this->view()->access( ['super', 'admin'] ) )
 		{
-			$groupIds = $this->val( $data, 'customer.groups', [] );
+			$groupIds = $this->val( $data, 'groups', [] );
 			$gids = array_keys( $this->getGroupItems( $item ) );
 
 			$item->setGroups( array_intersect( $gids, $groupIds ) );

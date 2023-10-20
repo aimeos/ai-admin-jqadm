@@ -164,11 +164,11 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-groups" tabindex="1" size="8" multiple
-										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ) ?>"
+										name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>"
 										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
 
 										<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>
-											<option value="<?= $enc->attr( $groupId ) ?>" <?= $selected( in_array( $groupId, $this->get( 'itemData/customer.groups', [] ) ), true ) ?> >
+											<option value="<?= $enc->attr( $groupId ) ?>" <?= $selected( in_array( $groupId, $this->get( 'itemData/groups', [] ) ), true ) ?> >
 												<?= $enc->html( $groupItem->getLabel() . ' (' . $groupItem->getCode() . ')' ) ?>
 											</option>
 										<?php endforeach ?>

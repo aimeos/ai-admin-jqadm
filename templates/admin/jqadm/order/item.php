@@ -261,7 +261,7 @@ $paymentStatusList = [
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>
 									<div class="col-8">
 										<span class="form-control item-customerid">
-											<?php if( $this->item->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
+											<?php if( $this->item->getCustomerId() && $this->access( $this->config( 'admin/jqadm/resource/groups', [] ) ) ) : ?>
 												<a class="link fa act-view" target="_blank"
 													href="<?= $enc->attr( $this->link( 'admin/jqadm/url/get', ['resource' => 'customer', 'id' => $this->item->getCustomerId(), 'locale' => $this->param( 'locale' )] ) ) ?>">
 													<?= $enc->html( $this->item->getCustomerId() ) ?>
@@ -270,7 +270,7 @@ $paymentStatusList = [
 										</span>
 									</div>
 								</div>
-								<?php if( $this->access( $this->config( 'admin/jqadm/resource/customer/groups', [] ) ) ) : ?>
+								<?php if( $this->access( $this->config( 'admin/jqadm/resource/groups', [] ) ) ) : ?>
 									<div class="form-group row">
 										<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer' ) ) ?></label>
 										<div class="col-8">

@@ -21,7 +21,7 @@ $enc = $this->encoder();
  * @param array List of field names, i.e. search keys
  * @since 2018.07
  */
-$default = ['customer.group.status', 'customer.group.label', 'customer.group.code'];
+$default = ['group.status', 'group.label', 'group.code'];
 $default = $this->config( 'admin/jqadm/group/fields', $default );
 $fields = $this->session( 'aimeos/admin/jqadm/group/fields', $default );
 
@@ -39,12 +39,12 @@ $operators = map( $this->get( 'filterOperators/compare', [] ) )->flip()->map( fu
 } )->all();
 
 $columnList = [
-	'customer.group.id' => $this->translate( 'admin', 'ID' ),
-	'customer.group.code' => $this->translate( 'admin', 'Code' ),
-	'customer.group.label' => $this->translate( 'admin', 'Label' ),
-	'customer.group.ctime' => $this->translate( 'admin', 'Created' ),
-	'customer.group.mtime' => $this->translate( 'admin', 'Modified' ),
-	'customer.group.editor' => $this->translate( 'admin', 'Editor' ),
+	'group.id' => $this->translate( 'admin', 'ID' ),
+	'group.code' => $this->translate( 'admin', 'Code' ),
+	'group.label' => $this->translate( 'admin', 'Label' ),
+	'group.ctime' => $this->translate( 'admin', 'Created' ),
+	'group.mtime' => $this->translate( 'admin', 'Modified' ),
+	'group.editor' => $this->translate( 'admin', 'Editor' ),
 ];
 
 
@@ -56,7 +56,7 @@ $columnList = [
 
 
 <div class="list-view"
-	data-domain="customer/group"
+	data-domain="group"
 	data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/group/filter', new \stdClass ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray', [true] )->all() ) ?>">
@@ -76,7 +76,7 @@ $columnList = [
 
 	<nav-search v-bind:show="search" v-on:close="search = false"
 		v-bind:url="`<?= $enc->js( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>`"
-		v-bind:filter="<?= $enc->attr( (object) $this->session( 'aimeos/admin/jqadm/customer/group/filter', new \stdClass ) ) ?>"
+		v-bind:filter="<?= $enc->attr( (object) $this->session( 'aimeos/admin/jqadm/group/filter', new \stdClass ) ) ?>"
 		v-bind:operators="<?= $enc->attr( $operators ) ?>"
 		v-bind:name="`<?= $enc->js( $this->formparam( ['filter', '_key_', '0'] ) ) ?>`"
 		v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
@@ -151,12 +151,12 @@ $columnList = [
 						$this->config( 'admin/jqadm/partial/listsearch', 'listsearch' ), [
 							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/group/filter', [] ),
 							'data' => [
-								'customer.group.id' => ['op' => '=='],
-								'customer.group.code' => [],
-								'customer.group.label' => [],
-								'customer.group.ctime' => ['op' => '-', 'type' => 'datetime-local'],
-								'customer.group.mtime' => ['op' => '-', 'type' => 'datetime-local'],
-								'customer.group.editor' => [],
+								'group.id' => ['op' => '=='],
+								'group.code' => [],
+								'group.label' => [],
+								'group.ctime' => ['op' => '-', 'type' => 'datetime-local'],
+								'group.mtime' => ['op' => '-', 'type' => 'datetime-local'],
+								'group.editor' => [],
 							]
 						] );
 					?>
@@ -184,14 +184,14 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-group-status" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.group.status')">
+													<input id="batch-group-status" class="form-check-input" type="checkbox" v-on:click="setState('item/group.status')">
 												</div>
 												<label class="col-4 form-control-label" for="batch-group-status">
 													<?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?>
 												</label>
 												<div class="col-7">
-													<select class="form-select" v-bind:disabled="state('item/customer.group.status')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.group.status' ) ) ) ?>">
+													<select class="form-select" v-bind:disabled="state('item/group.status')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'group.status' ) ) ) ?>">
 														<option value=""></option>
 														<option value="1"><?= $enc->html( $this->translate( 'mshop/code', 'status:1' ) ) ?></option>
 														<option value="0"><?= $enc->html( $this->translate( 'mshop/code', 'status:0' ) ) ?></option>
@@ -228,22 +228,22 @@ $columnList = [
 									v-bind:checked="checked(`<?= $enc->js( $id ) ?>`)"
 									v-bind:disabled="readonly(`<?= $enc->js( $id ) ?>`)">
 							</td>
-							<?php if( in_array( 'customer.group.id', $fields ) ) : ?>
+							<?php if( in_array( 'group.id', $fields ) ) : ?>
 								<td class="group-id"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getId() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'customer.group.code', $fields ) ) : ?>
+							<?php if( in_array( 'group.code', $fields ) ) : ?>
 								<td class="group-code"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getCode() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'customer.group.label', $fields ) ) : ?>
+							<?php if( in_array( 'group.label', $fields ) ) : ?>
 								<td class="group-label"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getLabel() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'customer.group.ctime', $fields ) ) : ?>
+							<?php if( in_array( 'group.ctime', $fields ) ) : ?>
 								<td class="group-ctime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeCreated() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'customer.group.mtime', $fields ) ) : ?>
+							<?php if( in_array( 'group.mtime', $fields ) ) : ?>
 								<td class="group-mtime"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->getTimeModified() ) ?></a></td>
 							<?php endif ?>
-							<?php if( in_array( 'customer.group.editor', $fields ) ) : ?>
+							<?php if( in_array( 'group.editor', $fields ) ) : ?>
 								<td class="group-editor"><a class="items-field" href="<?= $url ?>"><?= $enc->html( $item->editor() ) ?></a></td>
 							<?php endif ?>
 

@@ -298,14 +298,14 @@ $columnList = [
 										<div class="col-lg-6">
 											<div class="row">
 												<div class="col-1">
-													<input id="batch-customer-groups" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.groups')">
+													<input id="batch-groups" class="form-check-input" type="checkbox" v-on:click="setState('item/groups')">
 												</div>
-												<label class="col-4 form-control-label" for="batch-customer-groups">
+												<label class="col-4 form-control-label" for="batch-groups">
 													<?= $enc->html( $this->translate( 'admin', 'Groups' ) ) ?>
 												</label>
 												<div class="col-7">
-													<select class="form-select item-groups" tabindex="1" size="6" multiple v-bind:disabled="state('item/customer.groups')"
-														name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.groups', '' ) ) ) ?>">
+													<select class="form-select item-groups" tabindex="1" size="6" multiple v-bind:disabled="state('item/groups')"
+														name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>">
 														<option value=""><?= $enc->html( $this->translate( 'admin', 'None' ) ) ?></option>
 
 														<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>

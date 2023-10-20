@@ -57,7 +57,7 @@ return [
 	'customer' => [
 		'domains' => [
 			'customer/address' => 'customer/address',
-			'customer/group' => 'customer/group',
+			'group' => 'group',
 			'customer/property' => 'customer/property',
 		],
 		'subparts' => [
