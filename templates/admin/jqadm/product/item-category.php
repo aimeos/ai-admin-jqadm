@@ -18,7 +18,7 @@ $keys = [
 <div id="category" class="item-category tab-pane fade" role="tabpanel" aria-labelledby="category">
 	<div class="row">
 
-		<?php foreach( $this->get( 'categoryTypes', ['default'] ) as $type ) : ?>
+		<?php foreach( $this->get( 'categoryTypes', ['default'] ) as $type => $typeLabel ) : ?>
 
 			<div class="col-xl-6 catalog-<?= $enc->attr( $type ) ?>">
 				<div class="box">
@@ -31,7 +31,7 @@ $keys = [
 						<thead>
 							<tr>
 								<th>
-									<?= $enc->html( $this->translate( 'admin', $type ) ) ?>
+									<?= $enc->html( $typeLabel ) ?>
 								</th>
 								<th class="actions">
 									<div class="btn act-add fa" tabindex="<?= $this->get( 'tabindex' ) ?>"

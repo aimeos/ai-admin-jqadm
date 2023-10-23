@@ -46,7 +46,7 @@ class Standard
 		$filter = $manager->filter()->add( 'product.lists.type.domain', '==', 'catalog' )
 			->order( 'product.lists.type.code' );
 
-		$view->categoryTypes = $manager->search( $filter )->getCode();
+		$view->categoryTypes = $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' );
 		return $view;
 	}
 
