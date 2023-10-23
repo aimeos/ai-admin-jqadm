@@ -409,6 +409,13 @@ Aimeos.Product.Catalog = {
 				},
 
 
+				categories(listtype) {
+					return this.items.filter(entry => {
+						return entry['product.lists.type'] === listtype
+					})
+				},
+
+
 				fetch(input, idx) {
 					const filter = {
 						'&&': [
