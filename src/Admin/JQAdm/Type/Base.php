@@ -309,6 +309,7 @@ abstract class Base
 
 		if( $copy === true )
 		{
+			$data[$key . '.type.siteid'] = $this->context()->locale()->getSiteId();
 			$data[$key . '.type.code'] = $data[$key . '.type.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data[$key . '.type.id'] = '';
 		}
