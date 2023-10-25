@@ -11,7 +11,7 @@ $types = $this->get( 'propertyTypes', map() )->col( 'media.property.type.label',
 
 
 ?>
-<div v-show="item['_ext']" class="col-xl-12 secondary">
+<div v-show="item['_ext']" class="col-xl-12 secondary" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
 
 	<?php if( !empty( $types ) ) : ?>
 
