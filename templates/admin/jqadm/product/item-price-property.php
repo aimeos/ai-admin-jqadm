@@ -10,7 +10,7 @@ $enc = $this->encoder();
 $types = $this->get( 'propertyTypes', map() )->col( 'price.property.type.label', 'price.property.type.code' )->toArray();
 
 ?>
-<div v-show="item['_ext']" class="col-xl-12 secondary">
+<div v-show="item['_ext']" class="col-xl-12 secondary" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
 
 	<?php if( !empty( $types ) ) : ?>
 

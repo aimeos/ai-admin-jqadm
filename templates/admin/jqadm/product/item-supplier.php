@@ -119,7 +119,7 @@ $keys = [
 
 					<tbody>
 
-					<tr v-for="(item, idx) in items" v-if="item['product.lists.type'] == listtype" v-bind:key="idx"
+						<tr v-for="(item, idx) in items" v-if="item['product.lists.type'] == listtype" v-bind:key="idx"
 							v-bind:class="{'readonly': !can('change', idx)}">
 							<td v-bind:class="item['css'] || ''">
 								<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"

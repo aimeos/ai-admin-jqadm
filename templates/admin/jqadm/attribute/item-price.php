@@ -60,7 +60,7 @@ $enc = $this->encoder();
 						<input type="hidden" v-model="item['price.id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.id' ) ) ) ?>`.replace('_idx_', idx)">
 
-						<div class="col-xl-6">
+						<div class="col-xl-6" v-bind:class="{readonly: item['attribute.lists.siteid'] != siteid}">
 
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ) ?></label>
@@ -120,7 +120,7 @@ $enc = $this->encoder();
 
 						</div>
 
-						<div class="col-xl-6">
+						<div class="col-xl-6" v-bind:class="{readonly: item['attribute.lists.siteid'] != siteid}">
 
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
@@ -213,7 +213,7 @@ $enc = $this->encoder();
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ) ?></span>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['attribute.lists.siteid'] != siteid}">
 
 							<?php if( ( $listTypes = $this->get( 'priceListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
