@@ -469,6 +469,7 @@ class Standard
 		if( $copy === true )
 		{
 			$data['customer.group.siteid'] = $this->context()->locale()->getSiteId();
+			$data['customer.group.code'] = $data['customer.group.code'] . '_' . substr( md5( microtime( true ) ), -5 );
 			$data['customer.group.id'] = '';
 		}
 
