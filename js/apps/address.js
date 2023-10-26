@@ -76,6 +76,15 @@ Aimeos.Address = {
 			},
 
 
+			can(action, idx) {
+				if(this.items[idx][this.domain + '.address.siteid']) {
+					return (new String(this.items[idx][this.domain + '.address.siteid'])).startsWith(this.siteid);
+				}
+
+				return false;
+			},
+
+
 			/* @deprecated 2022.01 */
 			countries() {
 				return Aimeos.getCountries;

@@ -61,7 +61,7 @@ $enc = $this->encoder();
 						<input type="hidden" v-model="item['media.id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.id'] ) ) ?>`.replace('_idx_', idx)">
 
-						<div class="col-xl-6" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
+						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
 
 							<div class="form-group media-preview">
 								<input ref="preview" class="d-none" type="file" v-bind:name="'media[_idx_][preview]'.replace('_idx_', idx)">
@@ -82,7 +82,7 @@ $enc = $this->encoder();
 
 						</div>
 
-						<div class="col-xl-6" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
+						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
 
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
@@ -171,7 +171,7 @@ $enc = $this->encoder();
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ) ?></span>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
 							<?php if( ( $listTypes = $this->get( 'mediaListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
 									<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'List type' ) ) ?></label>
@@ -223,7 +223,7 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['product.lists.siteid'] != siteid}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
 							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/media/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"
