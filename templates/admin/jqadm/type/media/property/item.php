@@ -78,16 +78,20 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box vue">
+				<div class="box vue"
+					data-data="<?= $enc->attr( $this->get( 'itemData' ) ) ?>"
+					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+					data-domain="media/property/type">
+
 					<div class="row">
 
-						<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/media.property.type.siteid' ) ) ?>">
+						<div class="col-xl-6 block" v-bind:class="{readonly: !can('change')}">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-domain" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.property.type.domain' ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.property.type.siteid' ) ) ?> >
+										:readonly="!can('change')" >
 										<option value="media" selected >
 											<?= $enc->html( $this->translate( 'admin', 'media' ) ) ?>
 										</option>
@@ -99,7 +103,7 @@ $params = $this->get( 'pageParams', [] );
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.property.type.status' ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.property.type.siteid' ) ) ?> >
+										:readonly="!can('change')" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
@@ -125,7 +129,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'media.property.type.code' ) ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Unique type code (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/media.property.type.code' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.property.type.siteid' ) ) ?>>
+										:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Unique type code' ) ) ?>
@@ -138,7 +142,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'media.property.type.label' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Internal name (required)' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/media.property.type.label' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.property.type.siteid' ) ) ?>>
+										:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Internal type name shown in the administration interface' ) ) ?>
@@ -151,7 +155,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $this->formparam( array( 'item', 'media.property.type.position' ) ) ?>"
 										value="<?= $enc->attr( $this->get( 'itemData/media.property.type.position' ) ) ?>"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Type position (optional)' ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/media.property.type.siteid' ) ) ?>>
+										:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'Order of the types in the frontend' ) ) ?>
@@ -159,11 +163,11 @@ $params = $this->get( 'pageParams', [] );
 							</div>
 						</div>
 
-						<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/media.property.type.siteid' ) ) ?>">
+						<div class="col-xl-6 block" v-bind:class="{readonly: !can('change')}">
 							<translations tabindex="1"
 								:value="<?= $enc->attr( $this->get( 'itemData/media.property.type.i18n', new \stdClass ) ) ?>"
 								:name="`<?= $enc->js( $this->formparam( array( 'item', 'media.property.type.i18n' ) ) ) ?>`"
-								:readonly="`<?= $this->site()->readonly( $this->get( 'itemData/media.property.type.siteid' ) ) ?>` ? true : false"
+								:readonly="!can('change')"
 								:langs="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' ) ) ?>"
 								:i18n="{
 									header: `<?= $enc->js( $this->translate( 'admin', 'Translations' ) ) ?>`,

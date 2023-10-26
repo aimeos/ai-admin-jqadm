@@ -60,7 +60,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 
 	public function testReadonly()
 	{
-		$this->assertEquals( 'readonly', $this->object->transform()->readonly( '0.2.' ) );
+		$this->assertEquals( '', $this->object->transform()->readonly( '0.2.' ) );
+		$this->assertEquals( 'readonly', $this->object->transform()->readonly( '3.' ) );
 	}
 
 

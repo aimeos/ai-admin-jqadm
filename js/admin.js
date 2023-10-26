@@ -312,22 +312,35 @@ Aimeos = {
 			el: node,
 			data() {
 				return {
-					data: null
+					data: {},
+					domain: '',
+					siteid: null,
+					super: false,
 				}
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
-				if(this.$el.dataset && this.$el.dataset.data) {
-					this.data = JSON.parse(this.$el.dataset.data);
-				}
+				this.data = JSON.parse(this.$el.dataset?.data || '{}');
+				this.super = Boolean(this.$el.dataset?.super || false);
+				this.siteid = this.$el.dataset?.siteid || null;
+				this.domain = this.$el.dataset?.domain || '';
 			},
 			methods: {
-				add(data) {
-					this.$set(this.data, idx, data);
+				can(action) {
+					if(this.super) {
+						return true;
+					}
+
+					if(this.data[this.domain + '.siteid']) {
+						return (new String(this.data[this.domain + '.siteid'])).startsWith(this.siteid);
+					}
+
+					return false;
 				},
-				remove(idx) {
-					this.$delete(this.data, idx);
-				}
+
+				set(data) {
+					this.$set(this.data, data);
+				},
 			},
 			provide() {
 				return {
@@ -1259,7 +1272,6 @@ $(function() {
 	});
 
 	Aimeos.Menu.init();
-	Aimeos.Config.init();
 	Aimeos.Form.init();
 	Aimeos.List.init();
 	Aimeos.Log.init();

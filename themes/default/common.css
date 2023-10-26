@@ -153,14 +153,14 @@ body {
 	color: var(--bs-orange, #fd7e14);
 }
 
-.aimeos .readonly {
-	border-left: 0.25rem solid var(--bs-warning, #ffc107);
+[dir="ltr"] .aimeos .readonly {
+	border-left: 0.25rem solid var(--bs-warning, #ffc107) !important;
 	opacity: 0.66 !important;
 }
 
 [dir="rtl"] .aimeos .readonly {
-	border-right: 0.25rem solid var(--bs-warning, #ffc107);
-	border-left: none;
+	border-right: 0.25rem solid var(--bs-warning, #ffc107) !important;
+	opacity: 0.66 !important;
 }
 
 .aimeos .readonly select:focus {

@@ -48,10 +48,10 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 	/**
 	 * Checks if the item can be deleted or modified
 	 *
-	 * @param string $siteid ID of a site item
+	 * @param string|null $siteid ID of a site item
 	 * @return bool TRUE if the item can be deleted/modified
 	 */
-	public function can( string $siteid ) : ?bool
+	public function can( ?string $siteid ) : ?bool
 	{
 		if( $this->view()->access( ['super'] ) ) {
 			return true;
@@ -84,7 +84,7 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 	 * @param string|null $siteid ID of a site item
 	 * @return string|null Label of the site item or null if not found
 	 */
-	public function match( string $siteid = null ) : ?string
+	public function match( ?string $siteid ) : ?string
 	{
 		if( $this->siteItem->getSiteId() == $siteid ) {
 			return $this->siteItem->getLabel();
@@ -100,17 +100,9 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 	 * @param string|null $siteid ID of a site item
 	 * @return string|null "readonly" if item is from a parent site, null if not
 	 */
-	public function readonly( string $siteid = null ) : ?string
+	public function readonly( ?string $siteid ) : ?string
 	{
-		if( !$siteid && $this->view()->access( ['super'] ) ) {
-			return null;
-		}
-
-		if( $this->siteItem->getSiteId() != $siteid ) {
-			return 'readonly';
-		}
-
-		return null;
+		return $this->can( $siteid ) ? '' : 'readonly';
 	}
 
 
