@@ -82,10 +82,10 @@ $params = $this->get( 'pageParams', [] );
 		</div>
 
 		<div class="col-xl-9 item-content tab-content">
-			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) : '' ) ?>
-
 			<div id="basic" class="item-basic vue tab-pane fade show active" role="tabpanel" aria-labelledby="basic"
-				data-data="<?= $enc->attr( $this->get( 'subscriptionData' ) ) ?>">
+				data-data="<?= $enc->attr( $this->get( 'itemData' ) ) ?>"
+				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+				data-domain="subscription">
 
 				<input class="item-orderid" type="hidden" name="<?= $enc->attr( $this->formparam( array( 'item', 'subscription.orderid' ) ) ) ?>"
 					value="<?= $enc->attr( $this->param( 'subscription.orderid', $this->get( 'itemData/subscription.orderid' ) ) ) ?>">
@@ -93,7 +93,7 @@ $params = $this->get( 'pageParams', [] );
 					value="<?= $enc->attr( $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) ?>">
 
 				<div class="row">
-					<div class="col-xl-6 <?= $readonly ?>">
+					<div class="col-xl-6" v-bind:class="{readonly: !can('change')}">
 						<div class="box">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>

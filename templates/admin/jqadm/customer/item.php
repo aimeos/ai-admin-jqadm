@@ -75,14 +75,14 @@ $params = $this->get( 'pageParams', [] );
 		</div>
 
 		<div class="col-xl-9 item-content tab-content">
-			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) : '' ) ?>
-
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
 				<div class="row vue"
-					data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>">
+					data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
+					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+					data-domain="customer">
 
-					<div class="col-xl-6 <?= $readonly ?>">
+					<div class="col-xl-6" v-bind:class="{readonly: !can('change')}">
 						<div class="box">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
@@ -158,7 +158,7 @@ $params = $this->get( 'pageParams', [] );
 						</div>
 					</div>
 
-					<div class="col-xl-6 <?= $readonly ?>">
+					<div class="col-xl-6" v-bind:class="{readonly: !can('change')}">
 						<div class="box">
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ) ?></label>
@@ -178,7 +178,7 @@ $params = $this->get( 'pageParams', [] );
 						</div>
 					</div>
 
-					<div class="col-xl-12 <?= $readonly ?>">
+					<div class="col-xl-12" v-bind:class="{readonly: !can('change')}">
 						<div class="box">
 							<div class="row">
 								<div class="col-xl-6">

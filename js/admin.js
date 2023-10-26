@@ -312,22 +312,26 @@ Aimeos = {
 			el: node,
 			data() {
 				return {
-					data: null
+					data: {},
+					domain: '',
+					siteid: '',
 				}
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
-				if(this.$el.dataset && this.$el.dataset.data) {
-					this.data = JSON.parse(this.$el.dataset.data);
-				}
+				this.data = JSON.parse(this.$el.dataset?.data || '{}');
+				this.domain = this.$el.dataset?.domain || '';
+				this.siteid = this.$el.dataset?.siteid || '';
 			},
 			methods: {
-				add(data) {
-					this.$set(this.data, idx, data);
+				can(action) {
+					const key = this.domain.replace(/\//g, '.') + '.siteid';
+					return (new String(this.data[key] || '')).startsWith(this.siteid);
 				},
-				remove(idx) {
-					this.$delete(this.data, idx);
-				}
+
+				set(data) {
+					this.$set(this.data, data);
+				},
 			},
 			provide() {
 				return {
