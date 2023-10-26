@@ -44,9 +44,6 @@
 			"text": "sprintf.js",
 			"path": "js/"
 		},{
-			"text": "combo.jquery.js",
-			"path": "js/"
-		},{
 			"text": "tree.jquery.js",
 			"path": "js/"
 		},{
@@ -65,16 +62,10 @@
 			"text": "admin.js",
 			"path": "js/"
 		},{
-			"text": "auto-complete.js",
-			"path": "js/components/"
-		},{
 			"text": "catalog-tree.js",
 			"path": "js/components/"
 		},{
 			"text": "column-select.js",
-			"path": "js/components/"
-		},{
-			"text": "combo-box.js",
 			"path": "js/components/"
 		},{
 			"text": "config-table.js",

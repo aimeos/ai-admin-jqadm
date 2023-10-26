@@ -76,12 +76,6 @@ Aimeos.Address = {
 			},
 
 
-			/* @deprecated 2022.01 */
-			countries() {
-				return Aimeos.getCountries;
-			},
-
-
 			duplicate(idx) {
 				if(this.items[idx]) {
 					this.$set(this.items, this.items.length, JSON.parse(JSON.stringify(this.items[idx])));
