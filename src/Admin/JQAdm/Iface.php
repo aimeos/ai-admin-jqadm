@@ -70,13 +70,6 @@ interface Iface
 	public function get() : ?string;
 
 	/**
-	 * Imports a resource
-	 *
-	 * @return string|null Output to display or null for none
-	 */
-	public function import() : ?string;
-
-	/**
 	 * Saves the data
 	 *
 	 * @return string|null Output to display or null for none

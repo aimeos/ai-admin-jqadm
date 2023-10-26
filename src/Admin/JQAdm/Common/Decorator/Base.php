@@ -131,17 +131,6 @@ abstract class Base
 
 
 	/**
-	 * Imports a resource
-	 *
-	 * @return string|null HTML output
-	 */
-	public function import() : ?string
-	{
-		return $this->client->import();
-	}
-
-
-	/**
 	 * Saves the data
 	 *
 	 * @return string|null HTML output

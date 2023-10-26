@@ -234,24 +234,6 @@ abstract class Base
 
 
 	/**
-	 * Imports a resource
-	 *
-	 * @return string|null Output to display
-	 * @deprecated 2021.01
-	 */
-	public function import() : ?string
-	{
-		$body = null;
-
-		foreach( $this->getSubClients() as $client ) {
-			$body .= $client->import();
-		}
-
-		return null;
-	}
-
-
-	/**
 	 * Saves the data
 	 *
 	 * @return string|null Output to display
