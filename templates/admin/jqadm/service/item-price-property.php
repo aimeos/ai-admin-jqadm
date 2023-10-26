@@ -11,7 +11,7 @@ $types = $this->get( 'propertyTypes', map() )->col( 'price.property.type.label',
 
 
 ?>
-<div v-show="item['_ext']" class="col-xl-12 secondary" v-bind:class="{readonly: item['service.lists.siteid'] != siteid}">
+<div v-show="item['_ext']" class="col-xl-12 secondary" v-bind:class="{readonly: !can('change', idx)}">
 
 	<?php if( !empty( $types ) ) : ?>
 

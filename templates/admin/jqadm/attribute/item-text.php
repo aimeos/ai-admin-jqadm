@@ -77,7 +77,7 @@ $enc = $this->encoder();
 						<input type="hidden" v-model="item['text.id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.id' ) ) ) ?>`.replace('_idx_', idx)">
 
-						<div class="col-xl-6" v-bind:class="{readonly: item['attribute.lists.siteid'] != siteid}">
+						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
 
 							<div class="form-group row mandatory">
 								<div class="col-sm-12">
@@ -99,7 +99,7 @@ $enc = $this->encoder();
 
 						</div>
 
-						<div class="col-xl-6" v-bind:class="{readonly: item['attribute.lists.siteid'] != siteid}">
+						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
 
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
@@ -196,7 +196,7 @@ $enc = $this->encoder();
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ) ?></span>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['attribute.lists.siteid'] != siteid}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
 
 							<?php if( ( $listTypes = $this->get( 'textListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
@@ -250,7 +250,7 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['attribute.lists.siteid'] != siteid}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
 							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/attribute/item/text/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"
