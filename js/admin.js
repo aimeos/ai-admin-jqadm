@@ -331,8 +331,8 @@ Aimeos = {
 						return true;
 					}
 
-					if(this.items[idx][this.domain + '.address.siteid']) {
-						return (new String(this.items[idx][this.domain + '.address.siteid'])).startsWith(this.siteid);
+					if(this.data[this.domain + '.siteid']) {
+						return (new String(this.data[this.domain + '.siteid'])).startsWith(this.siteid);
 					}
 
 					return false;

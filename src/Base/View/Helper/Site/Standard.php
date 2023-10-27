@@ -53,7 +53,7 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 	 */
 	public function can( ?string $siteid ) : ?bool
 	{
-		if( !$siteid || $this->view()->access( ['super'] ) ) {
+		if( $this->view()->access( ['super'] ) ) {
 			return true;
 		}
 
