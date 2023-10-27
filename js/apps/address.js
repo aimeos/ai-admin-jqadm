@@ -20,11 +20,13 @@ Aimeos.Address = {
 				items: [],
 				siteid: null,
 				domain: null,
+				super: false,
 				show: false
 			},
 			mounted() {
 				this.Aimeos = Aimeos;
 				this.items = JSON.parse(this.$el.dataset.items || '{}');
+				this.super = Boolean(this.$el.dataset?.super || false);
 				this.siteid = this.$el.dataset.siteid;
 				this.domain = this.$el.dataset.domain;
 
@@ -77,6 +79,10 @@ Aimeos.Address = {
 
 
 			can(action, idx) {
+				if(this.super) {
+					return true;
+				}
+
 				if(this.items[idx][this.domain + '.address.siteid']) {
 					return (new String(this.items[idx][this.domain + '.address.siteid'])).startsWith(this.siteid);
 				}

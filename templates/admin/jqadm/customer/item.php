@@ -79,8 +79,9 @@ $params = $this->get( 'pageParams', [] );
 
 				<div class="row vue"
 					data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
-					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
-					data-domain="customer">
+					data-super="<?= $enc->attr( $this->access( 'super' ) ) ?>"
+					data-siteid="<?= $this->site()->siteid() ?>"
+					data-domain="customer" >
 
 					<div class="col-xl-6" v-bind:class="{readonly: !can('change')}">
 						<div class="box">
@@ -89,7 +90,7 @@ $params = $this->get( 'pageParams', [] );
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="1"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.status' ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
+										v-bind:readonly="!can('change')" >
 										<option value="">
 											<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 										</option>
@@ -116,7 +117,7 @@ $params = $this->get( 'pageParams', [] );
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.code' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address or account name (required)' ) ) ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/customer.code' ) ) ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+											v-bind:readonly="!can('change')">
 									<?php else : ?>
 										<span class="form-control item-code">
 											<?= $enc->html( $this->get( 'itemData/customer.code' ) ) ?>
@@ -135,7 +136,7 @@ $params = $this->get( 'pageParams', [] );
 											name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.password' ) ) ) ?>"
 											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Password (required)' ) ) ?>"
 											value="<?= $enc->attr( $this->get( 'itemData/customer.password' ) ) ?>"
-											<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+											v-bind:readonly="!can('change')">
 									</div>
 									<div class="col-sm-12 form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'Customer password' ) ) ?>
@@ -149,7 +150,7 @@ $params = $this->get( 'pageParams', [] );
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.dateverified' ) ) ) ?>"
 										v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.dateverified' ) ) ?>`"
 										v-bind:config="Aimeos.flatpickr.date"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+										v-bind:readonly="!can('change')">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
 									<?= $enc->html( $this->translate( 'admin', 'When the account and e-mail address has been verified' ) ) ?>
@@ -165,7 +166,7 @@ $params = $this->get( 'pageParams', [] );
 								<div class="col-sm-8">
 									<select class="form-select item-groups" tabindex="1" size="8" multiple
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'groups', '' ) ) ) ?>"
-										<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
+										v-bind:readonly="!can('change')" >
 
 										<?php foreach( $this->get( 'itemGroups', [] ) as $groupId => $groupItem ) : ?>
 											<option value="<?= $enc->attr( $groupId ) ?>" <?= $selected( in_array( $groupId, $this->get( 'itemData/groups', [] ) ), true ) ?> >
@@ -178,10 +179,10 @@ $params = $this->get( 'pageParams', [] );
 						</div>
 					</div>
 
-					<div class="col-xl-12" v-bind:class="{readonly: !can('change')}">
+					<div class="col-xl-12">
 						<div class="box">
 							<div class="row">
-								<div class="col-xl-6">
+								<div class="col-xl-6" v-bind:class="{readonly: !can('change')}">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
 
 									<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
@@ -190,7 +191,7 @@ $params = $this->get( 'pageParams', [] );
 											<div class="col-sm-8">
 												<select class="form-select item-languageid" required="required" tabindex="1"
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.languageid' ) ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
+													v-bind:readonly="!can('change')" >
 													<option value="">
 														<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 													</option>
@@ -214,7 +215,7 @@ $params = $this->get( 'pageParams', [] );
 										<div class="col-sm-8">
 											<select class="form-select item-salutation" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.salutation' ) ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
+												v-bind:readonly="!can('change')" >
 												<option value="" <?= $selected( $this->get( 'itemData/customer.salutation', '' ), '' ) ?> >
 													<?= $enc->html( $this->translate( 'admin', 'none' ) ) ?>
 												</option>
@@ -237,7 +238,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.title' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Honorary title (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.title' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Honorary titles like Dr., Ph.D, etc.' ) ) ?>
@@ -250,7 +251,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.lastname' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Last name (required)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.lastname' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Last name of the person or full name in cultures where no first names are used' ) ) ?>
@@ -263,7 +264,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.firstname' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'First name (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.firstname' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -276,7 +277,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.birthday' ) ) ) ?>"
 												v-bind:value="`<?= $enc->js( $this->get( 'itemData/customer.birthday' ) ) ?>`"
 												v-bind:config="Aimeos.flatpickr.date"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Birthday of the customer' ) ) ?>
@@ -284,7 +285,7 @@ $params = $this->get( 'pageParams', [] );
 									</div>
 								</div>
 
-								<div class="col-xl-6">
+								<div class="col-xl-6" v-bind:class="{readonly: !can('change')}">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Billing address' ) ) ?></h2>
 									<div class="form-group row optional">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ) ?></label>
@@ -293,7 +294,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address1' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Street name (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.address1' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'First name of the person if used in cultures where they are used' ) ) ?>
@@ -306,7 +307,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address2' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'House number (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.address2' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Address identifier of the customer\'s house for delivery' ) ) ?>
@@ -319,7 +320,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.address3' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Floor and/or apartment (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.address3' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Additional information where the customer\'s apartment can be found' ) ) ?>
@@ -332,7 +333,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.postal' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Zip code (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.postal' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Postal code for delivery if used in the area the customer is living' ) ) ?>
@@ -345,7 +346,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.city' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'City or town name (required)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.city' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 									</div>
 									<div class="form-group row mandatory">
@@ -353,7 +354,7 @@ $params = $this->get( 'pageParams', [] );
 										<div class="col-sm-8">
 											<select class="form-select item-countryid" required="required" tabindex="1"
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.countryid' ) ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?> >
+												v-bind:readonly="!can('change')" >
 												<option value="">
 													<?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?>
 												</option>
@@ -376,7 +377,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.state' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Country state code (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.state' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Short state code (e.g. NY) if used in the country the customer is living' ) ) ?>
@@ -384,7 +385,7 @@ $params = $this->get( 'pageParams', [] );
 									</div>
 								</div>
 
-								<div class="col-xl-6">
+								<div class="col-xl-6" v-bind:class="{readonly: !can('change')}">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ) ?></h2>
 									<div class="form-group row mandatory">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ) ?></label>
@@ -394,7 +395,7 @@ $params = $this->get( 'pageParams', [] );
 													name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.email' ) ) ) ?>"
 													placeholder="<?= $enc->attr( $this->translate( 'admin', 'E-Mail address (required)' ) ) ?>"
 													value="<?= $enc->attr( $this->get( 'itemData/customer.email' ) ) ?>"
-													<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+													v-bind:readonly="!can('change')">
 											<?php else : ?>
 												<span class="form-control item-email">
 													<?= $enc->html( $this->get( 'itemData/customer.email' ) ) ?>
@@ -412,7 +413,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.telephone' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Telephone number (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.telephone' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ) ?>
@@ -425,7 +426,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.mobile' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Mobile number (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.mobile' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', '(International) telephone number without separation characters, can start with a "+"' ) ) ?>
@@ -438,7 +439,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.telefax' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Facsimile number (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.telefax' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', '(International) facsimilie number without separation characters, can start with a "+"' ) ) ?>
@@ -451,7 +452,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.website' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Web site URL (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.website' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'URL of the customer web site' ) ) ?>
@@ -459,7 +460,7 @@ $params = $this->get( 'pageParams', [] );
 									</div>
 								</div>
 
-								<div class="col-xl-6">
+								<div class="col-xl-6" v-bind:class="{readonly: !can('change')}">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ) ?></h2>
 									<div class="form-group row optional">
 										<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ) ?></label>
@@ -468,7 +469,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.company' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Company name (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.company' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 									</div>
 									<div class="form-group row optional">
@@ -478,7 +479,7 @@ $params = $this->get( 'pageParams', [] );
 												name="<?= $enc->attr( $this->formparam( array( 'item', 'customer.vatid' ) ) ) ?>"
 												placeholder="<?= $enc->attr( $this->translate( 'admin', 'Value added tax identifier (optional)' ) ) ?>"
 												value="<?= $enc->attr( $this->get( 'itemData/customer.vatid' ) ) ?>"
-												<?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>>
+												v-bind:readonly="!can('change')">
 										</div>
 										<div class="col-sm-12 form-text text-muted help-text">
 											<?= $enc->html( $this->translate( 'admin', 'Official VAT ID to determine if the tax needs to be billed in invoices' ) ) ?>

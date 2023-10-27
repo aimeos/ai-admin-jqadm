@@ -314,19 +314,28 @@ Aimeos = {
 				return {
 					data: {},
 					domain: '',
-					siteid: '',
+					siteid: null,
+					super: false,
 				}
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
 				this.data = JSON.parse(this.$el.dataset?.data || '{}');
+				this.super = Boolean(this.$el.dataset?.super || false);
+				this.siteid = this.$el.dataset?.siteid || null;
 				this.domain = this.$el.dataset?.domain || '';
-				this.siteid = this.$el.dataset?.siteid || '';
 			},
 			methods: {
 				can(action) {
-					const key = this.domain.replace(/\//g, '.') + '.siteid';
-					return (new String(this.data[key] || '')).startsWith(this.siteid);
+					if(this.super) {
+						return true;
+					}
+
+					if(this.items[idx][this.domain + '.address.siteid']) {
+						return (new String(this.items[idx][this.domain + '.address.siteid'])).startsWith(this.siteid);
+					}
+
+					return false;
 				},
 
 				set(data) {
@@ -949,7 +958,6 @@ $(function() {
 	});
 
 	Aimeos.Menu.init();
-	Aimeos.Config.init();
 	Aimeos.Form.init();
 	Aimeos.List.init();
 	Aimeos.Log.init();
