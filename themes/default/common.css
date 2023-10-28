@@ -716,7 +716,8 @@ body {
 }
 
 .multiselect.is-disabled {
-	background: var(--bs-bg-light, #fff);
+	background-color: var(--bs-bg-light, #FFFFFF);
+	color: var(--bs-secondary-light, #9098A0);
 }
 
 .multiselect.is-disabled .multiselect-caret {
@@ -789,6 +790,11 @@ span.flatpickr-weekday,
 
 .ck-content {
 	height: 12.5rem;
+}
+
+.ck-read-only {
+	background-color: var(--bs-bg-light, #FFFFFF);
+	color: var(--bs-secondary-light, #9098A0);
 }
 
 body {
