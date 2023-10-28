@@ -6,32 +6,34 @@
 
 const AimeosListComponent = Vue.component('aimeos-list', {
 
-	template: `<table class="table">
-		<tbody>
-			<tr v-for="(entry, idx) in entries" :key="idx" class="config-item">
-				<td class="actions">
-					<div v-if="!readonly" class="btn act-delete fa"
-						:tabindex="tabindex"
-						@click="remove(idx)">
-					</div>
-				</td>
-				<td class="config-row-value">
-					<input class="form-control"
-						:tabindex="tabindex"
-						:readonly="readonly"
-						v-model="entries[idx]">
-				</td>
-			</tr>
-			<tr class="config-map-actions">
-				<td class="config-map-action-add">
-					<div class="btn act-add fa" :tabindex="tabindex" @click="add()"></div>
-				</td>
-				<td class="config-map-action-update" colspan="2">
-					<div class="btn btn-primary act-check fa" :tabindex="tabindex" @click="update()"></div>
-				</td>
-			</tr>
-		</tbody>
-	</table>`,
+	template: `
+		<table class="table">
+			<tbody>
+				<tr v-for="(entry, idx) in entries" :key="idx" class="config-item">
+					<td class="actions">
+						<div v-if="!readonly" class="btn act-delete fa"
+							:tabindex="tabindex"
+							@click="remove(idx)">
+						</div>
+					</td>
+					<td class="config-row-value">
+						<input class="form-control"
+							:tabindex="tabindex"
+							:readonly="readonly"
+							v-model="entries[idx]">
+					</td>
+				</tr>
+				<tr class="config-map-actions">
+					<td class="config-map-action-add">
+						<div class="btn act-add fa" :tabindex="tabindex" @click="add()"></div>
+					</td>
+					<td class="config-map-action-update" colspan="2">
+						<div class="btn btn-primary act-check fa" :tabindex="tabindex" @click="update()"></div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	`,
 
 	props: {
 		'list': {type: Array, required: true},
