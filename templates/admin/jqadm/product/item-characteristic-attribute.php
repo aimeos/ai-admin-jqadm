@@ -71,7 +71,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 
 				<tbody is="draggable" v-model="items" group="characteristic-attribute" handle=".act-move" tag="tbody">
 
-					<tr v-for="(item, idx) in items" v-bind:key="idx" v-bind:class="{readonly: !can('change', idx)}">
+					<tr v-for="(item, idx) in items" v-bind:key="idx" v-bind:class="{mismatch: !can('match', idx)}">
 						<td class="actions" v-bind:class="{advanced: item['_ext']}">
 							<div class="btn btn-card-header act-show fa" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Show/hide details' ) ) ?>"

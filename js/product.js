@@ -195,7 +195,7 @@ Aimeos.Product.Basic = {
 				this.Aimeos = Aimeos;
 			},
 			methods: {
-				can(what) {
+				can(action) {
 					return Aimeos.can(action, this.item['product.siteid'] || null, this.siteid)
 				},
 

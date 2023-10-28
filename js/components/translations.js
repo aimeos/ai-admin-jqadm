@@ -27,10 +27,9 @@ Vue.component('translations', {
                         </select>
 					</td>
 
-					<td v-if="!readonly">
-						<input class="form-control" v-on:input="update(idx, \'val\', $event.target.value)" v-bind:value="entry.val" v-bind:tabindex="tabindex" required />
+					<td>
+						<input class="form-control" v-on:input="update(idx, 'val', $event.target.value)" v-bind:value="entry.val" v-bind:tabindex="tabindex" v-bind:readonly="readonly" required />
 					</td>
-					<td v-else>{{ entry.val }}</td> \
 
 					<td v-if="!readonly" class="action">
 						<a v-on:click="remove(idx)" class="btn act-delete fa" href="#" v-bind:tabindex="tabindex" v-bind:title="i18n.delete || 'Delete this entry'"></a>

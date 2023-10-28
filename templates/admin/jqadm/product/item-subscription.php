@@ -61,7 +61,7 @@ $keys = [
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="(entry, idx) in items" v-bind:key="idx" v-bind:class="{readonly: !can('change', idx)}">
+					<tr v-for="(entry, idx) in items" v-bind:key="idx" v-bind:class="{mismatch: !can('match', idx)}">
 
 						<td class="interval-check">
 							<input class="form-check-input item-id" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>"
