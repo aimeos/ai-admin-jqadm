@@ -95,10 +95,22 @@ class Standard extends \Aimeos\Base\View\Helper\Base implements Iface
 
 
 	/**
+	 * Returns "mismatch" if the item is from another site
+	 *
+	 * @param string|null $siteid ID of a site item
+	 * @return string|null "mismatch" if item is from another site, empty if not
+	 */
+	public function mismatch( ?string $siteid ) : ?string
+	{
+		return $siteid && $this->siteItem->getSiteId() != $siteid ? 'mismatch' : '';
+	}
+
+
+	/**
 	 * Returns "readonly" if the item is inherited from another site
 	 *
 	 * @param string|null $siteid ID of a site item
-	 * @return string|null "readonly" if item is from a parent site, null if not
+	 * @return string|null "readonly" if item is from a parent site, empty if not
 	 */
 	public function readonly( ?string $siteid ) : ?string
 	{

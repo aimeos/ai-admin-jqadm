@@ -58,6 +58,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	}
 
 
+	public function testMismatch()
+	{
+		$this->assertEquals( '', $this->object->transform()->mismatch( '0.' ) );
+		$this->assertEquals( 'mismatch', $this->object->transform()->mismatch( '3.' ) );
+		$this->assertEquals( 'mismatch', $this->object->transform()->mismatch( '0.2.' ) );
+	}
+
+
 	public function testReadonly()
 	{
 		$this->assertEquals( '', $this->object->transform()->readonly( '0.2.' ) );
