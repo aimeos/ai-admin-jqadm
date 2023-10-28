@@ -67,7 +67,7 @@ $enc = $this->encoder();
 								<input ref="preview" class="d-none" type="file" v-bind:name="'media[_idx_][preview]'.replace('_idx_', idx)">
 								<input ref="file" class="fileupload" type="file" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									v-bind:name="'media[_idx_][file]'.replace('_idx_', idx)"
-									v-bind:readonly="item['media.siteid'] != siteid"
+									v-bind:readonly="!can('change', idx)"
 									v-on:change="files(idx, $event.target.files)">
 								<input class="item-url" type="hidden"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.url'] ) ) ?>`.replace('_idx_', idx)"
@@ -89,7 +89,7 @@ $enc = $this->encoder();
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.status'] ) ) ?>`.replace('_idx_', idx)"
-										v-bind:readonly="item['media.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['media.status']" >
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 										<option value="1" v-bind:selected="item['media.status'] == 1" >
@@ -115,7 +115,7 @@ $enc = $this->encoder();
 											v-bind:items="<?= $enc->attr( $mediaTypes->col( 'media.type.label', 'media.type.code' )->toArray() ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.type'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
-											v-bind:readonly="item['media.siteid'] != siteid"
+											v-bind:readonly="!can('change', idx)"
 											v-model="item['media.type']" >
 										</select>
 									</div>
@@ -135,7 +135,7 @@ $enc = $this->encoder();
 									<input class="form-control item-label" type="text" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.label'] ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Title' ) ) ?>"
-										v-bind:readonly="item['media.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['media.label']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -150,7 +150,7 @@ $enc = $this->encoder();
 										v-bind:items="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' )->toArray() ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['media', '_idx_', 'media.languageid'] ) ) ?>`.replace('_idx_', idx)"
 										v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
-										v-bind:readonly="item['media.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['media.languageid']" >
 									</select>
 								</div>
