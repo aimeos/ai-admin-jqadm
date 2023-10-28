@@ -88,7 +88,7 @@ $enc = $this->encoder();
 				data-decorators="<?= $enc->attr( $this->get( 'itemDecorators', [] ) ) ?>"
 				data-providers="<?= $enc->attr( $this->get( 'itemProviders', [] ) ) ?>"
 				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
-				data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
+				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
 
 				<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/rule.siteid' ) ) ?>">
 					<div class="row">
