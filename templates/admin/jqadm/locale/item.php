@@ -83,7 +83,7 @@ $params = $this->get( 'pageParams', [] );
 		<div class="col-xl-9 item-content tab-content">
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box <?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ) ?>">
+				<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/locale.siteid' ) ) ?>">
 					<div class="row">
 						<div class="col-xl-6">
 							<div class="form-group row mandatory">

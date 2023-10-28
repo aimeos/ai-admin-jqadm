@@ -281,7 +281,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 
 			<div id="basic" class="item-basic tab-pane fade show active g-0" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>"
+				<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/product.siteid' ) ) ?>"
 					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>"
 					data-datasets="<?= $enc->attr( (object) $this->config( 'admin/jqadm/dataset/product', [] ) ) ?>">

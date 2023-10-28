@@ -93,8 +93,8 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 					data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
 					<div class="row item-base">
-						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
-							<div class="box">
+						<div class="col-xl-6 block">
+							<div class="box" v-bind:class="{mismatch: !can('match')}">
 								<div class="form-group row">
 									<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer ID' ) ) ?></label>
 									<div class="col-8">
@@ -113,8 +113,8 @@ $priceFormat = $this->translate( 'client/code', '%1$s %2$s' );
 							</div>
 						</div>
 
-						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
-							<div class="box">
+						<div class="col-xl-6 block">
+							<div class="box" v-bind:class="{mismatch: !can('match')}">
 								<div class="form-group row">
 									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Name' ) ) ?></label>
 									<div class="col-8">

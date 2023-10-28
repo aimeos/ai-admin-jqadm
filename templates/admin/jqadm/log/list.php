@@ -134,7 +134,7 @@ $columnList = [
 					?>
 
 					<?php foreach( $this->get( 'items', [] ) as $id => $item ) : ?>
-						<tr class="<?= $this->site()->readonly( $item->getSiteId() ) ?>">
+						<tr class="<?= $this->site()->mismatch( $item->getSiteId() ) ?>">
 							<?php if( in_array( 'log.timestamp', $fields ) ) : ?>
 								<td class="log-timestamp"><?= $enc->attr( $item->getTimestamp() ) ?></td>
 							<?php endif ?>

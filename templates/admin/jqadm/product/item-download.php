@@ -16,7 +16,7 @@ $enc = $this->encoder();
 <div id="download" class="item-download tab-pane fade" role="tabpanel" aria-labelledby="download">
 	<div class="row">
 		<div class="col-lg-6">
-			<div class="box <?= $this->site()->readonly( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ) ?>">
+			<div class="box <?= $this->site()->mismatch( $this->get( 'downloadData/product.lists.siteid', $this->pageSiteItem->getId() ) ) ?>">
 				<div class="form-group row optional">
 					<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'File' ) ) ?></label>
 					<div class="col-sm-8">

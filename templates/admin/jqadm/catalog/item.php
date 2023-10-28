@@ -124,7 +124,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 						<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-							<div class="box <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>">
+							<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/catalog.siteid' ) ) ?>">
 								<div class="row">
 									<div class="col-xl-6 block">
 										<div class="form-group row mandatory">

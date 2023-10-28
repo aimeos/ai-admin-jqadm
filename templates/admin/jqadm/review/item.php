@@ -82,7 +82,7 @@ $enc = $this->encoder();
 
 				<div class="row">
 					<div class="col-xl-6 block">
-						<div class="box <?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ) ?>">
+						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/review.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
@@ -151,7 +151,7 @@ $enc = $this->encoder();
 					</div>
 
 					<div class="col-xl-6 block">
-						<div class="box <?= $this->site()->readonly( $this->get( 'itemData/review.siteid' ) ) ?>">
+						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/review.siteid' ) ) ?>">
 							<?php if( $this->access( $this->config( 'admin/jqadm/resource/' . $this->item->getDomain() . '/groups', [] ) ) ) : ?>
 								<div class="form-group row">
 									<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Reviewed item' ) ) ?></label>

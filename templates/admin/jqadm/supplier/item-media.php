@@ -30,7 +30,7 @@ $enc = $this->encoder();
 
 		<div class="group-list" role="tablist" aria-multiselectable="true">
 			<div is="draggable" group="media" v-model="items" handle=".act-move">
-				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card box" v-bind:class="{readonly: !can('change', idx)}">
+				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card box" v-bind:class="{mismatch: !can('match', idx)}">
 
 					<div v-bind:id="'item-media-group-item-' + idx" class="card-header header">
 						<div class="card-tools-start">

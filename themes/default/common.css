@@ -153,14 +153,12 @@ body {
 	color: var(--bs-orange, #fd7e14);
 }
 
-[dir="ltr"] .aimeos .readonly {
+[dir="ltr"] .aimeos .mismatch {
 	border-left: 0.25rem solid var(--bs-warning, #ffc107) !important;
-	opacity: 0.66 !important;
 }
 
-[dir="rtl"] .aimeos .readonly {
+[dir="rtl"] .aimeos .mismatch {
 	border-right: 0.25rem solid var(--bs-warning, #ffc107) !important;
-	opacity: 0.66 !important;
 }
 
 .aimeos .readonly select:focus {

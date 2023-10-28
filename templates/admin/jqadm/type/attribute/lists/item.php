@@ -78,7 +78,7 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box vue <?= $this->site()->readonly( $this->get( 'itemData/attribute.lists.type.siteid' ) ) ?>"
+				<div class="vue box <?= $this->site()->mismatch( $this->get( 'itemData/attribute.lists.type.siteid' ) ) ?>"
 					data-data="<?= $enc->attr( $this->get( 'itemData' ) ) ?>"
 					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 					data-domain="attribute/lists/type">

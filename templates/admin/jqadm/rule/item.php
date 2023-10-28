@@ -90,7 +90,7 @@ $enc = $this->encoder();
 				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
 				data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
-				<div class="box <?= $this->site()->readonly( $this->get( 'itemData/rule.siteid' ) ) ?>">
+				<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/rule.siteid' ) ) ?>">
 					<div class="row">
 						<div class="col-xl-6 block">
 							<div class="form-group row mandatory">

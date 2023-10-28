@@ -94,7 +94,7 @@ $params = $this->get( 'pageParams', [] );
 
 				<div class="row">
 					<div class="col-xl-6">
-						<div class="box <?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) ?>">
+						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/subscription.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">

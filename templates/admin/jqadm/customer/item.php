@@ -84,7 +84,7 @@ $params = $this->get( 'pageParams', [] );
 					data-domain="customer" >
 
 					<div class="col-xl-6">
-						<div class="box <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>">
+						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/customer.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
@@ -160,7 +160,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 
 					<div class="col-xl-6">
-						<div class="box <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>">
+						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/customer.siteid' ) ) ?>">
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'User groups' ) ) ?></label>
 								<div class="col-sm-8">
@@ -180,7 +180,7 @@ $params = $this->get( 'pageParams', [] );
 					</div>
 
 					<div class="col-xl-12">
-						<div class="box <?= $this->site()->readonly( $this->get( 'itemData/customer.siteid' ) ) ?>">
+						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/customer.siteid' ) ) ?>">
 							<div class="row">
 								<div class="col-xl-6">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
