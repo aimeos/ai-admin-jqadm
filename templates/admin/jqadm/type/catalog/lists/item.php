@@ -78,14 +78,14 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box vue"
+				<div class="box vue <?= $this->site()->readonly( $this->get( 'itemData/catalog.lists.type.siteid' ) ) ?>"
 					data-data="<?= $enc->attr( $this->get( 'itemData' ) ) ?>"
 					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 					data-domain="catalog/lists/type">
 
 					<div class="row">
 
-						<div class="col-xl-6 block" v-bind:class="{readonly: !can('change')}">
+						<div class="col-xl-6 block">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
 								<div class="col-sm-8">
@@ -169,7 +169,7 @@ $params = $this->get( 'pageParams', [] );
 							</div>
 						</div>
 
-						<div class="col-xl-6 block" v-bind:class="{readonly: !can('change')}">
+						<div class="col-xl-6 block">
 							<translations tabindex="1"
 								:value="<?= $enc->attr( $this->get( 'itemData/catalog.lists.type.i18n', new \stdClass ) ) ?>"
 								:name="`<?= $enc->js( $this->formparam( array( 'item', 'catalog.lists.type.i18n' ) ) ) ?>`"

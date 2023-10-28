@@ -271,19 +271,12 @@ body {
 	opacity: 0;
 }
 
-.aimeos .card {
-	box-shadow: var(--bs-shadow);
-	margin: 0.5rem 0;
-	padding: 0.5rem;
-}
-
 @media (min-width: 576px) {
 	.aimeos .card {
 		padding: 1rem;
 	}
 }
 
-.aimeos .card .header,
 .aimeos .box .header {
 	display: flex;
 	padding: 0.25rem;
@@ -296,18 +289,15 @@ body {
 	justify-content: space-between;
 }
 
-.aimeos .card .header.collapsed,
 .aimeos .box .header.collapsed {
 	border-bottom: 1px solid transparent;
 }
 
-.aimeos .card .header.is-invalid,
 .aimeos .box .header.is-invalid {
 	color: var(--bs-danger, #dc3545);
 	border-bottom: 1px solid var(--bs-danger, #dc3545);
 }
 
-.aimeos .card .header .header-label,
 .aimeos .box .header .header-label {
 	display: inline-block;
 	white-space: nowrap;

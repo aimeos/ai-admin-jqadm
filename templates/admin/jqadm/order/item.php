@@ -160,8 +160,8 @@ $paymentStatusList = [
 					data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
 					<div class="row item-base">
-						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
-							<div class="box">
+						<div class="col-xl-6 block">
+							<div class="box" :class="{readonly: !can('change')}">
 								<div class="form-group row">
 									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?></label>
 									<div class="col-8">
@@ -233,8 +233,8 @@ $paymentStatusList = [
 							</div>
 						</div>
 
-						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
-							<div class="box">
+						<div class="col-xl-6 block">
+							<div class="box" :class="{readonly: !can('change')}">
 								<div class="form-group row">
 									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Invoice No.' ) ) ?></label>
 									<div class="col-8">
@@ -478,7 +478,7 @@ $paymentStatusList = [
 
 					<div class="row item-misc">
 						<div class="col-xl-6">
-							<div class="box">
+							<div class="box" :class="{readonly: !can('change')}">
 								<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Coupon' ) ) ?></h2>
 								<?php if( !$this->item->getCoupons()->isEmpty() ) : ?>
 									<?php foreach( $this->item->getCoupons() as $code => $product ) : ?>
@@ -494,7 +494,7 @@ $paymentStatusList = [
 						</div>
 
 						<div class="col-xl-6">
-							<div class="box">
+							<div class="box" :class="{readonly: !can('change')}">
 								<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Comment' ) ) ?></h2>
 								<div class="form-group optional">
 									<textarea class="form-control item-title" type="text" tabindex="1" rows="3"
@@ -512,7 +512,7 @@ $paymentStatusList = [
 						<?php foreach( $this->item->getAddresses()->krsort() as $type => $addresses ) : $code = 'address:' . $type ?>
 
 							<div class="col-xl-6 item-address">
-								<div class="box">
+								<div class="box" :class="{readonly: !can('change')}">
 									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
 
 									<div v-for="(addr, idx) in (item?.address?.<?= $enc->attr( $type ) ?> || [])" :key="idx">
@@ -812,7 +812,7 @@ $paymentStatusList = [
 							<?php foreach( $services as $serviceItem ) : $serviceId = $serviceItem->getServiceId() ?>
 
 								<div class="col-xl-6 item-service">
-									<div class="box">
+									<div class="box" :class="{readonly: !can('change')}">
 										<h2 class="col-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
 										<div class="row">
 											<div class="col-6">
@@ -928,7 +928,7 @@ $paymentStatusList = [
 					<?php if( $this->site()->siteid() == $this->item->getSiteId() ) : ?>
 						<div class="row item-summary justify-content-end">
 							<div class="col-xl-6 item-total">
-								<div class="box">
+								<div class="box" :class="{readonly: !can('change')}">
 									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Order totals' ) ) ?></h2>
 									<div class="form-group row total-subtotal">
 										<div class="col-6 name"><?= $enc->html( $this->translate( 'admin', 'Sub-total' ) ) ?></div>

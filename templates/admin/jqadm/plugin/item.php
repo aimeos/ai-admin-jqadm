@@ -90,9 +90,9 @@ $enc = $this->encoder();
 				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
 				data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
 
-				<div class="box">
+				<div class="box <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>">
 					<div class="row">
-						<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>">
+						<div class="col-xl-6 block">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
@@ -200,7 +200,7 @@ $enc = $this->encoder();
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/plugin.siteid' ) ) ?>">
+						--><div class="col-xl-6 block">
 							<config-table tabindex="1"
 								@update:items="item['config'] = $event"
 								v-bind:items="item['config'] || []"

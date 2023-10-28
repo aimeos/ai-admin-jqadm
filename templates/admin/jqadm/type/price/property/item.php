@@ -78,8 +78,13 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="row item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box">
+				<div class="box vue <?= $this->site()->readonly( $this->get( 'itemData/price.property.type.siteid' ) ) ?>"
+					data-data="<?= $enc->attr( $this->get( 'itemData' ) ) ?>"
+					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
+					data-domain="price/property/type">
+
 					<div class="row">
+
 						<div class="col-xl-6 block :readonly="!can('change')"">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>

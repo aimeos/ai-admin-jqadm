@@ -281,13 +281,13 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 
 			<div id="basic" class="item-basic tab-pane fade show active g-0" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box"
-					data-siteid="<?= $this->site()->siteid() ?>"
+				<div class="box <?= $this->site()->readonly( $this->get( 'itemData/product.siteid' ) ) ?>"
+					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
 					data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>"
 					data-datasets="<?= $enc->attr( (object) $this->config( 'admin/jqadm/dataset/product', [] ) ) ?>">
 
 					<div class="row">
-						<div class="col-xl-6 block" v-bind:class="{readonly: !can('change')}">
+						<div class="col-xl-6 block">
 
 							<?php if( $this->config( 'admin/jqadm/dataset/product', [] ) !== [] ) : ?>
 								<div class="form-group row optional">
@@ -501,7 +501,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							</div>
 						</div>
 
-						<div class="col-xl-6 block" v-bind:class="{readonly: !can('change')}">
+						<div class="col-xl-6 block">
 
 							<config-table tabindex="1"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] ) ) ?>"

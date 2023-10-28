@@ -15,11 +15,11 @@ $enc = $this->encoder();
 		data-items="<?= $enc->attr( $this->get( 'addressData', [] ) ) ?>"
 		data-super="<?= $enc->attr( $this->access( 'super' ) ) ?>"
 		data-siteid="<?= $this->site()->siteid() ?>"
-		data-domain="customer" >
+		data-domain="customer">
 
 		<div class="group-list">
 			<div is="draggable" v-model="items" group="address" handle=".act-move" @start="drag=true" @end="drag=false">
-				<div v-for="(entry, idx) in items" v-bind:key="idx" class="group-item card">
+				<div v-for="(entry, idx) in items" v-bind:key="idx" class="group-item card box" v-bind:class="{readonly: !can('change', idx)}">
 
 					<div v-bind:id="'item-address-group-item-' + idx" class="card-header header">
 						<div class="card-tools-start">
@@ -50,7 +50,7 @@ $enc = $this->encoder();
 					<div v-bind:id="'item-address-group-data-' + idx" v-bind:class="entry['_show'] ? 'show' : 'collapsed'"
 						v-bind:aria-labelledby="'item-address-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
-						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						<div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
 
 							<input class="item-id" type="hidden"
@@ -150,7 +150,7 @@ $enc = $this->encoder();
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						--><div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Delivery address' ) ) ?></h2>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ) ?></label>
@@ -251,7 +251,7 @@ $enc = $this->encoder();
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						--><div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ) ?></h2>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ) ?></label>
@@ -320,7 +320,7 @@ $enc = $this->encoder();
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						--><div class="col-xl-6">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ) ?></h2>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ) ?></label>
@@ -347,7 +347,7 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<div class="col-xl-12" v-bind:class="{readonly: !can('change', idx)}">
+						<div class="col-xl-12">
 							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Map' ) ) ?></h2>
 							<div class="osm-map">
 								<input type="hidden" v-bind:value="entry['customer.address.latitude']"

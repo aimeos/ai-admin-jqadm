@@ -93,8 +93,8 @@ $params = $this->get( 'pageParams', [] );
 					value="<?= $enc->attr( $this->param( 'subscription.ordprodid', $this->get( 'itemData/subscription.ordprodid' ) ) ) ?>">
 
 				<div class="row">
-					<div class="col-xl-6" v-bind:class="{readonly: !can('change')}">
-						<div class="box">
+					<div class="col-xl-6">
+						<div class="box <?= $this->site()->readonly( $this->get( 'itemData/subscription.siteid' ) ) ?>">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">

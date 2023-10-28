@@ -81,11 +81,9 @@ $params = $this->get( 'pageParams', [] );
 		</div>
 
 		<div class="col-xl-9 item-content tab-content">
-			<?php $readonly = ( $this->access( 'admin' ) === false ? $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ) : '' ) ?>
-
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box <?= $readonly ?>">
+				<div class="box <?= $this->site()->readonly( $this->get( 'itemData/locale.siteid' ) ) ?>">
 					<div class="row">
 						<div class="col-xl-6">
 							<div class="form-group row mandatory">

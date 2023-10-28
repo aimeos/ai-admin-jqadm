@@ -78,9 +78,9 @@ $params = $this->get( 'pageParams', [] );
 
 			<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-				<div class="box">
+				<div class="box <?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ) ?>">
 					<div class="row">
-						<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ) ?>">
+						<div class="col-xl-6 block">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
 								<div class="col-sm-8">
@@ -153,7 +153,7 @@ $params = $this->get( 'pageParams', [] );
 							</div>
 						</div><!--
 
-						--><div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/attribute.siteid' ) ) ?>">
+						--><div class="col-xl-6 block">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ) ?></label>
 								<div class="col-sm-8">

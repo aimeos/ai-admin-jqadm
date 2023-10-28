@@ -33,7 +33,7 @@ $enc = $this->encoder();
 
 		<div class="group-list" role="tablist" aria-multiselectable="true">
 			<div is="draggable" v-model="items" group="text" handle=".act-move">
-				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card" v-bind:class="{loading: item['loading']}">
+				<div v-for="(item, idx) in items" v-bind:key="idx" class="group-item card box" v-bind:class="{readonly: !can('change', idx)}" v-bind:class="{loading: item['loading']}">
 
 					<div v-bind:id="'item-text-group-item-' + idx" class="card-header header">
 						<div class="card-tools-start">
@@ -77,7 +77,7 @@ $enc = $this->encoder();
 						<input type="hidden" v-model="item['text.id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.id' ) ) ) ?>`.replace('_idx_', idx)">
 
-						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						<div class="col-xl-6">
 
 							<div class="form-group row mandatory">
 								<div class="col-sm-12">
@@ -99,7 +99,7 @@ $enc = $this->encoder();
 
 						</div>
 
-						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						<div class="col-xl-6">
 
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
@@ -196,7 +196,7 @@ $enc = $this->encoder();
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ) ?></span>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary">
 
 							<?php if( ( $listTypes = $this->get( 'textListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
@@ -250,7 +250,7 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary">
 							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/supplier/item/text/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"

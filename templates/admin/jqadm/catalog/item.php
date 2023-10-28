@@ -124,9 +124,9 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 
 						<div id="basic" class="item-basic tab-pane fade show active" role="tabpanel" aria-labelledby="basic">
 
-							<div class="box">
+							<div class="box <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>">
 								<div class="row">
-									<div class="col-xl-6 block <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>">
+									<div class="col-xl-6 block">
 										<div class="form-group row mandatory">
 											<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 											<div class="col-sm-8">
@@ -211,7 +211,7 @@ $cfgSuggest = $this->config( 'admin/jqadm/catalog/item/config/suggest', ['css-cl
 										</div>
 									</div><!--
 
-									--><div class="col-xl-6 block vue <?= $this->site()->readonly( $this->get( 'itemData/catalog.siteid' ) ) ?>"
+									--><div class="col-xl-6 block vue"
 										data-data="<?= $enc->attr( $this->get( 'itemData', new stdClass() ) ) ?>">
 
 										<config-table
