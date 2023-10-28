@@ -32,15 +32,7 @@ Aimeos.Plugin = {
 	mixins: {
 		methods: {
 			can(action) {
-				if(this.item['plugin.siteid']) {
-					let allow = (new String(this.item['plugin.siteid'])).startsWith(this.siteid);
-
-					switch(action) {
-						case 'change': return allow;
-					}
-				}
-
-				return false;
+				return Aimeos.can(action, this.item['plugin.siteid'] || null, this.siteid)
 			},
 
 

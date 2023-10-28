@@ -260,6 +260,18 @@ Aimeos = {
 	},
 
 
+	can(action, siteid, siteID ) {
+		switch(action) {
+			case 'change':
+			case 'delete':
+			case 'move': return (new String(siteid)).startsWith(siteID);
+			case 'match': return siteid === siteID;
+		}
+
+		return false;
+	},
+
+
 	lazy(selector, renderFcn) {
 
 		if('IntersectionObserver' in window) {
@@ -327,15 +339,8 @@ Aimeos = {
 			},
 			methods: {
 				can(action) {
-					if(this.super) {
-						return true;
-					}
-
-					if(this.data[this.domain + '.siteid']) {
-						return (new String(this.data[this.domain + '.siteid'])).startsWith(this.siteid);
-					}
-
-					return false;
+					if(this.super) return true;
+					return Aimeos.can(action, this.data[this.domain + '.siteid'] || null, this.siteid)
 				},
 
 				set(data) {

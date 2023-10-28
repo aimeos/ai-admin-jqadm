@@ -32,15 +32,7 @@
 	mixins: {
 		methods: {
 			can(action) {
-				if(this.item['rule.siteid']) {
-					let allow = (new String(this.item['rule.siteid'])).startsWith(this.siteid);
-
-					switch(action) {
-						case 'change': return allow;
-					}
-				}
-
-				return false;
+				return Aimeos.can(action, this.item['rule.siteid'] || null, this.siteid)
 			},
 
 

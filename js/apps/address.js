@@ -79,15 +79,8 @@ Aimeos.Address = {
 
 
 			can(action, idx) {
-				if(this.super) {
-					return true;
-				}
-
-				if(this.items[idx][this.domain + '.address.siteid']) {
-					return (new String(this.items[idx][this.domain + '.address.siteid'])).startsWith(this.siteid);
-				}
-
-				return false;
+				if(this.super) return true;
+				return Aimeos.can(action, this.items[idx][this.domain + '.address.siteid'] || null, this.siteid)
 			},
 
 

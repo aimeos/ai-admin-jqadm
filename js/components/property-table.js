@@ -26,7 +26,7 @@ Vue.component('property-table', {
 					<select is="select-component" required class="form-select item-type" v-bind:tabindex="tabindex" \
 						v-bind:name="fname(\'type\', propidx)" \
 						v-bind:text="i18n.select || \'Please select\'" \
-						v-bind:readonly="readonly(propidx)" \
+						v-bind:readonly="!can(\'change\', propidx)" \
 						v-bind:items="types" \
 						v-model="propdata[domain + \'.property.type\']" > \
 					</select> \
@@ -35,7 +35,7 @@ Vue.component('property-table', {
 					<select is="select-component" class="form-select item-languageid" v-bind:tabindex="tabindex" \
 						v-bind:name="fname(\'languageid\', propidx)" \
 						v-bind:all="i18n.all || \'All\'" \
-						v-bind:readonly="readonly(propidx)" \
+						v-bind:readonly="!can(\'change\', propidx)" \
 						v-bind:items="languages" \
 						v-model="propdata[domain + \'.property.languageid\']" > \
 					</select> \
@@ -44,7 +44,7 @@ Vue.component('property-table', {
 					<input class="form-control item-value" type="text" required="required" v-bind:tabindex="tabindex" \
 						v-bind:name="fname(\'value\', propidx)" \
 						v-bind:placeholder="i18n.placeholder || \'Property value (required)\'" \
-						v-bind:readonly="readonly(propidx)" \
+						v-bind:readonly="!can(\'change\', propidx)" \
 						v-model="propdata[domain + \'.property.value\']" > \
 				</td> \
 				<td class="actions"> \
@@ -84,7 +84,7 @@ Vue.component('property-table', {
 		},
 
 		can(action, idx) {
-			return this.items[idx][this.domain + '.property.siteid'] && (new String(this.items[idx][this.domain + '.property.siteid'])).startsWith(this.siteid);
+			return Aimeos.can(action, this.items[idx][this.domain + '.property.siteid'] || null, this.siteid)
 		},
 
 		fname(key, idx) {

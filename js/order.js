@@ -30,15 +30,7 @@ Aimeos.Order = {
 	mixins: {
 		methods: {
 			can(action) {
-				if(this.item['order.siteid']) {
-					let allow = (new String(this.item['order.siteid'])).startsWith(this.siteid);
-
-					switch(action) {
-						case 'change': return allow;
-					}
-				}
-
-				return false;
+				return Aimeos.can(action, this.item['order.siteid'] || null, this.siteid)
 			},
 
 			customer(input) {

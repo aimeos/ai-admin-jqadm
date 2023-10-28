@@ -71,17 +71,8 @@ Aimeos.Media = {
 
 
 			can(action, idx) {
-				if(this.items[idx][this.domain + '.lists.siteid']) {
-					const allow = (new String(this.items[idx][this.domain + '.lists.siteid'])).startsWith(this.siteid);
-
-					switch(action) {
-						case 'change': return allow;
-						case 'delete': return allow;
-						case 'move': return allow  && !this.items[idx]['_nosort'];
-					}
-				}
-
-				return false;
+				if(action === 'move' && this.items[idx]['_nosort']) return false
+				return Aimeos.can(action, this.items[idx][this.domain + '.lists.siteid'] || null, this.siteid)
 			},
 
 

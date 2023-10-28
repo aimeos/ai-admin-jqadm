@@ -26,15 +26,7 @@ Aimeos.Basket = {
 	mixins: {
 		methods: {
 			can(action) {
-				if(this.item['order.basket.siteid']) {
-					let allow = (new String(this.item['order.basket.siteid'])).startsWith(this.siteid);
-
-					switch(action) {
-						case 'change': return allow;
-					}
-				}
-
-				return false;
+				return Aimeos.can(action, this.item['order.basket.siteid'] || null, this.siteid)
 			},
 		}
 	},

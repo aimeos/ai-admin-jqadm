@@ -196,7 +196,7 @@ Aimeos.Product.Basic = {
 			},
 			methods: {
 				can(what) {
-					return (new String(this.item['product.siteid'])).startsWith(this.siteid);
+					return Aimeos.can(action, this.item['product.siteid'] || null, this.siteid)
 				},
 
 
@@ -309,17 +309,7 @@ Aimeos.Product.Attribute = {
 
 
 				can(action, idx) {
-					if(this.items[idx]['product.lists.siteid']) {
-						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-
-						switch(action) {
-							case 'delete': return allow;
-							case 'change': return allow;
-							case 'move': return allow;
-						}
-					}
-
-					return false;
+					return Aimeos.can(action, this.items[idx]['product.lists.siteid'] || null, this.siteid)
 				},
 
 
@@ -395,17 +385,7 @@ Aimeos.Product.Catalog = {
 
 
 				can(action, idx) {
-					if(this.items[idx]['product.lists.siteid']) {
-						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-
-						switch(action) {
-							case 'delete': return allow;
-							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
-							case 'move': return allow;
-						}
-					}
-
-					return false;
+					return Aimeos.can(action, this.items[idx]['product.lists.siteid'] || null, this.siteid)
 				},
 
 
@@ -720,18 +700,7 @@ Aimeos.Product.Product = {
 
 
 				can(action, idx) {
-
-					if(this.items[idx]['product.lists.siteid']) {
-						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-
-						switch(action) {
-							case 'delete': return allow;
-							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
-							case 'move': return allow;
-						}
-					}
-
-					return false;
+					return Aimeos.can(action, this.items[idx]['product.lists.siteid'] || null, this.siteid)
 				},
 
 
@@ -827,20 +796,10 @@ Aimeos.Product.Selection = {
 				can(action, idx, attridx) {
 
 					if(attridx && this.items[idx]['attr'][attridx]['product.lists.siteid']) {
-						const allow = (new String(this.items[idx]['attr'][attridx]['product.lists.siteid'])).startsWith(this.siteid);
-
-						switch(action) {
-							case 'delete': return allow;
-							case 'change': return allow || this.items[idx]['attr'][attridx]['product.lists.id'] == '';
-							case 'move': return allow;
-						}
+						return Aimeos.can(action, this.items[idx]['attr'][attridx]['product.lists.siteid'], this.siteid)
 					}
 
-					if(this.items[idx]['product.lists.siteid']) {
-						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-					}
-
-					return false;
+					return Aimeos.can(action, this.items[idx]['product.lists.siteid'] || null, this.siteid)
 				},
 
 
@@ -1047,16 +1006,7 @@ Aimeos.Product.Stock = {
 
 
 				can(action, idx) {
-					if(this.items[idx]['stock.siteid']) {
-						let allow = (new String(this.items[idx]['stock.siteid'])).startsWith(this.siteid);
-
-						switch(action) {
-							case 'delete': return allow;
-							case 'change': return allow || this.items[idx]['stock.id'] == '';
-						}
-					}
-
-					return false;
+					return Aimeos.can(action, this.items[idx]['stock.siteid'] || null, this.siteid)
 				},
 
 
@@ -1117,14 +1067,11 @@ Aimeos.Product.Subscription = {
 
 
 				can(action, idx) {
-					if(this.items[idx]['product.lists.siteid']) {
-						switch(action) {
-							case 'create': return !this.items[idx]['attribute.id'];
-							case 'change': return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-						}
+					if(action === 'create' && this.items[idx]['product.lists.siteid']) {
+						return !this.items[idx]['attribute.id'];
 					}
 
-					return false;
+					return Aimeos.can(action, this.items[idx]['product.lists.siteid'] || null, this.siteid)
 				},
 
 
@@ -1170,17 +1117,7 @@ Aimeos.Product.Supplier = {
 
 
 				can(action, idx) {
-					if(this.items[idx]['product.lists.siteid']) {
-						let allow = (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-
-						switch(action) {
-							case 'delete': return allow;
-							case 'change': return allow || this.items[idx]['product.lists.id'] == '';
-							case 'move': return allow;
-						}
-					}
-
-					return false;
+					return Aimeos.can(action, this.items[idx]['product.lists.siteid'] || null, this.siteid)
 				},
 
 

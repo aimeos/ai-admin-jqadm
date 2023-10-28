@@ -34,15 +34,7 @@ Aimeos.Coupon = {
 	mixins: {
 		methods: {
 			can(action) {
-				if(this.item['coupon.siteid']) {
-					let allow = (new String(this.item['coupon.siteid'])).startsWith(this.siteid);
-
-					switch(action) {
-						case 'change': return allow;
-					}
-				}
-
-				return false;
+				return Aimeos.can(action, this.item['coupon.siteid'] || null, this.siteid)
 			},
 
 

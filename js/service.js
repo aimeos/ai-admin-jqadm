@@ -32,15 +32,7 @@ Aimeos.Service = {
 	mixins: {
 		methods: {
 			can(action) {
-				if(this.item['service.siteid']) {
-					let allow = (new String(this.item['service.siteid'])).startsWith(this.siteid);
-
-					switch(action) {
-						case 'change': return allow;
-					}
-				}
-
-				return false;
+				return Aimeos.can(action, this.item['service.siteid'] || null, this.siteid)
 			},
 
 
