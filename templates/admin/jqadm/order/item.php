@@ -157,7 +157,7 @@ $paymentStatusList = [
 
 				<div id="order" class="order-item tab-pane fade show active" role="tabpanel" aria-labelledby="order"
 					data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
-					data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
+					data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
 
 					<div class="row item-base">
 						<div class="col-xl-6 block" :class="{readonly: !can('change')}">
