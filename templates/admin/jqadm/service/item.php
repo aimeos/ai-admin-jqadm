@@ -176,7 +176,7 @@ $enc = $this->encoder();
 											name="<?= $this->formparam( array( 'item', 'service.provider' ) ) ?>"
 											v-model="item['service.provider']"
 											:title="item['service.provider']"
-											:readonly="!can('change')"
+											:disabled="!can('change')"
 											:native-support="true"
 											:can-deselect="false"
 											:options="providers[item['service.type']] || []"
