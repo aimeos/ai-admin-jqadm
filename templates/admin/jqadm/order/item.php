@@ -280,6 +280,7 @@ $paymentStatusList = [
 												label="customer.code"
 												@input="useCustomer($event)"
 												:value="item"
+												:disabled="!can('change')"
 												:options="async function(query) {return await customer(query)}"
 												:resolve-on-load="false"
 												:filter-results="false"

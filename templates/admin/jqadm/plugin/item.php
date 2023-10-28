@@ -88,7 +88,7 @@ $enc = $this->encoder();
 				data-decorators="<?= $enc->attr( $this->get( 'itemDecorators', [] ) ) ?>"
 				data-providers="<?= $enc->attr( $this->get( 'itemProviders', [] ) ) ?>"
 				data-item="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
-				data-siteid="<?= $enc->attr( $this->item->getSiteId() ) ?>">
+				data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>">
 
 				<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/plugin.siteid' ) ) ?>">
 					<div class="row">
@@ -162,7 +162,7 @@ $enc = $this->encoder();
 											name="<?= $this->formparam( array( 'item', 'plugin.provider' ) ) ?>"
 											v-model="item['plugin.provider']"
 											:title="item['plugin.provider']"
-											:readonly="!can('change')"
+											:disabled="!can('change')"
 											:native-support="true"
 											:can-deselect="false"
 											:options="providers[item['plugin.type']] || []"

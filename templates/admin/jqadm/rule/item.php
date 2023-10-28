@@ -162,7 +162,7 @@ $enc = $this->encoder();
 											name="<?= $this->formparam( array( 'item', 'rule.provider' ) ) ?>"
 											v-model="item['rule.provider']"
 											:title="item['rule.provider']"
-											:readonly="!can('change')"
+											:disabled="!can('change')"
 											:native-support="true"
 											:can-deselect="false"
 											:options="providers[item['rule.type']] || []"

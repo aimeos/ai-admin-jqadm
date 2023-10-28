@@ -136,7 +136,7 @@ $params = $this->get( 'pageParams', [] );
 											name="<?= $this->formparam( array( 'item', 'coupon.provider' ) ) ?>"
 											v-model="item['coupon.provider']"
 											:title="item['coupon.provider']"
-											:readonly="!can('change')"
+											:disabled="!can('change')"
 											:native-support="true"
 											:can-deselect="false"
 											:options="providers"
