@@ -45,7 +45,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
 		$filter = $manager->filter( true )->add( 'product.lists.type.domain', '==', 'supplier' )
-			->order( 'product.lists.type.position', 'product.lists.type.code' );
+			->order( ['product.lists.type.position', 'product.lists.type.code'] );
 
 		$view->supplierTypes = $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' );
 		return $view;
