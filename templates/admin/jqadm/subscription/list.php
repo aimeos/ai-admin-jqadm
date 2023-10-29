@@ -309,7 +309,7 @@ $reasonList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-subscription-status" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.status')">
@@ -358,7 +358,7 @@ $reasonList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-subscription-datenext" class="form-check-input" type="checkbox" v-on:click="setState('item/subscription.datenext')">

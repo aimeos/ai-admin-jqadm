@@ -235,7 +235,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-status" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.status')">
@@ -295,7 +295,7 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-groups" class="form-check-input" type="checkbox" v-on:click="setState('item/groups')">
@@ -330,7 +330,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-languageid" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.languageid')">
@@ -420,7 +420,7 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-address1" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.address1')">
@@ -525,7 +525,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-telephone" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.telephone')">
@@ -551,7 +551,7 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-website" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.website')">
@@ -578,7 +578,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-company" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.company')">
@@ -592,7 +592,7 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-customer-vatid" class="form-check-input" type="checkbox" v-on:click="setState('item/customer.vatid')">

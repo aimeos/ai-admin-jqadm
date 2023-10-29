@@ -19,7 +19,7 @@ $enc = $this->encoder();
 
 		<?php foreach( $this->get( 'themeData', [] ) as $name => $values ) : ?>
 
-			<div class="col-lg-6">
+			<div class="col-xl-6">
 				<div class="box">
 					<h2 class="item-header"><?= $enc->html( $this->config( 'client/html/themes/' . $name, $name ) ) ?></h2>
 

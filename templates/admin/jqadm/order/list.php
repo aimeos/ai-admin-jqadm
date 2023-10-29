@@ -398,7 +398,7 @@ $statusList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-order-statuspayment" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statuspayment')">
@@ -451,7 +451,7 @@ $statusList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-order-statusdelivery" class="form-check-input" type="checkbox" v-on:click="setState('item/order.statusdelivery')">

@@ -824,7 +824,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 
 											<?php if( !empty( $datasets = $this->config( 'admin/jqadm/dataset/product', [] ) ) ) : ?>
 												<div class="row">
@@ -901,7 +901,7 @@ $columnList = [
 											</div>
 										</div>
 
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-product-datestart" class="form-check-input" type="checkbox" v-on:click="setState('item/product.datestart')">
@@ -962,7 +962,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 
 											<div class="row">
 												<div class="col-1">
@@ -1004,7 +1004,7 @@ $columnList = [
 											</div>
 
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 
 											<div class="row">
 												<div class="col-1">

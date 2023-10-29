@@ -181,7 +181,7 @@ $columnList = [
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 											<div class="row">
 												<div class="col-1">
 													<input id="batch-group-status" class="form-check-input" type="checkbox" v-on:click="setState('item/group.status')">
@@ -201,7 +201,7 @@ $columnList = [
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-xl-6">
 										</div>
 									</div>
 								</div>
