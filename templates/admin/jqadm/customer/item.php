@@ -183,7 +183,7 @@ $params = $this->get( 'pageParams', [] );
 						<div class="box <?= $this->site()->mismatch( $this->get( 'itemData/customer.siteid' ) ) ?>">
 							<div class="row">
 								<div class="col-xl-6">
-									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
+									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
 
 									<?php if( ( $languages = $this->get( 'pageLangItems', map() ) )->count() !== 1 ) : ?>
 										<div class="form-group row mandatory">
@@ -286,7 +286,7 @@ $params = $this->get( 'pageParams', [] );
 								</div>
 
 								<div class="col-xl-6">
-									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Billing address' ) ) ?></h2>
+									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Billing address' ) ) ?></h2>
 									<div class="form-group row optional">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ) ?></label>
 										<div class="col-sm-8">
@@ -386,7 +386,7 @@ $params = $this->get( 'pageParams', [] );
 								</div>
 
 								<div class="col-xl-6">
-									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ) ?></h2>
+									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ) ?></h2>
 									<div class="form-group row mandatory">
 										<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'E-Mail' ) ) ?></label>
 										<div class="col-sm-8">
@@ -461,7 +461,7 @@ $params = $this->get( 'pageParams', [] );
 								</div>
 
 								<div class="col-xl-6">
-									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ) ?></h2>
+									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ) ?></h2>
 									<div class="form-group row optional">
 										<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ) ?></label>
 										<div class="col-sm-8">

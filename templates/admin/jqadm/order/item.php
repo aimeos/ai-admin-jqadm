@@ -480,7 +480,7 @@ $paymentStatusList = [
 					<div class="row item-misc">
 						<div class="col-xl-6">
 							<div class="box" v-bind:class="{mismatch: !can('match')}">
-								<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Coupon' ) ) ?></h2>
+								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Coupon' ) ) ?></h2>
 								<?php if( !$this->item->getCoupons()->isEmpty() ) : ?>
 									<?php foreach( $this->item->getCoupons() as $code => $product ) : ?>
 										<div class="form-group row">
@@ -496,7 +496,7 @@ $paymentStatusList = [
 
 						<div class="col-xl-6">
 							<div class="box" v-bind:class="{mismatch: !can('match')}">
-								<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Comment' ) ) ?></h2>
+								<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Comment' ) ) ?></h2>
 								<div class="form-group optional">
 									<textarea class="form-control item-title" type="text" tabindex="1" rows="3"
 										name="<?= $enc->attr( $this->formparam( array( 'item', 'order.comment' ) ) ) ?>"
@@ -514,7 +514,7 @@ $paymentStatusList = [
 
 							<div class="col-xl-6 item-address">
 								<div class="box" v-bind:class="{mismatch: !can('match')}">
-									<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
+									<h2 class="item-header"><?= $enc->html( $this->translate( 'admin/ext', $code ) ) ?></h2>
 
 									<div v-for="(addr, idx) in (item?.address?.<?= $enc->attr( $type ) ?> || [])" :key="idx">
 										<div class="address-short" @click="$set(addr, '_edit', !addr['_edit'])">

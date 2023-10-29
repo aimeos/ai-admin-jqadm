@@ -50,7 +50,7 @@ $enc = $this->encoder();
 						v-bind:aria-labelledby="'item-address-group-item-' + idx" role="tabpanel" class="card-block collapse row">
 
 						<div class="col-xl-6">
-							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
+							<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Personal data' ) ) ?></h2>
 
 							<input class="item-id" type="hidden"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'supplier.address.id' ) ) ) ?>`.replace('_idx_', idx)"
@@ -150,7 +150,7 @@ $enc = $this->encoder();
 						</div><!--
 
 						--><div class="col-xl-6">
-							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Delivery address' ) ) ?></h2>
+							<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Delivery address' ) ) ?></h2>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Street' ) ) ?></label>
 								<div class="col-sm-8">
@@ -251,7 +251,7 @@ $enc = $this->encoder();
 						</div><!--
 
 						--><div class="col-xl-6">
-							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ) ?></h2>
+							<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Communication' ) ) ?></h2>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Telephone' ) ) ?></label>
 								<div class="col-sm-8">
@@ -320,7 +320,7 @@ $enc = $this->encoder();
 						</div><!--
 
 						--><div class="col-xl-6">
-							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ) ?></h2>
+							<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Company details' ) ) ?></h2>
 							<div class="form-group row optional">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Company' ) ) ?></label>
 								<div class="col-sm-8">
@@ -347,7 +347,7 @@ $enc = $this->encoder();
 						</div>
 
 						<div class="col-xl-12">
-							<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Map' ) ) ?></h2>
+							<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Map' ) ) ?></h2>
 							<div class="osm-map">
 								<input type="hidden" v-bind:value="entry['supplier.address.latitude']"
 									v-bind:name="`<?= $enc->js( $this->formparam( array( 'address', '_idx_', 'supplier.address.latitude' ) ) ) ?>`.replace('_idx_', idx)">

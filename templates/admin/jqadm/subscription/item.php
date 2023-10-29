@@ -245,7 +245,7 @@ $params = $this->get( 'pageParams', [] );
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="box">
-										<h2 class="col-sm-12 item-header"><?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?></h2>
+										<h2 class="item-header"><?= $enc->html( $this->translate( 'admin', 'Product' ) ) ?></h2>
 										<div class="table-responsive">
 											<table class="item-product-list table table-striped">
 												<thead>

@@ -392,7 +392,7 @@
 .aimeos .item-header {
 	font-size: 150%;
 	padding: 0.5rem 0;
-	margin-bottom: 1rem;
+	margin: 1rem 0;
 	border-bottom: 1px solid var(--bs-line-light, #dee2e6);
 }
 
