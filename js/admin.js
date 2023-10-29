@@ -27,6 +27,7 @@ document.querySelectorAll(".btn-theme").forEach(item => {
 
 Aimeos = {
 
+	siteid: null,
 	options: null,
 	components: {},
 
@@ -260,12 +261,12 @@ Aimeos = {
 	},
 
 
-	can(action, siteid, siteID ) {
+	can(action, siteid, siteID) {
 		switch(action) {
 			case 'change':
 			case 'delete':
-			case 'move': return (new String(siteid)).startsWith(siteID);
-			case 'match': return siteid === siteID;
+			case 'move': return (new String(siteid)).startsWith(siteID) || siteid == Aimeos.siteid;
+			case 'match': return siteid == siteID;
 		}
 
 		return false;
@@ -327,20 +328,17 @@ Aimeos = {
 					data: {},
 					domain: '',
 					siteid: null,
-					super: false,
 				}
 			},
 			beforeMount() {
 				this.Aimeos = Aimeos;
 				this.data = JSON.parse(this.$el.dataset?.data || '{}');
-				this.super = Boolean(this.$el.dataset?.super || false);
-				this.siteid = this.$el.dataset?.siteid || null;
+				this.siteid = this.$el.dataset?.siteid || '';
 				this.domain = this.$el.dataset?.domain || '';
 			},
 			methods: {
 				can(action) {
-					if(this.super) return true;
-					return Aimeos.can(action, this.data[this.domain + '.siteid'] || null, this.siteid)
+					return Aimeos.can(action, this.data[this.domain.replace(/\//g, '.') + '.siteid'] || '', this.siteid)
 				},
 
 				set(data) {
@@ -947,6 +945,7 @@ $(function() {
 		new bootstrap.Toast(el, {delay: 3000}).show();
 	});
 
+	Aimeos.siteid = $('.aimeos').data('user-siteid') || '';
 	Aimeos.ckeditor.language = document.documentElement && document.documentElement.getAttribute('locale') || 'en';
 
 	flatpickr.localize(flatpickr.l10ns[$('.aimeos').attr('locale') || 'en']);

@@ -85,7 +85,7 @@ $params = $this->get( 'pageParams', [] );
 
 					<div class="row">
 
-						<div class="col-xl-6 block :readonly="!can('change')"">
+						<div class="col-xl-6 block">
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Domain' ) ) ?></label>
 								<div class="col-sm-8">
@@ -163,7 +163,7 @@ $params = $this->get( 'pageParams', [] );
 							</div>
 						</div>
 
-						<div class="col-xl-6 block :readonly="!can('change')"">
+						<div class="col-xl-6 block">
 							<translations tabindex="1"
 								:value="<?= $enc->attr( $this->get( 'itemData/price.property.type.i18n', new \stdClass ) ) ?>"
 								:name="`<?= $enc->js( $this->formparam( array( 'item', 'price.property.type.i18n' ) ) ) ?>`"

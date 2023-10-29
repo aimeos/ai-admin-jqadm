@@ -163,7 +163,7 @@ $params = $this->get( 'pageParams', [] );
 							</div>
 						</div>
 
-						<div class="col-xl-6 block :readonly="!can('change')"">
+						<div class="col-xl-6 block">
 							<translations tabindex="1"
 								:value="<?= $enc->attr( $this->get( 'itemData/product.property.type.i18n', new \stdClass ) ) ?>"
 								:name="`<?= $enc->js( $this->formparam( array( 'item', 'product.property.type.i18n' ) ) ) ?>`"

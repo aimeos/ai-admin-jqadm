@@ -79,7 +79,6 @@ $params = $this->get( 'pageParams', [] );
 
 				<div class="row vue"
 					data-data="<?= $enc->attr( $this->get( 'itemData', [] ) ) ?>"
-					data-super="<?= $enc->attr( $this->access( 'super' ) ) ?>"
 					data-siteid="<?= $this->site()->siteid() ?>"
 					data-domain="customer" >
 

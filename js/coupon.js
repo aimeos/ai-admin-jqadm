@@ -148,6 +148,11 @@ Aimeos.Coupon.Code = {
 			},
 
 
+			can(action, idx) {
+				return Aimeos.can(action, this.items[idx]['coupon.code.siteid'] || null, this.siteid)
+			},
+
+
 			columns(json, key) {
 				let list = [];
 				try {

@@ -61,7 +61,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 				</thead>
 				<tbody>
 
-					<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row">
+					<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row" v-bind:class="{mismatch: !can('match', idx)}">
 						<?php if( $stockTypes->count() !== 1 ) : ?>
 							<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
 								<select is="select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
@@ -77,7 +77,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 							<div class="item-stockflag">
 								<input class="form-check-input" type="checkbox" value="1" tabindex="<?= $this->get( 'tabindex' ) ?>"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['stock', '_idx_', 'stock.stockflag'] ) ) ?>`.replace( '_idx_', idx )"
-									v-bind:readonly="!can('change', idx)"
+									v-bind:disabled="!can('change', idx)"
 									v-bind:checked="checked(idx)"
 									v-on:click="toggle(idx)">
 							</div><!--

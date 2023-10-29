@@ -41,7 +41,7 @@ $keys = [
 
 			<tbody is="draggable" v-model="items" group="related" handle=".act-move" tag="tbody">
 
-				<tr v-for="(item, idx) in items" v-bind:key="idx" v-bind:class="{'readonly': !can('change', idx)}">
+				<tr v-for="(item, idx) in items" v-bind:key="idx" v-bind:class="{'mismatch': !can('match', idx)}">
 					<td v-bind:class="(item['css'] || '')">
 						<input class="item-listid" type="hidden" v-model="item['product.lists.id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( ['related', 'bought', '_idx_', 'product.lists.id'] ) ) ?>`.replace( '_idx_', idx )">

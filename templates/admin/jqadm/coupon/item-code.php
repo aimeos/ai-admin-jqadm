@@ -205,7 +205,7 @@ $columnList = [
 						</td>
 					</tr>
 
-					<tr v-for="(item, idx) in items" v-bind:key="idx" class="list-item">
+					<tr v-for="(item, idx) in items" v-bind:key="idx" class="list-item" v-bind:class="{mismatch: !can('match', idx)}">
 						<td class="select">
 							<input class="form-check-input" type="checkbox" tabindex="<?= $this->get( 'tabindex' ) ?>" v-model="item['checked']">
 						</td>
@@ -274,16 +274,15 @@ $columnList = [
 						<td class="actions">
 							<input type="hidden" v-if="item.edit" v-bind:value="item['coupon.code.id']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['code', 'coupon.code.id', ''] ) ) ?>`" >
-							<a v-if="!item.edit" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<a v-if="!item.edit && can('change', idx)" class="btn act-edit fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Edit this entry' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Edit' ) ) ?>"
 								v-if="item['coupon.code.siteid'] === siteid"
 								v-on:click.prevent.stop="edit(idx)" >
 							</a>
-							<a class="btn act-delete fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							<a v-if="can('delete', idx)" class="btn act-delete fa" href="#" tabindex="<?= $this->get( 'tabindex' ) ?>"
 								title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>"
 								aria-label="<?= $enc->attr( $this->translate( 'admin', 'Delete' ) ) ?>"
-								v-if="item['coupon.code.siteid'] === siteid"
 								v-on:click.prevent.stop="remove(idx)" >
 							</a>
 						</td>

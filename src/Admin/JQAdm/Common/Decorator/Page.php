@@ -40,6 +40,7 @@ class Page extends Base
 		if( $userId = $context->user() )
 		{
 			$siteid = $customerManager->get( $userId )->getSiteId();
+			$view->pageUserSiteid = $siteid;
 
 			$search = $siteManager->filter();
 			$search->add( $search->and( [

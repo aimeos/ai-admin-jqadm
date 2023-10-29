@@ -44,7 +44,7 @@ $keys = [
 
 						<tbody>
 
-							<tr v-for="(item, idx) in categories(listtype)" v-bind:key="idx" v-bind:class="{'readonly': !can('change', idx)}">
+							<tr v-for="(item, idx) in categories(listtype)" v-bind:key="idx" v-bind:class="{'mismatch': !can('match', idx)}">
 								<td v-bind:class="item['css'] || ''">
 									<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['category', $type . '-idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', idx )">
