@@ -36,6 +36,23 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
+	 */
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
+		$filter = $manager->filter( true )->add( 'product.lists.type.domain', '==', 'supplier' )
+			->order( 'product.lists.type.position', 'product.lists.type.code' );
+
+		$view->supplierTypes = $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' );
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
@@ -245,6 +262,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'supplier' );
+		$idx = 0;
 
 		foreach( $data as $entry )
 		{
@@ -252,7 +270,8 @@ class Standard
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
 
 			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
-				->setRefId( $this->val( $entry, 'product.lists.refid' ) );
+				->setRefId( $this->val( $entry, 'product.lists.refid' ) )
+				->setPosition( $idx++ );
 
 			$item->addListItem( 'supplier', $litem );
 		}

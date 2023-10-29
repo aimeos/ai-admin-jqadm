@@ -33,28 +33,6 @@ Aimeos.Product = {
 				mixins: [Aimeos.Product.Basic.mixins.bind(this)()]
 			},
 			{
-				name: 'supplier/default',
-				el: '.item-product .item-supplier .supplier-default .supplier-list',
-				data: {
-					items: $(".item-supplier .supplier-default .supplier-list").data("items"),
-					keys: $(".item-supplier .supplier-default .supplier-list").data("keys"),
-					listtype: $(".item-supplier .supplier-default .supplier-list").data("listtype"),
-					siteid: $(".item-supplier .supplier-default .supplier-list").data("siteid")
-				},
-				mixins: [Aimeos.Product.Supplier.mixins.bind(this)()]
-			},
-			{
-				name: 'supplier/promotion',
-				el: '.item-product .item-supplier .supplier-promotion .supplier-list',
-				data: {
-					items: $(".item-supplier .supplier-promotion .supplier-list").data("items"),
-					keys: $(".item-supplier .supplier-promotion .supplier-list").data("keys"),
-					listtype: $(".item-supplier .supplier-promotion .supplier-list").data("listtype"),
-					siteid: $(".item-supplier .supplier-promotion .supplier-list").data("siteid")
-				},
-				mixins: [Aimeos.Product.Supplier.mixins.bind(this)()]
-			},
-			{
 				name: 'related/bought',
 				el: '.item-product .item-related-bought .product-list',
 				data: {
@@ -165,6 +143,21 @@ Aimeos.Product = {
 					listtype: $(entry).data("listtype")
 				},
 				mixins: [Aimeos.Product.Catalog.mixins.bind(this)()]
+			})
+		}
+
+		for(entry of $('.item-product .item-supplier .supplier')) {
+			const name = $(entry).attr('id');
+			components.push({
+				name: name.replace(/-/, '/'),
+				el: '#' + name,
+				data: {
+					items: $(entry).data("items"),
+					keys: $(entry).data("keys"),
+					siteid: $(entry).data("siteid"),
+					listtype: $(entry).data("listtype")
+				},
+				mixins: [Aimeos.Product.Supplier.mixins.bind(this)()]
 			})
 		}
 
