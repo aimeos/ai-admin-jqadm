@@ -33,28 +33,6 @@ Aimeos.Product = {
 				mixins: [Aimeos.Product.Basic.mixins.bind(this)()]
 			},
 			{
-				name: 'catalog/default',
-				el: '.item-product .item-category .catalog-default .category-list',
-				data: {
-					items: $(".item-category .catalog-default .category-list").data("items"),
-					keys: $(".item-category .catalog-default .category-list").data("keys"),
-					listtype: $(".item-category .catalog-default .category-list").data("listtype"),
-					siteid: $(".item-category .catalog-default .category-list").data("siteid")
-				},
-				mixins: [Aimeos.Product.Catalog.mixins.bind(this)()]
-			},
-			{
-				name: 'catalog/promotion',
-				el: '.item-product .item-category .catalog-promotion .category-list',
-				data: {
-					items: $(".item-category .catalog-promotion .category-list").data("items"),
-					keys: $(".item-category .catalog-promotion .category-list").data("keys"),
-					listtype: $(".item-category .catalog-promotion .category-list").data("listtype"),
-					siteid: $(".item-category .catalog-promotion .category-list").data("siteid")
-				},
-				mixins: [Aimeos.Product.Catalog.mixins.bind(this)()]
-			},
-			{
 				name: 'supplier/default',
 				el: '.item-product .item-supplier .supplier-default .supplier-list',
 				data: {
@@ -172,6 +150,21 @@ Aimeos.Product = {
 					listtype: $(entry).data("listtype")
 				},
 				mixins: [Aimeos.Product.Attribute.mixins.bind(this)()]
+			})
+		}
+
+		for(entry of $('.item-product .item-category .catalog')) {
+			const name = $(entry).attr('id');
+			components.push({
+				name: name.replace(/-/, '/'),
+				el: '#' + name,
+				data: {
+					items: $(entry).data("items"),
+					keys: $(entry).data("keys"),
+					siteid: $(entry).data("siteid"),
+					listtype: $(entry).data("listtype")
+				},
+				mixins: [Aimeos.Product.Catalog.mixins.bind(this)()]
 			})
 		}
 
