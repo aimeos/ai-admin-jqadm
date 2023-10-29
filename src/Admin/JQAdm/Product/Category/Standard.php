@@ -43,8 +43,8 @@ class Standard
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
-		$filter = $manager->filter()->add( 'product.lists.type.domain', '==', 'catalog' )
-			->order( 'product.lists.type.code' );
+		$filter = $manager->filter( true )->add( 'product.lists.type.domain', '==', 'catalog' )
+			->order( 'product.lists.type.position', 'product.lists.type.code' );
 
 		$view->categoryTypes = $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' );
 		return $view;
@@ -257,6 +257,7 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 		$listItems = $item->getListItems( 'catalog' );
+		$idx = 0;
 
 		foreach( $data as $entry )
 		{
@@ -264,7 +265,8 @@ class Standard
 			$litem = $listItems->pull( $listid ) ?: $manager->createListItem();
 
 			$litem->setType( $this->val( $entry, 'product.lists.type' ) )
-				->setRefId( $this->val( $entry, 'product.lists.refid' ) );
+				->setRefId( $this->val( $entry, 'product.lists.refid' ) )
+				->setPosition( $idx++ );
 
 			$item->addListItem( 'catalog', $litem );
 		}

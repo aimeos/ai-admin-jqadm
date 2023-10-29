@@ -7,6 +7,7 @@
 
 
 $enc = $this->encoder();
+$data = map( $this->get( 'categoryData', [] ) )->groupBy( 'product.lists.type' );
 
 $keys = [
 	'product.lists.id', 'product.lists.siteid', 'product.lists.type', 'product.lists.refid',
@@ -18,15 +19,16 @@ $keys = [
 <div id="category" class="item-category tab-pane fade" role="tabpanel" aria-labelledby="category">
 	<div class="row">
 
-		<?php foreach( $this->get( 'categoryTypes', ['default'] ) as $type => $typeLabel ) : ?>
+		<?php foreach( $this->get( 'categoryTypes', [] ) as $type => $typeLabel ) : ?>
 
-			<div class="col-xl-6 catalog-<?= $enc->attr( $type ) ?>">
+			<div id="catalog-<?= $enc->attr( $type ) ?>" class="col-xl-6 catalog"
+				data-items="<?= $enc->attr( array_values( $data->get( $type, [] ) ) ) ?>"
+				data-keys="<?= $enc->attr( $keys ) ?>"
+				data-siteid="<?= $this->site()->siteid() ?>"
+				data-listtype="<?= $enc->attr( $type ) ?>">
+
 				<div class="box">
-					<table class="category-list table table-default"
-						data-items="<?= $enc->attr( $this->get( 'categoryData', [] ) ) ?>"
-						data-keys="<?= $enc->attr( $keys ) ?>"
-						data-siteid="<?= $this->site()->siteid() ?>"
-						data-listtype="<?= $enc->attr( $type ) ?>">
+					<table class="category-list table table-default">
 
 						<thead>
 							<tr>
@@ -44,7 +46,7 @@ $keys = [
 
 						<tbody>
 
-							<tr v-for="(item, idx) in categories(listtype)" v-bind:key="idx" v-bind:class="{'mismatch': !can('match', idx)}">
+							<tr v-for="(item, idx) in items" v-bind:key="idx" v-bind:class="{'mismatch': !can('match', idx)}">
 								<td v-bind:class="item['css'] || ''">
 									<input class="item-listtype" type="hidden" v-model="item['product.lists.type']"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['category', $type . '-idx', 'product.lists.type'] ) ) ?>`.replace( 'idx', idx )">
