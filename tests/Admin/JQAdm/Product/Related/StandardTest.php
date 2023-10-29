@@ -41,8 +41,8 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view->item = $manager->create();
 		$result = $this->object->create();
 
-		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertStringContainsString( 'item-related', $result );
+		$this->assertEmpty( $this->view->get( 'errors' ) );
 	}
 
 
@@ -50,11 +50,11 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->find( 'CNC' );
+		$this->view->item = $manager->find( 'CNE', ['product'] );
 		$result = $this->object->copy();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertStringContainsString( 'item-related', $result );
+		$this->assertMatchesRegularExpression( '/&quot;product.label&quot;:&quot;Cafe Noire Cappuccino \(CNC\)&quot;/', $result );
 	}
 
 
@@ -71,30 +71,36 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
 
-		$this->view->item = $manager->find( 'CNC' );
+		$this->view->item = $manager->find( 'CNE', ['product'] );
 		$result = $this->object->get();
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
-		$this->assertStringContainsString( 'item-related', $result );
+		$this->assertMatchesRegularExpression( '/&quot;product.label&quot;:&quot;Cafe Noire Cappuccino \(CNC\)&quot;/', $result );
 	}
 
 
 	public function testSave()
 	{
+		$param = array(
+			'related' => [[
+				'product.lists.id' => '',
+				'product.lists.type' => 'suggestion',
+				'product.lists.refid' => '-1',
+			]]
+		);
+
 		$manager = \Aimeos\MShop::create( $this->context, 'product' );
+		$this->view->item = $manager->create()->setCode( 'jqadm:product/related' )->setId( -1 );
 
-		$item = $manager->find( 'CNC' );
-		$item->setCode( 'jqadm-test-related' );
-		$item->setId( null );
-
-		$item = $manager->save( $item );
-		$this->view->item = $item;
+		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
+		$this->view->addHelper( 'param', $helper );
 
 		$result = $this->object->save();
-		$manager->delete( $item->getId() );
+		$manager->delete( $this->view->item );
 
 		$this->assertEmpty( $this->view->get( 'errors' ) );
 		$this->assertEmpty( $result );
+		$this->assertEquals( 1, count( $this->view->item->getListItems( 'product', 'suggestion' ) ) );
 	}
 
 
@@ -102,10 +108,10 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 	{
 		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Related\Standard::class )
 			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->onlyMethods( array( 'getSubClients' ) )
+			->onlyMethods( array( 'fromArray' ) )
 			->getMock();
 
-		$object->expects( $this->once() )->method( 'getSubClients' )
+		$object->expects( $this->once() )->method( 'fromArray' )
 			->will( $this->throwException( new \RuntimeException() ) );
 
 		$this->view = \TestHelper::view();
@@ -114,26 +120,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$object->setView( $this->view );
 
 		$this->expectException( \RuntimeException::class );
-		$object->save();
-	}
-
-
-	public function testSaveMShopException()
-	{
-		$object = $this->getMockBuilder( \Aimeos\Admin\JQAdm\Product\Related\Standard::class )
-			->setConstructorArgs( array( $this->context, \TestHelper::getTemplatePaths() ) )
-			->onlyMethods( array( 'getSubClients' ) )
-			->getMock();
-
-		$object->expects( $this->once() )->method( 'getSubClients' )
-			->will( $this->throwException( new \Aimeos\MShop\Exception() ) );
-
-		$this->view = \TestHelper::view();
-		$this->view->item = \Aimeos\MShop::create( $this->context, 'product' )->create();
-
-		$object->setView( $this->view );
-
-		$this->expectException( \Aimeos\MShop\Exception::class );
 		$object->save();
 	}
 

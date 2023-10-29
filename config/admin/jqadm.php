@@ -152,12 +152,6 @@ return [
 				'property' => 'property',
 			],
 		],
-		'related' => [
-			'subparts' => [
-				'suggest' => 'suggest',
-				'bought' => 'bought',
-			],
-		],
 		'physical' => [
 			'types' => [
 				'package-length' => 'package-length',
