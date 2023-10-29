@@ -35,6 +35,23 @@ class Standard
 
 
 	/**
+	 * Adds the required data used in the template
+	 *
+	 * @param \Aimeos\Base\View\Iface $view View object
+	 * @return \Aimeos\Base\View\Iface View object with assigned parameters
+	 */
+	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
+	{
+		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
+		$filter = $manager->filter( true )->add( 'product.lists.type.domain', '==', 'catalog' )
+			->order( ['product.lists.type.position', 'product.lists.type.code'] );
+
+		$view->categoryTypes = $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' );
+		return $view;
+	}
+
+
+	/**
 	 * Copies a resource
 	 *
 	 * @return string|null HTML output
