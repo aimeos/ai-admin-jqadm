@@ -298,10 +298,13 @@ Aimeos.Product.Attribute = {
 
 
 				title(idx) {
-					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
-						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
-						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
-						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+					if(this.items[idx]['product.lists.ctime']) {
+						return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
+							+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
+							+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
+							+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+					}
+					return ''
 				},
 
 
@@ -401,10 +404,13 @@ Aimeos.Product.Catalog = {
 
 
 				title(idx) {
-					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
-						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
-						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
-						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+					if(this.items[idx]['product.lists.ctime']) {
+						return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
+							+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
+							+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
+							+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+					}
+					return ''
 				},
 
 
@@ -709,10 +715,13 @@ Aimeos.Product.Product = {
 
 
 				title(idx) {
-					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
-						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
-						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
-						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+					if(this.items[idx]['product.lists.ctime']) {
+						return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
+							+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
+							+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
+							+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+					}
+					return ''
 				},
 
 
@@ -937,10 +946,13 @@ Aimeos.Product.Selection = {
 
 
 				title(idx, attridx) {
-					return 'Site ID: ' + this.items[idx]['attr'][attridx]['product.lists.siteid'] + "\n"
-						+ 'Editor: ' + this.items[idx]['attr'][attridx]['product.lists.editor'] + "\n"
-						+ 'Created: ' + this.items[idx]['attr'][attridx]['product.lists.ctime'] + "\n"
-						+ 'Modified: ' + this.items[idx]['attr'][attridx]['product.lists.mtime'];
+					if(this.items[idx]['attr'][attridx]['product.lists.ctime']) {
+						return 'Site ID: ' + this.items[idx]['attr'][attridx]['product.lists.siteid'] + "\n"
+							+ 'Editor: ' + this.items[idx]['attr'][attridx]['product.lists.editor'] + "\n"
+							+ 'Created: ' + this.items[idx]['attr'][attridx]['product.lists.ctime'] + "\n"
+							+ 'Modified: ' + this.items[idx]['attr'][attridx]['product.lists.mtime'];
+					}
+					return ''
 				},
 
 
@@ -1126,10 +1138,13 @@ Aimeos.Product.Supplier = {
 
 
 				title(idx) {
-					return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
-						+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
-						+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
-						+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+					if(this.items[idx]['product.lists.ctime']) {
+						return 'Site ID: ' + this.items[idx]['product.lists.siteid'] + "\n"
+							+ 'Editor: ' + this.items[idx]['product.lists.editor'] + "\n"
+							+ 'Created: ' + this.items[idx]['product.lists.ctime'] + "\n"
+							+ 'Modified: ' + this.items[idx]['product.lists.mtime'];
+					}
+					return ''
 				},
 
 

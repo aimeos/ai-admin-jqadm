@@ -100,10 +100,13 @@ Vue.component('property-table', {
 		},
 
 		title(idx) {
-			return 'Site ID: ' + this.items[idx][this.domain + '.property.siteid'] + "\n"
-				+ 'Editor: ' + this.items[idx][this.domain + '.property.editor'] + "\n"
-				+ 'Created: ' + this.items[idx][this.domain + '.property.ctime'] + "\n"
-				+ 'Modified: ' + this.items[idx][this.domain + '.property.mtime'];
+			if(this.items[idx][this.domain + '.property.ctime']) {
+				return 'Site ID: ' + this.items[idx][this.domain + '.property.siteid'] + "\n"
+					+ 'Editor: ' + this.items[idx][this.domain + '.property.editor'] + "\n"
+					+ 'Created: ' + this.items[idx][this.domain + '.property.ctime'] + "\n"
+					+ 'Modified: ' + this.items[idx][this.domain + '.property.mtime'];
+			}
+			return ''
 		}
 	}
 });

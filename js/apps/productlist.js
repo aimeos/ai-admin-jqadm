@@ -397,10 +397,13 @@ Aimeos.ProductList = {
 
 
 			title(idx) {
-				return 'Site ID: ' + this.items[idx][this.prefix + 'siteid'] + "\n"
-					+ 'Editor: ' + this.items[idx][this.prefix + 'editor'] + "\n"
-					+ 'Created: ' + this.items[idx][this.prefix + 'ctime'] + "\n"
-					+ 'Modified: ' + this.items[idx][this.prefix + 'mtime'];
+				if(this.items[idx][this.prefix + 'siteid']) {
+					return 'Site ID: ' + this.items[idx][this.prefix + 'siteid'] + "\n"
+						+ 'Editor: ' + this.items[idx][this.prefix + 'editor'] + "\n"
+						+ 'Created: ' + this.items[idx][this.prefix + 'ctime'] + "\n"
+						+ 'Modified: ' + this.items[idx][this.prefix + 'mtime'];
+				}
+				return ''
 			},
 
 
