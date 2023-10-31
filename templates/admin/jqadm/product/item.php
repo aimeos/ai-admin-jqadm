@@ -505,7 +505,7 @@ $navlist = array_values( $this->get( 'itemSubparts', [] ) );
 							<config-table tabindex="1"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/product/item/config/suggest', ['css-class'] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( array( 'item', 'config', '_pos_', '_key_' ) ) ) ?>`"
-								v-bind:items="item['config']" v-on:change="item['config'] = $event"
+								v-bind:items="item['config']" v-on:update:items="item['config'] = $event"
 								v-bind:readonly="!can('change')"
 								v-bind:i18n="{
 									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
