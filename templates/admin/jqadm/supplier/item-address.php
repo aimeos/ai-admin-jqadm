@@ -365,19 +365,19 @@ $enc = $this->encoder();
 						<div class="col-12 secondary item-meta text-muted">
 							<small>
 								<?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?>:
-								<span class="meta-value">{{ item['supplier.address.siteid'] }}</span>
+								<span class="meta-value">{{ entry['supplier.address.siteid'] }}</span>
 							</small>
 							<small>
 								<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>:
-								<span class="meta-value">{{ item['supplier.address.editor'] }}</span>
+								<span class="meta-value">{{ entry['supplier.address.editor'] }}</span>
 							</small>
 							<small>
 								<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>:
-								<span class="meta-value">{{ item['supplier.address.ctime'] }}</span>
+								<span class="meta-value">{{ entry['supplier.address.ctime'] }}</span>
 							</small>
 							<small>
 								<?= $enc->html( $this->translate( 'admin', 'Modified' ) ) ?>:
-								<span class="meta-value">{{ item['supplier.address.mtime'] }}</span>
+								<span class="meta-value">{{ entry['supplier.address.mtime'] }}</span>
 							</small>
 						</div>
 
