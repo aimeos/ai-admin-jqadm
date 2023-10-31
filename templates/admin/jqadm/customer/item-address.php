@@ -362,6 +362,25 @@ $enc = $this->encoder();
 
 						<?= $this->get( 'addressBody' ) ?>
 
+						<div class="col-12 secondary item-meta text-muted">
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?>:
+								<span class="meta-value">{{ item['customer.address.siteid'] }}</span>
+							</small>
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>:
+								<span class="meta-value">{{ item['customer.address.editor'] }}</span>
+							</small>
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>:
+								<span class="meta-value">{{ item['customer.address.ctime'] }}</span>
+							</small>
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Modified' ) ) ?>:
+								<span class="meta-value">{{ item['customer.address.mtime'] }}</span>
+							</small>
+						</div>
+
 					</div>
 				</div>
 			</div>
