@@ -166,7 +166,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 								v-bind:index="idx"
 								v-bind:items="item['config']"
 								v-bind:readonly="!can('change', idx)"
-								v-on:update:config="item['config'] = $event"
+								v-on:update:items="item['config'] = $event"
 								v-bind:i18n="{
 									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
 									option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,

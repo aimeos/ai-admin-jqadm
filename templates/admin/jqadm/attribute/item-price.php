@@ -272,7 +272,7 @@ $enc = $this->encoder();
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/attribute/item/price/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"
 								v-bind:index="idx" v-bind:readonly="item['attribute.lists.siteid'] != siteid"
-								v-bind:items="item['config']" v-on:update:config="item['config'] = $event"
+								v-bind:items="item['config']" v-on:update:items="item['config'] = $event"
 								v-bind:i18n="{
 									value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
 									option: `<?= $enc->js( $this->translate( 'admin', 'Option' ) ) ?>`,
