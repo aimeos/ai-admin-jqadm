@@ -427,7 +427,7 @@
 }
 
 @media (min-width: 1200px) {
-	.aimeos .item-meta small {
+	.aimeos .item-meta:not(.secondary) small {
 		white-space: normal;
 		margin: 0.5rem 0;
 		display: block;
