@@ -3,7 +3,6 @@
  * @copyright Aimeos (aimeos.org), 2017-2023
  */
 
-
 Vue.component('site-tree-items', {
 	template: `
 		<ul v-if="Object.keys(items).length" class="tree-menu">
@@ -96,6 +95,7 @@ Vue.component('site-tree-items', {
 					param['filter'] = {'&&': [
 						param['filter'],
 						{'||': [
+							{'=~': {'locale.site.siteid': self.filter}},
 							{'=~': {'locale.site.code': self.filter}},
 							{'=~': {'locale.site.label': self.filter}}
 						]}
@@ -142,7 +142,7 @@ Vue.component('site-tree-items', {
 		},
 
 		isTogglable(item) {
-			return this.tree && !this.filter && (item['locale.site.hasChildren'] || Object.keys(item.children || {}).length);
+			return this.tree && (item['locale.site.hasChildren'] || Object.keys(item.children || {}).length);
 		},
 
 		loading(id, val) {
