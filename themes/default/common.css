@@ -805,3 +805,13 @@ body {
 	--ck-color-input-disabled-text: var(--bs-secondary-light, #90A8C0);
 	--ck-z-modal: 1050;
 }
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
