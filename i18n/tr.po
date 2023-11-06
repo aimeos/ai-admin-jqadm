@@ -95,7 +95,7 @@ msgid ""
 msgstr "Ayırma karakterleri olmaksızın telefon numarası (uluslararası), \"+\" ile başlayabilir"
 
 msgid "+ Tax"
-msgstr "+ Vergi"
+msgstr "+ KDV"
 
 msgid "<hidden>"
 msgstr "<hidden>"
@@ -242,13 +242,13 @@ msgid "Basic"
 msgstr "Temel bilgiler"
 
 msgid "Basket"
-msgstr "Ürün Sepetiniz"
+msgstr "Sepet"
 
 msgid "Billing address"
 msgstr "Fatura adresi"
 
 msgid "Birthday"
-msgstr "Doğum günü"
+msgstr "Doğum tarihi"
 
 msgid "Birthday of the customer"
 msgstr "Müşterinin doğum tarihi"
@@ -1754,13 +1754,13 @@ msgid "Tag Types"
 msgstr "Etiket Türleri"
 
 msgid "Tax"
-msgstr "Vergi"
+msgstr "KDV"
 
 msgid "Tax rate"
-msgstr "Vergi oranı"
+msgstr "KDV oranı"
 
 msgid "Tax rate in %"
-msgstr "% vergi oranı"
+msgstr "% kdv oranı"
 
 msgid "Telephone"
 msgstr "Telefon"
@@ -1987,7 +1987,7 @@ msgid "Usual time frame for the delivery of the product"
 msgstr "Ürünün teslimatı için normal zaman aralığı"
 
 msgid "VAT ID"
-msgstr "Vergi Dairesi/Numarası"
+msgstr "Vergi Dairesi ve Numarası"
 
 msgid "Value"
 msgstr "Değer"
