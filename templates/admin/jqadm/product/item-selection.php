@@ -114,7 +114,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 							<div class="form-group row mandatory">
 								<label class="col-lg-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'SKU' ) ) ?></label>
 								<div class="col-lg-8">
-									<input class="item-attr-refid" type="hidden" v-model="item['product.code']"
+									<input class="item-attr-refid" type="hidden" v-bind:value="item['product.code']"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'product.code'] ) ) ?>`.replace('_idx_', idx)">
 
 									<Multiselect class="item-id"
@@ -126,7 +126,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 										@input="use(idx, $event)"
 										:value="item"
 										:disabled="!can('change', idx)"
-										:options="async function(query) {return await fetch(query)}"
+										:options="async function(query) {return await fetch(query, item['product.type'])}"
 										:on-create="function(option, select$) {return create(idx, option, select$)}"
 										:resolve-on-load="false"
 										:filter-results="false"
