@@ -812,21 +812,11 @@ Aimeos.Product.Selection = {
 
 				can(action, idx, attridx) {
 
-					if(attridx && this.items[idx]['attr'][attridx]['product.lists.siteid']) {
-						const allow = (new String(this.items[idx]['attr'][attridx]['product.lists.siteid'])).startsWith(this.siteid);
-
-						switch(action) {
-							case 'delete': return allow;
-							case 'change': return allow || this.items[idx]['attr'][attridx]['product.lists.id'] == '';
-							case 'move': return allow;
-						}
+					if(this.items[idx] && this.items[idx]['attr'] && this.items[idx]['attr'][attridx]) {
+						return (new String(this.items[idx]['attr'][attridx]['product.lists.siteid'] || '')).startsWith(this.siteid);
 					}
 
-					if(this.items[idx]['product.lists.siteid']) {
-						return (new String(this.items[idx]['product.lists.siteid'])).startsWith(this.siteid);
-					}
-
-					return false;
+					return (new String(this.items[idx]['product.lists.siteid'] || '')).startsWith(this.siteid);
 				},
 
 
@@ -881,8 +871,13 @@ Aimeos.Product.Selection = {
 
 				fetch(input, type) {
 
+					const siteid = this.siteid
+					const used = this.items.map((item) => {
+						return item['product.code'] || ''
+					})
 					const filter = {'&&': [
-						{'=~': {'product.code': input}},
+						{'!=': {'product.code': used || []}},
+						{'=~': {'product.code': input || ''}},
 						{'==': {'product.type': type || []}},
 						{'>': {'product.status': 0}}
 					]};
@@ -904,6 +899,7 @@ Aimeos.Product.Selection = {
 									ctime
 									mtime
 									item {
+										id
 										type
 										code
 										label
@@ -920,6 +916,7 @@ Aimeos.Product.Selection = {
 								'product.label': item.label,
 								'product.siteid': item.siteid,
 								'product.status': item.status,
+								'product.lists.siteid': siteid,
 								stock: false,
 								attr: (item.lists.attribute || []).map((entry) => {
 									return {
