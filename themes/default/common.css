@@ -155,12 +155,10 @@ body {
 
 [dir="ltr"] .aimeos .readonly {
 	border-left: 0.25rem solid var(--bs-warning, #ffc107) !important;
-	opacity: 0.66 !important;
 }
 
 [dir="rtl"] .aimeos .readonly {
 	border-right: 0.25rem solid var(--bs-warning, #ffc107) !important;
-	opacity: 0.66 !important;
 }
 
 .aimeos .readonly select:focus {
