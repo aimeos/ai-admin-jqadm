@@ -51,7 +51,7 @@ Aimeos.Order = {
 				}
 
 				return Aimeos.query(`query {
-					searchCustomers(filter: "` + JSON.stringify(filter).replace(/"/g, '\\"') + `") {
+					searchCustomers(filter: "` + JSON.stringify(JSON.stringify(filter)) + `") {
 					  id
 					  code
 					}
