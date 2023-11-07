@@ -77,7 +77,7 @@ $enc = $this->encoder();
 						<input type="hidden" v-model="item['text.id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.id' ) ) ) ?>`.replace('_idx_', idx)">
 
-						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						<div class="col-xl-6" v-bind:class="{readonly: item['text.siteid'] != siteid}">
 
 							<div class="form-group row mandatory">
 								<div class="col-sm-12">
@@ -88,7 +88,7 @@ $enc = $this->encoder();
 										v-bind:editor="CKEditor"
 										v-bind:config="Aimeos.ckeditor"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.content' ) ) ) ?>`.replace('_idx_', idx)"
-										v-bind:readonly="item['text.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['text.content']"
 									></textarea>
 									<textarea v-else v-bind:key="idx" class="form-control item-content" readonly
@@ -99,14 +99,14 @@ $enc = $this->encoder();
 
 						</div>
 
-						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						<div class="col-xl-6" v-bind:class="{readonly: item['text.siteid'] != siteid}">
 
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.status' ) ) ) ?>`.replace('_idx_', idx)"
-										v-bind:readonly="item['text.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['text.status']" >
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 										<option value="1" v-bind:selected="item['text.status'] == 1" >
@@ -134,7 +134,7 @@ $enc = $this->encoder();
 											v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'text.languageid'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
 											v-bind:all="`<?= $enc->js( $this->translate( 'admin', 'All' ) ) ?>`"
-											v-bind:readonly="item['text.siteid'] != siteid"
+											v-bind:readonly="!can('change', idx)"
 											v-model="item['text.languageid']" >
 										</select>
 									</div>
@@ -156,7 +156,7 @@ $enc = $this->encoder();
 											v-bind:items="<?= $enc->attr( $textTypes->col( 'text.type.label', 'text.type.code' )->toArray() ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'text.type'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
-											v-bind:readonly="item['text.siteid'] != siteid"
+											v-bind:readonly="!can('change', idx)"
 											v-model="item['text.type']" >
 										</select>
 									</div>
@@ -176,7 +176,7 @@ $enc = $this->encoder();
 									<input class="form-control item-label" type="text" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'text', '_idx_', 'text.label' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Label' ) ) ?>"
-										v-bind:readonly="item['text.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['text.label']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -196,7 +196,7 @@ $enc = $this->encoder();
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ) ?></span>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['text.siteid'] != siteid}">
 
 							<?php if( ( $listTypes = $this->get( 'textListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
@@ -250,7 +250,7 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['text.siteid'] != siteid}">
 							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/service/item/text/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['text', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"

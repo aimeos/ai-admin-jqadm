@@ -60,7 +60,7 @@ $enc = $this->encoder();
 						<input type="hidden" v-model="item['price.id']"
 							v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.id' ) ) ) ?>`.replace('_idx_', idx)">
 
-						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						<div class="col-xl-6" v-bind:class="{readonly: item['price.siteid'] != siteid}">
 
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Tax rate in %' ) ) ?></label>
@@ -70,7 +70,7 @@ $enc = $this->encoder();
 										v-bind:types="<?= $enc->attr( $this->config( 'admin/tax', [] ) ) ?>"
 										v-bind:placeholder="`<?= $enc->js( $this->translate( 'admin', 'Tax rate in %' ) ) ?>`"
 										v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
-										v-bind:readonly="item['price.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-bind:taxrates="item['price.taxrates']"
 									></div>
 								</div>
@@ -84,7 +84,7 @@ $enc = $this->encoder();
 									<input class="form-control item-value" type="number" step="<?= $this->pageNumberStep ?>" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.value' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Actual price' ) ) ?>"
-										v-bind:readonly="item['price.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['price.value']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -97,7 +97,7 @@ $enc = $this->encoder();
 									<input class="form-control item-rebate" type="number" step="<?= $this->pageNumberStep ?>" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.rebate' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Granted rebate' ) ) ?>"
-										v-bind:readonly="item['price.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['price.rebate']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -110,7 +110,7 @@ $enc = $this->encoder();
 									<input class="form-control item-costs" type="number" step="<?= $this->pageNumberStep ?>" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.costs' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Shipping/item' ) ) ?>"
-										v-bind:readonly="item['price.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['price.costs']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -120,14 +120,14 @@ $enc = $this->encoder();
 
 						</div>
 
-						<div class="col-xl-6" v-bind:class="{readonly: !can('change', idx)}">
+						<div class="col-xl-6" v-bind:class="{readonly: item['price.siteid'] != siteid}">
 
 							<div class="form-group row mandatory">
 								<label class="col-sm-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Status' ) ) ?></label>
 								<div class="col-sm-8">
 									<select class="form-select item-status" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.status' ) ) ) ?>`.replace('_idx_', idx)"
-										v-bind:readonly="item['price.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['price.status']" >
 										<option value=""><?= $enc->html( $this->translate( 'admin', 'Please select' ) ) ?></option>
 										<option value="1" v-bind:selected="item['price.status'] == 1" >
@@ -154,7 +154,7 @@ $enc = $this->encoder();
 											v-bind:items="<?= $enc->attr( $currencies->col( 'locale.currency.label', 'locale.currency.id' )->toArray() ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'price.currencyid'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
-											v-bind:readonly="item['price.siteid'] != siteid"
+											v-bind:readonly="!can('change', idx)"
 											v-model="item['price.currencyid']" >
 										</select>
 									</div>
@@ -173,7 +173,7 @@ $enc = $this->encoder();
 											v-bind:items="<?= $enc->attr( $priceTypes->col( 'price.type.label', 'price.type.code' )->toArray() ) ?>"
 											v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'price.type'] ) ) ?>`.replace('_idx_', idx)"
 											v-bind:text="`<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`"
-											v-bind:readonly="item['price.siteid'] != siteid"
+											v-bind:readonly="!can('change', idx)"
 											v-model="item['price.type']" >
 										</select>
 									</div>
@@ -193,7 +193,7 @@ $enc = $this->encoder();
 									<input class="form-control item-quantity" type="number" step="0.001" min="0.001" required="required" tabindex="<?= $this->get( 'tabindex' ) ?>"
 										v-bind:name="`<?= $enc->js( $this->formparam( array( 'price', '_idx_', 'price.quantity' ) ) ) ?>`.replace('_idx_', idx)"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'Min. quantity' ) ) ?>"
-										v-bind:readonly="item['price.siteid'] != siteid"
+										v-bind:readonly="!can('change', idx)"
 										v-model="item['price.quantity']">
 								</div>
 								<div class="col-sm-12 form-text text-muted help-text">
@@ -213,7 +213,7 @@ $enc = $this->encoder();
 							<span class="header-label"><?= $enc->html( $this->translate( 'admin', 'Advanced' ) ) ?></span>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['price.siteid'] != siteid}">
 
 							<?php if( ( $listTypes = $this->get( 'priceListTypes', map() ) )->count() !== 1 ) : ?>
 								<div class="form-group row mandatory">
@@ -267,7 +267,7 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: !can('change', idx)}">
+						<div v-show="item['_ext']" class="col-xl-6 secondary" v-bind:class="{readonly: item['price.siteid'] != siteid}">
 							<config-table v-bind:tabindex="`<?= $enc->js( $this->get( 'tabindex' ) ) ?>`"
 								v-bind:keys="<?= $enc->attr( $this->config( 'admin/jqadm/attribute/item/price/config/suggest', [] ) ) ?>"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['price', '_idx_', 'config', '_pos_', '_key_'] ) ) ?>`.replace('_idx_', idx)"
