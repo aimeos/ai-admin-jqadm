@@ -212,7 +212,7 @@ Aimeos.Product.Basic = {
 					const filter = {'==': {'product.code': ev.target.value}}
 
 					Aimeos.query(`query {
-						searchProducts(filter: "` + JSON.stringify(JSON.stringify(filter)) + `") {
+						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
 							id
 						}
 					}`).then(result => {
@@ -263,7 +263,7 @@ Aimeos.Product.Attribute = {
 					}
 
 					return Aimeos.query(`query {
-						searchAttributes(filter: "` + JSON.stringify(JSON.stringify(filter)) + `") {
+						searchAttributes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
 						  id
 						  label
 						}
@@ -289,7 +289,7 @@ Aimeos.Product.Attribute = {
 					}
 
 					return Aimeos.query(`query {
-						searchAttributeTypes(filter: "` + JSON.stringify(JSON.stringify(filter)) + `") {
+						searchAttributeTypes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
 						  code
 						}
 					  }
@@ -415,7 +415,7 @@ Aimeos.Product.Catalog = {
 					}
 
 					return Aimeos.query(`query {
-						searchCatalogs(filter: "` + JSON.stringify(JSON.stringify(filter)) + `") {
+						searchCatalogs(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
 						  id
 						  code
 						  label
@@ -734,7 +734,7 @@ Aimeos.Product.Product = {
 					}
 
 					return Aimeos.query(`query {
-						searchProducts(filter: "` + JSON.stringify(JSON.stringify(filter)) + `") {
+						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
 						  id
 						  code
 						  label
@@ -888,7 +888,7 @@ Aimeos.Product.Selection = {
 					]};
 
 					return Aimeos.query(`query {
-						searchProducts(filter: "` + JSON.stringify(JSON.stringify(filter)) + `", include: ["attribute"], sort: ["product.code"]) {
+						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, include: ["attribute"], sort: ["product.code"]) {
 							id
 							type
 							code
@@ -986,7 +986,7 @@ Aimeos.Product.Selection = {
 					}
 
 					return Aimeos.query(`query {
-						searchAttributes(filter: "` + JSON.stringify(JSON.stringify(filter)) + `", sort: ["attribute.type", "attribute.code"]) {
+						searchAttributes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["attribute.type", "attribute.code"]) {
 						  id
 						  type
 						  label
@@ -1197,7 +1197,7 @@ Aimeos.Product.Supplier = {
 					}
 
 					return Aimeos.query(`query {
-						searchSuppliers(filter: "` + JSON.stringify(JSON.stringify(filter)) + `") {
+						searchSuppliers(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
 						  id
 						  code
 						  label
