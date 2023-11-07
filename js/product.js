@@ -780,7 +780,7 @@ Aimeos.Product.Selection = {
 						return Aimeos.can(action, this.items[idx]['attr'][attridx]['product.lists.siteid'], this.siteid)
 					}
 
-					return Aimeos.can(action, this.items[idx]['product.lists.siteid'] || null, this.siteid)
+					return Aimeos.can(action, this.items[idx]['product.siteid'] || null, this.siteid)
 				},
 
 
@@ -795,8 +795,10 @@ Aimeos.Product.Selection = {
 
 					this.$set(this.items[len], 'attr', []);
 					this.$set(this.items[len], 'product.id', '');
+					this.$set(this.items[len], 'product.siteid', this.siteid);
 					this.$set(this.items[len], 'product.code', this.items[idx]['product.code'] + '_copy');
 					this.$set(this.items[len], 'product.label', this.items[idx]['product.label'] + '_copy');
+					this.$set(this.items[len], 'product.status', this.items[idx]['product.status']);
 					this.$set(this.items[len], 'product.lists.siteid', this.siteid);
 					this.$set(this.items[len], 'product.lists.id', '');
 
@@ -814,7 +816,13 @@ Aimeos.Product.Selection = {
 
 
 				create(idx, option) {
+					this.$set(this.items[idx], 'attr', []);
+					this.$set(this.items[idx], 'product.id', '')
+					this.$set(this.items[idx], 'product.status', 1)
+					this.$set(this.items[idx], 'product.siteid', this.siteid)
 					this.$set(this.items[idx], 'product.code', option['product.code'])
+					this.$set(this.items[idx], 'product.lists.siteid', this.siteid);
+					this.$set(this.items[idx], 'product.lists.id', '');
 					return true
 				},
 
@@ -825,11 +833,11 @@ Aimeos.Product.Selection = {
 				},
 
 
-				fetch(input) {
+				fetch(input, type) {
 
 					const filter = {'&&': [
 						{'=~': {'product.code': input}},
-						{'==': {'product.type': ['default', 'event', 'voucher']}},
+						{'==': {'product.type': type || []}},
 						{'>': {'product.status': 0}}
 					]};
 
@@ -839,6 +847,8 @@ Aimeos.Product.Selection = {
 							type
 							code
 							label
+							siteid
+							status
 							lists {
 								attribute(listtype: "variant") {
 									id
@@ -862,6 +872,8 @@ Aimeos.Product.Selection = {
 								'product.type': item.type,
 								'product.code': item.code,
 								'product.label': item.label,
+								'product.siteid': item.siteid,
+								'product.status': item.status,
 								stock: false,
 								attr: (item.lists.attribute || []).map((entry) => {
 									return {
@@ -889,7 +901,9 @@ Aimeos.Product.Selection = {
 
 
 				use(idx, ev) {
-					this.$set(this.items[idx], ev);
+					if(ev) {
+						this.$set(this.items, idx, ev);
+					}
 				},
 
 
