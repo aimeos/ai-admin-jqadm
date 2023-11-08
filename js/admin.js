@@ -330,14 +330,19 @@ Aimeos = {
 				this.siteid = this.$el.dataset?.siteid || null;
 				this.domain = this.$el.dataset?.domain || '';
 			},
+			computed: {
+				prefix() {
+					return this.domain.replace(/\//g, '.')
+				}
+			},
 			methods: {
 				can(action) {
 					if(this.super) {
 						return true;
 					}
 
-					if(this.data[this.domain + '.siteid']) {
-						return (new String(this.data[this.domain + '.siteid'])).startsWith(this.siteid);
+					if(this.data[this.prefix + '.siteid']) {
+						return (new String(this.data[this.prefix + '.siteid'])).startsWith(this.siteid);
 					}
 
 					return false;
