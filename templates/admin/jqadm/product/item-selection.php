@@ -117,7 +117,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 									<input class="item-attr-refid" type="hidden" v-bind:value="item['product.code']"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'product.code'] ) ) ?>`.replace('_idx_', idx)">
 
-									<Multiselect class="item-id"
+									<Multiselect class="item-id form-control"
 										placeholder="<?= $enc->attr( $this->translate( 'admin', 'EAN, SKU or article number (required)' ) ) ?>"
 										value-prop="product.code"
 										track-by="product.code"
@@ -209,7 +209,7 @@ $keys = ['product.lists.siteid', 'product.lists.id', 'product.lists.refid', 'pro
 											<input class="item-attr-refid" type="hidden" v-model="attr['product.lists.refid']"
 												v-bind:name="`<?= $enc->js( $this->formparam( ['selection', '_idx_', 'attr', 'attridx', 'product.lists.refid'] ) ) ?>`.replace('_idx_', idx).replace('attridx', attridx)">
 
-											<Multiselect class="item-id"
+											<Multiselect class="item-id form-control"
 												placeholder="Enter attribute ID, code or label"
 												value-prop="attribute.id"
 												track-by="attribute.id"

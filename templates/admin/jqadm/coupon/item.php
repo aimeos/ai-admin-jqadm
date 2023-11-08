@@ -132,7 +132,7 @@ $params = $this->get( 'pageParams', [] );
 								<label class="col-sm-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Provider' ) ) ?></label>
 								<div class="col-sm-8">
 									<div class="input-group provider">
-										<Multiselect class="item-provider"
+										<Multiselect class="item-provider form-control"
 											name="<?= $this->formparam( array( 'item', 'coupon.provider' ) ) ?>"
 											v-model="item['coupon.provider']"
 											:title="item['coupon.provider']"

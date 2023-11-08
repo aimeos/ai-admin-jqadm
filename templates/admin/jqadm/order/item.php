@@ -274,7 +274,7 @@ $paymentStatusList = [
 									<div class="form-group row">
 										<label class="col-4 form-control-label"><?= $enc->html( $this->translate( 'admin', 'Customer' ) ) ?></label>
 										<div class="col-8">
-											<Multiselect class="item-customer"
+											<Multiselect class="item-customer form-control"
 												value-prop="customer.id"
 												track-by="customer.id"
 												label="customer.code"

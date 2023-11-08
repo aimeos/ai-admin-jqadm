@@ -67,7 +67,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							</div>
 						</td>
 						<td v-bind:class="item['css'] || ''">
-							<Multiselect class="item-type"
+							<Multiselect class="item-type form-control"
 								placeholder="Enter attribute type ID, code or label"
 								value-prop="attribute.type"
 								track-by="attribute.type"
@@ -127,7 +127,7 @@ $map = map( $this->get( 'attributeData', [] ) )->groupBy( 'product.lists.type' )
 							<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
 								v-bind:name="`<?= $enc->js( $this->formparam( ['characteristic', 'attribute', '_idx_', 'product.lists.refid'] ) ) ?>`.replace( '_idx_', listtype + '-' + idx )">
 
-							<Multiselect v-if="item['attribute.type']" class="item-refid"
+							<Multiselect v-if="item['attribute.type']" class="item-refid form-control"
 								placeholder="Enter attribute ID, code or label"
 								value-prop="attribute.id"
 								track-by="attribute.id"

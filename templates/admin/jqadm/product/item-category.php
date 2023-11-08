@@ -57,7 +57,7 @@ $keys = [
 									<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
 										v-bind:name="`<?= $enc->js( $this->formparam( ['category', $type . '-idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )">
 
-									<Multiselect class="item-id"
+									<Multiselect class="item-id form-control"
 										placeholder="Enter catalog ID, code or label"
 										value-prop="catalog.id"
 										track-by="catalog.id"

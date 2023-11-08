@@ -56,7 +56,7 @@ $keys = [
 								<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'default-idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )">
 
-								<Multiselect class="item-id"
+								<Multiselect class="item-id form-control"
 									placeholder="Enter supplier ID, code or label"
 									value-prop="supplier.id"
 									track-by="supplier.id"
@@ -131,7 +131,7 @@ $keys = [
 								<input class="item-refid" type="hidden" v-model="item['product.lists.refid']"
 									v-bind:name="`<?= $enc->js( $this->formparam( ['supplier', 'promotion-idx', 'product.lists.refid'] ) ) ?>`.replace( 'idx', idx )">
 
-								<Multiselect class="item-id"
+								<Multiselect class="item-id form-control"
 									placeholder="Enter supplier ID, code or label"
 									value-prop="supplier.id"
 									track-by="supplier.id"
