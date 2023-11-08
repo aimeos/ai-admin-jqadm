@@ -143,7 +143,7 @@ $params = $this->get( 'pageParams', [] );
 											:can-clear="false"
 											:allow-absent="true"
 											:required="true"
-										><input class="form-control">
+										>
 										</Multiselect>
 										<div v-if="can('change')" class="dropdown input-group-end">
 											<div class="btn act-add fa" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
