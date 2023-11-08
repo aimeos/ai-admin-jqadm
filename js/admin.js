@@ -57,6 +57,7 @@ Aimeos = {
 
 	flatpickr : {
 		datetimerange: {
+			allowInput: true,
 			defaultDate: null,
 			defaultHour: 0,
 			enableTime: true,
@@ -71,6 +72,7 @@ Aimeos = {
 		},
 		datetime: {
 			// altFormat: 'M j, Y H:i K',
+			allowInput: true,
 			defaultDate: null,
 			defaultHour: 0,
 			enableTime: true,
@@ -80,6 +82,7 @@ Aimeos = {
 			wrap: true
 		},
 		daterange: {
+			allowInput: true,
 			defaultDate: null,
 			locale: {
 				rangeSeparator: ' - '
@@ -99,11 +102,13 @@ Aimeos = {
 		},
 		date: {
 			// altFormat: 'M j, Y',
+			allowInput: true,
 			defaultDate: null,
 			position: 'below',
 			wrap: true
 		},
 		time: {
+			allowInput: true,
 			defaultHour: 0,
 			enableTime: true,
 			time_24hr: true,
