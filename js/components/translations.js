@@ -13,7 +13,7 @@ Vue.component('translations', {
 					<tr>
 						<th colspan="2" class="head">{{ i18n.header || 'Translations' }}</th>
 						<th class="action">
-							<a v-on:click="add()" class="btn act-add fa" href="#" v-bind:tabindex="tabindex" v-bind:title="i18n.insert || 'Insert new entry (Ctrl+I)'"></a>
+							<a v-if="!readonly" v-on:click="add()" class="btn act-add fa" href="#" v-bind:tabindex="tabindex" v-bind:title="i18n.insert || 'Insert new entry (Ctrl+I)'"></a>
 						</th>
 					</tr>
 				</thead>
