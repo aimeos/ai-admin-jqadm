@@ -295,13 +295,11 @@ class Standard
 	 */
 	protected function fromArray( \Aimeos\MShop\Product\Item\Iface $item, array $data ) : \Aimeos\MShop\Product\Item\Iface
 	{
-		$stocks = map();
 		$stockItems = [];
-
 		$ids = map( $data )->col( 'stock.id' )->filter();
+
 		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
 		$filter = $manager->filter()->add( 'stock.productid', '==', $item->getId() );
-
 		$stocks = $manager->search( $filter );
 
 		foreach( $data as $entry )
