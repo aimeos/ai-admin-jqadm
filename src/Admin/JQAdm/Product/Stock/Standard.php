@@ -300,15 +300,14 @@ class Standard
 
 		$ids = map( $data )->col( 'stock.id' )->filter();
 		$manager = \Aimeos\MShop::create( $this->context(), 'stock' );
+		$filter = $manager->filter()->add( 'stock.productid', '==', $item->getId() );
 
-		if( !$ids->isEmpty() ) {
-			$stocks = $manager->search( $manager->filter()->add( ['stock.id' => $ids->all()] ) );
-		}
+		$stocks = $manager->search( $filter );
 
 		foreach( $data as $entry )
 		{
 			$id = $this->val( $entry, 'stock.id' );
-			$stockItem = $stocks->get( $id ) ?: $manager->create();
+			$stockItem = $stocks->pull( $id ) ?: $manager->create();
 			$stockItem->fromArray( $entry )->setProductId( $item->getId() );
 
 			if( $entry['stock.stockflag'] ?? false ) {
@@ -318,7 +317,6 @@ class Standard
 			$item->setInStock( (int) $stockItem->getStockLevel() > 0 || $stockItem->getStockLevel() === null );
 
 			$stockItems[] = $stockItem;
-			$stocks->remove( $id );
 		}
 
 		$manager->delete( $stocks );
