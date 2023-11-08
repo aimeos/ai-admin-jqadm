@@ -270,7 +270,6 @@ td.is-invalid .form-select {
 	box-shadow: none;
 }
 
-.form-control:read-only,
 .form-control:disabled,
 .form-control[readonly],
 .form-select[disabled],
