@@ -1082,6 +1082,14 @@ Aimeos.Product.Stock = {
 				},
 
 
+				title(idx) {
+					return 'Site ID: ' + this.items[idx]['stock.siteid'] + "\n"
+						+ 'Editor: ' + this.items[idx]['stock.editor'] + "\n"
+						+ 'Created: ' + this.items[idx]['stock.ctime'] + "\n"
+						+ 'Modified: ' + this.items[idx]['stock.mtime'];
+				},
+
+
 				toggle(idx) {
 					this.$set(this.items[idx], 'checked', !this.checked(idx));
 				}

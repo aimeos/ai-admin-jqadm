@@ -61,7 +61,7 @@ $keys = ['stock.id', 'stock.siteid', 'stock.type', 'stock.stocklevel', 'stock.da
 				</thead>
 				<tbody>
 
-					<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row">
+					<tr v-for="(item, idx) in items" v-bind:key="idx" class="stock-row" v-bind:class="{readonly: item['stock.siteid'] !== siteid}" v-bind:title="title(idx)">
 						<?php if( $stockTypes->count() !== 1 ) : ?>
 							<td v-bind:class="'stock-type mandatory ' + (item['css'] || '')">
 								<select is="select-component" required class="form-select item-type" tabindex="<?= $enc->attr( $this->get( 'tabindex' ) ) ?>"
