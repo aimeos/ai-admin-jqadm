@@ -260,17 +260,17 @@ class Standard
 		{
 			$id = $this->val( $entry, 'product.lists.id' );
 
-			$litem = $listItems->pull( $id ) ?: $manager->createListItem();
-			$litem->fromArray( $entry, true )->setId( $id )->setPosition( $idx++ )->setConfig( [] );
+			$listItem = $listItems->pull( $id ) ?: $manager->createListItem();
+			$listItem->fromArray( $entry, true )->setId( $id )->setPosition( $idx++ )->setConfig( [] );
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
-				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
-					$litem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );
+				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+					$listItem->setConfigValue( $key, json_decode( $val, true ) ??  $val );
 				}
 			}
 
-			$item->addListItem( 'attribute', $litem, $litem->getRefItem() );
+			$item->addListItem( 'attribute', $listItem, $listItem->getRefItem() );
 		}
 
 		return $item->deleteListItems( $listItems );
