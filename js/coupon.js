@@ -47,6 +47,8 @@ Aimeos.Coupon = {
 						code
 						label
 						type
+						default
+						required
 					}
 				}`).then(result => {
 					return (result?.getCouponConfig || []).map(entry => {

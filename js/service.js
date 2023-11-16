@@ -48,6 +48,8 @@ Aimeos.Service = {
 						code
 						label
 						type
+						default
+						required
 					}
 				}`).then(result => {
 					return (result?.getServiceConfig || []).map(entry => {

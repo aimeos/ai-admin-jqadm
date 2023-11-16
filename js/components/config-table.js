@@ -181,7 +181,7 @@ Vue.component('config-table', {
 			</tr>
 		</thead>
 		<tbody>
-			<tr v-for="(entry, pos) in items" :key="pos" class="config-item">
+			<tr v-for="(entry, pos) in items" :key="pos" class="config-item" :title="entry.label">
 				<td class="config-row-key">
 					<input class="form-control" required
 						:readonly="readonly"
@@ -194,12 +194,14 @@ Vue.component('config-table', {
 					<textarea v-if="!entry.type || entry.type === 'string'" class="form-control config-type config-type-string" rows="1"
 						:tabindex="tabindex"
 						:readonly="readonly"
+						:required="entry.required"
 						:name="fname(\'val\', pos)"
 						v-model="entry.val" />
 
 					<div v-if="entry.type === 'list'">
 						<input class="form-control" readonly
 							:tabindex="tabindex"
+							:required="entry.required"
 							:name="fname(\'val\', pos)"
 							:value="JSON.stringify(entry.val || [])"
 							@click="$set(entry, 'show', true)">
@@ -214,6 +216,7 @@ Vue.component('config-table', {
 					<div v-if="entry.type === 'map'">
 						<input class="form-control" readonly
 							:tabindex="tabindex"
+							:required="entry.required"
 							:name="fname(\'val\', pos)"
 							:value="JSON.stringify(entry.val || {})"
 							@click="$set(entry, 'show', true)">
@@ -228,6 +231,7 @@ Vue.component('config-table', {
 					<select v-if="entry.type === 'boolean' || entry.type === 'bool'" class="form-select config-type config-type-boolean"
 						:tabindex="tabindex"
 						:readonly="readonly"
+						:required="entry.required"
 						:name="fname(\'val\', pos)"
 						v-model="entry.val">
 						<option value=""></option>
@@ -238,30 +242,35 @@ Vue.component('config-table', {
 					<input v-if="entry.type === 'integer' || entry.type === 'int'" type="number" class="config-value form-control config-type config-type-integer"
 						:tabindex="tabindex"
 						:readonly="readonly"
+						:required="entry.required"
 						:name="fname(\'val\', pos)"
 						v-model="entry.val">
 
 					<input v-if="entry.type === 'number'" type="number" class="config-value form-control config-type config-type-number" step="0.01"
 						:tabindex="tabindex"
 						:readonly="readonly"
+						:required="entry.required"
 						:name="fname(\'val\', pos)"
 						v-model="entry.val">
 
 					<input v-if="entry.type === 'date'" type="date" class="config-value form-control config-type config-type-date"
 						:tabindex="tabindex"
 						:readonly="readonly"
+						:required="entry.required"
 						:name="fname(\'val\', pos)"
 						v-model="entry.val">
 
 					<input v-if="entry.type === 'datetime'" type="datetime-local" class="config-value form-control config-type config-type-date"
 						:tabindex="tabindex"
 						:readonly="readonly"
+						:required="entry.required"
 						:name="fname(\'val\', pos)"
 						v-model="entry.val">
 
 					<input v-if="entry.type === 'time'" type="time" class="config-value form-control config-type config-type-date"
 						:tabindex="tabindex"
 						:readonly="readonly"
+						:required="entry.required"
 						:name="fname(\'val\', pos)"
 						v-model="entry.val">
 				</td>
@@ -329,7 +338,10 @@ Vue.component('config-table', {
 				if(item) {
 					this.$set(item, 'type', entry.type)
 					this.$set(item, 'label', entry.label)
+					this.$set(item, 'required', entry.required || false )
 				} else {
+					this.$set(entry, 'required', entry.required || false )
+					this.$set(entry, 'val', entry.default || '')
 					this.items.push(entry)
 				}
 			})
