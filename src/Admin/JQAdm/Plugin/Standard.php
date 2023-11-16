@@ -501,13 +501,8 @@ class Standard
 
 		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
 		{
-			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' )
-			{
-				if( ( $val = json_decode( trim( $entry['val'] ?? '' ), true ) ) === null ) {
-					$conf[$key] = trim( $entry['val'] ?? '' );
-				} else {
-					$conf[$key] = $val;
-				}
+			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' && ( $val = trim( $entry['val'] ?? '' ) ) !== '' ) {
+				$conf[$key] = json_decode( $val, true ) ??  $val;
 			}
 		}
 

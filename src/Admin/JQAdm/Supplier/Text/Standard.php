@@ -308,8 +308,8 @@ class Standard
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
 			{
-				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' ) {
-					$listItem->setConfigValue( $key, trim( $cfg['val'] ?? '' ) );
+				if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
+					$listItem->setConfigValue( $key, json_decode( $val, true ) ??  $val );
 				}
 			}
 
