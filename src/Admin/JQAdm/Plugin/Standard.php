@@ -502,7 +502,7 @@ class Standard
 		foreach( (array) $this->val( $data, 'config', [] ) as $entry )
 		{
 			if( ( $key = trim( $entry['key'] ?? '' ) ) !== '' && ( $val = trim( $entry['val'] ?? '' ) ) !== '' ) {
-				$conf[$key] = json_decode( $val, true ) ??  $val;
+				$conf[$key] = json_decode( $val, true ) ?? $val;
 			}
 		}
 
