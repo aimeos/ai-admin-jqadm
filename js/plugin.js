@@ -56,6 +56,8 @@ Aimeos.Plugin = {
 						code
 						label
 						type
+						default
+						required
 					}
 				}`).then(result => {
 					return (result?.getPluginConfig || []).map(entry => {

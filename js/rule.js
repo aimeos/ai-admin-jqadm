@@ -56,6 +56,8 @@
 						code
 						label
 						type
+						default
+						required
 					}
 				}`).then(result => {
 					return (result?.getRuleConfig || []).map(entry => {

@@ -730,7 +730,7 @@ Aimeos.Form = {
 			$(".item-header", this).removeClass("is-invalid");
 			$(".item-navbar .nav-link", this).removeClass("is-invalid");
 
-			$("input,select", this).each(function(idx, element) {
+			$("input,select,textarea", this).each(function(idx, element) {
 				var elem = $(element);
 
 				if(elem.closest(".prototype").length === 0 && elem.is(":invalid") === true) {
