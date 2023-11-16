@@ -525,7 +525,7 @@ class Standard
 		foreach( (array) $this->val( $data, 'config', [] ) as $cfg )
 		{
 			if( ( $key = trim( $cfg['key'] ?? '' ) ) !== '' && ( $val = trim( $cfg['val'] ?? '' ) ) !== '' ) {
-				$item->setConfigValue( $key, json_decode( $val, true ) ??  $val );
+				$item->setConfigValue( $key, json_decode( $val, true ) ?? $val );
 			}
 		}
 
