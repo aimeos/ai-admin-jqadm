@@ -366,11 +366,10 @@ td.is-invalid .form-select {
 
 
 .toast {
-	background-color: #FFFFFFB0;
+	background-color: var(--bs-bg-light);
 }
 
 .dark .toast {
-	background-color: #000020B0;
 	box-shadow: 0 0.5rem 1rem rgb(255 255 255 / 15%);
 }
 
