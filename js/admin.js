@@ -174,14 +174,11 @@ Aimeos = {
 
 
 	can(action, siteid, siteID) {
-		switch(action) {
-			case 'change':
-			case 'delete':
-			case 'move': return (new String(siteid)).startsWith(siteID);
-			case 'match': return siteid == siteID;
+		if(action === 'match') {
+			return siteid == siteID;
 		}
 
-		return false;
+		return (new String(siteid)).startsWith(siteID);
 	},
 
 
