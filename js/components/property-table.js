@@ -20,7 +20,7 @@ Vue.component('property-table', {
 			</tr> \
 		</thead> \
 		<tbody> \
-			<tr v-for="(propdata, propidx) in items" v-bind:key="propidx" v-bind:class="{readonly: !can(\'change\', propidx)}" v-bind:title="title(propidx)"> \
+			<tr v-for="(propdata, propidx) in items" v-bind:key="propidx" v-bind:class="{readonly: !readonly(propidx)}" v-bind:title="title(propidx)"> \
 				<td class="property-type"> \
 					<input type="hidden" v-model="propdata[domain + \'.property.id\']" v-bind:name="fname(\'id\', propidx)" /> \
 					<select is="select-component" required class="form-select item-type" v-bind:tabindex="tabindex" \
