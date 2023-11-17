@@ -20,13 +20,13 @@ Vue.component('property-table', {
 			</tr> \
 		</thead> \
 		<tbody> \
-			<tr v-for="(propdata, propidx) in items" v-bind:key="propidx" v-bind:class="{readonly: readonly(propidx)}" v-bind:title="title(propidx)"> \
+			<tr v-for="(propdata, propidx) in items" v-bind:key="propidx" v-bind:class="{readonly: !can(\'change\', propidx)}" v-bind:title="title(propidx)"> \
 				<td class="property-type"> \
 					<input type="hidden" v-model="propdata[domain + \'.property.id\']" v-bind:name="fname(\'id\', propidx)" /> \
 					<select is="select-component" required class="form-select item-type" v-bind:tabindex="tabindex" \
 						v-bind:name="fname(\'type\', propidx)" \
 						v-bind:text="i18n.select || \'Please select\'" \
-						v-bind:readonly="readonly(propidx)" \
+						v-bind:readonly="!can(\'change\', propidx)" \
 						v-bind:items="types" \
 						v-model="propdata[domain + \'.property.type\']" > \
 					</select> \
@@ -35,7 +35,7 @@ Vue.component('property-table', {
 					<select is="select-component" class="form-select item-languageid" v-bind:tabindex="tabindex" \
 						v-bind:name="fname(\'languageid\', propidx)" \
 						v-bind:all="i18n.all || \'All\'" \
-						v-bind:readonly="readonly(propidx)" \
+						v-bind:readonly="!can(\'change\', propidx)" \
 						v-bind:items="languages" \
 						v-model="propdata[domain + \'.property.languageid\']" > \
 					</select> \
@@ -44,7 +44,7 @@ Vue.component('property-table', {
 					<input class="form-control item-value" type="text" required="required" v-bind:tabindex="tabindex" \
 						v-bind:name="fname(\'value\', propidx)" \
 						v-bind:placeholder="i18n.placeholder || \'Property value (required)\'" \
-						v-bind:readonly="readonly(propidx)" \
+						v-bind:readonly="!can(\'change\', propidx)" \
 						v-model="propdata[domain + \'.property.value\']" > \
 				</td> \
 				<td class="actions"> \
