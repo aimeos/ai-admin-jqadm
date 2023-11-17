@@ -566,9 +566,10 @@
 .aimeos .item-media .media-preview img {
 	max-height: calc(12.25rem - 4px);
 	max-width: 100%;
-	display: block;
-	margin: auto;
+	height: 100%;
 	top: 50%;
+	margin: auto;
+	display: block;
 	position: relative;
 	transform: translate(0, -50%);
 }
