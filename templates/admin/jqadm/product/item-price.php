@@ -219,6 +219,25 @@ $enc = $this->encoder();
 
 						</div>
 
+						<div class="col-12 secondary item-meta text-muted">
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?>:
+								<span class="meta-value">{{ item['price.siteid'] }}</span>
+							</small>
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Editor' ) ) ?>:
+								<span class="meta-value">{{ item['price.editor'] }}</span>
+							</small>
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Created' ) ) ?>:
+								<span class="meta-value">{{ item['price.ctime'] }}</span>
+							</small>
+							<small>
+								<?= $enc->html( $this->translate( 'admin', 'Modified' ) ) ?>:
+								<span class="meta-value">{{ item['price.mtime'] }}</span>
+							</small>
+						</div>
+
 
 						<div v-on:click="toggle('_ext', idx)" class="col-xl-12 advanced" v-bind:class="{'collapsed': !item['_ext']}">
 							<div class="card-tools-start">
@@ -299,8 +318,6 @@ $enc = $this->encoder();
 							</config-table>
 						</div>
 
-						<?= $this->get( 'priceBody' ) ?>
-
 						<div v-show="item['_ext']" class="col-12 secondary item-meta text-muted">
 							<small>
 								<?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?>:
@@ -319,6 +336,8 @@ $enc = $this->encoder();
 								<span class="meta-value">{{ item['product.lists.mtime'] }}</span>
 							</small>
 						</div>
+
+						<?= $this->get( 'priceBody' ) ?>
 
 					</div>
 				</div>

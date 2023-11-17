@@ -360,8 +360,6 @@ $enc = $this->encoder();
 							</div>
 						</div>
 
-						<?= $this->get( 'addressBody' ) ?>
-
 						<div class="col-12 secondary item-meta text-muted">
 							<small>
 								<?= $enc->html( $this->translate( 'admin', 'Site' ) ) ?>:
@@ -380,6 +378,8 @@ $enc = $this->encoder();
 								<span class="meta-value">{{ item['customer.address.mtime'] }}</span>
 							</small>
 						</div>
+
+						<?= $this->get( 'addressBody' ) ?>
 
 					</div>
 				</div>
