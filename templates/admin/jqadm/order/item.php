@@ -377,6 +377,9 @@ $paymentStatusList = [
 																	</span>
 																<?php endforeach ?>
 															</span>
+															<?php if( $orderProduct->getVendor() ) : ?>
+																<span class="product-vendor"><?= $enc->html( $orderProduct->getVendor() ) ?></span>
+															<?php endif ?>
 															<span class="product-sku"><?= $enc->html( $orderProduct->getProductCode() ) ?></span>
 														</div>
 													</div>
