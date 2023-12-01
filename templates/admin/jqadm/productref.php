@@ -32,7 +32,7 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 ?>
 <?= $this->partial( $this->config( 'admin/jqadm/partial/columns', 'columns' ) ) ?>
 
-<div class="productref-list"
+<div class="list productref-list"
 	data-resource="<?= $enc->attr( $this->get( 'resource' ) ) ?>"
 	data-parentid="<?= $enc->attr( $this->get( 'parentid' ) ) ?>"
 	data-fields="<?= $enc->attr( $this->get( 'fields', [] ) ) ?>"
