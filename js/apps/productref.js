@@ -233,7 +233,9 @@ Aimeos.ProductRef = {
 							const include = [];
 							for(let key in args.fields) {
 								args.fields[key] = args.fields[key].join(',');
-								include.push(key);
+								if(key !== 'product') {
+									include.push(key);
+								}
 							}
 							args['include'] = include.join(',');
 						}
