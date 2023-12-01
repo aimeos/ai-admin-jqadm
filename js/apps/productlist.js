@@ -118,7 +118,7 @@ Aimeos.ProductList = {
 
 
 			can(action, idx) {
-				return Aimeos.can(action, this.items[idx][this.prefix + '.siteid'] || null, this.siteid)
+				return Aimeos.can(action, this.items[idx][this.prefix + 'siteid'] || null, this.siteid)
 			},
 
 

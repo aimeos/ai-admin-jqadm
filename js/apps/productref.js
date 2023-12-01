@@ -113,7 +113,7 @@ Aimeos.ProductRef = {
 
 
 			can(action, idx) {
-				return Aimeos.can(action, this.items[idx][this.prefix + '.siteid'] || null, this.siteid)
+				return Aimeos.can(action, this.items[idx][this.prefix + 'siteid'] || null, this.siteid)
 			},
 
 
@@ -309,7 +309,9 @@ Aimeos.ProductRef = {
 				this.checked = false;
 
 				if(idx !== undefined) {
-					this.delete(this.resource, this.items[idx][this.prefix + 'id'], () => self.waiting(false));
+					if(this.items[idx][this.prefix + 'id']) {
+						this.delete(this.resource, this.items[idx][this.prefix + 'id'], () => self.waiting(false));
+					}
 					return this.items.splice(idx, 1);
 				}
 
