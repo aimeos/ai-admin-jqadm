@@ -40,11 +40,8 @@ Aimeos.Service = {
 				if(!provider) return []
 				if(this.cache[provider]) return this.cache[provider]
 
-				provider = String(provider).replace(/"/g, '\\"')
-				type = String(type).replace(/"/g, '\\"')
-
 				return this.cache[provider] = Aimeos.query(`query {
-					getServiceConfig(provider: "` + provider + `", type: "` + type + `") {
+					getServiceConfig(provider: ` + JSON.stringify(provider) + `, type: ` + JSON.stringify(type) + `) {
 						code
 						label
 						type
