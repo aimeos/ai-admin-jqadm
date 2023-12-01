@@ -111,6 +111,11 @@ $url = $this->link( 'admin/jqadm/url/get', ['resource' => 'product', 'id' => '_i
 					</th>
 
 					<th class="actions">
+						<a class="btn fa act-add" tabindex="<?= $this->get( 'tabindex' ) ?>"
+							v-on:click.prevent.stop="add()" href="#"
+							title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>"
+							aria-label="<?= $enc->attr( $this->translate( 'admin', 'Add' ) ) ?>">
+						</a>
 						<a class="btn act-columns fa" href="#" tabindex="<?= $this->get( 'tabindex', 1 ) ?>"
 							title="<?= $enc->attr( $this->translate( 'admin', 'Columns' ) ) ?>"
 							v-on:click.prevent.stop="colselect = true">
