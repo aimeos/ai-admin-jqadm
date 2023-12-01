@@ -51,7 +51,7 @@ Aimeos.Coupon = {
 				if(this.cache[provider]) return this.cache[provider]
 
 				return this.cache[provider] = Aimeos.query(`query {
-					getCouponConfig(provider: "` + String(provider).replace(/"/g, '\\"') + `") {
+					getCouponConfig(provider: ` + JSON.stringify(provider) + `) {
 						code
 						label
 						type
