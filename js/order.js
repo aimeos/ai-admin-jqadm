@@ -51,7 +51,7 @@ Aimeos.Order = {
 				}
 
 				return Aimeos.query(`query {
-					searchCustomers(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
+					searchCustomers(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["customer.code"]) {
 					  id
 					  code
 					}

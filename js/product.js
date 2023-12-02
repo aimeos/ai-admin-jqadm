@@ -263,7 +263,7 @@ Aimeos.Product.Attribute = {
 					}
 
 					return Aimeos.query(`query {
-						searchAttributes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
+						searchAttributes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["attribute.label"]) {
 						  id
 						  label
 						}
@@ -289,7 +289,7 @@ Aimeos.Product.Attribute = {
 					}
 
 					return Aimeos.query(`query {
-						searchAttributeTypes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
+						searchAttributeTypes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["attribute.type.code"]) {
 						  code
 						}
 					  }
@@ -415,7 +415,7 @@ Aimeos.Product.Catalog = {
 					}
 
 					return Aimeos.query(`query {
-						searchCatalogs(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
+						searchCatalogs(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["catalog.label"]) {
 						  id
 						  code
 						  label
@@ -734,7 +734,7 @@ Aimeos.Product.Product = {
 					}
 
 					return Aimeos.query(`query {
-						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
+						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["product.label"]) {
 						  id
 						  code
 						  label
@@ -1202,7 +1202,7 @@ Aimeos.Product.Supplier = {
 					}
 
 					return Aimeos.query(`query {
-						searchSuppliers(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
+						searchSuppliers(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["supplier.label"]) {
 						  id
 						  code
 						  label
