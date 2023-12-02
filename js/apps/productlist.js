@@ -234,7 +234,7 @@ Aimeos.ProductList = {
 							const include = [];
 							for(let key in args.fields) {
 								args.fields[key] = args.fields[key].join(',');
-								if(key !== 'product') {
+								if(key !== resource) {
 									include.push(key);
 								}
 							}
