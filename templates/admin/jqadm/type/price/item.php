@@ -176,6 +176,7 @@ $params = $this->get( 'pageParams', [] );
 								:langs="<?= $enc->attr( $this->get( 'pageLangItems', map() )->col( 'locale.language.label', 'locale.language.id' ) ) ?>"
 								:i18n="{
 									header: `<?= $enc->js( $this->translate( 'admin', 'Translations' ) ) ?>`,
+									select: `<?= $enc->js( $this->translate( 'admin', 'Please select' ) ) ?>`,
 									insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
 									delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
 								}">

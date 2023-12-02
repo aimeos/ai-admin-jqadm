@@ -21,6 +21,7 @@ Vue.component('translations', {
 					<td>
                         <select class="form-select" v-bind:readonly="readonly" v-bind:tabindex="tabindex" required
                             v-on:change="update(idx, \'key\', $event.target.value)">
+							<option code="">{{ i18n.select || 'Please select' }}</option>
                             <option v-for="(name, code) in langs" v-bind:value="code" v-bind:key="code" v-bind:selected="entry.key == code">
                                 {{ name }}
                             </option>
