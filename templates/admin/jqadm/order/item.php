@@ -238,7 +238,11 @@ $paymentStatusList = [
 								<div class="form-group row">
 									<label class="col-4 form-control-label help"><?= $enc->html( $this->translate( 'admin', 'Invoice No.' ) ) ?></label>
 									<div class="col-8">
-										<span class="form-control item-sitecode"><?= $enc->html( $this->item->getInvoiceNumber() ) ?></span>
+										<input class="form-control item-invoiceno" type="text" tabindex="1" required
+											name="<?= $enc->attr( $this->formparam( array( 'item', 'order.invoiceno' ) ) ) ?>"
+											placeholder="<?= $enc->attr( $this->translate( 'admin', 'Invoice number' ) ) ?>"
+											value="<?= $enc->attr( $this->get( 'itemData/order.invoiceno' ) ) ?>"
+											:readonly="!can('change')">
 									</div>
 									<div class="col-12 form-text text-muted help-text">
 										<?= $enc->html( $this->translate( 'admin', 'Invoice number for the order' ) ) ?>
