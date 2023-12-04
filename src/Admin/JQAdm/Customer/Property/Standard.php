@@ -43,8 +43,7 @@ class Standard
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'customer/property/type' );
-		$search = $manager->filter( true )->slice( 0, 10000 )
-			->order( ['customer.property.type.position', 'customer.property.type.label'] );
+		$search = $manager->filter( true )->order( 'customer.property.type.code' )->slice( 0, 10000 );
 
 		$view->propertyTypes = $manager->search( $search );
 

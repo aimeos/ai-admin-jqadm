@@ -72,8 +72,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'log' );
 			$manager = \Aimeos\MAdmin::create( $this->context(), 'log' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '-', 'log.timestamp' )] );
+			$search = $manager->filter()->order( '-log.timestamp' );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );

@@ -162,8 +162,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'locale.language.id', $ids ) );
+			$search = $manager->filter()->add( 'locale.language.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search );
 
 			foreach( $items as $item )
@@ -267,8 +266,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'locale/language' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'locale/language' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '-', 'locale.language.status' ), $search->sort( '+', 'locale.language.id' )] );
+			$search = $manager->filter()->order( ['-locale.language.status', 'locale.language.id'] );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );

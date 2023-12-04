@@ -49,12 +49,10 @@ class Standard
 		$currencyManager = \Aimeos\MShop::create( $context, 'locale/currency' );
 
 		$search = $priceTypeManager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'price.type.domain', 'service' ) );
-		$search->setSortations( [$search->sort( '+', 'price.type.position' )] );
+		$search->add( 'price.type.domain', '==', 'service' )->order( 'price.type.code' );
 
 		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'service.lists.type.domain', 'price' ) );
-		$listSearch->setSortations( [$listSearch->sort( '+', 'service.lists.type.position' )] );
+		$listSearch->add( 'service.lists.type.domain', '==', 'price' )->order( 'service.lists.type.code' );
 
 		$view->priceTypes = $priceTypeManager->search( $search );
 		$view->priceListTypes = $listTypeManager->search( $listSearch );

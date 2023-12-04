@@ -202,8 +202,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'review' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'review' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '-', 'review.ctime' )] );
+			$search = $manager->filter()->order( 'review.ctime' );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );

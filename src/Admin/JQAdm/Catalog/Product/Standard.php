@@ -44,9 +44,8 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
 
-		$search = $manager->filter( true )->slice( 0, 10000 )
-			->add( ['product.lists.type.domain' => 'catalog'] )
-			->order( 'product.lists.type.position' );
+		$search = $manager->filter( true )->slice( 0, 10000 );
+		$search->add( 'product.lists.type.domain', '==', 'catalog' )->order( 'product.lists.type.position' );
 
 		$view->productListTypes = $manager->search( $search );
 

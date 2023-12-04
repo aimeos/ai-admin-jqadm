@@ -44,9 +44,10 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'media/property/type' );
 
-		$search = $manager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'media.property.type.domain', 'media' ) );
-		$search->setSortations( [$search->sort( '+', 'media.property.type.position' )] );
+		$search = $manager->filter( true )
+			->add( 'media.property.type.domain', '==', 'media' )
+			->order( 'media.property.type.position' )
+			->slice( 0, 10000 );
 
 		$view->propertyTypes = $manager->search( $search );
 

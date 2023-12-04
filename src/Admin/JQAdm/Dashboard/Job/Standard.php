@@ -103,8 +103,7 @@ class Standard
 		$view = $this->view();
 		$manager = \Aimeos\MAdmin::create( $this->context(), 'job' );
 
-		$search = $manager->filter();
-		$search->setSortations( [$search->sort( '-', 'job.ctime' ), $search->sort( '-', 'job.id' )] );
+		$search = $manager->filter()->order( ['-job.ctime', '-job.id'] );
 		$total = 0;
 
 		$view->jobItems = $manager->search( $search, [], $total );

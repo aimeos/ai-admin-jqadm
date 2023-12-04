@@ -249,8 +249,11 @@ class Standard
 	protected function getTypes() : \Aimeos\Map
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
-		$filter = $manager->filter( true )->add( 'product.lists.type.domain', '==', 'product' )
-			->order( ['product.lists.type.position', 'product.lists.type.code'] );
+
+		$filter = $manager->filter( true )
+			->add( 'product.lists.type.domain', '==', 'product' )
+			->order( 'product.lists.type.code' )
+			->slice( 0, 10000 );
 
 		return $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' )->except( 'default' );
 	}

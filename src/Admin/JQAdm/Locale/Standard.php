@@ -68,13 +68,8 @@ class Standard
 		$curmanager = \Aimeos\MShop::create( $this->context(), 'locale/currency' );
 		$langmanager = \Aimeos\MShop::create( $this->context(), 'locale/language' );
 
-		$cursearch = $curmanager->filter( true );
-		$cursearch->setSortations( [$cursearch->sort( '+', 'locale.currency.id' )] );
-		$cursearch->slice( 0, 250 );
-
-		$langsearch = $langmanager->filter( true );
-		$langsearch->setSortations( [$langsearch->sort( '+', 'locale.language.id' )] );
-		$langsearch->slice( 0, 250 );
+		$cursearch = $curmanager->filter( true )->order( 'locale.currency.id' )->slice( 0, 250 );
+		$langsearch = $langmanager->filter( true )->order( ['locale.language.id'] )->slice( 0, 250 );
 
 		$view->itemLanguages = $langmanager->search( $langsearch );
 		$view->itemCurrencies = $curmanager->search( $cursearch );
@@ -178,8 +173,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'locale.id', $ids ) );
+			$search = $manager->filter()->add( 'locale.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search );
 
 			foreach( $items as $item )

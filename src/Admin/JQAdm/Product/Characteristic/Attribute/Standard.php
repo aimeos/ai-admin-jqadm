@@ -41,8 +41,11 @@ class Standard
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
-		$filter = $manager->filter()->add( 'product.lists.type.domain', '==', 'attribute' )
-			->order( 'product.lists.type.code' );
+
+		$filter = $manager->filter()
+			->add( 'product.lists.type.domain', '==', 'attribute' )
+			->order( 'product.lists.type.code' )
+			->slice( 0, 10000 );
 
 		$view->attributeTypes = $manager->search( $filter )->getCode();
 		return $view;

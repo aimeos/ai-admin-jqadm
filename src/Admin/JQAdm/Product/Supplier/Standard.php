@@ -44,8 +44,11 @@ class Standard
 	public function data( \Aimeos\Base\View\Iface $view ) : \Aimeos\Base\View\Iface
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'product/lists/type' );
-		$filter = $manager->filter( true )->add( 'product.lists.type.domain', '==', 'supplier' )
-			->order( ['product.lists.type.position', 'product.lists.type.code'] );
+
+		$filter = $manager->filter( true )
+			->add( 'product.lists.type.domain', '==', 'supplier' )
+			->order( 'product.lists.type.code' )
+			->slice( 0, 10000 );
 
 		$view->supplierTypes = $manager->search( $filter )->col( 'product.lists.type.label', 'product.lists.type.code' );
 		return $view;

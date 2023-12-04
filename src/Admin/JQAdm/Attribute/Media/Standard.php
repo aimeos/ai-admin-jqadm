@@ -48,12 +48,10 @@ class Standard
 		$listTypeManager = \Aimeos\MShop::create( $context, 'attribute/lists/type' );
 
 		$search = $typeManager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'media.type.domain', 'attribute' ) );
-		$search->setSortations( [$search->sort( '+', 'media.type.position' )] );
+		$search->add( 'media.type.domain', '==', 'attribute' )->order( 'media.type.code' );
 
 		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'attribute.lists.type.domain', 'media' ) );
-		$listSearch->setSortations( [$listSearch->sort( '+', 'attribute.lists.type.position' )] );
+		$listSearch->add( 'attribute.lists.type.domain', '==', 'attribute' )->order( 'attribute.lists.type.code' );
 
 		$view->mediaListTypes = $listTypeManager->search( $listSearch );
 		$view->mediaTypes = $typeManager->search( $search );

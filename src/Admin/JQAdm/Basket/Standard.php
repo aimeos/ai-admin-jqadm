@@ -208,8 +208,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'basket' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'order/basket' );
 
-			$search = $manager->filter( false, true );
-			$search->setSortations( [$search->sort( '-', 'order.basket.ctime' )] );
+			$search = $manager->filter( false, true )->order( 'order.basket.ctime' );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, [], $total );

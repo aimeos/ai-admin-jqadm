@@ -191,8 +191,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'product.id', $ids ) );
+			$search = $manager->filter()->add( 'product.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $id => $item )
@@ -302,8 +301,7 @@ class Standard
 			$params = $this->storeFilter( $view->param(), 'product' );
 			$manager = \Aimeos\MShop::create( $this->context(), 'product' );
 
-			$search = $manager->filter();
-			$search->setSortations( [$search->sort( '+', 'product.id' )] );
+			$search = $manager->filter()->order( 'product.id' );
 			$search = $this->initCriteria( $search, $params );
 
 			$view->items = $manager->search( $search, $domains->toArray(), $total );
@@ -498,7 +496,7 @@ class Standard
 	protected function getTypeItems() : \Aimeos\Map
 	{
 		$typeManager = \Aimeos\MShop::create( $this->context(), 'product/type' );
-		$search = $typeManager->filter( true )->slice( 0, 10000 )->order( ['product.type.position', 'product.type.code'] );
+		$search = $typeManager->filter( true )->order( 'product.type.code' )->slice( 0, 10000 );
 
 		return $typeManager->search( $search );
 	}

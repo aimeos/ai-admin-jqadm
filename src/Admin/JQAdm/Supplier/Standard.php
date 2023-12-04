@@ -174,8 +174,7 @@ class Standard
 				throw new \Aimeos\Admin\JQAdm\Exception( sprintf( $msg, 'id' ) );
 			}
 
-			$search = $manager->filter()->slice( 0, count( (array) $ids ) );
-			$search->setConditions( $search->compare( '==', 'supplier.id', $ids ) );
+			$search = $manager->filter()->add( 'supplier.id', '==', $ids )->slice( 0, count( (array) $ids ) );
 			$items = $manager->search( $search, $this->getDomains() );
 
 			foreach( $items as $item )

@@ -194,13 +194,9 @@ class Standard
 	{
 		$manager = \Aimeos\MShop::create( $this->context(), 'attribute' );
 
-		$search = $manager->filter();
-		$expr = [
-			$search->compare( '==', 'attribute.type', 'interval' ),
-			$search->compare( '==', 'attribute.domain', 'product' ),
-		];
-		$search->setConditions( $search->and( $expr ) );
-		$search->setSortations( [$search->sort( '+', 'attribute.code' )] );
+		$search = $manager->filter()
+			->add( ['attribute.type' => 'interval', 'attribute.domain' => 'product'] )
+			->order( 'attribute.code' );
 
 		return $manager->search( $search );
 	}

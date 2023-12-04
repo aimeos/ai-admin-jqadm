@@ -260,12 +260,10 @@ class Standard
 		$listTypeManager = \Aimeos\MShop::create( $context, 'catalog/lists/type' );
 
 		$search = $textTypeManager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'text.type.domain', 'catalog' ) );
-		$search->setSortations( [$search->sort( '+', 'text.type.position' )] );
+		$search->add( 'text.type.domain', '==', 'catalog' )->order( 'text.type.code' );
 
 		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'catalog.lists.type.domain', 'text' ) );
-		$listSearch->setSortations( [$listSearch->sort( '+', 'catalog.lists.type.position' )] );
+		$listSearch->add( 'catalog.lists.type.domain', '==', 'text' )->order( 'catalog.lists.type.code' );
 
 		$view->textTypes = $textTypeManager->search( $search );
 		$view->textListTypes = $listTypeManager->search( $listSearch );

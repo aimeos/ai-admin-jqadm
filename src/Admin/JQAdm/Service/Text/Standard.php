@@ -48,12 +48,10 @@ class Standard
 		$listTypeManager = \Aimeos\MShop::create( $context, 'service/lists/type' );
 
 		$search = $textTypeManager->filter( true )->slice( 0, 10000 );
-		$search->setConditions( $search->compare( '==', 'text.type.domain', 'service' ) );
-		$search->setSortations( [$search->sort( '+', 'text.type.position' )] );
+		$search->add( 'text.type.domain', '==', 'service' )->order( 'text.type.code' );
 
 		$listSearch = $listTypeManager->filter( true )->slice( 0, 10000 );
-		$listSearch->setConditions( $listSearch->compare( '==', 'service.lists.type.domain', 'text' ) );
-		$listSearch->setSortations( [$listSearch->sort( '+', 'service.lists.type.position' )] );
+		$listSearch->add( 'service.lists.type.domain', '==', 'text' )->order( 'service.lists.type.code' );
 
 		$view->textTypes = $textTypeManager->search( $search );
 		$view->textListTypes = $listTypeManager->search( $listSearch );
