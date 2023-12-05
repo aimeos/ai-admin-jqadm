@@ -579,8 +579,17 @@ class Standard
 		{
 			$data['product'][$pos] = $productItem->toArray( true );
 
-			foreach( $productItem->getAttributeItems() as $attrItem ) {
-				$data['product'][$pos]['attributes'][] = $attrItem->toArray( true );
+			foreach( $productItem->getAttributeItems() as $attrItem )
+			{
+				$entry = $attrItem->toArray( true );
+
+				if( $copy === true )
+				{
+					$entry['order.product.attribute.siteid'] = $siteId;
+					$entry['order.product.attribute.id'] = '';
+				}
+
+				$data['product'][$pos]['attributes'][] = $entry;
 			}
 
 			if( $copy === true )
@@ -596,8 +605,18 @@ class Standard
 			{
 				$data['service'][$type][$pos] = $serviceItem->toArray( true );
 
-				foreach( $serviceItem->getAttributeItems() as $attrItem ) {
-					$data['service'][$type][$pos]['attributes'][] = $attrItem->toArray( true );
+				foreach( $serviceItem->getAttributeItems() as $attrItem )
+				{
+					foreach( $attrItem->toArray( true ) as $key => $value )
+					{
+						if( $copy === true && $key === 'order.service.attribute.siteid' ) {
+							$data['service'][$type][$pos][$key][] = $siteId;
+						} elseif( $copy === true && $key === 'order.service.attribute.id' ) {
+							$data['service'][$type][$pos][$key][] = '';
+						} else {
+							$data['service'][$type][$pos][$key][] = $value;
+						}
+					}
 				}
 
 				if( $copy === true )
