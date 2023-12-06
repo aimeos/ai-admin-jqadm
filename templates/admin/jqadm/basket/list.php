@@ -22,7 +22,7 @@ $enc = $this->encoder();
  * @since 2023.10
  */
 $default = $this->config( 'admin/jqadm/basket/fields', ['order.basket.id', 'order.basket.customerid', 'order.basket.name', 'order.basket.ctime'] );
-$fields = $this->session( 'aimeos/admin/jqadm/orderbasket/fields', $default );
+$fields = $this->session( 'aimeos/admin/jqadm/basket/fields', $default );
 
 $searchParams = $params = $this->get( 'pageParams', [] );
 $searchParams['page']['start'] = 0;
@@ -59,7 +59,7 @@ $columnList = [
 <div class="list-view"
 	data-domain="order/basket"
 	data-siteid="<?= $enc->attr( $this->site()->siteid() ) ?>"
-	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/orderbasket/filter', new \stdClass ) ) ?>"
+	data-filter="<?= $enc->attr( $this->session( 'aimeos/admin/jqadm/basket/filter', new \stdClass ) ) ?>"
 	data-items="<?= $enc->attr( $this->get( 'items', map() )->call( 'toArray', [true] )->all() ) ?>">
 
 	<nav class="main-navbar">
@@ -77,7 +77,7 @@ $columnList = [
 
 	<nav-search v-bind:show="search" v-on:close="search = false"
 		v-bind:url="`<?= $enc->js( $this->link( 'admin/jqadm/url/search', map( $searchParams )->except( 'filter' )->all() ) ) ?>`"
-		v-bind:filter="<?= $enc->attr( (object) $this->session( 'aimeos/admin/jqadm/orderbasket/filter', new \stdClass ) ) ?>"
+		v-bind:filter="<?= $enc->attr( (object) $this->session( 'aimeos/admin/jqadm/basket/filter', new \stdClass ) ) ?>"
 		v-bind:operators="<?= $enc->attr( $operators ) ?>"
 		v-bind:name="`<?= $enc->js( $this->formparam( ['filter', '_key_', '0'] ) ) ?>`"
 		v-bind:attributes="<?= $enc->attr( $searchAttributes ) ?>">
@@ -86,7 +86,7 @@ $columnList = [
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'pagination' ),
 			['pageParams' => $params, 'pos' => 'top', 'total' => $this->get( 'total' ),
-			'page' => $this->session( 'aimeos/admin/jqadm/orderbasket/page', [] )]
+			'page' => $this->session( 'aimeos/admin/jqadm/basket/page', [] )]
 		);
 	?>
 
@@ -123,7 +123,7 @@ $columnList = [
 
 						<?= $this->partial(
 								$this->config( 'admin/jqadm/partial/listhead', 'listhead' ),
-								['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/orderbasket/sort' )]
+								['fields' => $fields, 'params' => $params, 'data' => $columnList, 'sort' => $this->session( 'aimeos/admin/jqadm/basket/sort' )]
 							);
 						?>
 
@@ -139,7 +139,7 @@ $columnList = [
 
 					<?= $this->partial(
 						$this->config( 'admin/jqadm/partial/listsearch', 'listsearch' ), [
-							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/orderbasket/filter', [] ),
+							'fields' => array_merge( $fields, ['select'] ), 'filter' => $this->session( 'aimeos/admin/jqadm/basket/filter', [] ),
 							'data' => [
 								'order.basket.id' => ['op' => '=='],
 								'order.basket.customerid' => ['op' => '=='],
@@ -207,7 +207,7 @@ $columnList = [
 	<?= $this->partial(
 			$this->config( 'admin/jqadm/partial/pagination', 'pagination' ),
 			['pageParams' => $params, 'pos' => 'bottom', 'total' => $this->get( 'total' ),
-			'page' => $this->session( 'aimeos/admin/jqadm/orderbasket/page', [] )]
+			'page' => $this->session( 'aimeos/admin/jqadm/basket/page', [] )]
 		);
 	?>
 
