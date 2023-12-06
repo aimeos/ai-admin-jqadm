@@ -531,10 +531,8 @@ abstract class Base
 		{
 			foreach( (array) $params['key'] as $idx => $key )
 			{
-				if( $key != '' && isset( $params['op'][$idx] ) && $params['op'][$idx] != ''
-					&& isset( $params['val'][$idx] ) && $params['val'][$idx] != ''
-				) {
-					$expr[] = [$params['op'][$idx] => [$key => $params['val'][$idx]]];
+				if( $key != '' && isset( $params['op'][$idx] ) && $params['op'][$idx] != '' ) {
+					$expr[] = [$params['op'][$idx] => [$key => $params['val'][$idx] ?? '']];
 				}
 			}
 
