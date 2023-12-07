@@ -243,7 +243,7 @@ class Standard
 	protected function deleteMediaItems( \Aimeos\MShop\Catalog\Item\Iface $item, array $listItems )
 	{
 		$context = $this->context();
-		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
+		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
 		$manager = \Aimeos\MShop::create( $context, 'catalog' );
 		$search = $manager->filter();
 
@@ -255,7 +255,7 @@ class Standard
 			$refItem = null;
 
 			if( count( $items ) === 1 && ( $refItem = $listItem->getRefItem() ) !== null ) {
-				$cntl->delete( $refItem );
+				$mediaManager->delete( $refItem );
 			}
 
 			$item->deleteListItem( 'media', $listItem, $refItem );
@@ -321,7 +321,6 @@ class Standard
 
 		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
 		$listManager = \Aimeos\MShop::create( $context, 'catalog/lists' );
-		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
 		$files = (array) $this->view()->request()->getUploadedFiles();
@@ -342,13 +341,8 @@ class Standard
 				$refItem = $mediaManager->copy( $refItem );
 			}
 
-			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE )
-			{
-				$refItem = $cntl->add( $refItem, $file );
-
-				if( $preview && $preview->getError() !== UPLOAD_ERR_NO_FILE ) {
-					$refItem = $cntl->addPreview( $refItem, $preview );
-				}
+			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
+				$refItem = $mediaManager->upload( $refItem, $file );
 			}
 
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );

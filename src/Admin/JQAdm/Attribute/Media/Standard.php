@@ -245,8 +245,8 @@ class Standard
 	protected function deleteMediaItems( \Aimeos\MShop\Attribute\Item\Iface $item, array $listItems ) : \Aimeos\MShop\Attribute\Item\Iface
 	{
 		$context = $this->context();
-		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 		$manager = \Aimeos\MShop::create( $context, 'attribute' );
+		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
 		$search = $manager->filter();
 
 		foreach( $listItems as $listItem )
@@ -257,7 +257,7 @@ class Standard
 			$refItem = null;
 
 			if( count( $items ) === 1 && ( $refItem = $listItem->getRefItem() ) !== null ) {
-				$cntl->delete( $refItem );
+				$mediaManager->delete( $refItem );
 			}
 
 			$item->deleteListItem( 'media', $listItem, $refItem );
@@ -321,9 +321,8 @@ class Standard
 	{
 		$context = $this->context();
 
+		$manager = \Aimeos\MShop::create( $context, 'attribute' );
 		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
-		$listManager = \Aimeos\MShop::create( $context, 'attribute/lists' );
-		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
 		$files = (array) $this->view()->request()->getUploadedFiles();
@@ -333,7 +332,7 @@ class Standard
 			$id = $this->val( $entry, 'media.id', '' );
 			$type = $this->val( $entry, 'attribute.lists.type', 'default' );
 
-			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $listManager->create();
+			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
 
 			$refItem->fromArray( $entry, true )->setDomain( 'attribute' );
@@ -344,13 +343,8 @@ class Standard
 				$refItem = $mediaManager->copy( $refItem );
 			}
 
-			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE )
-			{
-				$refItem = $cntl->add( $refItem, $file );
-
-				if( $preview && $preview->getError() !== UPLOAD_ERR_NO_FILE ) {
-					$refItem = $cntl->addPreview( $refItem, $preview );
-				}
+			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
+				$refItem = $mediaManager->upload( $refItem, $file );
 			}
 
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );

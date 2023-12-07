@@ -269,7 +269,7 @@ class Standard
 	protected function deleteMediaItems( \Aimeos\MShop\Product\Item\Iface $item, \Aimeos\Map $listItems ) : \Aimeos\MShop\Product\Item\Iface
 	{
 		$context = $this->context();
-		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
+		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
 		$manager = \Aimeos\MShop::create( $context, 'product' );
 		$search = $manager->filter();
 
@@ -345,9 +345,8 @@ class Standard
 	{
 		$context = $this->context();
 
+		$manager = \Aimeos\MShop::create( $context, 'product' );
 		$mediaManager = \Aimeos\MShop::create( $context, 'media' );
-		$listManager = \Aimeos\MShop::create( $context, 'product/lists' );
-		$cntl = \Aimeos\Controller\Common\Media\Factory::create( $context );
 
 		$listItems = $item->getListItems( 'media', null, null, false );
 		$files = (array) $this->view()->request()->getUploadedFiles();
@@ -357,7 +356,7 @@ class Standard
 			$id = $this->val( $entry, 'media.id', '' );
 			$type = $this->val( $entry, 'product.lists.type', 'default' );
 
-			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $listManager->create();
+			$listItem = $item->getListItem( 'media', $type, $id, false ) ?: $manager->createListItem();
 			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
 
 			$refItem->fromArray( $entry, true )->setDomain( 'product' );
@@ -368,13 +367,8 @@ class Standard
 				$refItem = $mediaManager->copy( $refItem );
 			}
 
-			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE )
-			{
-				$refItem = $cntl->add( $refItem, $file );
-
-				if( $preview && $preview->getError() !== UPLOAD_ERR_NO_FILE ) {
-					$refItem = $cntl->addPreview( $refItem, $preview );
-				}
+			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
+				$refItem = $mediaManager->upload( $refItem, $file );
 			}
 
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );

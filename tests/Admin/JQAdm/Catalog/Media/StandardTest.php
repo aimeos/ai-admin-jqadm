@@ -110,17 +110,14 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view ->addHelper( 'request', $helper );
 
 
-		$name = 'AdminJQAdmCatalogMediaSave';
-		$this->context->config()->set( 'controller/common/media/name', $name );
-
-		$cntlStub = $this->getMockBuilder( '\\Aimeos\\Controller\\Common\\Media\\Standard' )
+		$managerStub = $this->getMockBuilder( \Aimeos\MShop\Media\Manager\Standard::class )
 			->setConstructorArgs( array( $this->context ) )
-			->onlyMethods( array( 'add' ) )
+			->onlyMethods( ['upload'] )
 			->getMock();
 
-		\Aimeos\Controller\Common\Media\Factory::inject( '\\Aimeos\\Controller\\Common\\Media\\' . $name, $cntlStub );
+		\Aimeos\MShop::inject( \Aimeos\MShop\Media\Manager\Standard::class, $managerStub );
 
-		$cntlStub->expects( $this->once() )->method( 'add' )->will( $this->returnArgument( 0 ) );
+		$managerStub->expects( $this->once() )->method( 'upload' )->will( $this->returnArgument( 0 ) );
 
 
 		$result = $this->object->save();
