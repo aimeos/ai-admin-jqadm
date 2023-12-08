@@ -281,7 +281,7 @@ class Standard
 			$refItem = null;
 
 			if( count( $items ) === 1 && ( $refItem = $listItem->getRefItem() ) !== null ) {
-				$cntl->delete( $refItem );
+				$mediaManager->delete( $refItem );
 			}
 
 			$item->deleteListItem( 'media', $listItem, $refItem );
@@ -360,17 +360,15 @@ class Standard
 			$refItem = $listItem->getRefItem() ?: $mediaManager->create();
 
 			$refItem->fromArray( $entry, true )->setDomain( 'product' );
-			$file = $this->val( $files, 'media/' . $idx . '/file' );
+
 			$preview = $this->val( $files, 'media/' . $idx . '/preview' );
+			$file = $this->val( $files, 'media/' . $idx . '/file' );
 
 			if( $refItem->getId() === null && $refItem->getUrl() !== '' ) {
 				$refItem = $mediaManager->copy( $refItem );
 			}
 
-			if( $file && $file->getError() !== UPLOAD_ERR_NO_FILE ) {
-				$refItem = $mediaManager->upload( $refItem, $file );
-			}
-
+			$refItem = $mediaManager->upload( $refItem, $file, $preview );
 			$listItem->fromArray( $entry, true )->setPosition( $idx )->setConfig( [] );
 
 			foreach( (array) $this->val( $entry, 'config', [] ) as $cfg )
