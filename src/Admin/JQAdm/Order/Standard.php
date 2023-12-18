@@ -495,40 +495,31 @@ class Standard
 
 		foreach( $basket->getServices() as $type => $services )
 		{
-			foreach( $services as $index => $service )
+			foreach( $services as $service )
 			{
-				$list = [];
-				$attrItems = $service->getAttributeItems();
+				$serviceId = $service->getId();
 
-				if( isset( $data['service'][$type][$service->getServiceId()] ) )
+				if( isset( $data['service'][$type] ) && isset( $data['service'][$type][$serviceId] ) && isset( $data['service'][$type][$serviceId]['order.service.attribute.id'] ) )
 				{
-					foreach( (array) $data['service'][$type][$service->getServiceId()] as $key => $pair )
+					$attrItems = $service->getAttributeItems();
+
+					foreach( (array) $data['service'][$type][$serviceId]['order.service.attribute.id'] as $idx => $id )
 					{
-						foreach( $pair as $pos => $value ) {
-							$list[$pos][$key] = $value;
-						}
+						$attrItem = $attrItems[$id] ?? $attrManager->create();
+
+						$attrItem->setAttributeId( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.attrid/' . $idx, '' ) );
+						$attrItem->setType( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.type/' . $idx, '' ) );
+						$attrItem->setName( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.name/' . $idx, '' ) );
+						$attrItem->setCode( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.code/' . $idx, '' ) );
+						$attrItem->setValue( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.value/' . $idx, '' ) );
+						$attrItem->setQuantity( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.quantity/' . $idx, '' ) );
+
+						$attrManager->save( $attrItem->setParentId( $service->getId() ) );
+						unset( $attrItems[$id] );
 					}
 
-					foreach( $list as $array )
-					{
-						if( isset( $attrItems[$array['order.service.attribute.id']] ) )
-						{
-							$attrItem = $attrItems[$array['order.service.attribute.id']];
-							unset( $attrItems[$array['order.service.attribute.id']] );
-						}
-						else
-						{
-							$attrItem = $attrManager->create();
-						}
-
-						$attrItem->fromArray( $array, true );
-						$attrItem->setParentId( $service->getId() );
-
-						$item = $attrManager->save( $attrItem );
-					}
+					$attrManager->delete( $attrItems );
 				}
-
-				$attrManager->delete( $attrItems->toArray() );
 			}
 		}
 
@@ -601,28 +592,29 @@ class Standard
 
 		foreach( $item->getServices() as $type => $services )
 		{
-			foreach( $services as $pos => $serviceItem )
+			foreach( $services as $serviceItem )
 			{
-				$data['service'][$type][$pos] = $serviceItem->toArray( true );
+				$serviceId = $serviceItem->getId();
+				$data['service'][$type][$serviceId] = $serviceItem->toArray( true );
 
 				foreach( $serviceItem->getAttributeItems() as $attrItem )
 				{
 					foreach( $attrItem->toArray( true ) as $key => $value )
 					{
 						if( $copy === true && $key === 'order.service.attribute.siteid' ) {
-							$data['service'][$type][$pos][$key][] = $siteId;
+							$data['service'][$type][$serviceId][$key][] = $siteId;
 						} elseif( $copy === true && $key === 'order.service.attribute.id' ) {
-							$data['service'][$type][$pos][$key][] = '';
+							$data['service'][$type][$serviceId][$key][] = '';
 						} else {
-							$data['service'][$type][$pos][$key][] = $value;
+							$data['service'][$type][$serviceId][$key][] = $value;
 						}
 					}
 				}
 
 				if( $copy === true )
 				{
-					$data['service'][$type][$pos]['order.service.siteid'] = $siteId;
-					$data['service'][$type][$pos]['order.service.id'] = '';
+					$data['service'][$type][$serviceId]['order.service.siteid'] = $siteId;
+					$data['service'][$type][$serviceId]['order.service.id'] = '';
 				}
 			}
 		}
