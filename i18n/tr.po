@@ -1848,7 +1848,7 @@ msgid "Timestamp"
 msgstr "Zaman Damgası"
 
 msgid "Title"
-msgstr "Başlık"
+msgstr "Ünvan"
 
 msgid "Toggle dropdown"
 msgstr "Açılır menüyü aç/kapat"

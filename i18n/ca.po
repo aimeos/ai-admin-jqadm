@@ -3,31 +3,27 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# b5fdd37cec45d8078af7e530465bb050, 2016
-# Bruno Faria <email@brunofaria.pt>, 2018
-# Márcio Bortolini <marcio@agenciavirtuos.com.br>, 2020
-# Rui Gomes, 2023
-# b5fdd37cec45d8078af7e530465bb050, 2016
+# Roger Soldevila, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: aimeos-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-26 15:47+0200\n"
 "PO-Revision-Date: 2015-07-09 21:04+0000\n"
-"Last-Translator: Rui Gomes, 2023\n"
-"Language-Team: Portuguese (http://app.transifex.com/aimeos/aimeos-core/language/pt/)\n"
+"Last-Translator: Roger Soldevila, 2023\n"
+"Language-Team: Catalan (http://app.transifex.com/aimeos/aimeos-core/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr "Aplicar"
+msgstr " "
 
 #, php-format
 msgid "%1$d/%2$d"
-msgstr "%1$d/%2$d"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -57,7 +53,7 @@ msgid ""
 "%10$s\n"
 "%11$s\n"
 "%12$s"
-msgstr "%1$s\n%2$s%3$s\n%5$s%4$s\n%7$s,%6$s\n%8$s,%9$s\n%10$s\n%11$s\n%12$s"
+msgstr ""
 
 #, php-format
 msgid ""
@@ -74,29 +70,29 @@ msgid ""
 "%16$s\n"
 "%17$s\n"
 "%18$s\n"
-msgstr "%1$s\n%2$s %3$s %4$s %5$s\n%6$s %7$s\n%8$s\n%9$s %10$s\n%11$s\n%12$s\n%13$s\n%14$s\n%15$s\n%16$s\n%17$s\n%18$s\n"
+msgstr ""
 
 #, php-format
 msgid "%1$s %2$s"
-msgstr "%1$s %2$s"
+msgstr ""
 
 #, php-format
 msgid "%1$s (Ctrl+Alt+%2$s)"
-msgstr "%1$s (Ctrl+Alt+%2$s)"
+msgstr ""
 
 #, php-format
 msgid "%s/%s/%s.%s"
-msgstr "%s/%s/%s.%s"
+msgstr ""
 
 msgid ""
 "(International) facsimilie number without separation characters, can start "
 "with a \"+\""
-msgstr "(Internacional) número do fax sem caracteres de separação, pode começar com um \"+\""
+msgstr ""
 
 msgid ""
 "(International) telephone number without separation characters, can start "
 "with a \"+\""
-msgstr "(Internacional) número de telefone sem caracteres de separação, pode começar com um \"+\""
+msgstr ""
 
 msgid "+ Tax"
 msgstr ""
@@ -105,70 +101,70 @@ msgid "<hidden>"
 msgstr ""
 
 msgid "?"
-msgstr "?"
+msgstr ""
 
 msgid "Account"
-msgstr "Conta"
+msgstr "Compte"
 
 msgid "Active"
-msgstr "Ativo"
+msgstr "Actiu"
 
 msgid "Actual price"
-msgstr "Preço real"
+msgstr "Preu actual"
 
 msgid "Actual price customers can buy the article for on the web site"
-msgstr "Preço real pelo qual os clientes podem comprar o artigo no site"
+msgstr ""
 
 msgid "Add"
-msgstr "Adicionar"
+msgstr "Afegir"
 
 msgid ""
 "Additional delivery costs for each item, e.g. $20 for one heavy item will be"
 " $100 for five items it total"
-msgstr "Custos adicionais de entrega para cada item, ex. R$ 20 para um item pesado serão R$ 100 para cinco itens no total"
+msgstr ""
 
 msgid "Additional information where the customer's apartment can be found"
-msgstr "Informações adicionais onde o apartamento do cliente pode ser encontrado"
+msgstr ""
 
 msgid "Additional information where the supplier's apartment can be found"
-msgstr "Informações adicionais onde o apartamento do fornecedor pode ser encontrado"
+msgstr ""
 
 msgid "Address 1"
-msgstr "Endereço 1"
+msgstr "Adreça 1"
 
 msgid "Address 2"
-msgstr "Endereço 2"
+msgstr "Adreça 2"
 
 msgid "Address 3"
-msgstr "Endereço 3"
+msgstr "Adreça 3"
 
 msgid "Address identifier of the customer's house for delivery"
-msgstr "Identificador de endereço da casa do cliente para entrega"
+msgstr ""
 
 msgid "Address identifier of the supplier's house for delivery"
-msgstr "Identificador de endereço da casa do fornecedor para entrega"
+msgstr ""
 
 #, php-format
 msgid "Admin JQAdm type is empty"
-msgstr "O tipo de administrador JQAdm está vazio"
+msgstr ""
 
 msgid "Advanced"
-msgstr "Avançado"
+msgstr "Avançat"
 
 #, php-format
 msgid "Aimeos caching is disabled by \"%1$s\""
-msgstr "Aimeos cache está desativado por \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Aimeos debug logging is enabled by \"%1$s\""
-msgstr "Aimeos log de depuração está habilitado por \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Aimeos object not available"
-msgstr "Objeto da Aimeos indisponível"
+msgstr ""
 
 msgid "All"
-msgstr "Tudo"
+msgstr "Tot"
 
 msgid ""
 "All attributes that uniquely define an article, e.g. width, length and color"
@@ -176,7 +172,7 @@ msgid ""
 msgstr ""
 
 msgid "Allow custom price"
-msgstr "Permitir preço personalizado"
+msgstr "Permetre un preu personalitzat"
 
 msgid "Allow customers to choose themselves how much they want to pay"
 msgstr ""
@@ -193,28 +189,28 @@ msgid ""
 msgstr ""
 
 msgid "Attribute"
-msgstr "Atributo"
+msgstr "Atribut"
 
 msgid "Attribute Lists Type"
-msgstr ""
+msgstr "Tipus de llistes d'atributs"
 
 msgid "Attribute Lists Types"
-msgstr ""
+msgstr "Tipus de llistes d'atributs"
 
 msgid "Attribute Property Type"
-msgstr ""
+msgstr "Tipus de propietat de l'atribut"
 
 msgid "Attribute Property Types"
-msgstr ""
+msgstr "Tipus de propietats de l'atribut"
 
 msgid "Attribute Type"
-msgstr "Tipo de Atributo"
+msgstr "Tipus d'atribut"
 
 msgid "Attribute Types"
-msgstr "Tipos de Atributos"
+msgstr "Tipus d'atribut"
 
 msgid "Attribute position (optional)"
-msgstr "Posição de Atributo (opcional)"
+msgstr "Posició de l'atribut (opcional)"
 
 msgid "Attribute properties that are not shared with other attributes"
 msgstr ""
@@ -223,7 +219,7 @@ msgid "Attribute type that limits the list of available attributes"
 msgstr ""
 
 msgid "Attributes"
-msgstr "Atributos"
+msgstr "Atributs"
 
 msgid "Available currency for the current site"
 msgstr ""
@@ -240,22 +236,22 @@ msgid ""
 msgstr ""
 
 msgid "Back in stock"
-msgstr "De volta em estoque"
+msgstr "Torna a estar disponible"
 
 msgid "Basic"
-msgstr "Básico"
+msgstr "Bàsic"
 
 msgid "Basket"
-msgstr "Carrinho"
+msgstr "Cistella"
 
 msgid "Billing address"
-msgstr "Endereço de cobrança"
+msgstr "Adreça de facturació"
 
 msgid "Birthday"
-msgstr "Aniversário"
+msgstr "Aniversari"
 
 msgid "Birthday of the customer"
-msgstr ""
+msgstr "Aniversari del client"
 
 msgid "Boost factor"
 msgstr ""
@@ -264,19 +260,19 @@ msgid "Boost factor (optional)"
 msgstr ""
 
 msgid "Bug or suggestion?"
-msgstr "Erro ou sugestão?"
+msgstr ""
 
 msgid "Bulk edit"
-msgstr "Editar em volume"
+msgstr ""
 
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Cancel·lar"
 
 msgid "Cancel and return to list"
-msgstr "Cancelar e voltar para lista"
+msgstr "Cancel·lar i tornar a la llista"
 
 msgid "Catalog"
-msgstr "Catálogo"
+msgstr "Catàleg"
 
 msgid "Catalog Lists Type"
 msgstr ""
@@ -285,7 +281,7 @@ msgid "Catalog Lists Types"
 msgstr ""
 
 msgid "Categories"
-msgstr "Categorias"
+msgstr "Categories"
 
 msgid "Categories the product can be found in by the user on the web site"
 msgstr ""
@@ -308,99 +304,99 @@ msgid "Change value in %"
 msgstr ""
 
 msgid "Channel"
-msgstr "Canal"
+msgstr ""
 
 msgid "Channel the order has been placed"
 msgstr ""
 
 msgid "Choose file"
-msgstr "Escolher ficheiro"
+msgstr "Tria un fitxer"
 
 msgid "City"
-msgstr "Cidade"
+msgstr "Ciutat"
 
 msgid "City or town name (required)"
-msgstr "Nome cidade ou localidade (obrigatório)"
+msgstr "Nom de la ciutat o poble (obligatori)"
 
 #, php-format
 msgid "Class \"%1$s\" does not implement \"%2$s\""
-msgstr "A classe \"%1$s\" não implementa \"%2$s\""
+msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" not available"
-msgstr "Classe \"%1$s\" não disponível"
+msgstr ""
 
 #, php-format
 msgid "Class \"%1$s\" not found"
-msgstr "Classe \"%1$s\" não encontrada"
+msgstr ""
 
 msgid "Close"
-msgstr "Fechar"
+msgstr "Tanca"
 
 msgid "Code"
-msgstr "Código"
+msgstr "Codi"
 
 msgid "Code to uniquely identify the site, renaming is dangerous!"
 msgstr ""
 
 msgid "Columns"
-msgstr "Colunas"
+msgstr "Columnes"
 
 msgid "Comment"
-msgstr "Comentário"
+msgstr "Comentari"
 
 msgid "Comment of the reviewer"
-msgstr ""
+msgstr "Comentari del revisor"
 
 msgid "Communication"
-msgstr "Comunicação"
+msgstr ""
 
 msgid "Company"
 msgstr "Empresa"
 
 msgid "Company details"
-msgstr "Detalhes da empresa"
+msgstr "Dades de l'empresa"
 
 msgid "Company name (optional)"
-msgstr "Nome da empresa (opcional)"
+msgstr "Nom de l'empresa (opcional)"
 
 msgid "Completed orders"
-msgstr "Completar compras"
+msgstr "Comandes completades"
 
 msgid ""
 "Completed orders within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Config"
-msgstr "Configuração"
+msgstr "Configuració"
 
 msgid "Configurable"
-msgstr "Configurável"
+msgstr "Configurable"
 
 msgid ""
 "Configuration options, will be available as key/value pairs in the list item"
 msgstr ""
 
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Copia"
 
 msgid "Copy this entry"
-msgstr "Copiar esta entrada"
+msgstr "Copia aquesta entrada"
 
 msgid "Costs"
-msgstr "Custo"
+msgstr "Costos"
 
 msgid "Count"
-msgstr "Contagem"
+msgstr "Compte"
 
 msgid "Country"
 msgstr "País"
 
 msgid "Country ID"
-msgstr "ID do país"
+msgstr "ID del país"
 
 msgid "Country code (required)"
-msgstr "Código do país (Obrigatório)"
+msgstr "Codi del país (obligatori)"
 
 msgid ""
 "Country specific tax rate to calculate and display the included tax (B2C) or"
@@ -411,76 +407,76 @@ msgid "Country state code (optional)"
 msgstr ""
 
 msgid "Coupon"
-msgstr "Cupom"
+msgstr "Cupó"
 
 msgid "Coupon provider or coupon decorator configuration name"
 msgstr ""
 
 msgid "Created"
-msgstr "Criado"
+msgstr "Creat"
 
 msgid "Currencies"
-msgstr "Moedas"
+msgstr "Monedes"
 
 msgid "Currency"
-msgstr "Moeda"
+msgstr "Moneda"
 
 msgid "Custom"
-msgstr "Personalizado"
+msgstr "Personalitzat"
 
 msgid "Custom domain or unique code of your shop"
-msgstr "Domínio próprio ou código único para a sua loja"
+msgstr ""
 
 msgid "Customer"
-msgstr "Cliente"
+msgstr "Client"
 
 msgid "Customer ID"
-msgstr "ID de Cliente"
+msgstr "ID de client"
 
 msgid "Customer Lists Type"
-msgstr "Tipo de listas clientes"
+msgstr ""
 
 msgid "Customer Lists Types"
-msgstr "Tipo de listas clientes"
+msgstr ""
 
 msgid "Customer Property Type"
-msgstr "Tipo de propriedades de cliente"
+msgstr ""
 
 msgid "Customer Property Types"
-msgstr "Tipo de propriedades de cliente"
+msgstr ""
 
 msgid "Customer characteristics that are not shared with other customers"
 msgstr ""
 
 msgid "Customer comment (optional)"
-msgstr "Comentários de cliente (opcional)"
+msgstr ""
 
 msgid "Customer e-mail address"
-msgstr "Endereço de E-mail de cliente"
+msgstr ""
 
 msgid "Customer password"
-msgstr "Password do Cliente"
+msgstr "Contrasenya del client"
 
 msgid "Customer properties that are not shared with other customers"
 msgstr ""
 
 msgid "Customer reference"
-msgstr ""
+msgstr "Referència del client"
 
 msgid "Customer reference (optional)"
-msgstr ""
+msgstr "Referència del client (opcional)"
 
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "Panell de control"
 
 msgid "Data"
-msgstr ""
+msgstr "Dades"
 
 msgid "Data set"
-msgstr ""
+msgstr "Conjunt de dades"
 
 msgid "Dataset"
-msgstr ""
+msgstr "Conjunt de dades"
 
 msgid "Date of the last delivery status change"
 msgstr ""
@@ -492,53 +488,53 @@ msgid "Date the subscription ends"
 msgstr ""
 
 msgid "Days"
-msgstr "Dias"
+msgstr "Dies"
 
 msgid "Default"
-msgstr "Padrão"
+msgstr "Per defecte"
 
 msgid "Delete"
-msgstr "Remover"
+msgstr "Eliminar"
 
 msgid "Delete items?"
-msgstr "Remover itens?"
+msgstr "Eliminar els elements? "
 
 msgid "Delete selected entries"
-msgstr ""
+msgstr "Eliminar entrades seleccionades"
 
 msgid "Delete this entry"
-msgstr "Apagar esta entrada"
+msgstr "Eliminar aquesta entrada"
 
 msgid "Deleting reviews is not allowed"
-msgstr ""
+msgstr "No es permet eliminar ressenyes"
 
 msgid "Delivery"
 msgstr "Entrega"
 
 msgid "Delivery address"
-msgstr "Endereço de entrega"
+msgstr "Adreça de lliurament"
 
 msgid "Delivery date"
-msgstr "Data de entrega"
+msgstr "Data d'entrega"
 
 msgid "Delivery in"
-msgstr ""
+msgstr "Entrega en"
 
 msgid ""
 "Delivery or payment costs for the products in the basket of the customer"
 msgstr ""
 
 msgid "Delivery status"
-msgstr "Status de entrega"
+msgstr "Estat de l'entrega"
 
 msgid "Delivery timeframe (optional)"
 msgstr ""
 
 msgid "Delivery types"
-msgstr "Tipo de entrega"
+msgstr ""
 
 msgid "Delivery within"
-msgstr "Entrega em"
+msgstr ""
 
 msgid ""
 "Depending on the selected data set, the list of shown fields for the product"
@@ -558,28 +554,28 @@ msgid "Descritive name of the site"
 msgstr ""
 
 msgid "Discount"
-msgstr ""
+msgstr "Descompte"
 
 msgid "Display help texts"
-msgstr ""
+msgstr "Mostrar textos d'ajuda"
 
 msgid "Domain"
-msgstr "Domínio"
+msgstr "Domini"
 
 msgid "Download"
-msgstr "Baixar"
+msgstr "Descarregar"
 
 msgid "Download this file"
-msgstr "Descarregar este arquivo"
+msgstr "Descarregar aquest arxiu"
 
 msgid "Duplicate entry (Ctrl+D)"
-msgstr ""
+msgstr "Duplicar entrada (Ctrl+D)"
 
 msgid "E-Mail"
-msgstr "E-mail"
+msgstr "Correu electrònic"
 
 msgid "E-Mail address (required)"
-msgstr "Endereço de email (obrigatório)"
+msgstr "Adreça de correu electrònic (obligatori)"
 
 msgid "E-Mail address or account name (required)"
 msgstr ""
@@ -588,37 +584,37 @@ msgid "E-Mail address used for sending shop related e-mails"
 msgstr ""
 
 msgid "E-mail"
-msgstr "E-mail"
+msgstr "Correu electrònic"
 
 msgid "E-mail address (optional)"
-msgstr "Endereço de email (opcional)"
+msgstr ""
 
 msgid "E-mail address that belongs to the address"
 msgstr ""
 
 msgid "EAN, SKU or article number (required)"
-msgstr "EAN, SKU ou número do item (obrigatório)"
+msgstr ""
 
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Edit this entry"
-msgstr "Editar esta entrada"
+msgstr "Editar aquesta entrada"
 
 msgid "Editor"
 msgstr "Editor"
 
 msgid "Email"
-msgstr "Email"
+msgstr "Correu electrònic"
 
 msgid "End date"
-msgstr "Data final"
+msgstr "Data de finalització"
 
 msgid "End date (optional)"
-msgstr ""
+msgstr "Data de finalització (opcional)"
 
 msgid "Error"
-msgstr "Erro"
+msgstr "Error"
 
 msgid "Excl. tax"
 msgstr ""
@@ -633,7 +629,7 @@ msgid "Export"
 msgstr "Exportar"
 
 msgid "Facility"
-msgstr "Unidade"
+msgstr ""
 
 msgid "Facsimile"
 msgstr ""
@@ -650,25 +646,25 @@ msgid "Failed to write file to disk"
 msgstr ""
 
 msgid "File"
-msgstr "Arquivo"
+msgstr "Fitxer"
 
 msgid "File upload stopped by extension"
 msgstr ""
 
 msgid "Find category"
-msgstr "Encontrar categoria "
+msgstr "Cerca categoria"
 
 msgid "Find site"
 msgstr ""
 
 msgid "First"
-msgstr "Primeiro"
+msgstr "Primer"
 
 msgid "First name"
-msgstr "Nome"
+msgstr "Nom"
 
 msgid "First name (optional)"
-msgstr "Nome (opcional)"
+msgstr "Nom (opcional)"
 
 msgid "First name of the person if used in cultures where they are used"
 msgstr ""
@@ -701,19 +697,19 @@ msgid "Granted rebate"
 msgstr ""
 
 msgid "Group"
-msgstr "Grupo"
+msgstr "Grup"
 
 msgid "Group name describing for which members the group is for"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Grups"
 
 msgid "Height"
-msgstr "Altura"
+msgstr "Alçada"
 
 msgid "Hidden attributes"
-msgstr "Atributos escondidos"
+msgstr "Atributs amagats"
 
 msgid "Hidden product attributes that are stored with the ordered products"
 msgstr ""
@@ -728,10 +724,10 @@ msgid "Honorary titles like Dr., Ph.D, etc."
 msgstr ""
 
 msgid "Hours"
-msgstr ""
+msgstr "Hores"
 
 msgid "House number"
-msgstr "Número da casa"
+msgstr ""
 
 msgid "House number (optional)"
 msgstr ""
@@ -743,7 +739,7 @@ msgid "How the supplier is addressed in e-mails"
 msgstr ""
 
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgid "ID of a related invoice, e.g. of a changed or refunded invoice"
 msgstr ""
@@ -755,7 +751,7 @@ msgid "ISO language code (required)"
 msgstr ""
 
 msgid "Image"
-msgstr ""
+msgstr "Imatge"
 
 msgid ""
 "Images will only be shown for that language, useful if the media contains "
@@ -766,19 +762,19 @@ msgid "Import"
 msgstr "Importar"
 
 msgid "Import/Export jobs"
-msgstr ""
+msgstr "Importar / exportar feines"
 
 msgid "Incl. tax"
-msgstr ""
+msgstr "Taxes incl."
 
 msgid "Info"
-msgstr "Informação"
+msgstr "Informació"
 
 msgid "Insert new entry"
-msgstr "Inserir nova entrada"
+msgstr ""
 
 msgid "Insert new entry (Ctrl+I)"
-msgstr "Inserir nova entrada (Ctrl+I)"
+msgstr ""
 
 msgid ""
 "Internal article name, will be used on the web site and for searching only "
@@ -801,42 +797,42 @@ msgid ""
 msgstr ""
 
 msgid "Internal name (required)"
-msgstr "Nome interno (obrigatório)"
+msgstr ""
 
 msgid "Internal type name shown in the administration interface"
 msgstr ""
 
 msgid "Interval"
-msgstr "Intervalo"
+msgstr ""
 
 msgid "Interval (required)"
 msgstr ""
 
 #, php-format
 msgid "Invalid characters in class name \"%1$s\""
-msgstr "Caracteres inválidos no nome da classe \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid characters in client name \"%1$s\""
-msgstr "Caracteres inválidos no nome do cliente \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid class name \"%1$s\""
-msgstr "Nome de classe inválido \"%1$s\""
+msgstr ""
 
 #, php-format
 msgid "Invalid domain \"%1$s\""
-msgstr "Domínio \"%1$s\" inválido"
+msgstr ""
 
 #, php-format
 msgid "Invalid factory \"%1$s\""
-msgstr "Fábrica inválida \"%1$s\""
+msgstr ""
 
 msgid "Invoice"
-msgstr "Fatura"
+msgstr "Factura"
 
 msgid "Invoice No."
-msgstr ""
+msgstr "Factura nº"
 
 msgid "Invoice number for the order"
 msgstr ""
@@ -845,7 +841,7 @@ msgid "Item deleted successfully"
 msgstr ""
 
 msgid "Item saved successfully"
-msgstr "Item guardado com sucesso"
+msgstr ""
 
 msgid ""
 "Item specific configuration options, will be available as key/value pairs in"
@@ -853,40 +849,40 @@ msgid ""
 msgstr ""
 
 msgid "Label"
-msgstr "Rótulo"
+msgstr ""
 
 msgid "Label (required)"
-msgstr "Rótulo (Obrigatório)"
+msgstr ""
 
 msgid "Label describing the interval, will be used if no name is available"
 msgstr ""
 
 msgid "Language"
-msgstr "Idioma"
+msgstr ""
 
 msgid "Language ID"
-msgstr "ID do Idioma"
+msgstr ""
 
 msgid "Language of the entered text"
 msgstr ""
 
 msgid "Languages"
-msgstr "Idiomas"
+msgstr ""
 
 msgid "Last"
-msgstr "Último"
+msgstr "Últim"
 
 msgid "Last delivery status of the order"
 msgstr ""
 
 msgid "Last name"
-msgstr "Sobrenome"
+msgstr "Cognom"
 
 msgid "Last name (optional)"
-msgstr ""
+msgstr "Cognom (opcional)"
 
 msgid "Last name (required)"
-msgstr "Sobrenome (obrigatório)"
+msgstr "Cognom (obligatori)"
 
 msgid ""
 "Last name of the person or full name in cultures where no first names are "
@@ -897,10 +893,10 @@ msgid "Last payment status of the order"
 msgstr ""
 
 msgid "Latest orders"
-msgstr "Últimos pedidos"
+msgstr "Últimes comandes"
 
 msgid "Length"
-msgstr "Comprimento"
+msgstr "Llargada"
 
 msgid ""
 "List of articles that should be sold as one product, often at a reduced "
@@ -911,25 +907,25 @@ msgid "List of products often bought together"
 msgstr ""
 
 msgid "List of suggested products"
-msgstr "Lista de produtos sugeridos"
-
-msgid "List type"
-msgstr "Tipo da lista"
-
-msgid "Loading items ..."
 msgstr ""
 
+msgid "List type"
+msgstr "Tipus de llista"
+
+msgid "Loading items ..."
+msgstr "Carregant articles..."
+
 msgid "Locale"
-msgstr "Locale"
+msgstr ""
 
 msgid "Log"
-msgstr "Registo"
+msgstr ""
 
 msgid "Manual transfer"
 msgstr ""
 
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgid "Media Lists Type"
 msgstr ""
@@ -956,40 +952,40 @@ msgid "Menu"
 msgstr ""
 
 msgid "Message"
-msgstr "Mensagem"
+msgstr ""
 
 msgid "Min. quantity"
 msgstr ""
 
 msgid "Minimum quantity"
-msgstr "Quantidade mínima"
+msgstr ""
 
 msgid "Mobile"
-msgstr "Movel"
+msgstr "Mòbil"
 
 msgid "Mobile number"
-msgstr "Numero telemovel"
+msgstr "Número de telèfon mòbil"
 
 msgid "Mobile number (optional)"
-msgstr ""
+msgstr "Número de telèfon mòbil (opcional)"
 
 msgid "Modifed"
-msgstr ""
+msgstr "Modificat"
 
 msgid "Modified"
-msgstr ""
+msgstr "Modificat"
 
 msgid "Months"
-msgstr ""
+msgstr "Mesos"
 
 msgid "More"
-msgstr "Mais"
+msgstr "Més"
 
 msgid "Move this entry up/down"
 msgstr ""
 
 msgid "Name"
-msgstr "Nome"
+msgstr "Nom"
 
 msgid "Name in URL (optional)"
 msgstr ""
@@ -1008,10 +1004,10 @@ msgid "Name of your shop shown to your customers"
 msgstr ""
 
 msgid "New"
-msgstr "Novo"
+msgstr "Nou"
 
 msgid "New customers"
-msgstr ""
+msgstr "Nous clients"
 
 msgid "New customers within the last seven days"
 msgstr ""
@@ -1020,13 +1016,13 @@ msgid "New customers within the last seven days compared to the period before"
 msgstr ""
 
 msgid "Next"
-msgstr "Próximo"
+msgstr "Següent"
 
 msgid "Next date"
-msgstr "Próxima data"
+msgstr "Següent data"
 
 msgid "Next date (optional)"
-msgstr "Próxima data (Opcional)"
+msgstr "Següent data (opcional)"
 
 msgid "Next date the subscription is renewed"
 msgstr ""
@@ -1038,20 +1034,20 @@ msgid "No file was uploaded"
 msgstr ""
 
 msgid "No items found"
-msgstr "Não foram encontrados itens"
+msgstr ""
 
 msgid "No product found"
-msgstr ""
+msgstr "No s'ha trobat cap producte"
 
 msgid "No theme options available"
 msgstr ""
 
 #, php-format
 msgid "No view available"
-msgstr "Sem visualização disponível"
+msgstr ""
 
 msgid "No voucher"
-msgstr ""
+msgstr "No hi ha val descompte"
 
 msgid "Non-shared properties for the media item"
 msgstr ""
@@ -1060,17 +1056,17 @@ msgid "Non-shared properties for the price item"
 msgstr ""
 
 msgid "None"
-msgstr "Nenhum"
+msgstr "Cap"
 
 msgid "Not all items could be deleted"
 msgstr ""
 
 #, php-format
 msgid "Not allowed to access JQAdm \"%1$s\" client"
-msgstr "Acesso ao cliente JQAdm \"%1$s\" não permitido"
+msgstr ""
 
 msgid "Not implemented"
-msgstr "Não implementado"
+msgstr ""
 
 msgid "Notes"
 msgstr ""
@@ -1083,7 +1079,7 @@ msgid ""
 msgstr ""
 
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 msgid "Official VAT ID to determine if the tax needs to be billed in invoices"
 msgstr ""
@@ -1096,13 +1092,13 @@ msgid "Only super users and administrators can delete items"
 msgstr ""
 
 msgid "Open"
-msgstr ""
+msgstr "Obrir"
 
 msgid "Open Qty"
-msgstr ""
+msgstr "Obrir Qtt."
 
 msgid "Option"
-msgstr "Opção"
+msgstr "Opció"
 
 msgid ""
 "Optional product components that can be chosen by the customer together with"
@@ -1110,10 +1106,10 @@ msgid ""
 msgstr ""
 
 msgid "Order"
-msgstr "Pedido"
+msgstr "Comanda"
 
 msgid "Order ID"
-msgstr "ID do Pedido"
+msgstr "ID de comanda"
 
 msgid "Order number entered by the customer"
 msgstr ""
@@ -1128,22 +1124,22 @@ msgid "Order of the types in the frontend"
 msgstr ""
 
 msgid "Order totals"
-msgstr ""
+msgstr "Totals de comanda"
 
 msgid "Ordered at"
-msgstr ""
+msgstr "Encarregat a"
 
 msgid "Orders by country"
-msgstr ""
+msgstr "Comandes per país"
 
 msgid "Orders by day"
-msgstr "Pedidos por data"
+msgstr "Comandes per dia"
 
 msgid "Orders by hour"
-msgstr "Pedidos por hora"
+msgstr "Comandes per hora"
 
 msgid "Orders by payment status"
-msgstr "Pedidos por status de pagamento"
+msgstr "Comandes per estat del pagament"
 
 msgid ""
 "Overwrite the existing file and customers bought it in the past can then "
@@ -1164,60 +1160,60 @@ msgstr ""
 
 #, php-format
 msgid "Page %1$d of %2$d"
-msgstr "Página %1$d de %2$d"
+msgstr ""
 
 msgid "Password"
-msgstr "Senha"
+msgstr "Contrasenya"
 
 msgid "Password (required)"
-msgstr "Senha (obrigatório)"
+msgstr "Contrasenya (obligatòria)"
 
 msgid "Path"
-msgstr "Caminho"
+msgstr ""
 
 msgid "Pay date"
-msgstr "Data de pagamento"
+msgstr "Data de pagament"
 
 msgid "Pay status"
-msgstr ""
+msgstr "Estat del pagament"
 
 msgid "Payment"
-msgstr "Pagamento"
+msgstr "Pagament"
 
 msgid "Payment date"
-msgstr "Data de pagamento"
+msgstr "Data del pagament"
 
 msgid "Payment status"
-msgstr "Status de pagamento"
+msgstr "Estat del pagament"
 
 msgid "Payment types"
-msgstr "Formas de pagamento"
+msgstr "Tipus de pagament"
 
 msgid "Periods"
-msgstr ""
+msgstr "Períodes"
 
 #, php-format
 msgid "Permission denied"
-msgstr ""
+msgstr "Permís denegat"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Dades personals"
 
 msgid ""
 "Please insert the description of the text that should be generated here"
 msgstr ""
 
 msgid "Please select"
-msgstr "Por favor selecione"
+msgstr "Si us plau, selecciona"
 
 msgid "Plugin"
-msgstr "Plugin"
+msgstr "Extensió"
 
 msgid "Plugin Type"
-msgstr ""
+msgstr "Tipus d'extensió"
 
 msgid "Plugin Types"
-msgstr ""
+msgstr "Tipus d'extencions"
 
 msgid "Plugin label for describing the configured plugin"
 msgstr ""
@@ -1229,10 +1225,10 @@ msgid "Plugin provider or plugin decorator configuration name"
 msgstr ""
 
 msgid "Position"
-msgstr "Posição"
+msgstr "Posició"
 
 msgid "Position (required)"
-msgstr ""
+msgstr "Posició (obligatori)"
 
 msgid "Postal"
 msgstr ""
@@ -1253,7 +1249,7 @@ msgid "Previous"
 msgstr "Anterior"
 
 msgid "Price"
-msgstr "Preço"
+msgstr "Preu"
 
 msgid "Price Lists Type"
 msgstr ""
@@ -1277,19 +1273,19 @@ msgid "Price properties"
 msgstr ""
 
 msgid "Priority"
-msgstr "Prioridade"
+msgstr "Prioritat"
 
 msgid "Problem"
 msgstr "Problema"
 
 msgid "Product"
-msgstr "Produto"
+msgstr "Producte"
 
 msgid "Product ID"
-msgstr "ID do Produto"
+msgstr "ID de producte"
 
 msgid "Product ID, SKU or label"
-msgstr ""
+msgstr "ID de producte, SKU o etiqueta"
 
 msgid "Product Lists Type"
 msgstr ""
@@ -1304,10 +1300,10 @@ msgid "Product Property Types"
 msgstr ""
 
 msgid "Product Type"
-msgstr ""
+msgstr "Tipus de producte"
 
 msgid "Product Types"
-msgstr ""
+msgstr "Tipus de productes"
 
 msgid ""
 "Product attributes stored in the basket where customers can enter their own "
@@ -1321,31 +1317,31 @@ msgid "Product characteristics that are not shared with other products"
 msgstr ""
 
 msgid "Product code"
-msgstr "Código do produto"
+msgstr "Codi de producte"
 
 msgid "Product costs"
-msgstr "Custos do produto"
-
-msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
-msgstr "Altura do produto, ex. 30.0 (em metros, centímetros, etc.)"
-
-msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
-msgstr "Largura do produto, ex. 30.0 (em metros, centímetros, etc.)"
-
-msgid "Product name"
-msgstr "Nome do produto"
-
-msgid "Product payment"
 msgstr ""
 
+msgid "Product height, e.g. 20.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product length, e.g. 30.0 (in yard, inch, etc.)"
+msgstr ""
+
+msgid "Product name"
+msgstr "Nom del producte"
+
+msgid "Product payment"
+msgstr "Pagament del producte"
+
 msgid "Product price"
-msgstr "Preço do produto"
+msgstr "Preu del producte"
 
 msgid "Product quantity"
-msgstr "Quantidade do produto"
+msgstr "Quantitat del producte"
 
 msgid "Product rebate"
-msgstr "Desconto do produto"
+msgstr ""
 
 msgid "Product shipping"
 msgstr ""
@@ -1360,31 +1356,31 @@ msgid "Product tax"
 msgstr ""
 
 msgid "Product type"
-msgstr "Tipo do produto"
+msgstr ""
 
 msgid "Product weight, e.g. 1.25 (in pound, ounce, etc.)"
-msgstr "Peso do produto, ex. 1.25(em quilo, grama, etc.)"
+msgstr ""
 
 msgid "Product width, e.g. 17.5 (in yard, inch etc.)"
-msgstr "Largura do produto, ex. 17.5 (em metros, centímetros, etc.)"
+msgstr ""
 
 msgid "Products"
-msgstr "Produtos"
+msgstr ""
 
 msgid "Products bought together"
-msgstr "Produtos comprados juntos"
+msgstr ""
 
 msgid "Promotion"
-msgstr "Promoção"
+msgstr ""
 
 msgid "Properties"
-msgstr "Propriedades"
+msgstr ""
 
 msgid "Property value (required)"
-msgstr "Valor da propriedade (obrigatório)"
+msgstr ""
 
 msgid "Provider"
-msgstr "Fornecedor"
+msgstr ""
 
 msgid "Provider/decorator class names (required)"
 msgstr ""
@@ -1393,7 +1389,7 @@ msgid "Purchase"
 msgstr ""
 
 msgid "Quantity"
-msgstr "Quantidade"
+msgstr ""
 
 msgid "Quantity scale"
 msgstr ""
@@ -1402,7 +1398,7 @@ msgid "Rabate"
 msgstr ""
 
 msgid "Rating"
-msgstr "Avaliação"
+msgstr ""
 
 msgid "Rating and number of ratings for the merchant"
 msgstr ""
@@ -1414,7 +1410,7 @@ msgid "Reason"
 msgstr ""
 
 msgid "Rebate"
-msgstr "Desconto"
+msgstr ""
 
 msgid ""
 "Reduction from the original price, used to calculate the rebate in % and the"
@@ -1422,13 +1418,13 @@ msgid ""
 msgstr ""
 
 msgid "Reference"
-msgstr "Referência"
+msgstr ""
 
 msgid "Reference ID"
 msgstr ""
 
 msgid "Refund"
-msgstr "pagamento:reembolso"
+msgstr ""
 
 msgid "Related ID"
 msgstr ""
@@ -1443,13 +1439,13 @@ msgid "Related order of the customer"
 msgstr ""
 
 msgid "Renew"
-msgstr "Renovar"
+msgstr ""
 
 msgid "Replace file"
-msgstr "Substituir arquivo"
+msgstr ""
 
 msgid "Request"
-msgstr "Requisição"
+msgstr ""
 
 #, php-format
 msgid "Required parameter \"%1$s\" is missing"
@@ -1461,7 +1457,7 @@ msgid ""
 msgstr ""
 
 msgid "Reset"
-msgstr "Limpar"
+msgstr ""
 
 msgid "Response"
 msgstr ""
@@ -1470,7 +1466,7 @@ msgid "Response to the reviewer"
 msgstr ""
 
 msgid "Review"
-msgstr "status:revisão"
+msgstr ""
 
 msgid "Reviewed item"
 msgstr ""
@@ -1513,7 +1509,7 @@ msgid "Rules"
 msgstr ""
 
 msgid "SKU"
-msgstr "SKU"
+msgstr ""
 
 msgid "Sales by weekday"
 msgstr ""
@@ -1525,34 +1521,34 @@ msgid "Sales per month"
 msgstr ""
 
 msgid "Salutation"
-msgstr "Saudação"
+msgstr ""
 
 msgid "Save"
-msgstr "Salvar"
+msgstr ""
 
 msgid "Save & Close"
-msgstr "Guardar & Fechar"
+msgstr ""
 
 msgid "Save & Copy"
-msgstr "Guardar & Copiar"
+msgstr ""
 
 msgid "Save & New"
-msgstr "Guardar & Novo"
+msgstr ""
 
 msgid "Save entry (Ctrl+S)"
-msgstr "Guardar entrada (Ctrl+S)"
+msgstr ""
 
 msgid "Search"
-msgstr "Pesquisar"
+msgstr ""
 
 msgid "Second level type for grouping items"
 msgstr ""
 
 msgid "Select file"
-msgstr "Selecionar ficheiro"
+msgstr ""
 
 msgid "Service"
-msgstr "Serviço"
+msgstr ""
 
 msgid "Service Lists Type"
 msgstr ""
@@ -1597,7 +1593,7 @@ msgid "Ship status"
 msgstr ""
 
 msgid "Shipping"
-msgstr "Envio"
+msgstr ""
 
 msgid "Shipping / Payment costs"
 msgstr ""
@@ -1641,10 +1637,10 @@ msgid ""
 msgstr ""
 
 msgid "Show"
-msgstr "Mostrar"
+msgstr ""
 
 msgid "Show entry"
-msgstr "Mostrar entradas"
+msgstr ""
 
 msgid "Show search form"
 msgstr ""
@@ -1668,7 +1664,7 @@ msgid "Since when the product is available, used for sorting in the front-end"
 msgstr ""
 
 msgid "Site"
-msgstr "Site"
+msgstr ""
 
 msgid ""
 "Site specific configuration options, will be available as key/value pairs"
@@ -1678,10 +1674,10 @@ msgid "Site the order was placed at"
 msgstr ""
 
 msgid "Sites"
-msgstr "Sites"
+msgstr ""
 
 msgid "Size"
-msgstr "Tamanho"
+msgstr ""
 
 msgid "Sorting of the attributes within the same attribute type"
 msgstr ""
@@ -1693,16 +1689,16 @@ msgid "Source of the invoice, e.g. by web or phone"
 msgstr ""
 
 msgid "Start date"
-msgstr "Data de início"
+msgstr ""
 
 msgid "Start typing ..."
 msgstr ""
 
 msgid "State"
-msgstr "Estado"
+msgstr ""
 
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 msgid "Stock Type"
 msgstr ""
@@ -1711,22 +1707,22 @@ msgid "Stock Types"
 msgstr ""
 
 msgid "Stock level"
-msgstr "Nível do estoque"
+msgstr ""
 
 msgid "Stock type"
 msgstr ""
 
 msgid "Street"
-msgstr "Rua"
+msgstr ""
 
 msgid "Street name (optional)"
 msgstr ""
 
 msgid "Sub-total"
-msgstr "Sub-total"
+msgstr ""
 
 msgid "Subscription"
-msgstr "Subscrição"
+msgstr ""
 
 msgid ""
 "Subscription interval with years, months, weeks and days, e.g. \"P0Y1M2W3D\""
@@ -1734,13 +1730,13 @@ msgid ""
 msgstr ""
 
 msgid "Suggested products"
-msgstr "Produtos sugeridos"
+msgstr ""
 
 msgid "Sum"
-msgstr "Soma"
+msgstr ""
 
 msgid "Supplier"
-msgstr "Fornecedor"
+msgstr ""
 
 msgid "Supplier name or company"
 msgstr ""
@@ -1758,16 +1754,16 @@ msgid "Tag Types"
 msgstr ""
 
 msgid "Tax"
-msgstr "Taxa"
+msgstr ""
 
 msgid "Tax rate"
-msgstr "Taxa de imposto"
+msgstr ""
 
 msgid "Tax rate in %"
-msgstr "Taxa de imposto em %"
+msgstr ""
 
 msgid "Telephone"
-msgstr "Fone"
+msgstr ""
 
 msgid "Telephone number (optional)"
 msgstr ""
@@ -1852,7 +1848,7 @@ msgid "Timestamp"
 msgstr ""
 
 msgid "Title"
-msgstr "Título"
+msgstr ""
 
 msgid "Toggle dropdown"
 msgstr ""
@@ -1861,7 +1857,7 @@ msgid "Top countries"
 msgstr ""
 
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 msgid "Total orders"
 msgstr ""
@@ -1882,7 +1878,7 @@ msgid "Two letter ISO language code"
 msgstr ""
 
 msgid "Type"
-msgstr "Tipo"
+msgstr ""
 
 msgid "Type position (optional)"
 msgstr ""
@@ -1903,14 +1899,14 @@ msgid "URL of the supplier web site"
 msgstr ""
 
 msgid "URL segment"
-msgstr "Segmento de URL"
+msgstr ""
 
 msgid "URL target"
 msgstr ""
 
 #, php-format
 msgid "Unable to call method \"%1$s\""
-msgstr "Incapaz de chamar o método \"%1$s\""
+msgstr ""
 
 msgid "Unfinished orders"
 msgstr ""
@@ -1937,7 +1933,7 @@ msgid "Unique category code, either from external system or self-invented"
 msgstr ""
 
 msgid "Unique code (required)"
-msgstr "Código único (obrigatório)"
+msgstr ""
 
 msgid "Unique code to identify the service, usually self-invented"
 msgstr ""
@@ -1982,7 +1978,7 @@ msgid "Upload shop logo"
 msgstr ""
 
 msgid "Uploaded"
-msgstr "Enviado"
+msgstr ""
 
 msgid "User groups"
 msgstr ""
@@ -1994,13 +1990,13 @@ msgid "VAT ID"
 msgstr ""
 
 msgid "Value"
-msgstr "Valor"
+msgstr ""
 
 msgid "Value added tax identifier (optional)"
 msgstr ""
 
 msgid "Variant attributes"
-msgstr "Atributos variáveis"
+msgstr ""
 
 msgid "Variant product attributes that are stored with the ordered products"
 msgstr ""
@@ -2019,7 +2015,7 @@ msgid ""
 msgstr ""
 
 msgid "Web site"
-msgstr "Site"
+msgstr ""
 
 msgid "Web site URL (optional)"
 msgstr ""
@@ -2028,22 +2024,22 @@ msgid "Weeks"
 msgstr ""
 
 msgid "Weight"
-msgstr "Peso"
+msgstr ""
 
 msgid "When the account and e-mail address has been verified"
 msgstr ""
 
 msgid "Width"
-msgstr "Largura"
+msgstr ""
 
 msgid "YYYY-MM-DD hh:mm:ss (optional)"
-msgstr "YYYY-MM-DD hh:mm:ss (opcional)"
+msgstr ""
 
 msgid "Years"
 msgstr ""
 
 msgid "You are going to delete one or more items. Would you like to proceed?"
-msgstr "Você irá remover um ou mais itens. Deseja prosseguir?"
+msgstr ""
 
 msgid "Your export will be available in a few minutes for download"
 msgstr ""
@@ -2052,7 +2048,7 @@ msgid "Your response"
 msgstr ""
 
 msgid "Zip code"
-msgstr "CEP"
+msgstr ""
 
 msgid "Zip code (optional)"
 msgstr ""
@@ -2066,17 +2062,17 @@ msgstr ""
 
 #, php-format
 msgid "address"
-msgstr "Endereços"
+msgstr ""
 
 msgid "address:delivery"
-msgstr "Endereço de entrega"
+msgstr "Adreça de lliurament"
 
 msgid "address:payment"
-msgstr "Endereço de cobrança"
+msgstr "Adreça de facturació"
 
 #, php-format
 msgid "attribute"
-msgstr "Atributos"
+msgstr "Atributs"
 
 #, php-format
 msgid "basket"
@@ -2084,26 +2080,26 @@ msgstr ""
 
 #, php-format
 msgid "bundle"
-msgstr "Pacotes"
+msgstr ""
 
 #, php-format
 msgid "catalog"
-msgstr "Categorias"
+msgstr "Categories"
 
 #, php-format
 msgid "category"
-msgstr "Categorias"
+msgstr "Categories"
 
 #, php-format
 msgid "characteristic"
-msgstr "Características"
+msgstr ""
 
 #, php-format
 msgid "code"
-msgstr "Códigos"
+msgstr ""
 
 msgid "company"
-msgstr "Empresa"
+msgstr "Comunicació"
 
 #, php-format
 msgid "configuration"
@@ -2115,15 +2111,15 @@ msgstr ""
 
 #, php-format
 msgid "countday"
-msgstr "Pedidos por data"
+msgstr "Comandes per dia"
 
 #, php-format
 msgid "counthour"
-msgstr "Pedidos por hora"
+msgstr "Comandes per hora"
 
 #, php-format
 msgid "countpaystatus"
-msgstr "Pedidos por status de pagamento"
+msgstr "Comandes per estat del pagament"
 
 #, php-format
 msgid "coupon"
@@ -2131,11 +2127,11 @@ msgstr ""
 
 #, php-format
 msgid "customer"
-msgstr "Clientes"
+msgstr ""
 
 #, php-format
 msgid "dashboard"
-msgstr "Dashboard"
+msgstr "Panell"
 
 #, php-format
 msgid "day"
@@ -2151,11 +2147,11 @@ msgstr ""
 
 #, php-format
 msgid "goods"
-msgstr "Catálogo"
+msgstr "Catàleg"
 
 #, php-format
 msgid "group"
-msgstr ""
+msgstr "Grups"
 
 #, php-format
 msgid "hour"
@@ -2163,15 +2159,15 @@ msgstr ""
 
 #, php-format
 msgid "image"
-msgstr "Imagens"
+msgstr ""
 
 #, php-format
 msgid "invoice"
-msgstr "Faturas"
+msgstr ""
 
 #, php-format
 msgid "latest"
-msgstr "Último"
+msgstr ""
 
 #, php-format
 msgid "locale"
@@ -2179,19 +2175,19 @@ msgstr ""
 
 #, php-format
 msgid "locale/currency"
-msgstr "Moedas"
+msgstr "Monedes"
 
 #, php-format
 msgid "locale/language"
-msgstr "Idiomas"
+msgstr ""
 
 #, php-format
 msgid "locale/site"
-msgstr "Sites"
+msgstr ""
 
 #, php-format
 msgid "log"
-msgstr "Registros"
+msgstr ""
 
 #, php-format
 msgid "marketing"
@@ -2199,39 +2195,39 @@ msgstr ""
 
 #, php-format
 msgid "media"
-msgstr "Mídia"
+msgstr ""
 
 msgid "miss"
-msgstr "Srta"
+msgstr ""
 
 msgid "mr"
-msgstr "Sr"
+msgstr ""
 
 msgid "mrs"
-msgstr "Sra"
+msgstr ""
 
 msgid "ms"
 msgstr ""
 
 msgid "new"
-msgstr "novo"
+msgstr ""
 
 msgid "no"
-msgstr "não"
+msgstr ""
 
 msgid "none"
-msgstr "nenhum"
+msgstr ""
 
 msgid "not available any more"
 msgstr ""
 
 #, php-format
 msgid "option"
-msgstr "Opções"
+msgstr ""
 
 #, php-format
 msgid "order"
-msgstr "Pedidos"
+msgstr ""
 
 msgid "order:phone"
 msgstr ""
@@ -2240,28 +2236,28 @@ msgid "order:web"
 msgstr ""
 
 msgid "pay:-1"
-msgstr "não-concluído"
+msgstr ""
 
 msgid "pay:0"
-msgstr "removido"
+msgstr ""
 
 msgid "pay:1"
-msgstr "cancelado"
+msgstr ""
 
 msgid "pay:2"
-msgstr "recusado"
+msgstr ""
 
 msgid "pay:3"
-msgstr "reembolsado"
+msgstr ""
 
 msgid "pay:4"
-msgstr "pendente"
+msgstr ""
 
 msgid "pay:5"
-msgstr "autorizado"
+msgstr ""
 
 msgid "pay:6"
-msgstr "recebido"
+msgstr ""
 
 msgid "pay:7"
 msgstr ""
@@ -2284,15 +2280,15 @@ msgstr ""
 
 #, php-format
 msgid "price"
-msgstr "Preços"
+msgstr ""
 
 #, php-format
 msgid "product"
-msgstr "Produtos"
+msgstr ""
 
 #, php-format
 msgid "property"
-msgstr "Propriedades"
+msgstr ""
 
 #, php-format
 msgid "quick/countcompleted"
@@ -2317,15 +2313,15 @@ msgid "reason:0"
 msgstr ""
 
 msgid "reason:1"
-msgstr "cancelado"
+msgstr ""
 
 #, php-format
 msgid "related"
-msgstr "Produtos"
+msgstr ""
 
 #, php-format
 msgid "review"
-msgstr "Avaliações"
+msgstr ""
 
 #, php-format
 msgid "rule"
@@ -2344,11 +2340,11 @@ msgstr ""
 
 #, php-format
 msgid "selection"
-msgstr "Variações"
+msgstr ""
 
 #, php-format
 msgid "service"
-msgstr "Serviços"
+msgstr ""
 
 #, php-format
 msgid "servicedelivery"
@@ -2368,34 +2364,34 @@ msgstr ""
 
 #, php-format
 msgid "special"
-msgstr "Especial"
+msgstr ""
 
 msgid "stat:-1"
-msgstr "não-concluído"
+msgstr ""
 
 msgid "stat:0"
-msgstr "removido"
+msgstr ""
 
 msgid "stat:1"
-msgstr "pendente"
+msgstr ""
 
 msgid "stat:2"
-msgstr "em progresso"
+msgstr ""
 
 msgid "stat:3"
-msgstr "despachado"
+msgstr ""
 
 msgid "stat:4"
-msgstr "entregue"
+msgstr ""
 
 msgid "stat:5"
-msgstr "perdido"
+msgstr ""
 
 msgid "stat:6"
-msgstr "recusado"
+msgstr ""
 
 msgid "stat:7"
-msgstr "devolvido"
+msgstr ""
 
 msgid "status:-1"
 msgstr ""
@@ -2418,14 +2414,14 @@ msgstr ""
 
 #, php-format
 msgid "subscription"
-msgstr "Subscrições"
+msgstr ""
 
 #, php-format
 msgid "supplier"
-msgstr "Fornecedores"
+msgstr ""
 
 msgid "tag"
-msgstr "Tags"
+msgstr ""
 
 msgid "tax:0"
 msgstr ""
@@ -2435,7 +2431,7 @@ msgstr ""
 
 #, php-format
 msgid "text"
-msgstr "Textos"
+msgstr ""
 
 #, php-format
 msgid "theme"
@@ -2447,11 +2443,11 @@ msgstr ""
 
 #, php-format
 msgid "type"
-msgstr "Tipo"
+msgstr ""
 
 #, php-format
 msgid "type/attribute"
-msgstr "Atributos"
+msgstr "Atributs"
 
 #, php-format
 msgid "type/attribute/lists"
@@ -2475,7 +2471,7 @@ msgstr ""
 
 #, php-format
 msgid "type/media"
-msgstr "Mídia"
+msgstr ""
 
 #, php-format
 msgid "type/media/lists"
@@ -2491,7 +2487,7 @@ msgstr ""
 
 #, php-format
 msgid "type/price"
-msgstr "Preços"
+msgstr ""
 
 #, php-format
 msgid "type/price/lists"
@@ -2503,7 +2499,7 @@ msgstr ""
 
 #, php-format
 msgid "type/product"
-msgstr "Produtos"
+msgstr ""
 
 #, php-format
 msgid "type/product/lists"
@@ -2519,7 +2515,7 @@ msgstr ""
 
 #, php-format
 msgid "type/service"
-msgstr "Serviços"
+msgstr ""
 
 #, php-format
 msgid "type/service/lists"
@@ -2531,11 +2527,11 @@ msgstr ""
 
 #, php-format
 msgid "type/tag"
-msgstr "Tags"
+msgstr ""
 
 #, php-format
 msgid "type/text"
-msgstr "Textos"
+msgstr ""
 
 #, php-format
 msgid "type/text/lists"
@@ -2546,4 +2542,4 @@ msgid "users"
 msgstr ""
 
 msgid "yes"
-msgstr "sim"
+msgstr ""
