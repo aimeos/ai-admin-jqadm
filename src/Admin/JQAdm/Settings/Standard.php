@@ -57,6 +57,10 @@ class Standard
 	 */
 
 
+	use \Aimeos\MShop\Upload;
+	use \Aimeos\MShop\Media\Manager\Preview;
+
+
 	/**
 	 * Adds the required data used in the template
 	 *
@@ -297,24 +301,20 @@ class Standard
 	 */
 	protected function fromArrayIcon( \Aimeos\MShop\Locale\Item\Site\Iface $item, array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
-		$file = $this->val( $files, 'media/icon' );
-
-		if( $file && $file->getError() === UPLOAD_ERR_OK )
+		if( $file = $this->val( $files, 'media/icon' ) )
 		{
 			$context = $this->context();
+			$mime = $this->mimetype( $file );
 			$siteId = $context->locale()->getSiteId();
 
-			$options = $context->config()->get( 'controller/common/media/options', [] );
-			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
-
-			if( !in_array( $image->getMimetype(), ['image/webp', 'image/jpeg', 'image/png', 'image/gif'] ) )
+			if( !in_array( $mime, ['image/webp', 'image/jpeg', 'image/png', 'image/gif'] ) )
 			{
-				$msg = $context->i18n()->dt( 'admin', 'Only .jpg, .png and .gif are allowed for icons' );
+				$msg = $context->i18n()->dt( 'admin', 'Only .webp, .jpg, .png and .gif are allowed for icons' );
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 
-			$filepath = $siteId . 'd/icon.' . $this->extension( $image->getMimetype() );
-			$context->fs( 'fs-media' )->write( $filepath, $image->save() );
+			$filepath = $siteId . 'd/icon.' . $this->extension( $mime );
+			$this->storeFile( $file, $filepath );
 
 			$item->setIcon( $filepath );
 		}
@@ -332,34 +332,31 @@ class Standard
 	 */
 	protected function fromArrayLogo( \Aimeos\MShop\Locale\Item\Site\Iface $item, array $files ) : \Aimeos\MShop\Locale\Item\Site\Iface
 	{
-		$file = $this->val( $files, 'media/logo' );
-
-		if( $file && $file->getError() === UPLOAD_ERR_OK )
+		if( $file = $this->val( $files, 'media/logo' ) )
 		{
+			$previews = [];
 			$context = $this->context();
+			$mime = $this->mimetype( $file );
 			$siteId = $context->locale()->getSiteId();
+			$sizes = $context->config()->get( 'admin/jqadm/settings/logo-size', ['maxwidth' => null, 'maxheight' => null] );
 
-			$options = $context->config()->get( 'controller/common/media/options', [] );
-			$image = \Aimeos\MW\Media\Factory::get( $file->getStream(), $options );
-			$filepaths = [];
-
-			if( !in_array( $image->getMimetype(), ['image/webp', 'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'] ) )
+			if( !in_array( $mime, ['image/webp', 'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'] ) )
 			{
-				$msg = $context->i18n()->dt( 'admin', 'Only .jpg, .png, .gif or .svg are allowed for logos' );
+				$msg = $context->i18n()->dt( 'admin', 'Only .webp, .jpg, .png, .gif and .svg are allowed for logos' );
 				throw new \Aimeos\Admin\JQAdm\Exception( $msg );
 			}
 
-			foreach( $context->config()->get( 'admin/jqadm/settings/logo-size', ['maxwidth' => null, 'maxheight' => null] ) as $size )
-			{
-				$w = $size['maxwidth'] ?? null;
-				$h = $size['maxheight'] ?? null;
+			$filepath = $siteId . 'd/logo.' . $this->extension( $mime );
+			$this->storeFile( $file, $filepath );
 
-				$filepath = $siteId . 'd/logo' . $w . '.' . $this->extension( $image->getMimetype() );
-				$context->fs( 'fs-media' )->write( $filepath, $image->scale( $w, $h )->save() );
-				$filepaths[(int) $w ?: 1] = $filepath;
+			foreach( $this->createPreviews( $this->image( $filepath ), $sizes ) as $width => $image )
+			{
+				$path = $siteId . 'd/logo' . $w . '.webp';
+				$fs->write( $path, (string) $image->toWebp( $quality ) );
+				$previews[$width] = $path;
 			}
 
-			$item->setLogos( $filepaths );
+			$item->setLogos( $previews );
 		}
 
 		return $item;

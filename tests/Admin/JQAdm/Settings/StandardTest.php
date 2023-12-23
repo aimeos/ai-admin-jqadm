@@ -23,12 +23,6 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$this->view = \TestHelper::view();
 		$this->context = \TestHelper::context();
 
-		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
-		$request->expects( $this->any() )->method( 'getUploadedFiles' )->willReturn( [] );
-
-		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
-		$this->view ->addHelper( 'request', $helper );
-
 		$this->object = new \Aimeos\Admin\JQAdm\Settings\Standard( $this->context );
 		$this->object = new \Aimeos\Admin\JQAdm\Common\Decorator\Page( $this->object, $this->context );
 		$this->object->setAimeos( \TestHelper::getAimeos() );
@@ -56,13 +50,36 @@ class StandardTest extends \PHPUnit\Framework\TestCase
 		$helper = new \Aimeos\Base\View\Helper\Param\Standard( $this->view, $param );
 		$this->view->addHelper( 'param', $helper );
 
+		$image = $this->getMockBuilder( \Intervention\Image\Interfaces\ImageInterface::class )->disableOriginalConstructor()->getMock();
+
+		$stream1 = $this->getMockBuilder( \Nyholm\Psr7\Stream::class )->disableOriginalConstructor()->getMock();
+		$stream2 = $this->getMockBuilder( \Nyholm\Psr7\Stream::class )->disableOriginalConstructor()->getMock();
+
+		$icon = new \Nyholm\Psr7\UploadedFile( $stream1, 1000, UPLOAD_ERR_OK, 'test.gif' );
+		$logo = new \Nyholm\Psr7\UploadedFile( $stream2, 1000, UPLOAD_ERR_OK, 'test.gif' );
+
+		$request = $this->getMockBuilder( \Psr\Http\Message\ServerRequestInterface::class )->getMock();
+
+		$request->expects( $this->any() )->method( 'getUploadedFiles' )
+			->will( $this->returnValue( ['media' => ['icon' => $icon, 'logo' => $logo]] ) );
+
+		$helper = new \Aimeos\Base\View\Helper\Request\Standard( $this->view, $request, '127.0.0.1', 'test' );
+		$this->view->addHelper( 'request', $helper );
+
+		$object = $this->getClientMock( ['createPreviews', 'image', 'mimetype', 'storeFile'] );
+		$object->expects( $this->exactly( 2 ) )->method( 'mimetype' )->willReturn( 'image/gif' );
+		$object->expects( $this->once() )->method( 'image' )->willReturn( $image );
+		$object->expects( $this->once() )->method( 'createPreviews' );
+		$object->expects( $this->exactly( 2 ) )->method( 'storeFile' );
+		$object->setView( $this->view );
+
 		$mock = $this->getMockBuilder( \Aimeos\MShop\Locale\Manager\Site\Standard::class )
 			->setConstructorArgs( [$this->context] )
 			->getMock();
 
 		\Aimeos\MShop::inject( \Aimeos\MShop\Locale\Manager\Site\Standard::class, $mock );
 
-		$this->object->save();
+		$object->save();
 
 		\Aimeos\MShop::inject( \Aimeos\MShop\Locale\Manager\Site\Standard::class, null );
 	}
