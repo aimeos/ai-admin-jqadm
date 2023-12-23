@@ -351,8 +351,8 @@ class Standard
 
 			foreach( $this->createPreviews( $this->image( $filepath ), $sizes ) as $width => $image )
 			{
-				$path = $siteId . 'd/logo' . $w . '.webp';
-				$fs->write( $path, (string) $image->toWebp( $quality ) );
+				$path = $siteId . 'd/logo' . $width . '.webp';
+				$context->fs( 'fs-media' )->write( $path, (string) $image->toWebp() );
 				$previews[$width] = $path;
 			}
 
