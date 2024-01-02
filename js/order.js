@@ -44,12 +44,14 @@ Aimeos.Order = {
 
 				return Aimeos.query(`query {
 					searchCustomers(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["customer.code"]) {
-					  id
-					  code
+						items {
+							id
+							code
+						}
 					}
 				  }
 				`).then(result => {
-					return (result?.searchCustomers || []).map(item => {
+					return (result?.searchCustomers?.items || []).map(item => {
 						return {'customer.id': item.id, 'customer.code': item.code}
 					})
 				})

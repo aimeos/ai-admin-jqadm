@@ -199,11 +199,13 @@ Aimeos.Product.Basic = {
 
 					Aimeos.query(`query {
 						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `) {
-							id
+							items {
+								id
+							}
 						}
 					}`).then(result => {
-						this.duplicate = result?.searchProducts?.length > 0
-							&& result?.searchProducts[0]?.id !== this.item['product.id']
+						this.duplicate = result?.searchProducts?.items?.length > 0
+							&& result?.searchProducts?.items[0]?.id !== this.item['product.id']
 					})
 				}
 			}
@@ -250,12 +252,14 @@ Aimeos.Product.Attribute = {
 
 					return Aimeos.query(`query {
 						searchAttributes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["attribute.label"]) {
-						  id
-						  label
+							items {
+								id
+								label
+							}
 						}
 					  }
 					`).then(result => {
-						return (result?.searchAttributes || []).map(item => {
+						return (result?.searchAttributes?.items || []).map(item => {
 							return {'attribute.id': item.id, 'attribute.label': item.label}
 						})
 					})
@@ -276,11 +280,13 @@ Aimeos.Product.Attribute = {
 
 					return Aimeos.query(`query {
 						searchAttributeTypes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["attribute.type.code"]) {
-						  code
+							items {
+								code
+							}
 						}
 					  }
 					`).then(result => {
-						return (result?.searchAttributeTypes || []).map(item => {
+						return (result?.searchAttributeTypes?.items || []).map(item => {
 							return {'attribute.type': item.code}
 						})
 					})
@@ -385,13 +391,15 @@ Aimeos.Product.Catalog = {
 
 					return Aimeos.query(`query {
 						searchCatalogs(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["catalog.label"]) {
-						  id
-						  code
-						  label
+							code {
+								id
+								code
+								label
+							}
 						}
 					  }
 					`).then(result => {
-						return (result?.searchCatalogs || []).map(item => {
+						return (result?.searchCatalogs?.items || []).map(item => {
 							return {'catalog.id': item.id, 'catalog.label': item.label + ' (' + item.code + ')'}
 						})
 					})
@@ -696,13 +704,15 @@ Aimeos.Product.Product = {
 
 					return Aimeos.query(`query {
 						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["product.label"]) {
-						  id
-						  code
-						  label
+							items {
+								id
+								code
+								label
+							}
 						}
 					  }
 					`).then(result => {
-						return (result?.searchProducts || []).map(item => {
+						return (result?.searchProducts?.items || []).map(item => {
 							return {'product.id': item.id, 'product.label': item.label + ' (' + item.code + ')'}
 						})
 					})
@@ -848,31 +858,33 @@ Aimeos.Product.Selection = {
 
 					return Aimeos.query(`query {
 						searchProducts(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, include: ["attribute"], sort: ["product.code"]) {
-							id
-							type
-							code
-							label
-							siteid
-							status
-							lists {
-								attribute(listtype: "variant") {
-									id
-									siteid
-									refid
-									editor
-									ctime
-									mtime
-									item {
+							items {
+								id
+								type
+								code
+								label
+								siteid
+								status
+								lists {
+									attribute(listtype: "variant") {
 										id
-										type
-										code
-										label
+										siteid
+										refid
+										editor
+										ctime
+										mtime
+										item {
+											id
+											type
+											code
+											label
+										}
 									}
 								}
 							}
 						}
 					}`).then(result => {
-						return (result.searchProducts || []).map(function(item) {
+						return (result.searchProducts?.items || []).map(function(item) {
 							return {
 								'product.id': item.id,
 								'product.type': item.type,
@@ -948,13 +960,15 @@ Aimeos.Product.Selection = {
 
 					return Aimeos.query(`query {
 						searchAttributes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["attribute.type", "attribute.code"]) {
-						  id
-						  type
-						  label
+							items {
+								id
+								type
+								label
+							}
 						}
 					  }
 					`).then(result => {
-						return (result?.searchAttributes || []).map(item => {
+						return (result?.searchAttributes?.items || []).map(item => {
 							return {'attribute.id': item.id, 'attribute.label': item.label + ' (' + item.type + ')'}
 						})
 					})
@@ -1150,13 +1164,15 @@ Aimeos.Product.Supplier = {
 
 					return Aimeos.query(`query {
 						searchSuppliers(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["supplier.label"]) {
-						  id
-						  code
-						  label
+							items {
+								id
+								code
+								label
+							}
 						}
 					  }
 					`).then(result => {
-						return (result?.searchSuppliers || []).map(item => {
+						return (result?.searchSuppliers?.items || []).map(item => {
 							return {'supplier.id': item.id, 'supplier.label': item.label + ' (' + item.code + ')'}
 						})
 					})
