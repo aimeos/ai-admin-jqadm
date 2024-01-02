@@ -391,7 +391,7 @@ Aimeos.Product.Catalog = {
 
 					return Aimeos.query(`query {
 						searchCatalogs(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ["catalog.label"]) {
-							code {
+							items {
 								id
 								code
 								label
