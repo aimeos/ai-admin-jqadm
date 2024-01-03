@@ -498,28 +498,19 @@ class Standard
 			foreach( $services as $service )
 			{
 				$serviceId = $service->getId();
+				$attrItems = $service->getAttributeItems();
 
-				if( isset( $data['service'][$type] ) && isset( $data['service'][$type][$serviceId] ) && isset( $data['service'][$type][$serviceId]['order.service.attribute.id'] ) )
+				foreach( $data['service'][$type][$serviceId] ?? [] as $idx => $entry )
 				{
-					$attrItems = $service->getAttributeItems();
+					$entry = array_filter( $entry );
+					$id = $entry['order.service.attribute.id'] ?? '';
+					$attrItem = $attrItems[$id] ?? $attrManager->create();
 
-					foreach( (array) $data['service'][$type][$serviceId]['order.service.attribute.id'] as $idx => $id )
-					{
-						$attrItem = $attrItems[$id] ?? $attrManager->create();
-
-						$attrItem->setAttributeId( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.attrid/' . $idx, '' ) );
-						$attrItem->setType( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.type/' . $idx, '' ) );
-						$attrItem->setName( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.name/' . $idx, '' ) );
-						$attrItem->setCode( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.code/' . $idx, '' ) );
-						$attrItem->setValue( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.value/' . $idx, '' ) );
-						$attrItem->setQuantity( $this->val( $data, 'service/' . $type . '/' . $serviceId . '/order.service.attribute.quantity/' . $idx, '' ) );
-
-						$attrManager->save( $attrItem->setParentId( $service->getId() ) );
-						unset( $attrItems[$id] );
-					}
-
-					$attrManager->delete( $attrItems );
+					$attrManager->save( $attrItem->fromArray( $entry, true )->setParentId( $service->getId() ) );
+					unset( $attrItems[$id] );
 				}
+
+				$attrManager->delete( $attrItems );
 			}
 		}
 
@@ -569,6 +560,7 @@ class Standard
 		foreach( $item->getProducts() as $pos => $productItem )
 		{
 			$data['product'][$pos] = $productItem->toArray( true );
+			$data['product'][$pos]['attributes'] = [];
 
 			foreach( $productItem->getAttributeItems() as $attrItem )
 			{
@@ -596,19 +588,19 @@ class Standard
 			{
 				$serviceId = $serviceItem->getId();
 				$data['service'][$type][$serviceId] = $serviceItem->toArray( true );
+				$data['service'][$type][$serviceId]['attributes'] = [];
 
 				foreach( $serviceItem->getAttributeItems() as $attrItem )
 				{
-					foreach( $attrItem->toArray( true ) as $key => $value )
+					$entry = $attrItem->toArray( true );
+
+					if( $copy === true )
 					{
-						if( $copy === true && $key === 'order.service.attribute.siteid' ) {
-							$data['service'][$type][$serviceId][$key][] = $siteId;
-						} elseif( $copy === true && $key === 'order.service.attribute.id' ) {
-							$data['service'][$type][$serviceId][$key][] = '';
-						} else {
-							$data['service'][$type][$serviceId][$key][] = $value;
-						}
+						$entry['order.service.attribute.siteid'] = $siteId;
+						$entry['order.service.attribute.id'] = '';
 					}
+
+					$data['service'][$type][$serviceId]['attributes'][] = $entry;
 				}
 
 				if( $copy === true )
