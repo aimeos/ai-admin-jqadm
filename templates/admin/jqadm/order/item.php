@@ -282,10 +282,11 @@ $paymentStatusList = [
 												value-prop="customer.id"
 												track-by="customer.id"
 												label="customer.code"
+												@open="function(select) {return select.refreshOptions()}"
 												@input="useCustomer($event)"
 												:value="item"
-												:disabled="!can('change')"
 												:options="async function(query) {return await customer(query)}"
+												:disabled="!can('change')"
 												:resolve-on-load="false"
 												:filter-results="false"
 												:can-deselect="false"
@@ -296,8 +297,7 @@ $paymentStatusList = [
 												:min-chars="1"
 												:object="true"
 												:delay="300"
-											><select class="form-select"></select>
-											</Multiselect>
+											></Multiselect>
 										</div>
 									</div>
 								<?php endif ?>
