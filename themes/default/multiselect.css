@@ -12,7 +12,7 @@
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid var(--bs-line, #bbb);
-	min-height: calc(var(--ms-font-size, 1rem)*var(--ms-line-height, 1.375) + var(--ms-py, .5rem)*2);
+	min-height: calc(var(--ms-font-size, 1rem)*var(--ms-line-height, 1.33) + var(--ms-py, .5rem)*2);
 }
 
 .multiselect.is-active {
@@ -28,6 +28,10 @@
 
 .multiselect.is-disabled .multiselect-caret {
 	display: none;
+}
+
+.multiselect-search {
+	padding-left: 0;
 }
 
 .multiselect-option.is-selected,

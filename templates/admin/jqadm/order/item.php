@@ -297,7 +297,7 @@ $paymentStatusList = [
 												:min-chars="1"
 												:object="true"
 												:delay="300"
-											></Multiselect>
+											>&nbsp;</Multiselect>
 										</div>
 									</div>
 								<?php endif ?>
@@ -817,7 +817,7 @@ $paymentStatusList = [
 
 					<div class="row">
 						<?php foreach( $this->item->getServices()->krsort() as $type => $services ) : $code = 'service:' . $type ?>
-							<?php foreach( $services as $serviceItem ) : $serviceId = $serviceItem->getId() ?>
+							<?php foreach( $services as $serviceItem ) : ?>
 
 								<div class="col-xl-6 item-service">
 									<div class="box" v-bind:class="{mismatch: !can('match')}">
@@ -835,97 +835,21 @@ $paymentStatusList = [
 											</div>
 										</div>
 
-										<table class="service-attr table" data-id="<?= $enc->attr( $serviceId ) ?>"
-											data-codes="<?= $enc->attr( isset( $serviceAttrCodes[$type] ) ? implode( ',', $serviceAttrCodes[$type] ) : '' ) ?>">
-											<thead>
-												<tr>
-													<th>
-														<span class="help"><?= $enc->html( $this->translate( 'admin', 'Code' ) ) ?></span>
-														<div class="form-text text-muted help-text">
-															<?= $enc->html( $this->translate( 'admin', 'Service attribute code' ) ) ?>
-														</div>
-													</th>
-													<th>
-														<?= $enc->html( $this->translate( 'admin', 'Value' ) ) ?>
-													</th>
-													<th class="actions">
-														<?php if( !$this->site()->readonly( $this->item->locale()->getSiteId() ) ) : ?>
-															<div class="btn act-add fa" tabindex="1"
-																title="<?= $enc->attr( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>">
-															</div>
-														<?php endif ?>
-													</th>
-												</tr>
-											</thead>
-											<tbody>
-
-												<?php foreach( (array) $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.service.attribute.id', [] ) as $idx => $attrId ) : ?>
-													<tr class="service-attr-item">
-														<td>
-															<input type="hidden" class="service-attr-id" value="<?= $enc->attr( $attrId ) ?>"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, $serviceId, 'order.service.attribute.id', '' ) ) ) ?>">
-															<input type="hidden" class="service-attr-attributeid"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, $serviceId, 'order.service.attribute.attrid', '' ) ) ) ?>"
-																value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.service.attribute.attrid/' . $idx ) ) ?>">
-															<input type="hidden" class="service-attr-type"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, $serviceId, 'order.service.attribute.type', '' ) ) ) ?>"
-																value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.service.attribute.type/' . $idx ) ) ?>">
-															<input type="hidden" class="service-attr-name"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, $serviceId, 'order.service.attribute.name', '' ) ) ) ?>"
-																value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.service.attribute.name/' . $idx ) ) ?>">
-															<input type="hidden" class="service-attr-quantity"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, $serviceId, 'order.service.attribute.quantity', '' ) ) ) ?>"
-																value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.service.attribute.quantity/' . $idx ) ) ?>">
-															<input type="text" class="service-attr-code form-control" tabindex="1"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, $serviceId, 'order.service.attribute.code', '' ) ) ) ?>"
-																value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.service.attribute.code/' . $idx ) ) ?>"
-																<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
-														</td>
-														<td>
-															<input type="text" class="service-attr-value form-control" tabindex="1"
-																name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, $serviceId, 'order.service.attribute.value', '' ) ) ) ?>"
-																value="<?= $enc->attr( $this->get( 'itemData/service/' . $type . '/' . $serviceId . '/order.service.attribute.value/' . $idx ) ) ?>"
-																<?= $this->site()->readonly( $this->item->locale()->getSiteId() ) ?>>
-														</td>
-														<td class="actions">
-															<?php if( !$this->site()->readonly( $this->item->locale()->getSiteId() ) ) : ?>
-																<div class="btn act-delete fa" tabindex="1"
-																	title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
-																</div>
-															<?php endif ?>
-														</td>
-													</tr>
-												<?php endforeach ?>
-
-												<tr class="prototype">
-													<td>
-														<input type="hidden" class="service-attr-id" value="" disabled="disabled"
-															name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, '_id_', 'order.service.attribute.id', '' ) ) ) ?>">
-														<input type="hidden" class="service-attr-attributeid" value="" disabled="disabled"
-															name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, '_id_', 'order.service.attribute.attrid', '' ) ) ) ?>">
-														<input type="hidden" class="service-attr-type" value="<?= $enc->attr( $type ) ?>" disabled="disabled"
-															name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, '_id_', 'order.service.attribute.type', '' ) ) ) ?>">
-														<input type="hidden" class="service-attr-name" value="" disabled="disabled"
-															name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, '_id_', 'order.service.attribute.name', '' ) ) ) ?>">
-														<input type="hidden" class="service-attr-quantity" value="1" disabled="disabled"
-															name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, '_id_', 'order.service.attribute.quantity', '' ) ) ) ?>">
-														<input type="text" class="service-attr-code form-control" value="" disabled="disabled" tabindex="1"
-															name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, '_id_', 'order.service.attribute.code', '' ) ) ) ?>">
-													</td>
-													<td>
-														<input type="text" class="service-attr-value form-control" value="" disabled="disabled" tabindex="1"
-															name="<?= $enc->attr( $this->formparam( array( 'item', 'service', $type, '_id_', 'order.service.attribute.value', '' ) ) ) ?>">
-													</td>
-													<td class="actions">
-														<?php if( !$this->site()->readonly( $this->item->locale()->getSiteId() ) ) : ?>
-															<div class="btn act-delete fa" tabindex="1"
-																title="<?= $enc->attr( $this->translate( 'admin', 'Delete this entry' ) ) ?>">
-															</div>
-														<?php endif ?>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+										<orderattr-table v-if="item?.service"
+											v-on:update:attributes="item['service'][`<?= $enc->js( $type ) ?>`][`<?= $enc->js( $serviceItem->getId() ) ?>`]['attributes'] = $event"
+											v-bind:items="item['service']['<?= $enc->js( $type ) ?>'][`<?= $enc->js( $serviceItem->getId() ) ?>`]['attributes']"
+											v-bind:name="`<?= $enc->js( $this->formparam( ['item', 'service', $type, $serviceItem->getId(), '_idx_', '_key_'] ) ) ?>`"
+											v-bind:suggest="JSON.parse(`<?= $enc->js( $serviceAttrCodes[$type] ?? [] ) ?>`)"
+											v-bind:siteid="siteid"
+											v-bind:tabindex="1"
+											v-bind:i18n="{
+												code: `<?= $enc->js( $this->translate( 'admin', 'Code' ) ) ?>`,
+												delete: `<?= $enc->js( $this->translate( 'admin', 'Delete this entry' ) ) ?>`,
+												help: `<?= $enc->js( $this->translate( 'admin', 'Service attribute code' ) ) ?>`,
+												insert: `<?= $enc->js( $this->translate( 'admin', 'Insert new entry (Ctrl+I)' ) ) ?>`,
+												value: `<?= $enc->js( $this->translate( 'admin', 'Value' ) ) ?>`,
+											}">
+										</orderattr-table>
 									</div>
 								</div>
 

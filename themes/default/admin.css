@@ -467,8 +467,10 @@
 }
 
 
-.aimeos table.item-config .config-row-key,
-.aimeos table.item-config .config-row-value {
+.aimeos table .row-key,
+.aimeos table .row-value,
+.aimeos table .config-row-key,
+.aimeos table .config-row-value {
 	width: 49%;
 }
 

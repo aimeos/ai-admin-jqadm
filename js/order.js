@@ -20,10 +20,6 @@ Aimeos.Order = {
 			},
 			mixins: [this.mixins]
 		});
-
-		this.addServcieAttributeLine();
-		this.deleteServcieAttributeLine();
-		this.setupServiceCodeSuggest();
 	},
 
 
@@ -64,54 +60,6 @@ Aimeos.Order = {
 			},
 		}
 	},
-
-
-	addServiceSuggest(input, node) {
-
-		$(input).autocomplete({
-			source: node.data("codes").split(','),
-			minLength: 0,
-			delay: 0
-		});
-	},
-
-
-	addServcieAttributeLine() {
-
-		var self = this;
-		$(".aimeos .item-order .service-attr").on("click", ".act-add", function(ev) {
-
-			var id = $(ev.delegateTarget).data("id");
-			var node = Aimeos.addClone($(".prototype", ev.delegateTarget));
-			self.addServiceSuggest($(".service-attr-code", node), $(ev.delegateTarget));
-
-			$("input", node).each(function() {
-				$(this).attr("name", $(this).attr("name").replace("_id_", id));
-			});
-		});
-	},
-
-
-	deleteServcieAttributeLine() {
-
-		$(".aimeos .item-order .service-attr").on("click", ".act-delete", function(ev) {
-			Aimeos.focusBefore($(this).closest("tr")).remove();
-		});
-	},
-
-
-	setupServiceCodeSuggest() {
-
-		var node = $(".aimeos .item-order .service-attr");
-
-		if( node.length > 0 ) {
-			this.addServiceSuggest($(".service-attr-code", node), node);
-
-			$(".aimeos .item-order .service-attr").on("click", ".service-attr-code", function(ev) {
-				$(this).autocomplete("search", "");
-			});
-		}
-	}
 };
 
 

@@ -83,6 +83,9 @@
 			"text": "nav-search.js",
 			"path": "js/components/"
 		},{
+			"text": "orderattr-table.js",
+			"path": "js/components/"
+		},{
 			"text": "page-limit.js",
 			"path": "js/components/"
 		},{
