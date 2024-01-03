@@ -118,60 +118,6 @@ Aimeos = {
 		}
 	},
 
-	addClone(node, getfcn, selectfn, after) {
-
-		var clone = node.clone().removeClass("prototype");
-		var combo = $(".combobox-prototype", clone);
-
-		combo.combobox({getfcn: getfcn, select: selectfn});
-		combo.removeClass("combobox-prototype");
-		combo.addClass("combobox");
-
-		$("[disabled='disabled']", clone).prop("disabled", false);
-
-		if(typeof Modernizr != 'undefined') {
-			if(!Modernizr.inputtypes['datetime-local']) {
-				$("input[type='datetime-local']", clone).each(function(idx, elem) {
-					$(elem).datepicker({
-						dateFormat: 'yy-mm-dd',
-						constrainInput: false
-					});
-				});
-			}
-
-			if(!Modernizr.inputtypes['date']) {
-				$("input[type='date']", clone).each(function(idx, elem) {
-					$(elem).datepicker({
-						dateFormat: 'yy-mm-dd',
-						constrainInput: false
-					});
-				});
-			}
-		}
-
-		if(after) {
-			clone.insertAfter(node);
-		} else {
-			clone.insertBefore(node);
-		}
-
-		return clone;
-	},
-
-
-	focusBefore(node) {
-
-		var elem = $(":focus", node);
-		var elements = $(".aimeos [tabindex=" + elem.attr("tabindex") + "]:visible");
-		var idx = elements.index(elem) - $("[tabindex=" + elem.attr("tabindex") + "]:visible", node).length;
-
-		if(idx > -1) {
-			elements[idx].focus();
-		}
-
-		return node;
-	},
-
 
 	can(action, siteid, siteID) {
 		if(action === 'match') {
