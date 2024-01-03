@@ -166,15 +166,15 @@ Vue.component('config-table', {
 		<thead>
 			<tr>
 				<th class="config-row-key">
-					<span class="help">{{ i18n.option ||'Option\' }}</span>
+					<span class="help">{{ i18n.option ||'Option' }}</span>
 					<div class="form-text text-muted help-text">
-						{{ i18n.help ||'Configuration options, will be available as key/value pairs in the templates\' }}
+						{{ i18n.help ||'Configuration options, will be available as key/value pairs in the templates' }}
 					</div>
 				</th>
-				<th class="config-row-value">{{ i18n.value ||'Value\' }}</th>
+				<th class="config-row-value">{{ i18n.value ||'Value' }}</th>
 				<th class="actions">
 					<div v-if="!readonly" class="btn act-add fa"
-						:title="i18n.insert ||'Insert new entry (Ctrl+I)\'"
+						:title="i18n.insert ||'Insert new entry (Ctrl+I)'"
 						:tabindex="tabindex"
 						@click="add()" />
 				</th>
@@ -186,7 +186,7 @@ Vue.component('config-table', {
 					<input class="form-control" required
 						:readonly="readonly"
 						:tabindex="tabindex"
-						:name="fname(\'key\', pos)"
+						:name="fname('key', pos)"
 						v-model="entry.key" />
 					<div class="form-text text-muted help-text">{{ entry.label }}</div>
 				</td>
@@ -195,14 +195,14 @@ Vue.component('config-table', {
 						:tabindex="tabindex"
 						:readonly="readonly"
 						:required="entry.required"
-						:name="fname(\'val\', pos)"
+						:name="fname('val', pos)"
 						v-model="entry.val" />
 
 					<div v-if="entry.type === 'list'">
 						<input class="form-control" readonly
 							:tabindex="tabindex"
 							:required="entry.required"
-							:name="fname(\'val\', pos)"
+							:name="fname('val', pos)"
 							:value="JSON.stringify(entry.val || [])"
 							@click="$set(entry, 'show', true)">
 						<AimeosListComponent v-if="entry.show"
@@ -217,7 +217,7 @@ Vue.component('config-table', {
 						<input class="form-control" readonly
 							:tabindex="tabindex"
 							:required="entry.required"
-							:name="fname(\'val\', pos)"
+							:name="fname('val', pos)"
 							:value="JSON.stringify(entry.val || {})"
 							@click="$set(entry, 'show', true)">
 						<AimeosMapComponent v-if="entry.show"
@@ -232,7 +232,7 @@ Vue.component('config-table', {
 						:tabindex="tabindex"
 						:readonly="readonly"
 						:required="entry.required"
-						:name="fname(\'val\', pos)"
+						:name="fname('val', pos)"
 						v-model="entry.val">
 						<option value=""></option>
 						<option value="0">{{ i18n.no || 'no' }}</option>
@@ -243,40 +243,40 @@ Vue.component('config-table', {
 						:tabindex="tabindex"
 						:readonly="readonly"
 						:required="entry.required"
-						:name="fname(\'val\', pos)"
+						:name="fname('val', pos)"
 						v-model="entry.val">
 
 					<input v-if="entry.type === 'number'" type="number" class="config-value form-control config-type config-type-number" step="0.01"
 						:tabindex="tabindex"
 						:readonly="readonly"
 						:required="entry.required"
-						:name="fname(\'val\', pos)"
+						:name="fname('val', pos)"
 						v-model="entry.val">
 
 					<input v-if="entry.type === 'date'" type="date" class="config-value form-control config-type config-type-date"
 						:tabindex="tabindex"
 						:readonly="readonly"
 						:required="entry.required"
-						:name="fname(\'val\', pos)"
+						:name="fname('val', pos)"
 						v-model="entry.val">
 
 					<input v-if="entry.type === 'datetime'" type="datetime-local" class="config-value form-control config-type config-type-date"
 						:tabindex="tabindex"
 						:readonly="readonly"
 						:required="entry.required"
-						:name="fname(\'val\', pos)"
+						:name="fname('val', pos)"
 						v-model="entry.val">
 
 					<input v-if="entry.type === 'time'" type="time" class="config-value form-control config-type config-type-date"
 						:tabindex="tabindex"
 						:readonly="readonly"
 						:required="entry.required"
-						:name="fname(\'val\', pos)"
+						:name="fname('val', pos)"
 						v-model="entry.val">
 				</td>
 				<td class="actions">
 					<div v-if="!readonly" class="btn act-delete fa"
-						:title="i18n.delete ||'Delete this entry\'"
+						:title="i18n.delete ||'Delete this entry'"
 						:tabindex="tabindex"
 						@click="remove(pos)" />
 				</td>
