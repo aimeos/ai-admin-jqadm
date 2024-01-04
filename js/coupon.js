@@ -136,13 +136,13 @@ Aimeos.Coupon.Code = {
 			add() {
 				const obj = {};
 
-				obj['coupon.code.id'] = null;
-				obj['coupon.code.siteid'] = this.siteid;
-				obj['coupon.code.code'] = '';
-				obj['coupon.code.count'] = 1;
-				obj['coupon.code.datestart'] = null;
-				obj['coupon.code.dateend'] = null;
-				obj['coupon.code.ref'] = null;
+				obj['id'] = null;
+				obj['siteid'] = this.siteid;
+				obj['code'] = '';
+				obj['count'] = 1;
+				obj['datestart'] = null;
+				obj['dateend'] = null;
+				obj['ref'] = null;
 				obj['edit'] = true;
 
 				this.items.unshift(obj);
@@ -151,7 +151,7 @@ Aimeos.Coupon.Code = {
 
 
 			can(action, idx) {
-				return Aimeos.can(action, this.items[idx]['coupon.code.siteid'] || null, this.siteid)
+				return Aimeos.can(action, this.items[idx]['siteid'] || null, this.siteid)
 			},
 
 
@@ -177,7 +177,7 @@ Aimeos.Coupon.Code = {
 
 
 			edit(idx) {
-				if(this.siteid === this.items[idx]['coupon.code.siteid']) {
+				if(this.can('change', idx)) {
 					this.$set(this.items[idx], 'edit', true);
 				}
 				return this;
@@ -200,91 +200,32 @@ Aimeos.Coupon.Code = {
 
 
 			fetch() {
-				const self = this;
-				const args = {
-					'filter': {'&&': []},
-					'fields': {},
-					'page': {'offset': self.offset, 'limit': self.limit},
-					'sort': self.order
-				};
+				const filter = {'&&': Object.values(this.filter)};
+				this.loading = true;
 
-				for(let key in self.filter) {
-					args['filter']['&&'].push(self.filter[key]);
-				}
-
-				this.get('coupon/code', args, function(data) {
-					self.total = data.total || 0;
-					self.items = data.items || [];
-				});
-
-				return this;
-			},
-
-
-			get(resource, args, callback) {
-
-				const self = this;
-				self.waiting(true);
-
-				Aimeos.options.done(function(response) {
-
-					if(response.meta && response.meta.resources && response.meta.resources[resource] ) {
-
-						if(args.fields) {
-							const include = [];
-							for(let key in args.fields) {
-								args.fields[key] = args.fields[key].join(',');
-								include.push(key);
-							}
-							args['include'] = include.join(',');
+				return Aimeos.query(`query {
+					searchCouponCodes(filter: ` + JSON.stringify(JSON.stringify(filter)) + `, sort: ` + JSON.stringify([this.order]) + `, offset: ` + this.offset + `, limit: ` + this.limit + `) {
+						items {
+							id
+							siteid
+							parentid
+							code
+							count
+							dateend
+							datestart
+							ref
+							mtime
+							ctime
+							editor
 						}
-
-						const config = {
-							'paramsSerializer': (params) => {
-								return jQuery.param(params); // workaround, Axios and QS fail on [==]
-							},
-							'params': {}
-						};
-
-						if(response.meta.prefix && response.meta.prefix) {
-							config['params'][response.meta.prefix] = args;
-						} else {
-							config['params'] = args;
-						}
-
-						axios.get(response.meta.resources[resource], config).then(function(response) {
-							const list = [];
-							const included = {};
-
-							(response.data.included || []).forEach(function(entry) {
-								if(!included[entry.type]) {
-									included[entry.type] = {};
-								}
-								included[entry.type][entry.id] = entry;
-							});
-
-							(response.data.data || []).forEach(function(entry) {
-								for(let type in (entry.relationships || {})) {
-									const relitem = entry.relationships[type]['data'] && entry.relationships[type]['data'][0] || null;
-									if(relitem && relitem['id'] && included[type][relitem['id']]) {
-										Object.assign(entry['attributes'], included[type][relitem['id']]['attributes'] || {});
-									}
-								}
-								list.push(entry.attributes || {});
-							});
-
-							callback({
-								total: response.data.meta ? response.data.meta.total || 0 : 0,
-								items: list
-							});
-
-						}).then(function() {
-							self.waiting(false);
-						});
+						total
 					}
+				  }
+				`).then((result) => {
+					this.total = result?.searchCouponCodes?.total || 0;
+					this.items = result?.searchCouponCodes?.items || [];
+					this.loading = false;
 				});
-
-				return this;
 			},
 
 
